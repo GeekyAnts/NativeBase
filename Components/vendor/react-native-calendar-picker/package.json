@@ -1,0 +1,54 @@
+{
+  "name": "react-native-calendar-picker",
+  "version": "1.0.1",
+  "description": "Calendar Picker Component for React Native",
+  "main": "CalendarPicker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephy/CalendarPicker.git"
+  },
+  "keywords": [
+    "calendar",
+    "picker",
+    "calendar",
+    "picker",
+    "date",
+    "picker",
+    "day",
+    "picker"
+  ],
+  "author": {
+    "name": "Stephani Alves",
+    "email": "alves@stephanimoroni.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephy/CalendarPicker/issues"
+  },
+  "homepage": "https://github.com/stephy/CalendarPicker",
+  "_id": "react-native-calendar-picker@1.0.1",
+  "_shasum": "af3196fdbb105fbcec26887dbf56a783a5eb1130",
+  "_from": "react-native-calendar-picker@*",
+  "_npmVersion": "2.7.5",
+  "_nodeVersion": "0.11.13-pre",
+  "_npmUser": {
+    "name": "stephy",
+    "email": "alves@stephanimoroni.com"
+  },
+  "dist": {
+    "shasum": "af3196fdbb105fbcec26887dbf56a783a5eb1130",
+    "tarball": "http://registry.npmjs.org/react-native-calendar-picker/-/react-native-calendar-picker-1.0.1.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "stephy",
+      "email": "alves@stephanimoroni.com"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/react-native-calendar-picker/-/react-native-calendar-picker-1.0.1.tgz",
+  "readme": "ERROR: No README data found!"
+}

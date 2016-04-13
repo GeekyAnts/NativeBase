@@ -1,0 +1,84 @@
+{
+  "_args": [
+    [
+      "react-native-scrollable-tab-view@0.2.2-alpha",
+      "/Users/sankhadeeproy/Sites/projects/SocialApp"
+    ]
+  ],
+  "_from": "react-native-scrollable-tab-view@0.2.2-alpha",
+  "_id": "react-native-scrollable-tab-view@0.2.2-alpha",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react-native-scrollable-tab-view",
+  "_nodeVersion": "4.1.2",
+  "_npmUser": {
+    "email": "brentvatne@gmail.com",
+    "name": "brentvatne"
+  },
+  "_npmVersion": "2.14.4",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "react-native-scrollable-tab-view",
+    "raw": "react-native-scrollable-tab-view@0.2.2-alpha",
+    "rawSpec": "0.2.2-alpha",
+    "scope": null,
+    "spec": "0.2.2-alpha",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-scrollable-tab-view/-/react-native-scrollable-tab-view-0.2.2-alpha.tgz",
+  "_shasum": "0bd6761fd533fad574f8232e2703176664cb136c",
+  "_shrinkwrap": null,
+  "_spec": "react-native-scrollable-tab-view@0.2.2-alpha",
+  "_where": "/Users/sankhadeeproy/Sites/projects/SocialApp",
+  "author": {
+    "name": "Brent Vatne"
+  },
+  "bugs": {
+    "url": "https://github.com/brentvatne/react-native-scrollable-tab-view/issues"
+  },
+  "dependencies": {
+    "rebound": "0.0.13"
+  },
+  "description": "This is probably my favorite navigation pattern on Android, I wish it were more common on iOS! This is a very simple JavaScript-only implementation of it for React Native. For more information about how the animations behind this work, check out the Rebou",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "0bd6761fd533fad574f8232e2703176664cb136c",
+    "tarball": "http://registry.npmjs.org/react-native-scrollable-tab-view/-/react-native-scrollable-tab-view-0.2.2-alpha.tgz"
+  },
+  "gitHead": "12e28eca07745345af0c3455ce138349432c3c99",
+  "homepage": "https://github.com/brentvatne/react-native-scrollable-tab-view#readme",
+  "keywords": [
+    "ios",
+    "react-component",
+    "react-native",
+    "react-native-component",
+    "scrollable",
+    "tab"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "brentvatne",
+      "email": "brentvatne@gmail.com"
+    }
+  ],
+  "name": "react-native-scrollable-tab-view",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": ">=0.9.0 || 0.9.0-rc || 0.10.0-rc || 0.11.0-rc"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brentvatne/react-native-scrollable-tab-view.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.2.2-alpha"
+}
