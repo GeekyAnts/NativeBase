@@ -1,0 +1,62 @@
+{
+  "name": "react-native-gifted-messenger",
+  "version": "0.0.20",
+  "description": "The chat of your next React-Native Apps",
+  "main": "GiftedMessenger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FaridSafi/react-native-gifted-messenger.git"
+  },
+  "author": {
+    "name": "Farid from Safi"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FaridSafi/react-native-gifted-messenger/issues"
+  },
+  "keywords": [
+    "chat",
+    "message",
+    "messenger",
+    "react-component",
+    "react",
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "homepage": "https://github.com/FaridSafi/react-native-gifted-messenger#readme",
+  "dependencies": {
+    "moment": "^2.10.6",
+    "react-native-button": "^1.3.1",
+    "react-native-gifted-spinner": "0.0.3"
+  },
+  "gitHead": "a37196cdb9f528825c81c713844e64ccb0d7e223",
+  "_id": "react-native-gifted-messenger@0.0.20",
+  "_shasum": "6446160313bde223f784065c33926423929ab090",
+  "_from": "react-native-gifted-messenger@latest",
+  "_resolved": "https://registry.npmjs.org/react-native-gifted-messenger/-/react-native-gifted-messenger-0.0.20.tgz",
+  "_npmVersion": "2.14.14",
+  "_nodeVersion": "5.1.1",
+  "_npmUser": {
+    "name": "faridsafi",
+    "email": "farid+npm@senseful.fr"
+  },
+  "dist": {
+    "shasum": "6446160313bde223f784065c33926423929ab090",
+    "tarball": "http://registry.npmjs.org/react-native-gifted-messenger/-/react-native-gifted-messenger-0.0.20.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "faridsafi",
+      "email": "farid+npm@senseful.fr"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-9-west.internal.npmjs.com",
+    "tmp": "tmp/react-native-gifted-messenger-0.0.20.tgz_1455756882019_0.6035492692608386"
+  },
+  "directories": {}
+}
