@@ -10,6 +10,7 @@ import Button from './Components/Widgets/Button';
 import Text from './Components/Widgets/Text';
 import View from './Components/Widgets/View';
 import CircularButton from './Components/Widgets/CircularButton';
+import Input from './Components/Widgets/Input';
 import InputGroup from './Components/Widgets/InputGroup';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
@@ -29,6 +30,7 @@ module.exports = {
 	Text: Text,
 	View: View,
 	CircularButton: CircularButton,
+	Input: Input,
 	InputGroup: InputGroup,
 	Icon: Icon,
 	Actions: Actions,

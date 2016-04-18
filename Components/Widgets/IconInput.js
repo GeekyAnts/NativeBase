@@ -2,12 +2,12 @@
 'use strict';
 
 import React, {Component, Text, View, TextInput } from 'react-native';
-import styles from '../../Styles/button';
-import {brandPrimary as primary} from '../../Styles/variable';
-import {dark} from '../../Styles/variable';
-import {light} from '../../Styles/variable';
+import styles from '../Styles/button';
+import {brandPrimary as primary} from '../Styles/variable';
+import {dark} from '../Styles/variable';
+import {light} from '../Styles/variable';
 import Icon from 'react-native-vector-icons/Ionicons';
-import bootstrap from '../../Styles/bootstrap';
+import bootstrap from '../Styles/bootstrap';
 
 export default class IconInput extends Component {
 

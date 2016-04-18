@@ -10,6 +10,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import input from '../Styles/input';
 import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
+import bootstrap from '../Styles/bootstrap';
+import Input from './Input'
 
 export default class IconInput extends NativeStarterComponent {
 
@@ -34,10 +36,50 @@ export default class IconInput extends NativeStarterComponent {
 
 		}
 
+		renderLabel() {
+			if(!Array.isArray(this.props.children) && this.props.children.type == Text)
+				return this.props.children;
+
+			else 
+				return _.find(this.props.children, function(item) {
+		            if(item && item.type == Text) {
+		                return true;
+		            }
+		        });
+		}
+
+		renderIcon() {
+			if(!Array.isArray(this.props.children) && this.props.children.type == Icon)
+				return this.props.children;
+
+			else 
+				return _.find(this.props.children, function(item) {
+		            if(item && item.type == Icon) {
+		                return true;
+		            }
+		        });
+		}
+
+		renderInput() {
+			if(!Array.isArray(this.props.children) && this.props.children.type == Input)
+				return this.props.children;
+
+			else 
+				return _.find(this.props.children, function(item) {
+		            if(item && item.type == Input) {
+		                return true;
+		            }
+		        });
+		}
+
     	render() {
 	        return (
-	           	<View style={[(this.props.dark) ? input.darkborder : input.lightborder, (this.props.borderType === 'regular') ? input.bordered : (this.props.borderType === 'rounded') ? input.rounded : input.underline]}>   
-	              	<View>{this.props.children}</View>
+	           	<View {...this.prepareRootProps()} style={[(this.props.dark) ? bootstrap.darkborder : bootstrap.lightborder, (this.props.borderType === 'regular') ? bootstrap.bordered : (this.props.borderType === 'rounded') ? bootstrap.rounded : bootstrap.underline]} >   
+
+	              	{this.renderIcon()}
+	              	{this.renderLabel()}
+	              	{this.renderInput()}
+
 	          	</View>  
 	        );
     }    
