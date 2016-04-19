@@ -75,11 +75,11 @@ module.exports = {
     },	
 
 	
-	inputColor: "gray",
-	inputBorderColor: "fff",
+	inputColor: "#fff",
+	inputBorderColor: "#fff",
 	inputHeightBase: 40,	
 	inputGroupMarginBottom: 10,
-	inputColorPlaceholder: "#999",
+	inputColorPlaceholder: "rgba(256,256,256,0.8)",
     inputPaddingLeft: 5,
     get inputPaddingLeftIcon () {
         return multiply(inputPaddingLeft, 8);;

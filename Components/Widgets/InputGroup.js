@@ -7,7 +7,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 import Input from './Input';
-import InputLabel from './InputLabel';
 
 
 export default class InputGroup extends NativeBaseComponent {
@@ -18,7 +17,8 @@ export default class InputGroup extends NativeBaseComponent {
 	        	height: this.getTheme().inputHeightBase, 
 	        	backgroundColor: 'transparent',
 	        	flex: 1,
-	        	width: 40
+	        	flexDirection: 'row',
+	        	borderColor: this.getTheme().inputBorderColor
 	        },	
 	        outerBorder: {
 	        	position:'relative',
@@ -67,47 +67,42 @@ export default class InputGroup extends NativeBaseComponent {
 
 	    var type = {
 	    	paddingLeft:  (this.props.borderType === 'rounded' && !this.props.children.type == Icon) ? 15 : 
-			(this.props.children.type == Icon) ? this.getTheme().inputPaddingLeftIcon : this.getTheme().inputPaddingLeft
+			(this.props.children.type == Icon ) ? this.getTheme().inputPaddingLeftIcon : 10
 	    }
 
+	    var defaultStyle = (this.props.borderType === 'regular') ? this.getInitialStyle().bordered : (this.props.borderType === 'rounded') ? this.getInitialStyle().rounded : this.getInitialStyle().underline;
+
+	    type = _.merge(type, defaultStyle);
 	  
-	    var  addedProps = _.merge(this.getInitialStyle().textInput,type);
+	    var  addedProps = _.merge(this.getInitialStyle().textInput, type);
 
 	    var defaultProps = {
 	        style: addedProps
 	    }
 
-	    console.log("input style", computeProps(this.props, defaultProps));
+	    console.log("input group style", computeProps(this.props, defaultProps));
 
 	    return computeProps(this.props, defaultProps);
 
-	}
-	renderLabel() {
-		if(!Array.isArray(this.props.children) && this.props.children.type == InputLabel)
-			return this.props.children;
-
-		else 
-			return _.find(this.props.children, function(item) {
-	            if(item && item.type == InputLabel) {
-	                return true;
-	            }
-	        });
 	}
 
 	renderIcon() {
 		if(!Array.isArray(this.props.children) && this.props.children.type == Icon)
 			return this.props.children;
 
-		else 
-			return _.find(this.props.children, function(item) {
+		else {
+			var iconRender =  _.find(this.props.children, function(item) {
 	            if(item && item.type == Icon) {
 	                return true;
 	            }
 	        });
+			return <Text style={{ alignSelf: 'center'}}>{iconRender}</Text>
+		}
 	}
 
+
 	renderInput() {
-		if(!Array.isArray(this.props.children) && this.props.children.type == Input) {
+		if(!Array.isArray(this.props.children) && this.props.children.type == undefined) {
 			console.log(11111);
 			var inputProps = {};
 
@@ -119,7 +114,7 @@ export default class InputGroup extends NativeBaseComponent {
 		else {
 			console.log(2222);
 			var inp =  _.find(this.props.children, function(item) {
-	            if(item && item.type == Input) {
+	            if(item && item.type == undefined) {
 	                return true;
 	            }
 	        });
@@ -138,14 +133,12 @@ export default class InputGroup extends NativeBaseComponent {
 
 	render() {
         return (
-           	<View {...this.prepareRootProps()} style={[(this.props.borderType === 'regular') ? this.getInitialStyle().bordered : (this.props.borderType === 'rounded') ? this.getInitialStyle().rounded : this.getInitialStyle().underline]} >   
+           	<View {...this.prepareRootProps()} >   
 
-              	<Text>{this.renderIcon()}</Text>
-              	{this.renderLabel()}
+              	{this.renderIcon()}
               	{this.renderInput()}
           	</View>  
         );
     }    
 
 }
-
