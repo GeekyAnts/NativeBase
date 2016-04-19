@@ -12,7 +12,8 @@ export default class Content extends NativeBaseComponent {
 
 	    var type = { 
 	    	backgroundColor: 'transparent',
-	    	flex: 1
+	    	flex: 1,
+	    	padding: this.getTheme().contentPadding
 	    }
 
 	    var defaultProps = {

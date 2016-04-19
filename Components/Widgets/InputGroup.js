@@ -1,7 +1,7 @@
 /* @flow */
 'use strict';
 
-import React, {Text, View, TextInput } from 'react-native';
+import React, {Text, View, TextInput, PixelRatio } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Icon from 'react-native-vector-icons/Ionicons';
 import _ from 'lodash';
@@ -14,7 +14,7 @@ export default class IconInput extends NativeBaseComponent {
 		getInitialStyle() {
 		    return {
 		        textInput: {
-		        	height: 40, 
+		        	height: this.getTheme().inputHeightBase, 
 		        	backgroundColor: 'transparent',
 		        },	
 		        outerBorder: {
@@ -64,7 +64,7 @@ export default class IconInput extends NativeBaseComponent {
 
 		    var type = {
 		    	paddingLeft:  (this.props.borderType === 'rounded' && !this.props.children.type == Icon) ? 15 : 
-				(this.props.children.type == Icon) ? inputPaddingLeftIcon : inputPaddingLeft
+				(this.props.children.type == Icon) ? this.getTheme().inputPaddingLeftIcon : this.getTheme().inputPaddingLeft
 		    }
 
 		  
