@@ -61,15 +61,27 @@ export default class IconInput extends NativeStarterComponent {
 		}
 
 		renderInput() {
-			if(!Array.isArray(this.props.children) && this.props.children.type == Input)
-				return this.props.children;
+			if(!Array.isArray(this.props.children) && this.props.children.type == Input) {
+				var inputProps = {};
 
-			else 
-				return _.find(this.props.children, function(item) {
+		        inputProps = computeProps(this.props, this.props.children.props);
+
+		        return <Input {...inputProps}/> 
+			}
+
+			else {
+				var inp =  _.find(this.props.children, function(item) {
 		            if(item && item.type == Input) {
 		                return true;
 		            }
 		        });
+
+				var inputProps = {};
+
+		        inputProps = computeProps(this.props, inp.props);
+
+		        return <Input {...inputProps}/> 
+			}
 		}
 
     	render() {
