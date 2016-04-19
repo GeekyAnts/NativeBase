@@ -2,12 +2,13 @@
 'use strict';
 
 import React, {Component, Text, View, TextInput } from 'react-native';
+import NativeBaseComponent from '../Base/NativeBaseComponent';
 import {brandPrimary as primary} from '../Styles/variable';
 import Icon from 'react-native-vector-icons/Ionicons';
 import bootstrap from '../Styles/bootstrap';
 import computeProps from '../../Utils/computeProps';
 
-export default class Input extends Component {
+export default class Input extends NativeBaseComponent {
 
 	getInitialStyle() {
 	    return {
@@ -34,7 +35,9 @@ export default class Input extends Component {
 	render() {
 
         return (
+        	<View>
            	<TextInput {...this.prepareRootProps()} /> 
+        	</View>
         );
     }    
 

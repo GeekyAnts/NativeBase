@@ -97,7 +97,7 @@ export default class Button extends NativeBaseComponent {
 
       else if(Array.isArray(this.props.children)) {
         console.log(this.props.children[0].type, this.props.children[1].type);
-        if(this.props.children[0] && this.props.children[0].type == undefined || typeof this.props.children == "string")
+        if(this.props.children[0] && (typeof this.props.children[0] == "string" || this.props.children[0].type == undefined))
           return  <TouchableOpacity {...this.prepareRootProps()}  >
                     <Text style={this.getTextStyle()}>{this.props.children[0]}</Text>
                     <View>
@@ -105,7 +105,7 @@ export default class Button extends NativeBaseComponent {
                     </View>
                   </TouchableOpacity> 
 
-        else if(this.props.children[1] && this.props.children[1].type == undefined || typeof this.props.children == "string")
+        else if(this.props.children[1] && (typeof this.props.children[1] == "string" || this.props.children[1].type == undefined))
           return  <TouchableOpacity {...this.prepareRootProps()}  >
                     <View>
                       {this.props.children[0]}
