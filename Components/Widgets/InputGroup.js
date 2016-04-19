@@ -15,8 +15,7 @@ export default class InputGroup extends NativeBaseComponent {
 	    return {
 	        textInput: {
 	        	height: 40, 
-	        	backgroundColor: 'transparent',
-	        	width: 20
+	        	backgroundColor: 'transparent'
 	        },	
 	        outerBorder: {
 	        	position:'relative',
