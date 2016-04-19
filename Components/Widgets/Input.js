@@ -13,7 +13,9 @@ export default class Input extends NativeBaseComponent {
 	getInitialStyle() {
 	    return {
 	       input: {
-	       		height: 40
+	       		height: this.getTheme().inputHeightBase,
+	       		color: this.getTheme().inputColorPlaceholder,
+	       		paddingLeft: 10
 	       } 
 	    }
 	}
@@ -24,10 +26,6 @@ export default class Input extends NativeBaseComponent {
 	        style: this.getInitialStyle().input
 	    }
 
-	    console.log("awdaw*(^(( ", this.props);
-
-	    console.log("input style *&*(*&(", computeProps(this.props, defaultProps));
-
 	    return computeProps(this.props, defaultProps);
 
 	}
@@ -35,8 +33,8 @@ export default class Input extends NativeBaseComponent {
 	render() {
 
         return (
-        	<View>
-           	<TextInput {...this.prepareRootProps()} /> 
+        	<View style={{ flex: 1,}}>
+           	<TextInput {...this.prepareRootProps()} placeholderTextColor={this.getTheme().inputColorPlaceholder} /> 
         	</View>
         );
     }    

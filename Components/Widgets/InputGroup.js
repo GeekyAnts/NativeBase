@@ -14,8 +14,11 @@ export default class InputGroup extends NativeBaseComponent {
 	getInitialStyle() {
 	    return {
 	        textInput: {
-	        	height: 40, 
-	        	backgroundColor: 'transparent'
+	        	height: this.getTheme().inputHeightBase, 
+	        	backgroundColor: 'transparent',
+	        	flex: 1,
+	        	flexDirection: 'row',
+	        	borderColor: this.getTheme().inputBorderColor
 	        },	
 	        outerBorder: {
 	        	position:'relative',
@@ -64,7 +67,7 @@ export default class InputGroup extends NativeBaseComponent {
 
 	    var type = {
 	    	paddingLeft:  (this.props.borderType === 'rounded' && !this.props.children.type == Icon) ? 15 : 
-			(this.props.children.type == Icon) ? this.getTheme().inputPaddingLeftIcon : this.getTheme().inputPaddingLeft
+			(this.props.children.type == Icon ) ? this.getTheme().inputPaddingLeftIcon : 10
 	    }
 
 	    var defaultStyle = (this.props.borderType === 'regular') ? this.getInitialStyle().bordered : (this.props.borderType === 'rounded') ? this.getInitialStyle().rounded : this.getInitialStyle().underline;
@@ -77,7 +80,7 @@ export default class InputGroup extends NativeBaseComponent {
 	        style: addedProps
 	    }
 
-	    console.log("input group style", computeProps(this.props, defaultProps));
+	    //console.log("input group style", computeProps(this.props, defaultProps));
 
 	    return computeProps(this.props, defaultProps);
 
@@ -87,17 +90,19 @@ export default class InputGroup extends NativeBaseComponent {
 		if(!Array.isArray(this.props.children) && this.props.children.type == Icon)
 			return this.props.children;
 
-		else 
-			return _.find(this.props.children, function(item) {
+		else {
+			var iconRender =  _.find(this.props.children, function(item) {
 	            if(item && item.type == Icon) {
 	                return true;
 	            }
 	        });
+			return <Text style={{ alignSelf: 'center'}}>{iconRender}</Text>
+		}
 	}
+
 
 	renderInput() {
 		if(!Array.isArray(this.props.children) && this.props.children.type == undefined) {
-			console.log(11111);
 			var inputProps = {};
 
 	        inputProps = computeProps(this.props, this.props.children.props);
@@ -106,13 +111,11 @@ export default class InputGroup extends NativeBaseComponent {
 		}
 
 		else {
-			console.log(2222);
 			var inp =  _.find(this.props.children, function(item) {
 	            if(item && item.type == undefined) {
 	                return true;
 	            }
 	        });
-	        console.log(this.props.children, "awaw909000990909");
 
 			var inputProps = {};
 			
@@ -129,11 +132,10 @@ export default class InputGroup extends NativeBaseComponent {
         return (
            	<View {...this.prepareRootProps()} >   
 
-              	<Text>{this.renderIcon()}</Text>
+              	{this.renderIcon()}
               	{this.renderInput()}
           	</View>  
         );
     }    
 
 }
-

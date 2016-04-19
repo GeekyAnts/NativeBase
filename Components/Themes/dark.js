@@ -4,6 +4,8 @@ var multiply = require('multiplier');
 
 var fontSizeBase = 15;
 var borderRadiusBase = 4;
+var borderRadiusBase = 4;
+var contentPadding = 10;
 
 module.exports = {
 	brandPrimary : "#428bca",
@@ -31,53 +33,53 @@ module.exports = {
         return multiply(fontSizeBase, 1.2);
     },
 
-	borderRadiusBase: 4,
+	borderRadiusBase: borderRadiusBase,
 
 	get borderRadiusLarge () {
         return multiply(fontSizeBase, 5.8);
     },	
 
-	toolbarHeight: 65,
-	toolbarDefaultBg: "#f8f8f8",
+	toolbarHeight: 70,
+	toolbarDefaultBg: "#505052",
 	toolbarInverseBg: "#222",
 
 	get btnPrimaryBg () {
-        return brandPrimary;
+        return this.brandPrimary;
     },	
     get btnPrimaryColor () {
-        return textColor;
+        return this.textColor;
     },	
     get btnSuccessBg () {
-        return brandSuccess;
+        return this.brandSuccess;
     },	
     get btnSuccessColor () {
-        return textColor;
+        return this.textColor;
     },	
     get btnDangerBg () {
-        return brandDanger;
+        return this.brandDanger;
     },	
     get btnDangerColor () {
-        return textColor;
+        return this.textColor;
     },	
     get btnInfoBg () {
-        return brandInfo;
+        return this.brandInfo;
     },	
     get btnInfoColor () {
-        return textColor;
+        return this.textColor;
     },	
     get btnWarningBg () {
-        return  brandWarning;
+        return this. brandWarning;
     },	
     get btnWarningColor () {
-        return textColor;
+        return this.textColor;
     },	
 
 	
-	inputColor: "gray",
-	inputBorderColor: "fff",
+	inputColor: "#fff",
+	inputBorderColor: "#fff",
 	inputHeightBase: 40,	
 	inputGroupMarginBottom: 10,
-	inputColorPlaceholder: "#999",
+	inputColorPlaceholder: "rgba(256,256,256,0.8)",
     inputPaddingLeft: 5,
     get inputPaddingLeftIcon () {
         return multiply(inputPaddingLeft, 8);;
@@ -87,7 +89,7 @@ module.exports = {
 	dropdownLinkColor: "#414142",
 
 	jumbotronPadding: 30,
-	jumbotronBg: "#C9C9CE"
+	jumbotronBg: "#C9C9CE",
 
-
+    contentPadding: contentPadding
 }

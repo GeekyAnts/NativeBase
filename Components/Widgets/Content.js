@@ -12,14 +12,15 @@ export default class Content extends NativeBaseComponent {
 
 	    var type = { 
 	    	backgroundColor: 'transparent',
-	    	flex: 1
+	    	flex: 1,
+	    	padding: this.getTheme().contentPadding
 	    }
 
 	    var defaultProps = {
 	        style: type
 	    }
 
-	    console.log("content style", computeProps(this.props, defaultProps));
+	    // console.log("content style", computeProps(this.props, defaultProps));
 
 	    return computeProps(this.props, defaultProps);
 
