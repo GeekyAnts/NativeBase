@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 var Color = require("color");
+=======
+var Color = require("color")
+>>>>>>> 1702224571f9416624cf195b9bc87ac0e782f553
 
 var primary = Color("#384850");
 var secondary = Color("#00c497");
@@ -25,6 +29,7 @@ module.exports = {
 
 
 
+<<<<<<< HEAD
 
 //
 // Variables
@@ -942,3 +947,5 @@ dlHorizontalOffset:        componentOffsetHorizontal,
 dlHorizontalBreakpoint:    gridFloatBreakpoint,
 //** Horizontal line color.
 hrBorder:                   grayLighter,
+=======
+>>>>>>> 1702224571f9416624cf195b9bc87ac0e782f553

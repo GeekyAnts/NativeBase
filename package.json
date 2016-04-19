@@ -1,5 +1,6 @@
 {
-  "name": "native-starter-pro",
+
+  "name": "native-base",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

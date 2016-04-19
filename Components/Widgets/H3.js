@@ -2,18 +2,18 @@
 'use strict';
 
 import React, {Text } from 'react-native';
-import NativeBaseComponent from '../../Base/NativeBaseComponent';
+import NativeBaseComponent from '../Base/NativeBaseComponent';
 import _ from 'lodash';
-import computeProps from '../../../Utils/computeProps';
+import computeProps from '../../Utils/computeProps';
 
 
-export default class H2NSP extends NativeBaseComponent {
+export default class H3NSP extends NativeBaseComponent {
 
   prepareRootProps() {
 
       var type = { 
         color: this.getTheme().textColor,
-        fontSize: this.getTheme().fontSizeH2
+        fontSize: this.getTheme().fontSizeH3
       }
     
       var defaultProps = {
@@ -30,4 +30,3 @@ export default class H2NSP extends NativeBaseComponent {
     }    
 
 }
-

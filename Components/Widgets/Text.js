@@ -2,9 +2,9 @@
 'use strict';
 
 import React, {Text } from 'react-native';
-import NativeBaseComponent from '../../Base/NativeBaseComponent';
+import NativeBaseComponent from '../Base/NativeBaseComponent';
 import _ from 'lodash';
-import computeProps from '../../../Utils/computeProps';
+import computeProps from '../../Utils/computeProps';
 
 
 export default class TextNSP extends NativeBaseComponent {

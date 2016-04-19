@@ -1,51 +1,22 @@
 /* @flow */
 'use strict';
 
-import React, {Component, Text, View, TouchableOpacity} from 'react-native';
+import React, { Text, View, TouchableOpacity} from 'react-native';
+import NativeBaseComponent from '../Base/NativeBaseComponent';
 import navbarStyle from './../Styles/navbar.js';
-import ButtonGroup from './ButtonGroup';
 import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
-export default class Toolbar extends Component {  
+export default class Toolbar extends NativeBaseComponent {  
 
-    renderLeftComponent() {
 
-        return _.find(this.props.children, function(item) {
-            if(item && item.type == ButtonGroup && item.props &&item.props.position=="left") {
-                return true;
-            }
-        });
-
-    }
-
-    renderRightComponent() {
-
-        return _.find(this.props.children, function(item) {
-            if(item && item.type == ButtonGroup && item.props && item.props.position=="right") {
-                return true;
-            }
-        });
-
-    }
-
-    renderCenterComponent() {
-
-        return _.filter(this.props.children, function(item) {
-
-            if(item && item.props && item.props.position!="right" && item.props.position!="left")
-                return true;
-            else
-                return false;            
-        });
-
-    }
 
     prepareRootProps() {
 
         var defaultProps = {
             style: navbarStyle.navbar
         };
+        console.log(this.props.children);
         
         console.log("toolbar style:", computeProps(this.props, defaultProps));
 
@@ -57,15 +28,22 @@ export default class Toolbar extends Component {
 
         return(                
             <View {...this.prepareRootProps()}>
-                <View>                    
-                    {this.renderLeftComponent()}                    
-                </View>                
-                <View>
-                   {this.renderCenterComponent()}
-                </View>
-                <View>                    
-                    {this.renderRightComponent()}                    
-                </View>                
+                {this.props.children[0] && 
+                  <View>                    
+                      {this.props.children[0]}                    
+                  </View>}
+                {this.props.children[1] && 
+                  <View>                    
+                      {this.props.children[1]}                    
+                  </View>}
+                {this.props.children[2] && 
+                  <View>                    
+                      {this.props.children[2]}                    
+                  </View>}
+                { !Array.isArray(this.props.children) && 
+                  <View>                    
+                      {this.props.children}
+                  </View>}
             </View>             
         );
     }
