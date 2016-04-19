@@ -11,6 +11,32 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class Button extends NativeStarterComponent {
 
+    getInitialStyle() {
+      return {
+        button: {
+            padding: 10,
+            borderColor: 'transparent',
+          height: 45,
+          marginTop: 15,
+          justifyContent: 'space-around',
+          flexDirection: 'row',
+          marginLeft: 10,
+          marginRight: 10,
+          shadowColor: '#000',
+          shadowOffset: {width: 1, height: 2},
+          shadowOpacity: 0.2,
+          shadowRadius: 3,
+          backgroundColor: "red",
+          borderRadius: 4
+        },
+        buttonText: {
+          fontSize: 18,
+          flex: 1,
+          color: '#fff'
+        }
+      }
+    }
+
     prepareRootProps() {
 
         var type = { backgroundColor: (this.props.primary) ? this.getTheme().primary : 
@@ -20,54 +46,74 @@ export default class Button extends NativeStarterComponent {
                        (this.props.warning) ? this.getTheme().warning :
                        (this.props.backgroundColor) ? this.props.backgroundColor :
                        (this.props.transparent) ? 'rgba(0,0,0,0)' :
-                       this.getTheme().brandSecondary,
+                       this.getInitialStyle().button.backgroundColor,
                     borderRadius: (this.props.rounded) ? 23 : 4
         }
 
         console.log(button.button, type);
 
-        var  addedProps = _.merge(button.button,type);
+        var  addedProps = _.merge(this.getInitialStyle().button,type);
 
         var defaultProps = {
             style: addedProps
         }
 
         console.log("button style", computeProps(this.props, defaultProps));
+
         return computeProps(this.props, defaultProps);
 
     }
 
-    renderChild(item) {
-      if(item.type == undefined) {
-        console.log("undefined ", item);
-        return <Text style={this.props.textStyle}>{item}</Text>
+    getTextStyle() {
+      var mergedStyle = {};
+      return _.merge(mergedStyle, this.getInitialStyle().buttonText, this.props.textStyle);
+    }
+
+    renderChildren() {
+      if(typeof this.props.children == undefined || typeof this.props.children == "string") {
+        console.log(this.props.children);
+        return  <TouchableOpacity {...this.prepareRootProps()}  >
+                  <Text style={this.getTextStyle()}>{this.props.children}</Text>
+                </TouchableOpacity> 
       }
-      else {
-        console.log("defined ", item);
-        return item;
+
+      else if(Array.isArray(this.props.children)) {
+        console.log(this.props.children[0].type, this.props.children[1].type);
+        if(this.props.children[0] && this.props.children[0].type == undefined || typeof this.props.children == "string")
+          return  <TouchableOpacity {...this.prepareRootProps()}  >
+                    <Text style={this.getTextStyle()}>{this.props.children[0]}</Text>
+                    <View>
+                      {this.props.children[1]}
+                    </View>
+                  </TouchableOpacity> 
+
+        else if(this.props.children[1] && this.props.children[1].type == undefined || typeof this.props.children == "string")
+          return  <TouchableOpacity {...this.prepareRootProps()}  >
+                    <View>
+                      {this.props.children[0]}
+                    </View>
+                    <Text style={this.getTextStyle()}>{this.props.children[1]}</Text>
+                  </TouchableOpacity> 
+
+        else 
+          return  <TouchableOpacity {...this.prepareRootProps()}  >
+                    <View>
+                      {this.props.children[0]}
+                    </View>
+                    <View>
+                      {this.props.children[1]}
+                    </View>
+                  </TouchableOpacity> 
       }
+
+      else
+        return  <TouchableOpacity {...this.prepareRootProps()}  >
+                  {this.props.children}
+                </TouchableOpacity>
     }
     
     render() { 
-        return(
-            <TouchableOpacity
-                {...this.prepareRootProps()}  >
-                  
-                {this.props.children[0] && 
-                  <View>                    
-                      {this.renderChild(this.props.children[0])}
-                  </View>}
-                {this.props.children[1] && 
-                  <View>                    
-                      {this.renderChild(this.props.children[1])}                    
-                  </View>}
-                { !Array.isArray(this.props.children) && 
-                  <View>                    
-                      {this.renderChild(this.props.children)}
-                  </View>}
-                
-            </TouchableOpacity> 
-        );
+        return(this.renderChildren());
     }
 
 }
