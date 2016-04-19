@@ -3,16 +3,14 @@
 
 import React, {Component, Text, View, TextInput } from 'react-native';
 import {brandPrimary as primary} from '../Styles/variable';
-import Icon from 'react-native-vector-icons/Ionicons';
-import bootstrap from '../Styles/bootstrap';
 import computeProps from '../../Utils/computeProps';
 
-export default class Input extends Component {
+export default class InputLabel extends Component {
 
 	getInitialStyle() {
 	    return {
-	       input: {
-	       		height: 40
+	       inputLabel: {
+	       		color: "green"
 	       } 
 	    }
 	}
@@ -20,12 +18,10 @@ export default class Input extends Component {
 	prepareRootProps() {
 
 	    var defaultProps = {
-	        style: this.getInitialStyle().input
+	        style: this.getInitialStyle().inputLabel
 	    }
 
-	    console.log("awdaw*(^(( ", this.props);
-
-	    console.log("input style *&*(*&(", computeProps(this.props, defaultProps));
+	    console.log("input style", computeProps(this.props, defaultProps));
 
 	    return computeProps(this.props, defaultProps);
 
@@ -34,7 +30,9 @@ export default class Input extends Component {
 	render() {
 
         return (
-           	<TextInput {...this.prepareRootProps()} /> 
+           	<Text {...this.prepareRootProps()} >
+           		{this.props.children}
+           	</Text>  
         );
     }    
 

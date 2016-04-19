@@ -20,6 +20,7 @@ export default class Button extends NativeBaseComponent {
                 height: 45,
                 justifyContent: 'space-around',
                 flexDirection: 'row',
+                marginBottom: 10,
                 backgroundColor: this.getTheme().btnPrimaryBg,
             },
             buttonText: {
