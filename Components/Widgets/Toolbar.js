@@ -1,10 +1,9 @@
 /* @flow */
 'use strict';
 
-import React, {Component, Text, View, TouchableOpacity} from 'react-native';
+import React, { Text, View, TouchableOpacity, Component} from 'react-native';
+import NativeBaseComponent from '../Base/NativeBaseComponent';
 import navbarStyle from './../Styles/navbar.js';
-import {Actions} from 'react-native-router-flux';
-import ButtonGroup from './ButtonGroup';
 import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
@@ -42,7 +41,6 @@ export default class Toolbar extends Component {
         var defaultProps = {
             style: this.getInitialStyle().navbar
         };
-
         console.log(this.props.children);
         
         console.log("toolbar style:", computeProps(this.props, defaultProps));

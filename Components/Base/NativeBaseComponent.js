@@ -2,15 +2,15 @@
 'use strict';
 
 import React, {Component, View} from 'react-native';
-import lightTheme from '../Themes/light';
+import darkTheme from '../Themes/dark';
 
 
-export default class NativeStarterComponent extends Component {			
+export default class NativeBaseComponent extends Component {			
 	static contextTypes = {
 	    theme: React.PropTypes.object
 	  }
 
 	getTheme() {
-   		return this.context.theme || lightTheme
+   		return this.context.theme || darkTheme
 	}  
 }

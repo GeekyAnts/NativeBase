@@ -1,7 +1,10 @@
 {
+
   "name": "native-base",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+  	"color": "~0.11.1",
+  	"multiplier": "~0.1.0"
   }
 }

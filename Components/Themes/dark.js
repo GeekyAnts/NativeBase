@@ -1,24 +1,93 @@
 var Color = require("color")
 
-var primary = Color("#384850");
-var secondary = Color("#F82C56");
-var success = Color("#428F26");
-var danger = Color("#B74D4A");
-var warning = Color("#CBAC3E");
-var sidebar = Color("#252932");
-var dark = Color("rgba(0,0,0,0.9)");
-var light = Color("rgba(255,255,255,0.9)");
+var multiply = require('multiplier');
 
-var darken = primary.darken(0.2).hexString().toString();
+var fontSizeBase = 15;
+var borderRadiusBase = 4;
 
 module.exports = {
-	brandPrimary : primary.hexString().toString(),
-	brandSecondary: secondary.hexString().toString(),
-	brandSuccess: success.hexString().toString(),
-	brandDanger: danger.hexString().toString(),
-	brandWarning: warning.hexString().toString(),
-	brandSidebar: sidebar.hexString().toString(),
-	darker: darken,
-	inverseTextColor: dark.hexString().toString(),
-	textColor: light.hexString().toString()
+	brandPrimary : "#428bca",
+	brandInfo: "#5bc0de",
+	brandSuccess: "#5cb85c",
+	brandDanger: "#d9534f",
+	brandWarning: "#f0ad4e",
+	brandSidebar: "#252932",
+
+	inverseTextColor: "#000",
+	textColor: "#fff",
+
+	fontSizeBase: 15,
+
+	get fontSizeH1 () {
+        return multiply(fontSizeBase, 1.8);
+    },
+    get fontSizeH2 () {
+        return multiply(fontSizeBase, 1.6);
+    },
+    get fontSizeH3 () {
+        return multiply(fontSizeBase, 1.4);
+    },
+    get btnTextSize () {
+        return multiply(fontSizeBase, 1.2);
+    },
+
+	borderRadiusBase: 4,
+
+	get borderRadiusLarge () {
+        return multiply(fontSizeBase, 5.8);
+    },	
+
+	toolbarHeight: 65,
+	toolbarDefaultBg: "#f8f8f8",
+	toolbarInverseBg: "#222",
+
+	get btnPrimaryBg () {
+        return brandPrimary;
+    },	
+    get btnPrimaryColor () {
+        return textColor;
+    },	
+    get btnSuccessBg () {
+        return brandSuccess;
+    },	
+    get btnSuccessColor () {
+        return textColor;
+    },	
+    get btnDangerBg () {
+        return brandDanger;
+    },	
+    get btnDangerColor () {
+        return textColor;
+    },	
+    get btnInfoBg () {
+        return brandInfo;
+    },	
+    get btnInfoColor () {
+        return textColor;
+    },	
+    get btnWarningBg () {
+        return  brandWarning;
+    },	
+    get btnWarningColor () {
+        return textColor;
+    },	
+
+	
+	inputColor: "gray",
+	inputBorderColor: "fff",
+	inputHeightBase: 40,	
+	inputGroupMarginBottom: 10,
+	inputColorPlaceholder: "#999",
+    inputPaddingLeft: 5,
+    get inputPaddingLeftIcon () {
+        return multiply(inputPaddingLeft, 8);;
+    },
+
+	dropdownBg: "#fff",
+	dropdownLinkColor: "#414142",
+
+	jumbotronPadding: 30,
+	jumbotronBg: "#C9C9CE"
+
+
 }

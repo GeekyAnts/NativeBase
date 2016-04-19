@@ -2,12 +2,12 @@
 'use strict';
 
 import React, {Text, View, ScrollView } from 'react-native';
-import NativeStarterComponent from '../Base/NativeStarterComponent';
+import NativeBaseComponent from '../Base/NativeBaseComponent';
 import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
 
-export default class Content extends NativeStarterComponent {
+export default class Content extends NativeBaseComponent {
 	prepareRootProps() {
 
 	    var type = { 

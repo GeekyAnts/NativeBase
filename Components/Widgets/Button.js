@@ -2,14 +2,32 @@
 'use strict';
 
 import React, { Text, View, TouchableOpacity } from 'react-native';
-import NativeStarterComponent from '../Base/NativeStarterComponent';
+import NativeBaseComponent from '../Base/NativeBaseComponent';
 import button from '../Styles/button';
 import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
-export default class Button extends NativeStarterComponent {
+export default class Button extends NativeBaseComponent {
+
+    getInitialStyle() {
+        return {
+            button: {
+                padding: 10,
+                borderColor: 'transparent',
+                height: 45,
+                justifyContent: 'space-around',
+                flexDirection: 'row',
+                backgroundColor: this.getTheme().primary,
+            },
+            buttonText: {
+                fontSize: 18,
+                flex: 1,
+                color: '#fff'
+            }
+        }
+    }
 
     getInitialStyle() {
       return {
@@ -40,14 +58,14 @@ export default class Button extends NativeStarterComponent {
     prepareRootProps() {
 
         var type = { backgroundColor: (this.props.primary) ? this.getTheme().primary : 
-                       (this.props.secondary) ? this.getTheme().brandSecondary :
                        (this.props.success) ? this.getTheme().success :
                        (this.props.danger) ? this.getTheme().danger :
                        (this.props.warning) ? this.getTheme().warning :
+                       (this.props.info) ? this.getTheme().info :
                        (this.props.backgroundColor) ? this.props.backgroundColor :
                        (this.props.transparent) ? 'rgba(0,0,0,0)' :
                        this.getInitialStyle().button.backgroundColor,
-                    borderRadius: (this.props.rounded) ? 23 : 4
+                    borderRadius: (this.props.rounded) ? this.getTheme().borderRadiusLarge : this.getTheme().borderRadiusBase
         }
 
         console.log(button.button, type);
@@ -117,4 +135,3 @@ export default class Button extends NativeStarterComponent {
     }
 
 }
-

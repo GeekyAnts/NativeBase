@@ -4,6 +4,7 @@ var StyleSheetRegistry = require('react-native/Libraries/StyleSheet/StyleSheetRe
 
 module.exports = function(incomingProps, defaultProps) {
 
+
     // External props has a higher precedence
     var computedProps = {};
     
