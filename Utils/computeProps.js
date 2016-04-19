@@ -11,7 +11,7 @@ module.exports = function(incomingProps, defaultProps) {
     incomingProps = _.clone(incomingProps);
     delete incomingProps.children;
 
-    console.log(defaultProps, incomingProps);
+    // console.log(defaultProps, incomingProps);
 
     if(incomingProps)
         _.merge(computedProps, defaultProps, incomingProps);
@@ -32,7 +32,7 @@ module.exports = function(incomingProps, defaultProps) {
 
     }
 
-    console.log("computedProps ", computedProps);
+    // console.log("computedProps ", computedProps);
     
     return computedProps;
 
