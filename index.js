@@ -8,6 +8,7 @@ import Content from './Components/Widgets/Content';
 import Button from './Components/Widgets/Button';
 import Text from './Components/Widgets/Text';
 import CheckBox from './Components/Widgets/CheckBox';
+import Switch from './Components/Widgets/Switch';
 import H1 from './Components/Widgets/H1';
 import H2 from './Components/Widgets/H2';
 import H3 from './Components/Widgets/H3';
@@ -24,6 +25,7 @@ module.exports = {
 	Button: Button,
 	Text: Text,
 	CheckBox: CheckBox,
+	Switch: Switch,
 	H1: H1,
 	H2: H2,
 	H3: H3,
