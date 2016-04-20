@@ -46,22 +46,24 @@ export default class Toolbar extends NativeBaseComponent {
 
         return(                
             <View {...this.prepareRootProps()}>
-                {this.props.children[0] && 
-                  <View >                    
-                      {this.props.children[0]}                    
-                  </View>}
-                {this.props.children[1] && 
-                  <View >                    
-                      {this.props.children[1]}                    
-                  </View>}
-                {this.props.children[2] && 
-                  <View >                    
-                      {this.props.children[2]}                    
-                  </View>}
                 { !Array.isArray(this.props.children) && 
                   <View>                    
                       {this.props.children}
                   </View>}
+
+                { Array.isArray(this.props.children) && 
+                  <View >                    
+                      {this.props.children[0]}                    
+                  </View>}
+                { Array.isArray(this.props.children) && 
+                  <View >                    
+                      {this.props.children[1]}                    
+                  </View>}
+                { Array.isArray(this.props.children) && 
+                  <View >                    
+                      {this.props.children[2]}
+                  </View>}
+                
             </View>             
         );
     }
