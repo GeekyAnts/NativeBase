@@ -7,7 +7,7 @@ import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
 
-export default class ViewNSP extends NativeBaseComponent {
+export default class ViewNB extends NativeBaseComponent {
     render() {
         return(
             <View {...this.props}></View>
