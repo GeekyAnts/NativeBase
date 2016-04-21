@@ -1,7 +1,7 @@
 /* @flow */
 'use strict';
 
-import React, { Text, View, TouchableOpacity, Component} from 'react-native';
+import React, { Text, View, TouchableOpacity, Component, Platform} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import navbarStyle from './../Styles/navbar.js';
 import _ from 'lodash';
@@ -47,20 +47,20 @@ export default class Toolbar extends NativeBaseComponent {
         return(                
             <View {...this.prepareRootProps()}>
                 { !Array.isArray(this.props.children) && 
-                  <View>                    
+                  <View >                    
                       {this.props.children}
                   </View>}
 
                 { Array.isArray(this.props.children) && 
-                  <View >                    
+                  <View style={{flex:1}}>                    
                       {this.props.children[0]}                    
                   </View>}
                 { Array.isArray(this.props.children) && 
-                  <View >                    
+                  <View style={{flex:5}}>                    
                       {this.props.children[1]}                    
                   </View>}
                 { Array.isArray(this.props.children) && 
-                  <View >                    
+                  <View style={{flex:1}}>                    
                       {this.props.children[2]}
                   </View>}
                 
