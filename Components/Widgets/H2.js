@@ -7,7 +7,7 @@ import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
 
-export default class H2NSP extends NativeBaseComponent {
+export default class H2NB extends NativeBaseComponent {
 
   prepareRootProps() {
 

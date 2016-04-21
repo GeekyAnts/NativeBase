@@ -7,7 +7,7 @@ import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
 
-export default class TextNSP extends NativeBaseComponent {
+export default class TextNB extends NativeBaseComponent {
 
 	prepareRootProps() {
 
