@@ -5,18 +5,24 @@ import React, {Switch} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
-import Checkbox from 'react-native-checkbox';
 
 export default class SwitchNB extends NativeBaseComponent {
 
     getInitialStyle() {
         return {
-            switch: {}
+            switch: {
+                
+            }
         }
     }
     prepareRootProps() {
+        var defaultProps = {
+            style: this.getInitialStyle().switch
+        };
 
-        return this.props;
+        console.log(computeProps(this.props, defaultProps));
+
+        return computeProps(this.props, defaultProps);
 
     }
     

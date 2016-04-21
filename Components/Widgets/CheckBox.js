@@ -11,12 +11,19 @@ export default class CheckBox extends NativeBaseComponent {
 
     getInitialStyle() {
         return {
-            checkbox: {}
+            checkboxLabel: {
+              color: 'teal'
+            }
         }
     }
     prepareRootProps() {
+        var defaultProps = {
+            labelStyle: this.getInitialStyle().checkboxLabel
+        };
 
-        return this.props;
+        console.log(computeProps(this.props, defaultProps));
+
+        return computeProps(this.props, defaultProps);
 
     }
     
