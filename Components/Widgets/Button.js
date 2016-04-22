@@ -15,31 +15,34 @@ export default class Button extends NativeBaseComponent {
         return {
             button: {
                 padding: 10,
-                flex: 1,
-                borderColor: 'transparent',
-                height: 45,
                 justifyContent: 'space-around',
                 flexDirection: 'row',
                 marginBottom: 10,
+                alignSelf: 'flex-start',
                 backgroundColor: this.getTheme().btnPrimaryBg,
-            },
-            buttonText: {
-                fontSize: this.getTheme().btnTextSize,
-                color: this.getTheme().btnPrimaryColor
             }
         }
     }
     prepareRootProps() {
 
-        var type = { backgroundColor: (this.props.primary) ? this.getTheme().primary : 
+        var type = { backgroundColor: (this.props.primary) ? this.getTheme().btnPrimaryBg : 
+                       ((this.props.transparent) || (this.props.bordered)) ? 'rgba(0,0,0,0)' :
                        (this.props.success) ? this.getTheme().btnSuccessBg :
                        (this.props.danger) ? this.getTheme().btnDangerBg :
                        (this.props.warning) ? this.getTheme().btnWarningBg :
                        (this.props.info) ? this.getTheme().btnInfoBg :
                        (this.props.backgroundColor) ? this.props.backgroundColor :
-                       (this.props.transparent) ? 'rgba(0,0,0,0)' :
                        this.getInitialStyle().button.backgroundColor,
-                    borderRadius: (this.props.rounded) ? this.getTheme().borderRadiusLarge : this.getTheme().borderRadiusBase
+                    borderRadius: (this.props.rounded) ? this.getTheme().borderRadiusLarge : this.getTheme().borderRadiusBase,
+                    borderWidth: (this.props.bordered) ? 1 : 0,
+                    borderColor: (this.props.primary) ? this.getTheme().primary : 
+                       (this.props.success) ? this.getTheme().btnSuccessBg :
+                       (this.props.danger) ? this.getTheme().btnDangerBg :
+                       (this.props.warning) ? this.getTheme().btnWarningBg :
+                       (this.props.info) ? this.getTheme().btnInfoBg :
+                       this.getInitialStyle().button.backgroundColor,
+                    height: (this.props.large) ? 60 : (this.props.small) ? 35 : 45,
+                    alignSelf: (this.props.block) ? 'stretch' : 'flex-start',
         }
 
         var  addedProps = _.merge(this.getInitialStyle().button,type);
@@ -54,20 +57,33 @@ export default class Button extends NativeBaseComponent {
 
     getTextStyle() {
       var mergedStyle = {};
-      return _.merge(mergedStyle, this.getInitialStyle().buttonText, this.props.textStyle);
+
+      var btnType = {
+        color: ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg : 
+               ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
+               ((this.props.bordered) && (this.props.danger)) ? this.getTheme().btnDangerBg :
+               ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
+               ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
+                this.getTheme().inverseTextColor,
+        fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize, 
+        lineHeight: (this.props.large) ? 32 : (this.props.small) ? 15 : 22
+      }
+
+      var  addedBtnProps = _.merge(this.getInitialStyle().buttonText,btnType);
+      return _.merge(mergedStyle, addedBtnProps, this.props.textStyle);
     }
 
     renderChildren() {
       if(typeof this.props.children == undefined || typeof this.props.children == "string") {
         return  <TouchableOpacity {...this.prepareRootProps()}  >
-                  <Text style={[this.getTextStyle(), this.getInitialStyle().buttonText]}>{this.props.children}</Text>
+                   <Text style={this.getTextStyle()}>{this.props.children}</Text>
                 </TouchableOpacity> 
       }
 
       else if(Array.isArray(this.props.children)) {
         if(this.props.children[0] && (typeof this.props.children[0] == "string" || this.props.children[0].type == undefined))
-          return  <TouchableOpacity {...this.prepareRootProps()}  >
-                    <Text style={[this.getTextStyle(), this.getInitialStyle().buttonText]}>{this.props.children[0]}</Text>
+          return  <TouchableOpacity {...this.prepareRootProps()}  >                    
+                     <Text style={this.getTextStyle()}>{this.props.children[0]}</Text>
                     <Text>
                       {this.props.children[1]}
                     </Text>

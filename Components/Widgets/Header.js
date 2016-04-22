@@ -52,15 +52,15 @@ export default class Header extends NativeBaseComponent {
                   </View>}
 
                 { Array.isArray(this.props.children) && 
-                  <View style={{flex:1}}>                    
+                  <View style={{flex: 1,alignSelf: 'flex-start'}}>                    
                       {this.props.children[0]}                    
                   </View>}
                 { Array.isArray(this.props.children) && 
-                  <View style={{flex:5}}>                    
+                  <View style={{flex: 1, alignSelf: 'center'}}>                    
                       {this.props.children[1]}                    
                   </View>}
                 { Array.isArray(this.props.children) && 
-                  <View style={{flex:1}}>                    
+                  <View style={{flex:1, alignSelf: 'flex-end'}}>                    
                       {this.props.children[2]}
                   </View>}
                 
