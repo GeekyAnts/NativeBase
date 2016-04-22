@@ -1,7 +1,8 @@
 /* @flow */
 'use strict';
 
-import Toolbar from './Components/Widgets/Toolbar';
+import Header from './Components/Widgets/Header';
+import Footer from './Components/Widgets/Footer';
 import Title from './Components/Widgets/Title';
 import Container from './Components/Widgets/Container';
 import Content from './Components/Widgets/Content';
@@ -19,7 +20,8 @@ import InputGroup from './Components/Widgets/InputGroup';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 module.exports = {
-	Toolbar: Toolbar,
+	Header: Header,
+	Footer: Footer,
 	Title: Title,
 	Container: Container,
 	Content: Content,

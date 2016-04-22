@@ -39,6 +39,7 @@ module.exports = {
         return multiply(fontSizeBase, 5.8);
     },	
 
+    footerHeight: 55,
 	toolbarHeight: 70,
 	toolbarDefaultBg: "#505052",
 	toolbarInverseBg: "#222",
@@ -47,31 +48,31 @@ module.exports = {
         return this.brandPrimary;
     },	
     get btnPrimaryColor () {
-        return this.textColor;
+        return this.inverseTextColor;
     },	
     get btnSuccessBg () {
         return this.brandSuccess;
     },	
     get btnSuccessColor () {
-        return this.textColor;
+        return this.inverseTextColor;
     },	
     get btnDangerBg () {
         return this.brandDanger;
     },	
     get btnDangerColor () {
-        return this.textColor;
+        return this.inverseTextColor;
     },	
     get btnInfoBg () {
         return this.brandInfo;
     },	
     get btnInfoColor () {
-        return this.textColor;
+        return this.inverseTextColor;
     },	
     get btnWarningBg () {
         return this. brandWarning;
     },	
     get btnWarningColor () {
-        return this.textColor;
+        return this.inverseTextColor;
     },	
 
 	

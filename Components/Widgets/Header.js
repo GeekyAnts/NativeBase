@@ -7,7 +7,7 @@ import navbarStyle from './../Styles/navbar.js';
 import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
-export default class Toolbar extends NativeBaseComponent { 
+export default class Header extends NativeBaseComponent { 
     getInitialStyle() {
         return {
             navbar: {
