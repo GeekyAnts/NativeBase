@@ -18,7 +18,6 @@ export default class Button extends NativeBaseComponent {
                 justifyContent: 'space-around',
                 flexDirection: 'row',
                 marginBottom: 10,
-                alignSelf: 'flex-start',
                 backgroundColor: this.getTheme().btnPrimaryBg,
             }
         }

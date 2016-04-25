@@ -16,12 +16,12 @@ export default class ListItemNB extends NativeBaseComponent {
     getInitialStyle() {
         return {
             listItem: {
+                borderBottomWidth: 1,
                 padding: 7,
                 paddingRight: 10,
                 paddingLeft: 10,
                 flex: 1,
                 flexDirection: 'row',
-                justifyContent: 'space-between',
                 alignItems: 'center'
             },
             listItemDivider: {
@@ -35,7 +35,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 fontSize: 18,  
             },
             itemIcon: {
-                fontSize: 18,
+                fontSize: 27,
                 color: 'black'
             },
             itemButton: {
@@ -55,7 +55,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 color: '#999'
             },
             thumbnail: {
-
+                alignSelf: 'center',
             },
             fullImage: {
                 width: 300,

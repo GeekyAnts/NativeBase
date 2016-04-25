@@ -16,7 +16,8 @@ export default class ListNB extends NativeBaseComponent {
             },
             insetList: {
                 borderWidth: 1,
-                borderRadius: 8
+                borderRadius: 8,
+                margin: 15
             }
         }
     }
