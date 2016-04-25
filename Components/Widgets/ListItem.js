@@ -93,6 +93,16 @@ export default class ListItemNB extends NativeBaseComponent {
         return iconComponentPresent;
     }
 
+    buttonPresent() {
+        var buttonComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == Button)
+                buttonComponentPresent = true;
+        })
+
+        return buttonComponentPresent;
+    }
+
     getChildStyle(child) {
         var mergedStyle = {};
         if(child.type == Icon) {
