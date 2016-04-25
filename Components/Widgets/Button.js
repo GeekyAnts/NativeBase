@@ -76,11 +76,7 @@ export default class Button extends NativeBaseComponent {
     renderChildren() {
       if(typeof this.props.children == undefined || typeof this.props.children == "string") {
         return  <TouchableOpacity {...this.prepareRootProps()}  >
-<<<<<<< HEAD
                   <Text style={this.getTextStyle()}>{this.props.children}</Text>
-=======
-                   <Text style={this.getTextStyle()}>{this.props.children}</Text>
->>>>>>> 1d9203dff8b3adf7b8ddc62749f10db5cdf07eed
                 </TouchableOpacity> 
       }
 
