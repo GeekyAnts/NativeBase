@@ -32,11 +32,17 @@ module.exports = {
     get btnTextSize () {
         return multiply(fontSizeBase, 1.2);
     },
+     get btnTextSizeLarge () {
+        return multiply(fontSizeBase, 1.5);
+    },
+     get btnTextSizeSmall () {
+        return multiply(fontSizeBase, .8);
+    },
 
 	borderRadiusBase: borderRadiusBase,
 
 	get borderRadiusLarge () {
-        return multiply(fontSizeBase, 5.8);
+        return multiply(fontSizeBase, 3.8);
     },	
 
     footerHeight: 55,

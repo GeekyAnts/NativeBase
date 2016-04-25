@@ -13,14 +13,14 @@ import Switch from './Components/Widgets/Switch';
 import Picker from './Components/Widgets/Picker';
 import List from './Components/Widgets/List';
 import ListItem from './Components/Widgets/ListItem';
-import ListIconItem from './Components/Widgets/ListIconItem';
 import H1 from './Components/Widgets/H1';
 import H2 from './Components/Widgets/H2';
 import H3 from './Components/Widgets/H3';
 import View from './Components/Widgets/View';
 import Input from './Components/Widgets/Input';
 import InputGroup from './Components/Widgets/InputGroup';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from './Components/Widgets/Icon';
+import Thumbnail from './Components/Widgets/Thumbnail';
 
 module.exports = {
 	Header: Header,
@@ -35,11 +35,11 @@ module.exports = {
 	Picker: Picker,
 	List: List,
 	ListItem: ListItem,
-	ListIconItem: ListIconItem,
 	H1: H1,
 	H2: H2,
 	H3: H3,
 	View: View,
 	InputGroup: InputGroup,
-	Icon: Icon
+	Icon: Icon,
+	Thumbnail: Thumbnail
 };
