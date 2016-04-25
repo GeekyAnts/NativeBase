@@ -128,10 +128,28 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
     renderChildren() {
-        var newChildren = React.Children.map(this.props.children, (child) => {
-          return React.cloneElement(child, this.getChildProps(child));
-        });
-
+        if(!this.isThumbnail()) {
+            var newChildren = React.Children.map(this.props.children, (child) => {
+              return React.cloneElement(child, this.getChildProps(child));
+            });
+        } 
+        else {
+            var newChildren = [];
+            if(!Array.isArray(this.props.children)) {
+                newChildren.push(React.cloneElement(this.props.children, this.getChildProps(this.props.children)));
+            }
+            else {
+                var childrenArray = React.Children.toArray(this.props.children);
+                newChildren.push(React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
+                newChildren.push(<View style={{backgroundColor: '#777'}}>
+                        {childrenArray.slice(1).map((child) => {
+                          return React.cloneElement(child, this.getChildProps(child));
+                        })}
+                    </View>);
+            }
+            
+        }
+        
         console.log(newChildren);
 
         return newChildren;
