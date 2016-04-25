@@ -89,10 +89,26 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
     getChildProps(child) {
-        if(child.type == Image && !Array.isArray(this.props.children))
-            return _.merge({resizeMode: 'stretch'}, child.props);
-        else 
-            return child.props;
+        var defaultProps = {};
+        if(child.type == Image && !Array.isArray(this.props.children)) {
+            defaultProps = {
+                resizeMode: 'stretch', 
+                style: this.getChildStyle(child)
+            }
+        }
+        else if(child.type == Button) {
+            defaultProps = {
+                small: true,
+                style: this.getChildStyle(child)
+            }
+        }
+        else {
+            defaultProps = {
+                style: this.getChildStyle(child)
+            }
+        }
+
+        return computeProps(child.props, defaultProps);
     }  
 
     prepareRootProps() {
@@ -113,7 +129,7 @@ export default class ListItemNB extends NativeBaseComponent {
 
     renderChildren() {
         var newChildren = React.Children.map(this.props.children, (child) => {
-          return React.cloneElement(child, computeProps(this.getChildProps(child), {style: this.getChildStyle(child)}));
+          return React.cloneElement(child, this.getChildProps(child));
         });
 
         console.log(newChildren);
