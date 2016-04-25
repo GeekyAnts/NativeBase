@@ -73,7 +73,7 @@ export default class ListItemNB extends NativeBaseComponent {
         }
     }
 
-    isThumbnail() {
+    thumbnailPresent() {
         var thumbnailComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
             if(child.type == Thumbnail)
@@ -83,6 +83,16 @@ export default class ListItemNB extends NativeBaseComponent {
         return thumbnailComponentPresent;
     }
 
+    iconPresent() {
+        var iconComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == Icon)
+                iconComponentPresent = true;
+        })
+
+        return iconComponentPresent;
+    }
+
     getChildStyle(child) {
         var mergedStyle = {};
         if(child.type == Icon) {
@@ -90,7 +100,7 @@ export default class ListItemNB extends NativeBaseComponent {
         }
 
         else if(child.type == Text) {
-            if(child.props.note && this.isThumbnail())
+            if(child.props.note && this.thumbnailPresent())
                 return _.merge(mergedStyle, this.getInitialStyle().itemSubNote, child.props.style);
             else if(child.props.note)
                 return _.merge(mergedStyle, this.getInitialStyle().itemNote, child.props.style);
@@ -152,7 +162,7 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
     renderChildren() {
-        if(!this.isThumbnail()) {
+        if(!this.thumbnailPresent() && !this.iconPresent()) {
             var newChildren = React.Children.map(this.props.children, (child) => {
               return React.cloneElement(child, this.getChildProps(child));
             });
