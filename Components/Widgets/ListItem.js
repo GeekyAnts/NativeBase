@@ -180,7 +180,11 @@ export default class ListItemNB extends NativeBaseComponent {
         else {
             var newChildren = [];
             if(!Array.isArray(this.props.children)) {
-                newChildren.push(React.cloneElement(this.props.children, this.getChildProps(this.props.children)));
+                newChildren.push(
+                    <View>
+                        {React.cloneElement(this.props.children, this.getChildProps(this.props.children))}
+                    </View>
+                );
             }
             else {
                 var childrenArray = React.Children.toArray(this.props.children);
