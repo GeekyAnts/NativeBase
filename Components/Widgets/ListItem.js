@@ -16,7 +16,6 @@ export default class ListItemNB extends NativeBaseComponent {
     getInitialStyle() {
         return {
             listItem: {
-                borderBottomWidth: 1,
                 padding: 7,
                 paddingRight: 10,
                 paddingLeft: 10,
@@ -33,9 +32,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 flexDirection: 'row'
             },
             itemText: {
-                fontSize: 18,               
-                alignSelf: 'center',
-                marginLeft: 10
+                fontSize: 18,  
             },
             itemIcon: {
                 fontSize: 18,
@@ -63,6 +60,15 @@ export default class ListItemNB extends NativeBaseComponent {
             fullImage: {
                 width: 300,
                 height: 300
+            }
+        }
+    }
+    getRightStyle() {
+        return {
+            right : {
+                flex: 1,
+                paddingLeft: 15
+                
             }
         }
     }
@@ -159,7 +165,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else {
                 var childrenArray = React.Children.toArray(this.props.children);
                 newChildren.push(React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
-                newChildren.push(<View style={{backgroundColor: '#777'}}>
+                newChildren.push(<View style={this.getRightStyle().right}>
                         {childrenArray.slice(1).map((child) => {
                           return React.cloneElement(child, this.getChildProps(child));
                         })}

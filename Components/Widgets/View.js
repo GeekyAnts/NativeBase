@@ -10,7 +10,7 @@ import computeProps from '../../Utils/computeProps';
 export default class ViewNB extends NativeBaseComponent {
     render() {
         return(
-            <View {...this.props}></View>
+            <View style={{padding: (this.props.padder) ? this.getTheme().contentPadding : 0}} {...this.props}></View>
         );
     }    
 
