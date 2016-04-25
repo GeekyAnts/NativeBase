@@ -31,9 +31,6 @@ export default class ListItemNB extends NativeBaseComponent {
                 fontSize: 25,
                 color: 'black'
             },
-            itemButton: {
-                width: 50
-            },
             itemNote: {
                 fontSize: 15,
                 color: '#999'
