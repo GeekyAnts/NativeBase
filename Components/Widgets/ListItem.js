@@ -16,18 +16,27 @@ export default class ListItemNB extends NativeBaseComponent {
         return {
             listItem: {
                 borderBottomWidth: 1,
-                padding: 7
+                padding: 7,
+                paddingRight: 10,
+                paddingLeft: 10,
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'space-between'
             },
             listItemDivider: {
                 borderBottomWidth: 1,
                 padding: 7,
-                backgroundColor: '#ddd'
+                backgroundColor: '#E8E6EF',
+                flex: 1,
+                flexDirection: 'row'
             },
             itemText: {
-                fontSize: 25
+                fontSize: 18,               
+                alignSelf: 'center',
+                marginLeft: 10
             },
             itemIcon: {
-                fontSize: 25,
+                fontSize: 18,
                 color: 'black'
             },
             itemButton: {
@@ -35,7 +44,12 @@ export default class ListItemNB extends NativeBaseComponent {
             },
             itemNote: {
                 fontSize: 15,
-                color: '#999'
+                color: '#58575C',
+                alignSelf: 'center',
+                fontWeight: '100',
+                flex: 1,
+                textAlign: 'right',
+
             }
         }
     }
@@ -86,6 +100,7 @@ export default class ListItemNB extends NativeBaseComponent {
 
         return newChildren;
     }
+    
     
     render() { 
         return(
