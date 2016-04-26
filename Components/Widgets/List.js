@@ -22,8 +22,10 @@ export default class ListNB extends NativeBaseComponent {
         }
     }
 
-    prepareRootProps() {
 
+    prepareRootProps() {
+        var last = _.last(this.props.children);
+        console.log(last, "[[[[][][][][]["); 
         var defaultProps = {
             style: this.props.inset ? this.getInitialStyle().insetList : this.getInitialStyle().list
         };

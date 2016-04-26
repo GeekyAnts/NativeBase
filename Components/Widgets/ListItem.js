@@ -21,6 +21,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 paddingRight: 10,
                 paddingLeft: 10,
                 flex: 1,
+                justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                 flexDirection: 'row',
                 alignItems: 'center'
             },
@@ -29,6 +30,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 padding: 7,
                 backgroundColor: '#E8E6EF',
                 flex: 1,
+                justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                 flexDirection: 'row'
             },
             itemText: {
@@ -103,6 +105,7 @@ export default class ListItemNB extends NativeBaseComponent {
         return buttonComponentPresent;
     }
 
+
     getChildStyle(child) {
         var mergedStyle = {};
         if(child.type == Icon) {
@@ -131,6 +134,7 @@ export default class ListItemNB extends NativeBaseComponent {
         else 
             return child.props.style;
     }
+    
 
     getChildProps(child) {
         var defaultProps = {};
