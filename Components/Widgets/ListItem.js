@@ -13,61 +13,63 @@ import Thumbnail from './Thumbnail';
 
 export default class ListItemNB extends NativeBaseComponent {
 
-    getInitialStyle() {
-        return {
-            listItem: {
-                padding: 7,
-                paddingRight: 10,
-                paddingLeft: 10,
-                flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-            },
-            listItemDivider: {
-                borderBottomWidth: 1,
-                padding: 7,
-                backgroundColor: '#E8E6EF',
-                flex: 1,
-                flexDirection: 'row'
-            },
-            itemText: {
-                fontSize: 18,  
-            },
-            itemIcon: {
-                fontSize: 18,
-                color: 'black'
-            },
-            itemButton: {
-                width: 50
-            },
-            itemNote: {
-                fontSize: 15,
-                color: '#58575C',
-                alignSelf: 'center',
-                fontWeight: '100',
-                flex: 1,
-                textAlign: 'right',
+   getInitialStyle() {
+           return {
+               listItem: {
+                   borderBottomWidth: 1,
+                   padding: 8,
+                   borderRadius: 1,
+                   paddingRight: 10,
+                   paddingLeft: 10,
+                   flex: 1,
+                   justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
+                   flexDirection: 'row',
+                   alignItems: 'center',
+                   borderColor: this.getTheme().listBorderColor
+               },
+               listItemDivider: {
+                   borderBottomWidth: 1,
+                   padding: 7,
+                   backgroundColor: '#ddd',
+                   flex: 1,
+                   justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
+                   flexDirection: 'row',
+                   borderColor: this.getTheme().listBorderColor
+               },
+               itemText: {
+                   fontSize: 18,  
+               },
+               itemIcon: {
+                   fontSize: 27,
+                   color: 'black'
+               },
+               itemNote: {
+                   fontSize: 15,
+                   color: '#58575C',
+                   alignSelf: 'center',
+                   fontWeight: '100',
+                   flex: 1,
+                   textAlign: 'right',
 
-            },
-            itemSubNote: {
-                fontSize: 15,
-                color: '#999'
-            },
-            thumbnail: {
-
-            },
-            fullImage: {
-                width: 300,
-                height: 300
-            }
-        }
-    }
+               },
+               itemSubNote: {
+                   fontSize: 15,
+                   color: '#999'
+               },
+               thumbnail: {
+                   alignSelf: 'center',
+               },
+               fullImage: {
+                   width: 300,
+                   height: 300
+               }
+           }
+       }
     getRightStyle() {
         return {
             right : {
                 flex: 1,
-                paddingLeft: 15
+                paddingLeft: 10
                 
             }
         }

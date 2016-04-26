@@ -98,5 +98,7 @@ module.exports = {
 	jumbotronPadding: 30,
 	jumbotronBg: "#C9C9CE",
 
-    contentPadding: contentPadding
+    contentPadding: contentPadding,
+    
+    listBorderColor: "#ddd"
 }

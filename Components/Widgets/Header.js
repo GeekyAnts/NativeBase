@@ -12,7 +12,7 @@ export default class Header extends NativeBaseComponent {
         return {
             navbar: {
                 backgroundColor: this.getTheme().toolbarDefaultBg,
-                justifyContent: 'space-between',
+                justifyContent: (!Array.isArray(this.props.children)) ? 'space-between' : 'center',
                 flexDirection: 'row',
                 alignItems: 'center',
                 padding: 15,    
@@ -50,9 +50,9 @@ export default class Header extends NativeBaseComponent {
                   <View >                    
                       {this.props.children}
                   </View>}
-
                 { Array.isArray(this.props.children) && 
-                  <View style={{flex: 1,alignItems: 'center', paddingTop: 10}}>                    
+                  <View style={{flex: 1,alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row'
+                }}>                     
                       {this.props.children[0]}                    
                   </View>}
                 { Array.isArray(this.props.children) && 
@@ -60,7 +60,7 @@ export default class Header extends NativeBaseComponent {
                       {this.props.children[1]}                    
                   </View>}
                 { Array.isArray(this.props.children) && 
-                  <View style={{flex:1,alignItems: 'center', paddingTop: 10}}>                    
+                  <View style={{flex:1,alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row'}}>                    
                       {this.props.children[2]}
                   </View>}
                 

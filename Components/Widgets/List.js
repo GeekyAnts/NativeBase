@@ -16,13 +16,17 @@ export default class ListNB extends NativeBaseComponent {
             },
             insetList: {
                 borderWidth: 1,
-                borderRadius: 8
+                borderColor: this.getTheme().listBorderColor,
+                margin: 15,
+                borderBottomWidth: 0
             }
         }
     }
 
-    prepareRootProps() {
 
+    prepareRootProps() {
+        var last = _.last(this.props.children);
+        console.log(last, "[[[[][][][][]["); 
         var defaultProps = {
             style: this.props.inset ? this.getInitialStyle().insetList : this.getInitialStyle().list
         };
