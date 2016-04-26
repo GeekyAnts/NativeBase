@@ -89,7 +89,7 @@ module.exports = {
 	inputColorPlaceholder: "rgba(0,0,0,0.8)",
     inputPaddingLeft: 5,
     get inputPaddingLeftIcon () {
-        return multiply(inputPaddingLeft, 8);;
+        return multiply(this.inputPaddingLeft, 8);;
     },
 
 	dropdownBg: "#000",
