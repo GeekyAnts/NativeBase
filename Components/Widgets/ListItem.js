@@ -103,52 +103,50 @@ export default class ListItemNB extends NativeBaseComponent {
         return buttonComponentPresent;
     }
 
-    getChildStyle(child) {
-        var mergedStyle = {};
-        if(child.type == Icon) {
-            return _.merge(mergedStyle, this.getInitialStyle().itemIcon, child.props.style);
-        }
-
-        else if(child.type == Text) {
-            if(child.props.note && this.thumbnailPresent())
-                return _.merge(mergedStyle, this.getInitialStyle().itemSubNote, child.props.style);
-            else if(child.props.note)
-                return _.merge(mergedStyle, this.getInitialStyle().itemNote, child.props.style);
-            else
-                return _.merge(mergedStyle, this.getInitialStyle().itemText, child.props.style);
-        }
-
-        else if(child.type == Button) {
-            return _.merge(mergedStyle, this.getInitialStyle().itemButton, child.props.style);
-        }
-
-        else if(child.type == Thumbnail) {
-            return _.merge(mergedStyle, this.getInitialStyle().thumbnail, child.props.style);
-        }
-
-        else if(child.type == Image && !Array.isArray(this.props.children))
-            return _.merge(mergedStyle, this.getInitialStyle().fullImage, child.props.style);
-        else 
-            return child.props.style;
-    }
-
     getChildProps(child) {
         var defaultProps = {};
         if(child.type == Image && !Array.isArray(this.props.children)) {
             defaultProps = {
                 resizeMode: 'stretch', 
-                style: this.getChildStyle(child)
+                style: this.getInitialStyle().fullImage
             }
         }
         else if(child.type == Button) {
             defaultProps = {
                 small: true,
-                style: this.getChildStyle(child)
+                style: this.getInitialStyle().itemButton
+            }
+        }
+        else if(child.type == Text) {
+            if(child.props.note && this.thumbnailPresent()) {
+                defaultProps = {
+                    style: this.getInitialStyle().itemSubNote
+                }
+            }
+            else if(child.props.note) {
+                defaultProps = {
+                    style: this.getInitialStyle().itemNote
+                }
+            }
+            else {
+                defaultProps = {
+                    style: this.getInitialStyle().itemText
+                }
+            }
+        }
+        else if(child.type == Icon) {
+            defaultProps = {
+                style: this.getInitialStyle().itemIcon
+            }
+        }
+        else if(child.type == Thumbnail) {
+            defaultProps = {
+                style: this.getInitialStyle().thumbnail
             }
         }
         else {
             defaultProps = {
-                style: this.getChildStyle(child)
+                style: {}
             }
         }
 
