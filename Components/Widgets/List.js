@@ -16,8 +16,9 @@ export default class ListNB extends NativeBaseComponent {
             },
             insetList: {
                 borderWidth: 1,
-                borderRadius: 8,
-                margin: 15
+                borderColor: this.getTheme().listBorderColor,
+                margin: 15,
+                borderBottomWidth: 0
             }
         }
     }

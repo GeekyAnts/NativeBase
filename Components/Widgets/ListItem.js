@@ -17,21 +17,24 @@ export default class ListItemNB extends NativeBaseComponent {
         return {
             listItem: {
                 borderBottomWidth: 1,
-                padding: 7,
+                padding: 8,
+                borderRadius: 1,
                 paddingRight: 10,
                 paddingLeft: 10,
                 flex: 1,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                 flexDirection: 'row',
-                alignItems: 'center'
+                alignItems: 'center',
+                borderColor: this.getTheme().listBorderColor
             },
             listItemDivider: {
                 borderBottomWidth: 1,
                 padding: 7,
-                backgroundColor: '#E8E6EF',
+                backgroundColor: '#ddd',
                 flex: 1,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
-                flexDirection: 'row'
+                flexDirection: 'row',
+                borderColor: this.getTheme().listBorderColor
             },
             itemText: {
                 fontSize: 18,  
@@ -69,7 +72,7 @@ export default class ListItemNB extends NativeBaseComponent {
         return {
             right : {
                 flex: 1,
-                paddingLeft: 15
+                paddingLeft: 10 
                 
             }
         }
