@@ -33,11 +33,21 @@ export default class ListNB extends NativeBaseComponent {
         return computeProps(this.props, defaultProps);
 
     }
+
+    renderChildren() {
+        var childrenArray = React.Children.toArray(this.props.children);
+
+        var lastElement = _.last(childrenArray);
+
+        var modLastElement = React.cloneElement(lastElement, computeProps(lastElement.props, {last: true}));
+
+        return _.concat(_.slice(childrenArray, 0, childrenArray.length - 1), modLastElement);
+    }
     
     render() { 
         return(
           <View {...this.prepareRootProps()} >
-            {this.props.children}
+            {this.renderChildren()}
           </View>
         );
     }
