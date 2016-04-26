@@ -17,7 +17,7 @@ export default class Button extends NativeBaseComponent {
                 padding: 10,
                 justifyContent: 'space-around',
                 flexDirection: 'row',
-                marginBottom: 10,
+                alignSelf: 'center',
                 backgroundColor: this.getTheme().btnPrimaryBg,
             }
         }
