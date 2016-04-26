@@ -1,7 +1,7 @@
 {
   "name": "native-base",
   "description": "The missing piece of React Native",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": false,
   "dependencies": {
     "color": "~0.11.1",
