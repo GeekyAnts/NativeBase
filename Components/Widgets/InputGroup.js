@@ -3,7 +3,7 @@
 
 import React, {Text, View, TextInput, PixelRatio } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from './Icon';
 import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 import Input from './Input';
