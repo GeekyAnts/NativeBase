@@ -22,6 +22,7 @@ import InputGroup from './Components/Widgets/InputGroup';
 import Icon from './Components/Widgets/Icon';
 import Thumbnail from './Components/Widgets/Thumbnail';
 import Card from './Components/Widgets/Card';
+import Badge from './Components/Widgets/Badge';
 
 module.exports = {
 	Header: Header,
@@ -43,5 +44,6 @@ module.exports = {
 	InputGroup: InputGroup,
 	Icon: Icon,
 	Thumbnail: Thumbnail,
-	Card: Card
+	Card: Card,
+	Badge: Badge
 };

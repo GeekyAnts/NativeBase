@@ -16,11 +16,9 @@ export default class ListItemNB extends NativeBaseComponent {
    getInitialStyle() {
            return {
                listItem: {
-                   borderBottomWidth: 1,
-                   padding: 8,
+                   borderBottomWidth: this.getTheme().borderWidth,
+                   padding: this.getTheme().listItemPadding,
                    borderRadius: 1,
-                   paddingRight: 10,
-                   paddingLeft: 10,
                    flex: 1,
                    justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                    flexDirection: 'row',
@@ -28,24 +26,28 @@ export default class ListItemNB extends NativeBaseComponent {
                    borderColor: this.getTheme().listBorderColor
                },
                listItemDivider: {
-                   borderBottomWidth: 1,
-                   padding: 7,
-                   backgroundColor: '#ddd',
+                   borderBottomWidth: this.getTheme().borderWidth,
+                   padding: this.getTheme().listItemPadding,
+                   backgroundColor: this.getTheme().listDividerBg,
                    flex: 1,
                    justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                    flexDirection: 'row',
                    borderColor: this.getTheme().listBorderColor
                },
                itemText: {
-                   fontSize: 18,  
+                   fontSize: 16,  
+               },
+               dividerItemText: {
+                   fontSize: 16,  
+                   fontWeight: '500'
                },
                itemIcon: {
-                   fontSize: 27,
+                   fontSize: this.getTheme().iconFontSize,
                    color: 'black'
                },
                itemNote: {
                    fontSize: 15,
-                   color: '#58575C',
+                   color: this.getTheme().listNoteColor,
                    alignSelf: 'center',
                    fontWeight: '100',
                    flex: 1,
@@ -70,6 +72,22 @@ export default class ListItemNB extends NativeBaseComponent {
             right : {
                 flex: 1,
                 paddingLeft: 10
+                
+            },
+            right2 : {
+                flex: 1,
+                flexDirection: 'row',
+                paddingLeft: 10,
+                alignItems: 'center',
+                justifyContent: 'space-between'
+                
+            },
+            right3 : {
+                flex: 1,
+                flexDirection: 'row',
+                paddingLeft: 10,
+                alignItems: 'center',
+                justifyContent: 'space-between'
                 
             }
         }
@@ -120,20 +138,27 @@ export default class ListItemNB extends NativeBaseComponent {
             }
         }
         else if(child.type == Text) {
-            if(child.props.note && this.thumbnailPresent()) {
-                defaultProps = {
-                    style: this.getInitialStyle().itemSubNote
+            if (this.props.itemDivider) {
+              defaultProps = {
+                    style: this.getInitialStyle().dividerItemText
                 }
-            }
-            else if(child.props.note) {
-                defaultProps = {
-                    style: this.getInitialStyle().itemNote
-                }
-            }
-            else {
-                defaultProps = {
-                    style: this.getInitialStyle().itemText
-                }
+            } else {
+              if(child.props.note && this.thumbnailPresent()) {
+                  defaultProps = {
+                      style: this.getInitialStyle().itemSubNote
+                  }
+              }
+              else if(child.props.note) {
+                  defaultProps = {
+                      style: this.getInitialStyle().itemNote
+                  }
+              }
+              else {
+                  defaultProps = {
+                      style: this.getInitialStyle().itemText
+                  }
+              }
+              
             }
         }
         else if(child.type == Icon) {
@@ -171,6 +196,23 @@ export default class ListItemNB extends NativeBaseComponent {
 
     }
 
+   
+    notePresent() {
+
+          var notePresent = false;
+          if (this.thumbnailPresent()) {
+              React.Children.forEach(this.props.children, function (child) {
+                  if(child.type == Text && child.props.note)
+                      notePresent = true;
+              })
+            
+          } 
+
+          return notePresent;
+      
+
+    }
+
     renderChildren() {
         if(!this.thumbnailPresent() && !this.iconPresent()) {
             var newChildren = React.Children.map(this.props.children, (child) => {
@@ -189,7 +231,8 @@ export default class ListItemNB extends NativeBaseComponent {
             else {
                 var childrenArray = React.Children.toArray(this.props.children);
                 newChildren.push(React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
-                newChildren.push(<View style={this.getRightStyle().right}>
+                newChildren.push(<View style={ this.notePresent() ? this.getRightStyle().right : 
+                                               this.getRightStyle().right2 }>
                         {childrenArray.slice(1).map((child) => {
                           return React.cloneElement(child, this.getChildProps(child));
                         })}

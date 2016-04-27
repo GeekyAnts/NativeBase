@@ -81,6 +81,7 @@ module.exports = {
         return this.inverseTextColor;
     },	
 
+    borderWidth: 1,
 	
 	inputColor: "#000",
 	inputBorderColor: "#000",
@@ -99,6 +100,14 @@ module.exports = {
 	jumbotronBg: "#C9C9CE",
 
     contentPadding: contentPadding,
-    
-    listBorderColor: "#ddd"
+
+    listBorderColor: "#ddd",
+    listDividerBg: "#F5F5F5",
+    listItemPadding: 15,
+    listNoteColor: "#58575C",
+
+    iconFontSize: 27,
+
+    badgeColor: "#fff",
+    badgeBg: "#ED1727"
 }
