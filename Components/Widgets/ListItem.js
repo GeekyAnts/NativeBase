@@ -84,10 +84,9 @@ export default class ListItemNB extends NativeBaseComponent {
             },
             right3 : {
                 flex: 1,
-                flexDirection: 'row',
+                flexDirection: 'column',
                 paddingLeft: 10,
-                alignItems: 'center',
-                justifyContent: 'space-between'
+                alignSelf: 'flex-start'
                 
             }
         }
@@ -200,7 +199,7 @@ export default class ListItemNB extends NativeBaseComponent {
     notePresent() {
 
           var notePresent = false;
-          if (this.thumbnailPresent()) {
+          if (this.thumbnailPresent() && !this.squareThumbs()) {
               React.Children.forEach(this.props.children, function (child) {
                   if(child.type == Text && child.props.note)
                       notePresent = true;
@@ -209,6 +208,22 @@ export default class ListItemNB extends NativeBaseComponent {
           } 
 
           return notePresent;
+      
+
+    }
+
+    squareThumbs() {
+          var squareThumbs = false;
+          if (this.thumbnailPresent()) {
+              React.Children.forEach(this.props.children, function (child) {
+                  if(child.props.square)
+                      squareThumbs = true;
+              })
+            
+          } 
+
+            console.log(squareThumbs, 'ruuu?');
+          return squareThumbs;
       
 
     }
@@ -231,7 +246,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else {
                 var childrenArray = React.Children.toArray(this.props.children);
                 newChildren.push(React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
-                newChildren.push(<View style={ this.notePresent() ? this.getRightStyle().right : 
+                newChildren.push(<View style={ this.notePresent() ? this.getRightStyle().right : this.squareThumbs() ? this.getRightStyle().right3 :
                                                this.getRightStyle().right2 }>
                         {childrenArray.slice(1).map((child) => {
                           return React.cloneElement(child, this.getChildProps(child));
