@@ -3,13 +3,14 @@ The missing piece of React Native
 
 Get on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS development. Placed apart the Objective-C and Swift tutorials, and start coding iOS apps with JavaScript. Get an introduction to NativeBase and work through an instance application that highlights React Native programming techniques.
 
-
+####
 ## Magic of NativeBase
 <center>
 	<iframe width="480" height="300" src="./img/magic-with-nativebase-020.mp4" frameborder="0" allowfullscreen style="margin-top: 20px; margin-bottom: 20px">
 	</iframe>
 </center>
 
+####
 ## What is NativeBase?
 NativeBase is a free and open source framework that enables developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6. NativeBase builds a layer on top of React Native that proivides you with basic set of components for mobile application development. This helps you to build world-class application experiences on native platforms.
 
@@ -23,7 +24,7 @@ One import statement, and you get all React Native and NativeBase components.
 	<span style="color: #66d9ef">import</span> { list <span style="color: #66d9ef">of</span> Components } <span style="color: #66d9ef">from</span> <span style="color: #a6e22e">'native-base'</span>;
 </blockquote>
 
-
+####
 ## Get Started
 
 To have NativeBase components running onto your native apps, all you need to do is create a fresh React Native project and install the NativeBase command line tools.
@@ -41,22 +42,24 @@ Include NativeBase into your React Native project.
 
 Now you are ready to get going with NativeBase. [Read More. . .](http://nativebase.io/documentation)
 
-
+####
 ## Components
 
 NativeBase is made from effective building blocks referred to as components. The Components are constructed in pure React Native platform along with some JavaScript functionality with rich set of customisable properties. These components allow you to quickly build the perfect interface. [Read More. . .](http://nativebase.io/documentation)
 
 #### [**Live Demo**](http://nativebase.io/components)
 
+####
 ## NativeBase Community
 
 *	Twitter: [https://twitter.com/NativeBaseIO](https://twitter.com/NativeBaseIO)
 *	Medium: [https://medium.com/nativebase-io-blog](https://medium.com/nativebase-io-blog)
 
-
+####
 ## Documentation
 
 Go through [NativeBase Docs](http://nativebase.io/documentation) to play with NativeBase.
 
+####
 # Website
 [http://nativebase.io/](http://nativebase.io/)
