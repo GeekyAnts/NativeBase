@@ -5,10 +5,8 @@ Get on the mobile fast track with NativeBase, the fastest-growing platform and t
 
 ####
 ## Magic of NativeBase
-<center>
-	<iframe width="480" height="300" src="./img/magic-with-nativebase-020.mp4" frameborder="0" allowfullscreen style="margin-top: 20px; margin-bottom: 20px">
-	</iframe>
-</center>
+<center>[![magic](./img/magic.png)](http://nativebase.io/docs/v0.2.1/assets/img/magic-with-nativebase-020.mp4)</center>
+<i>Click to watch the magic</i>
 
 ####
 ## What is NativeBase?
