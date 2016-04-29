@@ -30,8 +30,8 @@ To have NativeBase components running onto your native apps, all you need to do 
 
 <blockquote style="background-color: #000; width: 600px; color: #fff; font-family: Monaco">
 	react-native init AwesomeNativeBase<br />
-	&nbsp;cd AwesomeNativeBase<br />
-	&nbsp;npm install<br />
+	cd AwesomeNativeBase<br />
+	npm install<br />
 </blockquote>
 
 Include NativeBase into your React Native project.
