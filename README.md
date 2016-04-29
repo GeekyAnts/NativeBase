@@ -6,6 +6,7 @@ Get on the mobile fast track with NativeBase, the fastest-growing platform and t
 ####
 ## Magic of NativeBase
 <center>[![magic](./img/magic.png)](http://nativebase.io/docs/v0.2.1/assets/img/magic-with-nativebase-020.mp4)</center>
+
 <i>Click to watch the magic</i>
 
 ####
