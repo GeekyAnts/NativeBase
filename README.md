@@ -1,7 +1,7 @@
 # NativeBase
 The missing piece of React Native
 
-Get on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS development. Get an introduction to NativeBase and work through an instance application that highlights React Native programming techniques.
+Get on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS and Android development. Get an introduction to NativeBase and work through an instance application that highlights React Native programming techniques.
 
 ####
 ## Magic of NativeBase
