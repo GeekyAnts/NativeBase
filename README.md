@@ -14,7 +14,7 @@ Get on the mobile fast track with NativeBase, the fastest-growing platform and t
 NativeBase is a free and open source framework that enables developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6. NativeBase builds a layer on top of React Native that proivides you with basic set of components for mobile application development. This helps you to build world-class application experiences on native platforms.
 
 
-The applications stack of components is built using native UI components and because of that, there are no compromises with the User Experience of the applications. NativeBase is targeted specially on the look and feel, and UI interplay of your app. NativeBase without a doubt fits in well with mobile applications which cut downs one huge part of your app The Front end.
+The applications stack of components is built using native UI components and because of that, there are no compromises with the User Experience of the applications. NativeBase is targeted specially on the look and feel, and UI interplay of your app. NativeBase without a doubt fits in well with mobile applications which cuts down one huge part of your app - The Front end.
 
 What is really great is that you can use shared UI cross-platform components, which will drastically increase your productivity. When using NativeBase, you can use any native third-party libraries out of the box. You do not need to use wrappers or do any other actions. The new additions to the native platform are available immediately. NativeBase provides amazing support for adding components, so that you will by no means hit a lifeless stop. [Read More. . .](http://nativebase.io/documentation)
 
