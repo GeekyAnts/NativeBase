@@ -12,8 +12,15 @@ import Button from './Button';
 import Thumbnail from './Thumbnail';
 
 export default class ListItemNB extends NativeBaseComponent {
-
-   getInitialStyle() {
+    static childContextTypes = {
+        theme: React.PropTypes.object
+    }
+    
+    getChildContext() {
+        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
+    }
+    
+    getInitialStyle() {
            return {
                listItem: {
                    borderBottomWidth: this.getTheme().borderWidth,

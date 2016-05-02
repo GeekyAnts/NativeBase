@@ -8,6 +8,14 @@ import computeProps from '../../Utils/computeProps';
 
 
 export default class ViewNB extends NativeBaseComponent {
+    static childContextTypes = {
+        theme: React.PropTypes.object
+    }
+    
+    getChildContext() {
+        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
+    }
+
     render() {
         return(
             <View style={{padding: (this.props.padder) ? this.getTheme().contentPadding : 0}} {...this.props}></View>

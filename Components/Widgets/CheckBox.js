@@ -8,7 +8,14 @@ import computeProps from '../../Utils/computeProps';
 import Checkbox from 'react-native-checkbox';
 
 export default class CheckBox extends NativeBaseComponent {
-
+    static childContextTypes = {
+        theme: React.PropTypes.object
+    }
+    
+    getChildContext() {
+        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
+    }
+    
     getInitialStyle() {
         return {
             checkboxLabel: {

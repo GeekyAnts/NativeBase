@@ -9,9 +9,16 @@ import Footer from './Footer';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 
 export default class Container extends NativeBaseComponent {
+	static childContextTypes = {
+	    theme: React.PropTypes.object
+	}
+	
+	getChildContext() {
+	    return {theme: this.props.theme ? this.props.theme : this.getTheme()};
+	}
 	
 	renderHeader() {
-      	
+      	console.log(this.context.theme);
       	return _.find(this.props.children, function(item) {
             if(item && item.type == Header) {
                 return true;

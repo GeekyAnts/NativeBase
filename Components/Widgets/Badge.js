@@ -8,7 +8,14 @@ import computeProps from '../../Utils/computeProps';
 
 
 export default class BadgeNB extends NativeBaseComponent {
-
+    static childContextTypes = {
+        theme: React.PropTypes.object
+    }
+    
+    getChildContext() {
+        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
+    }
+    
     prepareRootProps() {
 
         var type = { 

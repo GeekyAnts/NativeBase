@@ -8,11 +8,19 @@ import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
 export default class Header extends NativeBaseComponent { 
+    static childContextTypes = {
+        theme: React.PropTypes.object
+    }
+    
+    getChildContext() {
+        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
+    }
+    
     getInitialStyle() {
         return {
             navbar: {
                 backgroundColor: this.getTheme().toolbarDefaultBg,
-                justifyContent: (!Array.isArray(this.props.children)) ? 'space-between' : 'center',
+                justifyContent: (!Array.isArray(this.props.children)) ? 'center' : 'space-between',
                 flexDirection: 'row',
                 alignItems: 'center',
                 padding: 15,    

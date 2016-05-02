@@ -8,6 +8,14 @@ import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
 export default class Footer extends NativeBaseComponent { 
+    static childContextTypes = {
+        theme: React.PropTypes.object
+    }
+    
+    getChildContext() {
+        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
+    }
+    
     getInitialStyle() {
         return {
             navbar: {

@@ -10,7 +10,14 @@ import Input from './Input';
 
 
 export default class InputGroup extends NativeBaseComponent {
-
+	static childContextTypes = {
+        theme: React.PropTypes.object
+    }
+    
+    getChildContext() {
+        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
+    }
+    
 	getInitialStyle() {
 	    return {
 	        textInput: {

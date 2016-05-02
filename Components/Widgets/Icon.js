@@ -8,7 +8,14 @@ import computeProps from '../../Utils/computeProps';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class IconNB extends NativeBaseComponent {
-
+    static childContextTypes = {
+        theme: React.PropTypes.object
+    }
+    
+    getChildContext() {
+        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
+    }
+    
     getInitialStyle() {
         return {
             icon: {
