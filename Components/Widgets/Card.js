@@ -11,8 +11,17 @@ export default class CardNB extends NativeBaseComponent {
     getInitialStyle() {
         return {
             card: {
-                borderWidth: 1,
-                borderRadius: 8
+                flex: 1,
+                borderWidth: this.getTheme().borderWidth,
+                borderRadius: this.getTheme().borderRadiusBase,
+                borderColor: this.getTheme().listBorderColor,
+                flexWrap: 'wrap',
+                borderBottomWidth: 0,
+                backgroundColor: '#fff',
+                shadowColor: '#000',
+                shadowOffset: {width: 0, height: 2},
+                shadowOpacity: 0.1,
+                shadowRadius: 1.5
             }
         }
     }

@@ -12,7 +12,7 @@ export default class ListNB extends NativeBaseComponent {
     getInitialStyle() {
         return {
             list: {
-
+                
             },
             insetList: {
                 borderWidth: 1,

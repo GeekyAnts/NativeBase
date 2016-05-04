@@ -1,6 +1,6 @@
 var React = require('react-native');
 
-var StyleSheetRegistry = require('react-native/Libraries/ReactNative/ReactNativePropRegistry');
+var StyleSheetRegistry = require('react-native/Libraries/StyleSheet/StyleSheetRegistry');
 
 module.exports = function(incomingProps, defaultProps) {
 

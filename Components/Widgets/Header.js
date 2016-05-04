@@ -12,7 +12,7 @@ export default class Header extends NativeBaseComponent {
         return {
             navbar: {
                 backgroundColor: this.getTheme().toolbarDefaultBg,
-                justifyContent: (!Array.isArray(this.props.children)) ? 'space-between' : 'center',
+                justifyContent: (!Array.isArray(this.props.children)) ? 'center' : 'space-between',
                 flexDirection: 'row',
                 alignItems: 'center',
                 padding: 15,    

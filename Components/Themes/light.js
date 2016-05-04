@@ -47,7 +47,7 @@ module.exports = {
 
     footerHeight: 55,
 	toolbarHeight: 70,
-	toolbarDefaultBg: "#505052",
+	toolbarDefaultBg: "#4563ED",
 	toolbarInverseBg: "#222",
 
 	get btnPrimaryBg () {
@@ -109,5 +109,7 @@ module.exports = {
     iconFontSize: 27,
 
     badgeColor: "#fff",
-    badgeBg: "#ED1727"
+    badgeBg: "#ED1727",
+
+    lineHeight: 21
 }
