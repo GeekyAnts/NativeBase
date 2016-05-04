@@ -20,7 +20,7 @@ export default class ListItemNB extends NativeBaseComponent {
                    padding: this.getTheme().listItemPadding,
                    borderRadius: 1,
                    flex: 1,
-                   justifyContent: ((this.isIconRight() && !this.isIconLeft()) || (this.isIconRight() && this.isIconLeft())) ? 'space-between' : 'flex-start',
+                   justifyContent: ((this.props.iconRight && !this.props.iconLeft) || (this.props.iconRight && this.props.iconLeft)) ? 'space-between' : 'flex-start',
                    flexDirection: 'row',
                    alignItems: 'center',
                    borderColor: this.getTheme().listBorderColor
@@ -36,7 +36,7 @@ export default class ListItemNB extends NativeBaseComponent {
                },
                itemText: {
                    fontSize: 16, 
-                   paddingLeft: (this.isIconLeft()) ? 10 : 0
+                   paddingLeft: (this.props.iconLeft) ? 10 : 0
                },
                dividerItemText: {
                    fontSize: 16,  
@@ -138,7 +138,7 @@ export default class ListItemNB extends NativeBaseComponent {
             }
         }
         else if(child.type == Text) {
-            if (this.props['item-divider']) {
+            if (this.props.itemDivider) {
               defaultProps = {
                     style: this.getInitialStyle().dividerItemText
                 }
@@ -183,7 +183,7 @@ export default class ListItemNB extends NativeBaseComponent {
     prepareRootProps() {
         var defaultProps = {};
         
-        if(this.props['item-divider'])
+        if(this.props.itemDivider)
             defaultProps = {
                 style: this.getInitialStyle().listItemDivider
             };
@@ -207,24 +207,6 @@ export default class ListItemNB extends NativeBaseComponent {
           return notePresent;
       
 
-    }
-
-    isIconLeft() {
-        var iconLeft = false;
-        if (this.props['icon-left']) {
-            iconLeft = true;
-        }
-        return iconLeft;
-    }
-
-
-
-    isIconRight() {
-        var iconRight = false;
-        if (this.props['icon-right']) {
-            iconRight = true;
-        }
-        return iconRight;
     }
 
     squareThumbs() {
@@ -257,7 +239,7 @@ export default class ListItemNB extends NativeBaseComponent {
             var childrenArray = React.Children.toArray(this.props.children);
             var iconElement = [];
 
-            if (this.isIconLeft() && !this.isIconRight()) {
+            if (this.props.iconLeft && !this.props.iconRight) {
                 
                 iconElement = _.remove(childrenArray, function(item) {
                                             if(item.type == Icon) {
@@ -271,7 +253,7 @@ export default class ListItemNB extends NativeBaseComponent {
                                     })}
                                  </View>);                    
             } 
-            else if (this.isIconRight() && !this.isIconLeft()) {
+            else if (this.props.iconRight && !this.props.iconLeft) {
 
                 iconElement = _.remove(childrenArray, function(item) {
                                             if(item.type == Icon) {
@@ -286,7 +268,7 @@ export default class ListItemNB extends NativeBaseComponent {
                                  </View>);                    
                 newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
             } 
-            else if (this.isIconRight() && this.isIconLeft()) {
+            else if (this.props.iconRight && this.props.iconLeft) {
 
                 iconElement = _.filter(childrenArray, function(item) {
                                             if(item.type == Icon) {

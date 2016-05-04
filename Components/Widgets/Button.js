@@ -55,22 +55,6 @@ export default class Button extends NativeBaseComponent {
         return computeProps(this.props, defaultProps);
     }
 
-    isIconLeft() {
-        var iconLeft = false;
-        if (this.props['icon-left']) {
-            iconLeft = true;
-        }
-        return iconLeft;
-    }
-
-    isIconRight() {
-        var iconRight = false;
-        if (this.props['icon-right']) {
-            iconRight = true;
-        }
-        return iconRight;
-    }
-
     getTextStyle() {
         var mergedStyle = {};
 
@@ -131,12 +115,12 @@ export default class Button extends NativeBaseComponent {
                     return true;
                 }  
             });
-            if(this.isIconRight()) {
+            if(this.props.iconRight) {
                 newChildren.push(<Text style={this.getTextStyle()}>{childrenArray[0]}</Text>);
                 newChildren.push(<Text>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
             }
             
-            else if(this.isIconLeft() || iconElement) {
+            else if(this.props.iconLeft || iconElement) {
                 newChildren.push(<Text>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
                 newChildren.push(<Text style={this.getTextStyle()}>{childrenArray[0]}</Text>);
             }

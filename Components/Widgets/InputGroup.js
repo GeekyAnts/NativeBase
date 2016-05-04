@@ -66,11 +66,11 @@ export default class InputGroup extends NativeBaseComponent {
 	prepareRootProps() {
 
 		var type = {
-			paddingLeft:  (this.props['border-type'] === 'rounded' && !this.props.children.type == Icon) ? 15 : 
+			paddingLeft:  (this.props.borderType === 'rounded' && !this.props.children.type == Icon) ? 15 : 
 			(this.props.children.type == Icon ) ? this.getTheme().inputPaddingLeftIcon : 10
 		}
 
-		var defaultStyle = (this.props['border-type'] === 'regular') ? this.getInitialStyle().bordered : (this.props['border-type'] === 'rounded') ? this.getInitialStyle().rounded : this.getInitialStyle().underline;
+		var defaultStyle = (this.props.borderType === 'regular') ? this.getInitialStyle().bordered : (this.props.borderType === 'rounded') ? this.getInitialStyle().rounded : this.getInitialStyle().underline;
 
 		type = _.merge(type, defaultStyle);
 
