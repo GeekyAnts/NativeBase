@@ -4,10 +4,9 @@
 import React, {View} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
-import _ from 'lodash';
 
 export default class CardNB extends NativeBaseComponent {
-    
+
     getInitialStyle() {
         return {
             card: {
@@ -38,9 +37,9 @@ export default class CardNB extends NativeBaseComponent {
     
     render() { 
         return(
-          <View {...this.prepareRootProps()} >
-            {this.props.children}
-          </View>
+            <View {...this.prepareRootProps()} >
+                {this.props.children}
+            </View>
         );
     }
 

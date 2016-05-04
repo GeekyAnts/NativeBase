@@ -1,4 +1,4 @@
-import Color from 'color';
+//import Color from 'color';
 import multiply from 'multiplier';
 
 module.exports = {
@@ -39,18 +39,18 @@ module.exports = {
         return multiply(this.iconFontSize, .6);
     },
 
-	borderRadiusBase: 4,
+    borderRadiusBase: 4,
 
-	get borderRadiusLarge () {
+    get borderRadiusLarge () {
         return multiply(this.fontSizeBase, 3.8);
     },	
 
     footerHeight: 55,
-	toolbarHeight: 70,
-	toolbarDefaultBg: "#4563ED",
-	toolbarInverseBg: "#222",
+    toolbarHeight: 70,
+    toolbarDefaultBg: "#4563ED",
+    toolbarInverseBg: "#222",
 
-	get btnPrimaryBg () {
+    get btnPrimaryBg () {
         return this.brandPrimary;
     },	
     get btnPrimaryColor () {
@@ -82,22 +82,26 @@ module.exports = {
     },	
 
     borderWidth: 1,
-	
-	inputColor: "#000",
-	inputBorderColor: "#000",
-	inputHeightBase: 40,	
-	inputGroupMarginBottom: 10,
-	inputColorPlaceholder: "rgba(0,0,0,0.8)",
+
+    get inputColor () {
+        return this.textColor;
+    },
+    get inputColorPlaceholder () {
+        return 'rgba(0, 0, 0, 0.7)';
+    },
+    inputBorderColor: "#000",
+    inputHeightBase: 40,	
+    inputGroupMarginBottom: 10,
     inputPaddingLeft: 5,
     get inputPaddingLeftIcon () {
         return multiply(this.inputPaddingLeft, 8);
     },
 
-	dropdownBg: "#000",
-	dropdownLinkColor: "#414142",
+    dropdownBg: "#000",
+    dropdownLinkColor: "#414142",
 
-	jumbotronPadding: 30,
-	jumbotronBg: "#C9C9CE",
+    jumbotronPadding: 30,
+    jumbotronBg: "#C9C9CE",
 
     contentPadding: 10,
 
