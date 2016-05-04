@@ -20,10 +20,10 @@ export default class ListItemNB extends NativeBaseComponent {
                    padding: this.getTheme().listItemPadding,
                    borderRadius: 1,
                    flex: 1,
-                   justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
+                   justifyContent: ((this.isIconRight() && !this.isIconLeft()) || (this.isIconRight() && this.isIconLeft())) ? 'space-between' : 'flex-start',
                    flexDirection: 'row',
                    alignItems: 'center',
-                   borderColor: this.getTheme().listBorderColor
+                   borderColor: this.getTheme().listBorderColor,
                },
                listItemDivider: {
                    borderBottomWidth: this.getTheme().borderWidth,
@@ -35,7 +35,8 @@ export default class ListItemNB extends NativeBaseComponent {
                    borderColor: this.getTheme().listBorderColor
                },
                itemText: {
-                   fontSize: 16,  
+                   fontSize: 16, 
+                   paddingLeft: (this.isIconLeft()) ? 10 : 0,
                },
                dividerItemText: {
                    fontSize: 16,  
@@ -185,13 +186,14 @@ export default class ListItemNB extends NativeBaseComponent {
             var defaultProps = {
                 style: this.getInitialStyle().listItemDivider
             };
+
+       
         else 
             var defaultProps = {
                 style: this.getInitialStyle().listItem
             };
 
-        console.log(computeProps(this.props, defaultProps));
-
+        
         return computeProps(this.props, defaultProps);
 
     }
@@ -200,17 +202,31 @@ export default class ListItemNB extends NativeBaseComponent {
     notePresent() {
 
           var notePresent = false;
-          if (this.thumbnailPresent() && !this.squareThumbs()) {
               React.Children.forEach(this.props.children, function (child) {
                   if(child.type == Text && child.props.note)
                       notePresent = true;
-              })
-            
-          } 
-
+              })   
           return notePresent;
       
 
+    }
+
+    isIconLeft() {
+        var isIconLeft = false;
+        if (this.props['icon-left']) {
+            var isIconLeft = true;
+        }
+        return isIconLeft;
+    }
+
+
+
+    isIconRight() {
+        var isIconRight = false;
+        if (this.props['icon-right']) {
+            var isIconRight = true;
+        }
+        return isIconRight;
     }
 
     squareThumbs() {
@@ -222,20 +238,13 @@ export default class ListItemNB extends NativeBaseComponent {
               })
             
           } 
-
-            console.log(squareThumbs, 'ruuu?');
           return squareThumbs;
       
 
     }
 
     renderChildren() {
-        if(!this.thumbnailPresent() && !this.iconPresent()) {
-            var newChildren = React.Children.map(this.props.children, (child) => {
-              return React.cloneElement(child, this.getChildProps(child));
-            });
-        } 
-        else {
+        
             var newChildren = [];
             if(!Array.isArray(this.props.children)) {
                 newChildren.push(
@@ -244,23 +253,81 @@ export default class ListItemNB extends NativeBaseComponent {
                     </View>
                 );
             }
+
+
             else {
                 var childrenArray = React.Children.toArray(this.props.children);
-                newChildren.push(React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
-                newChildren.push(<View style={ this.notePresent() ? this.getRightStyle().right : this.squareThumbs() ? this.getRightStyle().right3 :
-                                               this.getRightStyle().right2 }>
-                        {childrenArray.slice(1).map((child) => {
-                          return React.cloneElement(child, this.getChildProps(child));
-                        })}
-                    </View>);
+
+                if (this.isIconLeft() && !this.isIconRight()) {
+                    var iconElement = [];
+                    iconElement = _.remove(childrenArray, function(item) {
+                                                if(item.type == Icon) {
+                                                    return true;
+                                                }  
+                                            });
+                    newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
+                    newChildren.push(<View style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}} >
+                                        {childrenArray.map((child) => {
+                                          return React.cloneElement(child, this.getChildProps(child));
+                                        })}
+                                     </View>);                    
+                } 
+                else if (this.isIconRight() && !this.isIconLeft()) {
+                    var iconElement = [];
+                    iconElement = _.remove(childrenArray, function(item) {
+                                                if(item.type == Icon) {
+                                                    return true;
+                                                }  
+                                            });
+                    
+                    newChildren.push(<View >
+                                        {childrenArray.map((child) => {
+                                          return React.cloneElement(child, this.getChildProps(child));
+                                        })}
+                                     </View>);                    
+                    newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
+                } 
+                else if (this.isIconRight() && this.isIconLeft()) {
+                    var iconElement = [];
+                    iconElement = _.filter(childrenArray, function(item) {
+                                                if(item.type == Icon) {
+                                                    return true;
+                                                }  
+                                            });                  
+
+                   
+                    newChildren.push(<View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}} >
+                                        {childrenArray.slice(0,2).map((child) => {
+                                          return React.cloneElement(child, this.getChildProps(child));
+                                        })}
+                                     </View>);                    
+                    newChildren.push(React.cloneElement(iconElement[1], this.getChildProps(iconElement[1])));
+                } 
+
+                else if (this.thumbnailPresent()) {
+                    
+                    var iconElement = [];
+                    iconElement = _.remove(childrenArray, function(item) {
+                                                if(item.type == Thumbnail) {
+                                                    return true;
+                                                }  
+                                            });   
+                    newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
+                    newChildren.push(<View style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                                        {childrenArray.map((child) => {
+                                          return React.cloneElement(child, this.getChildProps(child));
+                                        })}
+                                     </View>);                    
+                    
+                } 
+                 
             }
             
-        }
-        
         console.log(newChildren);
 
         return newChildren;
-    }
+
+        }
     
     
     render() { 

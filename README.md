@@ -51,10 +51,12 @@ NativeBase is made from effective building blocks referred to as components. The
 #### [**Live Demo**](http://nativebase.io/components)
 
 ####
-## NativeBase Community
+## Quick Links to NativeBase
 
-*	Twitter: [https://twitter.com/NativeBaseIO](https://twitter.com/NativeBaseIO)
-*	Medium: [https://medium.com/nativebase-io-blog](https://medium.com/nativebase-io-blog)
+*	[NativeBase on Twitter](https://twitter.com/NativeBaseIO)
+*	[NativeBase Blog](https://medium.com/nativebase-io-blog)
+*	[NativeBase Documentation](http://nativebase.io/documentation)
+
 
 ####
 ## Documentation

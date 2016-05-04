@@ -14,7 +14,9 @@ export default class BadgeNB extends NativeBaseComponent {
         var type = { 
             color: this.getTheme().badgeColor,
             fontSize: this.getTheme().fontSizeBase,
-            backgroundColor: this.getTheme().badgeBg,
+            backgroundColor: this.props.primary ? this.getTheme().brandPrimary : this.props.success ? this.getTheme().brandSuccess :
+                                this.props.info ? this.getTheme().brandInfo : this.props.warning ? this.getTheme().brandWarning :
+                                this.props.danger ? this.getTheme().brandDanger : this.getTheme().badgeBg,              
             padding: 4,
             alignSelf: 'flex-start',
             borderRadius: 13,
