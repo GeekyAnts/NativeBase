@@ -9,6 +9,10 @@ export default class NativeBaseComponent extends Component {
 		theme: React.PropTypes.object
 	}
 
+	static propTypes = {
+		theme: React.PropTypes.object
+	}
+
 	static childContextTypes = {
 		theme: React.PropTypes.object
 	}
