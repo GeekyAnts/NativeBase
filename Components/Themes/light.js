@@ -1,11 +1,5 @@
-var Color = require("color")
-
-var multiply = require('multiplier');
-
-var fontSizeBase = 15;
-var borderRadiusBase = 4;
-var borderRadiusBase = 4;
-var contentPadding = 10;
+import Color from 'color';
+import multiply from 'multiplier';
 
 module.exports = {
 	brandPrimary : "#428bca",
@@ -21,28 +15,34 @@ module.exports = {
 	fontSizeBase: 15,
 
 	get fontSizeH1 () {
-        return multiply(fontSizeBase, 1.8);
+        return multiply(this.fontSizeBase, 1.8);
     },
     get fontSizeH2 () {
-        return multiply(fontSizeBase, 1.6);
+        return multiply(this.fontSizeBase, 1.6);
     },
     get fontSizeH3 () {
-        return multiply(fontSizeBase, 1.4);
+        return multiply(this.fontSizeBase, 1.4);
     },
     get btnTextSize () {
-        return multiply(fontSizeBase, 1.2);
+        return multiply(this.fontSizeBase, 1.2);
     },
-     get btnTextSizeLarge () {
-        return multiply(fontSizeBase, 1.5);
+    get btnTextSizeLarge () {
+        return multiply(this.fontSizeBase, 1.5);
     },
-     get btnTextSizeSmall () {
-        return multiply(fontSizeBase, .8);
+    get btnTextSizeSmall () {
+        return multiply(this.fontSizeBase, .8);
+    },
+    get iconSizeLarge () {
+        return multiply(this.iconFontSize, 1.5);
+    },
+    get iconSizeSmall () {
+        return multiply(this.iconFontSize, .6);
     },
 
-	borderRadiusBase: borderRadiusBase,
+	borderRadiusBase: 4,
 
 	get borderRadiusLarge () {
-        return multiply(fontSizeBase, 3.8);
+        return multiply(this.fontSizeBase, 3.8);
     },	
 
     footerHeight: 55,
@@ -75,7 +75,7 @@ module.exports = {
         return this.inverseTextColor;
     },	
     get btnWarningBg () {
-        return this. brandWarning;
+        return this.brandWarning;
     },	
     get btnWarningColor () {
         return this.inverseTextColor;
@@ -90,7 +90,7 @@ module.exports = {
 	inputColorPlaceholder: "rgba(0,0,0,0.8)",
     inputPaddingLeft: 5,
     get inputPaddingLeftIcon () {
-        return multiply(this.inputPaddingLeft, 8);;
+        return multiply(this.inputPaddingLeft, 8);
     },
 
 	dropdownBg: "#000",
@@ -99,7 +99,7 @@ module.exports = {
 	jumbotronPadding: 30,
 	jumbotronBg: "#C9C9CE",
 
-    contentPadding: contentPadding,
+    contentPadding: 10,
 
     listBorderColor: "#ddd",
     listDividerBg: "#F5F5F5",
