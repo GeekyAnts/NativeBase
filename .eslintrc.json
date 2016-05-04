@@ -1,0 +1,26 @@
+{
+	"ecmaVersion": 7,
+	"plugins": [
+	  "react",
+	  "react-native"
+	],
+	"extends": ["eslint:recommended", "plugin:react/recommended"],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "classes": true
+    }
+  },
+  "rules": {
+    "react-native/no-unused-styles": 1,
+    "no-unused-vars": 1
+  },
+  "env": {
+    "es6": true
+  },
+  "globals": {
+    "module": true
+  }
+}
