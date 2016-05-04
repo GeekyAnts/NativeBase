@@ -3,19 +3,12 @@
 
 import React, {Text } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
+import _ from 'lodash';
 
 
 export default class H2NB extends NativeBaseComponent {
-  static childContextTypes = {
-      theme: React.PropTypes.object
-  }
   
-  getChildContext() {
-      return {theme: this.props.theme ? this.props.theme : this.getTheme()};
-  }
-    
   prepareRootProps() {
 
       var type = { 

@@ -3,22 +3,15 @@
 
 import React, {Image} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 import Icon from './Icon';
 import Text from './Text';
 import View from './View';
 import Button from './Button';
 import Thumbnail from './Thumbnail';
+import _ from 'lodash';
 
 export default class ListItemNB extends NativeBaseComponent {
-    static childContextTypes = {
-        theme: React.PropTypes.object
-    }
-    
-    getChildContext() {
-        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
-    }
     
     getInitialStyle() {
            return {
@@ -71,7 +64,8 @@ export default class ListItemNB extends NativeBaseComponent {
                fullImage: {
                    width: 300,
                    height: 300
-               }
+               },
+               itemButton: {}
            }
        }
     getRightStyle() {

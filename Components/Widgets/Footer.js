@@ -3,18 +3,10 @@
 
 import React, { Text, View, TouchableOpacity, Component, Platform} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import navbarStyle from './../Styles/navbar.js';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
+import _ from 'lodash';
 
 export default class Footer extends NativeBaseComponent { 
-    static childContextTypes = {
-        theme: React.PropTypes.object
-    }
-    
-    getChildContext() {
-        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
-    }
     
     getInitialStyle() {
         return {

@@ -2,20 +2,13 @@
 'use strict';
 
 import React, {View } from 'react-native';
-import _ from 'lodash';
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
+import _ from 'lodash';
 
 export default class Container extends NativeBaseComponent {
-	static childContextTypes = {
-	    theme: React.PropTypes.object
-	}
-	
-	getChildContext() {
-	    return {theme: this.props.theme ? this.props.theme : this.getTheme()};
-	}
 	
 	renderHeader() {
       	console.log(this.context.theme);

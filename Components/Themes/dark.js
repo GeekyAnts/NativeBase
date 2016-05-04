@@ -1,9 +1,7 @@
-var Color = require("color")
-
-var multiply = require('multiplier');
+import Color from 'color';
+import multiply from 'multiplier';
 
 var fontSizeBase = 15;
-var borderRadiusBase = 4;
 var borderRadiusBase = 4;
 var contentPadding = 10;
 
@@ -68,7 +66,7 @@ module.exports = {
         return this.textColor;
     },	
     get btnWarningBg () {
-        return this. brandWarning;
+        return this.brandWarning;
     },	
     get btnWarningColor () {
         return this.textColor;
@@ -82,7 +80,7 @@ module.exports = {
 	inputColorPlaceholder: "rgba(256,256,256,0.8)",
     inputPaddingLeft: 5,
     get inputPaddingLeftIcon () {
-        return multiply(inputPaddingLeft, 8);;
+        return multiply(this.inputPaddingLeft, 8);
     },
 
 	dropdownBg: "#fff",

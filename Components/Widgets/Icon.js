@@ -3,18 +3,11 @@
 
 import React from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 import Icon from 'react-native-vector-icons/Ionicons';
+import _ from 'lodash';
 
 export default class IconNB extends NativeBaseComponent {
-    static childContextTypes = {
-        theme: React.PropTypes.object
-    }
-    
-    getChildContext() {
-        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
-    }
     
     getInitialStyle() {
         return {

@@ -4,17 +4,10 @@
 import React, {View, Text} from 'react-native';
 import Title from './Title';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
+import _ from 'lodash';
 
 export default class ListNB extends NativeBaseComponent {
-    static childContextTypes = {
-        theme: React.PropTypes.object
-    }
-    
-    getChildContext() {
-        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
-    }
     
     getInitialStyle() {
         return {

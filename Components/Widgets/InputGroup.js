@@ -4,20 +4,13 @@
 import React, {Text, View, TextInput, PixelRatio } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Icon from './Icon';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 import Input from './Input';
+import _ from 'lodash';
 
 
 export default class InputGroup extends NativeBaseComponent {
-	static childContextTypes = {
-        theme: React.PropTypes.object
-    }
-    
-    getChildContext() {
-        return {theme: this.props.theme ? this.props.theme : this.getTheme()};
-    }
-    
+	
 	getInitialStyle() {
 	    return {
 	        textInput: {
