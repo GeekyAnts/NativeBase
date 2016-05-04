@@ -24,7 +24,7 @@ module.exports = {
         return multiply(this.fontSizeBase, 1.4);
     },
     get btnTextSize () {
-        return multiply(this.fontSizeBase, 1.2);
+        return multiply(this.fontSizeBase, 1.1);
     },
     get btnTextSizeLarge () {
         return multiply(this.fontSizeBase, 1.5);

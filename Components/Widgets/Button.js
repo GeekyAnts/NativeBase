@@ -13,10 +13,11 @@ export default class Button extends NativeBaseComponent {
     getInitialStyle() {
         return {
             button: {
-                padding: 10,
+                padding: 15,
                 justifyContent: 'space-around',
                 flexDirection: 'row',
                 alignSelf: 'center',
+                alignItems: 'center',
                 backgroundColor: this.getTheme().btnPrimaryBg
             }
         }
@@ -74,13 +75,18 @@ export default class Button extends NativeBaseComponent {
         var mergedStyle = {};
 
         var btnType = {
-            color:  ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg : 
-                    ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
-                    ((this.props.bordered) && (this.props.danger)) ? this.getTheme().btnDangerBg :
-                    ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
-                    ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
+            paddingLeft: 3,
+
+            color:  (((this.props.bordered) && (this.props.primary)) || ((this.props.transparent) && (this.props.primary))) ? this.getTheme().btnPrimaryBg : 
+                    (((this.props.bordered) && (this.props.success)) || ((this.props.transparent) && (this.props.success))) ? this.getTheme().btnSuccessBg :
+                    (((this.props.bordered) && (this.props.danger)) || ((this.props.transparent) && (this.props.danger))) ? this.getTheme().btnDangerBg :
+                    (((this.props.bordered) && (this.props.warning)) || ((this.props.transparent) && (this.props.warning))) ? this.getTheme().btnWarningBg :
+                    (((this.props.bordered) && (this.props.info)) || ((this.props.transparent) && (this.props.info))) ? this.getTheme().btnInfoBg :
+                    ((this.props.bordered) || (this.props.transparent)) ? this.getTheme().btnPrimaryBg : 
                     this.getTheme().inverseTextColor,
+
             fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize, 
+
             lineHeight: (this.props.large) ? 32 : (this.props.small) ? 15 : 22
         }
 
@@ -89,12 +95,15 @@ export default class Button extends NativeBaseComponent {
 
     getIconProps(icon) {
         var defaultStyle = {
-            color:  ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg : 
-                    ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
-                    ((this.props.bordered) && (this.props.danger)) ? this.getTheme().btnDangerBg :
-                    ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
-                    ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
-                    this.getTheme().inverseTextColor,
+
+            color: (((this.props.bordered) && (this.props.primary)) || ((this.props.transparent) && (this.props.primary))) ? this.getTheme().btnPrimaryBg : 
+                (((this.props.bordered) && (this.props.success)) || ((this.props.transparent) && (this.props.success))) ? this.getTheme().btnSuccessBg :
+                (((this.props.bordered) && (this.props.danger)) || ((this.props.transparent) && (this.props.danger))) ? this.getTheme().btnDangerBg :
+                (((this.props.bordered) && (this.props.warning)) || ((this.props.transparent) && (this.props.warning))) ? this.getTheme().btnWarningBg :
+                (((this.props.bordered) && (this.props.info)) || ((this.props.transparent) && (this.props.info))) ? this.getTheme().btnInfoBg :
+                ((this.props.bordered) || (this.props.transparent)) ? this.getTheme().btnPrimaryBg : 
+                this.getTheme().inverseTextColor,
+
             fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize
         }
 

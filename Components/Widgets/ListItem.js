@@ -138,7 +138,7 @@ export default class ListItemNB extends NativeBaseComponent {
             }
         }
         else if(child.type == Text) {
-            if (this.props.itemDivider) {
+            if (this.props['item-divider']) {
               defaultProps = {
                     style: this.getInitialStyle().dividerItemText
                 }
@@ -182,8 +182,8 @@ export default class ListItemNB extends NativeBaseComponent {
 
     prepareRootProps() {
         var defaultProps = {};
-
-        if(this.props.itemDivider)
+        
+        if(this.props['item-divider'])
             defaultProps = {
                 style: this.getInitialStyle().listItemDivider
             };
