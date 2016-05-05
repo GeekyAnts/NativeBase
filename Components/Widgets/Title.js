@@ -1,7 +1,8 @@
 /* @flow */
 'use strict';
 
-import React, {Text, View } from 'react-native';
+import React from 'react';
+import {Text, View } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 
 

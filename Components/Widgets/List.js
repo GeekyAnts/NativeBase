@@ -1,7 +1,8 @@
 /* @flow */
 'use strict';
 
-import React, {View} from 'react-native';
+import React from 'react';
+import {View} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import _ from 'lodash';

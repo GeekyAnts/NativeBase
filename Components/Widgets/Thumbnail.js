@@ -1,7 +1,8 @@
 /* @flow */
 'use strict';
 
-import React, {Image} from 'react-native';
+import React from 'react';
+import {Image} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import _ from 'lodash';
