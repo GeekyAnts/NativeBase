@@ -1,7 +1,8 @@
 /* @flow */
 'use strict';
 
-import React, {Text, View, PixelRatio } from 'react-native';
+import React from 'react';
+import {Text, View, PixelRatio} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Icon from './Icon';
 import computeProps from '../../Utils/computeProps';

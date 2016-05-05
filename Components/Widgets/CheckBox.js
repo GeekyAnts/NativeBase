@@ -1,7 +1,7 @@
 /* @flow */
 'use strict';
 
-import React from 'react-native';
+import React from 'react';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import Checkbox from 'react-native-checkbox';
