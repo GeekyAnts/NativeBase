@@ -11,25 +11,49 @@ import _ from 'lodash';
 export default class Container extends NativeBaseComponent {
 	
 	renderHeader() {
-		return _.find(this.props.children, function(item) {
-			if(item && item.type == Header) {
-				return true;
+		if(Array.isArray(this.props.children)) {
+			return _.find(this.props.children, function(item) {
+				if(item && item.type == Header) {
+					return true;
+				}
+			});
+		}
+
+		else {
+			if(this.props.children && this.props.children.type == Header) {
+				return this.props.children;
 			}
-		});
+		}
 	}
 	renderContent() {
-		return _.find(this.props.children, function(item) {
-			if(item && item.type == Content) {
-				return true;
+		if(Array.isArray(this.props.children)) {
+			return _.find(this.props.children, function(item) {
+				if(item && item.type == Content) {
+					return true;
+				}
+			});
+		}
+
+		else {
+			if(this.props.children && this.props.children.type == Content) {
+				return this.props.children;
 			}
-		});
+		}
 	}
 	renderFooter() {
-		return _.find(this.props.children, function(item) {
-			if(item && item.type == Footer) {
-				return true;
+		if(Array.isArray(this.props.children)) {
+			return _.find(this.props.children, function(item) {
+				if(item && item.type == Footer) {
+					return true;
+				}
+			});
+		}
+
+		else {
+			if(this.props.children && this.props.children.type == Footer) {
+				return this.props.children;
 			}
-		});
+		}
 	}
 	render() {
 		return(
