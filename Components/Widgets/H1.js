@@ -1,7 +1,8 @@
 /* @flow */
 'use strict';
 
-import React, {Text } from 'react-native';
+import React from 'react';
+import {Text} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
