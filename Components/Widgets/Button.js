@@ -75,6 +75,7 @@ export default class Button extends NativeBaseComponent {
 
       var btnType = {
         paddingLeft: 3,
+        paddingRight: 3,
         color: (((this.props.bordered) && (this.props.primary)) || ((this.props.transparent) && (this.props.primary))) ? this.getTheme().btnPrimaryBg : 
                (((this.props.bordered) && (this.props.success)) || ((this.props.transparent) && (this.props.success))) ? this.getTheme().btnSuccessBg :
                (((this.props.bordered) && (this.props.danger)) || ((this.props.transparent) && (this.props.danger))) ? this.getTheme().btnDangerBg :

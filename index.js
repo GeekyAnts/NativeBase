@@ -18,6 +18,9 @@ import H1 from './Components/Widgets/H1';
 import H2 from './Components/Widgets/H2';
 import H3 from './Components/Widgets/H3';
 import View from './Components/Widgets/View';
+import Row from './Components/Widgets/Row';
+import Grid from './Components/Widgets/Grid';
+import Col from './Components/Widgets/Col';
 import Input from './Components/Widgets/Input';
 import InputGroup from './Components/Widgets/InputGroup';
 import Icon from './Components/Widgets/Icon';
@@ -43,6 +46,9 @@ module.exports = {
 	H2: H2,
 	H3: H3,
 	View: View,
+	Row: Row,
+	Col: Col,
+	Grid: Grid,
 	InputGroup: InputGroup,
 	Icon: Icon,
 	Thumbnail: Thumbnail,
