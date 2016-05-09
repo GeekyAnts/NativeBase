@@ -1,11 +1,11 @@
 /* @flow */
 'use strict';
 
-import React, {View, Text} from 'react-native';
-import Title from './Title';
+import React from 'react';
+import {View} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
+import _ from 'lodash';
 
 export default class ListNB extends NativeBaseComponent {
 
@@ -25,14 +25,12 @@ export default class ListNB extends NativeBaseComponent {
 
 
     prepareRootProps() {
-        var last = _.last(this.props.children);
-        console.log(last, "[[[[][][][][]["); 
+
         var defaultProps = {
             style: this.props.inset ? this.getInitialStyle().insetList : this.getInitialStyle().list
         };
 
         return computeProps(this.props, defaultProps);
-
     }
 
     renderChildren() {
@@ -47,10 +45,9 @@ export default class ListNB extends NativeBaseComponent {
     
     render() { 
         return(
-          <View {...this.prepareRootProps()} >
-            {this.renderChildren()}
-          </View>
+            <View {...this.prepareRootProps()} >
+                {this.renderChildren()}
+            </View>
         );
     }
-
 }

@@ -1,9 +1,8 @@
 /* @flow */
 'use strict';
 
-import React from 'react-native';
+import React from 'react';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -22,16 +21,13 @@ export default class IconNB extends NativeBaseComponent {
             style: this.getInitialStyle().icon
         };
 
-        console.log(computeProps(this.props, defaultProps));
-
         return computeProps(this.props, defaultProps);
 
     }
     
     render() { 
         return(
-          <Icon {...this.prepareRootProps()}/>
+            <Icon {...this.prepareRootProps()}/>
         );
     }
-
 }

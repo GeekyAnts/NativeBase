@@ -1,9 +1,9 @@
 /* @flow */
 'use strict';
 
-import React, {Picker, PixelRatio} from 'react-native';
+import React from 'react';
+import {Picker} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
 export default class PickerNB extends NativeBaseComponent {
@@ -25,17 +25,15 @@ export default class PickerNB extends NativeBaseComponent {
             itemStyle: this.getInitialStyle().pickerItem
         };
 
-        console.log(computeProps(this.props, defaultProps));
-
         return computeProps(this.props, defaultProps);
 
     }
     
     render() { 
         return(
-          <Picker {...this.prepareRootProps()}>
-            {this.props.children}
-          </Picker>
+            <Picker {...this.prepareRootProps()}>
+                {this.props.children}
+            </Picker>
         );
     }
 
@@ -46,6 +44,6 @@ PickerNB.Item = React.createClass({
     render: function() {
         return(
           <Picker.Item {...this.props()}/>
-        );
-    },
+          );
+    }
 });

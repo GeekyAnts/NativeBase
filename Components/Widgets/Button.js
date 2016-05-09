@@ -1,47 +1,50 @@
 /* @flow */
 'use strict';
 
-import React, { Text, View, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import button from '../Styles/button';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from './Icon';
+import _ from 'lodash';
 
 
 export default class Button extends NativeBaseComponent {
-
+    
     getInitialStyle() {
         return {
             button: {
-                padding: 10,
+                padding: 15,
                 justifyContent: 'space-around',
                 flexDirection: 'row',
                 alignSelf: 'center',
-                backgroundColor: this.getTheme().btnPrimaryBg,
+                alignItems: 'center',
+                backgroundColor: this.getTheme().btnPrimaryBg
             }
         }
     }
+
     prepareRootProps() {
 
-        var type = { backgroundColor: (this.props.primary) ? this.getTheme().btnPrimaryBg : 
-                       ((this.props.transparent) || (this.props.bordered)) ? 'rgba(0,0,0,0)' :
-                       (this.props.success) ? this.getTheme().btnSuccessBg :
-                       (this.props.danger) ? this.getTheme().btnDangerBg :
-                       (this.props.warning) ? this.getTheme().btnWarningBg :
-                       (this.props.info) ? this.getTheme().btnInfoBg :
-                       (this.props.backgroundColor) ? this.props.backgroundColor :
-                       this.getInitialStyle().button.backgroundColor,
-                    borderRadius: (this.props.rounded) ? this.getTheme().borderRadiusLarge : this.getTheme().borderRadiusBase,
-                    borderWidth: (this.props.bordered) ? 1 : 0,
-                    borderColor: (this.props.primary) ? this.getTheme().primary : 
-                       (this.props.success) ? this.getTheme().btnSuccessBg :
-                       (this.props.danger) ? this.getTheme().btnDangerBg :
-                       (this.props.warning) ? this.getTheme().btnWarningBg :
-                       (this.props.info) ? this.getTheme().btnInfoBg :
-                       this.getInitialStyle().button.backgroundColor,
-                    height: (this.props.large) ? 60 : (this.props.small) ? 35 : 45,
-                    alignSelf: (this.props.block) ? 'stretch' : 'flex-start',
+        var type = { 
+            backgroundColor:    (this.props.primary) ? this.getTheme().btnPrimaryBg : 
+                                ((this.props.transparent) || (this.props.bordered)) ? 'rgba(0,0,0,0)' :
+                                (this.props.success) ? this.getTheme().btnSuccessBg :
+                                (this.props.danger) ? this.getTheme().btnDangerBg :
+                                (this.props.warning) ? this.getTheme().btnWarningBg :
+                                (this.props.info) ? this.getTheme().btnInfoBg :
+                                (this.props.backgroundColor) ? this.props.backgroundColor :
+                                this.getInitialStyle().button.backgroundColor,
+            borderRadius: (this.props.rounded) ? this.getTheme().borderRadiusLarge : this.getTheme().borderRadiusBase,
+            borderWidth: (this.props.bordered) ? 1 : 0,
+            borderColor:    (this.props.primary) ? this.getTheme().primary : 
+                            (this.props.success) ? this.getTheme().btnSuccessBg :
+                            (this.props.danger) ? this.getTheme().btnDangerBg :
+                            (this.props.warning) ? this.getTheme().btnWarningBg :
+                            (this.props.info) ? this.getTheme().btnInfoBg :
+                            this.getInitialStyle().button.backgroundColor,
+            height: (this.props.large) ? 60 : (this.props.small) ? 35 : 45,
+            alignSelf: (this.props.block) ? 'stretch' : 'flex-start'
         }
 
         var  addedProps = _.merge(this.getInitialStyle().button,type);
@@ -51,70 +54,92 @@ export default class Button extends NativeBaseComponent {
         }
 
         return computeProps(this.props, defaultProps);
-
     }
 
     getTextStyle() {
-      var mergedStyle = {};
+        var mergedStyle = {};
 
-      var btnType = {
-        color: ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg : 
-               ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
-               ((this.props.bordered) && (this.props.danger)) ? this.getTheme().btnDangerBg :
-               ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
-               ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
+        var btnType = {
+            paddingLeft: 3,
+
+            color:  (((this.props.bordered) && (this.props.primary)) || ((this.props.transparent) && (this.props.primary))) ? this.getTheme().btnPrimaryBg : 
+                    (((this.props.bordered) && (this.props.success)) || ((this.props.transparent) && (this.props.success))) ? this.getTheme().btnSuccessBg :
+                    (((this.props.bordered) && (this.props.danger)) || ((this.props.transparent) && (this.props.danger))) ? this.getTheme().btnDangerBg :
+                    (((this.props.bordered) && (this.props.warning)) || ((this.props.transparent) && (this.props.warning))) ? this.getTheme().btnWarningBg :
+                    (((this.props.bordered) && (this.props.info)) || ((this.props.transparent) && (this.props.info))) ? this.getTheme().btnInfoBg :
+                    ((this.props.bordered) || (this.props.transparent)) ? this.getTheme().btnPrimaryBg : 
+                    this.getTheme().inverseTextColor,
+
+            fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize, 
+
+            lineHeight: (this.props.large) ? 32 : (this.props.small) ? 15 : 22
+        }
+
+        return _.merge(mergedStyle, btnType, this.props.textStyle);
+    }
+
+    getIconProps(icon) {
+        var defaultStyle = {
+
+            color: (((this.props.bordered) && (this.props.primary)) || ((this.props.transparent) && (this.props.primary))) ? this.getTheme().btnPrimaryBg : 
+                (((this.props.bordered) && (this.props.success)) || ((this.props.transparent) && (this.props.success))) ? this.getTheme().btnSuccessBg :
+                (((this.props.bordered) && (this.props.danger)) || ((this.props.transparent) && (this.props.danger))) ? this.getTheme().btnDangerBg :
+                (((this.props.bordered) && (this.props.warning)) || ((this.props.transparent) && (this.props.warning))) ? this.getTheme().btnWarningBg :
+                (((this.props.bordered) && (this.props.info)) || ((this.props.transparent) && (this.props.info))) ? this.getTheme().btnInfoBg :
+                ((this.props.bordered) || (this.props.transparent)) ? this.getTheme().btnPrimaryBg : 
                 this.getTheme().inverseTextColor,
-        fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize, 
-        lineHeight: (this.props.large) ? 32 : (this.props.small) ? 15 : 22
-      }
 
-      var  addedBtnProps = _.merge(this.getInitialStyle().buttonText,btnType);
-      return _.merge(mergedStyle, addedBtnProps, this.props.textStyle);
+            fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize
+        }
+
+        var defaultProps = {
+            style: defaultStyle
+        }
+
+        return computeProps(icon.props, defaultProps);
     }
 
     renderChildren() {
-      if(typeof this.props.children == undefined || typeof this.props.children == "string") {
-        return  <TouchableOpacity {...this.prepareRootProps()}  >
-                  <Text style={this.getTextStyle()}>{this.props.children}</Text>
-                </TouchableOpacity> 
-      }
 
-      else if(Array.isArray(this.props.children)) {
-        if(this.props.children[0] && (typeof this.props.children[0] == "string" || this.props.children[0].type == undefined))
-          return  <TouchableOpacity {...this.prepareRootProps()}  >
-                    <Text style={this.getTextStyle()}>{this.props.children[0]}</Text>
-                    <Text>
-                      {this.props.children[1]}
-                    </Text>
-                  </TouchableOpacity> 
+        if(typeof this.props.children == "string") {
+            return <Text style={this.getTextStyle()}>{this.props.children}</Text>
+        }
 
-        else if(this.props.children[1] && (typeof this.props.children[1] == "string" || this.props.children[1].type == undefined))
-          return  <TouchableOpacity {...this.prepareRootProps()}  >
-                    <Text>
-                      {this.props.children[0]}
-                    </Text>
-                    <Text style={this.getTextStyle()}>{this.props.children[1]}</Text>
-                  </TouchableOpacity> 
+        else if(Array.isArray(this.props.children)) {
+            var newChildren = [];
 
-        else 
-          return  <TouchableOpacity {...this.prepareRootProps()}  >
-                    <Text>
-                      {this.props.children[0]}
-                    </Text>
-                    <Text>
-                      {this.props.children[1]}
-                    </Text>
-                  </TouchableOpacity> 
-      }
+            var childrenArray = React.Children.toArray(this.props.children);
 
-      else
-        return  <TouchableOpacity {...this.prepareRootProps()}  >
-                  {this.props.children}
-                </TouchableOpacity>
+            var iconElement = [];
+            iconElement = _.remove(childrenArray, function(item) {
+                if(item.type == Icon) {
+                    return true;
+                }  
+            });
+            if(this.props.iconRight) {
+                newChildren.push(<Text style={this.getTextStyle()}>{childrenArray[0]}</Text>);
+                newChildren.push(<Text>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+            }
+            
+            else if(this.props.iconLeft || iconElement) {
+                newChildren.push(<Text>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+                newChildren.push(<Text style={this.getTextStyle()}>{childrenArray[0]}</Text>);
+            }
+
+            return newChildren;
+
+        }
+
+        else
+            return this.props.children
+
     }
     
-    render() { 
-        return(this.renderChildren());
+    render() {
+        return(
+            <TouchableOpacity {...this.prepareRootProps()} >
+                {this.renderChildren()}
+            </TouchableOpacity>
+        );
     }
-
 }

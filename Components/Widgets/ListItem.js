@@ -1,26 +1,27 @@
 /* @flow */
 'use strict';
 
-import React, {Image} from 'react-native';
+import React from 'react';
+import {Image} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 import Icon from './Icon';
 import Text from './Text';
 import View from './View';
 import Button from './Button';
 import Thumbnail from './Thumbnail';
+import _ from 'lodash';
 
 export default class ListItemNB extends NativeBaseComponent {
-
-   getInitialStyle() {
+    
+    getInitialStyle() {
            return {
                listItem: {
                    borderBottomWidth: this.getTheme().borderWidth,
                    padding: this.getTheme().listItemPadding,
                    borderRadius: 1,
                    flex: 1,
-                   justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
+                   justifyContent: ((this.props.iconRight && !this.props.iconLeft) || (this.props.iconRight && this.props.iconLeft)) ? 'space-between' : 'flex-start',
                    flexDirection: 'row',
                    alignItems: 'center',
                    borderColor: this.getTheme().listBorderColor
@@ -35,7 +36,8 @@ export default class ListItemNB extends NativeBaseComponent {
                    borderColor: this.getTheme().listBorderColor
                },
                itemText: {
-                   fontSize: 16,  
+                   fontSize: 16, 
+                   paddingLeft: (this.props.iconLeft) ? 10 : 0
                },
                dividerItemText: {
                    fontSize: 16,  
@@ -51,20 +53,20 @@ export default class ListItemNB extends NativeBaseComponent {
                    alignSelf: 'center',
                    fontWeight: '100',
                    flex: 1,
-                   textAlign: 'right',
-
+                   textAlign: 'right'
                },
                itemSubNote: {
                    fontSize: 15,
                    color: '#999'
                },
                thumbnail: {
-                   alignSelf: 'center',
+                   alignSelf: 'center'
                },
                fullImage: {
                    width: 300,
                    height: 300
-               }
+               },
+               itemButton: {}
            }
        }
     getRightStyle() {
@@ -180,33 +182,29 @@ export default class ListItemNB extends NativeBaseComponent {
     }  
 
     prepareRootProps() {
+        var defaultProps = {};
+        
         if(this.props.itemDivider)
-            var defaultProps = {
+            defaultProps = {
                 style: this.getInitialStyle().listItemDivider
             };
+       
         else 
-            var defaultProps = {
+            defaultProps = {
                 style: this.getInitialStyle().listItem
             };
 
-        console.log(computeProps(this.props, defaultProps));
-
         return computeProps(this.props, defaultProps);
-
     }
 
    
     notePresent() {
 
           var notePresent = false;
-          if (this.thumbnailPresent() && !this.squareThumbs()) {
               React.Children.forEach(this.props.children, function (child) {
                   if(child.type == Text && child.props.note)
                       notePresent = true;
-              })
-            
-          } 
-
+              })   
           return notePresent;
       
 
@@ -221,46 +219,90 @@ export default class ListItemNB extends NativeBaseComponent {
               })
             
           } 
-
-            console.log(squareThumbs, 'ruuu?');
           return squareThumbs;
       
 
     }
 
     renderChildren() {
-        if(!this.thumbnailPresent() && !this.iconPresent()) {
-            var newChildren = React.Children.map(this.props.children, (child) => {
-              return React.cloneElement(child, this.getChildProps(child));
-            });
-        } 
-        else {
-            var newChildren = [];
-            if(!Array.isArray(this.props.children)) {
-                newChildren.push(
-                    <View>
-                        {React.cloneElement(this.props.children, this.getChildProps(this.props.children))}
-                    </View>
-                );
-            }
-            else {
-                var childrenArray = React.Children.toArray(this.props.children);
-                newChildren.push(React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
-                newChildren.push(<View style={ this.notePresent() ? this.getRightStyle().right : this.squareThumbs() ? this.getRightStyle().right3 :
-                                               this.getRightStyle().right2 }>
-                        {childrenArray.slice(1).map((child) => {
-                          return React.cloneElement(child, this.getChildProps(child));
-                        })}
-                    </View>);
-            }
-            
-        }
         
-        console.log(newChildren);
+        var newChildren = [];
+        if(!Array.isArray(this.props.children)) {
+            newChildren.push(
+                <View>
+                    {React.cloneElement(this.props.children, this.getChildProps(this.props.children))}
+                </View>
+            );
+        }
+
+
+        else {
+            var childrenArray = React.Children.toArray(this.props.children);
+            var iconElement = [];
+
+            if (this.props.iconLeft && !this.props.iconRight) {
+                
+                iconElement = _.remove(childrenArray, function(item) {
+                                            if(item.type == Icon) {
+                                                return true;
+                                            }  
+                                        });
+                newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
+                newChildren.push(<View style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}} >
+                                    {childrenArray.map((child) => {
+                                      return React.cloneElement(child, this.getChildProps(child));
+                                    })}
+                                 </View>);                    
+            } 
+            else if (this.props.iconRight && !this.props.iconLeft) {
+
+                iconElement = _.remove(childrenArray, function(item) {
+                                            if(item.type == Icon) {
+                                                return true;
+                                            }  
+                                        });
+                
+                newChildren.push(<View >
+                                    {childrenArray.map((child) => {
+                                      return React.cloneElement(child, this.getChildProps(child));
+                                    })}
+                                 </View>);                    
+                newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
+            } 
+            else if (this.props.iconRight && this.props.iconLeft) {
+
+                iconElement = _.filter(childrenArray, function(item) {
+                                            if(item.type == Icon) {
+                                                return true;
+                                            }  
+                                        });
+
+                newChildren.push(<View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}} >
+                                    {childrenArray.slice(0,2).map((child) => {
+                                      return React.cloneElement(child, this.getChildProps(child));
+                                    })}
+                                 </View>);                    
+                newChildren.push(React.cloneElement(iconElement[1], this.getChildProps(iconElement[1])));
+            } 
+
+            else if (this.thumbnailPresent()) {
+                
+                iconElement = _.remove(childrenArray, function(item) {
+                                            if(item.type == Thumbnail) {
+                                                return true;
+                                            }  
+                                        });   
+                newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
+                newChildren.push(<View style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                                    {childrenArray.map((child) => {
+                                      return React.cloneElement(child, this.getChildProps(child));
+                                    })}
+                                 </View>);                    
+            } 
+        }
 
         return newChildren;
     }
-    
     
     render() { 
         return(

@@ -1,18 +1,18 @@
 /* @flow */
 'use strict';
 
-import React, { Text, View, TouchableOpacity, Component, Platform} from 'react-native';
+import React from 'react';
+import {View} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import navbarStyle from './../Styles/navbar.js';
-import _ from 'lodash';
 import computeProps from '../../Utils/computeProps';
 
 export default class Header extends NativeBaseComponent { 
+
     getInitialStyle() {
         return {
             navbar: {
                 backgroundColor: this.getTheme().toolbarDefaultBg,
-                justifyContent: (!Array.isArray(this.props.children)) ? 'space-between' : 'center',
+                justifyContent: (!Array.isArray(this.props.children)) ? 'center' : 'space-between',
                 flexDirection: 'row',
                 alignItems: 'center',
                 padding: 15,    
@@ -47,24 +47,25 @@ export default class Header extends NativeBaseComponent {
         return(                
             <View {...this.prepareRootProps()}>
                 { !Array.isArray(this.props.children) && 
-                  <View >                    
-                      {this.props.children}
-                  </View>}
-                { Array.isArray(this.props.children) && 
-                  <View style={{flex: 1,alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row'
-                }}>                     
-                      {this.props.children[0]}                    
-                  </View>}
-                { Array.isArray(this.props.children) && 
-                  <View style={{flex: 3, alignSelf: 'center'}}>                    
-                      {this.props.children[1]}                    
-                  </View>}
-                { Array.isArray(this.props.children) && 
-                  <View style={{flex:1,alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row'}}>                    
-                      {this.props.children[2]}
-                  </View>}
+                <View >                    
+                    {this.props.children}
+                </View>}
                 
-            </View>             
+                { Array.isArray(this.props.children) && 
+                <View style={{flex: 1,alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row'}}>                     
+                    {this.props.children[0]}                    
+                </View>}
+                
+                { Array.isArray(this.props.children) && 
+                <View style={{flex: 3, alignSelf: 'center'}}>                    
+                    {this.props.children[1]}                    
+                </View>}
+                
+                { Array.isArray(this.props.children) && 
+                <View style={{flex:1,alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row'}}>                    
+                    {this.props.children[2]}
+                </View>}   
+            </View> 
         );
     }
 }
