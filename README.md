@@ -3,11 +3,6 @@ The missing piece of React Native
 
 Get on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS and Android development. Get an introduction to NativeBase and work through an instance application that highlights React Native programming techniques.
 
-####
-## Magic of NativeBase
-<center>[![magic](./img/magic.png)](http://nativebase.io/docs/v0.2.1/assets/img/magic-with-nativebase-020.mp4)</center>
-
-<i>Click to watch the magic</i>
 
 ####
 ## What is NativeBase?
@@ -22,6 +17,22 @@ One import statement, and you get all React Native and NativeBase components.
 ```
 import { list of Components } from 'native-base';
 ```
+
+####
+## Why NativeBase?
+<center>![with-and-without-nativebase](./img/with-and-without-nativebase.png)</center>
+
+Do you still have a question **Why NativeBase** striking your brain?
+
+If yes then go ahead and watch this magic
+
+
+####
+## Magic of NativeBase
+<center>[![magic](./img/magic.png)](http://nativebase.io/docs/v0.2.1/assets/img/magic-with-nativebase-020.mp4)</center>
+
+<i>Click to watch the magic</i>
+
 
 ####
 ## Get Started
