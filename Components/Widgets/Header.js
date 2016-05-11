@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {View} from 'react-native';
+import {View, Platform} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
@@ -16,7 +16,7 @@ export default class Header extends NativeBaseComponent {
                 flexDirection: 'row',
                 alignItems: 'center',
                 padding: 15,    
-                paddingTop: 25, 
+                paddingTop: (Platform.OS === 'ios' ) ? 25 : 12, 
                 shadowColor: '#000',
                 shadowOffset: {width: 0, height: 2},
                 shadowOpacity: 0.1,

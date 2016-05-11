@@ -25,6 +25,8 @@ import Thumbnail from './Components/Widgets/Thumbnail';
 import Card from './Components/Widgets/Card';
 import Badge from './Components/Widgets/Badge';
 import Form from './Components/Widgets/Form';
+import Spinner from './Components/Widgets/Spinner';
+import ProgressBar from './Components/Widgets/ProgressBar';
 import { Col, Row, Grid } from "react-native-easy-grid";
 
 module.exports = {
@@ -53,5 +55,7 @@ module.exports = {
 	Thumbnail: Thumbnail,
 	Card: Card,
 	Badge: Badge,
-	Form: Form
+	Form: Form,
+	Spinner: Spinner,
+	ProgressBar: ProgressBar
 };
