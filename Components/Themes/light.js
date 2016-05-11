@@ -116,5 +116,11 @@ module.exports = {
     badgeColor: "#fff",
     badgeBg: "#ED1727",
 
-    lineHeight: 21
+    lineHeight: 21,
+
+    defaultSpinnerColor: "#45D56E",
+    inverseSpinnerColor: "#1A191B",
+
+    defaultProgressColor: "#E4202D",
+    inverseProgressColor: "#1A191B"
 }

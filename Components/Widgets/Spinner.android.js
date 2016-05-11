@@ -28,7 +28,8 @@ export default class SpinnerNB extends NativeBaseComponent {
     render() {
         return(
            <ProgressBar  {...this.prepareRootProps()} styleAttr = {this.props.size ? this.props.size : "Large" } 
-                                                      color={this.props.color ? this.props.color : '#41B367'}  />
+                                                      color={this.props.color ? this.props.color : this.props.inverse ? this.getTheme().inverseSpinnerColor :
+                                                        this.getTheme().defaultSpinnerColor}  />
         );
     }    
 
