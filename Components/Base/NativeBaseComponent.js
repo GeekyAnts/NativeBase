@@ -1,11 +1,15 @@
 /* @flow */
 'use strict';
 
-import React, {Component} from 'react-native';
+import React, {Component} from 'react';
 import lightTheme from '../Themes/light';
 
 export default class NativeBaseComponent extends Component {			
 	static contextTypes = {
+		theme: React.PropTypes.object
+	}
+
+	static propTypes = {
 		theme: React.PropTypes.object
 	}
 

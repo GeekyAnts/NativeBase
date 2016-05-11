@@ -1,4 +1,4 @@
-import Color from 'color';
+//import Color from 'color';
 import multiply from 'multiplier';
 
 var fontSizeBase = 15;
@@ -31,17 +31,17 @@ module.exports = {
         return multiply(fontSizeBase, 1.2);
     },
 
-	borderRadiusBase: borderRadiusBase,
+    borderRadiusBase: borderRadiusBase,
 
-	get borderRadiusLarge () {
+    get borderRadiusLarge () {
         return multiply(fontSizeBase, 5.8);
     },	
 
-	toolbarHeight: 70,
-	toolbarDefaultBg: "#505052",
-	toolbarInverseBg: "#222",
+    toolbarHeight: 70,
+    toolbarDefaultBg: "#505052",
+    toolbarInverseBg: "#222",
 
-	get btnPrimaryBg () {
+    get btnPrimaryBg () {
         return this.brandPrimary;
     },	
     get btnPrimaryColor () {
@@ -72,22 +72,22 @@ module.exports = {
         return this.textColor;
     },	
 
-	
-	inputColor: "#fff",
-	inputBorderColor: "#fff",
-	inputHeightBase: 40,	
-	inputGroupMarginBottom: 10,
-	inputColorPlaceholder: "rgba(256,256,256,0.8)",
+
+    inputColor: "#fff",
+    inputBorderColor: "#fff",
+    inputHeightBase: 40,	
+    inputGroupMarginBottom: 10,
+    inputColorPlaceholder: "rgba(256,256,256,0.8)",
     inputPaddingLeft: 5,
     get inputPaddingLeftIcon () {
         return multiply(this.inputPaddingLeft, 8);
     },
 
-	dropdownBg: "#fff",
-	dropdownLinkColor: "#414142",
+    dropdownBg: "#fff",
+    dropdownLinkColor: "#414142",
 
-	jumbotronPadding: 30,
-	jumbotronBg: "#C9C9CE",
+    jumbotronPadding: 30,
+    jumbotronBg: "#C9C9CE",
 
     contentPadding: contentPadding
 }

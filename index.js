@@ -18,15 +18,14 @@ import H1 from './Components/Widgets/H1';
 import H2 from './Components/Widgets/H2';
 import H3 from './Components/Widgets/H3';
 import View from './Components/Widgets/View';
-import Row from './Components/Widgets/Row';
-import Grid from './Components/Widgets/Grid';
-import Col from './Components/Widgets/Col';
 import Input from './Components/Widgets/Input';
 import InputGroup from './Components/Widgets/InputGroup';
 import Icon from './Components/Widgets/Icon';
 import Thumbnail from './Components/Widgets/Thumbnail';
 import Card from './Components/Widgets/Card';
 import Badge from './Components/Widgets/Badge';
+import Form from './Components/Widgets/Form';
+import { Col, Row, Grid } from "react-native-easy-grid";
 
 module.exports = {
 	Header: Header,
@@ -53,5 +52,6 @@ module.exports = {
 	Icon: Icon,
 	Thumbnail: Thumbnail,
 	Card: Card,
-	Badge: Badge
+	Badge: Badge,
+	Form: Form
 };

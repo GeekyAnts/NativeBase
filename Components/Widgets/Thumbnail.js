@@ -1,13 +1,14 @@
 /* @flow */
 'use strict';
 
-import React, {Image, View} from 'react-native';
+import React from 'react';
+import {Image} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import _ from 'lodash';
 
 export default class ThumbnailNB extends NativeBaseComponent {
-    
+
     getInitialStyle() {
         return {
             thumbnail: {
@@ -17,6 +18,7 @@ export default class ThumbnailNB extends NativeBaseComponent {
             }
         }
     }
+
     prepareRootProps() {
         var thumbnailStyle = {};
         if(this.props.circular) {
@@ -34,16 +36,12 @@ export default class ThumbnailNB extends NativeBaseComponent {
             style: _.merge(this.getInitialStyle().thumbnail, thumbnailStyle)
         };
 
-        console.log(computeProps(this.props, defaultProps));
-
         return computeProps(this.props, defaultProps);
-
     }
     
     render() { 
         return(
-              <Image {...this.prepareRootProps()}/>
+            <Image {...this.prepareRootProps()}/>
         );
     }
-
 }
