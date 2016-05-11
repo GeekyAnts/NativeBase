@@ -6,7 +6,6 @@
   "dependencies": {
     "color": "~0.11.1",
     "lodash": "~4.11.1",
-    "multiplier": "~0.1.0",
     "react-native-checkbox": "~1.0.8"
   },
   "peerDependencies": {

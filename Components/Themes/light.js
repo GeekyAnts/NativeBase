@@ -1,5 +1,5 @@
 //import Color from 'color';
-import multiply from 'multiplier';
+
 import {Platform} from 'react-native';
 
 module.exports = {
@@ -16,34 +16,34 @@ module.exports = {
 	fontSizeBase: 15,
 
 	get fontSizeH1 () {
-        return multiply(this.fontSizeBase, 1.8);
+        return this.fontSizeBase*1.8;
     },
     get fontSizeH2 () {
-        return multiply(this.fontSizeBase, 1.6);
+        return this.fontSizeBase* 1.6;
     },
     get fontSizeH3 () {
-        return multiply(this.fontSizeBase, 1.4);
+        return this.fontSizeBase* 1.4;
     },
     get btnTextSize () {
-        return multiply(this.fontSizeBase, 1.1);
+        return this.fontSizeBase* 1.1;
     },
     get btnTextSizeLarge () {
-        return multiply(this.fontSizeBase, 1.5);
+        return this.fontSizeBase* 1.5;
     },
     get btnTextSizeSmall () {
-        return multiply(this.fontSizeBase, .8);
+        return this.fontSizeBase* .8;
     },
     get iconSizeLarge () {
-        return multiply(this.iconFontSize, 1.5);
+        return this.iconFontSize* 1.5;
     },
     get iconSizeSmall () {
-        return multiply(this.iconFontSize, .6);
+        return this.iconFontSize* .6;
     },
 
     borderRadiusBase: 4,
 
     get borderRadiusLarge () {
-        return multiply(this.fontSizeBase, 3.8);
+        return this.fontSizeBase* 3.8;
     },	
 
     footerHeight: 55,
@@ -95,7 +95,7 @@ module.exports = {
     inputGroupMarginBottom: 10,
     inputPaddingLeft: 5,
     get inputPaddingLeftIcon () {
-        return multiply(this.inputPaddingLeft, 8);
+        return this.inputPaddingLeft* 8;
     },
 
     dropdownBg: "#000",
