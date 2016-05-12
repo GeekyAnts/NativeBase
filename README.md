@@ -18,13 +18,13 @@ One import statement, and you get all React Native and NativeBase components.
 import { list of Components } from 'native-base';
 ```
 
-<!-- ####
+####
 ## Why NativeBase?
-<center>![with-and-without-nativebase-1](./img/with-and-without-nativebase-1.png)</center>
+<center>![with-and-without-nativebase](./img/with-and-without-nativebase.png)</center>
 
-Do you still have a question **Why NativeBase** striking your brain?
+Do you still have a question **Why NativeBase**?
 
-If yes then go ahead and watch this magic -->
+If yes then go ahead and watch this magic.
 
 
 ####
