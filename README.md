@@ -20,7 +20,7 @@ import { list of Components } from 'native-base';
 
 ####
 ## Why NativeBase?
-<center>![with-and-without-nativebase](./img/with-and-without-nativebase.png)</center>
+<center>![with-and-without-nativebase](./img/with-and-without-nativebase.jpg)</center>
 
 Do you still have a question **Why NativeBase**?
 
