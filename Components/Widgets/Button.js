@@ -57,17 +57,19 @@ export default class Button extends NativeBaseComponent {
     }
 
     getTextStyle() {
+        
         var mergedStyle = {};
-
         var btnType = {
             paddingRight : 5,
             paddingLeft : 3,
-            color:  (((this.props.bordered) && (this.props.primary)) || ((this.props.transparent) && (this.props.primary))) ? this.getTheme().btnPrimaryBg : 
-                    (((this.props.bordered) && (this.props.success)) || ((this.props.transparent) && (this.props.success))) ? this.getTheme().btnSuccessBg :
-                    (((this.props.bordered) && (this.props.danger)) || ((this.props.transparent) && (this.props.danger))) ? this.getTheme().btnDangerBg :
-                    (((this.props.bordered) && (this.props.warning)) || ((this.props.transparent) && (this.props.warning))) ? this.getTheme().btnWarningBg :
-                    (((this.props.bordered) && (this.props.info)) || ((this.props.transparent) && (this.props.info))) ? this.getTheme().btnInfoBg :
-                    ((this.props.bordered) || (this.props.transparent)) ? this.getTheme().btnPrimaryBg : 
+            color:  
+                    ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg : 
+                    ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
+                    ((this.props.bordered) && (this.props.danger)) ? this.getTheme().btnDangerBg :
+                    ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
+                    ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
+                    ((this.props.bordered)) ? this.getTheme().btnPrimaryBg : 
+                    (this.props.transparent) ? this.getContextForegroundColor() :
                     this.getTheme().inverseTextColor,
 
             fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize, 
@@ -79,13 +81,16 @@ export default class Button extends NativeBaseComponent {
     }
 
     getIconProps(icon) {
+        console.log(this.getContextForegroundColor(),'text color');
         var defaultStyle = {
-            color: (((this.props.bordered) && (this.props.primary)) || ((this.props.transparent) && (this.props.primary))) ? this.getTheme().btnPrimaryBg : 
-                (((this.props.bordered) && (this.props.success)) || ((this.props.transparent) && (this.props.success))) ? this.getTheme().btnSuccessBg :
-                (((this.props.bordered) && (this.props.danger)) || ((this.props.transparent) && (this.props.danger))) ? this.getTheme().btnDangerBg :
-                (((this.props.bordered) && (this.props.warning)) || ((this.props.transparent) && (this.props.warning))) ? this.getTheme().btnWarningBg :
-                (((this.props.bordered) && (this.props.info)) || ((this.props.transparent) && (this.props.info))) ? this.getTheme().btnInfoBg :
-                ((this.props.bordered) || (this.props.transparent)) ? this.getTheme().btnPrimaryBg : 
+            color: 
+                ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg : 
+                ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
+                ((this.props.bordered) && (this.props.danger)) ? this.getTheme().btnDangerBg :
+                ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
+                ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
+                (this.props.bordered)  ? this.getTheme().btnPrimaryBg : 
+                (this.props.transparent) ? this.getContextForegroundColor() :
                 this.getTheme().inverseTextColor,
 
             fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize,
@@ -104,7 +109,7 @@ export default class Button extends NativeBaseComponent {
         if(typeof this.props.children == "string") {
             return <Text style={this.getTextStyle()}>{this.props.children}</Text>
         }
-
+        
         else if(Array.isArray(this.props.children)) {
             var newChildren = [];
 
@@ -131,7 +136,7 @@ export default class Button extends NativeBaseComponent {
         }
 
         else
-            return this.props.children
+            return React.cloneElement(this.props.children, this.getIconProps(this.props.children));
 
     }
     

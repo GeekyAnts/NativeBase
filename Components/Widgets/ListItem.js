@@ -39,7 +39,8 @@ export default class ListItemNB extends NativeBaseComponent {
                },
                itemText: {
                    fontSize: 16, 
-                   paddingLeft: (this.props.iconLeft) ? 10 : 0
+                   paddingLeft: (this.props.iconLeft) ? 10 : 0,
+                   color: this.getContextForegroundColor()
                },
                dividerItemText: {
                    fontSize: 16,  
@@ -235,7 +236,7 @@ export default class ListItemNB extends NativeBaseComponent {
                   if(child.type == InputGroup && child.props.inset)
                       insetPresent = true;
               })   
-              console.log(insetPresent, "true?");
+              
           return insetPresent;      
 
     }
@@ -262,7 +263,7 @@ export default class ListItemNB extends NativeBaseComponent {
           else
            stackedComponentPresent = false; 
         }
-        console.log(this.props.children, "stacked");
+        
         return stackedComponentPresent;
     }
 
@@ -388,7 +389,7 @@ export default class ListItemNB extends NativeBaseComponent {
                                  </View>);                    
             } 
             else if (this.insetPresent()) {
-                console.log("inset is present");
+                
                 
                 newChildren.push(<View style={{flexDirection: 'row', alignSelf: 'stretch', flex: 1 , padding: 0}} >
                                     {childrenArray.map((child) => {

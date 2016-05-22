@@ -11,27 +11,28 @@ import _ from 'lodash';
 
 
 export default class InputGroup extends NativeBaseComponent {
-	
+
 	getInitialStyle() {
 		return {
 			textInput: {
-				height: this.getTheme().inputHeightBase, 
+				height: this.getTheme().inputHeightBase,
 				backgroundColor: 'transparent',
 				flex: 1,
 				flexDirection: 'row',
-				borderColor: this.getTheme().inputBorderColor
-			},	
+				borderColor: this.getContextForegroundColor(),
+				paddingRight: 5
+			},
 			outerBorder: {
 				position:'relative',
-				borderColor: 'white', 
+				borderColor: 'white',
 				borderWidth: this.getTheme().borderWidth,
-				borderTopWidth: 0, 
-				borderRightWidth: 0, 
-				borderLeftWidth: 0, 
+				borderTopWidth: 0,
+				borderRightWidth: 0,
+				borderLeftWidth: 0,
 				marginTop: 5
 			},
 			darkborder: {
-				borderColor: '#000'	
+				borderColor: '#000'
 			},
 			lightborder: {
 				borderColor: '#fff'
@@ -39,22 +40,22 @@ export default class InputGroup extends NativeBaseComponent {
 			underline: {
 				position:'relative',
 				borderWidth: this.getTheme().borderWidth,
-				borderTopWidth: 0, 
-				borderRightWidth: 0, 
-				borderLeftWidth: 0, 				
+				borderTopWidth: 0,
+				borderRightWidth: 0,
+				borderLeftWidth: 0,
 				marginTop: 5
 			},
 
 			bordered: {
 				position:'relative',
-				borderWidth: this.getTheme().borderWidth,				
+				borderWidth: this.getTheme().borderWidth,
 				marginTop: 5
 			},
 
 			rounded: {
 				position:'relative',
 				borderWidth: this.getTheme().borderWidth,
-				borderRadius: 30,				
+				borderRadius: 30,
 				marginTop: 5
 			}
 		}
@@ -63,8 +64,8 @@ export default class InputGroup extends NativeBaseComponent {
 	prepareRootProps() {
 
 		var type = {
-			paddingLeft:  (this.props.borderType === 'rounded' && !this.props.children.type == Icon) ? 15 : 
-			(this.props.children.type == Icon ) ? this.getTheme().inputPaddingLeftIcon : 10
+			paddingLeft:  (this.props.borderType === 'rounded' && !this.props.children.type == Icon) ? 15 :
+			(this.props.children.type == Icon ) ? this.getTheme().inputPaddingLeftIcon : 5
 		}
 
 		var defaultStyle = (this.props.borderType === 'regular') ? this.getInitialStyle().bordered : (this.props.borderType === 'rounded') ? this.getInitialStyle().rounded : this.getInitialStyle().underline;
@@ -82,7 +83,7 @@ export default class InputGroup extends NativeBaseComponent {
 
 	getIconProps(icon) {
 		var defaultStyle = {
-			color: this.getTheme().inputColor,
+			color: this.getContextForegroundColor(),
 			fontSize: 27
 		}
 
@@ -105,40 +106,62 @@ export default class InputGroup extends NativeBaseComponent {
 			});
 			if (iconRender) {
 				return <Text style={{ alignSelf: 'center'}}>{React.cloneElement(iconRender, this.getIconProps(iconRender))}</Text>
-				
-			} 
+
+			}
 		}
 	}
 
 
-	renderInput() {
+	renderChildren() {
 		var inputProps = {};
-		if(!Array.isArray(this.props.children) && this.props.children.type == undefined) {
-			inputProps = computeProps(this.props, this.props.children.props);
+		var newChildren = [];
+		var childrenArray = React.Children.toArray(this.props.children);
+
+		var iconElement = [];
+		iconElement = _.remove(childrenArray, function(item) {
+				if(item.type == Icon) {
+						return true;
+				}
+		});
+
+		var inp =  _.find(childrenArray, function(item) {
+			if(item && item.type == undefined) {
+				return true;
+			}
+		});
+
+		if(inp)
+		inputProps = computeProps(this.props, inp.props);
+		else
+		inputProps = this.props;
+		console.log(inputProps, "propps");
+		// console.log(Array.isArray(this.props.children), "true");
+		if(Array.isArray(this.props.children)) {
+			if(this.props.iconRight) {
+				newChildren.push(<Input {...inputProps}/>);
+				newChildren.push(<Text style={{paddingTop: 3}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+			}
+			else {
+				newChildren.push(<Text style={{paddingTop: 3}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+				newChildren.push(<Input {...inputProps}/>);
+			}
 		}
 
 		else {
-			var inp =  _.find(this.props.children, function(item) {
-				if(item && item.type == undefined) {
-					return true;
-				}
-			});
-			
-			if(inp)
-				inputProps = computeProps(this.props, inp.props);
-			else 
-				inputProps = this.props;
+			newChildren.push(<Input {...inputProps}/>);
 		}
 
-		return <Input {...inputProps}/> 
+
+		return newChildren;
 	}
 
 	render() {
 		return (
 			<View {...this.prepareRootProps()} >
-				{this.renderIcon()}
-				{this.renderInput()}
-			</View>  
+				{/*{this.renderIcon()}*/}
+				{this.renderChildren()}
+				{/*{this.renderInput()}*/}
+			</View>
 		);
-	}    
+	}
 }

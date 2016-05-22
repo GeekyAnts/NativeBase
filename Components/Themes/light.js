@@ -44,43 +44,43 @@ module.exports = {
 
     get borderRadiusLarge () {
         return this.fontSizeBase* 3.8;
-    },	
+    },
 
     footerHeight: 55,
-    toolbarHeight: (Platform.OS === 'ios' ) ? 70 : 55, 
+    toolbarHeight: (Platform.OS === 'ios' ) ? 70 : 55,
     toolbarDefaultBg: "#4563ED",
     toolbarInverseBg: "#222",
 
     get btnPrimaryBg () {
         return this.brandPrimary;
-    },	
+    },
     get btnPrimaryColor () {
         return this.inverseTextColor;
-    },	
+    },
     get btnSuccessBg () {
         return this.brandSuccess;
-    },	
+    },
     get btnSuccessColor () {
         return this.inverseTextColor;
-    },	
+    },
     get btnDangerBg () {
         return this.brandDanger;
-    },	
+    },
     get btnDangerColor () {
         return this.inverseTextColor;
-    },	
+    },
     get btnInfoBg () {
         return this.brandInfo;
-    },	
+    },
     get btnInfoColor () {
         return this.inverseTextColor;
-    },	
+    },
     get btnWarningBg () {
         return this.brandWarning;
-    },	
+    },
     get btnWarningColor () {
         return this.inverseTextColor;
-    },	
+    },
 
     borderWidth: 1,
 
@@ -91,7 +91,7 @@ module.exports = {
         return 'rgba(0, 0, 0, 0.7)';
     },
     inputBorderColor: "#000",
-    inputHeightBase: 40,	
+    inputHeightBase: 40,
     inputGroupMarginBottom: 10,
     inputPaddingLeft: 5,
     get inputPaddingLeftIcon () {

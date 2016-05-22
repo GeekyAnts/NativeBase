@@ -10,7 +10,7 @@ export default class Title extends NativeBaseComponent {
 
 	render() {
 		return(
-			<View><Text style={{color: '#fff', fontSize: this.getTheme().fontSizeH3, fontWeight: "500", alignSelf: 'center'}}>{this.props.children}</Text></View>
+			<View><Text style={{color: this.getContextForegroundColor() , fontSize: this.getTheme().fontSizeH3, fontWeight: "500", alignSelf: 'center'}}>{this.props.children}</Text></View>
 		);
 	}   
 }

@@ -1,6 +1,7 @@
 /* @flow */
 'use strict';
 
+import Drawer from 'react-native-drawer';
 import Header from './Components/Widgets/Header';
 import Footer from './Components/Widgets/Footer';
 import Title from './Components/Widgets/Title';
@@ -28,6 +29,8 @@ import Form from './Components/Widgets/Form';
 import Spinner from './Components/Widgets/Spinner';
 import ProgressBar from './Components/Widgets/ProgressBar';
 import { Col, Row, Grid } from "react-native-easy-grid";
+import ScrollableTabView from './Components/Widgets/Tabs';
+import TabNavigator from 'react-native-tab-navigator';
 
 module.exports = {
 	Header: Header,
@@ -57,5 +60,8 @@ module.exports = {
 	Badge: Badge,
 	Form: Form,
 	Spinner: Spinner,
-	ProgressBar: ProgressBar
+	ProgressBar: ProgressBar,
+	Drawer: Drawer,
+	TabNavigator: TabNavigator,
+	ScrollableTabView : ScrollableTabView
 };

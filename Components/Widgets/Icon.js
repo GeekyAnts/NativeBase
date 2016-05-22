@@ -12,7 +12,7 @@ export default class IconNB extends NativeBaseComponent {
         return {
             icon: {
                 fontSize: 27,
-                color: 'white'
+                color: this.getContextForegroundColor()
             }
         }
     }

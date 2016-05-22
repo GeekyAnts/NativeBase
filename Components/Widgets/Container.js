@@ -2,7 +2,8 @@
 'use strict';
 
 import React from 'react';
-import {View} from 'react-native';
+import {View, Image} from 'react-native';
+import ViewNB from './View';
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
@@ -29,7 +30,8 @@ export default class Container extends NativeBaseComponent {
 	renderContent() {
 		if(Array.isArray(this.props.children)) {
 			return _.find(this.props.children, function(item) {
-				if(item && item.type == Content) {
+				if(item && (item.type == ViewNB || item.type == Content || item.type == Image)) {
+					console.log("type View");
 					return true;
 				}
 			});

@@ -1,7 +1,8 @@
-import _ from 'lodash';
-import StyleSheetRegistry from 'react-native/Libraries/StyleSheet/StyleSheetRegistry';
+import React from "react";
+import ReactNativePropRegistry from "react-native/Libraries/ReactNative/ReactNativePropRegistry"
 
 module.exports = function(incomingProps, defaultProps) {
+
 
     // External props has a higher precedence
     var computedProps = {};
@@ -18,12 +19,12 @@ module.exports = function(incomingProps, defaultProps) {
 
     // Pass the merged Style Object instead
     if(incomingProps.style) {
-        var incomingPropsStyle;
+
         if(typeof incomingProps.style == 'number') {
-            incomingPropsStyle = StyleSheetRegistry.getStyleByID(incomingProps.style);
+            var incomingPropsStyle = ReactNativePropRegistry.getByID(incomingProps.style);
             computedProps.style = {};
         } else {
-            incomingPropsStyle = incomingProps.style;
+            var incomingPropsStyle = incomingProps.style;
         }
 
         _.merge(computedProps.style, defaultProps.style, incomingPropsStyle);
@@ -33,4 +34,6 @@ module.exports = function(incomingProps, defaultProps) {
     // console.log("computedProps ", computedProps);
 
     return computedProps;
+
+
 }
