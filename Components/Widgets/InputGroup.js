@@ -134,8 +134,7 @@ export default class InputGroup extends NativeBaseComponent {
 		inputProps = computeProps(this.props, inp.props);
 		else
 		inputProps = this.props;
-		console.log(inputProps, "propps");
-		// console.log(Array.isArray(this.props.children), "true");
+		
 		if(Array.isArray(this.props.children)) {
 			if(this.props.iconRight) {
 				newChildren.push(<Input {...inputProps}/>);
@@ -158,9 +157,7 @@ export default class InputGroup extends NativeBaseComponent {
 	render() {
 		return (
 			<View {...this.prepareRootProps()} >
-				{/*{this.renderIcon()}*/}
 				{this.renderChildren()}
-				{/*{this.renderInput()}*/}
 			</View>
 		);
 	}

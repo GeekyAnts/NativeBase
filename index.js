@@ -54,6 +54,7 @@ module.exports = {
 	Col: Col,
 	Grid: Grid,
 	InputGroup: InputGroup,
+	Input: Input,
 	Icon: Icon,
 	Thumbnail: Thumbnail,
 	Card: Card,
