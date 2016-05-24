@@ -8,10 +8,10 @@ import computeProps from '../../Utils/computeProps';
 
 
 export default class Content extends NativeBaseComponent {
-	
+
 	prepareRootProps() {
 
-		var type = { 
+		var type = {
 			backgroundColor: 'transparent',
 			flex: 1,
 			padding: (this.props.padder) ? this.getTheme().contentPadding : 0
@@ -28,6 +28,5 @@ export default class Content extends NativeBaseComponent {
 		return(
 			<ScrollView {...this.prepareRootProps()}>{this.props.children}</ScrollView>
 		);
-	}    
+	}
 }
-

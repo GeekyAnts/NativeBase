@@ -1,4 +1,4 @@
-//import Color from 'color';
+import Color from 'color';
 
 import {Platform} from 'react-native';
 
@@ -48,9 +48,12 @@ module.exports = {
 
     footerHeight: 55,
     toolbarHeight: (Platform.OS === 'ios' ) ? 70 : 55,
-    toolbarDefaultBg: "#4563ED",
+    toolbarDefaultBg: "#3b8355",
     toolbarInverseBg: "#222",
 
+		get darkenHeader() {
+			return Color(this.toolbarDefaultBg).darken(0.03).hexString();
+		},
     get btnPrimaryBg () {
         return this.brandPrimary;
     },

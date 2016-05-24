@@ -35,7 +35,7 @@ export default class Input extends NativeBaseComponent {
 
 		return (
 			<View style={{ flex: 1, borderColor: this.getContextForegroundColor(),borderBottomWidth: this.getTheme().borderWidth }}>
-				<TextInput {...this.prepareRootProps()} placeholderTextColor={ this.getTheme().inputColorPlaceholder} />
+				<TextInput {...this.prepareRootProps()} placeholderTextColor={ this.getTheme().inputColorPlaceholder} underlineColorAndroid='rgba(0,0,0,0)' />
 			</View>
 		);
 	}

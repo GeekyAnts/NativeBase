@@ -11,7 +11,7 @@ import NativeBaseComponent from '../Base/NativeBaseComponent';
 import _ from 'lodash';
 
 export default class Container extends NativeBaseComponent {
-	
+
 	renderHeader() {
 		if(Array.isArray(this.props.children)) {
 			return _.find(this.props.children, function(item) {
@@ -31,7 +31,7 @@ export default class Container extends NativeBaseComponent {
 		if(Array.isArray(this.props.children)) {
 			return _.find(this.props.children, function(item) {
 				if(item && (item.type == ViewNB || item.type == Content || item.type == Image)) {
-					console.log("type View");
+					
 					return true;
 				}
 			});
@@ -62,22 +62,21 @@ export default class Container extends NativeBaseComponent {
 		return(
 			<View style={{flex:1}}>
 
-				<View>                    
+				<View>
 					{this.renderHeader()}
 				</View>
 
 
-				<View style={{flex:1}}>                    
+				<View style={{flex:1}}>
 					{this.renderContent()}
 				</View>
 
-				<View>                    
+				<View>
 					{this.renderFooter()}
 				</View>
-			</View>     
+			</View>
 		);
 
-	}    
+	}
 
 }
-

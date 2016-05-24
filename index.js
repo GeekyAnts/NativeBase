@@ -20,6 +20,7 @@ import H2 from './Components/Widgets/H2';
 import H3 from './Components/Widgets/H3';
 import View from './Components/Widgets/View';
 import Input from './Components/Widgets/Input';
+import Textarea from './Components/Widgets/Textarea';
 import InputGroup from './Components/Widgets/InputGroup';
 import Icon from './Components/Widgets/Icon';
 import Thumbnail from './Components/Widgets/Thumbnail';
@@ -55,6 +56,7 @@ module.exports = {
 	Grid: Grid,
 	InputGroup: InputGroup,
 	Input: Input,
+	Textarea: Textarea,
 	Icon: Icon,
 	Thumbnail: Thumbnail,
 	Card: Card,
@@ -64,5 +66,5 @@ module.exports = {
 	ProgressBar: ProgressBar,
 	Drawer: Drawer,
 	TabNavigator: TabNavigator,
-	ScrollableTabView : ScrollableTabView
+	Tabs : ScrollableTabView
 };
