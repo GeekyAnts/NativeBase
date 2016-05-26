@@ -14,6 +14,7 @@ module.exports = {
 	textColor: "#000",
 
 	fontSizeBase: 15,
+	titleFontSize: 17,
 
 	get fontSizeH1 () {
         return this.fontSizeBase*1.8;
@@ -50,6 +51,9 @@ module.exports = {
     toolbarHeight: (Platform.OS === 'ios' ) ? 70 : 55,
     toolbarDefaultBg: "#3b8355",
     toolbarInverseBg: "#222",
+
+		tabBgColor: "#3b8355",
+		tabTextColor: "#fff",
 
 		get darkenHeader() {
 			return Color(this.toolbarDefaultBg).darken(0.03).hexString();

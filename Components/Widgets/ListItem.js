@@ -2,19 +2,20 @@
 'use strict';
 
 import React from 'react';
-import {Image} from 'react-native';
+import {Image, TouchableOpacity } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import Icon from './Icon';
 import Text from './Text';
 import View from './View';
 import Button from './Button';
+import Badge from './Badge';
 import Thumbnail from './Thumbnail';
 import InputGroup from './InputGroup';
 import _ from 'lodash';
 
 export default class ListItemNB extends NativeBaseComponent {
-    
+
     getInitialStyle() {
 
            return {
@@ -38,17 +39,17 @@ export default class ListItemNB extends NativeBaseComponent {
                    borderColor: this.getTheme().listBorderColor
                },
                itemText: {
-                   fontSize: 16, 
+                   fontSize: 16,
                    paddingLeft: (this.props.iconLeft) ? 10 : 0,
                    color: this.getContextForegroundColor()
                },
                dividerItemText: {
-                   fontSize: 16,  
+                   fontSize: 16,
                    fontWeight: '500'
                },
                itemIcon: {
                    fontSize: this.getTheme().iconFontSize,
-                   color: 'black'
+                   color: this.getContextForegroundColor()
                },
                itemNote: {
                    fontSize: 15,
@@ -78,7 +79,7 @@ export default class ListItemNB extends NativeBaseComponent {
             right : {
                 flex: 1,
                 paddingLeft: 10
-                
+
             },
             right2 : {
                 flex: 1,
@@ -86,14 +87,14 @@ export default class ListItemNB extends NativeBaseComponent {
                 paddingLeft: 10,
                 alignItems: 'center',
                 justifyContent: 'space-between'
-                
+
             },
             right3 : {
                 flex: 1,
                 flexDirection: 'column',
                 paddingLeft: 10,
                 alignSelf: 'flex-start'
-                
+
             }
         }
     }
@@ -116,6 +117,15 @@ export default class ListItemNB extends NativeBaseComponent {
         })
 
         return iconComponentPresent;
+    }
+    badgePresent() {
+        var badgeComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == Badge)
+                badgeComponentPresent = true;
+        })
+
+        return badgeComponentPresent;
     }
 
     inputPresent() {
@@ -141,7 +151,7 @@ export default class ListItemNB extends NativeBaseComponent {
         var defaultProps = {};
         if(child.type == Image && !Array.isArray(this.props.children)) {
             defaultProps = {
-                resizeMode: 'stretch', 
+                resizeMode: 'stretch',
                 style: this.getInitialStyle().fullImage
             }
         }
@@ -152,7 +162,7 @@ export default class ListItemNB extends NativeBaseComponent {
             }
         }
         else if(child.type == InputGroup) {
-            defaultProps = {                
+            defaultProps = {
                 style: {
                   borderColor: this.getTheme().listBorderColor
                 }
@@ -179,7 +189,7 @@ export default class ListItemNB extends NativeBaseComponent {
                       style: this.getInitialStyle().itemText
                   }
               }
-              
+
             }
         }
         else if(child.type == Icon) {
@@ -199,17 +209,17 @@ export default class ListItemNB extends NativeBaseComponent {
         }
 
         return computeProps(child.props, defaultProps);
-    }  
+    }
 
     prepareRootProps() {
         var defaultProps = {};
-        
+
         if(this.props.itemDivider)
             defaultProps = {
                 style: this.getInitialStyle().listItemDivider
             };
-       
-        else 
+
+        else
             defaultProps = {
                 style: this.getInitialStyle().listItem
             };
@@ -217,15 +227,15 @@ export default class ListItemNB extends NativeBaseComponent {
         return computeProps(this.props, defaultProps);
     }
 
-   
+
     notePresent() {
 
           var notePresent = false;
               React.Children.forEach(this.props.children, function (child) {
                   if(child.type == Text && child.props.note)
                       notePresent = true;
-              })   
-          return notePresent;      
+              })
+          return notePresent;
 
     }
 
@@ -235,9 +245,9 @@ export default class ListItemNB extends NativeBaseComponent {
               React.Children.forEach(this.props.children, function (child) {
                   if(child.type == InputGroup && child.props.inset)
                       insetPresent = true;
-              })   
-              
-          return insetPresent;      
+              })
+
+          return insetPresent;
 
     }
 
@@ -249,7 +259,7 @@ export default class ListItemNB extends NativeBaseComponent {
             inlineComponentPresent = true;
           }
           else
-           inlineComponentPresent = false; 
+           inlineComponentPresent = false;
         }
         return inlineComponentPresent;
     }
@@ -261,9 +271,9 @@ export default class ListItemNB extends NativeBaseComponent {
             stackedComponentPresent = true;
           }
           else
-           stackedComponentPresent = false; 
+           stackedComponentPresent = false;
         }
-        
+
         return stackedComponentPresent;
     }
 
@@ -276,14 +286,14 @@ export default class ListItemNB extends NativeBaseComponent {
                   if(child.props.square)
                       squareThumbs = true;
               })
-            
-          } 
-          return squareThumbs;      
+
+          }
+          return squareThumbs;
 
     }
 
     renderChildren() {
-        
+
         var newChildren = [];
         if(!Array.isArray(this.props.children) && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
             newChildren.push(
@@ -299,98 +309,113 @@ export default class ListItemNB extends NativeBaseComponent {
             var iconElement = [];
 
             if (this.props.iconLeft && !this.props.iconRight) {
-                
+
                 iconElement = _.remove(childrenArray, function(item) {
                                             if(item.type == Icon) {
                                                 return true;
-                                            }  
+                                            }
                                         });
                 newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
                 newChildren.push(<View style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}} >
                                     {childrenArray.map((child) => {
                                       return React.cloneElement(child, this.getChildProps(child));
                                     })}
-                                 </View>);                    
-            } 
+                                 </View>);
+            }
             else if (this.props.iconRight && !this.props.iconLeft) {
 
                 iconElement = _.remove(childrenArray, function(item) {
                                             if(item.type == Icon) {
                                                 return true;
-                                            }  
+                                            }
                                         });
-                
+
                 newChildren.push(<View >
                                     {childrenArray.map((child) => {
                                       return React.cloneElement(child, this.getChildProps(child));
                                     })}
-                                 </View>);                    
+                                 </View>);
                 newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
-            } 
+            }
+            else if (this.badgePresent()) {
+
+                var badgeElement = _.remove(childrenArray, function(item) {
+                                            if(item.type == Badge) {
+                                                return true;
+                                            }
+                                        });
+
+                newChildren.push(<View >
+                                    {childrenArray.map((child) => {
+                                      return React.cloneElement(child, this.getChildProps(child));
+                                    })}
+                                 </View>);
+                newChildren.push(React.cloneElement(badgeElement[0], this.getChildProps(badgeElement[0])));
+            }
             else if (this.props.iconRight && this.props.iconLeft) {
 
                 iconElement = _.filter(childrenArray, function(item) {
                                             if(item.type == Icon) {
                                                 return true;
-                                            }  
+                                            }
                                         });
 
                 newChildren.push(<View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}} >
                                     {childrenArray.slice(0,2).map((child) => {
                                       return React.cloneElement(child, this.getChildProps(child));
                                     })}
-                                 </View>);                    
+                                 </View>);
                 newChildren.push(React.cloneElement(iconElement[1], this.getChildProps(iconElement[1])));
-            } 
+            }
 
             else if (this.thumbnailPresent()) {
-                
+
                 iconElement = _.remove(childrenArray, function(item) {
                                             if(item.type == Thumbnail) {
                                                 return true;
-                                            }  
-                                        });   
+                                            }
+                                        });
                 newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
                 newChildren.push(<View style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
                                     {childrenArray.map((child) => {
                                       return React.cloneElement(child, this.getChildProps(child));
                                     })}
-                                 </View>);                    
-            } 
+                                 </View>);
+            }
             else if (this.inputPresent() && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
-                
-                
+
+
                 newChildren.push(<View style={{flexDirection: 'column', alignSelf: 'center', flex: 1 }} >
                                     {childrenArray.map((child) => {
                                       return React.cloneElement(child, this.getChildProps(child));
                                     })}
-                                 </View>);                    
-            } 
+                                 </View>);
+            }
             else if (this.inlinePresent()) {
-                
+
                 newChildren.push(<View style={{flexDirection: 'row', justifyContent: 'center', flex: 1, borderBottomWidth: 1, borderColor: this.getTheme().listBorderColor, alignItems: 'center', height: this.getTheme().inputHeightBase+5 }} >
                                     <Text style={{color: this.getTheme().inputColorPlaceholder }}>{this.props.children.props.children.props.label}</Text>
-                                 </View>);  
+                                 </View>);
                 newChildren.push(<View style={{flexDirection: 'column', alignSelf: 'center', flex: 2 }} >
                                     {childrenArray.map((child) => {
                                       return React.cloneElement(child, this.getChildProps(child));
                                     })}
-                                 </View>);                    
-            } 
+                                 </View>);
+            }
             else if (this.stackedPresent()) {
-                
+
                 newChildren.push(<View style={{flexDirection: 'row', justifyContent: 'flex-start', flex: 1, alignSelf: 'stretch', alignItems: 'center', height: this.getTheme().inputHeightBase, paddingLeft: 10 }} >
                                     <Text style={{color: this.getTheme().inputColorPlaceholder, textAlign: 'left', fontSize: 17 }}>{this.props.children.props.children.props.label}</Text>
-                                 </View>);  
+                                 </View>);
                 newChildren.push(<View style={{flexDirection: 'row', alignSelf: 'stretch', flex: 2 , padding: 0}} >
                                     {childrenArray.map((child) => {
                                       return React.cloneElement(child, this.getChildProps(child));
                                     })}
-                                 </View>);                    
-            } 
+                                 </View>);
+            }
             else if (this.insetPresent()) {
-                
-                
+
+
                 newChildren.push(<View style={{flexDirection: 'row', alignSelf: 'stretch', flex: 1 , padding: 0}} >
                                     {childrenArray.map((child) => {
                                       return React.cloneElement(child, this.getChildProps(child));
@@ -400,18 +425,18 @@ export default class ListItemNB extends NativeBaseComponent {
                                     {childrenArray.map((child) => {
                                       return React.cloneElement(child, this.getChildProps(child));
                                     })}
-                                 </View>);                    
-            } 
+                                 </View>);
+            }
         }
 
         return newChildren;
     }
-    
-    render() { 
+
+    render() {
         return(
-          <View {...this.prepareRootProps()} >
+          <TouchableOpacity {...this.prepareRootProps()} activeOpacity={ (this.props.button) ? 0.2 : 1} >
             {this.renderChildren()}
-          </View>
+          </TouchableOpacity>
         );
     }
 

@@ -11,8 +11,11 @@ var {
 } = React;
 
 var deviceWidth = Dimensions.get('window').width;
-var background = require("./../../Themes/light").darkenHeader;
-var underlay = require("./../../Themes/light").toolbarDefaultBg;
+var background = require("./../../Themes/light").tabBgColor;
+var underlay = require("./../../Themes/light").darkenHeader;
+var textColor = require("./../../Themes/light").tabTextColor;
+
+console.log("textColor", textColor);
 
 var styles = StyleSheet.create({
   tab: {
@@ -47,7 +50,7 @@ var DefaultTabBar = React.createClass({
     return (
       <TouchableHighlight underlayColor={underlay} style={[styles.tab]} key={name} onPress={() => this.props.goToPage(page)}>
         <View>
-          <Text style={{color: isTabActive ? '#fff' : '#fff', fontWeight: isTabActive ? 'bold' : 'normal'}}>{name}</Text>
+          <Text style={{color: isTabActive ? textColor : textColor, fontWeight: isTabActive ? 'bold' : 'normal'}}>{name}</Text>
         </View>
       </TouchableHighlight>
     );
@@ -59,7 +62,7 @@ var DefaultTabBar = React.createClass({
       position: 'absolute',
       width: deviceWidth / numberOfTabs,
       height: 4,
-      backgroundColor: '#fff',
+      backgroundColor: textColor,
       bottom: 0,
     };
 

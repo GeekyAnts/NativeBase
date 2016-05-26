@@ -33,6 +33,7 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 import ScrollableTabView from './Components/Widgets/Tabs';
 import TabNavigator from 'react-native-tab-navigator';
 
+
 module.exports = {
 	Header: Header,
 	Footer: Footer,
