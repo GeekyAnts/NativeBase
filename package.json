@@ -10,7 +10,8 @@
     "react-native-checkbox": "~1.0.8"
   },
   "peerDependencies": {
-    "react-native-vector-icons": "~1.3.4"
+    "react-native-vector-icons": "~1.3.4",
+    "react-native": "0.24.0 - 0.25.1"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",

@@ -20,7 +20,7 @@ module.exports = function(incomingProps, defaultProps) {
     if(incomingProps.style) {
         var incomingPropsStyle;
         if(typeof incomingProps.style == 'number') {
-            incomingPropsStyle = StyleSheetRegistry.getStyleByID(incomingProps.style);
+            incomingPropsStyle = StyleSheetRegistry.getByID(incomingProps.style);
             computedProps.style = {};
         } else {
             incomingPropsStyle = incomingProps.style;
