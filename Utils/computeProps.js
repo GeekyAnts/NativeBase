@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import StyleSheetRegistry from 'react-native/Libraries/ReactNative/ReactNativePropRegistry';
+import StyleSheetRegistry from 'react/lib/ReactNativePropRegistry';
 
 module.exports = function(incomingProps, defaultProps) {
 
