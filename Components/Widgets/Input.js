@@ -9,12 +9,10 @@ import computeProps from '../../Utils/computeProps';
 export default class Input extends NativeBaseComponent {
 
 	getInitialStyle() {
-		console.log("this.getContextForegroundColor()", this.getContextForegroundColor());
-		console.log("this.getTheme().borderWidth", this.getTheme().borderWidth);
 		return {
 			input: {
 				height: this.getTheme().inputHeightBase,
-				color: this.getTheme().textColor,
+				color: this.getContextForegroundColor() ? this.getContextForegroundColor() : this.getTheme().inputColor,
 				paddingLeft: 5,
 				paddingRight: 5
 			}
@@ -34,8 +32,8 @@ export default class Input extends NativeBaseComponent {
 	render() {
 
 		return (
-			<View style={{ flex: 1, borderColor: this.getContextForegroundColor(),borderBottomWidth: this.getTheme().borderWidth }}>
-				<TextInput {...this.prepareRootProps()} placeholderTextColor={ this.getTheme().inputColorPlaceholder} underlineColorAndroid='rgba(0,0,0,0)' />
+			<View style={{ flex: 1}}>
+				<TextInput {...this.prepareRootProps()} placeholderTextColor={ this.getContextForegroundColor() ? this.getContextForegroundColor() : this.getTheme().inputColorPlaceholder } underlineColorAndroid='rgba(0,0,0,0)' />
 			</View>
 		);
 	}

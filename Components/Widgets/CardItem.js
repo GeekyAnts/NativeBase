@@ -20,6 +20,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 padding: (this.imagePresent() && !this.ifShowCase()) ? 0 : this.getTheme().listItemPadding,
                 borderRadius: 1,
                 flex: 1,
+                backgroundColor: this.getTheme().listBg,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                 flexDirection: (this.thumbnailPresent() || this.iconPresent() || (this.notePresent() && this.ifShowCase())) ? 'row' : 'column',
                 borderColor: this.getTheme().listBorderColor
@@ -34,16 +35,18 @@ export default class ListItemNB extends NativeBaseComponent {
                 borderColor: this.getTheme().listBorderColor
             },
             itemText: {
-                fontSize: this.ifShowCase() ? 14 : 15, 
-                marginTop:  this.ifShowCase() ? 10 : 0
+                fontSize: this.ifShowCase() ? 14 : 15,
+                marginTop:  this.ifShowCase() ? 10 : 0,
+                color: this.getContextForegroundColor()
             },
             dividerItemText: {
-                fontSize: 16,  
-                fontWeight: '500'
+                fontSize: 16,
+                fontWeight: '500',
+                color: this.getContextForegroundColor()
             },
             itemIcon: {
                 fontSize: this.getTheme().iconFontSize,
-                color: 'black'
+                color: this.getContextForegroundColor()
             },
             itemNote: {
                 fontSize: 15,
@@ -59,7 +62,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 alignSelf: 'center'
             },
             fullImage: {
-                alignSelf: 'stretch',                    
+                alignSelf: 'stretch',
                 height: this.ifShowCase() ? 120 : 300
             }
         }
@@ -68,20 +71,23 @@ export default class ListItemNB extends NativeBaseComponent {
         return {
             right : {
                 flex: 1,
-                paddingLeft: 10                
+                paddingLeft: 10,
+                backgroundColor: 'transparent'
             },
             right2 : {
                 flex: 1,
                 flexDirection: 'row',
                 paddingLeft: 10,
                 alignItems: 'center',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                backgroundColor: 'transparent'
             },
             right3 : {
                 flex: 1,
                 flexDirection: 'column',
                 paddingLeft: 10,
-                justifyContent: 'flex-start'
+                justifyContent: 'flex-start',
+                backgroundColor: 'transparent'
             }
         }
     }
@@ -134,7 +140,7 @@ export default class ListItemNB extends NativeBaseComponent {
         }
 
 
-        return ifShowCase;   
+        return ifShowCase;
     }
 
     notePresent() {
@@ -164,7 +170,7 @@ export default class ListItemNB extends NativeBaseComponent {
         var defaultProps = {};
         if(child.type == Image && !Array.isArray(this.props.children)) {
             defaultProps = {
-                resizeMode: 'stretch', 
+                resizeMode: 'stretch',
                 style: this.getInitialStyle().fullImage
             }
         }
@@ -179,7 +185,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 defaultProps = {
                     style: this.getInitialStyle().dividerItemText
                 }
-            } 
+            }
             else {
                 if(child.props.note && this.thumbnailPresent()) {
                     defaultProps = {
@@ -215,7 +221,7 @@ export default class ListItemNB extends NativeBaseComponent {
         }
         else {
             defaultProps = {
-                style: {}
+                foregroundColor: this.getContextForegroundColor()
             }
         }
 
@@ -226,12 +232,13 @@ export default class ListItemNB extends NativeBaseComponent {
         var defaultProps = {};
 
         if((this.props.header) || (this.props.footer)) {
+
             defaultProps = {
                 style: this.getInitialStyle().listItemDivider
             };
         }
 
-        else { 
+        else {
             defaultProps = {
                 style: this.getInitialStyle().listItem
             };
@@ -247,10 +254,11 @@ export default class ListItemNB extends NativeBaseComponent {
         var newChildren = [];
 
         if(!this.thumbnailPresent() && !this.iconPresent()) {
+            
             newChildren = React.Children.map(this.props.children, (child) => {
                 return React.cloneElement(child, this.getChildProps(child));
             });
-        } 
+        }
         else {
             newChildren = [];
             if(!Array.isArray(this.props.children)) {
@@ -261,6 +269,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 );
             }
             else {
+
                 var childrenArray = React.Children.toArray(this.props.children);
                 newChildren.push(React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
                 newChildren.push(
@@ -277,7 +286,7 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
 
-    render() { 
+    render() {
         return(
             <View {...this.prepareRootProps()} >
                 {this.renderChildren()}

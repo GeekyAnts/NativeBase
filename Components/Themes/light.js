@@ -49,14 +49,14 @@ module.exports = {
 
     footerHeight: 55,
     toolbarHeight: (Platform.OS === 'ios' ) ? 70 : 55,
-    toolbarDefaultBg: "#3b8355",
+    toolbarDefaultBg: "#00c497",
     toolbarInverseBg: "#222",
 
-		tabBgColor: "#3b8355",
+		tabBgColor: "#00c497",
 		tabTextColor: "#fff",
 
 		get darkenHeader() {
-			return Color(this.toolbarDefaultBg).darken(0.03).hexString();
+			return Color(this.tabBgColor).darken(0.03).hexString();
 		},
     get btnPrimaryBg () {
         return this.brandPrimary;
@@ -118,7 +118,7 @@ module.exports = {
     listItemPadding: 15,
     listNoteColor: "#58575C",
 
-    iconFontSize: 27,
+    iconFontSize: 32,
 
     badgeColor: "#fff",
     badgeBg: "#ED1727",

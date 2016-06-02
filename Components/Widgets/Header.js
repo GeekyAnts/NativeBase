@@ -52,7 +52,7 @@ export default class Header extends NativeBaseComponent {
                 </View>}
 
                 { Array.isArray(this.props.children) &&
-                <View style={{flex: 1,alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row'}}>
+                <View style={{flex: 1,alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14}}>
                     {this.props.children[0]}
                 </View>}
 
@@ -62,7 +62,7 @@ export default class Header extends NativeBaseComponent {
                 </View>}
 
                 { Array.isArray(this.props.children) &&
-                <View style={{flex:1,alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row'}}>
+                <View style={{flex:1,alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row', marginRight: -14}}>
                     {this.props.children[2]}
                 </View>}
             </View>

@@ -149,6 +149,7 @@ export default class ListItemNB extends NativeBaseComponent {
 
     getChildProps(child) {
         var defaultProps = {};
+
         if(child.type == Image && !Array.isArray(this.props.children)) {
             defaultProps = {
                 resizeMode: 'stretch',
@@ -162,10 +163,12 @@ export default class ListItemNB extends NativeBaseComponent {
             }
         }
         else if(child.type == InputGroup) {
+            
             defaultProps = {
                 style: {
                   borderColor: this.getTheme().listBorderColor
-                }
+                },
+                foregroundColor: this.getContextForegroundColor()
             }
         }
         else if(child.type == Text) {
@@ -204,7 +207,7 @@ export default class ListItemNB extends NativeBaseComponent {
         }
         else {
             defaultProps = {
-                style: {}
+                foregroundColor: this.getContextForegroundColor()
             }
         }
 
@@ -293,7 +296,7 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
     renderChildren() {
-
+        
         var newChildren = [];
         if(!Array.isArray(this.props.children) && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
             newChildren.push(
@@ -311,10 +314,10 @@ export default class ListItemNB extends NativeBaseComponent {
             if (this.props.iconLeft && !this.props.iconRight) {
 
                 iconElement = _.remove(childrenArray, function(item) {
-                                            if(item.type == Icon) {
-                                                return true;
-                                            }
-                                        });
+                                  if(item.type == Icon) {
+                                      return true;
+                                  }
+                              });
                 newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
                 newChildren.push(<View style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}} >
                                     {childrenArray.map((child) => {
@@ -394,7 +397,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else if (this.inlinePresent()) {
 
                 newChildren.push(<View style={{flexDirection: 'row', justifyContent: 'center', flex: 1, borderBottomWidth: 1, borderColor: this.getTheme().listBorderColor, alignItems: 'center', height: this.getTheme().inputHeightBase+5 }} >
-                                    <Text style={{color: this.getTheme().inputColorPlaceholder }}>{this.props.children.props.children.props.label}</Text>
+                                    <Text style={{color: this.getContextForegroundColor() ? this.getContextForegroundColor() : this.getTheme().inputColorPlaceholder }}>{this.props.children.props.children.props.label}</Text>
                                  </View>);
                 newChildren.push(<View style={{flexDirection: 'column', alignSelf: 'center', flex: 2 }} >
                                     {childrenArray.map((child) => {
@@ -405,7 +408,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else if (this.stackedPresent()) {
 
                 newChildren.push(<View style={{flexDirection: 'row', justifyContent: 'flex-start', flex: 1, alignSelf: 'stretch', alignItems: 'center', height: this.getTheme().inputHeightBase, paddingLeft: 10 }} >
-                                    <Text style={{color: this.getTheme().inputColorPlaceholder, textAlign: 'left', fontSize: 17 }}>{this.props.children.props.children.props.label}</Text>
+                                    <Text style={{color: this.getContextForegroundColor() ? this.getContextForegroundColor() : this.getTheme().inputColorPlaceholder, textAlign: 'left', fontSize: 17 }}>{this.props.children.props.children.props.label}</Text>
                                  </View>);
                 newChildren.push(<View style={{flexDirection: 'row', alignSelf: 'stretch', flex: 2 , padding: 0}} >
                                     {childrenArray.map((child) => {

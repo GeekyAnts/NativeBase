@@ -9,6 +9,7 @@ import Content from './Content';
 import Footer from './Footer';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import _ from 'lodash';
+import computeProps from '../../Utils/computeProps';
 
 export default class Container extends NativeBaseComponent {
 
@@ -29,16 +30,17 @@ export default class Container extends NativeBaseComponent {
 	}
 	renderContent() {
 		if(Array.isArray(this.props.children)) {
+
 			return _.find(this.props.children, function(item) {
-				if(item && (item.type == ViewNB || item.type == Content || item.type == Image)) {
-					
+				if(item && (item.type == ViewNB || item.type == Content || item.type == Image || item.type == View)) {
+
 					return true;
 				}
 			});
 		}
 
 		else {
-			if(this.props.children && this.props.children.type == Content) {
+			if(this.props.children && (this.props.children.type == Content || this.props.children.type == ViewNB || this.props.children.type == View || this.props.children.type == Image)) {
 				return this.props.children;
 			}
 		}
@@ -58,9 +60,21 @@ export default class Container extends NativeBaseComponent {
 			}
 		}
 	}
+	prepareRootProps() {
+
+		var type = {
+			flex: 1
+		}
+
+		var defaultProps = {
+			style: type
+		}
+
+		return computeProps(this.props, defaultProps);
+	}
 	render() {
 		return(
-			<View style={{flex:1}}>
+			<View {...this.prepareRootProps()}>
 
 				<View>
 					{this.renderHeader()}

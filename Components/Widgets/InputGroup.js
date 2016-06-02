@@ -82,6 +82,7 @@ export default class InputGroup extends NativeBaseComponent {
 	}
 
 	getIconProps(icon) {
+
 		var defaultStyle = {
 			color: this.getContextForegroundColor(),
 			fontSize: 27
@@ -113,6 +114,7 @@ export default class InputGroup extends NativeBaseComponent {
 
 
 	renderChildren() {
+
 		var inputProps = {};
 		var newChildren = [];
 		var childrenArray = React.Children.toArray(this.props.children);
@@ -125,7 +127,7 @@ export default class InputGroup extends NativeBaseComponent {
 		});
 
 		var inp =  _.find(childrenArray, function(item) {
-			if(item && item.type == undefined) {
+			if(item && item.type == Input) {
 				return true;
 			}
 		});
@@ -134,14 +136,16 @@ export default class InputGroup extends NativeBaseComponent {
 		inputProps = computeProps(this.props, inp.props);
 		else
 		inputProps = this.props;
-		
+
 		if(Array.isArray(this.props.children)) {
+
 			if(this.props.iconRight) {
 				newChildren.push(<Input {...inputProps}/>);
-				newChildren.push(<Text style={{paddingTop: 3}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+				newChildren.push(<Text style={{paddingTop: 3, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
 			}
 			else {
-				newChildren.push(<Text style={{paddingTop: 3}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+
+				newChildren.push(<Text style={{paddingTop: 3, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
 				newChildren.push(<Input {...inputProps}/>);
 			}
 		}
