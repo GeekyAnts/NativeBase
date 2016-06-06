@@ -13,8 +13,7 @@ export default class Content extends NativeBaseComponent {
 
 		var type = {
 			backgroundColor: 'transparent',
-			flex: 1,
-			padding: (this.props.padder) ? this.getTheme().contentPadding : 0
+			flex: 1
 		}
 
 		var defaultProps = {
@@ -26,7 +25,7 @@ export default class Content extends NativeBaseComponent {
 
 	render() {
 		return(
-			<ScrollView {...this.prepareRootProps()}>{this.props.children}</ScrollView>
+			<ScrollView {...this.prepareRootProps()} contentContainerStyle={{padding: (this.props.padder) ? this.getTheme().contentPadding : 0}}>{this.props.children}</ScrollView>
 		);
 	}
 }

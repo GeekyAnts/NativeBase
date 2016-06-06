@@ -20,7 +20,7 @@ export default class Button extends NativeBaseComponent {
                 alignSelf: 'center',
                 alignItems: 'center',
                 backgroundColor: this.getTheme().btnPrimaryBg,
-                elevation: 2,
+                elevation: (this.props.transparent) ? 0 : 2,
                 shadowColor: '#000',
                 shadowOffset: {width: 0, height: 2},
                 shadowOpacity: 0.1,
