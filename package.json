@@ -1,6 +1,18 @@
 {
   "name": "native-base",
   "description": "The missing piece of React Native",
+  "keywords": [
+    "android",
+    "ios",
+    "react",
+    "native",
+    "react-native",
+    "native-modules",
+    "react-component",
+    "navbar",
+    "packager",
+    "rnpm"
+  ],
   "version": "0.4.0",
   "private": false,
   "dependencies": {
