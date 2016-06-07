@@ -24,7 +24,8 @@
   "peerDependencies": {
     "react-native-vector-icons": "2.0.x",
     "react-native": "0.26.x",
-    "react": "15.0.2"
+    "react": "15.0.2",
+    "react-native-easy-grid": "0.1.4"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
@@ -43,9 +44,5 @@
   "bugs": {
     "url": "https://github.com/GeekyAnts/NativeBase/issues"
   },
-  "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-  "_id": "native-base@0.2.2",
-  "_shasum": "68f7dac9eb82f56ac0b08c53dd3a9cce84b1f941",
-  "_from": "git+https://github.com/GeekyAnts/NativeBase.git#development",
-  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#effae84f1d500d00a3cf4fcd3c4079891aa3e69e"
+  "homepage": "https://github.com/GeekyAnts/NativeBase#readme"
 }
