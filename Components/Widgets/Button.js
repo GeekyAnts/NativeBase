@@ -10,7 +10,7 @@ import _ from 'lodash';
 
 
 export default class Button extends NativeBaseComponent {
-    
+
     getInitialStyle() {
         return {
             button: {
@@ -19,15 +19,20 @@ export default class Button extends NativeBaseComponent {
                 flexDirection: 'row',
                 alignSelf: 'center',
                 alignItems: 'center',
-                backgroundColor: this.getTheme().btnPrimaryBg
+                backgroundColor: this.getTheme().btnPrimaryBg,
+                elevation: (this.props.transparent) ? 0 : 2,
+                shadowColor: '#000',
+                shadowOffset: {width: 0, height: 2},
+                shadowOpacity: 0.1,
+                shadowRadius: 1.5
             }
         }
     }
 
     prepareRootProps() {
 
-        var type = { 
-            backgroundColor:    (this.props.primary) ? this.getTheme().btnPrimaryBg : 
+        var type = {
+            backgroundColor:    (this.props.primary) ? this.getTheme().btnPrimaryBg :
                                 ((this.props.transparent) || (this.props.bordered)) ? 'rgba(0,0,0,0)' :
                                 (this.props.success) ? this.getTheme().btnSuccessBg :
                                 (this.props.danger) ? this.getTheme().btnDangerBg :
@@ -37,7 +42,7 @@ export default class Button extends NativeBaseComponent {
                                 this.getInitialStyle().button.backgroundColor,
             borderRadius: (this.props.rounded) ? this.getTheme().borderRadiusLarge : this.getTheme().borderRadiusBase,
             borderWidth: (this.props.bordered) ? 1 : 0,
-            borderColor:    (this.props.primary) ? this.getTheme().primary : 
+            borderColor:    (this.props.primary) ? this.getTheme().primary :
                             (this.props.success) ? this.getTheme().btnSuccessBg :
                             (this.props.danger) ? this.getTheme().btnDangerBg :
                             (this.props.warning) ? this.getTheme().btnWarningBg :
@@ -57,39 +62,44 @@ export default class Button extends NativeBaseComponent {
     }
 
     getTextStyle() {
+
         var mergedStyle = {};
-
         var btnType = {
-            paddingLeft: 3,
-
-            color:  (((this.props.bordered) && (this.props.primary)) || ((this.props.transparent) && (this.props.primary))) ? this.getTheme().btnPrimaryBg : 
-                    (((this.props.bordered) && (this.props.success)) || ((this.props.transparent) && (this.props.success))) ? this.getTheme().btnSuccessBg :
-                    (((this.props.bordered) && (this.props.danger)) || ((this.props.transparent) && (this.props.danger))) ? this.getTheme().btnDangerBg :
-                    (((this.props.bordered) && (this.props.warning)) || ((this.props.transparent) && (this.props.warning))) ? this.getTheme().btnWarningBg :
-                    (((this.props.bordered) && (this.props.info)) || ((this.props.transparent) && (this.props.info))) ? this.getTheme().btnInfoBg :
-                    ((this.props.bordered) || (this.props.transparent)) ? this.getTheme().btnPrimaryBg : 
+            paddingRight : 5,
+            paddingLeft : 3,
+            color:
+                    ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg :
+                    ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
+                    ((this.props.bordered) && (this.props.danger)) ? this.getTheme().btnDangerBg :
+                    ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
+                    ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
+                    ((this.props.bordered)) ? this.getTheme().btnPrimaryBg :
+                    (this.props.transparent) ? this.getContextForegroundColor() :
                     this.getTheme().inverseTextColor,
 
-            fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize, 
+            fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize,
 
-            lineHeight: (this.props.large) ? 32 : (this.props.small) ? 15 : 22
+            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 13 : 20
         }
 
         return _.merge(mergedStyle, btnType, this.props.textStyle);
     }
 
     getIconProps(icon) {
-        var defaultStyle = {
 
-            color: (((this.props.bordered) && (this.props.primary)) || ((this.props.transparent) && (this.props.primary))) ? this.getTheme().btnPrimaryBg : 
-                (((this.props.bordered) && (this.props.success)) || ((this.props.transparent) && (this.props.success))) ? this.getTheme().btnSuccessBg :
-                (((this.props.bordered) && (this.props.danger)) || ((this.props.transparent) && (this.props.danger))) ? this.getTheme().btnDangerBg :
-                (((this.props.bordered) && (this.props.warning)) || ((this.props.transparent) && (this.props.warning))) ? this.getTheme().btnWarningBg :
-                (((this.props.bordered) && (this.props.info)) || ((this.props.transparent) && (this.props.info))) ? this.getTheme().btnInfoBg :
-                ((this.props.bordered) || (this.props.transparent)) ? this.getTheme().btnPrimaryBg : 
+        var defaultStyle = {
+            color:
+                ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg :
+                ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
+                ((this.props.bordered) && (this.props.danger)) ? this.getTheme().btnDangerBg :
+                ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
+                ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
+                (this.props.bordered)  ? this.getTheme().btnPrimaryBg :
+                (this.props.transparent) ? this.getContextForegroundColor() :
                 this.getTheme().inverseTextColor,
 
-            fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize
+            fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize,
+            lineHeight: (this.props.large) ? 52: (this.props.small) ? 22 : 39
         }
 
         var defaultProps = {
@@ -114,13 +124,13 @@ export default class Button extends NativeBaseComponent {
             iconElement = _.remove(childrenArray, function(item) {
                 if(item.type == Icon) {
                     return true;
-                }  
+                }
             });
             if(this.props.iconRight) {
                 newChildren.push(<Text style={this.getTextStyle()}>{childrenArray[0]}</Text>);
                 newChildren.push(<Text>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
             }
-            
+
             else if(this.props.iconLeft || iconElement) {
                 newChildren.push(<Text>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
                 newChildren.push(<Text style={this.getTextStyle()}>{childrenArray[0]}</Text>);
@@ -131,10 +141,10 @@ export default class Button extends NativeBaseComponent {
         }
 
         else
-            return this.props.children
+            return React.cloneElement(this.props.children, this.getIconProps(this.props.children));
 
     }
-    
+
     render() {
         return(
             <TouchableOpacity {...this.prepareRootProps()} >

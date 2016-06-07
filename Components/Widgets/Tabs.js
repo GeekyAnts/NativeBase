@@ -4,21 +4,22 @@
 import React from 'react';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
-import Icon from 'react-native-vector-icons/Ionicons';
+import ScrollableTabView from './../vendor/react-native-scrollable-tab-view';
 
-export default class IconNB extends NativeBaseComponent {
+export default class TabNB extends NativeBaseComponent {
 
     getInitialStyle() {
         return {
-            icon: {
-                fontSize: 34,
-                color: this.getContextForegroundColor()
+            tab: {
+                flex: 1
             }
         }
     }
+
     prepareRootProps() {
+
         var defaultProps = {
-            style: this.getInitialStyle().icon
+            style: this.getInitialStyle().tab
         };
 
         return computeProps(this.props, defaultProps);
@@ -27,7 +28,10 @@ export default class IconNB extends NativeBaseComponent {
 
     render() {
         return(
-            <Icon {...this.prepareRootProps()}/>
+          <ScrollableTabView {...this.prepareRootProps()} >
+              {this.props.children}
+          </ScrollableTabView>
         );
     }
+
 }

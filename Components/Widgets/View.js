@@ -10,7 +10,7 @@ export default class ViewNB extends NativeBaseComponent {
 
 	render() {
 		return(
-			<View style={{padding: (this.props.padder) ? this.getTheme().contentPadding : 0}} {...this.props}></View>
+			<View style={{padding: (this.props.padder) ? this.getTheme().contentPadding : 0, flex: 1}} {...this.props}></View>
 		);
 	}    
 }

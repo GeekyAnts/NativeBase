@@ -30,7 +30,7 @@ export default class BadgeNB extends NativeBaseComponent {
         }     
 
         return computeProps(this.props, defaultProps);
-
+        
     }
     render() {
         return(

@@ -1,6 +1,7 @@
 /* @flow */
 'use strict';
 
+import Drawer from 'react-native-drawer';
 import Header from './Components/Widgets/Header';
 import Footer from './Components/Widgets/Footer';
 import Title from './Components/Widgets/Title';
@@ -18,11 +19,17 @@ import H2 from './Components/Widgets/H2';
 import H3 from './Components/Widgets/H3';
 import View from './Components/Widgets/View';
 import Input from './Components/Widgets/Input';
+import Textarea from './Components/Widgets/Textarea';
 import InputGroup from './Components/Widgets/InputGroup';
 import Icon from './Components/Widgets/Icon';
 import Thumbnail from './Components/Widgets/Thumbnail';
 import Card from './Components/Widgets/Card';
 import Badge from './Components/Widgets/Badge';
+// import Spinner from './Components/Widgets/Spinner';
+// import ProgressBar from './Components/Widgets/ProgressBar';
+import { Col, Row, Grid } from "react-native-easy-grid";
+import ScrollableTabView from './Components/Widgets/Tabs';
+
 
 module.exports = {
 	Header: Header,
@@ -41,9 +48,18 @@ module.exports = {
 	H2: H2,
 	H3: H3,
 	View: View,
+	Row: Row,
+	Col: Col,
+	Grid: Grid,
 	InputGroup: InputGroup,
+	Input: Input,
+	Textarea: Textarea,
 	Icon: Icon,
 	Thumbnail: Thumbnail,
 	Card: Card,
-	Badge: Badge
+	Badge: Badge,
+	// Spinner: Spinner,
+	// ProgressBar: ProgressBar,
+	Drawer: Drawer,
+	Tabs : ScrollableTabView
 };

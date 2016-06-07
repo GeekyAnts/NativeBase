@@ -11,15 +11,15 @@ export default class TextNB extends NativeBaseComponent {
 
 	prepareRootProps() {
 
-		var type = { 
-			color: this.getTheme().textColor,
+		var type = {
+			color: this.getContextForegroundColor(),
 			fontSize: this.getTheme().fontSizeBase,
 			lineHeight: this.getTheme().lineHeight
 		}
 
 		var defaultProps = {
 			style: type
-		}	  
+		}
 
 		return computeProps(this.props, defaultProps);
 
@@ -28,7 +28,6 @@ export default class TextNB extends NativeBaseComponent {
 		return(
 			<Text {...this.prepareRootProps()}>{this.props.children}</Text>
 		);
-	}    
+	}
 
 }
-

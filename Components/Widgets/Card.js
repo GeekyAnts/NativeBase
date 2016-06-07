@@ -21,7 +21,8 @@ export default class CardNB extends NativeBaseComponent {
                 shadowColor: '#000',
                 shadowOffset: {width: 0, height: 2},
                 shadowOpacity: 0.1,
-                shadowRadius: 1.5
+                shadowRadius: 1.5,
+                elevation: 1
             }
         }
     }
@@ -35,8 +36,8 @@ export default class CardNB extends NativeBaseComponent {
         return computeProps(this.props, defaultProps);
 
     }
-    
-    render() { 
+
+    render() {
         return(
             <View {...this.prepareRootProps()} >
                 {this.props.children}

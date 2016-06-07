@@ -1,37 +1,39 @@
 'use strict';
 
 var React = require('react-native');
-var secondary = require('../../Styles/variable').brandSecondary;
+
 var {
   Dimensions,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  TouchableHighlight,
   View,
   Animated,
 } = React;
 
 var deviceWidth = Dimensions.get('window').width;
+var background = require("./../../Themes/light").tabBgColor;
+var underlay = require("./../../Themes/light").darkenHeader;
+var textColor = require("./../../Themes/light").tabTextColor;
+
+console.log("textColor", textColor);
 
 var styles = StyleSheet.create({
   tab: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 10,
-    
+    backgroundColor: background
   },
 
   tabs: {
-    height: 50,
+    height: 45,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 0,
     borderWidth: 1,
     borderTopWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    backgroundColor: secondary,
     borderBottomColor: '#ccc',
   },
 });
@@ -47,11 +49,11 @@ var DefaultTabBar = React.createClass({
     var isTabActive = this.props.activeTab === page;
 
     return (
-      <TouchableOpacity style={[styles.tab]} key={name} onPress={() => this.props.goToPage(page)}>
+      <TouchableHighlight underlayColor={underlay} style={[styles.tab]} key={name} onPress={() => this.props.goToPage(page)}>
         <View>
-          <Text style={{color: isTabActive ? 'white' : '#CCC6CA', fontWeight: isTabActive ? 'bold' : 'normal'}}>{name}</Text>
+          <Text style={{color: isTabActive ? textColor : textColor, fontWeight: isTabActive ? 'bold' : 'normal'}}>{name}</Text>
         </View>
-      </TouchableOpacity>
+      </TouchableHighlight>
     );
   },
 
@@ -61,7 +63,7 @@ var DefaultTabBar = React.createClass({
       position: 'absolute',
       width: deviceWidth / numberOfTabs,
       height: 4,
-      backgroundColor: 'white',
+      backgroundColor: textColor,
       bottom: 0,
     };
 
