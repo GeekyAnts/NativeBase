@@ -1,7 +1,7 @@
 /* @flow */
 'use strict';
 
-import Drawer from 'react-native-drawer';
+import Drawer from './Components/vendor/react-native-drawer';
 import Header from './Components/Widgets/Header';
 import Footer from './Components/Widgets/Footer';
 import Title from './Components/Widgets/Title';

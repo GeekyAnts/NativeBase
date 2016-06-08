@@ -1,0 +1,71 @@
+{
+  "name": "react-native-drawer",
+  "version": "1.16.7",
+  "description": "React Native Drawer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rt2zz/react-native-drawer.git"
+  },
+  "dependencies": {
+    "tween-functions": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.8",
+    "eslint": "^1.10.3",
+    "eslint-config-rackt": "^1.1.1",
+    "eslint-config-standard-react": "^1.2.1",
+    "eslint-plugin-react": "^3.14.0",
+    "eslint-plugin-standard": "^1.3.1"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "react-component",
+    "drawer",
+    "side-menu",
+    "menu",
+    "ios",
+    "android",
+    "material design"
+  ],
+  "author": {
+    "name": "rt2zz",
+    "email": "zack@root-two.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rt2zz/react-native-drawer/issues"
+  },
+  "homepage": "https://github.com/rt2zz/react-native-drawer",
+  "gitHead": "bf49833f28e584c0b3fe8a6b796f2d3ed19a9ad5",
+  "_id": "react-native-drawer@1.16.7",
+  "_shasum": "3373b3482f089228414ef53cefb4ec1ca5853acf",
+  "_from": "react-native-drawer@>=1.16.6 <2.0.0",
+  "_npmVersion": "3.3.12",
+  "_nodeVersion": "5.1.0",
+  "_npmUser": {
+    "name": "rt2zz",
+    "email": "zstory@ucla.edu"
+  },
+  "dist": {
+    "shasum": "3373b3482f089228414ef53cefb4ec1ca5853acf",
+    "tarball": "http://registry.npmjs.org/react-native-drawer/-/react-native-drawer-1.16.7.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "rt2zz",
+      "email": "zstory@ucla.edu"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-6-west.internal.npmjs.com",
+    "tmp": "tmp/react-native-drawer-1.16.7.tgz_1455848778816_0.6944303626660258"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/react-native-drawer/-/react-native-drawer-1.16.7.tgz",
+  "readme": "ERROR: No README data found!"
+}

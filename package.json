@@ -19,7 +19,6 @@
     "color": "~0.11.1",
     "lodash": "~4.11.1",
     "react-native-checkbox": "~1.0.8",
-    "react-native-drawer": "^1.16.6",
     "react-native-easy-grid": "0.1.5"
   },
   "peerDependencies": {
