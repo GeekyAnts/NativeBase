@@ -1,10 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component,PropTypes} from 'react';
 import {
   PanResponder,
   View,
   StyleSheet,
-  Dimensions,
-  PropTypes
+  Dimensions
 } from 'react-native'
 import tween from './tweener'
 
