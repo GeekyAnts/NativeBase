@@ -1,0 +1,54 @@
+{
+  "name": "tween-functions",
+  "version": "1.2.0",
+  "description": "Robert Penner's easing functions, slightly modified",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenglou/tween-functions.git"
+  },
+  "keywords": [
+    "tween",
+    "ease",
+    "react",
+    "animation",
+    "easing",
+    "penner",
+    "bezier",
+    "interpolation"
+  ],
+  "author": {
+    "name": "chenglou"
+  },
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/chenglou/tween-functions/issues"
+  },
+  "homepage": "https://github.com/chenglou/tween-functions",
+  "gitHead": "e3d5f1edf2cdb9b7b623be4d1064f886136a70b3",
+  "_id": "tween-functions@1.2.0",
+  "_shasum": "1ae3a50e7c60bb3def774eac707acbca73bbc3ff",
+  "_from": "tween-functions@>=1.0.1 <2.0.0",
+  "_npmVersion": "2.14.6",
+  "_nodeVersion": "4.1.2",
+  "_npmUser": {
+    "name": "chenglou",
+    "email": "chenglou92@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "chenglou",
+      "email": "chenglou92@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "1ae3a50e7c60bb3def774eac707acbca73bbc3ff",
+    "tarball": "http://registry.npmjs.org/tween-functions/-/tween-functions-1.2.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/tween-functions/-/tween-functions-1.2.0.tgz",
+  "readme": "ERROR: No README data found!"
+}
