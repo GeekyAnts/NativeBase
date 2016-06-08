@@ -8,7 +8,7 @@ var {
   TouchableOpacity,
   PanResponder,
   Animated,
-} = React;
+} = require('react-native');
 
 var DefaultTabBar = require('./DefaultTabBar');
 var deviceWidth = Dimensions.get('window').width;

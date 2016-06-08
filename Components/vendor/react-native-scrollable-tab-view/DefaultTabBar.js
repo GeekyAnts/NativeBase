@@ -9,7 +9,7 @@ var {
   TouchableHighlight,
   View,
   Animated,
-} = React;
+} = require('react-native');
 
 var deviceWidth = Dimensions.get('window').width;
 var background = require("./../../Themes/light").tabBgColor;
