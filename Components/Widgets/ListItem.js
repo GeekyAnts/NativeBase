@@ -70,7 +70,7 @@ export default class ListItemNB extends NativeBaseComponent {
                    width: 300,
                    height: 300
                },
-               itemButton: {},
+               itemButton: {}
 
            }
        }

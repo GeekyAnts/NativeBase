@@ -9,8 +9,8 @@ import computeProps from '../../Utils/computeProps';
 export default class Textarea extends NativeBaseComponent {
 
 	getInitialStyle() {
-		console.log("this.getContextForegroundColor()", this.getContextForegroundColor());
-		console.log("this.getTheme().borderWidth", this.getTheme().borderWidth);
+		// console.log("this.getContextForegroundColor()", this.getContextForegroundColor());
+		// console.log("this.getTheme().borderWidth", this.getTheme().borderWidth);
 		return {
 			input: {
 				height: this.props.rowSpan*25,

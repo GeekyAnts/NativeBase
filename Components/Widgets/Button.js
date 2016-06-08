@@ -24,7 +24,7 @@ export default class Button extends NativeBaseComponent {
                 shadowColor: '#000',
                 shadowOffset: {width: 0, height: 2},
                 shadowOpacity: 0.1,
-                shadowRadius: 1.5,
+                shadowRadius: 1.5
             }
         }
     }
@@ -99,7 +99,7 @@ export default class Button extends NativeBaseComponent {
                 this.getTheme().inverseTextColor,
 
             fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize,
-            lineHeight: (this.props.large) ? 52: (this.props.small) ? 22 : 39,
+            lineHeight: (this.props.large) ? 52: (this.props.small) ? 22 : 39
         }
 
         var defaultProps = {

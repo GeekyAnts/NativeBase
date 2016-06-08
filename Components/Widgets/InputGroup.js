@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {Text, View, PixelRatio} from 'react-native';
+import {Text, View} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Icon from './Icon';
 import computeProps from '../../Utils/computeProps';

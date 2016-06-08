@@ -1,16 +1,31 @@
 {
   "name": "native-base",
   "description": "The missing piece of React Native",
-  "version": "0.2.2",
+  "keywords": [
+    "android",
+    "ios",
+    "react",
+    "native",
+    "react-native",
+    "native-modules",
+    "react-component",
+    "navbar",
+    "packager",
+    "rnpm"
+  ],
+  "version": "0.4.3",
   "private": false,
   "dependencies": {
     "color": "~0.11.1",
     "lodash": "~4.11.1",
     "react-native-checkbox": "~1.0.8",
-    "react-native-drawer": "^1.16.6"
+    "react-native-drawer": "^1.16.6",
+    "react-native-easy-grid": "0.1.5"
   },
   "peerDependencies": {
-    "react-native-vector-icons": "~1.3.4"
+    "react-native-vector-icons": "2.0.x",
+    "react-native": "0.26.0 - 0.27.1",
+    "react": "15.0.2 - 15.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
@@ -29,9 +44,5 @@
   "bugs": {
     "url": "https://github.com/GeekyAnts/NativeBase/issues"
   },
-  "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-  "_id": "native-base@0.2.2",
-  "_shasum": "68f7dac9eb82f56ac0b08c53dd3a9cce84b1f941",
-  "_from": "git+https://github.com/GeekyAnts/NativeBase.git#development",
-  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#effae84f1d500d00a3cf4fcd3c4079891aa3e69e"
+  "homepage": "https://github.com/GeekyAnts/NativeBase#readme"
 }

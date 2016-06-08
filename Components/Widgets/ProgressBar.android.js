@@ -2,7 +2,6 @@
 'use strict';
 
 import React from 'react';
-import { ActivityIndicatorIOS, Platform } from 'react-native';
 import ProgressBar from "ProgressBarAndroid";
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';

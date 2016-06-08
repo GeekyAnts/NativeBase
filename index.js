@@ -9,7 +9,6 @@ import Container from './Components/Widgets/Container';
 import Content from './Components/Widgets/Content';
 import Button from './Components/Widgets/Button';
 import Text from './Components/Widgets/Text';
-import CheckBox from './Components/Widgets/CheckBox';
 import Switch from './Components/Widgets/Switch';
 import Picker from './Components/Widgets/Picker';
 import List from './Components/Widgets/List';
@@ -40,7 +39,6 @@ module.exports = {
 	Content: Content,
 	Button: Button,
 	Text: Text,
-	CheckBox: CheckBox,
 	Switch: Switch,
 	Picker: Picker,
 	List: List,

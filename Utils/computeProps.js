@@ -1,5 +1,10 @@
-import React from "react";
-import ReactNativePropRegistry from "react-native/Libraries/ReactNative/ReactNativePropRegistry"
+'use_strict';
+
+import _ from 'lodash';
+import ReactNativePropRegistry from 'react/lib/ReactNativePropRegistry';
+
+// For compatibility with RN 0.25
+// import ReactNativePropRegistry from "react-native/Libraries/ReactNative/ReactNativePropRegistry";
 
 module.exports = function(incomingProps, defaultProps) {
 
@@ -20,11 +25,13 @@ module.exports = function(incomingProps, defaultProps) {
     // Pass the merged Style Object instead
     if(incomingProps.style) {
 
+        var incomingPropsStyle;
+
         if(typeof incomingProps.style == 'number') {
-            var incomingPropsStyle = ReactNativePropRegistry.getByID(incomingProps.style);
+            incomingPropsStyle = ReactNativePropRegistry.getByID(incomingProps.style);
             computedProps.style = {};
         } else {
-            var incomingPropsStyle = incomingProps.style;
+            incomingPropsStyle = incomingProps.style;
         }
 
         _.merge(computedProps.style, defaultProps.style, incomingPropsStyle);

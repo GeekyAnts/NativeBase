@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import { ActivityIndicatorIOS, Platform } from 'react-native';
+import { ActivityIndicatorIOS } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 

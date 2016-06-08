@@ -19,18 +19,17 @@ export default class Input extends NativeBaseComponent {
 		}
 	}
 
-	prepareRootProps() {
+    prepareRootProps() {
 
-		var defaultProps = {
-			style: this.getInitialStyle().input
-		}
+        var defaultProps = {
+            style: this.getInitialStyle().input
+        }
 
-		return computeProps(this.props, defaultProps);
+        return computeProps(this.props, defaultProps);
 
-	}
+    }
 
-	render() {
-
+    render() {
 		return (
 			<View style={{ flex: 1}}>
 				<TextInput {...this.prepareRootProps()} placeholderTextColor={ this.getContextForegroundColor() ? this.getContextForegroundColor() : this.getTheme().inputColorPlaceholder } underlineColorAndroid='rgba(0,0,0,0)' />
