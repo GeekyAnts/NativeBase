@@ -13,7 +13,7 @@
     "packager",
     "rnpm"
   ],
-  "version": "0.4.2",
+  "version": "0.4.3",
   "private": false,
   "dependencies": {
     "color": "~0.11.1",
@@ -25,7 +25,7 @@
   "peerDependencies": {
     "react-native-vector-icons": "2.0.x",
     "react-native": "0.26.0 - 0.27.1",
-    "react": "15.0.2"
+    "react": "15.0.2 - 15.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
