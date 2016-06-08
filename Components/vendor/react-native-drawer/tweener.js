@@ -1,4 +1,4 @@
-var easingTypes = require('tween-functions');
+var easingTypes = './node_modules/tween-functions';
 
 module.exports = function(config) {
 	return new Tween(config);
