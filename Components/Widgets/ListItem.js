@@ -22,7 +22,7 @@ export default class ListItemNB extends NativeBaseComponent {
                listItem: {
                    borderBottomWidth: this.getTheme().borderWidth,
                    padding:  this.inputPresent() ? 0 : this.getTheme().listItemPadding,
-                   borderRadius: 1,
+                   //borderRadius: 1,
                    flex: 1,
                    justifyContent: ((this.props.iconRight && !this.props.iconLeft) || (this.props.iconRight && this.props.iconLeft)) ? 'space-between' : 'flex-start',
                    flexDirection: this.stackedPresent() ? 'column' : 'row',
@@ -40,7 +40,7 @@ export default class ListItemNB extends NativeBaseComponent {
                },
                itemText: {
                    fontSize: 16,
-                   paddingLeft: (this.props.iconLeft) ? 10 : 0,
+                   marginLeft: (this.props.iconLeft) ? 10 : 0,
                    color: this.getContextForegroundColor()
                },
                dividerItemText: {
