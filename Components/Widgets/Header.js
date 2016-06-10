@@ -16,7 +16,7 @@ export default class Header extends NativeBaseComponent {
                 flexDirection: 'row',
                 alignItems: 'center',
                 padding: 15,
-                paddingTop: (Platform.OS === 'ios' ) ? 25 : 12,
+                paddingTop: (Platform.OS === 'ios' ) ? 25 : 15,
                 shadowColor: '#000',
                 shadowOffset: {width: 0, height: 2},
                 shadowOpacity: 0.1,

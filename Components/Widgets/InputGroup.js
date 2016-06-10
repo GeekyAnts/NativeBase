@@ -141,11 +141,11 @@ export default class InputGroup extends NativeBaseComponent {
 
 			if(this.props.iconRight) {
 				newChildren.push(<Input {...inputProps}/>);
-				newChildren.push(<Text style={{paddingTop: 3, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+				newChildren.push(<Text style={{marginTop: 5, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
 			}
 			else {
 
-				newChildren.push(<Text style={{paddingTop: 3, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+				newChildren.push(<Text style={{marginTop: 5, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
 				newChildren.push(<Input {...inputProps}/>);
 			}
 		}
