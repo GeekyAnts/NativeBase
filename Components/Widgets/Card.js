@@ -37,9 +37,13 @@ export default class CardNB extends NativeBaseComponent {
 
     }
 
+    setNativeProps(nativeProps) {
+      this._root.setNativeProps(nativeProps);
+    }
+
     render() {
         return(
-            <View {...this.prepareRootProps()} >
+            <View ref={component => this._root = component} {...this.prepareRootProps()} >
                 {this.props.children}
             </View>
         );
