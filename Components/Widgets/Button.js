@@ -21,10 +21,10 @@ export default class Button extends NativeBaseComponent {
                 alignItems: 'center',
                 backgroundColor: this.getTheme().btnPrimaryBg,
                 elevation: (this.props.transparent) ? 0 : 2,
-                shadowColor: '#000',
-                shadowOffset: {width: 0, height: 2},
-                shadowOpacity: 0.1,
-                shadowRadius: 1.5
+                shadowColor: (this.props.transparent) ? undefined : '#000',
+                shadowOffset: (this.props.transparent) ? undefined : {width: 0, height: 2},
+                shadowOpacity: (this.props.transparent) ? undefined : 0.1,
+                shadowRadius: (this.props.transparent) ? undefined : 1.5
             }
         }
     }
@@ -39,6 +39,7 @@ export default class Button extends NativeBaseComponent {
                                 (this.props.warning) ? this.getTheme().btnWarningBg :
                                 (this.props.info) ? this.getTheme().btnInfoBg :
                                 (this.props.backgroundColor) ? this.props.backgroundColor :
+                                (this.props.disabled) ? this.getTheme().btnDisabledBg :
                                 this.getInitialStyle().button.backgroundColor,
             borderRadius: (this.props.rounded) ? this.getTheme().borderRadiusLarge : this.getTheme().borderRadiusBase,
             borderWidth: (this.props.bordered) ? 1 : 0,
@@ -57,6 +58,7 @@ export default class Button extends NativeBaseComponent {
         var defaultProps = {
             style: addedProps
         }
+
 
         return computeProps(this.props, defaultProps);
     }
@@ -147,7 +149,7 @@ export default class Button extends NativeBaseComponent {
 
     render() {
         return(
-            <TouchableOpacity {...this.prepareRootProps()} >
+            <TouchableOpacity {...this.prepareRootProps()}  >
                 {this.renderChildren()}
             </TouchableOpacity>
         );

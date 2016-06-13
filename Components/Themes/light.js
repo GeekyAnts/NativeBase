@@ -55,6 +55,9 @@ module.exports = {
 		tabBgColor: "#00c497",
 		tabTextColor: "#fff",
 
+		btnDisabledBg: '#b5b5b5',
+    btnDisabledClr: '#f1f1f1',
+
 		get darkenHeader() {
 			return Color(this.tabBgColor).darken(0.03).hexString();
 		},
