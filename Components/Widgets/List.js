@@ -34,9 +34,7 @@ export default class ListNB extends NativeBaseComponent {
     }
 
     renderChildren() {
-        for(let i=0;i<this.props.children.length;i++) {
-            this.props.children[i].key=i;
-        }
+       
         var childrenArray = React.Children.toArray(this.props.children);
 
         var lastElement = _.last(childrenArray);
