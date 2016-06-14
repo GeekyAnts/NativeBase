@@ -58,6 +58,8 @@ module.exports = {
 		btnDisabledBg: '#b5b5b5',
     btnDisabledClr: '#f1f1f1',
 
+		cardDefaultBg: "#fff",
+
 		get darkenHeader() {
 			return Color(this.tabBgColor).darken(0.03).hexString();
 		},

@@ -17,12 +17,12 @@ export default class CardNB extends NativeBaseComponent {
                 borderColor: this.getTheme().listBorderColor,
                 flexWrap: 'wrap',
                 borderBottomWidth: 0,
-                backgroundColor: '#fff',
-                shadowColor: '#000',
-                shadowOffset: {width: 0, height: 2},
-                shadowOpacity: 0.1,
-                shadowRadius: 1.5,
-                elevation: 1
+                backgroundColor: this.props.transparent? 'transparent' : this.getTheme().cardDefaultBg,
+                shadowColor: this.props.transparent ? undefined : '#000',
+                shadowOffset: this.props.transparent ? undefined : {width: 0, height: 2},
+                shadowOpacity: this.props.transparent ? undefined : 0.1,
+                shadowRadius: this.props.transparent ? undefined : 1.5,
+                elevation: this.props.transparent ? undefined : 1
             }
         }
     }
@@ -32,7 +32,9 @@ export default class CardNB extends NativeBaseComponent {
         var defaultProps = {
             style: this.getInitialStyle().card
         };
-
+        // console.log("final style object", computeProps(this.props, defaultProps));
+        var computedStyle = computeProps(this.props, defaultProps).style.backgroundColor;
+        console.log("computedStyle", computedStyle);
         return computeProps(this.props, defaultProps);
 
     }
