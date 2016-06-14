@@ -22,12 +22,6 @@ export default class Header extends NativeBaseComponent {
                 shadowOpacity: 0.1,
                 shadowRadius: 1.5,
                 height: this.getTheme().toolbarHeight
-            },
-            title : {
-                color: '#fff',
-                fontSize: 20,
-                fontWeight: "500",
-                alignSelf: 'center'
             }
         }
     }
@@ -41,30 +35,42 @@ export default class Header extends NativeBaseComponent {
         return computeProps(this.props, defaultProps);
 
     }
+    renderChildren() {
+        if(!Array.isArray(this.props.children)) {
+            return this.props.children;
+        }
+
+        else if (Array.isArray(this.props.children)) {
+            var newChildren = [];
+            var childrenArray = React.Children.toArray(this.props.children);
+
+            if (this.props.searchBar) {
+                newChildren.push(<View style={{flex: 4,alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row'}}>
+                                    {childrenArray[0]}
+                                </View>)
+                newChildren.push(<View style={{flex:1,alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row', marginRight: -14}}>
+                                    {childrenArray[1]}
+                                </View>)
+            }
+            else {
+                newChildren.push(<View style={{flex: 1,alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14}}>
+                                    {this.props.children[0]}
+                                </View>)
+                newChildren.push(<View style={{flex: 3, alignSelf: 'center'}}>
+                                    {this.props.children[1]}
+                                </View>)
+                newChildren.push(<View style={{flex:1,alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row', marginRight: -14}}>
+                                    {this.props.children[2]}
+                                </View>)
+            }
+          return newChildren;
+        }
+    }
 
     render() {
-
         return(
-            <View {...this.prepareRootProps()}>
-                { !Array.isArray(this.props.children) &&
-                <View >
-                    {this.props.children}
-                </View>}
-
-                { Array.isArray(this.props.children) &&
-                <View style={{flex: 1,alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14}}>
-                    {this.props.children[0]}
-                </View>}
-
-                { Array.isArray(this.props.children) &&
-                <View style={{flex: 3, alignSelf: 'center'}}>
-                    {this.props.children[1]}
-                </View>}
-
-                { Array.isArray(this.props.children) &&
-                <View style={{flex:1,alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row', marginRight: -14}}>
-                    {this.props.children[2]}
-                </View>}
+            <View {...this.prepareRootProps()} >
+                {this.renderChildren()}
             </View>
         );
     }
