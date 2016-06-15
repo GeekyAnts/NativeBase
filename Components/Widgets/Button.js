@@ -129,13 +129,13 @@ export default class Button extends NativeBaseComponent {
                 }
             });
             if(this.props.iconRight) {
-                newChildren.push(<Text style={this.getTextStyle()}>{childrenArray[0]}</Text>);
-                newChildren.push(<Text>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+                newChildren.push(<Text key="text" style={this.getTextStyle()}>{childrenArray[0]}</Text>);
+                newChildren.push(<Text key="icon" >{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
             }
 
             else if(this.props.iconLeft || iconElement) {
-                newChildren.push(<Text>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
-                newChildren.push(<Text style={this.getTextStyle()}>{childrenArray[0]}</Text>);
+                newChildren.push(<Text key="icon" >{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+                newChildren.push(<Text key="text" style={this.getTextStyle()}>{childrenArray[0]}</Text>);
             }
 
             return newChildren;
