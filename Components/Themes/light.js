@@ -13,8 +13,11 @@ module.exports = {
 	inverseTextColor: "#fff",
 	textColor: "#000",
 
+	subtitleColor: "#8e8e93",
+
 	fontSizeBase: 15,
-	titleFontSize: 17,
+	titleFontSize: (Platform.OS === 'ios' ) ? 17 : 19,
+	subTitleFontSize: (Platform.OS === 'ios' ) ? 12 : 14,
 
 	get fontSizeH1 () {
         return this.fontSizeBase*1.8;
@@ -48,11 +51,13 @@ module.exports = {
     },
 
     footerHeight: 55,
-    toolbarHeight: (Platform.OS === 'ios' ) ? 70 : 55,
-    toolbarDefaultBg: "#00c497",
+    toolbarHeight: (Platform.OS === 'ios' ) ? 64 : 56,
+    toolbarDefaultBg: (Platform.OS === 'ios' ) ? "#F8F8F8" : "#039BE5",
     toolbarInverseBg: "#222",
 
-		tabBgColor: "#00c497",
+		iosToolbarBtnColor: "#007aff",
+
+		tabBgColor: "#F8F8F8",
 		tabTextColor: "#fff",
 
 		btnDisabledBg: '#b5b5b5',
@@ -123,12 +128,13 @@ module.exports = {
     listItemPadding: 15,
     listNoteColor: "#58575C",
 
-    iconFontSize: 32,
+    iconFontSize: (Platform.OS === 'ios' ) ? 32 : 30,
 
     badgeColor: "#fff",
     badgeBg: "#ED1727",
 
     lineHeight: 21,
+    iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,
 
     defaultSpinnerColor: "#45D56E",
     inverseSpinnerColor: "#1A191B",

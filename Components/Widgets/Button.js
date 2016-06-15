@@ -76,6 +76,7 @@ export default class Button extends NativeBaseComponent {
                     ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
                     ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
                     ((this.props.bordered)) ? this.getTheme().btnPrimaryBg :
+                    (this.props.color)  ? this.props.color :
                     (this.props.transparent) ? this.getContextForegroundColor() :
                     this.getTheme().inverseTextColor,
 
@@ -97,11 +98,12 @@ export default class Button extends NativeBaseComponent {
                 ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
                 ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
                 (this.props.bordered)  ? this.getTheme().btnPrimaryBg :
+                (this.props.color)  ? this.props.color :
                 (this.props.transparent) ? this.getContextForegroundColor() :
                 this.getTheme().inverseTextColor,
 
             fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize,
-            lineHeight: (this.props.large) ? 52: (this.props.small) ? 22 : 39
+            lineHeight: (this.props.large) ? 52: (this.props.small) ? 22 : this.getTheme().iconLineHeight
         }
 
         var defaultProps = {

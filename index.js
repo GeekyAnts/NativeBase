@@ -5,6 +5,7 @@ import Drawer from './Components/vendor/react-native-drawer';
 import Header from './Components/Widgets/Header';
 import Footer from './Components/Widgets/Footer';
 import Title from './Components/Widgets/Title';
+import Subtitle from './Components/Widgets/Subtitle';
 import Container from './Components/Widgets/Container';
 import Content from './Components/Widgets/Content';
 import Button from './Components/Widgets/Button';
@@ -35,6 +36,7 @@ module.exports = {
 	Header: Header,
 	Footer: Footer,
 	Title: Title,
+	Subtitle: Subtitle,
 	Container: Container,
 	Content: Content,
 	Button: Button,
