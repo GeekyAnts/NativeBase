@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Icon from './Icon';
 import computeProps from '../../Utils/computeProps';
@@ -85,7 +85,11 @@ export default class InputGroup extends NativeBaseComponent {
 
 		var defaultStyle = {
 			color: this.getContextForegroundColor(),
-			fontSize: 27
+			fontSize: (this.props.toolbar || this.props.atoolbar) ? this.getTheme().toolbarIconSize : 27,
+			alignSelf: 'center',
+			lineHeight: (this.props.toolbar || this.props.atoolbar) ? 22 : undefined,
+			paddingRight: 5,
+			marginLeft: (this.props.toolbar || this.props.atoolbar) ? 5 : undefined
 		}
 
 		var defaultProps = {
@@ -93,23 +97,6 @@ export default class InputGroup extends NativeBaseComponent {
 		}
 
 		return computeProps(icon.props, defaultProps);
-	}
-
-	renderIcon() {
-		if(!Array.isArray(this.props.children) && this.props.children.type == Icon)
-			return React.cloneElement(this.props.children, this.getIconProps(this.props.children));
-
-		else {
-			var iconRender =  _.find(this.props.children, function(item) {
-				if(item && item.type == Icon) {
-					return true;
-				}
-			});
-			if (iconRender) {
-				return <Text style={{ alignSelf: 'center'}}>{React.cloneElement(iconRender, this.getIconProps(iconRender))}</Text>
-
-			}
-		}
 	}
 
 
@@ -140,20 +127,24 @@ export default class InputGroup extends NativeBaseComponent {
 		if(Array.isArray(this.props.children)) {
 
 			if(this.props.iconRight) {
-				newChildren.push(<Input {...inputProps}/>);
-				newChildren.push(<Text style={{marginTop: 5, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+				newChildren.push(<Input {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+				newChildren.push(React.cloneElement(iconElement[0],this.getIconProps(iconElement[0])));
 			}
 			else {
-
-				newChildren.push(<Text style={{marginTop: 5, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
-				newChildren.push(<Input {...inputProps}/>);
+				if (iconElement.length > 1) {
+					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
+					newChildren.push(<Input {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+					newChildren.push(React.cloneElement(iconElement[1], this.getIconProps(iconElement[1])));
+				} else {
+					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
+					newChildren.push(<Input {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+				}
 			}
 		}
 
 		else {
-			newChildren.push(<Input {...inputProps}/>);
+			newChildren.push(<Input {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
 		}
-
 
 		return newChildren;
 	}

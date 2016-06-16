@@ -136,6 +136,10 @@ module.exports = {
     lineHeight: 21,
     iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,
 
+		toolbarIconSize: (Platform.OS === 'ios' ) ? 18 : 22,
+
+		toolbarInputColor: "#CECDD2",
+
     defaultSpinnerColor: "#45D56E",
     inverseSpinnerColor: "#1A191B",
 
