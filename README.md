@@ -1,11 +1,26 @@
 # NativeBase
 The missing piece of React Native
 
+
+![logo](/img/logo.png)
+
 Get on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS and Android development. Get an introduction to NativeBase and work through an instance application that highlights React Native programming techniques.
 
 
-####
-## What is NativeBase?
+# Contents
+
+-	[What is NativeBase?](#what-is-nativebase)
+-	[Why NativeBase?](#why-nativebase)
+-	[Magic of NativeBase](#magic-of-nativebase)
+-	[Get Started](#get-started)
+-	[Components](#components)
+-	[Quick Links to NativeBase](#quick-links-to-nativebase)
+-	[Documentation](#documentation)
+-	[Website](#website)
+
+
+
+## What is NativeBase
 NativeBase is a free and open source framework that enables developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6. NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development. This helps you to build world-class application experiences on native platforms.
 
 
