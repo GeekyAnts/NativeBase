@@ -11,6 +11,8 @@ import View from './View';
 import Button from './Button';
 import Badge from './Badge';
 import Thumbnail from './Thumbnail';
+import CheckBox from './Checkbox';
+import Radio from './Radio';
 import InputGroup from './InputGroup';
 import _ from 'lodash';
 
@@ -109,6 +111,26 @@ export default class ListItemNB extends NativeBaseComponent {
         return thumbnailComponentPresent;
     }
 
+    checkBoxPresent() {
+        var checkBoxComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == CheckBox)
+                checkBoxComponentPresent = true;
+        })
+
+        return checkBoxComponentPresent;
+    }
+
+    radioPresent() {
+        var radioComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == Radio)
+                radioComponentPresent = true;
+        })
+
+        return radioComponentPresent;
+    }
+
     iconPresent() {
         var iconComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
@@ -163,7 +185,7 @@ export default class ListItemNB extends NativeBaseComponent {
             }
         }
         else if(child.type == InputGroup) {
-            
+
             defaultProps = {
                 style: {
                   borderColor: this.getTheme().listBorderColor
@@ -210,7 +232,6 @@ export default class ListItemNB extends NativeBaseComponent {
                 foregroundColor: this.getContextForegroundColor()
             }
         }
-
         return computeProps(child.props, defaultProps);
     }
 
@@ -226,7 +247,6 @@ export default class ListItemNB extends NativeBaseComponent {
             defaultProps = {
                 style: this.getInitialStyle().listItem
             };
-
         return computeProps(this.props, defaultProps);
     }
 
@@ -296,7 +316,7 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
     renderChildren() {
-        
+
         var newChildren = [];
         if(!Array.isArray(this.props.children) && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
             newChildren.push(
@@ -384,6 +404,34 @@ export default class ListItemNB extends NativeBaseComponent {
                                       return React.cloneElement(child, this.getChildProps(child));
                                     })}
                                  </View>);
+            }
+            else if (this.checkBoxPresent()) {
+
+                iconElement = _.remove(childrenArray, function(item) {
+                                            if(item.type == CheckBox) {
+                                                return true;
+                                            }
+                                        });
+                newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
+                newChildren.push(<View style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                                    {childrenArray.map((child) => {
+                                      return React.cloneElement(child, this.getChildProps(child));
+                                    })}
+                                 </View>);
+            }
+            else if (this.radioPresent()) {
+
+                iconElement = _.remove(childrenArray, function(item) {
+                                            if(item.type == Radio) {
+                                                return true;
+                                            }
+                                        });
+                newChildren.push(<View style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                                    {childrenArray.map((child) => {
+                                      return React.cloneElement(child, this.getChildProps(child));
+                                    })}
+                                 </View>);
+                newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
             }
             else if (this.inputPresent() && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
 

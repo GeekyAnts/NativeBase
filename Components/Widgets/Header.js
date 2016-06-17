@@ -9,7 +9,7 @@ import Button from "./Button";
 import Title from "./Title";
 import InputGroup from "./InputGroup";
 import Subtitle from "./Subtitle";
-import _ from "lodash";
+import _ from 'lodash';
 
 export default class Header extends NativeBaseComponent {
 
@@ -26,7 +26,8 @@ export default class Header extends NativeBaseComponent {
                 shadowOffset: {width: 0, height: 2},
                 shadowOpacity: 0.1,
                 shadowRadius: 1.5,
-                height: this.getTheme().toolbarHeight
+                height: this.getTheme().toolbarHeight,
+                elevation: 2
             },
             iosToolbarSearch: {
                 backgroundColor: this.getTheme().toolbarInputColor,

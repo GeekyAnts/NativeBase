@@ -26,6 +26,8 @@ import Icon from './Components/Widgets/Icon';
 import Thumbnail from './Components/Widgets/Thumbnail';
 import Card from './Components/Widgets/Card';
 import Badge from './Components/Widgets/Badge';
+import Checkbox from './Components/Widgets/Checkbox';
+import Radio from './Components/Widgets/Radio';
 // import Spinner from './Components/Widgets/Spinner';
 // import ProgressBar from './Components/Widgets/ProgressBar';
 import { Col, Row, Grid } from "react-native-easy-grid";
@@ -60,6 +62,8 @@ module.exports = {
 	Thumbnail: Thumbnail,
 	Card: Card,
 	Badge: Badge,
+	CheckBox: Checkbox,
+	Radio: Radio,
 	// Spinner: Spinner,
 	// ProgressBar: ProgressBar,
 	Drawer: Drawer,
