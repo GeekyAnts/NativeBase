@@ -15,7 +15,7 @@ Get on the mobile fast track with NativeBase, the fastest-growing platform and t
 -	[Magic of NativeBase](#magic-of-nativebase)
 -	[Get Started](#get-started)
 -	[Components](#components)
--	[Featured Apps](#featured-apps-native-starter-pro)
+-	[Featured Apps - Native Starter Pro](#featured-apps---native-starter-pro)
 -	[Quick Links to NativeBase](#quick-links-to-nativebase)
 -	[Documentation](#documentation)
 -	[Website](#website)
