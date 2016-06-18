@@ -95,6 +95,7 @@ export default class ListItemNB extends NativeBaseComponent {
     thumbnailPresent() {
         var thumbnailComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
+            if (!child) return;
             if(child.type == Thumbnail)
                 thumbnailComponentPresent = true;
         })
@@ -105,6 +106,7 @@ export default class ListItemNB extends NativeBaseComponent {
     imagePresent() {
         var imagePresent = false;
         React.Children.forEach(this.props.children, function (child) {
+            if (!child) return;
             if(child.type == Image)
                 imagePresent = true;
         })
@@ -115,6 +117,7 @@ export default class ListItemNB extends NativeBaseComponent {
     iconPresent() {
         var iconComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
+            if (!child) return;
             if(child.type == Icon)
                 iconComponentPresent = true;
         })
@@ -125,6 +128,7 @@ export default class ListItemNB extends NativeBaseComponent {
     buttonPresent() {
         var buttonComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
+            if (!child) return;
             if(child.type == Button)
                 buttonComponentPresent = true;
         })
@@ -147,6 +151,7 @@ export default class ListItemNB extends NativeBaseComponent {
         var notePresent = false;
 
         React.Children.forEach(this.props.children, function (child) {
+            if (!child) return;
             if(child.type == Text && child.props.note)
                 notePresent = true;
         });
@@ -158,6 +163,7 @@ export default class ListItemNB extends NativeBaseComponent {
         var squareThumbs = false;
         if (this.thumbnailPresent()) {
             React.Children.forEach(this.props.children, function (child) {
+                if (!child) return;
                 if(child.props.square)
                     squareThumbs = true;
             });
@@ -254,8 +260,9 @@ export default class ListItemNB extends NativeBaseComponent {
         var newChildren = [];
 
         if(!this.thumbnailPresent() && !this.iconPresent()) {
-            
+
             newChildren = React.Children.map(this.props.children, (child) => {
+                if (!child) return;
                 return React.cloneElement(child, this.getChildProps(child));
             });
         }
