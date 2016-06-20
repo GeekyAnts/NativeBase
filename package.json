@@ -23,7 +23,7 @@
   },
   "peerDependencies": {
     "react-native-vector-icons": "2.0.x",
-    "react-native": "0.26.0 - 0.27.1",
+    "react-native": "0.26.0 - 0.27.2",
     "react": "15.0.2 - 15.1.0"
   },
   "devDependencies": {
