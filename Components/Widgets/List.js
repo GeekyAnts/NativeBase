@@ -37,6 +37,13 @@ export default class ListNB extends NativeBaseComponent {
        
         var childrenArray = React.Children.toArray(this.props.children);
 
+        var keyIndex = 0;
+
+        childrenArray = childrenArray.map((child) => {
+            keyIndex++;
+            return React.cloneElement(child, {...child.props, key: keyIndex});
+        });
+
         var lastElement = _.last(childrenArray);
 
         var modLastElement = React.cloneElement(lastElement, computeProps(lastElement.props, {last: true}));

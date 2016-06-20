@@ -140,18 +140,18 @@ export default class InputGroup extends NativeBaseComponent {
 		if(Array.isArray(this.props.children)) {
 
 			if(this.props.iconRight) {
-				newChildren.push(<Input {...inputProps}/>);
-				newChildren.push(<Text style={{marginTop: 5, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+				newChildren.push(<Input key='inp' {...inputProps}/>);
+				newChildren.push(<Text key='icon' style={{marginTop: 5, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
 			}
 			else {
 
-				newChildren.push(<Text style={{marginTop: 5, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
-				newChildren.push(<Input {...inputProps}/>);
+				newChildren.push(<Text key='inp' style={{marginTop: 5, paddingRight: 7}}>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+				newChildren.push(<Input key='icon' {...inputProps}/>);
 			}
 		}
 
 		else {
-			newChildren.push(<Input {...inputProps}/>);
+			newChildren.push(<Input key='inp' {...inputProps}/>);
 		}
 
 

@@ -101,7 +101,7 @@ export default class Button extends NativeBaseComponent {
                 this.getTheme().inverseTextColor,
 
             fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize,
-            lineHeight: (this.props.large) ? 52: (this.props.small) ? 22 : 39
+            lineHeight: (this.props.large) ? 48: (this.props.small) ? 22 : 32
         }
 
         var defaultProps = {
@@ -129,13 +129,13 @@ export default class Button extends NativeBaseComponent {
                 }
             });
             if(this.props.iconRight) {
-                newChildren.push(<Text style={this.getTextStyle()}>{childrenArray[0]}</Text>);
-                newChildren.push(<Text>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+                newChildren.push(<Text key='label' style={this.getTextStyle()}>{childrenArray[0]}</Text>);
+                newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
             }
 
             else if(this.props.iconLeft || iconElement) {
-                newChildren.push(<Text>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
-                newChildren.push(<Text style={this.getTextStyle()}>{childrenArray[0]}</Text>);
+                newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+                newChildren.push(<Text key='label' style={this.getTextStyle()}>{childrenArray[0]}</Text>);
             }
 
             return newChildren;

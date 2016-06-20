@@ -11,14 +11,15 @@ import View from './View';
 import Button from './Button';
 import Thumbnail from './Thumbnail';
 
-export default class ListItemNB extends NativeBaseComponent {
+var keyIndex = 0;
+
+export default class CardItemNB extends NativeBaseComponent {
 
     getInitialStyle() {
         return {
             listItem: {
                 borderBottomWidth: this.getTheme().borderWidth,
                 padding: (this.imagePresent() && !this.ifShowCase()) ? 0 : this.getTheme().listItemPadding,
-                borderRadius: 1,
                 flex: 1,
                 backgroundColor: this.getTheme().listBg,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
@@ -171,57 +172,67 @@ export default class ListItemNB extends NativeBaseComponent {
         if(child.type == Image && !Array.isArray(this.props.children)) {
             defaultProps = {
                 resizeMode: 'stretch',
-                style: this.getInitialStyle().fullImage
+                style: this.getInitialStyle().fullImage,
+                key: keyIndex++
             }
         }
         else if(child.type == Button) {
             defaultProps = {
                 small: true,
-                style: this.getInitialStyle().itemButton
+                style: this.getInitialStyle().itemButton,
+                key: keyIndex++ 
             }
         }
         else if(child.type == Text) {
             if ((this.props.header) || (this.props.footer)) {
                 defaultProps = {
-                    style: this.getInitialStyle().dividerItemText
+                    style: this.getInitialStyle().dividerItemText,
+                    key: keyIndex++ 
                 }
             }
             else {
                 if(child.props.note && this.thumbnailPresent()) {
                     defaultProps = {
-                        style: this.getInitialStyle().itemSubNote
+                        style: this.getInitialStyle().itemSubNote,
+                        key: keyIndex++ 
                     }
                 }
                 else if(child.props.note) {
                     defaultProps = {
-                        style: this.getInitialStyle().itemNote
+                        style: this.getInitialStyle().itemNote,
+                        key: keyIndex++ 
                     }
                 }
                 else {
                     defaultProps = {
-                        style: this.getInitialStyle().itemText
+                        style: this.getInitialStyle().itemText,
+                        key: keyIndex++ 
                     }
                 }
             }
         }
         else if(child.type == Icon) {
             defaultProps = {
-                style: this.getInitialStyle().itemIcon
+                style: this.getInitialStyle().itemIcon,
+                key: keyIndex++ 
             }
         }
         else if(child.type == Thumbnail) {
             defaultProps = {
-                style: this.getInitialStyle().thumbnail
+                style: this.getInitialStyle().thumbnail,
+                key: keyIndex++ 
             }
         }
         else if(child.type == Image ) {
             defaultProps = {
-                style: this.getInitialStyle().fullImage
+                style: this.getInitialStyle().fullImage,
+                key: keyIndex++ 
             }
         }
         else {
             defaultProps = {
-                foregroundColor: this.getContextForegroundColor()
+                foregroundColor: this.getContextForegroundColor(),
+                key: keyIndex++ 
             }
         }
 
@@ -234,13 +245,15 @@ export default class ListItemNB extends NativeBaseComponent {
         if((this.props.header) || (this.props.footer)) {
 
             defaultProps = {
-                style: this.getInitialStyle().listItemDivider
+                style: this.getInitialStyle().listItemDivider,
+                key: keyIndex++
             };
         }
 
         else {
             defaultProps = {
-                style: this.getInitialStyle().listItem
+                style: this.getInitialStyle().listItem,
+                key: keyIndex++
             };
         }
 
@@ -263,7 +276,7 @@ export default class ListItemNB extends NativeBaseComponent {
             newChildren = [];
             if(!Array.isArray(this.props.children)) {
                 newChildren.push(
-                    <View style={{justifyContent: 'flex-start'}}>
+                    <View key={keyIndex++} style={{justifyContent: 'flex-start'}}>
                         {React.cloneElement(this.props.children, this.getChildProps(this.props.children))}
                     </View>
                 );
@@ -273,7 +286,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 var childrenArray = React.Children.toArray(this.props.children);
                 newChildren.push(React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
                 newChildren.push(
-                    <View style={ this.notePresent() ? this.getRightStyle().right : this.squareThumbs() ? this.getRightStyle().right3 : this.getRightStyle().right2 }>
+                    <View key={keyIndex++} style={ this.notePresent() ? this.getRightStyle().right : this.squareThumbs() ? this.getRightStyle().right3 : this.getRightStyle().right2 }>
                         {childrenArray.slice(1).map((child) => {
                             return React.cloneElement(child, this.getChildProps(child));
                         })}
