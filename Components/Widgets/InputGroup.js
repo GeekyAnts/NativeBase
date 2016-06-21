@@ -9,6 +9,7 @@ import computeProps from '../../Utils/computeProps';
 import Input from './Input';
 import _ from 'lodash';
 
+var keyIndex = 0;
 
 export default class InputGroup extends NativeBaseComponent {
 
@@ -75,7 +76,8 @@ export default class InputGroup extends NativeBaseComponent {
 		var  addedProps = _.merge(this.getInitialStyle().textInput, type);
 
 		var defaultProps = {
-			style: addedProps
+			style: addedProps,
+			key: keyIndex++
 		}
 
 		return computeProps(this.props, defaultProps);
@@ -93,7 +95,8 @@ export default class InputGroup extends NativeBaseComponent {
 		}
 
 		var defaultProps = {
-			style: defaultStyle
+			style: defaultStyle,
+			key: keyIndex++
 		}
 
 		return computeProps(icon.props, defaultProps);
@@ -127,23 +130,23 @@ export default class InputGroup extends NativeBaseComponent {
 		if(Array.isArray(this.props.children)) {
 
 			if(this.props.iconRight) {
-				newChildren.push(<Input {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+				newChildren.push(<Input key={keyIndex++} {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
 				newChildren.push(React.cloneElement(iconElement[0],this.getIconProps(iconElement[0])));
 			}
 			else {
 				if (iconElement.length > 1) {
 					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
-					newChildren.push(<Input {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+					newChildren.push(<Input key={keyIndex++} {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
 					newChildren.push(React.cloneElement(iconElement[1], this.getIconProps(iconElement[1])));
 				} else {
 					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
-					newChildren.push(<Input {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+					newChildren.push(<Input key={keyIndex++} {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
 				}
 			}
 		}
 
 		else {
-			newChildren.push(<Input {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+			newChildren.push(<Input key={keyIndex++} {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
 		}
 
 		return newChildren;
