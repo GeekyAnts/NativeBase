@@ -32,9 +32,7 @@ export default class CardNB extends NativeBaseComponent {
         var defaultProps = {
             style: this.getInitialStyle().card
         };
-        // console.log("final style object", computeProps(this.props, defaultProps));
-        // var computedStyle = computeProps(this.props, defaultProps).style.backgroundColor;
-        // console.log("computedStyle", computedStyle);
+        
         return computeProps(this.props, defaultProps);
 
     }
@@ -43,8 +41,6 @@ export default class CardNB extends NativeBaseComponent {
         var childrenArray = React.Children.map(this.props.children, (child) => {
             return child;
         });
-
-        console.log(childrenArray, "children card");
 
         return childrenArray;
     }
