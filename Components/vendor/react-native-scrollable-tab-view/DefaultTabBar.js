@@ -1,15 +1,16 @@
 'use strict';
 
-var React = require('react');
+import React from 'react';
+import NativeBaseComponent from '../../Base/NativeBaseComponent';
 
-var {
+import {
   Dimensions,
   StyleSheet,
   Text,
   TouchableHighlight,
   View,
   Animated,
-} = require('react-native');
+} from 'react-native';
 
 var deviceWidth = Dimensions.get('window').width;
 var background = require("./../../Themes/light").tabBgColor;
@@ -38,12 +39,12 @@ var styles = StyleSheet.create({
   },
 });
 
-var DefaultTabBar = React.createClass({
-  propTypes: {
+export default class DefaultTabBar extends NativeBaseComponent {
+  static propTypes = {
     goToPage: React.PropTypes.func,
     activeTab: React.PropTypes.number,
     tabs: React.PropTypes.array
-  },
+  }
 
   renderTabOption(name, page) {
     var isTabActive = this.props.activeTab === page;
@@ -55,7 +56,7 @@ var DefaultTabBar = React.createClass({
         </View>
       </TouchableHighlight>
     );
-  },
+  }
 
   render() {
     var numberOfTabs = this.props.tabs.length;
@@ -77,7 +78,5 @@ var DefaultTabBar = React.createClass({
         <Animated.View style={[tabUnderlineStyle, {left}]} />
       </View>
     );
-  },
-});
-
-module.exports = DefaultTabBar;
+  }
+}

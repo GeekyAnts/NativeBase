@@ -1,32 +1,36 @@
 'use strict';
 
-var React = require('react');
-var {
+import React from 'react';
+import NativeBaseComponent from '../../Base/NativeBaseComponent';
+import {
   Dimensions,
   Text,
   View,
   TouchableOpacity,
   PanResponder,
   Animated,
-} = require('react-native');
+} from 'react-native';
 
-var DefaultTabBar = require('./DefaultTabBar');
+import DefaultTabBar from './DefaultTabBar';
 var deviceWidth = Dimensions.get('window').width;
 
-var ScrollableTabView = React.createClass({
-  getDefaultProps() {
-    return {
-      tabBarPosition: 'top',
-      edgeHitWidth: 30,
-      springTension: 50,
-      springFriction: 10
-    }
-  },
-
-  getInitialState() {
+export default class ScrollableTabView extends NativeBaseComponent {
+  static defaultProps = {
+    ...NativeBaseComponent.defaultProps,
+    tabBarPosition: 'top',
+    edgeHitWidth: 30,
+    springTension: 50,
+    springFriction: 10
+  };
+  constructor(props) {
+    super(props);
+    console.log(this.props, "props awdw");
     var currentPage = this.props.initialPage || 0;
-    return { currentPage: currentPage, scrollValue: new Animated.Value(currentPage) };
-  },
+    this.state = {
+      currentPage: currentPage, 
+      scrollValue: new Animated.Value(currentPage)
+    }
+  }
 
   componentWillMount() {
     var release = (e, gestureState) => {
@@ -73,9 +77,10 @@ var ScrollableTabView = React.createClass({
         this.state.scrollValue.setValue(-1 * offsetX / deviceWidth);
       },
     });
-  },
+  }
 
   goToPage(pageNumber) {
+    console.log(this, "this jd");
     this.props.onChangeTab && this.props.onChangeTab({
       i: pageNumber, ref: this.props.children[pageNumber]
     });
@@ -85,7 +90,7 @@ var ScrollableTabView = React.createClass({
     });
 
     Animated.spring(this.state.scrollValue, {toValue: pageNumber, friction: this.props.springFriction, tension: this.props.springTension}).start();
-  },
+  }
 
   renderTabBar(props) {
     if (this.props.renderTabBar === false) {
@@ -95,7 +100,7 @@ var ScrollableTabView = React.createClass({
     } else {
       return <DefaultTabBar {...props} />;
     }
-  },
+  }
 
   render() {
     var sceneContainerStyle = {
@@ -109,7 +114,7 @@ var ScrollableTabView = React.createClass({
     });
 
     var tabBarProps = {
-      goToPage: this.goToPage,
+      goToPage: this.goToPage.bind(this),
       tabs: this.props.children.map((child) => child.props.tabLabel),
       activeTab: this.state.currentPage,
       scrollValue: this.state.scrollValue
@@ -126,6 +131,5 @@ var ScrollableTabView = React.createClass({
       </View>
     );
   }
-});
-
-module.exports = ScrollableTabView;
+}
+  
