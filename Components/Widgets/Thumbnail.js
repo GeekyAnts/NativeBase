@@ -14,7 +14,8 @@ export default class ThumbnailNB extends NativeBaseComponent {
             thumbnail: {
                 borderRadius: 15,
                 width: 30,
-                height: 30
+                height: 30,
+                resizeMode: 'contain'
             }
         }
     }
@@ -38,8 +39,8 @@ export default class ThumbnailNB extends NativeBaseComponent {
 
         return computeProps(this.props, defaultProps);
     }
-    
-    render() { 
+
+    render() {
         return(
             <Image {...this.prepareRootProps()}/>
         );

@@ -95,6 +95,7 @@ module.exports = {
     },
 
     borderWidth: 1,
+    iconMargin: 15,
 
     get inputColor () {
         return this.textColor;
@@ -102,7 +103,7 @@ module.exports = {
     get inputColorPlaceholder () {
         return 'rgba(0, 0, 0, 0.7)';
     },
-    inputBorderColor: "#000",
+    inputBorderColor: "#D9D5DC",
     inputHeightBase: 40,
     inputGroupMarginBottom: 10,
     inputPaddingLeft: 5,

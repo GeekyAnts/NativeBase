@@ -15,6 +15,9 @@ module.exports = function(incomingProps, defaultProps) {
     incomingProps = _.clone(incomingProps);
     delete incomingProps.children;
 
+    var incomingPropsStyle = incomingProps.style;
+    delete incomingProps.style;
+
     // console.log(defaultProps, incomingProps);
 
     if(incomingProps)
@@ -23,18 +26,28 @@ module.exports = function(incomingProps, defaultProps) {
         computedProps = defaultProps;
 
     // Pass the merged Style Object instead
-    if(incomingProps.style) {
+    if(incomingPropsStyle) {
 
-        var incomingPropsStyle;
-
-        if(typeof incomingProps.style == 'number') {
-            incomingPropsStyle = ReactNativePropRegistry.getByID(incomingProps.style);
-            computedProps.style = {};
-        } else {
-            incomingPropsStyle = incomingProps.style;
+        var computedPropsStyle = {};
+        computedProps.style = {};
+        if (Array.isArray(incomingPropsStyle)) {
+            _.forEach(incomingPropsStyle, (style)=>{
+                if(typeof style == 'number') {
+                    _.merge(computedPropsStyle, ReactNativePropRegistry.getByID(style));
+                } else {
+                    _.merge(computedPropsStyle, style);
+                }
+            })
+        }
+        else {
+            if(typeof incomingPropsStyle == 'number') {
+                computedPropsStyle = ReactNativePropRegistry.getByID(incomingPropsStyle);
+            } else {
+                computedPropsStyle = incomingPropsStyle;
+            }
         }
 
-        _.merge(computedProps.style, defaultProps.style, incomingPropsStyle);
+        _.merge(computedProps.style, defaultProps.style, computedPropsStyle);
 
     }
 

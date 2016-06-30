@@ -20,7 +20,7 @@ export default class InputGroup extends NativeBaseComponent {
 				backgroundColor: 'transparent',
 				flex: 1,
 				flexDirection: 'row',
-				borderColor: this.getContextForegroundColor(),
+				borderColor: this.getTheme().inputBorderColor,
 				paddingRight: 5
 			},
 			outerBorder: {
