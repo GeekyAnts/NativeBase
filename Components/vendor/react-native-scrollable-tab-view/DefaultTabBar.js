@@ -13,46 +13,41 @@ import {
 } from 'react-native';
 
 var deviceWidth = Dimensions.get('window').width;
-var background = require("./../../Themes/light").tabBgColor;
-var underlay = require("./../../Themes/light").darkenHeader;
-var textColor = require("./../../Themes/light").tabTextColor;
-
-console.log("textColor", textColor);
-
-var styles = StyleSheet.create({
-  tab: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: background
-  },
-
-  tabs: {
-    height: 45,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    borderWidth: 1,
-    borderTopWidth: 0,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
-    borderBottomColor: '#ccc',
-  },
-});
 
 export default class DefaultTabBar extends NativeBaseComponent {
-  static propTypes = {
-    goToPage: React.PropTypes.func,
-    activeTab: React.PropTypes.number,
-    tabs: React.PropTypes.array
-  }
+    getInitialStyle() {
+        return {
+            tab: {
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: this.getTheme().tabBgColor
+            },
+            tabs: {
+                height: 45,
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                borderWidth: 1,
+                borderTopWidth: 0,
+                borderLeftWidth: 0,
+                borderRightWidth: 0,
+                borderBottomColor: '#ccc',
+            }
+        }
+    }
+    static propTypes = {
+        goToPage: React.PropTypes.func,
+        activeTab: React.PropTypes.number,
+        tabs: React.PropTypes.array
+    }
 
   renderTabOption(name, page) {
     var isTabActive = this.props.activeTab === page;
 
     return (
-      <TouchableHighlight underlayColor={underlay} style={[styles.tab]} key={name} onPress={() => this.props.goToPage(page)}>
+      <TouchableHighlight underlayColor={this.getTheme().darkenHeader} style={[this.getInitialStyle().tab]} key={name} onPress={() => this.props.goToPage(page)}>
         <View>
-          <Text style={{color: isTabActive ? textColor : textColor, fontWeight: isTabActive ? 'bold' : 'normal'}}>{name}</Text>
+          <Text style={{color: isTabActive ? this.getTheme().tabTextColor : this.getTheme().tabTextColor, fontWeight: isTabActive ? 'bold' : 'normal'}}>{name}</Text>
         </View>
       </TouchableHighlight>
     );
@@ -64,7 +59,7 @@ export default class DefaultTabBar extends NativeBaseComponent {
       position: 'absolute',
       width: deviceWidth / numberOfTabs,
       height: 4,
-      backgroundColor: textColor,
+      backgroundColor: this.getTheme().tabTextColor,
       bottom: 0,
     };
 
@@ -73,7 +68,7 @@ export default class DefaultTabBar extends NativeBaseComponent {
     });
 
     return (
-      <View style={styles.tabs}>
+      <View style={this.getInitialStyle().tabs}>
         {this.props.tabs.map((tab, i) => this.renderTabOption(tab, i))}
         <Animated.View style={[tabUnderlineStyle, {left}]} />
       </View>

@@ -23,11 +23,10 @@ export default class ScrollableTabView extends NativeBaseComponent {
     springFriction: 10
   };
   constructor(props) {
-    super(props);
-    console.log(this.props, "props awdw");
+    super(props);    
     var currentPage = this.props.initialPage || 0;
     this.state = {
-      currentPage: currentPage, 
+      currentPage: currentPage,
       scrollValue: new Animated.Value(currentPage)
     }
   }
@@ -79,8 +78,7 @@ export default class ScrollableTabView extends NativeBaseComponent {
     });
   }
 
-  goToPage(pageNumber) {
-    console.log(this, "this jd");
+  goToPage(pageNumber) {    
     this.props.onChangeTab && this.props.onChangeTab({
       i: pageNumber, ref: this.props.children[pageNumber]
     });
@@ -132,4 +130,3 @@ export default class ScrollableTabView extends NativeBaseComponent {
     );
   }
 }
-  
