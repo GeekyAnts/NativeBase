@@ -110,6 +110,8 @@ module.exports = {
         return this.inputPaddingLeft* 8;
     },
 
+    btnLineHeight: (Platform.OS==='ios') ? 20 : 23,
+
     dropdownBg: "#000",
     dropdownLinkColor: "#414142",
 

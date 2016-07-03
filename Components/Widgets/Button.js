@@ -83,7 +83,7 @@ export default class Button extends NativeBaseComponent {
 
             fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize,
 
-            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : 20
+            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : this.getTheme().btnLineHeight,
         }
 
         return _.merge(mergedStyle, btnType, this.props.textStyle);
