@@ -71,6 +71,7 @@ export default class Button extends NativeBaseComponent {
             paddingRight : 5,
             paddingLeft : 3,
             marginLeft: (this.iconPresent() && !this.props.iconRight) ? this.getTheme().iconMargin : 0,
+            marginRight: (this.iconPresent() && this.props.iconRight) ? this.getTheme().iconMargin : 0,
             color:
                     ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg :
                     ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
@@ -83,7 +84,7 @@ export default class Button extends NativeBaseComponent {
 
             fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize,
 
-            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : this.getTheme().btnLineHeight,
+            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : this.getTheme().btnLineHeight
         }
 
         return _.merge(mergedStyle, btnType, this.props.textStyle);
