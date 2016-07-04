@@ -5,6 +5,7 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import IconNB from './Icon';
 import Icon from './Icon';
 import _ from 'lodash';
 
@@ -69,6 +70,8 @@ export default class Button extends NativeBaseComponent {
         var btnType = {
             paddingRight : 5,
             paddingLeft : 3,
+            marginLeft: (this.iconPresent() && !this.props.iconRight) ? this.getTheme().iconMargin : 0,
+            marginRight: (this.iconPresent() && this.props.iconRight) ? this.getTheme().iconMargin : 0,
             color:
                     ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg :
                     ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
@@ -81,7 +84,7 @@ export default class Button extends NativeBaseComponent {
 
             fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize,
 
-            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 13 : 20
+            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : this.getTheme().btnLineHeight
         }
 
         return _.merge(mergedStyle, btnType, this.props.textStyle);
@@ -110,11 +113,21 @@ export default class Button extends NativeBaseComponent {
 
         return computeProps(icon.props, defaultProps);
     }
-
+    iconPresent() {
+        var iconComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == Icon)
+                iconComponentPresent = true;
+        })
+        return iconComponentPresent;
+    }
     renderChildren() {
-
         if(typeof this.props.children == "string") {
             return <Text style={this.getTextStyle()}>{this.props.children}</Text>
+        }
+
+        else if(this.props.children.type == IconNB) {
+            return React.cloneElement(this.props.children, this.getIconProps(this.props.children));
         }
 
         else if(Array.isArray(this.props.children)) {
@@ -124,7 +137,7 @@ export default class Button extends NativeBaseComponent {
 
             var iconElement = [];
             iconElement = _.remove(childrenArray, function(item) {
-                if(item.type == Icon) {
+                if(item.type == IconNB) {
                     return true;
                 }
             });
@@ -143,7 +156,7 @@ export default class Button extends NativeBaseComponent {
         }
 
         else
-            return React.cloneElement(this.props.children, this.getIconProps(this.props.children));
+            return React.cloneElement(this.props.children);
 
     }
 
