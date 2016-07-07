@@ -5,6 +5,7 @@ import Drawer from './Components/vendor/react-native-drawer';
 import Header from './Components/Widgets/Header';
 import Footer from './Components/Widgets/Footer';
 import Title from './Components/Widgets/Title';
+import Subtitle from './Components/Widgets/Subtitle';
 import Container from './Components/Widgets/Container';
 import Content from './Components/Widgets/Content';
 import Button from './Components/Widgets/Button';
@@ -25,6 +26,8 @@ import Icon from './Components/Widgets/Icon';
 import Thumbnail from './Components/Widgets/Thumbnail';
 import Card from './Components/Widgets/Card';
 import Badge from './Components/Widgets/Badge';
+import Checkbox from './Components/Widgets/Checkbox';
+import Radio from './Components/Widgets/Radio';
 // import Spinner from './Components/Widgets/Spinner';
 // import ProgressBar from './Components/Widgets/ProgressBar';
 import { Col, Row, Grid } from "react-native-easy-grid";
@@ -35,6 +38,7 @@ module.exports = {
 	Header: Header,
 	Footer: Footer,
 	Title: Title,
+	Subtitle: Subtitle,
 	Container: Container,
 	Content: Content,
 	Button: Button,
@@ -58,6 +62,8 @@ module.exports = {
 	Thumbnail: Thumbnail,
 	Card: Card,
 	Badge: Badge,
+	CheckBox: Checkbox,
+	Radio: Radio,
 	// Spinner: Spinner,
 	// ProgressBar: ProgressBar,
 	Drawer: Drawer,
