@@ -122,7 +122,7 @@ export default class Header extends NativeBaseComponent {
                     newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -10, marginRight: 12}}>
                                         {buttons[0]}
                                     </View>)
-                    newChildren.push(<View key='title' style={{flex: 3, alignSelf: 'stretch'}}>
+                    newChildren.push(<View key='title' style={{flex: 3, alignSelf: 'stretch', justifyContent: 'center'}}>
                                         {[title[0]]}
                                     </View>)
                     for (let i = 1; i < buttons.length; i++) {
