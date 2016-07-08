@@ -11,6 +11,8 @@ import View from './View';
 import Button from './Button';
 import Badge from './Badge';
 import Thumbnail from './Thumbnail';
+import CheckBox from './Checkbox';
+import Radio from './Radio';
 import InputGroup from './InputGroup';
 import _ from 'lodash';
 
@@ -53,7 +55,7 @@ export default class ListItemNB extends NativeBaseComponent {
                    lineHeight: (Platform.OS === 'ios')  ? 34 : undefined
                },
                itemNote: {
-                   fontSize: 15,
+                   fontSize: this.getTheme().listNoteSize,
                    color: this.getTheme().listNoteColor,
                    alignSelf: 'center',
                    fontWeight: '100',
@@ -61,8 +63,9 @@ export default class ListItemNB extends NativeBaseComponent {
                    textAlign: 'right'
                },
                itemSubNote: {
-                   fontSize: 15,
-                   color: '#999'
+                   fontSize: this.getTheme().listNoteSize,
+                   color: this.getTheme().listNoteColor,
+                   lineHeight: 16
                },
                thumbnail: {
                    alignSelf: 'center'
@@ -108,6 +111,26 @@ export default class ListItemNB extends NativeBaseComponent {
         })
 
         return thumbnailComponentPresent;
+    }
+
+    checkBoxPresent() {
+        var checkBoxComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == CheckBox)
+                checkBoxComponentPresent = true;
+        })
+
+        return checkBoxComponentPresent;
+    }
+
+    radioPresent() {
+        var radioComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == Radio)
+                radioComponentPresent = true;
+        })
+
+        return radioComponentPresent;
     }
 
     iconPresent() {
@@ -164,7 +187,7 @@ export default class ListItemNB extends NativeBaseComponent {
             }
         }
         else if(child.type == InputGroup) {
-            
+
             defaultProps = {
                 style: {
                   borderColor: this.getTheme().listBorderColor
@@ -211,7 +234,6 @@ export default class ListItemNB extends NativeBaseComponent {
                 foregroundColor: this.getContextForegroundColor()
             }
         }
-
         return computeProps(child.props, defaultProps);
     }
 
@@ -227,7 +249,6 @@ export default class ListItemNB extends NativeBaseComponent {
             defaultProps = {
                 style: this.getInitialStyle().listItem
             };
-
         return computeProps(this.props, defaultProps);
     }
 
@@ -297,7 +318,7 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
     renderChildren() {
-        
+
         var newChildren = [];
         if(!Array.isArray(this.props.children) && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
             newChildren.push(
@@ -383,8 +404,22 @@ export default class ListItemNB extends NativeBaseComponent {
                 newChildren.push(<View key='listItem1' style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
                                     {childrenArray.map((child, i) => {
                                       return React.cloneElement(child, {...this.getChildProps(child), key: i});
+
                                     })}
                                  </View>);
+            }
+            else if (this.radioPresent()) {
+                iconElement = _.remove(childrenArray, function(item) {
+                                            if(item.type == Radio) {
+                                                return true;
+                                            }
+                                        });
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'column', alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                                    {childrenArray.map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
+                                    })}
+                                 </View>);
+                newChildren.push(React.cloneElement(iconElement[0], {...this.getChildProps(iconElement[0]), key: 'listItem1'}));
             }
             else if (this.inputPresent() && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
 

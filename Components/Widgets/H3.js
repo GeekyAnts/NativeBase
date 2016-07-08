@@ -11,14 +11,14 @@ export default class H3NB extends NativeBaseComponent {
 
     prepareRootProps() {
 
-        var type = { 
+        var type = {
             color: this.getTheme().textColor,
             fontSize: this.getTheme().fontSizeH3
         }
-        
+
         var defaultProps = {
             style: type
-        }   
+        }
 
         return computeProps(this.props, defaultProps);
     }
@@ -26,7 +26,6 @@ export default class H3NB extends NativeBaseComponent {
         return(
             <Text {...this.prepareRootProps()}>{this.props.children}</Text>
         );
-    }    
+    }
 
 }
-

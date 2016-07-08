@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {View} from 'react-native';
+import {View, ListView} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import _ from 'lodash';
@@ -34,7 +34,7 @@ export default class ListNB extends NativeBaseComponent {
     }
 
     renderChildren() {
-       
+
         var childrenArray = React.Children.toArray(this.props.children);
 
         var keyIndex = 0;
@@ -46,16 +46,27 @@ export default class ListNB extends NativeBaseComponent {
 
         var lastElement = _.last(childrenArray);
 
-        var modLastElement = React.cloneElement(lastElement, computeProps(lastElement.props, {last: true}));
+        // var modLastElement = React.cloneElement(lastElement, computeProps(lastElement.props, {last: true}));
 
-        return _.concat(_.slice(childrenArray, 0, childrenArray.length - 1), modLastElement);
+        return _.concat(_.slice(childrenArray, 0, childrenArray.length - 1), lastElement);
     }
 
     render() {
-        return(
-            <View {...this.prepareRootProps()} >
-                {this.renderChildren()}
-            </View>
-        );
+        if(this.props.dataArray && this.props.renderRow) {
+            const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+            var dataSource = ds.cloneWithRows(this.props.dataArray);
+            return (
+                <ListView {...this.prepareRootProps()} 
+                    enableEmptySections={true}
+                    dataSource={dataSource}
+                    renderRow={this.props.renderRow} />
+            );
+        }
+        else 
+            return(
+                <View {...this.prepareRootProps()} >
+                    {this.renderChildren()}
+                </View>
+            );
     }
 }

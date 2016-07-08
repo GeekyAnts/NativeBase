@@ -25,7 +25,7 @@ import Icon from './Components/Widgets/Icon';
 import Thumbnail from './Components/Widgets/Thumbnail';
 import Card from './Components/Widgets/Card';
 import Badge from './Components/Widgets/Badge';
-// import Spinner from './Components/Widgets/Spinner';
+import Spinner from './Components/Widgets/Spinner';
 // import ProgressBar from './Components/Widgets/ProgressBar';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import ScrollableTabView from './Components/Widgets/Tabs';
@@ -58,7 +58,7 @@ module.exports = {
 	Thumbnail: Thumbnail,
 	Card: Card,
 	Badge: Badge,
-	// Spinner: Spinner,
+	Spinner: Spinner,
 	// ProgressBar: ProgressBar,
 	Drawer: Drawer,
 	Tabs : ScrollableTabView
