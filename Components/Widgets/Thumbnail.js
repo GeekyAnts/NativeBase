@@ -14,7 +14,8 @@ export default class ThumbnailNB extends NativeBaseComponent {
             thumbnail: {
                 borderRadius: 15,
                 width: 30,
-                height: 30
+                height: 30,
+                resizeMode: 'contain'
             }
         }
     }

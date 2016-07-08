@@ -34,7 +34,7 @@ export default class ListNB extends NativeBaseComponent {
     }
 
     renderChildren() {
-       
+
         var childrenArray = React.Children.toArray(this.props.children);
 
         var keyIndex = 0;
@@ -46,9 +46,9 @@ export default class ListNB extends NativeBaseComponent {
 
         var lastElement = _.last(childrenArray);
 
-        var modLastElement = React.cloneElement(lastElement, computeProps(lastElement.props, {last: true}));
+        // var modLastElement = React.cloneElement(lastElement, computeProps(lastElement.props, {last: true}));
 
-        return _.concat(_.slice(childrenArray, 0, childrenArray.length - 1), modLastElement);
+        return _.concat(_.slice(childrenArray, 0, childrenArray.length - 1), lastElement);
     }
 
     render() {

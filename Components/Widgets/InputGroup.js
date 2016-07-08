@@ -9,8 +9,6 @@ import computeProps from '../../Utils/computeProps';
 import Input from './Input';
 import _ from 'lodash';
 
-var keyIndex = 0;
-
 export default class InputGroup extends NativeBaseComponent {
 
 	getInitialStyle() {
@@ -77,7 +75,7 @@ export default class InputGroup extends NativeBaseComponent {
 
 		var defaultProps = {
 			style: addedProps,
-			key: keyIndex++
+			key: 'inpGroup'
 		}
 
 		return computeProps(this.props, defaultProps);
@@ -96,7 +94,7 @@ export default class InputGroup extends NativeBaseComponent {
 
 		var defaultProps = {
 			style: defaultStyle,
-			key: keyIndex++
+			key: 'icon'
 		}
 
 		return computeProps(icon.props, defaultProps);
@@ -130,23 +128,35 @@ export default class InputGroup extends NativeBaseComponent {
 		if(Array.isArray(this.props.children)) {
 
 			if(this.props.iconRight) {
-				newChildren.push(<Input key={keyIndex++} {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+				newChildren.push(<Input key='inp' {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
 				newChildren.push(React.cloneElement(iconElement[0],this.getIconProps(iconElement[0])));
 			}
 			else {
 				if (iconElement.length > 1) {
-					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
-					newChildren.push(<Input key={keyIndex++} {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
-					newChildren.push(React.cloneElement(iconElement[1], this.getIconProps(iconElement[1])));
+					newChildren.push(React.cloneElement(
+						iconElement[0], 
+						{
+							...this.getIconProps(iconElement[0]),
+							key: 'icon0'
+						}
+					));
+					newChildren.push(<Input key='inp' {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+					newChildren.push(React.cloneElement(
+						iconElement[1], 
+						{
+							...this.getIconProps(iconElement[1]),
+							key: 'icon1'
+						}
+					));
 				} else {
 					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
-					newChildren.push(<Input key={keyIndex++} {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+					newChildren.push(<Input key='inp' {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
 				}
 			}
 		}
 
 		else {
-			newChildren.push(<Input key={keyIndex++} {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+			newChildren.push(<Input key='inp' {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
 		}
 
 		return newChildren;

@@ -11,10 +11,10 @@ import View from './View';
 import Button from './Button';
 import Badge from './Badge';
 import Thumbnail from './Thumbnail';
+import CheckBox from './Checkbox';
+import Radio from './Radio';
 import InputGroup from './InputGroup';
 import _ from 'lodash';
-
-var keyIndex = 0;
 
 export default class ListItemNB extends NativeBaseComponent {
 
@@ -55,7 +55,7 @@ export default class ListItemNB extends NativeBaseComponent {
                    lineHeight: (Platform.OS === 'ios')  ? 34 : undefined
                },
                itemNote: {
-                   fontSize: 15,
+                   fontSize: this.getTheme().listNoteSize,
                    color: this.getTheme().listNoteColor,
                    alignSelf: 'center',
                    fontWeight: '100',
@@ -63,8 +63,9 @@ export default class ListItemNB extends NativeBaseComponent {
                    textAlign: 'right'
                },
                itemSubNote: {
-                   fontSize: 15,
-                   color: '#999'
+                   fontSize: this.getTheme().listNoteSize,
+                   color: this.getTheme().listNoteColor,
+                   lineHeight: 16
                },
                thumbnail: {
                    alignSelf: 'center'
@@ -112,6 +113,26 @@ export default class ListItemNB extends NativeBaseComponent {
         return thumbnailComponentPresent;
     }
 
+    checkBoxPresent() {
+        var checkBoxComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == CheckBox)
+                checkBoxComponentPresent = true;
+        })
+
+        return checkBoxComponentPresent;
+    }
+
+    radioPresent() {
+        var radioComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == Radio)
+                radioComponentPresent = true;
+        })
+
+        return radioComponentPresent;
+    }
+
     iconPresent() {
         var iconComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
@@ -156,50 +177,43 @@ export default class ListItemNB extends NativeBaseComponent {
         if(child.type == Image && !Array.isArray(this.props.children)) {
             defaultProps = {
                 resizeMode: 'stretch',
-                style: this.getInitialStyle().fullImage,
-                key: keyIndex++ 
+                style: this.getInitialStyle().fullImage
             }
         }
         else if(child.type == Button) {
             defaultProps = {
                 small: true,
-                style: this.getInitialStyle().itemButton,
-                key: keyIndex++ 
+                style: this.getInitialStyle().itemButton
             }
         }
         else if(child.type == InputGroup) {
-            
+
             defaultProps = {
                 style: {
                   borderColor: this.getTheme().listBorderColor
                 },
-                foregroundColor: this.getContextForegroundColor(),
-                key: keyIndex++ 
+                foregroundColor: this.getContextForegroundColor()
             }
         }
         else if(child.type == Text) {
             if (this.props.itemDivider) {
               defaultProps = {
-                    style: this.getInitialStyle().dividerItemText,
-                    key: keyIndex++ 
+                    style: this.getInitialStyle().dividerItemText
                 }
             } else {
               if(child.props.note && this.thumbnailPresent()) {
                   defaultProps = {
-                      style: this.getInitialStyle().itemSubNote,
-                      key: keyIndex++ 
+                      style: this.getInitialStyle().itemSubNote
                   }
               }
               else if(child.props.note) {
                   defaultProps = {
-                      style: this.getInitialStyle().itemNote,
-                      key: keyIndex++ 
+                      style: this.getInitialStyle().itemNote
                   }
               }
               else {
                   defaultProps = {
-                      style: this.getInitialStyle().itemText,
-                      key: keyIndex++ 
+                      style: this.getInitialStyle().itemText
                   }
               }
 
@@ -207,23 +221,19 @@ export default class ListItemNB extends NativeBaseComponent {
         }
         else if(child.type == Icon) {
             defaultProps = {
-                style: this.getInitialStyle().itemIcon,
-                key: keyIndex++ 
+                style: this.getInitialStyle().itemIcon
             }
         }
         else if(child.type == Thumbnail) {
             defaultProps = {
-                style: this.getInitialStyle().thumbnail,
-                key: keyIndex++ 
+                style: this.getInitialStyle().thumbnail
             }
         }
         else {
             defaultProps = {
-                foregroundColor: this.getContextForegroundColor(),
-                key: keyIndex++ 
+                foregroundColor: this.getContextForegroundColor()
             }
         }
-
         return computeProps(child.props, defaultProps);
     }
 
@@ -232,16 +242,13 @@ export default class ListItemNB extends NativeBaseComponent {
 
         if(this.props.itemDivider)
             defaultProps = {
-                style: this.getInitialStyle().listItemDivider,
-                key: keyIndex++
+                style: this.getInitialStyle().listItemDivider
             };
 
         else
             defaultProps = {
-                style: this.getInitialStyle().listItem,
-                key: keyIndex++
+                style: this.getInitialStyle().listItem
             };
-
         return computeProps(this.props, defaultProps);
     }
 
@@ -311,11 +318,11 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
     renderChildren() {
-        
+
         var newChildren = [];
         if(!Array.isArray(this.props.children) && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
             newChildren.push(
-                <View key={keyIndex++} style={{alignSelf: 'stretch', flex:1}}>
+                <View key='listItem' style={{alignSelf: 'stretch', flex:1}}>
                     {React.cloneElement(this.props.children, this.getChildProps(this.props.children))}
                 </View>
             );
@@ -333,10 +340,10 @@ export default class ListItemNB extends NativeBaseComponent {
                                       return true;
                                   }
                               });
-                newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
-                newChildren.push(<View key={keyIndex++} style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}} >
-                                    {childrenArray.map((child) => {
-                                      return React.cloneElement(child, this.getChildProps(child));
+                newChildren.push(React.cloneElement(iconElement[0], {...this.getChildProps(iconElement[0]), key: 'listItem0'}));
+                newChildren.push(<View key='listItem1' style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}} >
+                                    {childrenArray.map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
                                     })}
                                  </View>);
             }
@@ -348,12 +355,12 @@ export default class ListItemNB extends NativeBaseComponent {
                                             }
                                         });
 
-                newChildren.push(<View key={keyIndex++} >
-                                    {childrenArray.map((child) => {
-                                      return React.cloneElement(child, this.getChildProps(child));
+                newChildren.push(<View key='listItem0' >
+                                    {childrenArray.map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
                                     })}
                                  </View>);
-                newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
+                newChildren.push(React.cloneElement(iconElement[0], {...this.getChildProps(iconElement[0]), key: 'listItem1'}));
             }
             else if (this.badgePresent()) {
 
@@ -363,12 +370,12 @@ export default class ListItemNB extends NativeBaseComponent {
                                             }
                                         });
 
-                newChildren.push(<View key={keyIndex++} >
-                                    {childrenArray.map((child) => {
-                                      return React.cloneElement(child, this.getChildProps(child));
+                newChildren.push(<View key='listItem0' >
+                                    {childrenArray.map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
                                     })}
                                  </View>);
-                newChildren.push(React.cloneElement(badgeElement[0], this.getChildProps(badgeElement[0])));
+                newChildren.push(React.cloneElement(badgeElement[0], {...this.getChildProps(badgeElement[0]), key: 'listItem1'}));
             }
             else if (this.props.iconRight && this.props.iconLeft) {
 
@@ -378,12 +385,12 @@ export default class ListItemNB extends NativeBaseComponent {
                                             }
                                         });
 
-                newChildren.push(<View key={keyIndex++} style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}} >
-                                    {childrenArray.slice(0,2).map((child) => {
-                                      return React.cloneElement(child, this.getChildProps(child));
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}} >
+                                    {childrenArray.slice(0,2).map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
                                     })}
                                  </View>);
-                newChildren.push(React.cloneElement(iconElement[1], this.getChildProps(iconElement[1])));
+                newChildren.push(React.cloneElement(iconElement[1], {...this.getChildProps(iconElement[1]), key: 'listItem1'}));
             }
 
             else if (this.thumbnailPresent()) {
@@ -393,55 +400,83 @@ export default class ListItemNB extends NativeBaseComponent {
                                                 return true;
                                             }
                                         });
+                newChildren.push(React.cloneElement(iconElement[0], {...this.getChildProps(iconElement[0]), key: 'listItem0'}));
+                newChildren.push(<View key='listItem1' style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                                    {childrenArray.map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
+                                    })}
+                                 </View>);
+            }
+            else if (this.checkBoxPresent()) {
+
+                iconElement = _.remove(childrenArray, function(item) {
+                                            if(item.type == CheckBox) {
+                                                return true;
+                                            }
+                                        });
                 newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
-                newChildren.push(<View key={keyIndex++} style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                newChildren.push(<View style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
                                     {childrenArray.map((child) => {
                                       return React.cloneElement(child, this.getChildProps(child));
                                     })}
                                  </View>);
             }
+            else if (this.radioPresent()) {
+
+                iconElement = _.remove(childrenArray, function(item) {
+                                            if(item.type == Radio) {
+                                                return true;
+                                            }
+                                        });
+                newChildren.push(<View style={{flexDirection: 'column', alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                                    {childrenArray.map((child) => {
+                                      return React.cloneElement(child, this.getChildProps(child));
+                                    })}
+                                 </View>);
+                newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
+            }
             else if (this.inputPresent() && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
 
 
-                newChildren.push(<View key={keyIndex++} style={{flexDirection: 'column', alignSelf: 'center', flex: 1 }} >
-                                    {childrenArray.map((child) => {
-                                      return React.cloneElement(child, this.getChildProps(child));
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'column', alignSelf: 'center', flex: 1 }} >
+                                    {childrenArray.map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
                                     })}
                                  </View>);
             }
             else if (this.inlinePresent()) {
 
-                newChildren.push(<View key={keyIndex++} style={{flexDirection: 'row', justifyContent: 'center', flex: 1, borderBottomWidth: 1, borderColor: this.getTheme().listBorderColor, alignItems: 'center', height: this.getTheme().inputHeightBase+5 }} >
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: 'center', flex: 1, borderBottomWidth: 1, borderColor: this.getTheme().listBorderColor, alignItems: 'center', height: this.getTheme().inputHeightBase+5 }} >
                                     <Text style={{color: this.getContextForegroundColor() ? this.getContextForegroundColor() : this.getTheme().inputColorPlaceholder }}>{this.props.children.props.children.props.label}</Text>
                                  </View>);
-                newChildren.push(<View key={keyIndex++} style={{flexDirection: 'column', alignSelf: 'center', flex: 2 }} >
-                                    {childrenArray.map((child) => {
-                                      return React.cloneElement(child, this.getChildProps(child));
+                newChildren.push(<View key='listItem1' style={{flexDirection: 'column', alignSelf: 'center', flex: 2 }} >
+                                    {childrenArray.map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
                                     })}
                                  </View>);
             }
             else if (this.stackedPresent()) {
 
-                newChildren.push(<View key={keyIndex++} style={{flexDirection: 'row', justifyContent: 'flex-start', flex: 1, alignSelf: 'stretch', alignItems: 'center', height: this.getTheme().inputHeightBase, paddingLeft: 10 }} >
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: 'flex-start', flex: 1, alignSelf: 'stretch', alignItems: 'center', height: this.getTheme().inputHeightBase, paddingLeft: 10 }} >
                                     <Text style={{color: this.getContextForegroundColor() ? this.getContextForegroundColor() : this.getTheme().inputColorPlaceholder, textAlign: 'left', fontSize: 17 }}>{this.props.children.props.children.props.label}</Text>
                                  </View>);
-                newChildren.push(<View key={keyIndex++} style={{flexDirection: 'row', alignSelf: 'stretch', flex: 2 , padding: 0}} >
-                                    {childrenArray.map((child) => {
-                                      return React.cloneElement(child, this.getChildProps(child));
+                newChildren.push(<View key='listItem1' style={{flexDirection: 'row', alignSelf: 'stretch', flex: 2 , padding: 0}} >
+                                    {childrenArray.map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
                                     })}
                                  </View>);
             }
             else if (this.insetPresent()) {
 
 
-                newChildren.push(<View key={keyIndex++} style={{flexDirection: 'row', alignSelf: 'stretch', flex: 1 , padding: 0}} >
-                                    {childrenArray.map((child) => {
-                                      return React.cloneElement(child, this.getChildProps(child));
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', alignSelf: 'stretch', flex: 1 , padding: 0}} >
+                                    {childrenArray.map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
                                     })}
                                  </View>);
-                newChildren.push(<View key={keyIndex++} style={{flexDirection: 'row', alignSelf: 'stretch', flex: 1 , padding: 0}} >
-                                    {childrenArray.map((child) => {
-                                      return React.cloneElement(child, this.getChildProps(child));
+                newChildren.push(<View key='listItem1' style={{flexDirection: 'row', alignSelf: 'stretch', flex: 1 , padding: 0}} >
+                                    {childrenArray.map((child, i) => {
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
                                     })}
                                  </View>);
             }
