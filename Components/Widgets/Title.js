@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {Text, View, Platform } from 'react-native';
+import {Text, View } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 
 
@@ -10,7 +10,7 @@ export default class Title extends NativeBaseComponent {
 
 	render() {
 		return(
-			<View><Text style={{color: this.getContextForegroundColor() , fontSize: this.getTheme().titleFontSize, fontWeight: "500", alignSelf: (Platform.OS === 'ios' ) ? 'center' : 'flex-start'}}>{this.props.children}</Text></View>
+			<View><Text style={{color: this.getContextForegroundColor() , fontSize: this.getTheme().titleFontSize, fontWeight: "500", alignSelf: 'center'}}>{this.props.children}</Text></View>
 		);
 	}
 }

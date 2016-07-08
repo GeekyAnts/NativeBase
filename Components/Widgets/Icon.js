@@ -11,7 +11,7 @@ export default class IconNB extends NativeBaseComponent {
     getInitialStyle() {
         return {
             icon: {
-                fontSize: this.getTheme().iconFontSize,
+                fontSize: 34,
                 color: this.getContextForegroundColor()
             }
         }
