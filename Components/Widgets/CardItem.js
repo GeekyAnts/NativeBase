@@ -253,7 +253,6 @@ export default class CardItemNB extends NativeBaseComponent {
         var newChildren = [];
 
         if(!this.thumbnailPresent() && !this.iconPresent()) {
-
             newChildren = React.Children.map(this.props.children, (child, i) => {
                 return React.cloneElement(child, {...this.getChildProps(child), key: i});
             });

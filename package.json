@@ -13,16 +13,16 @@
     "packager",
     "rnpm"
   ],
-  "version": "0.4.7",
+  "version": "0.4.9",
   "private": false,
   "dependencies": {
     "color": "~0.11.1",
     "lodash": "~4.11.1",
+    "react-native-vector-icons": "2.0.x",
     "react-native-checkbox": "~1.0.8",
     "react-native-easy-grid": "0.1.5"
   },
   "peerDependencies": {
-    "react-native-vector-icons": "2.0.x",
     "react-native": ">=0.26.0",
     "react": ">=15.0.2"
   },

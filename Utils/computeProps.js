@@ -1,14 +1,9 @@
 'use_strict';
-
 import _ from 'lodash';
 import ReactNativePropRegistry from 'react/lib/ReactNativePropRegistry';
-
 // For compatibility with RN 0.25
 // import ReactNativePropRegistry from "react-native/Libraries/ReactNative/ReactNativePropRegistry";
-
 module.exports = function(incomingProps, defaultProps) {
-
-
     // External props has a higher precedence
     var computedProps = {};
 
@@ -19,12 +14,10 @@ module.exports = function(incomingProps, defaultProps) {
     delete incomingProps.style;
 
     // console.log(defaultProps, incomingProps);
-
     if(incomingProps)
         _.merge(computedProps, defaultProps, incomingProps);
     else
         computedProps = defaultProps;
-
     // Pass the merged Style Object instead
     if(incomingPropsStyle) {
 
@@ -38,6 +31,7 @@ module.exports = function(incomingProps, defaultProps) {
                     _.merge(computedPropsStyle, style);
                 }
             })
+
         }
         else {
             if(typeof incomingPropsStyle == 'number') {
@@ -49,11 +43,8 @@ module.exports = function(incomingProps, defaultProps) {
 
         _.merge(computedProps.style, defaultProps.style, computedPropsStyle);
 
+
     }
-
     // console.log("computedProps ", computedProps);
-
     return computedProps;
-
-
 }
