@@ -68,9 +68,14 @@ export default class Button extends NativeBaseComponent {
 
         var mergedStyle = {};
         var btnType = {
-            paddingRight : 5,
+            paddingRight : 3,
             paddingLeft : 3,
+<<<<<<< HEAD
             marginLeft: this.iconPresent() ? this.getTheme().iconMargin : 0,
+=======
+            marginLeft: (this.iconPresent() && !this.props.iconRight) ? this.getTheme().iconMargin : 0,
+            marginRight: (this.iconPresent() && this.props.iconRight) ? this.getTheme().iconMargin : 0,
+>>>>>>> d10f8ff1b7e0c7e349d89a6473e937e425ca4898
             color:
                     ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg :
                     ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
@@ -78,12 +83,13 @@ export default class Button extends NativeBaseComponent {
                     ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
                     ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
                     ((this.props.bordered)) ? this.getTheme().btnPrimaryBg :
+                    (this.props.color)  ? this.props.color :
                     (this.props.transparent) ? this.getContextForegroundColor() :
                     this.getTheme().inverseTextColor,
 
             fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize,
 
-            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 13 : 20
+            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : this.getTheme().btnLineHeight
         }
 
         return _.merge(mergedStyle, btnType, this.props.textStyle);
@@ -99,11 +105,12 @@ export default class Button extends NativeBaseComponent {
                 ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
                 ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
                 (this.props.bordered)  ? this.getTheme().btnPrimaryBg :
+                (this.props.color)  ? this.props.color :
                 (this.props.transparent) ? this.getContextForegroundColor() :
                 this.getTheme().inverseTextColor,
 
             fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize,
-            lineHeight: (this.props.large) ? 48: (this.props.small) ? 22 : 32
+            lineHeight: (this.props.large) ? 52: (this.props.small) ? 22 : this.getTheme().iconLineHeight
         }
 
         var defaultProps = {
@@ -118,7 +125,6 @@ export default class Button extends NativeBaseComponent {
             if(child.type == Icon)
                 iconComponentPresent = true;
         })
-        console.log("iconComponentPresent", iconComponentPresent);
         return iconComponentPresent;
     }
     renderChildren() {

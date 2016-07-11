@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import { ActivityIndicatorIOS } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
@@ -26,7 +26,7 @@ export default class SpinnerNB extends NativeBaseComponent {
 
     render() {
         return(
-            <ActivityIndicatorIOS {...this.prepareRootProps()}  color={this.props.color ? this.props.color : this.props.inverse ?
+            <ActivityIndicator {...this.prepareRootProps()}  color={this.props.color ? this.props.color : this.props.inverse ?
                                                                 this.getTheme().inverseSpinnerColor :
                                                                 this.getTheme().defaultSpinnerColor}
                                                                 size={this.props.size ? this.props.size : "large" } />
