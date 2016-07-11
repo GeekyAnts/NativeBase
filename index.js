@@ -23,6 +23,8 @@ import Textarea from './Components/Widgets/Textarea';
 import InputGroup from './Components/Widgets/InputGroup';
 import Icon from './Components/Widgets/Icon';
 import Thumbnail from './Components/Widgets/Thumbnail';
+import CheckBox from './Components/Widgets/Checkbox';
+import Radio from './Components/Widgets/Radio';
 import Card from './Components/Widgets/Card';
 import Badge from './Components/Widgets/Badge';
 import Spinner from './Components/Widgets/Spinner';
@@ -59,6 +61,8 @@ module.exports = {
 	Card: Card,
 	Badge: Badge,
 	Spinner: Spinner,
+	CheckBox: CheckBox,
+	Radio: Radio,
 	// ProgressBar: ProgressBar,
 	Drawer: Drawer,
 	Tabs : ScrollableTabView
