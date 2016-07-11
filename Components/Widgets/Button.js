@@ -70,12 +70,8 @@ export default class Button extends NativeBaseComponent {
         var btnType = {
             paddingRight : 3,
             paddingLeft : 3,
-<<<<<<< HEAD
-            marginLeft: this.iconPresent() ? this.getTheme().iconMargin : 0,
-=======
             marginLeft: (this.iconPresent() && !this.props.iconRight) ? this.getTheme().iconMargin : 0,
             marginRight: (this.iconPresent() && this.props.iconRight) ? this.getTheme().iconMargin : 0,
->>>>>>> d10f8ff1b7e0c7e349d89a6473e937e425ca4898
             color:
                     ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg :
                     ((this.props.bordered) && (this.props.success)) ? this.getTheme().btnSuccessBg :
