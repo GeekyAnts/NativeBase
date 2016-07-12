@@ -9,7 +9,8 @@ module.exports = {
 	brandDanger: "#d9534f",
 	brandWarning: "#f0ad4e",
 	brandSidebar: "#252932",
-
+    fontFamily: undefined,
+    
 	inverseTextColor: "#fff",
 	textColor: "#000",
 

@@ -33,13 +33,15 @@ export default class Header extends NativeBaseComponent {
                 backgroundColor: this.getTheme().toolbarInputColor,
                 borderRadius: this.props.rounded ? 25 : 2,
                 height: 30,
-                borderColor: 'transparent'
+                borderColor: 'transparent',
+                flex:1
             },
             androidToolbarSearch: {
                 backgroundColor: "#fff",
                 borderRadius: 2,
                 borderColor: 'transparent',
-                elevation: 2
+                elevation: 2,
+                flex:1
             }
         }
     }
