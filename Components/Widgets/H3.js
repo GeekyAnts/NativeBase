@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {Text} from 'react-native';
+import Text from './Text';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 

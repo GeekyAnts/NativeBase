@@ -2,11 +2,12 @@
 'use strict';
 
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import IconNB from './Icon';
 import Icon from './Icon';
+import Text from './Text';
 import _ from 'lodash';
 
 

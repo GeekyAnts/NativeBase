@@ -462,7 +462,7 @@ export default class ListItemNB extends NativeBaseComponent {
                                  </View>);
                 newChildren.push(<View key='listItem1' style={{flexDirection: 'row', alignSelf: 'stretch', flex: 2 , padding: 0}} >
                                     {childrenArray.map((child, i) => {
-                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i, style:{flex:1}});
                                     })}
                                  </View>);
             }

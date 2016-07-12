@@ -16,7 +16,6 @@ export default class InputGroup extends NativeBaseComponent {
 			textInput: {
 				height: this.getTheme().inputHeightBase,
 				backgroundColor: 'transparent',
-				flex: 1,
 				flexDirection: 'row',
 				borderColor: this.getTheme().inputBorderColor,
 				paddingRight: 5
@@ -134,7 +133,7 @@ export default class InputGroup extends NativeBaseComponent {
 			else {
 				if (iconElement.length > 1) {
 					newChildren.push(React.cloneElement(
-						iconElement[0], 
+						iconElement[0],
 						{
 							...this.getIconProps(iconElement[0]),
 							key: 'icon0'
@@ -142,7 +141,7 @@ export default class InputGroup extends NativeBaseComponent {
 					));
 					newChildren.push(<Input key='inp' {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
 					newChildren.push(React.cloneElement(
-						iconElement[1], 
+						iconElement[1],
 						{
 							...this.getIconProps(iconElement[1]),
 							key: 'icon1'

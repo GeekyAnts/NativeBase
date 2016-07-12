@@ -18,7 +18,6 @@ export default class CardItemNB extends NativeBaseComponent {
             listItem: {
                 borderBottomWidth: this.getTheme().borderWidth,
                 padding: (this.imagePresent() && !this.ifShowCase()) ? 0 : this.getTheme().listItemPadding,
-                flex: 1,
                 backgroundColor: this.getTheme().listBg,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                 flexDirection: (this.thumbnailPresent() || this.iconPresent() || (this.notePresent() && this.ifShowCase())) ? 'row' : 'column',
@@ -28,7 +27,6 @@ export default class CardItemNB extends NativeBaseComponent {
                 borderBottomWidth: this.getTheme().borderWidth,
                 padding: this.getTheme().listItemPadding,
                 backgroundColor: this.getTheme().listDividerBg,
-                flex: 1,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                 flexDirection: 'row',
                 borderColor: this.getTheme().listBorderColor

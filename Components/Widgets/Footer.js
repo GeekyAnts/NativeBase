@@ -10,12 +10,16 @@ export default class Footer extends NativeBaseComponent {
 
     getInitialStyle() {
         return {
-            navbar: {              
+            navbar: {
                 shadowColor: '#000',
                 shadowOffset: {width: 0, height: 2},
                 shadowOpacity: 0.1,
                 shadowRadius: 1.5,
-                height: this.getTheme().footerHeight
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: (!Array.isArray(this.props.children)) ? 'center' : 'space-between',
+                height: this.getTheme().footerHeight,
+                backgroundColor: this.getTheme().footerDefaultBg
             }
         }
     }

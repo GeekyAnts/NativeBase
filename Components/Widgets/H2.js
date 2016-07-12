@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {Text} from 'react-native';
+import Text from './Text';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
@@ -11,14 +11,14 @@ export default class H2NB extends NativeBaseComponent {
 
     prepareRootProps() {
 
-        var type = { 
+        var type = {
             color: this.getTheme().textColor,
             fontSize: this.getTheme().fontSizeH2
         }
-        
+
         var defaultProps = {
             style: type
-        }   
+        }
 
         return computeProps(this.props, defaultProps);
     }
@@ -26,7 +26,6 @@ export default class H2NB extends NativeBaseComponent {
         return(
             <Text {...this.prepareRootProps()}>{this.props.children}</Text>
         );
-    }    
+    }
 
 }
-

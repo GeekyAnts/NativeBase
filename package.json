@@ -32,6 +32,11 @@
     "eslint-plugin-react": "^5.0.1",
     "eslint-plugin-react-native": "^1.0.0"
   },
+  "rnpm": {
+    "assets": [
+      "Fonts"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GeekyAnts/NativeBase.git"
