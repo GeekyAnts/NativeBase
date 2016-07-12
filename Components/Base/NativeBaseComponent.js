@@ -2,7 +2,7 @@
 'use strict';
 
 import React, {Component} from 'react';
-import lightTheme from '../Themes/light';
+import darkTheme from '../Themes/dark';
 
 export default class NativeBaseComponent extends Component {			
 	static contextTypes = {
@@ -32,6 +32,6 @@ export default class NativeBaseComponent extends Component {
 	}
 
 	getTheme() {
-		return this.props.theme ? this.props.theme : this.context.theme || lightTheme
+		return this.props.theme ? this.props.theme : this.context.theme || darkTheme
 	}
 }
