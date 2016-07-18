@@ -180,14 +180,8 @@ Ready to use screens:
 -	SignUp/Login
 -	Tabs
 -	Fluid grid layout to advertise various brands for your products
--	You can select between list-view and grid-view of product advertisements
+-	List-view and grid-view of product advertisements
 -	Product details in your cart
--	Detailed order description for products in your cart
--	Shipping screen which includes destination address, tracks your order
--	Payment screen which includes type of banking, select between the banks, form to fill up your card details, etc
--	Your profile details
--	Separate screen to track all your orders
--	Notification screen for offers on products
 -	[Read More](http://strapmobile.com/docs/react-native-ecommerce-starter/v3.1)
 
 **Quick links to Ecommerce Starter**
@@ -203,20 +197,9 @@ Flat App is basically a style of interface design emphasizing minimum use of sty
 
 Ready to use screens:
 
--	Button with various shapes and themes
--	Textbox
--	Form Elements
--	List
--	Header
--	Drawer
--	Full fledged collection of Icons
--	Spinner:Animated loading indicators which are flexible in diverse size and color.
--	Swiper
--	Modal
--	Interactive design of Calendar with fast swiping feature.
--	Scroll between the tabs
--	Responsive Navigator
--	Ready to use screens
+-	UI Elements: Button with various shapes and themes, Textbox, Form Elements, List, Full fledged collection of Icons
+-	Custom Elements: Header, Footer, Drawer, Spinner, ProgressBar, Modal, Ready to use Email Template, Interactive design of Calendar with fast swiping feature, Scroll between the tabs, Responsive Navigator, Chat Messenger
+-	Ready to use screens: Channels, Stories, Comments, Carousel, etc
 -	Easy theme customization
 -	[Read More](http://strapmobile.com/docs/react-native-flat-app-theme/v3.0)
 
