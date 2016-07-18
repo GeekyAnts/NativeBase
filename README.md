@@ -157,22 +157,8 @@ Native Starter Pro is best suited for developing apps that makes use of ready-ma
 
 Native Starter Pro includes following ready-to-use and highly customizable components :
 
--	Button with various shapes and themes
--	Textbox
--	Form Elements
--	List
--	Header
--	Footer
--	Drawer
--	Full fledged collection of Icons
--	Spinner:Animated loading indicators which are flexible in diverse size and color.
--	ProgressBar: To visualize the process of work.
--	Modal
--	Ready to use Email Template
--	Interactive design of Calendar with fast swiping feature.
--	Scroll between the tabs
--	Responsive Navigator
--	Chat Messenger
+-	UI Elements: Button with various shapes and themes, Textbox, Form Elements, List, Full fledged collection of Icons
+-	Custom Elements: Header, Footer, Drawer, Spinner, ProgressBar, Modal, Ready to use Email Template, Interactive design of Calendar with fast swiping feature, Scroll between the tabs, Responsive Navigator, Chat Messenger
 -	Ready to use screens
 -	Easy theme customization
 -	[Read More](http://strapmobile.com/docs/native-starter-pro/v3.1/)
