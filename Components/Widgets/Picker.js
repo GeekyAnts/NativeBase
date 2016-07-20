@@ -11,10 +11,10 @@ export default class PickerNB extends NativeBaseComponent {
     getInitialStyle() {
         return {
             picker: {
-                backgroundColor: '#bbb'
+                // alignItems: 'flex-end'
             },
             pickerItem: {
-                color: 'teal'
+
             }
         }
     }
@@ -28,8 +28,8 @@ export default class PickerNB extends NativeBaseComponent {
         return computeProps(this.props, defaultProps);
 
     }
-    
-    render() { 
+
+    render() {
         return(
             <Picker {...this.prepareRootProps()}>
                 {this.props.children}

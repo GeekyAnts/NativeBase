@@ -2,15 +2,17 @@ import Color from 'color';
 
 import {Platform} from 'react-native';
 
-module.exports = {
+export default {
 	brandPrimary : "#428bca",
 	brandInfo: "#5bc0de",
 	brandSuccess: "#5cb85c",
 	brandDanger: "#d9534f",
 	brandWarning: "#f0ad4e",
 	brandSidebar: "#252932",
-    fontFamily: undefined,
-    
+
+    fontFamily: (Platform.OS === 'ios' ) ? 'SF-UI-Text-Regular' : 'Roboto-Regular',
+	iconFamily: 'Ionicons',
+
 	inverseTextColor: "#fff",
 	textColor: "#000",
 
@@ -143,7 +145,7 @@ module.exports = {
     badgeColor: "#fff",
     badgeBg: "#ED1727",
 
-    lineHeight: 21,
+    lineHeight: (Platform.OS === 'ios' ) ? 21 : 24,
     iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,
 
 	toolbarIconSize: (Platform.OS === 'ios' ) ? 18 : 22,
