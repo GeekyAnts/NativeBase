@@ -3,14 +3,14 @@ import Color from 'color';
 import {Platform} from 'react-native';
 
 export default {
-	brandPrimary : "#428bca",
+	brandPrimary : "#5067FF",
 	brandInfo: "#5bc0de",
 	brandSuccess: "#5cb85c",
 	brandDanger: "#d9534f",
 	brandWarning: "#f0ad4e",
 	brandSidebar: "#252932",
 
-    fontFamily: (Platform.OS === 'ios' ) ? 'SF-UI-Text-Regular' : 'Roboto-Regular',
+    fontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto-Light',
 	iconFamily: 'Ionicons',
 
 	inverseTextColor: "#fff",
@@ -32,7 +32,7 @@ export default {
         return this.fontSizeBase* 1.4;
     },
     get btnTextSize () {
-        return this.fontSizeBase* 1.1;
+        return  (Platform.OS==='ios') ? this.fontSizeBase* 1.1 : this.fontSizeBase-1;
     },
     get btnTextSizeLarge () {
         return this.fontSizeBase* 1.5;
@@ -47,7 +47,9 @@ export default {
         return this.iconFontSize* .6;
     },
 
-    borderRadiusBase: 4,
+	buttonPadding: 6,
+
+    borderRadiusBase: (Platform.OS === 'ios' ) ? 5 : 2,
 
     get borderRadiusLarge () {
         return this.fontSizeBase* 3.8;
@@ -108,7 +110,7 @@ export default {
     },
 
     borderWidth: 1,
-    iconMargin: 15,
+    iconMargin: 7,
 
     get inputColor () {
         return this.textColor;
@@ -135,8 +137,8 @@ export default {
     contentPadding: 10,
 
     listBorderColor: "#ddd",
-    listDividerBg: "#F5F5F5",
-    listItemPadding: 15,
+    listDividerBg: "#F4EFF6",
+    listItemPadding: 10,
     listNoteColor: "#808080",
 	listNoteSize: 13,
 

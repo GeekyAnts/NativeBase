@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Platform } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import IconNB from './Icon';
@@ -16,17 +16,18 @@ export default class Button extends NativeBaseComponent {
     getInitialStyle() {
         return {
             button: {
-                padding: 15,
-                justifyContent: 'space-around',
+                paddingVertical: this.getTheme().buttonPadding,
+                paddingHorizontal: this.getTheme().buttonPadding+2,
+                justifyContent: (this.props.block) ? 'center' : 'space-around',
                 flexDirection: 'row',
                 alignSelf: 'center',
                 alignItems: 'center',
                 backgroundColor: this.getTheme().btnPrimaryBg,
-                elevation: (this.props.transparent) ? 0 : 2,
-                shadowColor: (this.props.transparent) ? undefined : '#000',
-                shadowOffset: (this.props.transparent) ? undefined : {width: 0, height: 2},
-                shadowOpacity: (this.props.transparent) ? undefined : 0.1,
-                shadowRadius: (this.props.transparent) ? undefined : 1.5
+                elevation: (this.props.transparent || this.props.bordered) ? 0 : 4,
+                shadowColor: (this.props.transparent || this.props.bordered) ? undefined : '#000',
+                shadowOffset: (this.props.transparent || this.props.bordered) ? undefined : {width: 0, height: 2},
+                shadowOpacity: (this.props.transparent || this.props.bordered) ? undefined : 0.2,
+                shadowRadius: (this.props.transparent || this.props.bordered) ? undefined : 2
             }
         }
     }
@@ -51,7 +52,7 @@ export default class Button extends NativeBaseComponent {
                             (this.props.warning) ? this.getTheme().btnWarningBg :
                             (this.props.info) ? this.getTheme().btnInfoBg :
                             this.getInitialStyle().button.backgroundColor,
-            height: (this.props.large) ? 60 : (this.props.small) ? 35 : 45,
+            height: (this.props.large) ? 60 : (this.props.small) ? 35 : 38,
             alignSelf: (this.props.block) ? 'stretch' : 'flex-start'
         }
 
@@ -69,8 +70,7 @@ export default class Button extends NativeBaseComponent {
 
         var mergedStyle = {};
         var btnType = {
-            paddingRight : 3,
-            paddingLeft : 3,
+            fontWeight: (Platform.OS==='ios') ? '400' : '500',
             marginLeft: (this.iconPresent() && !this.props.iconRight) ? this.getTheme().iconMargin : 0,
             marginRight: (this.iconPresent() && this.props.iconRight) ? this.getTheme().iconMargin : 0,
             color:
@@ -86,7 +86,7 @@ export default class Button extends NativeBaseComponent {
 
             fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize,
 
-            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : this.getTheme().btnLineHeight
+            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : this.getTheme().btnLineHeight-2
         }
 
         return _.merge(mergedStyle, btnType, this.props.textStyle);
@@ -106,8 +106,8 @@ export default class Button extends NativeBaseComponent {
                 (this.props.transparent) ? this.getContextForegroundColor() :
                 this.getTheme().inverseTextColor,
 
-            fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize,
-            lineHeight: (this.props.large) ? 52: (this.props.small) ? 22 : this.getTheme().iconLineHeight
+            fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize-5,
+            lineHeight: (this.props.large) ? 52: (this.props.small) ? 22 : this.getTheme().iconLineHeight-7
         }
 
         var defaultProps = {
@@ -126,7 +126,7 @@ export default class Button extends NativeBaseComponent {
     }
     renderChildren() {
         if(typeof this.props.children == "string") {
-            return <Text style={this.getTextStyle()}>{this.props.children}</Text>
+            return <Text style={this.getTextStyle()}>{(Platform.OS==='ios') ? this.props.children : this.props.children.toUpperCase()}</Text>
         }
 
         else if(this.props.children.type == IconNB) {
@@ -145,13 +145,13 @@ export default class Button extends NativeBaseComponent {
                 }
             });
             if(this.props.iconRight) {
-                newChildren.push(<Text key='label' style={this.getTextStyle()}>{childrenArray[0]}</Text>);
+                newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
                 newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
             }
 
             else if(this.props.iconLeft || iconElement) {
                 newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
-                newChildren.push(<Text key='label' style={this.getTextStyle()}>{childrenArray[0]}</Text>);
+                newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
             }
 
             return newChildren;
