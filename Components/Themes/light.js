@@ -10,7 +10,8 @@ export default {
 	brandWarning: "#f0ad4e",
 	brandSidebar: "#252932",
 
-    fontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto-Light',
+    fontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto',
+	btnFontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto_medium',
 	iconFamily: 'Ionicons',
 
 	inverseTextColor: "#fff",
@@ -21,6 +22,9 @@ export default {
 	fontSizeBase: 15,
 	titleFontSize: (Platform.OS === 'ios' ) ? 17 : 19,
 	subTitleFontSize: (Platform.OS === 'ios' ) ? 12 : 14,
+
+	inputFontSize: 15,
+	inputLineHeight: 24,
 
 	get fontSizeH1 () {
         return this.fontSizeBase*1.8;
@@ -65,7 +69,10 @@ export default {
 	checkboxBgColor: "#039BE5",
 	checkboxTickColor: "#fff",
 
+	checkboxSize: 23,
+
 	radioColor: "#7e7e7e",
+	radioBtnSize: (Platform.OS === 'ios') ? 25 : 23,
 
 	tabBgColor: "#F8F8F8",
 	tabTextColor: "#fff",
@@ -116,7 +123,7 @@ export default {
         return this.textColor;
     },
     get inputColorPlaceholder () {
-        return 'rgba(0, 0, 0, 0.7)';
+        return '#575757';
     },
     inputBorderColor: "#D9D5DC",
     inputHeightBase: 40,
@@ -126,7 +133,7 @@ export default {
         return this.inputPaddingLeft* 8;
     },
 
-    btnLineHeight: (Platform.OS==='ios') ? 20 : 23,
+    btnLineHeight: 19,
 
     dropdownBg: "#000",
     dropdownLinkColor: "#414142",
@@ -137,20 +144,20 @@ export default {
     contentPadding: 10,
 
     listBorderColor: "#ddd",
-    listDividerBg: "#F4EFF6",
-    listItemPadding: 10,
+    listDividerBg: "#ddd",
+    listItemPadding: 9,
     listNoteColor: "#808080",
 	listNoteSize: 13,
 
-    iconFontSize: (Platform.OS === 'ios' ) ? 32 : 30,
+    iconFontSize: (Platform.OS === 'ios' ) ? 30 : 28,
 
     badgeColor: "#fff",
     badgeBg: "#ED1727",
 
-    lineHeight: (Platform.OS === 'ios' ) ? 21 : 24,
+    lineHeight: (Platform.OS === 'ios' ) ? 20 : 24,
     iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,
 
-	toolbarIconSize: (Platform.OS === 'ios' ) ? 18 : 22,
+	toolbarIconSize: (Platform.OS === 'ios' ) ? 20 : 22,
 
 	toolbarInputColor: "#CECDD2",
 

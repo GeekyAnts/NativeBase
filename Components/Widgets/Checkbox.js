@@ -13,8 +13,8 @@ export default class CheckBox extends NativeBaseComponent {
             checkbox: {
                 borderRadius: (Platform.OS === 'ios') ? 13 : 2,
                 overflow: 'hidden',
-                width: 26,
-                height: 26,
+                width: this.getTheme().checkboxSize,
+                height: this.getTheme().checkboxSize,
                 borderWidth: (Platform.OS === 'ios') ? 1 : 2,
                 paddingLeft: (Platform.OS === 'ios') ? 5 : 2,
                 paddingBottom: (Platform.OS === 'ios') ? 0 : 5,
@@ -27,7 +27,7 @@ export default class CheckBox extends NativeBaseComponent {
     render() {
         return(
             <View style={this.getInitialStyle().checkbox}>
-                <Icon name={(Platform.OS === 'ios') ? "ios-checkmark-outline" : "md-checkmark"} style={{color:  this.props.checked ?  this.getTheme().checkboxTickColor : "transparent", lineHeight: (Platform.OS === 'ios') ? 28 : 18, marginTop: (Platform.OS==='ios') ? undefined : 1, fontSize: (Platform.OS === 'ios') ? undefined : 22}} />
+                <Icon name={(Platform.OS === 'ios') ? "ios-checkmark-outline" : "md-checkmark"} style={{color:  this.props.checked ?  this.getTheme().checkboxTickColor : "transparent", lineHeight: (Platform.OS === 'ios') ? this.getTheme().checkboxSize/0.93 : this.getTheme().checkboxSize-5, marginTop: (Platform.OS==='ios') ? undefined : 1, fontSize: (Platform.OS === 'ios') ? this.getTheme().checkboxSize/0.8 : this.getTheme().checkboxSize/1.2}} />
             </View>
         );
     }

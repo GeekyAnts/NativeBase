@@ -5,6 +5,7 @@ import React from 'react';
 import {View} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Icon from './Icon';
+import Button from './Button';
 import computeProps from '../../Utils/computeProps';
 import Input from './Input';
 import _ from 'lodash';
@@ -14,11 +15,11 @@ export default class InputGroup extends NativeBaseComponent {
 	getInitialStyle() {
 		return {
 			textInput: {
-				height: this.getTheme().inputHeightBase,
 				backgroundColor: 'transparent',
 				flexDirection: 'row',
 				borderColor: this.getTheme().inputBorderColor,
-				paddingRight: 5
+				paddingRight: 5,
+				alignItems: 'center'
 			},
 			outerBorder: {
 				position:'relative',
@@ -26,8 +27,7 @@ export default class InputGroup extends NativeBaseComponent {
 				borderWidth: this.getTheme().borderWidth,
 				borderTopWidth: 0,
 				borderRightWidth: 0,
-				borderLeftWidth: 0,
-				marginTop: 5
+				borderLeftWidth: 0
 			},
 			darkborder: {
 				borderColor: '#000'
@@ -40,21 +40,18 @@ export default class InputGroup extends NativeBaseComponent {
 				borderWidth: this.getTheme().borderWidth,
 				borderTopWidth: 0,
 				borderRightWidth: 0,
-				borderLeftWidth: 0,
-				marginTop: 5
+				borderLeftWidth: 0
 			},
 
 			bordered: {
 				position:'relative',
-				borderWidth: this.getTheme().borderWidth,
-				marginTop: 5
+				borderWidth: this.getTheme().borderWidth
 			},
 
 			rounded: {
 				position:'relative',
 				borderWidth: this.getTheme().borderWidth,
-				borderRadius: 30,
-				marginTop: 5
+				borderRadius: 30
 			}
 		}
 	}
@@ -83,10 +80,9 @@ export default class InputGroup extends NativeBaseComponent {
 	getIconProps(icon) {
 
 		var defaultStyle = {
-			color: this.getContextForegroundColor(),
 			fontSize: (this.props.toolbar || this.props.atoolbar) ? this.getTheme().toolbarIconSize : 27,
 			alignSelf: 'center',
-			lineHeight: (this.props.toolbar || this.props.atoolbar) ? 22 : undefined,
+			lineHeight: (this.props.toolbar || this.props.atoolbar) ? 24 : undefined,
 			paddingRight: 5,
 			marginLeft: (this.props.toolbar || this.props.atoolbar) ? 5 : undefined
 		}
@@ -97,6 +93,23 @@ export default class InputGroup extends NativeBaseComponent {
 		}
 
 		return computeProps(icon.props, defaultProps);
+	}
+	getButtonProps(button) {
+
+		var defaultStyle = {
+			alignSelf: 'center',
+			paddingRight: 5,
+			marginLeft: (this.props.toolbar || this.props.atoolbar) ? 5 : undefined,
+			height: 30
+		}
+
+		var defaultProps = {
+			style: defaultStyle,
+			key: 'button',
+			inputButton: true
+		}
+
+		return computeProps(button.props, defaultProps);
 	}
 
 
@@ -111,6 +124,14 @@ export default class InputGroup extends NativeBaseComponent {
 				if(item.type == Icon) {
 						return true;
 				}
+		});
+
+		var buttonElement = [];
+
+		buttonElement = _.remove(childrenArray, function(item) {
+			if(item.type == Button) {
+				return true;
+			}
 		});
 
 		var inp =  _.find(childrenArray, function(item) {
@@ -129,6 +150,23 @@ export default class InputGroup extends NativeBaseComponent {
 			if(this.props.iconRight) {
 				newChildren.push(<Input key='inp' {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
 				newChildren.push(React.cloneElement(iconElement[0],this.getIconProps(iconElement[0])));
+			}
+			else if(buttonElement.length>0) {
+				newChildren.push(React.cloneElement(
+					iconElement[0],
+					{
+						...this.getIconProps(iconElement[0]),
+						key: 'icon0'
+					}
+				));
+				newChildren.push(<Input key='inp' {...inputProps} style={{height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined}}/>);
+				newChildren.push(React.cloneElement(
+					buttonElement[0],
+					{
+						...this.getButtonProps(buttonElement[0]),
+						key: 'button1'
+					}
+				));
 			}
 			else {
 				if (iconElement.length > 1) {

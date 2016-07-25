@@ -23,12 +23,14 @@ export default class ListItemNB extends NativeBaseComponent {
            return {
                listItem: {
                    borderBottomWidth: this.getTheme().borderWidth,
+                   marginLeft: 15,
                    padding:  this.inputPresent() ? 0 : this.getTheme().listItemPadding,
+                   paddingLeft: 2,
                    //borderRadius: 1,
                    justifyContent: ((this.props.iconRight && !this.props.iconLeft) || (this.props.iconRight && this.props.iconLeft)) ? 'space-between' : 'flex-start',
                    flexDirection: this.stackedPresent() ? 'column' : 'row',
                    alignItems: 'center',
-                   borderColor: this.inputPresent() ? 'transparent' : this.getTheme().listBorderColor
+                   borderColor: (this.inputPresent() && !this.inlinePresent() ) ? 'transparent' : this.getTheme().listBorderColor
                },
                listItemDivider: {
                    borderBottomWidth: this.getTheme().borderWidth,
@@ -444,21 +446,21 @@ export default class ListItemNB extends NativeBaseComponent {
             }
             else if (this.inlinePresent()) {
 
-                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: 'center', flex: 1, borderBottomWidth: 1, borderColor: this.getTheme().listBorderColor, alignItems: 'center', height: this.getTheme().inputHeightBase+5 }} >
-                                    <Text style={{color: this.getContextForegroundColor() ? this.getContextForegroundColor() : this.getTheme().inputColorPlaceholder }}>{this.props.children.props.children.props.label}</Text>
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: 'center', flex: 1, borderColor: this.getTheme().listBorderColor, alignItems: 'center', height: this.getTheme().inputHeightBase }} >
+                                    <Text style={{color: this.getTheme().inputColorPlaceholder }}>{this.props.children.props.children.props.label}</Text>
                                  </View>);
-                newChildren.push(<View key='listItem1' style={{flexDirection: 'column', alignSelf: 'center', flex: 2 }} >
+                newChildren.push(<View key='listItem1' style={{flexDirection: 'column', alignSelf: 'center', flex: 2.2 }} >
                                     {childrenArray.map((child, i) => {
-                                      return React.cloneElement(child, {...this.getChildProps(child), key: i});
+                                      return React.cloneElement(child, {...this.getChildProps(child), key: i, style:{borderWidth: 0}});
                                     })}
                                  </View>);
             }
             else if (this.stackedPresent()) {
 
-                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: 'flex-start', flex: 1, alignSelf: 'stretch', alignItems: 'center', height: this.getTheme().inputHeightBase, paddingLeft: 10 }} >
-                                    <Text style={{color: this.getContextForegroundColor() ? this.getContextForegroundColor() : this.getTheme().inputColorPlaceholder, textAlign: 'left', fontSize: 17 }}>{this.props.children.props.children.props.label}</Text>
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: 'flex-start', alignSelf: 'stretch', alignItems: 'center', height: this.getTheme().inputHeightBase, paddingLeft: 10 }} >
+                                    <Text style={{color: this.getTheme().inputColorPlaceholder, textAlign: 'left', fontSize: 15 }}>{this.props.children.props.children.props.label}</Text>
                                  </View>);
-                newChildren.push(<View key='listItem1' style={{flexDirection: 'row', alignSelf: 'stretch', flex: 2 , padding: 0}} >
+                newChildren.push(<View key='listItem1' style={{flexDirection: 'row', alignSelf: 'stretch', flex: 1 , padding: 0}} >
                                     {childrenArray.map((child, i) => {
                                       return React.cloneElement(child, {...this.getChildProps(child), key: i, style:{flex:1}});
                                     })}

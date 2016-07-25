@@ -12,7 +12,9 @@ export default class Input extends NativeBaseComponent {
                 height: this.getTheme().inputHeightBase,
                 color: this.getTheme().inputColor,
                 paddingLeft: 5,
-                paddingRight: 5
+                paddingRight: 5,
+                fontSize: this.getTheme().inputFontSize,
+                lineHeight: this.getTheme().inputLineHeight
             }
         }
     }
@@ -21,14 +23,14 @@ export default class Input extends NativeBaseComponent {
         var defaultProps = {
             style: this.getInitialStyle().input
         }
-        
+
         return computeProps(this.props, defaultProps);
     }
     render() {
 
 		return (
 			<View style={{ flex: 1}}>
-				<TextInput {...this.prepareRootProps()} placeholderTextColor={ this.props.placeholderTextColor ? this.props.placeholderTextColor : this.getContextForegroundColor() ? this.getContextForegroundColor() : this.getTheme().inputColorPlaceholder } underlineColorAndroid='rgba(0,0,0,0)' />
+				<TextInput {...this.prepareRootProps()} placeholderTextColor={ this.props.placeholderTextColor ? this.props.placeholderTextColor : this.getTheme().inputColorPlaceholder } underlineColorAndroid='rgba(0,0,0,0)' />
 			</View>
 		);
 	}

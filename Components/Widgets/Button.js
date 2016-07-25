@@ -70,7 +70,7 @@ export default class Button extends NativeBaseComponent {
 
         var mergedStyle = {};
         var btnType = {
-            fontWeight: (Platform.OS==='ios') ? '400' : '500',
+            fontFamily: this.getTheme().btnFontFamily,
             marginLeft: (this.iconPresent() && !this.props.iconRight) ? this.getTheme().iconMargin : 0,
             marginRight: (this.iconPresent() && this.props.iconRight) ? this.getTheme().iconMargin : 0,
             color:
@@ -86,7 +86,7 @@ export default class Button extends NativeBaseComponent {
 
             fontSize: (this.props.large) ? this.getTheme().btnTextSizeLarge : (this.props.small) ? this.getTheme().btnTextSizeSmall : this.getTheme().btnTextSize,
 
-            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : this.getTheme().btnLineHeight-2
+            lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : this.getTheme().btnLineHeight
         }
 
         return _.merge(mergedStyle, btnType, this.props.textStyle);
@@ -106,8 +106,8 @@ export default class Button extends NativeBaseComponent {
                 (this.props.transparent) ? this.getContextForegroundColor() :
                 this.getTheme().inverseTextColor,
 
-            fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : this.getTheme().iconFontSize-5,
-            lineHeight: (this.props.large) ? 52: (this.props.small) ? 22 : this.getTheme().iconLineHeight-7
+            fontSize: (this.props.large) ? this.getTheme().iconSizeLarge : (this.props.small) ? this.getTheme().iconSizeSmall : (this.props.inputButton) ? this.getTheme().toolbarIconSize : this.getTheme().iconFontSize-5,
+            lineHeight: (this.props.large) ? 52: (this.props.small || this.props.inputButton) ? 22 : this.getTheme().iconLineHeight-9
         }
 
         var defaultProps = {
