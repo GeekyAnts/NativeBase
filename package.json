@@ -13,7 +13,7 @@
     "packager",
     "rnpm"
   ],
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": false,
   "dependencies": {
     "color": "~0.11.1",
