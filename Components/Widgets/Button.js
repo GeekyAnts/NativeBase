@@ -103,6 +103,7 @@ export default class Button extends NativeBaseComponent {
                 ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
                 (this.props.bordered)  ? this.getTheme().btnPrimaryBg :
                 (this.props.color)  ? this.props.color :
+                (this.props.header) ? this.getTheme().toolbarTextColor :
                 (this.props.transparent) ? this.getContextForegroundColor() :
                 this.getTheme().inverseTextColor,
 

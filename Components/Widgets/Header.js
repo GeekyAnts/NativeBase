@@ -2,10 +2,11 @@
 'use strict';
 
 import React from 'react';
-import {View, Platform} from 'react-native';
+import { Platform} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import Button from "./Button";
+import View from "./View";
 import Title from "./Title";
 import InputGroup from "./InputGroup";
 import Subtitle from "./Subtitle";
@@ -125,14 +126,14 @@ export default class Header extends NativeBaseComponent {
                     }
                 } else {
                     newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -10, marginRight: 12}}>
-                                        {React.cloneElement(buttons[0], {style: this.getInitialStyle().toolbarButton})}
+                                        {React.cloneElement(buttons[0], {style: this.getInitialStyle().toolbarButton, header : true, textStyle: {color: this.getTheme().toolbarTextColor}})}
                                     </View>)
                     newChildren.push(<View key='title' style={{flex: 3, alignSelf: 'stretch', justifyContent: 'center'}}>
                                         {[title[0]]}
                                     </View>)
                     for (let i = 1; i < buttons.length; i++) {
                         newChildren.push(<View key={'btn' + (i+1)} style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -7}}>
-                                            {React.cloneElement(buttons[i], {style: this.getInitialStyle().toolbarButton})}
+                                            {React.cloneElement(buttons[i], {style: this.getInitialStyle().toolbarButton, header : true, textStyle: {color: this.getTheme().toolbarTextColor}})}
                                         </View>)
 
                     }

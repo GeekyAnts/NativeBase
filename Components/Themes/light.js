@@ -66,6 +66,8 @@ export default {
 
 	iosToolbarBtnColor: "#007aff",
 
+	toolbarTextColor: (Platform.OS==='ios') ? '#000' : '#fff',
+
 	checkboxBgColor: "#039BE5",
 	checkboxTickColor: "#fff",
 
