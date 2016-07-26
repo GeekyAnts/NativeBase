@@ -1,4 +1,4 @@
-# NativeBase v0.5.1
+# NativeBase v0.5.2
 The missing piece of React Native
 
 
