@@ -1,6 +1,80 @@
 {
-  "name": "native-base",
+  "_args": [
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#feat/icons-dropdown",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+          "shortcut": "github:GeekyAnts/NativeBase#feat/icons-dropdown",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/feat%2Ficons-dropdown/package.json"
+        }
+      },
+      "/Users/sankhadeep/Sites/projects/testingApp"
+    ]
+  ],
+  "_from": "git+https://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+  "_id": "native-base@0.4.9",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/native-base",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+    "scope": null,
+    "escapedName": "native-base",
+    "name": "native-base",
+    "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+    "spec": "git+https://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:GeekyAnts/NativeBase.git#feat/icons-dropdown",
+      "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+      "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+      "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+      "shortcut": "github:GeekyAnts/NativeBase#feat/icons-dropdown",
+      "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/feat%2Ficons-dropdown/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#594625fddb9c3625265d6da0719fd504991cd7b8",
+  "_shasum": "681915cdddf6e37e9fb1270a07ef94a4f6bec4b9",
+  "_shrinkwrap": null,
+  "_spec": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#feat/icons-dropdown",
+  "_where": "/Users/sankhadeep/Sites/projects/testingApp",
+  "bugs": {
+    "url": "https://github.com/GeekyAnts/NativeBase/issues"
+  },
+  "dependencies": {
+    "color": "~0.11.1",
+    "lodash": "~4.11.1",
+    "react-native-checkbox": "~1.0.8",
+    "react-native-easy-grid": "0.1.5",
+    "react-native-vector-icons": "2.0.x",
+    "react-native-keyboard-aware-scroll-view": "0.1.2",
+    "clamp": "1.0.1"
+  },
   "description": "The missing piece of React Native",
+  "devDependencies": {
+    "babel-eslint": "^6.0.4",
+    "eslint": "^2.9.0",
+    "eslint-plugin-react": "^5.0.1",
+    "eslint-plugin-react-native": "^1.0.0"
+  },
+  "gitHead": "effae84f1d500d00a3cf4fcd3c4079891aa3e69e",
+  "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
   "keywords": [
     "android",
     "ios",
@@ -13,40 +87,24 @@
     "packager",
     "rnpm"
   ],
-  "version": "0.5.1",
-  "private": false,
-  "dependencies": {
-    "color": "~0.11.1",
-    "lodash": "~4.11.1",
-    "react-native-vector-icons": "2.0.x",
-    "react-native-checkbox": "~1.0.8",
-    "react-native-easy-grid": "0.1.5"
-  },
+  "main": "index.js",
+  "name": "native-base",
+  "optionalDependencies": {},
   "peerDependencies": {
     "react-native": ">=0.26.0",
     "react": ">=15.0.2"
   },
-  "devDependencies": {
-    "babel-eslint": "^6.0.4",
-    "eslint": "^2.9.0",
-    "eslint-plugin-react": "^5.0.1",
-    "eslint-plugin-react-native": "^1.0.0"
+  "private": false,
+  "readme": "# NativeBase\nThe missing piece of React Native\n\nGet on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS and Android development. Get an introduction to NativeBase and work through an instance application that highlights React Native programming techniques.\n\n####\n## Magic of NativeBase\n<center>[![magic](./img/magic.png)](http://nativebase.io/docs/v0.2.1/assets/img/magic-with-nativebase-020.mp4)</center>\n\n<i>Click to watch the magic</i>\n\n####\n## What is NativeBase?\nNativeBase is a free and open source framework that enables developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6. NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development. This helps you to build world-class application experiences on native platforms.\n\n\nThe applications stack of components is built using native UI components and because of that, there are no compromises with the User Experience of the applications. NativeBase is targeted specially on the look and feel, and UI interplay of your app. NativeBase without a doubt fits in well with mobile applications which cuts down one huge part of your app - The Front end.\n\nWhat is really great is that you can use shared UI cross-platform components, which will drastically increase your productivity. When using NativeBase, you can use any native third-party libraries out of the box. You do not need to use wrappers or do any other actions. The new additions to the native platform are available immediately. NativeBase provides amazing support for adding components, so that you will by no means hit a lifeless stop. [Read More. . .](http://nativebase.io/documentation)\n\nOne import statement, and you get all React Native and NativeBase components.\n```\nimport { list of Components } from 'native-base';\n```\n\n####\n## Get Started\n\nTo have NativeBase components running onto your native apps, all you need to do is create a fresh React Native project and install the NativeBase command line tools.\n\n```\nreact-native init AwesomeNativeBase\n\ncd AwesomeNativeBase\n\nnpm install\n```\n\nInclude NativeBase into your React Native project.\n```\nnpm install native-base --save\n```\n\nNow you are ready to get going with NativeBase. [Read More. . .](http://nativebase.io/documentation)\n\n####\n## Components\n\nNativeBase is made from effective building blocks referred to as components. The Components are constructed in pure React Native platform along with some JavaScript functionality with rich set of customisable properties. These components allow you to quickly build the perfect interface. [Read More. . .](http://nativebase.io/documentation)\n\n#### [**Live Demo**](http://nativebase.io/components)\n\n####\n## Quick Links to NativeBase\n\n*\t[NativeBase on Twitter](https://twitter.com/NativeBaseIO)\n*\t[NativeBase Blog](https://medium.com/nativebase-io-blog)\n*\t[NativeBase Documentation](http://nativebase.io/documentation)\n\n\n####\n## Documentation\n\nGo through [NativeBase Docs](http://nativebase.io/documentation) to play with NativeBase.\n\n####\n# Website\n[http://nativebase.io/](http://nativebase.io/)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeekyAnts/NativeBase.git"
   },
   "rnpm": {
     "assets": [
       "Fonts"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GeekyAnts/NativeBase.git"
-  },
-  "main": "index.js",
-  "gitHead": "effae84f1d500d00a3cf4fcd3c4079891aa3e69e",
-  "readme": "# NativeBase\nThe missing piece of React Native\n\nGet on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS and Android development. Get an introduction to NativeBase and work through an instance application that highlights React Native programming techniques.\n\n####\n## Magic of NativeBase\n<center>[![magic](./img/magic.png)](http://nativebase.io/docs/v0.2.1/assets/img/magic-with-nativebase-020.mp4)</center>\n\n<i>Click to watch the magic</i>\n\n####\n## What is NativeBase?\nNativeBase is a free and open source framework that enables developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6. NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development. This helps you to build world-class application experiences on native platforms.\n\n\nThe applications stack of components is built using native UI components and because of that, there are no compromises with the User Experience of the applications. NativeBase is targeted specially on the look and feel, and UI interplay of your app. NativeBase without a doubt fits in well with mobile applications which cuts down one huge part of your app - The Front end.\n\nWhat is really great is that you can use shared UI cross-platform components, which will drastically increase your productivity. When using NativeBase, you can use any native third-party libraries out of the box. You do not need to use wrappers or do any other actions. The new additions to the native platform are available immediately. NativeBase provides amazing support for adding components, so that you will by no means hit a lifeless stop. [Read More. . .](http://nativebase.io/documentation)\n\nOne import statement, and you get all React Native and NativeBase components.\n```\nimport { list of Components } from 'native-base';\n```\n\n####\n## Get Started\n\nTo have NativeBase components running onto your native apps, all you need to do is create a fresh React Native project and install the NativeBase command line tools.\n\n```\nreact-native init AwesomeNativeBase\n\ncd AwesomeNativeBase\n\nnpm install\n```\n\nInclude NativeBase into your React Native project.\n```\nnpm install native-base --save\n```\n\nNow you are ready to get going with NativeBase. [Read More. . .](http://nativebase.io/documentation)\n\n####\n## Components\n\nNativeBase is made from effective building blocks referred to as components. The Components are constructed in pure React Native platform along with some JavaScript functionality with rich set of customisable properties. These components allow you to quickly build the perfect interface. [Read More. . .](http://nativebase.io/documentation)\n\n#### [**Live Demo**](http://nativebase.io/components)\n\n####\n## Quick Links to NativeBase\n\n*\t[NativeBase on Twitter](https://twitter.com/NativeBaseIO)\n*\t[NativeBase Blog](https://medium.com/nativebase-io-blog)\n*\t[NativeBase Documentation](http://nativebase.io/documentation)\n\n\n####\n## Documentation\n\nGo through [NativeBase Docs](http://nativebase.io/documentation) to play with NativeBase.\n\n####\n# Website\n[http://nativebase.io/](http://nativebase.io/)\n",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/GeekyAnts/NativeBase/issues"
-  },
-  "homepage": "https://github.com/GeekyAnts/NativeBase#readme"
+  "version": "0.4.9"
 }
