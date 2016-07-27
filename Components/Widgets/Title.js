@@ -2,16 +2,36 @@
 'use strict';
 
 import React from 'react';
-import { View, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Text from "./Text";
+import View from "./View";
+import computeProps from '../../Utils/computeProps';
 
 
 export default class Title extends NativeBaseComponent {
 
+	prepareRootProps() {
+
+		var type = {
+			color: this.getTheme().toolbarTextColor,
+			fontSize: this.getTheme().titleFontSize,
+			fontFamily: this.getTheme().btnFontFamily,
+			fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
+			alignSelf: (Platform.OS === 'ios' ) ? 'center' : 'flex-start'
+		}
+
+		var defaultProps = {
+			style: type
+		}
+
+		return computeProps(this.props, defaultProps);
+
+	}
+
 	render() {
 		return(
-			<View><Text style={{color: this.getTheme().toolbarTextColor , fontSize: this.getTheme().titleFontSize, fontFamily: this.getTheme().btnFontFamily, fontWeight: (Platform.OS === 'ios') ? '500' : undefined, alignSelf: (Platform.OS === 'ios' ) ? 'center' : 'flex-start'}}>{this.props.children}</Text></View>
+			<View style={{justifyContent: 'center'}}><Text {...this.prepareRootProps()}>{this.props.children}</Text></View>
 		);
 	}
 }
