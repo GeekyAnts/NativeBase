@@ -119,12 +119,17 @@ export default class Header extends NativeBaseComponent {
                     newChildren.push(<View key='title' style={{flex: 3, alignSelf: 'center', justifyContent: 'space-between'}}>
                                         {[title[0],subtitle[0]]}
                                     </View>)
-                    for (let i = 1; i < buttons.length; i++) {
-                        newChildren.push(<View key={'btn' + (i+1)} style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -14}}>
-                                            {React.cloneElement(buttons[i], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
-                                        </View>)
+                    if (buttons.length>1) {
+                        for (let i = 1; i < buttons.length; i++) {
+                            newChildren.push(<View key={'btn' + (i+1)} style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -14}}>
+                            {React.cloneElement(buttons[i], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
+                        </View>)
+                        }
+                    } else {
+                        newChildren.push(<Button key='fakeBtn' transparent textStyle={{color:'transparent'}}>aa</Button>)
                     }
-                } else {
+                }
+                else {
                     newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -10, marginRight: 12}}>
                                         {React.cloneElement(buttons[0], {style: this.getInitialStyle().toolbarButton, header : true, textStyle: {color: this.getTheme().toolbarTextColor}})}
                                     </View>)
