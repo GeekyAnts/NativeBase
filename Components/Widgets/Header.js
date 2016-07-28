@@ -28,7 +28,8 @@ export default class Header extends NativeBaseComponent {
                 shadowOpacity: 0.1,
                 shadowRadius: 1.5,
                 height: this.getTheme().toolbarHeight,
-                elevation: 3
+                elevation: 3,
+                position: 'relative'
             },
             iosToolbarSearch: {
                 backgroundColor: this.getTheme().toolbarInputColor,
@@ -116,7 +117,7 @@ export default class Header extends NativeBaseComponent {
                     newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14}}>
                                         {React.cloneElement(buttons[0], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
                                     </View>)
-                    newChildren.push(<View key='title' style={{flex: 3, alignSelf: 'center', justifyContent: 'space-between'}}>
+                    newChildren.push(<View key='title' style={{position: 'absolute', left: 0, right: 0, top: 13, bottom: 0, alignSelf: 'center', justifyContent: 'center'}}>
                                         {[title[0],subtitle[0]]}
                                     </View>)
                     if (buttons.length>1) {

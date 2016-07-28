@@ -74,9 +74,14 @@ export default {
 	checkboxSize: 23,
 
 	radioColor: "#7e7e7e",
+	get radioSelectedColor() {
+		return Color(this.radioColor).darken(0.2).hexString();
+	},
+	
 	radioBtnSize: (Platform.OS === 'ios') ? 25 : 23,
 
 	tabBgColor: "#F8F8F8",
+	tabFontSize: 15,
 	tabTextColor: "#fff",
 
 	btnDisabledBg: '#b5b5b5',

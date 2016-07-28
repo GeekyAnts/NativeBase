@@ -2,11 +2,11 @@
 
 import React from 'react';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
+import Text from '../../Widgets/Text';
 
 import {
   Dimensions,
   StyleSheet,
-  Text,
   TouchableHighlight,
   View,
   Animated,
@@ -47,7 +47,7 @@ export default class DefaultTabBar extends NativeBaseComponent {
     return (
       <TouchableHighlight underlayColor={this.getTheme().darkenHeader} style={[this.getInitialStyle().tab]} key={name} onPress={() => this.props.goToPage(page)}>
         <View>
-          <Text style={{color: isTabActive ? this.getTheme().tabTextColor : this.getTheme().tabTextColor, fontWeight: isTabActive ? 'bold' : 'normal'}}>{name}</Text>
+          <Text style={{color: isTabActive ? this.getTheme().tabTextColor : this.getTheme().tabTextColor, fontWeight: isTabActive ? 'bold' : 'normal', fontSize: this.getTheme().tabFontSize}}>{name}</Text>
         </View>
       </TouchableHighlight>
     );
