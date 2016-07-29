@@ -18,6 +18,8 @@ import Title from './Title';
 import _ from 'lodash';
 
 export default class PickerNB extends NativeBaseComponent {
+
+    
     constructor(props) {
         super(props);
         this.state = {

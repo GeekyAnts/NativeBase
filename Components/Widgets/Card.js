@@ -8,6 +8,10 @@ import computeProps from '../../Utils/computeProps';
 
 export default class CardNB extends NativeBaseComponent {
 
+    propTypes: {
+        style : React.PropTypes.object
+    }
+    
     getInitialStyle() {
         return {
             card: {

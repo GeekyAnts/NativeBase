@@ -46,6 +46,10 @@ switch(variables.iconFamily) {
 
 export default class IconNB extends NativeBaseComponent {
 
+    propTypes: {
+        style : React.PropTypes.object
+    }
+    
     getInitialStyle() {
         return {
             icon: {

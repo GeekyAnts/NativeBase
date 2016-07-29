@@ -13,6 +13,12 @@ import Thumbnail from './Thumbnail';
 
 export default class CardItemNB extends NativeBaseComponent {
 
+    propTypes: {
+        style : React.PropTypes.object,
+        header : React.PropTypes.bool,
+        cardBody : React.PropTypes.bool
+    }
+
     getInitialStyle() {
         return {
             listItem: {

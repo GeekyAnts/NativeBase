@@ -9,6 +9,12 @@ import _ from 'lodash';
 
 export default class ListNB extends NativeBaseComponent {
 
+    propTypes: {
+        style : React.PropTypes.object,
+        dataArray : React.PropTypes.array,
+        renderRow : React.PropTypes.function
+    }
+    
     getInitialStyle() {
         return {
             list: {

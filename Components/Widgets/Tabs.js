@@ -8,6 +8,10 @@ import ScrollableTabView from './../vendor/react-native-scrollable-tab-view';
 
 export default class TabNB extends NativeBaseComponent {
 
+    propTypes: {
+        style : React.PropTypes.object
+    }
+
     getInitialStyle() {
         return {
             tab: {

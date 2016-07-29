@@ -7,6 +7,11 @@ import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
 export default class Footer extends NativeBaseComponent {
+
+    propTypes: {
+        style : React.PropTypes.object
+    }
+
     getInitialStyle() {
         return {
             navbar: {

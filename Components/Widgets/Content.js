@@ -9,6 +9,11 @@ import computeProps from '../../Utils/computeProps';
 
 export default class Content extends NativeBaseComponent {
 
+	propTypes: {
+        padder : React.PropTypes.bool,
+		style : React.PropTypes.object
+    }   
+
 	prepareRootProps() {
 
 		var type = {

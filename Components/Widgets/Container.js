@@ -13,6 +13,10 @@ import computeProps from '../../Utils/computeProps';
 
 export default class Container extends NativeBaseComponent {
 
+	propTypes: {
+        style : React.PropTypes.object
+    }
+	
 	renderHeader() {
 		if(Array.isArray(this.props.children)) {
 			return _.find(this.props.children, function(item) {

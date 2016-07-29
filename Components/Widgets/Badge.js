@@ -10,6 +10,10 @@ import Text from './Text';
 
 export default class BadgeNB extends NativeBaseComponent {
 
+    propTypes: {
+        style : React.PropTypes.object
+    }
+
     prepareRootProps() {
 
         var type = {

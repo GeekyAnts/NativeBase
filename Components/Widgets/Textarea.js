@@ -8,6 +8,10 @@ import computeProps from '../../Utils/computeProps';
 
 export default class Textarea extends NativeBaseComponent {
 
+	propTypes: {
+        style : React.PropTypes.object
+    }
+
 	getInitialStyle() {
 		return {
 			input: {

@@ -18,6 +18,15 @@ import _ from 'lodash';
 
 export default class ListItemNB extends NativeBaseComponent {
 
+    propTypes: {
+        style : React.PropTypes.object,
+        header : React.PropTypes.bool,
+        iconRight : React.PropTypes.bool,
+        iconLeft : React.PropTypes.bool,
+        button : React.PropTypes.bool,
+        itemDivider : React.PropTypes.bool
+    }
+
     getInitialStyle() {
 
         return {

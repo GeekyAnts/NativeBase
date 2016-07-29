@@ -9,6 +9,10 @@ import computeProps from '../../Utils/computeProps';
 
 export default class H2NB extends NativeBaseComponent {
 
+    propTypes: {
+        style : React.PropTypes.object
+    }
+
     prepareRootProps() {
 
         var type = {

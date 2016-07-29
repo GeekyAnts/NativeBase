@@ -8,6 +8,14 @@ import computeProps from '../../Utils/computeProps';
 import _ from 'lodash';
 
 export default class ThumbnailNB extends NativeBaseComponent {
+
+    propTypes: {
+        style : React.PropTypes.object,
+        size : React.PropTypes.number,
+        circular : React.PropTypes.bool,
+        square : React.PropTypes.bool
+    }
+
     getInitialStyle() {
         return {
             thumbnail: {

@@ -12,6 +12,14 @@ import _ from 'lodash';
 
 export default class InputGroup extends NativeBaseComponent {
 
+	propTypes: {
+        borderType : React.PropTypes.string,
+        toolbar : React.PropTypes.bool,
+        atoolbar : React.PropTypes.bool,
+        iconRight : React.PropTypes.bool,
+        style : React.PropTypes.object
+    }
+
 	getInitialStyle() {
 		return {
 			textInput: {

@@ -13,6 +13,24 @@ import _ from 'lodash';
 
 export default class Button extends NativeBaseComponent {
 
+    propTypes: {
+        style : React.PropTypes.object,
+        textStyle : React.PropTypes.object,
+        block : React.PropTypes.bool,
+        primary : React.PropTypes.bool,
+        transparent : React.PropTypes.bool,
+        success : React.PropTypes.bool,
+        danger : React.PropTypes.bool,
+        warning : React.PropTypes.bool,
+        info : React.PropTypes.bool,
+        bordered : React.PropTypes.bool,
+        disabled : React.PropTypes.bool,
+        rounded : React.PropTypes.bool,
+        large : React.PropTypes.bool,
+        small : React.PropTypes.bool,
+        inputButton : React.PropTypes.bool
+    }
+
     getInitialStyle() {
         return {
             button: {

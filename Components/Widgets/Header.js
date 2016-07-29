@@ -14,6 +14,12 @@ import _ from 'lodash';
 
 export default class Header extends NativeBaseComponent {
 
+    propTypes: {      
+        searchBar : React.PropTypes.bool,
+        rounded : React.PropTypes.bool,
+        style : React.PropTypes.object
+    }    
+
     getInitialStyle() {
         return {
             navbar: {
