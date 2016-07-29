@@ -76,18 +76,18 @@ export default class Container extends NativeBaseComponent {
 		return(
 			<View {...this.prepareRootProps()}>
 
-				<View>
-					{this.renderHeader()}
-				</View>
+			<View>
+			{this.renderHeader()}
+			</View>
 
 
-				<View style={{flex:1}}>
-					{this.renderContent()}
-				</View>
+			<View style={{flex:1}}>
+			{this.renderContent()}
+			</View>
 
-				<View>
-					{this.renderFooter()}
-				</View>
+			<View>
+			{this.renderFooter()}
+			</View>
 			</View>
 		);
 

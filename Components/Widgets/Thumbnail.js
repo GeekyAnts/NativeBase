@@ -8,7 +8,6 @@ import computeProps from '../../Utils/computeProps';
 import _ from 'lodash';
 
 export default class ThumbnailNB extends NativeBaseComponent {
-
     getInitialStyle() {
         return {
             thumbnail: {
@@ -43,6 +42,6 @@ export default class ThumbnailNB extends NativeBaseComponent {
     render() {
         return(
             <Image {...this.prepareRootProps()}/>
-        );
+            );
     }
 }

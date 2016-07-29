@@ -46,7 +46,7 @@ export default class ListNB extends NativeBaseComponent {
 
         var lastElement = _.last(childrenArray);
 
-        // var modLastElement = React.cloneElement(lastElement, computeProps(lastElement.props, {last: true}));
+
 
         return _.concat(_.slice(childrenArray, 0, childrenArray.length - 1), lastElement);
     }
@@ -57,16 +57,17 @@ export default class ListNB extends NativeBaseComponent {
             var dataSource = ds.cloneWithRows(this.props.dataArray);
             return (
                 <ListView {...this.prepareRootProps()} 
-                    enableEmptySections={true}
-                    dataSource={dataSource}
-                    renderRow={this.props.renderRow} />
+                enableEmptySections={true}
+                dataSource={dataSource}
+                renderRow={this.props.renderRow} />
             );
         }
-        else 
+        else {
             return(
                 <View {...this.prepareRootProps()} >
-                    {this.renderChildren()}
+                {this.renderChildren()}
                 </View>
             );
+        }
     }
 }

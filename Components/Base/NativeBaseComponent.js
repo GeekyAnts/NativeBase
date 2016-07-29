@@ -22,9 +22,10 @@ export default class NativeBaseComponent extends Component {
 
 	getChildContext() {
 		return {
-				theme: this.props.theme ? this.props.theme : this.getTheme(),
-				foregroundColor: this.props.foregroundColor ? this.props.foregroundColor : this.getTheme().textColor
-			};
+			theme: this.props.theme ? this.props.theme : this.getTheme(),
+			foregroundColor: this.props.foregroundColor ? 
+			this.props.foregroundColor : this.getTheme().textColor
+		};
 	}
 
 	getContextForegroundColor() {
@@ -32,6 +33,7 @@ export default class NativeBaseComponent extends Component {
 	}
 
 	getTheme() {
-		return this.props.theme ? this.props.theme : this.context.theme || lightTheme
+		return this.props.theme ? this.props.theme : 
+		this.context.theme || lightTheme
 	}
 }

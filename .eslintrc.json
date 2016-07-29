@@ -15,7 +15,9 @@
   },
   "rules": {
     "react-native/no-unused-styles": 1,
-    "no-unused-vars": 1
+    "no-unused-vars": 1,
+    "quotes": ["error", "single"],
+    "no-multi-spaces": 1
   },
   "env": {
     "es6": true

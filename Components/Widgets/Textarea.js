@@ -9,8 +9,6 @@ import computeProps from '../../Utils/computeProps';
 export default class Textarea extends NativeBaseComponent {
 
 	getInitialStyle() {
-		// console.log("this.getContextForegroundColor()", this.getContextForegroundColor());
-		// console.log("this.getTheme().borderWidth", this.getTheme().borderWidth);
 		return {
 			input: {
 				height: this.props.rowSpan*25,
@@ -55,9 +53,9 @@ export default class Textarea extends NativeBaseComponent {
 
 		return (
 			<View style={{ flex: 1, borderColor: this.getContextForegroundColor(),borderBottomWidth: this.getTheme().borderWidth }}>
-				<TextInput {...this.prepareRootProps()} multiline={true} placeholderTextColor={ this.getTheme().inputColorPlaceholder} underlineColorAndroid='rgba(0,0,0,0)' />
+			<TextInput {...this.prepareRootProps()} multiline={true} placeholderTextColor={ this.getTheme().inputColorPlaceholder} underlineColorAndroid='rgba(0,0,0,0)' />
 			</View>
-		);
+			);
 	}
 
 }

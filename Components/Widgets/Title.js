@@ -4,8 +4,8 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import Text from "./Text";
-import View from "./View";
+import Text from './Text';
+import View from './View';
 import computeProps from '../../Utils/computeProps';
 
 
@@ -32,6 +32,6 @@ export default class Title extends NativeBaseComponent {
 	render() {
 		return(
 			<View style={{justifyContent: 'center'}}><Text {...this.prepareRootProps()}>{this.props.children}</Text></View>
-		);
+			);
 	}
 }

@@ -11,7 +11,7 @@ export default class PickerNB extends NativeBaseComponent {
     getInitialStyle() {
         return {
             picker: {
-                // alignItems: 'flex-end'
+
             },
             pickerItem: {
 
@@ -43,7 +43,7 @@ PickerNB.Item = React.createClass({
 
     render: function() {
         return(
-          <Picker.Item {...this.props()}/>
-          );
+            <Picker.Item {...this.props()}/>
+        );
     }
 });

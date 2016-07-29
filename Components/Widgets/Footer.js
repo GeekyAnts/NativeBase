@@ -7,7 +7,6 @@ import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
 export default class Footer extends NativeBaseComponent {
-
     getInitialStyle() {
         return {
             navbar: {

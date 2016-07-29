@@ -28,9 +28,9 @@ export default class TabNB extends NativeBaseComponent {
 
     render() {
         return(
-          <ScrollableTabView {...this.prepareRootProps()} >
-              {this.props.children}
-          </ScrollableTabView>
+            <ScrollableTabView {...this.prepareRootProps()} >
+            {this.props.children}
+            </ScrollableTabView>
         );
     }
 

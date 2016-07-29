@@ -5,17 +5,17 @@ import React from 'react';
 import {Picker, Modal} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
-import View from "./View";
-import Text from "./Text";
-import List from "./List";
-import Icon from "./Icon";
-import Container from "./Container";
-import Content from "./Content";
-import ListItem from "./ListItem";
-import Button from "./Button";
-import Header from "./Header";
-import Title from "./Title";
-import _ from "lodash";
+import View from './View';
+import Text from './Text';
+import List from './List';
+import Icon from './Icon';
+import Container from './Container';
+import Content from './Content';
+import ListItem from './ListItem';
+import Button from './Button';
+import Header from './Header';
+import Title from './Title';
+import _ from 'lodash';
 
 export default class PickerNB extends NativeBaseComponent {
     constructor(props) {
@@ -54,8 +54,7 @@ export default class PickerNB extends NativeBaseComponent {
     getSelected() {
         const selected = _.find(this.props.children,(o) => {
             return o.props.value == this.props.selectedValue;
-         });
-        console.log("title", );
+        });
         return selected;
     }
 
@@ -63,7 +62,7 @@ export default class PickerNB extends NativeBaseComponent {
         return (
         <View>
             <Button transparent onPress={() => {this._setModalVisible(true)}}>{this.state.current}</Button>
-            <Modal animationType="slide"
+            <Modal animationType='slide'
                 transparent={false}
                 visible={this.state.modalVisible}
                 onRequestClose={() => {this._setModalVisible(false)}}
@@ -80,9 +79,9 @@ export default class PickerNB extends NativeBaseComponent {
                                 <ListItem style={{paddingVertical: 10}} iconRight button onPress={() => {this._setModalVisible(false);this.props.onValueChange(child.props.value); this.setState({current: child.props.label})}} >
                                     <Text>{child.props.label}</Text>
                                     {(child.props.value===this.props.selectedValue) ?
-                                        (<Icon name="ios-checkmark-outline" />)
+                                        (<Icon name='ios-checkmark-outline' />)
                                         :
-                                        (<Icon name="ios-checkmark-outline" style={{color: 'transparent'}} />)
+                                        (<Icon name='ios-checkmark-outline' style={{color: 'transparent'}} />)
                                     }
 
                                 </ListItem>

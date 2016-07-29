@@ -5,7 +5,7 @@ import React from 'react';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
-import variables from "../Themes/light";
+import variables from '../Themes/light';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -18,27 +18,27 @@ import Zocial from 'react-native-vector-icons/Zocial';
 var Icon;
 
 switch(variables.iconFamily) {
-    case "Ionicons":
+    case 'Ionicons':
         Icon = Ionicons;
-    break;
-    case "Entypo":
+        break;
+    case 'Entypo':
         Icon = Entypo;
-    break;
-    case "FontAwesome":
+        break;
+    case 'FontAwesome':
         Icon = FontAwesome;
-    break;
-    case "Foundation":
+        break;
+    case 'Foundation':
         Icon = Foundation;
-    break;
-    case "MaterialIcons":
+        break;
+    case 'MaterialIcons':
         Icon = MaterialIcons;
-    break;
-    case "Octicons":
+        break;
+    case 'Octicons':
         Icon = Octicons;
-    break;
-    case "Zocial":
+        break;
+    case 'Zocial':
         Icon = Zocial;
-    break;
+        break;
     default:
         Icon = Ionicons;
 }

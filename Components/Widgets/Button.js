@@ -56,7 +56,7 @@ export default class Button extends NativeBaseComponent {
             alignSelf: (this.props.block) ? 'stretch' : 'flex-start'
         }
 
-        var  addedProps = _.merge(this.getInitialStyle().button,type);
+        var addedProps = _.merge(this.getInitialStyle().button,type);
 
         var defaultProps = {
             style: addedProps
@@ -80,7 +80,7 @@ export default class Button extends NativeBaseComponent {
                     ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
                     ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
                     ((this.props.bordered)) ? this.getTheme().btnPrimaryBg :
-                    (this.props.color)  ? this.props.color :
+                    (this.props.color) ? this.props.color :
                     (this.props.transparent) ? this.getContextForegroundColor() :
                     this.getTheme().inverseTextColor,
 
@@ -101,8 +101,8 @@ export default class Button extends NativeBaseComponent {
                 ((this.props.bordered) && (this.props.danger)) ? this.getTheme().btnDangerBg :
                 ((this.props.bordered) && (this.props.warning)) ? this.getTheme().btnWarningBg :
                 ((this.props.bordered) && (this.props.info)) ? this.getTheme().btnInfoBg :
-                (this.props.bordered)  ? this.getTheme().btnPrimaryBg :
-                (this.props.color)  ? this.props.color :
+                (this.props.bordered) ? this.getTheme().btnPrimaryBg :
+                (this.props.color) ? this.props.color :
                 (this.props.header) ? this.getTheme().toolbarTextColor :
                 (this.props.transparent) ? this.getContextForegroundColor() :
                 this.getTheme().inverseTextColor,
@@ -126,7 +126,7 @@ export default class Button extends NativeBaseComponent {
         return iconComponentPresent;
     }
     renderChildren() {
-        if(typeof this.props.children == "string") {
+        if(typeof this.props.children == 'string') {
             return <Text style={this.getTextStyle()}>{(Platform.OS==='ios') ? this.props.children : this.props.children.toUpperCase()}</Text>
         }
 
@@ -166,7 +166,7 @@ export default class Button extends NativeBaseComponent {
 
     render() {
         return(
-            <TouchableOpacity {...this.prepareRootProps()}  >
+            <TouchableOpacity {...this.prepareRootProps()} >
                 {this.renderChildren()}
             </TouchableOpacity>
         );
