@@ -16,8 +16,8 @@ export default class CardSwiper extends NativeBaseComponent {
         this.state = {
             pan: new Animated.ValueXY(),
             // enter: new Animated.Value(1),
-            selectedItem : undefined,
-            selectedItem2 : undefined
+            selectedItem : this.props.dataSource[0],
+            selectedItem2 : this.props.dataSource[1]
         }
     }
 
@@ -25,10 +25,6 @@ export default class CardSwiper extends NativeBaseComponent {
 
     componentDidMount() {
         this._animateEntrance();
-        this.setState({
-            selectedItem: this.props.dataSource[0],
-            selectedItem2: this.props.dataSource[1]
-        });
     }
 
     goToPrevious() {
