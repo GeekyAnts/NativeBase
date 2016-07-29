@@ -21,6 +21,7 @@ Get on the mobile fast track with NativeBase, the fastest-growing platform and t
 	-	[Ecommerce Starter](#ecommerce-starter---v400)
 	-	[Flat App Theme](#flat-app-theme---v400)
 -	[Quick Links to NativeBase](#quick-links-to-nativebase)
+-	[Release Notes](http://nativebase.io/docs/v0.5.2/release-notes)
 -	[Documentation](#documentation)
 -	[Website](#website)
 
