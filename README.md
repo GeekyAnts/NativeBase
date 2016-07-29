@@ -17,9 +17,9 @@ Get on the mobile fast track with NativeBase, the fastest-growing platform and t
 -	[Components](#components)
 -	[Native Starter Kit](#native-starter-kit)
 -	[Featured Apps](#featured-apps)
-	-	[Native Starter Pro](#native-starter-pro---v31)
-	-	[Ecommerce Starter](#ecommerce-starter---v31)
-	-	[Flat App Theme](#flat-app-theme---v30)
+	-	[Native Starter Pro](#native-starter-pro---v400)
+	-	[Ecommerce Starter](#ecommerce-starter---v400)
+	-	[Flat App Theme](#flat-app-theme---v400)
 -	[Quick Links to NativeBase](#quick-links-to-nativebase)
 -	[Documentation](#documentation)
 -	[Website](#website)
@@ -148,7 +148,7 @@ Having tried with the free version, [Native Starter Kit](https://github.com/star
 
 Get on the mobile fast track with the featured apps of NativeBase, to build high-quality iOS and Android mobile apps. 
 
-Based on [React Native](https://facebook.github.io/react-native/) and [NativeBase](http://nativebase.io/docs/v0.4.6/), Native Starter Pro, Ecommerce Starter, Flat App Theme are beautifully designed with fusion of [Redux](https://github.com/reactjs/react-redux) and [ES6](http://es6-features.org/#Constants), responsive iOS and Android app source code to quickly get started on your next project. 
+Based on [React Native](https://facebook.github.io/react-native/) and [NativeBase](http://nativebase.io/docs/v0.5.2/), Native Starter Pro, Ecommerce Starter, Flat App Theme are beautifully designed with fusion of [Redux](https://github.com/reactjs/react-redux) and [ES6](http://es6-features.org/#Constants), responsive iOS and Android app source code to quickly get started on your next project. 
 
 
 ### Native Starter Pro - v4.0.0
