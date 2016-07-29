@@ -12,7 +12,7 @@ export default class ListNB extends NativeBaseComponent {
     propTypes: {
         style : React.PropTypes.object,
         dataArray : React.PropTypes.array,
-        renderRow : React.PropTypes.function
+        renderRow : React.PropTypes.func
     }
     
     getInitialStyle() {

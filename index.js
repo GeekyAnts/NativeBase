@@ -14,6 +14,8 @@ import Picker from './Components/Widgets/Picker';
 import List from './Components/Widgets/List';
 import ListItem from './Components/Widgets/ListItem';
 import CardItem from './Components/Widgets/CardItem';
+import CardSwiper from './Components/Widgets/CardSwiper';
+import DeckSwiper from './Components/Widgets/DeckSwiper';
 import H1 from './Components/Widgets/H1';
 import H2 from './Components/Widgets/H2';
 import H3 from './Components/Widgets/H3';
@@ -59,6 +61,8 @@ module.exports = {
 	Icon: Icon,
 	Thumbnail: Thumbnail,
 	Card: Card,
+	CardSwiper: CardSwiper,
+	DeckSwiper: DeckSwiper,
 	Badge: Badge,
 	Spinner: Spinner,
 	CheckBox: CheckBox,
