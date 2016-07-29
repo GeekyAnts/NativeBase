@@ -16,6 +16,7 @@
   "version": "0.5.2",
   "private": false,
   "dependencies": {
+    "clamp": "^1.0.1",
     "color": "~0.11.1",
     "lodash": "~4.11.1",
     "react-native-vector-icons": "2.0.x",
