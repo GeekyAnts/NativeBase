@@ -19,9 +19,9 @@ export default class ThumbnailNB extends NativeBaseComponent {
     getInitialStyle() {
         return {
             thumbnail: {
-                borderRadius: 15,
-                width: 30,
-                height: 30,
+                borderRadius: this.props.size ? this.props.size/2 : 15,
+                width: this.props.size ? this.props.size : 30,
+                height: this.props.size ? this.props.size : 30,
                 resizeMode: this.props.contain ? 'contain' : undefined
             }
         }
