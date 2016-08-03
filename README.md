@@ -52,6 +52,9 @@ Some quotes from users of **NativeBase**
 **Recommended by [Awesome React Native](https://github.com/jondot/awesome-react-native)**
 >NativeBase added into the list of [Frameworks](https://github.com/jondot/awesome-react-native#frameworks) of Awesome React Native.
 
+**moosawi**
+>Best framework for React Native.
+
 **vitalets**
 >Thanks for such useful library.
 
