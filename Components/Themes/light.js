@@ -36,7 +36,7 @@ export default {
         return this.fontSizeBase* 1.4;
     },
     get btnTextSize () {
-        return (Platform.OS==='ios') ? this.fontSizeBase* 1.1 : 
+        return (Platform.OS==='ios') ? this.fontSizeBase* 1.1 :
         this.fontSizeBase-1;
     },
     get btnTextSizeLarge () {
@@ -134,6 +134,8 @@ export default {
         return '#575757';
     },
     inputBorderColor: '#D9D5DC',
+    inputSuccessBorderColor: '#2b8339',
+    inputErrorBorderColor: '#ed2f2f',
     inputHeightBase: 40,
     inputGroupMarginBottom: 10,
     inputPaddingLeft: 5,

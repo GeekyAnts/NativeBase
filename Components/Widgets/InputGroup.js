@@ -17,6 +17,9 @@ export default class InputGroup extends NativeBaseComponent {
         toolbar : React.PropTypes.bool,
         atoolbar : React.PropTypes.bool,
         iconRight : React.PropTypes.bool,
+        success : React.PropTypes.bool,
+        disabled : React.PropTypes.bool,
+        error : React.PropTypes.bool,
         style : React.PropTypes.object
     }
 
@@ -25,7 +28,7 @@ export default class InputGroup extends NativeBaseComponent {
 			textInput: {
 				backgroundColor: 'transparent',
 				flexDirection: 'row',
-				borderColor: this.getTheme().inputBorderColor,
+				borderColor: (this.props.error) ? this.getTheme().inputErrorBorderColor : (this.props.success) ? this.getTheme().inputSuccessBorderColor : this.getTheme().inputBorderColor,
 				paddingRight: 5,
 				alignItems: 'center'
 			},
@@ -159,7 +162,7 @@ export default class InputGroup extends NativeBaseComponent {
 		if(Array.isArray(this.props.children)) {
 
 			if(this.props.iconRight) {
-				newChildren.push(<Input key='inp' {...inputProps} />);
+				newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
 				newChildren.push(React.cloneElement(iconElement[0],this.getIconProps(iconElement[0])));
 			}
 			else if(buttonElement.length>0) {
@@ -170,7 +173,7 @@ export default class InputGroup extends NativeBaseComponent {
 						key: 'icon0'
 					}
 				));
-				newChildren.push(<Input key='inp' {...inputProps} />);
+				newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
 				newChildren.push(React.cloneElement(
 					buttonElement[0],
 					{
@@ -188,7 +191,7 @@ export default class InputGroup extends NativeBaseComponent {
 							key: 'icon0'
 						}
 					));
-					newChildren.push(<Input key='inp' {...inputProps} />);
+					newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
 					newChildren.push(React.cloneElement(
 						iconElement[1],
 						{
@@ -198,13 +201,13 @@ export default class InputGroup extends NativeBaseComponent {
 					));
 				} else {
 					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
-					newChildren.push(<Input key='inp' {...inputProps} />);
+					newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
 				}
 			}
 		}
 
 		else {
-			newChildren.push(<Input key='inp' {...inputProps} />);
+			newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
 		}
 
 		return newChildren;
