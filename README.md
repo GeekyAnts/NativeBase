@@ -68,7 +68,7 @@ Some quotes from users of **NativeBase**
 >Ran thru the demo.... it was amazing...
 
 **mrphu3074**
->NativeBase is rapid my prototype.
+>NativeBase is rapid my prototype, I really love it.
 
 **michshat**
 >This framework looks really good - Thank you!
