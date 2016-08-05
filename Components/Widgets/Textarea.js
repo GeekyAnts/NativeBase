@@ -56,7 +56,7 @@ export default class Textarea extends NativeBaseComponent {
 	render() {
 
 		return (
-			<View style={{ flex: 1, borderColor: this.getContextForegroundColor(),borderBottomWidth: this.getTheme().borderWidth }}>
+			<View style={{ flex: 1 }}>
 			<TextInput {...this.prepareRootProps()} multiline={true} placeholderTextColor={ this.getTheme().inputColorPlaceholder} underlineColorAndroid='rgba(0,0,0,0)' />
 			</View>
 			);
