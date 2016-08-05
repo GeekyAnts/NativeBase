@@ -14,11 +14,11 @@ import _ from 'lodash';
 
 export default class Header extends NativeBaseComponent {
 
-    propTypes: {      
+    propTypes: {
         searchBar : React.PropTypes.bool,
         rounded : React.PropTypes.bool,
         style : React.PropTypes.object
-    }    
+    }
 
     getInitialStyle() {
         return {
@@ -120,11 +120,11 @@ export default class Header extends NativeBaseComponent {
                 }
                 else {
                     if (Platform.OS === 'ios') {
-                        newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14}}>
-                        {React.cloneElement(buttons[0], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
-                        </View>)
                         newChildren.push(<View key='title' style={{position: 'absolute', left: 0, right: 0, top: 13, bottom: 0, alignSelf: 'center', justifyContent: 'center'}}>
                         {[title[0],subtitle[0]]}
+                        </View>)
+                        newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14}}>
+                        {React.cloneElement(buttons[0], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
                         </View>)
                         if (buttons.length>1) {
                             for (let i = 1; i < buttons.length; i++) {
