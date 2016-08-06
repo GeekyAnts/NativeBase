@@ -199,7 +199,11 @@ export default class ListItemNB extends NativeBaseComponent {
 
             defaultProps = {
                 style: {
-                    borderColor: this.getTheme().listBorderColor
+                    borderColor:(this.props.children.props.success) ?
+                                this.getTheme().inputSuccessBorderColor :
+                                (this.props.children.props.error) ?
+                                this.getTheme().inputErrorBorderColor :
+                                this.getTheme().listBorderColor
                 },
                 foregroundColor: this.getContextForegroundColor()
             }
@@ -252,12 +256,12 @@ export default class ListItemNB extends NativeBaseComponent {
         if(this.props.itemDivider) {
             defaultProps = {
                 style: this.getInitialStyle().listItemDivider
-            };            
+            };
         }
         else {
             defaultProps = {
                 style: this.getInitialStyle().listItem
-            };                
+            };
         }
 
         return computeProps(this.props, defaultProps);
