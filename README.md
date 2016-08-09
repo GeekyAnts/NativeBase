@@ -100,6 +100,15 @@ If yes then go ahead and watch this magic.
 
 ## Get Started
 
+**System Requirements**
+
+* Globally installed [node](https://nodejs.org/en/) >= 4.0
+
+* Globally installed [npm](https://www.npmjs.org/) >= 3.0
+
+
+**Installation**
+
 To have NativeBase components running onto your native apps, all you need to do is create a fresh [React Native](https://github.com/facebook/react-native) project and install the [NativeBase](http://nativebase.io/) command line tools.
 
 ```
