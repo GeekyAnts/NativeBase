@@ -154,6 +154,15 @@ export default class InputGroup extends NativeBaseComponent {
 
 		if(inp) {
 			inputProps = computeProps(this.props, inp.props);
+			var clonedInp = React.cloneElement(
+				inp,
+				{
+					...this.inputProps,
+					key: 'inp',
+					style: {height: this.props.toolbar ? 30 : undefined, fontSize: this.props.toolbar ? 15 : undefined},
+					editable: this.props.disabled ? false : undefined
+				}
+			)
 		}
 		else {
 			inputProps = this.props;
@@ -162,7 +171,9 @@ export default class InputGroup extends NativeBaseComponent {
 		if(Array.isArray(this.props.children)) {
 
 			if(this.props.iconRight) {
-				newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
+				if(clonedInp) {
+					newChildren.push(clonedInp);
+				}
 				newChildren.push(React.cloneElement(iconElement[0],this.getIconProps(iconElement[0])));
 			}
 			else if(buttonElement.length>0) {
@@ -173,7 +184,9 @@ export default class InputGroup extends NativeBaseComponent {
 						key: 'icon0'
 					}
 				));
-				newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
+				if(clonedInp) {
+					newChildren.push(clonedInp);
+				}
 				newChildren.push(React.cloneElement(
 					buttonElement[0],
 					{
@@ -191,7 +204,9 @@ export default class InputGroup extends NativeBaseComponent {
 							key: 'icon0'
 						}
 					));
-					newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
+					if(clonedInp) {
+						newChildren.push(clonedInp);
+					}
 					newChildren.push(React.cloneElement(
 						iconElement[1],
 						{
@@ -201,13 +216,17 @@ export default class InputGroup extends NativeBaseComponent {
 					));
 				} else {
 					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
-					newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
+					if(clonedInp) {
+						newChildren.push(clonedInp);
+					}
 				}
 			}
 		}
 
 		else {
-			newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
+			if(clonedInp) {
+				newChildren.push(clonedInp);
+			}
 		}
 
 		return newChildren;
