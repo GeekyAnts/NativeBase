@@ -153,16 +153,23 @@ export default class InputGroup extends NativeBaseComponent {
 		});
 
 		if(inp) {
-			inputProps = computeProps(this.props, inp.props);
-		}
-		else {
-			inputProps = this.props;
+			inputProps = inp.props;
+			var clonedInp = React.cloneElement(
+ 				inp,
+ 				{
+ 					...this.inputProps,
+ 					key: 'inp',
+ 					editable: this.props.disabled ? false : undefined
+ 				}
+ 			)
 		}
 
 		if(Array.isArray(this.props.children)) {
 
 			if(this.props.iconRight) {
-				newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
+				if(clonedInp) {
+					newChildren.push(clonedInp);
+				}
 				newChildren.push(React.cloneElement(iconElement[0],this.getIconProps(iconElement[0])));
 			}
 			else if(buttonElement.length>0) {
@@ -173,7 +180,9 @@ export default class InputGroup extends NativeBaseComponent {
 						key: 'icon0'
 					}
 				));
-				newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
+				if(clonedInp) {
+ 					newChildren.push(clonedInp);
+ 				}
 				newChildren.push(React.cloneElement(
 					buttonElement[0],
 					{
@@ -191,7 +200,9 @@ export default class InputGroup extends NativeBaseComponent {
 							key: 'icon0'
 						}
 					));
-					newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
+					if(clonedInp) {
+					newChildren.push(clonedInp);
+					}
 					newChildren.push(React.cloneElement(
 						iconElement[1],
 						{
@@ -201,13 +212,17 @@ export default class InputGroup extends NativeBaseComponent {
 					));
 				} else {
 					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
-					newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
+					if(clonedInp) {
+						newChildren.push(clonedInp);
+	 				}
 				}
 			}
 		}
 
 		else {
-			newChildren.push(<Input editable={this.props.disabled ? false : undefined} key='inp' {...inputProps} />);
+			if(clonedInp) {
+				newChildren.push(clonedInp);
+			}
 		}
 
 		return newChildren;
