@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {Image} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import Icon from './Icon';
@@ -290,9 +290,9 @@ export default class CardItemNB extends NativeBaseComponent {
 
     render() {
         return(
-            <View {...this.prepareRootProps()} >
+            <TouchableOpacity {...this.prepareRootProps()} activeOpacity={ (this.props.button) ? 0.2 : 1} >
                 {this.renderChildren()}
-            </View>
+            </TouchableOpacity>
         );
     }
 }
