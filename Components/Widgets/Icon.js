@@ -71,7 +71,6 @@ export default class IconNB extends NativeBaseComponent {
     }
 
     render() {
-        console.log('in render ', this);
         return(
             <this.Icon {...this.prepareRootProps()}/>
         );
