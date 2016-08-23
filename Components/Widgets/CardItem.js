@@ -40,12 +40,14 @@ export default class CardItemNB extends NativeBaseComponent {
             itemText: {
                 fontSize: this.ifShowCase() ? 14 : 15,
                 marginTop:  this.ifShowCase() ? 10 : 0,
-                color: this.getContextForegroundColor()
+                color: this.getContextForegroundColor(),
+                flex: 1
             },
             dividerItemText: {
                 fontSize: 16,
                 fontWeight: '500',
-                color: this.getContextForegroundColor()
+                color: this.getContextForegroundColor(),
+                flex: 1
             },
             itemIcon: {
                 fontSize: this.getTheme().iconFontSize,

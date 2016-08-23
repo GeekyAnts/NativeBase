@@ -51,11 +51,13 @@ export default class ListItemNB extends NativeBaseComponent {
             itemText: {
                 fontSize: 16,
                 marginLeft: (this.props.iconLeft) ? 10 : 0,
-                color: this.getContextForegroundColor()
+                color: this.getContextForegroundColor(),
+                flex: 1
             },
             dividerItemText: {
                 fontSize: 16,
-                fontWeight: '500'
+                fontWeight: '500',
+                flex: 1
             },
             itemIcon: {
                 fontSize: this.getTheme().iconFontSize,
