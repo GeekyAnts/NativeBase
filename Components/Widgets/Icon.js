@@ -15,41 +15,44 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import Zocial from 'react-native-vector-icons/Zocial';
 
-var Icon;
-
-switch(variables.iconFamily) {
-    case 'Ionicons':
-        Icon = Ionicons;
-        break;
-    case 'Entypo':
-        Icon = Entypo;
-        break;
-    case 'FontAwesome':
-        Icon = FontAwesome;
-        break;
-    case 'Foundation':
-        Icon = Foundation;
-        break;
-    case 'MaterialIcons':
-        Icon = MaterialIcons;
-        break;
-    case 'Octicons':
-        Icon = Octicons;
-        break;
-    case 'Zocial':
-        Icon = Zocial;
-        break;
-    default:
-        Icon = Ionicons;
-}
-
-
 export default class IconNB extends NativeBaseComponent {
-
+  
     propTypes: {
         style : React.PropTypes.object
     }
+  
+    contextTypes: {
+      theme: React.PropTypes.object
+    }
     
+    componentWillMount() {
+      switch(this.context.theme.iconFamily) {
+        case 'Ionicons':
+            this.Icon = Ionicons;
+            break;
+        case 'Entypo':
+            this.Icon = Entypo;
+            break;
+        case 'FontAwesome':
+            this.Icon = FontAwesome;
+            break;
+        case 'Foundation':
+            this.Icon = Foundation;
+            break;
+        case 'MaterialIcons':
+            this.Icon = MaterialIcons;
+            break;
+        case 'Octicons':
+            this.Icon = Octicons;
+            break;
+        case 'Zocial':
+            this.Icon = Zocial;
+            break;
+        default:
+            this.Icon = Ionicons;
+      }      
+    }
+  
     getInitialStyle() {
         return {
             icon: {
@@ -68,8 +71,10 @@ export default class IconNB extends NativeBaseComponent {
     }
 
     render() {
+        console.log('in render ', this);
         return(
-            <Icon {...this.prepareRootProps()}/>
+            <this.Icon {...this.prepareRootProps()}/>
         );
     }
 }
+
