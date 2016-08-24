@@ -16,7 +16,7 @@ export default class Container extends NativeBaseComponent {
 	propTypes: {
         style : React.PropTypes.object
     }
-	
+
 	renderHeader() {
 		if(Array.isArray(this.props.children)) {
 			return _.find(this.props.children, function(item) {
@@ -35,7 +35,7 @@ export default class Container extends NativeBaseComponent {
 	renderContent() {
 		if(Array.isArray(this.props.children)) {
 
-			return _.find(this.props.children, function(item) {
+			return _.filter(this.props.children, function(item) {
 				if(item && (item.type == ViewNB || item.type == Content || item.type == Image || item.type == View)) {
 
 					return true;
@@ -80,18 +80,12 @@ export default class Container extends NativeBaseComponent {
 		return(
 			<View {...this.prepareRootProps()}>
 
-			<View>
-			{this.renderHeader()}
-			</View>
+				{this.renderHeader()}
 
+				{this.renderContent()}
 
-			<View style={{flex:1}}>
-			{this.renderContent()}
-			</View>
+				{this.renderFooter()}
 
-			<View>
-			{this.renderFooter()}
-			</View>
 			</View>
 		);
 
