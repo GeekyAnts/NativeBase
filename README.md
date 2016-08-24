@@ -135,7 +135,7 @@ Now you are ready to get going with NativeBase. [Read More. . .](http://nativeba
 
 The most awaited feature, **platform precise components** with single codebase is now available with version 0.5.0 of NativeBase. Along with this, there comes in addition of set of **Fonts** to be readily integrated with your apps. [Read More. . .](http://nativebase.io/documentation)
 
-#### [**Live Demo**](http://nativebase.io/docs/v0.5.2/components)
+#### [**Live Demo**](http://nativebase.io/docs/v0.5.5/components)
 
 
 
