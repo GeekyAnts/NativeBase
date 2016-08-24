@@ -19,7 +19,7 @@ import _ from 'lodash';
 
 export default class PickerNB extends NativeBaseComponent {
 
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -60,32 +60,48 @@ export default class PickerNB extends NativeBaseComponent {
         return selected;
     }
 
+
+    modifyHeader() {
+        let childrenArray = React.Children.toArray(this.props.headerComponent.props.children);
+        let newChildren = [];
+        childrenArray.forEach((child) => {
+            if (child.type==Button) {
+                newChildren.push(React.cloneElement(child, {onPress: () => {this._setModalVisible(false)}}))
+            } else {
+                newChildren.push(child)
+            }
+        });
+        return <Header {...this.props.headerComponent.props} > {newChildren}</Header>
+    }
+
+    renderHeader() {
+        return (this.props.headerComponent) ? this.modifyHeader() : (<Header >
+            <Button transparent onPress={() => {this._setModalVisible(false)}}>Back</Button>
+            <Title>Select One</Title>
+        </Header>)
+    }
+
     render() {
         return (
         <View>
-            <Button transparent onPress={() => {this._setModalVisible(true)}}>{this.state.current}</Button>
+            <Button transparent style={this.props.style} onPress={() => {this._setModalVisible(true)}}>{this.state.current}</Button>
             <Modal animationType='slide'
                 transparent={false}
                 visible={this.state.modalVisible}
                 onRequestClose={() => {this._setModalVisible(false)}}
                 >
                 <Container>
-                    <Header >
-                        <Button transparent onPress={() => {this._setModalVisible(false)}}>Back</Button>
-                        <Title>{this.props.iosHeader}</Title>
-                        <Button transparent textStyle={{color: 'transparent'}}>Back</Button>
-                    </Header>
+                    {this.renderHeader()}
                     <Content>
                         <List dataArray={this.props.children}
                             renderRow={(child) =>
-                                <ListItem style={{paddingVertical: 10}} iconRight button onPress={() => {this._setModalVisible(false);this.props.onValueChange(child.props.value); this.setState({current: child.props.label})}} >
-                                    <Text>{child.props.label}</Text>
+                                <ListItem style={{paddingVertical: 5}} iconRight button onPress={() => {this._setModalVisible(false);this.props.onValueChange(child.props.value); this.setState({current: child.props.label})}} >
+                                    <Text >{child.props.label}</Text>
                                     {(child.props.value===this.props.selectedValue) ?
                                         (<Icon name='ios-checkmark-outline' />)
                                         :
                                         (<Icon name='ios-checkmark-outline' style={{color: 'transparent'}} />)
                                     }
-
                                 </ListItem>
                             }>
                         </List>
