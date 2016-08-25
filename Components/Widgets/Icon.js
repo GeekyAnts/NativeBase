@@ -5,8 +5,6 @@ import React from 'react';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
-import variables from '../Themes/light';
-
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -16,15 +14,15 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import Zocial from 'react-native-vector-icons/Zocial';
 
 export default class IconNB extends NativeBaseComponent {
-  
+
     propTypes: {
         style : React.PropTypes.object
     }
-  
+
     contextTypes: {
       theme: React.PropTypes.object
     }
-    
+
     componentWillMount() {
       switch(this.context.theme.iconFamily) {
         case 'Ionicons':
@@ -50,9 +48,9 @@ export default class IconNB extends NativeBaseComponent {
             break;
         default:
             this.Icon = Ionicons;
-      }      
+      }
     }
-  
+
     getInitialStyle() {
         return {
             icon: {
@@ -76,4 +74,3 @@ export default class IconNB extends NativeBaseComponent {
         );
     }
 }
-
