@@ -74,6 +74,10 @@ export default class PickerNB extends NativeBaseComponent {
         return <Header {...this.props.headerComponent.props} > {newChildren}</Header>
     }
 
+    renderIcon() {
+        return React.cloneElement(this.props.iosIcon, {style: {fontSize: 22, lineHeight: 26, color: '#7a7a7a' }})
+    }
+
     renderHeader() {
         return (this.props.headerComponent) ? this.modifyHeader() : (<Header >
             <Button transparent onPress={() => {this._setModalVisible(false)}}>Back</Button>
@@ -82,9 +86,18 @@ export default class PickerNB extends NativeBaseComponent {
     }
 
     render() {
+        console.log('this.props.iosIcon', (this.props.iosIcon == undefined));
         return (
         <View>
-            <Button transparent style={this.props.style} onPress={() => {this._setModalVisible(true)}}>{this.state.current}</Button>
+            <Button
+                iconRight={(this.props.iosIcon== undefined) ? false : true}
+                transparent
+                textStyle={this.props.textStyle}
+                style={this.props.style}
+                onPress={() => {this._setModalVisible(true)}}>
+                {this.state.current}
+                {(this.props.iosIcon == undefined) ? <Icon name="ios-home" style={{opacity: 0}} />  : this.renderIcon()}
+            </Button>
             <Modal animationType='slide'
                 transparent={false}
                 visible={this.state.modalVisible}

@@ -14,7 +14,7 @@ export default class ListNB extends NativeBaseComponent {
         dataArray : React.PropTypes.array,
         renderRow : React.PropTypes.func
     }
-    
+
     getInitialStyle() {
         return {
             list: {
@@ -62,10 +62,10 @@ export default class ListNB extends NativeBaseComponent {
             const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
             var dataSource = ds.cloneWithRows(this.props.dataArray);
             return (
-                <ListView {...this.prepareRootProps()} 
-                enableEmptySections={true}
-                dataSource={dataSource}
-                renderRow={this.props.renderRow} />
+                <ListView {...this.prepareRootProps()}
+                    enableEmptySections={true}
+                    dataSource={dataSource}
+                    renderRow={this.props.renderRow} />
             );
         }
         else {
