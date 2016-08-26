@@ -63,11 +63,6 @@ export default class PickerNB extends NativeBaseComponent {
 
    modifyHeader() {
       let childrenArray = React.Children.toArray(this.props.headerComponent.props.children);
-
-      childrenArray = _.remove(childrenArray, function(child) {
-         return !child || child == null;
-      });
-
       let newChildren = [];
       childrenArray.forEach((child) => {
          if (child.type==Button) {

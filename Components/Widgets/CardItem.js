@@ -276,10 +276,6 @@ export default class CardItemNB extends NativeBaseComponent {
 
             var childrenArray = React.Children.toArray(this.props.children);
 
-            childrenArray = _.remove(childrenArray, function(child) {
-               return !child || child == null;
-            });
-
             newChildren.push(React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
             newChildren.push(
                <View key='cardItem' style={ this.notePresent() ? this.getRightStyle().right : this.squareThumbs() ? this.getRightStyle().right3 : this.getRightStyle().right2 }>

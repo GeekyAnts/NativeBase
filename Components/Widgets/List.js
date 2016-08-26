@@ -42,11 +42,6 @@ export default class ListNB extends NativeBaseComponent {
    renderChildren() {
 
       var childrenArray = React.Children.toArray(this.props.children);
-
-      childrenArray = _.remove(childrenArray, function(child) {
-         return !child || child == null;
-      });
-
       var keyIndex = 0;
 
       childrenArray = childrenArray.map((child) => {

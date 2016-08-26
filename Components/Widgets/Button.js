@@ -154,26 +154,25 @@ export default class Button extends NativeBaseComponent {
 
       else if(Array.isArray(this.props.children)) {
          var newChildren = [];
-
          var childrenArray = React.Children.toArray(this.props.children);
-
-         childrenArray = _.remove(childrenArray, function(child) {
-            return !child || child == null;
-         });
 
          var iconElement = [];
          iconElement = _.remove(childrenArray, function(item) {
-            if(item.type == IconNB) {
+            if(item && item.type == IconNB) {
                return true;
             }
          });
          if(this.props.iconRight) {
             newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
-            newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+            if (iconElement.length>0) {
+               newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+            }
          }
 
          else if(this.props.iconLeft || iconElement) {
-            newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+            if (iconElement.length>0) {
+               newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+            }
             newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
          }
 

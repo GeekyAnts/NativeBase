@@ -129,15 +129,11 @@ export default class InputGroup extends NativeBaseComponent {
 
 		var inputProps = {};
 		var newChildren = [];
+
 		var childrenArray = React.Children.toArray(this.props.children);
-
-		childrenArray = _.remove(childrenArray, function(child) {
-			return !child || child == null;
-		});
-
 		var iconElement = [];
 		iconElement = _.remove(childrenArray, function(item) {
-			if(item.type == Icon) {
+			if(item && item.type == Icon) {
 				return true;
 			}
 		});
@@ -145,7 +141,7 @@ export default class InputGroup extends NativeBaseComponent {
 		var buttonElement = [];
 
 		buttonElement = _.remove(childrenArray, function(item) {
-			if(item.type == Button) {
+			if(item && item.type == Button) {
 				return true;
 			}
 		});

@@ -348,17 +348,12 @@ export default class ListItemNB extends NativeBaseComponent {
 
       else {
          var childrenArray = React.Children.toArray(this.props.children);
-
-         childrenArray = _.remove(childrenArray, function(child) {
-            return !child || child == null;
-         });
-
          var iconElement = [];
 
          if (this.props.iconLeft && !this.props.iconRight) {
 
             iconElement = _.remove(childrenArray, function(item) {
-               if(item.type == Icon) {
+               if(item && item.type == Icon) {
                   return true;
                }
             });
@@ -372,7 +367,7 @@ export default class ListItemNB extends NativeBaseComponent {
       else if (this.props.iconRight && !this.props.iconLeft) {
 
          iconElement = _.remove(childrenArray, function(item) {
-            if(item.type == Icon) {
+            if(item && item.type == Icon) {
                return true;
             }
          });
@@ -387,7 +382,7 @@ export default class ListItemNB extends NativeBaseComponent {
    else if (this.badgePresent()) {
 
       var badgeElement = _.remove(childrenArray, function(item) {
-         if(item.type == Badge) {
+         if(item && item.type == Badge) {
             return true;
          }
       });
@@ -402,7 +397,7 @@ export default class ListItemNB extends NativeBaseComponent {
 else if (this.props.iconRight && this.props.iconLeft) {
 
    iconElement = _.filter(childrenArray, function(item) {
-      if(item.type == Icon) {
+      if(item && item.type == Icon) {
          return true;
       }
    });
@@ -418,7 +413,7 @@ newChildren.push(React.cloneElement(iconElement[1], {...this.getChildProps(iconE
 else if (this.thumbnailPresent()) {
 
    iconElement = _.remove(childrenArray, function(item) {
-      if(item.type == Thumbnail) {
+      if(item && item.type == Thumbnail) {
          return true;
       }
    });
@@ -432,7 +427,7 @@ else if (this.thumbnailPresent()) {
 else if (this.checkBoxPresent()) {
 
    iconElement = _.remove(childrenArray, function(item) {
-      if(item.type == CheckBox) {
+      if(item && item.type == CheckBox) {
          return true;
       }
    });
@@ -446,7 +441,7 @@ else if (this.checkBoxPresent()) {
 else if (this.radioPresent()) {
 
    iconElement = _.remove(childrenArray, function(item) {
-      if(item.type == Radio) {
+      if(item && item.type == Radio) {
          return true;
       }
    });
