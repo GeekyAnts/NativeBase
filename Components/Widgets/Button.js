@@ -138,7 +138,7 @@ export default class Button extends NativeBaseComponent {
    iconPresent() {
       var iconComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Icon)
+         if(child && child.type == Icon)
          iconComponentPresent = true;
       })
       return iconComponentPresent;

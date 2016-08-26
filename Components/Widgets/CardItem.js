@@ -100,7 +100,7 @@ export default class CardItemNB extends NativeBaseComponent {
    thumbnailPresent() {
       var thumbnailComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Thumbnail)
+         if(child && child.type == Thumbnail)
          thumbnailComponentPresent = true;
       })
 
@@ -110,7 +110,7 @@ export default class CardItemNB extends NativeBaseComponent {
    imagePresent() {
       var imagePresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Image)
+         if(child && child.type == Image)
          imagePresent = true;
       })
 
@@ -120,7 +120,7 @@ export default class CardItemNB extends NativeBaseComponent {
    iconPresent() {
       var iconComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Icon)
+         if(child && child.type == Icon)
          iconComponentPresent = true;
       })
 
@@ -130,7 +130,7 @@ export default class CardItemNB extends NativeBaseComponent {
    buttonPresent() {
       var buttonComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Button)
+         if(child && child.type == Button)
          buttonComponentPresent = true;
       })
 
@@ -152,7 +152,7 @@ export default class CardItemNB extends NativeBaseComponent {
       var notePresent = false;
 
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Text && child.props.note)
+         if(child && child.type == Text && child.props.note)
          notePresent = true;
       });
 
@@ -173,19 +173,19 @@ export default class CardItemNB extends NativeBaseComponent {
 
    getChildProps(child) {
       var defaultProps = {};
-      if(child.type == Image && !Array.isArray(this.props.children)) {
+      if(child && child.type == Image && !Array.isArray(this.props.children)) {
          defaultProps = {
             resizeMode: 'stretch',
             style: this.getInitialStyle().fullImage
          }
       }
-      else if(child.type == Button) {
+      else if(child && child.type == Button) {
          defaultProps = {
             small: true,
             style: this.getInitialStyle().itemButton
          }
       }
-      else if(child.type == Text) {
+      else if(child && child.type == Text) {
          if ((this.props.header) || (this.props.footer)) {
             defaultProps = {
                style: this.getInitialStyle().dividerItemText
@@ -209,17 +209,17 @@ export default class CardItemNB extends NativeBaseComponent {
             }
          }
       }
-      else if(child.type == Icon) {
+      else if(child && child.type == Icon) {
          defaultProps = {
             style: this.getInitialStyle().itemIcon
          }
       }
-      else if(child.type == Thumbnail) {
+      else if(child && child.type == Thumbnail) {
          defaultProps = {
             style: this.getInitialStyle().thumbnail
          }
       }
-      else if(child.type == Image ) {
+      else if(child && child.type == Image ) {
          defaultProps = {
             style: this.getInitialStyle().fullImage
          }

@@ -117,7 +117,7 @@ export default class ListItemNB extends NativeBaseComponent {
    thumbnailPresent() {
       var thumbnailComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Thumbnail)
+         if(child && child.type == Thumbnail)
          thumbnailComponentPresent = true;
       })
 
@@ -127,7 +127,7 @@ export default class ListItemNB extends NativeBaseComponent {
    checkBoxPresent() {
       var checkBoxComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == CheckBox)
+         if(child && child.type == CheckBox)
          checkBoxComponentPresent = true;
       })
 
@@ -137,7 +137,7 @@ export default class ListItemNB extends NativeBaseComponent {
    radioPresent() {
       var radioComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Radio)
+         if(child && child.type == Radio)
          radioComponentPresent = true;
       })
 
@@ -147,7 +147,7 @@ export default class ListItemNB extends NativeBaseComponent {
    iconPresent() {
       var iconComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Icon)
+         if(child && child.type == Icon)
          iconComponentPresent = true;
       })
 
@@ -156,7 +156,7 @@ export default class ListItemNB extends NativeBaseComponent {
    badgePresent() {
       var badgeComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Badge)
+         if(child && child.type == Badge)
          badgeComponentPresent = true;
       })
 
@@ -166,7 +166,7 @@ export default class ListItemNB extends NativeBaseComponent {
    inputPresent() {
       var inputComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == InputGroup)
+         if(child && child.type == InputGroup)
          inputComponentPresent = true;
       })
       return inputComponentPresent;
@@ -175,7 +175,7 @@ export default class ListItemNB extends NativeBaseComponent {
    buttonPresent() {
       var buttonComponentPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Button)
+         if(child && child.type == Button)
          buttonComponentPresent = true;
       })
 
@@ -185,19 +185,19 @@ export default class ListItemNB extends NativeBaseComponent {
    getChildProps(child) {
       var defaultProps = {};
 
-      if(child.type == Image && !Array.isArray(this.props.children)) {
+      if(child && child.type == Image && !Array.isArray(this.props.children)) {
          defaultProps = {
             resizeMode: 'stretch',
             style: this.getInitialStyle().fullImage
          }
       }
-      else if(child.type == Button) {
+      else if(child && child.type == Button) {
          defaultProps = {
             small: true,
             style: this.getInitialStyle().itemButton
          }
       }
-      else if(child.type == InputGroup) {
+      else if(child && child.type == InputGroup) {
 
          defaultProps = {
             style: {
@@ -210,7 +210,7 @@ export default class ListItemNB extends NativeBaseComponent {
             foregroundColor: this.getContextForegroundColor()
          }
       }
-      else if(child.type == Text) {
+      else if(child && child.type == Text) {
          if (this.props.itemDivider) {
             defaultProps = {
                style: this.getInitialStyle().dividerItemText
@@ -234,12 +234,12 @@ export default class ListItemNB extends NativeBaseComponent {
 
          }
       }
-      else if(child.type == Icon) {
+      else if(child && child.type == Icon) {
          defaultProps = {
             style: this.getInitialStyle().itemIcon
          }
       }
-      else if(child.type == Thumbnail) {
+      else if(child && child.type == Thumbnail) {
          defaultProps = {
             style: this.getInitialStyle().thumbnail
          }
@@ -274,7 +274,7 @@ export default class ListItemNB extends NativeBaseComponent {
 
       var notePresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == Text && child.props.note)
+         if(child && child.type == Text && child.props.note)
          notePresent = true;
       })
       return notePresent;
@@ -285,7 +285,7 @@ export default class ListItemNB extends NativeBaseComponent {
 
       var insetPresent = false;
       React.Children.forEach(this.props.children, function (child) {
-         if(child.type == InputGroup && child.props.inset)
+         if(child && child.type == InputGroup && child.props.inset)
          insetPresent = true;
       })
 
