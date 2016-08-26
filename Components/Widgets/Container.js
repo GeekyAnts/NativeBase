@@ -14,20 +14,24 @@ import computeProps from '../../Utils/computeProps';
 export default class Container extends NativeBaseComponent {
 
 	propTypes: {
-        style : React.PropTypes.object
-    }
+		style : React.PropTypes.object
+	}
+
+	checkRoleComponent(item, role) {
+		return item.props && item.props.role && item.props.role == role;
+	}
 
 	renderHeader() {
 		if(Array.isArray(this.props.children)) {
 			return _.find(this.props.children, function(item) {
-				if(item && item.type == Header) {
+				if(item && (item.type == Header || this.checkRoleComponent(item, 'header'))) {
 					return true;
 				}
 			});
 		}
 
 		else {
-			if(this.props.children && this.props.children.type == Header) {
+			if(this.props.children && (this.props.children.type == Header || this.checkRoleComponent(item, 'header'))) {
 				return this.props.children;
 			}
 		}
@@ -52,14 +56,14 @@ export default class Container extends NativeBaseComponent {
 	renderFooter() {
 		if(Array.isArray(this.props.children)) {
 			return _.find(this.props.children, function(item) {
-				if(item && item.type == Footer) {
+				if(item && (item.type == Footer || this.checkRoleComponent(item, 'footer'))) {
 					return true;
 				}
 			});
 		}
 
 		else {
-			if(this.props.children && this.props.children.type == Footer) {
+			if(this.props.children && (this.props.children.type == Footer || this.checkRoleComponent(item, 'footer'))) {
 				return this.props.children;
 			}
 		}
