@@ -156,7 +156,6 @@ export default class Button extends NativeBaseComponent {
             var newChildren = [];
 
             var childrenArray = React.Children.toArray(this.props.children);
-            console.log('childrenArray', childrenArray);
 
             var iconElement = [];
             iconElement = _.remove(childrenArray, function(item) {
@@ -164,7 +163,7 @@ export default class Button extends NativeBaseComponent {
                     return true;
                 }
             });
-            console.log('iconElement', iconElement);
+            
             if(this.props.iconRight) {
                 newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].props.children.toUpperCase()}</Text>);
                 newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
