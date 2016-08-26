@@ -31,7 +31,7 @@ export default class Container extends NativeBaseComponent {
 		}
 
 		else {
-			if(this.props.children && (this.props.children.type == Header || this.checkRoleComponent(item, 'header'))) {
+			if(this.props.children && (this.props.children.type == Header || this.checkRoleComponent(this.props.children, 'header'))) {
 				return this.props.children;
 			}
 		}
@@ -63,7 +63,7 @@ export default class Container extends NativeBaseComponent {
 		}
 
 		else {
-			if(this.props.children && (this.props.children.type == Footer || this.checkRoleComponent(item, 'footer'))) {
+			if(this.props.children && (this.props.children.type == Footer || this.checkRoleComponent(this.props.children, 'footer'))) {
 				return this.props.children;
 			}
 		}
