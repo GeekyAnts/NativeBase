@@ -20,105 +20,110 @@ import _ from 'lodash';
 export default class PickerNB extends NativeBaseComponent {
 
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            modalVisible : false,
-            current: this.getSelected().props.label
-        }
-    }
+   constructor(props) {
+      super(props);
+      this.state = {
+         modalVisible : false,
+         current: this.getSelected().props.label
+      }
+   }
 
-    getInitialStyle() {
-        return {
-            picker: {
-                // alignItems: 'flex-end'
-            },
-            pickerItem: {
+   getInitialStyle() {
+      return {
+         picker: {
+            // alignItems: 'flex-end'
+         },
+         pickerItem: {
 
-            }
-        }
-    }
-    _setModalVisible(visible) {
-        this.setState({modalVisible: visible});
-    }
+         }
+      }
+   }
+   _setModalVisible(visible) {
+      this.setState({modalVisible: visible});
+   }
 
-    prepareRootProps() {
+   prepareRootProps() {
 
-        var defaultProps = {
-            style: this.getInitialStyle().picker,
-            itemStyle: this.getInitialStyle().pickerItem
-        };
+      var defaultProps = {
+         style: this.getInitialStyle().picker,
+         itemStyle: this.getInitialStyle().pickerItem
+      };
 
-        return computeProps(this.props, defaultProps);
+      return computeProps(this.props, defaultProps);
 
-    }
+   }
 
-    getSelected() {
-        const selected = _.find(this.props.children,(o) => {
-            return o.props.value == this.props.selectedValue;
-        });
-        return selected;
-    }
+   getSelected() {
+      const selected = _.find(this.props.children,(o) => {
+         return o.props.value == this.props.selectedValue;
+      });
+      return selected;
+   }
 
 
-    modifyHeader() {
-        let childrenArray = React.Children.toArray(this.props.headerComponent.props.children);
-        let newChildren = [];
-        childrenArray.forEach((child) => {
-            if (child.type==Button) {
-                newChildren.push(React.cloneElement(child, {onPress: () => {this._setModalVisible(false)}}))
-            } else {
-                newChildren.push(child)
-            }
-        });
-        return <Header {...this.props.headerComponent.props} > {newChildren}</Header>
-    }
+   modifyHeader() {
+      let childrenArray = React.Children.toArray(this.props.headerComponent.props.children);
 
-    renderHeader() {
-        return (this.props.headerComponent) ? this.modifyHeader() : (<Header >
-            <Button transparent onPress={() => {this._setModalVisible(false)}}>Back</Button>
-            <Title>Select One</Title>
-        </Header>)
-    }
+      childrenArray = _.remove(childrenArray, function(child) {
+         return !child || child == null;
+      });
 
-    render() {
-        return (
-        <View>
+      let newChildren = [];
+      childrenArray.forEach((child) => {
+         if (child.type==Button) {
+            newChildren.push(React.cloneElement(child, {onPress: () => {this._setModalVisible(false)}}))
+         } else {
+            newChildren.push(child)
+         }
+      });
+      return <Header {...this.props.headerComponent.props} > {newChildren}</Header>
+   }
+
+   renderHeader() {
+      return (this.props.headerComponent) ? this.modifyHeader() : (<Header >
+         <Button transparent onPress={() => {this._setModalVisible(false)}}>Back</Button>
+         <Title>Select One</Title>
+      </Header>)
+   }
+
+   render() {
+      return (
+         <View>
             <Button transparent style={this.props.style} onPress={() => {this._setModalVisible(true)}}>{this.state.current}</Button>
             <Modal animationType='slide'
-                transparent={false}
-                visible={this.state.modalVisible}
-                onRequestClose={() => {this._setModalVisible(false)}}
-                >
-                <Container>
-                    {this.renderHeader()}
-                    <Content>
-                        <List dataArray={this.props.children}
-                            renderRow={(child) =>
-                                <ListItem style={{paddingVertical: 5}} iconRight button onPress={() => {this._setModalVisible(false);this.props.onValueChange(child.props.value); this.setState({current: child.props.label})}} >
-                                    <Text >{child.props.label}</Text>
-                                    {(child.props.value===this.props.selectedValue) ?
-                                        (<Icon name='ios-checkmark-outline' />)
-                                        :
-                                        (<Icon name='ios-checkmark-outline' style={{color: 'transparent'}} />)
-                                    }
-                                </ListItem>
-                            }>
-                        </List>
-                    </Content>
-                </Container>
+               transparent={false}
+               visible={this.state.modalVisible}
+               onRequestClose={() => {this._setModalVisible(false)}}
+               >
+               <Container>
+                  {this.renderHeader()}
+                  <Content>
+                     <List dataArray={this.props.children}
+                        renderRow={(child) =>
+                           <ListItem style={{paddingVertical: 5}} iconRight button onPress={() => {this._setModalVisible(false);this.props.onValueChange(child.props.value); this.setState({current: child.props.label})}} >
+                              <Text >{child.props.label}</Text>
+                              {(child.props.value===this.props.selectedValue) ?
+                                 (<Icon name='ios-checkmark-outline' />)
+                                 :
+                                 (<Icon name='ios-checkmark-outline' style={{color: 'transparent'}} />)
+                              }
+                           </ListItem>
+                        }>
+                     </List>
+                  </Content>
+               </Container>
             </Modal>
-        </View>
-        );
-    }
+         </View>
+      );
+   }
 
 }
 
 PickerNB.Item = React.createClass({
 
-    render: function() {
-        return(
-          <Picker.Item {...this.props()}/>
-          );
-    }
+   render: function() {
+      return(
+         <Picker.Item {...this.props()}/>
+      );
+   }
 });

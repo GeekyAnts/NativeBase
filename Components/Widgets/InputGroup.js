@@ -13,15 +13,15 @@ import _ from 'lodash';
 export default class InputGroup extends NativeBaseComponent {
 
 	propTypes: {
-        borderType : React.PropTypes.string,
-        toolbar : React.PropTypes.bool,
-        atoolbar : React.PropTypes.bool,
-        iconRight : React.PropTypes.bool,
-        success : React.PropTypes.bool,
-        disabled : React.PropTypes.bool,
-        error : React.PropTypes.bool,
-        style : React.PropTypes.object
-    }
+		borderType : React.PropTypes.string,
+		toolbar : React.PropTypes.bool,
+		atoolbar : React.PropTypes.bool,
+		iconRight : React.PropTypes.bool,
+		success : React.PropTypes.bool,
+		disabled : React.PropTypes.bool,
+		error : React.PropTypes.bool,
+		style : React.PropTypes.object
+	}
 
 	getInitialStyle() {
 		return {
@@ -131,11 +131,15 @@ export default class InputGroup extends NativeBaseComponent {
 		var newChildren = [];
 		var childrenArray = React.Children.toArray(this.props.children);
 
+		childrenArray = _.remove(childrenArray, function(child) {
+			return !child || child == null;
+		});
+
 		var iconElement = [];
 		iconElement = _.remove(childrenArray, function(item) {
-				if(item.type == Icon) {
-						return true;
-				}
+			if(item.type == Icon) {
+				return true;
+			}
 		});
 
 		var buttonElement = [];
@@ -155,13 +159,13 @@ export default class InputGroup extends NativeBaseComponent {
 		if(inp) {
 			inputProps = inp.props;
 			var clonedInp = React.cloneElement(
- 				inp,
- 				{
- 					...this.inputProps,
- 					key: 'inp',
- 					editable: this.props.disabled ? false : undefined
- 				}
- 			)
+				inp,
+				{
+					...this.inputProps,
+					key: 'inp',
+					editable: this.props.disabled ? false : undefined
+				}
+			)
 		}
 
 		if(Array.isArray(this.props.children)) {
@@ -181,8 +185,8 @@ export default class InputGroup extends NativeBaseComponent {
 					}
 				));
 				if(clonedInp) {
- 					newChildren.push(clonedInp);
- 				}
+					newChildren.push(clonedInp);
+				}
 				newChildren.push(React.cloneElement(
 					buttonElement[0],
 					{
@@ -201,7 +205,7 @@ export default class InputGroup extends NativeBaseComponent {
 						}
 					));
 					if(clonedInp) {
-					newChildren.push(clonedInp);
+						newChildren.push(clonedInp);
 					}
 					newChildren.push(React.cloneElement(
 						iconElement[1],
@@ -214,7 +218,7 @@ export default class InputGroup extends NativeBaseComponent {
 					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
 					if(clonedInp) {
 						newChildren.push(clonedInp);
-	 				}
+					}
 				}
 			}
 		}
