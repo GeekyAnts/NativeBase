@@ -55,6 +55,9 @@ Some quotes from users of **NativeBase**
 **moosawi**
 >Best framework for React Native.
 
+**redbaron76**
+>This is a great project, well documented and a big help for developers.
+
 **vitalets**
 >Thanks for such useful library.
 
