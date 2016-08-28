@@ -18,8 +18,8 @@ Get on the mobile fast track with NativeBase, the fastest-growing platform and t
 -	[Components](#components)
 -	[Native Starter Kit](#native-starter-kit)
 -	[Featured Apps](#featured-apps)
-	-	[Native Starter Pro](#native-starter-pro---v400)
-	-	[Ecommerce Starter](#ecommerce-starter---v400)
+	-	[Native Starter Pro](#native-starter-pro---v500)
+	-	[Ecommerce Starter](#ecommerce-starter---v500)
 	-	[Flat App Theme](#flat-app-theme---v400)
 -	[Quick Links to NativeBase](#quick-links-to-nativebase)
 -	[Documentation](#documentation)
@@ -164,10 +164,10 @@ Having tried with the free version, [Native Starter Kit](https://github.com/star
 
 Get on the mobile fast track with the featured apps of NativeBase, to build high-quality iOS and Android mobile apps. 
 
-Based on [React Native](https://facebook.github.io/react-native/) and [NativeBase](http://nativebase.io/docs/v0.5.2/), Native Starter Pro, Ecommerce Starter, Flat App Theme are beautifully designed with fusion of [Redux](https://github.com/reactjs/react-redux) and [ES6](http://es6-features.org/#Constants), responsive iOS and Android app source code to quickly get started on your next project. 
+Based on [React Native](https://facebook.github.io/react-native/) and [NativeBase](http://nativebase.io/docs/v0.5.5/), Native Starter Pro, Ecommerce Starter, Flat App Theme are beautifully designed with fusion of [Redux](https://github.com/reactjs/react-redux) and [ES6](http://es6-features.org/#Constants), responsive iOS and Android app source code to quickly get started on your next project. 
 
 
-### Native Starter Pro - v4.0.0
+### Native Starter Pro - v5.0.0
 
 Native Starter Pro is best suited for developing apps that makes use of ready-made tools. The theme has several widget areas that allows you to extend your theme functionality with plugins. 
 
@@ -177,34 +177,34 @@ Native Starter Pro includes following ready-to-use and highly customizable compo
 -	Custom Elements: Header, Footer, Drawer, Spinner, ProgressBar, Modal, Ready to use Email Template, Interactive design of Calendar with fast swiping feature, Scroll between the tabs, Responsive Navigator, Chat Messenger
 -	Ready to use screens
 -	Easy theme customization
--	[Read More](http://strapmobile.com/docs/native-starter-pro/v4.0.0)
+-	[Read More](http://strapmobile.com/docs/native-starter-pro/v5.0.0)
 
 **Quick links to Native Starter Pro**
 
--	*[Native Starter Pro Features](http://strapmobile.com/docs/native-starter-pro/v4.0.0/overview/whats-new-in-v4-0)*
--	*[Native Starter Pro Components](http://strapmobile.com/docs/native-starter-pro/v4.0.0/components)*
+-	*[Native Starter Pro Features](http://strapmobile.com/docs/native-starter-pro/v5.0.0/overview/whats-new-in-v5-0-0)*
+-	*[Native Starter Pro Components](http://strapmobile.com/docs/native-starter-pro/v5.0.0/components)*
 -	*[Native Starter Pro's App Generator](http://strapmobile.com/customizer/#/color)*
 -	*[Native Starter Pro Releases](http://strapmobile.com/native-starter-pro-releases/)*
 
 
-### Ecommerce Starter - v4.0.0
+### Ecommerce Starter - v5.0.0
 
 Ecommerce Starter, a perfect starter kit for e-commerce apps. Readily available pages along with rich collection of UI elements.
 
 Ready to use screens:
 
--	SignUp/Login
+-	Login
 -	Tabs
 -	Fluid grid layout to advertise various brands for your products
 -	List-view and grid-view of product advertisements
 -	Product details in your cart
--	[Read More](http://strapmobile.com/docs/react-native-ecommerce-starter/v4.0.0)
+-	[Read More](http://strapmobile.com/docs/react-native-ecommerce-starter/v5.0.0)
 
 **Quick links to Ecommerce Starter**
 
--	*[Ecommerce Starter Features](http://strapmobile.com/docs/react-native-ecommerce-starter/v4.0.0/overview/whats-new-in-v4-0)*
--	*[Ecommerce Starter Components](http://strapmobile.com/docs/react-native-ecommerce-starter/v4.0.0/components)*
--	*[Ecommerce Starter Releases](http://strapmobile.com/docs/react-native-ecommerce-starter/v4.0.0/release-notes)*
+-	*[Ecommerce Starter Features](http://strapmobile.com/docs/react-native-ecommerce-starter/v5.0.0/overview/whats-new-in-v5-0-0)*
+-	*[Ecommerce Starter Components](http://strapmobile.com/docs/react-native-ecommerce-starter/v5.0.0/components)*
+-	*[Ecommerce Starter Releases](http://strapmobile.com/docs/react-native-ecommerce-starter/v5.0.0/release-notes)*
 
 
 ### Flat App Theme - v4.0.0
