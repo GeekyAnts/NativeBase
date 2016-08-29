@@ -19,10 +19,10 @@
     "clamp": "^1.0.1",
     "color": "~0.11.1",
     "lodash": "~4.11.1",
-    "react-native-vector-icons": "2.0.x",
     "react-native-checkbox": "~1.0.8",
     "react-native-easy-grid": "0.1.5",
-    "react-native-keyboard-aware-scroll-view": "0.1.2"
+    "react-native-keyboard-aware-scroll-view": "^0.1.2",
+    "react-native-vector-icons": "2.0.x"
   },
   "peerDependencies": {
     "react-native": ">=0.26.0",
