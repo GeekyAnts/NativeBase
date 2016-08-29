@@ -24,7 +24,7 @@ export default class IconNB extends NativeBaseComponent {
     }
 
     componentWillMount() {
-      switch(this.context.theme.iconFamily) {
+      switch(this.getTheme().iconFamily) {
         case 'Ionicons':
             this.Icon = Ionicons;
             break;
