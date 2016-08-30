@@ -163,15 +163,25 @@ export default class Button extends NativeBaseComponent {
                     return true;
                 }
             });
-            
+
             if(this.props.iconRight) {
-                newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].props.children.toUpperCase()}</Text>);
+                if (childrenArray[0].type==undefined) {
+                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
+                } else {
+                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
+                }
+
                 newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
             }
 
-            else if(this.props.iconLeft || iconElement) {
+            else if(this.props.iconLeft || iconElement.length>0) {
                 newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
-                newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].props.children.toUpperCase()}</Text>);
+
+                if (childrenArray[0].type==undefined) {
+                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
+                } else {
+                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
+                }
             }
             else {
                 return <Text style={this.getTextStyle()}>{(Platform.OS==='ios') ? this.props.children : this.props.children.toUpperCase()}</Text>
