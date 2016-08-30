@@ -4,14 +4,14 @@ import {Platform} from 'react-native';
 
 export default {
 
-	// Badge
+    // Badge
     badgeBg: '#ED1727',
-	badgeColor: '#fff',
+    badgeColor: '#fff',
 
 
-	// Button
-	btnFontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto_medium',
-	btnDisabledBg: '#b5b5b5',
+    // Button
+    btnFontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto_medium',
+    btnDisabledBg: '#b5b5b5',
     btnDisabledClr: '#f1f1f1',
 
     get btnPrimaryBg () {
