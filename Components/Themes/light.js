@@ -3,100 +3,27 @@ import Color from 'color';
 import {Platform} from 'react-native';
 
 export default {
-    brandPrimary : '#5067FF',
-    brandInfo: '#5bc0de',
-    brandSuccess: '#5cb85c',
-    brandDanger: '#d9534f',
-    brandWarning: '#f0ad4e',
-    brandSidebar: '#252932',
 
-    fontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto',
-    btnFontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto_medium',
-    iconFamily: 'Ionicons',
+	// Badge
+    badgeBg: '#ED1727',
+	badgeColor: '#fff',
 
-    inverseTextColor: '#fff',
-    textColor: '#000',
 
-    subtitleColor: '#8e8e93',
-
-    fontSizeBase: 15,
-    titleFontSize: (Platform.OS === 'ios' ) ? 17 : 19,
-    subTitleFontSize: (Platform.OS === 'ios' ) ? 12 : 14,
-
-    inputFontSize: 15,
-    inputLineHeight: 24,
-
-    get fontSizeH1 () {
-        return this.fontSizeBase*1.8;
-    },
-    get fontSizeH2 () {
-        return this.fontSizeBase* 1.6;
-    },
-    get fontSizeH3 () {
-        return this.fontSizeBase* 1.4;
-    },
-    get btnTextSize () {
-        return (Platform.OS==='ios') ? this.fontSizeBase* 1.1 :
-        this.fontSizeBase-1;
-    },
-    get btnTextSizeLarge () {
-        return this.fontSizeBase* 1.5;
-    },
-    get btnTextSizeSmall () {
-        return this.fontSizeBase* .8;
-    },
-    get iconSizeLarge () {
-        return this.iconFontSize* 1.5;
-    },
-    get iconSizeSmall () {
-        return this.iconFontSize* .6;
-    },
-
-    buttonPadding: 6,
-
-    borderRadiusBase: (Platform.OS === 'ios' ) ? 5 : 2,
-
-    get borderRadiusLarge () {
-        return this.fontSizeBase* 3.8;
-    },
-
-    footerHeight: 55,
-    toolbarHeight: (Platform.OS === 'ios' ) ? 64 : 56,
-    toolbarDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#039BE5',
-    toolbarInverseBg: '#222',
-
-    iosToolbarBtnColor: '#007aff',
-
-    toolbarTextColor: (Platform.OS==='ios') ? '#000' : '#fff',
-
-    checkboxBgColor: '#039BE5',
-    checkboxTickColor: '#fff',
-
-    checkboxSize: 23,
-
-    radioColor: '#7e7e7e',
-    get radioSelectedColor() {
-        return Color(this.radioColor).darken(0.2).hexString();
-    },
-
-    radioBtnSize: (Platform.OS === 'ios') ? 25 : 23,
-
-    tabBgColor: '#F8F8F8',
-    tabFontSize: 15,
-    tabTextColor: '#fff',
-
-    btnDisabledBg: '#b5b5b5',
+	// Button
+	btnFontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto_medium',
+	btnDisabledBg: '#b5b5b5',
     btnDisabledClr: '#f1f1f1',
 
-    cardDefaultBg: '#fff',
-
-    get darkenHeader() {
-        return Color(this.tabBgColor).darken(0.03).hexString();
-    },
     get btnPrimaryBg () {
         return this.brandPrimary;
     },
     get btnPrimaryColor () {
+        return this.inverseTextColor;
+    },
+    get btnInfoBg () {
+        return this.brandInfo;
+    },
+    get btnInfoColor () {
         return this.inverseTextColor;
     },
     get btnSuccessBg () {
@@ -111,21 +38,95 @@ export default {
     get btnDangerColor () {
         return this.inverseTextColor;
     },
-    get btnInfoBg () {
-        return this.brandInfo;
-    },
-    get btnInfoColor () {
-        return this.inverseTextColor;
-    },
     get btnWarningBg () {
         return this.brandWarning;
     },
     get btnWarningColor () {
         return this.inverseTextColor;
     },
+    get btnTextSize () {
+        return (Platform.OS==='ios') ? this.fontSizeBase* 1.1 :
+        this.fontSizeBase-1;
+    },
+    get btnTextSizeLarge () {
+        return this.fontSizeBase* 1.5;
+    },
+    get btnTextSizeSmall () {
+        return this.fontSizeBase* .8;
+    },
+    get borderRadiusLarge () {
+        return this.fontSizeBase* 3.8;
+    },
 
-    borderWidth: 1,
+    buttonPadding: 6,
+
+    get iconSizeLarge () {
+        return this.iconFontSize* 1.5;
+    },
+    get iconSizeSmall () {
+        return this.iconFontSize* .6;
+    },
+
+
+    // Card
+    cardDefaultBg: '#fff',
+
+
+    // Check Box
+    checkboxBgColor: '#039BE5',
+    checkboxSize: 23,
+    checkboxTickColor: '#fff',
+
+
+    // Color
+    brandPrimary : '#5067FF',
+    brandInfo: '#5bc0de',
+    brandSuccess: '#5cb85c',
+    brandDanger: '#d9534f',
+    brandWarning: '#f0ad4e',
+    brandSidebar: '#252932',
+
+
+    // Font
+    fontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto',
+    fontSizeBase: 15,
+
+    get fontSizeH1 () {
+        return this.fontSizeBase*1.8;
+    },
+    get fontSizeH2 () {
+        return this.fontSizeBase* 1.6;
+    },
+    get fontSizeH3 () {
+        return this.fontSizeBase* 1.4;
+    },
+
+
+    // Footer
+    footerHeight: 55,
+
+
+    // Header
+    iosToolbarBtnColor: '#007aff',
+    toolbarDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#039BE5',
+    toolbarHeight: (Platform.OS === 'ios' ) ? 64 : 56,
+    toolbarIconSize: (Platform.OS === 'ios' ) ? 20 : 22,
+    toolbarInputColor: '#CECDD2',
+    toolbarInverseBg: '#222',
+    toolbarTextColor: (Platform.OS==='ios') ? '#000' : '#fff',
+
+
+    // Icon
+    iconFamily: 'Ionicons',
+    iconFontSize: (Platform.OS === 'ios' ) ? 30 : 28,
     iconMargin: 7,
+
+
+    // InputGroup
+    inputFontSize: 15,
+    inputBorderColor: '#D9D5DC',
+    inputSuccessBorderColor: '#2b8339',
+    inputErrorBorderColor: '#ed2f2f',
 
     get inputColor () {
         return this.textColor;
@@ -133,48 +134,79 @@ export default {
     get inputColorPlaceholder () {
         return '#575757';
     },
-    inputBorderColor: '#D9D5DC',
-    inputSuccessBorderColor: '#2b8339',
-    inputErrorBorderColor: '#ed2f2f',
-    inputHeightBase: 40,
+    
     inputGroupMarginBottom: 10,
+    inputHeightBase: 40,
     inputPaddingLeft: 5,
+    
     get inputPaddingLeftIcon () {
         return this.inputPaddingLeft* 8;
     },
 
+
+    // Line Height
     btnLineHeight: 19,
+    iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,    
+    lineHeight: (Platform.OS === 'ios' ) ? 20 : 24,
 
-    dropdownBg: '#000',
-    dropdownLinkColor: '#414142',
 
-    jumbotronPadding: 30,
-    jumbotronBg: '#C9C9CE',
-
-    contentPadding: 10,
-
+    // List
     listBorderColor: '#ddd',
     listDividerBg: '#ddd',
-    listItemPadding: 9,
     listItemHeight: 45,
+    listItemPadding: 9,
     listNoteColor: '#808080',
     listNoteSize: 13,
 
-    iconFontSize: (Platform.OS === 'ios' ) ? 30 : 28,
 
-    badgeColor: '#fff',
-    badgeBg: '#ED1727',
+    // Progress Bar
+    defaultProgressColor: '#E4202D',
+    inverseProgressColor: '#1A191B',
 
-    lineHeight: (Platform.OS === 'ios' ) ? 20 : 24,
-    iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,
 
-    toolbarIconSize: (Platform.OS === 'ios' ) ? 20 : 22,
+    // Radio Button
+    radioBtnSize: (Platform.OS === 'ios') ? 25 : 23,
+    radioColor: '#7e7e7e',
 
-    toolbarInputColor: '#CECDD2',
+    get radioSelectedColor() {
+        return Color(this.radioColor).darken(0.2).hexString();
+    },
 
+
+    // Spinner
     defaultSpinnerColor: '#45D56E',
     inverseSpinnerColor: '#1A191B',
 
-    defaultProgressColor: '#E4202D',
-    inverseProgressColor: '#1A191B'
+
+    // Tabs
+    tabBgColor: '#F8F8F8',
+    tabFontSize: 15,
+    tabTextColor: '#fff',
+
+
+    // Text
+    textColor: '#000',
+    inverseTextColor: '#fff',
+
+
+    // Title
+    titleFontSize: (Platform.OS === 'ios' ) ? 17 : 19,
+    subTitleFontSize: (Platform.OS === 'ios' ) ? 12 : 14,
+    subtitleColor: '#8e8e93',
+
+
+    // Other
+    borderRadiusBase: (Platform.OS === 'ios' ) ? 5 : 2,
+    borderWidth: 1,
+    contentPadding: 10,
+
+    get darkenHeader() {
+        return Color(this.tabBgColor).darken(0.03).hexString();
+    },
+
+    dropdownBg: '#000',
+    dropdownLinkColor: '#414142',
+    inputLineHeight: 24,
+    jumbotronBg: '#C9C9CE',
+    jumbotronPadding: 30
 }
