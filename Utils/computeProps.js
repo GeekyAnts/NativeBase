@@ -15,12 +15,7 @@ module.exports = function(incomingProps, defaultProps) {
 
     // console.log(defaultProps, incomingProps);
     if(incomingProps) {
-        try {
-            _.merge(computedProps, defaultProps, incomingProps);
-        } catch (exception) {
-            console.log('Warning: Call stack size exceeded when merging props, falling back to shallow merge.');
-            _.assign(computedProps, defaultProps, incomingProps);
-        }
+        _.assign(computedProps, defaultProps, incomingProps);
     } else
         computedProps = defaultProps;
     // Pass the merged Style Object instead
@@ -31,9 +26,9 @@ module.exports = function(incomingProps, defaultProps) {
         if (Array.isArray(incomingPropsStyle)) {
             _.forEach(incomingPropsStyle, (style)=>{
                 if(typeof style == 'number') {
-                    _.merge(computedPropsStyle, ReactNativePropRegistry.getByID(style));
+                    _.assign(computedPropsStyle, ReactNativePropRegistry.getByID(style));
                 } else {
-                    _.merge(computedPropsStyle, style);
+                    _.assign(computedPropsStyle, style);
                 }
             })
 
@@ -46,7 +41,7 @@ module.exports = function(incomingProps, defaultProps) {
             }
         }
 
-        _.merge(computedProps.style, defaultProps.style, computedPropsStyle);
+        _.assign(computedProps.style, defaultProps.style, computedPropsStyle);
 
 
     }
