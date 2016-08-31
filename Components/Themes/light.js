@@ -104,16 +104,23 @@ export default {
 
     // Footer
     footerHeight: 55,
+    footerDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
 
+    //FooterTab
+    tabBarTextColor: (Platform.OS === 'ios' ) ? '#000' : '#b3c7f9',
+    tabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#007aff' : '#fff',
 
     // Header
     iosToolbarBtnColor: '#007aff',
-    toolbarDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#039BE5',
+    toolbarDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
     toolbarHeight: (Platform.OS === 'ios' ) ? 64 : 56,
     toolbarIconSize: (Platform.OS === 'ios' ) ? 20 : 22,
     toolbarInputColor: '#CECDD2',
     toolbarInverseBg: '#222',
     toolbarTextColor: (Platform.OS==='ios') ? '#000' : '#fff',
+    get statusBarColor() {
+        return Color(this.toolbarDefaultBg).darken(0.2).hexString();
+    },
 
 
     // Icon
@@ -134,11 +141,11 @@ export default {
     get inputColorPlaceholder () {
         return '#575757';
     },
-    
+
     inputGroupMarginBottom: 10,
     inputHeightBase: 40,
     inputPaddingLeft: 5,
-    
+
     get inputPaddingLeftIcon () {
         return this.inputPaddingLeft* 8;
     },
@@ -146,7 +153,7 @@ export default {
 
     // Line Height
     btnLineHeight: 19,
-    iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,    
+    iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,
     lineHeight: (Platform.OS === 'ios' ) ? 20 : 24,
 
 
