@@ -34,14 +34,14 @@ export default class Button extends NativeBaseComponent {
     getInitialStyle() {
         return {
             button: {
-                paddingVertical: this.getTheme().buttonPadding,
-                paddingHorizontal: this.getTheme().buttonPadding+2,
+                paddingVertical: (this.props.vertical) ? 0 :this.getTheme().buttonPadding,
+                paddingHorizontal: (this.props.vertical) ? 5 :this.getTheme().buttonPadding+2,
                 justifyContent: (this.props.block) ? 'center' : 'space-around',
-                flexDirection: 'row',
+                flexDirection:  (this.props.vertical) ? 'column' : 'row',
                 alignSelf: 'center',
                 alignItems: 'center',
                 backgroundColor: this.getTheme().btnPrimaryBg,
-                elevation: (this.props.transparent || this.props.bordered) ? 0 : 4,
+                elevation: (this.props.transparent || this.props.bordered) ? 0 : 3,
                 shadowColor: (this.props.transparent || this.props.bordered) ? undefined : '#000',
                 shadowOffset: (this.props.transparent || this.props.bordered) ? undefined : {width: 0, height: 2},
                 shadowOpacity: (this.props.transparent || this.props.bordered) ? undefined : 0.2,
@@ -89,7 +89,7 @@ export default class Button extends NativeBaseComponent {
         var mergedStyle = {};
         var btnType = {
             fontFamily: this.getTheme().btnFontFamily,
-            marginLeft: (this.iconPresent() && !this.props.iconRight) ? this.getTheme().iconMargin : 0,
+            marginLeft: (this.props.vertical) ? 0 : (this.iconPresent() && !this.props.iconRight) ? this.getTheme().iconMargin : 0,
             marginRight: (this.iconPresent() && this.props.iconRight) ? this.getTheme().iconMargin : 0,
             color:
                     ((this.props.bordered) && (this.props.primary)) ? this.getTheme().btnPrimaryBg :

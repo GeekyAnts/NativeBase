@@ -16,14 +16,15 @@ export default class Footer extends NativeBaseComponent {
         return {
             navbar: {
                 shadowColor: '#000',
-                shadowOffset: {width: 0, height: 2},
+                shadowOffset: {width: 0, height: -2},
                 shadowOpacity: 0.1,
                 shadowRadius: 1.5,
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: (!Array.isArray(this.props.children)) ? 'center' : 'space-between',
                 height: this.getTheme().footerHeight,
-                backgroundColor: this.getTheme().footerDefaultBg
+                backgroundColor: this.getTheme().footerDefaultBg,
+                elevation: 18
             }
         }
     }
@@ -43,7 +44,7 @@ export default class Footer extends NativeBaseComponent {
         return(
             <View {...this.prepareRootProps()}>
                 { !Array.isArray(this.props.children) &&
-                <View >
+                <View style={{flex: 1, alignItems: 'center'}} >
                     {this.props.children}
                 </View>}
 

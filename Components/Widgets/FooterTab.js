@@ -1,0 +1,111 @@
+/* @flow */
+'use strict';
+
+import React from 'react';
+import NativeBaseComponent from '../Base/NativeBaseComponent';
+import computeProps from '../../Utils/computeProps';
+import Button from './Button';
+import { Platform } from 'react-native';
+import View from './View';
+import Icon from './Icon';
+import IconNB from './Icon';
+import Text from './Text';
+
+export default class Footer extends NativeBaseComponent {
+
+    propTypes: {
+        style : React.PropTypes.object
+    }
+
+    getInitialStyle() {
+        return {
+            footerTab: {
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                flex: 1,
+                alignSelf: 'stretch',
+                paddingHorizontal: 15
+            },
+            btnTextStyle: {
+                color: this.getTheme().tabBarTextColor,
+                fontSize: 14
+            },
+            btnActiveTextStyle: {
+                color: this.getTheme().tabBarActiveTextColor,
+                fontSize: 14
+            },
+            btnStyle: {
+                alignSelf: 'center'
+            }
+        }
+    }
+
+    prepareRootProps() {
+
+        var defaultProps = {
+            style: this.getInitialStyle().footerTab
+        };
+
+        return computeProps(this.props, defaultProps);
+
+    }
+
+    renderFooter() {
+        var childrenArray = React.Children.toArray(this.props.children);
+        var newChildren = [];
+
+        {childrenArray.map((child, i) => {
+            if (typeof child.props.children==='string') {
+                newChildren.push(React.cloneElement(child, {
+                    style: this.getInitialStyle().btnStyle,
+                    vertical: true,
+                    transparent:true,
+                    textStyle: (child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle,
+                    key: i}));
+            }
+            else {
+                let iconElement = [];
+                iconElement = _.remove(child.props.children, function(item) {
+                    if(item.type == IconNB) {
+                        return true;
+                    }
+                });
+                if (iconElement.length>0) {
+                    newChildren.push(
+                        <Button transparent vertical
+                            style={this.getInitialStyle().btnStyle}
+                            textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
+                            key={i}>
+                            {child.props.children}
+                            <Icon
+                                style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
+                                name={iconElement[0].props.name} />
+                        </Button>
+                    );
+                }
+                else {
+                    newChildren.push(
+                        <Button transparent vertical
+                            style={this.getInitialStyle().btnStyle}
+                            textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
+                            key={i}>
+                            <Icon
+                                style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
+                                name={child.props.children.props.name} />
+                        </Button>
+                    );
+                }
+            };
+        })}
+        return newChildren;
+    }
+
+    render() {
+
+        return(
+            <View {...this.prepareRootProps()} >
+                {this.renderFooter()}
+            </View>
+        );
+    }
+}
