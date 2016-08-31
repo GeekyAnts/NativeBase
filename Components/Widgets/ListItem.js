@@ -33,7 +33,7 @@ export default class ListItemNB extends NativeBaseComponent {
         return {
             listItem: {
                 borderBottomWidth: this.getTheme().borderWidth,
-                height: (this.inputPresent()) ? undefined:  this.getTheme().listItemHeight,
+                // height: (this.inputPresent()) ? undefined:  this.getTheme().listItemHeight,
                 marginLeft: 15,
                 padding:  this.inputPresent() ? 0 : this.getTheme().listItemPadding,
                 paddingLeft: 2,

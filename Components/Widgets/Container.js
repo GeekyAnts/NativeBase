@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {View, Image} from 'react-native';
+import {View, Image, ScrollView} from 'react-native';
 import ViewNB from './View';
 import Header from './Header';
 import Content from './Content';
@@ -36,7 +36,7 @@ export default class Container extends NativeBaseComponent {
 		if(Array.isArray(this.props.children)) {
 
 			return _.filter(this.props.children, function(item) {
-				if(item && (item.type == ViewNB || item.type == Content || item.type == Image || item.type == View)) {
+				if(item && (item.type == ViewNB || item.type == Content || item.type == Image || item.type == View || item.type == ScrollView )) {
 
 					return true;
 				}
@@ -44,7 +44,7 @@ export default class Container extends NativeBaseComponent {
 		}
 
 		else {
-			if(this.props.children && (this.props.children.type == Content || this.props.children.type == ViewNB || this.props.children.type == View || this.props.children.type == Image)) {
+			if(this.props.children && (this.props.children.type == Content || this.props.children.type == ViewNB || this.props.children.type == View || this.props.children.type == Image || this.props.children.type == ScrollView)) {
 				return this.props.children;
 			}
 		}
