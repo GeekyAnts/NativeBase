@@ -2,7 +2,8 @@
 'use strict';
 
 import React from 'react';
-import {View} from 'react-native';
+import {Platform} from 'react-native';
+import View from './View';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
@@ -15,16 +16,13 @@ export default class Footer extends NativeBaseComponent {
     getInitialStyle() {
         return {
             navbar: {
-                shadowColor: '#000',
-                shadowOffset: {width: 0, height: -2},
-                shadowOpacity: 0.1,
-                shadowRadius: 1.5,
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: (!Array.isArray(this.props.children)) ? 'center' : 'space-between',
                 height: this.getTheme().footerHeight,
                 backgroundColor: this.getTheme().footerDefaultBg,
-                elevation: 18
+                borderTopWidth: (Platform.OS=='ios') ? 1 : undefined,
+                borderColor: (Platform.OS=='ios') ? '#cbcbcb' : undefined
             }
         }
     }

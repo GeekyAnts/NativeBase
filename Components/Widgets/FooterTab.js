@@ -28,11 +28,21 @@ export default class Footer extends NativeBaseComponent {
             },
             btnTextStyle: {
                 color: this.getTheme().tabBarTextColor,
-                fontSize: 14
+                fontSize: (Platform.OS=='ios') ? 12.5 : 10
             },
             btnActiveTextStyle: {
                 color: this.getTheme().tabBarActiveTextColor,
-                fontSize: 14
+                fontSize: (Platform.OS=='ios') ? 12.5 : 11
+            },
+            btnStringTextStyle: {
+                color: this.getTheme().tabBarTextColor,
+                fontSize: (Platform.OS=='ios') ? 14 : 11,
+                lineHeight: 16
+            },
+            btnStringActiveTextStyle: {
+                color: this.getTheme().tabBarActiveTextColor,
+                fontSize: (Platform.OS=='ios') ? 14 : 12,
+                lineHeight: 16
             },
             btnStyle: {
                 alignSelf: 'center'
@@ -59,8 +69,9 @@ export default class Footer extends NativeBaseComponent {
                 newChildren.push(React.cloneElement(child, {
                     style: this.getInitialStyle().btnStyle,
                     vertical: true,
+                    capitalize: false,
                     transparent:true,
-                    textStyle: (child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle,
+                    textStyle: (child.props.active) ? this.getInitialStyle().btnStringActiveTextStyle : this.getInitialStyle().btnStringTextStyle,
                     key: i}));
             }
             else {
@@ -73,6 +84,7 @@ export default class Footer extends NativeBaseComponent {
                 if (iconElement.length>0) {
                     newChildren.push(
                         <Button transparent vertical
+                            capitalize={false}
                             style={this.getInitialStyle().btnStyle}
                             textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
                             key={i}>
@@ -86,11 +98,12 @@ export default class Footer extends NativeBaseComponent {
                 else {
                     newChildren.push(
                         <Button transparent vertical
+                            capitalize={false}
                             style={this.getInitialStyle().btnStyle}
-                            textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
                             key={i}>
                             <Icon
-                                style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
+                                style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor,
+                                        fontSize: 28}}
                                 name={child.props.children.props.name} />
                         </Button>
                     );

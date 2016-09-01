@@ -77,9 +77,9 @@ export default class Button extends NativeBaseComponent {
         var addedProps = _.merge(this.getInitialStyle().button,type);
 
         var defaultProps = {
-            style: addedProps
+            style: addedProps,
+            capitalize: true
         }
-
 
         return computeProps(this.props, defaultProps);
     }
@@ -144,8 +144,9 @@ export default class Button extends NativeBaseComponent {
         return iconComponentPresent;
     }
     renderChildren() {
+        
         if(typeof this.props.children == 'string') {
-            return <Text style={this.getTextStyle()}>{(Platform.OS==='ios') ? this.props.children : this.props.children.toUpperCase()}</Text>
+            return <Text style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>
         }
 
         else if(this.props.children.type == IconNB) {
@@ -166,9 +167,9 @@ export default class Button extends NativeBaseComponent {
 
             if(this.props.iconRight) {
                 if (childrenArray[0].type==undefined) {
-                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
+                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
                 } else {
-                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
+                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
                 }
 
                 newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
@@ -178,9 +179,9 @@ export default class Button extends NativeBaseComponent {
                 newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
 
                 if (childrenArray[0].type==undefined) {
-                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
+                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
                 } else {
-                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios') ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
+                    newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
                 }
             }
             else {
