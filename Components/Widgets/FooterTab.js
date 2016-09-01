@@ -23,18 +23,17 @@ export default class Footer extends NativeBaseComponent {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 flex: 1,
-                alignSelf: 'stretch',
-                paddingHorizontal: 15
+                alignSelf: 'stretch'
             },
             btnTextStyle: {
                 color: this.getTheme().tabBarTextColor,
                 fontSize: (Platform.OS=='ios') ? 12.5 : 10,
-                lineHeight: 15
+                lineHeight: 13
             },
             btnActiveTextStyle: {
                 color: this.getTheme().tabBarActiveTextColor,
                 fontSize: (Platform.OS=='ios') ? 12.5 : 11,
-                lineHeight: 15
+                lineHeight: 13
             },
             btnStringTextStyle: {
                 color: this.getTheme().tabBarTextColor,
@@ -47,7 +46,11 @@ export default class Footer extends NativeBaseComponent {
                 lineHeight: 16
             },
             btnStyle: {
-                alignSelf: 'center'
+                alignSelf: 'center',
+                flex: 1,
+                borderRadius: 0,
+                justifyContent: 'center',
+                height: this.getTheme().footerHeight
             }
         }
     }
@@ -63,13 +66,14 @@ export default class Footer extends NativeBaseComponent {
     }
 
     renderFooter() {
+        // console.log('this.props.children', this.props.children);
         var childrenArray = React.Children.toArray(this.props.children);
         var newChildren = [];
 
         {childrenArray.map((child, i) => {
             if (typeof child.props.children==='string') {
                 newChildren.push(React.cloneElement(child, {
-                    style: this.getInitialStyle().btnStyle,
+                    style: [this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined }],
                     vertical: true,
                     capitalize: false,
                     transparent:true,
@@ -87,7 +91,7 @@ export default class Footer extends NativeBaseComponent {
                     newChildren.push(
                         <Button transparent vertical
                             capitalize={false}
-                            style={this.getInitialStyle().btnStyle}
+                            style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined}]}
                             textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
                             key={i}>
                             {child.props.children}
@@ -101,7 +105,7 @@ export default class Footer extends NativeBaseComponent {
                     newChildren.push(
                         <Button transparent vertical
                             capitalize={false}
-                            style={this.getInitialStyle().btnStyle}
+                            style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined}]}
                             key={i}>
                             <Icon
                                 style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor,
