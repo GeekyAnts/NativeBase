@@ -107,8 +107,9 @@ export default {
     footerDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
 
     //FooterTab
-    tabBarTextColor: (Platform.OS === 'ios' ) ? '#000' : '#b3c7f9',
+    tabBarTextColor: (Platform.OS === 'ios' ) ? '#6b6b6b' : '#b3c7f9',
     tabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#007aff' : '#fff',
+    tabActiveBgColor: (Platform.OS=='ios') ? '#e4f0fe' : undefined,
 
     // Header
     iosToolbarBtnColor: '#007aff',
@@ -153,6 +154,9 @@ export default {
 
     // Line Height
     btnLineHeight: 19,
+    lineHeightH1: 32,
+    lineHeightH2: 27,
+    lineHeightH3: 22,
     iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,
     lineHeight: (Platform.OS === 'ios' ) ? 20 : 24,
 

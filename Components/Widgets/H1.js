@@ -17,7 +17,8 @@ export default class H1NB extends NativeBaseComponent {
 
         var type = {
             color: this.getTheme().textColor,
-            fontSize: this.getTheme().fontSizeH1
+            fontSize: this.getTheme().fontSizeH1,
+            lineHeight: this.getTheme().lineHeightH1
         }
 
         var defaultProps = {

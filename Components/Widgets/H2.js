@@ -17,7 +17,8 @@ export default class H2NB extends NativeBaseComponent {
 
         var type = {
             color: this.getTheme().textColor,
-            fontSize: this.getTheme().fontSizeH2
+            fontSize: this.getTheme().fontSizeH2,
+            lineHeight: this.getTheme().lineHeightH2
         }
 
         var defaultProps = {
