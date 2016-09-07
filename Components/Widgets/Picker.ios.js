@@ -86,7 +86,6 @@ export default class PickerNB extends NativeBaseComponent {
     }
 
     render() {
-        console.log('this.props.iosIcon', (this.props.iosIcon == undefined));
         return (
         <View>
             <Button

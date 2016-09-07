@@ -4,12 +4,12 @@
 import React from 'react';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
+import _ from 'lodash';
 import Button from './Button';
 import { Platform } from 'react-native';
 import View from './View';
 import Icon from './Icon';
 import IconNB from './Icon';
-import Text from './Text';
 
 export default class Footer extends NativeBaseComponent {
 
@@ -66,7 +66,6 @@ export default class Footer extends NativeBaseComponent {
     }
 
     renderFooter() {
-        // console.log('this.props.children', this.props.children);
         var childrenArray = React.Children.toArray(this.props.children);
         var newChildren = [];
 
@@ -114,7 +113,7 @@ export default class Footer extends NativeBaseComponent {
                         </Button>
                     );
                 }
-            };
+            }
         })}
         return newChildren;
     }
