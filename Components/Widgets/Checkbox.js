@@ -4,7 +4,7 @@
 import React from 'react';
 import {TouchableOpacity, Platform} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import Icon from './Icon';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class CheckBox extends NativeBaseComponent {
 
