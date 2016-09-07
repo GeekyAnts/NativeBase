@@ -30,6 +30,10 @@ export default class Header extends NativeBaseComponent {
 
         this.leftBtnType = this.detectButtonType('left');
         this.rightBtnType = this.detectButtonType('right');
+
+        // console.log(this.adjustMargins());
+        // console.log('hasLeftBtn', this.hasLeftBtn, 'hasRightBtn', this.hasRightBtn, 'hasBothBtn', this.hasBothBtn);
+        // console.log('leftBtnType', this.leftBtnType, 'rightBtnType', this.rightBtnType);
     }
 
     justifyNavbarContent() {
@@ -109,6 +113,7 @@ export default class Header extends NativeBaseComponent {
             if (buttons.length > 0) {
                 switch (true) {
                     case pos == 'left' && this.hasLeftBtn && !this.hasRightBtn:
+                    case pos == 'left' && this.hasLeftBtn && this.hasRightBtn:
                     case pos == 'right' && !this.hasLeftBtn && this.hasRightBtn:
                         return this.getBtnType(buttons[0]);
                     case pos == 'right' && this.hasLeftBtn && this.hasRightBtn:
@@ -145,6 +150,8 @@ export default class Header extends NativeBaseComponent {
                 return { marginLeft: -21, marginRight: -21 };
 
             case (this.hasBothBtn && this.leftBtnType == 'label' && this.rightBtnType == 'icon'):
+                return { marginLeft: -14, marginRight: -14 };
+
             case (this.hasBothBtn && this.leftBtnType == 'both' && this.rightBtnType == 'icon'):
                 return { marginLeft: -21, marginRight: -14 };
 

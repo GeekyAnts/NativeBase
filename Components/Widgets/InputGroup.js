@@ -10,6 +10,8 @@ import computeProps from '../../Utils/computeProps';
 import Input from './Input';
 import _ from 'lodash';
 
+import { Field } from 'redux-form';
+
 export default class InputGroup extends NativeBaseComponent {
 
 	propTypes: {
@@ -147,7 +149,7 @@ export default class InputGroup extends NativeBaseComponent {
 		});
 
 		var inp = _.find(childrenArray, function(item) {
-			if(item && item.type == Input) {
+			if(item && (item.type == Input || item.type == Field)) {
 				return true;
 			}
 		});
