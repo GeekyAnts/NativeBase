@@ -151,7 +151,6 @@ export default class ListItemNB extends NativeBaseComponent {
             if(child.type == Icon)
                 iconComponentPresent = true;
         })
-
         return iconComponentPresent;
     }
 
@@ -359,6 +358,7 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
     renderChildren() {
+        this.iconPresent();
 
         var newChildren = [];
         if(!Array.isArray(this.props.children) && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
@@ -419,6 +419,7 @@ export default class ListItemNB extends NativeBaseComponent {
                     </View>);
                 newChildren.push(React.cloneElement(iconElement[0], {...this.getChildProps(iconElement[0]), key: 'listItem1'}));
             }
+
             else if (this.badgePresent()) {
 
                 var badgeElement = _.remove(childrenArray, function(item) {
@@ -434,8 +435,7 @@ export default class ListItemNB extends NativeBaseComponent {
                     </View>);
                 newChildren.push(React.cloneElement(badgeElement[0], {...this.getChildProps(badgeElement[0]), key: 'listItem1'}));
             }
-            else if (this.props.icon
-                 && this.props.iconLeft) {
+            else if (this.props.iconLeft && this.props.iconRight) {
 
                 iconElement = _.filter(childrenArray, function(item) {
                     if(item.type == Icon) {
