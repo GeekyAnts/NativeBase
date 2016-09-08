@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {View} from 'react-native';
+import {View, ListView} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
@@ -11,7 +11,7 @@ export default class CardNB extends NativeBaseComponent {
     propTypes: {
         style : React.PropTypes.object
     }
-    
+
     getInitialStyle() {
         return {
             card: {
@@ -36,7 +36,7 @@ export default class CardNB extends NativeBaseComponent {
         var defaultProps = {
             style: this.getInitialStyle().card
         };
-        
+
         return computeProps(this.props, defaultProps);
 
     }
@@ -50,6 +50,16 @@ export default class CardNB extends NativeBaseComponent {
     }
 
     render() {
+        if(this.props.dataArray && this.props.renderRow) {
+            const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+            var dataSource = ds.cloneWithRows(this.props.dataArray);
+            return (
+                <ListView {...this.prepareRootProps()}
+                    enableEmptySections={true}
+                    dataSource={dataSource}
+                    renderRow={this.props.renderRow} />
+            );
+        }
         return(
             <View {...this.prepareRootProps()} >
                 {this.renderChildren()}

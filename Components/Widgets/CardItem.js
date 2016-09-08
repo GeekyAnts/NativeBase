@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {Image} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import Icon from './Icon';
@@ -40,12 +40,14 @@ export default class CardItemNB extends NativeBaseComponent {
             itemText: {
                 fontSize: this.ifShowCase() ? 14 : 15,
                 marginTop:  this.ifShowCase() ? 10 : 0,
-                color: this.getContextForegroundColor()
+                color: this.getContextForegroundColor(),
+                flex: 1
             },
             dividerItemText: {
                 fontSize: 16,
                 fontWeight: '500',
-                color: this.getContextForegroundColor()
+                color: this.getContextForegroundColor(),
+                flex: 1
             },
             itemIcon: {
                 fontSize: this.getTheme().iconFontSize,
@@ -290,9 +292,9 @@ export default class CardItemNB extends NativeBaseComponent {
 
     render() {
         return(
-            <View {...this.prepareRootProps()} >
+            <TouchableOpacity {...this.prepareRootProps()} activeOpacity={ (this.props.button) ? 0.2 : 1} >
                 {this.renderChildren()}
-            </View>
+            </TouchableOpacity>
         );
     }
 }

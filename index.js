@@ -24,6 +24,7 @@ import Input from './Components/Widgets/Input';
 import Textarea from './Components/Widgets/Textarea';
 import InputGroup from './Components/Widgets/InputGroup';
 import Icon from './Components/Widgets/Icon';
+import FooterTab from './Components/Widgets/FooterTab';
 import Thumbnail from './Components/Widgets/Thumbnail';
 import CheckBox from './Components/Widgets/Checkbox';
 import Radio from './Components/Widgets/Radio';
@@ -69,5 +70,6 @@ module.exports = {
 	Radio: Radio,
 	// ProgressBar: ProgressBar,
 	Drawer: Drawer,
+	FooterTab: FooterTab,
 	Tabs : ScrollableTabView
 };

@@ -126,14 +126,13 @@ export default class Header extends NativeBaseComponent {
                         newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14}}>
                         {React.cloneElement(buttons[0], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
                         </View>)
+                        newChildren.push(<View key='title2' style={{flex: 3, alignSelf: 'stretch'}} />)
                         if (buttons.length>1) {
                             for (let i = 1; i < buttons.length; i++) {
                                 newChildren.push(<View key={'btn' + (i+1)} style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -14}}>
                                 {React.cloneElement(buttons[i], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
                                 </View>)
                             }
-                        } else {
-                            newChildren.push(<Button key='fakeBtn' transparent textStyle={{color:'transparent'}}>aa</Button>)
                         }
                     }
                     else {

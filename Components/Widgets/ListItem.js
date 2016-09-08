@@ -12,6 +12,7 @@ import Button from './Button';
 import Badge from './Badge';
 import Thumbnail from './Thumbnail';
 import CheckBox from './Checkbox';
+import Picker from './Picker';
 import Radio from './Radio';
 import InputGroup from './InputGroup';
 import _ from 'lodash';
@@ -32,6 +33,7 @@ export default class ListItemNB extends NativeBaseComponent {
         return {
             listItem: {
                 borderBottomWidth: this.getTheme().borderWidth,
+                // height: (this.inputPresent()) ? undefined:  this.getTheme().listItemHeight,
                 marginLeft: 15,
                 padding:  this.inputPresent() ? 0 : this.getTheme().listItemPadding,
                 paddingLeft: 2,
@@ -42,6 +44,7 @@ export default class ListItemNB extends NativeBaseComponent {
             },
             listItemDivider: {
                 borderBottomWidth: this.getTheme().borderWidth,
+                height: this.getTheme().listItemHeight,
                 padding: this.getTheme().listItemPadding,
                 backgroundColor: this.getTheme().listDividerBg,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
@@ -148,9 +151,19 @@ export default class ListItemNB extends NativeBaseComponent {
             if(child.type == Icon)
                 iconComponentPresent = true;
         })
-
         return iconComponentPresent;
     }
+
+    pickerPresent() {
+        var pickerComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == Picker)
+                pickerComponentPresent = true;
+        })
+
+        return pickerComponentPresent;
+    }
+
     badgePresent() {
         var badgeComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
@@ -237,6 +250,19 @@ export default class ListItemNB extends NativeBaseComponent {
                 style: this.getInitialStyle().itemIcon
             }
         }
+        else if(child.type == Picker) {
+            defaultProps = {
+                style: {
+                    flex: .45,
+                    alignSelf: 'flex-end',
+                    paddingVertical: 5,
+                    height: 30
+                },
+                textStyle: {
+                    color: '#7a7a7a'
+                }
+            }
+        }
         else if(child.type == Thumbnail) {
             defaultProps = {
                 style: this.getInitialStyle().thumbnail
@@ -263,7 +289,6 @@ export default class ListItemNB extends NativeBaseComponent {
                 style: this.getInitialStyle().listItem
             };
         }
-
         return computeProps(this.props, defaultProps);
     }
 
@@ -333,11 +358,12 @@ export default class ListItemNB extends NativeBaseComponent {
     }
 
     renderChildren() {
+        this.iconPresent();
 
         var newChildren = [];
         if(!Array.isArray(this.props.children) && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
             newChildren.push(
-                <View key='listItem' style={{alignSelf: 'stretch', flex:1}}>
+                <View key='listItem' style={{alignSelf: 'stretch', flex:1, justifyContent: 'center'}}>
                 {React.cloneElement(this.props.children, this.getChildProps(this.props.children))}
                 </View>
             );
@@ -362,6 +388,22 @@ export default class ListItemNB extends NativeBaseComponent {
                     })}
                     </View>);
             }
+
+            else if (this.pickerPresent()) {
+
+                let pickerElement = _.remove(childrenArray, function(item) {
+                    if(item.type == Picker) {
+                        return true;
+                    }
+                });
+                newChildren.push(<View key='listItem0' >
+                    {childrenArray.map((child, i) => {
+                        return React.cloneElement(child, {...this.getChildProps(child), key: i});
+                    })}
+                    </View>);
+                newChildren.push(React.cloneElement(pickerElement[0], {...this.getChildProps(pickerElement[0]), key: 'listItem1' }));
+            }
+
             else if (this.props.iconRight && !this.props.iconLeft) {
 
                 iconElement = _.remove(childrenArray, function(item) {
@@ -377,6 +419,7 @@ export default class ListItemNB extends NativeBaseComponent {
                     </View>);
                 newChildren.push(React.cloneElement(iconElement[0], {...this.getChildProps(iconElement[0]), key: 'listItem1'}));
             }
+
             else if (this.badgePresent()) {
 
                 var badgeElement = _.remove(childrenArray, function(item) {
@@ -392,7 +435,7 @@ export default class ListItemNB extends NativeBaseComponent {
                     </View>);
                 newChildren.push(React.cloneElement(badgeElement[0], {...this.getChildProps(badgeElement[0]), key: 'listItem1'}));
             }
-            else if (this.props.iconRight && this.props.iconLeft) {
+            else if (this.props.iconLeft && this.props.iconRight) {
 
                 iconElement = _.filter(childrenArray, function(item) {
                     if(item.type == Icon) {

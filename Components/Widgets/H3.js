@@ -12,12 +12,13 @@ export default class H3NB extends NativeBaseComponent {
     propTypes: {
         style : React.PropTypes.object
     }
-    
+
     prepareRootProps() {
 
         var type = {
             color: this.getTheme().textColor,
-            fontSize: this.getTheme().fontSizeH3
+            fontSize: this.getTheme().fontSizeH3,
+            lineHeight: this.getTheme().lineHeightH3
         }
 
         var defaultProps = {

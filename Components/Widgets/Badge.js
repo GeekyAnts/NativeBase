@@ -18,16 +18,16 @@ export default class BadgeNB extends NativeBaseComponent {
 
         var type = {
 
-            backgroundColor:this.props.primary ? 
-                            this.getTheme().brandPrimary : 
-                            this.props.success ? 
+            backgroundColor:this.props.primary ?
+                            this.getTheme().brandPrimary :
+                            this.props.success ?
                             this.getTheme().brandSuccess :
-                            this.props.info ? 
-                            this.getTheme().brandInfo : 
-                            this.props.warning ? 
+                            this.props.info ?
+                            this.getTheme().brandInfo :
+                            this.props.warning ?
                             this.getTheme().brandWarning :
-                            this.props.danger ? 
-                            this.getTheme().brandDanger : 
+                            this.props.danger ?
+                            this.getTheme().brandDanger :
                             this.getTheme().badgeBg,
             padding: 3,
             paddingHorizontal: 10,
@@ -48,8 +48,8 @@ export default class BadgeNB extends NativeBaseComponent {
         return(
             <View {...this.prepareRootProps()}>
                 <Text style={{ color: (this.props.textStyle && this.props.textStyle.color) ? this.props.textStyle.color : this.getTheme().badgeColor,
-                                fontSize: this.getTheme().fontSizeBase,
-                                lineHeight: this.getTheme().lineHeight-1,
+                                fontSize: (this.props.textStyle && this.props.textStyle.fontSize) ? this.props.textStyle.fontSize : this.getTheme().fontSizeBase,
+                                lineHeight: (this.props.textStyle && this.props.textStyle.lineHeight) ? this.props.textStyle.lineHeight : this.getTheme().lineHeight-1,
                                 textAlign: 'center'}}>{this.props.children}
                 </Text>
             </View>
