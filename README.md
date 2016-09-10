@@ -13,7 +13,7 @@ Get on the mobile fast track with NativeBase, the fastest-growing platform and t
 -	[Testimonials](#testimonials)
 -	[Why NativeBase?](#why-nativebase)
 -	[Magic of NativeBase](#magic-of-nativebase)
--	[Release Notes](http://nativebase.io/docs/v0.5.5/release-notes)
+-	[CHange Log](https://github.com/GeekyAnts/NativeBase/releases/tag/v0.5.8)
 -	[Get Started](#get-started)
 -	[Components](#components)
 -	[Native Starter Kit](#native-starter-kit)
