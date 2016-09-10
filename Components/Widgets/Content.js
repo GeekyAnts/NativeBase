@@ -10,8 +10,9 @@ import computeProps from '../../Utils/computeProps';
 export default class Content extends NativeBaseComponent {
 
   propTypes: {
-        padder : React.PropTypes.bool,
-    style : React.PropTypes.object
+      padder: React.PropTypes.bool,
+      style : React.PropTypes.object,
+      disableKBDismissScroll: React.PropTypes.bool
     }
 
   prepareRootProps() {
@@ -23,7 +24,7 @@ export default class Content extends NativeBaseComponent {
 
     var defaultProps = {
       style: type,
-      resetScrollToCoords: {
+      resetScrollToCoords: (this.props.disableKBDismissScroll) ? null : {
         x: 0,
         y: 0
       }
