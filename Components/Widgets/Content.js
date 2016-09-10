@@ -22,7 +22,11 @@ export default class Content extends NativeBaseComponent {
     }
 
     var defaultProps = {
-      style: type
+      style: type,
+      resetScrollToCoords: {
+        x: 0,
+        y: 0
+      }
     }
 
     return computeProps(this.props, defaultProps);
@@ -32,7 +36,7 @@ export default class Content extends NativeBaseComponent {
     const contentContainerStyle = this.props.contentContainerStyle || {};
     contentContainerStyle.padding = (this.props.padder) ? this.getTheme().contentPadding : 0;
     return(
-      <KeyboardAwareScrollView ref={c => this._scrollview = c} resetScrollToCoords={{x:0,y:0}} {...this.prepareRootProps()} contentContainerStyle={contentContainerStyle}>{this.props.children}</KeyboardAwareScrollView>
+      <KeyboardAwareScrollView ref={c => this._scrollview = c} {...this.prepareRootProps()} contentContainerStyle={contentContainerStyle}>{this.props.children}</KeyboardAwareScrollView>
     );
   }
 }
