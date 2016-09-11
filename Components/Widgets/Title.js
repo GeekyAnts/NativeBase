@@ -14,7 +14,7 @@ export default class Title extends NativeBaseComponent {
 	propTypes: {
         style : React.PropTypes.object
     }
-	
+
 	prepareRootProps() {
 
 		var type = {
