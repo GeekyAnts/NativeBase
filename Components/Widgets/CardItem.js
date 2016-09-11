@@ -175,7 +175,7 @@ export default class CardItemNB extends NativeBaseComponent {
         var defaultProps = {};
         if(child.type == Image && !Array.isArray(this.props.children)) {
             defaultProps = {
-                resizeMode: 'stretch',
+                resizeMode: 'cover',
                 style: this.getInitialStyle().fullImage
             }
         }
