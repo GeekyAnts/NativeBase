@@ -19,13 +19,24 @@ import _ from 'lodash';
 
 export default class PickerNB extends NativeBaseComponent {
 
-
     constructor(props) {
         super(props);
+
         this.state = {
-            modalVisible : false,
-            current: this.getSelected().props.label
+          modalVisible : false,
+          currentLabel: this.getLabel(props)
         }
+    }
+
+    componentWillReceiveProps(nextProps) {
+      const currentLabel = this.state.currentLabel;
+      const nextLabel = this.getLabel(nextProps);
+
+      if (currentLabel !== nextLabel) {
+        this.setState({
+          currentLabel: nextLabel
+        });
+      }
     }
 
     getInitialStyle() {
@@ -43,23 +54,21 @@ export default class PickerNB extends NativeBaseComponent {
     }
 
     prepareRootProps() {
-
         var defaultProps = {
             style: this.getInitialStyle().picker,
             itemStyle: this.getInitialStyle().pickerItem
         };
 
         return computeProps(this.props, defaultProps);
-
     }
 
-    getSelected() {
-        const selected = _.find(this.props.children,(o) => {
-            return o.props.value == this.props.selectedValue;
+    getLabel(props) {
+        const item = _.find(props.children, child => {
+            return child.props.value == props.selectedValue;
         });
-        return selected;
-    }
 
+        return _.get(item, 'props.label');
+    }
 
     modifyHeader() {
         let childrenArray = React.Children.toArray(this.props.headerComponent.props.children);
@@ -94,8 +103,8 @@ export default class PickerNB extends NativeBaseComponent {
                 textStyle={this.props.textStyle}
                 style={this.props.style}
                 onPress={() => {this._setModalVisible(true)}}>
-                {this.state.current}
-                {(this.props.iosIcon == undefined) ? <Icon name="ios-home" style={{opacity: 0}} />  : this.renderIcon()}
+                {this.state.currentLabel}
+                {(this.props.iosIcon == undefined) ? <Icon name="ios-home" style={{opacity: 0}} /> : this.renderIcon()}
             </Button>
             <Modal animationType='slide'
                 transparent={false}

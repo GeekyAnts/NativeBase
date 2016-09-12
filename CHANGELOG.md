@@ -14,6 +14,7 @@
 
 ### Enhancement Features
 
+- **Keyboard-Aware-ScrollView:** Upgraded [react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view) from 0.1.2 to 0.2.0, ([2a74737](https://github.com/GeekyAnts/NativeBase/commit/2a74737ad680be54056942ce0a5d685bd846ebb8))
 -	**Button:** Button supports prop `capitalize` ([54d0121](https://github.com/GeekyAnts/NativeBase/commit/54d0121407d42be322a882635ae2955152456e94))
 -	**Content:** Added ref_scrollview to Content ([1d88a86](https://github.com/GeekyAnts/NativeBase/commit/1d88a86de0e2888808251cf71df9db8c267b36a0))
 -	**Theme:** Theme variables added for Footer, Toolbar for android, StatusBar for android ([52d45d6](https://github.com/GeekyAnts/NativeBase/commit/52d45d61f6dfceb56ad8ab007f384f5e4c92094c))

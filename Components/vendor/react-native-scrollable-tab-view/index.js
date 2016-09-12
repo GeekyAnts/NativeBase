@@ -23,7 +23,7 @@ export default class ScrollableTabView extends NativeBaseComponent {
     springFriction: 10
   };
   constructor(props) {
-    super(props);    
+    super(props);
     var currentPage = this.props.initialPage || 0;
     this.state = {
       currentPage: currentPage,
@@ -78,7 +78,7 @@ export default class ScrollableTabView extends NativeBaseComponent {
     });
   }
 
-  goToPage(pageNumber) {    
+  goToPage(pageNumber) {
     this.props.onChangeTab && this.props.onChangeTab({
       i: pageNumber, ref: this.props.children[pageNumber]
     });
