@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import lightTheme from '../Themes/light';
 
-export default class NativeBaseComponent extends Component {			
+export default class NativeBaseComponent extends Component {
 	static contextTypes = {
 		theme: React.PropTypes.object,
 		foregroundColor: React.PropTypes.string
@@ -23,7 +23,7 @@ export default class NativeBaseComponent extends Component {
 	getChildContext() {
 		return {
 			theme: this.props.theme ? this.props.theme : this.getTheme(),
-			foregroundColor: this.props.foregroundColor ? 
+			foregroundColor: this.props.foregroundColor ?
 			this.props.foregroundColor : this.getTheme().textColor
 		};
 	}
@@ -33,7 +33,7 @@ export default class NativeBaseComponent extends Component {
 	}
 
 	getTheme() {
-		return this.props.theme ? this.props.theme : 
+		return this.props.theme ? this.props.theme :
 		this.context.theme || lightTheme
 	}
 }

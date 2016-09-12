@@ -27,7 +27,7 @@ export default class SwitchNB extends NativeBaseComponent {
         return computeProps(this.props, defaultProps);
     }
 
-    render() { 
+    render() {
         return(
             <Switch {...this.prepareRootProps()}/>
         );

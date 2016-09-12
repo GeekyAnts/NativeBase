@@ -7,7 +7,7 @@ import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
 export default class PickerNB extends NativeBaseComponent {
-    
+
     getInitialStyle() {
         return {
             picker: {

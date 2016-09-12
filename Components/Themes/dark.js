@@ -35,7 +35,7 @@ module.exports = {
 
     get borderRadiusLarge () {
         return multiply(fontSizeBase, 5.8);
-    },	
+    },
 
     toolbarHeight: 70,
     toolbarDefaultBg: '#505052',
@@ -43,39 +43,39 @@ module.exports = {
 
     get btnPrimaryBg () {
         return this.brandPrimary;
-    },	
+    },
     get btnPrimaryColor () {
         return this.textColor;
-    },	
+    },
     get btnSuccessBg () {
         return this.brandSuccess;
-    },	
+    },
     get btnSuccessColor () {
         return this.textColor;
-    },	
+    },
     get btnDangerBg () {
         return this.brandDanger;
-    },	
+    },
     get btnDangerColor () {
         return this.textColor;
-    },	
+    },
     get btnInfoBg () {
         return this.brandInfo;
-    },	
+    },
     get btnInfoColor () {
         return this.textColor;
-    },	
+    },
     get btnWarningBg () {
         return this.brandWarning;
-    },	
+    },
     get btnWarningColor () {
         return this.textColor;
-    },	
+    },
 
 
     inputColor: '#fff',
     inputBorderColor: '#fff',
-    inputHeightBase: 40,	
+    inputHeightBase: 40,
     inputGroupMarginBottom: 10,
     inputColorPlaceholder: 'rgba(256,256,256,0.8)',
     inputPaddingLeft: 5,
