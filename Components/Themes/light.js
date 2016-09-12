@@ -106,10 +106,12 @@ export default {
     footerHeight: 55,
     footerDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
 
+
     //FooterTab
     tabBarTextColor: (Platform.OS === 'ios' ) ? '#6b6b6b' : '#b3c7f9',
     tabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#007aff' : '#fff',
     tabActiveBgColor: (Platform.OS=='ios') ? '#e4f0fe' : undefined,
+
 
     // Header
     iosToolbarBtnColor: '#007aff',
