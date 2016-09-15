@@ -52,6 +52,9 @@ Some quotes from users of **NativeBase**
 **Recommended by [Awesome React Native](https://github.com/jondot/awesome-react-native)**
 >NativeBase added into the list of [Frameworks](https://github.com/jondot/awesome-react-native#frameworks) of Awesome React Native.
 
+**Peer Richelsen**
+>I highly recommend NativeBaseIO for React Native mobile app development. It speeds up development by 1000%
+
 **moosawi**
 >Best framework for React Native.
 
