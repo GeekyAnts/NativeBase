@@ -3,7 +3,7 @@
 
 import React from 'react';
 import clamp from 'clamp';
-import {Animated, PanResponder, Platform} from 'react-native';
+import {Animated, PanResponder } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import View from './View';
 
@@ -40,17 +40,13 @@ export default class CardSwiper extends NativeBaseComponent {
     findNextIndexes() {
         let currentIndex = this.props.dataSource.indexOf(this.state.selectedItem);
         let newIdx = currentIndex + 1;
-        let newIdx2 = currentIndex + 2;
-        console.log(currentIndex, newIdx, newIdx2);
+        let newIdx2 = currentIndex + 2;        
 
-        if(newIdx2 > this.props.dataSource.length - 1 && newIdx === this.props.dataSource.length - 1) {
-            console.log("return", newIdx, 0);
+        if(newIdx2 > this.props.dataSource.length - 1 && newIdx === this.props.dataSource.length - 1) {            
             return [newIdx, 0];
-        } else if (newIdx > this.props.dataSource.length - 1) {
-            console.log("return", 0, 1);
+        } else if (newIdx > this.props.dataSource.length - 1) {            
             return [0, 1];
-        } else {
-            console.log("return", newIdx, newIdx2);
+        } else {            
             return [newIdx, newIdx2];
         }
     }
@@ -64,8 +60,7 @@ export default class CardSwiper extends NativeBaseComponent {
             setTimeout( () => {
                 this.setState({
                     selectedItem2: this.props.dataSource[nextIndexes[1]]
-                });
-                console.log(this.state);
+                });                
             }, 350);
         }, 50);
 
@@ -104,11 +99,9 @@ export default class CardSwiper extends NativeBaseComponent {
                 var velocity;
 
                 if (vx >= 0) {
-                    velocity = clamp(vx, 4.5, 10);
-                    console.log('velocity', velocity);
+                    velocity = clamp(vx, 4.5, 10);                    
                 } else if (vx < 0) {
-                    velocity = clamp(vx * -1, 4.5, 10) * -1;
-                    console.log('velocity', velocity);
+                    velocity = clamp(vx * -1, 4.5, 10) * -1;                    
                 }
 
                 if (Math.abs(this.state.pan.x._value) > SWIPE_THRESHOLD) {
