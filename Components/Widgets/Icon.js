@@ -16,39 +16,69 @@ import Zocial from 'react-native-vector-icons/Zocial';
 export default class IconNB extends NativeBaseComponent {
 
     propTypes: {
-        style : React.PropTypes.object
+        style: React.PropTypes.object,
+        iconFamily: React.PropTypes.string
     }
 
     contextTypes: {
-      theme: React.PropTypes.object
+        theme: React.PropTypes.object
     }
 
     componentWillMount() {
-      switch(this.getTheme().iconFamily) {
-        case 'Ionicons':
-            this.Icon = Ionicons;
-            break;
-        case 'Entypo':
-            this.Icon = Entypo;
-            break;
-        case 'FontAwesome':
-            this.Icon = FontAwesome;
-            break;
-        case 'Foundation':
-            this.Icon = Foundation;
-            break;
-        case 'MaterialIcons':
-            this.Icon = MaterialIcons;
-            break;
-        case 'Octicons':
-            this.Icon = Octicons;
-            break;
-        case 'Zocial':
-            this.Icon = Zocial;
-            break;
-        default:
-            this.Icon = Ionicons;
-      }
+        if (this.props.iconFamily) {
+            switch (this.props.iconFamily) {
+                case 'Ionicons':
+                    this.Icon = Ionicons;
+                    break;
+                case 'Entypo':
+                    this.Icon = Entypo;
+                    break;
+                case 'FontAwesome':
+                    this.Icon = FontAwesome;
+                    break;
+                case 'Foundation':
+                    this.Icon = Foundation;
+                    break;
+                case 'MaterialIcons':
+                    this.Icon = MaterialIcons;
+                    break;
+                case 'Octicons':
+                    this.Icon = Octicons;
+                    break;
+                case 'Zocial':
+                    this.Icon = Zocial;
+                    break;
+                default:
+                    this.Icon = Ionicons;
+            }
+        } else {
+
+            switch (this.getTheme().iconFamily) {
+                case 'Ionicons':
+                    this.Icon = Ionicons;
+                    break;
+                case 'Entypo':
+                    this.Icon = Entypo;
+                    break;
+                case 'FontAwesome':
+                    this.Icon = FontAwesome;
+                    break;
+                case 'Foundation':
+                    this.Icon = Foundation;
+                    break;
+                case 'MaterialIcons':
+                    this.Icon = MaterialIcons;
+                    break;
+                case 'Octicons':
+                    this.Icon = Octicons;
+                    break;
+                case 'Zocial':
+                    this.Icon = Zocial;
+                    break;
+                default:
+                    this.Icon = Ionicons;
+            }
+        }
     }
 
     static getImageSource = FontAwesome.getImageSource
@@ -71,8 +101,8 @@ export default class IconNB extends NativeBaseComponent {
     }
 
     render() {
-        return(
-            <this.Icon {...this.prepareRootProps()}/>
+        return (
+            <this.Icon {...this.prepareRootProps() }/>
         );
     }
 }
