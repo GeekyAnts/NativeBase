@@ -18,7 +18,7 @@ export default class Header extends NativeBaseComponent {
         searchBar: React.PropTypes.bool,
         rounded: React.PropTypes.bool,
         style: React.PropTypes.object,
-        noFirstButton: React.PropTypes.bool
+        noLeftButton: React.PropTypes.bool
     }
 
     getInitialStyle() {
@@ -124,13 +124,13 @@ export default class Header extends NativeBaseComponent {
                     newChildren.push(<View key='title' style={{ position: 'absolute', left: 0, right: 0, top: 13, bottom: 0, alignSelf: 'center', justifyContent: 'center' }}>
                         {[title[0], subtitle[0]]}
                     </View>)
-                    if(!this.props.noFirstButton)
+                    if(!this.props.noLeftButton)
                     newChildren.push(<View key='btn1' style={{ alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14 }}>
                         {React.cloneElement(buttons[0], { color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton }) }
                     </View>)
                     newChildren.push(<View key='title2' style={{ flex: 3, alignSelf: 'stretch' }} />)
                     // if (buttons.length > 1) {
-                        for (let i = this.props.noFirstButton? 0: 1; i < buttons.length; i++) {
+                        for (let i = this.props.noLeftButton? 0: 1; i < buttons.length; i++) {
                             newChildren.push(<View key={'btn' + (i + 1) } style={{ alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -14 }}>
                                 {React.cloneElement(buttons[i], { color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton }) }
                             </View>)
@@ -138,14 +138,14 @@ export default class Header extends NativeBaseComponent {
                     // }
                 }
                 else {
-                    if(!this.props.noFirstButton)
+                    if(!this.props.noLeftButton)
                     newChildren.push(<View key='btn1' style={{ alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -10, marginRight: 12 }}>
                         {React.cloneElement(buttons[0], { style: this.getInitialStyle().toolbarButton, header: true, textStyle: { color: this.getTheme().toolbarTextColor } }) }
                     </View>)
                     newChildren.push(<View key='title' style={{ flex: 3, alignSelf: 'stretch', justifyContent: 'center' }}>
                         {[title[0]]}
                     </View>)
-                    for (let i = this.props.noFirstButton? 0: 1; i < buttons.length; i++) {
+                    for (let i = this.props.noLeftButton? 0: 1; i < buttons.length; i++) {
                         newChildren.push(<View key={'btn' + (i + 1) } style={{ alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -7 }}>
                             {React.cloneElement(buttons[i], { style: this.getInitialStyle().toolbarButton, header: true, textStyle: { color: this.getTheme().toolbarTextColor } }) }
                         </View>)
