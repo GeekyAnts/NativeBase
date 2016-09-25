@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {View} from 'react-native';
+import {View, Image} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import Icon from './Icon';
 import Button from './Button';
@@ -133,7 +133,7 @@ export default class InputGroup extends NativeBaseComponent {
 
 		var iconElement = [];
 		iconElement = _.remove(childrenArray, function(item) {
-				if(item.type == Icon) {
+				if(item.type == Icon || item.type==Image) {
 						return true;
 				}
 		});
