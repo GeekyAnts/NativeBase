@@ -127,7 +127,6 @@ export default class InputGroup extends NativeBaseComponent {
 		var inputProps = {};
 		var newChildren = [];
 		var childrenArray = React.Children.toArray(this.props.children);
-		console.log('childrenArray: ', this.props.children)
 
 		var iconElement = [];
 		iconElement = _.remove(childrenArray, function(item) {
