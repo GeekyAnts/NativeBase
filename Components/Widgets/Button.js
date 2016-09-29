@@ -9,6 +9,7 @@ import IconNB from './Icon';
 import Icon from './Icon';
 import Text from './Text';
 import _ from 'lodash';
+import ReactNativePropRegistry from 'react/lib/ReactNativePropRegistry';
 
 
 export default class Button extends NativeBaseComponent {
@@ -85,7 +86,6 @@ export default class Button extends NativeBaseComponent {
     }
 
     getTextStyle() {
-
         var mergedStyle = {};
         var btnType = {
             fontFamily: this.getTheme().btnFontFamily,
@@ -106,8 +106,11 @@ export default class Button extends NativeBaseComponent {
 
             lineHeight: (this.props.large) ? 29 : (this.props.small) ? 16 : this.getTheme().btnLineHeight
         }
-
-        return _.merge(mergedStyle, btnType, this.props.textStyle);
+        if(typeof this.props.textStyle == 'number') {
+            return _.merge(mergedStyle, btnType, ReactNativePropRegistry.getByID(this.props.textStyle));
+        } else {
+            return _.merge(mergedStyle, btnType, this.props.textStyle);
+        }
     }
 
     getIconProps(icon) {
@@ -144,7 +147,7 @@ export default class Button extends NativeBaseComponent {
         return iconComponentPresent;
     }
     renderChildren() {
-        
+
         if(typeof this.props.children == 'string') {
             return <Text style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>
         }
