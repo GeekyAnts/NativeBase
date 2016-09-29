@@ -33,7 +33,7 @@ export default class TabNB extends NativeBaseComponent {
     render() {
         return(
             <ScrollableTabView {...this.prepareRootProps()} >
-            {this.props.children}
+            {this.props.children.filter(child => child)}
             </ScrollableTabView>
         );
     }

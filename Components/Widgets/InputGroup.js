@@ -68,7 +68,6 @@ export default class InputGroup extends NativeBaseComponent {
 	}
 
 	prepareRootProps() {
-
 		var type = {
 			paddingLeft:  (this.props.borderType === 'rounded' && !this.props.children.type == Icon) ? 15 :
 			(this.props.children.type == Icon ) ? this.getTheme().inputPaddingLeftIcon : 5
@@ -89,7 +88,6 @@ export default class InputGroup extends NativeBaseComponent {
 	}
 
 	getIconProps(icon) {
-
 		var defaultStyle = {
 			fontSize: (this.props.toolbar || this.props.atoolbar) ? this.getTheme().toolbarIconSize : 27,
 			alignSelf: 'center',
@@ -126,7 +124,6 @@ export default class InputGroup extends NativeBaseComponent {
 
 
 	renderChildren() {
-
 		var inputProps = {};
 		var newChildren = [];
 		var childrenArray = React.Children.toArray(this.props.children);
@@ -166,7 +163,7 @@ export default class InputGroup extends NativeBaseComponent {
 
 		if(Array.isArray(this.props.children)) {
 
-			if(this.props.iconRight) {
+			if(this.props.iconRight && iconElement.length > 0) {
 				if(clonedInp) {
 					newChildren.push(clonedInp);
 				}
@@ -211,7 +208,9 @@ export default class InputGroup extends NativeBaseComponent {
 						}
 					));
 				} else {
-					newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
+					if(iconElement.length > 0){
+					  newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
+					}
 					if(clonedInp) {
 						newChildren.push(clonedInp);
 	 				}

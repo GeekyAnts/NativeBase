@@ -94,7 +94,7 @@ export default class Footer extends NativeBaseComponent {
                             capitalize={false}
                             style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined}]}
                             textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
-                            key={i}>
+                            key={i} onPress={child.props.onPress}>
                             {child.props.children}
                             <Icon
                                 style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
@@ -107,7 +107,7 @@ export default class Footer extends NativeBaseComponent {
                         <Button transparent vertical
                             capitalize={false}
                             style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined}]}
-                            key={i}>
+                            key={i} onPress={child.props.onPress}>
                             <Icon
                                 style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor,
                                         fontSize: 28}}
