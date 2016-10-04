@@ -16,6 +16,23 @@ export default class Container extends NativeBaseComponent {
 	propTypes: {
         style : React.PropTypes.object
     }
+	
+	renderOther(){
+		if(Array.isArray(this.props.children)) {
+
+			return _.filter(this.props.children, function(item) {
+				if(item && (item.type != Header && item.type != ViewNB && item.type != Content && item.type != Image && item.type != View && item.type != ScrollView && item.type != Footer)) {
+					return true;
+				}
+			});
+		}
+
+		else {
+			if(this.props.children && (this.props.children.type != Header && this.props.children.type != Content && this.props.children.type != ViewNB && this.props.children.type != View && this.props.children.type != Image && this.props.children.type != ScrollView &&  this.props.children.type != Footer)) {
+				return this.props.children;
+			}
+		}
+	}
 
 	renderHeader() {
 		if(Array.isArray(this.props.children)) {
@@ -86,6 +103,7 @@ export default class Container extends NativeBaseComponent {
 
 				{this.renderFooter()}
 
+				{this.props.allowExtraContent == true ? this.renderOther() : null}
 			</View>
 		);
 
