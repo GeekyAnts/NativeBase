@@ -34,8 +34,8 @@ export default class Content extends NativeBaseComponent {
   }
 
   render() {
-    const contentContainerStyle = this.props.contentContainerStyle || {};
-    contentContainerStyle.padding = (this.props.padder) ? this.getTheme().contentPadding : 0;
+    const padding = (this.props.padder) ? this.getTheme().contentPadding : 0;
+    const contentContainerStyle = {padding, ...this.props.contentContainerStyle};
     return(
       <KeyboardAwareScrollView automaticallyAdjustContentInsets={false} ref={c => this._scrollview = c} {...this.prepareRootProps()} contentContainerStyle={contentContainerStyle}>{this.props.children}</KeyboardAwareScrollView>
     );
