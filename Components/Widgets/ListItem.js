@@ -404,6 +404,28 @@ export default class ListItemNB extends NativeBaseComponent {
                 newChildren.push(React.cloneElement(pickerElement[0], {...this.getChildProps(pickerElement[0]), key: 'listItem1', style:{flex: 1, alignSelf: 'flex-end'} }));
             }
 
+            else if (this.props.iconRight && this.thumbnailPresent()) {
+
+                const thumbnailElement = _.remove(childrenArray, function(item) {
+                    if(item.type == Thumbnail) {
+                        return true;
+                    }
+                });
+                newChildren.push(React.cloneElement(thumbnailElement[0], {...this.getChildProps(thumbnailElement[0]), key: 'listItem0'}));
+                iconElement = _.remove(childrenArray, function(item) {
+                    if(item.type == Icon) {
+                        return true;
+                    }
+                });
+
+                newChildren.push(<View key='listItem1' style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                    {childrenArray.map((child, i) => {
+                        return React.cloneElement(child, {...this.getChildProps(child), key: i});
+                    })}
+                    </View>);
+                newChildren.push(React.cloneElement(iconElement[0], {...this.getChildProps(iconElement[0]), key: 'listItem2'}));
+            }
+
             else if (this.props.iconRight && !this.props.iconLeft) {
 
                 iconElement = _.remove(childrenArray, function(item) {
