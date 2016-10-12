@@ -10,7 +10,7 @@
 - **Content:** Eliminates margin on the top of Content which includes any fields inside of it. ([9dce714](https://github.com/GeekyAnts/NativeBase/commit/9dce7141faf591d28f2df857856c91209b42c74f)), closes [#182](https://github.com/GeekyAnts/NativeBase/issues/182)
 
 
-### Enhancement Features
+### Enhancement Features 
 
 -	**FooterTab:** Added onPress support for elements of FooterTab ([47a5ae7](https://github.com/GeekyAnts/NativeBase/commit/47a5ae73edd5c1112fd8aa7ed0a6a7e5015f60d7)), closes [#180](https://github.com/GeekyAnts/NativeBase/issues/180), [#188](https://github.com/GeekyAnts/NativeBase/issues/188)
 - **InputGroup:** Allows null block inside InputGroup Component. ([94c7913](https://github.com/GeekyAnts/NativeBase/commit/94c7913622f489a185564fdbad215f38e71a2366)), closes [#137](https://github.com/GeekyAnts/NativeBase/issues/137), [#202](https://github.com/GeekyAnts/NativeBase/issues/202)
