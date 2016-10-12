@@ -23,5 +23,5 @@
 ### New Features
 
 -	**Deck Swiper:** Tinder-like swipe cards to select/reject data set with features to swipe left and right.
-- **Generate Image from Icon:** Genrates an Image resource for NativeBase Icons. ([eb2e79a](https://github.com/GeekyAnts/NativeBase/commit/eb2e79afe3990295f1459fe5632832d680b5d3cc)), closes [#183](https://github.com/GeekyAnts/NativeBase/issues/183)
-- **filter() for null values:** Usually if a null value is passed as a child to Component, it throws few errors. This .filter() removes all falsey values from this.props.children, preventing the errors, and returning the correct result. ([9690468](https://github.com/GeekyAnts/NativeBase/commit/9690468ef70c978bafaf1ddc48dec67d0deb69da))
+- **Generate Image from Icon:** Generates an Image resource for NativeBase Icons. ([eb2e79a](https://github.com/GeekyAnts/NativeBase/commit/eb2e79afe3990295f1459fe5632832d680b5d3cc)), closes [#183](https://github.com/GeekyAnts/NativeBase/issues/183)
+- **filter() for null values:** Usually if a null value is passed as a child to Component, it throws few errors. This .filter() removes all false values from this.props.children, preventing the errors, and returning the correct result. ([9690468](https://github.com/GeekyAnts/NativeBase/commit/9690468ef70c978bafaf1ddc48dec67d0deb69da))
