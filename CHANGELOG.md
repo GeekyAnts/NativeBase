@@ -1,26 +1,27 @@
 
-# [0.5.8](https://github.com/GeekyAnts/NativeBase/releases/tag/v0.5.8)
+# [0.5.9](https://github.com/GeekyAnts/NativeBase/releases/tag/v0.5.9)
 
 ### Bug Fixes
 
--	**Badge:** Badge supports font-size, lineHeight, width and color ([1a68173](https://github.com/GeekyAnts/NativeBase/commit/1a68173a15e10ee425fb2daf172886d2c985d377)), closes [#159](https://github.com/GeekyAnts/NativeBase/issues/159)
--	**Checkbox:** Checkbox responds on user's click ([0f10729](https://github.com/GeekyAnts/NativeBase/commit/0f10729b7391e15454e73c7505d467a6e6cb341a)), closes [#168](https://github.com/GeekyAnts/NativeBase/issues/168)
--	**Footer:** Footer is functional as before. ([880250c](https://github.com/GeekyAnts/NativeBase/commit/880250c0ea9f9c0ebfab38c3b25fc92dc9af1aba))
--	**H1, H2, H3 LineHeight:** Added lineHeight to H1, H2, H3 components. ([f1aaa70](https://github.com/GeekyAnts/NativeBase/commit/f1aaa7066aa43482571bf7d8a5d8279b27484547)), closes [#166](https://github.com/GeekyAnts/NativeBase/issues/166)
--	**LisItem:** LisItem height removed && scrollView added to container ([80a3c2b](https://github.com/GeekyAnts/NativeBase/commit/80a3c2bcc5d4549a3806e2093f597ef3b6f7c7e2)), closes [#151](https://github.com/GeekyAnts/NativeBase/issues/151)
--	**LisItem:** LisItem supports both `iconLeft` and `iconRight` used together. ([4a4297c](https://github.com/GeekyAnts/NativeBase/commit/4a4297cce473b62c6ea7ff35d21c8bde671e4f8c)), closes [#155](https://github.com/GeekyAnts/NativeBase/issues/155)
--	**Radio Button:** Radio Button responds on user's click ([0f10729](https://github.com/GeekyAnts/NativeBase/commit/0f10729b7391e15454e73c7505d467a6e6cb341a)), closes [#164](https://github.com/GeekyAnts/NativeBase/issues/164)
+-	**Picker:** Updates `Picker.Item` value dynamically ([b03f0e5](https://github.com/GeekyAnts/NativeBase/commit/b03f0e52fa417c586b3d6cd65e2caf7d8dbe0299)), closes [#169](https://github.com/GeekyAnts/NativeBase/issues/169), closes [#156](https://github.com/GeekyAnts/NativeBase/issues/156)
+-	**Keyboard-aware-scroll-view:** 
+    - resetScrollToCoords: This is an user definable prop. Coordinates that will be used to reset the scroll when the keyboard hides. Also restores scroll position after keyboard hides if <i>resetScrollToCoords</i> is not set. ([bc98be8](https://github.com/GeekyAnts/NativeBase/commit/bc98be8bb14b41df22856a618e07b71a0f9e857e))
+    - disableKBDismissScroll: Disables automatic scroll on focus. ([d92aa1b](https://github.com/GeekyAnts/NativeBase/commit/d92aa1b35009d6a419b420a37a3bd2b3021c5167))
+- **Content:** Eliminates margin on the top of Content which includes any fields inside of it. ([9dce714](https://github.com/GeekyAnts/NativeBase/commit/9dce7141faf591d28f2df857856c91209b42c74f)), closes [#182](https://github.com/GeekyAnts/NativeBase/issues/182)
 
 
 ### Enhancement Features
 
-- **Keyboard-Aware-ScrollView:** Upgraded [react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view) from 0.1.2 to 0.2.0, ([2a74737](https://github.com/GeekyAnts/NativeBase/commit/2a74737ad680be54056942ce0a5d685bd846ebb8))
--	**Button:** Button supports prop `capitalize` ([54d0121](https://github.com/GeekyAnts/NativeBase/commit/54d0121407d42be322a882635ae2955152456e94))
--	**Content:** Added ref_scrollview to Content ([1d88a86](https://github.com/GeekyAnts/NativeBase/commit/1d88a86de0e2888808251cf71df9db8c267b36a0))
--	**Theme:** Theme variables added for Footer, Toolbar for android, StatusBar for android ([52d45d6](https://github.com/GeekyAnts/NativeBase/commit/52d45d61f6dfceb56ad8ab007f384f5e4c92094c))
+-	**FooterTab:** Added onPress support for elements of FooterTab ([47a5ae7](https://github.com/GeekyAnts/NativeBase/commit/47a5ae73edd5c1112fd8aa7ed0a6a7e5015f60d7)), closes [#180](https://github.com/GeekyAnts/NativeBase/issues/180), [#188](https://github.com/GeekyAnts/NativeBase/issues/188)
+- **InputGroup:** Allows null block inside InputGroup Component. ([94c7913](https://github.com/GeekyAnts/NativeBase/commit/94c7913622f489a185564fdbad215f38e71a2366)), closes [#137](https://github.com/GeekyAnts/NativeBase/issues/137), [#202](https://github.com/GeekyAnts/NativeBase/issues/202))
+- **Tabs:** Helps to switch between the Tabs component programatically. Say `page = 1`. ([3253fe8](https://github.com/GeekyAnts/NativeBase/commit/3253fe81fac3004c752c196c13be1208d5b33341)), closes [#181](https://github.com/GeekyAnts/NativeBase/issues/181), [#203](https://github.com/GeekyAnts/NativeBase/issues/203))
+- **Tabs:** Ensures that Tabs component's props.children is an array, else creates a single item array if it is not. Thus allows calls to .filter() and .map(). ([c9bc57d](https://github.com/GeekyAnts/NativeBase/commit/c9bc57d45199bfdc2806646dde560128053230e6)), closes [#207](https://github.com/GeekyAnts/NativeBase/issues/207)
+- **ES Lint:** Config ESLint (airbnb) to enforce coding style. ([dee1deb](https://github.com/GeekyAnts/NativeBase/commit/dee1debac7a93d9772aca21436f1dd4fd97f1039))
 
 
 
 ### New Features
 
--	**FooterTab:** Button Tabs in Footer ([880250c](https://github.com/GeekyAnts/NativeBase/commit/880250c0ea9f9c0ebfab38c3b25fc92dc9af1aba))
+-	**Deck Swiper:** Tinder-like swipe cards to select/reject data set with features to swipe left and right.
+- **Generate Image from Icon:** Genrates an Image resource for NativeBase Icons. ([eb2e79a](https://github.com/GeekyAnts/NativeBase/commit/eb2e79afe3990295f1459fe5632832d680b5d3cc)), closes [#183](https://github.com/GeekyAnts/NativeBase/issues/183)
+- **filter() for null values:** Usually if a null value is passed as a child to Component, it throws few errors. This .filter() removes all falsey values from this.props.children, preventing the errors, and returning the correct result. ([9690468](https://github.com/GeekyAnts/NativeBase/commit/9690468ef70c978bafaf1ddc48dec67d0deb69da))
