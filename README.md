@@ -122,17 +122,17 @@ Based on [React Native](https://facebook.github.io/react-native/) and [NativeBas
 
 ### a. Native Starter Pro - v5.1.0
 
-[Native Starter Pro](https://strapmobile.com/native-starter-pro/) is a bold and flexible [React Native](https://facebook.github.io/react-native/) theme best suited for developing high-quality mobile apps that makes use of ready-made tools. The theme has several widget areas that allows you to extend your theme functionality with plugins. Native Starter Pro is built using [Redux](https://github.com/reactjs/react-redux) and is performance optimized which helps you to develop world-class application experiences on native platforms. [Read More](http://strapmobile.com/docs/native-starter-pro/v5.0.0)
+[Native Starter Pro](https://strapmobile.com/native-starter-pro/) is a bold and flexible [React Native](https://facebook.github.io/react-native/) theme best suited for developing high-quality mobile apps that makes use of ready-made tools. The theme has several widget areas that allows you to extend your theme functionality with plugins. Native Starter Pro is built using [Redux](https://github.com/reactjs/react-redux) and is performance optimized which helps you to develop world-class application experiences on native platforms. [Read More. . .](http://strapmobile.com/docs/native-starter-pro/v5.0.0)
 
 
 ### b. Ecommerce Starter - v5.1.0
 
-[Ecommerce Starter](https://strapmobile.com/react-native-e-commerce-starter/), a perfect starter kit for e-commerce apps. Readily available pages along with rich collection of UI elements. [Read More](http://strapmobile.com/docs/react-native-ecommerce-starter/v5.0.0)
+[Ecommerce Starter](https://strapmobile.com/react-native-e-commerce-starter/), a perfect starter kit for e-commerce apps. Readily available pages along with rich collection of UI elements. [Read More. . .](http://strapmobile.com/docs/react-native-ecommerce-starter/v5.0.0)
 
 
 ### c. Flat App Theme - v5.1.0
 
-[Flat App](https://strapmobile.com/react-native-flat-app-theme/) is basically a style of interface design emphasizing minimum use of stylistic elements, typography and flat colors. [Read More](http://strapmobile.com/docs/react-native-flat-app-theme/v4.0.0)
+[Flat App](https://strapmobile.com/react-native-flat-app-theme/) is basically a style of interface design emphasizing minimum use of stylistic elements, typography and flat colors. [Read More. . .](http://strapmobile.com/docs/react-native-flat-app-theme/v4.0.0)
 
 
 ### d. Taxi App with Backend - v4.0.0
@@ -146,7 +146,7 @@ The ideal starter app with all the needed UI elements and Backend Integration to
 
 ### e. Dating App Theme - v1.0.0
 
-[Dating App](https://strapmobile.com/react-native-dating-app-theme/) is a well structured iOS and Android, having fully customizable pages along-with a rich collection of UI elements specifically for an ideal dating app to help you quickly get started on your next project. [Read More](https://strapmobile.com/docs/react-native-dating-app-theme/v1.0.0/)
+[Dating App](https://strapmobile.com/react-native-dating-app-theme/) is a well structured iOS and Android, having fully customizable pages along-with a rich collection of UI elements specifically for an ideal dating app to help you quickly get started on your next project. [Read More. . .](https://strapmobile.com/docs/react-native-dating-app-theme/v1.0.0/)
 
 
 
