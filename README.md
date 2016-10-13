@@ -9,22 +9,22 @@ NativeBase is a sleek, ingenious and dynamic front-end framework created by pass
 
 # Table of Content
 
-1. [What is NativeBase?](#what-is-nativebase)
-2. [Why NativeBase?](#why-nativebase)
-3. [Magic of NativeBase](#magic-of-nativebase)
-4. [Getting Started](#getting-started)
-5. [Components](#components)
-6. [Native Starter Kit](#native-starter-kit)
-7. [Featured Apps](#featured-apps)
-	- [Native Starter Pro](#native-starter-pro---v500)
-	- [Ecommerce Starter](#ecommerce-starter---v500)
-	- [Flat App Theme](#flat-app-theme---v400)
-	- [Taxi App with Backend](#taxi-app-with-backend---v400)
-	- [Dating App Theme](#dating-app-theme---v100)
-8. [Documentation](#documentation)
-9. [Website](#website)
-10. [Quick Links to NativeBase](#quick-links-to-nativebase)
-11. [About the creators](#about-the-creators)
+1. [What is NativeBase?](#1-what-is-nativebase)
+2. [Why NativeBase?](#2-why-nativebase)
+3. [Magic of NativeBase](#3-magic-of-nativebase)
+4. [Getting Started](#4-getting-started)
+5. [Components](#5-components)
+6. [Native Starter Kit](#6-native-starter-kit)
+7. [Featured Apps](#7-featured-apps)
+	- [Native Starter Pro](#a-native-starter-pro---v500)
+	- [Ecommerce Starter](#b-ecommerce-starter---v500)
+	- [Flat App Theme](#c-flat-app-theme---v400)
+	- [Taxi App with Backend](#d-taxi-app-with-backend---v400)
+	- [Dating App Theme](#e-dating-app-theme---v100)
+8. [Documentation](#8-documentation)
+9. [Website](#9-website)
+10. [Quick Links to NativeBase](#10-quick-links-to-nativebase)
+11. [About the creators](#11-about-the-creators)
 
 
 
