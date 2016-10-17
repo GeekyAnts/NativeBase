@@ -181,7 +181,6 @@ export default class CardItemNB extends NativeBaseComponent {
         }
         else if(child.type == Button) {
             defaultProps = {
-                small: true,
                 style: this.getInitialStyle().itemButton
             }
         }

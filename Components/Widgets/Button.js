@@ -175,11 +175,11 @@ export default class Button extends NativeBaseComponent {
                     newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
                 }
 
-                newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+                newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
             }
 
             else if(this.props.iconLeft || iconElement.length>0) {
-                newChildren.push(<Text key='icon'>{React.cloneElement(iconElement[0], this.getIconProps(iconElement[0]))}</Text>);
+                newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
 
                 if (childrenArray[0].type==undefined) {
                     newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
