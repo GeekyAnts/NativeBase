@@ -49,8 +49,8 @@ export default class Footer extends NativeBaseComponent {
                 alignSelf: 'center',
                 flex: 1,
                 justifyContent: 'center',
-                margin: 3,
-                height: this.getTheme().footerHeight-8,
+                margin: 1,
+                height: this.getTheme().footerHeight-4,
                 borderRadius: (Platform.OS == 'ios') ? 7 : 0
             }
         }
