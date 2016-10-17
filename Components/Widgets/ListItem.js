@@ -54,7 +54,8 @@ export default class ListItemNB extends NativeBaseComponent {
             itemText: {
                 fontSize: 16,
                 marginLeft: (this.props.iconLeft) ? 10 : 0,
-                color: this.getContextForegroundColor()
+                color: this.getContextForegroundColor(),
+                alignSelf: ((this.pickerPresent() && this.props.iconLeft) || (this.props.iconLeft && this.badgePresent())) ? 'center' : undefined
             },
             dividerItemText: {
                 fontSize: 16,
@@ -396,7 +397,7 @@ export default class ListItemNB extends NativeBaseComponent {
                         return true;
                     }
                 });
-                newChildren.push(<View key='listItem0' style={{flexDirection: 'row'}} >
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', alignItems: 'center'}} >
                     {childrenArray.map((child, i) => {
                         return React.cloneElement(child, {...this.getChildProps(child), key: i});
                     })}
