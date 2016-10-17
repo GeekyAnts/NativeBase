@@ -55,7 +55,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 fontSize: 16,
                 marginLeft: (this.props.iconLeft) ? 10 : 0,
                 color: this.getContextForegroundColor(),
-                alignSelf: ((this.pickerPresent() && this.props.iconLeft) || (this.props.iconLeft && this.badgePresent())) ? 'center' : undefined
+                alignSelf: ((this.pickerPresent() && this.props.iconLeft) || (this.props.iconLeft && this.badgePresent()) || (this.checkBoxPresent() && this.buttonPresent()) ) ? 'center' : undefined
             },
             dividerItemText: {
                 fontSize: 16,
@@ -436,6 +436,23 @@ export default class ListItemNB extends NativeBaseComponent {
                     </View>);
                 newChildren.push(React.cloneElement(badgeElement[0], {...this.getChildProps(badgeElement[0]), key: 'listItem1'}));
             }
+
+            // else if (this.buttonPresent()) {
+            //
+            //     var buttonElement = _.remove(childrenArray, function(item) {
+            //         if(item.type == Button) {
+            //             return true;
+            //         }
+            //     });
+            //
+            //     newChildren.push(<View key='listItem0' >
+            //         {childrenArray.map((child, i) => {
+            //             return React.cloneElement(child, {...this.getChildProps(child), key: i});
+            //         })}
+            //         </View>);
+            //     newChildren.push(React.cloneElement(buttonElement[0], {...this.getChildProps(buttonElement[0]), key: 'listItem1'}));
+            // }
+
             else if (this.props.iconLeft && this.props.iconRight) {
 
                 iconElement = _.filter(childrenArray, function(item) {
@@ -474,7 +491,7 @@ export default class ListItemNB extends NativeBaseComponent {
                     }
                 });
                 newChildren.push(React.cloneElement(iconElement[0], this.getChildProps(iconElement[0])));
-                newChildren.push(<View key='listItem1' style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                newChildren.push(<View key='listItem1' style={{flexDirection: 'row', paddingLeft: 15, justifyContent: 'space-between', alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
                     {childrenArray.map((child) => {
                         return React.cloneElement(child, this.getChildProps(child));
                     })}
