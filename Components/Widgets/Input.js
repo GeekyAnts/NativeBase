@@ -14,7 +14,7 @@ export default class Input extends NativeBaseComponent {
     getInitialStyle() {
         return {
             input: {
-                height: this.getTheme().inputHeightBase,
+                height: this.props.toolbar ? 30 : this.getTheme().inputHeightBase,
                 color: this.getTheme().inputColor,
                 paddingLeft: 5,
                 paddingRight: 5,
