@@ -375,7 +375,7 @@ export default class ListItemNB extends NativeBaseComponent {
             var childrenArray = React.Children.toArray(this.props.children);
             var iconElement = [];
 
-            if (this.props.iconLeft && !this.props.iconRight) {
+            if (this.props.iconLeft && !this.props.iconRight && !this.pickerPresent()) {
 
                 iconElement = _.remove(childrenArray, function(item) {
                     if(item.type == Icon) {
@@ -390,19 +390,18 @@ export default class ListItemNB extends NativeBaseComponent {
                     </View>);
             }
 
-            else if (this.pickerPresent()) {
-
+            else if (this.props.iconLeft && this.pickerPresent()) {
                 let pickerElement = _.remove(childrenArray, function(item) {
                     if(item.type == Picker) {
                         return true;
                     }
                 });
-                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', alignItems: 'center'}} >
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', alignItems: 'center', flex: 1.8}} >
                     {childrenArray.map((child, i) => {
                         return React.cloneElement(child, {...this.getChildProps(child), key: i});
                     })}
                     </View>);
-                newChildren.push(React.cloneElement(pickerElement[0], {...this.getChildProps(pickerElement[0]), key: 'listItem1' }));
+                newChildren.push(React.cloneElement(pickerElement[0], {...this.getChildProps(pickerElement[0]), key: 'listItem1', style:{flex: 1, alignSelf: 'flex-end'} }));
             }
 
             else if (this.props.iconRight && !this.props.iconLeft) {
@@ -436,22 +435,6 @@ export default class ListItemNB extends NativeBaseComponent {
                     </View>);
                 newChildren.push(React.cloneElement(badgeElement[0], {...this.getChildProps(badgeElement[0]), key: 'listItem1'}));
             }
-
-            // else if (this.buttonPresent()) {
-            //
-            //     var buttonElement = _.remove(childrenArray, function(item) {
-            //         if(item.type == Button) {
-            //             return true;
-            //         }
-            //     });
-            //
-            //     newChildren.push(<View key='listItem0' >
-            //         {childrenArray.map((child, i) => {
-            //             return React.cloneElement(child, {...this.getChildProps(child), key: i});
-            //         })}
-            //         </View>);
-            //     newChildren.push(React.cloneElement(buttonElement[0], {...this.getChildProps(buttonElement[0]), key: 'listItem1'}));
-            // }
 
             else if (this.props.iconLeft && this.props.iconRight) {
 
