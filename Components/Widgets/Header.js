@@ -28,7 +28,7 @@ export default class Header extends NativeBaseComponent {
                 justifyContent: (!Array.isArray(this.props.children) && Platform.OS == 'ios') ? 'center' : 'space-between',
                 flexDirection: 'row',
                 alignItems: 'center',
-                paddingLeft: (Platform.OS == 'android') ? 30 : undefined,
+                paddingLeft: (!Array.isArray(this.props.children) && Platform.OS == 'android') ? 30 : undefined,
                 paddingHorizontal: 15,
                 paddingTop: (Platform.OS === 'ios' ) ? 15 : 0,
                 shadowColor: '#000',
