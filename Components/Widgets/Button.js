@@ -191,7 +191,7 @@ export default class Button extends NativeBaseComponent {
                 }
             }
             else {
-                return <Text style={this.getTextStyle()}>{(Platform.OS==='ios') ? this.props.children : this.props.children.toUpperCase()}</Text>
+                return <Text style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>
             }
 
             return newChildren;
