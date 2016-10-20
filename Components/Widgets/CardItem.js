@@ -32,10 +32,11 @@ export default class CardItemNB extends NativeBaseComponent {
             listItemDivider: {
                 borderBottomWidth: this.getTheme().borderWidth,
                 padding: this.getTheme().listItemPadding,
-                backgroundColor: this.getTheme().listDividerBg,
+                backgroundColor: 'transparent',
+                paddingVertical: this.getTheme().listItemPadding+2,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                 flexDirection: 'row',
-                borderColor: this.getTheme().listBorderColor
+                borderColor: 'transparent'
             },
             itemText: {
                 fontSize: this.ifShowCase() ? 14 : 15,
@@ -44,7 +45,7 @@ export default class CardItemNB extends NativeBaseComponent {
                 flex: 1
             },
             dividerItemText: {
-                fontSize: 16,
+                fontSize: 17,
                 fontWeight: '500',
                 color: this.getContextForegroundColor(),
                 flex: 1

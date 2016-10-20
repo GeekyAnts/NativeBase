@@ -8,6 +8,7 @@ import Button from './Button';
 import { Platform } from 'react-native';
 import View from './View';
 import Icon from './Icon';
+import Badge from './Badge';
 import IconNB from './Icon';
 import Text from './Text';
 
@@ -67,8 +68,8 @@ export default class Footer extends NativeBaseComponent {
     }
 
     renderFooter() {
-        // console.log('this.props.children', this.props.children);
         var childrenArray = React.Children.toArray(this.props.children);
+        let length = childrenArray.length;
         var newChildren = [];
 
         {childrenArray.map((child, i) => {
@@ -88,19 +89,46 @@ export default class Footer extends NativeBaseComponent {
                         return true;
                     }
                 });
+                let badgeElement = [];
+                badgeElement = _.remove(child.props.children, function(item) {
+                    if(item.type == Badge) {
+                        return true;
+                    }
+                });
                 if (iconElement.length>0) {
-                    newChildren.push(
-                        <Button transparent vertical
-                            capitalize={false}
-                            style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined}]}
-                            textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
-                            key={i} onPress={child.props.onPress}>
-                            {child.props.children}
-                            <Icon
-                                style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
-                                name={iconElement[0].props.name} />
-                        </Button>
-                    );
+                    if (badgeElement.length>0) {
+                      newChildren.push(
+                        <View key={i} style={{position: 'relative', flex: 1}}>
+                          <Button transparent vertical
+                              capitalize={false}
+                              style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined, alignSelf: 'stretch'}]}
+                              textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
+                              onPress={child.props.onPress}>
+                              {child.props.children}
+                              <Icon
+                                  style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
+                                  name={iconElement[0].props.name} />
+                          </Button>
+                          <Badge style={{position: 'absolute', top: 4, right: (length==2) ? 68 : (length==3) ? 36 : (length==4) ? 20 : undefined, height: 18, paddingHorizontal: 6, padding: 1.5, backgroundColor: (badgeElement[0].props.badgeColor) ? badgeElement[0].props.badgeColor : undefined }} textStyle={{fontSize: 11, lineHeight: 14, color: (badgeElement[0].props.textColor) ? badgeElement[0].props.textColor : undefined }}>
+                            {badgeElement[0].props.children}
+                          </Badge>
+                      </View>
+                      );
+                    }
+                    else {
+                      newChildren.push(
+                          <Button transparent vertical
+                              capitalize={false}
+                              style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined}]}
+                              textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
+                              key={i} onPress={child.props.onPress}>
+                              {child.props.children}
+                              <Icon
+                                  style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
+                                  name={iconElement[0].props.name} />
+                          </Button>
+                      );
+                    }
                 }
                 else {
                     newChildren.push(
