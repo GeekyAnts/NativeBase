@@ -167,7 +167,7 @@ export default {
     listBorderColor: '#ddd',
     listDividerBg: '#ddd',
     listItemHeight: 45,
-    listItemPadding: 9,
+    listItemPadding: (Platform.OS === 'ios' ) ? 12 : 16,
     listNoteColor: '#808080',
     listNoteSize: 13,
 
