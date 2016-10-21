@@ -22,7 +22,7 @@
     "react-native-checkbox": "~1.0.8",
     "react-native-easy-grid": "0.1.5",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
-    "react-native-vector-icons": "2.0.x"
+    "react-native-vector-icons": "2.x.x"
   },
   "peerDependencies": {
     "react-native": ">=0.26.0",
