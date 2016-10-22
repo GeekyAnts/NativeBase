@@ -40,6 +40,16 @@ it('renders header with buttons', () => {
     expect(tree).toMatchSnapshot();
 });
 
+it('renders header with a null button', () => {
+    const tree = renderer.create(
+        <Header>
+            {null}
+            <Title>Header</Title>
+        </Header>
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+});
+
 it('renders header with buttons and subtitle', () => {
     const tree = renderer.create(
         <Header>

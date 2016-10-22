@@ -116,6 +116,9 @@ export default class Header extends NativeBaseComponent {
         }
 
         const children = React.Children.toArray(this.props.children);
+        if(children.length === 1) {
+            return children;
+        }
 
         const buttons = children.filter((item) => item.type == Button);
         const title = children.filter((item) => item.type == Title);
