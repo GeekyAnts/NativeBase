@@ -1,8 +1,8 @@
 /* @flow */
 'use strict';
 
-import React from 'react';
-import { Platform} from 'react-native';
+import React, { cloneElement } from 'react';
+import { Platform } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import Button from './Button';
@@ -10,7 +10,58 @@ import View from './View';
 import Title from './Title';
 import InputGroup from './InputGroup';
 import Subtitle from './Subtitle';
-import _ from 'lodash';
+
+const baseButtonStyle = {
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+};
+const iOSButtonStyle = Object.assign({}, baseButtonStyle, {
+    marginLeft: -14
+});
+const iOSHeaderBtnListStyle = Object.assign({}, baseButtonStyle, {
+    marginRight: -14
+});
+const iOSSearchBarSearchBtnStyle = Object.assign({}, baseButtonStyle, {
+    justifyContent: 'center',
+    marginRight: -14
+});
+const androidHeaderBtnStyle = Object.assign({}, baseButtonStyle, {
+    marginLeft: -10,
+    marginRight: 12
+});
+const androidHeaderBtnListStyle = Object.assign({}, baseButtonStyle, {
+    marginRight: -7
+});
+
+
+const iOSSingleButtonTitleStyle = {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 13,
+    bottom: 0,
+    alignSelf: 'center',
+    justifyContent: 'center'
+};
+const baseTitleStyle = {
+    flex: 3,
+    alignSelf: 'stretch'
+};
+const androidHeaderTitleStyle = Object.assign({}, baseTitleStyle, {
+    justifyContent: 'center'
+});
+const baseSearchBarStyle = {
+    flex: 1,
+    alignSelf: 'center',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    marginLeft: -7
+};
+const androidSearchBarStyle = Object.assign({}, baseSearchBarStyle, {
+    marginLeft: -8,
+    marginRight: -8
+});
 
 export default class Header extends NativeBaseComponent {
 
@@ -19,9 +70,9 @@ export default class Header extends NativeBaseComponent {
         rounded : React.PropTypes.bool,
         style : React.PropTypes.object,
         iconRight: React.PropTypes.bool
-    }
+    };
 
-    getInitialStyle() {
+    getInitialStyle () {
         return {
             navbar: {
                 backgroundColor: this.getTheme().toolbarDefaultBg,
@@ -32,7 +83,7 @@ export default class Header extends NativeBaseComponent {
                 paddingHorizontal: 15,
                 paddingTop: (Platform.OS === 'ios' ) ? 15 : 0,
                 shadowColor: '#000',
-                shadowOffset: {width: 0, height: 2},
+                shadowOffset: { width: 0, height: 2 },
                 shadowOpacity: 0.1,
                 shadowRadius: 1.5,
                 height: this.getTheme().toolbarHeight,
@@ -44,14 +95,14 @@ export default class Header extends NativeBaseComponent {
                 borderRadius: this.props.rounded ? 25 : 2,
                 height: 30,
                 borderColor: 'transparent',
-                flex:1
+                flex: 1
             },
             androidToolbarSearch: {
                 backgroundColor: '#fff',
                 borderRadius: 2,
                 borderColor: 'transparent',
                 elevation: 2,
-                flex:1
+                flex: 1
             },
             toolbarButton: {
                 paddingHorizontal: 15
@@ -59,126 +110,174 @@ export default class Header extends NativeBaseComponent {
         }
     }
 
-    prepareRootProps() {
-
-        var defaultProps = {
-            style: this.getInitialStyle().navbar
-        };
-
-        return computeProps(this.props, defaultProps);
-
-    }
-    renderChildren() {
-        if(!Array.isArray(this.props.children)) {
+    renderChildren () {
+        if (!Array.isArray(this.props.children)) {
             return this.props.children;
         }
 
-        else if (Array.isArray(this.props.children)) {
-            var newChildren = [];
-            var childrenArray = React.Children.toArray(this.props.children);
+        const children = React.Children.toArray(this.props.children);
 
-            var buttons = [];
-            buttons = _.remove(childrenArray, function(item) {
-                if(item.type == Button) {
-                    return true;
-                }
-            });
+        const buttons = children.filter((item) => item.type == Button);
+        const title = children.filter((item) => item.type == Title);
+        const subtitle = children.filter((item) => item.type == Subtitle);
+        const input = children.filter((item) => item.type == InputGroup);
 
-            var title = [];
-            title = _.remove(childrenArray, function(item) {
-                if(item.type == Title) {
-                    return true;
-                }
-            });
-
-            var subtitle = [];
-            subtitle = _.remove(childrenArray, function(item) {
-                if(item.type == Subtitle) {
-                    return true;
-                }
-            });
-
-            var input = [];
-            input = _.remove(childrenArray, function(item) {
-                if(item.type == InputGroup) {
-                    return true;
-                }
-            });
-
-            if (buttons.length == 1 && this.props.iconRight) {
-                if (Platform.OS === 'ios') {
-                    newChildren.push(<View key='title' style={{position: 'absolute', left: 0, right: 0, top: 13, bottom: 0, alignSelf: 'center', justifyContent: 'center'}}>
-                    {[title[0],subtitle[0]]}
-                    </View>)
-                    newChildren.push(<View key='title2' style={{flex: 3, alignSelf: 'stretch'}} />)
-                    newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14}}>
-                    {React.cloneElement(buttons[0], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
-                    </View>)
-                }
-                else {
-                    newChildren.push(<View key='title' style={{flex: 3, alignSelf: 'stretch', justifyContent: 'center'}}>
-                    {[title[0]]}
-                    </View>)
-                    newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -10, marginRight: 12}}>
-                    {React.cloneElement(buttons[0], {style: this.getInitialStyle().toolbarButton, header : true, textStyle: {color: this.getTheme().toolbarTextColor}})}
-                    </View>)
-                }
+        if (buttons.length == 1 && this.props.iconRight) {
+            if (Platform.OS === 'ios') {
+                return this.renderIOSSingleButton(title, subtitle, buttons)
             }
+            return this.renderAndroidSingleButton(title, buttons)
+        }
 
-            else if (this.props.searchBar) {
-                if (Platform.OS === 'ios') {
-                    newChildren.push(<View key='search' style={{flex: 1, alignSelf: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -7}}>
-                        {React.cloneElement(input[0],{style: this.getInitialStyle().iosToolbarSearch, toolbar : true, key : 'inp'})}
-                        </View>)
-                        newChildren.push(<View key='searchBtn' style={{alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginRight: -14}}>
-                        {React.cloneElement(buttons[0], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
-                        </View>)
-                    } else {
-                        newChildren.push(<View key='search' style={{flex: 1,alignSelf: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -8, marginRight: -8}}>
-                        {React.cloneElement(input[0],{style: this.getInitialStyle().androidToolbarSearch, atoolbar : true})}
-                        </View>)
-                    }
-                }
-                else {
-                    if (Platform.OS === 'ios') {
-                        newChildren.push(<View key='title' style={{position: 'absolute', left: 0, right: 0, top: 13, bottom: 0, alignSelf: 'center', justifyContent: 'center'}}>
-                        {[title[0],subtitle[0]]}
-                        </View>)
-                        newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14}}>
-                        {React.cloneElement(buttons[0], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
-                        </View>)
-                        newChildren.push(<View key='title2' style={{flex: 3, alignSelf: 'stretch'}} />)
-                        if (buttons.length>1) {
-                            for (let i = 1; i < buttons.length; i++) {
-                                newChildren.push(<View key={'btn' + (i+1)} style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -14}}>
-                                {React.cloneElement(buttons[i], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
-                                </View>)
-                            }
-                        }
-                    }
-                    else {
-                        newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -10, marginRight: 12}}>
-                        {React.cloneElement(buttons[0], {style: this.getInitialStyle().toolbarButton, header : true, textStyle: {color: this.getTheme().toolbarTextColor}})}
-                        </View>)
-                        newChildren.push(<View key='title' style={{flex: 3, alignSelf: 'stretch', justifyContent: 'center'}}>
-                        {[title[0]]}
-                        </View>)
-                        for (let i = 1; i < buttons.length; i++) {
-                            newChildren.push(<View key={'btn' + (i+1)} style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -7}}>
-                            {React.cloneElement(buttons[i], {style: this.getInitialStyle().toolbarButton, header : true, textStyle: {color: this.getTheme().toolbarTextColor}})}
-                            </View>)
-                        }
-                    }
+        if (this.props.searchBar) {
+            if (Platform.OS === 'ios') {
+                return this.renderIOSSearchBar(input, buttons)
+            }
+            return this.renderAndroidSearchBar(input)
+        }
 
-                }
-                return newChildren;
+        if (Platform.OS === 'ios') {
+            return this.renderIOSHeader(title, subtitle, buttons)
+        }
+        return this.renderAndroidHeader(buttons, title)
+    }
+
+    renderAndroidHeader (buttons, title) {
+        const elements = [];
+        elements.push(
+            <View key='btn1' style={androidHeaderBtnStyle}>
+                {cloneElement(buttons[0], {
+                    style: this.getInitialStyle().toolbarButton,
+                    header: true,
+                    textStyle: { color: this.getTheme().toolbarTextColor }
+                })}
+            </View>
+        );
+        elements.push(<View key='title' style={androidHeaderTitleStyle}>{title[0]}</View>);
+
+        for (let i = 1; i < buttons.length; i++) {
+            elements.push(
+                <View key={'btn' + (i + 1)} style={androidHeaderBtnListStyle}>
+                    {cloneElement(buttons[i], {
+                        style: this.getInitialStyle().toolbarButton,
+                        header: true,
+                        textStyle: { color: this.getTheme().toolbarTextColor }
+                    })}
+                </View>
+            );
+        }
+        return elements;
+    }
+
+    renderIOSHeader (title, subtitle, buttons) {
+        const elements = [];
+        elements.push(<View key='title' style={iOSSingleButtonTitleStyle}>{[ title[0], subtitle[0] ]}</View>);
+        elements.push(
+            <View key='btn1' style={iOSButtonStyle}>
+                {cloneElement(buttons[0], {
+                    color: this.getTheme().iosToolbarBtnColor,
+                    style: this.getInitialStyle().toolbarButton
+                })}
+            </View>
+        );
+
+        elements.push(<View key='title2' style={baseTitleStyle}/>);
+
+        if (buttons.length > 1) {
+            for (let i = 1; i < buttons.length; i++) {
+                elements.push(
+                    <View key={'btn' + (i + 1)} style={iOSHeaderBtnListStyle}>
+                        {cloneElement(buttons[i], {
+                            color: this.getTheme().iosToolbarBtnColor,
+                            style: this.getInitialStyle().toolbarButton
+                        })}
+                    </View>
+                );
             }
         }
 
-        render() {
-            return(
-            <View {...this.prepareRootProps()} >
-            {this.renderChildren()}
+        return elements;
+    }
+
+    renderAndroidSearchBar (input) {
+        return (
+            <View key='search' style={androidSearchBarStyle}>
+                {cloneElement(input[0], {
+                    style: this.getInitialStyle().androidToolbarSearch,
+                    atoolbar: true
+                })}
+            </View>
+        );
+    }
+
+    renderIOSSearchBar (input, buttons) {
+        const elements = [];
+
+        elements.push(
+            <View key='search' style={baseSearchBarStyle}>
+                {cloneElement(input[0], {
+                    style: this.getInitialStyle().iosToolbarSearch,
+                    toolbar: true,
+                    key: 'inp'
+                })}
+            </View>
+        );
+        elements.push(
+            <View key='searchBtn' style={iOSSearchBarSearchBtnStyle}>
+                {cloneElement(buttons[0], {
+                    color: this.getTheme().iosToolbarBtnColor,
+                    style: this.getInitialStyle().toolbarButton
+                })}
+            </View>
+        );
+
+        return elements;
+    }
+
+    renderAndroidSingleButton (title, buttons) {
+        const elements = [];
+
+        elements.push(
+            <View key='title' style={androidHeaderTitleStyle}>
+                {[ title[0] ]}
+            </View>
+        );
+        elements.push(
+            <View key='btn1' style={androidHeaderBtnStyle}>
+                {cloneElement(buttons[0], {
+                    style: this.getInitialStyle().toolbarButton,
+                    header: true,
+                    textStyle: { color: this.getTheme().toolbarTextColor }
+                })}
+            </View>
+        );
+
+        return elements;
+    }
+
+    renderIOSSingleButton (title, subtitle, buttons) {
+        const elements = [];
+        elements.push(<View key='title' style={iOSSingleButtonTitleStyle}>{[ title[0], subtitle[0] ]}</View>);
+        elements.push(<View key='title2' style={baseTitleStyle}/>);
+        elements.push(
+            <View key='btn1' style={iOSButtonStyle}>
+                {cloneElement(buttons[0], {
+                    color: this.getTheme().iosToolbarBtnColor,
+                    style: this.getInitialStyle().toolbarButton
+                })}
+            </View>
+        );
+
+        return elements;
+    }
+
+    render () {
+        const rootProps = computeProps(this.props, {
+            style: this.getInitialStyle().navbar
+        });
+        return (
+            <View {...rootProps}>
+                {this.renderChildren()}
             </View>
         );
     }
