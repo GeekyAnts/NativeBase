@@ -26,6 +26,7 @@ import InputGroup from './Components/Widgets/InputGroup';
 import Icon from './Components/Widgets/Icon';
 import FooterTab from './Components/Widgets/FooterTab';
 import Tab from './Components/Widgets/Tab';
+import Fab from './Components/Widgets/Fab';
 import Thumbnail from './Components/Widgets/Thumbnail';
 import CheckBox from './Components/Widgets/Checkbox';
 import Radio from './Components/Widgets/Radio';
@@ -73,5 +74,6 @@ module.exports = {
   Drawer: Drawer,
   FooterTab: FooterTab,
   TabBar: Tab,
+  Fab: Fab,
   Tabs : ScrollableTabView
 };
