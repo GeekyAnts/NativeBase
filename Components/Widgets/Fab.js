@@ -19,12 +19,86 @@ const AnimatedFab = Animated.createAnimatedComponent(Button);
 
 export default class Fab extends NativeBaseComponent {
 
-    propTypes: {
-        style : React.PropTypes.object
+
+    constructor(props) {
+        super(props);
+        propTypes: {
+            style : React.PropTypes.object
+        }
+        this.state = {
+            buttons : undefined,
+            active: false
+        }
     }
 
-    state = {
-        buttons : undefined
+    fabTopValue(pos) {
+        if(pos === 'topLeft') {
+          return {
+            top: 20,
+            bottom: undefined,
+            left: 20,
+            right: undefined
+          }
+        }
+        else if (pos === 'bottomRight') {
+          return {
+            top: undefined,
+            bottom: 20,
+            left: undefined,
+            right: 20
+          }
+        }
+        else if (pos === 'bottomLeft') {
+          return {
+            top: undefined,
+            bottom: 20,
+            left: 20,
+            right: undefined
+          }
+        }
+        else if (pos === 'topRight') {
+          return {
+            top: 20,
+            bottom: undefined,
+            left: undefined,
+            right: 20
+          }
+        }
+    }
+
+    fabOtherBtns(direction,i) {
+        if(direction === 'up') {
+          return {
+            top: (Platform.OS === 'ios') ? (i*50)+5 : ((this.props.active === false) ? (155) : (i*50)+5),
+            bottom: undefined,
+            left: 8,
+            right: 0
+          }
+        }
+        else if (direction === 'left') {
+          return {
+            top: 8,
+            bottom: 0,
+            left: (Platform.OS === 'ios') ? -((i*50) + 50) : ((this.props.active === false) ? 150 : -((i*50)+50)),
+            right: 0
+          }
+        }
+        else if (direction === 'down') {
+          return {
+            top: (Platform.OS === 'ios') ? (i*50)+65 : ((this.props.active === false) ? -((i*50)+65) : (i*50)+65),
+            bottom: 0,
+            left: 8,
+            right: 0
+          }
+        }
+        else if (direction === 'right') {
+          return {
+            top: 10,
+            bottom: 0,
+            left: (Platform.OS === 'ios') ? (i*50) + 65 : ((this.props.active === false) ? -((i*50) + 65) : (i*50) + 65),
+            right: 0
+          }
+        }
     }
 
     getInitialStyle() {
@@ -46,11 +120,13 @@ export default class Fab extends NativeBaseComponent {
             },
             container: {
               position: 'absolute',
-              bottom: 20,
-              right: 20,
+              top: (this.props.position) ? this.fabTopValue(this.props.position).top : undefined,
+              bottom: (this.props.position) ? this.fabTopValue(this.props.position).bottom : 20,
+              right: (this.props.position) ? this.fabTopValue(this.props.position).right : 20,
+              left: (this.props.position) ? this.fabTopValue(this.props.position).left : undefined,
               width: 56,
               height: this.containerHeight,
-              flexDirection: 'column',
+              flexDirection: (this.props.direction) ? ((this.props.direction=='left || right') ? 'row' : 'column') : 'column',
               alignItems: 'center'
             },
             iconStyle: {
@@ -71,29 +147,46 @@ export default class Fab extends NativeBaseComponent {
         }
     }
 
-    prepareRootProps() {
+    getContainerStyle() {
 
-        var defaultProps = {
-            style: this.getInitialStyle().fab
-        };
-
-        return computeProps(this.props, defaultProps);
+        return _.merge(this.getInitialStyle().container,this.props.containerStyle);
 
     }
 
-    renderFab() {
-        let childrenArray = React.Children.toArray(this.props.children);
-        let icon = _.remove(childrenArray, (item) => {
-            if(item.type == Button) {
-                return true;
-            }
-        });
-        // this.setState({
-        //   buttons: icon.length
-        // });
-        return React.cloneElement(childrenArray[0], {style: this.getInitialStyle().iconStyle});
+    prepareFabProps() {
+
+      var defaultProps = {
+          style: this.getInitialStyle().fab
+      };
+      var incomingProps = _.clone(this.props);
+      delete incomingProps.onPress;
+
+      return computeProps(incomingProps, defaultProps);
 
     }
+
+    getOtherButtonStyle(child,i) {
+
+      var type = {
+        top: (this.props.direction) ? (this.fabOtherBtns(this.props.direction,i).top) : ((Platform.OS === 'ios') ? (i*50)+5 : ((this.props.active === false) ? (155) : (i*50)+5)),
+        left: (this.props.direction) ? (this.fabOtherBtns(this.props.direction,i).left) : 8,
+        right: (this.props.direction) ? (this.fabOtherBtns(this.props.direction,i).right) : 0,
+        bottom: (this.props.direction) ? (this.fabOtherBtns(this.props.direction,i).bottom) : undefined
+      }
+
+      return _.merge(this.getInitialStyle().buttonStyle,child.props.style,type);
+
+    }
+    prepareButtonProps(child) {
+        var inp = _.clone(child.props);
+        delete inp.style;
+
+
+        var defaultProps = {};
+
+        return computeProps(inp, defaultProps);
+    }
+
     componentDidMount() {
       let childrenArray = React.Children.toArray(this.props.children);
       let icon = _.remove(childrenArray, (item) => {
@@ -104,7 +197,27 @@ export default class Fab extends NativeBaseComponent {
       this.setState({
         buttons: icon.length
       });
+      setTimeout(()=> {
+          this.setState({
+              active: this.props.active
+          });
+      }, 0);
     }
+
+    renderFab() {
+      let childrenArray = React.Children.toArray(this.props.children);
+      let icon = _.remove(childrenArray, (item) => {
+        if(item.type == Button) {
+          return true;
+        }
+      });
+      // this.setState({
+      //   buttons: icon.length
+      // });
+      return React.cloneElement(childrenArray[0], {style: this.getInitialStyle().iconStyle});
+
+    }
+
     renderButtons() {
         let childrenArray = React.Children.toArray(this.props.children);
         let icon = _.remove(childrenArray, (item) => {
@@ -116,8 +229,8 @@ export default class Fab extends NativeBaseComponent {
         let newChildren = [];
 
         {childrenArray.map((child, i) => {
-              newChildren.push(<AnimatedFab
-                    style={[this.getInitialStyle().buttonStyle, {top: i*50}]}
+              newChildren.push(<AnimatedFab style={this.getOtherButtonStyle(child,i)}
+              {...this.prepareButtonProps(child,i)}
                     fabButton={true}
                     key={i}
                   >{child.props.children}
@@ -126,22 +239,137 @@ export default class Fab extends NativeBaseComponent {
         )}
         return newChildren;
     }
-    _animate() {
+    upAnimate() {
+      if (!this.props.active) {
         Animated.spring(this.containerHeight, {
             toValue: (this.state.buttons*51.3)+56
         }).start();
         Animated.spring(this.buttonScale, {
             toValue: 1
         }).start();
+      }
+      else {
+        Animated.spring(this.containerHeight, {
+            toValue: 56
+        }).start();
+        Animated.spring(this.buttonScale, {
+            toValue: 0
+        }).start();
+      }
+    }
+
+    leftAnimate() {
+      if (!this.state.active) {
+        Animated.spring(this.containerWidth, {
+            toValue: (this.state.buttons*51.3)+56
+        }).start();
+        Animated.spring(this.buttonScale, {
+            toValue: 1
+        }).start();
+      }
+      else {
+        this.setState({
+            active: false
+        });
+        Animated.spring(this.containerHeight, {
+            toValue: 56
+        }).start();
+        Animated.spring(this.buttonScale, {
+            toValue: 0
+        }).start();
+      }
+    }
+
+    rightAnimate() {
+      if (!this.state.active) {
+        Animated.spring(this.containerWidth, {
+            toValue: (this.state.buttons*51.3)+56
+        }).start();
+        Animated.spring(this.buttonScale, {
+            toValue: 1
+        }).start();
+      }
+      else {
+        this.setState({
+            active: false
+        });
+        Animated.spring(this.containerHeight, {
+            toValue: 56
+        }).start();
+        Animated.spring(this.buttonScale, {
+            toValue: 0
+        }).start();
+      }
+    }
+
+    downAnimate() {
+      if (!this.state.active) {
+        Animated.spring(this.containerHeight, {
+            toValue: (56)
+        }).start();
+        Animated.spring(this.buttonScale, {
+            toValue: 1
+        }).start();
+      }
+      else {
+        this.setState({
+            active: false
+        });
+        Animated.spring(this.containerHeight, {
+            toValue: 56
+        }).start();
+        Animated.spring(this.buttonScale, {
+            toValue: 0
+        }).start();
+      }
+    }
+
+    _animate() {
+
+      const { props: {direction,position} } = this;
+      if(this.props.direction) {
+        if((this.props.direction === 'up') && ((this.props.position === 'bottomLeft') || (this.props.position === 'bottomRight'))) {
+          this.upAnimate();
+        }
+        else if (this.props.direction === 'left') {
+          this.leftAnimate();
+        }
+
+        else if (this.props.direction === 'right') {
+          this.rightAnimate();
+        }
+         else if(this.props.direction === 'down') {
+          this.downAnimate();
+        }
+      }
+      else {
+        this.upAnimate();
+      }
      }
 
+    fabOnPress() {
+      if(this.props.onPress) {
+        this.props.onPress();
+        this._animate();
+      }
+    }
+
     render() {
-        this.containerHeight = new Animated.Value(56);
-        this.buttonScale = new Animated.Value(0);
+        const { props: {active} } = this;
+        if(!this.props.active) {
+          this.containerHeight = new Animated.Value(56);
+          this.containerWidth = new Animated.Value(56);
+          this.buttonScale = new Animated.Value(0);
+        }
+        else {
+          this.containerHeight = this.containerHeight || new Animated.Value(0);
+          this.containerWidth = this.containerWidth || new Animated.Value(0);
+          this.buttonScale = this.buttonScale || new Animated.Value(0);
+        }
         return(
-            <Animated.View style={this.getInitialStyle().container}>
+            <Animated.View style={this.getContainerStyle()}>
               {this.renderButtons()}
-              <TouchableOpacity  onPress={()=> {this.props.onPress ? this.props.onPress() : undefined, this._animate()}} style={this.getInitialStyle().fab}>
+              <TouchableOpacity  onPress={()=> this.fabOnPress()} {...this.prepareFabProps()}>
                   {this.renderFab()}
               </TouchableOpacity>
             </Animated.View>
