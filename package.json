@@ -13,7 +13,7 @@
     "packager",
     "rnpm"
   ],
-  "version": "0.5.11",
+  "version": "0.5.12",
   "private": false,
   "dependencies": {
     "clamp": "^1.0.1",
