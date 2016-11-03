@@ -11,31 +11,31 @@ import computeProps from '../../Utils/computeProps';
 
 export default class Title extends NativeBaseComponent {
 
-	propTypes: {
+  propTypes: {
         style : React.PropTypes.object
     }
 
-	prepareRootProps() {
+  prepareRootProps() {
 
-		var type = {
-			color: this.getTheme().toolbarTextColor,
-			fontSize: this.getTheme().titleFontSize,
-			fontFamily: this.getTheme().btnFontFamily,
-			fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
-			alignSelf: (Platform.OS === 'ios' ) ? 'center' : 'flex-start'
-		}
+    var type = {
+      color: this.getTheme().toolbarTextColor,
+      fontSize: this.getTheme().titleFontSize,
+      fontFamily: this.getTheme().btnFontFamily,
+      fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
+      alignSelf: (Platform.OS === 'ios' ) ? 'center' : 'flex-start'
+    }
 
-		var defaultProps = {
-			style: type
-		}
+    var defaultProps = {
+      style: type
+    }
 
-		return computeProps(this.props, defaultProps);
+    return computeProps(this.props, defaultProps);
 
-	}
+  }
 
-	render() {
-		return(
-			<View style={{justifyContent: 'center'}}><Text {...this.prepareRootProps()}>{this.props.children}</Text></View>
-			);
-	}
+  render() {
+    return(
+      <View style={{justifyContent: 'center'}}><Text ref={c => this._root = c} {...this.prepareRootProps()}>{this.props.children}</Text></View>
+      );
+  }
 }

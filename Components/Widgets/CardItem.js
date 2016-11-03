@@ -292,7 +292,7 @@ export default class CardItemNB extends NativeBaseComponent {
 
     render() {
         return(
-            <TouchableOpacity {...this.prepareRootProps()} activeOpacity={ (this.props.button) ? 0.2 : 1} >
+            <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={ (this.props.button) ? 0.2 : 1} >
                 {this.renderChildren()}
             </TouchableOpacity>
         );

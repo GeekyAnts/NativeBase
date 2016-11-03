@@ -29,7 +29,7 @@ export default class H3NB extends NativeBaseComponent {
     }
     render() {
         return(
-            <Text {...this.prepareRootProps()}>{this.props.children}</Text>
+            <Text ref={c => this._root = c} {...this.prepareRootProps()}>{this.props.children}</Text>
         );
     }
 

@@ -26,7 +26,7 @@ export default class CheckBox extends NativeBaseComponent {
 
     render() {
         return(
-            <TouchableOpacity style={this.getInitialStyle().checkbox} {...this.props}>
+            <TouchableOpacity ref={c => this._root = c} style={this.getInitialStyle().checkbox} {...this.props}>
             <Icon name={(Platform.OS === 'ios') ? 'ios-checkmark-outline' : 'md-checkmark'} style={{color:  this.props.checked ? this.getTheme().checkboxTickColor : 'transparent', lineHeight: (Platform.OS === 'ios') ? this.getTheme().checkboxSize/0.93 : this.getTheme().checkboxSize-5, marginTop: (Platform.OS==='ios') ? undefined : 1, fontSize: (Platform.OS === 'ios') ? this.getTheme().checkboxSize/0.8 : this.getTheme().checkboxSize/1.2}} />
             </TouchableOpacity>
         );

@@ -208,7 +208,7 @@ export default class Button extends NativeBaseComponent {
 
     render() {
         return(
-            <TouchableOpacity {...this.prepareRootProps()} activeOpacity={0.5} >
+            <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={0.5} >
                 {this.renderChildren()}
             </TouchableOpacity>
         );

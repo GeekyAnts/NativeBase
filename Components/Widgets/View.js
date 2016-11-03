@@ -7,14 +7,13 @@ import NativeBaseComponent from '../Base/NativeBaseComponent';
 
 
 export default class ViewNB extends NativeBaseComponent {
-	propTypes: {
+  propTypes: {
         style : React.PropTypes.object,
         padder : React.PropTypes.bool
     }
-	render() {
-		return(
-			<View style={{padding: (this.props.padder) ? this.getTheme().contentPadding : 0, flex: 1}} {...this.props}></View>
-			);
-	}
+  render() {
+    return(
+      <View ref={c => this._root = c} style={{padding: (this.props.padder) ? this.getTheme().contentPadding : 0, flex: 1}} {...this.props}></View>
+      );
+  }
 }
-

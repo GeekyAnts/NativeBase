@@ -31,7 +31,7 @@ export default class PickerNB extends NativeBaseComponent {
 
     render() {
         return(
-            <Picker {...this.prepareRootProps()}>
+            <Picker ref={c => this._root = c} {...this.prepareRootProps()}>
                 {this.props.children}
             </Picker>
         );

@@ -72,7 +72,7 @@ export default class IconNB extends NativeBaseComponent {
 
     render() {
         return(
-            <this.Icon {...this.prepareRootProps()}/>
+            <this.Icon ref={c => this._root = c} {...this.prepareRootProps()}/>
         );
     }
 }

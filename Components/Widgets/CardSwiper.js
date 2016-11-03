@@ -91,12 +91,12 @@ export default class CardSwiper extends NativeBaseComponent {
         let opacity = pan.x.interpolate({inputRange: [-150, 0, 150], outputRange: [0.5, 1, 0.5]})
         let scale = enter;
 
-        let animatedCardStyles = {transform: [{translateX}, {translateY}, {rotate}, {scale}], opacity};        
+        let animatedCardStyles = {transform: [{translateX}, {translateY}, {rotate}, {scale}], opacity};
 
-        
+
 
         return(
-            <View>
+            <View ref={c => this._root = c}>
                 <Animated.View style={ animatedCardStyles } {...this._panResponder.panHandlers} >
                 {this.props.children}
                 </Animated.View>

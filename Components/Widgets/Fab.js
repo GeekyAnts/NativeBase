@@ -367,7 +367,7 @@ export default class Fab extends NativeBaseComponent {
           this.buttonScale = this.buttonScale || new Animated.Value(0);
         }
         return(
-            <Animated.View style={this.getContainerStyle()}>
+            <Animated.View ref={c => this._root = c} style={this.getContainerStyle()}>
               {this.renderButtons()}
               <TouchableOpacity  onPress={()=> this.fabOnPress()} {...this.prepareFabProps()}>
                   {this.renderFab()}

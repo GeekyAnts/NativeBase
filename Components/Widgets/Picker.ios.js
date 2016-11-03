@@ -96,7 +96,7 @@ export default class PickerNB extends NativeBaseComponent {
 
     render() {
         return (
-        <View>
+        <View ref={c => this._root = c}>
             <Button
                 iconRight={(this.props.iosIcon== undefined) ? false : true}
                 transparent
