@@ -29,7 +29,8 @@ export default class Button extends NativeBaseComponent {
         rounded : React.PropTypes.bool,
         large : React.PropTypes.bool,
         small : React.PropTypes.bool,
-        inputButton : React.PropTypes.bool
+        inputButton : React.PropTypes.bool,
+        tabButton : React.PropTypes.bool
     }
 
     getInitialStyle() {
@@ -125,12 +126,15 @@ export default class Button extends NativeBaseComponent {
                 (this.props.bordered) ? this.getTheme().btnPrimaryBg :
                 (this.props.color) ? this.props.color :
                 (this.props.header) ? this.getTheme().toolbarTextColor :
+                (this.props.activeTabButton) ? this.getTheme().topTabBarActiveTextColor :
+                (this.props.tabButton) ? this.getTheme().topTabBarTextColor :
                 (this.props.transparent) ? this.getContextForegroundColor() :
                 this.getTheme().inverseTextColor,
-
+            marginBottom: ((this.props.vertical) && (Platform.OS == 'android')) ? 2 : undefined,
             fontSize: (this.props.large) ? this.getTheme().iconSizeLarge :
                       (this.props.small) ? this.getTheme().iconSizeSmall :
                       (this.props.inputButton) ? this.getTheme().toolbarIconSize :
+                      (this.props.fabButton) ? 22 :
                       (this.props.header) ? this.getTheme().iconFontSize : this.getTheme().iconFontSize-5,
             lineHeight: (this.props.large) ? 52: (this.props.small || this.props.inputButton) ? 22 : this.getTheme().iconLineHeight-9
         }
@@ -150,7 +154,6 @@ export default class Button extends NativeBaseComponent {
         return iconComponentPresent;
     }
     renderChildren() {
-
         if(typeof this.props.children == 'string') {
             return <Text style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>
         }
@@ -205,7 +208,7 @@ export default class Button extends NativeBaseComponent {
 
     render() {
         return(
-            <TouchableOpacity {...this.prepareRootProps()} activeOpacity={0.5} >
+            <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={0.5} >
                 {this.renderChildren()}
             </TouchableOpacity>
         );

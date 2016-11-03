@@ -40,7 +40,7 @@ export default class Footer extends NativeBaseComponent {
     render() {
 
         return(
-            <View {...this.prepareRootProps()}>
+            <View ref={c => this._root = c} {...this.prepareRootProps()}>
                 { !Array.isArray(this.props.children) &&
                 <View style={{flex: 1, alignItems: 'center'}} >
                     {this.props.children}

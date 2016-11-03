@@ -29,7 +29,7 @@ export default class SwitchNB extends NativeBaseComponent {
 
     render() {
         return(
-            <Switch {...this.prepareRootProps()}/>
+            <Switch ref={c => this._root = c} {...this.prepareRootProps()}/>
         );
     }
 }

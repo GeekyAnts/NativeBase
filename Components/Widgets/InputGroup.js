@@ -231,7 +231,7 @@ export default class InputGroup extends NativeBaseComponent {
 
   render() {
     return (
-      <View {...this.prepareRootProps()} >
+      <View ref={c => this._root = c} {...this.prepareRootProps()} >
         {this.renderChildren()}
       </View>
     );

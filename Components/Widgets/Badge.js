@@ -46,7 +46,7 @@ export default class BadgeNB extends NativeBaseComponent {
     }
     render() {
         return(
-            <View {...this.prepareRootProps()}>
+            <View ref={c => this._root = c} {...this.prepareRootProps()}>
                 <Text style={{ color: (this.props.textStyle && this.props.textStyle.color) ? this.props.textStyle.color : this.getTheme().badgeColor,
                                 fontSize: (this.props.textStyle && this.props.textStyle.fontSize) ? this.props.textStyle.fontSize : this.getTheme().fontSizeBase,
                                 lineHeight: (this.props.textStyle && this.props.textStyle.lineHeight) ? this.props.textStyle.lineHeight : this.getTheme().lineHeight-1,

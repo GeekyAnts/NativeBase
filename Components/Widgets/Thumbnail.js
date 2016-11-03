@@ -49,7 +49,7 @@ export default class ThumbnailNB extends NativeBaseComponent {
 
     render() {
         return(
-            <Image {...this.prepareRootProps()}/>
+            <Image ref={c => this._root = c} {...this.prepareRootProps()}/>
             );
     }
 }

@@ -61,7 +61,7 @@ export default class CardNB extends NativeBaseComponent {
             );
         }
         return(
-            <View {...this.prepareRootProps()} >
+            <View ref={c => this._root = c} {...this.prepareRootProps()} >
                 {this.renderChildren()}
             </View>
         );

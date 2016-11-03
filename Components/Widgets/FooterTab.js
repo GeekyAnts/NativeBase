@@ -151,7 +151,7 @@ export default class Footer extends NativeBaseComponent {
     render() {
 
         return(
-            <View {...this.prepareRootProps()} >
+            <View ref={c => this._root = c} {...this.prepareRootProps()} >
                 {this.renderFooter()}
             </View>
         );
