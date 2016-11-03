@@ -1,6 +1,6 @@
 {
   "name": "native-base",
-  "description": "The missing piece of React Native",
+  "description": "Essential cross-platform UI components for React Native",
   "keywords": [
     "android",
     "ios",
