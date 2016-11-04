@@ -139,7 +139,7 @@ export default class Header extends NativeBaseComponent {
                         </View>)
                     }
                 }
-                else {
+                else if (buttons.length > 1) {
                     if (Platform.OS === 'ios') {
                         newChildren.push(<View key='title' style={{position: 'absolute', left: 0, right: 0, top: 13, bottom: 0, alignSelf: 'center', justifyContent: 'center'}}>
                         {[title[0],subtitle[0]]}
@@ -170,6 +170,31 @@ export default class Header extends NativeBaseComponent {
                         }
                     }
 
+                }
+                else {
+                  if (Platform.OS === 'ios') {
+                      newChildren.push(<View key='title' style={{position: 'absolute', left: 0, right: 0, top: 13, bottom: 0, alignSelf: 'center', justifyContent: 'center'}}>
+                      {[title[0],subtitle[0]]}
+                      </View>)
+
+                      if (childrenArray.length>1) {
+                          for (let i = 1; i < childrenArray.length; i++) {
+                              newChildren.push(<View key={'btn' + (i+1)} style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -14}}>
+                              {React.cloneElement(childrenArray[i], {})}
+                              </View>)
+                          }
+                      }
+                  }
+                  else {
+                      newChildren.push(<View key='title' style={{flex: 3, alignSelf: 'stretch', justifyContent: 'center'}}>
+                      {[title[0]]}
+                      </View>)
+                      for (let i = 1; i < childrenArray.length; i++) {
+                          newChildren.push(<View key={'btn' + (i+1)} style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -7}}>
+                          {React.cloneElement(childrenArray[i], {})}
+                          </View>)
+                      }
+                  }
                 }
                 return newChildren;
             }
