@@ -139,7 +139,7 @@ export default class Header extends NativeBaseComponent {
                         </View>)
                     }
                 }
-                else if (buttons.length > 1) {
+                else if (buttons.length >= 1) {
                     if (Platform.OS === 'ios') {
                         newChildren.push(<View key='title' style={{position: 'absolute', left: 0, right: 0, top: 13, bottom: 0, alignSelf: 'center', justifyContent: 'center'}}>
                         {[title[0],subtitle[0]]}
