@@ -10,7 +10,7 @@ import Text from './Text';
 
 export default class BadgeNB extends NativeBaseComponent {
 
-    propTypes: {
+    static propTypes = {
         style : React.PropTypes.object
     }
 
