@@ -111,7 +111,7 @@ export default class Header extends NativeBaseComponent {
                     {[title[0],subtitle[0]]}
                     </View>)
                     newChildren.push(<View key='title2' style={{flex: 3, alignSelf: 'stretch'}} />)
-                    newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginLeft: -14}}>
+                    newChildren.push(<View key='btn1' style={{alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row', marginRight: -14}}>
                     {React.cloneElement(buttons[0], {color: this.getTheme().iosToolbarBtnColor, style: this.getInitialStyle().toolbarButton})}
                     </View>)
                 }
