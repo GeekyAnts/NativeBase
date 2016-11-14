@@ -77,6 +77,12 @@ export default class CardSwiper extends NativeBaseComponent {
             },
 
             onPanResponderMove: (e, gestureState) => {
+                if (gestureState.dx > 20){
+                  this.props.moveDirection('right');
+                }
+                else if (gestureState.dx < -20){
+                  this.props.moveDirection('left');
+                }
                 let val = Math.abs((gestureState.dx*.0013));
                 let opa = Math.abs((gestureState.dx*.0022));
                 if (val>0.2) {
@@ -96,6 +102,7 @@ export default class CardSwiper extends NativeBaseComponent {
             },
 
             onPanResponderRelease: (e, {vx, vy}) => {
+                this.props.moveDirection(null);
                 var velocity;
 
                 if (vx >= 0) {
@@ -164,10 +171,18 @@ export default class CardSwiper extends NativeBaseComponent {
             <View ref={c => this._root = c} style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
                 (<View>
                     <Animated.View style={[this.getCardStyles()[1],{opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
-                        {this.props.renderItem(this.state.selectedItem2)}
+                        {(this.props.renderBottom)  ?
+                          this.props.renderBottom(this.state.selectedItem2)
+                        :
+                          this.props.renderItem(this.state.selectedItem2)
+                        }
                     </Animated.View>
                     <Animated.View style={[ this.getCardStyles()[0], this.getInitialStyle().topCard] } {...this._panResponder.panHandlers} >
-                        {this.props.renderItem(this.state.selectedItem)}
+                        {(this.props.renderTop) ?
+                          this.props.renderTop(this.state.selectedItem)
+                        :
+                          this.props.renderItem(this.state.selectedItem)
+                        }
                     </Animated.View>
                     </View>
                 )
