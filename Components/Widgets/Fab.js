@@ -69,8 +69,8 @@ export default class Fab extends NativeBaseComponent {
     fabOtherBtns(direction,i) {
         if(direction === 'up') {
           return {
-            top: (Platform.OS === 'ios') ? (i*50)+5 : ((this.props.active === false) ? (155) : (i*50)+5),
-            bottom: undefined,
+            top: undefined,
+            bottom: (this.props.active === false) ? ((Platform.OS === 'ios') ? 50 : 8) : ((i*50)+ 65),
             left: 8,
             right: 0
           }
@@ -79,13 +79,13 @@ export default class Fab extends NativeBaseComponent {
           return {
             top: 8,
             bottom: 0,
-            left: (Platform.OS === 'ios') ? -((i*50) + 50) : ((this.props.active === false) ? 150 : -((i*50)+50)),
+            left: (this.props.active === false) ? ((Platform.OS === 'ios') ? 50 : 8) : -((i*50)+ 50),
             right: 0
           }
         }
         else if (direction === 'down') {
           return {
-            top: (Platform.OS === 'ios') ? (i*50)+65 : ((this.props.active === false) ? -((i*50)+65) : (i*50)+65),
+            top: (this.props.active === false) ? ((Platform.OS === 'ios') ? 50 : 8) : ((i*50)+ 65),
             bottom: 0,
             left: 8,
             right: 0
@@ -95,7 +95,7 @@ export default class Fab extends NativeBaseComponent {
           return {
             top: 10,
             bottom: 0,
-            left: (Platform.OS === 'ios') ? (i*50) + 65 : ((this.props.active === false) ? -((i*50) + 65) : (i*50) + 65),
+            left: (this.props.active === false) ? ((Platform.OS === 'ios') ? 50 : 8) : ((i*50)+ 65),
             right: 0
           }
         }
@@ -328,7 +328,7 @@ export default class Fab extends NativeBaseComponent {
 
       const { props: {direction,position} } = this;
       if(this.props.direction) {
-        if((this.props.direction === 'up') && ((this.props.position === 'bottomLeft') || (this.props.position === 'bottomRight'))) {
+        if(this.props.direction === 'up') {
           this.upAnimate();
         }
         else if (this.props.direction === 'left') {
@@ -367,7 +367,7 @@ export default class Fab extends NativeBaseComponent {
           this.buttonScale = this.buttonScale || new Animated.Value(0);
         }
         return(
-            <Animated.View ref={c => this._root = c} style={this.getContainerStyle()}>
+            <Animated.View style={this.getContainerStyle()}>
               {this.renderButtons()}
               <TouchableOpacity  onPress={()=> this.fabOnPress()} {...this.prepareFabProps()}>
                   {this.renderFab()}
