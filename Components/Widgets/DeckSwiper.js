@@ -107,7 +107,9 @@ export default class CardSwiper extends NativeBaseComponent {
     componentWillMount() {
         this._panResponder = PanResponder.create({
             onMoveShouldSetResponderCapture: () => true,
-            onMoveShouldSetPanResponderCapture: () => true,
+            onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
+                return Math.abs(gestureState.dx) > 5;
+            },
 
             onPanResponderGrant: (e, gestureState) => {
                 this.state.pan.setOffset({x: this.state.pan.x._value, y: this.state.pan.y._value});
@@ -117,10 +119,10 @@ export default class CardSwiper extends NativeBaseComponent {
 
             onPanResponderMove: (e, gestureState) => {
                 if (gestureState.dx > 20){
-                  this.props.onSwiping('right');
+                  this.props.onSwiping('right',gestureState.dx);
                 }
                 else if (gestureState.dx < -20){
-                  this.props.onSwiping('left');
+                  this.props.onSwiping('left',gestureState.dx);
                 }
                 let val = Math.abs((gestureState.dx*.0013));
                 let opa = Math.abs((gestureState.dx*.0022));
