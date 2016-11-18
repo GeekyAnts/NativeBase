@@ -220,7 +220,8 @@ declare module 'native-base' {
          */
         interface CardItem extends React.TouchableOpacityProperties {
             header?: boolean,
-            cardBody?: boolean
+            cardBody?: boolean,
+            button?: boolean
         }
         /**
          * Override React ListViewProperties
