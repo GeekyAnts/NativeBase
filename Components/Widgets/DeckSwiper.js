@@ -67,7 +67,8 @@ export default class CardSwiper extends NativeBaseComponent {
 
 
     swipeRight() {
-      this.props.onSwiping('right');
+      if(this.props.onSwiping)
+        this.props.onSwiping('right');
       setTimeout( () => {
         Animated.timing(
           this.state.fadeAnim,
@@ -86,7 +87,8 @@ export default class CardSwiper extends NativeBaseComponent {
     }
 
     swipeLeft() {
-      this.props.onSwiping('left');
+      if(this.props.onSwiping)
+        this.props.onSwiping('left');
       setTimeout( () => {
         Animated.timing(
           this.state.fadeAnim,
@@ -119,10 +121,12 @@ export default class CardSwiper extends NativeBaseComponent {
 
             onPanResponderMove: (e, gestureState) => {
                 if (gestureState.dx > 20){
-                  this.props.onSwiping('right',gestureState.dx);
+                  if(this.props.onSwiping)
+                    this.props.onSwiping('right',gestureState.dx);
                 }
                 else if (gestureState.dx < -20){
-                  this.props.onSwiping('left',gestureState.dx);
+                  if(this.props.onSwiping)
+                    this.props.onSwiping('left',gestureState.dx);
                 }
                 let val = Math.abs((gestureState.dx*.0013));
                 let opa = Math.abs((gestureState.dx*.0022));
@@ -143,7 +147,8 @@ export default class CardSwiper extends NativeBaseComponent {
             },
 
             onPanResponderRelease: (e, {vx, vy}) => {
-                this.props.onSwiping(null);
+                if(this.props.onSwiping)
+                  this.props.onSwiping(null);
                 var velocity;
 
                 if (vx >= 0) {
@@ -184,7 +189,8 @@ export default class CardSwiper extends NativeBaseComponent {
             card1Top: !this.state.card1Top,
             card2Top: !this.state.card2Top
         });
-        this.props.onSwiping(null);
+        if(this.props.onSwiping)
+          this.props.onSwiping(null);
 
     }
 
