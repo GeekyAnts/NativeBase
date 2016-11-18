@@ -73,7 +73,8 @@ export default class Footer extends NativeBaseComponent {
         var newChildren = [];
 
         {childrenArray.map((child, i) => {
-            if (typeof child.props.children==='string') {
+        	let children = _.clone(child.props.children);
+            if (typeof children==='string') {
                 newChildren.push(React.cloneElement(child, {
                     style: [this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined }],
                     vertical: true,
@@ -84,13 +85,13 @@ export default class Footer extends NativeBaseComponent {
             }
             else {
                 let iconElement = [];
-                iconElement = _.remove(child.props.children, function(item) {
+                iconElement = _.remove(children, function(item) {
                     if(item.type == IconNB) {
                         return true;
                     }
                 });
                 let badgeElement = [];
-                badgeElement = _.remove(child.props.children, function(item) {
+                badgeElement = _.remove(children, function(item) {
                     if(item.type == Badge) {
                         return true;
                     }
@@ -104,7 +105,7 @@ export default class Footer extends NativeBaseComponent {
                               style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined, alignSelf: 'stretch'}]}
                               textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
                               onPress={child.props.onPress}>
-                              {child.props.children}
+                              {children}
                               <Icon
                                   style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
                                   name={iconElement[0].props.name} />
@@ -122,7 +123,7 @@ export default class Footer extends NativeBaseComponent {
                               style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined}]}
                               textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
                               key={i} onPress={child.props.onPress}>
-                              {child.props.children}
+                              {children}
                               <Icon
                                   style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
                                   name={iconElement[0].props.name} />
@@ -139,7 +140,7 @@ export default class Footer extends NativeBaseComponent {
                             <Icon
                                 style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor,
                                         fontSize: 28}}
-                                name={child.props.children.props.name} />
+                                name={children.props.name} />
                         </Button>
                     );
                 }
