@@ -101,7 +101,7 @@ export default class PickerNB extends NativeBaseComponent {
                 iconRight={(this.props.iosIcon== undefined) ? false : true}
                 transparent
                 textStyle={this.props.textStyle}
-                style={this.props.style}
+                style={[this.props.style,{marginLeft: -35}]}
                 onPress={() => {this._setModalVisible(true)}}>
                 {this.state.currentLabel}
                 {(this.props.iosIcon == undefined) ? <Icon name="ios-home" style={{opacity: 0}} /> : this.renderIcon()}

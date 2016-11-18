@@ -1,7 +1,7 @@
 /* @flow */
 'use strict';
 import React from 'react';
-import {View, TextInput} from 'react-native';
+import {View, TextInput,Platform} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
@@ -19,7 +19,8 @@ export default class Input extends NativeBaseComponent {
                 paddingLeft: 5,
                 paddingRight: 5,
                 fontSize: this.getTheme().inputFontSize,
-                lineHeight: this.getTheme().inputLineHeight
+                lineHeight: this.getTheme().inputLineHeight,
+                marginTop: (this.props.inlineLabel) ? ((Platform.OS === 'ios') ? undefined : 5) : undefined
             }
         }
     }

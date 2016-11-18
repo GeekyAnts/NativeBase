@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {View} from 'react-native';
+import {View,Platform} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import Text from './Text';
@@ -29,7 +29,7 @@ export default class BadgeNB extends NativeBaseComponent {
                             this.props.danger ?
                             this.getTheme().brandDanger :
                             this.getTheme().badgeBg,
-            padding: 3,
+            padding: (Platform.OS === 'ios') ? 3 : 0,
             paddingHorizontal: 10,
             alignSelf: 'flex-start',
             borderRadius: 13.5,
