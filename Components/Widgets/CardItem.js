@@ -23,7 +23,8 @@ export default class CardItemNB extends NativeBaseComponent {
         return {
             listItem: {
                 borderBottomWidth: this.getTheme().borderWidth,
-                padding: (this.imagePresent() && !this.ifShowCase()) ? 0 : this.getTheme().listItemPadding,
+                padding: (this.imagePresent() && !this.ifShowCase()) ? 0 :
+                    this.getTheme().listItemPadding,
                 backgroundColor: this.getTheme().listBg,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                 flexDirection: (this.thumbnailPresent() || this.iconPresent() || (this.notePresent() && this.ifShowCase())) ? 'row' : 'column',
@@ -33,14 +34,14 @@ export default class CardItemNB extends NativeBaseComponent {
                 borderBottomWidth: this.getTheme().borderWidth,
                 padding: this.getTheme().listItemPadding,
                 backgroundColor: 'transparent',
-                paddingVertical: this.getTheme().listItemPadding+2,
+                paddingVertical: this.getTheme().listItemPadding + 2,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                 flexDirection: 'row',
                 borderColor: 'transparent'
             },
             itemText: {
                 fontSize: this.ifShowCase() ? 14 : 15,
-                marginTop:  this.ifShowCase() ? 10 : 0,
+                marginTop: this.ifShowCase() ? 10 : 0,
                 color: this.getContextForegroundColor(),
                 flex: 1
             },
@@ -71,16 +72,16 @@ export default class CardItemNB extends NativeBaseComponent {
                 alignSelf: 'stretch',
                 height: this.ifShowCase() ? 120 : 300
             }
-        }
+        };
     }
     getRightStyle() {
         return {
-            right : {
+            right: {
                 flex: 1,
                 paddingLeft: 10,
                 backgroundColor: 'transparent'
             },
-            right2 : {
+            right2: {
                 flex: 1,
                 flexDirection: 'row',
                 paddingLeft: 10,
@@ -88,20 +89,20 @@ export default class CardItemNB extends NativeBaseComponent {
                 justifyContent: 'space-between',
                 backgroundColor: 'transparent'
             },
-            right3 : {
+            right3: {
                 flex: 1,
                 flexDirection: 'column',
                 paddingLeft: 10,
                 justifyContent: 'flex-start',
                 backgroundColor: 'transparent'
             }
-        }
+        };
     }
 
     thumbnailPresent() {
         let thumbnailComponentPresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type == Thumbnail) {
+            if (child && child.type === Thumbnail) {
                 thumbnailComponentPresent = true;
             }
         });
@@ -112,7 +113,7 @@ export default class CardItemNB extends NativeBaseComponent {
     imagePresent() {
         let imagePresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type == Image) {
+            if (child && child.type === Image) {
                 imagePresent = true;
             }
         });
@@ -123,7 +124,7 @@ export default class CardItemNB extends NativeBaseComponent {
     iconPresent() {
         let iconComponentPresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type == Icon) {
+            if (child && child.type === Icon) {
                 iconComponentPresent = true;
             }
         });
@@ -134,7 +135,7 @@ export default class CardItemNB extends NativeBaseComponent {
     buttonPresent() {
         let buttonComponentPresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type == Button) {
+            if (child && child.type === Button) {
                 buttonComponentPresent = true;
             }
         });
@@ -150,7 +151,7 @@ export default class CardItemNB extends NativeBaseComponent {
         let notePresent = false;
 
         React.Children.forEach(this.props.children, (child) => {
-            if (child && (child.type == Text) && child.props.note) {
+            if (child && (child.type === Text) && child.props.note) {
                 notePresent = true;
             }
         });
@@ -173,57 +174,48 @@ export default class CardItemNB extends NativeBaseComponent {
 
     getChildProps(child) {
         let defaultProps = {};
-        if (child.type == Image && !Array.isArray(this.props.children)) {
+        if (child.type === Image && !Array.isArray(this.props.children)) {
             defaultProps = {
                 resizeMode: 'cover',
                 style: this.getInitialStyle().fullImage
             };
-        }
-        else if (child.type == Button) {
+        } else
+          if (child.type === Button) {
             defaultProps = {
                 style: this.getInitialStyle().itemButton
             };
-        }
-        else if (child.type == Text) {
-            if ((this.props.header) || (this.props.footer)) {
-                defaultProps = {
-                    style: this.getInitialStyle().dividerItemText
-                };
-            }
-            else {
-                if (child.props.note && this.thumbnailPresent()) {
+        } else
+            if (child.type === Text) {
+                if ((this.props.header) || (this.props.footer)) {
+                    defaultProps = {
+                        style: this.getInitialStyle().dividerItemText
+                    };
+                } else if (child.props.note && this.thumbnailPresent()) {
                     defaultProps = {
                         style: this.getInitialStyle().itemSubNote
                     };
-                }
-                else if (child.props.note) {
+                } else if (child.props.note) {
                     defaultProps = {
                         style: this.getInitialStyle().itemNote
-                    }
-                }
-                else {
+                    };
+                } else {
                     defaultProps = {
                         style: this.getInitialStyle().itemText
-                    }
+                    };
                 }
-            }
-        }
-        else if (child.type == Icon) {
+        } else if (child.type === Icon) {
             defaultProps = {
                 style: this.getInitialStyle().itemIcon
             };
-        }
-        else if (child.type == Thumbnail) {
+        } else if (child.type === Thumbnail) {
             defaultProps = {
                 style: this.getInitialStyle().thumbnail
             };
-        }
-        else if (child.type == Image) {
+        } else if (child.type === Image) {
             defaultProps = {
                 style: this.getInitialStyle().fullImage
             };
-        }
-        else {
+        } else {
             defaultProps = {
                 foregroundColor: this.getContextForegroundColor()
             };
@@ -239,9 +231,7 @@ export default class CardItemNB extends NativeBaseComponent {
             defaultProps = {
                 style: this.getInitialStyle().listItemDivider
             };
-        }
-
-        else {
+        } else {
             defaultProps = {
                 style: this.getInitialStyle().listItem
             };
@@ -262,8 +252,7 @@ export default class CardItemNB extends NativeBaseComponent {
             newChildren = childrenArray.map((child, i) =>
                 React.cloneElement(child, { ...this.getChildProps(child), key: i })
             );
-        }
-        else {
+        } else {
             newChildren = [];
             if (!Array.isArray(this.props.children)) {
                 newChildren.push(
@@ -271,9 +260,9 @@ export default class CardItemNB extends NativeBaseComponent {
                         {React.cloneElement(childrenArray, this.getChildProps(childrenArray))}
                     </View>
                 );
-            }
-            else {
-                newChildren.push(React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
+            } else {
+                newChildren.push(
+                    React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
                 newChildren.push(
                     <View key='cardItem' style={this.notePresent() ? this.getRightStyle().right : this.squareThumbs() ? this.getRightStyle().right3 : this.getRightStyle().right2}>
                         {childrenArray.slice(1).map((child, i) =>
@@ -290,7 +279,10 @@ export default class CardItemNB extends NativeBaseComponent {
 
     render() {
         return (
-            <TouchableOpacity ref={(c) => { this._root = c; }} {...this.prepareRootProps()} activeOpacity={(this.props.button) ? 0.2 : 1} >
+            <TouchableOpacity
+                ref={(c) => { this._root = c; }} {...this.prepareRootProps()}
+                activeOpacity={(this.props.button) ? 0.2 : 1}
+            >
                 {this.renderChildren()}
             </TouchableOpacity>
         );
