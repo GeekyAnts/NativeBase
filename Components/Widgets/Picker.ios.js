@@ -97,7 +97,7 @@ export default class PickerNB extends NativeBaseComponent {
     render() {
         let additionalProps = {marginLeft: -35};
         if(this.props.inlineLabel) {
-          additionalProps = {paddingHorizontal: 4};
+          additionalProps = {paddingHorizontal: 4, justifyContent: 'flex-start', alignSelf: 'stretch'};
         }
         return (
         <View ref={c => this._root = c}>
