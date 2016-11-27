@@ -25,8 +25,8 @@
     "react-native-vector-icons": "2.x.x"
   },
   "peerDependencies": {
-    "react-native": ">=0.26.0",
-    "react": ">=15.0.2"
+    "react-native": ">=0.38.0",
+    "react": ">=15.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
