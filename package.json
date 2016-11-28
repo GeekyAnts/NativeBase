@@ -20,7 +20,7 @@
     "color": "~0.11.1",
     "lodash": "~4.11.1",
     "react-native-checkbox": "~1.0.8",
-    "react-native-easy-grid": "0.1.5",
+    "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
     "react-native-vector-icons": "2.x.x"
   },
