@@ -1,79 +1,58 @@
-/* @flow */
-'use strict';
+import { setDefaultThemeStyle } from './init';
+import getTheme from './theme';
+import variables from './variables';
+import { PickerNB } from './components/Picker';
 
-import Drawer from './Components/vendor/react-native-drawer';
-import Header from './Components/Widgets/Header';
-import Footer from './Components/Widgets/Footer';
-import Title from './Components/Widgets/Title';
-import Container from './Components/Widgets/Container';
-import Content from './Components/Widgets/Content';
-import Button from './Components/Widgets/Button';
-import Text from './Components/Widgets/Text';
-import Switch from './Components/Widgets/Switch';
-import Picker from './Components/Widgets/Picker';
-import List from './Components/Widgets/List';
-import ListItem from './Components/Widgets/ListItem';
-import CardItem from './Components/Widgets/CardItem';
-import CardSwiper from './Components/Widgets/CardSwiper';
-import DeckSwiper from './Components/Widgets/DeckSwiper';
-import H1 from './Components/Widgets/H1';
-import H2 from './Components/Widgets/H2';
-import H3 from './Components/Widgets/H3';
-import View from './Components/Widgets/View';
-import Input from './Components/Widgets/Input';
-import Textarea from './Components/Widgets/Textarea';
-import InputGroup from './Components/Widgets/InputGroup';
-import Icon from './Components/Widgets/Icon';
-import FooterTab from './Components/Widgets/FooterTab';
-import Tab from './Components/Widgets/Tab';
-import Fab from './Components/Widgets/Fab';
-import Thumbnail from './Components/Widgets/Thumbnail';
-import CheckBox from './Components/Widgets/Checkbox';
-import Radio from './Components/Widgets/Radio';
-import Card from './Components/Widgets/Card';
-import Badge from './Components/Widgets/Badge';
-import Spinner from './Components/Widgets/Spinner';
-// import ProgressBar from './Components/Widgets/ProgressBar';
-import { Col, Row, Grid } from "react-native-easy-grid";
-import ScrollableTabView from './Components/Widgets/Tabs';
+console.log('Picker', PickerNB);
+setDefaultThemeStyle();
+
+// Theme
+export { getTheme };
+export { variables };
+export { StyleProvider } from '@shoutem/theme';
+
+export { Button } from './components/Button';
+export { Icon } from './components/Icon';
+export { Header } from './components/Header';
+export { InputGroup } from './components/InputGroup';
+export { Input } from './components/Input';
+export { Title } from './components/Title';
+export { Fab } from './components/Fab';
+export { Left } from './components/Left';
+export { Right } from './components/Right';
+export { Body } from './components/Body';
+export { Badge } from './components/Badge';
+export { CheckBox } from './components/Checkbox';
+export { Radio } from './components/Radio';
+export { Thumbnail } from './components/Thumbnail';
+export { Card } from './components/Card';
+export { CardItem } from './components/CardItem';
+export { H1 } from './components/H1';
+export { H2 } from './components/H2';
+export { H3 } from './components/H3';
+export { Spinner } from './components/Spinner';
+export { Switch } from './components/Switch';
+export { Container } from './components/Container';
+export { Content } from './components/Content';
+export { Footer } from './components/Footer';
+export { Tabs } from './components/Tabs';
+export { FooterTab } from './components/FooterTab';
+export { PickerNB as Picker } from './components/Picker';
+export { List } from './components/List';
+export { ListItem } from './components/ListItem';
+export { DeckSwiper } from './components/DeckSwiper';
+export { Item } from './components/Item';
+export { Label } from './components/Label';
+export { Textarea } from './components/Textarea';
 
 
-module.exports = {
-  Header: Header,
-  Footer: Footer,
-  Title: Title,
-  Container: Container,
-  Content: Content,
-  Button: Button,
-  Text: Text,
-  Switch: Switch,
-  Picker: Picker,
-  List: List,
-  ListItem: ListItem,
-  CardItem: CardItem,
-  H1: H1,
-  H2: H2,
-  H3: H3,
-  View: View,
-  Row: Row,
-  Col: Col,
-  Grid: Grid,
-  InputGroup: InputGroup,
-  Input: Input,
-  Textarea: Textarea,
-  Icon: Icon,
-  Thumbnail: Thumbnail,
-  Card: Card,
-  CardSwiper: CardSwiper,
-  DeckSwiper: DeckSwiper,
-  Badge: Badge,
-  Spinner: Spinner,
-  CheckBox: CheckBox,
-  Radio: Radio,
-  // ProgressBar: ProgressBar,
-  Drawer: Drawer,
-  FooterTab: FooterTab,
-  TabBar: Tab,
-  Fab: Fab,
-  Tabs : ScrollableTabView
-};
+const mapPropsToStyleNames = (styleNames, props) => {
+  console.log('title');
+  return _.keys(props);
+}
+
+export { mapPropsToStyleNames };
+
+export {
+  Text,
+} from './components/Text';

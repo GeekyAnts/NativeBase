@@ -1,4 +1,4 @@
-# NativeBase v0.5.13
+# NativeBase v6.0 (Under development)
 Essential cross-platform UI components for React Native
 
 
