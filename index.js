@@ -1,7 +1,7 @@
 import { setDefaultThemeStyle } from './init';
 import getTheme from './theme';
 import variables from './variables';
-import { PickerNB } from './components/Picker';
+import { PickerNB } from './Components/Picker';
 
 console.log('Picker', PickerNB);
 setDefaultThemeStyle();
@@ -11,39 +11,39 @@ export { getTheme };
 export { variables };
 export { StyleProvider } from '@shoutem/theme';
 
-export { Button } from './components/Button';
-export { Icon } from './components/Icon';
-export { Header } from './components/Header';
-export { InputGroup } from './components/InputGroup';
-export { Input } from './components/Input';
-export { Title } from './components/Title';
-export { Fab } from './components/Fab';
-export { Left } from './components/Left';
-export { Right } from './components/Right';
-export { Body } from './components/Body';
-export { Badge } from './components/Badge';
-export { CheckBox } from './components/Checkbox';
-export { Radio } from './components/Radio';
-export { Thumbnail } from './components/Thumbnail';
-export { Card } from './components/Card';
-export { CardItem } from './components/CardItem';
-export { H1 } from './components/H1';
-export { H2 } from './components/H2';
-export { H3 } from './components/H3';
-export { Spinner } from './components/Spinner';
-export { Switch } from './components/Switch';
-export { Container } from './components/Container';
-export { Content } from './components/Content';
-export { Footer } from './components/Footer';
-export { Tabs } from './components/Tabs';
-export { FooterTab } from './components/FooterTab';
-export { PickerNB as Picker } from './components/Picker';
-export { List } from './components/List';
-export { ListItem } from './components/ListItem';
-export { DeckSwiper } from './components/DeckSwiper';
-export { Item } from './components/Item';
-export { Label } from './components/Label';
-export { Textarea } from './components/Textarea';
+export { Button } from './Components/Button';
+export { Icon } from './Components/Icon';
+export { Header } from './Components/Header';
+export { InputGroup } from './Components/InputGroup';
+export { Input } from './Components/Input';
+export { Title } from './Components/Title';
+export { Fab } from './Components/Fab';
+export { Left } from './Components/Left';
+export { Right } from './Components/Right';
+export { Body } from './Components/Body';
+export { Badge } from './Components/Badge';
+export { CheckBox } from './Components/Checkbox';
+export { Radio } from './Components/Radio';
+export { Thumbnail } from './Components/Thumbnail';
+export { Card } from './Components/Card';
+export { CardItem } from './Components/CardItem';
+export { H1 } from './Components/H1';
+export { H2 } from './Components/H2';
+export { H3 } from './Components/H3';
+export { Spinner } from './Components/Spinner';
+export { Switch } from './Components/Switch';
+export { Container } from './Components/Container';
+export { Content } from './Components/Content';
+export { Footer } from './Components/Footer';
+export { Tabs } from './Components/Tabs';
+export { FooterTab } from './Components/FooterTab';
+export { PickerNB as Picker } from './Components/Picker';
+export { List } from './Components/List';
+export { ListItem } from './Components/ListItem';
+export { DeckSwiper } from './Components/DeckSwiper';
+export { Item } from './Components/Item';
+export { Label } from './Components/Label';
+export { Textarea } from './Components/Textarea';
 
 
 const mapPropsToStyleNames = (styleNames, props) => {
@@ -55,4 +55,4 @@ export { mapPropsToStyleNames };
 
 export {
   Text,
-} from './components/Text';
+} from './Components/Text';
