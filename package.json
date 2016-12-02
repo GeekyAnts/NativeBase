@@ -20,50 +20,71 @@
         }
       },
       "/Users/sahusoft/Sites/projects/MessagingApp-Frontend"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/NativeBase-KitchenSink"
     ]
   ],
-  "_from": "git+https://github.com/GeekyAnts/NativeBase.git#v6.0",
+  "_from": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
   "_id": "native-base@6.0.0-beta",
   "_inCache": true,
   "_location": "/native-base",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v6.0",
+    "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
     "scope": null,
     "escapedName": "native-base",
     "name": "native-base",
-    "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v6.0",
-    "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v6.0",
+    "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+    "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
     "type": "hosted",
     "hosted": {
       "type": "github",
-      "ssh": "git@github.com:GeekyAnts/NativeBase.git#v6.0",
-      "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v6.0",
-      "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v6.0",
-      "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v6.0",
-      "shortcut": "github:GeekyAnts/NativeBase#v6.0",
-      "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v6.0/package.json"
+      "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+      "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+      "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+      "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+      "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+      "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
     }
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#5bbeacc403ba97622703699132c55d8359344004",
-  "_shasum": "3f83c276fda47f1e6391edb6f08cd416d80e8a32",
+  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#78a3607eca68f1916d5d61c6a180d4400e7754a4",
+  "_shasum": "9c6dbdd3a719a3de86d0451050554d4a571ab894",
   "_shrinkwrap": null,
-  "_spec": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v6.0",
-  "_where": "/Users/sahusoft/Sites/projects/MessagingApp-Frontend",
+  "_spec": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+  "_where": "/Users/sahusoft/Sites/projects/NativeBase-KitchenSink",
   "bugs": {
     "url": "https://github.com/GeekyAnts/NativeBase/issues"
   },
   "dependencies": {
-    "@shoutem/theme": "^0.8.5",
+    "@shoutem/animation": "^0.8.9",
+    "@shoutem/theme": "^0.8.7",
     "clamp": "^1.0.1",
     "color": "~0.11.1",
     "lodash": "~4.11.1",
     "react-native-checkbox": "~1.0.8",
     "react-native-easy-grid": "0.1.7",
-    "@shoutem/animation": "^0.8.6",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
     "react-native-vector-icons": "2.x.x"
   },
