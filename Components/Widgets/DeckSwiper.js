@@ -218,7 +218,7 @@ export default class CardSwiper extends NativeBaseComponent {
         return(
             <View ref={c => this._root = c} style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
                 (<View>
-                    <Animated.View style={[this.getCardStyles()[1],{opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
+                    <Animated.View style={[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
                         {(this.props.renderBottom)  ?
                           this.props.renderBottom(this.state.selectedItem2)
                         :

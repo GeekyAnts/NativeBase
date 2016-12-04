@@ -13,20 +13,20 @@
     "packager",
     "rnpm"
   ],
-  "version": "0.5.15",
+  "version": "0.5.18",
   "private": false,
   "dependencies": {
     "clamp": "^1.0.1",
     "color": "~0.11.1",
     "lodash": "~4.11.1",
     "react-native-checkbox": "~1.0.8",
-    "react-native-easy-grid": "0.1.5",
+    "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
     "react-native-vector-icons": "2.x.x"
   },
   "peerDependencies": {
-    "react-native": ">=0.26.0",
-    "react": ">=15.0.2"
+    "react-native": ">=0.38.0",
+    "react": ">=15.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
