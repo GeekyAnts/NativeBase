@@ -107,7 +107,8 @@
     "react-native-checkbox": "~1.0.8",
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
-    "react-native-vector-icons": "2.x.x"
+    "react-native-vector-icons": "2.x.x",
+    "tween-functions": "^1.0.1"
   },
   "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {

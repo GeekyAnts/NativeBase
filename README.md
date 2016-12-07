@@ -1,4 +1,4 @@
-# NativeBase v2.0-alpha1 (Under development)
+# NativeBase v6.0 (Under development)
 Essential cross-platform UI components for React Native
 
 

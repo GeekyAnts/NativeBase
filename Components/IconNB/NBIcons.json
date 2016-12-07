@@ -2019,6 +2019,906 @@
       active: "ios-phone-landscape",
     },
   },
+  "phone-portrait": {
+    "android": {
+      default: "md-phone-portrait",
+      active: "md-phone-portrait",
+    },
+    "ios": {
+      default: "ios-phone-portrait-outline",
+      active: "ios-phone-portrait",
+    },
+  },
+  "photos": {
+    "android": {
+      default: "md-photos",
+      active: "md-photos",
+    },
+    "ios": {
+      default: "ios-photos-outline",
+      active: "ios-photos",
+    },
+  },
+  "pie": {
+    "android": {
+      default: "md-pie",
+      active: "md-pie",
+    },
+    "ios": {
+      default: "ios-pie-outline",
+      active: "ios-pie",
+    },
+  },
+  "pin": {
+    "android": {
+      default: "md-pin",
+      active: "md-pin",
+    },
+    "ios": {
+      default: "ios-pin-outline",
+      active: "ios-pin",
+    },
+  },
+  "pint": {
+    "android": {
+      default: "md-pint",
+      active: "md-pint",
+    },
+    "ios": {
+      default: "ios-pint-outline",
+      active: "ios-pint",
+    },
+  },
+  "pizza": {
+    "android": {
+      default: "md-pizza",
+      active: "md-pizza",
+    },
+    "ios": {
+      default: "ios-pizza-outline",
+      active: "ios-pizza",
+    },
+  },
+  "plane": {
+    "android": {
+      default: "md-plane",
+      active: "md-plane",
+    },
+    "ios": {
+      default: "ios-plane-outline",
+      active: "ios-plane",
+    },
+  },
+  "planet": {
+    "android": {
+      default: "md-planet",
+      active: "md-planet",
+    },
+    "ios": {
+      default: "ios-planet-outline",
+      active: "ios-planet",
+    },
+  },
+  "play": {
+    "android": {
+      default: "md-play",
+      active: "md-play",
+    },
+    "ios": {
+      default: "ios-play-outline",
+      active: "ios-play",
+    },
+  },
+  "podium": {
+    "android": {
+      default: "md-podium",
+      active: "md-podium",
+    },
+    "ios": {
+      default: "ios-podium-outline",
+      active: "ios-podium",
+    },
+  },
+  "power": {
+    "android": {
+      default: "md-power",
+      active: "md-power",
+    },
+    "ios": {
+      default: "ios-power-outline",
+      active: "ios-power",
+    },
+  },
+  "pricetag": {
+    "android": {
+      default: "md-pricetag",
+      active: "md-pricetag",
+    },
+    "ios": {
+      default: "ios-pricetag-outline",
+      active: "ios-pricetag",
+    },
+  },
+  "pricetags": {
+    "android": {
+      default: "md-pricetags",
+      active: "md-pricetags",
+    },
+    "ios": {
+      default: "ios-pricetags-outline",
+      active: "ios-pricetags",
+    },
+  },
+  "print": {
+    "android": {
+      default: "md-print",
+      active: "md-print",
+    },
+    "ios": {
+      default: "ios-print-outline",
+      active: "ios-print",
+    },
+  },
+  "pulse": {
+    "android": {
+      default: "md-pulse",
+      active: "md-pulse",
+    },
+    "ios": {
+      default: "ios-pulse-outline",
+      active: "ios-pulse",
+    },
+  },
+  "qr-scanner": {
+    "android": {
+      default: "md-qr-scanner",
+      active: "md-qr-scanner",
+    },
+    "ios": {
+      default: "ios-qr-scanner-outline",
+      active: "ios-qr-scanner",
+    },
+  },
+  "quote": {
+    "android": {
+      default: "md-quote",
+      active: "md-quote",
+    },
+    "ios": {
+      default: "ios-quote-outline",
+      active: "ios-quote",
+    },
+  },
+  "radio": {
+    "android": {
+      default: "md-radio",
+      active: "md-radio",
+    },
+    "ios": {
+      default: "ios-radio-outline",
+      active: "ios-radio",
+    },
+  },
+  "radio-button-off": {
+    "android": {
+      default: "md-radio-button-off",
+      active: "md-radio-button-off",
+    },
+    "ios": {
+      default: "ios-radio-button-off-outline",
+      active: "ios-radio-button-off",
+    },
+  },
+  "radio-button-on": {
+    "android": {
+      default: "md-radio-button-on",
+      active: "md-radio-button-on",
+    },
+    "ios": {
+      default: "ios-radio-button-on-outline",
+      active: "ios-radio-button-on",
+    },
+  },
+  "rainy": {
+    "android": {
+      default: "md-rainy",
+      active: "md-rainy",
+    },
+    "ios": {
+      default: "ios-rainy-outline",
+      active: "ios-rainy",
+    },
+  },
+  "recording": {
+    "android": {
+      default: "md-recording",
+      active: "md-recording",
+    },
+    "ios": {
+      default: "ios-recording-outline",
+      active: "ios-recording",
+    },
+  },
+  "redo": {
+    "android": {
+      default: "md-redo",
+      active: "md-redo",
+    },
+    "ios": {
+      default: "ios-redo-outline",
+      active: "ios-redo",
+    },
+  },
+  "refresh": {
+    "android": {
+      default: "md-refresh",
+      active: "md-refresh",
+    },
+    "ios": {
+      default: "ios-refresh-outline",
+      active: "ios-refresh",
+    },
+  },
+  "remove": {
+    "android": {
+      default: "md-remove",
+      active: "md-remove",
+    },
+    "ios": {
+      default: "ios-remove-outline",
+      active: "ios-remove",
+    },
+  },
+  "remove-circle": {
+    "android": {
+      default: "md-remove-circle",
+      active: "md-remove-circle",
+    },
+    "ios": {
+      default: "ios-remove-circle-outline",
+      active: "ios-remove-circle",
+    },
+  },
+  "reorder": {
+    "android": {
+      default: "md-reorder",
+      active: "md-reorder",
+    },
+    "ios": {
+      default: "ios-reorder-outline",
+      active: "ios-reorder",
+    },
+  },
+  "repeat": {
+    "android": {
+      default: "md-repeat",
+      active: "md-repeat",
+    },
+    "ios": {
+      default: "ios-repeat-outline",
+      active: "ios-repeat",
+    },
+  },
+  "resize": {
+    "android": {
+      default: "md-resize",
+      active: "md-resize",
+    },
+    "ios": {
+      default: "ios-resize-outline",
+      active: "ios-resize",
+    },
+  },
+  "restaurant": {
+    "android": {
+      default: "md-restaurant",
+      active: "md-restaurant",
+    },
+    "ios": {
+      default: "ios-restaurant-outline",
+      active: "ios-restaurant",
+    },
+  },
+  "return-left": {
+    "android": {
+      default: "md-return-left",
+      active: "md-return-left",
+    },
+    "ios": {
+      default: "ios-return-left-outline",
+      active: "ios-return-left",
+    },
+  },
+  "return-right": {
+    "android": {
+      default: "md-return-right",
+      active: "md-return-right",
+    },
+    "ios": {
+      default: "ios-return-right-outline",
+      active: "ios-return-right",
+    },
+  },
+  "reverse-camera": {
+    "android": {
+      default: "md-reverse-camera",
+      active: "md-reverse-camera",
+    },
+    "ios": {
+      default: "ios-reverse-camera-outline",
+      active: "ios-reverse-camera",
+    },
+  },
+  "rewind": {
+    "android": {
+      default: "md-rewind",
+      active: "md-rewind",
+    },
+    "ios": {
+      default: "ios-rewind-outline",
+      active: "ios-rewind",
+    },
+  },
+  "ribbon": {
+    "android": {
+      default: "md-ribbon",
+      active: "md-ribbon",
+    },
+    "ios": {
+      default: "ios-ribbon-outline",
+      active: "ios-ribbon",
+    },
+  },
+  "rose": {
+    "android": {
+      default: "md-rose",
+      active: "md-rose",
+    },
+    "ios": {
+      default: "ios-rose-outline",
+      active: "ios-rose",
+    },
+  },
+  "sad": {
+    "android": {
+      default: "md-sad",
+      active: "md-sad",
+    },
+    "ios": {
+      default: "ios-sad-outline",
+      active: "ios-sad",
+    },
+  },
+  "school": {
+    "android": {
+      default: "md-school",
+      active: "md-school",
+    },
+    "ios": {
+      default: "ios-school-outline",
+      active: "ios-school",
+    },
+  },
+  "search": {
+    "android": {
+      default: "md-search",
+      active: "md-search",
+    },
+    "ios": {
+      default: "ios-search-outline",
+      active: "ios-search",
+    },
+  },
+  "send": {
+    "android": {
+      default: "md-send",
+      active: "md-send",
+    },
+    "ios": {
+      default: "ios-send-outline",
+      active: "ios-send",
+    },
+  },
+  "settings": {
+    "android": {
+      default: "md-settings",
+      active: "md-settings",
+    },
+    "ios": {
+      default: "ios-settings-outline",
+      active: "ios-settings",
+    },
+  },
+  "share": {
+    "android": {
+      default: "md-share",
+      active: "md-share",
+    },
+    "ios": {
+      default: "ios-share-outline",
+      active: "ios-share",
+    },
+  },
+  "share-all": {
+    "android": {
+      default: "md-share-all",
+      active: "md-share-all",
+    },
+    "ios": {
+      default: "ios-share-all-outline",
+      active: "ios-share-all",
+    },
+  },
+  "shirt": {
+    "android": {
+      default: "md-shirt",
+      active: "md-shirt",
+    },
+    "ios": {
+      default: "ios-shirt-outline",
+      active: "ios-shirt",
+    },
+  },
+  "shuffle": {
+    "android": {
+      default: "md-shuffle",
+      active: "md-shuffle",
+    },
+    "ios": {
+      default: "ios-shuffle-outline",
+      active: "ios-shuffle",
+    },
+  },
+  "skip-backward": {
+    "android": {
+      default: "md-skip-backward",
+      active: "md-skip-backward",
+    },
+    "ios": {
+      default: "ios-skip-backward-outline",
+      active: "ios-skip-backward",
+    },
+  },
+  "skip-forward": {
+    "android": {
+      default: "md-skip-forward",
+      active: "md-skip-forward",
+    },
+    "ios": {
+      default: "ios-skip-forward-outline",
+      active: "ios-skip-forward",
+    },
+  },
+  "snow": {
+    "android": {
+      default: "md-snow",
+      active: "md-snow",
+    },
+    "ios": {
+      default: "ios-snow-outline",
+      active: "ios-snow",
+    },
+  },
+  "speedometer": {
+    "android": {
+      default: "md-speedometer",
+      active: "md-speedometer",
+    },
+    "ios": {
+      default: "ios-speedometer-outline",
+      active: "ios-speedometer",
+    },
+  },
+  "square": {
+    "android": {
+      default: "md-square-outline",
+      active: "md-square",
+    },
+    "ios": {
+      default: "ios-square-outline",
+      active: "ios-square",
+    },
+  },
+  "star": {
+    "android": {
+      default: "md-star-outline",
+      active: "md-star",
+    },
+    "ios": {
+      default: "ios-star-outline",
+      active: "ios-star",
+    },
+  },
+  "star-half": {
+    "android": {
+      default: "md-star-half",
+      active: "md-star-half",
+    },
+    "ios": {
+      default: "ios-star-half-outline",
+      active: "ios-star-half",
+    },
+  },
+  "stats": {
+    "android": {
+      default: "md-stats",
+      active: "md-stats",
+    },
+    "ios": {
+      default: "ios-stats-outline",
+      active: "ios-stats",
+    },
+  },
+  "stopwatch": {
+    "android": {
+      default: "md-stopwatch",
+      active: "md-stopwatch",
+    },
+    "ios": {
+      default: "ios-stopwatch-outline",
+      active: "ios-stopwatch",
+    },
+  },
+  "subway": {
+    "android": {
+      default: "md-subway",
+      active: "md-subway",
+    },
+    "ios": {
+      default: "ios-subway-outline",
+      active: "ios-subway",
+    },
+  },
+  "sunny": {
+    "android": {
+      default: "md-sunny",
+      active: "md-sunny",
+    },
+    "ios": {
+      default: "ios-sunny-outline",
+      active: "ios-sunny",
+    },
+  },
+  "swap": {
+    "android": {
+      default: "md-swap",
+      active: "md-swap",
+    },
+    "ios": {
+      default: "ios-swap-outline",
+      active: "ios-swap",
+    },
+  },
+  "switch": {
+    "android": {
+      default: "md-switch",
+      active: "md-switch",
+    },
+    "ios": {
+      default: "ios-switch-outline",
+      active: "ios-switch",
+    },
+  },
+  "sync": {
+    "android": {
+      default: "md-sync",
+      active: "md-sync",
+    },
+    "ios": {
+      default: "ios-sync-outline",
+      active: "ios-sync",
+    },
+  },
+  "tablet-landscape": {
+    "android": {
+      default: "md-tablet-landscape",
+      active: "md-tablet-landscape",
+    },
+    "ios": {
+      default: "ios-tablet-landscape-outline",
+      active: "ios-tablet-landscape",
+    },
+  },
+  "tablet-portrait": {
+    "android": {
+      default: "md-tablet-portrait",
+      active: "md-tablet-portrait",
+    },
+    "ios": {
+      default: "ios-tablet-portrait-outline",
+      active: "ios-tablet-portrait",
+    },
+  },
+  "tennisball": {
+    "android": {
+      default: "md-tennisball",
+      active: "md-tennisball",
+    },
+    "ios": {
+      default: "ios-tennisball-outline",
+      active: "ios-tennisball",
+    },
+  },
+  "text": {
+    "android": {
+      default: "md-text",
+      active: "md-text",
+    },
+    "ios": {
+      default: "ios-text-outline",
+      active: "ios-text",
+    },
+  },
+  "thermometer": {
+    "android": {
+      default: "md-thermometer",
+      active: "md-thermometer",
+    },
+    "ios": {
+      default: "ios-thermometer-outline",
+      active: "ios-thermometer",
+    },
+  },
+  "thumbs-down": {
+    "android": {
+      default: "md-thumbs-down",
+      active: "md-thumbs-down",
+    },
+    "ios": {
+      default: "ios-thumbs-down-outline",
+      active: "ios-thumbs-down",
+    },
+  },
+  "thumbs-up": {
+    "android": {
+      default: "md-thumbs-up",
+      active: "md-thumbs-up",
+    },
+    "ios": {
+      default: "ios-thumbs-up-outline",
+      active: "ios-thumbs-up",
+    },
+  },
+  "thunderstorm": {
+    "android": {
+      default: "md-thunderstorm",
+      active: "md-thunderstorm",
+    },
+    "ios": {
+      default: "ios-thunderstorm-outline",
+      active: "ios-thunderstorm",
+    },
+  },
+  "time": {
+    "android": {
+      default: "md-time",
+      active: "md-time",
+    },
+    "ios": {
+      default: "ios-time-outline",
+      active: "ios-time",
+    },
+  },
+  "timer": {
+    "android": {
+      default: "md-timer",
+      active: "md-timer",
+    },
+    "ios": {
+      default: "ios-timer-outline",
+      active: "ios-timer",
+    },
+  },
+  "train": {
+    "android": {
+      default: "md-train",
+      active: "md-train",
+    },
+    "ios": {
+      default: "ios-train-outline",
+      active: "ios-train",
+    },
+  },
+  "transgender": {
+    "android": {
+      default: "md-transgender",
+      active: "md-transgender",
+    },
+    "ios": {
+      default: "ios-transgender-outline",
+      active: "ios-transgender",
+    },
+  },
+  "trash": {
+    "android": {
+      default: "md-trash",
+      active: "md-trash",
+    },
+    "ios": {
+      default: "ios-trash-outline",
+      active: "ios-trash",
+    },
+  },
+  "trending-down": {
+    "android": {
+      default: "md-trending-down",
+      active: "md-trending-down",
+    },
+    "ios": {
+      default: "ios-trending-down-outline",
+      active: "ios-trending-down",
+    },
+  },
+  "trending-up": {
+    "android": {
+      default: "md-trending-up",
+      active: "md-trending-up",
+    },
+    "ios": {
+      default: "ios-trending-up-outline",
+      active: "ios-trending-up",
+    },
+  },
+  "trophy": {
+    "android": {
+      default: "md-trophy",
+      active: "md-trophy",
+    },
+    "ios": {
+      default: "ios-trophy-outline",
+      active: "ios-trophy",
+    },
+  },
+  "umbrella": {
+    "android": {
+      default: "md-umbrella",
+      active: "md-umbrella",
+    },
+    "ios": {
+      default: "ios-umbrella-outline",
+      active: "ios-umbrella",
+    },
+  },
+  "undo": {
+    "android": {
+      default: "md-undo",
+      active: "md-undo",
+    },
+    "ios": {
+      default: "ios-undo-outline",
+      active: "ios-undo",
+    },
+  },
+  "unlock": {
+    "android": {
+      default: "md-unlock",
+      active: "md-unlock",
+    },
+    "ios": {
+      default: "ios-unlock-outline",
+      active: "ios-unlock",
+    },
+  },
+  "videocam": {
+    "android": {
+      default: "md-videocam",
+      active: "md-videocam",
+    },
+    "ios": {
+      default: "ios-videocam-outline",
+      active: "ios-videocam",
+    },
+  },
+  "volume-down": {
+    "android": {
+      default: "md-volume-down",
+      active: "md-volume-down",
+    },
+    "ios": {
+      default: "ios-volume-down-outline",
+      active: "ios-volume-down",
+    },
+  },
+  "volume-up": {
+    "android": {
+      default: "md-volume-up",
+      active: "md-volume-up",
+    },
+    "ios": {
+      default: "ios-volume-up-outline",
+      active: "ios-volume-up",
+    },
+  },
+  "volume-mute": {
+    "android": {
+      default: "md-volume-mute",
+      active: "md-volume-mute",
+    },
+    "ios": {
+      default: "ios-volume-mute-outline",
+      active: "ios-volume-mute",
+    },
+  },
+  "volume-off": {
+    "android": {
+      default: "md-volume-off",
+      active: "md-volume-off",
+    },
+    "ios": {
+      default: "ios-volume-off-outline",
+      active: "ios-volume-off",
+    },
+  },
+  "walk": {
+    "android": {
+      default: "md-walk",
+      active: "md-walk",
+    },
+    "ios": {
+      default: "ios-walk-outline",
+      active: "ios-walk",
+    },
+  },
+  "warning": {
+    "android": {
+      default: "md-warning",
+      active: "md-warning",
+    },
+    "ios": {
+      default: "ios-warning-outline",
+      active: "ios-warning",
+    },
+  },
+  "watch": {
+    "android": {
+      default: "md-watch",
+      active: "md-watch",
+    },
+    "ios": {
+      default: "ios-watch-outline",
+      active: "ios-watch",
+    },
+  },
+  "water": {
+    "android": {
+      default: "md-water",
+      active: "md-water",
+    },
+    "ios": {
+      default: "ios-water-outline",
+      active: "ios-water",
+    },
+  },
+  "wifi": {
+    "android": {
+      default: "md-wifi",
+      active: "md-wifi",
+    },
+    "ios": {
+      default: "ios-wifi-outline",
+      active: "ios-wifi",
+    },
+  },
+  "wine": {
+    "android": {
+      default: "md-wine",
+      active: "md-wine",
+    },
+    "ios": {
+      default: "ios-wine-outline",
+      active: "ios-wine",
+    },
+  },
+  "woman": {
+    "android": {
+      default: "md-woman",
+      active: "md-woman",
+    },
+    "ios": {
+      default: "ios-woman-outline",
+      active: "ios-woman",
+    },
+  },
 
 
 }

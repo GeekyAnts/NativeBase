@@ -2,7 +2,7 @@ import { setDefaultThemeStyle } from './init';
 import getTheme from './theme';
 import variables from './variables';
 import { PickerNB } from './Components/Picker';
-import Drawer from './Components/vendor/react-native-drawer';
+import Drawer from './Components/Drawer';
 setDefaultThemeStyle();
 
 // Theme
