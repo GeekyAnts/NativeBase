@@ -27,6 +27,13 @@ export default () => {
 
 
     'NativeBase.Header': {
+      '.noShadow': {
+        elevation: 0,
+        shadowColor: null,
+        shadowOffset: null,
+        shadowRadius: null,
+        shadowOpacity: null,
+      },
       'NativeBase.Button': {
         justifyContent: 'center',
         alignSelf: 'center',
@@ -41,6 +48,11 @@ export default () => {
       '.searchBar': {
         'NativeBase.InputGroup': {
           'NativeBase.Icon': {
+            backgroundColor: 'transparent',
+            color: null,
+            alignSelf: 'center',
+          },
+          'NativeBase.IconNB': {
             backgroundColor: 'transparent',
             color: null,
             alignSelf: 'center',
@@ -74,10 +86,13 @@ export default () => {
       'NativeBase.Left': {
         'NativeBase.Button': {
           '.transparent': {
-          'NativeBase.Icon': {
+            'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
           },
-          'NativeBase.Text': {
+            'NativeBase.IconNB': {
+            color: variables.topTabBarActiveTextColor,
+          },
+            'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
           },
             backgroundColor: 'transparent',
@@ -89,6 +104,9 @@ export default () => {
             shadowOpacity: null,
           },
           'NativeBase.Icon': {
+            color: variables.topTabBarActiveTextColor,
+          },
+          'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
           },
           alignSelf: null,
@@ -109,6 +127,9 @@ export default () => {
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
           },
+          'NativeBase.IconNB': {
+            color: variables.topTabBarActiveTextColor,
+          },
           'NativeBase.Text': {
             color: variables.titleFontColor,
           },
@@ -118,6 +139,9 @@ export default () => {
         'NativeBase.Button': {
           '.transparent': {
             'NativeBase.Icon': {
+              color: variables.topTabBarActiveTextColor,
+            },
+            'NativeBase.IconNB': {
               color: variables.topTabBarActiveTextColor,
             },
             'NativeBase.Text': {
@@ -132,6 +156,9 @@ export default () => {
             shadowOpacity: null,
           },
           'NativeBase.Icon': {
+            color: variables.topTabBarActiveTextColor,
+          },
+          'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
           },
           alignSelf: null,
@@ -169,6 +196,9 @@ export default () => {
           'NativeBase.Icon': {
             color: variables.btnPrimaryBg,
           },
+          'NativeBase.IconNB': {
+            color: variables.btnPrimaryBg,
+          },
           backgroundColor: 'transparent',
           borderColor: variables.btnPrimaryBg,
           borderWidth: 1,
@@ -178,6 +208,9 @@ export default () => {
             color: variables.btnSuccessBg,
           },
           'NativeBase.Icon': {
+            color: variables.btnSuccessBg,
+          },
+          'NativeBase.IconNB': {
             color: variables.btnSuccessBg,
           },
           backgroundColor: 'transparent',
@@ -191,6 +224,9 @@ export default () => {
           'NativeBase.Icon': {
             color: variables.btnInfoBg,
           },
+          'NativeBase.IconNB': {
+            color: variables.btnInfoBg,
+          },
           backgroundColor: 'transparent',
           borderColor: variables.btnInfoBg,
           borderWidth: 1,
@@ -202,6 +238,9 @@ export default () => {
           'NativeBase.Icon': {
             color: variables.btnWarningBg,
           },
+          'NativeBase.IconNB': {
+            color: variables.btnWarningBg,
+          },
           backgroundColor: 'transparent',
           borderColor: variables.btnWarningBg,
           borderWidth: 1,
@@ -211,6 +250,9 @@ export default () => {
             color: variables.btnDangerBg,
           },
           'NativeBase.Icon': {
+            color: variables.btnDangerBg,
+          },
+          'NativeBase.IconNB': {
             color: variables.btnDangerBg,
           },
           backgroundColor: 'transparent',
@@ -231,6 +273,9 @@ export default () => {
         'NativeBase.Icon': {
           color: variables.btnPrimaryBg,
         },
+        'NativeBase.IconNB': {
+          color: variables.btnPrimaryBg,
+        },
         borderWidth: 1,
         elevation: null,
         shadowColor: null,
@@ -249,6 +294,9 @@ export default () => {
           'NativeBase.Icon': {
             color: variables.btnPrimaryBg,
           },
+          'NativeBase.IconNB': {
+            color: variables.btnPrimaryBg,
+          },
         },
         backgroundColor: variables.btnPrimaryBg,
       },
@@ -259,6 +307,9 @@ export default () => {
             color: variables.btnSuccessBg,
           },
           'NativeBase.Icon': {
+            color: variables.btnSuccessBg,
+          },
+          'NativeBase.IconNB': {
             color: variables.btnSuccessBg,
           },
         },
@@ -273,6 +324,9 @@ export default () => {
           'NativeBase.Icon': {
             color: variables.btnInfoBg,
           },
+          'NativeBase.IconNB': {
+            color: variables.btnInfoBg,
+          },
         },
         backgroundColor: variables.btnInfoBg,
       },
@@ -285,6 +339,9 @@ export default () => {
           'NativeBase.Icon': {
             color: variables.btnWarningBg,
           },
+          'NativeBase.IconNB': {
+            color: variables.btnWarningBg,
+          },
         },
         backgroundColor: variables.btnWarningBg,
       },
@@ -295,6 +352,9 @@ export default () => {
             color: variables.btnDangerBg,
           },
           'NativeBase.Icon': {
+            color: variables.btnDangerBg,
+          },
+          'NativeBase.IconNB': {
             color: variables.btnDangerBg,
           },
         },
@@ -325,6 +385,10 @@ export default () => {
         'NativeBase.Icon': {
           color: variables.defaultTextColor,
         },
+        'NativeBase.IconNB': {
+          color: variables.defaultTextColor,
+        },
+
 
       },
 
@@ -372,6 +436,10 @@ export default () => {
         color: variables.inverseTextColor,
         fontSize: 24,
       },
+      'NativeBase.IconNB': {
+        color: variables.inverseTextColor,
+        fontSize: 24,
+      },
 
       paddingVertical: variables.buttonPadding,
       paddingHorizontal: variables.buttonPadding + 2,
@@ -400,6 +468,11 @@ export default () => {
 
     'NativeBase.InputGroup': {
       'NativeBase.Icon': {
+        fontSize: 24,
+        color: variables.topTabBarActiveTextColor,
+        paddingHorizontal: 5,
+      },
+      'NativeBase.IconNB': {
         fontSize: 24,
         color: variables.topTabBarActiveTextColor,
         paddingHorizontal: 5,
@@ -533,9 +606,18 @@ export default () => {
         'NativeBase.Icon': {
           color: variables.checkboxTickColor,
         },
+        'NativeBase.IconNB': {
+          color: variables.checkboxTickColor,
+        },
         backgroundColor: variables.checkboxBgColor,
       },
       'NativeBase.Icon': {
+        color: 'transparent',
+        lineHeight: variables.CheckboxIconSize,
+        marginTop: variables.CheckboxIconMarginTop,
+        fontSize: variables.CheckboxFontSize,
+      },
+      'NativeBase.IconNB': {
         color: 'transparent',
         lineHeight: variables.CheckboxIconSize,
         marginTop: variables.CheckboxIconMarginTop,
@@ -557,8 +639,16 @@ export default () => {
         'NativeBase.Icon': {
           color: variables.radioSelectedColor,
         },
+        'NativeBase.IconNB': {
+          color: variables.radioSelectedColor,
+        },
       },
       'NativeBase.Icon': {
+        color: variables.radioColor,
+        lineHeight: variables.radioBtnLineHeight,
+        fontSize: variables.radioBtnSize,
+      },
+      'NativeBase.IconNB': {
         color: variables.radioColor,
         lineHeight: variables.radioBtnLineHeight,
         fontSize: variables.radioBtnSize,
@@ -607,6 +697,9 @@ export default () => {
         'NativeBase.Icon': {
           fontSize: variables.iconFontSize,
         },
+        'NativeBase.IconNB': {
+          fontSize: variables.iconFontSize,
+        },
         'NativeBase.Text': {
           marginLeft: 10,
           alignSelf: 'center',
@@ -637,6 +730,9 @@ export default () => {
           alignSelf: null,
         },
         'NativeBase.Icon': {
+          alignSelf: null,
+        },
+        'NativeBase.IconNB': {
           alignSelf: null,
         },
         'NativeBase.Text': {
@@ -726,6 +822,9 @@ export default () => {
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
           },
+          'NativeBase.IconNB': {
+            color: variables.topTabBarActiveTextColor,
+          },
           alignSelf: null,
         },
         flex: 1,
@@ -750,6 +849,9 @@ export default () => {
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
           },
+          'NativeBase.IconNB': {
+            color: variables.topTabBarActiveTextColor,
+          },
           'NativeBase.Text': {
             color: variables.titleFontColor,
           },
@@ -767,6 +869,9 @@ export default () => {
             shadowOpacity: null,
           },
           'NativeBase.Icon': {
+            color: variables.topTabBarActiveTextColor,
+          },
+          'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
           },
           alignSelf: null,
@@ -803,6 +908,9 @@ export default () => {
           'NativeBase.Icon': {
             color: variables.tabBarActiveTextColor,
           },
+          'NativeBase.IconNB': {
+            color: variables.tabBarActiveTextColor,
+          },
           backgroundColor: variables.tabActiveBgColor,
         },
         flexDirection: null,
@@ -833,6 +941,9 @@ export default () => {
         'NativeBase.Icon': {
           color: variables.tabBarTextColor,
         },
+        'NativeBase.IconNB': {
+          color: variables.tabBarTextColor,
+        },
         'NativeBase.Text': {
           color: variables.tabBarTextColor,
           fontSize: variables.tabBarTextSize,
@@ -850,6 +961,9 @@ export default () => {
         flex: 1,
         borderWidth: null,
         'NativeBase.Icon': {
+          paddingRight: 5,
+        },
+        'NativeBase.IconNB': {
           paddingRight: 5,
         },
         'NativeBase.Input': {
@@ -890,6 +1004,10 @@ export default () => {
           fontSize: variables.iconFontSize,
           lineHeight: (Platform.OS === 'ios') ? 34 : undefined,
         },
+        'NativeBase.IconNB': {
+          fontSize: variables.iconFontSize,
+          lineHeight: (Platform.OS === 'ios') ? 34 : undefined,
+        },
         'NativeBase.Text': {
           marginLeft: 10,
           alignSelf: 'center',
@@ -916,6 +1034,9 @@ export default () => {
           alignSelf: null,
         },
         'NativeBase.Icon': {
+          alignSelf: null,
+        },
+        'NativeBase.IconNB': {
           alignSelf: null,
         },
         'NativeBase.Text': {
@@ -961,6 +1082,9 @@ export default () => {
     'NativeBase.Icon': {
       fontSize: variables.iconFontSize,
     },
+    'NativeBase.IconNB': {
+      fontSize: variables.iconFontSize,
+    },
     'NativeBase.Text': {
       paddingHorizontal: 3,
     },
@@ -973,6 +1097,9 @@ export default () => {
         alignItems: 'center',
         justifyContent: 'center',
         'NativeBase.Icon': {
+          alignSelf: 'center',
+        },
+        'NativeBase.IconNB': {
           alignSelf: 'center',
         },
       },
@@ -1051,6 +1178,11 @@ export default () => {
         color: variables.inputColorPlaceholder,
       },
       'NativeBase.Icon': {
+        fontSize: 24,
+        color: variables.topTabBarActiveTextColor,
+        paddingHorizontal: 5,
+      },
+      'NativeBase.IconNB': {
         fontSize: 24,
         color: variables.topTabBarActiveTextColor,
         paddingHorizontal: 5,
@@ -1171,27 +1303,99 @@ export default () => {
       textAlignVertical: 'top',
     },
 
+    'NativeBase.Tab': {
+      'NativeBase.Button': {
+        '.active': {
+          'NativeBase.Text': {
+            color: variables.activeTab,
+            fontSize: (Platform.OS === 'ios') ? 14 : 12,
+            lineHeight: 16,
+            fontWeight: '700',
+            paddingVertical: 3,
+          },
+          'NativeBase.Icon': {
+            top: 3,
+            color: variables.tabBarActiveTextColor,
+          },
+          'NativeBase.IconNB': {
+            top: 3,
+            color: variables.tabBarActiveTextColor,
+          },
+          borderBottomWidth: 3,
+          borderRadius: null,
+          borderColor: variables.activeTab,
+        },
+        'NativeBase.Badge': {
+          'NativeBase.Text': {
+            fontSize: 11,
+            lineHeight: 14,
+          },
+          position: 'absolute',
+          zIndex: 99,
+          top: -4,
+          marginLeft: 12,
+          height: 18,
+          padding: 1.7,
+          paddingHorizontal: 3,
+        },
+        'NativeBase.Icon': {
+          top: 3,
+          color: variables.tabBarTextColor,
+        },
+        'NativeBase.IconNB': {
+          top: 3,
+          color: variables.tabBarTextColor,
+        },
+        'NativeBase.Text': {
+          color: variables.activeTab,
+          fontSize: variables.tabBarTextSize,
+          lineHeight: 16,
+          paddingVertical: 3,
+        },
+        flexDirection: null,
+        backgroundColor: 'transparent',
+        borderColor: null,
+        elevation: 0,
+        shadowColor: null,
+        shadowOffset: null,
+        shadowRadius: null,
+        shadowOpacity: null,
+        alignSelf: 'center',
+        flex: 1,
+        height: null,
+        justifyContent: 'center',
+        borderBottomWidth: 3,
+        borderRadius: null,
+        borderColor: 'transparent',
+      },
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignSelf: 'stretch',
+      borderBottomWidth: 0.5,
+      borderColor: variables.btnDisabledBg,
+    },
 
-  }
+
+  };
 
   const cssifyTheme = (grandparent, parent, parentKey) => {
     _.forEach(parent, (style, styleName) => {
       // console.log('styleName', styleName);
       // console.log('parentKey', parentKey);
-      if(styleName.indexOf('.') === 0 && parentKey && parentKey.indexOf('.') === 0) {
-        if(grandparent) {
-          if(!grandparent[styleName]) {
+      if (styleName.indexOf('.') === 0 && parentKey && parentKey.indexOf('.') === 0) {
+        if (grandparent) {
+          if (!grandparent[styleName]) {
             grandparent[styleName] = {};
           } else {
             grandparent[styleName][parentKey] = style;
           }
         }
       }
-      if(style && typeof style === 'object') {
+      if (style && typeof style === 'object') {
         cssifyTheme(parent, style, styleName);
       }
     });
-  }
+  };
 
   cssifyTheme(null, theme, null);
 

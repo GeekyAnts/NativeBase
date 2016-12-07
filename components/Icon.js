@@ -20,8 +20,7 @@ class Icon extends Component {
 
 
   componentWillMount() {
-    if (this.context.theme)
-    {
+    if (this.context.theme) {
       switch (this.context.theme['@@shoutem.theme/themeStyle'].variables.iconFamily) {
         case 'Ionicons':
           this.Icon = Ionicons;
@@ -47,8 +46,7 @@ class Icon extends Component {
         default:
           this.Icon = Ionicons;
       }
-    }
-    else {
+    } else {
       this.Icon = Ionicons;
     }
   }

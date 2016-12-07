@@ -359,7 +359,7 @@ class Fab extends Component {
         if(!this.props.active) {
           this.containerHeight = new Animated.Value(56);
           this.containerWidth = new Animated.Value(56);
-          this.buttonScale = new Animated.Value(0);
+          this.buttonScale = new Animated.Value(1);
         }
         else {
           this.containerHeight = this.containerHeight || new Animated.Value(0);

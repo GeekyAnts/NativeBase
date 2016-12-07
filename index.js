@@ -2,8 +2,7 @@ import { setDefaultThemeStyle } from './init';
 import getTheme from './theme';
 import variables from './variables';
 import { PickerNB } from './Components/Picker';
-
-console.log('Picker', PickerNB);
+import Drawer from './Components/vendor/react-native-drawer';
 setDefaultThemeStyle();
 
 // Theme
@@ -11,8 +10,10 @@ export { getTheme };
 export { variables };
 export { StyleProvider } from '@shoutem/theme';
 
+export { Drawer };
 export { Button } from './Components/Button';
 export { Icon } from './Components/Icon';
+export { IconNB } from './Components/IconNB';
 export { Header } from './Components/Header';
 export { InputGroup } from './Components/InputGroup';
 export { Input } from './Components/Input';
@@ -35,6 +36,7 @@ export { Switch } from './Components/Switch';
 export { Container } from './Components/Container';
 export { Content } from './Components/Content';
 export { Footer } from './Components/Footer';
+export { Tab } from './Components/Tab';
 export { Tabs } from './Components/Tabs';
 export { FooterTab } from './Components/FooterTab';
 export { PickerNB as Picker } from './Components/Picker';
