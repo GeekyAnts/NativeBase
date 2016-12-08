@@ -172,13 +172,16 @@ export default class InputGroup extends NativeBaseComponent {
         newChildren.push(React.cloneElement(iconElement[0],this.getIconProps(iconElement[0])));
       }
       else if(buttonElement.length>0) {
-        newChildren.push(React.cloneElement(
-          iconElement[0],
-          {
-            ...this.getIconProps(iconElement[0]),
-            key: 'icon0'
-          }
-        ));
+        if (iconElement.length > 0) {
+          newChildren.push(React.cloneElement(
+            iconElement[0],
+            {
+              ...this.getIconProps(iconElement[0]),
+              key: 'icon0'
+            }
+          ));
+        }
+
         if(clonedInp) {
            newChildren.push(clonedInp);
          }
