@@ -46,7 +46,10 @@ export default class PickerNB extends NativeBaseComponent {
             },
             pickerItem: {
 
-            }
+            },
+            itemTextStyle: {
+                color: this.props.itemTextColor,
+            },
         }
     }
     _setModalVisible(visible) {
@@ -111,15 +114,15 @@ export default class PickerNB extends NativeBaseComponent {
                 visible={this.state.modalVisible}
                 onRequestClose={() => {this._setModalVisible(false)}}
                 >
-                <Container>
+                <Container style={this.props.modalStyle}>
                     {this.renderHeader()}
                     <Content>
                         <List dataArray={this.props.children}
                             renderRow={(child) =>
                                 <ListItem style={{paddingVertical: 5}} iconRight button onPress={() => {this._setModalVisible(false);this.props.onValueChange(child.props.value); this.setState({current: child.props.label})}} >
-                                    <Text >{child.props.label}</Text>
+                                    <Text style={[this.getInitialStyle().itemTextStyle, child.props.textStyle]} >{child.props.label}</Text>
                                     {(child.props.value===this.props.selectedValue) ?
-                                        (<Icon name='ios-checkmark-outline' />)
+                                        (<Icon name='ios-checkmark-outline' style={{color: this.props.iconColor}} />)
                                         :
                                         (<Icon name='ios-checkmark-outline' style={{color: 'transparent'}} />)
                                     }
