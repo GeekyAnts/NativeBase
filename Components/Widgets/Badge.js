@@ -17,7 +17,6 @@ export default class BadgeNB extends NativeBaseComponent {
     prepareRootProps() {
 
         var type = {
-
             backgroundColor:this.props.primary ?
                             this.getTheme().brandPrimary :
                             this.props.success ?
@@ -29,12 +28,12 @@ export default class BadgeNB extends NativeBaseComponent {
                             this.props.danger ?
                             this.getTheme().brandDanger :
                             this.getTheme().badgeBg,
-            padding: 3,
-            paddingHorizontal: 10,
-            alignSelf: 'flex-start',
-            borderRadius: 13.5,
-            height: 27
-
+            paddingVertical: 2,
+            paddingHorizontal: (this.props.textStyle && this.props.textStyle.lineHeight) ? this.props.textStyle.lineHeight / 2 + 3 : 13.5,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: (this.props.textStyle && this.props.textStyle.lineHeight) ? this.props.textStyle.lineHeight / 2 + 3: 13.5,
+            height: (this.props.textStyle && this.props.textStyle.lineHeight) ? this.props.textStyle.lineHeight + 6 : 27
         }
 
         var defaultProps = {
@@ -47,10 +46,10 @@ export default class BadgeNB extends NativeBaseComponent {
     render() {
         return(
             <View ref={c => this._root = c} {...this.prepareRootProps()}>
-                <Text style={{ color: (this.props.textStyle && this.props.textStyle.color) ? this.props.textStyle.color : this.getTheme().badgeColor,
-                                fontSize: (this.props.textStyle && this.props.textStyle.fontSize) ? this.props.textStyle.fontSize : this.getTheme().fontSizeBase,
-                                lineHeight: (this.props.textStyle && this.props.textStyle.lineHeight) ? this.props.textStyle.lineHeight : this.getTheme().lineHeight-1,
-                                textAlign: 'center'}}>{this.props.children}
+                <Text style={[ this.props.textStyle,
+					         { color: (this.props.textStyle && this.props.textStyle.color) ? this.props.textStyle.color : this.getTheme().badgeColor,
+                               fontSize: (this.props.textStyle && this.props.textStyle.fontSize) ? this.props.textStyle.fontSize : this.getTheme().fontSizeBase
+                             }]}>{this.props.children}
                 </Text>
             </View>
         );
