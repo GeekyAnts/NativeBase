@@ -98,16 +98,20 @@ export default class PickerNB extends NativeBaseComponent {
     }
 
     render() {
+        let additionalProps = {marginLeft: -35};
+        if(this.props.inlineLabel) {
+          additionalProps = {paddingHorizontal: 4, justifyContent: 'flex-start', alignSelf: 'stretch'};
+        }
         return (
         <View ref={c => this._root = c}>
             <Button
                 iconRight={(this.props.iosIcon== undefined) ? false : true}
                 transparent
                 textStyle={this.props.textStyle}
-                style={this.props.style}
+                style={[this.props.style,additionalProps]}
                 onPress={() => {this._setModalVisible(true)}}>
                 {this.state.currentLabel}
-                {(this.props.iosIcon == undefined) ? <View style={{ width: 0, height: 0 }} /> : this.renderIcon()}
+                {(this.props.iosIcon == undefined) ? '' : this.renderIcon()}
             </Button>
             <Modal animationType='slide'
                 transparent={false}

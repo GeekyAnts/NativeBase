@@ -8,6 +8,7 @@ import Icon from './Icon';
 import Button from './Button';
 import computeProps from '../../Utils/computeProps';
 import Input from './Input';
+import Picker from './Picker';
 import _ from 'lodash';
 
 export default class InputGroup extends NativeBaseComponent {
@@ -145,7 +146,7 @@ export default class InputGroup extends NativeBaseComponent {
     });
 
     var inp = _.find(childrenArray, function(item) {
-      if(item && item.type == Input) {
+      if(item && (item.type == Input || item.type == Picker)) {
         return true;
       }
     });
