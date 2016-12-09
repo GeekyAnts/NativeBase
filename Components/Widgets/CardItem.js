@@ -10,6 +10,7 @@ import Text from './Text';
 import View from './View';
 import Button from './Button';
 import Thumbnail from './Thumbnail';
+import Gravatar from './Gravatar';
 
 export default class CardItemNB extends NativeBaseComponent {
 
@@ -27,7 +28,7 @@ export default class CardItemNB extends NativeBaseComponent {
                     this.getTheme().listItemPadding,
                 backgroundColor: this.getTheme().listBg,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
-                flexDirection: (this.thumbnailPresent() || this.iconPresent() || (this.notePresent() && this.ifShowCase())) ? 'row' : 'column',
+                flexDirection: (this.thumbnailPresent() || this.gravatarPresent() || this.iconPresent() || (this.notePresent() && this.ifShowCase())) ? 'row' : 'column',
                 borderColor: this.getTheme().listBorderColor
             },
             listItemDivider: {
@@ -66,6 +67,9 @@ export default class CardItemNB extends NativeBaseComponent {
                 color: '#999'
             },
             thumbnail: {
+                alignSelf: 'center'
+            },
+            gravatar: {
                 alignSelf: 'center'
             },
             fullImage: {
@@ -108,6 +112,16 @@ export default class CardItemNB extends NativeBaseComponent {
         });
 
         return thumbnailComponentPresent;
+    }
+
+    gravatarPresent() {
+        var gravatarComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child.type == Gravatar)
+                gravatarComponentPresent = true;
+        })
+
+        return gravatarComponentPresent;
     }
 
     imagePresent() {
@@ -161,7 +175,7 @@ export default class CardItemNB extends NativeBaseComponent {
 
     squareThumbs() {
         let squareThumbs = false;
-        if (this.thumbnailPresent()) {
+        if (this.thumbnailPresent() || this.gravatarPresent()) {
             React.Children.forEach(this.props.children, (child) => {
                 if (child && child.props.square) {
                     squareThumbs = true;
@@ -190,7 +204,7 @@ export default class CardItemNB extends NativeBaseComponent {
                     defaultProps = {
                         style: this.getInitialStyle().dividerItemText
                     };
-                } else if (child.props.note && this.thumbnailPresent()) {
+                } else if (child.props.note && (this.thumbnailPresent() || this.gravatarPresent())) {
                     defaultProps = {
                         style: this.getInitialStyle().itemSubNote
                     };
@@ -210,6 +224,10 @@ export default class CardItemNB extends NativeBaseComponent {
         } else if (child.type === Thumbnail) {
             defaultProps = {
                 style: this.getInitialStyle().thumbnail
+            };
+        } else if(child.type == Gravatar) {
+            defaultProps = {
+                style: this.getInitialStyle().gravatar
             };
         } else if (child.type === Image) {
             defaultProps = {
@@ -248,7 +266,7 @@ export default class CardItemNB extends NativeBaseComponent {
         let childrenArray = React.Children.toArray(this.props.children);
         childrenArray = childrenArray.filter(child => !!child);
 
-        if (!this.thumbnailPresent() && !this.iconPresent()) {
+        if ((!this.thumbnailPresent() || !this.gravatarPresent()) && !this.iconPresent()) {
             newChildren = childrenArray.map((child, i) =>
                 React.cloneElement(child, { ...this.getChildProps(child), key: i })
             );
