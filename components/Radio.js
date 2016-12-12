@@ -3,7 +3,7 @@ import { TouchableOpacity,Platform } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
-import { Icon } from 'native-base';
+import { Icon } from 'native-base/Advanced';
 
 import variables from '../variables';
 

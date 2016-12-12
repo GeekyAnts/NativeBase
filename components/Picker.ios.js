@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import {Picker, Modal,View} from 'react-native';
 import computeProps from '../Utils/computeProps';
 
-import { Text,List,Icon,Container,Content,ListItem,Button,Header,Title,Left,Right,Body } from 'native-base';
+import { Text,List,Icon,Container,Content,ListItem,Button,Header,Title,Left,Right,Body } from 'native-base/Advanced';
 import _ from 'lodash';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
@@ -97,7 +97,7 @@ class PickerNB extends Component {
                 transparent
                 onPress={() => {this._setModalVisible(true)}}>
                 <Text>{this.state.currentLabel}</Text>
-                {(this.props.iosIcon == undefined) ? <Icon name="ios-home" style={{opacity: 0}} /> : this.renderIcon()}
+                {(this.props.iosIcon == undefined) ? null : this.renderIcon()}
             </Button>
             <Modal animationType='slide'
                 transparent={false}

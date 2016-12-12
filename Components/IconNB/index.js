@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 
-import { Icon } from 'native-base';
+import { Icon } from 'native-base/Advanced';
 import ic from './NBIcons.json';
 
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';

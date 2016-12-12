@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View,TouchableOpacity,Animated,Platform } from 'react-native';
-import { Text,Input,Label } from 'native-base';
+import { Text,Input,Label } from 'native-base/Advanced';
 
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';

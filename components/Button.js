@@ -8,7 +8,7 @@ import computeProps from '../Utils/computeProps';
 import ReactNativePropRegistry from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativePropRegistry';
 import { connectStyle } from '@shoutem/theme';
 
-import { variables } from 'native-base';
+import { variables } from 'native-base/Advanced';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Button extends Component {

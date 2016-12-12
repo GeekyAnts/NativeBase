@@ -100,7 +100,7 @@
   },
   "dependencies": {
     "@shoutem/animation": "^0.8.9",
-    "@shoutem/theme": "^0.8.7",
+    "@shoutem/theme": "https://github.com/GeekyAnts/theme",
     "clamp": "^1.0.1",
     "color": "~0.11.1",
     "lodash": "~4.11.1",

@@ -804,6 +804,7 @@ export default () => {
       },
       flex: 1,
       backgroundColor: 'transparent',
+      marginBottom: (Platform.OS === 'ios') ? -40 : 23,
     },
 
 
@@ -888,7 +889,7 @@ export default () => {
       height: variables.footerHeight,
       elevation: 3,
       position: 'absolute',
-      bottom: 0,
+      bottom: (Platform.OS === 'ios') ? 0 : 23,
       left: 0,
       right: 0,
     },
@@ -1374,6 +1375,58 @@ export default () => {
       borderBottomWidth: 0.5,
       borderColor: variables.btnDisabledBg,
     },
+    'NativeBase.STabs': {
+      flex: 1,
+    },
+
+    'NativeBase.TabBar': {
+      '.tabIcon': {
+        height: undefined,
+      },
+      '.vertical': {
+        height: 60,
+      },
+      'NativeBase.Button': {
+        '.transparent': {
+          'NativeBase.Text': {
+            fontSize: variables.tabFontSize,
+            color: variables.sTabBarActiveTextColor,
+            fontWeight: '400',
+          },
+          'NativeBase.IconNB': {
+            color: variables.sTabBarActiveTextColor,
+          },
+        },
+        'NativeBase.IconNB': {
+          color: variables.sTabBarActiveTextColor,
+        },
+        'NativeBase.Text': {
+          fontSize: variables.tabFontSize,
+          color: variables.sTabBarActiveTextColor,
+          fontWeight: '400',
+        },
+        '.isTabActive': {
+          'NativeBase.Text': {
+            fontWeight: '900',
+          },
+        },
+        flex: 1,
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: null,
+        borderBottomColor: 'transparent',
+        backgroundColor: variables.tabBgColor,
+      },
+      height: 45,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      borderWidth: 1,
+      borderTopWidth: 0,
+      borderLeftWidth: 0,
+      borderRightWidth: 0,
+      borderBottomColor: '#ccc',
+    }
 
 
   };

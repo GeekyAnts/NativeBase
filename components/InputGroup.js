@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 
 import computeProps from '../Utils/computeProps';
-import { variables } from 'native-base';
+import { variables } from 'native-base/Advanced';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 

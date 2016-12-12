@@ -9,7 +9,7 @@ import { Platform, Animated, Dimensions, TouchableOpacity } from 'react-native';
 // import Badge from './Badge';
 // import IconNB from './Icon';
 // import Text from './Text';
-import { Icon, Button } from 'native-base';
+import { Icon, Button } from 'native-base/Advanced';
 import _ from 'lodash';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
@@ -369,7 +369,7 @@ class Fab extends Component {
         return(
             <Animated.View style={this.getContainerStyle()}>
               {this.renderButtons()}
-              <TouchableOpacity  onPress={()=> this.fabOnPress()} {...this.prepareFabProps()}>
+              <TouchableOpacity  onPress={()=> this.fabOnPress()} {...this.prepareFabProps()}  activeOpacity={0.2}>
                   {this.renderFab()}
               </TouchableOpacity>
             </Animated.View>
