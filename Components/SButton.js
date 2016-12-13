@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Platform, View } from 'react-native';
 import _ from 'lodash';
-import { Button, Text, variables } from 'native-base/Advanced';
+import { Button, Text, variables } from 'native-base';
 import { connectStyle } from '@shoutem/theme';
 
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
@@ -24,6 +24,11 @@ class SButton extends Component {
 
 SButton.propTypes = {
   ...TouchableOpacity.propTypes,
+  style: React.PropTypes.object,
+  iconLeft: React.PropTypes.object,
+  buttonText: React.PropTypes.string,
+  iconRight: React.PropTypes.object,
+  buttonTextStyle: React.PropTypes.object,
 };
 
 

@@ -14,6 +14,7 @@ class H1 extends Component {
 
 H1.propTypes = {
   ...Text.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledH1 = connectStyle('NativeBase.H1', {}, mapPropsToStyleNames)(H1);

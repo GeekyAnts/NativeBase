@@ -16,6 +16,7 @@ class Footer extends Component {
 
 Footer.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledFooter = connectStyle('NativeBase.Footer', {}, mapPropsToStyleNames)(Footer);

@@ -14,6 +14,7 @@ class Right extends Component {
 
 Right.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledRight = connectStyle('NativeBase.Right', {}, mapPropsToStyleNames)(Right);

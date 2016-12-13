@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 
 import computeProps from '../Utils/computeProps';
-import { variables } from 'native-base/Advanced';
+import { variables } from 'native-base';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
@@ -35,6 +35,12 @@ class InputGroup extends Component {
 
 InputGroup.propTypes = {
   ...View.propTypes,
+  regular: React.PropTypes.bool,
+  underline: React.PropTypes.bool,
+  rounded: React.PropTypes.bool,
+  success: React.PropTypes.bool,
+  error: React.PropTypes.bool,
+  disabled: React.PropTypes.bool,
 };
 
 const StyledInputGroup = connectStyle('NativeBase.InputGroup', {}, mapPropsToStyleNames)(InputGroup);

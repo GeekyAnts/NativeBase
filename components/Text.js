@@ -15,6 +15,7 @@ class Text extends Component {
 
 Text.propTypes = {
   ...RNText.propTypes,
+  style: React.PropTypes.object,
 };
 
 const AnimatedText = connectAnimation(Text);

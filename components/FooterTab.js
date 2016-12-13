@@ -16,6 +16,7 @@ class FooterTab extends Component {
 
 FooterTab.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledFooterTab = connectStyle('NativeBase.FooterTab', {}, mapPropsToStyleNames)(FooterTab);

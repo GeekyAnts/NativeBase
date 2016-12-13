@@ -14,6 +14,7 @@ class Input extends Component {
 
 Input.propTypes = {
   ...TextInput.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledInput = connectStyle('NativeBase.Input', {}, mapPropsToStyleNames)(Input);

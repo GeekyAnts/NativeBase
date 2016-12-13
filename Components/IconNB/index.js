@@ -3,16 +3,13 @@ import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 
-import { Icon } from 'native-base/Advanced';
+import { Icon } from 'native-base';
 import ic from './NBIcons.json';
 
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 class IconNB extends Component {
 
-  static contextTypes = {
-    theme: React.PropTypes.object,
-  }
   getName() {
     if(Platform.OS === 'ios') {
       return (this.props.active) ? ic[this.props.name].ios.active : ic[this.props.name].ios.default;
@@ -62,7 +59,11 @@ class IconNB extends Component {
 
 IconNB.propTypes = {
   ...Icon.propTypes,
-  theme: React.PropTypes.object,
+  style: React.PropTypes.object,
+  name: React.PropTypes.string,
+  ios: React.PropTypes.string,
+  android: React.PropTypes.string,
+  active: React.PropTypes.bool,
 };
 
 const StyledIconNB = connectStyle('NativeBase.IconNB', {}, mapPropsToStyleNames)(IconNB);

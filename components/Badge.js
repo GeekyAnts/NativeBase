@@ -5,6 +5,7 @@ import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Badge extends Component {
+
   render() {
     return (
       <View ref={c => this._root = c} {...this.props}>
@@ -16,6 +17,7 @@ class Badge extends Component {
 
 Badge.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledBadge = connectStyle('NativeBase.Badge', {}, mapPropsToStyleNames)(Badge);

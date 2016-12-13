@@ -14,6 +14,7 @@ class Container extends Component {
 
 Container.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledContainer = connectStyle('NativeBase.Container', {}, mapPropsToStyleNames)(Container);

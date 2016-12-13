@@ -14,6 +14,7 @@ class H3 extends Component {
 
 H3.propTypes = {
   ...Text.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledH3 = connectStyle('NativeBase.H3', {}, mapPropsToStyleNames)(H3);

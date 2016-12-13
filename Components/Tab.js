@@ -16,6 +16,7 @@ class Tab extends Component {
 
 Tab.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledTab = connectStyle('NativeBase.Tab', {}, mapPropsToStyleNames)(Tab);

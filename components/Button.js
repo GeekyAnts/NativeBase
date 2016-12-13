@@ -1,14 +1,14 @@
 /* @flow */
-'use strict';
 
-import React, {Component} from 'react';
+
+import React, { Component } from 'react';
 import { TouchableOpacity, Platform, View } from 'react-native';
 import _ from 'lodash';
 import computeProps from '../Utils/computeProps';
 import ReactNativePropRegistry from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativePropRegistry';
 import { connectStyle } from '@shoutem/theme';
 
-import { variables, Badge, Text } from 'native-base/Advanced';
+import { variables, Badge, Text } from 'native-base';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Button extends Component {
@@ -19,24 +19,24 @@ class Button extends Component {
         borderWidth: (this.props.bordered) ? 1 : undefined,
         borderRadius: (this.props.rounded && this.props.bordered) ? variables.borderRadiusLarge : 2,
       },
-    }
+    };
   }
 
   prepareRootProps() {
-    var defaultProps = {
-      style: this.getInitialStyle().borderedBtn
+    const defaultProps = {
+      style: this.getInitialStyle().borderedBtn,
     };
 
     return computeProps(this.props, defaultProps);
   }
   render() {
-    return(
+    return (
       <TouchableOpacity
         {...this.prepareRootProps()}
         ref={c => this._root = c}
         activeOpacity={0.5}
       >
-        <View style={{alignSelf: 'center',zIndex: 99}}>{(this.props.badgeValue) ? <Badge style={{backgroundColor: (this.props.badgeColor) ? this.props.badgeColor : undefined}}><Text style={this.props.badgeValueStyle}>{this.props.badgeValue}</Text></Badge> : null}</View>
+        <View style={(Platform.OS === 'ios') ? {alignSelf: 'center', zIndex: 999} : {alignSelf: 'center'}}>{(this.props.badgeValue) ? <Badge style={{ backgroundColor: (this.props.badgeColor) ? this.props.badgeColor : undefined }}><Text style={this.props.badgeValueStyle}>{this.props.badgeValue}</Text></Badge> : null}</View>
         {this.props.children}
       </TouchableOpacity>
     );
@@ -45,8 +45,24 @@ class Button extends Component {
 
 Button.propTypes = {
   ...TouchableOpacity.propTypes,
+  style: React.PropTypes.object,
+  block: React.PropTypes.bool,
+  primary: React.PropTypes.bool,
+  transparent: React.PropTypes.bool,
+  success: React.PropTypes.bool,
+  danger: React.PropTypes.bool,
+  warning: React.PropTypes.bool,
+  info: React.PropTypes.bool,
+  bordered: React.PropTypes.bool,
+  disabled: React.PropTypes.bool,
+  rounded: React.PropTypes.bool,
+  large: React.PropTypes.bool,
+  small: React.PropTypes.bool,
+  active: React.PropTypes.bool,
+  badgeValue: React.PropTypes.number,
+  badgeColor: React.PropTypes.string,
+  badgeValueStyle: React.PropTypes.object,
 };
-
 
 
 const StyledButton = connectStyle('NativeBase.Button', {}, mapPropsToStyleNames)(Button);

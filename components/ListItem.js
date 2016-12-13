@@ -16,6 +16,9 @@ class ListItem extends Component {
 
 ListItem.propTypes = {
   ...TouchableOpacity.propTypes,
+  style: React.PropTypes.object,
+  itemDivider: React.PropTypes.bool,
+  button: React.PropTypes.bool,
 };
 
 const StyledListItem = connectStyle('NativeBase.ListItem', {}, mapPropsToStyleNames)(ListItem);

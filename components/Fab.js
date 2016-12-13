@@ -9,7 +9,7 @@ import { Platform, Animated, Dimensions, TouchableOpacity } from 'react-native';
 // import Badge from './Badge';
 // import IconNB from './Icon';
 // import Text from './Text';
-import { Icon, Button } from 'native-base/Advanced';
+import { Icon, Button } from 'native-base';
 import _ from 'lodash';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
@@ -379,6 +379,11 @@ class Fab extends Component {
 
 Fab.propTypes = {
   ...Animated.propTypes,
+  style: React.PropTypes.object,
+  active: React.PropTypes.bool,
+  direction: React.PropTypes.string,
+  containerStyle: React.PropTypes.object,
+  position: React.PropTypes.string,
 };
 const StyledFab = connectStyle('NativeBase.Fab', {}, mapPropsToStyleNames)(Fab);
 export {

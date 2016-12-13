@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import {Picker, Modal,View} from 'react-native';
 import computeProps from '../Utils/computeProps';
 
-import { Text,List,Icon,Container,Content,ListItem,Button,Header,Title,Left,Right,Body } from 'native-base/Advanced';
+import { Text,List,Icon,Container,Content,ListItem,Button,Header,Title,Left,Right,Body } from 'native-base';
 import _ from 'lodash';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';

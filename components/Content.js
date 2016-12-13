@@ -20,6 +20,9 @@ class Content extends Component {
 
 Content.propTypes = {
   ...KeyboardAwareScrollView.propTypes,
+  style: React.PropTypes.object,
+  padder: React.PropTypes.bool,
+  disableKBDismissScroll: React.PropTypes.bool,
 };
 
 const StyledContent = connectStyle('NativeBase.Content', {}, mapPropsToStyleNames)(Content);

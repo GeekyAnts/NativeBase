@@ -14,6 +14,7 @@ class Body extends Component {
 
 Body.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledBody = connectStyle('NativeBase.Body', {}, mapPropsToStyleNames)(Body);

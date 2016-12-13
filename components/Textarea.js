@@ -32,6 +32,10 @@ class Textarea extends Component {
 
 Textarea.propTypes = {
   ...TextInput.propTypes,
+  style: React.PropTypes.object,
+  rowSpan: React.PropTypes.number,
+  bordered: React.PropTypes.bool,
+  underline: React.PropTypes.bool,
 };
 
 const StyledTextarea = connectStyle('NativeBase.Textarea', {}, mapPropsToStyleNames)(Textarea);

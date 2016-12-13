@@ -164,6 +164,14 @@ class STabs extends Component {
 
 STabs.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
+  initialPage: React.PropTypes.number,
+  tabBarPosition: React.PropTypes.string,
+  tabBarTextStyle: React.PropTypes.object,
+  tabBarIconStyle: React.PropTypes.object,
+  tabBarStyle: React.PropTypes.object,
+  underlineStyle: React.PropTypes.object,
+  vertical: React.PropTypes.bool,
 };
 
 const StyledSTabs = connectStyle('NativeBase.STabs', {}, mapPropsToStyleNames)(STabs);

@@ -16,6 +16,7 @@ class Title extends Component {
 
 Title.propTypes = {
   ...Text.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledTitle = connectStyle('NativeBase.Title', {}, mapPropsToStyleNames)(Title);

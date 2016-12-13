@@ -16,6 +16,11 @@ class CardItem extends Component {
 
 CardItem.propTypes = {
   ...TouchableOpacity.propTypes,
+  style: React.PropTypes.object,
+  header: React.PropTypes.bool,
+  cardBody: React.PropTypes.bool,
+  footer: React.PropTypes.bool,
+  button: React.PropTypes.bool,
 };
 
 const StyledCardItem = connectStyle('NativeBase.CardItem', {}, mapPropsToStyleNames)(CardItem);

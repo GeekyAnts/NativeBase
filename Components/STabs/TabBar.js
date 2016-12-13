@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Animated, Dimensions, TouchableHighlight } from 'react-native';
 
-import { variables, IconNB, Button, Text } from 'native-base/Advanced';
+import { variables, IconNB, Button, Text } from 'native-base';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 const deviceWidth = Dimensions.get('window').width;

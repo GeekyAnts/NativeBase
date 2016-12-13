@@ -15,6 +15,8 @@ class Spinner extends Component {
 
 Spinner.propTypes = {
   ...ActivityIndicator.propTypes,
+  color: React.PropTypes.string,
+  inverse: React.PropTypes.bool,
 };
 
 const StyledSpinner = connectStyle('NativeBase.Spinner', {}, mapPropsToStyleNames)(Spinner);

@@ -30,6 +30,9 @@ class Thumbnail extends Component {
 
 Thumbnail.propTypes = {
   ...Image.propTypes,
+  style: React.PropTypes.object,
+  square: React.PropTypes.bool,
+  size: React.PropTypes.number,
 };
 
 const StyledThumbnail = connectStyle('NativeBase.Thumbnail', {}, mapPropsToStyleNames)(Thumbnail);

@@ -14,6 +14,7 @@ class Left extends Component {
 
 Left.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledLeft = connectStyle('NativeBase.Left', {}, mapPropsToStyleNames)(Left);

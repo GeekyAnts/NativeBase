@@ -3,7 +3,7 @@ import { TouchableOpacity,Platform } from 'react-native';
 import IIcon from 'react-native-vector-icons/Ionicons';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
-import { Icon } from 'native-base/Advanced';
+import { Icon } from 'native-base';
 
 import variables from '../variables';
 
@@ -19,6 +19,8 @@ class CheckBox extends Component {
 
 CheckBox.propTypes = {
   ...TouchableOpacity.propTypes,
+  style: React.PropTypes.object,
+  checked: React.PropTypes.bool,
 };
 
 const StyledCheckBox = connectStyle('NativeBase.CheckBox', {}, mapPropsToStyleNames)(CheckBox);

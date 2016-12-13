@@ -237,6 +237,8 @@ class DeckSwiper extends Component {
 
 DeckSwiper.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
+  dataSource: React.PropTypes.array,
 };
 
 const StyledDeckSwiper = connectStyle('NativeBase.DeckSwiper', {}, mapPropsToStyleNames)(DeckSwiper);

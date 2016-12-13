@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import _ from 'lodash';
-import { Left, Body, Right,Header,Button,Title } from 'native-base/Advanced';
+import { Left, Body, Right,Header,Button,Title } from 'native-base';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
@@ -27,6 +27,13 @@ class SHeader extends Component {
 
 SHeader.propTypes = {
   ...View.propTypes,
+  style: React.PropTypes.object,
+  leftButton: React.PropTypes.object,
+  title: React.PropTypes.string,
+  rightButton: React.PropTypes.object,
+  leftButtonStyle: React.PropTypes.object,
+  titleStyle: React.PropTypes.object,
+  rightButtonStyle: React.PropTypes.object,
 };
 
 const StyledSHeader = connectStyle('NativeBase.SHeader', {}, mapPropsToStyleNames)(SHeader);

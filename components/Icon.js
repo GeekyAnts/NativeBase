@@ -14,10 +14,6 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Icon extends Component {
 
-  static contextTypes = {
-    theme: React.PropTypes.object,
-  }
-
 
   componentWillMount() {
     if (this.context.theme) {
@@ -60,7 +56,7 @@ class Icon extends Component {
 
 Icon.propTypes = {
   ...Ionicons.propTypes,
-  theme: React.PropTypes.object,
+  style: React.PropTypes.object,
 };
 
 const StyledIcon = connectStyle('NativeBase.Icon', {}, mapPropsToStyleNames)(Icon);

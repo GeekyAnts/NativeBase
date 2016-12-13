@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View,TouchableOpacity,Animated,Platform } from 'react-native';
-import { Text,Input,Label } from 'native-base/Advanced';
+import { Text,Input,Label } from 'native-base';
 
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
@@ -117,6 +117,13 @@ class Item extends Component {
 
 Item.propTypes = {
   ...TouchableOpacity.propTypes,
+  style: React.PropTypes.object,
+  inlineLabel: React.PropTypes.bool,
+  floatingLabel: React.PropTypes.bool,
+  stackedLabel: React.PropTypes.bool,
+  fixedLabel: React.PropTypes.bool,
+  success: React.PropTypes.bool,
+  error: React.PropTypes.bool,
 };
 
 const StyledItem = connectStyle('NativeBase.Item', {}, mapPropsToStyleNames)(Item);

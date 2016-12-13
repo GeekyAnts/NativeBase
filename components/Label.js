@@ -14,6 +14,7 @@ class Label extends Component {
 
 Label.propTypes = {
   ...Text.propTypes,
+  style: React.PropTypes.object,
 };
 
 const StyledLabel = connectStyle('NativeBase.Label', {}, mapPropsToStyleNames)(Label);
