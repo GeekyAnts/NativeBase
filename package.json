@@ -62,13 +62,36 @@
         }
       },
       "/Users/sahusoft/Sites/projects/NativeBase-KitchenSink"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/NativeBase-KitchenSink"
     ]
   ],
   "_from": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
   "_id": "native-base@6.0.0-beta",
   "_inCache": true,
   "_location": "/native-base",
-  "_phantomChildren": {},
+  "_phantomChildren": {
+    "yargs": "4.8.1"
+  },
   "_requested": {
     "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
     "scope": null,
@@ -90,8 +113,8 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#fd538e310f5fff0483aa4ff1de9947e894025eab",
-  "_shasum": "0087ceaf7ee2d7ee943da13cf2eff1d94e905c7d",
+  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#3e812fe23550ded50dfdaf301e8486675ddc5e32",
+  "_shasum": "30195e18e5c4d75cada46ffd35214c655f93b113",
   "_shrinkwrap": null,
   "_spec": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
   "_where": "/Users/sahusoft/Sites/projects/NativeBase-KitchenSink",
@@ -100,7 +123,7 @@
   },
   "dependencies": {
     "@shoutem/animation": "^0.8.9",
-    "@shoutem/theme": "https://github.com/GeekyAnts/theme",
+    "@shoutem/theme": "git+https://github.com/GeekyAnts/theme.git",
     "clamp": "^1.0.1",
     "color": "~0.11.1",
     "lodash": "~4.11.1",

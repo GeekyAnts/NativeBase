@@ -369,7 +369,7 @@ class Fab extends Component {
         return(
             <Animated.View style={this.getContainerStyle()}>
               {this.renderButtons()}
-              <TouchableOpacity  onPress={()=> this.fabOnPress()} {...this.prepareFabProps()}  activeOpacity={0.2}>
+              <TouchableOpacity  onPress={()=> this.fabOnPress()} {...this.prepareFabProps()}  activeOpacity={1}>
                   {this.renderFab()}
               </TouchableOpacity>
             </Animated.View>

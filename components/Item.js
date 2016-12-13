@@ -18,22 +18,22 @@ class Item extends Component {
   floatBack() {
     Animated.timing(this.state.topAnim, {
       toValue: 18,
-      duration: 300
+      duration: 150
     }).start();
     Animated.timing(this.state.opacAnim, {
       toValue: 1,
-      duration: 300
+      duration: 150
     }).start();
   }
 
   floatUp() {
     Animated.timing(this.state.topAnim, {
       toValue: 0,
-      duration: 300
+      duration: 150
     }).start();
     Animated.timing(this.state.opacAnim, {
       toValue: 0.5,
-      duration: 300
+      duration: 150
     }).start();
   }
 

@@ -8,7 +8,7 @@ import computeProps from '../Utils/computeProps';
 import ReactNativePropRegistry from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativePropRegistry';
 import { connectStyle } from '@shoutem/theme';
 
-import { variables } from 'native-base/Advanced';
+import { variables, Badge, Text } from 'native-base/Advanced';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Button extends Component {
@@ -36,6 +36,7 @@ class Button extends Component {
         ref={c => this._root = c}
         activeOpacity={0.5}
       >
+        <View style={{alignSelf: 'center',zIndex: 99}}>{(this.props.badgeValue) ? <Badge style={{backgroundColor: (this.props.badgeColor) ? this.props.badgeColor : undefined}}><Text style={this.props.badgeValueStyle}>{this.props.badgeValue}</Text></Badge> : null}</View>
         {this.props.children}
       </TouchableOpacity>
     );
