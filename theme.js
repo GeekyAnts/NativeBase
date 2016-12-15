@@ -43,7 +43,11 @@ export default () => {
             color: variables.tabBarActiveTextColor,
             fontWeight: '600',
           },
+          'NativeBase.Icon': {
+            color: variables.tabBarActiveTextColor,
+          },
         },
+        paddingHorizontal: 15,
       },
       '.searchBar': {
         'NativeBase.InputGroup': {
@@ -87,14 +91,14 @@ export default () => {
         'NativeBase.Button': {
           '.transparent': {
             'NativeBase.Icon': {
-            color: variables.topTabBarActiveTextColor,
-          },
+              color: variables.topTabBarActiveTextColor,
+            },
             'NativeBase.IconNB': {
-            color: variables.topTabBarActiveTextColor,
-          },
+              color: variables.topTabBarActiveTextColor,
+            },
             'NativeBase.Text': {
-            color: variables.topTabBarActiveTextColor,
-          },
+              color: variables.topTabBarActiveTextColor,
+            },
             backgroundColor: 'transparent',
             borderColor: null,
             elevation: 0,
@@ -1428,13 +1432,20 @@ export default () => {
       borderLeftWidth: 0,
       borderRightWidth: 0,
       borderBottomColor: '#ccc',
-    }
-
+    },
+    'NativeBase.ViewNB': {
+      flex: 1,
+      '.padder': {
+          padding: variables.contentPadding,
+      },
+    },
 
   };
 
   const cssifyTheme = (grandparent, parent, parentKey) => {
     _.forEach(parent, (style, styleName) => {
+      // console.log('styleName', styleName);
+      // console.log('parentKey', parentKey);
       if (styleName.indexOf('.') === 0 && parentKey && parentKey.indexOf('.') === 0) {
         if (grandparent) {
           if (!grandparent[styleName]) {

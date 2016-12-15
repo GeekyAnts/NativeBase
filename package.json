@@ -124,6 +124,7 @@
   "dependencies": {
     "@shoutem/animation": "^0.8.9",
     "@shoutem/theme": "git+https://github.com/GeekyAnts/theme.git",
+    "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~0.11.1",
     "lodash": "~4.11.1",

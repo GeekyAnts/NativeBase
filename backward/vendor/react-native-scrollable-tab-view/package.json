@@ -1,0 +1,33 @@
+{
+  "name": "react-native-scrollable-tab-view",
+  "version": "0.2.2-alpha",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brentvatne/react-native-scrollable-tab-view.git"
+  },
+  "keywords": [
+    "react-native-component",
+    "react-component",
+    "react-native",
+    "ios",
+    "tab",
+    "scrollable"
+  ],
+  "author": "Brent Vatne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brentvatne/react-native-scrollable-tab-view/issues"
+  },
+  "homepage": "https://github.com/brentvatne/react-native-scrollable-tab-view#readme",
+  "peerDependencies": {
+    "react-native": ">=0.9.0 || 0.9.0-rc || 0.10.0-rc || 0.11.0-rc"
+  },
+  "dependencies": {
+    "rebound": "0.0.13"
+  }
+}

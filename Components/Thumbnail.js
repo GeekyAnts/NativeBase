@@ -32,6 +32,7 @@ Thumbnail.propTypes = {
   ...Image.propTypes,
   style: React.PropTypes.object,
   square: React.PropTypes.bool,
+  circular : React.PropTypes.bool,
   size: React.PropTypes.number,
 };
 
