@@ -2,82 +2,19 @@
 'use strict';
 
 import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { connectStyle } from '@shoutem/theme';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
-import Icon from './Icon';
-import Text from './Text';
-import View from './View';
-import Button from './Button';
-import Thumbnail from './Thumbnail';
-import Gravatar from './Gravatar';
+import { Icon, Thumbnail } from 'native-base';
+import { Text } from './Text';
+import { Button } from './Button';
+import { Gravatar } from './Gravatar';
 
-export default class CardItemNB extends NativeBaseComponent {
+class CardItem extends NativeBaseComponent {
 
-    propTypes: {
-        style : React.PropTypes.object,
-        header : React.PropTypes.bool,
-        cardBody : React.PropTypes.bool
-    }
 
-    getInitialStyle() {
-        return {
-            listItem: {
-                borderBottomWidth: this.getTheme().borderWidth,
-                padding: (this.imagePresent() && !this.ifShowCase()) ? 0 :
-                    this.getTheme().listItemPadding,
-                backgroundColor: this.getTheme().listBg,
-                justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
-                flexDirection: (this.thumbnailPresent() || this.gravatarPresent() || this.iconPresent() || (this.notePresent() && this.ifShowCase())) ? 'row' : 'column',
-                borderColor: this.getTheme().listBorderColor
-            },
-            listItemDivider: {
-                borderBottomWidth: this.getTheme().borderWidth,
-                padding: this.getTheme().listItemPadding,
-                backgroundColor: 'transparent',
-                paddingVertical: this.getTheme().listItemPadding + 2,
-                justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
-                flexDirection: 'row',
-                borderColor: 'transparent'
-            },
-            itemText: {
-                fontSize: this.ifShowCase() ? 14 : 15,
-                marginTop: this.ifShowCase() ? 10 : 0,
-                color: this.getContextForegroundColor(),
-                flex: 1
-            },
-            dividerItemText: {
-                fontSize: 17,
-                fontWeight: '500',
-                color: this.getContextForegroundColor(),
-                flex: 1
-            },
-            itemIcon: {
-                fontSize: this.getTheme().iconFontSize,
-                color: this.getContextForegroundColor()
-            },
-            itemNote: {
-                fontSize: 15,
-                color: this.getTheme().listNoteColor,
-                fontWeight: '100',
-                flex: 1
-            },
-            itemSubNote: {
-                fontSize: 15,
-                color: '#999'
-            },
-            thumbnail: {
-                alignSelf: 'center'
-            },
-            gravatar: {
-                alignSelf: 'center'
-            },
-            fullImage: {
-                alignSelf: 'stretch',
-                height: this.ifShowCase() ? 120 : 300
-            }
-        };
-    }
     getRightStyle() {
         return {
             right: {
@@ -106,18 +43,17 @@ export default class CardItemNB extends NativeBaseComponent {
     thumbnailPresent() {
         let thumbnailComponentPresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type === Thumbnail) {
+            if (child && child.type.displayName === "Styled(Thumbnail)") {
                 thumbnailComponentPresent = true;
             }
         });
-
         return thumbnailComponentPresent;
     }
 
     gravatarPresent() {
         var gravatarComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child.type == Gravatar)
+            if(child.type.displayName === "Styled(Gravatar)")
                 gravatarComponentPresent = true;
         })
 
@@ -127,7 +63,7 @@ export default class CardItemNB extends NativeBaseComponent {
     imagePresent() {
         let imagePresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type === Image) {
+            if (child && child.type.displayName === "Image") {
                 imagePresent = true;
             }
         });
@@ -138,7 +74,7 @@ export default class CardItemNB extends NativeBaseComponent {
     iconPresent() {
         let iconComponentPresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type === Icon) {
+            if (child && child.type.displayName === "Styled(Icon)") {
                 iconComponentPresent = true;
             }
         });
@@ -149,7 +85,7 @@ export default class CardItemNB extends NativeBaseComponent {
     buttonPresent() {
         let buttonComponentPresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type === Button) {
+            if (child && child.type.displayName === "Styled(Button)") {
                 buttonComponentPresent = true;
             }
         });
@@ -165,7 +101,7 @@ export default class CardItemNB extends NativeBaseComponent {
         let notePresent = false;
 
         React.Children.forEach(this.props.children, (child) => {
-            if (child && (child.type === Text) && child.props.note) {
+            if (child && (child.type.displayName === "Styled(Text)") && child.props.note) {
                 notePresent = true;
             }
         });
@@ -188,94 +124,27 @@ export default class CardItemNB extends NativeBaseComponent {
 
     getChildProps(child) {
         let defaultProps = {};
-        if (child.type === Image && !Array.isArray(this.props.children)) {
-            defaultProps = {
-                resizeMode: 'cover',
-                style: this.getInitialStyle().fullImage
-            };
-        } else
-          if (child.type === Button) {
-            defaultProps = {
-                style: this.getInitialStyle().itemButton
-            };
-        } else
-            if (child.type === Text) {
-                if ((this.props.header) || (this.props.footer)) {
-                    defaultProps = {
-                        style: this.getInitialStyle().dividerItemText
-                    };
-                } else if (child.props.note && (this.thumbnailPresent() || this.gravatarPresent())) {
-                    defaultProps = {
-                        style: this.getInitialStyle().itemSubNote
-                    };
-                } else if (child.props.note) {
-                    defaultProps = {
-                        style: this.getInitialStyle().itemNote
-                    };
-                } else {
-                    defaultProps = {
-                        style: this.getInitialStyle().itemText
-                    };
-                }
-        } else if (child.type === Icon) {
-            defaultProps = {
-                style: this.getInitialStyle().itemIcon
-            };
-        } else if (child.type === Thumbnail) {
-            defaultProps = {
-                style: this.getInitialStyle().thumbnail
-            };
-        } else if(child.type == Gravatar) {
-            defaultProps = {
-                style: this.getInitialStyle().gravatar
-            };
-        } else if (child.type === Image) {
-            defaultProps = {
-                style: this.getInitialStyle().fullImage
-            };
-        } else {
-            defaultProps = {
-                foregroundColor: this.getContextForegroundColor()
-            };
-        }
-
         return computeProps(child.props, defaultProps);
     }
-
-    prepareRootProps() {
-        let defaultProps = {};
-
-        if ((this.props.header) || (this.props.footer)) {
-            defaultProps = {
-                style: this.getInitialStyle().listItemDivider
-            };
-        } else {
-            defaultProps = {
-                style: this.getInitialStyle().listItem
-            };
-        }
-
-        return computeProps(this.props, defaultProps);
-    }
-
-
 
 
     renderChildren() {
         let newChildren = [];
         let childrenArray = React.Children.toArray(this.props.children);
         childrenArray = childrenArray.filter(child => !!child);
-
-        if ((!this.thumbnailPresent() || !this.gravatarPresent()) && !this.iconPresent()) {
-            newChildren = childrenArray.map((child, i) =>
+        if ((!this.thumbnailPresent()) && !this.iconPresent()) {
+            newChildren.push(<View key="item" style={{ flex: 1 }}>
+            {childrenArray.map((child, i) =>
                 React.cloneElement(child, { ...this.getChildProps(child), key: i })
-            );
+            )}
+            </View>
+          );
         } else {
             newChildren = [];
             if (!Array.isArray(this.props.children)) {
                 newChildren.push(
                     <View key='cardItem' style={{ justifyContent: 'flex-start' }}>
-                        {React.cloneElement(childrenArray, this.getChildProps(childrenArray))}
+                        {React.cloneElement(childrenArray)}
                     </View>
                 );
             } else {
@@ -284,7 +153,7 @@ export default class CardItemNB extends NativeBaseComponent {
                 newChildren.push(
                     <View key='cardItem' style={this.notePresent() ? this.getRightStyle().right : this.squareThumbs() ? this.getRightStyle().right3 : this.getRightStyle().right2}>
                         {childrenArray.slice(1).map((child, i) =>
-                            React.cloneElement(child, { ...this.getChildProps(child), key: i })
+                            React.cloneElement(child, { key: i })
                         )}
                     </View>
                 );
@@ -298,7 +167,7 @@ export default class CardItemNB extends NativeBaseComponent {
     render() {
         return (
             <TouchableOpacity
-                ref={(c) => { this._root = c; }} {...this.prepareRootProps()}
+                ref={(c) => { this._root = c; }} {...this.props}
                 activeOpacity={(this.props.button) ? 0.2 : 1}
             >
                 {this.renderChildren()}
@@ -306,3 +175,18 @@ export default class CardItemNB extends NativeBaseComponent {
         );
     }
 }
+
+CardItem.propTypes = {
+  ...TouchableOpacity.propTypes,
+  style: React.PropTypes.object,
+  header: React.PropTypes.bool,
+  cardBody: React.PropTypes.bool,
+  footer: React.PropTypes.bool,
+  button: React.PropTypes.bool,
+};
+
+const StyledCardItem = connectStyle('NativeBase.CardItem', {}, mapPropsToStyleNames)(CardItem);
+
+export {
+  StyledCardItem as CardItem,
+};

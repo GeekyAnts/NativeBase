@@ -3,44 +3,13 @@
 
 import React from 'react';
 import {View, ListView} from 'react-native';
+import { connectStyle } from '@shoutem/theme';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
-export default class CardNB extends NativeBaseComponent {
+class Card extends NativeBaseComponent {
 
-    propTypes: {
-        style : React.PropTypes.object
-    }
-
-    getInitialStyle() {
-        return {
-            card: {
-                marginVertical: 5,
-                flex: 1,
-                borderWidth: this.getTheme().borderWidth,
-                borderRadius: 2,
-                borderColor: this.getTheme().listBorderColor,
-                flexWrap: 'wrap',
-                borderBottomWidth: 0,
-                backgroundColor: this.props.transparent? 'transparent' : this.getTheme().cardDefaultBg,
-                shadowColor: this.props.transparent ? undefined : '#000',
-                shadowOffset: this.props.transparent ? undefined : {width: 0, height: 2},
-                shadowOpacity: this.props.transparent ? undefined : 0.1,
-                shadowRadius: this.props.transparent ? undefined : 1.5,
-                elevation: this.props.transparent ? undefined : 2
-            }
-        }
-    }
-
-    prepareRootProps() {
-
-        var defaultProps = {
-            style: this.getInitialStyle().card
-        };
-
-        return computeProps(this.props, defaultProps);
-
-    }
 
     renderChildren() {
         var childrenArray = React.Children.map(this.props.children, (child) => {
@@ -55,17 +24,30 @@ export default class CardNB extends NativeBaseComponent {
             const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
             var dataSource = ds.cloneWithRows(this.props.dataArray);
             return (
-                <ListView {...this.prepareRootProps()}
+                <ListView {...this.props}
                     enableEmptySections={true}
                     dataSource={dataSource}
                     renderRow={this.props.renderRow} />
             );
         }
         return(
-            <View ref={c => this._root = c} {...this.prepareRootProps()} >
+            <View ref={c => this._root = c} {...this.props} >
                 {this.renderChildren()}
             </View>
         );
     }
 
 }
+
+Card.propTypes = {
+  ...View.propTypes,
+  style: React.PropTypes.object,
+  dataArray: React.PropTypes.object,
+  renderRow: React.PropTypes.object,
+};
+
+const StyledCard = connectStyle('NativeBase.Card', {}, mapPropsToStyleNames)(Card);
+
+export {
+  StyledCard as Card,
+};

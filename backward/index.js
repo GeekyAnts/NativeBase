@@ -1,4 +1,4 @@
-import Drawer from './vendor/react-native-drawer';
+import { Drawer } from 'native-base';
 import { Header } from './Widgets/Header';
 import { Footer } from 'native-base';
 import { Title } from './Widgets/Title';
@@ -8,10 +8,9 @@ import { Button } from './Widgets/Button';
 import { Text } from './Widgets/Text';
 import { Switch } from 'native-base';
 import { Picker } from 'native-base';
-import List from './Widgets/List';
-import ListItem from './Widgets/ListItem';
-import CardItem from './Widgets/CardItem';
-import CardSwiper from './Widgets/CardSwiper';
+import { List } from 'native-base';
+import { ListItem } from './Widgets/ListItem';
+import { CardItem } from './Widgets/CardItem';
 import { DeckSwiper } from 'native-base';
 import { H1 } from 'native-base';
 import { H2 } from 'native-base';
@@ -22,18 +21,18 @@ import { Textarea } from 'native-base';
 import { InputGroup } from './Widgets/InputGroup';
 import { Icon } from 'native-base';
 import { FooterTab } from './Widgets/FooterTab';
-import Tab from './Widgets/Tab';
+import { Tab } from 'native-base';
 import { Fab } from 'native-base';
 import { Thumbnail } from 'native-base';
 import { Gravatar } from './Widgets/Gravatar';
 import { CheckBox } from 'native-base';
 import { Radio } from 'native-base';
-import Card from './Widgets/Card';
+import { Card } from './Widgets/Card';
 import { Badge } from './Widgets/Badge';
 import { Spinner } from 'native-base';
 // import ProgressBar from './Widgets/ProgressBar';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import ScrollableTabView from './Widgets/Tabs';
+import { Tabs } from 'native-base/ui';
 
 module.exports = {
   Header,
@@ -62,7 +61,6 @@ module.exports = {
   Thumbnail,
   Gravatar,
   Card,
-  CardSwiper,
   DeckSwiper,
   Badge,
   Spinner,
@@ -71,7 +69,7 @@ module.exports = {
   // ProgressBar: ProgressBar,
   Drawer,
   FooterTab,
-  TabBar: Tab,
+  Tab,
   Fab,
-  Tabs: ScrollableTabView,
+  Tabs,
 };

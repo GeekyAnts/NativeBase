@@ -6,11 +6,9 @@ import {View, Platform} from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 // import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import { Icon } from './Icon';
 import { Button } from './Button';
 import computeProps from '../../Utils/computeProps';
-import { Input } from 'native-base';
-import Picker from './Picker';
+import { Input, Icon, Picker } from 'native-base';
 import _ from 'lodash';
 
 class InputGroup extends NativeBaseComponent {
