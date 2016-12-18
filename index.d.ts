@@ -718,7 +718,10 @@ declare module 'native-base' {
     /**
      * NativeBase.Drawer
      */
-    export class Drawer extends React.Component<NativeBase.Drawer, any> { }
+    export class Drawer extends React.Component<NativeBase.Drawer, any> { 
+        close: Function;
+        open: Function;
+    }
     /**
      * NativeBase.Tabs
      *
