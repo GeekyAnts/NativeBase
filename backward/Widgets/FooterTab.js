@@ -6,9 +6,8 @@ import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
-import { Button } from './Button';
 import { Platform, View } from 'react-native';
-import { Icon, Icon as IconNB, Button as ButtonB, Badge as BadgeB } from 'native-base';
+import { Icon, Icon as IconNB, Button , Badge as BadgeB } from 'native-base';
 import { Badge } from './Badge';
 import { Text } from './Text';
 
@@ -47,7 +46,7 @@ class FooterTab extends NativeBaseComponent {
                 if (iconElement.length>0) {
                     if (badgeElement.length>0) {
                       newChildren.push(
-                          <ButtonB style={child.props.style} transparent vertical
+                          <Button style={child.props.style} transparent vertical
                               key={i}
                               active={(child.props.active)? true : false }
                               onPress={child.props.onPress}>
@@ -60,31 +59,18 @@ class FooterTab extends NativeBaseComponent {
                                   name={iconElement[0].props.name} />
 
                               <Text style={child.props.textStyle}>{children}</Text>
-                          </ButtonB>
+                          </Button>
                       );
                     }
                     else {
                       newChildren.push(
-                          <ButtonB style={child.props.style} transparent vertical
-                              active={(child.props.active)? true : false }
-                              capitalize={false}
-                              key={i} onPress={child.props.onPress}>
-                              <Icon style={iconElement[0].props.style} active={(child.props.active)? true : false }
-                                  name={iconElement[0].props.name} />
-                              <Text style={child.props.textStyle}>{children}</Text>
-                          </ButtonB>
+                          React.cloneElement(child)
                       );
                     }
                 }
                 else {
                     newChildren.push(
-                        <ButtonB  style={child.props.style} transparent vertical
-                            capitalize={false}
-                            active={(child.props.active)? true : false }
-                            key={i} onPress={child.props.onPress}>
-                            <Icon style={children.props.style} active={(child.props.active)? true : false }
-                                name={children.props.name} />
-                        </ButtonB>
+                        React.cloneElement(child)
                     );
                 }
             };

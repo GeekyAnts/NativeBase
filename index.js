@@ -3,6 +3,7 @@ import getTheme from './theme';
 import variables from './variables';
 import { PickerNB } from './Components/Picker';
 import Drawer from './Components/Drawer';
+import { Gravatar } from 'native-base/backward';
 setDefaultThemeStyle();
 // Theme
 export { getTheme };
@@ -44,6 +45,7 @@ export { DeckSwiper } from './Components/DeckSwiper';
 export { Item } from './Components/Item';
 export { Label } from './Components/Label';
 export { Textarea } from './Components/Textarea';
+export { Gravatar };
 
 
 const mapPropsToStyleNames = (styleNames, props) => {

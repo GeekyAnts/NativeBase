@@ -133,12 +133,21 @@ class CardItem extends NativeBaseComponent {
         let childrenArray = React.Children.toArray(this.props.children);
         childrenArray = childrenArray.filter(child => !!child);
         if ((!this.thumbnailPresent()) && !this.iconPresent()) {
-            newChildren.push(<View key="item" style={{ flex: 1 }}>
+          if(this.imagePresent() && !Array.isArray(this.props.children)) {
+            newChildren.push(<View key="img" style={{flex: 1,margin: -12}}>
             {childrenArray.map((child, i) =>
                 React.cloneElement(child, { ...this.getChildProps(child), key: i })
             )}
             </View>
           );
+          }
+          else {
+              newChildren.push(
+              childrenArray.map((child, i) =>
+                  React.cloneElement(child, { ...this.getChildProps(child), key: i })
+              )
+            );
+          }
         } else {
             newChildren = [];
             if (!Array.isArray(this.props.children)) {

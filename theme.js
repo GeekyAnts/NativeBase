@@ -713,7 +713,7 @@ export default () => {
         alignItems: 'center',
       },
       '.cardBody': {
-        padding: 0,
+        flexDirection: 'column',
       },
       'NativeBase.Body': {
         'NativeBase.Text': {
@@ -777,7 +777,6 @@ export default () => {
           color: variables.listNoteColor,
           fontWeight: '200',
         },
-        paddingHorizontal: 8,
         fontWeight: '500',
       },
       flexDirection: 'row',
@@ -1092,8 +1091,6 @@ export default () => {
 
     'NativeBase.ListItem1': {
       'NativeBase.InputGroup': {
-        flex: 1,
-        borderWidth: null,
         'NativeBase.Icon': {
           paddingRight: 5,
         },
@@ -1101,12 +1098,18 @@ export default () => {
           paddingRight: 5,
         },
         'NativeBase.Input': {
+          '.inlineLabel': {
+
+          },
           paddingHorizontal: 5,
         },
+        flex: 1,
+        borderWidth: null,
+        margin: -10,
+        borderBottomColor: 'transparent',
       },
       'NativeBase.CheckBox': {
         marginLeft: -10,
-        marginRight: 10,
       },
       '.itemDivider': {
         borderBottomWidth: variables.borderWidth,
@@ -1204,7 +1207,6 @@ export default () => {
           color: variables.listNoteColor,
           fontWeight: '200',
         },
-        paddingLeft: 10,
         alignSelf: null,
       },
       flexDirection: 'row',

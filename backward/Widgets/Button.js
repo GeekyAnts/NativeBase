@@ -96,9 +96,26 @@ class Button extends NativeBaseComponent {
 
     }
 
+  getInitialStyle() {
+    return {
+      borderedBtn: {
+        borderWidth: (this.props.bordered) ? 1 : undefined,
+        borderRadius: (this.props.rounded && this.props.bordered) ? variables.borderRadiusLarge : 2,
+      },
+    };
+  }
+
+  prepareRootProps() {
+    const defaultProps = {
+      style: this.getInitialStyle().borderedBtn,
+    };
+
+    return computeProps(this.props, defaultProps);
+  }
+
     render() {
         return(
-            <TouchableOpacity ref={c => this._root = c} {...this.props} activeOpacity={0.5} >
+            <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={0.5} >
                 {this.renderChildren()}
             </TouchableOpacity>
         );

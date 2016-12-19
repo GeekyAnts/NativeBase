@@ -123,10 +123,10 @@ class ListItem extends NativeBaseComponent {
     pickerPresent() {
         var pickerComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type.displayName == "Styled(Picker)")
+            if(child && child.type.displayName == "Styled(PickerNB)")
                 pickerComponentPresent = true;
         })
-
+        console.log(pickerComponentPresent);
         return pickerComponentPresent;
     }
 
@@ -317,9 +317,8 @@ class ListItem extends NativeBaseComponent {
 
         var newChildren = [];
         if(!Array.isArray(this.props.children) && !this.inlinePresent() && !this.stackedPresent() && !this.insetPresent()) {
-          console.log("34");
             newChildren.push(
-                <View key='listItem'>
+                <View key='listItem' style={{ flex: 1 }}>
                 {React.cloneElement(this.props.children, this.getChildProps(this.props.children))}
                 </View>
             );
@@ -347,7 +346,7 @@ class ListItem extends NativeBaseComponent {
 
             else if (this.props.iconLeft && this.pickerPresent()) {
                 let pickerElement = _.remove(childrenArray, function(item) {
-                    if(item.type.displayName == "Styled(Picker)") {
+                    if(item.type.displayName == "Styled(PickerNB)") {
                         return true;
                     }
                 });
@@ -473,7 +472,7 @@ class ListItem extends NativeBaseComponent {
             }
             else if (this.inlinePresent()) {
 
-                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: 'center', flex: 1, borderColor: this.getTheme().listBorderColor, alignItems: 'center', height: this.getTheme().inputHeightBase }} >
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: 'center', flex: 1, borderColor: this.getTheme().listBorderColor, alignItems: 'center',marginLeft: -10 }} >
                     <Text style={{color: this.getTheme().inputColorPlaceholder }}>{this.props.children.props.children.props.label}</Text>
                     </View>);
                 newChildren.push(<View key='listItem1' style={{flexDirection: 'column', alignSelf: 'center', flex: 2.2 }} >
@@ -483,13 +482,11 @@ class ListItem extends NativeBaseComponent {
                     </View>);
             }
             else if (this.stackedPresent()) {
+                newChildren.push(<View key='listItem1' style={{alignSelf: 'stretch', flex: 1 }} >
+                <Text style={{color: this.getTheme().inputColorPlaceholder, textAlign: 'left', fontSize: 15 }}>{this.props.children.props.children.props.label}</Text>
 
-                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: 'flex-start', alignSelf: 'stretch', alignItems: 'center', height: this.getTheme().inputHeightBase, paddingLeft: 10 }} >
-                    <Text style={{color: this.getTheme().inputColorPlaceholder, textAlign: 'left', fontSize: 15 }}>{this.props.children.props.children.props.label}</Text>
-                    </View>);
-                newChildren.push(<View key='listItem1' style={{flexDirection: 'row', alignSelf: 'stretch', flex: 1 , padding: 0}} >
                     {childrenArray.map((child, i) => {
-                        return React.cloneElement(child, {...this.getChildProps(child), key: i, style:{flex:1}});
+                        return React.cloneElement(child, {...this.getChildProps(child), key: i, style:{flex:1, marginTop: 5}});
                     })}
                     </View>);
             }
