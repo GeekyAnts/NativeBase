@@ -176,10 +176,8 @@ export default () => {
       paddingHorizontal: 10,
       justifyContent: 'center',
       paddingTop: (Platform.OS === 'ios') ? 15 : 0,
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.1,
-      shadowRadius: 1.5,
+      borderBottomWidth: (Platform.OS === 'ios') ? 1 : 0,
+      borderBottomColor: '#ddd',
       height: variables.toolbarHeight,
       elevation: 3,
       top: 0,
@@ -812,7 +810,7 @@ export default () => {
       },
       flex: 1,
       backgroundColor: 'transparent',
-      marginBottom: (Platform.OS === 'ios') ? -40 : 23,
+      marginBottom: (Platform.OS === 'ios') ? -20 : 23,
     },
 
 

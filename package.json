@@ -83,6 +83,27 @@
         }
       },
       "/Users/sahusoft/Sites/projects/NativeBase-KitchenSink"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/Try"
     ]
   ],
   "_from": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
@@ -113,11 +134,11 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#3e812fe23550ded50dfdaf301e8486675ddc5e32",
-  "_shasum": "30195e18e5c4d75cada46ffd35214c655f93b113",
+  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#73afc5ab343cef89f7c953f3e6c486ebcb4991bd",
+  "_shasum": "15444da3382a4a74e6535c550ef0dc40caee4420",
   "_shrinkwrap": null,
   "_spec": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
-  "_where": "/Users/sahusoft/Sites/projects/NativeBase-KitchenSink",
+  "_where": "/Users/sahusoft/Sites/projects/Try",
   "bugs": {
     "url": "https://github.com/GeekyAnts/NativeBase/issues"
   },

@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import { Image, TouchableOpacity, View } from 'react-native';
+import { Image, TouchableOpacity, View,Platform } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
@@ -134,7 +134,7 @@ class CardItem extends NativeBaseComponent {
         childrenArray = childrenArray.filter(child => !!child);
         if ((!this.thumbnailPresent()) && !this.iconPresent()) {
           if(this.imagePresent() && !Array.isArray(this.props.children)) {
-            newChildren.push(<View key="img" style={{flex: 1,margin: -12}}>
+            newChildren.push(<View key="img" style={{flex: 1,margin: (Platform.OS === 'ios') ? -10 : -12}}>
             {childrenArray.map((child, i) =>
                 React.cloneElement(child, { ...this.getChildProps(child), key: i })
             )}
