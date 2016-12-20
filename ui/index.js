@@ -1,7 +1,7 @@
-import { Content as TabContent } from '../Components/Content';
-import { STabs as Tabs } from '../Components/STabs';
-import { SButton as Button } from '../Components/SButton';
-import { SHeader as Header } from '../Components/SHeader';
+import { Content as TabContent } from '../basic/Content';
+import { STabs as Tabs } from '../smart/STabs';
+import { SButton as Button } from '../smart/SButton';
+import { SHeader as Header } from '../smart/SHeader';
 
 export { TabContent };
 export { Tabs };

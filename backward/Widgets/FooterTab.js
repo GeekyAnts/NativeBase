@@ -7,8 +7,7 @@ import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import { Platform, View } from 'react-native';
-import { Icon, Icon as IconNB, Button , Badge as BadgeB } from 'native-base';
-import { Badge } from './Badge';
+import { Icon, Icon as IconNB, Button , Badge } from 'native-base';
 import { Text } from './Text';
 
 class FooterTab extends NativeBaseComponent {
@@ -51,9 +50,9 @@ class FooterTab extends NativeBaseComponent {
                               active={(child.props.active)? true : false }
                               onPress={child.props.onPress}>
                               <View  style={(Platform.OS === 'ios') ? {alignSelf: 'center', zIndex: 999} : {alignSelf: 'center'}}>
-                                <BadgeB {...badgeElement[0].props}>
+                                <Badge {...badgeElement[0].props}>
                                   <Text style={badgeElement[0].props.textStyle}>{badgeElement[0].props.children}</Text>
-                                </BadgeB>
+                                </Badge>
                               </View>
                               <Icon {...iconElement[0].props} active={(child.props.active)? true : false }
                                   name={iconElement[0].props.name} />

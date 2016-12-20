@@ -59,7 +59,7 @@ Button.propTypes = {
   large: React.PropTypes.bool,
   small: React.PropTypes.bool,
   active: React.PropTypes.bool,
-  badgeValue: React.PropTypes.number,
+  badgeValue: React.PropTypes.string,
   badgeColor: React.PropTypes.string,
   badgeValueStyle: React.PropTypes.object,
 };

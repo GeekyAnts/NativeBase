@@ -29,7 +29,7 @@ import { Gravatar } from './Widgets/Gravatar';
 import { CheckBox } from 'native-base';
 import { Radio } from 'native-base';
 import { Card } from './Widgets/Card';
-import { Badge } from './Widgets/Badge';
+import { Badge } from 'native-base';
 import { Spinner } from 'native-base';
 // import ProgressBar from './Widgets/ProgressBar';
 import { Col, Row, Grid } from 'react-native-easy-grid';

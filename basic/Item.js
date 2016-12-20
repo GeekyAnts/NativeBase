@@ -115,8 +115,23 @@ class Item extends Component {
   }
 }
 
+const childrenType = function (props, propName, component) {
+  let error;
+  const prop = props[propName];
+  if (!props.children.length) {
+    error = new Error(`${component} should have both Label and Input components`);
+  }
+  else {
+    if (props.children[0].type.displayName !== 'Styled(Label)' || props.children[1].type.displayName !== 'Styled(Input)') {
+      error = new Error(`${component} should have Label and Input components only`);
+    }
+  }
+  return error;
+};
+
 Item.propTypes = {
   ...TouchableOpacity.propTypes,
+  children: childrenType,
   style: React.PropTypes.object,
   inlineLabel: React.PropTypes.bool,
   floatingLabel: React.PropTypes.bool,

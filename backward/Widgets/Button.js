@@ -1,5 +1,5 @@
 /* @flow */
-'use strict';
+
 
 import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
@@ -16,57 +16,33 @@ import ReactNativePropRegistry from 'react-native/Libraries/Renderer/src/rendere
 
 class Button extends NativeBaseComponent {
 
-    propTypes: {
-        style : React.PropTypes.object,
-        textStyle : React.PropTypes.object,
-        block : React.PropTypes.bool,
-        primary : React.PropTypes.bool,
-        transparent : React.PropTypes.bool,
-        success : React.PropTypes.bool,
-        danger : React.PropTypes.bool,
-        warning : React.PropTypes.bool,
-        info : React.PropTypes.bool,
-        bordered : React.PropTypes.bool,
-        disabled : React.PropTypes.bool,
-        rounded : React.PropTypes.bool,
-        large : React.PropTypes.bool,
-        small : React.PropTypes.bool,
-        inputButton : React.PropTypes.bool,
-        tabButton : React.PropTypes.bool
-    }
+  iconPresent() {
+    let iconComponentPresent = false;
+    React.Children.forEach(this.props.children, (child) => {
+      if (child.type == Icon) { iconComponentPresent = true; }
+    });
+    return iconComponentPresent;
+  }
+  renderChildren() {
+    if (typeof this.props.children === 'string') {
+      return <Text>{(Platform.OS === 'ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>;
+    } else if (this.props.children.type == IconNB) {
+      return React.cloneElement(this.props.children);
+    } else if (Array.isArray(this.props.children)) {
+      const newChildren = [];
 
-    iconPresent() {
-        var iconComponentPresent = false;
-        React.Children.forEach(this.props.children, function (child) {
-            if(child.type == Icon)
-                iconComponentPresent = true;
-        })
-        return iconComponentPresent;
-    }
-    renderChildren() {
-        if(typeof this.props.children == 'string') {
-            return <Text>{(Platform.OS==='ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>
+            const childrenArray = React.Children.toArray(this.props.children);
+
+      let iconElement = [];
+      iconElement = _.remove(childrenArray, (item) => {
+        if (item.type == IconNB) {
+          return true;
         }
-
-        else if(this.props.children.type == IconNB) {
-            return React.cloneElement(this.props.children);
-        }
-
-        else if(Array.isArray(this.props.children)) {
-            var newChildren = [];
-
-            var childrenArray = React.Children.toArray(this.props.children);
-
-            var iconElement = [];
-            iconElement = _.remove(childrenArray, function(item) {
-                if(item.type == IconNB) {
-                    return true;
-                }
             });
 
-            if(this.props.iconRight) {
-                if (childrenArray[0].type==undefined) {
-                    newChildren.push(<Text key='label'>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
+      if (this.props.iconRight) {
+        if (childrenArray[0].type == undefined) {
+          newChildren.push(<Text key="label">{(Platform.OS === 'ios' || !this.props.capitalize) ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
                 } else {
                     newChildren.push(<Text key='label'>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
                 }
@@ -89,11 +65,8 @@ class Button extends NativeBaseComponent {
 
             return newChildren;
 
-        }
-
-        else
+        }        else
             return React.cloneElement(this.props.children);
-
     }
 
   getInitialStyle() {
@@ -113,18 +86,37 @@ class Button extends NativeBaseComponent {
     return computeProps(this.props, defaultProps);
   }
 
-    render() {
-        return(
-            <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={0.5} >
-                {this.renderChildren()}
-            </TouchableOpacity>
-        );
-    }
+  render() {
+    return (
+      <TouchableOpacity
+        ref={c => this._root = c}
+        {...this.prepareRootProps()} activeOpacity={0.5}
+      >
+        {this.renderChildren()}
+      </TouchableOpacity>
+    );
+  }
 }
 
 
 Button.propTypes = {
   ...TouchableOpacity.propTypes,
+  style: React.PropTypes.object,
+  textStyle: React.PropTypes.object,
+  block: React.PropTypes.bool,
+  primary: React.PropTypes.bool,
+  transparent: React.PropTypes.bool,
+  success: React.PropTypes.bool,
+  danger: React.PropTypes.bool,
+  warning: React.PropTypes.bool,
+  info: React.PropTypes.bool,
+  bordered: React.PropTypes.bool,
+  disabled: React.PropTypes.bool,
+  rounded: React.PropTypes.bool,
+  large: React.PropTypes.bool,
+  small: React.PropTypes.bool,
+  inputButton: React.PropTypes.bool,
+  tabButton: React.PropTypes.bool,
 };
 
 

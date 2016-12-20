@@ -12,8 +12,20 @@ class H3 extends Component {
   }
 }
 
+const childrenType = function (props, propName, component) {
+  let error;
+  const prop = props[propName];
+  React.Children.forEach(prop, (child) => {
+    if (typeof child !== 'string') {
+      error = new Error(`${component} should have only string`);
+    }
+  });
+  return error;
+};
+
 H3.propTypes = {
   ...Text.propTypes,
+  children: childrenType,
   style: React.PropTypes.object,
 };
 
