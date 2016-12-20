@@ -1,32 +1,31 @@
 /* @flow */
 
 
-import React from 'react';
+import React, { Component } from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
-import NativeBaseComponent from '../Base/NativeBaseComponent';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import computeProps from '../../Utils/computeProps';
-import { Icon as IconNB } from 'native-base';
+import { Icon as IconNB, variables } from 'native-base';
 import { Icon } from 'native-base';
 import { Text } from './Text';
 import _ from 'lodash';
 import ReactNativePropRegistry from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativePropRegistry';
 
 
-class Button extends NativeBaseComponent {
+class Button extends Component {
 
   iconPresent() {
     let iconComponentPresent = false;
     React.Children.forEach(this.props.children, (child) => {
-      if (child.type == Icon) { iconComponentPresent = true; }
+      if (child.type === Icon) { iconComponentPresent = true; }
     });
     return iconComponentPresent;
   }
   renderChildren() {
     if (typeof this.props.children === 'string') {
       return <Text>{(Platform.OS === 'ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>;
-    } else if (this.props.children.type == IconNB) {
+    } else if (this.props.children.type === IconNB) {
       return React.cloneElement(this.props.children);
     } else if (Array.isArray(this.props.children)) {
       const newChildren = [];
