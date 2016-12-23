@@ -11,25 +11,23 @@ class Title extends NativeBaseComponent {
 
 
   prepareRootProps() {
-
-    var type = {
+    const type = {
       fontFamily: this.getTheme().btnFontFamily,
       fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
-      alignSelf: (Platform.OS === 'ios' ) ? 'center' : 'flex-start'
-    }
+      alignSelf: (Platform.OS === 'ios') ? 'center' : 'flex-start',
+    };
 
-    var defaultProps = {
-      style: type
-    }
+    const defaultProps = {
+      style: type,
+    };
 
     return computeProps(this.props, defaultProps);
-
   }
 
   render() {
-    return(
-      <View style={{justifyContent: 'center'}}><Text ref={c => this._root = c} {...this.prepareRootProps()}>{this.props.children}</Text></View>
-      );
+    return (
+      <View style={{ justifyContent: 'center' }}><Text ref={c => this._root = c} {...this.prepareRootProps()}>{this.props.children}</Text></View>
+    );
   }
 }
 

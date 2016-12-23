@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { TouchableOpacity,Platform } from 'react-native';
-import IIcon from 'react-native-vector-icons/Ionicons';
+import { TouchableOpacity, Platform } from 'react-native';
+import { Icon } from 'native-base';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
-import { Icon } from 'native-base';
 
-import variables from '../variables';
 
 class CheckBox extends Component {
   render() {

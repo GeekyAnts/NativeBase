@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { View, Animated, Dimensions, TouchableHighlight } from 'react-native';
+import { View, Animated, Dimensions } from 'react-native';
 
 import { variables, IconNB, Button, Text } from 'native-base';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
-const deviceWidth = Dimensions.get('window').width;
 class TabBar extends Component {
 
   renderLabelOption(name, page) {
@@ -12,7 +11,10 @@ class TabBar extends Component {
 
     return (
       <View style={[{ flex: 1 }, this.props.tabBarStyle]} key={name}>
-        <Button transparent onPress={() => this.props.goToPage(page)} isTabActive={this.props.activeTab === page}>
+        <Button
+          transparent onPress={() => this.props.goToPage(page)}
+          isTabActive={this.props.activeTab === page}
+        >
           <Text style={this.props.tabBarTextStyle}>{name}</Text>
         </Button>
       </View>
@@ -55,12 +57,13 @@ class TabBar extends Component {
       bottom: 0,
     };
     const left = this.props.scrollValue.interpolate({
-      inputRange: [0, 1, ], outputRange: [0,  containerWidth / numberOfTabs, ],
+      inputRange: [0, 1], outputRange: [0, containerWidth / numberOfTabs],
     });
     return (
       <View ref={c => this._root = c} {...this.props}>
-        {(this.props.iconPresent) ? this.renderTab(this.props) : this.props.tabs.map((tab, i) => this.renderLabelOption(tab, i))}
-        <Animated.View style={[tabUnderlineStyle, { left, }, this.props.underlineStyle, ]} />
+        {(this.props.iconPresent) ? this.renderTab(this.props) :
+          this.props.tabs.map((tab, i) => this.renderLabelOption(tab, i))}
+        <Animated.View style={[tabUnderlineStyle, { left }, this.props.underlineStyle]} />
       </View>
     );
   }

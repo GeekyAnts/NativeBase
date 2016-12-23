@@ -27,7 +27,7 @@ class Badge extends Component {
 
   }
 
-const childrenType = function (props, propName, component) {
+const childrenType = function childrenType(props, propName, component) {
   let error;
   const prop = props[propName];
   React.Children.forEach(prop, (child) => {

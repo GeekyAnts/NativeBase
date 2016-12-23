@@ -7,7 +7,10 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 class ListItem extends Component {
   render() {
     return (
-      <TouchableOpacity ref={c => this._root = c} {...this.props} activeOpacity={(this.props.button) ? 0.2 : 1}>
+      <TouchableOpacity
+        ref={c => this._root = c}
+        {...this.props} activeOpacity={(this.props.button) ? 0.2 : 1}
+      >
         {this.props.children}
       </TouchableOpacity>
     );

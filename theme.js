@@ -1565,7 +1565,7 @@ export default () => {
     'NativeBase.ViewNB': {
       flex: 1,
       '.padder': {
-          padding: variables.contentPadding,
+        padding: variables.contentPadding,
       },
     },
 

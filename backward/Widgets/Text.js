@@ -1,18 +1,17 @@
 /* @flow */
-'use strict';
+
 
 import React from 'react';
 import { Text as TextRN } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
-import computeProps from '../../Utils/computeProps';
 
 
 class Text extends NativeBaseComponent {
 
   render() {
-    return(
+    return (
       <TextRN ref={c => this._root = c} {...this.props}>{this.props.children}</TextRN>
     );
   }

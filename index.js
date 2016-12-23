@@ -1,11 +1,13 @@
+import { Gravatar } from 'native-base/backward';
 import { setDefaultThemeStyle } from './init';
 import getTheme from './theme';
 import variables from './variables';
-import { PickerNB } from './basic/Picker';
 import Drawer from './basic/Drawer';
-import { Gravatar } from 'native-base/backward';
+import { Swipeout } from './basic/Swipe';
+
 setDefaultThemeStyle();
 // Theme
+export { Swipeout };
 export { getTheme };
 export { variables };
 export { StyleProvider } from '@shoutem/theme';
@@ -48,10 +50,7 @@ export { Textarea } from './basic/Textarea';
 export { Gravatar };
 
 
-const mapPropsToStyleNames = (styleNames, props) => {
-  console.log('title');
-  return _.keys(props);
-}
+const mapPropsToStyleNames = (styleNames, props) => _.keys(props);
 
 export { mapPropsToStyleNames };
 

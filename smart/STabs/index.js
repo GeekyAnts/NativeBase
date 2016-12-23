@@ -36,15 +36,13 @@ class STabs extends Component {
     if (Platform.OS === 'ios') {
       const offset = pageNumber * this.state.containerWidth;
       if (this.scrollView) {
-        this.scrollView.scrollTo({x: offset, y: 0, animated: !this.props.scrollWithoutAnimation, });
+        this.scrollView.scrollTo({ x: offset, y: 0, animated: !this.props.scrollWithoutAnimation });
       }
-    } else {
-      if (this.scrollView) {
-        if (this.props.scrollWithoutAnimation) {
-          this.scrollView.setPageWithoutAnimation(pageNumber);
-        } else {
-          this.scrollView.setPage(pageNumber);
-        }
+    } else if (this.scrollView) {
+      if (this.props.scrollWithoutAnimation) {
+        this.scrollView.setPageWithoutAnimation(pageNumber);
+      } else {
+        this.scrollView.setPage(pageNumber);
       }
     }
 
@@ -154,8 +152,8 @@ class STabs extends Component {
       <View ref={c => this._root = c} {...this.props}>
         {this.props.tabBarPosition === 'top' && this.renderTab(tabBarProps)}
         {this.renderContent()}
-        <View style={(this.props.tabBarPosition === 'bottom') ? {bottom: (Platform.OS === 'ios') ? 0 : 23} : {}}>
-        {this.props.tabBarPosition === 'bottom' && this.renderTab(tabBarProps)}
+        <View style={(this.props.tabBarPosition === 'bottom') ? { bottom: (Platform.OS === 'ios') ? 0 : 23 } : {}}>
+          {this.props.tabBarPosition === 'bottom' && this.renderTab(tabBarProps)}
         </View>
       </View>
     );

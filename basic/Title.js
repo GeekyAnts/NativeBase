@@ -2,9 +2,9 @@
 
 
 import React, { Component } from 'react';
-import { Platform, View, Text } from 'react-native';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import { Text } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
+import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Title extends Component {
   render() {

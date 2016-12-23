@@ -8,7 +8,12 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 class Tabs extends Component {
   render() {
     return (
-      <ScrollableTabView ref={c => this._root = c} {...this.props} tabBarInactiveTextColor={variables.tabBarActiveTextColor} tabBarActiveTextColor={variables.tabBarActiveTextColor} tabBarUnderlineStyle={{backgroundColor: variables.tabBarActiveTextColor}}>
+      <ScrollableTabView
+        ref={c => this._root = c} {...this.props}
+        tabBarInactiveTextColor={variables.tabBarActiveTextColor}
+        tabBarActiveTextColor={variables.tabBarActiveTextColor}
+        tabBarUnderlineStyle={{ backgroundColor: variables.tabBarActiveTextColor }}
+      >
         {this.props.children}
       </ScrollableTabView>
     );

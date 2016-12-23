@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View,TouchableOpacity,Animated,Platform } from 'react-native';
-import { Text,Input,Label } from 'native-base';
+import { TouchableOpacity, Animated, Platform } from 'react-native';
+import { Input, Label } from 'native-base';
 
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
@@ -18,29 +18,29 @@ class Item extends Component {
   floatBack() {
     Animated.timing(this.state.topAnim, {
       toValue: 18,
-      duration: 150
+      duration: 150,
     }).start();
     Animated.timing(this.state.opacAnim, {
       toValue: 1,
-      duration: 150
+      duration: 150,
     }).start();
   }
 
   floatUp() {
     Animated.timing(this.state.topAnim, {
       toValue: 0,
-      duration: 150
+      duration: 150,
     }).start();
     Animated.timing(this.state.opacAnim, {
       toValue: 0.5,
-      duration: 150
+      duration: 150,
     }).start();
   }
 
-  renderLabel(label,labelProps) {
-    var newLabel = [];
-    if(this.props.floatingLabel){
-      if(this.state.text) {
+  renderLabel(label, labelProps) {
+    const newLabel = [];
+    if (this.props.floatingLabel) {
+      if (this.state.text) {
         newLabel.push(React.createElement(
           Label,
           {
@@ -50,58 +50,52 @@ class Item extends Component {
           }
         ));
         this.floatUp();
-      }
-      else {
+      } else {
         newLabel.push(label);
         this.floatBack();
       }
-    }
-    else {
-      if(this.state.text) {
-        newLabel.push(React.createElement(
+    } else if (this.state.text) {
+      newLabel.push(React.createElement(
           Label,
-          {
-            ...labelProps,
-            key: 'newLabel',
-            focused: true,
-          }
+        {
+          ...labelProps,
+          key: 'newLabel',
+          focused: true,
+        }
         ));
-      }
-      else {
-        newLabel.push(label);
-      }
+    } else {
+      newLabel.push(label);
     }
     return newLabel;
   }
 
   renderChildren() {
-    var newChildren = [];
-    var childrenArray = React.Children.toArray(this.props.children);
+    const newChildren = [];
+    const childrenArray = React.Children.toArray(this.props.children);
 
-    var label = [];
-    var labelProps = {};
-    label = _.remove(childrenArray, function(item) {
-      if(item.type == Label) {
+    let label = [];
+    let labelProps = {};
+    label = _.remove(childrenArray, (item) => {
+      if (item.type === Label) {
         labelProps = item.props;
         return item;
       }
     });
 
-    var input = [];
-    var inputProps = {};
-    input = _.remove(childrenArray, function(item) {
-      if(item.type == Input) {
+    let input = [];
+    let inputProps = {};
+    input = _.remove(childrenArray, (item) => {
+      if (item.type === Input) {
         inputProps = item.props;
         return item;
       }
     });
-    if(label.length && input.length) {
-      if(!this.props.inlineLabel && !this.props.stackedLabel && !this.props.fixedLabel) {
-        newChildren.push((this.props.floatingLabel) ? <Animated.View key="float" style={{position: 'absolute',left: 0,right: 0,top: this.state.topAnim,opacity: this.state.opacAnim,paddingTop: (Platform.OS === 'ios') ? undefined :  30}}>{this.renderLabel(label,labelProps)}</Animated.View> : this.renderLabel(label,labelProps))
-        newChildren.push(<Input key="l2" {...inputProps} onChangeText={(text) => this.setState({text: text})} />);
-      }
-      else {
-        return this.props.children
+    if (label.length && input.length) {
+      if (!this.props.inlineLabel && !this.props.stackedLabel && !this.props.fixedLabel) {
+        newChildren.push((this.props.floatingLabel) ? <Animated.View key="float" style={{ position: 'absolute', left: 0, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : 30 }}>{this.renderLabel(label, labelProps)}</Animated.View> : this.renderLabel(label, labelProps));
+        newChildren.push(<Input key="l2" {...inputProps} onChangeText={text => this.setState({ text })} />);
+      } else {
+        return this.props.children;
       }
     }
     return newChildren;
@@ -120,11 +114,8 @@ const childrenType = function (props, propName, component) {
   const prop = props[propName];
   if (!props.children.length) {
     error = new Error(`${component} should have both Label and Input components`);
-  }
-  else {
-    if (props.children[0].type.displayName !== 'Styled(Label)' || props.children[1].type.displayName !== 'Styled(Input)') {
-      error = new Error(`${component} should have Label and Input components only`);
-    }
+  } else if (props.children[0].type.displayName !== 'Styled(Label)' || props.children[1].type.displayName !== 'Styled(Input)') {
+    error = new Error(`${component} should have Label and Input components only`);
   }
   return error;
 };

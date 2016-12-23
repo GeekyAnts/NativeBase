@@ -1,8 +1,9 @@
 import color from 'color';
 
-import { Platform,Dimensions } from 'react-native';
-var deviceHeight = Dimensions.get('window').height;
-var deviceWidth = Dimensions.get('window').width;
+import { Platform, Dimensions } from 'react-native';
+
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
 export default {
 
     // Badge
@@ -246,7 +247,7 @@ export default {
   inputLineHeight: 24,
   jumbotronBg: '#C9C9CE',
   jumbotronPadding: 30,
-  deviceWidth : deviceWidth,
-  deviceHeight: deviceHeight,
+  deviceWidth,
+  deviceHeight,
   inputGroupRoundedBorderRadius: 30,
 };

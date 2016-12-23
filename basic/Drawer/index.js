@@ -81,8 +81,9 @@ export default class Drawer extends Component {
   getMainWidth = () => this.state.viewport.width - this._offsetClosed;
   getDrawerWidth = () => this.state.viewport.width - this._offsetOpen;
   getOpenMask = () => {
-    if (this.props.panCloseMask && this.props.panCloseMask % 1 === 0)
+    if (this.props.panCloseMask && this.props.panCloseMask % 1 === 0) {
       return this.props.panCloseMask;
+    }
     if (this.props.panCloseMask) return this.state.viewport.width * this.props.panCloseMask;
     return Math.max(0.05, this._offsetOpen);
   };
@@ -174,15 +175,15 @@ export default class Drawer extends Component {
         break;
     }
 
-    let mainOverlayProps = null;
-    let drawerOverlayProps = null;
+    const mainOverlayProps = null;
+    const drawerOverlayProps = null;
     if (this.props.tweenHandler) {
       const propsFrag = this.props.tweenHandler(ratio, this.props.side);
       mainProps = Object.assign(mainProps, propsFrag.main);
       drawerProps = Object.assign(drawerProps, propsFrag.drawer);
     }
-      this.drawer.setNativeProps({ style: drawerProps });
-      this.main.setNativeProps({ style: mainProps });
+    this.drawer.setNativeProps({ style: drawerProps });
+    this.main.setNativeProps({ style: mainProps });
   };
 
 
@@ -220,7 +221,6 @@ export default class Drawer extends Component {
   }
 
   testPanResponderMask = (e, gestureState) => {
-
     if (this.context.drawer && this.context.drawer._open) return false;
     if (this._childDrawer && this._childDrawer._open) return false;
 

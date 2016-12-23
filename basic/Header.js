@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import _ from 'lodash';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 

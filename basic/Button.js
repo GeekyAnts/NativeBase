@@ -3,12 +3,11 @@
 
 import React, { Component } from 'react';
 import { TouchableOpacity, Platform, View } from 'react-native';
+import { connectStyle } from '@shoutem/theme';
+import { variables, Badge, Text } from 'native-base';
 import _ from 'lodash';
 import computeProps from '../Utils/computeProps';
-import ReactNativePropRegistry from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativePropRegistry';
-import { connectStyle } from '@shoutem/theme';
 
-import { variables, Badge, Text } from 'native-base';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Button extends Component {
@@ -36,7 +35,7 @@ class Button extends Component {
         ref={c => this._root = c}
         activeOpacity={0.5}
       >
-        <View style={(Platform.OS === 'ios') ? {alignSelf: 'center', zIndex: 999} : {alignSelf: 'center'}}>{(this.props.badgeValue) ? <Badge style={{ backgroundColor: (this.props.badgeColor) ? this.props.badgeColor : undefined }}><Text style={this.props.badgeValueStyle}>{this.props.badgeValue}</Text></Badge> : null}</View>
+        <View style={(Platform.OS === 'ios') ? { alignSelf: 'center', zIndex: 999 } : { alignSelf: 'center' }}>{(this.props.badgeValue) ? <Badge style={{ backgroundColor: (this.props.badgeColor) ? this.props.badgeColor : undefined }}><Text style={this.props.badgeValueStyle}>{this.props.badgeValue}</Text></Badge> : null}</View>
         {this.props.children}
       </TouchableOpacity>
     );
@@ -59,7 +58,6 @@ Button.propTypes = {
   large: React.PropTypes.bool,
   small: React.PropTypes.bool,
   active: React.PropTypes.bool,
-  badgeValue: React.PropTypes.string,
   badgeColor: React.PropTypes.string,
   badgeValueStyle: React.PropTypes.object,
 };

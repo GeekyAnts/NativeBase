@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
-import computeProps from '../Utils/computeProps';
 import { connectStyle } from '@shoutem/theme';
+import computeProps from '../Utils/computeProps';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Thumbnail extends Component {
@@ -10,15 +10,15 @@ class Thumbnail extends Component {
   }
 
   prepareRootProps() {
-    let type ={
+    const type = {
       width: (this.props.size) ? this.props.size : 30,
       height: (this.props.size) ? this.props.size : 30,
       borderRadius: (this.props.size) ? ((this.props.square) ? 0
       : (this.props.size / 2)) : ((this.props.square) ? 0 : 15),
-    }
-    var defaultProps = {
-      style: type
-    }
+    };
+    const defaultProps = {
+      style: type,
+    };
     return computeProps(this.props, defaultProps);
   }
   render() {
@@ -32,7 +32,7 @@ Thumbnail.propTypes = {
   ...Image.propTypes,
   style: React.PropTypes.object,
   square: React.PropTypes.bool,
-  circular : React.PropTypes.bool,
+  circular: React.PropTypes.bool,
   size: React.PropTypes.number,
 };
 

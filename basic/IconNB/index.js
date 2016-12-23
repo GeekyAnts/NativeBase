@@ -11,30 +11,27 @@ import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 class IconNB extends Component {
 
   getName() {
-    if(Platform.OS === 'ios') {
+    if (Platform.OS === 'ios') {
       return (this.props.active) ? ic[this.props.name].ios.active : ic[this.props.name].ios.default;
-    }
-    else {
-      return (this.props.active) ? ic[this.props.name].android.active : ic[this.props.name].android.default;
+    } else {
+      return (this.props.active) ?
+      ic[this.props.name].android.active : ic[this.props.name].android.default;
     }
   }
 
   getIconName() {
-    if(Platform.OS === 'ios') {
-      if(this.props.ios) {
+    if (Platform.OS === 'ios') {
+      if (this.props.ios) {
         return this.props.ios;
+      } else {
+        return (this.props.active) ?
+        ic[this.props.name].ios.active : ic[this.props.name].ios.default;
       }
-      else {
-        return (this.props.active) ? ic[this.props.name].ios.active : ic[this.props.name].ios.default;
-      }
-    }
-    else {
-      if(this.props.android) {
-        return this.props.android;
-      }
-      else {
-        return (this.props.active) ? ic[this.props.name].android.active : ic[this.props.name].android.default;
-      }
+    } else if(this.props.android) {
+      return this.props.android;
+    } else {
+      return (this.props.active) ?
+      ic[this.props.name].android.active : ic[this.props.name].android.default;
     }
   }
 
@@ -43,13 +40,11 @@ class IconNB extends Component {
       return (
         <Icon ref={c => this._root = c} {...this.props} name={(Platform.OS === 'ios') ? this.props.ios : this.props.android} />
       );
-    }
-    else if (this.props.name && (this.props.android || this.props.ios)) {
+    } else if (this.props.name && (this.props.android || this.props.ios)) {
       return (
         <Icon ref={c => this._root = c} {...this.props} name={this.getIconName()} />
       );
-    }
-    else {
+    } else {
       return (
         <Icon ref={c => this._root = c} {...this.props} name={this.getName()} />
       );

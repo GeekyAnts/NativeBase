@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { ActivityIndicator } from 'react-native';
 
-import variables from '../variables';
 import { connectStyle } from '@shoutem/theme';
+import variables from '../variables';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Spinner extends Component {
   render() {
     return (
-      <ActivityIndicator ref={c => this._root = c} {...this.props}  color={this.props.color ? this.props.color : this.props.inverse ? variables.inverseSpinnerColor : variables.defaultSpinnerColor} size={this.props.size ? this.props.size : 'large' } />
+      <ActivityIndicator
+        ref={c => this._root = c} {...this.props}
+        color={this.props.color ? this.props.color : this.props.inverse ? variables.inverseSpinnerColor : variables.defaultSpinnerColor} size={this.props.size ? this.props.size : 'large'}
+      />
     );
   }
 }

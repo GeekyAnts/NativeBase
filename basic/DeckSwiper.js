@@ -3,6 +3,7 @@ import { View, Animated, PanResponder } from 'react-native';
 import clamp from 'clamp';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+
 const SWIPE_THRESHOLD = 120;
 
 class DeckSwiper extends Component {
@@ -191,9 +192,9 @@ class DeckSwiper extends Component {
   }
 
   getCardStyles() {
-    let { pan, pan2, enter } = this.state;
+    const { pan, pan2, enter } = this.state;
 
-    let [translateX, translateY] = [pan.x, pan.y];
+    const [translateX, translateY] = [pan.x, pan.y];
     // let [translateX, translateY] = [pan2.x, pan2.y];
 
     const rotate = pan.x.interpolate({ inputRange: [-700, 0, 700], outputRange: ['-10deg', '0deg', '10deg'] });
@@ -211,7 +212,8 @@ class DeckSwiper extends Component {
       <View ref={c => this._root = c} {...this.props} style={{ position: 'relative', flexDirection: 'column' }}>{(this.state.selectedItem) === undefined ? (<View />) :
                 (<View>
                   <Animated.View
-                    style={[this.getCardStyles()[1], this.getInitialStyle().topCard, { opacity: this.state.fadeAnim }]}
+                    style={[this.getCardStyles()[1], this.getInitialStyle().topCard,
+                      { opacity: this.state.fadeAnim }]}
                     {...this._panResponder.panHandlers}
                   >
                     {(this.props.renderBottom) ?
@@ -220,7 +222,10 @@ class DeckSwiper extends Component {
                           this.props.renderItem(this.state.selectedItem2)
                         }
                   </Animated.View>
-                  <Animated.View style={[this.getCardStyles()[0], this.getInitialStyle().topCard]} {...this._panResponder.panHandlers} >
+                  <Animated.View
+                    style={[this.getCardStyles()[0], this.getInitialStyle().topCard]}
+                    {...this._panResponder.panHandlers}
+                  >
                     {(this.props.renderTop) ?
                           this.props.renderTop(this.state.selectedItem)
                         :
