@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {View, ListView} from 'react-native';
+import { View, ListView } from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import _ from 'lodash';
@@ -10,9 +10,10 @@ import _ from 'lodash';
 export default class ListNB extends NativeBaseComponent {
 
     propTypes: {
-        style : React.PropTypes.object,
-        dataArray : React.PropTypes.array,
-        renderRow : React.PropTypes.func
+        style: React.PropTypes.object,
+        dataArray: React.PropTypes.array,
+        renderRow: React.PropTypes.func
+        dataObject: React.PropTypes.object
     }
 
     getInitialStyle() {
@@ -47,7 +48,7 @@ export default class ListNB extends NativeBaseComponent {
 
         childrenArray = childrenArray.map((child) => {
             keyIndex++;
-            return React.cloneElement(child, {...child.props, key: keyIndex});
+            return React.cloneElement(child, { ...child.props, key: keyIndex });
         });
 
         var lastElement = _.last(childrenArray);
@@ -58,20 +59,20 @@ export default class ListNB extends NativeBaseComponent {
     }
 
     render() {
-        if(this.props.dataArray && this.props.renderRow) {
-            const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-            var dataSource = ds.cloneWithRows(this.props.dataArray);
+        if ((this.props.dataArray || this.props.dataObject) && this.props.renderRow) {
+            const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+            var dataSource = this.props.dataObject ? ds.cloneWithRowsAndSections(this.props.dataObject) : ds.cloneWithRows(this.props.dataArray);
             return (
-                <ListView {...this.prepareRootProps()}
+                <ListView {...this.prepareRootProps() }
                     enableEmptySections={true}
                     dataSource={dataSource}
                     renderRow={this.props.renderRow} />
             );
         }
         else {
-            return(
-                <View ref={c => this._root = c} {...this.prepareRootProps()} >
-                {this.renderChildren()}
+            return (
+                <View ref={c => this._root = c} {...this.prepareRootProps() } >
+                    {this.renderChildren()}
                 </View>
             );
         }
