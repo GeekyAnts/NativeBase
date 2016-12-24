@@ -52,7 +52,7 @@ export default class Footer extends NativeBaseComponent {
                 justifyContent: 'center',
                 margin: 1,
                 height: this.getTheme().footerHeight-4,
-                borderRadius: (Platform.OS == 'ios') ? 7 : 0
+                borderRadius: this.getTheme().tabBarBorderRadius
             }
         }
     }
