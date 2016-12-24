@@ -60,8 +60,8 @@ export default class ListNB extends NativeBaseComponent {
 
     render() {
         if((this.props.dataArray  || this.props.dataObject) && this.props.renderRow) {
-            const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-            var dataSource = this.props.dataObject ? ds.cloneWithRowsAndSections(this.props.dataObject) : ds.cloneWithRows(this.props.dataArray);
+            const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2, sectionHeaderHasChanged: () => true });
+            var dataSource = this.props.dataObject ? ds.cloneWithRowsAndSections(this.props.dataObject,Object.key) : ds.cloneWithRows(this.props.dataArray);
             return (
                 <ListView {...this.prepareRootProps()}
                     enableEmptySections={true}
