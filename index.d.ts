@@ -11,7 +11,9 @@ declare module 'native-base' {
         /**
          * see Widget Text.js
          */
-        interface View extends React.ViewProperties { }
+        interface View extends React.ViewProperties {
+            padder?: boolean
+        }
         /**
          * see Widget Text.js
          */
