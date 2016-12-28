@@ -12,7 +12,8 @@ export default class SpinnerNB extends NativeBaseComponent {
     prepareRootProps() {
 
         var type = {
-            height: 80
+            height: 80,
+            width: 80
         }
 
         var defaultProps = {
@@ -26,7 +27,7 @@ export default class SpinnerNB extends NativeBaseComponent {
 
     render() {
         return(
-            <ActivityIndicator {...this.prepareRootProps()} color={this.props.color ? this.props.color : this.props.inverse ?
+            <ActivityIndicator ref={c => this._root = c} {...this.prepareRootProps()} color={this.props.color ? this.props.color : this.props.inverse ?
                 this.getTheme().inverseSpinnerColor :
                 this.getTheme().defaultSpinnerColor}
                 size={this.props.size ? this.props.size : 'large' } />

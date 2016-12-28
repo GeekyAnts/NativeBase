@@ -15,6 +15,7 @@ export default class CardNB extends NativeBaseComponent {
     getInitialStyle() {
         return {
             card: {
+                marginVertical: 5,
                 flex: 1,
                 borderWidth: this.getTheme().borderWidth,
                 borderRadius: 2,
@@ -61,7 +62,7 @@ export default class CardNB extends NativeBaseComponent {
             );
         }
         return(
-            <View {...this.prepareRootProps()} >
+            <View ref={c => this._root = c} {...this.prepareRootProps()} >
                 {this.renderChildren()}
             </View>
         );

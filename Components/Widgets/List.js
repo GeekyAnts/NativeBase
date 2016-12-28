@@ -70,7 +70,7 @@ export default class ListNB extends NativeBaseComponent {
         }
         else {
             return(
-                <View {...this.prepareRootProps()} >
+                <View ref={c => this._root = c} {...this.prepareRootProps()} >
                 {this.renderChildren()}
                 </View>
             );

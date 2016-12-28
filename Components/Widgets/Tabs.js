@@ -40,12 +40,12 @@ export default class TabNB extends NativeBaseComponent {
     }
 
     render() {
-		var children = Array.isArray(this.props.children) ? this.props.children : [this.props.children];
-		return(
-			<ScrollableTabView ref={(c) => {this._scrollableTabView = c}} {...this.prepareRootProps()} >
-				{children.filter(child => child)}
-			</ScrollableTabView>
-		);
+    var children = Array.isArray(this.props.children) ? this.props.children : [this.props.children];
+    return(
+      <ScrollableTabView ref={(c) => {this._scrollableTabView = c; this._root = c;}} {...this.prepareRootProps()} >
+        {children.filter(child => child)}
+      </ScrollableTabView>
+    );
     }
 
 }

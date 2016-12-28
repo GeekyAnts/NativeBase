@@ -1,4 +1,4 @@
-# NativeBase v0.5.11
+# NativeBase v0.5.19
 Essential cross-platform UI components for React Native
 
 
@@ -16,11 +16,11 @@ NativeBase is a sleek, ingenious and dynamic front-end framework created by pass
 5. [Components](#5-components)
 6. [Native Starter Kit](#6-native-starter-kit)
 7. [Featured Apps](#7-featured-apps)
-	- [Native Starter Pro](#a-native-starter-pro---v510)
-	- [Ecommerce Starter](#b-ecommerce-starter---v510)
-	- [Flat App Theme](#c-flat-app-theme---v510)
-	- [Taxi App with Backend](#d-taxi-app-with-backend---v400)
-	- [Dating App Theme](#e-dating-app-theme---v100)
+  - [Native Starter Pro](#a-native-starter-pro---v510)
+  - [Ecommerce Starter](#b-ecommerce-starter---v510)
+  - [Flat App Theme](#c-flat-app-theme---v510)
+  - [Taxi App with Backend](#d-taxi-app-with-backend---v400)
+  - [Dating App Theme](#e-dating-app-theme---v100)
 8. [Documentation](#8-documentation)
 9. [Website](#9-website)
 10. [Quick Links to NativeBase](#10-quick-links-to-nativebase)
@@ -34,7 +34,7 @@ NativeBase is a sleek, ingenious and dynamic front-end framework created by pass
 
 
 ## 2. Why NativeBase?
-What is really great with [NativeBase](http://nativebase.io/) is that you can use shared UI cross-platform components, which will drastically increase your productivity. When using NativeBase, you can use any native third-party libraries out of the box. You do not need to use wrappers or do any other actions. The new additions to the native platform are available immediately. NativeBase provides amazing support for adding components, so that you will by no means hit a lifeless stop. 
+What is really great with [NativeBase](http://nativebase.io/) is that you can use shared UI cross-platform components, which will drastically increase your productivity. When using NativeBase, you can use any native third-party libraries out of the box. You do not need to use wrappers or do any other actions. The new additions to the native platform are available immediately. NativeBase provides amazing support for adding components, so that you will by no means hit a lifeless stop.
 
 **Recommended by** ![Microsoft](/img/microsoft-logo.png)
 > If you're looking to get started with React Native + CodePush, and are looking for an awesome starter kit, you should check out Native Starter Pro - [Microsoft's react-native-code-push repo](https://github.com/Microsoft/react-native-code-push#example-apps--starters)
@@ -92,7 +92,7 @@ Now you are ready to get going with NativeBase. [Read More. . .](http://nativeba
 
 ## 5. Components
 
-[NativeBase](http://nativebase.io/) is made from effective building blocks referred to as components. The Components are constructed in pure [React Native](https://github.com/facebook/react-native) platform along with some JavaScript functionality with rich set of customisable properties. These components allow you to quickly build the perfect interface. 
+[NativeBase](http://nativebase.io/) is made from effective building blocks referred to as components. The Components are constructed in pure [React Native](https://github.com/facebook/react-native) platform along with some JavaScript functionality with rich set of customisable properties. These components allow you to quickly build the perfect interface.
 
 The most awaited feature, **platform precise components** with single codebase is now available from the version 0.5.0 of NativeBase. Along with this, there comes in addition of set of **Fonts** to be readily integrated with your apps. [Read More. . .](http://nativebase.io/documentation)
 
@@ -115,9 +115,9 @@ No need of reinventing the wheel. To have immediately something to continue buil
 
 Having tried with the free version, [Native Starter Kit](https://github.com/start-react/native-starter-kit) and appreciate our product?
 
-Get on the mobile fast track with the featured apps of NativeBase, to build high-quality iOS and Android mobile apps. 
+Get on the mobile fast track with the featured apps of NativeBase, to build high-quality iOS and Android mobile apps.
 
-Based on [React Native](https://facebook.github.io/react-native/) and [NativeBase](http://nativebase.io/docs/v0.5.7/), Native Starter Pro, Ecommerce Starter, Flat App Theme are beautifully designed with fusion of [Redux](https://github.com/reactjs/react-redux) and [ES6](http://es6-features.org/#Constants), responsive iOS and Android app source code to quickly get started on your next project. 
+Based on [React Native](https://facebook.github.io/react-native/) and [NativeBase](http://nativebase.io/docs/v0.5.7/), Native Starter Pro, Ecommerce Starter, Flat App Theme are beautifully designed with fusion of [Redux](https://github.com/reactjs/react-redux) and [ES6](http://es6-features.org/#Constants), responsive iOS and Android app source code to quickly get started on your next project.
 
 
 ### a. Native Starter Pro - v5.1.0
@@ -172,4 +172,3 @@ Go through [NativeBase Docs](http://nativebase.io/documentation) to play with Na
 ## 11. About the creators
 
 We are [GeekyAnts](http://geekyants.com/), a startup based in Bangalore, India with 50+ developers in strength. We have been very active in the React / React Native community where we have developed [Strapmobile](https://strapmobile.com/), [StrapUI](https://www.strapui.com/) and [StartReact](http://startreact.com/). Our other products include [StartLaravel](http://startlaravel.com/) and [StartAngular](http://startangular.com/).
-

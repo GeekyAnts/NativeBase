@@ -9,30 +9,30 @@ import computeProps from '../../Utils/computeProps';
 
 export default class TextNB extends NativeBaseComponent {
 
-	propTypes: {
+  propTypes: {
         style : React.PropTypes.object
     }
 
-	prepareRootProps() {
+  prepareRootProps() {
 
-		var type = {
-			color: this.getContextForegroundColor(),
-			fontSize: this.getTheme().fontSizeBase,
-			lineHeight: this.getTheme().lineHeight,
-			fontFamily: this.getTheme().fontFamily
-		}
+    var type = {
+      color: this.getContextForegroundColor(),
+      fontSize: this.getTheme().fontSizeBase,
+      lineHeight: this.getTheme().lineHeight,
+      fontFamily: this.getTheme().fontFamily
+    }
 
-		var defaultProps = {
-			style: type
-		}
+    var defaultProps = {
+      style: type
+    }
 
-		return computeProps(this.props, defaultProps);
+    return computeProps(this.props, defaultProps);
 
-	}
-	render() {
-		return(
-			<Text {...this.prepareRootProps()}>{this.props.children}</Text>
-		);
-	}
+  }
+  render() {
+    return(
+      <Text ref={c => this._root = c} {...this.prepareRootProps()}>{this.props.children}</Text>
+    );
+  }
 
 }

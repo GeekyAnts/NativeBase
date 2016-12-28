@@ -8,6 +8,7 @@ import Icon from './Icon';
 import Button from './Button';
 import computeProps from '../../Utils/computeProps';
 import Input from './Input';
+import Picker from './Picker';
 import _ from 'lodash';
 
 export default class InputGroup extends NativeBaseComponent {
@@ -172,13 +173,16 @@ export default class InputGroup extends NativeBaseComponent {
         newChildren.push(React.cloneElement(iconElement[0],this.getIconProps(iconElement[0])));
       }
       else if(buttonElement.length>0) {
-        newChildren.push(React.cloneElement(
-          iconElement[0],
-          {
-            ...this.getIconProps(iconElement[0]),
-            key: 'icon0'
-          }
-        ));
+        if (iconElement.length > 0) {
+          newChildren.push(React.cloneElement(
+            iconElement[0],
+            {
+              ...this.getIconProps(iconElement[0]),
+              key: 'icon0'
+            }
+          ));
+        }
+
         if(clonedInp) {
            newChildren.push(clonedInp);
          }
@@ -231,7 +235,7 @@ export default class InputGroup extends NativeBaseComponent {
 
   render() {
     return (
-      <View {...this.prepareRootProps()} >
+      <View ref={c => this._root = c} {...this.prepareRootProps()} >
         {this.renderChildren()}
       </View>
     );

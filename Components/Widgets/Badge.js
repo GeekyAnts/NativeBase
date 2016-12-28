@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import {View} from 'react-native';
+import {View,Platform} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import Text from './Text';
@@ -10,7 +10,7 @@ import Text from './Text';
 
 export default class BadgeNB extends NativeBaseComponent {
 
-    propTypes: {
+    static propTypes = {
         style : React.PropTypes.object
     }
 
@@ -29,7 +29,7 @@ export default class BadgeNB extends NativeBaseComponent {
                             this.props.danger ?
                             this.getTheme().brandDanger :
                             this.getTheme().badgeBg,
-            padding: 3,
+            padding: (Platform.OS === 'ios') ? 3 : 0,
             paddingHorizontal: 10,
             alignSelf: 'flex-start',
             borderRadius: 13.5,
@@ -46,11 +46,13 @@ export default class BadgeNB extends NativeBaseComponent {
     }
     render() {
         return(
-            <View {...this.prepareRootProps()}>
-                <Text style={{ color: (this.props.textStyle && this.props.textStyle.color) ? this.props.textStyle.color : this.getTheme().badgeColor,
+            <View ref={c => this._root = c} {...this.prepareRootProps()}>
+                <Text style={[ this.props.textStyle, {
+                                color: (this.props.textStyle && this.props.textStyle.color) ? this.props.textStyle.color : this.getTheme().badgeColor,
                                 fontSize: (this.props.textStyle && this.props.textStyle.fontSize) ? this.props.textStyle.fontSize : this.getTheme().fontSizeBase,
                                 lineHeight: (this.props.textStyle && this.props.textStyle.lineHeight) ? this.props.textStyle.lineHeight : this.getTheme().lineHeight-1,
-                                textAlign: 'center'}}>{this.props.children}
+                                textAlign: 'center'
+                            } ]}>{this.props.children}
                 </Text>
             </View>
         );

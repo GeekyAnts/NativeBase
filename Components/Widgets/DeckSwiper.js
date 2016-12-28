@@ -40,13 +40,13 @@ export default class CardSwiper extends NativeBaseComponent {
     findNextIndexes() {
         let currentIndex = this.props.dataSource.indexOf(this.state.selectedItem);
         let newIdx = currentIndex + 1;
-        let newIdx2 = currentIndex + 2;        
+        let newIdx2 = currentIndex + 2;
 
-        if(newIdx2 > this.props.dataSource.length - 1 && newIdx === this.props.dataSource.length - 1) {            
+        if(newIdx2 > this.props.dataSource.length - 1 && newIdx === this.props.dataSource.length - 1) {
             return [newIdx, 0];
-        } else if (newIdx > this.props.dataSource.length - 1) {            
+        } else if (newIdx > this.props.dataSource.length - 1) {
             return [0, 1];
-        } else {            
+        } else {
             return [newIdx, newIdx2];
         }
     }
@@ -60,23 +60,74 @@ export default class CardSwiper extends NativeBaseComponent {
             setTimeout( () => {
                 this.setState({
                     selectedItem2: this.props.dataSource[nextIndexes[1]]
-                });                
+                });
             }, 350);
         }, 50);
+    }
 
+
+    swipeRight() {
+      if(this.props.onSwiping)
+        this.props.onSwiping('right');
+      setTimeout( () => {
+        Animated.timing(
+          this.state.fadeAnim,
+          {toValue: 1}
+        ).start();
+        Animated.spring(
+          this.state.enter,
+          { toValue: 1, friction: 7 }
+        ).start();
+        this.selectNext();
+        Animated.decay(this.state.pan, {
+            velocity: {x: 8, y: 1},
+            deceleration: 0.98
+        }).start(this._resetState.bind(this))
+      }, 300);
+    }
+
+    swipeLeft() {
+      if(this.props.onSwiping)
+        this.props.onSwiping('left');
+      setTimeout( () => {
+        Animated.timing(
+          this.state.fadeAnim,
+          {toValue: 1}
+        ).start();
+        Animated.spring(
+          this.state.enter,
+          { toValue: 1, friction: 7 }
+        ).start();
+        this.selectNext();
+        Animated.decay(this.state.pan, {
+            velocity: {x: -8, y: 1},
+            deceleration: 0.98
+        }).start(this._resetState.bind(this))
+      }, 300);
     }
 
     componentWillMount() {
         this._panResponder = PanResponder.create({
             onMoveShouldSetResponderCapture: () => true,
-            onMoveShouldSetPanResponderCapture: () => true,
+            onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
+                return Math.abs(gestureState.dx) > 5;
+            },
 
             onPanResponderGrant: (e, gestureState) => {
                 this.state.pan.setOffset({x: this.state.pan.x._value, y: this.state.pan.y._value});
                 this.state.pan.setValue({x: 0, y: 0});
             },
 
+
             onPanResponderMove: (e, gestureState) => {
+                if (gestureState.dx > 20){
+                  if(this.props.onSwiping)
+                    this.props.onSwiping('right',gestureState.dx);
+                }
+                else if (gestureState.dx < -20){
+                  if(this.props.onSwiping)
+                    this.props.onSwiping('left',gestureState.dx);
+                }
                 let val = Math.abs((gestureState.dx*.0013));
                 let opa = Math.abs((gestureState.dx*.0022));
                 if (val>0.2) {
@@ -96,12 +147,14 @@ export default class CardSwiper extends NativeBaseComponent {
             },
 
             onPanResponderRelease: (e, {vx, vy}) => {
+                if(this.props.onSwiping)
+                  this.props.onSwiping(null);
                 var velocity;
 
                 if (vx >= 0) {
-                    velocity = clamp(vx, 4.5, 10);                    
+                    velocity = clamp(vx, 4.5, 10);
                 } else if (vx < 0) {
-                    velocity = clamp(vx * -1, 4.5, 10) * -1;                    
+                    velocity = clamp(vx * -1, 4.5, 10) * -1;
                 }
 
                 if (Math.abs(this.state.pan.x._value) > SWIPE_THRESHOLD) {
@@ -136,6 +189,8 @@ export default class CardSwiper extends NativeBaseComponent {
             card1Top: !this.state.card1Top,
             card2Top: !this.state.card2Top
         });
+        if(this.props.onSwiping)
+          this.props.onSwiping(null);
 
     }
 
@@ -161,13 +216,21 @@ export default class CardSwiper extends NativeBaseComponent {
 
 
         return(
-            <View style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
+            <View ref={c => this._root = c} style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
                 (<View>
-                    <Animated.View style={[this.getCardStyles()[1],{opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
-                        {this.props.renderItem(this.state.selectedItem2)}
+                    <Animated.View style={[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
+                        {(this.props.renderBottom)  ?
+                          this.props.renderBottom(this.state.selectedItem2)
+                        :
+                          this.props.renderItem(this.state.selectedItem2)
+                        }
                     </Animated.View>
                     <Animated.View style={[ this.getCardStyles()[0], this.getInitialStyle().topCard] } {...this._panResponder.panHandlers} >
-                        {this.props.renderItem(this.state.selectedItem)}
+                        {(this.props.renderTop) ?
+                          this.props.renderTop(this.state.selectedItem)
+                        :
+                          this.props.renderItem(this.state.selectedItem)
+                        }
                     </Animated.View>
                     </View>
                 )

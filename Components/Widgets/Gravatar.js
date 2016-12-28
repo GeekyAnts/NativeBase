@@ -6,10 +6,14 @@ import {Image} from 'react-native';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 import _ from 'lodash';
+import md5 from 'blueimp-md5';
 
-export default class ThumbnailNB extends NativeBaseComponent {
+const GRAVATAR_URI = 'https://www.gravatar.com/avatar/';
+
+export default class GravatarNB extends NativeBaseComponent {
 
     propTypes: {
+        email: React.PropTypes.string.isRequired,
         style : React.PropTypes.object,
         size : React.PropTypes.number,
         circular : React.PropTypes.bool,
@@ -18,7 +22,7 @@ export default class ThumbnailNB extends NativeBaseComponent {
 
     getInitialStyle() {
         return {
-            thumbnail: {
+            gravatar: {
                 borderRadius: this.props.size ? this.props.size/2 : 15,
                 width: this.props.size ? this.props.size : 30,
                 height: this.props.size ? this.props.size : 30,
@@ -28,28 +32,31 @@ export default class ThumbnailNB extends NativeBaseComponent {
     }
 
     prepareRootProps() {
-        var thumbnailStyle = {};
+        var gravatarStyle = {};
         if(this.props.circular) {
-            thumbnailStyle.width = this.props.size;
-            thumbnailStyle.height = this.props.size;
-            thumbnailStyle.borderRadius = this.props.size/2;
+            gravatarStyle.width = this.props.size;
+            gravatarStyle.height = this.props.size;
+            gravatarStyle.borderRadius = this.props.size/2;
         }
         else if(this.props.square) {
-            thumbnailStyle.width = this.props.size;
-            thumbnailStyle.height = this.props.size;
-            thumbnailStyle.borderRadius = 0;
+            gravatarStyle.width = this.props.size;
+            gravatarStyle.height = this.props.size;
+            gravatarStyle.borderRadius = 0;
         }
 
         var defaultProps = {
-            style: _.merge(this.getInitialStyle().thumbnail, thumbnailStyle)
+            style: _.merge(this.getInitialStyle().gravatar, gravatarStyle)
         };
 
         return computeProps(this.props, defaultProps);
     }
 
     render() {
+        const props = this.prepareRootProps();
+
+        const uri = GRAVATAR_URI + md5(this.props.email) + '?s='+props.style.height;
         return(
-            <Image ref={c => this._root = c} {...this.prepareRootProps()}/>
+            <Image ref={c => this._root = c} {...props} source={{uri:uri}}/>
             );
     }
 }
