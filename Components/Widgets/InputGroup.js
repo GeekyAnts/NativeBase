@@ -146,7 +146,7 @@ export default class InputGroup extends NativeBaseComponent {
     });
 
     var inp = _.find(childrenArray, function(item) {
-      if(item && (item.type == Input || item.type == Picker)) {
+      if (item) {
         return true;
       }
     });
