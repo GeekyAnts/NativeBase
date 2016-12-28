@@ -1,55 +1,21 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "native-base",
-        "scope": null,
-        "escapedName": "native-base",
-        "name": "native-base",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "/Users/sankhadeep/Sites/projects/testProject"
-    ]
+  "name": "native-base",
+  "description": "Essential cross-platform UI components for React Native",
+  "keywords": [
+    "android",
+    "ios",
+    "react",
+    "native",
+    "nativebase",
+    "react-native",
+    "native-modules",
+    "react-component",
+    "navbar",
+    "packager",
+    "rnpm"
   ],
-  "_from": "native-base@latest",
-  "_id": "native-base@0.5.19",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/native-base",
-  "_nodeVersion": "6.2.2",
-  "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/native-base-0.5.19.tgz_1482744784391_0.00045699370093643665"
-  },
-  "_npmUser": {
-    "name": "himanshu-sahusoft",
-    "email": "himanshu@sahusoft.com"
-  },
-  "_npmVersion": "3.10.5",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "native-base",
-    "scope": null,
-    "escapedName": "native-base",
-    "name": "native-base",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/native-base/-/native-base-0.5.19.tgz",
-  "_shasum": "fb3677a4f6e732b4fe60e569e04222399011661f",
-  "_shrinkwrap": null,
-  "_spec": "native-base",
-  "_where": "/Users/sankhadeep/Sites/projects/testProject",
-  "bugs": {
-    "url": "https://github.com/GeekyAnts/NativeBase/issues"
-  },
+  "version": "0.5.19",
+  "private": false,
   "dependencies": {
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
