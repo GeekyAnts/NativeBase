@@ -11,7 +11,7 @@ import Icon from './Icon';
 import Badge from './Badge';
 import IconNB from './Icon';
 import Text from './Text';
-
+import _ from 'lodash';
 export default class Footer extends NativeBaseComponent {
 
     propTypes: {
@@ -139,7 +139,7 @@ export default class Footer extends NativeBaseComponent {
                             key={i} onPress={child.props.onPress}>
                             <Icon
                                 style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor,
-                                        fontSize: 28}}
+                                        fontSize: 28, height: 30, lineHeight: 28}}
                                 name={children.props.name} />
                         </Button>
                     );

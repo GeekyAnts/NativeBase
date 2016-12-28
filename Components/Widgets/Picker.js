@@ -30,8 +30,13 @@ export default class PickerNB extends NativeBaseComponent {
     }
 
     render() {
+        const {style, itemStyle, inlineLabel, iosHeader, children, ...otherProps } = this.prepareRootProps(); //eslint-disable-line
+        let additionalProps = {};
+        if(inlineLabel) {
+          additionalProps = { flex: 1};
+        }
         return(
-            <Picker ref={c => this._root = c} {...this.prepareRootProps()}>
+            <Picker ref={c => this._root = c} style={[style, additionalProps]} itemStyle={[itemStyle]} {...otherProps}>
                 {this.props.children}
             </Picker>
         );

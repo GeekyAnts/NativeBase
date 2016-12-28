@@ -1,21 +1,57 @@
 {
-  "name": "native-base",
-  "description": "Essential cross-platform UI components for React Native",
-  "keywords": [
-    "android",
-    "ios",
-    "react",
-    "native",
-    "react-native",
-    "native-modules",
-    "react-component",
-    "navbar",
-    "packager",
-    "rnpm"
+  "_args": [
+    [
+      {
+        "raw": "native-base",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/sankhadeep/Sites/projects/testProject"
+    ]
   ],
-  "version": "0.5.18",
-  "private": false,
+  "_from": "native-base@latest",
+  "_id": "native-base@0.5.19",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/native-base",
+  "_nodeVersion": "6.2.2",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/native-base-0.5.19.tgz_1482744784391_0.00045699370093643665"
+  },
+  "_npmUser": {
+    "name": "himanshu-sahusoft",
+    "email": "himanshu@sahusoft.com"
+  },
+  "_npmVersion": "3.10.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "native-base",
+    "scope": null,
+    "escapedName": "native-base",
+    "name": "native-base",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/native-base/-/native-base-0.5.19.tgz",
+  "_shasum": "fb3677a4f6e732b4fe60e569e04222399011661f",
+  "_shrinkwrap": null,
+  "_spec": "native-base",
+  "_where": "/Users/sankhadeep/Sites/projects/testProject",
+  "bugs": {
+    "url": "https://github.com/GeekyAnts/NativeBase/issues"
+  },
   "dependencies": {
+    "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~0.11.1",
     "lodash": "~4.11.1",
@@ -24,10 +60,7 @@
     "react-native-keyboard-aware-scroll-view": "0.2.0",
     "react-native-vector-icons": "2.x.x"
   },
-  "peerDependencies": {
-    "react-native": ">=0.38.0",
-    "react": ">=15.4.0"
-  },
+  "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "eslint": "^3.5.0",
@@ -37,18 +70,58 @@
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-react-native": "^2.0.0"
   },
+  "directories": {},
+  "dist": {
+    "shasum": "fb3677a4f6e732b4fe60e569e04222399011661f",
+    "tarball": "https://registry.npmjs.org/native-base/-/native-base-0.5.19.tgz"
+  },
+  "gitHead": "a8504267642c8bafe763ce292bcf0e97737fd0e4",
+  "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
+  "keywords": [
+    "android",
+    "ios",
+    "react",
+    "native",
+    "nativebase",
+    "react-native",
+    "native-modules",
+    "react-component",
+    "navbar",
+    "packager",
+    "rnpm"
+  ],
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "himanshu-sahusoft",
+      "email": "himanshu@sahusoft.com"
+    },
+    {
+      "name": "sankhadeeproy007",
+      "email": "sankhadeep@sahusoft.com"
+    },
+    {
+      "name": "shivrajk",
+      "email": "shivraj@sahusoft.com"
+    }
+  ],
+  "name": "native-base",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": ">=0.38.0",
+    "react": ">=15.4.0"
+  },
+  "private": false,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeekyAnts/NativeBase.git"
+  },
   "rnpm": {
     "assets": [
       "Fonts"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GeekyAnts/NativeBase.git"
-  },
-  "main": "index.js",
-  "bugs": {
-    "url": "https://github.com/GeekyAnts/NativeBase/issues"
-  },
-  "homepage": "https://github.com/GeekyAnts/NativeBase#readme"
+  "scripts": {},
+  "version": "0.5.19"
 }

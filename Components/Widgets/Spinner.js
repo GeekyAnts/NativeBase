@@ -12,7 +12,8 @@ export default class SpinnerNB extends NativeBaseComponent {
     prepareRootProps() {
 
         var type = {
-            height: 80
+            height: 80,
+            width: 80
         }
 
         var defaultProps = {

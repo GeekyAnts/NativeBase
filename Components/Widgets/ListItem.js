@@ -11,6 +11,7 @@ import View from './View';
 import Button from './Button';
 import Badge from './Badge';
 import Thumbnail from './Thumbnail';
+import Gravatar from './Gravatar';
 import CheckBox from './Checkbox';
 import Picker from './Picker';
 import Radio from './Radio';
@@ -82,6 +83,9 @@ export default class ListItemNB extends NativeBaseComponent {
             thumbnail: {
                 alignSelf: 'center'
             },
+            Gravatar: {
+                alignSelf: 'center'
+            },
             fullImage: {
                 width: 300,
                 height: 300
@@ -124,6 +128,16 @@ export default class ListItemNB extends NativeBaseComponent {
         })
 
         return thumbnailComponentPresent;
+    }
+
+    gravatarPresent() {
+        var gravatarComponentPresent = false;
+        React.Children.forEach(this.props.children, function (child) {
+            if(child && child.type == Gravatar)
+                gravatarComponentPresent = true;
+        })
+
+        return gravatarComponentPresent;
     }
 
     checkBoxPresent() {
@@ -228,7 +242,7 @@ export default class ListItemNB extends NativeBaseComponent {
                     style: this.getInitialStyle().dividerItemText
                 }
             } else {
-                if(child.props.note && this.thumbnailPresent()) {
+                if(child.props.note && (this.thumbnailPresent() || this.gravatarPresent())) {
                     defaultProps = {
                         style: this.getInitialStyle().itemSubNote
                     }
@@ -267,6 +281,11 @@ export default class ListItemNB extends NativeBaseComponent {
         else if(child && child.type == Thumbnail) {
             defaultProps = {
                 style: this.getInitialStyle().thumbnail
+            }
+        }
+        else if(child && child.type == Gravatar) {
+            defaultProps = {
+                style: this.getInitialStyle().gravatar
             }
         }
         else {
@@ -347,13 +366,14 @@ export default class ListItemNB extends NativeBaseComponent {
 
     squareThumbs() {
         var squareThumbs = false;
-        if (this.thumbnailPresent()) {
+        if (this.thumbnailPresent() || this.gravatarPresent()) {
             React.Children.forEach(this.props.children, function (child) {
                 if(child.props.square)
                     squareThumbs = true;
             })
 
         }
+
         return squareThumbs;
 
     }
@@ -456,6 +476,20 @@ export default class ListItemNB extends NativeBaseComponent {
 
                 iconElement = _.remove(childrenArray, function(item) {
                     if(item.type == Thumbnail) {
+                        return true;
+                    }
+                });
+                newChildren.push(React.cloneElement(iconElement[0], {...this.getChildProps(iconElement[0]), key: 'listItem0'}));
+                newChildren.push(<View key='listItem1' style={{flexDirection: 'column', paddingLeft: 15, alignSelf: (this.squareThumbs()) ? 'flex-start' : 'center', flex: 1 }} >
+                    {childrenArray.map((child, i) => {
+                        return React.cloneElement(child, {...this.getChildProps(child), key: i});
+                    })}
+                    </View>);
+            }
+            else if (this.gravatarPresent()) {
+
+                iconElement = _.remove(childrenArray, function(item) {
+                    if(item.type == Gravatar) {
                         return true;
                     }
                 });
