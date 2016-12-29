@@ -71,7 +71,7 @@ export default class InputGroup extends NativeBaseComponent {
   prepareRootProps() {
     var type = {
       paddingLeft:  (this.props.borderType === 'rounded' && !this.props.children.type == Icon) ? 15 :
-      (this.props.children.type == Icon ) ? this.getTheme().inputPaddingLeftIcon : 5
+      (this.props.children.type == Icon ) ? this.getTheme().inputPaddingLeftIcon : this.getTheme().inputPaddingLeft
     }
 
     var defaultStyle = (this.props.borderType === 'regular') ? this.getInitialStyle().bordered : (this.props.borderType === 'rounded') ? this.getInitialStyle().rounded : this.getInitialStyle().underline;
@@ -146,7 +146,7 @@ export default class InputGroup extends NativeBaseComponent {
     });
 
     var inp = _.find(childrenArray, function(item) {
-      if(item && (item.type == Input || item.type == Picker)) {
+      if (item) {
         return true;
       }
     });

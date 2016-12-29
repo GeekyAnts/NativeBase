@@ -11,7 +11,7 @@ import Icon from './Icon';
 import Badge from './Badge';
 import IconNB from './Icon';
 import Text from './Text';
-
+import _ from 'lodash';
 export default class Footer extends NativeBaseComponent {
 
     propTypes: {
@@ -52,7 +52,7 @@ export default class Footer extends NativeBaseComponent {
                 justifyContent: 'center',
                 margin: 1,
                 height: this.getTheme().footerHeight-4,
-                borderRadius: this.getTheme().tabBarBorderRadius
+                borderRadius: this.getTheme().tabActiveBorderRadius !== undefined ? this.getTheme().tabActiveBorderRadius : 0
             }
         }
     }
@@ -98,23 +98,43 @@ export default class Footer extends NativeBaseComponent {
                 });
                 if (iconElement.length>0) {
                     if (badgeElement.length>0) {
-                      newChildren.push(
-                        <View key={i} style={{position: 'relative', flex: 1}}>
-                          <Button transparent vertical
-                              capitalize={false}
-                              style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined, alignSelf: 'stretch'}]}
-                              textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
-                              onPress={child.props.onPress}>
-                              {children}
-                              <Icon
-                                  style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
-                                  name={iconElement[0].props.name} />
-                          </Button>
-                          <Badge style={{position: 'absolute', top: 4, right: (length==2) ? 68 : (length==3) ? 36 : (length==4) ? 20 : undefined, height: 18, paddingHorizontal: 6, padding: 1.5, backgroundColor: (badgeElement[0].props.badgeColor) ? badgeElement[0].props.badgeColor : undefined }} textStyle={{fontSize: 11, lineHeight: 14, color: (badgeElement[0].props.textColor) ? badgeElement[0].props.textColor : undefined }}>
-                            {badgeElement[0].props.children}
-                          </Badge>
-                      </View>
-                      );
+                        if (children.length> 0) {
+                        newChildren.push(
+                            <View key={i} style={{position: 'relative', flex: 1}}>
+                            <Button transparent vertical
+                                capitalize={false}
+                                style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined, alignSelf: 'stretch'}]}
+                                textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
+                                onPress={child.props.onPress}>
+                                {children}
+                                <Icon
+                                    style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
+                                    name={iconElement[0].props.name} />
+                            </Button>
+                            <Badge style={{position: 'absolute', top: 4, right: (length==2) ? 68 : (length==3) ? 36 : (length==4) ? 20 : undefined, height: 18, paddingHorizontal: 6, padding: 1.5, backgroundColor: (badgeElement[0].props.badgeColor) ? badgeElement[0].props.badgeColor : undefined }} textStyle={{fontSize: 11, lineHeight: 14, color: (badgeElement[0].props.textColor) ? badgeElement[0].props.textColor : undefined }}>
+                                {badgeElement[0].props.children}
+                            </Badge>
+                        </View>
+                        );
+                    }
+                        else {
+                            newChildren.push(
+                            <View key={i} style={{position: 'relative', flex: 1}}>
+                            <Button transparent vertical
+                                capitalize={false}
+                                style={[this.getInitialStyle().btnStyle, {backgroundColor: (child.props.active) ? this.getTheme().tabActiveBgColor : undefined, alignSelf: 'stretch'}]}
+                                textStyle={(child.props.active) ? this.getInitialStyle().btnActiveTextStyle : this.getInitialStyle().btnTextStyle}
+                                onPress={child.props.onPress}>
+                                <Icon
+                                    style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
+                                    name={iconElement[0].props.name} />
+                            </Button>
+                            <Badge style={{position: 'absolute', top: 4, right: (length==2) ? 68 : (length==3) ? 36 : (length==4) ? 20 : undefined, height: 18, paddingHorizontal: 6, padding: 1.5, backgroundColor: (badgeElement[0].props.badgeColor) ? badgeElement[0].props.badgeColor : undefined }} textStyle={{fontSize: 11, lineHeight: 14, color: (badgeElement[0].props.textColor) ? badgeElement[0].props.textColor : undefined }}>
+                                {badgeElement[0].props.children}
+                            </Badge>
+                        </View>
+                        ); 
+                        }
                     }
                     else {
                       newChildren.push(
@@ -139,7 +159,7 @@ export default class Footer extends NativeBaseComponent {
                             key={i} onPress={child.props.onPress}>
                             <Icon
                                 style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor,
-                                        fontSize: 28}}
+                                        fontSize: 28, height: 30, lineHeight: 28}}
                                 name={children.props.name} />
                         </Button>
                     );
