@@ -1,6 +1,3 @@
-/**
- * Implementation of NativeBase v0.5.13
- */
 declare module 'native-base' {
     namespace NativeBase {
         /**
@@ -14,11 +11,16 @@ declare module 'native-base' {
         /**
          * see Widget Text.js
          */
-        interface View extends React.ViewProperties { }
+        interface View extends React.ViewProperties {
+            padder?: boolean,
+        }
         /**
          * see Widget Text.js
          */
-        interface Picker extends React.PickerProperties { }
+        interface Picker extends React.PickerProperties {
+            iosHeader?: string,
+            inlineLabel?: boolean,
+        }
         /**
          * see Widget Text.js
          */
@@ -142,6 +144,7 @@ declare module 'native-base' {
             danger?: boolean,
             warning?: boolean,
             info?: boolean,
+            color?: string,
             /**
              * Applies outline button style.
              */
@@ -173,22 +176,25 @@ declare module 'native-base' {
              * Disables onPress option for button
              */
             disabled?: boolean,
+            active?: boolean,
             inputButton?: boolean,
         }
         /**
          * see Widget List.js
          */
-        interface List extends React.ListViewProperties {
+        interface List {
             listBorderColor?: string,
             listDividerBg?: string,
             listNoteColor?: string,
             listItemPadding?: number,
             listNoteSize?: number,
             listItemHeight?: number,
+            inset?: boolean,
             /**
              * Array of data chunks to render iteratively.
              */
             dataArray?: Array<any>,
+            renderRow?: ( rowData: any, sectionID: string | number, rowID: string | number, highlightRow?: boolean ) => React.ReactElement<any>,
         }
         /**
          * see Widget ListItem.js
@@ -415,7 +421,9 @@ declare module 'native-base' {
         /**
          * see Widget Textarea.js
          */
-        interface Textarea extends React.TextInputProperties { }
+        interface Textarea extends React.TextInputProperties {
+            rowSpan: number;
+        }
         /**
          * see Widget Icon.js
          */
@@ -598,6 +606,9 @@ declare module 'native-base' {
      * NativeBase.Picker
      */
     export class Picker extends React.Component<NativeBase.Picker, any> { }
+    namespace Picker {
+        export class Item extends React.Component<React.PickerItemProperties, any> { }
+    }
     /**
      * NativeBase.List
      *
