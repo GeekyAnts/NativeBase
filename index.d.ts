@@ -12,12 +12,15 @@ declare module 'native-base' {
          * see Widget Text.js
          */
         interface View extends React.ViewProperties {
-            padder?: boolean
+            padder?: boolean,
         }
         /**
          * see Widget Text.js
          */
-        interface Picker extends React.PickerProperties { }
+        interface Picker extends React.PickerProperties {
+            iosHeader?: string,
+            inlineLabel?: boolean,
+        }
         /**
          * see Widget Text.js
          */
@@ -179,17 +182,19 @@ declare module 'native-base' {
         /**
          * see Widget List.js
          */
-        interface List extends React.ListViewProperties {
+        interface List {
             listBorderColor?: string,
             listDividerBg?: string,
             listNoteColor?: string,
             listItemPadding?: number,
             listNoteSize?: number,
             listItemHeight?: number,
+            inset?: boolean,
             /**
              * Array of data chunks to render iteratively.
              */
             dataArray?: Array<any>,
+            renderRow?: ( rowData: any, sectionID: string | number, rowID: string | number, highlightRow?: boolean ) => React.ReactElement<any>,
         }
         /**
          * see Widget ListItem.js
@@ -601,6 +606,9 @@ declare module 'native-base' {
      * NativeBase.Picker
      */
     export class Picker extends React.Component<NativeBase.Picker, any> { }
+    namespace Picker {
+        export class Item extends React.Component<React.PickerItemProperties, any> { }
+    }
     /**
      * NativeBase.List
      *
