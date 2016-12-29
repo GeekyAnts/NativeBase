@@ -79,28 +79,28 @@ export default class Header extends NativeBaseComponent {
 
             var buttons = [];
             buttons = _.remove(childrenArray, function(item) {
-                if(item.type == Button) {
+                if(_.get(item, 'type', null) == Button) {
                     return true;
                 }
             });
 
             var title = [];
             title = _.remove(childrenArray, function(item) {
-                if(item.type == Title) {
+                if(_.get(item, 'type', null) == Title) {
                     return true;
                 }
             });
 
             var subtitle = [];
             subtitle = _.remove(childrenArray, function(item) {
-                if(item.type == Subtitle) {
+                if(_.get(item, 'type', null) == Subtitle) {
                     return true;
                 }
             });
 
             var input = [];
             input = _.remove(childrenArray, function(item) {
-                if(item.type == InputGroup) {
+                if(_.get(item, 'type', null) == InputGroup) {
                     return true;
                 }
             });

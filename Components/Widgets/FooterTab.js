@@ -86,13 +86,13 @@ export default class Footer extends NativeBaseComponent {
             else {
                 let iconElement = [];
                 iconElement = _.remove(children, function(item) {
-                    if(item.type == IconNB) {
+                    if(_.get(item, 'type', null) == IconNB) {
                         return true;
                     }
                 });
                 let badgeElement = [];
                 badgeElement = _.remove(children, function(item) {
-                    if(item.type == Badge) {
+                    if(_.get(item, 'type', null) == Badge) {
                         return true;
                     }
                 });

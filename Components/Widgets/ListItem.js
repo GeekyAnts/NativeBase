@@ -123,7 +123,7 @@ export default class ListItemNB extends NativeBaseComponent {
     thumbnailPresent() {
         var thumbnailComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == Thumbnail)
+            if(child && _.get(child, 'type', null) == Thumbnail)
                 thumbnailComponentPresent = true;
         })
 
@@ -133,7 +133,7 @@ export default class ListItemNB extends NativeBaseComponent {
     gravatarPresent() {
         var gravatarComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == Gravatar)
+            if(child && _.get(child, 'type', null) == Gravatar)
                 gravatarComponentPresent = true;
         })
 
@@ -143,7 +143,7 @@ export default class ListItemNB extends NativeBaseComponent {
     checkBoxPresent() {
         var checkBoxComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == CheckBox)
+            if(child && _.get(child, 'type', null) == CheckBox)
                 checkBoxComponentPresent = true;
         })
 
@@ -153,7 +153,7 @@ export default class ListItemNB extends NativeBaseComponent {
     radioPresent() {
         var radioComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == Radio)
+            if(child && _.get(child, 'type', null) == Radio)
                 radioComponentPresent = true;
         })
 
@@ -163,7 +163,7 @@ export default class ListItemNB extends NativeBaseComponent {
     iconPresent() {
         var iconComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == Icon)
+            if(child && _.get(child, 'type', null) == Icon)
                 iconComponentPresent = true;
         })
         return iconComponentPresent;
@@ -172,7 +172,7 @@ export default class ListItemNB extends NativeBaseComponent {
     pickerPresent() {
         var pickerComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == Picker)
+            if(child && _.get(child, 'type', null) == Picker)
                 pickerComponentPresent = true;
         })
 
@@ -182,7 +182,7 @@ export default class ListItemNB extends NativeBaseComponent {
     badgePresent() {
         var badgeComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == Badge)
+            if(child && _.get(child, 'type', null) == Badge)
                 badgeComponentPresent = true;
         })
 
@@ -192,7 +192,7 @@ export default class ListItemNB extends NativeBaseComponent {
     inputPresent() {
         var inputComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == InputGroup)
+            if(child && _.get(child, 'type', null) == InputGroup)
                 inputComponentPresent = true;
         })
         return inputComponentPresent;
@@ -201,7 +201,7 @@ export default class ListItemNB extends NativeBaseComponent {
     buttonPresent() {
         var buttonComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == Button)
+            if(child && _.get(child, 'type', null) == Button)
                 buttonComponentPresent = true;
         })
 
@@ -211,19 +211,19 @@ export default class ListItemNB extends NativeBaseComponent {
     getChildProps(child) {
         var defaultProps = {};
 
-        if(child && child.type == Image && !Array.isArray(this.props.children)) {
+        if(child && _.get(child, 'type', null) == Image && !Array.isArray(this.props.children)) {
             defaultProps = {
                 resizeMode: 'stretch',
                 style: this.getInitialStyle().fullImage
             }
         }
-        else if(child && child.type == Button) {
+        else if(child && _.get(child, 'type', null) == Button) {
             defaultProps = {
                 small: true,
                 style: this.getInitialStyle().itemButton
             }
         }
-        else if(child && child.type == InputGroup) {
+        else if(child && _.get(child, 'type', null) == InputGroup) {
 
             defaultProps = {
                 style: {
@@ -236,7 +236,7 @@ export default class ListItemNB extends NativeBaseComponent {
                 foregroundColor: this.getContextForegroundColor()
             }
         }
-        else if(child && child.type == Text) {
+        else if(child && _.get(child, 'type', null) == Text) {
             if (this.props.itemDivider) {
                 defaultProps = {
                     style: this.getInitialStyle().dividerItemText
@@ -260,12 +260,12 @@ export default class ListItemNB extends NativeBaseComponent {
 
             }
         }
-        else if(child && child.type == Icon) {
+        else if(child && _.get(child, 'type', null) == Icon) {
             defaultProps = {
                 style: this.getInitialStyle().itemIcon
             }
         }
-        else if(child && child.type == Picker) {
+        else if(child && _.get(child, 'type', null) == Picker) {
             defaultProps = {
                 style: {
                     flex: .45,
@@ -278,12 +278,12 @@ export default class ListItemNB extends NativeBaseComponent {
                 }
             }
         }
-        else if(child && child.type == Thumbnail) {
+        else if(child && _.get(child, 'type', null) == Thumbnail) {
             defaultProps = {
                 style: this.getInitialStyle().thumbnail
             }
         }
-        else if(child && child.type == Gravatar) {
+        else if(child && _.get(child, 'type', null) == Gravatar) {
             defaultProps = {
                 style: this.getInitialStyle().gravatar
             }
@@ -317,7 +317,7 @@ export default class ListItemNB extends NativeBaseComponent {
 
         var notePresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == Text && child.props.note)
+            if(child && _.get(child, 'type', null) == Text && child.props.note)
                 notePresent = true;
         })
         return notePresent;
@@ -328,7 +328,7 @@ export default class ListItemNB extends NativeBaseComponent {
 
         var insetPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child && child.type == InputGroup && child.props.inset)
+            if(child && _.get(child, 'type', null) == InputGroup && child.props.inset)
                 insetPresent = true;
         })
 
@@ -410,7 +410,7 @@ export default class ListItemNB extends NativeBaseComponent {
             if (this.props.iconLeft && !this.props.iconRight && !this.pickerPresent()) {
 
                 iconElement = _.remove(childrenArray, function(item) {
-                    if(item.type == Icon) {
+                    if(_.get(item, 'type', null) == Icon) {
                         return true;
                     }
                 });
@@ -424,7 +424,7 @@ export default class ListItemNB extends NativeBaseComponent {
 
             else if (this.props.iconLeft && this.pickerPresent()) {
                 let pickerElement = _.remove(childrenArray, function(item) {
-                    if(item.type == Picker) {
+                    if(_.get(item, 'type', null) == Picker) {
                         return true;
                     }
                 });
@@ -439,7 +439,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else if (this.props.iconRight && !this.props.iconLeft) {
 
                 iconElement = _.remove(childrenArray, function(item) {
-                    if(item.type == Icon) {
+                    if(_.get(item, 'type', null) == Icon) {
                         return true;
                     }
                 });
@@ -455,7 +455,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else if (this.badgePresent()) {
 
                 var badgeElement = _.remove(childrenArray, function(item) {
-                    if(item.type == Badge) {
+                    if(_.get(item, 'type', null) == Badge) {
                         return true;
                     }
                 });
@@ -471,7 +471,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else if (this.props.iconLeft && this.props.iconRight) {
 
                 iconElement = _.filter(childrenArray, function(item) {
-                    if(item.type == Icon) {
+                    if(_.get(item, 'type', null) == Icon) {
                         return true;
                     }
                 });
@@ -487,7 +487,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else if (this.thumbnailPresent()) {
 
                 iconElement = _.remove(childrenArray, function(item) {
-                    if(item.type == Thumbnail) {
+                    if(_.get(item, 'type', null) == Thumbnail) {
                         return true;
                     }
                 });
@@ -501,7 +501,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else if (this.gravatarPresent()) {
 
                 iconElement = _.remove(childrenArray, function(item) {
-                    if(item.type == Gravatar) {
+                    if(_.get(item, 'type', null) == Gravatar) {
                         return true;
                     }
                 });
@@ -515,7 +515,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else if (this.checkBoxPresent()) {
 
                 iconElement = _.remove(childrenArray, function(item) {
-                    if(item.type == CheckBox) {
+                    if(_.get(item, 'type', null) == CheckBox) {
                         return true;
                     }
                 });
@@ -529,7 +529,7 @@ export default class ListItemNB extends NativeBaseComponent {
             else if (this.radioPresent()) {
 
                 iconElement = _.remove(childrenArray, function(item) {
-                    if(item.type == Radio) {
+                    if(_.get(item, 'type', null) == Radio) {
                         return true;
                     }
                 });
