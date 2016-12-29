@@ -14,7 +14,7 @@
     "packager",
     "rnpm"
   ],
-  "version": "0.5.19",
+  "version": "0.5.20",
   "private": false,
   "dependencies": {
     "blueimp-md5": "^2.5.0",
@@ -26,7 +26,6 @@
     "react-native-keyboard-aware-scroll-view": "0.2.0",
     "react-native-vector-icons": "~3.0.0"
   },
-  "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "eslint": "^3.5.0",
@@ -43,19 +42,6 @@
   },
   "gitHead": "a8504267642c8bafe763ce292bcf0e97737fd0e4",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-  "keywords": [
-    "android",
-    "ios",
-    "react",
-    "native",
-    "nativebase",
-    "react-native",
-    "native-modules",
-    "react-component",
-    "navbar",
-    "packager",
-    "rnpm"
-  ],
   "main": "index.js",
   "maintainers": [
     {
@@ -71,13 +57,11 @@
       "email": "shivraj@sahusoft.com"
     }
   ],
-  "name": "native-base",
   "optionalDependencies": {},
   "peerDependencies": {
     "react-native": ">=0.38.0",
     "react": ">=15.4.0"
   },
-  "private": false,
   "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
@@ -88,6 +72,5 @@
       "Fonts"
     ]
   },
-  "scripts": {},
-  "version": "0.5.19"
+  "scripts": {}
 }
