@@ -1,0 +1,10 @@
+Hi! Thanks for trying out NativeBase!
+Due to the overwhelming requests and issues/questions we ask you to add the following details with your issue.
+
+## react-native, react and native-base version
+## Expected behaviour
+## Actual behaviour
+## Steps to reproduce (code snippet or screenshot)
+## Screenshot of emulator/device
+## Is the bug present in both ios and android or in any one of them?
+## Any other additional info which would help us debug the issue quicker.

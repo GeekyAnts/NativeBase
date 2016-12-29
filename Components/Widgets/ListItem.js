@@ -349,6 +349,18 @@ export default class ListItemNB extends NativeBaseComponent {
         return inlineComponentPresent;
     }
 
+    getInlineLabelAlign() {
+        var inlineLabelAlign;
+        if (this.inlinePresent()) {
+            if (this.props.children.props.children.props.inlineLabelAlign) {
+                inlineLabelAlign = this.props.children.props.children.props.inlineLabelAlign;
+            }
+            else
+                inlineLabelAlign = 'center';
+        }
+        return inlineLabelAlign;
+    }
+
     stackedPresent() {
         var stackedComponentPresent = false;
         if (this.inputPresent()) {
@@ -539,7 +551,7 @@ export default class ListItemNB extends NativeBaseComponent {
             }
             else if (this.inlinePresent()) {
 
-                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: 'center', flex: 1, borderColor: this.getTheme().listBorderColor, alignItems: 'center', height: this.getTheme().inputHeightBase }} >
+                newChildren.push(<View key='listItem0' style={{flexDirection: 'row', justifyContent: this.getInlineLabelAlign(), flex: 1, borderColor: this.getTheme().listBorderColor, alignItems: 'center', height: this.getTheme().inputHeightBase }} >
                     <Text style={{color: this.getTheme().inputColorPlaceholder }}>{this.props.children.props.children.props.label}</Text>
                     </View>);
                 newChildren.push(<View key='listItem1' style={{flexDirection: 'column', alignSelf: 'center', flex: 2.2 }} >

@@ -24,12 +24,9 @@
     "react-native-checkbox": "~1.0.8",
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
-    "react-native-vector-icons": "2.x.x"
+    "react-native-vector-icons": "~3.0.0"
   },
-  "peerDependencies": {
-    "react-native": ">=0.38.0",
-    "react": ">=15.4.0"
-  },
+  "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "eslint": "^3.5.0",
@@ -39,18 +36,58 @@
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-react-native": "^2.0.0"
   },
+  "directories": {},
+  "dist": {
+    "shasum": "fb3677a4f6e732b4fe60e569e04222399011661f",
+    "tarball": "https://registry.npmjs.org/native-base/-/native-base-0.5.19.tgz"
+  },
+  "gitHead": "a8504267642c8bafe763ce292bcf0e97737fd0e4",
+  "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
+  "keywords": [
+    "android",
+    "ios",
+    "react",
+    "native",
+    "nativebase",
+    "react-native",
+    "native-modules",
+    "react-component",
+    "navbar",
+    "packager",
+    "rnpm"
+  ],
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "himanshu-sahusoft",
+      "email": "himanshu@sahusoft.com"
+    },
+    {
+      "name": "sankhadeeproy007",
+      "email": "sankhadeep@sahusoft.com"
+    },
+    {
+      "name": "shivrajk",
+      "email": "shivraj@sahusoft.com"
+    }
+  ],
+  "name": "native-base",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": ">=0.38.0",
+    "react": ">=15.4.0"
+  },
+  "private": false,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeekyAnts/NativeBase.git"
+  },
   "rnpm": {
     "assets": [
       "Fonts"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GeekyAnts/NativeBase.git"
-  },
-  "main": "index.js",
-  "bugs": {
-    "url": "https://github.com/GeekyAnts/NativeBase/issues"
-  },
-  "homepage": "https://github.com/GeekyAnts/NativeBase#readme"
+  "scripts": {},
+  "version": "0.5.19"
 }
