@@ -83,7 +83,7 @@ export default class Footer extends NativeBaseComponent {
     checkIconPresent() {
         let icon = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(typeof child.props.children == 'object')
+            if(typeof _.get(child.props, 'children', null) == 'object')
                 icon = true;
         })
         return icon;
