@@ -28,12 +28,12 @@ export default class Footer extends NativeBaseComponent {
             },
             btnTextStyle: {
                 color: this.getTheme().tabBarTextColor,
-                fontSize: (Platform.OS=='ios') ? 12.5 : 10,
+                fontSize: this.getTheme().tabBarTextSize,
                 lineHeight: 13
             },
             btnActiveTextStyle: {
                 color: this.getTheme().tabBarActiveTextColor,
-                fontSize: (Platform.OS=='ios') ? 12.5 : 11,
+                fontSize: this.getTheme().tabBarActiveTextSize,
                 lineHeight: 13
             },
             btnStringTextStyle: {

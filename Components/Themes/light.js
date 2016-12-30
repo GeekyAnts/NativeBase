@@ -112,6 +112,8 @@ export default {
     tabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#007aff' : '#fff',
     tabActiveBgColor: (Platform.OS=='ios') ? '#cde1f9' : undefined,
     tabActiveBorderRadius: (Platform.OS=='ios') ? 7 : undefined,
+    tabBarTextSize:  (Platform.OS=='ios') ? 12.5 : 10,
+    tabBarActiveTextSize:  (Platform.OS=='ios') ? 12.5 : 11,
 
     //Tab
     tabDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
