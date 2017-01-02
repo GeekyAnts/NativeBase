@@ -65,6 +65,8 @@ export default class ListNB extends NativeBaseComponent {
                 <ListView {...this.prepareRootProps()}
                     enableEmptySections={true}
                     dataSource={dataSource}
+                    refreshing={this.props.refreshing}
+                    onRefresh={this.props.onRefresh}
                     renderRow={this.props.renderRow} />
             );
         }
