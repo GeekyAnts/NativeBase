@@ -429,6 +429,7 @@ declare module 'native-base' {
          */
         interface Icon {
             name: string,
+            family?: React.Component,
             style?: React.TextStyle
         }
         /**
