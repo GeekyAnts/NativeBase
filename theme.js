@@ -784,6 +784,38 @@ export default () => {
       backgroundColor: variables.listBg,
       borderColor: variables.listBorderColor,
     },
+    'NativeBase.CardItem1': {
+      '.cardBody': {
+        flexDirection: 'column',
+        'NativeBase.Text': {
+          marginTop: 5,
+        },
+      },
+      '.header': {
+        'NativeBase.Text': {
+          fontSize: 17,
+          fontWeight: '600',
+        },
+        borderBottomWidth: null,
+      },
+      '.footer': {
+        'NativeBase.Text': {
+          fontSize: 17,
+          fontWeight: '600',
+        },
+      },
+      'NativeBase.Text': {
+        '.note': {
+          color: variables.listNoteColor,
+          fontWeight: '200',
+        },
+        fontWeight: '500',
+      },
+      padding: variables.listItemPadding,
+      borderBottomWidth: variables.borderWidth,
+      backgroundColor: variables.listBg,
+      borderColor: variables.listBorderColor,
+    },
 
     'NativeBase.H1': {
       color: variables.textColor,

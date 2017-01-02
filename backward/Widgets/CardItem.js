@@ -1,15 +1,25 @@
 /* @flow */
 
 import React from 'react';
-import { TouchableOpacity, View, Platform } from 'react-native';
+import { TouchableOpacity, View, Platform, Image } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';
 
-class CardItem extends NativeBaseComponent {
+class CardItem1 extends NativeBaseComponent {
 
-
+    getInitialStyle() {
+        return {
+            listItem: {
+                flexDirection: (this.thumbnailPresent() || this.gravatarPresent() || this.iconPresent() || (this.notePresent() && this.ifShowCase())) ? 'row' : 'column',
+            },
+            fullImage: {
+                alignSelf: 'stretch',
+                height: this.ifShowCase() ? 120 : 300
+            },
+        };
+    }
   getRightStyle() {
     return {
       right: {
@@ -57,7 +67,7 @@ class CardItem extends NativeBaseComponent {
   imagePresent() {
     let imagePresent = false;
     React.Children.forEach(this.props.children, (child) => {
-      if (child && child.type.displayName === 'Image') {
+      if (child && child.type === Image) {
         imagePresent = true;
       }
     });
@@ -117,7 +127,11 @@ class CardItem extends NativeBaseComponent {
   }
 
   getChildProps(child) {
-    const defaultProps = {};
+    let defaultProps = {};
+      if(child.type === Image)
+      defaultProps = {
+        style: this.getInitialStyle().fullImage
+      };
     return computeProps(child.props, defaultProps);
   }
 
@@ -145,7 +159,7 @@ class CardItem extends NativeBaseComponent {
       newChildren = [];
       if (!Array.isArray(this.props.children)) {
         newChildren.push(
-          <View key="cardItem" style={{ justifyContent: 'flex-start' }}>
+          <View key="cardItem1" style={{ justifyContent: 'flex-start' }}>
             {React.cloneElement(childrenArray)}
           </View>
                 );
@@ -153,7 +167,7 @@ class CardItem extends NativeBaseComponent {
         newChildren.push(
                     React.cloneElement(childrenArray[0], this.getChildProps(childrenArray[0])));
         newChildren.push(
-          <View key="cardItem" style={this.notePresent() ? this.getRightStyle().right : this.squareThumbs() ? this.getRightStyle().right3 : this.getRightStyle().right2}>
+          <View key="cardItem1" style={this.notePresent() ? this.getRightStyle().right : this.squareThumbs() ? this.getRightStyle().right3 : this.getRightStyle().right2}>
             {childrenArray.slice(1).map((child, i) =>
                             React.cloneElement(child, { key: i })
                         )}
@@ -164,12 +178,21 @@ class CardItem extends NativeBaseComponent {
 
     return newChildren;
   }
+  prepareRootProps() {
+    let defaultProps = {};
+
+    defaultProps = {
+      style: this.getInitialStyle().listItem
+    };
+
+    return computeProps(this.props, defaultProps);
+  }
 
 
   render() {
     return (
       <TouchableOpacity
-        ref={(c) => { this._root = c; }} {...this.props}
+        ref={(c) => { this._root = c; }} {...this.prepareRootProps()}
         activeOpacity={(this.props.button) ? 0.2 : 1}
       >
         {this.renderChildren()}
@@ -178,7 +201,7 @@ class CardItem extends NativeBaseComponent {
   }
 }
 
-CardItem.propTypes = {
+CardItem1.propTypes = {
   ...TouchableOpacity.propTypes,
   style: React.PropTypes.object,
   header: React.PropTypes.bool,
@@ -187,8 +210,8 @@ CardItem.propTypes = {
   button: React.PropTypes.bool,
 };
 
-const StyledCardItem = connectStyle('NativeBase.CardItem', {}, mapPropsToStyleNames)(CardItem);
+const StyledCardItem1 = connectStyle('NativeBase.CardItem1', {}, mapPropsToStyleNames)(CardItem1);
 
 export {
-  StyledCardItem as CardItem,
+  StyledCardItem1 as CardItem1,
 };

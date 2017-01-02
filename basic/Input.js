@@ -3,8 +3,9 @@ import { TextInput } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 import variables from '../variables';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import NativeBaseComponent from './Base/NativeBaseComponent';
 
-class Input extends Component {
+class Input extends NativeBaseComponent {
   render() {
     return (
       <TextInput ref={(c) => { this._textInput = c; this._root = c; }} {...this.props} placeholderTextColor={this.props.placeholderTextColor ? this.props.placeholderTextColor : variables.inputColorPlaceholder} underlineColorAndroid="rgba(0,0,0,0)" />

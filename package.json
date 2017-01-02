@@ -125,6 +125,27 @@
         }
       },
       "/Users/sahusoft/Sites/projects/Try"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/FlatApp"
     ]
   ],
   "_from": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
@@ -132,7 +153,7 @@
   "_inCache": true,
   "_location": "/native-base",
   "_phantomChildren": {
-    "yargs": "4.8.1"
+    "yargs": "6.5.0"
   },
   "_requested": {
     "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
@@ -155,11 +176,11 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#2efab5b090a21765f5f4e31a22cbc3f5f61cea61",
-  "_shasum": "66ee6fdb8b4d9a3e1711495c8d4dba8536f3d54b",
+  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#23698414b8bcf823cf810f7faae3fec2096982ef",
+  "_shasum": "f1a08924d2b0dcb3337939981daa93bbbd84f6b3",
   "_shrinkwrap": null,
   "_spec": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
-  "_where": "/Users/sahusoft/Sites/projects/Try",
+  "_where": "/Users/sahusoft/Sites/projects/FlatApp",
   "bugs": {
     "url": "https://github.com/GeekyAnts/NativeBase/issues"
   },

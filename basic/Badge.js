@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
+import { variables } from 'native-base';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Badge extends Component {
@@ -12,7 +13,7 @@ class Badge extends Component {
       return this.props.children;
     } else {
       const newChildren = [];
-      newChildren.push(<Text key="label" style={this.props.textStyle}>{this.props.children}</Text>);
+      newChildren.push(<Text key="label" style={[{ paddingHorizontal: 3,color: variables.badgeColor, fontSize: variables.fontSizeBase, lineHeight: variables.lineHeight - 1},this.props.textStyle]}>{this.props.children}</Text>);
       return newChildren;
     }
   }

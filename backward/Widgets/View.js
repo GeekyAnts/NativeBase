@@ -9,10 +9,6 @@ import NativeBaseComponent from '../Base/NativeBaseComponent';
 
 
 class ViewNB extends NativeBaseComponent {
-  propTypes: {
-        style : React.PropTypes.object,
-        padder : React.PropTypes.bool
-    }
   render() {
     return (
       <View ref={c => this._root = c} {...this.props} />
