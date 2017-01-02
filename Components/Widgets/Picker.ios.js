@@ -77,7 +77,7 @@ export default class PickerNB extends NativeBaseComponent {
         let childrenArray = React.Children.toArray(this.props.headerComponent.props.children);
         let newChildren = [];
         childrenArray.forEach((child) => {
-            if (child.type==Button) {
+            if (_.get(child, 'type', null)==Button) {
                 newChildren.push(React.cloneElement(child, {onPress: () => {this._setModalVisible(false)}}))
             } else {
                 newChildren.push(child)

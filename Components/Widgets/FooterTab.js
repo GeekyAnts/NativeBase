@@ -28,12 +28,12 @@ export default class Footer extends NativeBaseComponent {
             },
             btnTextStyle: {
                 color: this.getTheme().tabBarTextColor,
-                fontSize: (Platform.OS=='ios') ? 12.5 : 10,
+                fontSize: this.getTheme().tabBarTextSize,
                 lineHeight: 13
             },
             btnActiveTextStyle: {
                 color: this.getTheme().tabBarActiveTextColor,
-                fontSize: (Platform.OS=='ios') ? 12.5 : 11,
+                fontSize: this.getTheme().tabBarActiveTextSize,
                 lineHeight: 13
             },
             btnStringTextStyle: {
@@ -86,13 +86,13 @@ export default class Footer extends NativeBaseComponent {
             else {
                 let iconElement = [];
                 iconElement = _.remove(children, function(item) {
-                    if(item.type == IconNB) {
+                    if(_.get(item, 'type', null) == IconNB) {
                         return true;
                     }
                 });
                 let badgeElement = [];
                 badgeElement = _.remove(children, function(item) {
-                    if(item.type == Badge) {
+                    if(_.get(item, 'type', null) == Badge) {
                         return true;
                     }
                 });
