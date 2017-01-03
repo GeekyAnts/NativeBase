@@ -4,7 +4,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -30,6 +31,7 @@ Temporary Items
 logs
 *.log
 npm-debug.log*
+dist
 
 # Runtime data
 pids
