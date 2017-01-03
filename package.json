@@ -27,7 +27,11 @@
     "react-native-vector-icons": "~3.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-preset-react": "^6.16.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.14.0",
@@ -42,7 +46,7 @@
   },
   "gitHead": "a8504267642c8bafe763ce292bcf0e97737fd0e4",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-  "main": "index.js",
+  "main": "dist/index.js",
   "maintainers": [
     {
       "name": "himanshu-sahusoft",
@@ -72,5 +76,7 @@
       "Fonts"
     ]
   },
-  "scripts": {}
+  "scripts": {
+    "build": "babel . --out-dir dist --ignore node_modules,dist"
+  }
 }
