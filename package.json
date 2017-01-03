@@ -43,7 +43,8 @@
     "tarball": "https://registry.npmjs.org/native-base/-/native-base-0.5.19.tgz"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "gitHead": "a8504267642c8bafe763ce292bcf0e97737fd0e4",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
