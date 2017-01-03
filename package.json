@@ -45,6 +45,9 @@
     "shasum": "fb3677a4f6e732b4fe60e569e04222399011661f",
     "tarball": "https://registry.npmjs.org/native-base/-/native-base-0.5.19.tgz"
   },
+  "files": [
+    "dist"
+  ],
   "gitHead": "a8504267642c8bafe763ce292bcf0e97737fd0e4",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
   "main": "dist/index.js",
