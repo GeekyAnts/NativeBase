@@ -2,7 +2,7 @@ import { Gravatar } from 'native-base/backward';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { setDefaultThemeStyle } from './init';
 import getTheme from './theme';
-import variables from './variables';
+import variables from './theme/variables';
 import Drawer from './basic/Drawer';
 import { Swipeout } from './basic/Swipe';
 

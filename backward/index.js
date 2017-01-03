@@ -1,3 +1,7 @@
+
+import getTheme from '../theme';
+import variables from '../theme/variables';
+import { StyleProvider } from '@shoutem/theme';
 import { Drawer } from 'native-base';
 import { Header } from './Widgets/Header';
 import { Footer } from 'native-base';
@@ -74,4 +78,7 @@ module.exports = {
   Tab,
   Fab,
   Tabs,
+  StyleProvider,
+  getTheme,
+  variables,
 };

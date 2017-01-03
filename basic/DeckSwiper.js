@@ -209,7 +209,7 @@ class DeckSwiper extends Component {
   }
   render() {
     return (
-      <View ref={c => this._root = c} {...this.props} style={{ position: 'relative', flexDirection: 'column' }}>{(this.state.selectedItem) === undefined ? (<View />) :
+      <View ref={c => this._root = c} {...this.props} style={{ position: 'relative', flexDirection: 'column', flex: 1 }}>{(this.state.selectedItem) === undefined ? (<View />) :
                 (<View>
                   <Animated.View
                     style={[this.getCardStyles()[1], this.getInitialStyle().topCard,

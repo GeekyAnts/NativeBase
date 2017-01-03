@@ -167,26 +167,34 @@
         }
       },
       "/Users/sahusoft/Sites/projects/DatingApp"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/Try"
     ]
   ],
   "_from": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
   "_id": "native-base@6.0.0-beta",
   "_inCache": true,
   "_location": "/native-base",
-  "_phantomChildren": {
-    "camelcase": "3.0.0",
-    "cliui": "3.2.0",
-    "decamelize": "1.2.0",
-    "get-caller-file": "1.0.2",
-    "os-locale": "1.4.0",
-    "read-pkg-up": "1.0.1",
-    "require-directory": "2.1.1",
-    "require-main-filename": "1.0.1",
-    "set-blocking": "2.0.0",
-    "string-width": "1.0.2",
-    "which-module": "1.0.0",
-    "y18n": "3.2.1"
-  },
+  "_phantomChildren": {},
   "_requested": {
     "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
     "scope": null,
@@ -208,11 +216,11 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#7c3562e7afd549b232892b2b9b69b3202c85f833",
-  "_shasum": "1d4dbcfaf8f78d74a3a6ad72f76f5b7bcdb58e11",
+  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#c9a94bb306844b52377afa265070dbe8d36fdc36",
+  "_shasum": "ab587463e63750a79bbc23c875b0ab0ff29f30b7",
   "_shrinkwrap": null,
   "_spec": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
-  "_where": "/Users/sahusoft/Sites/projects/DatingApp",
+  "_where": "/Users/sahusoft/Sites/projects/Try",
   "bugs": {
     "url": "https://github.com/GeekyAnts/NativeBase/issues"
   },
@@ -227,8 +235,8 @@
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
     "react-native-vector-icons": "3.x.x",
-    "tween-functions": "^1.0.1",
-    "react-tween-state": "^0.1.5"
+    "react-tween-state": "^0.1.5",
+    "tween-functions": "^1.0.1"
   },
   "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {
