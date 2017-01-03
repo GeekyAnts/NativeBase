@@ -180,6 +180,7 @@ export default {
     listItemPadding: (Platform.OS === 'ios' ) ? 12 : 16,
     listNoteColor: '#808080',
     listNoteSize: 13,
+    listMarginLeft: 15,
 
 
     // Progress Bar
