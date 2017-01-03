@@ -211,6 +211,7 @@ export default {
     // Text
     textColor: '#000',
     inverseTextColor: '#fff',
+    textBgColor: 'transparent',
 
 
     // Title
