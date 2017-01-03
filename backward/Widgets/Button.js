@@ -41,7 +41,7 @@ class Button extends Component {
 
   renderChildren() {
     if (typeof this.props.children === 'string') {
-      return <Text>{(Platform.OS === 'ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>;
+      return <Text style={this.props.textStyle}>{(Platform.OS === 'ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>;
     } else if (this.props.children.type === Icon) {
       return React.cloneElement(this.props.children);
     } else if (Array.isArray(this.props.children)) {

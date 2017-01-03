@@ -11,7 +11,7 @@ import NativeBaseComponent from '../Base/NativeBaseComponent';
 class ViewNB extends NativeBaseComponent {
   render() {
     return (
-      <View ref={c => this._root = c} {...this.props} />
+    	<View ref={c => this._root = c} {...this.props}></View>
     );
   }
 }

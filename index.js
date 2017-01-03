@@ -1,4 +1,5 @@
 import { Gravatar } from 'native-base/backward';
+import { Col, Row, Grid } from 'react-native-easy-grid';
 import { setDefaultThemeStyle } from './init';
 import getTheme from './theme';
 import variables from './variables';
@@ -48,6 +49,7 @@ export { Item } from './basic/Item';
 export { Label } from './basic/Label';
 export { Textarea } from './basic/Textarea';
 export { Gravatar };
+export { Col, Row, Grid };
 
 
 const mapPropsToStyleNames = (styleNames, props) => _.keys(props);
