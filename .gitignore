@@ -31,7 +31,6 @@ Temporary Items
 logs
 *.log
 npm-debug.log*
-dist
 
 # Runtime data
 pids
