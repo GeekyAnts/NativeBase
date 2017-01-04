@@ -13,7 +13,7 @@ export default class BadgeNB extends NativeBaseComponent {
     static propTypes = {
         style : React.PropTypes.object
     }
-
+    // This comment is to get the T shirt.
     prepareRootProps() {
 
         var type = {
