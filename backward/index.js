@@ -23,8 +23,7 @@ import { ViewNB as View } from './Widgets/View';
 import { Input } from 'native-base';
 import { Textarea } from 'native-base';
 import { InputGroup } from './Widgets/InputGroup';
-import { Icon } from 'native-base';
-import { IconNB } from 'native-base';
+import { Icon } from './Widgets/Icon';
 import { FooterTab } from './Widgets/FooterTab';
 import { Tab } from 'native-base';
 import { Fab } from 'native-base';
@@ -63,7 +62,6 @@ module.exports = {
   Input,
   Textarea,
   Icon,
-  IconNB,
   Thumbnail,
   Gravatar,
   Card,

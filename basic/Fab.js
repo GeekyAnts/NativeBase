@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 // import Button from './Button';
-import { Icon, Button } from 'native-base';
+import { IconNB as Icon, Button } from 'native-base';
 import { Platform, Animated, TouchableOpacity } from 'react-native';
 // import View from './View';
 // import Icon from './Icon';
@@ -65,7 +65,7 @@ class Fab extends Component {
     if (direction === 'up') {
       return {
         top: undefined,
-        bottom: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : ((i * 50) + 65),
+        bottom: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : ((i * 50) + 15),
         left: 8,
         right: 0,
       };
@@ -73,12 +73,12 @@ class Fab extends Component {
       return {
         top: 8,
         bottom: 0,
-        left: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : -((i * 50) + 50),
+        left: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : -((i * 50)),
         right: 0,
       };
     } else if (direction === 'down') {
       return {
-        top: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : ((i * 50) + 65),
+        top: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : ((i * 50) + 15),
         bottom: 0,
         left: 8,
         right: 0,
@@ -87,7 +87,7 @@ class Fab extends Component {
       return {
         top: 10,
         bottom: 0,
-        left: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : ((i * 50) + 65),
+        left: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : ((i * 50) + 15),
         right: 0,
       };
     }
@@ -176,7 +176,7 @@ class Fab extends Component {
   componentDidMount() {
     const childrenArray = React.Children.toArray(this.props.children);
     const icon = _.remove(childrenArray, (item) => {
-      if (item.type === Button) {
+      if (item.type.displayName === 'Styled(Button)') {
         return true;
       }
     });

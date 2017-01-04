@@ -12,7 +12,7 @@ import Zocial from 'react-native-vector-icons/Zocial';
 
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
-class Icon extends Component {
+class IconNB extends Component {
 
 
   componentWillMount() {
@@ -54,13 +54,13 @@ class Icon extends Component {
   }
 }
 
-Icon.propTypes = {
+IconNB.propTypes = {
   ...Ionicons.propTypes,
   style: React.PropTypes.object,
 };
 
-const StyledIcon = connectStyle('NativeBase.Icon', {}, mapPropsToStyleNames)(Icon);
+const StyledIconNB = connectStyle('NativeBase.IconNB', {}, mapPropsToStyleNames)(IconNB);
 
 export {
-  StyledIcon as Icon,
+  StyledIconNB as IconNB,
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
-import { Icon } from 'native-base';
+import { IconNB } from 'native-base';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
@@ -9,7 +9,7 @@ class CheckBox extends Component {
   render() {
     return (
       <TouchableOpacity ref={c => this._root = c} {...this.props}>
-        <Icon name={(Platform.OS === 'ios') ? 'ios-checkmark-outline' : 'md-checkmark'} />
+        <IconNB name={(Platform.OS === 'ios') ? 'ios-checkmark-outline' : 'md-checkmark'} />
       </TouchableOpacity>
     );
   }

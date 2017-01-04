@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
-import variables from '../variables';
+import variables from '../theme/variables';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from './Base/NativeBaseComponent';
 

@@ -9,7 +9,7 @@ export default (variables = variable) => {
         '.active': {
           'NativeBase.Text': {
             color: variables.tabBarActiveTextColor,
-            fontSize: (Platform.OS === 'ios') ? 14 : 12,
+            fontSize: variables.tabBarTextSize,
             lineHeight: 16,
           },
           'NativeBase.Icon': {

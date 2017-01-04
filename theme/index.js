@@ -103,6 +103,7 @@ export default (variables = variable) => {
 
     'NativeBase.Container': {
       flex: 1,
+      paddingBottom: (Platform.OS === 'ios') ? undefined : 20,
     },
     'NativeBase.Content': {
       ...contentTheme(variables),

@@ -9,6 +9,7 @@ export default {
     // Badge
   badgeBg: '#ED1727',
   badgeColor: '#fff',
+    // New Variable
   badgePadding: (Platform.OS === 'ios') ? 3 : 0,
 
     // Button
@@ -16,6 +17,7 @@ export default {
   btnDisabledBg: '#b5b5b5',
   btnDisabledClr: '#f1f1f1',
 
+    // New Variables
   CheckboxRadius: (Platform.OS === 'ios') ? 13 : 0,
   CheckboxBorderWidth: (Platform.Os === 'ios') ? 1 : 2,
   CheckboxPaddingLeft: (Platform.OS === 'ios') ? 5 : 2,
@@ -24,9 +26,12 @@ export default {
   CheckboxIconMarginTop: (Platform.OS === 'ios') ? undefined : 1,
   CheckboxFontSize: (Platform.OS === 'ios') ? (23 / 0.8) : (23 / 1.2),
 
+    // New Variable
   get defaultTextColor() {
     return this.textColor;
   },
+
+
   get btnPrimaryBg() {
     return this.brandPrimary;
   },
@@ -190,7 +195,10 @@ export default {
   listBorderColor: '#ddd',
   listDividerBg: '#ddd',
   listItemHeight: 45,
+
+    // Changed Variable
   listItemPadding: (Platform.OS === 'ios') ? 10 : 12,
+
   listNoteColor: '#808080',
   listNoteSize: 13,
 
@@ -202,7 +210,10 @@ export default {
 
     // Radio Button
   radioBtnSize: (Platform.OS === 'ios') ? 25 : 23,
+
+    // New Variable
   radioBtnLineHeight: (Platform.OS === 'ios') ? 29 : 24,
+
   radioColor: '#7e7e7e',
 
   get radioSelectedColor() {
@@ -230,6 +241,8 @@ export default {
   titleFontSize: (Platform.OS === 'ios') ? 17 : 19,
   subTitleFontSize: (Platform.OS === 'ios') ? 12 : 14,
   subtitleColor: '#8e8e93',
+
+    // New Variable
   titleFontColor: (Platform.OS === 'ios') ? '#000' : '#FFF',
 
 
@@ -249,5 +262,7 @@ export default {
   jumbotronPadding: 30,
   deviceWidth,
   deviceHeight,
+
+    // New Variable
   inputGroupRoundedBorderRadius: 30,
 };

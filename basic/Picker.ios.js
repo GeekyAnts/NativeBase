@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { Picker, Modal, View } from 'react-native';
 import _ from 'lodash';
-import { Text, List, Icon, Container, Content, ListItem, Button, Header, Title, Left, Right, Body } from 'native-base';
+import { Text, List, IconNB as Icon, Container, Content, ListItem, Button, Header, Title, Left, Right, Body } from 'native-base';
 import { connectStyle } from '@shoutem/theme';
 import computeProps from '../Utils/computeProps';
 

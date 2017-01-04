@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 
-import { Icon } from 'native-base';
+import { IconNB } from 'native-base';
 import ic from './NBIcons.json';
 
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
-class IconNB extends Component {
+class Icon extends Component {
 
   getName() {
     if (Platform.OS === 'ios') {
@@ -38,22 +38,22 @@ class IconNB extends Component {
   render() {
     if (this.props.ios && this.props.android) {
       return (
-        <Icon ref={c => this._root = c} {...this.props} name={(Platform.OS === 'ios') ? this.props.ios : this.props.android} />
+        <IconNB ref={c => this._root = c} {...this.props} name={(Platform.OS === 'ios') ? this.props.ios : this.props.android} />
       );
     } else if (this.props.name && (this.props.android || this.props.ios)) {
       return (
-        <Icon ref={c => this._root = c} {...this.props} name={this.getIconName()} />
+        <IconNB ref={c => this._root = c} {...this.props} name={this.getIconName()} />
       );
     } else {
       return (
-        <Icon ref={c => this._root = c} {...this.props} name={this.getName()} />
+        <IconNB ref={c => this._root = c} {...this.props} name={this.getName()} />
       );
     }
   }
 }
 
-IconNB.propTypes = {
-  ...Icon.propTypes,
+Icon.propTypes = {
+  ...IconNB.propTypes,
   style: React.PropTypes.object,
   name: React.PropTypes.string,
   ios: React.PropTypes.string,
@@ -61,8 +61,8 @@ IconNB.propTypes = {
   active: React.PropTypes.bool,
 };
 
-const StyledIconNB = connectStyle('NativeBase.IconNB', {}, mapPropsToStyleNames)(IconNB);
+const StyledIcon = connectStyle('NativeBase.Icon', {}, mapPropsToStyleNames)(Icon);
 
 export {
-  StyledIconNB as IconNB,
+  StyledIcon as Icon,
 };

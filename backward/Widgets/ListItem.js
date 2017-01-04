@@ -3,7 +3,7 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
-import { Icon } from 'native-base';
+import { IconNB as Icon } from 'native-base';
 import _ from 'lodash';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
@@ -287,7 +287,7 @@ class ListItem extends NativeBaseComponent {
 
       if (this.props.iconLeft && !this.props.iconRight && !this.pickerPresent()) {
         iconElement = _.remove(childrenArray, (item) => {
-          if (item.type === Icon) {
+          if (item.type.displayName === 'Styled(Icon)') {
             return true;
           }
         });
