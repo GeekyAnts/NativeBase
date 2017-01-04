@@ -12,6 +12,7 @@ export default class ListNB extends NativeBaseComponent {
     propTypes: {
         style : React.PropTypes.object,
         dataArray : React.PropTypes.array,
+        dataObject : React.PropTypes.object,
         renderRow : React.PropTypes.func
     }
 
@@ -58,9 +59,9 @@ export default class ListNB extends NativeBaseComponent {
     }
 
     render() {
-        if(this.props.dataArray && this.props.renderRow) {
-            const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-            var dataSource = ds.cloneWithRows(this.props.dataArray);
+        if((this.props.dataArray  || this.props.dataObject) && this.props.renderRow) {
+            const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2, sectionHeaderHasChanged: () => true });
+            var dataSource = this.props.dataObject ? ds.cloneWithRowsAndSections(this.props.dataObject,Object.keys(this.props.dataObject)) : ds.cloneWithRows(this.props.dataArray);
             return (
                 <ListView {...this.prepareRootProps()}
                     enableEmptySections={true}
