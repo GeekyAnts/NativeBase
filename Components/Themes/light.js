@@ -105,6 +105,7 @@ export default {
     // Footer
     footerHeight: 55,
     footerDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
+    footerBtnMargin: 1,
 
 
     //FooterTab
