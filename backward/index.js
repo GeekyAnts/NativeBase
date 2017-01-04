@@ -6,7 +6,7 @@ import { Drawer } from 'native-base';
 import { Header } from './Widgets/Header';
 import { Footer } from 'native-base';
 import { Title } from './Widgets/Title';
-import { Container } from './Widgets/Container';
+import { Container } from 'native-base';
 import { Content } from './Widgets/Content';
 import { Button } from './Widgets/Button';
 import { Text } from './Widgets/Text';
