@@ -52,7 +52,7 @@ export default class Footer extends NativeBaseComponent {
                 justifyContent: 'center',
                 margin: this.getTheme().footerBtnMargin !== undefined ? this.getTheme().footerBtnMargin : 1,
                 height: this.getTheme().footerHeight - 4 * (this.getTheme().footerBtnMargin !== undefined ? this.getTheme().footerBtnMargin : 1),
-                borderRadius: (Platform.OS == 'ios') ? this.getTheme().tabActiveBorderRadius : 0
+                borderRadius: this.getTheme().tabActiveBorderRadius !== undefined ? this.getTheme().tabActiveBorderRadius : 0
             }
         }
     }
