@@ -106,7 +106,7 @@ export default class CardItemNB extends NativeBaseComponent {
     thumbnailPresent() {
         let thumbnailComponentPresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type === Thumbnail) {
+            if (child && _.get(child, 'type', null) === Thumbnail) {
                 thumbnailComponentPresent = true;
             }
         });
@@ -117,7 +117,7 @@ export default class CardItemNB extends NativeBaseComponent {
     gravatarPresent() {
         var gravatarComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child.type == Gravatar)
+            if(_.get(child, 'type', null) == Gravatar)
                 gravatarComponentPresent = true;
         })
 
@@ -127,7 +127,7 @@ export default class CardItemNB extends NativeBaseComponent {
     imagePresent() {
         let imagePresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type === Image) {
+            if (child && _.get(child, 'type', null) === Image) {
                 imagePresent = true;
             }
         });
@@ -138,7 +138,7 @@ export default class CardItemNB extends NativeBaseComponent {
     iconPresent() {
         let iconComponentPresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type === Icon) {
+            if (child && _.get(child, 'type', null) === Icon) {
                 iconComponentPresent = true;
             }
         });
@@ -149,7 +149,7 @@ export default class CardItemNB extends NativeBaseComponent {
     buttonPresent() {
         let buttonComponentPresent = false;
         React.Children.forEach(this.props.children, (child) => {
-            if (child && child.type === Button) {
+            if (child && _.get(child, 'type', null) === Button) {
                 buttonComponentPresent = true;
             }
         });
@@ -165,7 +165,7 @@ export default class CardItemNB extends NativeBaseComponent {
         let notePresent = false;
 
         React.Children.forEach(this.props.children, (child) => {
-            if (child && (child.type === Text) && child.props.note) {
+            if (child && (_.get(child, 'type', null) === Text) && child.props.note) {
                 notePresent = true;
             }
         });
@@ -188,18 +188,18 @@ export default class CardItemNB extends NativeBaseComponent {
 
     getChildProps(child) {
         let defaultProps = {};
-        if (child.type === Image && !Array.isArray(this.props.children)) {
+        if (_.get(child, 'type', null) === Image && !Array.isArray(this.props.children)) {
             defaultProps = {
                 resizeMode: 'cover',
                 style: this.getInitialStyle().fullImage
             };
         } else
-          if (child.type === Button) {
+          if (_.get(child, 'type', null) === Button) {
             defaultProps = {
                 style: this.getInitialStyle().itemButton
             };
         } else
-            if (child.type === Text) {
+            if (_.get(child, 'type', null) === Text) {
                 if ((this.props.header) || (this.props.footer)) {
                     defaultProps = {
                         style: this.getInitialStyle().dividerItemText
@@ -217,19 +217,19 @@ export default class CardItemNB extends NativeBaseComponent {
                         style: this.getInitialStyle().itemText
                     };
                 }
-        } else if (child.type === Icon) {
+        } else if (_.get(child, 'type', null) === Icon) {
             defaultProps = {
                 style: this.getInitialStyle().itemIcon
             };
-        } else if (child.type === Thumbnail) {
+        } else if (_.get(child, 'type', null) === Thumbnail) {
             defaultProps = {
                 style: this.getInitialStyle().thumbnail
             };
-        } else if(child.type == Gravatar) {
+        } else if(_.get(child, 'type', null) == Gravatar) {
             defaultProps = {
                 style: this.getInitialStyle().gravatar
             };
-        } else if (child.type === Image) {
+        } else if (_.get(child, 'type', null) === Image) {
             defaultProps = {
                 style: this.getInitialStyle().fullImage
             };

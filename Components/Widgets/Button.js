@@ -150,7 +150,7 @@ export default class Button extends NativeBaseComponent {
     iconPresent() {
         var iconComponentPresent = false;
         React.Children.forEach(this.props.children, function (child) {
-            if(child.type == Icon)
+            if(_.get(child, 'type', null) == Icon)
                 iconComponentPresent = true;
         })
         return iconComponentPresent;
@@ -160,7 +160,7 @@ export default class Button extends NativeBaseComponent {
             return <Text style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>
         }
 
-        else if(this.props.children.type == IconNB) {
+        else if(_.get(this.props.children, 'type', null) == IconNB) {
             return React.cloneElement(this.props.children, this.getIconProps(this.props.children));
         }
 
@@ -171,13 +171,13 @@ export default class Button extends NativeBaseComponent {
 
             var iconElement = [];
             iconElement = _.remove(childrenArray, function(item) {
-                if(item.type == IconNB) {
+                if(_.get(item, 'type', null) == IconNB) {
                     return true;
                 }
             });
 
             if(this.props.iconRight) {
-                if (childrenArray[0].type==undefined) {
+                if (_.get(childrenArray[0], 'type', null)==undefined) {
                     newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
                 } else {
                     newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
@@ -189,7 +189,7 @@ export default class Button extends NativeBaseComponent {
             else if(this.props.iconLeft || iconElement.length>0) {
                 newChildren.push(React.cloneElement(iconElement[0], this.getIconProps(iconElement[0])));
 
-                if (childrenArray[0].type==undefined) {
+                if (_.get(childrenArray[0], 'type', null)==undefined) {
                     newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0] : childrenArray[0].toUpperCase()}</Text>);
                 } else {
                     newChildren.push(<Text key='label' style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);

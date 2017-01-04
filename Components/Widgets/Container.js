@@ -21,14 +21,14 @@ export default class Container extends NativeBaseComponent {
   renderHeader() {
     if(Array.isArray(this.props.children)) {
       return _.find(this.props.children, function(item) {
-        if(item && item.type == Header) {
+        if(item && _.get(item, 'type', null) == Header) {
           return true;
         }
       });
     }
 
     else {
-      if(this.props.children && this.props.children.type == Header) {
+      if(this.props.children && _.get(this.props.children, 'type', null) == Header) {
         return this.props.children;
       }
     }
@@ -37,7 +37,7 @@ export default class Container extends NativeBaseComponent {
     if(Array.isArray(this.props.children)) {
 
       return _.filter(this.props.children, function(item) {
-        if(item && (item.type == ViewNB || item.type == Content || item.type == Image || item.type == View || item.type == ScrollView || item.type == Fab )) {
+        if(item && (_.get(item, 'type', null) == ViewNB || _.get(item, 'type', null) == Content || _.get(item, 'type', null) == Image || _.get(item, 'type', null) == View || _.get(item, 'type', null) == ScrollView || _.get(item, 'type', null) == Fab )) {
 
           return true;
         }
@@ -53,7 +53,7 @@ export default class Container extends NativeBaseComponent {
   renderFooter() {
     if(Array.isArray(this.props.children)) {
       return _.find(this.props.children, function(item) {
-        if(item && item.type == Footer) {
+        if(item && _.get(item, 'type', null) == Footer) {
           return true;
         }
       });

@@ -239,8 +239,8 @@ export default class Fab extends NativeBaseComponent {
         )}
         return newChildren;
     }
-    upAnimate() {
-      if (!this.props.active) {
+    upAnimate(bool) {
+      if (bool) {
         Animated.spring(this.containerHeight, {
             toValue: (this.state.buttons*51.3)+56
         }).start();
@@ -257,9 +257,30 @@ export default class Fab extends NativeBaseComponent {
         }).start();
       }
     }
+    componentWillReceiveProps (nextProps) {
+      const { props: {direction,position} } = this;
+      if(this.props.direction) {
+        if(this.props.direction === 'up') {
+          this.upAnimate(nextProps.active);
+        }
+        else if (this.props.direction === 'left') {
+          this.leftAnimate(nextProps.active);
+        }
 
-    leftAnimate() {
-      if (!this.state.active) {
+        else if (this.props.direction === 'right') {
+          this.rightAnimate(nextProps.active);
+        }
+         else if(this.props.direction === 'down') {
+          this.downAnimate(nextProps.active);
+        }
+      }
+      else {
+        this.upAnimate(nextProps.active);
+      }
+    }
+    
+    leftAnimate(bool) {
+      if (bool) {
         Animated.spring(this.containerWidth, {
             toValue: (this.state.buttons*51.3)+56
         }).start();
@@ -280,8 +301,8 @@ export default class Fab extends NativeBaseComponent {
       }
     }
 
-    rightAnimate() {
-      if (!this.state.active) {
+    rightAnimate(bool) {
+      if (bool) {
         Animated.spring(this.containerWidth, {
             toValue: (this.state.buttons*51.3)+56
         }).start();
@@ -302,8 +323,8 @@ export default class Fab extends NativeBaseComponent {
       }
     }
 
-    downAnimate() {
-      if (!this.state.active) {
+    downAnimate(bool) {
+      if (bool) {
         Animated.spring(this.containerHeight, {
             toValue: (56)
         }).start();
@@ -324,48 +345,18 @@ export default class Fab extends NativeBaseComponent {
       }
     }
 
-    _animate() {
-
-      const { props: {direction,position} } = this;
-      if(this.props.direction) {
-        if(this.props.direction === 'up') {
-          this.upAnimate();
-        }
-        else if (this.props.direction === 'left') {
-          this.leftAnimate();
-        }
-
-        else if (this.props.direction === 'right') {
-          this.rightAnimate();
-        }
-         else if(this.props.direction === 'down') {
-          this.downAnimate();
-        }
-      }
-      else {
-        this.upAnimate();
-      }
-     }
-
     fabOnPress() {
       if(this.props.onPress) {
         this.props.onPress();
-        this._animate();
       }
     }
 
     render() {
         const { props: {active} } = this;
-        if(!this.props.active) {
-          this.containerHeight = new Animated.Value(56);
-          this.containerWidth = new Animated.Value(56);
-          this.buttonScale = new Animated.Value(0);
-        }
-        else {
-          this.containerHeight = this.containerHeight || new Animated.Value(0);
-          this.containerWidth = this.containerWidth || new Animated.Value(0);
-          this.buttonScale = this.buttonScale || new Animated.Value(0);
-        }
+       
+        this.containerHeight = this.containerHeight || new Animated.Value(56);
+        this.containerWidth = this.containerWidth || new Animated.Value(0);
+        this.buttonScale = this.buttonScale || new Animated.Value(0);
         return(
             <Animated.View style={this.getContainerStyle()}>
               {this.renderButtons()}

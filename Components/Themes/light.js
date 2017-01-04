@@ -105,6 +105,7 @@ export default {
     // Footer
     footerHeight: 55,
     footerDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
+    footerBtnMargin: 1,
 
 
     //FooterTab
@@ -112,6 +113,8 @@ export default {
     tabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#007aff' : '#fff',
     tabActiveBgColor: (Platform.OS=='ios') ? '#cde1f9' : undefined,
     tabActiveBorderRadius: (Platform.OS=='ios') ? 7 : undefined,
+    tabBarTextSize:  (Platform.OS=='ios') ? 12.5 : 10,
+    tabBarActiveTextSize:  (Platform.OS=='ios') ? 12.5 : 11,
 
     //Tab
     tabDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
@@ -178,6 +181,7 @@ export default {
     listItemPadding: (Platform.OS === 'ios' ) ? 12 : 16,
     listNoteColor: '#808080',
     listNoteSize: 13,
+    listMarginLeft: 15,
 
 
     // Progress Bar
@@ -208,6 +212,7 @@ export default {
     // Text
     textColor: '#000',
     inverseTextColor: '#fff',
+    textBgColor: 'transparent',
 
 
     // Title

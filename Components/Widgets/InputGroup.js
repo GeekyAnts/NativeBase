@@ -70,8 +70,8 @@ export default class InputGroup extends NativeBaseComponent {
 
   prepareRootProps() {
     var type = {
-      paddingLeft:  (this.props.borderType === 'rounded' && !this.props.children.type == Icon) ? 15 :
-      (this.props.children.type == Icon ) ? this.getTheme().inputPaddingLeftIcon : this.getTheme().inputPaddingLeft
+      paddingLeft:  (this.props.borderType === 'rounded' && ! _.get(this.props.children, 'type', null) == Icon) ? 15 :
+      ( _.get(this.props.children, 'type', null) == Icon ) ? this.getTheme().inputPaddingLeftIcon : 5
     }
 
     var defaultStyle = (this.props.borderType === 'regular') ? this.getInitialStyle().bordered : (this.props.borderType === 'rounded') ? this.getInitialStyle().rounded : this.getInitialStyle().underline;
@@ -132,7 +132,7 @@ export default class InputGroup extends NativeBaseComponent {
 
     var iconElement = [];
     iconElement = _.remove(childrenArray, function(item) {
-        if(item.type == Icon) {
+        if(_.get(item, 'type', null) == Icon) {
             return true;
         }
     });
@@ -140,13 +140,13 @@ export default class InputGroup extends NativeBaseComponent {
     var buttonElement = [];
 
     buttonElement = _.remove(childrenArray, function(item) {
-      if(item.type == Button) {
+      if(_.get(item, 'type', null) == Button) {
         return true;
       }
     });
 
     var inp = _.find(childrenArray, function(item) {
-      if (item) {
+      if(item && (_.get(item, 'type', null) == Input || _.get(item, 'type', null) == Picker)) {
         return true;
       }
     });
