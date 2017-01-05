@@ -82,7 +82,19 @@ export default (variables = variable) => {
     },
 
     'NativeBase.CardItem': {
-      ...cardItemTheme(variables),
+      ...cardItemTheme(variables), 
+      '.cardBody': {
+        padding: -5,
+        'NativeBase.Text': {
+          marginTop: 5,
+        },
+      },
+      'NativeBase.Icon': {
+        paddingRight: 10,
+      },
+      'NativeBase.IconNB': {
+        paddingRight: 10,
+      },
       flexDirection: 'row',
       alignItems: 'center',
     },
@@ -127,6 +139,13 @@ export default (variables = variable) => {
       'NativeBase.CheckBox': {
         marginLeft: -10,
         marginRight: 10,
+      },
+      'NativeBase.Text': {
+        '.note': {
+          color: variables.listNoteColor,
+          fontWeight: '200',
+        },
+        alignSelf: 'center',
       },
     },
 

@@ -4,7 +4,10 @@
 import React from 'react';
 import { Platform, View } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
-import { Icon, Icon as IconNB, Button, Badge } from 'native-base';
+
+import _ from 'lodash';
+import { Icon } from './Icon';
+import { IconNB, Button, Badge } from 'native-base';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import { Text } from './Text';
@@ -28,13 +31,14 @@ class FooterTab extends NativeBaseComponent {
       } else {
         let iconElement = [];
         iconElement = _.remove(children, (item) => {
-          if (item.type === IconNB) {
+          if (item.type.displayName === "Styled(Icon)") {
             return true;
           }
         });
+        console.log(iconElement);
         let badgeElement = [];
         badgeElement = _.remove(children, (item) => {
-          if (item.type === Badge) {
+          if (item.type.displayName === "Styled(Badge)") {
             return true;
           }
         });

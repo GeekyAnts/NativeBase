@@ -34,7 +34,6 @@ export default (variables = variable) => {
         alignItems: 'center',
       },
       '.cardBody': {
-        flexDirection: 'column',
         'NativeBase.Text': {
           marginTop: 5,
         },

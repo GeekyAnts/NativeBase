@@ -32,7 +32,8 @@ const childrenType = function childrenType(props, propName, component) {
   let error;
   const prop = props[propName];
   React.Children.forEach(prop, (child) => {
-    if ((typeof child !== 'string') && (child.type.displayName !== 'Styled(Icon)') && (child.type.displayName !== 'Styled(Text)')) {
+    console.log(child);
+    if ((typeof child !== 'string') && (child.type.displayName !== 'Styled(Icon)') && (child.type.displayName !== 'Styled(Text)') && (child.type.displayName !== 'Styled(AnimatedComponent)')) {
       error = new Error(`${component} can have only Text or Icon components`);
     }
   });
