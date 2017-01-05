@@ -50,9 +50,9 @@ export default class Footer extends NativeBaseComponent {
                 alignSelf: 'center',
                 flex: 1,
                 justifyContent: 'center',
-                margin: 1,
-                height: this.getTheme().footerHeight-4,
-                borderRadius: (Platform.OS == 'ios') ? this.getTheme().tabActiveBorderRadius : 0
+                margin: this.getTheme().footerBtnMargin !== undefined ? this.getTheme().footerBtnMargin : 1,
+                height: this.getTheme().footerHeight - 4 * (this.getTheme().footerBtnMargin !== undefined ? this.getTheme().footerBtnMargin : 1),
+                borderRadius: this.getTheme().tabActiveBorderRadius !== undefined ? this.getTheme().tabActiveBorderRadius : 0
             }
         }
     }
