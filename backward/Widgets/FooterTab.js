@@ -31,14 +31,14 @@ class FooterTab extends NativeBaseComponent {
       } else {
         let iconElement = [];
         iconElement = _.remove(children, (item) => {
-          if (item.type.displayName === "Styled(Icon)") {
+          if (item.type.displayName === Icon) {
             return true;
           }
         });
         console.log(iconElement);
         let badgeElement = [];
         badgeElement = _.remove(children, (item) => {
-          if (item.type.displayName === "Styled(Badge)") {
+          if (item.type.displayName === Badge) {
             return true;
           }
         });
