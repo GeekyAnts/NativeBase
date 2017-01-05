@@ -10,7 +10,7 @@ export default (variables = variable) => {
       },
       flex: 1,
       backgroundColor: 'transparent',
-      marginBottom: (Platform.OS === 'ios') ? -20 : undefined,
+      marginBottom: (Platform.OS === 'ios') ? -20 : 23,
   };
 
   return contentTheme;

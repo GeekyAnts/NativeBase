@@ -11,11 +11,18 @@ import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 class Icon extends Component {
 
   getName() {
-    if (Platform.OS === 'ios') {
-      return (this.props.active) ? ic[this.props.name].ios.active : ic[this.props.name].ios.default;
-    } else {
-      return (this.props.active) ?
-      ic[this.props.name].android.active : ic[this.props.name].android.default;
+    let n = this.props.name.indexOf('ios-');
+    let m = this.props.name.indexOf('md-');
+    if(n != -1 || m != -1){
+      return this.props.name;
+    }
+    else {
+      if (Platform.OS === 'ios') {
+        return (this.props.active) ? ic[this.props.name].ios.active : ic[this.props.name].ios.default;
+      } else {
+        return (this.props.active) ?
+        ic[this.props.name].android.active : ic[this.props.name].android.default;
+      }
     }
   }
 
