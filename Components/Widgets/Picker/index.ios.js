@@ -12,7 +12,7 @@ import Icon from './../Icon';
 import Container from './Container';
 import Content from './Content';
 import ListItem from './ListItem';
-import Button from './Button';
+import Button from './../Button';
 import Header from './Header';
 import Title from './Title';
 import _ from 'lodash';

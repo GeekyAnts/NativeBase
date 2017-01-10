@@ -6,6 +6,7 @@ import { TouchableOpacity, Platform } from 'react-native';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import computeProps from '../../../Utils/computeProps';
 import IconNB from './../Icon';
+import Icon from './../Icon';
 import Text from './../Text';
 import _ from 'lodash';
 import ReactNativePropRegistry from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativePropRegistry';

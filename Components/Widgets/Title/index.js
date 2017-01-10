@@ -5,7 +5,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import Text from './../Text';
-import View from './View';
+import View from './../View';
 import computeProps from '../../../Utils/computeProps';
 
 

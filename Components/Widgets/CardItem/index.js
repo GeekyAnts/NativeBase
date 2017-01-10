@@ -8,7 +8,7 @@ import computeProps from '../../../Utils/computeProps';
 import Icon from './../Icon';
 import Text from './../Text';
 import View from './View';
-import Button from './Button';
+import Button from './../Button';
 import Thumbnail from './Thumbnail';
 import Gravatar from './Gravatar';
 

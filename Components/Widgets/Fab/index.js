@@ -4,7 +4,7 @@
 import React from 'react';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import computeProps from '../../../Utils/computeProps';
-import Button from './Button';
+import Button from './../Button';
 import { Platform, Animated, Dimensions, TouchableOpacity, TouchableNativeFeedback } from 'react-native';
 import View from './View';
 import Icon from './../Icon';

@@ -5,10 +5,10 @@ import React from 'react';
 import {View, Platform} from 'react-native';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import Icon from './../Icon';
-import Button from './Button';
+import Button from './../Button';
 import computeProps from '../../../Utils/computeProps';
-import Input from './Input';
-import Picker from './Picker';
+import Input from './../Input';
+import Picker from './../Picker';
 import _ from 'lodash';
 
 export default class InputGroup extends NativeBaseComponent {
