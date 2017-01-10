@@ -19,7 +19,8 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": ["/node_modules/"]
   },
   "version": "0.5.20",
   "private": false,
