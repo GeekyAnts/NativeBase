@@ -14,7 +14,7 @@
     "packager",
     "rnpm"
   ],
-  "version": "0.5.20",
+  "version": "0.5.21",
   "private": false,
   "dependencies": {
     "blueimp-md5": "^2.5.0",
@@ -24,7 +24,7 @@
     "react-native-checkbox": "~1.0.8",
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
-    "react-native-vector-icons": "~3.0.0"
+    "react-native-vector-icons": "~4.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
@@ -59,7 +59,7 @@
   ],
   "optionalDependencies": {},
   "peerDependencies": {
-    "react-native": ">=0.38.0",
+    "react-native": ">=0.40.0",
     "react": ">=15.4.0"
   },
   "repository": {
