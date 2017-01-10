@@ -19,7 +19,7 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "jest-react-native"
+    "preset": "react-native"
   },
   "version": "0.5.20",
   "private": false,
