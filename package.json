@@ -15,6 +15,7 @@
     "rnpm"
   ],
   "scripts": {
+    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
     "test": "jest"
   },
   "jest": {
@@ -45,6 +46,8 @@
     "eslint-plugin-react-native": "^2.0.0",
     "jest": "^16.0.2",
     "jest-react-native": "^16.0.0",
+    "react": "^15.4.2",
+    "react-native": "^0.39.2",
     "react-test-renderer": "^15.3.2"
   },
   "directories": {},
@@ -86,8 +89,5 @@
     "assets": [
       "Fonts"
     ]
-  },
-  "scripts": {
-    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps"
   }
 }
