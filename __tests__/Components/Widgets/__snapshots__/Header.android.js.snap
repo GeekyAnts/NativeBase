@@ -49,35 +49,25 @@ exports[`test renders header with a null button 1`] = `
   <View
     style={
       Object {
-        "alignSelf": "stretch",
-        "flex": 3,
         "justifyContent": "center",
       }
     }>
-    <View
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
       style={
         Object {
-          "justifyContent": "center",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "color": "#fff",
+          "fontFamily": "Roboto_medium",
+          "fontSize": 19,
+          "lineHeight": 24,
         }
       }>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "alignSelf": "flex-start",
-            "backgroundColor": "transparent",
-            "color": "#fff",
-            "fontFamily": "Roboto_medium",
-            "fontSize": 19,
-            "fontWeight": undefined,
-            "lineHeight": 24,
-          }
-        }>
-        Header
-      </Text>
-    </View>
+      Header
+    </Text>
   </View>
 </View>
 `;
@@ -143,10 +133,6 @@ exports[`test renders header with buttons 1`] = `
           "opacity": 1,
           "paddingHorizontal": 15,
           "paddingVertical": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
         }
       }
       testID={undefined}>
@@ -164,7 +150,6 @@ exports[`test renders header with buttons 1`] = `
               "color": "#fff",
               "fontSize": 28,
               "lineHeight": 21,
-              "marginBottom": undefined,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -202,7 +187,6 @@ exports[`test renders header with buttons 1`] = `
             "color": "#fff",
             "fontFamily": "Roboto_medium",
             "fontSize": 19,
-            "fontWeight": undefined,
             "lineHeight": 24,
           }
         }>
@@ -247,10 +231,6 @@ exports[`test renders header with buttons 1`] = `
           "opacity": 1,
           "paddingHorizontal": 15,
           "paddingVertical": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
         }
       }
       testID={undefined}>
@@ -268,7 +248,6 @@ exports[`test renders header with buttons 1`] = `
               "color": "#fff",
               "fontSize": 28,
               "lineHeight": 21,
-              "marginBottom": undefined,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -345,10 +324,6 @@ exports[`test renders header with buttons and subtitle 1`] = `
           "opacity": 1,
           "paddingHorizontal": 15,
           "paddingVertical": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
         }
       }
       testID={undefined}>
@@ -366,7 +341,6 @@ exports[`test renders header with buttons and subtitle 1`] = `
               "color": "#fff",
               "fontSize": 28,
               "lineHeight": 21,
-              "marginBottom": undefined,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -404,7 +378,6 @@ exports[`test renders header with buttons and subtitle 1`] = `
             "color": "#fff",
             "fontFamily": "Roboto_medium",
             "fontSize": 19,
-            "fontWeight": undefined,
             "lineHeight": 24,
           }
         }>
@@ -449,10 +422,6 @@ exports[`test renders header with buttons and subtitle 1`] = `
           "opacity": 1,
           "paddingHorizontal": 15,
           "paddingVertical": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
         }
       }
       testID={undefined}>
@@ -470,7 +439,6 @@ exports[`test renders header with buttons and subtitle 1`] = `
               "color": "#fff",
               "fontSize": 28,
               "lineHeight": 21,
-              "marginBottom": undefined,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -547,10 +515,6 @@ exports[`test renders header with just one button 1`] = `
           "opacity": 1,
           "paddingHorizontal": 15,
           "paddingVertical": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
         }
       }
       testID={undefined}>
@@ -568,7 +532,6 @@ exports[`test renders header with just one button 1`] = `
               "color": "#fff",
               "fontSize": 28,
               "lineHeight": 21,
-              "marginBottom": undefined,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -606,7 +569,6 @@ exports[`test renders header with just one button 1`] = `
             "color": "#fff",
             "fontFamily": "Roboto_medium",
             "fontSize": 19,
-            "fontWeight": undefined,
             "lineHeight": 24,
           }
         }>
@@ -666,7 +628,6 @@ exports[`test renders header with just one button and iconRight 1`] = `
             "color": "#fff",
             "fontFamily": "Roboto_medium",
             "fontSize": 19,
-            "fontWeight": undefined,
             "lineHeight": 24,
           }
         }>
@@ -712,10 +673,6 @@ exports[`test renders header with just one button and iconRight 1`] = `
           "opacity": 1,
           "paddingHorizontal": 15,
           "paddingVertical": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
         }
       }
       testID={undefined}>
@@ -733,7 +690,6 @@ exports[`test renders header with just one button and iconRight 1`] = `
               "color": "#fff",
               "fontSize": 28,
               "lineHeight": 21,
-              "marginBottom": undefined,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -810,10 +766,6 @@ exports[`test renders header with just one button and subtitle 1`] = `
           "opacity": 1,
           "paddingHorizontal": 15,
           "paddingVertical": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
         }
       }
       testID={undefined}>
@@ -831,7 +783,6 @@ exports[`test renders header with just one button and subtitle 1`] = `
               "color": "#fff",
               "fontSize": 28,
               "lineHeight": 21,
-              "marginBottom": undefined,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -869,7 +820,6 @@ exports[`test renders header with just one button and subtitle 1`] = `
             "color": "#fff",
             "fontFamily": "Roboto_medium",
             "fontSize": 19,
-            "fontWeight": undefined,
             "lineHeight": 24,
           }
         }>
@@ -929,7 +879,6 @@ exports[`test renders header with just one button, iconRight and a subtitle 1`] 
             "color": "#fff",
             "fontFamily": "Roboto_medium",
             "fontSize": 19,
-            "fontWeight": undefined,
             "lineHeight": 24,
           }
         }>
@@ -975,10 +924,6 @@ exports[`test renders header with just one button, iconRight and a subtitle 1`] 
           "opacity": 1,
           "paddingHorizontal": 15,
           "paddingVertical": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
         }
       }
       testID={undefined}>
@@ -996,7 +941,6 @@ exports[`test renders header with just one button, iconRight and a subtitle 1`] 
               "color": "#fff",
               "fontSize": 28,
               "lineHeight": 21,
-              "marginBottom": undefined,
             },
             Object {
               "fontFamily": "Ionicons",
