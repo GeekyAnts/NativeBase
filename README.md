@@ -1,6 +1,7 @@
 # NativeBase v0.5.20
 Essential cross-platform UI components for React Native
 
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
 
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/Screenshots/iOS/demo.gif)
 
