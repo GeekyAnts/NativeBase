@@ -7,7 +7,7 @@ import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import computeProps from '../../../Utils/computeProps';
 import Icon from './../Icon';
 import Text from './../Text';
-import View from './View';
+import View from './../View';
 import Button from './../Button';
 import Badge from './Badge';
 import Thumbnail from './Thumbnail';

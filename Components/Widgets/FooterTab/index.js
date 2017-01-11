@@ -6,7 +6,7 @@ import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import computeProps from '../../../Utils/computeProps';
 import Button from './../Button';
 import { Platform } from 'react-native';
-import View from './View';
+import View from './../View';
 import Icon from './../Icon';
 import Badge from './Badge';
 import IconNB from './../Icon';

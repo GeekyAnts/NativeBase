@@ -5,16 +5,16 @@ import React from 'react';
 import {Picker, Modal} from 'react-native';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import computeProps from '../../../Utils/computeProps';
-import View from './View';
+import View from './../View';
 import Text from './../Text';
-import List from './List';
+import List from './../List';
 import Icon from './../Icon';
-import Container from './Container';
-import Content from './Content';
-import ListItem from './ListItem';
+import Container from './../Container';
+import Content from './../Content';
+import ListItem from './../ListItem';
 import Button from './../Button';
-import Header from './Header';
-import Title from './Title';
+import Header from './../Header';
+import Title from './../Title';
 import _ from 'lodash';
 
 export default class PickerNB extends NativeBaseComponent {

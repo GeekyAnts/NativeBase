@@ -3,11 +3,11 @@
 
 import React from 'react';
 import {View, Image, ScrollView} from 'react-native';
-import ViewNB from './View';
-import Header from './Header';
-import Content from './Content';
-import Footer from './Footer';
-import Fab from './Fab';
+import ViewNB from './../View';
+import Header from './../Header';
+import Content from './../Content';
+import Footer from './../Footer';
+import Fab from './../Fab';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import _ from 'lodash';
 import computeProps from '../../../Utils/computeProps';

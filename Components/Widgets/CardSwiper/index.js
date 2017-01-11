@@ -5,7 +5,7 @@ import React from 'react';
 import clamp from 'clamp';
 import {Animated, PanResponder} from 'react-native';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
-import View from './View';
+import View from './../View';
 
 
 var SWIPE_THRESHOLD = 120;

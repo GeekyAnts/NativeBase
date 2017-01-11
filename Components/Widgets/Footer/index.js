@@ -3,7 +3,7 @@
 
 import React from 'react';
 import {Platform} from 'react-native';
-import View from './View';
+import View from './../View';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import computeProps from '../../../Utils/computeProps';
 
