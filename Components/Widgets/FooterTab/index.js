@@ -8,7 +8,7 @@ import Button from './../Button';
 import { Platform } from 'react-native';
 import View from './../View';
 import Icon from './../Icon';
-import Badge from './Badge';
+import Badge from './../Badge';
 import IconNB from './../Icon';
 import Text from './../Text';
 import _ from 'lodash';

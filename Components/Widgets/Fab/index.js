@@ -8,8 +8,7 @@ import Button from './../Button';
 import { Platform, Animated, Dimensions, TouchableOpacity, TouchableNativeFeedback } from 'react-native';
 import View from './../View';
 import Icon from './../Icon';
-import Badge from './Badge';
-import IconNB from './../Icon';
+import Badge from './../Badge';
 import Text from './../Text';
 import _ from 'lodash';
 

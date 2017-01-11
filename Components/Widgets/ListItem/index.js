@@ -9,13 +9,13 @@ import Icon from './../Icon';
 import Text from './../Text';
 import View from './../View';
 import Button from './../Button';
-import Badge from './Badge';
-import Thumbnail from './Thumbnail';
-import Gravatar from './Gravatar';
-import CheckBox from './Checkbox';
+import Badge from './../Badge';
+import Thumbnail from './../Thumbnail';
+import Gravatar from './../Gravatar';
+import CheckBox from './../Checkbox';
 import Picker from './../Picker';
-import Radio from './Radio';
-import InputGroup from './InputGroup';
+import Radio from './../Radio';
+import InputGroup from './../InputGroup';
 import _ from 'lodash';
 
 export default class ListItemNB extends NativeBaseComponent {

@@ -9,8 +9,8 @@ import Icon from './../Icon';
 import Text from './../Text';
 import View from './../View';
 import Button from './../Button';
-import Thumbnail from './Thumbnail';
-import Gravatar from './Gravatar';
+import Thumbnail from './../Thumbnail';
+import Gravatar from './../Gravatar';
 
 export default class CardItemNB extends NativeBaseComponent {
 
