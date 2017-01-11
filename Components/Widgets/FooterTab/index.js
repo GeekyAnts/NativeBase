@@ -9,7 +9,6 @@ import { Platform } from 'react-native';
 import View from './../View';
 import Icon from './../Icon';
 import Badge from './../Badge';
-import IconNB from './../Icon';
 import Text from './../Text';
 import _ from 'lodash';
 export default class Footer extends NativeBaseComponent {
@@ -86,7 +85,7 @@ export default class Footer extends NativeBaseComponent {
             else {
                 let iconElement = [];
                 iconElement = _.remove(children, function(item) {
-                    if(_.get(item, 'type', null) == IconNB) {
+                    if(_.get(item, 'type', null) == Icon) {
                         return true;
                     }
                 });

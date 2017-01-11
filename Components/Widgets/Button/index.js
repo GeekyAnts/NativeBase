@@ -5,7 +5,6 @@ import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import computeProps from '../../../Utils/computeProps';
-import IconNB from './../Icon';
 import Icon from './../Icon';
 import Text from './../Text';
 import _ from 'lodash';
@@ -160,7 +159,7 @@ export default class Button extends NativeBaseComponent {
             return <Text style={this.getTextStyle()}>{(Platform.OS==='ios' || !this.props.capitalize) ? this.props.children : this.props.children.toUpperCase()}</Text>
         }
 
-        else if(_.get(this.props.children, 'type', null) == IconNB) {
+        else if(_.get(this.props.children, 'type', null) == Icon) {
             return React.cloneElement(this.props.children, this.getIconProps(this.props.children));
         }
 
@@ -171,7 +170,7 @@ export default class Button extends NativeBaseComponent {
 
             var iconElement = [];
             iconElement = _.remove(childrenArray, function(item) {
-                if(_.get(item, 'type', null) == IconNB) {
+                if(_.get(item, 'type', null) == Icon) {
                     return true;
                 }
             });
