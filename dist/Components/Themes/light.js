@@ -105,6 +105,7 @@ return this.fontSizeBase*1.4;
 
 footerHeight:55,
 footerDefaultBg:_reactNative.Platform.OS==='ios'?'#F8F8F8':'#4179F7',
+footerBtnMargin:1,
 
 
 
@@ -180,6 +181,7 @@ listItemHeight:45,
 listItemPadding:_reactNative.Platform.OS==='ios'?12:16,
 listNoteColor:'#808080',
 listNoteSize:13,
+listMarginLeft:15,
 
 
 
@@ -210,6 +212,7 @@ tabTextColor:'#222222',
 
 textColor:'#000',
 inverseTextColor:'#fff',
+textBgColor:'transparent',
 
 
 
