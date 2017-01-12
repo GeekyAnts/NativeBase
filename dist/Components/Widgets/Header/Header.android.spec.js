@@ -121,4 +121,4 @@ _react2.default.createElement(_Subtitle2.default,null,'SubTitle'))).
 toJSON();
 expect(tree).toMatchSnapshot();
 });
-//# sourceMappingURL=Header.android.specc.js.map
+//# sourceMappingURL=Header.android.spec.js.map

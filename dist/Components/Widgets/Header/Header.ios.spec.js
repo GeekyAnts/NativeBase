@@ -137,4 +137,4 @@ _react2.default.createElement(_Button2.default,{transparent:true},'Search'))).
 toJSON();
 expect(tree).toMatchSnapshot();
 });
-//# sourceMappingURL=Header.ios.specc.js.map
+//# sourceMappingURL=Header.ios.spec.js.map

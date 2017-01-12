@@ -21,4 +21,4 @@ _react2.default.createElement(_index2.default,null,'Test')).
 toJSON();
 expect(tree).toMatchSnapshot();
 });
-//# sourceMappingURL=Button.ios.specc.js.map
+//# sourceMappingURL=Button.ios.spec.js.map
