@@ -44,7 +44,8 @@
   },
   "files": [
     "dist",
-    "index.d.ts"
+    "index.d.ts",
+    "Fonts"
   ],
   "gitHead": "a8504267642c8bafe763ce292bcf0e97737fd0e4",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
