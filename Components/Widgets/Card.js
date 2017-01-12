@@ -16,7 +16,6 @@ export default class CardNB extends NativeBaseComponent {
         return {
             card: {
                 marginVertical: 5,
-                flex: 1,
                 borderWidth: this.getTheme().borderWidth,
                 borderRadius: 2,
                 borderColor: this.getTheme().listBorderColor,
