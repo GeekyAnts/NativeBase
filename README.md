@@ -1,4 +1,7 @@
 # NativeBase v0.5.20
+
+[![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase)
+
 Essential cross-platform UI components for React Native
 
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/Screenshots/iOS/demo.gif)
