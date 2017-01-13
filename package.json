@@ -32,7 +32,7 @@
     "react-native-checkbox": "~1.0.8",
     "react-native-easy-grid": "0.1.8",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
-    "react-native-vector-icons": "~0.4.0"
+    "react-native-vector-icons": "~4.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
