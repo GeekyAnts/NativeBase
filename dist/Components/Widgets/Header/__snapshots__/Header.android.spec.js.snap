@@ -3,14 +3,14 @@ exports[`test renders correctly 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#F8F8F8",
+      "backgroundColor": "#4179F7",
       "elevation": 3,
       "flexDirection": "row",
-      "height": 64,
-      "justifyContent": "center",
+      "height": 56,
+      "justifyContent": "space-between",
       "paddingHorizontal": 15,
-      "paddingLeft": undefined,
-      "paddingTop": 15,
+      "paddingLeft": 30,
+      "paddingTop": 0,
       "position": "relative",
       "shadowColor": "#000",
       "shadowOffset": Object {
@@ -28,14 +28,14 @@ exports[`test renders header with a null button 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#F8F8F8",
+      "backgroundColor": "#4179F7",
       "elevation": 3,
       "flexDirection": "row",
-      "height": 64,
+      "height": 56,
       "justifyContent": "space-between",
       "paddingHorizontal": 15,
       "paddingLeft": undefined,
-      "paddingTop": 15,
+      "paddingTop": 0,
       "position": "relative",
       "shadowColor": "#000",
       "shadowOffset": Object {
@@ -49,63 +49,9 @@ exports[`test renders header with a null button 1`] = `
   <View
     style={
       Object {
+        "alignSelf": "stretch",
+        "flex": 3,
         "justifyContent": "center",
-      }
-    }>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "alignSelf": "center",
-          "backgroundColor": "transparent",
-          "color": "#000",
-          "fontFamily": "HelveticaNeue",
-          "fontSize": 17,
-          "fontWeight": "500",
-          "lineHeight": 20,
-        }
-      }>
-      Header
-    </Text>
-  </View>
-</View>
-`;
-
-exports[`test renders header with buttons 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#F8F8F8",
-      "elevation": 3,
-      "flexDirection": "row",
-      "height": 64,
-      "justifyContent": "space-between",
-      "paddingHorizontal": 15,
-      "paddingLeft": undefined,
-      "paddingTop": 15,
-      "position": "relative",
-      "shadowColor": "#000",
-      "shadowOffset": Object {
-        "height": 2,
-        "width": 0,
-      },
-      "shadowOpacity": 0.1,
-      "shadowRadius": 1.5,
-    }
-  }>
-  <View
-    style={
-      Object {
-        "alignSelf": "center",
-        "bottom": 0,
-        "justifyContent": "center",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 13,
       }
     }>
     <View
@@ -120,26 +66,52 @@ exports[`test renders header with buttons 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "alignSelf": "center",
+            "alignSelf": "flex-start",
             "backgroundColor": "transparent",
-            "color": "#000",
-            "fontFamily": "HelveticaNeue",
-            "fontSize": 17,
-            "fontWeight": "500",
-            "lineHeight": 20,
+            "color": "#fff",
+            "fontFamily": "Roboto_medium",
+            "fontSize": 19,
+            "lineHeight": 24,
           }
         }>
         Header
       </Text>
     </View>
   </View>
+</View>
+`;
+
+exports[`test renders header with buttons 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#4179F7",
+      "elevation": 3,
+      "flexDirection": "row",
+      "height": 56,
+      "justifyContent": "space-between",
+      "paddingHorizontal": 15,
+      "paddingLeft": undefined,
+      "paddingTop": 0,
+      "position": "relative",
+      "shadowColor": "#000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.1,
+      "shadowRadius": 1.5,
+    }
+  }>
   <View
     style={
       Object {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-start",
-        "marginLeft": -14,
+        "marginLeft": -10,
+        "marginRight": 12,
       }
     }>
     <View
@@ -161,7 +133,7 @@ exports[`test renders header with buttons 1`] = `
           "alignSelf": "flex-start",
           "backgroundColor": "rgba(0,0,0,0)",
           "borderColor": "#5067FF",
-          "borderRadius": 5,
+          "borderRadius": 2,
           "borderWidth": 0,
           "elevation": 0,
           "flexDirection": "row",
@@ -184,9 +156,9 @@ exports[`test renders header with buttons 1`] = `
               "fontSize": 12,
             },
             Object {
-              "color": "#007aff",
-              "fontSize": 25,
-              "lineHeight": 28,
+              "color": "#fff",
+              "fontSize": 28,
+              "lineHeight": 21,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -204,15 +176,40 @@ exports[`test renders header with buttons 1`] = `
       Object {
         "alignSelf": "stretch",
         "flex": 3,
+        "justifyContent": "center",
       }
-    } />
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "backgroundColor": "transparent",
+            "color": "#fff",
+            "fontFamily": "Roboto_medium",
+            "fontSize": 19,
+            "lineHeight": 24,
+          }
+        }>
+        Header
+      </Text>
+    </View>
+  </View>
   <View
     style={
       Object {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-start",
-        "marginRight": -14,
+        "marginRight": -7,
       }
     }>
     <View
@@ -234,7 +231,7 @@ exports[`test renders header with buttons 1`] = `
           "alignSelf": "flex-start",
           "backgroundColor": "rgba(0,0,0,0)",
           "borderColor": "#5067FF",
-          "borderRadius": 5,
+          "borderRadius": 2,
           "borderWidth": 0,
           "elevation": 0,
           "flexDirection": "row",
@@ -257,9 +254,9 @@ exports[`test renders header with buttons 1`] = `
               "fontSize": 12,
             },
             Object {
-              "color": "#007aff",
-              "fontSize": 25,
-              "lineHeight": 28,
+              "color": "#fff",
+              "fontSize": 28,
+              "lineHeight": 21,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -280,14 +277,14 @@ exports[`test renders header with buttons and subtitle 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#F8F8F8",
+      "backgroundColor": "#4179F7",
       "elevation": 3,
       "flexDirection": "row",
-      "height": 64,
+      "height": 56,
       "justifyContent": "space-between",
       "paddingHorizontal": 15,
       "paddingLeft": undefined,
-      "paddingTop": 15,
+      "paddingTop": 0,
       "position": "relative",
       "shadowColor": "#000",
       "shadowOffset": Object {
@@ -301,62 +298,11 @@ exports[`test renders header with buttons and subtitle 1`] = `
   <View
     style={
       Object {
-        "alignSelf": "center",
-        "bottom": 0,
-        "justifyContent": "center",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 13,
-      }
-    }>
-    <View
-      style={
-        Object {
-          "justifyContent": "center",
-        }
-      }>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "transparent",
-            "color": "#000",
-            "fontFamily": "HelveticaNeue",
-            "fontSize": 17,
-            "fontWeight": "500",
-            "lineHeight": 20,
-          }
-        }>
-        Header
-      </Text>
-    </View>
-    <View>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "alignSelf": "center",
-            "color": "#8e8e93",
-            "fontSize": 12,
-          }
-        }>
-        Subtitle
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-start",
-        "marginLeft": -14,
+        "marginLeft": -10,
+        "marginRight": 12,
       }
     }>
     <View
@@ -378,7 +324,7 @@ exports[`test renders header with buttons and subtitle 1`] = `
           "alignSelf": "flex-start",
           "backgroundColor": "rgba(0,0,0,0)",
           "borderColor": "#5067FF",
-          "borderRadius": 5,
+          "borderRadius": 2,
           "borderWidth": 0,
           "elevation": 0,
           "flexDirection": "row",
@@ -401,9 +347,9 @@ exports[`test renders header with buttons and subtitle 1`] = `
               "fontSize": 12,
             },
             Object {
-              "color": "#007aff",
-              "fontSize": 25,
-              "lineHeight": 28,
+              "color": "#fff",
+              "fontSize": 28,
+              "lineHeight": 21,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -421,15 +367,40 @@ exports[`test renders header with buttons and subtitle 1`] = `
       Object {
         "alignSelf": "stretch",
         "flex": 3,
+        "justifyContent": "center",
       }
-    } />
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "backgroundColor": "transparent",
+            "color": "#fff",
+            "fontFamily": "Roboto_medium",
+            "fontSize": 19,
+            "lineHeight": 24,
+          }
+        }>
+        Header
+      </Text>
+    </View>
+  </View>
   <View
     style={
       Object {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-start",
-        "marginRight": -14,
+        "marginRight": -7,
       }
     }>
     <View
@@ -451,7 +422,7 @@ exports[`test renders header with buttons and subtitle 1`] = `
           "alignSelf": "flex-start",
           "backgroundColor": "rgba(0,0,0,0)",
           "borderColor": "#5067FF",
-          "borderRadius": 5,
+          "borderRadius": 2,
           "borderWidth": 0,
           "elevation": 0,
           "flexDirection": "row",
@@ -474,9 +445,9 @@ exports[`test renders header with buttons and subtitle 1`] = `
               "fontSize": 12,
             },
             Object {
-              "color": "#007aff",
-              "fontSize": 25,
-              "lineHeight": 28,
+              "color": "#fff",
+              "fontSize": 28,
+              "lineHeight": 21,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -497,14 +468,14 @@ exports[`test renders header with just one button 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#F8F8F8",
+      "backgroundColor": "#4179F7",
       "elevation": 3,
       "flexDirection": "row",
-      "height": 64,
+      "height": 56,
       "justifyContent": "space-between",
       "paddingHorizontal": 15,
       "paddingLeft": undefined,
-      "paddingTop": 15,
+      "paddingTop": 0,
       "position": "relative",
       "shadowColor": "#000",
       "shadowOffset": Object {
@@ -518,47 +489,11 @@ exports[`test renders header with just one button 1`] = `
   <View
     style={
       Object {
-        "alignSelf": "center",
-        "bottom": 0,
-        "justifyContent": "center",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 13,
-      }
-    }>
-    <View
-      style={
-        Object {
-          "justifyContent": "center",
-        }
-      }>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "transparent",
-            "color": "#000",
-            "fontFamily": "HelveticaNeue",
-            "fontSize": 17,
-            "fontWeight": "500",
-            "lineHeight": 20,
-          }
-        }>
-        Header
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-start",
-        "marginLeft": -14,
+        "marginLeft": -10,
+        "marginRight": 12,
       }
     }>
     <View
@@ -580,7 +515,7 @@ exports[`test renders header with just one button 1`] = `
           "alignSelf": "flex-start",
           "backgroundColor": "rgba(0,0,0,0)",
           "borderColor": "#5067FF",
-          "borderRadius": 5,
+          "borderRadius": 2,
           "borderWidth": 0,
           "elevation": 0,
           "flexDirection": "row",
@@ -603,9 +538,9 @@ exports[`test renders header with just one button 1`] = `
               "fontSize": 12,
             },
             Object {
-              "color": "#007aff",
-              "fontSize": 25,
-              "lineHeight": 28,
+              "color": "#fff",
+              "fontSize": 28,
+              "lineHeight": 21,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -623,45 +558,7 @@ exports[`test renders header with just one button 1`] = `
       Object {
         "alignSelf": "stretch",
         "flex": 3,
-      }
-    } />
-</View>
-`;
-
-exports[`test renders header with just one button and iconRight 1`] = `
-<View
-  iconRight={true}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#F8F8F8",
-      "elevation": 3,
-      "flexDirection": "row",
-      "height": 64,
-      "justifyContent": "space-between",
-      "paddingHorizontal": 15,
-      "paddingLeft": undefined,
-      "paddingTop": 15,
-      "position": "relative",
-      "shadowColor": "#000",
-      "shadowOffset": Object {
-        "height": 2,
-        "width": 0,
-      },
-      "shadowOpacity": 0.1,
-      "shadowRadius": 1.5,
-    }
-  }>
-  <View
-    style={
-      Object {
-        "alignSelf": "center",
-        "bottom": 0,
         "justifyContent": "center",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 13,
       }
     }>
     <View
@@ -676,13 +573,71 @@ exports[`test renders header with just one button and iconRight 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "alignSelf": "center",
+            "alignSelf": "flex-start",
             "backgroundColor": "transparent",
-            "color": "#000",
-            "fontFamily": "HelveticaNeue",
-            "fontSize": 17,
-            "fontWeight": "500",
-            "lineHeight": 20,
+            "color": "#fff",
+            "fontFamily": "Roboto_medium",
+            "fontSize": 19,
+            "lineHeight": 24,
+          }
+        }>
+        Header
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`test renders header with just one button and iconRight 1`] = `
+<View
+  iconRight={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#4179F7",
+      "elevation": 3,
+      "flexDirection": "row",
+      "height": 56,
+      "justifyContent": "space-between",
+      "paddingHorizontal": 15,
+      "paddingLeft": undefined,
+      "paddingTop": 0,
+      "position": "relative",
+      "shadowColor": "#000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.1,
+      "shadowRadius": 1.5,
+    }
+  }>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "flex": 3,
+        "justifyContent": "center",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "backgroundColor": "transparent",
+            "color": "#fff",
+            "fontFamily": "Roboto_medium",
+            "fontSize": 19,
+            "lineHeight": 24,
           }
         }>
         Header
@@ -692,17 +647,11 @@ exports[`test renders header with just one button and iconRight 1`] = `
   <View
     style={
       Object {
-        "alignSelf": "stretch",
-        "flex": 3,
-      }
-    } />
-  <View
-    style={
-      Object {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-start",
-        "marginLeft": -14,
+        "marginLeft": -10,
+        "marginRight": 12,
       }
     }>
     <View
@@ -724,7 +673,7 @@ exports[`test renders header with just one button and iconRight 1`] = `
           "alignSelf": "flex-start",
           "backgroundColor": "rgba(0,0,0,0)",
           "borderColor": "#5067FF",
-          "borderRadius": 5,
+          "borderRadius": 2,
           "borderWidth": 0,
           "elevation": 0,
           "flexDirection": "row",
@@ -747,9 +696,9 @@ exports[`test renders header with just one button and iconRight 1`] = `
               "fontSize": 12,
             },
             Object {
-              "color": "#007aff",
-              "fontSize": 25,
-              "lineHeight": 28,
+              "color": "#fff",
+              "fontSize": 28,
+              "lineHeight": 21,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -770,14 +719,14 @@ exports[`test renders header with just one button and subtitle 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#F8F8F8",
+      "backgroundColor": "#4179F7",
       "elevation": 3,
       "flexDirection": "row",
-      "height": 64,
+      "height": 56,
       "justifyContent": "space-between",
       "paddingHorizontal": 15,
       "paddingLeft": undefined,
-      "paddingTop": 15,
+      "paddingTop": 0,
       "position": "relative",
       "shadowColor": "#000",
       "shadowOffset": Object {
@@ -791,62 +740,11 @@ exports[`test renders header with just one button and subtitle 1`] = `
   <View
     style={
       Object {
-        "alignSelf": "center",
-        "bottom": 0,
-        "justifyContent": "center",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 13,
-      }
-    }>
-    <View
-      style={
-        Object {
-          "justifyContent": "center",
-        }
-      }>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "transparent",
-            "color": "#000",
-            "fontFamily": "HelveticaNeue",
-            "fontSize": 17,
-            "fontWeight": "500",
-            "lineHeight": 20,
-          }
-        }>
-        Header
-      </Text>
-    </View>
-    <View>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "alignSelf": "center",
-            "color": "#8e8e93",
-            "fontSize": 12,
-          }
-        }>
-        Subtitle
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-start",
-        "marginLeft": -14,
+        "marginLeft": -10,
+        "marginRight": 12,
       }
     }>
     <View
@@ -868,7 +766,7 @@ exports[`test renders header with just one button and subtitle 1`] = `
           "alignSelf": "flex-start",
           "backgroundColor": "rgba(0,0,0,0)",
           "borderColor": "#5067FF",
-          "borderRadius": 5,
+          "borderRadius": 2,
           "borderWidth": 0,
           "elevation": 0,
           "flexDirection": "row",
@@ -891,9 +789,9 @@ exports[`test renders header with just one button and subtitle 1`] = `
               "fontSize": 12,
             },
             Object {
-              "color": "#007aff",
-              "fontSize": 25,
-              "lineHeight": 28,
+              "color": "#fff",
+              "fontSize": 28,
+              "lineHeight": 21,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -911,8 +809,33 @@ exports[`test renders header with just one button and subtitle 1`] = `
       Object {
         "alignSelf": "stretch",
         "flex": 3,
+        "justifyContent": "center",
       }
-    } />
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "backgroundColor": "transparent",
+            "color": "#fff",
+            "fontFamily": "Roboto_medium",
+            "fontSize": 19,
+            "lineHeight": 24,
+          }
+        }>
+        Header
+      </Text>
+    </View>
+  </View>
 </View>
 `;
 
@@ -922,14 +845,14 @@ exports[`test renders header with just one button, iconRight and a subtitle 1`] 
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#F8F8F8",
+      "backgroundColor": "#4179F7",
       "elevation": 3,
       "flexDirection": "row",
-      "height": 64,
+      "height": 56,
       "justifyContent": "space-between",
       "paddingHorizontal": 15,
       "paddingLeft": undefined,
-      "paddingTop": 15,
+      "paddingTop": 0,
       "position": "relative",
       "shadowColor": "#000",
       "shadowOffset": Object {
@@ -943,13 +866,9 @@ exports[`test renders header with just one button, iconRight and a subtitle 1`] 
   <View
     style={
       Object {
-        "alignSelf": "center",
-        "bottom": 0,
+        "alignSelf": "stretch",
+        "flex": 3,
         "justifyContent": "center",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 13,
       }
     }>
     <View
@@ -964,48 +883,26 @@ exports[`test renders header with just one button, iconRight and a subtitle 1`] 
         ellipsizeMode="tail"
         style={
           Object {
-            "alignSelf": "center",
+            "alignSelf": "flex-start",
             "backgroundColor": "transparent",
-            "color": "#000",
-            "fontFamily": "HelveticaNeue",
-            "fontSize": 17,
-            "fontWeight": "500",
-            "lineHeight": 20,
+            "color": "#fff",
+            "fontFamily": "Roboto_medium",
+            "fontSize": 19,
+            "lineHeight": 24,
           }
         }>
         Header
-      </Text>
-    </View>
-    <View>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "alignSelf": "center",
-            "color": "#8e8e93",
-            "fontSize": 12,
-          }
-        }>
-        SubTitle
       </Text>
     </View>
   </View>
   <View
     style={
       Object {
-        "alignSelf": "stretch",
-        "flex": 3,
-      }
-    } />
-  <View
-    style={
-      Object {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-start",
-        "marginLeft": -14,
+        "marginLeft": -10,
+        "marginRight": 12,
       }
     }>
     <View
@@ -1027,7 +924,7 @@ exports[`test renders header with just one button, iconRight and a subtitle 1`] 
           "alignSelf": "flex-start",
           "backgroundColor": "rgba(0,0,0,0)",
           "borderColor": "#5067FF",
-          "borderRadius": 5,
+          "borderRadius": 2,
           "borderWidth": 0,
           "elevation": 0,
           "flexDirection": "row",
@@ -1050,9 +947,9 @@ exports[`test renders header with just one button, iconRight and a subtitle 1`] 
               "fontSize": 12,
             },
             Object {
-              "color": "#007aff",
-              "fontSize": 25,
-              "lineHeight": 28,
+              "color": "#fff",
+              "fontSize": 28,
+              "lineHeight": 21,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -1062,205 +959,6 @@ exports[`test renders header with just one button, iconRight and a subtitle 1`] 
           ]
         }>
         
-      </Text>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`test renders header with searchbar 1`] = `
-<View
-  rounded={true}
-  searchBar={true}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#F8F8F8",
-      "elevation": 3,
-      "flexDirection": "row",
-      "height": 64,
-      "justifyContent": "space-between",
-      "paddingHorizontal": 15,
-      "paddingLeft": undefined,
-      "paddingTop": 15,
-      "position": "relative",
-      "shadowColor": "#000",
-      "shadowOffset": Object {
-        "height": 2,
-        "width": 0,
-      },
-      "shadowOpacity": 0.1,
-      "shadowRadius": 1.5,
-    }
-  }>
-  <View
-    style={
-      Object {
-        "alignSelf": "center",
-        "flex": 1,
-        "flexDirection": "row",
-        "justifyContent": "flex-start",
-        "marginLeft": -7,
-      }
-    }>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#CECDD2",
-          "borderColor": "transparent",
-          "borderLeftWidth": 0,
-          "borderRadius": 25,
-          "borderRightWidth": 0,
-          "borderTopWidth": 0,
-          "borderWidth": 1,
-          "flex": 1,
-          "flexDirection": "row",
-          "height": 30,
-          "paddingLeft": 5,
-          "paddingRight": 5,
-          "position": "relative",
-        }
-      }
-      toolbar={true}>
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": undefined,
-              "fontSize": 12,
-            },
-            Object {
-              "alignSelf": "center",
-              "color": "#000",
-              "fontSize": 20,
-              "lineHeight": 20,
-              "marginLeft": 5,
-              "marginTop": 2,
-              "paddingRight": 5,
-            },
-            Object {
-              "fontFamily": "Ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }>
-        
-      </Text>
-      <View
-        style={
-          Object {
-            "flex": 1,
-          }
-        }>
-        <TextInput
-          editable={undefined}
-          placeholder="Search"
-          placeholderTextColor="#575757"
-          style={
-            Object {
-              "color": "#000",
-              "fontSize": 15,
-              "height": 30,
-              "lineHeight": 24,
-              "marginTop": undefined,
-              "paddingLeft": 5,
-              "paddingRight": 5,
-            }
-          }
-          toolbar={true}
-          underlineColorAndroid="rgba(0,0,0,0)" />
-      </View>
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": undefined,
-              "fontSize": 12,
-            },
-            Object {
-              "alignSelf": "center",
-              "color": "#000",
-              "fontSize": 20,
-              "lineHeight": 20,
-              "marginLeft": 5,
-              "marginTop": 2,
-              "paddingRight": 5,
-            },
-            Object {
-              "fontFamily": "Ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }>
-        
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "marginRight": -14,
-      }
-    }>
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignItems": "center",
-          "alignSelf": "flex-start",
-          "backgroundColor": "rgba(0,0,0,0)",
-          "borderColor": "#5067FF",
-          "borderRadius": 5,
-          "borderWidth": 0,
-          "elevation": 0,
-          "flexDirection": "row",
-          "height": 38,
-          "justifyContent": "space-around",
-          "opacity": 1,
-          "paddingHorizontal": 15,
-          "paddingVertical": 6,
-        }
-      }
-      testID={undefined}>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "backgroundColor": "transparent",
-            "color": "#007aff",
-            "fontFamily": "HelveticaNeue",
-            "fontSize": 16.5,
-            "lineHeight": 19,
-            "marginLeft": 0,
-            "marginRight": 0,
-          }
-        }>
-        Search
       </Text>
     </View>
   </View>
