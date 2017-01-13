@@ -98,6 +98,12 @@ declare module 'native-base' {
             style?: React.ViewStyle
         }
         /**
+         * see Widget Subtitle/index.js
+         */
+        interface SubTitle {
+            style?: React.ViewStyle
+        }
+        /**
          * see Widget Container.js
          */
         interface Container {
