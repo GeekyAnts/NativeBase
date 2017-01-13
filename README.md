@@ -1,4 +1,4 @@
-# NativeBase [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase)[![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base)
+# NativeBase [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base)
 
 Essential cross-platform UI components for React Native
 
