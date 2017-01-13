@@ -30,9 +30,9 @@
     "color": "~0.11.1",
     "lodash": "~4.11.1",
     "react-native-checkbox": "~1.0.8",
-    "react-native-easy-grid": "0.1.7",
+    "react-native-easy-grid": "0.1.8",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
-    "react-native-vector-icons": "~4.0.0"
+    "react-native-vector-icons": "~0.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -53,7 +53,7 @@
   "directories": {},
   "dist": {
     "shasum": "fb3677a4f6e732b4fe60e569e04222399011661f",
-    "tarball": "https://registry.npmjs.org/native-base/-/native-base-0.5.19.tgz"
+    "tarball": "https://registry.npmjs.org/native-base/-/native-base-0.5.21.tgz"
   },
   "files": [
     "dist",
