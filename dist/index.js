@@ -32,6 +32,7 @@ var _Gravatar=require('./Components/Widgets/Gravatar');var _Gravatar2=_interopRe
 var _Checkbox=require('./Components/Widgets/Checkbox');var _Checkbox2=_interopRequireDefault(_Checkbox);
 var _Radio=require('./Components/Widgets/Radio');var _Radio2=_interopRequireDefault(_Radio);
 var _Card=require('./Components/Widgets/Card');var _Card2=_interopRequireDefault(_Card);
+var _Subtitle=require('./Components/Widgets/Subtitle');var _Subtitle2=_interopRequireDefault(_Subtitle);
 var _Badge=require('./Components/Widgets/Badge');var _Badge2=_interopRequireDefault(_Badge);
 var _Spinner=require('./Components/Widgets/Spinner');var _Spinner2=_interopRequireDefault(_Spinner);
 

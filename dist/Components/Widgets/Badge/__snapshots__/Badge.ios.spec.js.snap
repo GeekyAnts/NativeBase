@@ -1,0 +1,30 @@
+exports[`test renders regular badge 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "flex-start",
+      "backgroundColor": "#ED1727",
+      "borderRadius": 13.5,
+      "height": 27,
+      "padding": 3,
+      "paddingHorizontal": 10,
+    }
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "color": "#fff",
+        "fontFamily": "HelveticaNeue",
+        "fontSize": 15,
+        "lineHeight": 19,
+        "textAlign": "center",
+      }
+    }>
+    2
+  </Text>
+</View>
+`;
