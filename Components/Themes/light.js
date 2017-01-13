@@ -105,6 +105,7 @@ export default {
     // Footer
     footerHeight: 55,
     footerDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
+    footerBtnMargin: 1,
 
 
     //FooterTab
@@ -180,6 +181,7 @@ export default {
     listItemPadding: (Platform.OS === 'ios' ) ? 12 : 16,
     listNoteColor: '#808080',
     listNoteSize: 13,
+    listMarginLeft: 15,
 
 
     // Progress Bar
@@ -210,6 +212,7 @@ export default {
     // Text
     textColor: '#000',
     inverseTextColor: '#fff',
+    textBgColor: 'transparent',
 
 
     // Title
