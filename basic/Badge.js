@@ -41,7 +41,7 @@ const childrenType = function childrenType(props, propName, component) {
 };
 Badge.propTypes = {
   ...View.propTypes,
-  children: childrenType,
+//   children: childrenType,
   style: React.PropTypes.object,
 };
 
