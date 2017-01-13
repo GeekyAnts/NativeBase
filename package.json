@@ -16,7 +16,8 @@
   ],
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
-    "test": "jest"
+    "test": "jest",
+    "prepublish": "npm run compile"
   },
   "jest": {
     "preset": "react-native"
