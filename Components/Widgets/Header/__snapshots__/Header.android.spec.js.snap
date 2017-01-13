@@ -157,8 +157,8 @@ exports[`test renders header with buttons 1`] = `
             },
             Object {
               "color": "#fff",
-              "fontSize": 28,
-              "lineHeight": 21,
+              "fontSize": 32,
+              "lineHeight": 36,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -255,8 +255,8 @@ exports[`test renders header with buttons 1`] = `
             },
             Object {
               "color": "#fff",
-              "fontSize": 28,
-              "lineHeight": 21,
+              "fontSize": 32,
+              "lineHeight": 36,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -348,8 +348,8 @@ exports[`test renders header with buttons and subtitle 1`] = `
             },
             Object {
               "color": "#fff",
-              "fontSize": 28,
-              "lineHeight": 21,
+              "fontSize": 32,
+              "lineHeight": 36,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -446,8 +446,8 @@ exports[`test renders header with buttons and subtitle 1`] = `
             },
             Object {
               "color": "#fff",
-              "fontSize": 28,
-              "lineHeight": 21,
+              "fontSize": 32,
+              "lineHeight": 36,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -539,8 +539,8 @@ exports[`test renders header with just one button 1`] = `
             },
             Object {
               "color": "#fff",
-              "fontSize": 28,
-              "lineHeight": 21,
+              "fontSize": 32,
+              "lineHeight": 36,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -697,8 +697,8 @@ exports[`test renders header with just one button and iconRight 1`] = `
             },
             Object {
               "color": "#fff",
-              "fontSize": 28,
-              "lineHeight": 21,
+              "fontSize": 32,
+              "lineHeight": 36,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -790,8 +790,8 @@ exports[`test renders header with just one button and subtitle 1`] = `
             },
             Object {
               "color": "#fff",
-              "fontSize": 28,
-              "lineHeight": 21,
+              "fontSize": 32,
+              "lineHeight": 36,
             },
             Object {
               "fontFamily": "Ionicons",
@@ -948,8 +948,8 @@ exports[`test renders header with just one button, iconRight and a subtitle 1`] 
             },
             Object {
               "color": "#fff",
-              "fontSize": 28,
-              "lineHeight": 21,
+              "fontSize": 32,
+              "lineHeight": 36,
             },
             Object {
               "fontFamily": "Ionicons",
