@@ -4,7 +4,7 @@
 import React from 'react';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import computeProps from '../../../Utils/computeProps';
-import ScrollableTabView from './../vendor/react-native-scrollable-tab-view';
+import ScrollableTabView from './../../vendor/react-native-scrollable-tab-view';
 
 export default class TabNB extends NativeBaseComponent {
     propTypes: {
