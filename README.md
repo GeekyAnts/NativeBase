@@ -1,7 +1,6 @@
 # NativeBase v0.5.20
 Essential cross-platform UI components for React Native
 
-
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/Screenshots/iOS/demo.gif)
 
 NativeBase is a sleek, ingenious and dynamic front-end framework created by passionate React Loving team at [Geekyants.com](http://geekyants.com/) to build cross platform Android & iOS mobile apps using ready to use generic components of React Native.
