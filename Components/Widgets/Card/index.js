@@ -21,7 +21,7 @@ export default class CardNB extends NativeBaseComponent {
                 borderRadius: 2,
                 borderColor: this.getTheme().listBorderColor,
                 flexWrap: 'wrap',
-                borderBottomWidth: 0,
+                borderBottomWidth: 1,
                 backgroundColor: this.props.transparent? 'transparent' : this.getTheme().cardDefaultBg,
                 shadowColor: this.props.transparent ? undefined : '#000',
                 shadowOffset: this.props.transparent ? undefined : {width: 0, height: 2},
