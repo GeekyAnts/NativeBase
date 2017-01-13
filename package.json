@@ -14,7 +14,15 @@
     "packager",
     "rnpm"
   ],
-  "version": "0.5.20",
+  "scripts": {
+    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
+    "test": "jest",
+    "prepublish": "npm run compile"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "version": "0.5.21",
   "private": false,
   "dependencies": {
     "blueimp-md5": "^2.5.0",
@@ -22,27 +30,39 @@
     "color": "~0.11.1",
     "lodash": "~4.11.1",
     "react-native-checkbox": "~1.0.8",
-    "react-native-easy-grid": "0.1.7",
+    "react-native-easy-grid": "0.1.8",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
-    "react-native-vector-icons": "~3.0.0"
+    "react-native-vector-icons": "~0.4.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-eslint": "^6.1.2",
+    "babel-jest": "^16.0.0",
+    "babel-preset-react-native": "^1.9.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-react": "^6.2.0",
-    "eslint-plugin-react-native": "^2.0.0"
+    "eslint-plugin-react-native": "^2.0.0",
+    "jest": "17.0.0",
+    "react": "^15.4.2",
+    "react-native": "^0.39.2",
+    "react-test-renderer": "^15.3.2"
   },
   "directories": {},
   "dist": {
     "shasum": "fb3677a4f6e732b4fe60e569e04222399011661f",
-    "tarball": "https://registry.npmjs.org/native-base/-/native-base-0.5.19.tgz"
+    "tarball": "https://registry.npmjs.org/native-base/-/native-base-0.5.21.tgz"
   },
+  "files": [
+    "dist",
+    "index.d.ts",
+    "Fonts"
+  ],
   "gitHead": "a8504267642c8bafe763ce292bcf0e97737fd0e4",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-  "main": "index.js",
+  "main": "dist/index.js",
   "maintainers": [
     {
       "name": "himanshu-sahusoft",
@@ -59,10 +79,9 @@
   ],
   "optionalDependencies": {},
   "peerDependencies": {
-    "react-native": ">=0.38.0",
+    "react-native": ">=0.40.0",
     "react": ">=15.4.0"
   },
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GeekyAnts/NativeBase.git"
@@ -71,6 +90,5 @@
     "assets": [
       "Fonts"
     ]
-  },
-  "scripts": {}
+  }
 }

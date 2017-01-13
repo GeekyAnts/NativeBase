@@ -32,6 +32,7 @@ import Gravatar from './Components/Widgets/Gravatar';
 import CheckBox from './Components/Widgets/Checkbox';
 import Radio from './Components/Widgets/Radio';
 import Card from './Components/Widgets/Card';
+import Subtitle from './Components/Widgets/Subtitle';
 import Badge from './Components/Widgets/Badge';
 import Spinner from './Components/Widgets/Spinner';
 // import ProgressBar from './Components/Widgets/ProgressBar';
