@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import { TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native';
+import { TouchableOpacity, TouchableNativeFeedback, Platform, View } from 'react-native';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import computeProps from '../../../Utils/computeProps';
 import Text from './../Text';

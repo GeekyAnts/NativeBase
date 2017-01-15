@@ -220,7 +220,7 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,{ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
 background:_reactNative.TouchableNativeFeedback.Ripple(this.getTheme().btnPrimaryBg)},
-_react2.default.createElement(View,this.prepareRootProps(),
+_react2.default.createElement(_reactNative.View,this.prepareRootProps(),
 this.renderChildren())));
 
 
