@@ -4,6 +4,9 @@ import {Platform} from 'react-native';
 
 export default {
 
+    // AndroidRipple
+    androidRipple: false,
+
     // Badge
     badgeBg: '#ED1727',
     badgeColor: '#fff',

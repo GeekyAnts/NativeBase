@@ -30,7 +30,6 @@ export default class Button extends NativeBaseComponent {
         small : React.PropTypes.bool,
         inputButton : React.PropTypes.bool,
         tabButton : React.PropTypes.bool,
-        androidRipple : React.PropTypes.bool,
         androidRippleColor: React.PropTypes.string
     }
 
@@ -209,7 +208,7 @@ export default class Button extends NativeBaseComponent {
     }
 
     render() {
-        if (Platform.OS==='ios' || this.props.androidRipple===false) {
+        if (Platform.OS==='ios' || this.getTheme().androidRipple===false) {
             return(
                 <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={0.5} >
                     {this.renderChildren()}

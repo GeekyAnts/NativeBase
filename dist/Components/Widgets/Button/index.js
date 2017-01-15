@@ -33,7 +33,6 @@ Button=function(_NativeBaseComponent){_inherits(Button,_NativeBaseComponent);fun
 
 
 
-
 {
 return{
 button:{
@@ -209,7 +208,7 @@ return _react2.default.cloneElement(this.props.children);
 }},{key:'render',value:function render()
 
 {var _this2=this;
-if(_reactNative.Platform.OS==='ios'||this.props.androidRipple===false){
+if(_reactNative.Platform.OS==='ios'||this.getTheme().androidRipple===false){
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps(),{activeOpacity:0.5}),
 this.renderChildren()));
