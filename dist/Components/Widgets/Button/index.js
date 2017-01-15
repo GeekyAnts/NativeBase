@@ -137,8 +137,8 @@ fontSize:this.props.large?this.getTheme().iconSizeLarge:
 this.props.small?this.getTheme().iconSizeSmall:
 this.props.inputButton?this.getTheme().toolbarIconSize:
 this.props.fabButton?22:
-this.props.header?this.getTheme().iconFontSize+4:this.getTheme().iconFontSize-5,
-lineHeight:this.props.large?52:this.props.small||this.props.inputButton?22:this.props.header?36:this.getTheme().iconLineHeight-9};
+this.props.header?this.getTheme().headerIconFontSize:this.getTheme().iconFontSize-5,
+lineHeight:this.props.large?52:this.props.small||this.props.inputButton?22:this.props.header?this.getTheme().headerIconLineHeight:this.getTheme().iconLineHeight-9};
 
 
 var defaultProps={

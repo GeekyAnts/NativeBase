@@ -140,6 +140,8 @@ return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 
 iconFamily:'Ionicons',
 iconFontSize:_reactNative.Platform.OS==='ios'?30:28,
+headerIconFontSize:_reactNative.Platform.OS==='ios'?34:30,
+headerIconLineHeight:_reactNative.Platform.OS==='ios'?36:32,
 iconMargin:7,
 
 
