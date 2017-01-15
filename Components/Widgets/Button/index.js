@@ -220,7 +220,7 @@ export default class Button extends NativeBaseComponent {
                 <TouchableNativeFeedback ref={c => this._root = c} 
                     onPress={this.props.onPress}
                     background={TouchableNativeFeedback.Ripple(this.getTheme().btnPrimaryBg)}>
-                    <View {...this.prepareRootProps()}>
+                    <View style={{height: 40, width: 200}}>
                         {this.renderChildren()}
                     </View>
                 </TouchableNativeFeedback>
