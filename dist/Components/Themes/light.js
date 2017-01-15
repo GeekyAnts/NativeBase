@@ -5,7 +5,7 @@ var _reactNative=require('react-native');function _interopRequireDefault(obj){re
 {
 
 
-androidRipple:false,
+androidRipple:true,
 
 
 badgeBg:'#ED1727',
