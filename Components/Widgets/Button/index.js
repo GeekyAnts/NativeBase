@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import { TouchableOpacity, Platform } from 'react-native';
+import { TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native';
 import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import computeProps from '../../../Utils/computeProps';
 import Text from './../Text';
@@ -208,10 +208,22 @@ export default class Button extends NativeBaseComponent {
     }
 
     render() {
+        {(Platform.OS==='ios') ?
         return(
             <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={0.5} >
                 {this.renderChildren()}
             </TouchableOpacity>
         );
+        :
+        return(
+            <TouchableNativeFeedback ref={c => this._root = c} 
+                onPress={this.props.onPress()}
+                background={TouchableNativeFeedback.SelectableBackground()}>
+                <View {...this.prepareRootProps()}>
+                    {this.renderChildren()}
+                </View>
+            </TouchableNativeFeedback>
+        );
+        }
     }
 }
