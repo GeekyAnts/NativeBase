@@ -208,22 +208,23 @@ export default class Button extends NativeBaseComponent {
     }
 
     render() {
-        {(Platform.OS==='ios') ?
-        return(
-            <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={0.5} >
-                {this.renderChildren()}
-            </TouchableOpacity>
-        );
-        :
-        return(
-            <TouchableNativeFeedback ref={c => this._root = c} 
-                onPress={this.props.onPress()}
-                background={TouchableNativeFeedback.SelectableBackground()}>
-                <View {...this.prepareRootProps()}>
+        if (Platform.OS==='ios') {
+            return(
+                <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={0.5} >
                     {this.renderChildren()}
-                </View>
-            </TouchableNativeFeedback>
-        );
+                </TouchableOpacity>
+            );
+        }
+        else {
+            return(
+                <TouchableNativeFeedback ref={c => this._root = c} 
+                    onPress={this.props.onPress}
+                    background={TouchableNativeFeedback.Ripple(this.getTheme().btnPrimaryBg)}>
+                    <View {...this.prepareRootProps()}>
+                        {this.renderChildren()}
+                    </View>
+                </TouchableNativeFeedback>
+            );
         }
     }
 }

@@ -208,10 +208,23 @@ return _react2.default.cloneElement(this.props.children);
 }},{key:'render',value:function render()
 
 {var _this2=this;
+if(_reactNative.Platform.OS==='ios'){
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps(),{activeOpacity:0.5}),
 this.renderChildren()));
 
 
+}else
+{
+return(
+_react2.default.createElement(_reactNative.TouchableNativeFeedback,{ref:function ref(c){return _this2._root=c;},
+onPress:this.props.onPress,
+background:_reactNative.TouchableNativeFeedback.Ripple(this.getTheme().btnPrimaryBg)},
+_react2.default.createElement(View,this.prepareRootProps(),
+this.renderChildren())));
+
+
+
+}
 }}]);return Button;}(_NativeBaseComponent3.default);exports.default=Button;
 //# sourceMappingURL=index.js.map
