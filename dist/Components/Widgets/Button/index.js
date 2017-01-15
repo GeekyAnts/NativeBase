@@ -32,6 +32,8 @@ Button=function(_NativeBaseComponent){_inherits(Button,_NativeBaseComponent);fun
 
 
 
+
+
 {
 return{
 button:{
@@ -81,7 +83,6 @@ var addedProps=_lodash2.default.merge(this.getInitialStyle().button,type);
 var defaultProps={
 style:addedProps,
 capitalize:true};
-
 
 return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:'getTextStyle',value:function getTextStyle()
@@ -208,7 +209,7 @@ return _react2.default.cloneElement(this.props.children);
 }},{key:'render',value:function render()
 
 {var _this2=this;
-if(_reactNative.Platform.OS==='ios'){
+if(_reactNative.Platform.OS==='ios'||this.props.androidRipple===false){
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps(),{activeOpacity:0.5}),
 this.renderChildren()));
@@ -219,8 +220,8 @@ this.renderChildren()));
 return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,{ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
-background:_reactNative.TouchableNativeFeedback.Ripple(this.getTheme().btnPrimaryBg)},
-_react2.default.createElement(_reactNative.View,{style:{height:40,width:200}},
+background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple('#fff')},
+_react2.default.createElement(_reactNative.View,this.prepareRootProps(),
 this.renderChildren())));
 
 

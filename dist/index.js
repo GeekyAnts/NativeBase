@@ -78,5 +78,6 @@ Drawer:_reactNativeDrawer2.default,
 FooterTab:_FooterTab2.default,
 TabBar:_Tab2.default,
 Fab:_Fab2.default,
+Subtitle:_Subtitle2.default,
 Tabs:_Tabs2.default};
 //# sourceMappingURL=index.js.map

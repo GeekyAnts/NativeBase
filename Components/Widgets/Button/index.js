@@ -29,7 +29,9 @@ export default class Button extends NativeBaseComponent {
         large : React.PropTypes.bool,
         small : React.PropTypes.bool,
         inputButton : React.PropTypes.bool,
-        tabButton : React.PropTypes.bool
+        tabButton : React.PropTypes.bool,
+        androidRipple : React.PropTypes.bool,
+        androidRippleColor: React.PropTypes.string
     }
 
     getInitialStyle() {
@@ -82,7 +84,6 @@ export default class Button extends NativeBaseComponent {
             style: addedProps,
             capitalize: true
         }
-
         return computeProps(this.props, defaultProps);
     }
 
@@ -208,7 +209,7 @@ export default class Button extends NativeBaseComponent {
     }
 
     render() {
-        if (Platform.OS==='ios') {
+        if (Platform.OS==='ios' || this.props.androidRipple===false) {
             return(
                 <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={0.5} >
                     {this.renderChildren()}
@@ -217,10 +218,10 @@ export default class Button extends NativeBaseComponent {
         }
         else {
             return(
-                <TouchableNativeFeedback ref={c => this._root = c} 
+                <TouchableNativeFeedback ref={c => this._root = c}
                     onPress={this.props.onPress}
-                    background={TouchableNativeFeedback.Ripple(this.getTheme().btnPrimaryBg)}>
-                    <View style={{height: 40, width: 200}}>
+                    background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple('#fff')}>
+                    <View {...this.prepareRootProps()}>
                         {this.renderChildren()}
                     </View>
                 </TouchableNativeFeedback>

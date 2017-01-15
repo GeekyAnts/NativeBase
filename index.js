@@ -78,5 +78,6 @@ module.exports = {
   FooterTab: FooterTab,
   TabBar: Tab,
   Fab: Fab,
+  Subtitle: Subtitle,
   Tabs : ScrollableTabView
 };
