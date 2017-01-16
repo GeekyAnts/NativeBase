@@ -23,6 +23,7 @@
     "preset": "react-native"
   },
   "version": "0.5.21",
+  "license": "Apache-2.0",
   "private": false,
   "dependencies": {
     "blueimp-md5": "^2.5.0",
