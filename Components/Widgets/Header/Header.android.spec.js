@@ -15,6 +15,7 @@ jest.mock('Platform', () => {
     return Platform;
 });
 jest.mock('ScrollView', () => 'ScrollView');
+jest.mock('TouchableNativeFeedback.Ripple(x)', () => 'TouchableNativeFeedback.Ripple(x)');
 
 it('renders correctly', () => {
     const tree = renderer.create(

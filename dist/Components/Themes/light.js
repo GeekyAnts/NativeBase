@@ -6,6 +6,7 @@ var _reactNative=require('react-native');function _interopRequireDefault(obj){re
 
 
 androidRipple:true,
+androidRippleColor:'rgba(256, 256, 256, 0.7)',
 
 
 badgeBg:'#ED1727',

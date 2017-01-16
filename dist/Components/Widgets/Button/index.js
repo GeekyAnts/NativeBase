@@ -219,7 +219,7 @@ this.renderChildren()));
 return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,{ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
-background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple('#fff')},
+background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(this.getTheme().androidRippleColor)},
 _react2.default.createElement(_reactNative.View,this.prepareRootProps(),
 this.renderChildren())));
 

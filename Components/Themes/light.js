@@ -6,6 +6,7 @@ export default {
 
     // AndroidRipple
     androidRipple: true,
+    androidRippleColor: 'rgba(256, 256, 256, 0.7)',
 
     // Badge
     badgeBg: '#ED1727',

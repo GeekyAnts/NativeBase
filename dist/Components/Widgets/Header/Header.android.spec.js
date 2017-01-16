@@ -15,6 +15,7 @@ Platform.OS='android';
 return Platform;
 });
 jest.mock('ScrollView',function(){return'ScrollView';});
+jest.mock('TouchableNativeFeedback.Ripple(x)',function(){return'TouchableNativeFeedback.Ripple(x)';});
 
 it('renders correctly',function(){
 var tree=_reactTestRenderer2.default.create(
