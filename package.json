@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "native-base",
   "description": "Essential cross-platform UI components for React Native",
   "keywords": [
@@ -25,6 +26,257 @@
   "version": "0.5.21",
   "private": false,
   "dependencies": {
+=======
+  "_args": [
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v6.0",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v6.0",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v6.0",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v6.0",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v6.0",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v6.0",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v6.0",
+          "shortcut": "github:GeekyAnts/NativeBase#v6.0",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v6.0/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/MessagingApp-Frontend"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/NativeBase-KitchenSink"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/NativeBase-KitchenSink"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/NativeBase-KitchenSink"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/Try"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/Try"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/FlatApp"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/DatingApp"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/Try"
+    ],
+    [
+      {
+        "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "scope": null,
+        "escapedName": "native-base",
+        "name": "native-base",
+        "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+          "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+          "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+        }
+      },
+      "/Users/sahusoft/Sites/projects/NBKS"
+    ]
+  ],
+  "_from": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+  "_id": "native-base@6.0.0-beta",
+  "_inCache": true,
+  "_location": "/native-base",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+    "scope": null,
+    "escapedName": "native-base",
+    "name": "native-base",
+    "rawSpec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+    "spec": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:GeekyAnts/NativeBase.git#v2.0-alpha1",
+      "sshUrl": "git+ssh://git@github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+      "httpsUrl": "git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+      "gitUrl": "git://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+      "shortcut": "github:GeekyAnts/NativeBase#v2.0-alpha1",
+      "directUrl": "https://raw.githubusercontent.com/GeekyAnts/NativeBase/v2.0-alpha1/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/GeekyAnts/NativeBase.git#4601289ce558b9b398394232985d7853fdff796c",
+  "_shasum": "62518c8afce391a31a460481e7c5aa632c245e1a",
+  "_shrinkwrap": null,
+  "_spec": "native-base@git+https://github.com/GeekyAnts/NativeBase.git#v2.0-alpha1",
+  "_where": "/Users/sahusoft/Sites/projects/NBKS",
+  "bugs": {
+    "url": "https://github.com/GeekyAnts/NativeBase/issues"
+  },
+  "dependencies": {
+    "@shoutem/animation": "^0.8.9",
+    "@shoutem/theme": "git+https://github.com/GeekyAnts/theme.git",
+>>>>>>> 2cd8079e1a10ddfa478e6062e61264e74be51ec3
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~0.11.1",
@@ -32,8 +284,15 @@
     "react-native-checkbox": "~1.0.8",
     "react-native-easy-grid": "0.1.8",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
+<<<<<<< HEAD
     "react-native-vector-icons": "~4.0.0"
+=======
+    "react-native-vector-icons": "3.x.x",
+    "react-tween-state": "^0.1.5",
+    "tween-functions": "^1.0.1"
+>>>>>>> 2cd8079e1a10ddfa478e6062e61264e74be51ec3
   },
+  "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-eslint": "^6.1.2",
@@ -50,6 +309,7 @@
     "react-native": "^0.39.2",
     "react-test-renderer": "^15.3.2"
   },
+<<<<<<< HEAD
   "directories": {},
   "dist": {
     "shasum": "fb3677a4f6e732b4fe60e569e04222399011661f",
@@ -81,7 +341,32 @@
   "peerDependencies": {
     "react-native": ">=0.40.0",
     "react": ">=15.4.0"
+=======
+  "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
+  "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
+  "keywords": [
+    "android",
+    "ios",
+    "react",
+    "native",
+    "react-native",
+    "native-modules",
+    "react-component",
+    "navbar",
+    "packager",
+    "rnpm"
+  ],
+  "main": "index.js",
+  "name": "native-base",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": ">15.4.0",
+    "react-native": ">=0.38.0"
+>>>>>>> 2cd8079e1a10ddfa478e6062e61264e74be51ec3
   },
+  "private": false,
+  "readme": "# NativeBase v6.0 (Under development)\nEssential cross-platform UI components for React Native\n\n\n![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/Screenshots/iOS/demo.gif)\n\nNativeBase is a sleek, ingenious and dynamic front-end framework created by passionate React Loving team at [Geekyants.com](http://geekyants.com/) to build cross platform Android & iOS mobile apps using ready to use generic components of React Native.\n\n\n# Table of Content\n\n1. [What is NativeBase?](#1-what-is-nativebase)\n2. [Why NativeBase?](#2-why-nativebase)\n3. [Magic of NativeBase](#3-magic-of-nativebase)\n4. [Getting Started](#4-getting-started)\n5. [Components](#5-components)\n6. [Native Starter Kit](#6-native-starter-kit)\n7. [Featured Apps](#7-featured-apps)\n  - [Native Starter Pro](#a-native-starter-pro---v510)\n  - [Ecommerce Starter](#b-ecommerce-starter---v510)\n  - [Flat App Theme](#c-flat-app-theme---v510)\n  - [Taxi App with Backend](#d-taxi-app-with-backend---v400)\n  - [Dating App Theme](#e-dating-app-theme---v100)\n8. [Documentation](#8-documentation)\n9. [Website](#9-website)\n10. [Quick Links to NativeBase](#10-quick-links-to-nativebase)\n11. [About the creators](#11-about-the-creators)\n\n\n\n## 1. What is NativeBase?\n[NativeBase](http://nativebase.io/) is a free and open source framework that enables developers to build high-quality mobile apps using [React Native](https://github.com/facebook/react-native) iOS and Android apps with a fusion of [ES6](http://es6-features.org/#Constants). NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development. This helps you to build world-class application experiences on native platforms. [Read More. . .](http://nativebase.io/documentation)\n\n\n\n## 2. Why NativeBase?\nWhat is really great with [NativeBase](http://nativebase.io/) is that you can use shared UI cross-platform components, which will drastically increase your productivity. When using NativeBase, you can use any native third-party libraries out of the box. You do not need to use wrappers or do any other actions. The new additions to the native platform are available immediately. NativeBase provides amazing support for adding components, so that you will by no means hit a lifeless stop.\n\n**Recommended by** ![Microsoft](/img/microsoft-logo.png)\n> If you're looking to get started with React Native + CodePush, and are looking for an awesome starter kit, you should check out Native Starter Pro - [Microsoft's react-native-code-push repo](https://github.com/Microsoft/react-native-code-push#example-apps--starters)\n\n**Recommended by [Awesome React Native](https://github.com/jondot/awesome-react-native)**\n>NativeBase added into the list of [Frameworks](https://github.com/jondot/awesome-react-native#frameworks) of Awesome React Native and are also used by many other React lovers across the world.\n\nDo you still have a question **Why NativeBase**?\n\nIf yes then go ahead and watch this magic.\n\n\n\n## 3. Magic of NativeBase\n<center>[![magic](./img/magic.png)](http://nativebase.io/docs/v0.2.1/assets/img/magic-with-nativebase-020.mp4)</center>\n\n<i>Click to watch the magic</i>\n\n\n\n## 4. Getting Started\n\n**System Requirements**\n\n* Globally installed [node](https://nodejs.org/en/) >= 4.0\n\n* Globally installed [npm](https://www.npmjs.org/) >= 3.0\n\n* Globally installed [rnpm](https://github.com/rnpm/rnpm) *(only if React Native version < 0.29)*\n\n* Globally installed [react-native CLI](https://facebook.github.io/react-native/docs/getting-started.html)\n\n\n**Installation**\n\nTo have NativeBase components running onto your native apps, all you need to do is create a fresh [React Native](https://github.com/facebook/react-native) project and install the [NativeBase](http://nativebase.io/) command line tools.\n\n```\nreact-native init AwesomeNativeBase\n\ncd AwesomeNativeBase\n\nnpm install\n```\n\nInclude NativeBase into your React Native project.\n```\nnpm install native-base --save\n```\n\nNow you are ready to get going with NativeBase. [Read More. . .](http://nativebase.io/documentation)\n\n\n\n\n## 5. Components\n\n[NativeBase](http://nativebase.io/) is made from effective building blocks referred to as components. The Components are constructed in pure [React Native](https://github.com/facebook/react-native) platform along with some JavaScript functionality with rich set of customisable properties. These components allow you to quickly build the perfect interface.\n\nThe most awaited feature, **platform precise components** with single codebase is now available from the version 0.5.0 of NativeBase. Along with this, there comes in addition of set of **Fonts** to be readily integrated with your apps. [Read More. . .](http://nativebase.io/documentation)\n\n#### [**Live Demo**](http://nativebase.io/components)\n\n\n\n\n## 6. [Native Starter Kit](https://github.com/start-react/native-starter-kit)\n\nA simple starter project for [React Native](https://github.com/facebook/react-native) + [NativeBase](http://nativebase.io/) + [Redux](http://redux.js.org/) + [CodePush](https://github.com/Microsoft/react-native-code-push) + [React Native Navigator](https://facebook.github.io/react-native/docs/navigator.html) apps on iOS and Android.\n\nNo need of reinventing the wheel. To have immediately something to continue building on, it would be best to start from some starter kit for getting React Native - based applications off the ground in a hurry.\n\n[Take a look at the demo](https://github.com/start-react/native-starter-kit#screens)\n\n\n\n## 7. Featured Apps\n\nHaving tried with the free version, [Native Starter Kit](https://github.com/start-react/native-starter-kit) and appreciate our product?\n\nGet on the mobile fast track with the featured apps of NativeBase, to build high-quality iOS and Android mobile apps.\n\nBased on [React Native](https://facebook.github.io/react-native/) and [NativeBase](http://nativebase.io/docs/v0.5.7/), Native Starter Pro, Ecommerce Starter, Flat App Theme are beautifully designed with fusion of [Redux](https://github.com/reactjs/react-redux) and [ES6](http://es6-features.org/#Constants), responsive iOS and Android app source code to quickly get started on your next project.\n\n\n### a. Native Starter Pro - v5.1.0\n\n[Native Starter Pro](https://strapmobile.com/native-starter-pro/) is a bold and flexible [React Native](https://facebook.github.io/react-native/) theme best suited for developing high-quality mobile apps that makes use of ready-made tools. The theme has several widget areas that allows you to extend your theme functionality with plugins. Native Starter Pro is built using [Redux](https://github.com/reactjs/react-redux) and is performance optimized which helps you to develop world-class application experiences on native platforms. [Read More. . .](http://strapmobile.com/docs/native-starter-pro/v5.0.0)\n\n\n### b. Ecommerce Starter - v5.1.0\n\n[Ecommerce Starter](https://strapmobile.com/react-native-e-commerce-starter/), a perfect starter kit for e-commerce apps. Readily available pages along with rich collection of UI elements. [Read More. . .](http://strapmobile.com/docs/react-native-ecommerce-starter/v5.0.0)\n\n\n### c. Flat App Theme - v5.1.0\n\n[Flat App](https://strapmobile.com/react-native-flat-app-theme/) is basically a style of interface design emphasizing minimum use of stylistic elements, typography and flat colors. [Read More. . .](http://strapmobile.com/docs/react-native-flat-app-theme/v4.0.0)\n\n\n### d. Taxi App with Backend - v4.0.0\n\n[Taxi App](https://strapmobile.com/react-native-uber-like-app-backend/)\nThe ideal starter app with all the needed UI elements and Backend Integration to build your iOS and Android Taxi app like Uber / Ola / Lyft.\n\n*\t[Front End](https://strapmobile.com/docs/react-native-taxi-app-theme/v4.0.0)\n*\t[Back End](https://strapmobile.com/docs/react-native-uber-like-app-backend/v4.0.0/)\n\n\n### e. Dating App Theme - v1.0.0\n\n[Dating App](https://strapmobile.com/react-native-dating-app-theme/) is a well structured iOS and Android, having fully customizable pages along-with a rich collection of UI elements specifically for an ideal dating app to help you quickly get started on your next project. [Read More. . .](https://strapmobile.com/docs/react-native-dating-app-theme/v1.0.0/)\n\n\n\n## 8. Documentation\n\nGo through [NativeBase Docs](http://nativebase.io/documentation) to play with NativeBase.\n\n\n\n## 9. Website\n[http://nativebase.io/](http://nativebase.io/)\n\n\n\n## 10. Quick Links to NativeBase\n\n*\t[NativeBase Documentation](http://nativebase.io/documentation)\n*\t[NativeBase Blog](https://medium.com/nativebase-io-blog)\n*\t[NativeBase on Twitter](https://twitter.com/NativeBaseIO)\n*\t[NativeBase on FaceBook](https://www.facebook.com/nativebaseio/)\n\n\n## 11. About the creators\n\nWe are [GeekyAnts](http://geekyants.com/), a startup based in Bangalore, India with 50+ developers in strength. We have been very active in the React / React Native community where we have developed [Strapmobile](https://strapmobile.com/), [StrapUI](https://www.strapui.com/) and [StartReact](http://startreact.com/). Our other products include [StartLaravel](http://startlaravel.com/) and [StartAngular](http://startangular.com/).\n",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GeekyAnts/NativeBase.git"
@@ -90,5 +375,10 @@
     "assets": [
       "Fonts"
     ]
+<<<<<<< HEAD
   }
+=======
+  },
+  "version": "6.0.0-beta"
+>>>>>>> 2cd8079e1a10ddfa478e6062e61264e74be51ec3
 }

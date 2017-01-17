@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # NativeBase [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) 
 [![NPM](https://nodei.co/npm/native-base.png?downloads=true)](https://nodei.co/npm/native-base/)
 
 [![NPM](https://nodei.co/npm-dl/native-base.png?height=2)](https://nodei.co/npm/native-base/)
+=======
+# NativeBase v6.0 (Under development)
+Essential cross-platform UI components for React Native
+>>>>>>> 2cd8079e1a10ddfa478e6062e61264e74be51ec3
 
 Essential cross-platform UI components for React Native
 
