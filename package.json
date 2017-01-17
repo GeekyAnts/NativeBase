@@ -14,8 +14,6 @@
     "packager",
     "rnpm"
   ],
-  "version": "2.0-alpha1",
-  "license": "Apache-2.0",
   "private": false,
   "dependencies": {
     "@shoutem/animation": "^0.8.9",
@@ -88,5 +86,6 @@
     "assets": [
       "Fonts"
     ]
-  }
+  },
+  "version": "6.0.0-beta"
 }
