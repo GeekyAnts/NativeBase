@@ -14,6 +14,17 @@
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1"
   },
+   "scripts": {
+    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
+    "test": "jest",
+    "prepublish": "npm run compile"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
+    ]
+  },
   "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {
     "babel-eslint": "^6.1.2",
@@ -22,7 +33,12 @@
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-react": "^6.2.0",
-    "eslint-plugin-react-native": "^2.0.0"
+    "eslint-plugin-react-native": "^2.0.0",
+    "jest": "17.0.0",
+    "react": "^15.4.2",
+    "react-native": "^0.39.2",
+    "react-test-renderer": "^15.3.2",
+    "react-native-vector-icons": "~4.0.0"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
