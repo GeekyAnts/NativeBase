@@ -33,6 +33,7 @@ import Switch from './src/basic/Switch';
 import Container from './src/basic/Container';
 import Content from './src/basic/Content';
 import Footer from './src/basic/Footer';
+import FooterTab from './src/basic/FooterTab';
 import PickerNB from './src/basic/Picker';
 import List from './src/basic/List';
 import ListItem from './src/basic/ListItem';

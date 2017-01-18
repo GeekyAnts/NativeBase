@@ -33,6 +33,7 @@ var _Switch=require('./src/basic/Switch');var _Switch2=_interopRequireDefault(_S
 var _Container=require('./src/basic/Container');var _Container2=_interopRequireDefault(_Container);
 var _Content=require('./src/basic/Content');var _Content2=_interopRequireDefault(_Content);
 var _Footer=require('./src/basic/Footer');var _Footer2=_interopRequireDefault(_Footer);
+var _FooterTab=require('./src/basic/FooterTab');var _FooterTab2=_interopRequireDefault(_FooterTab);
 var _Picker=require('./src/basic/Picker');var _Picker2=_interopRequireDefault(_Picker);
 var _List=require('./src/basic/List');var _List2=_interopRequireDefault(_List);
 var _ListItem=require('./src/basic/ListItem');var _ListItem2=_interopRequireDefault(_ListItem);
@@ -79,7 +80,7 @@ Content=_Content2.default;exports.
 Footer=_Footer2.default;exports.
 Tab=_Tab2.default;exports.
 Tabs=_Tabs2.default;exports.
-FooterTab=FooterTab;exports.
+FooterTab=_FooterTab2.default;exports.
 Picker=_Picker2.default;exports.
 List=_List2.default;exports.
 ListItem=_ListItem2.default;exports.
