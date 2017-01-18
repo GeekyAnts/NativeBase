@@ -1,6 +1,6 @@
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Gravatar } from './src/backward/Widgets/Gravatar';
-import { setDefaultThemeStyle } from './init';
+import setDefaultThemeStyle from './init';
 import getTheme from './src/theme';
 import variables from './src/theme/variables';
 import Drawer from './src/basic/Drawer';
