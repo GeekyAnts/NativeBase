@@ -57,6 +57,4 @@ const mapPropsToStyleNames = (styleNames, props) => _.keys(props);
 
 export { mapPropsToStyleNames };
 
-export {
-  Text,
-} from './src/basic/Text';
+export { Text } from './src/basic/Text';
