@@ -11,6 +11,7 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.mapPropsToStyle
 
 
 
+
 StyleProvider;}});var _Button=require('./src/basic/Button');Object.defineProperty(exports,'Button',{enumerable:true,get:function get(){return _Button.
 
 Button;}});var _IconNB=require('./src/basic/IconNB');Object.defineProperty(exports,'IconNB',{enumerable:true,get:function get(){return _IconNB.
@@ -48,10 +49,10 @@ DeckSwiper;}});var _Item=require('./src/basic/Item');Object.defineProperty(expor
 Item;}});var _Subtitle=require('./src/backward/Widgets/Subtitle');Object.defineProperty(exports,'Subtitle',{enumerable:true,get:function get(){return _Subtitle.
 Subtitle;}});var _Label=require('./src/basic/Label');Object.defineProperty(exports,'Label',{enumerable:true,get:function get(){return _Label.
 Label;}});var _Textarea=require('./src/basic/Textarea');Object.defineProperty(exports,'Textarea',{enumerable:true,get:function get(){return _Textarea.
-Textarea;}});var _Text=require('./src/basic/Text');Object.defineProperty(exports,'Text',{enumerable:true,get:function get(){return _Text.
-
-
-Text;}});var _reactNativeEasyGrid=require('react-native-easy-grid');var _Gravatar=require('./src/backward/Widgets/Gravatar');var _init=require('./init');var _init2=_interopRequireDefault(_init);var _theme2=require('./src/theme');var _theme3=_interopRequireDefault(_theme2);var _variables=require('./src/theme/variables');var _variables2=_interopRequireDefault(_variables);var _Drawer=require('./src/basic/Drawer');var _Drawer2=_interopRequireDefault(_Drawer);var _Swipe=require('./src/basic/Swipe');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}(0,_init2.default)();exports.Swipeout=_Swipe.Swipeout;exports.getTheme=_theme3.default;exports.variables=_variables2.default;exports.Drawer=_Drawer2.default;exports.Gravatar=_Gravatar.Gravatar;exports.Col=_reactNativeEasyGrid.Col;exports.Row=_reactNativeEasyGrid.Row;exports.Grid=_reactNativeEasyGrid.Grid;
+Textarea;}});var _reactNativeEasyGrid=require('react-native-easy-grid');var _Gravatar=require('./src/backward/Widgets/Gravatar');var _init=require('./init');var _init2=_interopRequireDefault(_init);var _theme2=require('./src/theme');var _theme3=_interopRequireDefault(_theme2);var _variables=require('./src/theme/variables');var _variables2=_interopRequireDefault(_variables);var _Drawer=require('./src/basic/Drawer');var _Drawer2=_interopRequireDefault(_Drawer);var _Swipe=require('./src/basic/Swipe');var _Text=require('./src/basic/Text');var _Text2=_interopRequireDefault(_Text);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}(0,_init2.default)();exports.Swipeout=_Swipe.Swipeout;exports.getTheme=_theme3.default;exports.variables=_variables2.default;exports.Drawer=_Drawer2.default;exports.
+Gravatar=_Gravatar.Gravatar;exports.
+Col=_reactNativeEasyGrid.Col;exports.Row=_reactNativeEasyGrid.Row;exports.Grid=_reactNativeEasyGrid.Grid;exports.
+Text=_Text2.default;
 
 
 var mapPropsToStyleNames=function mapPropsToStyleNames(styleNames,props){return _.keys(props);};exports.

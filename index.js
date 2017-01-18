@@ -5,6 +5,7 @@ import getTheme from './src/theme';
 import variables from './src/theme/variables';
 import Drawer from './src/basic/Drawer';
 import { Swipeout } from './src/basic/Swipe';
+import Text from './src/basic/Text';
 
 setDefaultThemeStyle();
 // Theme
@@ -51,7 +52,7 @@ export { Label } from './src/basic/Label';
 export { Textarea } from './src/basic/Textarea';
 export { Gravatar };
 export { Col, Row, Grid };
-export { Text } from './src/basic/Text';
+export { Text };
 
 
 const mapPropsToStyleNames = (styleNames, props) => _.keys(props);
