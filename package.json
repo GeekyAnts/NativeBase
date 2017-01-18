@@ -20,13 +20,22 @@
   },
   "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-eslint": "^6.1.2",
+    "babel-jest": "^16.0.0",
+    "babel-preset-react-native": "^1.9.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-react": "^6.2.0",
-    "eslint-plugin-react-native": "^2.0.0"
+    "eslint-plugin-react-native": "^2.0.0",
+    "jest": "17.0.0",
+    "react": "^15.4.2",
+    "react-native": "^0.39.2",
+    "react-test-renderer": "^15.3.2",
+    "react-native-vector-icons": "~4.0.0"
+
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
