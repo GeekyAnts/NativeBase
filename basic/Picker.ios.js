@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Picker, Modal, View } from 'react-native';
 import _ from 'lodash';
 import { Text } from './Text';
-import { List } from './LIst';
+import { List } from './List';
 import { IconNB as Icon } from './IconNB';
 import { Container } from './Container';
 import { Content } from './Content';
