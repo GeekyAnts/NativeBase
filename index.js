@@ -46,7 +46,7 @@ export { List } from './basic/List';
 export { ListItem } from './basic/ListItem';
 export { DeckSwiper } from './basic/DeckSwiper';
 export { Item } from './basic/Item';
-// export { Subtitle } from './basic/Subtitle';
+export { Subtitle } from './backward/Widgets/Subtitle';
 export { Label } from './basic/Label';
 export { Textarea } from './basic/Textarea';
 export { Gravatar };

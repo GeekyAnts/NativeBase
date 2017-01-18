@@ -2,7 +2,7 @@
 import getTheme from '../theme';
 import variables from '../theme/variables';
 import { StyleProvider } from '@shoutem/theme';
-import { Drawer } from '../basic/Drawer';
+import Drawer from '../basic/Drawer';
 import { Header } from './Widgets/Header';
 import { Footer } from '../basic/Footer';
 import { Title } from './Widgets/Title';
@@ -11,7 +11,7 @@ import { Content } from './Widgets/Content';
 import { Button } from './Widgets/Button';
 import { Text } from './Widgets/Text';
 import { Switch } from '../basic/Switch';
-import { Picker } from '../basic/Picker';
+import { PickerNB as Picker } from '../basic/Picker';
 import { List } from './Widgets/List';
 import { ListItem } from './Widgets/ListItem';
 import { CardItem1 as CardItem } from './Widgets/CardItem';
@@ -27,16 +27,17 @@ import { Icon } from './Widgets/Icon';
 import { FooterTab } from './Widgets/FooterTab';
 import { Tab } from '../basic/Tab';
 import { Fab } from '../basic/Fab';
+export { Subtitle } from './Widgets/Subtitle';
 import { Thumbnail } from '../basic/Thumbnail';
 import { Gravatar } from './Widgets/Gravatar';
-import { CheckBox } from '../basic/CheckBox';
+import { CheckBox } from '../basic/Checkbox';
 import { Radio } from '../basic/Radio';
 import { Card } from './Widgets/Card';
 import { Badge } from '../basic/Badge';
 import { Spinner } from '../basic/Spinner';
 // import ProgressBar from './Widgets/ProgressBar';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { Tabs } from '../smart/STabs';
+import { Tabs } from '../basic/Tabs';
 
 module.exports = {
   Header,

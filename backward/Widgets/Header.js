@@ -8,7 +8,7 @@ import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import { Button } from './Button';
 import { Title } from './Title';
-import Subtitle from './Subtitle';
+import { Subtitle } from './Subtitle';
 
 class Header extends NativeBaseComponent {
 
