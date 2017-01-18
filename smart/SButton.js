@@ -3,7 +3,8 @@
 
 import React, { Component } from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import { Button, Text } from 'native-base';
+import { Text } from '../basic/Text';
+import { Button } from '../basic/Button';
 import { connectStyle } from '@shoutem/theme';
 
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';

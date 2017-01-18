@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
-import { variables } from 'native-base';
+import { variables } from '../theme/variables';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 

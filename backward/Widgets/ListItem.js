@@ -3,7 +3,7 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
-import { IconNB as Icon } from 'native-base';
+import { IconNB as Icon } from '../../basic/IconNB';
 import _ from 'lodash';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';

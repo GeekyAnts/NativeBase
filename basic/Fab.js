@@ -2,13 +2,12 @@
 
 
 import React, { Component } from 'react';
-// import Button from './Button';
-import { IconNB, Icon, Button } from 'native-base';
+import Button from './Button';
 import { Platform, Animated, TouchableOpacity } from 'react-native';
 // import View from './View';
-// import Icon from './Icon';
+import Icon from './Icon';
 // import Badge from './Badge';
-// import IconNB from './Icon';
+import IconNB from './IconNB';
 // import Text from './Text';
 import _ from 'lodash';
 import { connectStyle } from '@shoutem/theme';

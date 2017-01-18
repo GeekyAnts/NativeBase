@@ -1,7 +1,12 @@
 
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Left, Body, Right, Header, Button, Title } from 'native-base';
+import { Left } from '../basic/Left';
+import { Body } from '../basic/Body';
+import { Right } from '../basic/Right';
+import { Header } from '../basic/Header';
+import { Button } from '../basic/Button';
+import { Title } from '../basic/Title';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 

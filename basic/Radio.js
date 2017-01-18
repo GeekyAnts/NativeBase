@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
-import { IconNB as Icon } from 'native-base';
+import { IconNB as Icon } from './IconNB';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 

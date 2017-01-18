@@ -3,7 +3,8 @@
 import React from 'react';
 import { View, Image, ScrollView } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
-import { Footer, Fab } from 'native-base';
+import { Footer } from '../../basic/Footer';
+import { Fab } from '../../basic/Fab';
 import _ from 'lodash';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import { ViewNB } from './View';
