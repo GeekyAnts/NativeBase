@@ -1,6 +1,7 @@
 var _reactNativeEasyGrid=require('react-native-easy-grid');
 var _theme=require('@shoutem/theme');
 var _theme2=require('../theme');var _theme3=_interopRequireDefault(_theme2);
+var _init=require('../init');var _init2=_interopRequireDefault(_init);
 var _variables=require('../theme/variables');var _variables2=_interopRequireDefault(_variables);
 var _Drawer=require('../basic/Drawer');var _Drawer2=_interopRequireDefault(_Drawer);
 var _Header=require('./Widgets/Header');
@@ -38,6 +39,7 @@ var _Spinner=require('../basic/Spinner');
 
 var _Tabs=require('../basic/Tabs');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
 
+(0,_init2.default)();
 module.exports={
 Header:_Header.Header,
 Footer:_Footer.Footer,

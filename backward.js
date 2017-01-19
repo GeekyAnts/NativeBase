@@ -1,1 +1,1 @@
-module.exports = require('./src/backward');
+module.exports = require('./dist/src/backward');
