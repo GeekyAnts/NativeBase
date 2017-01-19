@@ -17,7 +17,7 @@
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "test": "jest",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run transpile"
   },
   "jest": {
     "preset": "react-native",

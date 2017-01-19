@@ -2,7 +2,7 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.mapPropsToStyle
 var _lodash=require('lodash');
 var _reactNativeEasyGrid=require('react-native-easy-grid');
 var _Gravatar=require('./backward/Widgets/Gravatar');
-var _init=require('./../init');var _init2=_interopRequireDefault(_init);
+var _init=require('./init');var _init2=_interopRequireDefault(_init);
 var _theme3=require('./theme');var _theme4=_interopRequireDefault(_theme3);
 var _variables=require('./theme/variables');var _variables2=_interopRequireDefault(_variables);
 var _Drawer=require('./basic/Drawer');var _Drawer2=_interopRequireDefault(_Drawer);

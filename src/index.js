@@ -2,7 +2,7 @@ import StyleProvider from '@shoutem/theme';
 import { keys } from 'lodash';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Gravatar } from './backward/Widgets/Gravatar';
-import setDefaultThemeStyle from './../init';
+import setDefaultThemeStyle from './init';
 import getTheme from './theme';
 import variables from './theme/variables';
 import Drawer from './basic/Drawer';
