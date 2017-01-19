@@ -1,6 +1,7 @@
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { StyleProvider } from '@shoutem/theme';
 import getTheme from '../theme';
+import setDefaultThemeStyle from '../init';
 import variables from '../theme/variables';
 import Drawer from '../basic/Drawer';
 import { Header } from './Widgets/Header';
@@ -38,6 +39,7 @@ import { Spinner } from '../basic/Spinner';
 // import ProgressBar from './Widgets/ProgressBar';
 import { Tabs } from '../basic/Tabs';
 
+setDefaultThemeStyle();
 module.exports = {
   Header,
   Footer,
