@@ -2,8 +2,10 @@
   "presets": ["react-native"],
   "plugins": [
     ["babel-root-import", [{
-      "rootPathPrefix": "backward", // `~` is the default so you can remove this if you want
-      "rootPathSuffix": "dist/src/backward/index"
+      "rootPathPrefix": "backward",
+      "rootPathSuffix": "dist/src/backward"
+    }, {
+      "rootPathSuffix": "dist/src"
     }]]
   ]
 }
