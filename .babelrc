@@ -1,11 +1,3 @@
 {
-  "presets": ["react-native"],
-  "plugins": [
-    ["babel-root-import", [{
-      "rootPathPrefix": "backward",
-      "rootPathSuffix": "dist/src/backward"
-    }, {
-      "rootPathSuffix": "dist/src"
-    }]]
-  ]
+  "presets": ["react-native"]
 }
