@@ -56,7 +56,7 @@
     "packager",
     "rnpm"
   ],
-  "main": "src/index.js",
+  "main": "dist/src/index.js",
   "name": "native-base",
   "optionalDependencies": {},
   "peerDependencies": {
