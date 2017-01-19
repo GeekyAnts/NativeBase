@@ -6,7 +6,6 @@
     "clamp": "^1.0.1",
     "color": "~0.11.1",
     "lodash": "~4.11.1",
-    "react-native-checkbox": "~1.0.8",
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
     "react-native-scrollable-tab-view": "^0.7.1",
@@ -27,7 +26,10 @@
   },
   "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-eslint": "^6.1.2",
+    "babel-jest": "^16.0.0",
+    "babel-preset-react-native": "^1.9.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.14.0",

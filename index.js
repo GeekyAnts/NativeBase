@@ -1,62 +1,102 @@
+import StyleProvider from '@shoutem/theme';
+import { keys } from 'lodash';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { Gravatar } from './backward/Widgets/Gravatar';
-import { setDefaultThemeStyle } from './init';
-import getTheme from './theme';
-import variables from './theme/variables';
-import Drawer from './basic/Drawer';
-import { Swipeout } from './basic/Swipe';
+import { Gravatar } from './src/backward/Widgets/Gravatar';
+import setDefaultThemeStyle from './init';
+import getTheme from './src/theme';
+import variables from './src/theme/variables';
+import Drawer from './src/basic/Drawer';
+import { Swipeout } from './src/basic/Swipe';
+import Text from './src/basic/Text';
+import Button from './src/basic/Button';
+import IconNB from './src/basic/IconNB';
+import Icon from './src/basic/Icon';
+import Header from './src/basic/Header';
+import InputGroup from './src/basic/InputGroup';
+import Input from './src/basic/Input';
+import Title from './src/basic/Title';
+import Fab from './src/basic/Fab';
+import Left from './src/basic/Left';
+import Right from './src/basic/Right';
+import Body from './src/basic/Body';
+import Badge from './src/basic/Badge';
+import CheckBox from './src/basic/Checkbox';
+import Radio from './src/basic/Radio';
+import Thumbnail from './src/basic/Thumbnail';
+import Card from './src/basic/Card';
+import CardItem from './src/basic/CardItem';
+import H1 from './src/basic/H1';
+import H2 from './src/basic/H2';
+import H3 from './src/basic/H3';
+import Spinner from './src/basic/Spinner';
+import Switch from './src/basic/Switch';
+import Container from './src/basic/Container';
+import Content from './src/basic/Content';
+import Footer from './src/basic/Footer';
+import FooterTab from './src/basic/FooterTab';
+import PickerNB from './src/basic/Picker';
+import List from './src/basic/List';
+import ListItem from './src/basic/ListItem';
+import DeckSwiper from './src/basic/DeckSwiper';
+import Item from './src/basic/Item';
+import Label from './src/basic/Label';
+import Textarea from './src/basic/Textarea';
+import Tab from './src/basic/Tab';
+import Tabs from './src/basic/Tabs';
+import Subtitle from './src/backward/Widgets/Subtitle';
 
 setDefaultThemeStyle();
 // Theme
-export { Swipeout };
-export { getTheme };
-export { variables };
-export { StyleProvider } from '@shoutem/theme';
-export { Drawer };
-export { Button } from './basic/Button';
-export { IconNB } from './basic/IconNB';
-export { Icon } from './basic/Icon';
-export { Header } from './basic/Header';
-export { InputGroup } from './basic/InputGroup';
-export { Input } from './basic/Input';
-export { Title } from './basic/Title';
-export { Fab } from './basic/Fab';
-export { Left } from './basic/Left';
-export { Right } from './basic/Right';
-export { Body } from './basic/Body';
-export { Badge } from './basic/Badge';
-export { CheckBox } from './basic/Checkbox';
-export { Radio } from './basic/Radio';
-export { Thumbnail } from './basic/Thumbnail';
-export { Card } from './basic/Card';
-export { CardItem } from './basic/CardItem';
-export { H1 } from './basic/H1';
-export { H2 } from './basic/H2';
-export { H3 } from './basic/H3';
-export { Spinner } from './basic/Spinner';
-export { Switch } from './basic/Switch';
-export { Container } from './basic/Container';
-export { Content } from './basic/Content';
-export { Footer } from './basic/Footer';
-export { Tab } from './basic/Tab';
-export { Tabs } from './basic/Tabs';
-export { FooterTab } from './basic/FooterTab';
-export { PickerNB as Picker } from './basic/Picker';
-export { List } from './basic/List';
-export { ListItem } from './basic/ListItem';
-export { DeckSwiper } from './basic/DeckSwiper';
-export { Item } from './basic/Item';
-// export { Subtitle } from './basic/Subtitle';
-export { Label } from './basic/Label';
-export { Textarea } from './basic/Textarea';
-export { Gravatar };
-export { Col, Row, Grid };
+export {
+  Swipeout,
+  getTheme,
+  variables,
+  StyleProvider,
+  Drawer,
+  Button,
+  IconNB,
+  Icon,
+  Header,
+  InputGroup,
+  Input,
+  Title,
+  Fab,
+  Left,
+  Right,
+  Body,
+  Badge,
+  CheckBox,
+  Radio,
+  Thumbnail,
+  Card,
+  CardItem,
+  H1,
+  H2,
+  H3,
+  Spinner,
+  Switch,
+  Container,
+  Content,
+  Footer,
+  Tab,
+  Tabs,
+  FooterTab,
+  PickerNB as Picker,
+  List,
+  ListItem,
+  DeckSwiper,
+  Item,
+  Subtitle,
+  Label,
+  Textarea,
+  Gravatar,
+  Col,
+  Row,
+  Grid,
+  Text,
+};
 
-
-const mapPropsToStyleNames = (styleNames, props) => _.keys(props);
+const mapPropsToStyleNames = (styleNames, props) => keys(props);
 
 export { mapPropsToStyleNames };
 
-export {
-  Text,
-} from './basic/Text';
