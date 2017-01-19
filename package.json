@@ -9,11 +9,11 @@
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
     "react-native-scrollable-tab-view": "^0.7.1",
-    "react-native-vector-icons":  "~4.0.0",
+    "react-native-vector-icons": "~4.0.0",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1"
   },
-   "scripts": {
+  "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
     "test": "jest",
     "prepublish": "npm run compile"
@@ -30,6 +30,7 @@
     "babel-eslint": "^6.1.2",
     "babel-jest": "^16.0.0",
     "babel-preset-react-native": "^1.9.0",
+    "babel-root-import": "^4.1.5",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.14.0",
@@ -39,8 +40,8 @@
     "jest": "17.0.0",
     "react": "^15.4.2",
     "react-native": "^0.39.2",
-    "react-test-renderer": "^15.3.2",
-    "react-native-vector-icons": "~4.0.0"
+    "react-native-vector-icons": "~4.0.0",
+    "react-test-renderer": "^15.3.2"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
