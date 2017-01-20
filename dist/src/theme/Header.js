@@ -67,20 +67,15 @@ borderRadius:_reactNative.Platform.OS==='ios'?25:0}},
 
 'NativeBase.Left':{
 'NativeBase.Button':{
-marginLeft:_reactNative.Platform.OS==='ios'?-8:0,
 '.transparent':{
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor,
-fontSize:variables.iconHeaderSize,
-marginTop:2,
-marginRight:2},
+color:variables.topTabBarActiveTextColor},
 
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor},
 
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor,
-fontSize:17},
+color:variables.topTabBarActiveTextColor},
 
 backgroundColor:'transparent',
 borderColor:null,
@@ -103,6 +98,20 @@ alignSelf:'center',
 alignItems:'flex-start'},
 
 'NativeBase.Body':{
+'.hasSubtitle':{
+'NativeBase.Title':{
+fontSize:variables.titleFontSize-2,
+fontFamily:variables.titleFontfamily,
+color:variables.titleFontColor,
+textAlign:'center'},
+
+'NativeBase.Subtitle':{
+fontSize:variables.subTitleFontSize,
+fontFamily:variables.titleFontfamily,
+color:variables.subtitleColor,
+textAlign:'center'}},
+
+
 flex:1,
 alignItems:_reactNative.Platform.OS==='ios'?'center':'flex-start',
 alignSelf:'center',
@@ -124,20 +133,15 @@ color:variables.titleFontColor}}},
 
 'NativeBase.Right':{
 'NativeBase.Button':{
-marginRight:_reactNative.Platform.OS==='ios'?-8:0,
 '.transparent':{
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor,
-fontSize:variables.iconHeaderSize,
-marginTop:2,
-marginLeft:2},
+color:variables.topTabBarActiveTextColor},
 
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor},
 
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor,
-fontSize:17},
+color:variables.topTabBarActiveTextColor},
 
 backgroundColor:'transparent',
 borderColor:null,
