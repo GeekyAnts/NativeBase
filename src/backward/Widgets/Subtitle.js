@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
-import mapPropsToStyleNames from '../..Utils/mapPropsToStyleNames';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 class Subtitle extends Component {
   render() {
