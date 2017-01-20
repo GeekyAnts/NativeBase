@@ -272,14 +272,8 @@ height:38,
 alignSelf:'flex-start',
 flexDirection:'row',
 elevation:2,
-shadowColor:'#000',
-shadowOffset:{width:0,height:2},
-shadowOpacity:0.2,
-shadowRadius:2,
 alignItems:'center',
 justifyContent:'space-between'};
-
-
 
 return buttonTheme;
 };

@@ -21,6 +21,7 @@
   },
   "jest": {
     "preset": "react-native",
+    "rootDir": "src",
     "transformIgnorePatterns": [
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
     ]

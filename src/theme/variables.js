@@ -158,6 +158,7 @@ export default {
   iconFamily: 'MaterialIcons',
   iconFontSize: (Platform.OS === 'ios') ? 30 : 28,
   iconMargin: 7,
+  iconHeaderSize: (Platform.OS === 'ios') ? 33 : 28,
 
 
     // InputGroup
@@ -238,6 +239,7 @@ export default {
 
 
     // Title
+  titleFontfamily: (Platform.OS === 'ios') ? undefined : 'Roboto_medium',
   titleFontSize: (Platform.OS === 'ios') ? 17 : 19,
   subTitleFontSize: (Platform.OS === 'ios') ? 12 : 14,
   subtitleColor: '#8e8e93',
