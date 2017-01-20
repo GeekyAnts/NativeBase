@@ -1,15 +1,25 @@
 /* @flow */
 
-import React from 'react';
-import { Text, View, Platform } from 'react-native';
-import NativeBaseComponent from '../Base/NativeBaseComponent';
 
+import React, { Component } from 'react';
+import { Text } from 'react-native';
+import { connectStyle } from '@shoutem/theme';
+import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
-export default class Subtitle extends NativeBaseComponent {
-
+class Subtitle extends Component {
   render() {
     return (
-      <View><Text ref={c => this._root = c} style={{ color: this.getTheme().subtitleColor, fontSize: this.getTheme().subTitleFontSize, alignSelf: (Platform.OS === 'ios') ? 'center' : 'flex-start' }}>{this.props.children}</Text></View>
+      <Text ref={c => this._root = c} {...this.props} />
     );
   }
 }
+
+Subtitle.propTypes = {
+  ...Text.propTypes,
+  style: React.PropTypes.object,
+};
+
+const StyledSubtitle = connectStyle('NativeBase.Subtitle', {}, mapPropsToStyleNames)(Subtitle);
+export {
+  StyledSubtitle as Subtitle,
+};
