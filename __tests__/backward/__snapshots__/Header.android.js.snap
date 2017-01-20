@@ -1,0 +1,681 @@
+exports[`test renders correctly 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined} />
+`;
+
+exports[`test renders header with a null button 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "flex": 3,
+        "justifyContent": "center",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "fontFamily": "Roboto_medium",
+          }
+        }
+        virtual={undefined}>
+        Header
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`test renders header with buttons 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "marginLeft": -10,
+        "marginRight": 12,
+      }
+    }>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderRadius": 2,
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Object {},
+            Object {
+              "fontFamily": "Ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+        virtual={undefined}>
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "flex": 3,
+        "justifyContent": "center",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "fontFamily": "Roboto_medium",
+          }
+        }
+        virtual={undefined}>
+        Header
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "marginRight": -7,
+      }
+    }>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderRadius": 2,
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Object {},
+            Object {
+              "fontFamily": "Ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+        virtual={undefined}>
+        
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`test renders header with buttons and subtitle 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "marginLeft": -10,
+        "marginRight": 12,
+      }
+    }>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderRadius": 2,
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Object {},
+            Object {
+              "fontFamily": "Ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+        virtual={undefined}>
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "flex": 3,
+        "justifyContent": "center",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "fontFamily": "Roboto_medium",
+          }
+        }
+        virtual={undefined}>
+        Header
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "marginRight": -7,
+      }
+    }>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderRadius": 2,
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Object {},
+            Object {
+              "fontFamily": "Ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+        virtual={undefined}>
+        
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`test renders header with just one button 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "marginLeft": -10,
+        "marginRight": 12,
+      }
+    }>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderRadius": 2,
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Object {},
+            Object {
+              "fontFamily": "Ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+        virtual={undefined}>
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "flex": 3,
+        "justifyContent": "center",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "fontFamily": "Roboto_medium",
+          }
+        }
+        virtual={undefined}>
+        Header
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`test renders header with just one button and iconRight 1`] = `
+<View
+  iconRight={true}
+  style={Object {}}
+  virtual={undefined}>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "flex": 3,
+        "justifyContent": "center",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "fontFamily": "Roboto_medium",
+          }
+        }
+        virtual={undefined}>
+        Header
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "marginLeft": -10,
+        "marginRight": 12,
+      }
+    }>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderRadius": 2,
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Object {},
+            Object {
+              "fontFamily": "Ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+        virtual={undefined}>
+        
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`test renders header with just one button and subtitle 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "marginLeft": -10,
+        "marginRight": 12,
+      }
+    }>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderRadius": 2,
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Object {},
+            Object {
+              "fontFamily": "Ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+        virtual={undefined}>
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "flex": 3,
+        "justifyContent": "center",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "fontFamily": "Roboto_medium",
+          }
+        }
+        virtual={undefined}>
+        Header
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`test renders header with just one button, iconRight and a subtitle 1`] = `
+<View
+  iconRight={true}
+  style={Object {}}
+  virtual={undefined}>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "flex": 3,
+        "justifyContent": "center",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "fontFamily": "Roboto_medium",
+          }
+        }
+        virtual={undefined}>
+        Header
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "marginLeft": -10,
+        "marginRight": 12,
+      }
+    }>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderRadius": 2,
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Object {},
+            Object {
+              "fontFamily": "Ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+        virtual={undefined}>
+        
+      </Text>
+    </View>
+  </View>
+</View>
+`;

@@ -9,14 +9,22 @@
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
     "react-native-scrollable-tab-view": "^0.7.1",
-    "react-native-vector-icons":  "~4.0.0",
+    "react-native-vector-icons": "~4.0.0",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1"
   },
-   "scripts": {
+  "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
+    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "test": "jest",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run transpile"
+  },
+  "jest": {
+    "preset": "react-native",
+    "rootDir": "src",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
+    ]
   },
   "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {
@@ -33,9 +41,8 @@
     "jest": "17.0.0",
     "react": "^15.4.2",
     "react-native": "^0.39.2",
-    "react-test-renderer": "^15.3.2",
-    "react-native-vector-icons": "~4.0.0"
-
+    "react-native-vector-icons": "~4.0.0",
+    "react-test-renderer": "^15.3.2"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
@@ -51,7 +58,7 @@
     "packager",
     "rnpm"
   ],
-  "main": "index.js",
+  "main": "dist/src/index.js",
   "name": "native-base",
   "optionalDependencies": {},
   "peerDependencies": {

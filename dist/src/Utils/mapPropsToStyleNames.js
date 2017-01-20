@@ -1,8 +1,10 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.default=mapPropsToStyleNames=function mapPropsToStyleNames(styleNames,props){
-var keys=_.keys(props);
-var values=_.values(props);
+Object.defineProperty(exports,"__esModule",{value:true});var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
-_.forEach(keys,function(key,index){
+mapPropsToStyleNames=function mapPropsToStyleNames(styleNames,props){
+var keys=_lodash2.default.keys(props);
+var values=_lodash2.default.values(props);
+
+_lodash2.default.forEach(keys,function(key,index){
 if(values[index]){styleNames.push(key);}
 });
 

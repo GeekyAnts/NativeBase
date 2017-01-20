@@ -98,6 +98,20 @@ export default (variables = variable) => {
         alignItems: 'flex-start',
       },
       'NativeBase.Body': {
+        '.hasSubtitle': {
+          'NativeBase.Title': {
+            fontSize: variables.titleFontSize - 2,
+            fontFamily: variables.titleFontfamily,
+            color: variables.titleFontColor,
+            textAlign: 'center',
+          },
+          'NativeBase.Subtitle': {
+            fontSize: variables.subTitleFontSize,
+            fontFamily: variables.titleFontfamily,
+            color: variables.subtitleColor,
+            textAlign: 'center'
+          },
+        },
         flex: 1,
         alignItems: (Platform.OS === 'ios') ? 'center' : 'flex-start',
         alignSelf: 'center',

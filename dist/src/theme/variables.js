@@ -158,6 +158,7 @@ return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 iconFamily:'MaterialIcons',
 iconFontSize:_reactNative.Platform.OS==='ios'?30:28,
 iconMargin:7,
+iconHeaderSize:_reactNative.Platform.OS==='ios'?33:28,
 
 
 
@@ -238,6 +239,7 @@ inverseTextColor:'#fff',
 
 
 
+titleFontfamily:_reactNative.Platform.OS==='ios'?undefined:'Roboto_medium',
 titleFontSize:_reactNative.Platform.OS==='ios'?17:19,
 subTitleFontSize:_reactNative.Platform.OS==='ios'?12:14,
 subtitleColor:'#8e8e93',

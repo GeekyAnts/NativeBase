@@ -67,15 +67,20 @@ borderRadius:_reactNative.Platform.OS==='ios'?25:0}},
 
 'NativeBase.Left':{
 'NativeBase.Button':{
+marginLeft:_reactNative.Platform.OS==='ios'?-8:0,
 '.transparent':{
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor},
+color:variables.topTabBarActiveTextColor,
+fontSize:variables.iconHeaderSize,
+marginTop:2,
+marginRight:2},
 
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor},
 
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor},
+color:variables.topTabBarActiveTextColor,
+fontSize:17},
 
 backgroundColor:'transparent',
 borderColor:null,
@@ -119,15 +124,20 @@ color:variables.titleFontColor}}},
 
 'NativeBase.Right':{
 'NativeBase.Button':{
+marginRight:_reactNative.Platform.OS==='ios'?-8:0,
 '.transparent':{
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor},
+color:variables.topTabBarActiveTextColor,
+fontSize:variables.iconHeaderSize,
+marginTop:2,
+marginLeft:2},
 
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor},
 
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor},
+color:variables.topTabBarActiveTextColor,
+fontSize:17},
 
 backgroundColor:'transparent',
 borderColor:null,
