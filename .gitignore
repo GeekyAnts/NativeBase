@@ -125,6 +125,7 @@ captures/
 
 # Intellij
 *.iml
+.idea
 
 # Keystore files
 *.jks
