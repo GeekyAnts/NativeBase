@@ -61,6 +61,7 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+dist/**/__snapshots__
 
 ### Xcode ###
 # Xcode
