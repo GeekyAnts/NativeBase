@@ -5,6 +5,22 @@ var _variables=require('./variables');var _variables2=_interopRequireDefault(_va
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
 var headerTheme={
+'.hasSubtitle':{
+'NativeBase.Body':{
+'NativeBase.Title':{
+fontSize:variables.titleFontSize-2,
+fontFamily:variables.titleFontfamily,
+color:variables.titleFontColor,
+textAlign:'center'},
+
+'NativeBase.Subtitle':{
+fontSize:variables.subTitleFontSize,
+fontFamily:variables.titleFontfamily,
+color:variables.subtitleColor,
+textAlign:'center'}}},
+
+
+
 '.noShadow':{
 elevation:0,
 shadowColor:null,
@@ -98,20 +114,6 @@ alignSelf:'center',
 alignItems:'flex-start'},
 
 'NativeBase.Body':{
-'.hasSubtitle':{
-'NativeBase.Title':{
-fontSize:variables.titleFontSize-2,
-fontFamily:variables.titleFontfamily,
-color:variables.titleFontColor,
-textAlign:'center'},
-
-'NativeBase.Subtitle':{
-fontSize:variables.subTitleFontSize,
-fontFamily:variables.titleFontfamily,
-color:'red',
-textAlign:'center'}},
-
-
 flex:1,
 alignItems:_reactNative.Platform.OS==='ios'?'center':'flex-start',
 alignSelf:'center',

@@ -5,6 +5,22 @@ import variable from './variables';
 
 export default (variables = variable) => {
   const headerTheme = {
+    '.hasSubtitle': {
+      'NativeBase.Body': {
+        'NativeBase.Title': {
+          fontSize: variables.titleFontSize - 2,
+          fontFamily: variables.titleFontfamily,
+          color: variables.titleFontColor,
+          textAlign: 'center',
+        },
+        'NativeBase.Subtitle': {
+          fontSize: variables.subTitleFontSize,
+          fontFamily: variables.titleFontfamily,
+          color: variables.subtitleColor,
+          textAlign: 'center',
+        },
+      },
+    },
     '.noShadow': {
       elevation: 0,
       shadowColor: null,
@@ -98,20 +114,6 @@ export default (variables = variable) => {
       alignItems: 'flex-start',
     },
     'NativeBase.Body': {
-      '.hasSubtitle': {
-        'NativeBase.Title': {
-          fontSize: variables.titleFontSize - 2,
-          fontFamily: variables.titleFontfamily,
-          color: variables.titleFontColor,
-          textAlign: 'center',
-        },
-        'NativeBase.Subtitle': {
-          fontSize: variables.subTitleFontSize,
-          fontFamily: variables.titleFontfamily,
-          color: 'red',
-          textAlign: 'center',
-        },
-      },
       flex: 1,
       alignItems: (Platform.OS === 'ios') ? 'center' : 'flex-start',
       alignSelf: 'center',
