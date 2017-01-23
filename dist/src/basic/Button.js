@@ -30,6 +30,24 @@ style:this.getInitialStyle().borderedBtn};
 
 
 return(0,_computeProps2.default)(this.props,defaultProps);
+}},{key:'renderChildren',value:function renderChildren()
+{
+var isArray=_lodash2.default.isArray(this.props.children);
+
+if(!isArray){
+if(this.props.children.type.displayName==="Styled(Text)"){
+return _react2.default.createElement(_Text.Text,null,!this.props.capitalize?this.props.children.props.children:this.props.children.props.children.toUpperCase());
+}else
+return this.props.children;
+}else
+{
+var newChildren=[];
+var childrenArray=_lodash2.default.toArray(this.props.children);
+var iconArray=_lodash2.default.remove(childrenArray,function(child){return child.type.displayName==="Styled(Icon)";});
+newChildren.push(iconArray);
+newChildren.push(_react2.default.createElement(_Text.Text,{key:5},!this.props.capitalize?childrenArray[0].props.children:childrenArray[0].props.children.toUpperCase()));
+return newChildren;
+}
 }},{key:'render',value:function render()
 {var _this2=this;
 if(_reactNative.Platform.OS==='ios'||_variables2.default.androidRipple===false){
@@ -50,7 +68,7 @@ _react2.default.createElement(_reactNative.TouchableNativeFeedback,{ref:function
 onPress:this.props.onPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_variables2.default.androidRippleColor)},
 _react2.default.createElement(_reactNative.View,this.prepareRootProps(),
-this.props.children)));
+this.renderChildren())));
 
 
 
@@ -69,6 +87,7 @@ danger:_react2.default.PropTypes.bool,
 warning:_react2.default.PropTypes.bool,
 info:_react2.default.PropTypes.bool,
 bordered:_react2.default.PropTypes.bool,
+capitalize:_react2.default.PropTypes.bool,
 disabled:_react2.default.PropTypes.bool,
 rounded:_react2.default.PropTypes.bool,
 large:_react2.default.PropTypes.bool,
@@ -77,6 +96,9 @@ active:_react2.default.PropTypes.bool,
 badgeColor:_react2.default.PropTypes.string,
 badgeValueStyle:_react2.default.PropTypes.object});
 
+
+Button.defaultProps={
+capitalize:true};
 
 
 var StyledButton=(0,_theme.connectStyle)('NativeBase.Button',{},_mapPropsToStyleNames2.default)(Button);exports.

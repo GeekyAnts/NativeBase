@@ -261,11 +261,15 @@ lineHeight:variables.btnLineHeight},
 
 'NativeBase.Icon':{
 color:variables.inverseTextColor,
-fontSize:24},
+fontSize:24,
+marginHorizontal:5,
+paddingTop:_reactNative.Platform.OS==='ios'?2:undefined},
 
 'NativeBase.IconNB':{
 color:variables.inverseTextColor,
-fontSize:24},
+fontSize:24,
+marginHorizontal:5,
+paddingTop:_reactNative.Platform.OS==='ios'?2:undefined},
 
 
 paddingVertical:variables.buttonPadding,

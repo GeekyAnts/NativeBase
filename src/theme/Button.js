@@ -262,10 +262,14 @@ export default (variables = variable) => {
       'NativeBase.Icon': {
         color: variables.inverseTextColor,
         fontSize: 24,
+        marginHorizontal: 5,
+        paddingTop: (Platform.OS === 'ios') ? 2 : undefined
       },
       'NativeBase.IconNB': {
         color: variables.inverseTextColor,
         fontSize: 24,
+        marginHorizontal: 5,
+        paddingTop: (Platform.OS === 'ios') ? 2 : undefined
       },
 
       paddingVertical: variables.buttonPadding,

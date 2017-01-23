@@ -31,6 +31,24 @@ class Button extends Component {
 
     return computeProps(this.props, defaultProps);
   }
+  renderChildren() {
+    const isArray = _.isArray(this.props.children);
+    // console.log('iconArray', iconArray);
+    if (!isArray) {
+      if (this.props.children.type.displayName==="Styled(Text)") {
+        return <Text>{(!this.props.capitalize) ? this.props.children.props.children : this.props.children.props.children.toUpperCase()}</Text>
+      }
+      else return this.props.children;
+    }
+    else {
+      const newChildren = [];
+      const childrenArray = _.toArray(this.props.children);
+      const iconArray = _.remove(childrenArray, (child)=> child.type.displayName==="Styled(Icon)");
+      newChildren.push(iconArray);
+      newChildren.push(<Text key={5}>{(!this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
+      return newChildren;
+    }
+  }
   render() {
     if (Platform.OS==='ios' || variable.androidRipple===false) {
       return (
@@ -50,7 +68,7 @@ class Button extends Component {
               onPress={this.props.onPress}
               background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColor)}>
               <View {...this.prepareRootProps()}>
-                  {this.props.children}
+                  {this.renderChildren()}
               </View>
           </TouchableNativeFeedback>
       );
@@ -69,6 +87,7 @@ Button.propTypes = {
   warning: React.PropTypes.bool,
   info: React.PropTypes.bool,
   bordered: React.PropTypes.bool,
+  capitalize: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   rounded: React.PropTypes.bool,
   large: React.PropTypes.bool,
@@ -78,6 +97,9 @@ Button.propTypes = {
   badgeValueStyle: React.PropTypes.object,
 };
 
+Button.defaultProps = {
+  capitalize: true
+}
 
 const StyledButton = connectStyle('NativeBase.Button', {}, mapPropsToStyleNames)(Button);
 export {

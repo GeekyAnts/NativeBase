@@ -19,7 +19,7 @@ style:_react2.default.PropTypes.object});
 
 
 var AnimatedText=(0,_animation.connectAnimation)(Text);
-var StyledText=(0,_theme.connectStyle)('NativeBase.Text',{},_mapPropsToStyleNames2.default)(AnimatedText);exports.
+var StyledText=(0,_theme.connectStyle)('NativeBase.Text',{},_mapPropsToStyleNames2.default)(Text);exports.
 
 
 Text=StyledText;

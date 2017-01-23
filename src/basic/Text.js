@@ -19,7 +19,7 @@ Text.propTypes = {
 };
 
 const AnimatedText = connectAnimation(Text);
-const StyledText = connectStyle('NativeBase.Text', {}, mapPropsToStyleNames)(AnimatedText);
+const StyledText = connectStyle('NativeBase.Text', {}, mapPropsToStyleNames)(Text);
 
 export {
   StyledText as Text,
