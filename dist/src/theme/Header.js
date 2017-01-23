@@ -108,7 +108,7 @@ textAlign:'center'},
 'NativeBase.Subtitle':{
 fontSize:variables.subTitleFontSize,
 fontFamily:variables.titleFontfamily,
-color:variables.subtitleColor,
+color:'red',
 textAlign:'center'}},
 
 
@@ -161,7 +161,9 @@ alignSelf:null},
 
 flex:1,
 alignSelf:'center',
-alignItems:'flex-end'},
+alignItems:'flex-end',
+flexDirection:'row',
+justifyContent:'flex-end'},
 
 backgroundColor:variables.toolbarDefaultBg,
 flexDirection:'row',
