@@ -7,6 +7,10 @@ var deviceWidth=_reactNative.Dimensions.get('window').width;exports.default=
 {
 
 
+androidRipple:true,
+androidRippleColor:'rgba(256, 256, 256, 0.7)',
+
+
 badgeBg:'#ED1727',
 badgeColor:'#fff',
 
@@ -143,7 +147,7 @@ topTabBarBorderColor:_reactNative.Platform.OS==='ios'?'#007aff':'#fff',
 
 
 iosToolbarBtnColor:'#007aff',
-toolbarDefaultBg:_reactNative.Platform.OS==='ios'?'#F8F8F8':'#4179F7',
+toolbarDefaultBg:_reactNative.Platform.OS==='ios'?'#F8F8F8':'#5067FF',
 toolbarHeight:_reactNative.Platform.OS==='ios'?64:56,
 toolbarIconSize:_reactNative.Platform.OS==='ios'?20:22,
 toolbarInputColor:'#CECDD2',

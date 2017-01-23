@@ -187,6 +187,12 @@ justifyContent:'center',
 alignSelf:'stretch'},
 
 
+'.full':{
+justifyContent:'center',
+alignSelf:'stretch',
+borderRadius:0},
+
+
 '.rounded':{
 borderRadius:variables.borderRadiusLarge},
 

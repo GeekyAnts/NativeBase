@@ -86,6 +86,9 @@ export default (variables = variable) => {
         '.transparent': {
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
+            fontSize: variables.iconHeaderSize,
+            marginTop: 2,
+            marginRight: 2
           },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
@@ -138,6 +141,9 @@ export default (variables = variable) => {
         '.transparent': {
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
+            fontSize: variables.iconHeaderSize,
+            marginTop: 2,
+            marginLeft: 2
           },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,

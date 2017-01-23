@@ -6,6 +6,10 @@ const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 export default {
 
+    // AndroidRipple
+  androidRipple: true,
+  androidRippleColor: 'rgba(256, 256, 256, 0.7)',
+
     // Badge
   badgeBg: '#ED1727',
   badgeColor: '#fff',
@@ -143,7 +147,7 @@ export default {
 
     // Header
   iosToolbarBtnColor: '#007aff',
-  toolbarDefaultBg: (Platform.OS === 'ios') ? '#F8F8F8' : '#4179F7',
+  toolbarDefaultBg: (Platform.OS === 'ios') ? '#F8F8F8' : '#5067FF',
   toolbarHeight: (Platform.OS === 'ios') ? 64 : 56,
   toolbarIconSize: (Platform.OS === 'ios') ? 20 : 22,
   toolbarInputColor: '#CECDD2',
