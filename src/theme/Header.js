@@ -95,6 +95,7 @@ export default (variables = variable) => {
           },
           'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
+            fontSize: 17
           },
           backgroundColor: 'transparent',
           borderColor: null,
@@ -150,6 +151,7 @@ export default (variables = variable) => {
           },
           'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
+            fontSize: 17
           },
           backgroundColor: 'transparent',
           borderColor: null,

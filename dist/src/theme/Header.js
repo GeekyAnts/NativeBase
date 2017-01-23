@@ -94,7 +94,8 @@ marginRight:2},
 color:variables.topTabBarActiveTextColor},
 
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor},
+color:variables.topTabBarActiveTextColor,
+fontSize:17},
 
 backgroundColor:'transparent',
 borderColor:null,
@@ -149,7 +150,8 @@ marginLeft:2},
 color:variables.topTabBarActiveTextColor},
 
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor},
+color:variables.topTabBarActiveTextColor,
+fontSize:17},
 
 backgroundColor:'transparent',
 borderColor:null,
