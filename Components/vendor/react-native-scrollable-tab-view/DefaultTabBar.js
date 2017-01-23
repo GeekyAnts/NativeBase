@@ -12,7 +12,7 @@ import {
   Animated,
 } from 'react-native';
 
-var deviceWidth = Dimensions.get('window').width;
+const deviceWidth = Dimensions.get('window').width;
 
 export default class DefaultTabBar extends NativeBaseComponent {
     getInitialStyle() {
@@ -59,12 +59,12 @@ export default class DefaultTabBar extends NativeBaseComponent {
       position: 'absolute',
       width: deviceWidth / numberOfTabs,
       height: 4,
-      backgroundColor: this.getTheme().tabTextColor,
+      backgroundColor: this.getTheme().tabUnderlineColor,
       bottom: 0,
     };
 
     var left = this.props.scrollValue.interpolate({
-      inputRange: [0, 1], outputRange: [0, deviceWidth / numberOfTabs]
+        inputRange: [0, 1], outputRange: [0, deviceWidth / numberOfTabs]
     });
 
     return (
