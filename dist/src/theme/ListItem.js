@@ -104,7 +104,8 @@ alignSelf:null},
 alignSelf:null},
 
 'NativeBase.Radio':{
-alignSelf:null},
+alignSelf:null,
+marginRight:10},
 
 'NativeBase.Checkbox':{
 alignSelf:null},

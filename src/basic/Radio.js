@@ -3,16 +3,16 @@ import { TouchableOpacity, Platform } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 import { IconNB as Icon } from './IconNB';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
-
+import variable from '../theme/variables';
 
 class Radio extends Component {
   render() {
     return (
       <TouchableOpacity ref={c => this._root = c} {...this.props}>
         {(Platform.OS === 'ios') ?
-          <Icon name={this.props.selected ? 'ios-radio-button-on' : 'ios-radio-button-off-outline'} />
+          (this.props.selected) && <Icon name="ios-checkmark" style={{height: 20, lineHeight: 25, fontSize: 30}} />
           :
-          <Icon name={this.props.selected ? 'md-radio-button-on' : 'md-radio-button-off'} />
+          <Icon name={this.props.selected ? 'md-radio-button-on' : 'md-radio-button-off'} style={{fontSize: 22, lineHeight: 23, color: (this.props.selected) ? variable.radioSelectedColorAndroid : undefined}} />
       }
       </TouchableOpacity>
     );

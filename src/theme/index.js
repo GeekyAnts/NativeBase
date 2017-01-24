@@ -18,6 +18,7 @@ import fabTheme from './Fab';
 import itemTheme from './Item';
 import labelTheme from './Label';
 import textAreaTheme from './Textarea';
+import textTheme from './Text';
 import tabTheme from './Tab';
 import tabBarTheme from './TabBar';
 import viewTheme from './View';
@@ -82,7 +83,7 @@ export default (variables = variable) => {
     },
 
     'NativeBase.CardItem': {
-      ...cardItemTheme(variables), 
+      ...cardItemTheme(variables),
       '.cardBody': {
         padding: -5,
         'NativeBase.Text': {
@@ -98,7 +99,7 @@ export default (variables = variable) => {
       flexDirection: 'row',
       alignItems: 'center',
     },
-    
+
     'NativeBase.CardItem1': {
       ...cardItemTheme(variables),
     },
@@ -160,7 +161,7 @@ export default (variables = variable) => {
       ...iconTheme(variables),
     },
     'NativeBase.Text': {
-      paddingHorizontal: 3,
+      ...textTheme(variables),
     },
     'NativeBase.Spinner': {
       ...spinnerTheme(variables),

@@ -29,6 +29,7 @@ export default {
   CheckboxIconSize: (Platform.OS === 'ios') ? (23 / 0.93) : 18,
   CheckboxIconMarginTop: (Platform.OS === 'ios') ? undefined : 1,
   CheckboxFontSize: (Platform.OS === 'ios') ? (23 / 0.8) : (23 / 1.2),
+  DefaultFontSize: 17,
 
     // New Variable
   get defaultTextColor() {
@@ -215,6 +216,7 @@ export default {
 
     // Radio Button
   radioBtnSize: (Platform.OS === 'ios') ? 25 : 23,
+  radioSelectedColorAndroid: '#00796B',
 
     // New Variable
   radioBtnLineHeight: (Platform.OS === 'ios') ? 29 : 24,

@@ -105,6 +105,7 @@ export default (variables = variable) => {
         },
         'NativeBase.Radio': {
           alignSelf: null,
+          marginRight: 10
         },
         'NativeBase.Checkbox': {
           alignSelf: null,

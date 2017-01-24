@@ -18,6 +18,7 @@ var _Fab=require('./Fab');var _Fab2=_interopRequireDefault(_Fab);
 var _Item=require('./Item');var _Item2=_interopRequireDefault(_Item);
 var _Label=require('./Label');var _Label2=_interopRequireDefault(_Label);
 var _Textarea=require('./Textarea');var _Textarea2=_interopRequireDefault(_Textarea);
+var _Text=require('./Text');var _Text2=_interopRequireDefault(_Text);
 var _Tab=require('./Tab');var _Tab2=_interopRequireDefault(_Tab);
 var _TabBar=require('./TabBar');var _TabBar2=_interopRequireDefault(_TabBar);
 var _View=require('./View');var _View2=_interopRequireDefault(_View);
@@ -159,8 +160,8 @@ alignSelf:'center'}}),
 'NativeBase.IconNB':_extends({},
 (0,_Icon2.default)(variables)),
 
-'NativeBase.Text':{
-paddingHorizontal:3},
+'NativeBase.Text':_extends({},
+(0,_Text2.default)(variables)),
 
 'NativeBase.Spinner':_extends({},
 (0,_Spinner2.default)(variables)),

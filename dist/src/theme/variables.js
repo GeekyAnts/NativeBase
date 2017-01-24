@@ -29,6 +29,7 @@ CheckboxPaddingBottom:_reactNative.Platform.OS==='ios'?0:5,
 CheckboxIconSize:_reactNative.Platform.OS==='ios'?23/0.93:18,
 CheckboxIconMarginTop:_reactNative.Platform.OS==='ios'?undefined:1,
 CheckboxFontSize:_reactNative.Platform.OS==='ios'?23/0.8:23/1.2,
+DefaultFontSize:17,
 
 
 get defaultTextColor(){
@@ -215,6 +216,7 @@ inverseProgressColor:'#1A191B',
 
 
 radioBtnSize:_reactNative.Platform.OS==='ios'?25:23,
+radioSelectedColorAndroid:'#00796B',
 
 
 radioBtnLineHeight:_reactNative.Platform.OS==='ios'?29:24,

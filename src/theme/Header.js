@@ -83,12 +83,23 @@ export default (variables = variable) => {
     },
     'NativeBase.Left': {
       'NativeBase.Button': {
+        '.hasText': {
+          marginLeft: -10,
+          'NativeBase.Icon': {
+            color: variables.topTabBarActiveTextColor,
+            fontSize: variables.iconHeaderSize,
+            marginTop: 2,
+            marginRight: 5,
+            marginLeft: 2
+          },
+        },
         '.transparent': {
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize,
             marginTop: 2,
-            marginRight: 2
+            marginRight: 2,
+            marginLeft: 2
           },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
@@ -139,12 +150,23 @@ export default (variables = variable) => {
     },
     'NativeBase.Right': {
       'NativeBase.Button': {
+        '.hasText': {
+          marginRight: -10,
+          'NativeBase.Icon': {
+            color: variables.topTabBarActiveTextColor,
+            fontSize: variables.iconHeaderSize,
+            marginTop: 2,
+            marginRight: 2,
+            marginLeft: 5
+          },
+        },
         '.transparent': {
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize,
             marginTop: 2,
-            marginLeft: 2
+            marginLeft: 2,
+            marginRight: 2
           },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
