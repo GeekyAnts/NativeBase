@@ -5,7 +5,8 @@ var _variables=require('./variables');var _variables2=_interopRequireDefault(_va
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
 var textTheme={
-fontSize:variables.DefaultFontSize};
+fontSize:variables.DefaultFontSize,
+fontFamily:variables.fontFamily};
 
 
 return textTheme;

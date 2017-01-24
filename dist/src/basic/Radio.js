@@ -10,7 +10,7 @@ Radio=function(_Component){_inherits(Radio,_Component);function Radio(){_classCa
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.props),
 _reactNative.Platform.OS==='ios'?
-this.props.selected&&_react2.default.createElement(_IconNB.IconNB,{name:'ios-checkmark',style:{height:20,lineHeight:25,fontSize:30}}):
+this.props.selected&&_react2.default.createElement(_IconNB.IconNB,{name:'ios-checkmark',style:{height:20,lineHeight:25,fontSize:30,color:_variables2.default.brandPrimary}}):
 
 _react2.default.createElement(_IconNB.IconNB,{name:this.props.selected?'md-radio-button-on':'md-radio-button-off',style:{fontSize:22,lineHeight:23,color:this.props.selected?_variables2.default.radioSelectedColorAndroid:undefined}})));
 

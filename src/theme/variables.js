@@ -9,6 +9,7 @@ export default {
     // AndroidRipple
   androidRipple: true,
   androidRippleColor: 'rgba(256, 256, 256, 0.7)',
+  androidRippleColorDark: 'rgba(0, 0, 0, 0.15)',
 
     // Badge
   badgeBg: '#ED1727',
@@ -17,19 +18,22 @@ export default {
   badgePadding: (Platform.OS === 'ios') ? 3 : 0,
 
     // Button
-  btnFontFamily: (Platform.OS === 'ios') ? 'SanFrancisco' : 'Roboto_medium',
+  btnFontFamily: (Platform.OS === 'ios') ? 'System' : 'Roboto_medium',
   btnDisabledBg: '#b5b5b5',
   btnDisabledClr: '#f1f1f1',
 
-    // New Variables
+    // CheckBox
   CheckboxRadius: (Platform.OS === 'ios') ? 13 : 0,
   CheckboxBorderWidth: (Platform.Os === 'ios') ? 1 : 2,
-  CheckboxPaddingLeft: (Platform.OS === 'ios') ? 5 : 2,
+  CheckboxPaddingLeft: (Platform.OS === 'ios') ? 4 : 2,
   CheckboxPaddingBottom: (Platform.OS === 'ios') ? 0 : 5,
-  CheckboxIconSize: (Platform.OS === 'ios') ? (23 / 0.93) : 18,
+  CheckboxIconSize: (Platform.OS === 'ios') ? 21 : 14,
   CheckboxIconMarginTop: (Platform.OS === 'ios') ? undefined : 1,
-  CheckboxFontSize: (Platform.OS === 'ios') ? (23 / 0.8) : (23 / 1.2),
+  CheckboxFontSize: (Platform.OS === 'ios') ? (23 / 0.9) : 18,
   DefaultFontSize: 17,
+  checkboxBgColor: '#039BE5',
+  checkboxSize: 20,
+  checkboxTickColor: '#fff',
 
     // New Variable
   get defaultTextColor() {
@@ -95,13 +99,7 @@ export default {
   cardDefaultBg: '#fff',
 
 
-    // Check Box
-  checkboxBgColor: '#039BE5',
-  checkboxSize: 23,
-  checkboxTickColor: '#fff',
-
-
-    // Color
+      // Color
   brandPrimary: '#5067FF',
   brandInfo: '#5bc0de',
   brandSuccess: '#5cb85c',
@@ -111,7 +109,7 @@ export default {
 
 
     // Font
-  fontFamily: (Platform.OS === 'ios') ? 'SanFrancisco' : 'Roboto',
+  fontFamily: (Platform.OS === 'ios') ? 'System' : 'Roboto',
   fontSizeBase: 15,
 
   get fontSizeH1() {
@@ -245,7 +243,7 @@ export default {
 
 
     // Title
-  titleFontfamily: (Platform.OS === 'ios') ? 'SanFrancisco' : 'Roboto_medium',
+  titleFontfamily: (Platform.OS === 'ios') ? 'System' : 'Roboto_medium',
   titleFontSize: (Platform.OS === 'ios') ? 17 : 19,
   subTitleFontSize: (Platform.OS === 'ios') ? 12 : 14,
   subtitleColor: '#8e8e93',

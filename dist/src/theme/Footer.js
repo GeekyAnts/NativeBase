@@ -32,6 +32,7 @@ alignItems:'flex-start'},
 flex:1,
 alignItems:'center',
 alignSelf:'center',
+flexDirection:'row',
 'NativeBase.Button':{
 alignSelf:'center',
 '.transparent':{
@@ -43,14 +44,15 @@ shadowOffset:null,
 shadowRadius:null,
 shadowOpacity:null},
 
+'.full':{
+height:variables.footerHeight,
+flex:1},
+
 'NativeBase.Icon':{
 color:variables.topTabBarActiveTextColor},
 
 'NativeBase.IconNB':{
-color:variables.topTabBarActiveTextColor},
-
-'NativeBase.Text':{
-color:variables.titleFontColor}}},
+color:variables.topTabBarActiveTextColor}}},
 
 
 
@@ -85,7 +87,7 @@ borderColor:_reactNative.Platform.OS==='ios'?'#cbcbcb':undefined,
 height:variables.footerHeight,
 elevation:3,
 position:'absolute',
-bottom:_reactNative.Platform.OS==='ios'?0:23,
+bottom:0,
 left:0,
 right:0};
 

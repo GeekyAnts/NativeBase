@@ -9,6 +9,7 @@ var deviceWidth=_reactNative.Dimensions.get('window').width;exports.default=
 
 androidRipple:true,
 androidRippleColor:'rgba(256, 256, 256, 0.7)',
+androidRippleColorDark:'rgba(0, 0, 0, 0.15)',
 
 
 badgeBg:'#ED1727',
@@ -17,19 +18,22 @@ badgeColor:'#fff',
 badgePadding:_reactNative.Platform.OS==='ios'?3:0,
 
 
-btnFontFamily:_reactNative.Platform.OS==='ios'?'SanFrancisco':'Roboto_medium',
+btnFontFamily:_reactNative.Platform.OS==='ios'?'System':'Roboto_medium',
 btnDisabledBg:'#b5b5b5',
 btnDisabledClr:'#f1f1f1',
 
 
 CheckboxRadius:_reactNative.Platform.OS==='ios'?13:0,
 CheckboxBorderWidth:_reactNative.Platform.Os==='ios'?1:2,
-CheckboxPaddingLeft:_reactNative.Platform.OS==='ios'?5:2,
+CheckboxPaddingLeft:_reactNative.Platform.OS==='ios'?4:2,
 CheckboxPaddingBottom:_reactNative.Platform.OS==='ios'?0:5,
-CheckboxIconSize:_reactNative.Platform.OS==='ios'?23/0.93:18,
+CheckboxIconSize:_reactNative.Platform.OS==='ios'?21:14,
 CheckboxIconMarginTop:_reactNative.Platform.OS==='ios'?undefined:1,
-CheckboxFontSize:_reactNative.Platform.OS==='ios'?23/0.8:23/1.2,
+CheckboxFontSize:_reactNative.Platform.OS==='ios'?23/0.9:18,
 DefaultFontSize:17,
+checkboxBgColor:'#039BE5',
+checkboxSize:20,
+checkboxTickColor:'#fff',
 
 
 get defaultTextColor(){
@@ -96,12 +100,6 @@ cardDefaultBg:'#fff',
 
 
 
-checkboxBgColor:'#039BE5',
-checkboxSize:23,
-checkboxTickColor:'#fff',
-
-
-
 brandPrimary:'#5067FF',
 brandInfo:'#5bc0de',
 brandSuccess:'#5cb85c',
@@ -111,7 +109,7 @@ brandSidebar:'#252932',
 
 
 
-fontFamily:_reactNative.Platform.OS==='ios'?'SanFrancisco':'Roboto',
+fontFamily:_reactNative.Platform.OS==='ios'?'System':'Roboto',
 fontSizeBase:15,
 
 get fontSizeH1(){
@@ -245,7 +243,7 @@ inverseTextColor:'#fff',
 
 
 
-titleFontfamily:_reactNative.Platform.OS==='ios'?'SanFrancisco':'Roboto_medium',
+titleFontfamily:_reactNative.Platform.OS==='ios'?'System':'Roboto_medium',
 titleFontSize:_reactNative.Platform.OS==='ios'?17:19,
 subTitleFontSize:_reactNative.Platform.OS==='ios'?12:14,
 subtitleColor:'#8e8e93',

@@ -1,19 +1,31 @@
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Platform, TouchableNativeFeedback, View } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import variable from '../theme/variables';
 
 class ListItem extends Component {
   render() {
-    return (
-      <TouchableOpacity
-        ref={c => this._root = c}
-        {...this.props} activeOpacity={(this.props.button) ? 0.2 : 1}
-      >
-        {this.props.children}
-      </TouchableOpacity>
-    );
+    if (Platform.OS==='ios' || variable.androidRipple===false || !this.props.onPress) {
+      return (
+        <TouchableOpacity
+          ref={c => this._root = c}
+          {...this.props} activeOpacity={(this.props.onPress) ? 0.4 : 1}
+        >
+          {this.props.children}
+        </TouchableOpacity>
+      );
+    }
+    else {
+      return(
+          <TouchableNativeFeedback ref={c => this._root = c}
+              onPress={this.props.onPress}
+              background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColorDark)}>
+              <View {...this.props}>{this.props.children}</View>
+          </TouchableNativeFeedback>
+      );
+    }
   }
 }
 

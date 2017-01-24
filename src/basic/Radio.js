@@ -10,7 +10,7 @@ class Radio extends Component {
     return (
       <TouchableOpacity ref={c => this._root = c} {...this.props}>
         {(Platform.OS === 'ios') ?
-          (this.props.selected) && <Icon name="ios-checkmark" style={{height: 20, lineHeight: 25, fontSize: 30}} />
+          (this.props.selected) && <Icon name="ios-checkmark" style={{height: 20, lineHeight: 25, fontSize: 30, color: variable.brandPrimary}} />
           :
           <Icon name={this.props.selected ? 'md-radio-button-on' : 'md-radio-button-off'} style={{fontSize: 22, lineHeight: 23, color: (this.props.selected) ? variable.radioSelectedColorAndroid : undefined}} />
       }

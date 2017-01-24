@@ -32,6 +32,7 @@ export default (variables = variable) => {
         flex: 1,
         alignItems: 'center',
         alignSelf: 'center',
+        flexDirection: 'row',
         'NativeBase.Button': {
           alignSelf: 'center',
           '.transparent': {
@@ -43,15 +44,16 @@ export default (variables = variable) => {
             shadowRadius: null,
             shadowOpacity: null,
           },
+          '.full': {
+            height: variables.footerHeight,
+            flex: 1
+          },
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
           },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
-          },
-          'NativeBase.Text': {
-            color: variables.titleFontColor,
-          },
+          }
         },
       },
       'NativeBase.Right': {
@@ -85,7 +87,7 @@ export default (variables = variable) => {
       height: variables.footerHeight,
       elevation: 3,
       position: 'absolute',
-      bottom: (Platform.OS === 'ios') ? 0 : 23,
+      bottom: 0,
       left: 0,
       right: 0,
   };

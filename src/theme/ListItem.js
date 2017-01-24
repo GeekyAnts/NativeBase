@@ -6,20 +6,20 @@ import variable from './variables';
 export default (variables = variable) => {
   const listItemTheme = {
     'NativeBase.InputGroup': {
-        'NativeBase.Icon': {
-          paddingRight: 5,
-        },
-        'NativeBase.IconNB': {
-          paddingRight: 5,
-        },
-        'NativeBase.Input': {
-          paddingHorizontal: 5,
-        },
-        flex: 1,
-        borderWidth: null,
-        margin: -10,
-        borderBottomColor: 'transparent',
+      'NativeBase.Icon': {
+        paddingRight: 5,
       },
+      'NativeBase.IconNB': {
+        paddingRight: 5,
+      },
+      'NativeBase.Input': {
+        paddingHorizontal: 5,
+      },
+      flex: 1,
+      borderWidth: null,
+      margin: -10,
+      borderBottomColor: 'transparent',
+    },
       'NativeBase.CheckBox': {
         marginLeft: -10,
       },
@@ -37,8 +37,10 @@ export default (variables = variable) => {
         },
       },
       '.selected': {
-        'NativeBase.Text': {
-          color: variables.brandPrimary
+        'NativeBase.Left': {
+          'NativeBase.Text': {
+            color: variables.brandPrimary
+          }          
         }
       },
       'NativeBase.Left': {
