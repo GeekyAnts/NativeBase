@@ -17,7 +17,7 @@ badgeColor:'#fff',
 badgePadding:_reactNative.Platform.OS==='ios'?3:0,
 
 
-btnFontFamily:_reactNative.Platform.OS==='ios'?'HelveticaNeue':'Roboto_medium',
+btnFontFamily:_reactNative.Platform.OS==='ios'?'San Francisco Display Regular':'Roboto_medium',
 btnDisabledBg:'#b5b5b5',
 btnDisabledClr:'#f1f1f1',
 

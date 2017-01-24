@@ -17,7 +17,7 @@ export default {
   badgePadding: (Platform.OS === 'ios') ? 3 : 0,
 
     // Button
-  btnFontFamily: (Platform.OS === 'ios') ? 'HelveticaNeue' : 'Roboto_medium',
+  btnFontFamily: (Platform.OS === 'ios') ? 'San Francisco Display Regular' : 'Roboto_medium',
   btnDisabledBg: '#b5b5b5',
   btnDisabledClr: '#f1f1f1',
 
