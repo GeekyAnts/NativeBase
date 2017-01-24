@@ -36,6 +36,11 @@ fontSize:16,
 fontWeight:'600'}},
 
 
+'.selected':{
+'NativeBase.Text':{
+color:variables.brandPrimary}},
+
+
 'NativeBase.Left':{
 'NativeBase.Body':{
 'NativeBase.Text':{

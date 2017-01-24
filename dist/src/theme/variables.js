@@ -111,7 +111,7 @@ brandSidebar:'#252932',
 
 
 
-fontFamily:_reactNative.Platform.OS==='ios'?'HelveticaNeue':'Roboto',
+fontFamily:_reactNative.Platform.OS==='ios'?'San Francisco Display Regular':'Roboto',
 fontSizeBase:15,
 
 get fontSizeH1(){
@@ -216,7 +216,7 @@ inverseProgressColor:'#1A191B',
 
 
 radioBtnSize:_reactNative.Platform.OS==='ios'?25:23,
-radioSelectedColorAndroid:'#00796B',
+radioSelectedColorAndroid:'#5067FF',
 
 
 radioBtnLineHeight:_reactNative.Platform.OS==='ios'?29:24,

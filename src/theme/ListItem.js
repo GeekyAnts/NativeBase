@@ -36,6 +36,11 @@ export default (variables = variable) => {
           fontWeight: '600',
         },
       },
+      '.selected': {
+        'NativeBase.Text': {
+          color: variables.brandPrimary
+        }
+      },
       'NativeBase.Left': {
         'NativeBase.Body': {
           'NativeBase.Text': {

@@ -111,7 +111,7 @@ export default {
 
 
     // Font
-  fontFamily: (Platform.OS === 'ios') ? 'HelveticaNeue' : 'Roboto',
+  fontFamily: (Platform.OS === 'ios') ? 'San Francisco Display Regular' : 'Roboto',
   fontSizeBase: 15,
 
   get fontSizeH1() {
@@ -216,7 +216,7 @@ export default {
 
     // Radio Button
   radioBtnSize: (Platform.OS === 'ios') ? 25 : 23,
-  radioSelectedColorAndroid: '#00796B',
+  radioSelectedColorAndroid: '#5067FF',
 
     // New Variable
   radioBtnLineHeight: (Platform.OS === 'ios') ? 29 : 24,
