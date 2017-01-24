@@ -17,7 +17,7 @@ badgeColor:'#fff',
 badgePadding:_reactNative.Platform.OS==='ios'?3:0,
 
 
-btnFontFamily:_reactNative.Platform.OS==='ios'?'San Francisco Display Regular':'Roboto_medium',
+btnFontFamily:_reactNative.Platform.OS==='ios'?'SanFrancisco':'Roboto_medium',
 btnDisabledBg:'#b5b5b5',
 btnDisabledClr:'#f1f1f1',
 
@@ -111,7 +111,7 @@ brandSidebar:'#252932',
 
 
 
-fontFamily:_reactNative.Platform.OS==='ios'?'San Francisco Display Regular':'Roboto',
+fontFamily:_reactNative.Platform.OS==='ios'?'SanFrancisco':'Roboto',
 fontSizeBase:15,
 
 get fontSizeH1(){
@@ -245,7 +245,7 @@ inverseTextColor:'#fff',
 
 
 
-titleFontfamily:_reactNative.Platform.OS==='ios'?undefined:'Roboto_medium',
+titleFontfamily:_reactNative.Platform.OS==='ios'?'SanFrancisco':'Roboto_medium',
 titleFontSize:_reactNative.Platform.OS==='ios'?17:19,
 subTitleFontSize:_reactNative.Platform.OS==='ios'?12:14,
 subtitleColor:'#8e8e93',
