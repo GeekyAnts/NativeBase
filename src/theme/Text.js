@@ -6,7 +6,11 @@ import variable from './variables';
 export default (variables = variable) => {
   const textTheme = {
       fontSize: variables.DefaultFontSize,
-      fontFamily: variables.fontFamily
+      fontFamily: variables.fontFamily,
+      '.note': {
+        color: '#a7a7a7',
+        fontSize: 14
+      }
   };
 
   return textTheme;

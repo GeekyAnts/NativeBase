@@ -85,6 +85,7 @@ export default (variables = variable) => {
       'NativeBase.Button': {
         '.hasText': {
           marginLeft: -10,
+          height: 30,
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize,
@@ -92,6 +93,10 @@ export default (variables = variable) => {
             marginRight: 5,
             marginLeft: 2
           },
+          'NativeBase.Text': {
+            color: variables.topTabBarActiveTextColor,
+            fontSize: 17
+          }
         },
         '.transparent': {
           'NativeBase.Icon': {
@@ -151,7 +156,7 @@ export default (variables = variable) => {
     'NativeBase.Right': {
       'NativeBase.Button': {
         '.hasText': {
-          marginRight: -10,
+          height: 30,
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize,
@@ -159,6 +164,10 @@ export default (variables = variable) => {
             marginRight: 2,
             marginLeft: 5
           },
+          'NativeBase.Text': {
+            color: variables.topTabBarActiveTextColor,
+            fontSize: 17
+          }
         },
         '.transparent': {
           'NativeBase.Icon': {
