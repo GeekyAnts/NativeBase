@@ -125,7 +125,8 @@ marginLeft:2},
 
 'NativeBase.Text':{
 color:variables.topTabBarActiveTextColor,
-fontSize:17},
+fontSize:17,
+top:_reactNative.Platform.OS==='ios'?undefined:-1.5},
 
 backgroundColor:'transparent',
 borderColor:null,
@@ -143,7 +144,7 @@ color:variables.topTabBarActiveTextColor},
 
 alignSelf:null},
 
-flex:_reactNative.Platform.OS==='ios'?1:0.4,
+flex:_reactNative.Platform.OS==='ios'?1:0.5,
 alignSelf:'center',
 alignItems:'flex-start'},
 
@@ -207,7 +208,8 @@ marginRight:2},
 
 'NativeBase.Text':{
 color:variables.topTabBarActiveTextColor,
-fontSize:17},
+fontSize:17,
+top:_reactNative.Platform.OS==='ios'?undefined:-1.5},
 
 backgroundColor:'transparent',
 borderColor:null,
