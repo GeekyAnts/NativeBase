@@ -1,4 +1,5 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Tabs=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
+var _reactNative=require('react-native');
 var _reactNativeScrollableTabView=require('react-native-scrollable-tab-view');var _reactNativeScrollableTabView2=_interopRequireDefault(_reactNativeScrollableTabView);
 
 var _variables=require('../theme/variables');var _variables2=_interopRequireDefault(_variables);
@@ -10,7 +11,7 @@ Tabs=function(_Component){_inherits(Tabs,_Component);function Tabs(){_classCallC
 return(
 _react2.default.createElement(_reactNativeScrollableTabView2.default,_extends({
 ref:function ref(c){return _this2._root=c;}},this.props,{
-tabBarBackgroundColor:Platform.OS==='ios'?_variables2.default.iosToolbarBtnColor:undefined,
+tabBarBackgroundColor:_reactNative.Platform.OS==='ios'?_variables2.default.iosToolbarBtnColor:undefined,
 tabBarInactiveTextColor:_variables2.default.tabBarActiveTextColor,
 tabBarActiveTextColor:_variables2.default.tabBarActiveTextColor,
 tabBarUnderlineStyle:{backgroundColor:_variables2.default.tabBarActiveTextColor}}),

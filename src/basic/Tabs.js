@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Platform } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 import variables from '../theme/variables';
