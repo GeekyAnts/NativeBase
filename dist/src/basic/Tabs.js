@@ -11,7 +11,7 @@ Tabs=function(_Component){_inherits(Tabs,_Component);function Tabs(){_classCallC
 return(
 _react2.default.createElement(_reactNativeScrollableTabView2.default,_extends({
 ref:function ref(c){return _this2._root=c;}},this.props,{
-tabBarBackgroundColor:_reactNative.Platform.OS==='ios'?_variables2.default.iosToolbarBtnColor:undefined,
+tabBarBackgroundColor:_reactNative.Platform.OS==='ios'?undefined:_variables2.default.iosToolbarBtnColor,
 tabBarInactiveTextColor:_variables2.default.tabBarActiveTextColor,
 tabBarActiveTextColor:_variables2.default.tabBarActiveTextColor,
 tabBarUnderlineStyle:{backgroundColor:_variables2.default.tabBarActiveTextColor}}),
