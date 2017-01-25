@@ -87,7 +87,7 @@ export default (variables = variable) => {
       height: variables.footerHeight,
       elevation: 3,
       position: 'absolute',
-      bottom: 0,
+      bottom: (Platform.OS === 'ios') ? 0 : 23,
       left: 0,
       right: 0,
   };
