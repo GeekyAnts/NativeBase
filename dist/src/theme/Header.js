@@ -38,6 +38,9 @@ color:variables.tabBarActiveTextColor,
 fontWeight:'600'},
 
 'NativeBase.Icon':{
+color:variables.tabBarActiveTextColor},
+
+'NativeBase.IconNB':{
 color:variables.tabBarActiveTextColor}},
 
 
@@ -90,6 +93,13 @@ color:variables.topTabBarActiveTextColor,
 fontSize:variables.iconHeaderSize,
 marginTop:2,
 marginRight:5,
+marginLeft:2},
+
+'NativeBase.IconNB':{
+color:variables.topTabBarActiveTextColor,
+fontSize:variables.iconHeaderSize,
+marginTop:2,
+marginRight:5,
 marginLeft:2}},
 
 
@@ -102,7 +112,11 @@ marginRight:2,
 marginLeft:2},
 
 'NativeBase.IconNB':{
-color:variables.topTabBarActiveTextColor},
+color:variables.topTabBarActiveTextColor,
+fontSize:variables.iconHeaderSize,
+marginTop:2,
+marginRight:2,
+marginLeft:2},
 
 'NativeBase.Text':{
 color:variables.topTabBarActiveTextColor,
@@ -157,6 +171,13 @@ color:variables.topTabBarActiveTextColor,
 fontSize:variables.iconHeaderSize,
 marginTop:2,
 marginRight:2,
+marginLeft:5},
+
+'NativeBase.IconNB':{
+color:variables.topTabBarActiveTextColor,
+fontSize:variables.iconHeaderSize,
+marginTop:2,
+marginRight:2,
 marginLeft:5}},
 
 
@@ -169,7 +190,11 @@ marginLeft:2,
 marginRight:2},
 
 'NativeBase.IconNB':{
-color:variables.topTabBarActiveTextColor},
+color:variables.topTabBarActiveTextColor,
+fontSize:variables.iconHeaderSize,
+marginTop:2,
+marginLeft:2,
+marginRight:2},
 
 'NativeBase.Text':{
 color:variables.topTabBarActiveTextColor,
