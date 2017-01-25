@@ -67,8 +67,8 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,{ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_variables2.default.androidRippleColor)},
-_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{style:{alignSelf:'center'}}),
-this.props.badgeValue?_react2.default.createElement(_Badge.Badge,{style:{backgroundColor:this.props.badgeColor?this.props.badgeColor:undefined}},_react2.default.createElement(_Text.Text,{style:this.props.badgeValueStyle},this.props.badgeValue)):null,
+_react2.default.createElement(_reactNative.View,this.prepareRootProps(),
+_react2.default.createElement(_reactNative.View,{style:{alignSelf:'center'}},this.props.badgeValue?_react2.default.createElement(_Badge.Badge,{style:{backgroundColor:this.props.badgeColor?this.props.badgeColor:undefined}},_react2.default.createElement(_Text.Text,{style:this.props.badgeValueStyle},this.props.badgeValue)):null),
 this.renderChildren())));
 
 
