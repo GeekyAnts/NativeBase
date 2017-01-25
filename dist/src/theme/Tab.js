@@ -49,6 +49,9 @@ fontSize:variables.tabBarTextSize,
 lineHeight:16,
 paddingVertical:3},
 
+'.vertical':{
+flexDirection:null},
+
 flexDirection:'row',
 backgroundColor:'transparent',
 borderColor:null,

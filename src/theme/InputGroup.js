@@ -111,10 +111,10 @@ export default (variables = variable) => {
       },
       '.disabled': {
         'NativeBase.Icon': {
-          color: variables.inputBorderColor,
+          color: '#384850',
         },
         'NativeBase.IconNB': {
-          color: variables.inputBorderColor,
+          color: '#384850',
         },
       },
 

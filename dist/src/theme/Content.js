@@ -9,8 +9,7 @@ var contentTheme={
 padding:variables.contentPadding},
 
 flex:1,
-backgroundColor:'transparent',
-marginBottom:_reactNative.Platform.OS==='ios'?-20:23};
+backgroundColor:'transparent'};
 
 
 return contentTheme;
