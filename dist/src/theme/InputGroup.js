@@ -63,6 +63,12 @@ borderColor:variables.inputBorderColor},
 
 
 '.success':{
+'NativeBase.Icon':{
+color:variables.inputSuccessBorderColor},
+
+'NativeBase.IconNB':{
+color:variables.inputSuccessBorderColor},
+
 '.rounded':{
 borderRadius:30,
 borderColor:variables.inputSuccessBorderColor},
@@ -81,6 +87,12 @@ borderColor:variables.inputSuccessBorderColor},
 
 
 '.error':{
+'NativeBase.Icon':{
+color:variables.inputErrorBorderColor},
+
+'NativeBase.IconNB':{
+color:variables.inputErrorBorderColor},
+
 '.rounded':{
 borderRadius:30,
 borderColor:variables.inputErrorBorderColor},
@@ -96,6 +108,14 @@ borderLeftWidth:0,
 borderColor:variables.inputErrorBorderColor},
 
 borderColor:variables.inputErrorBorderColor},
+
+'.disabled':{
+'NativeBase.Icon':{
+color:variables.inputBorderColor},
+
+'NativeBase.IconNB':{
+color:variables.inputBorderColor}},
+
 
 
 paddingLeft:5,

@@ -15,11 +15,9 @@ fontWeight:'700',
 paddingVertical:3},
 
 'NativeBase.Icon':{
-top:3,
 color:variables.tabBarActiveTextColor},
 
 'NativeBase.IconNB':{
-top:3,
 color:variables.tabBarActiveTextColor},
 
 borderBottomWidth:3,
@@ -40,12 +38,10 @@ padding:1.7,
 paddingHorizontal:3},
 
 'NativeBase.Icon':{
-top:3,
-color:variables.tabBarTextColor},
+color:variables.tabBarActiveTextColor},
 
 'NativeBase.IconNB':{
-top:3,
-color:variables.tabBarTextColor},
+color:variables.tabBarActiveTextColor},
 
 'NativeBase.Text':{
 color:variables.activeTab,
@@ -53,7 +49,7 @@ fontSize:variables.tabBarTextSize,
 lineHeight:16,
 paddingVertical:3},
 
-flexDirection:null,
+flexDirection:'row',
 backgroundColor:'transparent',
 borderColor:null,
 elevation:0,

@@ -6,6 +6,7 @@
     "clamp": "^1.0.1",
     "color": "~0.11.1",
     "lodash": "~4.11.1",
+    "print-message": "^2.1.0",
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.0",
     "react-native-scrollable-tab-view": "^0.7.1",

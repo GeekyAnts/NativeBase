@@ -40,6 +40,9 @@ export default (variables = variable) => {
         'NativeBase.Icon': {
           color: variables.tabBarActiveTextColor,
         },
+        'NativeBase.IconNB': {
+          color: variables.tabBarActiveTextColor,
+        },
       },
       paddingHorizontal: 15,
     },
@@ -85,7 +88,19 @@ export default (variables = variable) => {
       'NativeBase.Button': {
         '.hasText': {
           marginLeft: -10,
+          height: 30,
           'NativeBase.Icon': {
+            color: variables.topTabBarActiveTextColor,
+            fontSize: variables.iconHeaderSize,
+            marginTop: 2,
+            marginRight: 5,
+            marginLeft: 2
+          },
+          'NativeBase.Text': {
+            color: variables.topTabBarActiveTextColor,
+            fontSize: 17
+          },
+          'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize,
             marginTop: 2,
@@ -103,6 +118,10 @@ export default (variables = variable) => {
           },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
+            fontSize: variables.iconHeaderSize,
+            marginTop: 2,
+            marginRight: 2,
+            marginLeft: 2
           },
           'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
@@ -151,8 +170,19 @@ export default (variables = variable) => {
     'NativeBase.Right': {
       'NativeBase.Button': {
         '.hasText': {
-          marginRight: -10,
+          height: 30,
           'NativeBase.Icon': {
+            color: variables.topTabBarActiveTextColor,
+            fontSize: variables.iconHeaderSize,
+            marginTop: 2,
+            marginRight: 2,
+            marginLeft: 5
+          },
+          'NativeBase.Text': {
+            color: variables.topTabBarActiveTextColor,
+            fontSize: 17
+          },
+          'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize,
             marginTop: 2,
@@ -170,6 +200,10 @@ export default (variables = variable) => {
           },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
+            fontSize: variables.iconHeaderSize,
+            marginTop: 2,
+            marginLeft: 2,
+            marginRight: 2
           },
           'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
