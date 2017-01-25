@@ -28,6 +28,7 @@ class CheckBox extends Component {
           height: variable.checkboxSize,
           borderWidth: variable.CheckboxBorderWidth,
           paddingLeft: variable.CheckboxPaddingLeft - 1,
+          marginRight: (variable.checkboxSize / 2),
           paddingBottom: variable.CheckboxPaddingBottom,
           borderColor: this.props.color ? this.props.color : variable.checkboxBgColor,
           backgroundColor: this.getBackgroundColor()
