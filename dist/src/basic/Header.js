@@ -11,7 +11,8 @@ Header=function(_Component){_inherits(Header,_Component);function Header(){_clas
 return(
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.StatusBar,{
-backgroundColor:_variables2.default.statusBarColor}),
+backgroundColor:this.props.androidStatusBarColor?this.props.androidStatusBarColor:_variables2.default.statusBarColor,
+barStyle:this.props.iosBarStyle?this.props.iosBarStyle:undefined}),
 _react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props))));
 
 
