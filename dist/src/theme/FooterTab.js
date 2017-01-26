@@ -35,6 +35,7 @@ justifyContent:'center',
 'NativeBase.Badge':{
 'NativeBase.Text':{
 fontSize:11,
+fontWeight:_reactNative.Platform.OS==='ios'?'600':undefined,
 lineHeight:14},
 
 position:'absolute',

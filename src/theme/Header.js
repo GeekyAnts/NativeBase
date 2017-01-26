@@ -125,7 +125,8 @@ export default (variables = variable) => {
           },
           'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
-            fontSize: 17
+            fontSize: 17,
+            top: (Platform.OS === 'ios') ? undefined : -1.5,
           },
           backgroundColor: 'transparent',
           borderColor: null,
@@ -143,7 +144,7 @@ export default (variables = variable) => {
         },
         alignSelf: null,
       },
-      flex: (Platform.OS === 'ios') ? 1 : 0.4,
+      flex: (Platform.OS === 'ios') ? 1 : 0.5,
       alignSelf: 'center',
       alignItems: 'flex-start',
     },
@@ -207,7 +208,8 @@ export default (variables = variable) => {
           },
           'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
-            fontSize: 17
+            fontSize: 17,
+            top: (Platform.OS === 'ios') ? undefined : -1.5,
           },
           backgroundColor: 'transparent',
           borderColor: null,

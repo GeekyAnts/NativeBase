@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Platform } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 import variables from '../theme/variables';
@@ -10,6 +11,7 @@ class Tabs extends Component {
     return (
       <ScrollableTabView
         ref={c => this._root = c} {...this.props}
+        tabBarBackgroundColor={(Platform.OS === 'ios') ? undefined : variables.iosToolbarBtnColor}
         tabBarInactiveTextColor={variables.tabBarActiveTextColor}
         tabBarActiveTextColor={variables.tabBarActiveTextColor}
         tabBarUnderlineStyle={{ backgroundColor: variables.tabBarActiveTextColor }}
