@@ -11,7 +11,8 @@ class Header extends Component {
     return (
       <View>
         <StatusBar
-          backgroundColor={variable.statusBarColor} />
+          backgroundColor={(this.props.androidStatusBarColor) ? this.props.androidStatusBarColor : variable.statusBarColor}
+          barStyle={(this.props.iosBarStyle) ? this.props.iosBarStyle : undefined } />
           <View ref={c => this._root = c} {...this.props} />
       </View>
     );
