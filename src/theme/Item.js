@@ -6,19 +6,6 @@ import variable from './variables';
 export default (variables = variable) => {
   const itemTheme = {
       '.floatingLabel': {
-        'NativeBase.Label': {
-          position: 'absolute',
-          top: 10,
-          left: 15,
-          right: 0,
-          fontSize: variables.inputFontSize,
-          color: variables.inputColorPlaceholder,
-        },
-        '.last': {
-          'NativeBase.Label': {
-            left: 15,
-          },
-        },
         'NativeBase.Input': {
           height: 55,
           top: 10,
@@ -30,6 +17,7 @@ export default (variables = variable) => {
           top: null,
           left: null,
           right: null,
+          paddingLeft: 10,
           flex: 1,
           height: null,
           width: null,
@@ -47,6 +35,7 @@ export default (variables = variable) => {
           left: null,
           right: null,
           paddingTop: 5,
+          paddingLeft: 10,
           alignSelf: 'flex-start',
           fontSize: variables.inputFontSize,
         },
@@ -66,6 +55,7 @@ export default (variables = variable) => {
           top: null,
           left: null,
           right: null,
+          paddingLeft: 10,
           paddingRight: 20,
           height: null,
           width: null,
@@ -77,20 +67,10 @@ export default (variables = variable) => {
         },
         flexDirection: 'row',
       },
-      '.last': {
-        'NativeBase.Label': {
-          position: 'absolute',
-          top: 10,
-          left: 15,
-          right: 0,
-          fontSize: variables.inputFontSize,
-          color: variables.inputColorPlaceholder,
-        },
-      },
       'NativeBase.Label': {
         position: 'absolute',
         top: 10,
-        left: 5,
+        left: 15,
         right: 0,
         fontSize: variables.inputFontSize,
         color: variables.inputColorPlaceholder,
