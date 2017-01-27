@@ -5,11 +5,13 @@ import variable from './variables';
 
 export default (variables = variable) => {
   const theme = {
-    'last': {
-      'NativeBase.Item': {
-        borderBottomWidth: 0,
-      },
-    },
+    'NativeBase.Item':{
+		marginLeft: 15,
+		'.last':{
+			marginLeft: 0,
+			paddingLeft: 15,
+		},
+	},
   };
 
   return theme;
