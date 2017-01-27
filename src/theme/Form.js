@@ -5,8 +5,8 @@ import variable from './variables';
 
 export default (variables = variable) => {
   const theme = {
-    'NativeBase.Item': {
-      '.last': {
+    'last': {
+      'NativeBase.Item': {
         borderBottomWidth: 0,
       },
     },
