@@ -93,7 +93,7 @@ class Item extends Component {
     });
     if (label.length && input.length) {
       if (!this.props.inlineLabel && !this.props.stackedLabel && !this.props.fixedLabel) {
-        newChildren.push((this.props.floatingLabel) ? <Animated.View key="float" style={{ position: 'absolute', left: 0, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : 30 }}>{this.renderLabel(label, labelProps)}</Animated.View> : this.renderLabel(label, labelProps));
+        newChildren.push((this.props.floatingLabel) ? <Animated.View key="float" style={{ position: 'absolute', left: 0, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : 30 }} {...this.props}>{this.renderLabel(label, labelProps)}</Animated.View> : this.renderLabel(label, labelProps));
         newChildren.push(<Input key="l2" {...inputProps} onChangeText={text => this.setState({ text })} />);
       } else {
         return this.props.children;

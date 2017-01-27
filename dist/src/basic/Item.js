@@ -93,7 +93,7 @@ return item;
 });
 if(label.length&&input.length){
 if(!this.props.inlineLabel&&!this.props.stackedLabel&&!this.props.fixedLabel){
-newChildren.push(this.props.floatingLabel?_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:0,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:30}},this.renderLabel(label,labelProps)):this.renderLabel(label,labelProps));
+newChildren.push(this.props.floatingLabel?_react2.default.createElement(_reactNative.Animated.View,_extends({key:'float',style:{position:'absolute',left:0,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:30}},this.props),this.renderLabel(label,labelProps)):this.renderLabel(label,labelProps));
 newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onChangeText:function onChangeText(text){return _this2.setState({text:text});}})));
 }else{
 return this.props.children;
