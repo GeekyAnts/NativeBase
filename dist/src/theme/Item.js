@@ -6,6 +6,19 @@ var _variables=require('./variables');var _variables2=_interopRequireDefault(_va
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
 var itemTheme={
 '.floatingLabel':{
+'NativeBase.Label':{
+position:'absolute',
+top:10,
+left:15,
+right:0,
+fontSize:variables.inputFontSize,
+color:variables.inputColorPlaceholder},
+
+'.last':{
+'NativeBase.Label':{
+left:15}},
+
+
 'NativeBase.Input':{
 height:55,
 top:10}},
@@ -64,10 +77,20 @@ fontSize:variables.inputFontSize},
 
 flexDirection:'row'},
 
+'.last':{
 'NativeBase.Label':{
 position:'absolute',
 top:10,
 left:15,
+right:0,
+fontSize:variables.inputFontSize,
+color:variables.inputColorPlaceholder}},
+
+
+'NativeBase.Label':{
+position:'absolute',
+top:10,
+left:5,
 right:0,
 fontSize:variables.inputFontSize,
 color:variables.inputColorPlaceholder},

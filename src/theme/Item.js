@@ -6,6 +6,19 @@ import variable from './variables';
 export default (variables = variable) => {
   const itemTheme = {
       '.floatingLabel': {
+        'NativeBase.Label': {
+          position: 'absolute',
+          top: 10,
+          left: 15,
+          right: 0,
+          fontSize: variables.inputFontSize,
+          color: variables.inputColorPlaceholder,
+        },
+        '.last': {
+          'NativeBase.Label': {
+            left: 15,
+          },
+        },
         'NativeBase.Input': {
           height: 55,
           top: 10,
@@ -64,10 +77,20 @@ export default (variables = variable) => {
         },
         flexDirection: 'row',
       },
+      '.last': {
+        'NativeBase.Label': {
+          position: 'absolute',
+          top: 10,
+          left: 15,
+          right: 0,
+          fontSize: variables.inputFontSize,
+          color: variables.inputColorPlaceholder,
+        },
+      },
       'NativeBase.Label': {
         position: 'absolute',
         top: 10,
-        left: 15,
+        left: 5,
         right: 0,
         fontSize: variables.inputFontSize,
         color: variables.inputColorPlaceholder,
