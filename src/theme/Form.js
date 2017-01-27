@@ -30,12 +30,14 @@ export default (variables = variable) => {
 			},
 			'NativeBase.Input': {
 				paddingLeft: null,
+				marginLeft: (Platform.OS === 'ios') ? undefined : -5,
 			},
 			marginLeft: 15,
 		},
 		'.floatingLabel': {
 			'NativeBase.Input': {
 				paddingLeft: null,
+				marginLeft: (Platform.OS === 'ios') ? undefined : -5,
 			},
 			'NativeBase.Label': {
 				left: 0,
@@ -44,7 +46,8 @@ export default (variables = variable) => {
 		},
 		'.last': {
 			marginLeft:0,
-			paddingLeft:15
+			paddingLeft:15,
+			borderBottomWidth: (Platform.OS === 'ios') ? undefined : null,
 		},
 		marginLeft: 15,
 	},

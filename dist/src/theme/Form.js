@@ -29,13 +29,15 @@ height:40}},
 paddingLeft:null},
 
 'NativeBase.Input':{
-paddingLeft:null},
+paddingLeft:null,
+marginLeft:_reactNative.Platform.OS==='ios'?undefined:-5},
 
 marginLeft:15},
 
 '.floatingLabel':{
 'NativeBase.Input':{
-paddingLeft:null},
+paddingLeft:null,
+marginLeft:_reactNative.Platform.OS==='ios'?undefined:-5},
 
 'NativeBase.Label':{
 left:0},
@@ -44,7 +46,8 @@ marginLeft:15},
 
 '.last':{
 marginLeft:0,
-paddingLeft:15},
+paddingLeft:15,
+borderBottomWidth:_reactNative.Platform.OS==='ios'?undefined:null},
 
 marginLeft:15}};
 
