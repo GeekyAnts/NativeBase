@@ -6,7 +6,36 @@ var _variables=require('./variables');var _variables2=_interopRequireDefault(_va
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
 var theme={
 'NativeBase.Item':{
-marginLeft:15,
+'.fixedLabel':{
+'NativeBase.Label':{
+paddingLeft:null},
+
+marginLeft:15},
+
+'.inlineLabel':{
+'NativeBase.Label':{
+paddingLeft:null},
+
+marginLeft:15},
+
+'.stackedLabel':{
+'NativeBase.Label':{
+paddingLeft:null},
+
+'NativeBase.Input':{
+paddingLeft:null},
+
+marginLeft:15},
+
+'.floatingLabel':{
+'NativeBase.Input':{
+paddingLeft:null},
+
+'NativeBase.Label':{},
+
+
+marginLeft:15},
+
 '.last':{
 marginLeft:0,
 paddingLeft:15}}};

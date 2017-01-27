@@ -168,7 +168,6 @@ borderColor:variables.inputErrorBorderColor},
 borderColor:variables.inputErrorBorderColor},
 
 
-paddingLeft:5,
 borderWidth:variables.borderWidth,
 borderTopWidth:0,
 borderRightWidth:0,
