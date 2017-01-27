@@ -37,7 +37,7 @@ export default (variables = variable) => {
           paddingTop: 5,
           paddingLeft: 10,
           alignSelf: 'flex-start',
-          fontSize: variables.inputFontSize,
+          fontSize: variables.inputFontSize - 2,
         },
         'NativeBase.Input': {
           alignSelf: (Platform.OS === 'ios') ? 'stretch' : 'flex-start',

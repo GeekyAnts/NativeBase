@@ -18,6 +18,12 @@ export default (variables = variable) => {
 			},
 			marginLeft: 15,
 		},
+		'.placeholderLabel': {
+			'NativeBase.Input': {
+				marginLeft: -10,
+				height: 40,
+			},
+		},
 		'.stackedLabel': {
 			'NativeBase.Label': {
 				paddingLeft: null,
@@ -32,7 +38,7 @@ export default (variables = variable) => {
 				paddingLeft: null,
 			},
 			'NativeBase.Label': {
-				
+				left: 0,
 			},
 			marginLeft: 15,
 		},
@@ -40,6 +46,7 @@ export default (variables = variable) => {
 			marginLeft:0,
 			paddingLeft:15
 		},
+		marginLeft: 15,
 	},
   };
 

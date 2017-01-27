@@ -18,6 +18,12 @@ paddingLeft:null},
 
 marginLeft:15},
 
+'.placeholderLabel':{
+'NativeBase.Input':{
+marginLeft:-10,
+height:40}},
+
+
 '.stackedLabel':{
 'NativeBase.Label':{
 paddingLeft:null},
@@ -31,15 +37,16 @@ marginLeft:15},
 'NativeBase.Input':{
 paddingLeft:null},
 
-'NativeBase.Label':{},
-
+'NativeBase.Label':{
+left:0},
 
 marginLeft:15},
 
 '.last':{
 marginLeft:0,
-paddingLeft:15}}};
+paddingLeft:15},
 
+marginLeft:15}};
 
 
 

@@ -29,11 +29,11 @@ start();
 
 {
 _reactNative.Animated.timing(this.state.topAnim,{
-toValue:0,
+toValue:-5,
 duration:150}).
 start();
 _reactNative.Animated.timing(this.state.opacAnim,{
-toValue:0.5,
+toValue:0.7,
 duration:150}).
 start();
 }},{key:'renderLabel',value:function renderLabel(
@@ -65,7 +65,13 @@ focused:true})));
 
 
 }else{
-newLabel.push(label);
+newLabel.push(_react2.default.createElement(_Label.Label,_extends({},
+
+
+labelProps,{
+key:'newLabel'})));
+
+
 }
 return newLabel;
 }},{key:'renderChildren',value:function renderChildren()
@@ -93,11 +99,14 @@ return item;
 });
 if(label.length&&input.length){
 if(!this.props.inlineLabel&&!this.props.stackedLabel&&!this.props.fixedLabel){
-newChildren.push(this.props.floatingLabel?_react2.default.createElement(_reactNative.Animated.View,_extends({key:'float',style:{position:'absolute',left:0,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:30}},this.props),this.renderLabel(label,labelProps)):this.renderLabel(label,labelProps));
+newChildren.push(this.props.floatingLabel?_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?15:0,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:30}},_react2.default.createElement(_Label.Label,{style:{fontSize:this.state.text?13:undefined}},this.renderLabel(label,labelProps))):_react2.default.createElement(_Label.Label,{style:{width:this.state.text?0:undefined,marginLeft:this.props.last?null:15}},this.renderLabel(label,labelProps)));
 newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onChangeText:function onChangeText(text){return _this2.setState({text:text});}})));
 }else{
 return this.props.children;
 }
+}else
+{
+newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{style:{marginLeft:-10},onChangeText:function onChangeText(text){return _this2.setState({text:text});}})));
 }
 return newChildren;
 }},{key:'render',value:function render()
@@ -123,7 +132,6 @@ return error;
 
 Item.propTypes=_extends({},
 _reactNative.TouchableOpacity.propTypes,{
-children:childrenType,
 style:_react2.default.PropTypes.object,
 inlineLabel:_react2.default.PropTypes.bool,
 floatingLabel:_react2.default.PropTypes.bool,
