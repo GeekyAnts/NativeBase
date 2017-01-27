@@ -88,17 +88,12 @@ export default (variables = variable) => {
       'NativeBase.Button': {
         '.hasText': {
           marginLeft: -10,
-          height: 30,
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize,
             marginTop: 2,
             marginRight: 5,
             marginLeft: 2
-          },
-          'NativeBase.Text': {
-            color: variables.topTabBarActiveTextColor,
-            fontSize: 17
           },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
@@ -125,8 +120,7 @@ export default (variables = variable) => {
           },
           'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
-            fontSize: 17,
-            top: (Platform.OS === 'ios') ? undefined : -1.5,
+            fontSize: 17
           },
           backgroundColor: 'transparent',
           borderColor: null,
@@ -144,7 +138,7 @@ export default (variables = variable) => {
         },
         alignSelf: null,
       },
-      flex: (Platform.OS === 'ios') ? 1 : 0.5,
+      flex: (Platform.OS === 'ios') ? 1 : 0.4,
       alignSelf: 'center',
       alignItems: 'flex-start',
     },
@@ -171,17 +165,13 @@ export default (variables = variable) => {
     'NativeBase.Right': {
       'NativeBase.Button': {
         '.hasText': {
-          height: 30,
+          marginRight: -10,
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize,
             marginTop: 2,
             marginRight: 2,
             marginLeft: 5
-          },
-          'NativeBase.Text': {
-            color: variables.topTabBarActiveTextColor,
-            fontSize: 17
           },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
@@ -208,8 +198,7 @@ export default (variables = variable) => {
           },
           'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
-            fontSize: 17,
-            top: (Platform.OS === 'ios') ? undefined : -1.5,
+            fontSize: 17
           },
           backgroundColor: 'transparent',
           borderColor: null,
