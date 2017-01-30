@@ -95,6 +95,12 @@ export default (variables = variable) => {
             marginRight: 5,
             marginLeft: 2
           },
+          'NativeBase.Text': {
+            color: variables.topTabBarActiveTextColor,
+            fontSize: 17,
+            marginLeft: 2,
+            lineHeight: 21
+          },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize,
@@ -168,14 +174,19 @@ export default (variables = variable) => {
           marginRight: -10,
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
-            fontSize: variables.iconHeaderSize,
+            fontSize: variables.iconHeaderSize-2,
             marginTop: 2,
             marginRight: 2,
             marginLeft: 5
           },
+          'NativeBase.Text': {
+            color: variables.topTabBarActiveTextColor,
+            fontSize: 17,
+            lineHeight: 21
+          },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
-            fontSize: variables.iconHeaderSize,
+            fontSize: variables.iconHeaderSize-2,
             marginTop: 2,
             marginRight: 2,
             marginLeft: 5
@@ -184,14 +195,14 @@ export default (variables = variable) => {
         '.transparent': {
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
-            fontSize: variables.iconHeaderSize,
+            fontSize: (Platform.OS==='ios') ? variables.iconHeaderSize-6 : variables.iconHeaderSize-2,
             marginTop: 2,
             marginLeft: 2,
             marginRight: 2
           },
           'NativeBase.IconNB': {
             color: variables.topTabBarActiveTextColor,
-            fontSize: variables.iconHeaderSize,
+            fontSize: (Platform.OS==='ios') ? variables.iconHeaderSize-6 : variables.iconHeaderSize-2,
             marginTop: 2,
             marginLeft: 2,
             marginRight: 2

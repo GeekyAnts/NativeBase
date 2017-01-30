@@ -33,7 +33,6 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:'renderChildren',value:function renderChildren()
 {
 var isArray=_lodash2.default.isArray(this.props.children);
-
 if(!isArray){
 if(this.props.children.type.displayName==="Styled(Text)"){
 return _react2.default.createElement(_Text.Text,null,!this.props.capitalize?this.props.children.props.children:this.props.children.props.children.toUpperCase());
@@ -44,8 +43,13 @@ return this.props.children;
 var newChildren=[];
 var childrenArray=_lodash2.default.toArray(this.props.children);
 var iconArray=_lodash2.default.remove(childrenArray,function(child){return child.type.displayName==="Styled(Icon)";});
+if(this.props.iconRight){
+newChildren.push(_react2.default.createElement(_Text.Text,{key:5},!this.props.capitalize?childrenArray[0].props.children:childrenArray[0].props.children.toUpperCase()));
+newChildren.push(iconArray);
+}else{
 newChildren.push(iconArray);
 newChildren.push(_react2.default.createElement(_Text.Text,{key:5},!this.props.capitalize?childrenArray[0].props.children:childrenArray[0].props.children.toUpperCase()));
+}
 return newChildren;
 }
 }},{key:'render',value:function render()

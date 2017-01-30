@@ -11,18 +11,17 @@ var _mapPropsToStyleNames=require('../../Utils/mapPropsToStyleNames');var _mapPr
 Icon=function(_Component){_inherits(Icon,_Component);function Icon(){_classCallCheck(this,Icon);return _possibleConstructorReturn(this,(Icon.__proto__||Object.getPrototypeOf(Icon)).apply(this,arguments));}_createClass(Icon,[{key:'getName',value:function getName()
 
 {
-var n=this.props.name.indexOf('ios-');
-var m=this.props.name.indexOf('md-');
-if(n!=-1||m!=-1){
+if(typeof _NBIcons2.default[this.props.name]!=='object'){
 return this.props.name;
 }else
-{
+if(typeof _NBIcons2.default[this.props.name]==='object'){
+var name=void 0;
 if(_reactNative.Platform.OS==='ios'){
-return this.props.active?_NBIcons2.default[this.props.name].ios.active:_NBIcons2.default[this.props.name].ios.default;
+name=this.props.active?_NBIcons2.default[this.props.name].ios.active:_NBIcons2.default[this.props.name].ios.default;
 }else{
-return this.props.active?
-_NBIcons2.default[this.props.name].android.active:_NBIcons2.default[this.props.name].android.default;
+name=this.props.active?_NBIcons2.default[this.props.name].android.active:_NBIcons2.default[this.props.name].android.default;
 }
+return name;
 }
 }},{key:'getIconName',value:function getIconName()
 
