@@ -23,18 +23,28 @@ borderBottomColor:'transparent'},
 'NativeBase.CheckBox':{
 marginLeft:-10},
 
-'.itemDivider':{
+'.itemHeader':{
 borderBottomWidth:variables.borderWidth,
-height:variables.listItemHeight,
 marginLeft:null,
 padding:variables.listItemPadding,
-backgroundColor:variables.listDividerBg,
+paddingLeft:variables.listItemPadding+5,
+paddingTop:_reactNative.Platform.OS==='ios'?variables.listItemPadding+20:undefined,
+paddingBottom:_reactNative.Platform.OS==='android'?variables.listItemPadding+20:undefined,
 flexDirection:'row',
 borderColor:variables.listBorderColor,
 'NativeBase.Text':{
-fontSize:16,
-fontWeight:'600'}},
+fontSize:14,
+color:_reactNative.Platform.OS==='ios'?undefined:variables.listNoteColor}},
 
+
+'.itemDivider':{
+borderBottomWidth:null,
+marginLeft:null,
+padding:variables.listItemPadding,
+paddingLeft:variables.listItemPadding+5,
+backgroundColor:variables.listDividerBg,
+flexDirection:'row',
+borderColor:variables.listBorderColor},
 
 '.selected':{
 'NativeBase.Left':{
@@ -57,21 +67,18 @@ alignItems:null,
 alignSelf:null},
 
 'NativeBase.Icon':{
-width:variables.iconFontSize,
-fontSize:variables.iconFontSize,
-lineHeight:_reactNative.Platform.OS==='ios'?34:undefined},
+width:variables.iconFontSize-10,
+fontSize:variables.iconFontSize-10},
 
 'NativeBase.IconNB':{
-width:variables.iconFontSize,
-fontSize:variables.iconFontSize,
-lineHeight:_reactNative.Platform.OS==='ios'?34:undefined},
+width:variables.iconFontSize-10,
+fontSize:variables.iconFontSize-10},
 
 'NativeBase.Text':{
 marginLeft:10,
 alignSelf:'center'},
 
-flexDirection:'row',
-marginLeft:-variables.listItemPadding},
+flexDirection:'row'},
 
 'NativeBase.Body':{
 'NativeBase.Text':{
@@ -86,16 +93,32 @@ alignItems:null},
 
 'NativeBase.Right':{
 'NativeBase.Badge':{
-alignSelf:null},
+alignSelf:null,
+height:24,
+borderRadius:12,
+paddingHorizontal:4,
+'NativeBase.Text':{
+backgroundColor:'transparent',
+fontSize:variables.fontSizeBase-1}},
+
 
 'NativeBase.Button':{
-alignSelf:null},
+alignSelf:null,
+'.transparent':{
+'NativeBase.Text':{
+color:variables.topTabBarActiveTextColor}}},
+
+
 
 'NativeBase.Icon':{
-alignSelf:null},
+alignSelf:null,
+fontSize:variables.iconFontSize-8,
+color:variables.listBorderColor},
 
 'NativeBase.IconNB':{
-alignSelf:null},
+alignSelf:null,
+fontSize:variables.iconFontSize-8,
+color:variables.listBorderColor},
 
 'NativeBase.Text':{
 '.note':{
@@ -120,7 +143,8 @@ alignSelf:null},
 'NativeBase.Switch':{
 alignSelf:null},
 
-padding:null},
+padding:null,
+flex:0.28},
 
 'NativeBase.Text':{
 '.note':{
@@ -129,10 +153,26 @@ fontWeight:'200'},
 
 alignSelf:null},
 
+'.last':{
+marginLeft:-(variables.listItemPadding+5),
+paddingLeft:(variables.listItemPadding+5)*2,
+top:1},
+
+'.avatar':{
+borderBottomWidth:1,
+marginLeft:50,
+'NativeBase.Body':{},
+
+'NativeBase.Thumbnail':{
+marginLeft:-40}},
+
+
+alignItems:'center',
 flexDirection:'row',
-padding:variables.listItemPadding,
-marginLeft:variables.listItemPadding,
-borderBottomWidth:variables.borderWidth,
+paddingRight:variables.listItemPadding+5,
+paddingVertical:variables.listItemPadding,
+marginLeft:variables.listItemPadding+5,
+borderBottomWidth:1,
 backgroundColor:variables.listBg,
 borderColor:variables.listBorderColor};
 
