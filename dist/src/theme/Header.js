@@ -98,7 +98,9 @@ marginLeft:2},
 
 'NativeBase.Text':{
 color:variables.topTabBarActiveTextColor,
-fontSize:17},
+fontSize:17,
+marginLeft:2,
+lineHeight:21},
 
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor,
@@ -174,18 +176,19 @@ color:variables.titleFontColor}}},
 height:30,
 'NativeBase.Icon':{
 color:variables.topTabBarActiveTextColor,
-fontSize:variables.iconHeaderSize,
+fontSize:variables.iconHeaderSize-2,
 marginTop:2,
 marginRight:2,
 marginLeft:5},
 
 'NativeBase.Text':{
 color:variables.topTabBarActiveTextColor,
-fontSize:17},
+fontSize:17,
+lineHeight:21},
 
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor,
-fontSize:variables.iconHeaderSize,
+fontSize:variables.iconHeaderSize-2,
 marginTop:2,
 marginRight:2,
 marginLeft:5}},
@@ -194,14 +197,14 @@ marginLeft:5}},
 '.transparent':{
 'NativeBase.Icon':{
 color:variables.topTabBarActiveTextColor,
-fontSize:variables.iconHeaderSize,
+fontSize:_reactNative.Platform.OS==='ios'?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
 marginTop:2,
 marginLeft:2,
 marginRight:2},
 
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor,
-fontSize:variables.iconHeaderSize,
+fontSize:_reactNative.Platform.OS==='ios'?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
 marginTop:2,
 marginLeft:2,
 marginRight:2},

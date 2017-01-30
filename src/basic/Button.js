@@ -33,7 +33,6 @@ class Button extends Component {
   }
   renderChildren() {
     const isArray = _.isArray(this.props.children);
-    // console.log('iconArray', iconArray);
     if (!isArray) {
       if (this.props.children.type.displayName==="Styled(Text)") {
         return <Text>{(!this.props.capitalize) ? this.props.children.props.children : this.props.children.props.children.toUpperCase()}</Text>
@@ -44,8 +43,13 @@ class Button extends Component {
       const newChildren = [];
       const childrenArray = _.toArray(this.props.children);
       const iconArray = _.remove(childrenArray, (child)=> child.type.displayName==="Styled(Icon)");
-      newChildren.push(iconArray);
-      newChildren.push(<Text key={5}>{(!this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
+      if (this.props.iconRight) {
+        newChildren.push(<Text key={5}>{(!this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
+        newChildren.push(iconArray);
+      } else {
+        newChildren.push(iconArray);
+        newChildren.push(<Text key={5}>{(!this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
+      }
       return newChildren;
     }
   }
