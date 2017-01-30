@@ -26,6 +26,7 @@ var _Icon=require('./Icon');var _Icon2=_interopRequireDefault(_Icon);
 var _Spinner=require('./Spinner');var _Spinner2=_interopRequireDefault(_Spinner);
 var _CardItem=require('./CardItem');var _CardItem2=_interopRequireDefault(_CardItem);
 var _ListItem=require('./ListItem');var _ListItem2=_interopRequireDefault(_ListItem);
+var _Form=require('./Form');var _Form2=_interopRequireDefault(_Form);
 var _variables=require('./variables');var _variables2=_interopRequireDefault(_variables);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
@@ -169,6 +170,10 @@ alignSelf:'center'}}),
 
 'NativeBase.Fab':_extends({},
 (0,_Fab2.default)(variables)),
+
+
+'NativeBase.Form':_extends({},
+(0,_Form2.default)(variables)),
 
 
 'NativeBase.Item':_extends({},
