@@ -6,6 +6,8 @@ var _variables=require('./variables');var _variables2=_interopRequireDefault(_va
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
 var theme={
 '.bordered':{
+height:null,
+paddingVertical:variables.listItemPadding+1,
 borderBottomWidth:1,
 borderTopWidth:1,
 borderColor:variables.listBorderColor},

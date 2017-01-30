@@ -6,6 +6,8 @@ import variable from './variables';
 export default (variables = variable) => {
   const theme = {
   	'.bordered': {
+      height: null,
+      paddingVertical: variables.listItemPadding + 1,
   		borderBottomWidth: 1,
   		borderTopWidth: 1,
   		borderColor: variables.listBorderColor,
