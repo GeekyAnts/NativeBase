@@ -26,7 +26,6 @@ import iconTheme from './Icon';
 import spinnerTheme from './Spinner';
 import cardItemTheme from './CardItem';
 import listItemTheme from './ListItem';
-import formTheme from './Form';
 import variable from './variables';
 
 export default (variables = variable) => {
@@ -170,10 +169,6 @@ export default (variables = variable) => {
 
     'NativeBase.Fab': {
       ...fabTheme(variables),
-    },
-    
-    'NativeBase.Form': {
-      ...formTheme(variables),
     },
 
     'NativeBase.Item': {
