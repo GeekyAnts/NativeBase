@@ -37,6 +37,7 @@ import { FooterTab } from './basic/FooterTab';
 import { PickerNB } from './basic/Picker';
 import { List } from './basic/List';
 import { ListItem } from './basic/ListItem';
+import { Seperator } from './basic/Seperator';
 import { DeckSwiper } from './basic/DeckSwiper';
 import { Form } from './basic/Form';
 import { Item } from './basic/Item';
@@ -85,6 +86,7 @@ export {
   PickerNB as Picker,
   List,
   ListItem,
+  Seperator,
   DeckSwiper,
   Item,
   Form,

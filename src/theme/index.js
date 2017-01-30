@@ -27,6 +27,7 @@ import spinnerTheme from './Spinner';
 import cardItemTheme from './CardItem';
 import listItemTheme from './ListItem';
 import formTheme from './Form';
+import seperatorTheme from './Seperator';
 import variable from './variables';
 
 export default (variables = variable) => {
@@ -201,6 +202,12 @@ export default (variables = variable) => {
     },
     'NativeBase.ViewNB': {
       ...viewTheme(variables),
+    },
+    'NativeBase.Switch': {
+      marginVertical: -5,
+    },
+    'NativeBase.Seperator': {
+      ...seperatorTheme(variables),
     },
 
   };
