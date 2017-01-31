@@ -1,6 +1,7 @@
 Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _reactNative=require('react-native');
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _Header=require('./Header');var _Header2=_interopRequireDefault(_Header);
+var _Container=require('./Container');var _Container2=_interopRequireDefault(_Container);
 var _Content=require('./Content');var _Content2=_interopRequireDefault(_Content);
 var _Button=require('./Button');var _Button2=_interopRequireDefault(_Button);
 var _Title=require('./Title');var _Title2=_interopRequireDefault(_Title);
@@ -27,7 +28,7 @@ var _Spinner=require('./Spinner');var _Spinner2=_interopRequireDefault(_Spinner)
 var _CardItem=require('./CardItem');var _CardItem2=_interopRequireDefault(_CardItem);
 var _ListItem=require('./ListItem');var _ListItem2=_interopRequireDefault(_ListItem);
 var _Form=require('./Form');var _Form2=_interopRequireDefault(_Form);
-var _Seperator=require('./Seperator');var _Seperator2=_interopRequireDefault(_Seperator);
+var _Separator=require('./Separator');var _Separator2=_interopRequireDefault(_Separator);
 var _variables=require('./variables');var _variables2=_interopRequireDefault(_variables);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
@@ -92,12 +93,6 @@ padding:-5,
 marginTop:5}},
 
 
-'NativeBase.Icon':{
-paddingRight:10},
-
-'NativeBase.IconNB':{
-paddingRight:10},
-
 flexDirection:'row',
 alignItems:'center'}),
 
@@ -116,9 +111,8 @@ alignItems:'center'}),
 (0,_H2.default)(variables)),
 
 
-'NativeBase.Container':{
-flex:1,
-paddingBottom:_reactNative.Platform.OS==='ios'?undefined:20},
+'NativeBase.Container':_extends({},
+(0,_Container2.default)(variables)),
 
 'NativeBase.Content':_extends({},
 (0,_Content2.default)(variables)),
@@ -207,7 +201,7 @@ flex:1},
 marginVertical:-5},
 
 'NativeBase.Seperator':_extends({},
-(0,_Seperator2.default)(variables))};
+(0,_Separator2.default)(variables))};
 
 
 

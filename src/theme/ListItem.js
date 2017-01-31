@@ -23,12 +23,20 @@ export default (variables = variable) => {
       'NativeBase.CheckBox': {
         marginLeft: -10,
       },
+      '.first': {
+        '.itemHeader': {
+          paddingTop: variables.listItemPadding + 3,
+        },
+      },
       '.itemHeader': {
-        borderBottomWidth: variables.borderWidth,
+        '.first': {
+          paddingTop: variables.listItemPadding + 3,
+        },
+        borderBottomWidth: (Platform.OS === 'ios') ? variables.borderWidth : null,
         marginLeft: null,
         padding: variables.listItemPadding,
         paddingLeft: variables.listItemPadding + 5,
-        paddingTop: (Platform.OS === 'ios') ? variables.listItemPadding + 20 : undefined,
+        paddingTop: (Platform.OS === 'ios') ? variables.listItemPadding + 25 : undefined,
         paddingBottom: (Platform.OS === 'android') ? variables.listItemPadding + 20 : undefined,
         flexDirection: 'row',
         borderColor: variables.listBorderColor,
@@ -94,13 +102,6 @@ export default (variables = variable) => {
       'NativeBase.Right': {
         'NativeBase.Badge': {
           alignSelf: null,
-          height: 24,
-          borderRadius: 12,
-          paddingHorizontal: 4,
-          'NativeBase.Text': {
-            backgroundColor: 'transparent',
-            fontSize: variables.fontSizeBase - 1,
-          },
         },
         'NativeBase.Button': {
           alignSelf: null,
@@ -135,7 +136,6 @@ export default (variables = variable) => {
         },
         'NativeBase.Radio': {
           alignSelf: null,
-          marginRight: 10
         },
         'NativeBase.Checkbox': {
           alignSelf: null,
@@ -153,6 +153,7 @@ export default (variables = variable) => {
         },
         alignSelf: null,
       },
+
       '.last': {
         marginLeft: -(variables.listItemPadding + 5),
         paddingLeft: (variables.listItemPadding + 5) * 2,
@@ -175,6 +176,8 @@ export default (variables = variable) => {
         },
         'NativeBase.Right': {
           flex: 0,
+          paddingRight: variables.listItemPadding + 5,
+          alignSelf: 'stretch',
           paddingVertical: variables.listItemPadding,
           borderBottomWidth: 1,
           borderColor: variables.listBorderColor,
@@ -204,10 +207,13 @@ export default (variables = variable) => {
             '.transparent': {
               'NativeBase.Text': {
                 fontSize: variables.listNoteSize,
+                color: variables.sTabBarActiveTextColor,
               },
             },
           },
           flex: 0,
+          justifyContent: 'center',
+          alignSelf: 'stretch',
           paddingRight: variables.listItemPadding + 5,
           paddingVertical: variables.listItemPadding + 5,
           borderBottomWidth: 1,
@@ -217,6 +223,7 @@ export default (variables = variable) => {
         paddingVertical: null,
         paddingRight: null,
       },
+
       '.icon': {
         '.last': {
           'NativeBase.Body': {
@@ -288,8 +295,8 @@ export default (variables = variable) => {
           },
           flexDirection: 'row',
           alignItems: 'center',
-          flex: 1,
-          alignSelf: 'center',
+          flex: 0,
+          alignSelf: 'stretch',
           height: 44,
           justifyContent: 'flex-end',
           borderBottomWidth: 1,

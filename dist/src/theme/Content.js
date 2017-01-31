@@ -10,7 +10,7 @@ padding:variables.contentPadding},
 
 flex:1,
 backgroundColor:'transparent',
-marginBottom:_reactNative.Platform.OS==='ios'?-20:23};
+marginBottom:_reactNative.Platform.OS==='ios'?-20:25};
 
 
 return contentTheme;

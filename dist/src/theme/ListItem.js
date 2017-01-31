@@ -23,12 +23,20 @@ borderBottomColor:'transparent'},
 'NativeBase.CheckBox':{
 marginLeft:-10},
 
+'.first':{
 '.itemHeader':{
-borderBottomWidth:variables.borderWidth,
+paddingTop:variables.listItemPadding+3}},
+
+
+'.itemHeader':{
+'.first':{
+paddingTop:variables.listItemPadding+3},
+
+borderBottomWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:null,
 marginLeft:null,
 padding:variables.listItemPadding,
 paddingLeft:variables.listItemPadding+5,
-paddingTop:_reactNative.Platform.OS==='ios'?variables.listItemPadding+20:undefined,
+paddingTop:_reactNative.Platform.OS==='ios'?variables.listItemPadding+25:undefined,
 paddingBottom:_reactNative.Platform.OS==='android'?variables.listItemPadding+20:undefined,
 flexDirection:'row',
 borderColor:variables.listBorderColor,
@@ -93,14 +101,7 @@ alignItems:null},
 
 'NativeBase.Right':{
 'NativeBase.Badge':{
-alignSelf:null,
-height:24,
-borderRadius:12,
-paddingHorizontal:4,
-'NativeBase.Text':{
-backgroundColor:'transparent',
-fontSize:variables.fontSizeBase-1}},
-
+alignSelf:null},
 
 'NativeBase.Button':{
 alignSelf:null,
@@ -134,8 +135,7 @@ alignSelf:null},
 alignSelf:null},
 
 'NativeBase.Radio':{
-alignSelf:null,
-marginRight:10},
+alignSelf:null},
 
 'NativeBase.Checkbox':{
 alignSelf:null},
@@ -152,6 +152,7 @@ color:variables.listNoteColor,
 fontWeight:'200'},
 
 alignSelf:null},
+
 
 '.last':{
 marginLeft:-(variables.listItemPadding+5),
@@ -175,6 +176,8 @@ marginLeft:variables.listItemPadding+5},
 
 'NativeBase.Right':{
 flex:0,
+paddingRight:variables.listItemPadding+5,
+alignSelf:'stretch',
 paddingVertical:variables.listItemPadding,
 borderBottomWidth:1,
 borderColor:variables.listBorderColor},
@@ -203,11 +206,14 @@ marginLeft:variables.listItemPadding+5},
 'NativeBase.Button':{
 '.transparent':{
 'NativeBase.Text':{
-fontSize:variables.listNoteSize}}},
+fontSize:variables.listNoteSize,
+color:variables.sTabBarActiveTextColor}}},
 
 
 
 flex:0,
+justifyContent:'center',
+alignSelf:'stretch',
 paddingRight:variables.listItemPadding+5,
 paddingVertical:variables.listItemPadding+5,
 borderBottomWidth:1,
@@ -216,6 +222,7 @@ borderColor:variables.listBorderColor},
 borderBottomWidth:null,
 paddingVertical:null,
 paddingRight:null},
+
 
 '.icon':{
 '.last':{
@@ -288,8 +295,8 @@ paddingTop:3},
 
 flexDirection:'row',
 alignItems:'center',
-flex:1,
-alignSelf:'center',
+flex:0,
+alignSelf:'stretch',
 height:44,
 justifyContent:'flex-end',
 borderBottomWidth:1,

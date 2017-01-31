@@ -8,7 +8,7 @@ import NativeBaseComponent from './Base/NativeBaseComponent';
 class Input extends NativeBaseComponent {
   render() {
     return (
-      <TextInput ref={(c) => { this._textInput = c; this._root = c; }} {...this.props} placeholderTextColor={this.props.placeholderTextColor ? this.props.placeholderTextColor : variables.inputColorPlaceholder} underlineColorAndroid="rgba(0,0,0,0)" />
+      <TextInput ref={(c) => { this._textInput = c; this._root = c; }} editable={(this.props.disabled) ? false : true} {...this.props} placeholderTextColor={this.props.placeholderTextColor ? this.props.placeholderTextColor : variables.inputColorPlaceholder} underlineColorAndroid="rgba(0,0,0,0)" />
     );
   }
 }

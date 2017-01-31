@@ -7,12 +7,12 @@ export default (variables = variable) => {
   const inputGroupTheme = {
       'NativeBase.Icon': {
         fontSize: 24,
-        color: variables.topTabBarActiveTextColor,
+        color: variables.sTabBarActiveTextColor,
         paddingHorizontal: 5,
       },
       'NativeBase.IconNB': {
         fontSize: 24,
-        color: variables.topTabBarActiveTextColor,
+        color: variables.sTabBarActiveTextColor,
         paddingHorizontal: 5,
       },
       'NativeBase.Input': {

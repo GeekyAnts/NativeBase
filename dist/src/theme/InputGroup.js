@@ -7,12 +7,12 @@ function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[
 var inputGroupTheme={
 'NativeBase.Icon':{
 fontSize:24,
-color:variables.topTabBarActiveTextColor,
+color:variables.sTabBarActiveTextColor,
 paddingHorizontal:5},
 
 'NativeBase.IconNB':{
 fontSize:24,
-color:variables.topTabBarActiveTextColor,
+color:variables.sTabBarActiveTextColor,
 paddingHorizontal:5},
 
 'NativeBase.Input':{

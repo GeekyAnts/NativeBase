@@ -1,6 +1,7 @@
 import { Platform } from 'react-native';
 import _ from 'lodash';
 import headerTheme from './Header';
+import containerTheme from './Container'
 import contentTheme from './Content';
 import buttonTheme from './Button';
 import titleTheme from './Title';
@@ -27,7 +28,7 @@ import spinnerTheme from './Spinner';
 import cardItemTheme from './CardItem';
 import listItemTheme from './ListItem';
 import formTheme from './Form';
-import seperatorTheme from './Seperator';
+import separatorTheme from './Separator';
 import variable from './variables';
 
 export default (variables = variable) => {
@@ -92,12 +93,6 @@ export default (variables = variable) => {
           marginTop: 5,
         },
       },
-      'NativeBase.Icon': {
-        paddingRight: 10,
-      },
-      'NativeBase.IconNB': {
-        paddingRight: 10,
-      },
       flexDirection: 'row',
       alignItems: 'center',
     },
@@ -117,8 +112,7 @@ export default (variables = variable) => {
     },
 
     'NativeBase.Container': {
-      flex: 1,
-      paddingBottom: (Platform.OS === 'ios') ? undefined : 20,
+      ...containerTheme(variables),
     },
     'NativeBase.Content': {
       ...contentTheme(variables),
@@ -207,7 +201,7 @@ export default (variables = variable) => {
       marginVertical: -5,
     },
     'NativeBase.Seperator': {
-      ...seperatorTheme(variables),
+      ...separatorTheme(variables),
     },
 
   };

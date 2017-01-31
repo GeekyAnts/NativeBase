@@ -8,7 +8,7 @@ var _NativeBaseComponent2=require('./Base/NativeBaseComponent');var _NativeBaseC
 Input=function(_NativeBaseComponent){_inherits(Input,_NativeBaseComponent);function Input(){_classCallCheck(this,Input);return _possibleConstructorReturn(this,(Input.__proto__||Object.getPrototypeOf(Input)).apply(this,arguments));}_createClass(Input,[{key:'render',value:function render()
 {var _this2=this;
 return(
-_react2.default.createElement(_reactNative.TextInput,_extends({ref:function ref(c){_this2._textInput=c;_this2._root=c;}},this.props,{placeholderTextColor:this.props.placeholderTextColor?this.props.placeholderTextColor:_variables2.default.inputColorPlaceholder,underlineColorAndroid:'rgba(0,0,0,0)'})));
+_react2.default.createElement(_reactNative.TextInput,_extends({ref:function ref(c){_this2._textInput=c;_this2._root=c;},editable:this.props.disabled?false:true},this.props,{placeholderTextColor:this.props.placeholderTextColor?this.props.placeholderTextColor:_variables2.default.inputColorPlaceholder,underlineColorAndroid:'rgba(0,0,0,0)'})));
 
 }}]);return Input;}(_NativeBaseComponent3.default);
 

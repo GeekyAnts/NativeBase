@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
-class Seperator extends Component {
+class Separator extends Component {
   render() {
     return (
       <View ref={c => this._root = c} {...this.props} />
@@ -12,13 +12,13 @@ class Seperator extends Component {
   }
 }
 
-Seperator.propTypes = {
+Separator.propTypes = {
   ...View.propTypes,
   style: React.PropTypes.object,
 };
 
-const StyledSeperator = connectStyle('NativeBase.Seperator', {}, mapPropsToStyleNames)(Seperator);
+const StyledSeparator = connectStyle('NativeBase.Separator', {}, mapPropsToStyleNames)(Separator);
 
 export {
-  StyledSeperator as Seperator,
+  StyledSeparator as Separator,
 };

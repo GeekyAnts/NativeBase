@@ -24,4 +24,4 @@ paddingLeft:variables.listItemPadding+5};
 
 return theme;
 };
-//# sourceMappingURL=Seperator.js.map
+//# sourceMappingURL=Separator.js.map

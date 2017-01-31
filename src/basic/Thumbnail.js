@@ -11,10 +11,10 @@ class Thumbnail extends Component {
 
   prepareRootProps() {
     const type = {
-      width: (this.props.size) ? this.props.size : 30,
-      height: (this.props.size) ? this.props.size : 30,
+      width: (this.props.size) ? this.props.size : 36,
+      height: (this.props.size) ? this.props.size : 36,
       borderRadius: (this.props.size) ? ((this.props.square) ? 0
-      : (this.props.size / 2)) : ((this.props.square) ? 0 : 15),
+      : (this.props.size / 2)) : ((this.props.square) ? 0 : 18),
     };
     const defaultProps = {
       style: type,

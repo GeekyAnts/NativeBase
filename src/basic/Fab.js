@@ -39,14 +39,14 @@ class Fab extends Component {
     } else if (pos === 'bottomRight') {
       return {
         top: undefined,
-        bottom: 20,
+        bottom: (Platform.OS === 'ios') ? 20 : 40,
         left: undefined,
         right: 20,
       };
     } else if (pos === 'bottomLeft') {
       return {
         top: undefined,
-        bottom: 20,
+        bottom: (Platform.OS === 'ios') ? 20 : 40,
         left: 20,
         right: undefined,
       };
@@ -131,7 +131,6 @@ class Fab extends Component {
         width: 40,
         left: 7,
         borderRadius: 20,
-        transform: [{ scale: this.buttonScale }],
         marginBottom: 10,
         backgroundColor: 'blue',
       },

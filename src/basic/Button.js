@@ -70,7 +70,8 @@ class Button extends Component {
       return(
           <TouchableNativeFeedback ref={c => this._root = c}
               onPress={this.props.onPress}
-              background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColor)}>
+              background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColor)}
+               {...this.prepareRootProps()}>
               <View {...this.prepareRootProps()}>
                 <View style={{ alignSelf: 'center' }}>{(this.props.badgeValue) ? <Badge style={{ backgroundColor: (this.props.badgeColor) ? this.props.badgeColor : undefined }}><Text style={this.props.badgeValueStyle}>{this.props.badgeValue}</Text></Badge> : null}</View>
                   {this.renderChildren()}

@@ -7,12 +7,15 @@ function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[
 var fabTheme={
 'NativeBase.Button':{
 alignItems:'center',
+padding:null,
 justifyContent:'center',
 'NativeBase.Icon':{
 alignSelf:'center'},
 
 'NativeBase.IconNB':{
-alignSelf:'center'}}};
+alignSelf:'center',
+fontSize:20,
+lineHeight:_reactNative.Platform.OS==='ios'?24:undefined}}};
 
 
 

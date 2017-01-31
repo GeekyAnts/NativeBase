@@ -196,9 +196,12 @@ export default {
 
 
     // List
-  listBorderColor: '#ccc',
+  listBorderColor: '#aaa',
   listDividerBg: '#f4f4f4',
   listItemHeight: 45,
+
+    // Card
+  cardBorderColor: '#ccc',
 
     // Changed Variable
   listItemPadding: (Platform.OS === 'ios') ? 10 : 12,

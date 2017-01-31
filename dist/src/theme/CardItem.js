@@ -10,10 +10,9 @@ var cardItemTheme={
 'NativeBase.Text':{
 '.note':{
 color:variables.listNoteColor,
-fontWeight:'200',
-marginRight:20},
+fontWeight:'400',
+marginRight:20}},
 
-fontWeight:'600'},
 
 flex:1,
 marginLeft:10,
@@ -29,9 +28,37 @@ fontSize:variables.iconFontSize},
 marginLeft:10,
 alignSelf:'center'},
 
-flex:1,
+'NativeBase.Button':{
+'.transparent':{
+'NativeBase.Text':{
+fontSize:variables.DefaultFontSize-3,
+color:variables.sTabBarActiveTextColor},
+
+'NativeBase.Icon':{
+fontSize:variables.iconFontSize-10,
+color:variables.sTabBarActiveTextColor,
+marginHorizontal:null,
+paddingRight:variables.listItemPadding-5},
+
+'NativeBase.IconNB':{
+fontSize:variables.iconFontSize-10,
+color:variables.sTabBarActiveTextColor},
+
+paddingVertical:null,
+paddingHorizontal:null,
+paddingRight:variables.listItemPadding+5}},
+
+
+flex:0,
 flexDirection:'row',
 alignItems:'center'},
+
+
+'.content':{
+'NativeBase.Text':{
+color:'#555',
+fontSize:variables.DefaultFontSize-3}},
+
 
 '.cardBody':{
 'NativeBase.Text':{
@@ -45,9 +72,32 @@ color:variables.listNoteColor,
 fontWeight:'200',
 marginRight:20},
 
-lineHeight:20},
+lineHeight:20,
+fontSize:variables.DefaultFontSize-2},
 
-flex:1,
+'NativeBase.Button':{
+'.transparent':{
+'NativeBase.Text':{
+fontSize:variables.DefaultFontSize-3,
+color:variables.sTabBarActiveTextColor},
+
+'NativeBase.Icon':{
+fontSize:variables.iconFontSize-10,
+color:variables.sTabBarActiveTextColor,
+marginHorizontal:null,
+paddingRight:variables.listItemPadding-5},
+
+'NativeBase.IconNB':{
+fontSize:variables.iconFontSize-10,
+color:variables.sTabBarActiveTextColor},
+
+paddingVertical:null,
+paddingHorizontal:null,
+paddingRight:variables.listItemPadding+5}},
+
+
+flex:0,
+alignSelf:'stretch',
 alignItems:'flex-start'},
 
 'NativeBase.Right':{
@@ -55,15 +105,38 @@ alignItems:'flex-start'},
 alignSelf:null},
 
 'NativeBase.Button':{
+'.transparent':{
+'NativeBase.Text':{
+fontSize:variables.DefaultFontSize-3,
+color:variables.sTabBarActiveTextColor},
+
+'NativeBase.Icon':{
+fontSize:variables.iconFontSize-10,
+color:variables.sTabBarActiveTextColor,
+marginHorizontal:null,
+paddingRight:variables.listItemPadding-5},
+
+'NativeBase.IconNB':{
+fontSize:variables.iconFontSize-10,
+color:variables.sTabBarActiveTextColor},
+
+paddingVertical:null,
+paddingHorizontal:null},
+
 alignSelf:null},
 
 'NativeBase.Icon':{
-alignSelf:null},
+alignSelf:null,
+fontSize:variables.iconFontSize-8,
+color:variables.cardBorderColor},
 
 'NativeBase.IconNB':{
-alignSelf:null},
+alignSelf:null,
+fontSize:variables.iconFontSize-8,
+color:variables.cardBorderColor},
 
 'NativeBase.Text':{
+fontSize:variables.DefaultFontSize-2,
 alignSelf:null},
 
 'NativeBase.Thumbnail':{
@@ -84,28 +157,52 @@ alignSelf:null}},
 
 '.header':{
 'NativeBase.Text':{
-fontSize:17,
-fontWeight:'600'},
+fontSize:16},
+
+'.bordered':{
+'NativeBase.Text':{
+color:variables.activeTab},
+
+borderBottomWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:null},
 
 borderBottomWidth:null},
 
 '.footer':{
 'NativeBase.Text':{
-fontSize:17,
-fontWeight:'600'}},
+fontSize:16},
 
+'.bordered':{
+'NativeBase.Text':{
+color:variables.activeTab,
+fontWeight:'500'},
+
+borderTopWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:null},
+
+borderBottomWidth:null},
 
 'NativeBase.Text':{
 '.note':{
 color:variables.listNoteColor,
-fontWeight:'200'},
+fontWeight:'200'}},
 
-fontWeight:'500'},
 
-padding:variables.listItemPadding,
-borderBottomWidth:variables.borderWidth,
-backgroundColor:variables.listBg,
-borderColor:variables.listBorderColor};
+
+'NativeBase.Icon':{
+width:variables.iconFontSize+5,
+fontSize:variables.iconFontSize-2},
+
+'NativeBase.IconNB':{
+width:variables.iconFontSize+5,
+fontSize:variables.iconFontSize-2},
+
+
+'.bordered':{
+borderBottomWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:null,
+borderColor:variables.cardBorderColor},
+
+padding:variables.listItemPadding+5,
+paddingVertical:variables.listItemPadding,
+backgroundColor:variables.cardDefaultBg};
 
 
 return cardItemTheme;
