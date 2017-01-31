@@ -13,7 +13,8 @@
     "react-native-scrollable-tab-view": "^0.7.1",
     "react-native-vector-icons": "~4.0.0",
     "react-tween-state": "^0.1.5",
-    "tween-functions": "^1.0.1"
+    "tween-functions": "^1.0.1",
+    "react-native-drawer": "^2.3.0"
   },
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",

@@ -242,7 +242,7 @@ export default (variables = variable) => {
     justifyContent: 'center',
     paddingTop: (Platform.OS === 'ios') ? 15 : 0,
     borderBottomWidth: (Platform.OS === 'ios') ? 1 : 0,
-    borderBottomColor: '#ddd',
+    borderBottomColor: variables.toolbarDefaultBorder,
     height: variables.toolbarHeight,
     elevation: 3,
     top: 0,
