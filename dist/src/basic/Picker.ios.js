@@ -6,6 +6,7 @@ var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _Text=require('./Text');
 var _List=require('./List');
 var _IconNB=require('./IconNB');
+var _Radio=require('./Radio');
 var _Container=require('./Container');
 var _Content=require('./Content');
 var _ListItem=require('./ListItem');
@@ -134,9 +135,9 @@ _this4.setState({current:child.props.label});
 _react2.default.createElement(_Text.Text,{style:_this4.props.itemTextStyle},child.props.label),
 _react2.default.createElement(_Right.Right,null,
 child.props.value===_this4.props.selectedValue?
-_react2.default.createElement(_IconNB.IconNB,{name:'ios-checkmark-outline'}):
+_react2.default.createElement(_Radio.Radio,{selected:true}):
 
-_react2.default.createElement(_IconNB.IconNB,{name:'ios-checkmark-outline',style:{color:'transparent'}}))));}}))))));
+_react2.default.createElement(_Radio.Radio,{selected:false}))));}}))))));
 
 
 

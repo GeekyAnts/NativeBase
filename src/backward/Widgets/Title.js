@@ -26,7 +26,7 @@ class Title extends NativeBaseComponent {
 
   render() {
     return (
-      <View style={{ justifyContent: 'center' }}><Text ref={c => this._root = c} {...this.prepareRootProps()}>{this.props.children}</Text></View>
+      <View style={{ justifyContent: 'center' }}><Text ref={c => this._root = c} {...this.prepareRootProps()} numberOfLines={1}>{this.props.children}</Text></View>
     );
   }
 }

@@ -3,11 +3,12 @@ import { STabs as Tabs } from '../smart/STabs';
 import { SButton as Button } from '../smart/SButton';
 import { SHeader as Header } from '../smart/SHeader';
 
-export { TabContent };
-export { Tabs };
-export { Button };
-export { Header };
-
+module.exports = {
+	Tabs,
+	TabContent,
+	Button,
+	Header,
+};
 
 const mapPropsToStyleNames = (styleNames, props) => _.keys(props);
 

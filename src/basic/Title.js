@@ -9,7 +9,7 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 class Title extends Component {
   render() {
     return (
-      <Text ref={c => this._root = c} {...this.props} />
+      <Text ref={c => this._root = c} {...this.props} numberOfLines={1} />
     );
   }
 }

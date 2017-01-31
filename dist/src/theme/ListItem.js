@@ -175,6 +175,11 @@ borderColor:variables.listBorderColor,
 marginLeft:variables.listItemPadding+5},
 
 'NativeBase.Right':{
+'NativeBase.Text':{
+'.note':{
+fontSize:variables.noteFontSize-2}},
+
+
 flex:0,
 paddingRight:variables.listItemPadding+5,
 alignSelf:'stretch',
@@ -308,6 +313,9 @@ paddingVertical:null,
 paddingRight:null,
 height:44,
 justifyContent:'center'},
+
+'.noBorder':{
+borderBottomWidth:null},
 
 alignItems:'center',
 flexDirection:'row',

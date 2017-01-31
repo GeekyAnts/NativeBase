@@ -11,6 +11,7 @@ return{
 tabBarPosition:'top',
 initialPage:0,
 page:-1,
+locked:true,
 onChangeTab:function onChangeTab(){},
 onScroll:function onScroll(){},
 scrollWithoutAnimation:false};
@@ -88,7 +89,7 @@ _this2.getScrollValue(offsetX/_this2.state.containerWidth);
 scrollEventThrottle:16,
 scrollsToTop:false,
 showsHorizontalScrollIndicator:false,
-scrollEnabled:false,
+scrollEnabled:!this.props.locked,
 directionalLockEnabled:true,
 alwaysBounceVertical:false},
 
@@ -98,7 +99,7 @@ content);
 return _react2.default.createElement(_reactNative.ViewPagerAndroid,{
 style:{flex:1},
 initialPage:this.props.initialPage,
-scrollEnabled:false,
+scrollEnabled:!this.props.locked,
 onPageScroll:function onPageScroll(e){var _e$nativeEvent=
 e.nativeEvent,offset=_e$nativeEvent.offset,position=_e$nativeEvent.position;
 _this2.getScrollValue(position+offset);

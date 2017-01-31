@@ -34,6 +34,7 @@ import { Container } from './basic/Container';
 import { Content } from './basic/Content';
 import { Footer } from './basic/Footer';
 import { FooterTab } from './basic/FooterTab';
+import { Form } from './basic/Form';
 import { PickerNB } from './basic/Picker';
 import { List } from './basic/List';
 import { ListItem } from './basic/ListItem';
@@ -44,6 +45,8 @@ import { Label } from './basic/Label';
 import { Textarea } from './basic/Textarea';
 import { Tab } from './basic/Tab';
 import { Tabs } from './basic/Tabs';
+import { STabs } from './smart/STabs';
+import { Content as TabContent } from './basic/Content';
 import { Subtitle } from './backward/Widgets/Subtitle';
 
 setDefaultThemeStyle();
@@ -58,6 +61,7 @@ export {
   IconNB,
   Icon,
   Header,
+  Form,
   InputGroup,
   Input,
   Title,
@@ -96,6 +100,8 @@ export {
   Row,
   Grid,
   Text,
+  STabs,
+  TabContent,
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);

@@ -26,7 +26,7 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 
 {var _this2=this;
 return(
-_react2.default.createElement(_reactNative.View,{style:{justifyContent:'center'}},_react2.default.createElement(_Text.Text,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps()),this.props.children)));
+_react2.default.createElement(_reactNative.View,{style:{justifyContent:'center'}},_react2.default.createElement(_Text.Text,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps(),{numberOfLines:1}),this.props.children)));
 
 }}]);return Title;}(_NativeBaseComponent3.default);
 

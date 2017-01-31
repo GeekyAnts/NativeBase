@@ -110,6 +110,9 @@ alignItems:'center'}),
 'NativeBase.H3':_extends({},
 (0,_H2.default)(variables)),
 
+'NativeBase.Form':_extends({},
+(0,_Form2.default)(variables)),
+
 
 'NativeBase.Container':_extends({},
 (0,_Container2.default)(variables)),

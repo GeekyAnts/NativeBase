@@ -251,7 +251,7 @@ noteFontSize:14,
 titleFontfamily:_reactNative.Platform.OS==='ios'?'System':'Roboto_medium',
 titleFontSize:_reactNative.Platform.OS==='ios'?17:19,
 subTitleFontSize:_reactNative.Platform.OS==='ios'?12:14,
-subtitleColor:'#8e8e93',
+subtitleColor:_reactNative.Platform.OS==='ios'?'#8e8e93':'#FFF',
 
 
 titleFontColor:_reactNative.Platform.OS==='ios'?'#000':'#FFF',

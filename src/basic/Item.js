@@ -29,11 +29,11 @@ class Item extends Component {
 
   floatUp() {
     Animated.timing(this.state.topAnim, {
-      toValue: 0,
+      toValue: -5,
       duration: 150,
     }).start();
     Animated.timing(this.state.opacAnim, {
-      toValue: 0.5,
+      toValue: 0.7,
       duration: 150,
     }).start();
   }
@@ -65,7 +65,13 @@ class Item extends Component {
         }
         ));
     } else {
-      newLabel.push(label);
+      newLabel.push(React.createElement(
+          Label,
+        {
+          ...labelProps,
+          key: 'newLabel',
+        }
+        ));
     }
     return newLabel;
   }
@@ -93,11 +99,14 @@ class Item extends Component {
     });
     if (label.length && input.length) {
       if (!this.props.inlineLabel && !this.props.stackedLabel && !this.props.fixedLabel) {
-        newChildren.push((this.props.floatingLabel) ? <Animated.View key="float" style={{ position: 'absolute', left: 0, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : 30 }}>{this.renderLabel(label, labelProps)}</Animated.View> : this.renderLabel(label, labelProps));
+        newChildren.push((this.props.floatingLabel) ? <Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 15 : 0, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : 30, }}><Label style={{fontSize: (this.state.text) ? 13 : undefined}}>{this.renderLabel(label, labelProps)}</Label></Animated.View> : <Label style={{width: (this.state.text) ? 0 : undefined, marginLeft: (this.props.last) ? null : 15}}>{this.renderLabel(label, labelProps)}</Label>);
         newChildren.push(<Input key="l2" {...inputProps} onChangeText={text => this.setState({ text })} />);
       } else {
         return this.props.children;
       }
+    }
+    else {
+      newChildren.push(<Input key="l2" {...inputProps} style={{marginLeft: -10}} onChangeText={text => this.setState({ text })} />);
     }
     return newChildren;
   }
@@ -123,7 +132,6 @@ const childrenType = function (props, propName, component) {
 
 Item.propTypes = {
   ...TouchableOpacity.propTypes,
-  children: childrenType,
   style: React.PropTypes.object,
   inlineLabel: React.PropTypes.bool,
   floatingLabel: React.PropTypes.bool,

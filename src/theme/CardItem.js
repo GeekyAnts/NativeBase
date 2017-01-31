@@ -31,7 +31,7 @@ export default (variables = variable) => {
         'NativeBase.Button': {
           '.transparent': {
             'NativeBase.Text': {
-              fontSize: variables.DefaultFontSize - 3,
+              fontSize: variables.DefaultFontSize - 4,
               color: variables.sTabBarActiveTextColor,
             },
             'NativeBase.Icon': {
@@ -49,14 +49,14 @@ export default (variables = variable) => {
             paddingRight: variables.listItemPadding + 5,
           },
         },
-        flex: 0,
+        flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
       },
 
       '.content': {
         'NativeBase.Text': {
-          color: '#555',
+          color: (Platform.OS === 'ios') ? '#555' : '#222',
           fontSize: variables.DefaultFontSize - 3,
         },
       },
@@ -78,7 +78,7 @@ export default (variables = variable) => {
         'NativeBase.Button': {
           '.transparent': {
             'NativeBase.Text': {
-              fontSize: variables.DefaultFontSize - 3,
+              fontSize: variables.DefaultFontSize - 4,
               color: variables.sTabBarActiveTextColor,
             },
             'NativeBase.Icon': {
@@ -94,9 +94,10 @@ export default (variables = variable) => {
             paddingVertical: null,
             paddingHorizontal: null,
             paddingRight: variables.listItemPadding + 5,
+            alignSelf: 'stretch',
           },
         },
-        flex: 0,
+        flex: 1,
         alignSelf: 'stretch',
         alignItems: 'flex-start',
       },
@@ -107,7 +108,7 @@ export default (variables = variable) => {
         'NativeBase.Button': {
           '.transparent': {
             'NativeBase.Text': {
-              fontSize: variables.DefaultFontSize - 3,
+              fontSize: variables.DefaultFontSize - 4,
               color: variables.sTabBarActiveTextColor,
             },
             'NativeBase.Icon': {
@@ -154,22 +155,27 @@ export default (variables = variable) => {
         'NativeBase.Switch': {
           alignSelf: null,
         },
+        flex: 0.8,
       },
       '.header': {
         'NativeBase.Text': {
           fontSize: 16,
+          fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
         },
         '.bordered': {
           'NativeBase.Text': {
             color: variables.activeTab,
+            fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
           },
           borderBottomWidth: (Platform.OS === 'ios') ? variables.borderWidth : null,
         },
         borderBottomWidth: null,
+        paddingVertical: variables.listItemPadding + 5,
       },
       '.footer': {
         'NativeBase.Text': {
           fontSize: 16,
+          fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
         },
         '.bordered': {
           'NativeBase.Text': {
@@ -197,7 +203,7 @@ export default (variables = variable) => {
       },
 
       '.bordered': {
-        borderBottomWidth: (Platform.OS === 'ios') ? variables.borderWidth : null,
+        borderBottomWidth: variables.borderWidth,
         borderColor: variables.cardBorderColor,
       },
       padding: variables.listItemPadding + 5,

@@ -6,6 +6,7 @@ import _ from 'lodash';
 import { Text } from './Text';
 import { List } from './List';
 import { IconNB as Icon } from './IconNB';
+import { Radio } from './Radio';
 import { Container } from './Container';
 import { Content } from './Content';
 import { ListItem } from './ListItem';
@@ -134,9 +135,9 @@ class PickerNB extends Component {
                     <Text style={this.props.itemTextStyle} >{child.props.label}</Text>
                     <Right>
                       {(child.props.value === this.props.selectedValue) ?
-                                        (<Icon name="ios-checkmark-outline" />)
+                                        (<Radio selected={true} />)
                                         :
-                                        (<Icon name="ios-checkmark-outline" style={{ color: 'transparent' }} />)
+                                        (<Radio selected={false} />)
                                     }
                     </Right>
                   </ListItem>

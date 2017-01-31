@@ -11,6 +11,7 @@ class STabs extends Component {
       tabBarPosition: 'top',
       initialPage: 0,
       page: -1,
+      locked: true,
       onChangeTab: () => {},
       onScroll: () => {},
       scrollWithoutAnimation: false,
@@ -88,7 +89,7 @@ class STabs extends Component {
         scrollEventThrottle={16}
         scrollsToTop={false}
         showsHorizontalScrollIndicator={false}
-        scrollEnabled={false}
+        scrollEnabled={!this.props.locked}
         directionalLockEnabled
         alwaysBounceVertical={false}
       >
@@ -98,7 +99,7 @@ class STabs extends Component {
       return (<ViewPagerAndroid
         style={{ flex: 1 }}
         initialPage={this.props.initialPage}
-        scrollEnabled={false}
+        scrollEnabled={!this.props.locked}
         onPageScroll={(e) => {
           const { offset, position } = e.nativeEvent;
           this.getScrollValue(position + offset);

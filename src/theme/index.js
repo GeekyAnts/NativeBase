@@ -110,6 +110,9 @@ export default (variables = variable) => {
     'NativeBase.H3': {
       ...h3Theme(variables),
     },
+    'NativeBase.Form': {
+      ...formTheme(variables),
+    },
 
     'NativeBase.Container': {
       ...containerTheme(variables),

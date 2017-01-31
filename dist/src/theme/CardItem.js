@@ -31,7 +31,7 @@ alignSelf:'center'},
 'NativeBase.Button':{
 '.transparent':{
 'NativeBase.Text':{
-fontSize:variables.DefaultFontSize-3,
+fontSize:variables.DefaultFontSize-4,
 color:variables.sTabBarActiveTextColor},
 
 'NativeBase.Icon':{
@@ -49,14 +49,14 @@ paddingHorizontal:null,
 paddingRight:variables.listItemPadding+5}},
 
 
-flex:0,
+flex:1,
 flexDirection:'row',
 alignItems:'center'},
 
 
 '.content':{
 'NativeBase.Text':{
-color:'#555',
+color:_reactNative.Platform.OS==='ios'?'#555':'#222',
 fontSize:variables.DefaultFontSize-3}},
 
 
@@ -78,7 +78,7 @@ fontSize:variables.DefaultFontSize-2},
 'NativeBase.Button':{
 '.transparent':{
 'NativeBase.Text':{
-fontSize:variables.DefaultFontSize-3,
+fontSize:variables.DefaultFontSize-4,
 color:variables.sTabBarActiveTextColor},
 
 'NativeBase.Icon':{
@@ -93,10 +93,11 @@ color:variables.sTabBarActiveTextColor},
 
 paddingVertical:null,
 paddingHorizontal:null,
-paddingRight:variables.listItemPadding+5}},
+paddingRight:variables.listItemPadding+5,
+alignSelf:'stretch'}},
 
 
-flex:0,
+flex:1,
 alignSelf:'stretch',
 alignItems:'flex-start'},
 
@@ -107,7 +108,7 @@ alignSelf:null},
 'NativeBase.Button':{
 '.transparent':{
 'NativeBase.Text':{
-fontSize:variables.DefaultFontSize-3,
+fontSize:variables.DefaultFontSize-4,
 color:variables.sTabBarActiveTextColor},
 
 'NativeBase.Icon':{
@@ -152,24 +153,29 @@ alignSelf:null},
 alignSelf:null},
 
 'NativeBase.Switch':{
-alignSelf:null}},
+alignSelf:null},
 
+flex:0.8},
 
 '.header':{
 'NativeBase.Text':{
-fontSize:16},
+fontSize:16,
+fontWeight:_reactNative.Platform.OS==='ios'?'500':undefined},
 
 '.bordered':{
 'NativeBase.Text':{
-color:variables.activeTab},
+color:variables.activeTab,
+fontWeight:_reactNative.Platform.OS==='ios'?'500':undefined},
 
 borderBottomWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:null},
 
-borderBottomWidth:null},
+borderBottomWidth:null,
+paddingVertical:variables.listItemPadding+5},
 
 '.footer':{
 'NativeBase.Text':{
-fontSize:16},
+fontSize:16,
+fontWeight:_reactNative.Platform.OS==='ios'?'500':undefined},
 
 '.bordered':{
 'NativeBase.Text':{
@@ -197,7 +203,7 @@ fontSize:variables.iconFontSize-2},
 
 
 '.bordered':{
-borderBottomWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:null,
+borderBottomWidth:variables.borderWidth,
 borderColor:variables.cardBorderColor},
 
 padding:variables.listItemPadding+5,
