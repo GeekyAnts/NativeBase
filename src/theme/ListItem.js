@@ -23,18 +23,28 @@ export default (variables = variable) => {
       'NativeBase.CheckBox': {
         marginLeft: -10,
       },
-      '.itemDivider': {
+      '.itemHeader': {
         borderBottomWidth: variables.borderWidth,
-        height: variables.listItemHeight,
         marginLeft: null,
         padding: variables.listItemPadding,
-        backgroundColor: variables.listDividerBg,
+        paddingLeft: variables.listItemPadding + 5,
+        paddingTop: (Platform.OS === 'ios') ? variables.listItemPadding + 20 : undefined,
+        paddingBottom: (Platform.OS === 'android') ? variables.listItemPadding + 20 : undefined,
         flexDirection: 'row',
         borderColor: variables.listBorderColor,
         'NativeBase.Text': {
-          fontSize: 16,
-          fontWeight: '600',
+          fontSize: 14,
+          color: (Platform.OS === 'ios') ? undefined : variables.listNoteColor,
         },
+      },
+      '.itemDivider': {
+        borderBottomWidth: null,
+        marginLeft: null,
+        padding: variables.listItemPadding,
+        paddingLeft: variables.listItemPadding + 5,
+        backgroundColor: variables.listDividerBg,
+        flexDirection: 'row',
+        borderColor: variables.listBorderColor,
       },
       '.selected': {
         'NativeBase.Left': {
@@ -57,21 +67,18 @@ export default (variables = variable) => {
           alignSelf: null,
         },
         'NativeBase.Icon': {
-          width: variables.iconFontSize,
-          fontSize: variables.iconFontSize,
-          lineHeight: (Platform.OS === 'ios') ? 34 : undefined,
+          width: variables.iconFontSize - 10,
+          fontSize: variables.iconFontSize - 10,
         },
         'NativeBase.IconNB': {
-          width: variables.iconFontSize,
-          fontSize: variables.iconFontSize,
-          lineHeight: (Platform.OS === 'ios') ? 34 : undefined,
+          width: variables.iconFontSize - 10,
+          fontSize: variables.iconFontSize - 10,
         },
         'NativeBase.Text': {
           marginLeft: 10,
           alignSelf: 'center',
         },
         flexDirection: 'row',
-        marginLeft: -variables.listItemPadding,
       },
       'NativeBase.Body': {
         'NativeBase.Text': {
@@ -87,15 +94,31 @@ export default (variables = variable) => {
       'NativeBase.Right': {
         'NativeBase.Badge': {
           alignSelf: null,
+          height: 24,
+          borderRadius: 12,
+          paddingHorizontal: 4,
+          'NativeBase.Text': {
+            backgroundColor: 'transparent',
+            fontSize: variables.fontSizeBase - 1,
+          },
         },
         'NativeBase.Button': {
           alignSelf: null,
+          '.transparent': {
+            'NativeBase.Text': {
+              color: variables.topTabBarActiveTextColor,
+            },
+          },
         },
         'NativeBase.Icon': {
           alignSelf: null,
+          fontSize: variables.iconFontSize - 8,
+          color: variables.listBorderColor,
         },
         'NativeBase.IconNB': {
           alignSelf: null,
+          fontSize: variables.iconFontSize - 8,
+          color: variables.listBorderColor,
         },
         'NativeBase.Text': {
           '.note': {
@@ -121,6 +144,7 @@ export default (variables = variable) => {
           alignSelf: null,
         },
         padding: null,
+        flex: 0.28,
       },
       'NativeBase.Text': {
         '.note': {
@@ -129,10 +153,161 @@ export default (variables = variable) => {
         },
         alignSelf: null,
       },
+      '.last': {
+        marginLeft: -(variables.listItemPadding + 5),
+        paddingLeft: (variables.listItemPadding + 5) * 2,
+        top: 1,
+      },
+
+      '.avatar': {
+        'NativeBase.Left': {
+          flex: 0,
+        },
+        'NativeBase.Body': {
+          'NativeBase.Text': {
+            marginLeft: null,
+          },
+          flex: 1,
+          paddingVertical: variables.listItemPadding,
+          borderBottomWidth: 1,
+          borderColor: variables.listBorderColor,
+          marginLeft: variables.listItemPadding + 5,
+        },
+        'NativeBase.Right': {
+          flex: 0,
+          paddingVertical: variables.listItemPadding,
+          borderBottomWidth: 1,
+          borderColor: variables.listBorderColor,
+        },
+        borderBottomWidth: null,
+        paddingVertical: null,
+        paddingRight: null,
+      },
+
+
+      '.thumbnail': {
+        'NativeBase.Left': {
+          flex: 0,
+        },
+        'NativeBase.Body': {
+          'NativeBase.Text': {
+            marginLeft: null,
+          },
+          flex: 1,
+          paddingVertical: variables.listItemPadding + 5,
+          borderBottomWidth: 1,
+          borderColor: variables.listBorderColor,
+          marginLeft: variables.listItemPadding + 5,
+        },
+        'NativeBase.Right': {  
+          'NativeBase.Button': {
+            '.transparent': {
+              'NativeBase.Text': {
+                fontSize: variables.listNoteSize,
+              },
+            },
+          },
+          flex: 0,
+          paddingRight: variables.listItemPadding + 5,
+          paddingVertical: variables.listItemPadding + 5,
+          borderBottomWidth: 1,
+          borderColor: variables.listBorderColor,
+        },
+        borderBottomWidth: null,
+        paddingVertical: null,
+        paddingRight: null,
+      },
+      '.icon': {
+        '.last': {
+          'NativeBase.Body': {
+            borderBottomWidth: null,
+          },
+          'NativeBase.Right': {
+            borderBottomWidth: null,
+          },
+          borderBottomWidth: 1,
+          borderColor: variables.listBorderColor,
+        },
+        'NativeBase.Left': {
+          'NativeBase.Button': {
+            'NativeBase.IconNB': {
+              marginHorizontal: null,
+              fontSize: variables.iconFontSize - 5,
+            },
+            alignSelf: 'center',
+            height: 32,
+            width: 32,
+            borderRadius: 8,
+            paddingVertical: null,
+            paddingHorizontal: null,
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+          'NativeBase.Icon': {
+            width: variables.iconFontSize - 5,
+            fontSize: variables.iconFontSize - 2,
+          },
+          'NativeBase.IconNB': {
+            width: variables.iconFontSize - 5,
+            fontSize: variables.iconFontSize - 2,
+          },
+          paddingRight: variables.listItemPadding + 5,
+          flex: 0,
+          height: 44,
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+        'NativeBase.Body': {
+          'NativeBase.Text': {
+            marginLeft: null,
+          },
+          flex: 1,
+          height: 44,
+          justifyContent: 'center',
+          borderBottomWidth: 1,
+          borderColor: variables.listBorderColor,
+        },
+        'NativeBase.Right': {
+          'NativeBase.Text': {
+            textAlign: 'center',
+            color: '#aaa',
+          },
+          'NativeBase.IconNB': {
+            color: variables.listBorderColor,
+            fontSize: variables.iconFontSize - 2,
+            alignSelf: 'center',
+            paddingLeft: 5,
+            paddingTop: 3,
+          },
+          'NativeBase.Icon': {
+            color: variables.listBorderColor,
+            fontSize: variables.iconFontSize - 2,
+            alignSelf: 'center',
+            paddingLeft: 5,
+            paddingTop: 3,
+          },
+          flexDirection: 'row',
+          alignItems: 'center',
+          flex: 1,
+          alignSelf: 'center',
+          height: 44,
+          justifyContent: 'flex-end',
+          borderBottomWidth: 1,
+          borderColor: variables.listBorderColor,
+          paddingRight: variables.listItemPadding + 5,
+        },
+        borderBottomWidth: null,
+        paddingVertical: null,
+        paddingRight: null,
+        height: 44,
+        justifyContent: 'center',
+      },
+      alignItems: 'center',
       flexDirection: 'row',
-      padding: variables.listItemPadding,
-      marginLeft: variables.listItemPadding,
-      borderBottomWidth: variables.borderWidth,
+      paddingRight: variables.listItemPadding + 5,
+      paddingVertical: variables.listItemPadding,
+      marginLeft: variables.listItemPadding + 5,
+      borderBottomWidth: 1,
       backgroundColor: variables.listBg,
       borderColor: variables.listBorderColor,
   };

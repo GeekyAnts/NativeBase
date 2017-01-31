@@ -196,8 +196,8 @@ export default {
 
 
     // List
-  listBorderColor: '#ddd',
-  listDividerBg: '#ddd',
+  listBorderColor: '#ccc',
+  listDividerBg: '#f4f4f4',
   listItemHeight: 45,
 
     // Changed Variable

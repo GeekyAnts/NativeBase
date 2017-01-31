@@ -27,6 +27,7 @@ var _Spinner=require('./Spinner');var _Spinner2=_interopRequireDefault(_Spinner)
 var _CardItem=require('./CardItem');var _CardItem2=_interopRequireDefault(_CardItem);
 var _ListItem=require('./ListItem');var _ListItem2=_interopRequireDefault(_ListItem);
 var _Form=require('./Form');var _Form2=_interopRequireDefault(_Form);
+var _Seperator=require('./Seperator');var _Seperator2=_interopRequireDefault(_Seperator);
 var _variables=require('./variables');var _variables2=_interopRequireDefault(_variables);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
@@ -200,7 +201,13 @@ flex:1},
 (0,_TabBar2.default)(variables)),
 
 'NativeBase.ViewNB':_extends({},
-(0,_View2.default)(variables))};
+(0,_View2.default)(variables)),
+
+'NativeBase.Switch':{
+marginVertical:-5},
+
+'NativeBase.Seperator':_extends({},
+(0,_Seperator2.default)(variables))};
 
 
 
