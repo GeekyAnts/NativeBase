@@ -173,10 +173,6 @@ alignSelf:'center'}}),
 (0,_Fab2.default)(variables)),
 
 
-'NativeBase.Form':_extends({},
-(0,_Form2.default)(variables)),
-
-
 'NativeBase.Item':_extends({},
 (0,_Item2.default)(variables)),
 
