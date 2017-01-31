@@ -1,24 +1,57 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import { Platform } from 'react-native';
+import _ from 'lodash';
 
-import { connectStyle } from '@shoutem/theme';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import variable from './variables';
 
-class Form extends Component {
-  render() {
-    return (
-      <View ref={c => this._root = c} {...this.props} />
-    );
-  }
-}
+export default (variables = variable) => {
+  const theme = {
+    'NativeBase.Item':{
+		'.fixedLabel': {
+			'NativeBase.Label': {
+				paddingLeft: null,
+			},
+			marginLeft: 15,
+		},
+		'.inlineLabel': {
+			'NativeBase.Label': {
+				paddingLeft: null,
+			},
+			marginLeft: 15,
+		},
+		'.placeholderLabel': {
+			'NativeBase.Input': {
+				marginLeft: -10,
+				height: 40,
+			},
+		},
+		'.stackedLabel': {
+			'NativeBase.Label': {
+				paddingLeft: null,
+			},
+			'NativeBase.Input': {
+				paddingLeft: null,
+				marginLeft: (Platform.OS === 'ios') ? undefined : -5,
+			},
+			marginLeft: 15,
+		},
+		'.floatingLabel': {
+			'NativeBase.Input': {
+				paddingLeft: null,
+				marginLeft: (Platform.OS === 'ios') ? undefined : -5,
+			},
+			'NativeBase.Label': {
+				left: 0,
+			},
+			marginLeft: 15,
+		},
+		'.last': {
+			marginLeft:0,
+			paddingLeft:15,
+			borderBottomWidth: (Platform.OS === 'ios') ? undefined : null,
+		},
+		marginLeft: 15,
+	},
+  };
 
-Form.propTypes = {
-  ...View.propTypes,
-  style: React.PropTypes.object,
-};
-
-const StyledForm = connectStyle('NativeBase.Form', {}, mapPropsToStyleNames)(Form);
-
-export {
-  StyledForm as Form,
+  return theme;
 };

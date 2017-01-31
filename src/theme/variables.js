@@ -152,6 +152,7 @@ export default {
   toolbarInputColor: '#CECDD2',
   toolbarInverseBg: '#222',
   toolbarTextColor: (Platform.OS === 'ios') ? '#000' : '#fff',
+  toolbarDefaultBorder: '#ccc',
   get statusBarColor() {
     return color(this.toolbarDefaultBg).darken(0.2).hexString();
   },
@@ -243,6 +244,7 @@ export default {
     // Text
   textColor: '#000',
   inverseTextColor: '#fff',
+  noteFontSize: 14,
 
 
     // Title

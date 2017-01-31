@@ -39,7 +39,6 @@ import { List } from './basic/List';
 import { ListItem } from './basic/ListItem';
 import { Separator } from './basic/Separator';
 import { DeckSwiper } from './basic/DeckSwiper';
-import { Form } from './basic/Form';
 import { Item } from './basic/Item';
 import { Label } from './basic/Label';
 import { Textarea } from './basic/Textarea';
@@ -89,7 +88,6 @@ export {
   Separator,
   DeckSwiper,
   Item,
-  Form,
   Subtitle,
   Label,
   Textarea,
@@ -103,3 +101,4 @@ export {
 const mapPropsToStyleNames = (styleNames, props) => keys(props);
 
 export { mapPropsToStyleNames };
+

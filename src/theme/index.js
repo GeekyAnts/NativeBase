@@ -166,10 +166,6 @@ export default (variables = variable) => {
     'NativeBase.Fab': {
       ...fabTheme(variables),
     },
-    
-    'NativeBase.Form': {
-      ...formTheme(variables),
-    },
 
     'NativeBase.Item': {
       ...itemTheme(variables),

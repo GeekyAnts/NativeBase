@@ -68,7 +68,6 @@ class PickerNB extends Component {
 
   getLabel(props) {
     const item = _.find(props.children, child => child.props.value === props.selectedValue);
-
     return _.get(item, 'props.label');
   }
 
@@ -96,7 +95,7 @@ class PickerNB extends Component {
         style={{ shadowOffset: null, shadowColor: null, shadowRadius: null, shadowOpacity: null }}
         transparent onPress={() => { this._setModalVisible(false); }}
       ><Text>Back</Text></Button></Left>
-      <Body><Title>Select One</Title></Body>
+    <Body><Title>{(this.props.iosHeader) ? this.props.iosHeader : 'Select One'}</Title></Body>
       <Right />
     </Header>);
   }
@@ -105,11 +104,11 @@ class PickerNB extends Component {
     return (
       <View ref={c => this._root = c}>
         <Button
-          style={{ shadowOffset: null, shadowColor: null, shadowRadius: null, shadowOpacity: null }}
+          style={this.props.style}
           transparent
           onPress={() => { this._setModalVisible(true); }}
         >
-          <Text>{this.state.currentLabel}</Text>
+          <Text style={this.props.textStyle}>{this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel}</Text>
           {(this.props.iosIcon === undefined) ? null : this.renderIcon()}
         </Button>
         <Modal
@@ -126,12 +125,13 @@ class PickerNB extends Component {
                 renderRow={child =>
                   <ListItem
                     button
+                    style={this.props.itemStyle}
                     onPress={() => {
                       this._setModalVisible(false); this.props.onValueChange(child.props.value);
                       this.setState({ current: child.props.label });
                     }}
                   >
-                    <Text >{child.props.label}</Text>
+                    <Text style={this.props.itemTextStyle} >{child.props.label}</Text>
                     <Right>
                       {(child.props.value === this.props.selectedValue) ?
                                         (<Icon name="ios-checkmark-outline" />)

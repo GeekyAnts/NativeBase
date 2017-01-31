@@ -88,6 +88,7 @@ export default (variables = variable) => {
       'NativeBase.Button': {
         '.hasText': {
           marginLeft: -10,
+          height: 30,
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize,
@@ -126,7 +127,8 @@ export default (variables = variable) => {
           },
           'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
-            fontSize: 17
+            fontSize: 17,
+            top: (Platform.OS === 'ios') ? undefined : -1.5,
           },
           backgroundColor: 'transparent',
           borderColor: null,
@@ -144,7 +146,7 @@ export default (variables = variable) => {
         },
         alignSelf: null,
       },
-      flex: (Platform.OS === 'ios') ? 1 : 0.4,
+      flex: (Platform.OS === 'ios') ? 1 : 0.5,
       alignSelf: 'center',
       alignItems: 'flex-start',
     },
@@ -171,7 +173,7 @@ export default (variables = variable) => {
     'NativeBase.Right': {
       'NativeBase.Button': {
         '.hasText': {
-          marginRight: -10,
+          height: 30,
           'NativeBase.Icon': {
             color: variables.topTabBarActiveTextColor,
             fontSize: variables.iconHeaderSize-2,
@@ -209,7 +211,8 @@ export default (variables = variable) => {
           },
           'NativeBase.Text': {
             color: variables.topTabBarActiveTextColor,
-            fontSize: 17
+            fontSize: 17,
+            top: (Platform.OS === 'ios') ? undefined : -1.5,
           },
           backgroundColor: 'transparent',
           borderColor: null,
@@ -239,7 +242,7 @@ export default (variables = variable) => {
     justifyContent: 'center',
     paddingTop: (Platform.OS === 'ios') ? 15 : 0,
     borderBottomWidth: (Platform.OS === 'ios') ? 1 : 0,
-    borderBottomColor: '#ddd',
+    borderBottomColor: variables.toolbarDefaultBorder,
     height: variables.toolbarHeight,
     elevation: 3,
     top: 0,

@@ -68,7 +68,6 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 
 props){
 var item=_lodash2.default.find(props.children,function(child){return child.props.value===props.selectedValue;});
-
 return _lodash2.default.get(item,'props.label');
 }},{key:'modifyHeader',value:function modifyHeader()
 
@@ -96,7 +95,7 @@ _react2.default.createElement(_Left.Left,null,_react2.default.createElement(_But
 style:{shadowOffset:null,shadowColor:null,shadowRadius:null,shadowOpacity:null},
 transparent:true,onPress:function onPress(){_this3._setModalVisible(false);}},
 _react2.default.createElement(_Text.Text,null,'Back'))),
-_react2.default.createElement(_Body.Body,null,_react2.default.createElement(_Title.Title,null,'Select One')),
+_react2.default.createElement(_Body.Body,null,_react2.default.createElement(_Title.Title,null,this.props.iosHeader?this.props.iosHeader:'Select One')),
 _react2.default.createElement(_Right.Right,null));
 
 }},{key:'render',value:function render()
@@ -105,11 +104,11 @@ _react2.default.createElement(_Right.Right,null));
 return(
 _react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this4._root=c;}},
 _react2.default.createElement(_Button.Button,{
-style:{shadowOffset:null,shadowColor:null,shadowRadius:null,shadowOpacity:null},
+style:this.props.style,
 transparent:true,
 onPress:function onPress(){_this4._setModalVisible(true);}},
 
-_react2.default.createElement(_Text.Text,null,this.state.currentLabel),
+_react2.default.createElement(_Text.Text,{style:this.props.textStyle},this.state.currentLabel?this.state.currentLabel:this.props.defaultLabel),
 this.props.iosIcon===undefined?null:this.renderIcon()),
 
 _react2.default.createElement(_reactNative.Modal,{
@@ -126,12 +125,13 @@ dataSource:this.state.dataSource,
 renderRow:function renderRow(child){return(
 _react2.default.createElement(_ListItem.ListItem,{
 button:true,
+style:_this4.props.itemStyle,
 onPress:function onPress(){
 _this4._setModalVisible(false);_this4.props.onValueChange(child.props.value);
 _this4.setState({current:child.props.label});
 }},
 
-_react2.default.createElement(_Text.Text,null,child.props.label),
+_react2.default.createElement(_Text.Text,{style:_this4.props.itemTextStyle},child.props.label),
 _react2.default.createElement(_Right.Right,null,
 child.props.value===_this4.props.selectedValue?
 _react2.default.createElement(_IconNB.IconNB,{name:'ios-checkmark-outline'}):
