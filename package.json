@@ -17,7 +17,7 @@
     "react-native-drawer": "^2.3.0"
   },
   "scripts": {
-    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
+    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist,src/theme --source-maps",
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "test": "jest",
     "prepublish": "npm run transpile",
