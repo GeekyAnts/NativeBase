@@ -35,7 +35,7 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 var isArray=_lodash2.default.isArray(this.props.children);
 if(!isArray){
 if(this.props.children.type.displayName==="Styled(Text)"){
-return _react2.default.createElement(_Text.Text,null,!this.props.capitalize?this.props.children.props.children:this.props.children.props.children.toUpperCase());
+return _react2.default.createElement(_Text.Text,this.props.children.props,!this.props.capitalize?this.props.children.props.children:this.props.children.props.children.toUpperCase());
 }else
 return this.props.children;
 }else

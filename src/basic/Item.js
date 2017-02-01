@@ -106,7 +106,7 @@ class Item extends Component {
       }
     }
     else {
-      newChildren.push(<Input key="l2" {...inputProps} style={{marginLeft: -10}} onChangeText={text => this.setState({ text })} />);
+      return this.props.children;
     }
     return newChildren;
   }

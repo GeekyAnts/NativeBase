@@ -35,7 +35,7 @@ class Button extends Component {
     const isArray = _.isArray(this.props.children);
     if (!isArray) {
       if (this.props.children.type.displayName==="Styled(Text)") {
-        return <Text>{(!this.props.capitalize) ? this.props.children.props.children : this.props.children.props.children.toUpperCase()}</Text>
+        return <Text {...this.props.children.props}>{(!this.props.capitalize) ? this.props.children.props.children : this.props.children.props.children.toUpperCase()}</Text>
       }
       else return this.props.children;
     }

@@ -197,7 +197,7 @@ export default {
 
 
     // List
-  listBorderColor: '#aaa',
+  listBorderColor: '#c8c7cc',
   listDividerBg: '#f4f4f4',
   listItemHeight: 45,
 

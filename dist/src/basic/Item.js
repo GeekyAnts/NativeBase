@@ -106,7 +106,7 @@ return this.props.children;
 }
 }else
 {
-newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{style:{marginLeft:-10},onChangeText:function onChangeText(text){return _this2.setState({text:text});}})));
+return this.props.children;
 }
 return newChildren;
 }},{key:'render',value:function render()

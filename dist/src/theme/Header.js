@@ -50,8 +50,11 @@ paddingHorizontal:15},
 'NativeBase.InputGroup':{
 'NativeBase.Icon':{
 backgroundColor:'transparent',
-color:null,
-alignSelf:'center'},
+color:variables.dropdownLinkColor,
+fontSize:_reactNative.Platform.OS==='ios'?variables.iconFontSize-10:variables.iconFontSize-5,
+alignItems:'center',
+marginTop:2,
+paddingRight:8},
 
 'NativeBase.IconNB':{
 backgroundColor:'transparent',
@@ -70,13 +73,16 @@ borderColor:'transparent',
 backgroundColor:_reactNative.Platform.OS==='ios'?variables.toolbarInputColor:'#fff'},
 
 'NativeBase.Button':{
-padding:_reactNative.Platform.OS==='ios'?undefined:0,
-width:_reactNative.Platform.OS==='ios'?undefined:0,
-height:_reactNative.Platform.OS==='ios'?undefined:0,
+'.transparent':{
 'NativeBase.Text':{
-width:_reactNative.Platform.OS==='ios'?undefined:0,
-height:_reactNative.Platform.OS==='ios'?undefined:0}}},
+fontWeight:'500'},
 
+paddingHorizontal:null,
+paddingLeft:_reactNative.Platform.OS==='ios'?10:null},
+
+paddingHorizontal:_reactNative.Platform.OS==='ios'?undefined:null,
+width:_reactNative.Platform.OS==='ios'?undefined:0,
+height:_reactNative.Platform.OS==='ios'?undefined:0}},
 
 
 '.rounded':{
@@ -242,7 +248,7 @@ paddingHorizontal:10,
 justifyContent:'center',
 paddingTop:_reactNative.Platform.OS==='ios'?15:0,
 borderBottomWidth:_reactNative.Platform.OS==='ios'?1:0,
-borderBottomColor:variables.toolbarDefaultBorder,
+borderBottomColor:'#b2b2b2',
 height:variables.toolbarHeight,
 elevation:3,
 top:0,

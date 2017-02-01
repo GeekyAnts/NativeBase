@@ -89,7 +89,7 @@ export default (variables = variable) => {
         height: variables.inputHeightBase,
         color: variables.inputColor,
         paddingRight: 5,
-        paddingLeft: 10,
+        paddingLeft: 5,
         flex: 1,
         fontSize: variables.inputFontSize,
         lineHeight: variables.inputLineHeight,
@@ -101,7 +101,6 @@ export default (variables = variable) => {
         '.error': {
           borderColor: variables.inputErrorBorderColor,
         },
-        paddingLeft: 5,
         borderWidth: variables.borderWidth,
         borderTopWidth: 0,
         borderRightWidth: 0,
@@ -115,7 +114,6 @@ export default (variables = variable) => {
         '.error': {
           borderColor: variables.inputErrorBorderColor,
         },
-        paddingLeft: 5,
         borderWidth: variables.borderWidth,
         borderColor: variables.inputBorderColor,
       },
@@ -126,13 +124,18 @@ export default (variables = variable) => {
         '.error': {
           borderColor: variables.inputErrorBorderColor,
         },
-        paddingLeft: 5,
         borderWidth: variables.borderWidth,
         borderRadius: 30,
         borderColor: variables.inputBorderColor,
       },
 
       '.success': {
+        'NativeBase.Icon': {
+          color: variables.inputSuccessBorderColor,
+        },
+        'NativeBase.IconNB': {
+          color: variables.inputSuccessBorderColor,
+        },
         '.rounded': {
           borderRadius: 30,
           borderColor: variables.inputSuccessBorderColor,
@@ -151,6 +154,12 @@ export default (variables = variable) => {
       },
 
       '.error': {
+        'NativeBase.Icon': {
+          color: variables.inputErrorBorderColor,
+        },
+        'NativeBase.IconNB': {
+          color: variables.inputErrorBorderColor,
+        },
         '.rounded': {
           borderRadius: 30,
           borderColor: variables.inputErrorBorderColor,
@@ -166,6 +175,14 @@ export default (variables = variable) => {
           borderColor: variables.inputErrorBorderColor,
         },
         borderColor: variables.inputErrorBorderColor,
+      },
+      '.disabled': {
+        'NativeBase.Icon': {
+          color: '#384850',
+        },
+        'NativeBase.IconNB': {
+          color: '#384850',
+        },
       },
 
       borderWidth: variables.borderWidth,

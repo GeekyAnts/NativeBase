@@ -197,7 +197,7 @@ lineHeight:_reactNative.Platform.OS==='ios'?20:24,
 
 
 
-listBorderColor:'#aaa',
+listBorderColor:'#c8c7cc',
 listDividerBg:'#f4f4f4',
 listItemHeight:45,
 

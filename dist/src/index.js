@@ -1,9 +1,9 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.mapPropsToStyleNames=exports.TabContent=exports.STabs=exports.Text=exports.Grid=exports.Row=exports.Col=exports.Gravatar=exports.Textarea=exports.Label=exports.Subtitle=exports.Item=exports.DeckSwiper=exports.Separator=exports.ListItem=exports.List=exports.Picker=exports.FooterTab=exports.Tabs=exports.Tab=exports.Footer=exports.Content=exports.Container=exports.Switch=exports.Spinner=exports.H3=exports.H2=exports.H1=exports.CardItem=exports.Card=exports.Thumbnail=exports.Radio=exports.CheckBox=exports.Badge=exports.Body=exports.Right=exports.Left=exports.Fab=exports.Title=exports.Input=exports.InputGroup=exports.Form=exports.Header=exports.Icon=exports.IconNB=exports.Button=exports.Drawer=exports.StyleProvider=exports.variables=exports.getTheme=exports.Swipeout=undefined;var _theme=require('@shoutem/theme');var _theme2=_interopRequireDefault(_theme);
+Object.defineProperty(exports,"__esModule",{value:true});exports.mapPropsToStyleNames=exports.TabContent=exports.STabs=exports.Text=exports.Grid=exports.Row=exports.Col=exports.Gravatar=exports.Textarea=exports.Label=exports.Subtitle=exports.Item=exports.DeckSwiper=exports.Separator=exports.ListItem=exports.List=exports.Picker=exports.FooterTab=exports.Tabs=exports.Tab=exports.Footer=exports.Content=exports.Container=exports.Switch=exports.Spinner=exports.H3=exports.H2=exports.H1=exports.CardItem=exports.Card=exports.Thumbnail=exports.Radio=exports.CheckBox=exports.Badge=exports.Body=exports.Right=exports.Left=exports.Fab=exports.Title=exports.Input=exports.InputGroup=exports.Form=exports.Header=exports.Icon=exports.IconNB=exports.Button=exports.Drawer=exports.StyleProvider=exports.variables=exports.getTheme=exports.Swipeout=undefined;var _theme=require('@shoutem/theme');
 var _lodash=require('lodash');
 var _reactNativeEasyGrid=require('react-native-easy-grid');
 var _Gravatar=require('./backward/Widgets/Gravatar');
 var _init=require('./init');var _init2=_interopRequireDefault(_init);
-var _theme3=require('./theme');var _theme4=_interopRequireDefault(_theme3);
+var _theme2=require('./theme');var _theme3=_interopRequireDefault(_theme2);
 var _variables=require('./theme/variables');var _variables2=_interopRequireDefault(_variables);
 var _Drawer=require('./basic/Drawer');var _Drawer2=_interopRequireDefault(_Drawer);
 var _Swipe=require('./basic/Swipe');
@@ -53,9 +53,9 @@ var _Subtitle=require('./backward/Widgets/Subtitle');function _interopRequireDef
 
 
 Swipeout=_Swipe.Swipeout;exports.
-getTheme=_theme4.default;exports.
+getTheme=_theme3.default;exports.
 variables=_variables2.default;exports.
-StyleProvider=_theme2.default;exports.
+StyleProvider=_theme.StyleProvider;exports.
 Drawer=_Drawer2.default;exports.
 Button=_Button.Button;exports.
 IconNB=_IconNB.IconNB;exports.

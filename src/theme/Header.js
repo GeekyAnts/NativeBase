@@ -50,8 +50,11 @@ export default (variables = variable) => {
       'NativeBase.InputGroup': {
         'NativeBase.Icon': {
           backgroundColor: 'transparent',
-          color: null,
-          alignSelf: 'center',
+          color: variables.dropdownLinkColor,
+          fontSize: (Platform.OS === 'ios') ? variables.iconFontSize - 10 : variables.iconFontSize - 5,
+          alignItems: 'center',
+          marginTop: 2,
+          paddingRight: 8,
         },
         'NativeBase.IconNB': {
           backgroundColor: 'transparent',
@@ -70,13 +73,16 @@ export default (variables = variable) => {
         backgroundColor: (Platform.OS === 'ios') ? variables.toolbarInputColor : '#fff',
       },
       'NativeBase.Button': {
-        padding: (Platform.OS === 'ios') ? undefined : 0,
+        '.transparent': {
+          'NativeBase.Text': {
+            fontWeight: '500',
+          },
+          paddingHorizontal: null,
+          paddingLeft: (Platform.OS === 'ios') ? 10 : null,
+        },
+        paddingHorizontal: (Platform.OS === 'ios') ? undefined : null,
         width: (Platform.OS === 'ios') ? undefined : 0,
         height: (Platform.OS === 'ios') ? undefined : 0,
-        'NativeBase.Text': {
-          width: (Platform.OS === 'ios') ? undefined : 0,
-          height: (Platform.OS === 'ios') ? undefined : 0,
-        },
       },
     },
     '.rounded': {
@@ -242,7 +248,7 @@ export default (variables = variable) => {
     justifyContent: 'center',
     paddingTop: (Platform.OS === 'ios') ? 15 : 0,
     borderBottomWidth: (Platform.OS === 'ios') ? 1 : 0,
-    borderBottomColor: variables.toolbarDefaultBorder,
+    borderBottomColor: '#b2b2b2',
     height: variables.toolbarHeight,
     elevation: 3,
     top: 0,
