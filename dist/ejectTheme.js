@@ -5,7 +5,7 @@ var printMessage=require('print-message');
 
 
 try{
-fs.copySync(path.join(__dirname,'dist','src','theme'),path.join(process.cwd(),'native-base-theme'));
+fs.copySync(path.join(__dirname,'src','theme'),path.join(process.cwd(),'native-base-theme'));
 printMessage([
 'NativeBase theme has been copied at '+path.join(process.cwd(),'native-base-theme'),
 'Here\'s how to theme your app',
