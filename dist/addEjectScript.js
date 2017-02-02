@@ -29,7 +29,7 @@ fs.stat(dst,copy);
 };
 
 
-var projectPackage=require('../../package.json');
+var projectPackage=require(__dirname,'..','..','package.json');
 if(!projectPackage.scripts){
 projectPackage.scripts={};
 }

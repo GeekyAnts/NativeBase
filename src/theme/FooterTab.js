@@ -18,6 +18,8 @@ export default (variables = variable) => {
           'NativeBase.IconNB': {
             color: variables.tabBarActiveTextColor,
           },
+          height: null,
+          margin: 1,
           backgroundColor: variables.tabActiveBgColor,
         },
         flexDirection: null,

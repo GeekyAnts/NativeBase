@@ -20,6 +20,49 @@ borderWidth:null,
 margin:-10,
 borderBottomColor:'transparent'},
 
+'.searchBar':{
+'NativeBase.Item':{
+'NativeBase.Icon':{
+backgroundColor:'transparent',
+color:variables.dropdownLinkColor,
+fontSize:_reactNative.Platform.OS==='ios'?variables.iconFontSize-10:variables.iconFontSize-5,
+alignItems:'center',
+marginTop:2,
+paddingRight:8},
+
+'NativeBase.IconNB':{
+backgroundColor:'transparent',
+color:null,
+alignSelf:'center'},
+
+'NativeBase.Input':{
+alignSelf:'center'},
+
+alignSelf:'center',
+alignItems:'center',
+justifyContent:'flex-start',
+flex:1,
+height:_reactNative.Platform.OS==='ios'?30:40,
+borderColor:'transparent',
+backgroundColor:'#fff',
+borderRadius:5},
+
+'NativeBase.Button':{
+'.transparent':{
+'NativeBase.Text':{
+fontWeight:'500'},
+
+paddingHorizontal:null,
+paddingLeft:_reactNative.Platform.OS==='ios'?10:null},
+
+paddingHorizontal:_reactNative.Platform.OS==='ios'?undefined:null,
+width:_reactNative.Platform.OS==='ios'?undefined:0,
+height:_reactNative.Platform.OS==='ios'?undefined:0},
+
+backgroundColor:variables.toolbarInputColor,
+padding:10,
+marginLeft:null},
+
 'NativeBase.CheckBox':{
 marginLeft:-10},
 
@@ -57,8 +100,11 @@ borderColor:variables.listBorderColor},
 '.selected':{
 'NativeBase.Left':{
 'NativeBase.Text':{
-color:variables.brandPrimary}}},
+color:variables.brandPrimary}},
 
+
+'NativeBase.Text':{
+color:variables.brandPrimary}},
 
 
 'NativeBase.Left':{
@@ -114,12 +160,12 @@ color:variables.topTabBarActiveTextColor}}},
 'NativeBase.Icon':{
 alignSelf:null,
 fontSize:variables.iconFontSize-8,
-color:variables.listBorderColor},
+color:'#c9c8cd'},
 
 'NativeBase.IconNB':{
 alignSelf:null,
 fontSize:variables.iconFontSize-8,
-color:variables.listBorderColor},
+color:'#c9c8cd'},
 
 'NativeBase.Text':{
 '.note':{
@@ -170,7 +216,7 @@ marginLeft:null},
 
 flex:1,
 paddingVertical:variables.listItemPadding,
-borderBottomWidth:1,
+borderBottomWidth:variables.borderWidth,
 borderColor:variables.listBorderColor,
 marginLeft:variables.listItemPadding+5},
 
@@ -184,7 +230,7 @@ flex:0,
 paddingRight:variables.listItemPadding+5,
 alignSelf:'stretch',
 paddingVertical:variables.listItemPadding,
-borderBottomWidth:1,
+borderBottomWidth:variables.borderWidth,
 borderColor:variables.listBorderColor},
 
 borderBottomWidth:null,
@@ -203,7 +249,7 @@ marginLeft:null},
 
 flex:1,
 paddingVertical:variables.listItemPadding+5,
-borderBottomWidth:1,
+borderBottomWidth:variables.borderWidth,
 borderColor:variables.listBorderColor,
 marginLeft:variables.listItemPadding+5},
 
@@ -221,7 +267,7 @@ justifyContent:'center',
 alignSelf:'stretch',
 paddingRight:variables.listItemPadding+5,
 paddingVertical:variables.listItemPadding+5,
-borderBottomWidth:1,
+borderBottomWidth:variables.borderWidth,
 borderColor:variables.listBorderColor},
 
 borderBottomWidth:null,
@@ -237,7 +283,7 @@ borderBottomWidth:null},
 'NativeBase.Right':{
 borderBottomWidth:null},
 
-borderBottomWidth:1,
+borderBottomWidth:variables.borderWidth,
 borderColor:variables.listBorderColor},
 
 'NativeBase.Left':{
@@ -320,9 +366,9 @@ borderBottomWidth:null},
 alignItems:'center',
 flexDirection:'row',
 paddingRight:variables.listItemPadding+5,
-paddingVertical:variables.listItemPadding,
+paddingVertical:variables.listItemPadding+2,
 marginLeft:variables.listItemPadding+5,
-borderBottomWidth:1,
+borderBottomWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 backgroundColor:variables.listBg,
 borderColor:variables.listBorderColor};
 

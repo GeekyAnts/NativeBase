@@ -1,6 +1,6 @@
 import color from 'color';
 
-import { Platform, Dimensions } from 'react-native';
+import { Platform, Dimensions, PixelRatio } from 'react-native';
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
@@ -166,7 +166,7 @@ export default {
 
 
     // InputGroup
-  inputFontSize: 15,
+  inputFontSize: 17,
   inputBorderColor: '#D9D5DC',
   inputSuccessBorderColor: '#2b8339',
   inputErrorBorderColor: '#ed2f2f',
@@ -179,7 +179,7 @@ export default {
   },
 
   inputGroupMarginBottom: 10,
-  inputHeightBase: 40,
+  inputHeightBase: 50,
   inputPaddingLeft: 5,
 
   get inputPaddingLeftIcon() {
@@ -197,7 +197,7 @@ export default {
 
 
     // List
-  listBorderColor: '#c8c7cc',
+  listBorderColor: '#c9c9c9',
   listDividerBg: '#f4f4f4',
   listItemHeight: 45,
 
@@ -259,7 +259,7 @@ export default {
 
     // Other
   borderRadiusBase: (Platform.OS === 'ios') ? 5 : 2,
-  borderWidth: 1,
+  borderWidth: (1/PixelRatio.getPixelSizeForLayoutSize(1)),
   contentPadding: 10,
 
   get darkenHeader() {

@@ -47,7 +47,6 @@ export default (variables = variable) => {
 		'.last': {
 			marginLeft:0,
 			paddingLeft:15,
-			borderBottomWidth: (Platform.OS === 'ios') ? undefined : null,
 		},
 		marginLeft: 15,
 	},

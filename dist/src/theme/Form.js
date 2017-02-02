@@ -46,8 +46,7 @@ marginLeft:15},
 
 '.last':{
 marginLeft:0,
-paddingLeft:15,
-borderBottomWidth:_reactNative.Platform.OS==='ios'?undefined:null},
+paddingLeft:15},
 
 marginLeft:15}};
 

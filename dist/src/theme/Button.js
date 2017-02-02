@@ -10,6 +10,34 @@ var buttonTheme={
 backgroundColor:variables.btnDisabledBg},
 
 '.bordered':{
+'.dark':{
+'NativeBase.Text':{
+color:'#000'},
+
+'NativeBase.Icon':{
+color:'#000'},
+
+'NativeBase.IconNB':{
+color:'#000'},
+
+backgroundColor:'transparent',
+borderColor:'#000',
+borderWidth:variables.borderWidth*2},
+
+'.light':{
+'NativeBase.Text':{
+color:'#f4f4f4'},
+
+'NativeBase.Icon':{
+color:'#f4f4f4'},
+
+'NativeBase.IconNB':{
+color:'#f4f4f4'},
+
+backgroundColor:'transparent',
+borderColor:'#f4f4f4',
+borderWidth:variables.borderWidth*2},
+
 '.primary':{
 'NativeBase.Text':{
 color:variables.btnPrimaryBg},
@@ -22,7 +50,7 @@ color:variables.btnPrimaryBg},
 
 backgroundColor:'transparent',
 borderColor:variables.btnPrimaryBg,
-borderWidth:1},
+borderWidth:variables.borderWidth*2},
 
 '.success':{
 'NativeBase.Text':{
@@ -36,7 +64,7 @@ color:variables.btnSuccessBg},
 
 backgroundColor:'transparent',
 borderColor:variables.btnSuccessBg,
-borderWidth:1},
+borderWidth:variables.borderWidth*2},
 
 '.info':{
 'NativeBase.Text':{
@@ -50,7 +78,7 @@ color:variables.btnInfoBg},
 
 backgroundColor:'transparent',
 borderColor:variables.btnInfoBg,
-borderWidth:1},
+borderWidth:variables.borderWidth*2},
 
 '.warning':{
 'NativeBase.Text':{
@@ -64,7 +92,7 @@ color:variables.btnWarningBg},
 
 backgroundColor:'transparent',
 borderColor:variables.btnWarningBg,
-borderWidth:1},
+borderWidth:variables.borderWidth*2},
 
 '.danger':{
 'NativeBase.Text':{
@@ -78,12 +106,12 @@ color:variables.btnDangerBg},
 
 backgroundColor:'transparent',
 borderColor:variables.btnDangerBg,
-borderWidth:1},
+borderWidth:variables.borderWidth*2},
 
 '.disabled':{
 backgroundColor:null,
 borderColor:variables.btnDisabledBg,
-borderWidth:1,
+borderWidth:variables.borderWidth*2,
 'NativeBase.Text':{
 color:variables.btnDisabledBg}},
 
@@ -97,7 +125,7 @@ color:variables.btnPrimaryBg},
 'NativeBase.IconNB':{
 color:variables.btnPrimaryBg},
 
-borderWidth:1,
+borderWidth:variables.borderWidth*2,
 elevation:null,
 shadowColor:null,
 shadowOffset:null,
@@ -105,6 +133,43 @@ shadowOpacity:null,
 shadowRadius:null,
 backgroundColor:'transparent'},
 
+
+'.dark':{
+'.bordered':{
+'NativeBase.Text':{
+color:'#000'},
+
+'NativeBase.Icon':{
+color:'#000'},
+
+'NativeBase.IconNB':{
+color:'#000'}},
+
+
+backgroundColor:'#000'},
+
+'.light':{
+'.bordered':{
+'NativeBase.Text':{
+color:'#f4f4f4'},
+
+'NativeBase.Icon':{
+color:'#f4f4f4'},
+
+'NativeBase.IconNB':{
+color:'#f4f4f4'}},
+
+
+'NativeBase.Text':{
+color:'#000'},
+
+'NativeBase.Icon':{
+color:'#000'},
+
+'NativeBase.IconNB':{
+color:'#000'},
+
+backgroundColor:'#f4f4f4'},
 
 
 '.primary':{
@@ -194,6 +259,7 @@ borderRadius:0},
 
 
 '.rounded':{
+paddingHorizontal:variables.buttonPadding+20,
 borderRadius:variables.borderRadiusLarge},
 
 
@@ -207,24 +273,97 @@ shadowRadius:null,
 shadowOpacity:null,
 
 'NativeBase.Text':{
-color:variables.defaultTextColor},
+color:variables.btnPrimaryBg},
 
 'NativeBase.Icon':{
-color:variables.defaultTextColor},
+color:variables.btnPrimaryBg},
 
 'NativeBase.IconNB':{
-color:variables.defaultTextColor}},
+color:variables.btnPrimaryBg},
+
+'.dark':{
+'NativeBase.Text':{
+color:'#000'},
+
+'NativeBase.IconNB':{
+color:'#000'},
+
+'NativeBase.Icon':{
+color:'#000'}},
+
+
+'.danger':{
+'NativeBase.Text':{
+color:variables.btnDangerBg},
+
+'NativeBase.IconNB':{
+color:variables.btnDangerBg},
+
+'NativeBase.Icon':{
+color:variables.btnDangerBg}},
+
+
+'.warning':{
+'NativeBase.Text':{
+color:variables.btnWarningBg},
+
+'NativeBase.IconNB':{
+color:variables.btnWarningBg},
+
+'NativeBase.Icon':{
+color:variables.btnWarningBg}},
+
+
+'.info':{
+'NativeBase.Text':{
+color:variables.btnInfoBg},
+
+'NativeBase.IconNB':{
+color:variables.btnInfoBg},
+
+'NativeBase.Icon':{
+color:variables.btnInfoBg}},
+
+
+'.primary':{
+'NativeBase.Text':{
+color:variables.btnPrimaryBg},
+
+'NativeBase.IconNB':{
+color:variables.btnPrimaryBg},
+
+'NativeBase.Icon':{
+color:variables.btnPrimaryBg}},
+
+
+'.success':{
+'NativeBase.Text':{
+color:variables.btnSuccessBg},
+
+'NativeBase.IconNB':{
+color:variables.btnSuccessBg},
+
+'NativeBase.Icon':{
+color:variables.btnSuccessBg}}},
+
 
 
 
 
 
 '.small':{
-height:35},
+height:30,
+'NativeBase.Text':{
+fontSize:14}},
+
 
 
 '.large':{
-height:60},
+height:60,
+'NativeBase.Text':{
+fontSize:22,
+lineHeight:24}},
+
 
 
 '.iconRight':{
@@ -271,14 +410,30 @@ fontSize:24,
 marginHorizontal:5,
 paddingTop:_reactNative.Platform.OS==='ios'?2:undefined},
 
+'.iconLeft':{
+'NativeBase.IconNB':{
+marginRight:10},
+
+'NativeBase.Icon':{
+marginRight:10}},
+
+
+'.iconRight':{
+'NativeBase.IconNB':{
+marginLeft:10},
+
+'NativeBase.Icon':{
+marginLeft:10}},
+
+
 
 paddingVertical:variables.buttonPadding,
-paddingHorizontal:variables.buttonPadding+2,
+paddingHorizontal:variables.buttonPadding+10,
 backgroundColor:variables.btnPrimaryBg,
 borderRadius:variables.borderRadiusBase,
 borderColor:variables.btnPrimaryBg,
 borderWidth:null,
-height:38,
+height:45,
 alignSelf:'flex-start',
 flexDirection:'row',
 elevation:2,

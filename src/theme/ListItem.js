@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import { Platform, PixelRatio } from 'react-native';
 import _ from 'lodash';
 
 import variable from './variables';
@@ -19,6 +19,49 @@ export default (variables = variable) => {
       borderWidth: null,
       margin: -10,
       borderBottomColor: 'transparent',
+    },
+    '.searchBar': {
+      'NativeBase.Item': {
+        'NativeBase.Icon': {
+          backgroundColor: 'transparent',
+          color: variables.dropdownLinkColor,
+          fontSize: (Platform.OS === 'ios') ? variables.iconFontSize - 10 : variables.iconFontSize - 5,
+          alignItems: 'center',
+          marginTop: 2,
+          paddingRight: 8,
+        },
+        'NativeBase.IconNB': {
+          backgroundColor: 'transparent',
+          color: null,
+          alignSelf: 'center',
+        },
+        'NativeBase.Input': {
+          alignSelf: 'center',
+        },
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        flex: 1,
+        height: (Platform.OS === 'ios') ? 30 : 40,
+        borderColor: 'transparent',
+        backgroundColor: '#fff',
+        borderRadius: 5,
+      },
+      'NativeBase.Button': {
+        '.transparent': {
+          'NativeBase.Text': {
+            fontWeight: '500',
+          },
+          paddingHorizontal: null,
+          paddingLeft: (Platform.OS === 'ios') ? 10 : null,
+        },
+        paddingHorizontal: (Platform.OS === 'ios') ? undefined : null,
+        width: (Platform.OS === 'ios') ? undefined : 0,
+        height: (Platform.OS === 'ios') ? undefined : 0,
+      },
+      backgroundColor: variables.toolbarInputColor,
+      padding: 10,
+      marginLeft: null,
     },
       'NativeBase.CheckBox': {
         marginLeft: -10,
@@ -59,7 +102,10 @@ export default (variables = variable) => {
           'NativeBase.Text': {
             color: variables.brandPrimary
           }          
-        }
+        },
+        'NativeBase.Text': {
+          color: variables.brandPrimary
+        },
       },
       'NativeBase.Left': {
         'NativeBase.Body': {
@@ -114,12 +160,12 @@ export default (variables = variable) => {
         'NativeBase.Icon': {
           alignSelf: null,
           fontSize: variables.iconFontSize - 8,
-          color: variables.listBorderColor,
+          color: '#c9c8cd',
         },
         'NativeBase.IconNB': {
           alignSelf: null,
           fontSize: variables.iconFontSize - 8,
-          color: variables.listBorderColor,
+          color: '#c9c8cd',
         },
         'NativeBase.Text': {
           '.note': {
@@ -170,7 +216,7 @@ export default (variables = variable) => {
           },
           flex: 1,
           paddingVertical: variables.listItemPadding,
-          borderBottomWidth: 1,
+          borderBottomWidth: variables.borderWidth,
           borderColor: variables.listBorderColor,
           marginLeft: variables.listItemPadding + 5,
         },
@@ -184,7 +230,7 @@ export default (variables = variable) => {
           paddingRight: variables.listItemPadding + 5,
           alignSelf: 'stretch',
           paddingVertical: variables.listItemPadding,
-          borderBottomWidth: 1,
+          borderBottomWidth: variables.borderWidth,
           borderColor: variables.listBorderColor,
         },
         borderBottomWidth: null,
@@ -203,7 +249,7 @@ export default (variables = variable) => {
           },
           flex: 1,
           paddingVertical: variables.listItemPadding + 5,
-          borderBottomWidth: 1,
+          borderBottomWidth: variables.borderWidth,
           borderColor: variables.listBorderColor,
           marginLeft: variables.listItemPadding + 5,
         },
@@ -221,7 +267,7 @@ export default (variables = variable) => {
           alignSelf: 'stretch',
           paddingRight: variables.listItemPadding + 5,
           paddingVertical: variables.listItemPadding + 5,
-          borderBottomWidth: 1,
+          borderBottomWidth: variables.borderWidth,
           borderColor: variables.listBorderColor,
         },
         borderBottomWidth: null,
@@ -237,7 +283,7 @@ export default (variables = variable) => {
           'NativeBase.Right': {
             borderBottomWidth: null,
           },
-          borderBottomWidth: 1,
+          borderBottomWidth: variables.borderWidth,
           borderColor: variables.listBorderColor,
         },
         'NativeBase.Left': {
@@ -320,9 +366,9 @@ export default (variables = variable) => {
       alignItems: 'center',
       flexDirection: 'row',
       paddingRight: variables.listItemPadding + 5,
-      paddingVertical: variables.listItemPadding,
+      paddingVertical: variables.listItemPadding + 2,
       marginLeft: variables.listItemPadding + 5,
-      borderBottomWidth: 1,
+      borderBottomWidth: (1/PixelRatio.getPixelSizeForLayoutSize(1)),
       backgroundColor: variables.listBg,
       borderColor: variables.listBorderColor,
   };
