@@ -49,14 +49,15 @@ export default (variables = variable) => {
       paddingHorizontal: 15,
     },
     '.searchBar': {
-      'NativeBase.InputGroup': {
+      'NativeBase.Item': {
         'NativeBase.Icon': {
           backgroundColor: 'transparent',
           color: variables.dropdownLinkColor,
           fontSize: (Platform.OS === 'ios') ? variables.iconFontSize - 10 : variables.iconFontSize - 5,
           alignItems: 'center',
           marginTop: 2,
-          paddingRight: 8,
+          paddingRight: 10,
+          paddingLeft: 10,
         },
         'NativeBase.IconNB': {
           backgroundColor: 'transparent',
@@ -91,7 +92,7 @@ export default (variables = variable) => {
       },
     },
     '.rounded': {
-      'NativeBase.InputGroup': {
+      'NativeBase.Item': {
         borderRadius: (Platform.OS === 'ios') ? 25 : 0,
       },
     },
