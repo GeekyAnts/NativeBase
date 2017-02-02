@@ -29,7 +29,7 @@ fs.copy = function (src, dst, cb) {
 };
 
 
-var projectPackage = require('../../package.json');
+var projectPackage = require(path.join(__dirname, '..', '..', 'package.json'));
 if(!projectPackage.scripts) {
   projectPackage.scripts = {};
 }
