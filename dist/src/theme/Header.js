@@ -42,8 +42,9 @@ fontWeight:'600'},
 color:variables.tabBarActiveTextColor},
 
 'NativeBase.IconNB':{
-color:variables.tabBarActiveTextColor}},
+color:variables.tabBarActiveTextColor},
 
+paddingHorizontal:variables.buttonPadding},
 
 paddingHorizontal:15},
 
@@ -154,7 +155,8 @@ color:variables.topTabBarActiveTextColor},
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor},
 
-alignSelf:null},
+alignSelf:null,
+paddingHorizontal:variables.buttonPadding},
 
 flex:_reactNative.Platform.OS==='ios'?1:0.5,
 alignSelf:'center',
@@ -238,7 +240,8 @@ color:variables.topTabBarActiveTextColor},
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor},
 
-alignSelf:null},
+alignSelf:null,
+paddingHorizontal:variables.buttonPadding},
 
 flex:1,
 alignSelf:'center',

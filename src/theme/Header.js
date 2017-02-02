@@ -44,6 +44,7 @@ export default (variables = variable) => {
         'NativeBase.IconNB': {
           color: variables.tabBarActiveTextColor,
         },
+        paddingHorizontal: variables.buttonPadding,
       },
       paddingHorizontal: 15,
     },
@@ -155,6 +156,7 @@ export default (variables = variable) => {
           color: variables.topTabBarActiveTextColor,
         },
         alignSelf: null,
+        paddingHorizontal: variables.buttonPadding,
       },
       flex: (Platform.OS === 'ios') ? 1 : 0.5,
       alignSelf: 'center',
@@ -239,6 +241,7 @@ export default (variables = variable) => {
           color: variables.topTabBarActiveTextColor,
         },
         alignSelf: null,
+        paddingHorizontal: variables.buttonPadding,
       },
       flex: 1,
       alignSelf: 'center',

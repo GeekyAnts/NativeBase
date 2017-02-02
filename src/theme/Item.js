@@ -77,12 +77,10 @@ export default (variables = variable) => {
       },
       'NativeBase.Icon': {
         fontSize: 24,
-        color: variables.topTabBarActiveTextColor,
         paddingHorizontal: 5,
       },
       'NativeBase.IconNB': {
         fontSize: 24,
-        color: variables.topTabBarActiveTextColor,
         paddingHorizontal: 5,
       },
       'NativeBase.Input': {
