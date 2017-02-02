@@ -106,6 +106,7 @@ class PickerNB extends Component {
       <View ref={c => this._root = c}>
         <Button
           style={this.props.style}
+          dark
           transparent
           onPress={() => { this._setModalVisible(true); }}
         >
@@ -125,6 +126,7 @@ class PickerNB extends Component {
                 dataSource={this.state.dataSource}
                 renderRow={child =>
                   <ListItem
+                    selected={(child.props.value === this.props.selectedValue) ? true : false}
                     button
                     style={this.props.itemStyle}
                     onPress={() => {

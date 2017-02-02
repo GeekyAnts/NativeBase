@@ -6,7 +6,7 @@ import variable from './variables';
 export default (variables = variable) => {
   const textAreaTheme = {
       '.underline': {
-        borderBottomWidth: 1,
+        borderBottomWidth: variables.borderWidth,
         marginTop: 5,
         borderColor: variables.inputBorderColor,
       },

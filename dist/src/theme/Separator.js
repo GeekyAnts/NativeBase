@@ -8,8 +8,8 @@ var theme={
 '.bordered':{
 height:null,
 paddingVertical:variables.listItemPadding+1,
-borderBottomWidth:1,
-borderTopWidth:1,
+borderBottomWidth:variables.borderWidth,
+borderTopWidth:variables.borderWidth,
 borderColor:variables.listBorderColor},
 
 'NativeBase.Text':{

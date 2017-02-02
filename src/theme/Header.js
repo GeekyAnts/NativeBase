@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import { Platform, PixelRatio } from 'react-native';
 import _ from 'lodash';
 
 import variable from './variables';
@@ -63,6 +63,9 @@ export default (variables = variable) => {
         },
         'NativeBase.Input': {
           alignSelf: 'center',
+          marginTop: 2,
+          lineHeight: 24,
+          height: 50,
         },
         alignSelf: 'center',
         alignItems: 'center',
@@ -247,8 +250,8 @@ export default (variables = variable) => {
     paddingHorizontal: 10,
     justifyContent: 'center',
     paddingTop: (Platform.OS === 'ios') ? 15 : 0,
-    borderBottomWidth: (Platform.OS === 'ios') ? 1 : 0,
-    borderBottomColor: '#b2b2b2',
+    borderBottomWidth: (Platform.OS === 'ios') ? (1/PixelRatio.getPixelSizeForLayoutSize(1)) : 0,
+    borderBottomColor: '#a7a6ab',
     height: variables.toolbarHeight,
     elevation: 3,
     top: 0,

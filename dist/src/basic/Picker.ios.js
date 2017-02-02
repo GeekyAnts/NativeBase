@@ -106,6 +106,7 @@ return(
 _react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this4._root=c;}},
 _react2.default.createElement(_Button.Button,{
 style:this.props.style,
+dark:true,
 transparent:true,
 onPress:function onPress(){_this4._setModalVisible(true);}},
 
@@ -125,6 +126,7 @@ _react2.default.createElement(_List.List,{
 dataSource:this.state.dataSource,
 renderRow:function renderRow(child){return(
 _react2.default.createElement(_ListItem.ListItem,{
+selected:child.props.value===_this4.props.selectedValue?true:false,
 button:true,
 style:_this4.props.itemStyle,
 onPress:function onPress(){

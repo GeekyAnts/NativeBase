@@ -166,7 +166,7 @@ iconHeaderSize:_reactNative.Platform.OS==='ios'?33:28,
 
 
 
-inputFontSize:15,
+inputFontSize:17,
 inputBorderColor:'#D9D5DC',
 inputSuccessBorderColor:'#2b8339',
 inputErrorBorderColor:'#ed2f2f',
@@ -179,7 +179,7 @@ return'#575757';
 },
 
 inputGroupMarginBottom:10,
-inputHeightBase:40,
+inputHeightBase:50,
 inputPaddingLeft:5,
 
 get inputPaddingLeftIcon(){
@@ -197,7 +197,7 @@ lineHeight:_reactNative.Platform.OS==='ios'?20:24,
 
 
 
-listBorderColor:'#c8c7cc',
+listBorderColor:'#c9c9c9',
 listDividerBg:'#f4f4f4',
 listItemHeight:45,
 
@@ -259,7 +259,7 @@ titleFontColor:_reactNative.Platform.OS==='ios'?'#000':'#FFF',
 
 
 borderRadiusBase:_reactNative.Platform.OS==='ios'?5:2,
-borderWidth:1,
+borderWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 contentPadding:10,
 
 get darkenHeader(){

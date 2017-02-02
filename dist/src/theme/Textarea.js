@@ -6,7 +6,7 @@ var _variables=require('./variables');var _variables2=_interopRequireDefault(_va
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
 var textAreaTheme={
 '.underline':{
-borderBottomWidth:1,
+borderBottomWidth:variables.borderWidth,
 marginTop:5,
 borderColor:variables.inputBorderColor},
 
