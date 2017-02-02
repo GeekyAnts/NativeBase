@@ -149,6 +149,18 @@ color:'#000'}},
 backgroundColor:'#000'},
 
 '.light':{
+'.transparent':{
+'NativeBase.Text':{
+color:'#f4f4f4'},
+
+'NativeBase.Icon':{
+color:'#f4f4f4'},
+
+'NativeBase.IconNB':{
+color:'#f4f4f4'},
+
+backgroundColor:null},
+
 '.bordered':{
 'NativeBase.Text':{
 color:'#f4f4f4'},
@@ -289,8 +301,9 @@ color:'#000'},
 color:'#000'},
 
 'NativeBase.Icon':{
-color:'#000'}},
+color:'#000'},
 
+backgroundColor:null},
 
 '.danger':{
 'NativeBase.Text':{
@@ -300,8 +313,9 @@ color:variables.btnDangerBg},
 color:variables.btnDangerBg},
 
 'NativeBase.Icon':{
-color:variables.btnDangerBg}},
+color:variables.btnDangerBg},
 
+backgroundColor:null},
 
 '.warning':{
 'NativeBase.Text':{
@@ -311,8 +325,9 @@ color:variables.btnWarningBg},
 color:variables.btnWarningBg},
 
 'NativeBase.Icon':{
-color:variables.btnWarningBg}},
+color:variables.btnWarningBg},
 
+backgroundColor:null},
 
 '.info':{
 'NativeBase.Text':{
@@ -322,8 +337,9 @@ color:variables.btnInfoBg},
 color:variables.btnInfoBg},
 
 'NativeBase.Icon':{
-color:variables.btnInfoBg}},
+color:variables.btnInfoBg},
 
+backgroundColor:null},
 
 '.primary':{
 'NativeBase.Text':{
@@ -333,8 +349,9 @@ color:variables.btnPrimaryBg},
 color:variables.btnPrimaryBg},
 
 'NativeBase.Icon':{
-color:variables.btnPrimaryBg}},
+color:variables.btnPrimaryBg},
 
+backgroundColor:null},
 
 '.success':{
 'NativeBase.Text':{
@@ -344,8 +361,21 @@ color:variables.btnSuccessBg},
 color:variables.btnSuccessBg},
 
 'NativeBase.Icon':{
-color:variables.btnSuccessBg}}},
+color:variables.btnSuccessBg},
 
+backgroundColor:null},
+
+'.light':{
+'NativeBase.Text':{
+color:'#f4f4f4'},
+
+'NativeBase.IconNB':{
+color:'#f4f4f4'},
+
+'NativeBase.Icon':{
+color:'#f4f4f4'},
+
+backgroundColor:null}},
 
 
 

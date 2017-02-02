@@ -131,7 +131,7 @@ footerDefaultBg:_reactNative.Platform.OS==='ios'?'#F8F8F8':'#4179F7',
 
 tabBarTextColor:_reactNative.Platform.OS==='ios'?'#6b6b6b':'#b3c7f9',
 tabBarTextSize:_reactNative.Platform.OS==='ios'?14:11,
-activeTab:'#007aff',
+activeTab:_reactNative.Platform.OS==='ios'?'#007aff':'#fff',
 sTabBarActiveTextColor:'#007aff',
 tabBarActiveTextColor:_reactNative.Platform.OS==='ios'?'#007aff':'#fff',
 tabActiveBgColor:_reactNative.Platform.OS==='ios'?'#cde1f9':undefined,

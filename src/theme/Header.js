@@ -27,6 +27,7 @@ export default (variables = variable) => {
       shadowOffset: null,
       shadowRadius: null,
       shadowOpacity: null,
+      borderBottomWidth: null,
     },
     'NativeBase.Button': {
       justifyContent: 'center',

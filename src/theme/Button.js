@@ -149,6 +149,18 @@ export default (variables = variable) => {
         backgroundColor: '#000',
       },
       '.light': {
+        '.transparent': {
+          'NativeBase.Text': {
+            color: '#f4f4f4',
+          },
+          'NativeBase.Icon': {
+            color: '#f4f4f4',
+          },
+          'NativeBase.IconNB': {
+            color: '#f4f4f4',
+          },
+          backgroundColor: null,
+        },
         '.bordered': {
           'NativeBase.Text': {
             color: '#f4f4f4',
@@ -291,6 +303,7 @@ export default (variables = variable) => {
           'NativeBase.Icon': {
             color: '#000',
           },
+          backgroundColor: null,
         },
         '.danger': {
           'NativeBase.Text': {
@@ -302,6 +315,7 @@ export default (variables = variable) => {
           'NativeBase.Icon': {
             color: variables.btnDangerBg,
           },
+          backgroundColor: null,
         },
         '.warning': {
           'NativeBase.Text': {
@@ -313,6 +327,7 @@ export default (variables = variable) => {
           'NativeBase.Icon': {
             color: variables.btnWarningBg,
           },
+          backgroundColor: null,
         },
         '.info': {
           'NativeBase.Text': {
@@ -324,6 +339,7 @@ export default (variables = variable) => {
           'NativeBase.Icon': {
             color: variables.btnInfoBg,
           },
+          backgroundColor: null,
         },
         '.primary': {
           'NativeBase.Text': {
@@ -335,6 +351,7 @@ export default (variables = variable) => {
           'NativeBase.Icon': {
             color: variables.btnPrimaryBg,
           },
+          backgroundColor: null,
         },
         '.success': {
           'NativeBase.Text': {
@@ -346,6 +363,19 @@ export default (variables = variable) => {
           'NativeBase.Icon': {
             color: variables.btnSuccessBg,
           },
+          backgroundColor: null,
+        },
+        '.light': {
+          'NativeBase.Text': {
+            color: '#f4f4f4',
+          },
+          'NativeBase.IconNB': {
+            color: '#f4f4f4',
+          },
+          'NativeBase.Icon': {
+            color: '#f4f4f4',
+          },
+          backgroundColor: null,
         },
 
 

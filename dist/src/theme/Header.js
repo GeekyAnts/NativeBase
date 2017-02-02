@@ -26,7 +26,8 @@ elevation:0,
 shadowColor:null,
 shadowOffset:null,
 shadowRadius:null,
-shadowOpacity:null},
+shadowOpacity:null,
+borderBottomWidth:null},
 
 'NativeBase.Button':{
 justifyContent:'center',
