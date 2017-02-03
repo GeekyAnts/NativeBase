@@ -261,6 +261,7 @@ export default (variables = variable) => {
                 color: variables.sTabBarActiveTextColor,
               },
             },
+            height: null,
           },
           flex: 0,
           justifyContent: 'center',

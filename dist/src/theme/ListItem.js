@@ -258,9 +258,10 @@ marginLeft:variables.listItemPadding+5},
 '.transparent':{
 'NativeBase.Text':{
 fontSize:variables.listNoteSize,
-color:variables.sTabBarActiveTextColor}}},
+color:variables.sTabBarActiveTextColor}},
 
 
+height:null},
 
 flex:0,
 justifyContent:'center',
