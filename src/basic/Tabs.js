@@ -11,7 +11,7 @@ class Tabs extends Component {
     return (
       <ScrollableTabView
         ref={c => this._root = c} {...this.props}
-        tabBarBackgroundColor={(Platform.OS === 'ios') ? undefined : variables.iosToolbarBtnColor}
+        tabBarBackgroundColor={(Platform.OS === 'ios') ? undefined : variables.toolbarDefaultBg}
         tabBarInactiveTextColor={variables.tabBarActiveTextColor}
         tabBarActiveTextColor={variables.tabBarActiveTextColor}
         tabBarUnderlineStyle={{ backgroundColor: variables.tabBarActiveTextColor }}

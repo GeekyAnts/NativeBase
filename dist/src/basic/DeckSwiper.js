@@ -63,9 +63,8 @@ selectedItem2:_this2.props.dataSource[nextIndexes[1]]});
 
 
 {var _this3=this;
-if(this.props.onSwiping){
+if(this.props.onSwiping)
 this.props.onSwiping('right');
-}
 setTimeout(function(){
 _reactNative.Animated.timing(
 _this3.state.fadeAnim,
@@ -84,9 +83,8 @@ start(_this3._resetState.bind(_this3));
 }},{key:'swipeLeft',value:function swipeLeft()
 
 {var _this4=this;
-if(this.props.onSwiping){
+if(this.props.onSwiping)
 this.props.onSwiping('left');
-}
 setTimeout(function(){
 _reactNative.Animated.timing(
 _this4.state.fadeAnim,
@@ -107,7 +105,9 @@ start(_this4._resetState.bind(_this4));
 {var _this5=this;
 this._panResponder=_reactNative.PanResponder.create({
 onMoveShouldSetResponderCapture:function onMoveShouldSetResponderCapture(){return true;},
-onMoveShouldSetPanResponderCapture:function onMoveShouldSetPanResponderCapture(evt,gestureState){return Math.abs(gestureState.dx)>5;},
+onMoveShouldSetPanResponderCapture:function onMoveShouldSetPanResponderCapture(evt,gestureState){
+return Math.abs(gestureState.dx)>5;
+},
 
 onPanResponderGrant:function onPanResponderGrant(e,gestureState){
 _this5.state.pan.setOffset({x:_this5.state.pan.x._value,y:_this5.state.pan.y._value});
@@ -117,16 +117,15 @@ _this5.state.pan.setValue({x:0,y:0});
 
 onPanResponderMove:function onPanResponderMove(e,gestureState){
 if(gestureState.dx>20){
-if(_this5.props.onSwiping){
+if(_this5.props.onSwiping)
 _this5.props.onSwiping('right',gestureState.dx);
-}
-}else if(gestureState.dx<-20){
-if(_this5.props.onSwiping){
+}else
+if(gestureState.dx<-20){
+if(_this5.props.onSwiping)
 _this5.props.onSwiping('left',gestureState.dx);
 }
-}
-var val=Math.abs(gestureState.dx*0.0013);
-var opa=Math.abs(gestureState.dx*0.0022);
+var val=Math.abs(gestureState.dx*.0013);
+var opa=Math.abs(gestureState.dx*.0022);
 if(val>0.2){
 val=0.2;
 }
@@ -144,10 +143,9 @@ e,gestureState);
 },
 
 onPanResponderRelease:function onPanResponderRelease(e,_ref){var vx=_ref.vx,vy=_ref.vy;
-if(_this5.props.onSwiping){
+if(_this5.props.onSwiping)
 _this5.props.onSwiping(null);
-}
-var velocity=void 0;
+var velocity;
 
 if(vx>=0){
 velocity=(0,_clamp2.default)(vx,4.5,10);
@@ -156,6 +154,7 @@ velocity=(0,_clamp2.default)(vx*-1,4.5,10)*-1;
 }
 
 if(Math.abs(_this5.state.pan.x._value)>SWIPE_THRESHOLD){
+
 if(velocity>0){
 _this5.props.onSwipeRight?_this5.props.onSwipeRight():undefined;
 _this5.selectNext();
@@ -186,12 +185,13 @@ this.setState({
 card1Top:!this.state.card1Top,
 card2Top:!this.state.card2Top});
 
-if(this.props.onSwiping){
+if(this.props.onSwiping)
 this.props.onSwiping(null);
-}
+
 }},{key:'getCardStyles',value:function getCardStyles()
 
 {var _state=
+
 this.state,pan=_state.pan,pan2=_state.pan2,enter=_state.enter;var _ref2=
 
 [pan.x,pan.y],translateX=_ref2[0],translateY=_ref2[1];
@@ -207,25 +207,21 @@ var animatedCardStyles2={transform:[{scale:scale}]};
 
 return[animatedCardStyles,animatedCardStyles2];
 }},{key:'render',value:function render()
-{var _this6=this;
-return(
-_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this6._root=c;}},this.props,{style:{position:'relative',flexDirection:'column',flex:1}}),this.state.selectedItem===undefined?_react2.default.createElement(_reactNative.View,null):
-_react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Animated.View,_extends({
-style:[this.getCardStyles()[1],this.getInitialStyle().topCard,
-{opacity:this.state.fadeAnim}]},
-this._panResponder.panHandlers),
 
+{var _this6=this;
+
+
+return(
+_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this6._root=c;},style:{position:'relative',flexDirection:'column'}},this.state.selectedItem===undefined?_react2.default.createElement(_reactNative.View,null):
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity:this.state.fadeAnim}]},this._panResponder.panHandlers),
 this.props.renderBottom?
 this.props.renderBottom(this.state.selectedItem2):
 
 this.props.renderItem(this.state.selectedItem2)),
 
 
-_react2.default.createElement(_reactNative.Animated.View,_extends({
-style:[this.getCardStyles()[0],this.getInitialStyle().topCard]},
-this._panResponder.panHandlers),
-
+_react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[0],this.getInitialStyle().topCard]},this._panResponder.panHandlers),
 this.props.renderTop?
 this.props.renderTop(this.state.selectedItem):
 
@@ -238,6 +234,7 @@ this.props.renderItem(this.state.selectedItem)))));
 
 
 }}]);return DeckSwiper;}(_react.Component);
+
 
 
 DeckSwiper.propTypes=_extends({},

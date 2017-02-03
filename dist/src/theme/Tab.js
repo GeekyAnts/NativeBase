@@ -15,10 +15,10 @@ fontWeight:'700',
 paddingVertical:3},
 
 'NativeBase.Icon':{
-color:variables.tabBarActiveTextColor},
+color:variables.toolbarDefaultBg},
 
 'NativeBase.IconNB':{
-color:variables.tabBarActiveTextColor},
+color:variables.toolbarDefaultBg},
 
 borderBottomWidth:3,
 borderRadius:null,
@@ -38,10 +38,10 @@ padding:1.7,
 paddingHorizontal:3},
 
 'NativeBase.Icon':{
-color:variables.tabBarActiveTextColor},
+color:variables.toolbarDefaultBg},
 
 'NativeBase.IconNB':{
-color:variables.tabBarActiveTextColor},
+color:variables.toolbarDefaultBg},
 
 'NativeBase.Text':{
 color:variables.activeTab,
@@ -72,6 +72,8 @@ flexDirection:'row',
 justifyContent:'space-between',
 alignSelf:'stretch',
 borderBottomWidth:0.5,
+elevation:3,
+backgroundColor:variables.toolbarDefaultBg,
 borderColor:variables.btnDisabledBg};
 
 

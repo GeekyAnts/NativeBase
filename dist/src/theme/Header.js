@@ -26,7 +26,8 @@ elevation:0,
 shadowColor:null,
 shadowOffset:null,
 shadowRadius:null,
-shadowOpacity:null},
+shadowOpacity:null,
+borderBottomWidth:null},
 
 'NativeBase.Button':{
 justifyContent:'center',
@@ -41,20 +42,22 @@ fontWeight:'600'},
 color:variables.tabBarActiveTextColor},
 
 'NativeBase.IconNB':{
-color:variables.tabBarActiveTextColor}},
+color:variables.tabBarActiveTextColor},
 
+paddingHorizontal:variables.buttonPadding},
 
 paddingHorizontal:15},
 
 '.searchBar':{
-'NativeBase.InputGroup':{
+'NativeBase.Item':{
 'NativeBase.Icon':{
 backgroundColor:'transparent',
 color:variables.dropdownLinkColor,
 fontSize:_reactNative.Platform.OS==='ios'?variables.iconFontSize-10:variables.iconFontSize-5,
 alignItems:'center',
 marginTop:2,
-paddingRight:8},
+paddingRight:10,
+paddingLeft:10},
 
 'NativeBase.IconNB':{
 backgroundColor:'transparent',
@@ -89,7 +92,7 @@ height:_reactNative.Platform.OS==='ios'?undefined:0}},
 
 
 '.rounded':{
-'NativeBase.InputGroup':{
+'NativeBase.Item':{
 borderRadius:_reactNative.Platform.OS==='ios'?25:0}},
 
 
@@ -153,7 +156,8 @@ color:variables.topTabBarActiveTextColor},
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor},
 
-alignSelf:null},
+alignSelf:null,
+paddingHorizontal:variables.buttonPadding},
 
 flex:_reactNative.Platform.OS==='ios'?1:0.5,
 alignSelf:'center',
@@ -237,7 +241,8 @@ color:variables.topTabBarActiveTextColor},
 'NativeBase.IconNB':{
 color:variables.topTabBarActiveTextColor},
 
-alignSelf:null},
+alignSelf:null,
+paddingHorizontal:variables.buttonPadding},
 
 flex:1,
 alignSelf:'center',
