@@ -19,6 +19,7 @@ export default class Input extends NativeBaseComponent {
                 paddingLeft: 5,
                 paddingRight: 5,
                 fontSize: this.getTheme().inputFontSize,
+                fontFamily: this.getTheme().fontFamily,
                 lineHeight: this.getTheme().inputLineHeight,
                 marginTop: (this.props.inlineLabel) ? ((Platform.OS === 'ios') ? undefined : 5) : undefined
             }
