@@ -44,6 +44,7 @@ export default class Icon extends NativeBaseComponent {
                 break;
             case 'MaterialCommunityIcons':
                 this.Icon = MaterialCommunityIcons;
+                break;
             case 'Octicons':
                 this.Icon = Octicons;
                 break;
