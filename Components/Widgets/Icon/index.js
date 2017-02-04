@@ -10,8 +10,10 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Foundation from 'react-native-vector-icons/Foundation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import Zocial from 'react-native-vector-icons/Zocial';
+
 
 export default class Icon extends NativeBaseComponent {
 
@@ -40,6 +42,8 @@ export default class Icon extends NativeBaseComponent {
             case 'MaterialIcons':
                 this.Icon = MaterialIcons;
                 break;
+            case 'MaterialCommunityIcons':
+                this.Icon = MaterialCommunityIcons;
             case 'Octicons':
                 this.Icon = Octicons;
                 break;
