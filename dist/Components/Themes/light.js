@@ -207,6 +207,7 @@ inverseSpinnerColor:'#1A191B',
 tabBgColor:'#F8F8F8',
 tabFontSize:15,
 tabTextColor:'#222222',
+tabUnderlineColor:'#222222',
 
 
 
