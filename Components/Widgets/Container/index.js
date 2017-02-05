@@ -3,57 +3,45 @@
 
 import React from 'react';
 import {View, Image, ScrollView} from 'react-native';
-import ViewNB from './View';
-import Header from './Header';
-import Content from './Content';
-import Footer from './Footer';
-import NativeBaseComponent from '../Base/NativeBaseComponent';
+import ViewNB from './../View';
+import Header from './../Header';
+import Content from './../Content';
+import Footer from './../Footer';
+import Fab from './../Fab';
+import NativeBaseComponent from '../../Base/NativeBaseComponent';
 import _ from 'lodash';
-import computeProps from '../../Utils/computeProps';
+import computeProps from '../../../Utils/computeProps';
 
 export default class Container extends NativeBaseComponent {
 
   propTypes: {
         style : React.PropTypes.object
     }
-  
-  renderOther(){
-    if(Array.isArray(this.props.children)) {
-
-      return _.filter(this.props.children, function(item) {
-        if(item && (item.type != Header && item.type != ViewNB && item.type != Content && item.type != Image && item.type != View && item.type != ScrollView && item.type != Footer)) {
-          return true;
-        }
-      });
-    }
-
-    else {
-      if(this.props.children && (this.props.children.type != Header && this.props.children.type != Content && this.props.children.type != ViewNB && this.props.children.type != View && this.props.children.type != Image && this.props.children.type != ScrollView &&  this.props.children.type != Footer)) {
-        return this.props.children;
-      }
-    }
-  }
 
   renderHeader() {
+
     if(Array.isArray(this.props.children)) {
       return _.find(this.props.children, function(item) {
-        if(item && item.type == Header) {
+
+        
+        if(item && _.get(item, 'type', null) == Header) {
           return true;
         }
       });
     }
 
     else {
-      if(this.props.children && this.props.children.type == Header) {
+      if(this.props.children && _.get(this.props.children, 'type', null) == Header) {
         return this.props.children;
       }
     }
   }
+
   renderContent() {
     if(Array.isArray(this.props.children)) {
 
       return _.filter(this.props.children, function(item) {
-        if(item && (item.type == ViewNB || item.type == Content || item.type == Image || item.type == View || item.type == ScrollView )) {
+        if(item && (_.get(item, 'type', null) == ViewNB || _.get(item, 'type', null) == Content || _.get(item, 'type', null) == Image || _.get(item, 'type', null) == View || _.get(item, 'type', null) == ScrollView || _.get(item, 'type', null) == Fab )) {
 
           return true;
         }
@@ -66,10 +54,11 @@ export default class Container extends NativeBaseComponent {
       }
     }
   }
+
   renderFooter() {
     if(Array.isArray(this.props.children)) {
       return _.find(this.props.children, function(item) {
-        if(item && item.type == Footer) {
+        if(item && _.get(item, 'type', null) == Footer) {
           return true;
         }
       });
@@ -95,7 +84,7 @@ export default class Container extends NativeBaseComponent {
   }
   render() {
     return(
-      <View {...this.prepareRootProps()}>
+      <View ref={c => this._root = c} {...this.prepareRootProps()}>
 
         {this.renderHeader()}
 
@@ -103,7 +92,6 @@ export default class Container extends NativeBaseComponent {
 
         {this.renderFooter()}
 
-        {this.props.allowExtraContent == true ? this.renderOther() : null}
       </View>
     );
 
