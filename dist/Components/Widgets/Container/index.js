@@ -19,11 +19,8 @@ Container=function(_NativeBaseComponent){_inherits(Container,_NativeBaseComponen
 
 
 {
-
 if(Array.isArray(this.props.children)){
 return _lodash2.default.find(this.props.children,function(item){
-
-
 if(item&&_lodash2.default.get(item,'type',null)==_Header2.default){
 return true;
 }
@@ -36,7 +33,6 @@ return this.props.children;
 }
 }
 }},{key:'renderContent',value:function renderContent()
-
 {
 if(Array.isArray(this.props.children)){
 
@@ -54,7 +50,6 @@ return this.props.children;
 }
 }
 }},{key:'renderFooter',value:function renderFooter()
-
 {
 if(Array.isArray(this.props.children)){
 return _lodash2.default.find(this.props.children,function(item){

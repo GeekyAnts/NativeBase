@@ -19,11 +19,8 @@ export default class Container extends NativeBaseComponent {
     }
 
   renderHeader() {
-
     if(Array.isArray(this.props.children)) {
       return _.find(this.props.children, function(item) {
-
-        
         if(item && _.get(item, 'type', null) == Header) {
           return true;
         }
@@ -36,7 +33,6 @@ export default class Container extends NativeBaseComponent {
       }
     }
   }
-
   renderContent() {
     if(Array.isArray(this.props.children)) {
 
@@ -54,7 +50,6 @@ export default class Container extends NativeBaseComponent {
       }
     }
   }
-
   renderFooter() {
     if(Array.isArray(this.props.children)) {
       return _.find(this.props.children, function(item) {
