@@ -112,7 +112,7 @@ newChildren.push(_react2.default.createElement(_View2.default,{key:'title',style
 
 newChildren.push(_react2.default.createElement(_View2.default,{key:'title2',style:{flex:3,alignSelf:'stretch'}}));
 newChildren.push(_react2.default.createElement(_View2.default,{key:'btn1',style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-14}},
-_react2.default.cloneElement(buttons[0],{color:this.getTheme().iosToolbarBtnColor,style:this.getInitialStyle().toolbarButton})));
+_react2.default.cloneElement(buttons[0],{color:this.getTheme().iosToolbarBtnColor,header:true,style:this.getInitialStyle().toolbarButton})));
 
 }else
 {
@@ -145,13 +145,13 @@ newChildren.push(_react2.default.createElement(_View2.default,{key:'title',style
 [title[0],subtitle[0]]));
 
 newChildren.push(_react2.default.createElement(_View2.default,{key:'btn1',style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginLeft:-14}},
-_react2.default.cloneElement(buttons[0],{color:this.getTheme().iosToolbarBtnColor,style:this.getInitialStyle().toolbarButton})));
+_react2.default.cloneElement(buttons[0],{color:this.getTheme().iosToolbarBtnColor,header:true,style:this.getInitialStyle().toolbarButton})));
 
 newChildren.push(_react2.default.createElement(_View2.default,{key:'title2',style:{flex:3,alignSelf:'stretch'}}));
 if(buttons.length>1){
 for(var i=1;i<buttons.length;i++){
 newChildren.push(_react2.default.createElement(_View2.default,{key:'btn'+(i+1),style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-14}},
-_react2.default.cloneElement(buttons[i],{color:this.getTheme().iosToolbarBtnColor,style:this.getInitialStyle().toolbarButton})));
+_react2.default.cloneElement(buttons[i],{color:this.getTheme().iosToolbarBtnColor,header:true,style:this.getInitialStyle().toolbarButton})));
 
 }
 }

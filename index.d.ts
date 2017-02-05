@@ -1,29 +1,21 @@
 declare module 'native-base' {
     namespace NativeBase {
-        /**
-         * see Widget Text.js
-         */
-        interface Text extends React.TextProperties { }
-        /**
-         * see Widget Text.js
-         */
+
+        interface Text extends React.TextProperties {
+            note?: boolean
+        }
+
         interface Switch extends React.SwitchProperties { }
-        /**
-         * see Widget Text.js
-         */
+
         interface View extends React.ViewProperties {
             padder?: boolean,
         }
-        /**
-         * see Widget Text.js
-         */
+
         interface Picker extends React.PickerProperties {
             iosHeader?: string,
             inlineLabel?: boolean,
         }
-        /**
-         * see Widget Text.js
-         */
+
         interface H1 extends React.TextProperties { }
         /**
          * see Widget Text.js
@@ -95,6 +87,12 @@ declare module 'native-base' {
          * see Widget Title.js
          */
         interface Title {
+            style?: React.ViewStyle
+        }
+        /**
+         * see Widget Subtitle/index.js
+         */
+        interface SubTitle {
             style?: React.ViewStyle
         }
         /**
