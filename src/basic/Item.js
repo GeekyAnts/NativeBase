@@ -4,6 +4,8 @@ import { Input } from './Input';
 import { Label } from './Label';
 
 import { connectStyle } from '@shoutem/theme';
+import variables from '../theme/variables';
+import computeProps from '../Utils/computeProps';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Item extends Component {
@@ -110,9 +112,25 @@ class Item extends Component {
     }
     return newChildren;
   }
+  getInitialStyle() {
+    return {
+      roundedInputGroup: {
+        borderWidth: (this.props.rounded) ? (variables.borderWidth * 2) : undefined,
+        borderRadius: (this.props.rounded) ? variables.inputGroupRoundedBorderRadius : undefined,
+      },
+    };
+  }
+
+  prepareRootProps() {
+    const defaultProps = {
+      style: this.getInitialStyle().roundedInputGroup,
+    };
+
+    return computeProps(this.props, defaultProps);
+  }
   render() {
     return (
-      <TouchableOpacity ref={c => this._root = c} {...this.props} activeOpacity={1}>
+      <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={1}>
         {this.renderChildren()}
       </TouchableOpacity>
     );
