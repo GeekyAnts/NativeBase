@@ -102,20 +102,20 @@ export default (variables = variable) => {
           marginLeft: -10,
           height: 30,
           'NativeBase.Icon': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: variables.iconHeaderSize,
             marginTop: 2,
             marginRight: 5,
             marginLeft: 2
           },
           'NativeBase.Text': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: 17,
             marginLeft: 2,
             lineHeight: 21
           },
           'NativeBase.IconNB': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: variables.iconHeaderSize,
             marginTop: 2,
             marginRight: 5,
@@ -125,21 +125,21 @@ export default (variables = variable) => {
         '.transparent': {
           marginLeft: -10,
           'NativeBase.Icon': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: variables.iconHeaderSize,
             marginTop: 2,
             marginRight: 2,
             marginLeft: 2
           },
           'NativeBase.IconNB': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: variables.iconHeaderSize,
             marginTop: 2,
             marginRight: 2,
             marginLeft: 2
           },
           'NativeBase.Text': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: 17,
             top: (Platform.OS === 'ios') ? undefined : -1.5,
           },
@@ -152,10 +152,10 @@ export default (variables = variable) => {
           shadowOpacity: null,
         },
         'NativeBase.Icon': {
-          color: variables.topTabBarActiveTextColor,
+          color: variables.iosToolbarBtnColor,
         },
         'NativeBase.IconNB': {
-          color: variables.topTabBarActiveTextColor,
+          color: variables.iosToolbarBtnColor,
         },
         alignSelf: null,
         paddingHorizontal: variables.buttonPadding,
@@ -174,10 +174,10 @@ export default (variables = variable) => {
           backgroundColor: 'transparent',
         },
         'NativeBase.Icon': {
-          color: variables.topTabBarActiveTextColor,
+          color: variables.iosToolbarBtnColor,
         },
         'NativeBase.IconNB': {
-          color: variables.topTabBarActiveTextColor,
+          color: variables.iosToolbarBtnColor,
         },
         'NativeBase.Text': {
           color: variables.titleFontColor,
@@ -189,19 +189,19 @@ export default (variables = variable) => {
         '.hasText': {
           height: 30,
           'NativeBase.Icon': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: variables.iconHeaderSize-2,
             marginTop: 2,
             marginRight: 2,
             marginLeft: 5
           },
           'NativeBase.Text': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: 17,
             lineHeight: 21
           },
           'NativeBase.IconNB': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: variables.iconHeaderSize-2,
             marginTop: 2,
             marginRight: 2,
@@ -211,21 +211,21 @@ export default (variables = variable) => {
         '.transparent': {
           marginRight: -10,
           'NativeBase.Icon': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: (Platform.OS==='ios') ? variables.iconHeaderSize-6 : variables.iconHeaderSize-2,
             marginTop: 2,
             marginLeft: 2,
             marginRight: 2
           },
           'NativeBase.IconNB': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: (Platform.OS==='ios') ? variables.iconHeaderSize-6 : variables.iconHeaderSize-2,
             marginTop: 2,
             marginLeft: 2,
             marginRight: 2
           },
           'NativeBase.Text': {
-            color: variables.topTabBarActiveTextColor,
+            color: variables.iosToolbarBtnColor,
             fontSize: 17,
             top: (Platform.OS === 'ios') ? undefined : -1.5,
           },
@@ -238,10 +238,10 @@ export default (variables = variable) => {
           shadowOpacity: null,
         },
         'NativeBase.Icon': {
-          color: variables.topTabBarActiveTextColor,
+          color: variables.iosToolbarBtnColor,
         },
         'NativeBase.IconNB': {
-          color: variables.topTabBarActiveTextColor,
+          color: variables.iosToolbarBtnColor,
         },
         alignSelf: null,
         paddingHorizontal: variables.buttonPadding,

@@ -102,20 +102,20 @@ borderRadius:_reactNative.Platform.OS==='ios'?25:0}},
 marginLeft:-10,
 height:30,
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:variables.iconHeaderSize,
 marginTop:2,
 marginRight:5,
 marginLeft:2},
 
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:17,
 marginLeft:2,
 lineHeight:21},
 
 'NativeBase.IconNB':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:variables.iconHeaderSize,
 marginTop:2,
 marginRight:5,
@@ -123,22 +123,23 @@ marginLeft:2}},
 
 
 '.transparent':{
+marginLeft:-10,
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:variables.iconHeaderSize,
 marginTop:2,
 marginRight:2,
 marginLeft:2},
 
 'NativeBase.IconNB':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:variables.iconHeaderSize,
 marginTop:2,
 marginRight:2,
 marginLeft:2},
 
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:17,
 top:_reactNative.Platform.OS==='ios'?undefined:-1.5},
 
@@ -151,10 +152,10 @@ shadowRadius:null,
 shadowOpacity:null},
 
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor},
+color:variables.iosToolbarBtnColor},
 
 'NativeBase.IconNB':{
-color:variables.topTabBarActiveTextColor},
+color:variables.iosToolbarBtnColor},
 
 alignSelf:null,
 paddingHorizontal:variables.buttonPadding},
@@ -173,10 +174,10 @@ alignSelf:'center',
 backgroundColor:'transparent'},
 
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor},
+color:variables.iosToolbarBtnColor},
 
 'NativeBase.IconNB':{
-color:variables.topTabBarActiveTextColor},
+color:variables.iosToolbarBtnColor},
 
 'NativeBase.Text':{
 color:variables.titleFontColor}}},
@@ -188,19 +189,19 @@ color:variables.titleFontColor}}},
 '.hasText':{
 height:30,
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:variables.iconHeaderSize-2,
 marginTop:2,
 marginRight:2,
 marginLeft:5},
 
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:17,
 lineHeight:21},
 
 'NativeBase.IconNB':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:variables.iconHeaderSize-2,
 marginTop:2,
 marginRight:2,
@@ -208,22 +209,23 @@ marginLeft:5}},
 
 
 '.transparent':{
+marginRight:-10,
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:_reactNative.Platform.OS==='ios'?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
 marginTop:2,
 marginLeft:2,
 marginRight:2},
 
 'NativeBase.IconNB':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:_reactNative.Platform.OS==='ios'?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
 marginTop:2,
 marginLeft:2,
 marginRight:2},
 
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor,
+color:variables.iosToolbarBtnColor,
 fontSize:17,
 top:_reactNative.Platform.OS==='ios'?undefined:-1.5},
 
@@ -236,10 +238,10 @@ shadowRadius:null,
 shadowOpacity:null},
 
 'NativeBase.Icon':{
-color:variables.topTabBarActiveTextColor},
+color:variables.iosToolbarBtnColor},
 
 'NativeBase.IconNB':{
-color:variables.topTabBarActiveTextColor},
+color:variables.iosToolbarBtnColor},
 
 alignSelf:null,
 paddingHorizontal:variables.buttonPadding},
