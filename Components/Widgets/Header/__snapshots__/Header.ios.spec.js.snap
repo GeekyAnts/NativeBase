@@ -1177,6 +1177,7 @@ exports[`test renders header with searchbar 1`] = `
           style={
             Object {
               "color": "#000",
+              "fontFamily": "HelveticaNeue",
               "fontSize": 15,
               "height": 30,
               "lineHeight": 24,
