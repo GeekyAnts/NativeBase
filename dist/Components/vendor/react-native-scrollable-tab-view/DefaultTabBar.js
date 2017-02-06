@@ -59,7 +59,7 @@ var tabUnderlineStyle={
 position:'absolute',
 width:deviceWidth/numberOfTabs,
 height:4,
-backgroundColor:this.getTheme().tabTextColor,
+backgroundColor:this.getTheme().tabUnderlineColor,
 bottom:0};
 
 
