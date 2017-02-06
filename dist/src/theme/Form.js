@@ -20,8 +20,7 @@ marginLeft:15},
 
 '.placeholderLabel':{
 'NativeBase.Input':{
-marginLeft:-5,
-height:40}},
+marginLeft:-5}},
 
 
 '.stackedLabel':{

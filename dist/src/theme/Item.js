@@ -93,6 +93,9 @@ fontSize:variables.inputFontSize,
 lineHeight:variables.inputLineHeight},
 
 '.underline':{
+'NativeBase.Input':{
+paddingLeft:15},
+
 '.success':{
 borderColor:variables.inputSuccessBorderColor},
 
@@ -106,6 +109,9 @@ borderLeftWidth:0,
 borderColor:variables.inputBorderColor},
 
 '.regular':{
+'NativeBase.Input':{
+paddingLeft:15},
+
 '.success':{
 borderColor:variables.inputSuccessBorderColor},
 
@@ -116,6 +122,9 @@ borderWidth:variables.borderWidth*2,
 borderColor:variables.inputBorderColor},
 
 '.rounded':{
+'NativeBase.Input':{
+paddingLeft:15},
+
 '.success':{
 borderColor:variables.inputSuccessBorderColor},
 

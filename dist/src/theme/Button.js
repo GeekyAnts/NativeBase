@@ -442,18 +442,22 @@ paddingTop:_reactNative.Platform.OS==='ios'?2:undefined},
 
 '.iconLeft':{
 'NativeBase.IconNB':{
-marginRight:10},
+marginRight:10,
+marginLeft:0},
 
 'NativeBase.Icon':{
-marginRight:10}},
+marginRight:10,
+marginLeft:0}},
 
 
 '.iconRight':{
 'NativeBase.IconNB':{
-marginLeft:10},
+marginLeft:10,
+marginRight:0},
 
 'NativeBase.Icon':{
-marginLeft:10}},
+marginLeft:10,
+marginRight:0}},
 
 
 
