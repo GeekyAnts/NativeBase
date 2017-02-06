@@ -100,7 +100,7 @@ cardDefaultBg:'#fff',
 
 
 
-brandPrimary:'#5067FF',
+brandPrimary:_reactNative.Platform.OS==='ios'?'#007aff':'#3F51B5',
 brandInfo:'#5bc0de',
 brandSuccess:'#5cb85c',
 brandDanger:'#d9534f',
@@ -145,7 +145,7 @@ topTabBarBorderColor:_reactNative.Platform.OS==='ios'?'#007aff':'#fff',
 
 
 
-iosToolbarBtnColor:'#007aff',
+iosToolbarBtnColor:_reactNative.Platform.OS==='ios'?'#007aff':'#fff',
 toolbarDefaultBg:_reactNative.Platform.OS==='ios'?'#F8F8F8':'#3F51B5',
 toolbarHeight:_reactNative.Platform.OS==='ios'?64:56,
 toolbarIconSize:_reactNative.Platform.OS==='ios'?20:22,

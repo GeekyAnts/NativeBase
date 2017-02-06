@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import { Button } from './Button';
-import { Platform, Animated, TouchableOpacity } from 'react-native';
+import { Platform, Animated, TouchableOpacity, View } from 'react-native';
 // import View from './View';
 import { Icon } from './Icon';
 // import Badge from './Badge';
@@ -111,7 +111,7 @@ class Fab extends Component {
         bottom: (this.props.position) ? this.fabTopValue(this.props.position).bottom : 20,
         right: (this.props.position) ? this.fabTopValue(this.props.position).right : 20,
         left: (this.props.position) ? this.fabTopValue(this.props.position).left : undefined,
-        width: 56,
+        width: this.containerWidth,
         height: this.containerHeight,
         flexDirection: (this.props.direction) ? ((this.props.direction == 'left || right') ? 'row' : 'column') : 'column',
         alignItems: 'center',

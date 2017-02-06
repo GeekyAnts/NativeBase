@@ -123,7 +123,7 @@ export default (variables = variable) => {
           },
         },
         '.transparent': {
-          marginLeft: -10,
+          marginLeft: -3,
           'NativeBase.Icon': {
             color: variables.iosToolbarBtnColor,
             fontSize: variables.iconHeaderSize,
@@ -209,7 +209,7 @@ export default (variables = variable) => {
           },
         },
         '.transparent': {
-          marginRight: -10,
+          marginRight: -3,
           'NativeBase.Icon': {
             color: variables.iosToolbarBtnColor,
             fontSize: (Platform.OS==='ios') ? variables.iconHeaderSize-6 : variables.iconHeaderSize-2,

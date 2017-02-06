@@ -123,7 +123,7 @@ marginLeft:2}},
 
 
 '.transparent':{
-marginLeft:-10,
+marginLeft:-3,
 'NativeBase.Icon':{
 color:variables.iosToolbarBtnColor,
 fontSize:variables.iconHeaderSize,
@@ -209,7 +209,7 @@ marginLeft:5}},
 
 
 '.transparent':{
-marginRight:-10,
+marginRight:-3,
 'NativeBase.Icon':{
 color:variables.iosToolbarBtnColor,
 fontSize:_reactNative.Platform.OS==='ios'?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
