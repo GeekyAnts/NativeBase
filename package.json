@@ -6,7 +6,6 @@
     "ios",
     "react",
     "native",
-    "nativebase",
     "react-native",
     "native-modules",
     "react-component",
@@ -16,13 +15,18 @@
   ],
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
+    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "test": "jest",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run transpile"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "rootDir": "src",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
+    ]
   },
-  "version": "0.5.22",
+  "version": "2.0.0",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
@@ -42,20 +46,6 @@
     "tween-functions": "^1.0.1",
     "react-native-drawer": "^2.3.0"
   },
-  "scripts": {
-    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
-    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
-    "test": "jest",
-    "prepublish": "npm run transpile"
-  },
-  "jest": {
-    "preset": "react-native",
-    "rootDir": "src",
-    "transformIgnorePatterns": [
-      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
-    ]
-  },
-  "description": "Essential cross-platform UI components for React Native",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-eslint": "^6.1.2",
@@ -75,27 +65,13 @@
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-  "keywords": [
-    "android",
-    "ios",
-    "react",
-    "native",
-    "react-native",
-    "native-modules",
-    "react-component",
-    "navbar",
-    "packager",
-    "rnpm"
-  ],
   "main": "dist/src/index.js",
-  "name": "native-base",
   "optionalDependencies": {},
   "peerDependencies": {
     "react-native": ">=0.40.0",
     "react": ">=15.4.0",
     "react-native-vector-icons": "~4.0.0"
   },
-  "private": false,
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -105,6 +81,5 @@
     "assets": [
       "Fonts"
     ]
-  },
-  "version": "0.5.22"
+  }
 }
