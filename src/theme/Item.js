@@ -93,6 +93,9 @@ export default (variables = variable) => {
         lineHeight: variables.inputLineHeight,
       },
       '.underline': {
+        'NativeBase.Input': {
+          paddingLeft: 15,
+        },
         '.success': {
           borderColor: variables.inputSuccessBorderColor,
         },
@@ -106,6 +109,9 @@ export default (variables = variable) => {
         borderColor: variables.inputBorderColor,
       },
       '.regular': {
+        'NativeBase.Input': {
+          paddingLeft: 15,
+        },
         '.success': {
           borderColor: variables.inputSuccessBorderColor,
         },
@@ -116,6 +122,9 @@ export default (variables = variable) => {
         borderColor: variables.inputBorderColor,
       },
       '.rounded': {
+        'NativeBase.Input': {
+          paddingLeft: 15,
+        },
         '.success': {
           borderColor: variables.inputSuccessBorderColor,
         },

@@ -164,7 +164,7 @@ fontWeight:_reactNative.Platform.OS==='ios'?'500':undefined},
 
 '.bordered':{
 'NativeBase.Text':{
-color:variables.activeTab,
+color:variables.sTabBarActiveTextColor,
 fontWeight:_reactNative.Platform.OS==='ios'?'500':undefined},
 
 borderBottomWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:null},

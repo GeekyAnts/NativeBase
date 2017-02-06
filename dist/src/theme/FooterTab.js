@@ -18,7 +18,6 @@ color:variables.tabBarActiveTextColor},
 'NativeBase.IconNB':{
 color:variables.tabBarActiveTextColor},
 
-height:53,
 backgroundColor:variables.tabActiveBgColor},
 
 flexDirection:null,

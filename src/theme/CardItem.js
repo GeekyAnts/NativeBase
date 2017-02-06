@@ -164,7 +164,7 @@ export default (variables = variable) => {
         },
         '.bordered': {
           'NativeBase.Text': {
-            color: variables.activeTab,
+            color: variables.sTabBarActiveTextColor,
             fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
           },
           borderBottomWidth: (Platform.OS === 'ios') ? variables.borderWidth : null,

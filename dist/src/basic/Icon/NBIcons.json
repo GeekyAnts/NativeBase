@@ -119,14 +119,14 @@
       "active": "ios-arrow-back"
     }
   },
-  "arrowdown": {
+  "arrow-down": {
     "android": {
-      "default": "md-arrowdown",
-      "active": "md-arrowdown"
+      "default": "md-arro-down",
+      "active": "md-arrow-down"
     },
     "ios": {
-      "default": "ios-arrowdown-outline",
-      "active": "ios-arrowdown"
+      "default": "ios-arrow-down-outline",
+      "active": "ios-arrow-down"
     }
   },
   "arrow-dropdown": {
