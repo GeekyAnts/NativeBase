@@ -1,4 +1,6 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Item=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
+var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
+
 var _reactNative=require('react-native');
 var _Input=require('./Input');
 var _Label=require('./Label');
@@ -84,7 +86,7 @@ var childrenArray=_react2.default.Children.toArray(this.props.children);
 
 var label=[];
 var labelProps={};
-label=_.remove(childrenArray,function(item){
+label=_lodash2.default.remove(childrenArray,function(item){
 if(item.type===_Label.Label){
 labelProps=item.props;
 return item;
@@ -93,7 +95,7 @@ return item;
 
 var input=[];
 var inputProps={};
-input=_.remove(childrenArray,function(item){
+input=_lodash2.default.remove(childrenArray,function(item){
 if(item.type===_Input.Input){
 inputProps=item.props;
 return item;

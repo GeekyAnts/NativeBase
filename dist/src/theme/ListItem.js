@@ -149,6 +149,14 @@ alignItems:null},
 'NativeBase.Badge':{
 alignSelf:null},
 
+'NativeBase.PickerNB':{
+'NativeBase.Button':{
+marginRight:-15,
+'NativeBase.Text':{
+color:variables.topTabBarActiveTextColor}}},
+
+
+
 'NativeBase.Button':{
 alignSelf:null,
 '.transparent':{

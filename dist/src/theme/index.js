@@ -199,7 +199,7 @@ flex:1},
 'NativeBase.Switch':{
 marginVertical:-5},
 
-'NativeBase.Seperator':_extends({},
+'NativeBase.Separator':_extends({},
 (0,_Separator2.default)(variables))};
 
 
