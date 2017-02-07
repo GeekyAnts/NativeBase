@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
+
 import { TouchableOpacity, Animated, Platform } from 'react-native';
 import { Input } from './Input';
 import { Label } from './Label';

@@ -101,7 +101,7 @@ export default (variables = variable) => {
         'NativeBase.Left': {
           'NativeBase.Text': {
             color: variables.brandPrimary
-          }          
+          }
         },
         'NativeBase.Text': {
           color: variables.brandPrimary
@@ -148,6 +148,14 @@ export default (variables = variable) => {
       'NativeBase.Right': {
         'NativeBase.Badge': {
           alignSelf: null,
+        },
+        'NativeBase.PickerNB': {
+          'NativeBase.Button': {
+            marginRight: -15,
+            'NativeBase.Text': {
+              color: variables.topTabBarActiveTextColor,
+            }
+          }
         },
         'NativeBase.Button': {
           alignSelf: null,
@@ -253,7 +261,7 @@ export default (variables = variable) => {
           borderColor: variables.listBorderColor,
           marginLeft: variables.listItemPadding + 5,
         },
-        'NativeBase.Right': {  
+        'NativeBase.Right': {
           'NativeBase.Button': {
             '.transparent': {
               'NativeBase.Text': {
