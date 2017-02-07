@@ -7,8 +7,11 @@ export default (variables = variable) => {
   const itemTheme = {
       '.floatingLabel': {
         'NativeBase.Input': {
-          height: 55,
-          top: 10,
+          height: 60,
+          top: 8,
+        },
+        'NativeBase.Label': {
+          top: 8,
         },
       },
       '.fixedLabel': {
@@ -17,7 +20,6 @@ export default (variables = variable) => {
           top: null,
           left: null,
           right: null,
-          paddingLeft: 10,
           flex: 1,
           height: null,
           width: null,
@@ -35,7 +37,6 @@ export default (variables = variable) => {
           left: null,
           right: null,
           paddingTop: 5,
-          paddingLeft: 10,
           alignSelf: 'flex-start',
           fontSize: variables.inputFontSize - 2,
         },
@@ -43,8 +44,6 @@ export default (variables = variable) => {
           alignSelf: (Platform.OS === 'ios') ? 'stretch' : 'flex-start',
           flex: 1,
           width: (Platform.OS === 'ios') ? null : variables.deviceWidth - 25,
-          paddingTop: 10,
-          paddingLeft: 10,
           fontSize: variables.inputFontSize,
         },
         flexDirection: null,
@@ -55,7 +54,6 @@ export default (variables = variable) => {
           top: null,
           left: null,
           right: null,
-          paddingLeft: 10,
           paddingRight: 20,
           height: null,
           width: null,
@@ -68,27 +66,23 @@ export default (variables = variable) => {
         flexDirection: 'row',
       },
       'NativeBase.Label': {
-        position: 'absolute',
-        top: 10,
-        left: 15,
-        right: 0,
         fontSize: variables.inputFontSize,
         color: variables.inputColorPlaceholder,
+        paddingRight: 5,
       },
       'NativeBase.Icon': {
         fontSize: 24,
-        paddingHorizontal: 5,
+        paddingRight: 5,
       },
       'NativeBase.IconNB': {
         fontSize: 24,
-        paddingHorizontal: 5,
+        paddingRight: 5,
       },
       'NativeBase.Input': {
         height: variables.inputHeightBase,
         color: variables.inputColor,
-        paddingRight: 5,
-        paddingLeft: 5,
         flex: 1,
+        top: 1.5,
         fontSize: variables.inputFontSize,
         lineHeight: variables.inputLineHeight,
       },
@@ -110,7 +104,10 @@ export default (variables = variable) => {
       },
       '.regular': {
         'NativeBase.Input': {
-          paddingLeft: 15,
+          paddingLeft: 5,
+        },
+        'NativeBase.Icon': {
+          paddingLeft: 10,
         },
         '.success': {
           borderColor: variables.inputSuccessBorderColor,
@@ -123,7 +120,10 @@ export default (variables = variable) => {
       },
       '.rounded': {
         'NativeBase.Input': {
-          paddingLeft: 15,
+          paddingLeft: 5,
+        },
+        'NativeBase.Icon': {
+          paddingLeft: 10,
         },
         '.success': {
           borderColor: variables.inputSuccessBorderColor,
