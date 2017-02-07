@@ -7,6 +7,7 @@ var _Entypo=require('react-native-vector-icons/Entypo');var _Entypo2=_interopReq
 var _FontAwesome=require('react-native-vector-icons/FontAwesome');var _FontAwesome2=_interopRequireDefault(_FontAwesome);
 var _Foundation=require('react-native-vector-icons/Foundation');var _Foundation2=_interopRequireDefault(_Foundation);
 var _MaterialIcons=require('react-native-vector-icons/MaterialIcons');var _MaterialIcons2=_interopRequireDefault(_MaterialIcons);
+var _MaterialCommunityIcons=require('react-native-vector-icons/MaterialCommunityIcons');var _MaterialCommunityIcons2=_interopRequireDefault(_MaterialCommunityIcons);
 var _Octicons=require('react-native-vector-icons/Octicons');var _Octicons2=_interopRequireDefault(_Octicons);
 var _Zocial=require('react-native-vector-icons/Zocial');var _Zocial2=_interopRequireDefault(_Zocial);
 
@@ -32,6 +33,9 @@ this.Icon=_Foundation2.default;
 break;
 case'MaterialIcons':
 this.Icon=_MaterialIcons2.default;
+break;
+case'MaterialCommunityIcons':
+this.Icon=_MaterialCommunityIcons2.default;
 break;
 case'Octicons':
 this.Icon=_Octicons2.default;
