@@ -199,7 +199,7 @@ export default (variables = variable) => {
     'NativeBase.Switch': {
       marginVertical: -5,
     },
-    'NativeBase.Seperator': {
+    'NativeBase.Separator': {
       ...separatorTheme(variables),
     },
 

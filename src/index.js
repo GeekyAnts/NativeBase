@@ -8,6 +8,7 @@ import variables from './theme/variables';
 import Drawer from './basic/Drawer';
 import { Swipeout } from './basic/Swipe';
 import { Text } from './basic/Text';
+import { ViewNB as View } from './basic/View';
 import { Button } from './basic/Button';
 import { IconNB } from './basic/IconNB';
 import { Icon } from './basic/Icon';
@@ -102,6 +103,7 @@ export {
   Text,
   STabs,
   TabContent,
+  View,
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);
