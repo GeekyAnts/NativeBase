@@ -9,14 +9,24 @@ import ic from './NBIcons.json';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 class Icon extends Component {
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
+  componentDidMount() {
+    console.log('this.context.theme', this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle);
+  }
 
   getName() {
+    const platformStyle = this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle;
+    const platform = this.context.theme['@@shoutem.theme/themeStyle'].variables.platform;
+
     if (typeof ic[this.props.name]!=='object' ) {
       return this.props.name;
     }
     else if (typeof ic[this.props.name]==='object') {
       let name;
-      if (Platform.OS === 'ios') {
+      if ((platform === 'ios') && (platformStyle !== 'material') ) {
         name = (this.props.active) ? ic[this.props.name].ios.active : ic[this.props.name].ios.default;
       } else {
         name = (this.props.active) ? ic[this.props.name].android.active : ic[this.props.name].android.default;

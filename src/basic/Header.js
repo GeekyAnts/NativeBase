@@ -6,13 +6,18 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 import variable from '../theme/variables';
 
 class Header extends Component {
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
 
   render() {
+    const platformStyle = this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle;
+
     return (
       <View>
         <StatusBar
           backgroundColor={(this.props.androidStatusBarColor) ? this.props.androidStatusBarColor : variable.statusBarColor}
-          barStyle={(this.props.iosBarStyle) ? this.props.iosBarStyle : undefined } />
+          barStyle={(this.props.iosBarStyle) ? this.props.iosBarStyle : (platformStyle === 'material') ? 'light-content' : undefined } />
           <View ref={c => this._root = c} {...this.props} />
       </View>
     );

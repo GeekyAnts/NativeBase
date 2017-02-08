@@ -4,6 +4,9 @@ var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _variables=require('./variables');var _variables2=_interopRequireDefault(_variables);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
+var platformStyle=variables.platformStyle;
+var platform=variables.platform;
+
 var listItemTheme={
 'NativeBase.InputGroup':{
 'NativeBase.Icon':{
@@ -25,7 +28,7 @@ borderBottomColor:'transparent'},
 'NativeBase.Icon':{
 backgroundColor:'transparent',
 color:variables.dropdownLinkColor,
-fontSize:_reactNative.Platform.OS==='ios'?variables.iconFontSize-10:variables.iconFontSize-5,
+fontSize:platform==='ios'?variables.iconFontSize-10:variables.iconFontSize-5,
 alignItems:'center',
 marginTop:2,
 paddingRight:8},
@@ -42,7 +45,7 @@ alignSelf:'center',
 alignItems:'center',
 justifyContent:'flex-start',
 flex:1,
-height:_reactNative.Platform.OS==='ios'?30:40,
+height:platform==='ios'?30:40,
 borderColor:'transparent',
 backgroundColor:'#fff',
 borderRadius:5},
@@ -53,11 +56,11 @@ borderRadius:5},
 fontWeight:'500'},
 
 paddingHorizontal:null,
-paddingLeft:_reactNative.Platform.OS==='ios'?10:null},
+paddingLeft:platform==='ios'?10:null},
 
-paddingHorizontal:_reactNative.Platform.OS==='ios'?undefined:null,
-width:_reactNative.Platform.OS==='ios'?undefined:0,
-height:_reactNative.Platform.OS==='ios'?undefined:0},
+paddingHorizontal:platform==='ios'?undefined:null,
+width:platform==='ios'?undefined:0,
+height:platform==='ios'?undefined:0},
 
 backgroundColor:variables.toolbarInputColor,
 padding:10,
@@ -75,17 +78,17 @@ paddingTop:variables.listItemPadding+3}},
 '.first':{
 paddingTop:variables.listItemPadding+3},
 
-borderBottomWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:null,
+borderBottomWidth:platform==='ios'?variables.borderWidth:null,
 marginLeft:null,
 padding:variables.listItemPadding,
 paddingLeft:variables.listItemPadding+5,
-paddingTop:_reactNative.Platform.OS==='ios'?variables.listItemPadding+25:undefined,
-paddingBottom:_reactNative.Platform.OS==='android'?variables.listItemPadding+20:undefined,
+paddingTop:platform==='ios'?variables.listItemPadding+25:undefined,
+paddingBottom:platform==='android'?variables.listItemPadding+20:undefined,
 flexDirection:'row',
 borderColor:variables.listBorderColor,
 'NativeBase.Text':{
 fontSize:14,
-color:_reactNative.Platform.OS==='ios'?undefined:variables.listNoteColor}},
+color:platform==='ios'?undefined:variables.listNoteColor}},
 
 
 '.itemDivider':{

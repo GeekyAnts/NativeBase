@@ -4,6 +4,9 @@ import _ from 'lodash';
 import variable from './variables';
 
 export default (variables = variable) => {
+  const platformStyle = variables.platformStyle;
+  const platform = variables.platform;
+
   const footerTheme = {
        'NativeBase.Left': {
         'NativeBase.Button': {
@@ -82,12 +85,10 @@ export default (variables = variable) => {
       backgroundColor: variables.footerDefaultBg,
       flexDirection: 'row',
       justifyContent: 'center',
-      borderTopWidth: (Platform.OS === 'ios') ? variables.borderWidth : undefined,
-      borderColor: (Platform.OS === 'ios') ? '#cbcbcb' : undefined,
+      borderTopWidth: ((platform === 'ios') && (platformStyle!=='material')) ? variables.borderWidth : undefined,
+      borderColor: ((platform === 'ios') && (platformStyle!=='material')) ? '#cbcbcb' : undefined,
       height: variables.footerHeight,
       elevation: 3,
-      position: 'absolute',
-      bottom: (Platform.OS === 'ios') ? 0 : 23,
       left: 0,
       right: 0,
   };

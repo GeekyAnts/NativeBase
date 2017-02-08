@@ -5,6 +5,9 @@ var _variables=require('./variables');var _variables2=_interopRequireDefault(_va
 
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
+var platformStyle=variables.platformStyle;
+var platform=variables.platform;
+
 var buttonTheme={
 '.disabled':{
 backgroundColor:variables.btnDisabledBg},
@@ -432,13 +435,13 @@ lineHeight:variables.btnLineHeight},
 color:variables.inverseTextColor,
 fontSize:24,
 marginHorizontal:5,
-paddingTop:_reactNative.Platform.OS==='ios'?2:undefined},
+paddingTop:platform==='ios'?2:undefined},
 
 'NativeBase.IconNB':{
 color:variables.inverseTextColor,
 fontSize:24,
 marginHorizontal:5,
-paddingTop:_reactNative.Platform.OS==='ios'?2:undefined},
+paddingTop:platform==='ios'?2:undefined},
 
 '.iconLeft':{
 'NativeBase.IconNB':{

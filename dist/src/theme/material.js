@@ -5,7 +5,7 @@ var _reactNative=require('react-native');function _interopRequireDefault(obj){re
 var deviceHeight=_reactNative.Dimensions.get('window').height;
 var deviceWidth=_reactNative.Dimensions.get('window').width;
 var platform=_reactNative.Platform.OS;
-var platformStyle=undefined;exports.default=
+var platformStyle='material';exports.default=
 
 {
 platformStyle:platformStyle,
@@ -22,18 +22,18 @@ badgeColor:'#fff',
 badgePadding:platform==='ios'?3:0,
 
 
-btnFontFamily:platform==='ios'?'System':'Roboto_medium',
+btnFontFamily:platform==='ios'?'Roboto':'Roboto_medium',
 btnDisabledBg:'#b5b5b5',
 btnDisabledClr:'#f1f1f1',
 
 
-CheckboxRadius:platform==='ios'?13:0,
-CheckboxBorderWidth:platform==='ios'?1:2,
-CheckboxPaddingLeft:platform==='ios'?4:2,
+CheckboxRadius:0,
+CheckboxBorderWidth:2,
+CheckboxPaddingLeft:2,
 CheckboxPaddingBottom:platform==='ios'?0:5,
-CheckboxIconSize:platform==='ios'?21:14,
+CheckboxIconSize:platform==='ios'?18:14,
 CheckboxIconMarginTop:platform==='ios'?undefined:1,
-CheckboxFontSize:platform==='ios'?23/0.9:18,
+CheckboxFontSize:platform==='ios'?21:18,
 DefaultFontSize:17,
 checkboxBgColor:'#039BE5',
 checkboxSize:20,
@@ -104,8 +104,8 @@ cardDefaultBg:'#fff',
 
 
 
-brandPrimary:platform==='ios'?'#007aff':'#3F51B5',
-brandInfo:'#62B1F6',
+brandPrimary:'#3F51B5',
+brandInfo:'#3F57D3',
 brandSuccess:'#5cb85c',
 brandDanger:'#d9534f',
 brandWarning:'#f0ad4e',
@@ -113,7 +113,7 @@ brandSidebar:'#252932',
 
 
 
-fontFamily:platform==='ios'?'System':'Roboto',
+fontFamily:'Roboto',
 fontSizeBase:15,
 
 get fontSizeH1(){
@@ -129,36 +129,36 @@ return this.fontSizeBase*1.4;
 
 
 footerHeight:55,
-footerDefaultBg:platform==='ios'?'#F8F8F8':'#4179F7',
+footerDefaultBg:'#3F51B5',
 
 
 
-tabBarTextColor:platform==='ios'?'#6b6b6b':'#b3c7f9',
+tabBarTextColor:'#b3c7f9',
 tabBarTextSize:platform==='ios'?14:11,
-activeTab:platform==='ios'?'#007aff':'#fff',
+activeTab:'#fff',
 sTabBarActiveTextColor:'#007aff',
-tabBarActiveTextColor:platform==='ios'?'#007aff':'#fff',
-tabActiveBgColor:platform==='ios'?'#cde1f9':undefined,
+tabBarActiveTextColor:'#fff',
+tabActiveBgColor:undefined,
 
 
-tabDefaultBg:platform==='ios'?'#F8F8F8':'#4179F7',
-topTabBarTextColor:platform==='ios'?'#6b6b6b':'#b3c7f9',
-topTabBarActiveTextColor:platform==='ios'?'#007aff':'#fff',
-topTabActiveBgColor:platform==='ios'?'#cde1f9':undefined,
-topTabBarBorderColor:platform==='ios'?'#007aff':'#fff',
+tabDefaultBg:'#3F51B5',
+topTabBarTextColor:'#b3c7f9',
+topTabBarActiveTextColor:'#fff',
+topTabActiveBgColor:undefined,
+topTabBarBorderColor:'#fff',
 
 
 
-toolbarBtnColor:platform==='ios'?'#007aff':'#fff',
-toolbarDefaultBg:platform==='ios'?'#F8F8F8':'#3F51B5',
+toolbarBtnColor:'#fff',
+toolbarDefaultBg:'#3F51B5',
 toolbarHeight:platform==='ios'?64:56,
 toolbarIconSize:platform==='ios'?20:22,
 toolbarSearchIconSize:platform==='ios'?20:23,
-toolbarInputColor:platform==='ios'?'#CECDD2':'#fff',
+toolbarInputColor:'#fff',
 searchBarHeight:platform==='ios'?30:40,
 toolbarInverseBg:'#222',
-toolbarTextColor:platform==='ios'?'#000':'#fff',
-toolbarDefaultBorder:platform==='ios'?'#a7a6ab':'#3F51B5',
+toolbarTextColor:'#fff',
+toolbarDefaultBorder:'#3F51B5',
 get statusBarColor(){
 return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 },
@@ -168,7 +168,7 @@ return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 iconFamily:'Ionicons',
 iconFontSize:platform==='ios'?30:28,
 iconMargin:7,
-iconHeaderSize:platform==='ios'?33:28,
+iconHeaderSize:platform==='ios'?29:28,
 
 
 
@@ -254,17 +254,17 @@ noteFontSize:14,
 
 
 
-titleFontfamily:platform==='ios'?'System':'Roboto_medium',
-titleFontSize:platform==='ios'?17:19,
-subTitleFontSize:platform==='ios'?12:14,
-subtitleColor:platform==='ios'?'#8e8e93':'#FFF',
+titleFontfamily:platform==='ios'?'Roboto':'Roboto_medium',
+titleFontSize:19,
+subTitleFontSize:14,
+subtitleColor:'#FFF',
 
 
-titleFontColor:platform==='ios'?'#000':'#FFF',
+titleFontColor:'#FFF',
 
 
 
-borderRadiusBase:platform==='ios'?5:2,
+borderRadiusBase:2,
 borderWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 contentPadding:10,
 
@@ -282,4 +282,4 @@ deviceHeight:deviceHeight,
 
 
 inputGroupRoundedBorderRadius:30};
-//# sourceMappingURL=variables.js.map
+//# sourceMappingURL=material.js.map

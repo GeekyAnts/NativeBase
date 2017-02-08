@@ -4,6 +4,9 @@ var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _variables=require('./variables');var _variables2=_interopRequireDefault(_variables);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
+var platformStyle=variables.platformStyle;
+var platform=variables.platform;
+
 var cardItemTheme={
 'NativeBase.Left':{
 'NativeBase.Body':{
@@ -56,7 +59,7 @@ alignItems:'center'},
 
 '.content':{
 'NativeBase.Text':{
-color:_reactNative.Platform.OS==='ios'?'#555':'#222',
+color:platform==='ios'?'#555':'#222',
 fontSize:variables.DefaultFontSize-3}},
 
 
@@ -160,14 +163,14 @@ flex:0.8},
 '.header':{
 'NativeBase.Text':{
 fontSize:16,
-fontWeight:_reactNative.Platform.OS==='ios'?'500':undefined},
+fontWeight:platform==='ios'?'500':undefined},
 
 '.bordered':{
 'NativeBase.Text':{
 color:variables.sTabBarActiveTextColor,
-fontWeight:_reactNative.Platform.OS==='ios'?'500':undefined},
+fontWeight:platform==='ios'?'500':undefined},
 
-borderBottomWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:null},
+borderBottomWidth:platform==='ios'?variables.borderWidth:null},
 
 borderBottomWidth:null,
 paddingVertical:variables.listItemPadding+5},
@@ -175,14 +178,14 @@ paddingVertical:variables.listItemPadding+5},
 '.footer':{
 'NativeBase.Text':{
 fontSize:16,
-fontWeight:_reactNative.Platform.OS==='ios'?'500':undefined},
+fontWeight:platform==='ios'?'500':undefined},
 
 '.bordered':{
 'NativeBase.Text':{
 color:variables.activeTab,
 fontWeight:'500'},
 
-borderTopWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:null},
+borderTopWidth:platform==='ios'?variables.borderWidth:null},
 
 borderBottomWidth:null},
 

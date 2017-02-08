@@ -4,6 +4,9 @@ import _ from 'lodash';
 import variable from './variables';
 
 export default (variables = variable) => {
+  const platformStyle = variables.platformStyle;
+  const platform = variables.platform;
+
   const footerTabTheme = {
       'NativeBase.Button': {
         '.active': {
@@ -35,7 +38,7 @@ export default (variables = variable) => {
         'NativeBase.Badge': {
           'NativeBase.Text': {
             fontSize: 11,
-            fontWeight: (Platform.OS === 'ios') ? '600' : undefined,
+            fontWeight: (platform === 'ios') ? '600' : undefined,
             lineHeight: 14,
           },
           position: 'absolute',

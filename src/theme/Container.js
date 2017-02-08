@@ -7,7 +7,7 @@ const deviceHeight = Dimensions.get('window').height;
 export default (variables = variable) => {
   const theme = {
     flex: 1,
-    height: deviceHeight,
+    height: deviceHeight
   };
 
   return theme;

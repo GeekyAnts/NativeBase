@@ -103,7 +103,7 @@ export {
   Text,
   STabs,
   TabContent,
-  View,
+  View
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);

@@ -54,7 +54,7 @@ return newChildren;
 }
 }},{key:'render',value:function render()
 {var _this2=this;
-if(_reactNative.Platform.OS==='ios'||_variables2.default.androidRipple===false){
+if(_reactNative.Platform.OS==='ios'||_variables2.default.androidRipple===false||_reactNative.Platform['Version']<=21){
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
 this.prepareRootProps(),{

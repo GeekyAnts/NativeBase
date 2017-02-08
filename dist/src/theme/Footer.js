@@ -4,6 +4,9 @@ var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _variables=require('./variables');var _variables2=_interopRequireDefault(_variables);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
+var platformStyle=variables.platformStyle;
+var platform=variables.platform;
+
 var footerTheme={
 'NativeBase.Left':{
 'NativeBase.Button':{
@@ -82,12 +85,10 @@ alignItems:'flex-end'},
 backgroundColor:variables.footerDefaultBg,
 flexDirection:'row',
 justifyContent:'center',
-borderTopWidth:_reactNative.Platform.OS==='ios'?variables.borderWidth:undefined,
-borderColor:_reactNative.Platform.OS==='ios'?'#cbcbcb':undefined,
+borderTopWidth:platform==='ios'&&platformStyle!=='material'?variables.borderWidth:undefined,
+borderColor:platform==='ios'&&platformStyle!=='material'?'#cbcbcb':undefined,
 height:variables.footerHeight,
 elevation:3,
-position:'absolute',
-bottom:_reactNative.Platform.OS==='ios'?0:23,
 left:0,
 right:0};
 

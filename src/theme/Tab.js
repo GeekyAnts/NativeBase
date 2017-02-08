@@ -4,25 +4,28 @@ import _ from 'lodash';
 import variable from './variables';
 
 export default (variables = variable) => {
+  const platformStyle = variables.platformStyle;
+  const platform = variables.platform;
+  
   const tabTheme = {
-   		'NativeBase.Button': {
+       'NativeBase.Button': {
         '.active': {
           'NativeBase.Text': {
-            color: variables.activeTab,
+            color: variables.topTabBarActiveTextColor,
             fontSize: variables.tabBarTextSize,
             lineHeight: 16,
             fontWeight: '700',
             paddingVertical: 3,
           },
           'NativeBase.Icon': {
-            color: variables.toolbarDefaultBg,
+            color: variables.topTabBarActiveTextColor,
           },
           'NativeBase.IconNB': {
-            color: variables.toolbarDefaultBg,
+            color: variables.topTabBarActiveTextColor,
           },
           borderBottomWidth: 3,
           borderRadius: null,
-          borderColor: variables.activeTab,
+          borderColor: variables.topTabBarBorderColor,
         },
         'NativeBase.Badge': {
           'NativeBase.Text': {
@@ -38,13 +41,13 @@ export default (variables = variable) => {
           paddingHorizontal: 3,
         },
         'NativeBase.Icon': {
-          color: variables.toolbarDefaultBg,
+          color: variables.topTabBarTextColor,
         },
         'NativeBase.IconNB': {
-          color: variables.toolbarDefaultBg,
+          color: variables.topTabBarTextColor,
         },
         'NativeBase.Text': {
-          color: variables.activeTab,
+          color: variables.topTabBarTextColor,
           fontSize: variables.tabBarTextSize,
           lineHeight: 16,
           paddingVertical: 3,
@@ -73,7 +76,11 @@ export default (variables = variable) => {
       alignSelf: 'stretch',
       borderBottomWidth: 0.5,
       elevation: 3,
-      backgroundColor: variables.toolbarDefaultBg,
+      shadowColor: (platformStyle==='material') ? '#000' : undefined,
+      shadowOffset: (platformStyle==='material') ? {width: 0, height: 2} : undefined,
+      shadowOpacity: (platformStyle==='material') ?  0.2 : undefined,
+      shadowRadius: (platformStyle==='material') ? 1.2 : undefined,
+      backgroundColor: variables.tabDefaultBg,
       borderColor: variables.btnDisabledBg,
   };
 

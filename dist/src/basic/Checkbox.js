@@ -2,41 +2,50 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.CheckBox=undefi
 var _reactNative=require('react-native');
 var _IconNB=require('./IconNB');
 var _theme=require('@shoutem/theme');
-var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
-var _variables=require('../theme/variables');var _variables2=_interopRequireDefault(_variables);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
+var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 
 CheckBox=function(_Component){_inherits(CheckBox,_Component);function CheckBox(){_classCallCheck(this,CheckBox);return _possibleConstructorReturn(this,(CheckBox.__proto__||Object.getPrototypeOf(CheckBox)).apply(this,arguments));}_createClass(CheckBox,[{key:'getBackgroundColor',value:function getBackgroundColor()
+
+
+
+
 {
 var backgroundColor=['transparent'];
+
 if(this.props.checked){
-backgroundColor.push(this.props.color?this.props.color:_variables2.default.checkboxBgColor);
+var variables=this.context.theme['@@shoutem.theme/themeStyle'].variables;
+backgroundColor.push(this.props.color?this.props.color:variables.checkboxBgColor);
 }else{
 backgroundColor.push('transparent');
 }
 return backgroundColor[1];
 }},{key:'render',value:function render()
 {var _this2=this;
+var platformStyle=this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle;
+var platform=this.context.theme['@@shoutem.theme/themeStyle'].variables.platform;
+var variables=this.context.theme['@@shoutem.theme/themeStyle'].variables;
+
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 ref:function ref(c){return _this2._root=c;}},
 this.props,{
 style:{
-borderRadius:_variables2.default.CheckboxRadius,
+borderRadius:variables.CheckboxRadius,
 overflow:'hidden',
-width:_variables2.default.checkboxSize,
-height:_variables2.default.checkboxSize,
-borderWidth:_variables2.default.CheckboxBorderWidth,
-paddingLeft:_variables2.default.CheckboxPaddingLeft-1,
-paddingBottom:_variables2.default.CheckboxPaddingBottom,
-borderColor:this.props.color?this.props.color:_variables2.default.checkboxBgColor,
+width:variables.checkboxSize,
+height:variables.checkboxSize,
+borderWidth:variables.CheckboxBorderWidth,
+paddingLeft:variables.CheckboxPaddingLeft-1,
+paddingBottom:variables.CheckboxPaddingBottom,
+borderColor:this.props.color?this.props.color:variables.checkboxBgColor,
 backgroundColor:this.getBackgroundColor()}}),
 
 
-_react2.default.createElement(_IconNB.IconNB,{name:_reactNative.Platform.OS==='ios'?'ios-checkmark-outline':'md-checkmark'})));
+_react2.default.createElement(_IconNB.IconNB,{name:platform==='ios'&&platformStyle!=='material'?'ios-checkmark-outline':'md-checkmark'})));
 
 
-}}]);return CheckBox;}(_react.Component);
+}}]);return CheckBox;}(_react.Component);CheckBox.contextTypes={theme:_react2.default.PropTypes.object};
 
 
 CheckBox.propTypes=_extends({},

@@ -4,6 +4,9 @@ var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _variables=require('./variables');var _variables2=_interopRequireDefault(_variables);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
+var platformStyle=variables.platformStyle;
+var platform=variables.platform;
+
 var footerTabTheme={
 'NativeBase.Button':{
 '.active':{
@@ -35,7 +38,7 @@ justifyContent:'center',
 'NativeBase.Badge':{
 'NativeBase.Text':{
 fontSize:11,
-fontWeight:_reactNative.Platform.OS==='ios'?'600':undefined,
+fontWeight:platform==='ios'?'600':undefined,
 lineHeight:14},
 
 position:'absolute',

@@ -54,7 +54,7 @@ class Button extends Component {
     }
   }
   render() {
-    if (Platform.OS==='ios' || variable.androidRipple===false) {
+    if (Platform.OS==='ios' || variable.androidRipple===false || Platform['Version'] <= 21) {
       return (
         <TouchableOpacity
           {...this.prepareRootProps()}

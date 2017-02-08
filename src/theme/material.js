@@ -5,7 +5,7 @@ import { Platform, Dimensions, PixelRatio } from 'react-native';
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 const platform = Platform.OS;
-const platformStyle = undefined;
+const platformStyle = 'material';
 
 export default {
   platformStyle,
@@ -22,18 +22,18 @@ export default {
   badgePadding: (platform === 'ios') ? 3 : 0,
 
     // Button
-  btnFontFamily: (platform === 'ios') ? 'System' : 'Roboto_medium',
+  btnFontFamily: (platform === 'ios') ? 'Roboto' : 'Roboto_medium',
   btnDisabledBg: '#b5b5b5',
   btnDisabledClr: '#f1f1f1',
 
     // CheckBox
-  CheckboxRadius: (platform === 'ios') ? 13 : 0,
-  CheckboxBorderWidth: (platform === 'ios') ? 1 : 2,
-  CheckboxPaddingLeft: (platform === 'ios') ? 4 : 2,
+  CheckboxRadius: 0,
+  CheckboxBorderWidth: 2,
+  CheckboxPaddingLeft: 2,
   CheckboxPaddingBottom: (platform === 'ios') ? 0 : 5,
-  CheckboxIconSize: (platform === 'ios') ? 21 : 14,
+  CheckboxIconSize: (platform === 'ios') ? 18 : 14,
   CheckboxIconMarginTop: (platform === 'ios') ? undefined : 1,
-  CheckboxFontSize: (platform === 'ios') ? (23 / 0.9) : 18,
+  CheckboxFontSize: (platform === 'ios') ? 21 : 18,
   DefaultFontSize: 17,
   checkboxBgColor: '#039BE5',
   checkboxSize: 20,
@@ -104,8 +104,8 @@ export default {
 
 
       // Color
-  brandPrimary: (platform === 'ios') ? '#007aff' : '#3F51B5',
-  brandInfo: '#62B1F6',
+  brandPrimary: '#3F51B5',
+  brandInfo: '#3F57D3',
   brandSuccess: '#5cb85c',
   brandDanger: '#d9534f',
   brandWarning: '#f0ad4e',
@@ -113,7 +113,7 @@ export default {
 
 
     // Font
-  fontFamily: (platform === 'ios') ? 'System' : 'Roboto',
+  fontFamily: 'Roboto',
   fontSizeBase: 15,
 
   get fontSizeH1() {
@@ -129,36 +129,36 @@ export default {
 
     // Footer
   footerHeight: 55,
-  footerDefaultBg: (platform === 'ios') ? '#F8F8F8' : '#4179F7',
+  footerDefaultBg: '#3F51B5',
 
 
     // FooterTab
-  tabBarTextColor: (platform === 'ios') ? '#6b6b6b' : '#b3c7f9',
+  tabBarTextColor: '#b3c7f9',
   tabBarTextSize: (platform === 'ios') ? 14 : 11,
-  activeTab: (platform === 'ios') ? '#007aff' : '#fff',
+  activeTab: '#fff',
   sTabBarActiveTextColor: '#007aff',
-  tabBarActiveTextColor: (platform === 'ios') ? '#007aff' : '#fff',
-  tabActiveBgColor: (platform === 'ios') ? '#cde1f9' : undefined,
+  tabBarActiveTextColor: '#fff',
+  tabActiveBgColor: undefined,
 
     // Tab
-  tabDefaultBg: (platform === 'ios') ? '#F8F8F8' : '#4179F7',
-  topTabBarTextColor: (platform === 'ios') ? '#6b6b6b' : '#b3c7f9',
-  topTabBarActiveTextColor: (platform === 'ios') ? '#007aff' : '#fff',
-  topTabActiveBgColor: (platform === 'ios') ? '#cde1f9' : undefined,
-  topTabBarBorderColor: (platform === 'ios') ? '#007aff' : '#fff',
+  tabDefaultBg: '#3F51B5',
+  topTabBarTextColor: '#b3c7f9',
+  topTabBarActiveTextColor: '#fff',
+  topTabActiveBgColor: undefined,
+  topTabBarBorderColor: '#fff',
 
 
     // Header
-  toolbarBtnColor: (platform === 'ios') ? '#007aff' : '#fff',
-  toolbarDefaultBg: (platform === 'ios') ? '#F8F8F8' : '#3F51B5',
+  toolbarBtnColor: '#fff',
+  toolbarDefaultBg: '#3F51B5',
   toolbarHeight: (platform === 'ios') ? 64 : 56,
   toolbarIconSize: (platform === 'ios') ? 20 : 22,
   toolbarSearchIconSize: (platform === 'ios') ? 20 : 23,
-  toolbarInputColor: (platform === 'ios') ? '#CECDD2' : '#fff',
+  toolbarInputColor: '#fff',
   searchBarHeight: (platform === 'ios') ? 30 : 40,
   toolbarInverseBg: '#222',
-  toolbarTextColor: (platform === 'ios') ? '#000' : '#fff',
-  toolbarDefaultBorder: (platform === 'ios') ? '#a7a6ab' : '#3F51B5',
+  toolbarTextColor: '#fff',
+  toolbarDefaultBorder: '#3F51B5',
   get statusBarColor() {
     return color(this.toolbarDefaultBg).darken(0.2).hexString();
   },
@@ -168,7 +168,7 @@ export default {
   iconFamily: 'Ionicons',
   iconFontSize: (platform === 'ios') ? 30 : 28,
   iconMargin: 7,
-  iconHeaderSize: (platform === 'ios') ? 33 : 28,
+  iconHeaderSize: (platform === 'ios') ? 29 : 28,
 
 
     // InputGroup
@@ -254,17 +254,17 @@ export default {
 
 
     // Title
-  titleFontfamily: (platform === 'ios') ? 'System' : 'Roboto_medium',
-  titleFontSize: (platform === 'ios') ? 17 : 19,
-  subTitleFontSize: (platform === 'ios') ? 12 : 14,
-  subtitleColor: (platform === 'ios') ? '#8e8e93' : '#FFF',
+  titleFontfamily: (platform === 'ios') ? 'Roboto' : 'Roboto_medium',
+  titleFontSize: 19,
+  subTitleFontSize: 14,
+  subtitleColor: '#FFF',
 
     // New Variable
-  titleFontColor: (platform === 'ios') ? '#000' : '#FFF',
+  titleFontColor: '#FFF',
 
 
     // Other
-  borderRadiusBase: (platform === 'ios') ? 5 : 2,
+  borderRadiusBase: 2,
   borderWidth: (1/PixelRatio.getPixelSizeForLayoutSize(1)),
   contentPadding: 10,
 

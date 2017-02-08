@@ -4,6 +4,9 @@ import _ from 'lodash';
 import variable from './variables';
 
 export default (variables = variable) => {
+  const platformStyle = variables.platformStyle;
+  const platform = variables.platform;
+
   const listItemTheme = {
     'NativeBase.InputGroup': {
       'NativeBase.Icon': {
@@ -25,7 +28,7 @@ export default (variables = variable) => {
         'NativeBase.Icon': {
           backgroundColor: 'transparent',
           color: variables.dropdownLinkColor,
-          fontSize: (Platform.OS === 'ios') ? variables.iconFontSize - 10 : variables.iconFontSize - 5,
+          fontSize: (platform === 'ios') ? variables.iconFontSize - 10 : variables.iconFontSize - 5,
           alignItems: 'center',
           marginTop: 2,
           paddingRight: 8,
@@ -42,7 +45,7 @@ export default (variables = variable) => {
         alignItems: 'center',
         justifyContent: 'flex-start',
         flex: 1,
-        height: (Platform.OS === 'ios') ? 30 : 40,
+        height: (platform === 'ios') ? 30 : 40,
         borderColor: 'transparent',
         backgroundColor: '#fff',
         borderRadius: 5,
@@ -53,11 +56,11 @@ export default (variables = variable) => {
             fontWeight: '500',
           },
           paddingHorizontal: null,
-          paddingLeft: (Platform.OS === 'ios') ? 10 : null,
+          paddingLeft: (platform === 'ios') ? 10 : null,
         },
-        paddingHorizontal: (Platform.OS === 'ios') ? undefined : null,
-        width: (Platform.OS === 'ios') ? undefined : 0,
-        height: (Platform.OS === 'ios') ? undefined : 0,
+        paddingHorizontal: (platform === 'ios') ? undefined : null,
+        width: (platform === 'ios') ? undefined : 0,
+        height: (platform === 'ios') ? undefined : 0,
       },
       backgroundColor: variables.toolbarInputColor,
       padding: 10,
@@ -75,17 +78,17 @@ export default (variables = variable) => {
         '.first': {
           paddingTop: variables.listItemPadding + 3,
         },
-        borderBottomWidth: (Platform.OS === 'ios') ? variables.borderWidth : null,
+        borderBottomWidth: (platform === 'ios') ? variables.borderWidth : null,
         marginLeft: null,
         padding: variables.listItemPadding,
         paddingLeft: variables.listItemPadding + 5,
-        paddingTop: (Platform.OS === 'ios') ? variables.listItemPadding + 25 : undefined,
-        paddingBottom: (Platform.OS === 'android') ? variables.listItemPadding + 20 : undefined,
+        paddingTop: (platform === 'ios') ? variables.listItemPadding + 25 : undefined,
+        paddingBottom: (platform === 'android') ? variables.listItemPadding + 20 : undefined,
         flexDirection: 'row',
         borderColor: variables.listBorderColor,
         'NativeBase.Text': {
           fontSize: 14,
-          color: (Platform.OS === 'ios') ? undefined : variables.listNoteColor,
+          color: (platform === 'ios') ? undefined : variables.listNoteColor,
         },
       },
       '.itemDivider': {

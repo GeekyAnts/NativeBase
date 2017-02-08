@@ -4,6 +4,9 @@ var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _variables=require('./variables');var _variables2=_interopRequireDefault(_variables);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_variables2.default;
+var platformStyle=variables.platformStyle;
+var platform=variables.platform;
+
 var fabTheme={
 'NativeBase.Button':{
 alignItems:'center',
@@ -15,7 +18,7 @@ alignSelf:'center'},
 'NativeBase.IconNB':{
 alignSelf:'center',
 fontSize:20,
-lineHeight:_reactNative.Platform.OS==='ios'?24:undefined}}};
+lineHeight:platform==='ios'?24:undefined}}};
 
 
 

@@ -5,6 +5,9 @@ import variable from './variables';
 
 
 export default (variables = variable) => {
+  const platformStyle = variables.platformStyle;
+  const platform = variables.platform;
+
   const buttonTheme = {
       '.disabled': {
         backgroundColor: variables.btnDisabledBg,
@@ -432,13 +435,13 @@ export default (variables = variable) => {
         color: variables.inverseTextColor,
         fontSize: 24,
         marginHorizontal: 5,
-        paddingTop: (Platform.OS === 'ios') ? 2 : undefined
+        paddingTop: (platform === 'ios') ? 2 : undefined
       },
       'NativeBase.IconNB': {
         color: variables.inverseTextColor,
         fontSize: 24,
         marginHorizontal: 5,
-        paddingTop: (Platform.OS === 'ios') ? 2 : undefined
+        paddingTop: (platform === 'ios') ? 2 : undefined
       },
       '.iconLeft': {
         'NativeBase.IconNB': {

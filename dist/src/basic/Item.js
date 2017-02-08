@@ -1,8 +1,9 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Item=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
+var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
+
 var _reactNative=require('react-native');
 var _Input=require('./Input');
 var _Label=require('./Label');
-var _Icon=require('./Icon');
 
 var _theme=require('@shoutem/theme');
 var _variables=require('../theme/variables');var _variables2=_interopRequireDefault(_variables);
@@ -85,7 +86,7 @@ var childrenArray=_react2.default.Children.toArray(this.props.children);
 
 var label=[];
 var labelProps={};
-label=_.remove(childrenArray,function(item){
+label=_lodash2.default.remove(childrenArray,function(item){
 if(item.type===_Label.Label){
 labelProps=item.props;
 return item;
@@ -94,33 +95,19 @@ return item;
 
 var input=[];
 var inputProps={};
-input=_.remove(childrenArray,function(item){
+input=_lodash2.default.remove(childrenArray,function(item){
 if(item.type===_Input.Input){
 inputProps=item.props;
 return item;
 }
 });
-
-var icon=[];
-var iconProps={};
-icon=_.remove(childrenArray,function(item){
-if(item.type===_Icon.Icon){
-iconProps=item.props;
-return item;
-}
-});
-if(this.props.floatingLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:'i1'},iconProps,{style:{top:6}})));
-newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?22:22,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:30}},_react2.default.createElement(_Label.Label,{style:{fontSize:this.state.text?13:undefined}},this.renderLabel(label,labelProps))));
-newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onChangeText:function onChangeText(text){return _this2.setState({text:text});}})));
-}else
-if(this.props.floatingLabel){
+if(label.length&&input.length){
+if(!this.props.inlineLabel&&!this.props.stackedLabel&&!this.props.fixedLabel){
 newChildren.push(this.props.floatingLabel?_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?15:0,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:30}},_react2.default.createElement(_Label.Label,{style:{fontSize:this.state.text?13:undefined}},this.renderLabel(label,labelProps))):_react2.default.createElement(_Label.Label,{style:{width:this.state.text?0:undefined,marginLeft:this.props.last?null:15}},this.renderLabel(label,labelProps)));
 newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onChangeText:function onChangeText(text){return _this2.setState({text:text});}})));
-}else
-if(this.props.stackedLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'s',style:{flexDirection:'row',flex:1,width:_variables2.default.deviceWidth-20}},_react2.default.createElement(_Icon.Icon,_extends({key:'s1'},iconProps,{style:{marginTop:36}})),_react2.default.createElement(_reactNative.View,{style:{flexDirection:'column'}},_react2.default.createElement(_Label.Label,_extends({key:'s2'},labelProps)),_react2.default.createElement(_Input.Input,_extends({key:'s3'},inputProps,{onChangeText:function onChangeText(text){return _this2.setState({text:text});},style:{width:_variables2.default.deviceWidth-40}})))));
-
+}else{
+return this.props.children;
+}
 }else
 {
 return this.props.children;

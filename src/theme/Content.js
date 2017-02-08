@@ -9,8 +9,7 @@ export default (variables = variable) => {
         padding: variables.contentPadding,
       },
       flex: 1,
-      backgroundColor: 'transparent',
-      marginBottom: (Platform.OS === 'ios') ? - 20 : 25,
+      backgroundColor: 'transparent'
   };
 
   return contentTheme;

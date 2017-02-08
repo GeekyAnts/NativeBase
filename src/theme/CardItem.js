@@ -4,6 +4,9 @@ import _ from 'lodash';
 import variable from './variables';
 
 export default (variables = variable) => {
+  const platformStyle = variables.platformStyle;
+  const platform = variables.platform;
+
   const cardItemTheme = {
       'NativeBase.Left': {
         'NativeBase.Body': {
@@ -56,7 +59,7 @@ export default (variables = variable) => {
 
       '.content': {
         'NativeBase.Text': {
-          color: (Platform.OS === 'ios') ? '#555' : '#222',
+          color: (platform === 'ios') ? '#555' : '#222',
           fontSize: variables.DefaultFontSize - 3,
         },
       },
@@ -160,14 +163,14 @@ export default (variables = variable) => {
       '.header': {
         'NativeBase.Text': {
           fontSize: 16,
-          fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
+          fontWeight: (platform === 'ios') ? '500' : undefined,
         },
         '.bordered': {
           'NativeBase.Text': {
             color: variables.sTabBarActiveTextColor,
-            fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
+            fontWeight: (platform === 'ios') ? '500' : undefined,
           },
-          borderBottomWidth: (Platform.OS === 'ios') ? variables.borderWidth : null,
+          borderBottomWidth: (platform === 'ios') ? variables.borderWidth : null,
         },
         borderBottomWidth: null,
         paddingVertical: variables.listItemPadding + 5,
@@ -175,14 +178,14 @@ export default (variables = variable) => {
       '.footer': {
         'NativeBase.Text': {
           fontSize: 16,
-          fontWeight: (Platform.OS === 'ios') ? '500' : undefined,
+          fontWeight: (platform === 'ios') ? '500' : undefined,
         },
         '.bordered': {
           'NativeBase.Text': {
             color: variables.activeTab,
             fontWeight: '500',
           },
-          borderTopWidth: (Platform.OS === 'ios') ? variables.borderWidth : null,
+          borderTopWidth: (platform === 'ios') ? variables.borderWidth : null,
         },
         borderBottomWidth: null,
       },

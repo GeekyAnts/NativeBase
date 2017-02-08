@@ -7,16 +7,21 @@ var _variables=require('../theme/variables');var _variables2=_interopRequireDefa
 
 Header=function(_Component){_inherits(Header,_Component);function Header(){_classCallCheck(this,Header);return _possibleConstructorReturn(this,(Header.__proto__||Object.getPrototypeOf(Header)).apply(this,arguments));}_createClass(Header,[{key:'render',value:function render()
 
+
+
+
 {var _this2=this;
+var platformStyle=this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle;
+
 return(
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.StatusBar,{
 backgroundColor:this.props.androidStatusBarColor?this.props.androidStatusBarColor:_variables2.default.statusBarColor,
-barStyle:this.props.iosBarStyle?this.props.iosBarStyle:undefined}),
+barStyle:this.props.iosBarStyle?this.props.iosBarStyle:platformStyle==='material'?'light-content':undefined}),
 _react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props))));
 
 
-}}]);return Header;}(_react.Component);
+}}]);return Header;}(_react.Component);Header.contextTypes={theme:_react2.default.PropTypes.object};
 
 
 Header.propTypes=_extends({},

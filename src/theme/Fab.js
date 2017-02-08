@@ -4,6 +4,9 @@ import _ from 'lodash';
 import variable from './variables';
 
 export default (variables = variable) => {
+  const platformStyle = variables.platformStyle;
+  const platform = variables.platform;
+
   const fabTheme = {
     'NativeBase.Button': {
         alignItems: 'center',
@@ -15,7 +18,7 @@ export default (variables = variable) => {
         'NativeBase.IconNB': {
           alignSelf: 'center',
           fontSize: 20,
-          lineHeight: (Platform.OS === 'ios') ? 24 : undefined,
+          lineHeight: (platform === 'ios') ? 24 : undefined,
         },
     },
   };
