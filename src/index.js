@@ -37,7 +37,7 @@ import { Footer } from './basic/Footer';
 import { FooterTab } from './basic/FooterTab';
 import { Form } from './basic/Form';
 import { PickerNB } from './basic/Picker';
-import { List } from './basic/List';
+import { List } from './backward/Widgets/List';
 import { ListItem } from './basic/ListItem';
 import { Separator } from './basic/Separator';
 import { DeckSwiper } from './basic/DeckSwiper';
