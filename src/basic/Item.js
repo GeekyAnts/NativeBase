@@ -119,7 +119,7 @@ class Item extends Component {
         newChildren.push(<Input key="l2" {...inputProps} onChangeText={text => this.setState({ text })} />);
     }
     else if (this.props.stackedLabel && icon.length) {
-      newChildren.push(<View key="s" style={{ flexDirection: 'row', flex: 1, width: variables.deviceWidth - 20 }}><Icon key="s1" {...iconProps} style={{ marginTop: 36 }} /><View style={{ flexDirection: 'column' }}><Label key="s2" {...labelProps}></Label><Input key="s3" {...inputProps} onChangeText={text => this.setState({ text })} style={{ width: variables.deviceWidth - 40 }} /></View></View>);
+      newChildren.push(<View key="s" style={{ flexDirection: 'row', flex: 1, width: variables.deviceWidth - 15 }}><Icon key="s1" {...iconProps} style={{ marginTop: 36 }} /><View style={{ flexDirection: 'column' }}><Label key="s2" {...labelProps}></Label><Input key="s3" {...inputProps} onChangeText={text => this.setState({ text })} style={{ width: variables.deviceWidth - 40 }} /></View></View>);
 
     }
     else {

@@ -72,11 +72,11 @@ export default (variables = variable) => {
       },
       'NativeBase.Icon': {
         fontSize: 24,
-        paddingRight: 5,
+        paddingRight: 8,
       },
       'NativeBase.IconNB': {
         fontSize: 24,
-        paddingRight: 5,
+        paddingRight: 8,
       },
       'NativeBase.Input': {
         height: variables.inputHeightBase,
