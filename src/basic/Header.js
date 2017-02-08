@@ -4,6 +4,7 @@ import { View, StatusBar } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 import variable from '../theme/variables';
+import _ from 'lodash';
 
 class Header extends Component {
   static contextTypes = {
@@ -11,7 +12,7 @@ class Header extends Component {
   }
 
   render() {
-    const platformStyle = this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle;
+    const platformStyle = _.get(this.context.theme, ['@@shoutem.theme/themeStyle'], 'variables.platformStyle', undefined);
 
     return (
       <View>

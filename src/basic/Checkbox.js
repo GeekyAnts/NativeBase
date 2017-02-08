@@ -3,7 +3,8 @@ import { TouchableOpacity, Platform } from 'react-native';
 import { IconNB } from './IconNB';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
-
+import variable from '../theme/variables';
+import _ from 'lodash';
 
 class CheckBox extends Component {
   static contextTypes = {
@@ -14,7 +15,7 @@ class CheckBox extends Component {
     const backgroundColor = ['transparent'];
 
     if (this.props.checked) {
-      const variables = this.context.theme['@@shoutem.theme/themeStyle'].variables;
+      const variables = _.get(this.context.theme, ['@@shoutem.theme/themeStyle'], 'variables', variable);
       backgroundColor.push((this.props.color) ? this.props.color : variables.checkboxBgColor);
     } else {
       backgroundColor.push('transparent');
@@ -22,10 +23,9 @@ class CheckBox extends Component {
     return backgroundColor[1];
   }
   render() {
-    const platformStyle = this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle;
-    const platform = this.context.theme['@@shoutem.theme/themeStyle'].variables.platform;
-    const variables = this.context.theme['@@shoutem.theme/themeStyle'].variables;
-
+    const variables = _.get(this.context.theme, ['@@shoutem.theme/themeStyle'].variables, variable);
+    const platformStyle = variables.platformStyle;
+    const platform = variables.platform;
     return (
       <TouchableOpacity
         ref={c => this._root = c}

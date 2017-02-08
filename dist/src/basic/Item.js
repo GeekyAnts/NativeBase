@@ -7,7 +7,8 @@ var _Icon=require('./Icon');
 var _theme=require('@shoutem/theme');
 var _variables=require('../theme/variables');var _variables2=_interopRequireDefault(_variables);
 var _computeProps=require('../Utils/computeProps');var _computeProps2=_interopRequireDefault(_computeProps);
-var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
+var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
+var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 Item=function(_Component){_inherits(Item,_Component);
 function Item(props){_classCallCheck(this,Item);var _this=_possibleConstructorReturn(this,(Item.__proto__||Object.getPrototypeOf(Item)).call(this,
@@ -85,7 +86,7 @@ var childrenArray=_react2.default.Children.toArray(this.props.children);
 
 var label=[];
 var labelProps={};
-label=_.remove(childrenArray,function(item){
+label=_lodash2.default.remove(childrenArray,function(item){
 if(item.type===_Label.Label){
 labelProps=item.props;
 return item;
@@ -94,7 +95,7 @@ return item;
 
 var input=[];
 var inputProps={};
-input=_.remove(childrenArray,function(item){
+input=_lodash2.default.remove(childrenArray,function(item){
 if(item.type===_Input.Input){
 inputProps=item.props;
 return item;
@@ -103,7 +104,7 @@ return item;
 
 var icon=[];
 var iconProps={};
-icon=_.remove(childrenArray,function(item){
+icon=_lodash2.default.remove(childrenArray,function(item){
 if(item.type===_Icon.Icon){
 iconProps=item.props;
 return item;

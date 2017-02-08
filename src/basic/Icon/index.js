@@ -5,6 +5,8 @@ import { connectStyle } from '@shoutem/theme';
 
 import { IconNB } from '../IconNB';
 import ic from './NBIcons.json';
+import variable from './../../theme/variables';
+import _ from 'lodash';
 
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
@@ -13,13 +15,10 @@ class Icon extends Component {
     theme: React.PropTypes.object,
   }
 
-  componentDidMount() {
-    console.log('this.context.theme', this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle);
-  }
-
   getName() {
-    const platformStyle = this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle;
-    const platform = this.context.theme['@@shoutem.theme/themeStyle'].variables.platform;
+    const variables = _.get(this.context.theme, ['@@shoutem.theme/themeStyle'].variables, variable);
+    const platformStyle = variables.platformStyle;
+    const platform = variables.platform;
 
     if (typeof ic[this.props.name]!=='object' ) {
       return this.props.name;

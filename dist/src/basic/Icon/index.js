@@ -5,21 +5,20 @@ var _theme=require('@shoutem/theme');
 
 var _IconNB=require('../IconNB');
 var _NBIcons=require('./NBIcons.json');var _NBIcons2=_interopRequireDefault(_NBIcons);
+var _variables=require('./../../theme/variables');var _variables2=_interopRequireDefault(_variables);
+var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 
 var _mapPropsToStyleNames=require('../../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
-Icon=function(_Component){_inherits(Icon,_Component);function Icon(){_classCallCheck(this,Icon);return _possibleConstructorReturn(this,(Icon.__proto__||Object.getPrototypeOf(Icon)).apply(this,arguments));}_createClass(Icon,[{key:'componentDidMount',value:function componentDidMount()
+Icon=function(_Component){_inherits(Icon,_Component);function Icon(){_classCallCheck(this,Icon);return _possibleConstructorReturn(this,(Icon.__proto__||Object.getPrototypeOf(Icon)).apply(this,arguments));}_createClass(Icon,[{key:'getName',value:function getName()
 
 
 
 
 {
-console.log('this.context.theme',this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle);
-}},{key:'getName',value:function getName()
-
-{
-var platformStyle=this.context.theme['@@shoutem.theme/themeStyle'].variables.platformStyle;
-var platform=this.context.theme['@@shoutem.theme/themeStyle'].variables.platform;
+var variables=_lodash2.default.get(this.context.theme,['@@shoutem.theme/themeStyle'].variables,_variables2.default);
+var platformStyle=variables.platformStyle;
+var platform=variables.platform;
 
 if(typeof _NBIcons2.default[this.props.name]!=='object'){
 return this.props.name;

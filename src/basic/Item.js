@@ -8,6 +8,7 @@ import { connectStyle } from '@shoutem/theme';
 import variables from '../theme/variables';
 import computeProps from '../Utils/computeProps';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import _ from 'lodash';
 
 class Item extends Component {
   constructor(props) {
