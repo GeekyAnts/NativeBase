@@ -474,6 +474,10 @@ export default (variables = variable) => {
       alignSelf: 'flex-start',
       flexDirection: 'row',
       elevation: 2,
+      shadowColor: (platformStyle==='material') ? '#000' : undefined,
+      shadowOffset: (platformStyle==='material') ? {width: 0, height: 2} : undefined,
+      shadowOpacity: (platformStyle==='material') ?  0.2 : undefined,
+      shadowRadius: (platformStyle==='material') ? 1.2 : undefined,
       alignItems: 'center',
       justifyContent: 'space-between',
   };
