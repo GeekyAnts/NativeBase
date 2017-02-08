@@ -16,7 +16,7 @@ class Icon extends Component {
   }
 
   getName() {
-    const variables = _.get(this.context.theme, ['@@shoutem.theme/themeStyle'].variables, variable);
+    const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
     const platformStyle = variables.platformStyle;
     const platform = variables.platform;
 

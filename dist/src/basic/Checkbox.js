@@ -15,7 +15,7 @@ CheckBox=function(_Component){_inherits(CheckBox,_Component);function CheckBox()
 var backgroundColor=['transparent'];
 
 if(this.props.checked){
-var variables=_lodash2.default.get(this.context.theme,['@@shoutem.theme/themeStyle'],'variables',_variables2.default);
+var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:_variables2.default;
 backgroundColor.push(this.props.color?this.props.color:variables.checkboxBgColor);
 }else{
 backgroundColor.push('transparent');
@@ -23,9 +23,10 @@ backgroundColor.push('transparent');
 return backgroundColor[1];
 }},{key:'render',value:function render()
 {var _this2=this;
-var variables=_lodash2.default.get(this.context.theme,['@@shoutem.theme/themeStyle'].variables,_variables2.default);
+var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:_variables2.default;
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
+
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 ref:function ref(c){return _this2._root=c;}},

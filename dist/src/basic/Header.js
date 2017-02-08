@@ -12,7 +12,8 @@ Header=function(_Component){_inherits(Header,_Component);function Header(){_clas
 
 
 {var _this2=this;
-var platformStyle=_lodash2.default.get(this.context.theme,['@@shoutem.theme/themeStyle'],'variables.platformStyle',undefined);
+var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:_variables2.default;
+var platformStyle=variables.platformStyle;
 
 return(
 _react2.default.createElement(_reactNative.View,null,

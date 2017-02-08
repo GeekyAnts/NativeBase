@@ -12,7 +12,8 @@ class Header extends Component {
   }
 
   render() {
-    const platformStyle = _.get(this.context.theme, ['@@shoutem.theme/themeStyle'], 'variables.platformStyle', undefined);
+    const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
+    const platformStyle = variables.platformStyle;
 
     return (
       <View>

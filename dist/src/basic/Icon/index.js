@@ -16,7 +16,7 @@ Icon=function(_Component){_inherits(Icon,_Component);function Icon(){_classCallC
 
 
 {
-var variables=_lodash2.default.get(this.context.theme,['@@shoutem.theme/themeStyle'].variables,_variables2.default);
+var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:_variables2.default;
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 

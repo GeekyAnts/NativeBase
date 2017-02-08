@@ -15,7 +15,7 @@ class CheckBox extends Component {
     const backgroundColor = ['transparent'];
 
     if (this.props.checked) {
-      const variables = _.get(this.context.theme, ['@@shoutem.theme/themeStyle'], 'variables', variable);
+      const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
       backgroundColor.push((this.props.color) ? this.props.color : variables.checkboxBgColor);
     } else {
       backgroundColor.push('transparent');
@@ -23,9 +23,10 @@ class CheckBox extends Component {
     return backgroundColor[1];
   }
   render() {
-    const variables = _.get(this.context.theme, ['@@shoutem.theme/themeStyle'].variables, variable);
+    const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
     const platformStyle = variables.platformStyle;
     const platform = variables.platform;
+    // console.log('variables', variables);
     return (
       <TouchableOpacity
         ref={c => this._root = c}
