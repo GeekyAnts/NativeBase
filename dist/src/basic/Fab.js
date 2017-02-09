@@ -111,7 +111,7 @@ top:this.props.position?this.fabTopValue(this.props.position).top:undefined,
 bottom:this.props.position?this.fabTopValue(this.props.position).bottom:20,
 right:this.props.position?this.fabTopValue(this.props.position).right:20,
 left:this.props.position?this.fabTopValue(this.props.position).left:undefined,
-width:this.containerWidth,
+width:56,
 height:this.containerHeight,
 flexDirection:this.props.direction?this.props.direction=='left || right'?'row':'column':'column',
 alignItems:'center'},
@@ -208,7 +208,7 @@ return true;
 var newChildren=[];
 
 {childrenArray.map(function(child,i){
-newChildren.push(_react2.default.createElement(_Button.Button,_extends({
+newChildren.push(_react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
