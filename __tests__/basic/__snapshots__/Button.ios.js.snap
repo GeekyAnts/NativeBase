@@ -1,0 +1,31 @@
+exports[`test renders regular button 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "borderRadius": 2,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "zIndex": 999,
+      }
+    } />
+  Test
+</View>
+`;
