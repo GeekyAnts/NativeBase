@@ -1,6 +1,7 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native');
+Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _reactNative=require('react-native');
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 
+var _Picker=require('./Picker');var _Picker2=_interopRequireDefault(_Picker);
 var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
@@ -334,7 +335,7 @@ marginLeft:null},
 flex:1,
 height:44,
 justifyContent:'center',
-borderBottomWidth:1,
+borderBottomWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 borderColor:variables.listBorderColor},
 
 'NativeBase.Right':{
@@ -356,13 +357,16 @@ alignSelf:'center',
 paddingLeft:5,
 paddingTop:3},
 
+'NativeBase.PickerNB':_extends({},
+(0,_Picker2.default)()),
+
 flexDirection:'row',
 alignItems:'center',
 flex:0,
 alignSelf:'stretch',
 height:44,
 justifyContent:'flex-end',
-borderBottomWidth:1,
+borderBottomWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 borderColor:variables.listBorderColor,
 paddingRight:variables.listItemPadding+5},
 

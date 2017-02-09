@@ -107,10 +107,11 @@ class PickerNB extends Component {
         <Button
           style={this.props.style}
           dark
+          picker
           transparent
           onPress={() => { this._setModalVisible(true); }}
         >
-          <Text style={this.props.textStyle}>{this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel}</Text>
+          <Text note={(this.props.note)} style={this.props.textStyle}>{this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel}</Text>
           {(this.props.iosIcon === undefined) ? null : this.renderIcon()}
         </Button>
         <Modal

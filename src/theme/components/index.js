@@ -182,6 +182,13 @@ export default (variables = variable) => {
       ...textAreaTheme(variables),
     },
 
+    'NativeBase.PickerNB': {
+      'NativeBase.Button': {
+        'NativeBase.Text': {
+        },
+      },
+    },
+
     'NativeBase.Tab': {
      ...tabTheme(variables),
     },

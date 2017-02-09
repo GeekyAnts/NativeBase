@@ -463,6 +463,14 @@ marginLeft:10,
 marginRight:0}},
 
 
+'.picker':{
+'NativeBase.Text':{
+'.note':{
+fontSize:16,
+lineHeight:null}}},
+
+
+
 
 paddingVertical:variables.buttonPadding,
 paddingHorizontal:variables.buttonPadding+10,

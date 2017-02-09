@@ -182,6 +182,13 @@ alignSelf:'center'}}),
 (0,_Textarea2.default)(variables)),
 
 
+'NativeBase.PickerNB':{
+'NativeBase.Button':{
+'NativeBase.Text':{}}},
+
+
+
+
 'NativeBase.Tab':_extends({},
 (0,_Tab2.default)(variables)),
 
