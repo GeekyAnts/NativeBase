@@ -3,8 +3,8 @@ var _lodash=require('lodash');
 var _reactNativeEasyGrid=require('react-native-easy-grid');
 var _Gravatar=require('./backward/Widgets/Gravatar');
 var _init=require('./init');var _init2=_interopRequireDefault(_init);
-var _theme2=require('./theme');var _theme3=_interopRequireDefault(_theme2);
-var _variables=require('./theme/variables');var _variables2=_interopRequireDefault(_variables);
+var _components=require('./theme/components');var _components2=_interopRequireDefault(_components);
+var _platform=require('./theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _Drawer=require('./basic/Drawer');var _Drawer2=_interopRequireDefault(_Drawer);
 var _Swipe=require('./basic/Swipe');
 var _Text=require('./basic/Text');
@@ -54,8 +54,8 @@ var _Subtitle=require('./backward/Widgets/Subtitle');function _interopRequireDef
 
 
 Swipeout=_Swipe.Swipeout;exports.
-getTheme=_theme3.default;exports.
-variables=_variables2.default;exports.
+getTheme=_components2.default;exports.
+variables=_platform2.default;exports.
 StyleProvider=_theme.StyleProvider;exports.
 Drawer=_Drawer2.default;exports.
 Button=_Button.Button;exports.

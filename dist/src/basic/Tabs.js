@@ -2,24 +2,30 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.Tabs=undefined;
 var _reactNative=require('react-native');
 var _reactNativeScrollableTabView=require('react-native-scrollable-tab-view');var _reactNativeScrollableTabView2=_interopRequireDefault(_reactNativeScrollableTabView);
 
-var _variables=require('../theme/variables');var _variables2=_interopRequireDefault(_variables);
+var _platform=require('../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _theme=require('@shoutem/theme');
 var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 Tabs=function(_Component){_inherits(Tabs,_Component);function Tabs(){_classCallCheck(this,Tabs);return _possibleConstructorReturn(this,(Tabs.__proto__||Object.getPrototypeOf(Tabs)).apply(this,arguments));}_createClass(Tabs,[{key:'render',value:function render()
+
+
+
+
 {var _this2=this;
+var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:variables;
+
 return(
 _react2.default.createElement(_reactNativeScrollableTabView2.default,_extends({
 ref:function ref(c){return _this2._root=c;}},this.props,{
-tabBarBackgroundColor:_reactNative.Platform.OS==='ios'?undefined:_variables2.default.toolbarDefaultBg,
-tabBarInactiveTextColor:_variables2.default.tabBarActiveTextColor,
-tabBarActiveTextColor:_variables2.default.tabBarActiveTextColor,
-tabBarUnderlineStyle:{backgroundColor:_variables2.default.tabBarActiveTextColor}}),
+tabBarBackgroundColor:_reactNative.Platform.OS==='ios'?undefined:variables.toolbarDefaultBg,
+tabBarInactiveTextColor:variables.tabBarActiveTextColor,
+tabBarActiveTextColor:variables.tabBarActiveTextColor,
+tabBarUnderlineStyle:{backgroundColor:variables.tabBarActiveTextColor}}),
 
 this.props.children));
 
 
-}}]);return Tabs;}(_react.Component);
+}}]);return Tabs;}(_react.Component);Tabs.contextTypes={theme:_react2.default.PropTypes.object};
 
 
 Tabs.propTypes=_extends({},
