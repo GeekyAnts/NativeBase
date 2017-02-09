@@ -26,7 +26,6 @@ class CheckBox extends Component {
     const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
     const platformStyle = variables.platformStyle;
     const platform = variables.platform;
-    // console.log('variables', variables);
     return (
       <TouchableOpacity
         ref={c => this._root = c}
