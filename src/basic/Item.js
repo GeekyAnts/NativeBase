@@ -111,11 +111,11 @@ class Item extends Component {
     });
     if(this.props.floatingLabel && icon.length) {
         newChildren.push(<Icon key="i1" {...iconProps} style={{ top: 6 }} />);
-        newChildren.push(<Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 22 : 22, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : 30, }}><Label style={{fontSize: (this.state.text) ? 13 : undefined}}>{this.renderLabel(label, labelProps)}</Label></Animated.View>);
+        newChildren.push(<Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 22 : 22, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : undefined, paddingBottom: (Platform.OS === 'ios') ? undefined : 12 }}><Label style={{fontSize: (this.state.text) ? 13 : undefined}}>{this.renderLabel(label, labelProps)}</Label></Animated.View>);
         newChildren.push(<Input key="l2" {...inputProps} onChangeText={text => this.setState({ text })} />);
     }
     else if (this.props.floatingLabel) {
-        newChildren.push((this.props.floatingLabel) ? <Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 15 : 0, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : 30, }}><Label style={{fontSize: (this.state.text) ? 13 : undefined}}>{this.renderLabel(label, labelProps)}</Label></Animated.View> : <Label style={{width: (this.state.text) ? 0 : undefined, marginLeft: (this.props.last) ? null : 15}}>{this.renderLabel(label, labelProps)}</Label>);
+        newChildren.push((this.props.floatingLabel) ? <Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 15 : 0, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : undefined, paddingBottom: (Platform.OS === 'ios') ? undefined : 12 }}><Label style={{fontSize: (this.state.text) ? 13 : undefined}}>{this.renderLabel(label, labelProps)}</Label></Animated.View> : <Label style={{width: (this.state.text) ? 0 : undefined, marginLeft: (this.props.last) ? null : 15}}>{this.renderLabel(label, labelProps)}</Label>);
         newChildren.push(<Input key="l2" {...inputProps} onChangeText={text => this.setState({ text })} />);
     }
     else if (this.props.stackedLabel && icon.length) {

@@ -82,7 +82,7 @@ export default (variables = variable) => {
         height: variables.inputHeightBase,
         color: variables.inputColor,
         flex: 1,
-        top: 1.5,
+        top: (Platform.OS === 'ios') ? 1.5 : undefined,
         fontSize: variables.inputFontSize,
         lineHeight: variables.inputLineHeight,
       },
@@ -104,7 +104,7 @@ export default (variables = variable) => {
       },
       '.regular': {
         'NativeBase.Input': {
-          paddingLeft: 5,
+          paddingLeft: 8,
         },
         'NativeBase.Icon': {
           paddingLeft: 10,
@@ -120,7 +120,7 @@ export default (variables = variable) => {
       },
       '.rounded': {
         'NativeBase.Input': {
-          paddingLeft: 5,
+          paddingLeft: 8,
         },
         'NativeBase.Icon': {
           paddingLeft: 10,
@@ -200,6 +200,7 @@ export default (variables = variable) => {
       backgroundColor: 'transparent',
       flexDirection: 'row',
       alignItems: 'center',
+      marginLeft: 2,
   };
 
 

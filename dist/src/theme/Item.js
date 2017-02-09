@@ -82,7 +82,7 @@ paddingRight:8},
 height:variables.inputHeightBase,
 color:variables.inputColor,
 flex:1,
-top:1.5,
+top:_reactNative.Platform.OS==='ios'?1.5:undefined,
 fontSize:variables.inputFontSize,
 lineHeight:variables.inputLineHeight},
 
@@ -104,7 +104,7 @@ borderColor:variables.inputBorderColor},
 
 '.regular':{
 'NativeBase.Input':{
-paddingLeft:5},
+paddingLeft:8},
 
 'NativeBase.Icon':{
 paddingLeft:10},
@@ -120,7 +120,7 @@ borderColor:variables.inputBorderColor},
 
 '.rounded':{
 'NativeBase.Input':{
-paddingLeft:5},
+paddingLeft:8},
 
 'NativeBase.Icon':{
 paddingLeft:10},
@@ -199,7 +199,8 @@ borderLeftWidth:0,
 borderColor:variables.inputBorderColor,
 backgroundColor:'transparent',
 flexDirection:'row',
-alignItems:'center'};
+alignItems:'center',
+marginLeft:2};
 
 
 
