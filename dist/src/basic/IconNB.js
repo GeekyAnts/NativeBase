@@ -15,6 +15,8 @@ var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapProps
 IconNB=function(_Component){_inherits(IconNB,_Component);function IconNB(){_classCallCheck(this,IconNB);return _possibleConstructorReturn(this,(IconNB.__proto__||Object.getPrototypeOf(IconNB)).apply(this,arguments));}_createClass(IconNB,[{key:'componentWillMount',value:function componentWillMount()
 
 
+
+
 {
 if(this.context.theme){
 switch(this.context.theme['@@shoutem.theme/themeStyle'].variables.iconFamily){
@@ -51,7 +53,7 @@ this.Icon=_Ionicons2.default;
 return(
 _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props)));
 
-}}]);return IconNB;}(_react.Component);
+}}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_react2.default.PropTypes.object};
 
 
 IconNB.propTypes=_extends({},
