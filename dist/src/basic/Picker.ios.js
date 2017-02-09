@@ -107,10 +107,11 @@ _react2.default.createElement(_reactNative.View,{ref:function ref(c){return _thi
 _react2.default.createElement(_Button.Button,{
 style:this.props.style,
 dark:true,
+picker:true,
 transparent:true,
 onPress:function onPress(){_this4._setModalVisible(true);}},
 
-_react2.default.createElement(_Text.Text,{style:this.props.textStyle},this.state.currentLabel?this.state.currentLabel:this.props.defaultLabel),
+_react2.default.createElement(_Text.Text,{note:this.props.note,style:this.props.textStyle},this.state.currentLabel?this.state.currentLabel:this.props.defaultLabel),
 this.props.iosIcon===undefined?null:this.renderIcon()),
 
 _react2.default.createElement(_reactNative.Modal,{

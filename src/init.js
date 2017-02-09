@@ -1,5 +1,5 @@
 import { Theme } from '@shoutem/theme';
-import getThemeStyle from './theme';
+import getThemeStyle from './theme/components';
 
 export default function setDefaultThemeStyle() {
   const theme = getThemeStyle();

@@ -5,7 +5,7 @@ import { connectStyle } from '@shoutem/theme';
 
 import { IconNB } from '../IconNB';
 import ic from './NBIcons.json';
-import variable from './../../theme/variables';
+import variable from './../../theme/variables/platform';
 import _ from 'lodash';
 
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';

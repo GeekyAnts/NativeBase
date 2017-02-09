@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
-import variables from '../theme/variables';
+import variables from '../theme/variables/platform';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Badge extends Component {
