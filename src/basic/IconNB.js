@@ -13,7 +13,9 @@ import Zocial from 'react-native-vector-icons/Zocial';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class IconNB extends Component {
-
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
 
   componentWillMount() {
     if (this.context.theme) {
