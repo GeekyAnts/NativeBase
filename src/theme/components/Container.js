@@ -1,7 +1,7 @@
 import { Platform, Dimensions } from 'react-native';
 import _ from 'lodash';
 
-import variable from './variables';
+import variable from './../variables/platform';
 
 const deviceHeight = Dimensions.get('window').height;
 export default (variables = variable) => {

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
-import variable from '../theme/variables';
+import variable from '../theme/variables/platform';
 import _ from 'lodash';
 
 class Header extends Component {
@@ -18,8 +18,8 @@ class Header extends Component {
     return (
       <View>
         <StatusBar
-          backgroundColor={(this.props.androidStatusBarColor) ? this.props.androidStatusBarColor : variable.statusBarColor}
-          barStyle={(this.props.iosBarStyle) ? this.props.iosBarStyle : (platformStyle === 'material') ? 'light-content' : undefined } />
+          backgroundColor={(this.props.androidStatusBarColor) ? this.props.androidStatusBarColor : variables.statusBarColor}
+          barStyle={(this.props.iosBarStyle) ? this.props.iosBarStyle : (platformStyle === 'material') ? 'light-content' : variables.iosStatusbar } />
           <View ref={c => this._root = c} {...this.props} />
       </View>
     );

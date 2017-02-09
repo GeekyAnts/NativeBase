@@ -5,11 +5,10 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { TouchableOpacity, Platform, View, TouchableNativeFeedback } from 'react-native';
 import { connectStyle } from '@shoutem/theme';
-import variables from '../theme/variables';
+import variables from './../theme/variables/platform';
 import { Badge } from './Badge';
 import { Text } from './Text';
 import computeProps from '../Utils/computeProps';
-import variable from '../theme/variables';
 
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
@@ -54,7 +53,7 @@ class Button extends Component {
     }
   }
   render() {
-    if (Platform.OS==='ios' || variable.androidRipple===false || Platform['Version'] <= 21) {
+    if (Platform.OS==='ios' || variables.androidRipple===false || Platform['Version'] <= 21) {
       return (
         <TouchableOpacity
           {...this.prepareRootProps()}
@@ -70,7 +69,7 @@ class Button extends Component {
       return(
           <TouchableNativeFeedback ref={c => this._root = c}
               onPress={this.props.onPress}
-              background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColor)}
+              background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variables.androidRippleColor)}
                {...this.prepareRootProps()}>
               <View {...this.prepareRootProps()}>
                 <View style={{ alignSelf: 'center' }}>{(this.props.badgeValue) ? <Badge style={{ backgroundColor: (this.props.badgeColor) ? this.props.badgeColor : undefined }}><Text style={this.props.badgeValueStyle}>{this.props.badgeValue}</Text></Badge> : null}</View>

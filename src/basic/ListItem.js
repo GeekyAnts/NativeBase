@@ -3,7 +3,7 @@ import { TouchableOpacity, Platform, TouchableNativeFeedback, View } from 'react
 
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
-import variable from '../theme/variables';
+import variable from '../theme/variables/platform';
 
 class ListItem extends Component {
   render() {

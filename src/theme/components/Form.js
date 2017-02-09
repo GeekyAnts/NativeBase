@@ -1,9 +1,12 @@
 import { Platform } from 'react-native';
 import _ from 'lodash';
 
-import variable from './variables';
+import variable from './../variables/platform';
 
 export default (variables = variable) => {
+  const platformStyle = variables.platformStyle;
+  const platform = variables.platform;
+
   const theme = {
     'NativeBase.Item':{
     '.fixedLabel': {
@@ -28,7 +31,7 @@ export default (variables = variable) => {
       },
       'NativeBase.Input': {
         paddingLeft: null,
-        marginLeft: (Platform.OS === 'ios') ? undefined : -5,
+        marginLeft: (platform === 'ios') ? undefined : -5,
       },
       marginLeft: 15,
     },
@@ -36,7 +39,7 @@ export default (variables = variable) => {
       'NativeBase.Input': {
         paddingLeft: null,
         top: 8,
-        marginLeft: (Platform.OS === 'ios') ? undefined : -5,
+        marginLeft: (platform === 'ios') ? undefined : -5,
       },
       'NativeBase.Label': {
         left: 0,
