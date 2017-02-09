@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import { Button } from './Button';
-import { Platform, Animated, TouchableOpacity, View } from 'react-native';
+import { Platform, Animated, TouchableOpacity } from 'react-native';
 // import View from './View';
 import { Icon } from './Icon';
 // import Badge from './Badge';
@@ -111,7 +111,7 @@ class Fab extends Component {
         bottom: (this.props.position) ? this.fabTopValue(this.props.position).bottom : 20,
         right: (this.props.position) ? this.fabTopValue(this.props.position).right : 20,
         left: (this.props.position) ? this.fabTopValue(this.props.position).left : undefined,
-        width: this.containerWidth,
+        width: 56,
         height: this.containerHeight,
         flexDirection: (this.props.direction) ? ((this.props.direction == 'left || right') ? 'row' : 'column') : 'column',
         alignItems: 'center',
@@ -208,13 +208,13 @@ class Fab extends Component {
     const newChildren = [];
 
     { childrenArray.map((child, i) => {
-      newChildren.push(<Button
+      newChildren.push(<AnimatedFab
         style={this.getOtherButtonStyle(child, i)}
         {...this.prepareButtonProps(child, i)}
         fabButton
         key={i}
       >{child.props.children}
-      </Button>);
+      </AnimatedFab>);
     }
         ); }
     return newChildren;

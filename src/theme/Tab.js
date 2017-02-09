@@ -41,13 +41,13 @@ export default (variables = variable) => {
           paddingHorizontal: 3,
         },
         'NativeBase.Icon': {
-          color: variables.topTabBarTextColor,
+          color: variables.topTabBarActiveTextColor,
         },
         'NativeBase.IconNB': {
-          color: variables.topTabBarTextColor,
+          color: variables.topTabBarActiveTextColor,
         },
         'NativeBase.Text': {
-          color: variables.topTabBarTextColor,
+          color: variables.topTabBarActiveTextColor,
           fontSize: variables.tabBarTextSize,
           lineHeight: 16,
           paddingVertical: 3,

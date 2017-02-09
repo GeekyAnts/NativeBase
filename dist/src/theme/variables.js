@@ -141,7 +141,7 @@ tabBarActiveTextColor:platform==='ios'?'#007aff':'#fff',
 tabActiveBgColor:platform==='ios'?'#cde1f9':undefined,
 
 
-tabDefaultBg:platform==='ios'?'#F8F8F8':'#4179F7',
+tabDefaultBg:platform==='ios'?'#F8F8F8':'#3F51B5',
 topTabBarTextColor:platform==='ios'?'#6b6b6b':'#b3c7f9',
 topTabBarActiveTextColor:platform==='ios'?'#007aff':'#fff',
 topTabActiveBgColor:platform==='ios'?'#cde1f9':undefined,
