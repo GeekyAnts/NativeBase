@@ -8,24 +8,20 @@ var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapProps
 
 Tabs=function(_Component){_inherits(Tabs,_Component);function Tabs(){_classCallCheck(this,Tabs);return _possibleConstructorReturn(this,(Tabs.__proto__||Object.getPrototypeOf(Tabs)).apply(this,arguments));}_createClass(Tabs,[{key:'render',value:function render()
 
-
-
-
 {var _this2=this;
-var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:variables;
 
 return(
 _react2.default.createElement(_reactNativeScrollableTabView2.default,_extends({
 ref:function ref(c){return _this2._root=c;}},this.props,{
-tabBarBackgroundColor:_reactNative.Platform.OS==='ios'?undefined:variables.toolbarDefaultBg,
-tabBarInactiveTextColor:variables.tabBarActiveTextColor,
-tabBarActiveTextColor:variables.tabBarActiveTextColor,
-tabBarUnderlineStyle:{backgroundColor:variables.tabBarActiveTextColor}}),
+tabBarBackgroundColor:_reactNative.Platform.OS==='ios'?undefined:_platform2.default.toolbarDefaultBg,
+tabBarInactiveTextColor:_platform2.default.tabBarActiveTextColor,
+tabBarActiveTextColor:_platform2.default.tabBarActiveTextColor,
+tabBarUnderlineStyle:{backgroundColor:_platform2.default.tabBarActiveTextColor}}),
 
 this.props.children));
 
 
-}}]);return Tabs;}(_react.Component);Tabs.contextTypes={theme:_react2.default.PropTypes.object};
+}}]);return Tabs;}(_react.Component);
 
 
 Tabs.propTypes=_extends({},
