@@ -1,0 +1,23 @@
+exports[`test renders regular badge 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#fff",
+          "fontSize": 15,
+          "lineHeight": 19,
+          "paddingHorizontal": 3,
+        },
+        undefined,
+      ]
+    }>
+    2
+  </Text>
+</View>
+`;

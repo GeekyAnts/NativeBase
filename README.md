@@ -1,3 +1,4 @@
+
 # NativeBase [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) 
 [![NPM](https://nodei.co/npm/native-base.png?downloads=true)](https://nodei.co/npm/native-base/)
 
@@ -5,10 +6,15 @@
 
 Essential cross-platform UI components for React Native
 
+#### Updated docs [here!](http://nativebase.io/docs/v2.0.0)
+
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/Screenshots/iOS/demo.gif)
 
 NativeBase is a sleek, ingenious and dynamic front-end framework created by passionate React Loving team at [Geekyants.com](http://geekyants.com/) to build cross platform Android & iOS mobile apps using ready to use generic components of React Native.
 
+### Note about `Icon`
+
+Icon is a wrapper around [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) and uses `Ionicons` as the default iconFamily. To change the icon family you have to set it in the [theme](http://nativebase.io/docs/v0.5.13/customize#themingNativeBaseApp) [variable file](http://nativebase.io/docs/v0.5.13/theme-variables). Other iconfamilies (like FontAwesome) won't work out of the box unless the variable file is changed.
 
 # Table of Content
 

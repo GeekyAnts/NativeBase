@@ -1,0 +1,1 @@
+{"version":3,"sources":["../backward.js"],"names":["module","exports","require"],"mappings":"AAAAA,OAAOC,OAAP,CAAiBC,QAAQ,qBAAR,CAAjB","file":"backward.js","sourcesContent":["module.exports = require('./dist/src/backward');\n"]}
