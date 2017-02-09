@@ -25,7 +25,7 @@ PickerNB=function(_Component){_inherits(PickerNB,_Component);
 
 function PickerNB(props){_classCallCheck(this,PickerNB);var _this=_possibleConstructorReturn(this,(PickerNB.__proto__||Object.getPrototypeOf(PickerNB)).call(this,
 props));
-var ds=new _List.List.DataSource({rowHasChanged:function rowHasChanged(r1,r2){return r1!==r2;}});
+var ds=new _reactNative.ListView.DataSource({rowHasChanged:function rowHasChanged(r1,r2){return r1!==r2;}});
 _this.state={
 modalVisible:false,
 currentLabel:_this.getLabel(props),
@@ -122,7 +122,7 @@ onRequestClose:function onRequestClose(){_this4._setModalVisible(false);}},
 _react2.default.createElement(_Container.Container,null,
 this.renderHeader(),
 _react2.default.createElement(_Content.Content,null,
-_react2.default.createElement(_List.List,{
+_react2.default.createElement(_reactNative.ListView,{
 dataSource:this.state.dataSource,
 renderRow:function renderRow(child){return(
 _react2.default.createElement(_ListItem.ListItem,{

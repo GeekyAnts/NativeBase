@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react';
-import { Picker, Modal, View } from 'react-native';
+import { Picker, Modal, View, ListView } from 'react-native';
 import _ from 'lodash';
 import { Text } from './Text';
 import { List } from './List';
@@ -25,7 +25,7 @@ class PickerNB extends Component {
 
   constructor(props) {
     super(props);
-    const ds = new List.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       modalVisible: false,
       currentLabel: this.getLabel(props),
@@ -122,7 +122,7 @@ class PickerNB extends Component {
           <Container>
             {this.renderHeader()}
             <Content>
-              <List
+              <ListView
                 dataSource={this.state.dataSource}
                 renderRow={child =>
                   <ListItem
