@@ -6,6 +6,12 @@ var _platform=require('./../variables/platform');var _platform2=_interopRequireD
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var theme={
 '.bordered':{
+'.noTopBorder':{
+borderTopWidth:0},
+
+'.noBottomBorder':{
+borderBottomWidth:0},
+
 height:null,
 paddingVertical:variables.listItemPadding+1,
 borderBottomWidth:variables.borderWidth,
@@ -14,6 +20,12 @@ borderColor:variables.listBorderColor},
 
 'NativeBase.Text':{
 fontSize:variables.tabBarTextSize},
+
+'.noTopBorder':{
+borderTopWidth:0},
+
+'.noBottomBorder':{
+borderBottomWidth:0},
 
 height:38,
 backgroundColor:'#f4f4f4',

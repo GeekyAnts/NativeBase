@@ -76,7 +76,7 @@ export default (variables = variable) => {
         },
         'NativeBase.Input': {
           alignSelf: 'center',
-          marginTop: 2,
+          marginTop: (platform === 'android') ? 5 : undefined,
           lineHeight: 24,
           height: variables.searchBarHeight,
         },

@@ -10,7 +10,7 @@ class Tabs extends Component {
   static contextTypes = {
     theme: React.PropTypes.object,
   }
-  
+
   render() {
     const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variables;
 

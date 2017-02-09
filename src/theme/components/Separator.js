@@ -6,6 +6,12 @@ import variable from './../variables/platform';
 export default (variables = variable) => {
   const theme = {
   	'.bordered': {
+      '.noTopBorder': {
+        borderTopWidth: 0,
+      },
+      '.noBottomBorder': {
+        borderBottomWidth: 0,
+      },
       height: null,
       paddingVertical: variables.listItemPadding + 1,
   		borderBottomWidth: variables.borderWidth,
@@ -15,6 +21,12 @@ export default (variables = variable) => {
   	'NativeBase.Text': {
   		fontSize: variables.tabBarTextSize,
   	},
+    '.noTopBorder': {
+      borderTopWidth: 0,
+    },
+    '.noBottomBorder': {
+      borderBottomWidth: 0,
+    },
   	height: 38,
   	backgroundColor: '#f4f4f4',
   	flex: 1,
