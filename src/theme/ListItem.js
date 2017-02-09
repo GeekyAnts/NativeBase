@@ -1,6 +1,7 @@
 import { Platform, PixelRatio } from 'react-native';
 import _ from 'lodash';
 
+import pickerTheme from './Picker';
 import variable from './variables';
 
 export default (variables = variable) => {
@@ -334,7 +335,7 @@ export default (variables = variable) => {
           flex: 1,
           height: 44,
           justifyContent: 'center',
-          borderBottomWidth: 1,
+          borderBottomWidth: (1/PixelRatio.getPixelSizeForLayoutSize(1)),
           borderColor: variables.listBorderColor,
         },
         'NativeBase.Right': {
@@ -356,13 +357,16 @@ export default (variables = variable) => {
             paddingLeft: 5,
             paddingTop: 3,
           },
+          'NativeBase.PickerNB': {
+            ...pickerTheme(),
+          },
           flexDirection: 'row',
           alignItems: 'center',
           flex: 0,
           alignSelf: 'stretch',
           height: 44,
           justifyContent: 'flex-end',
-          borderBottomWidth: 1,
+          borderBottomWidth: (1/PixelRatio.getPixelSizeForLayoutSize(1)),
           borderColor: variables.listBorderColor,
           paddingRight: variables.listItemPadding + 5,
         },
