@@ -28,7 +28,7 @@ export default (variables = variable) => {
       borderBottomWidth: 0,
     },
   	height: 38,
-  	backgroundColor: '#f4f4f4',
+  	backgroundColor: '#F0EFF4',
   	flex: 1,
   	justifyContent: 'center',
   	paddingLeft: variables.listItemPadding + 5,

@@ -73,7 +73,7 @@ class Button extends Component {
                {...this.prepareRootProps()}>
               <View {...this.prepareRootProps()}>
                 <View style={{ alignSelf: 'center' }}>{(this.props.badgeValue) ? <Badge style={{ backgroundColor: (this.props.badgeColor) ? this.props.badgeColor : undefined }}><Text style={this.props.badgeValueStyle}>{this.props.badgeValue}</Text></Badge> : null}</View>
-                  {this.renderChildren()}
+                  {this.props.children}
               </View>
           </TouchableNativeFeedback>
       );
