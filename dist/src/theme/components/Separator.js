@@ -12,7 +12,7 @@ borderTopWidth:0},
 '.noBottomBorder':{
 borderBottomWidth:0},
 
-height:null,
+height:35,
 paddingVertical:variables.listItemPadding+1,
 borderBottomWidth:variables.borderWidth,
 borderTopWidth:variables.borderWidth,
@@ -28,7 +28,7 @@ borderTopWidth:0},
 borderBottomWidth:0},
 
 height:38,
-backgroundColor:'#F0EFF4',
+backgroundColor:'#F0EFF5',
 flex:1,
 justifyContent:'center',
 paddingLeft:variables.listItemPadding+5};
