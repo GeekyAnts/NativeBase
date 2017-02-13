@@ -76,7 +76,7 @@ export default (variables = variable) => {
         },
         'NativeBase.Input': {
           alignSelf: 'center',
-          marginTop: (platform === 'android') ? 5 : undefined,
+          marginTop: 2,
           lineHeight: 24,
           height: variables.searchBarHeight,
         },
@@ -220,6 +220,8 @@ export default (variables = variable) => {
         },
         '.transparent': {
           marginRight: -3,
+          paddingHorizontal: 10,
+          borderRadius: 50,
           'NativeBase.Icon': {
             color: variables.toolbarBtnColor,
             fontSize: (platform==='ios') ? variables.iconHeaderSize-6 : variables.iconHeaderSize-2,

@@ -10,6 +10,8 @@ import { Swipeout } from './basic/Swipe';
 import { Text } from './basic/Text';
 import { ViewNB as View } from './basic/View';
 import { Button } from './basic/Button';
+import { TabHeading } from './basic/TabHeading';
+import { TabBorder } from './basic/TabBorder';
 import { IconNB } from './basic/IconNB';
 import { Icon } from './basic/Icon';
 import { Header } from './basic/Header';
@@ -45,7 +47,8 @@ import { Item } from './basic/Item';
 import { Label } from './basic/Label';
 import { Textarea } from './basic/Textarea';
 import { Tab } from './basic/Tab';
-import { Tabs } from './basic/Tabs';
+import ScrollableTabView from './basic/react-native-scrollable-tab-view';
+import { DefaultTabBar } from './basic/react-native-scrollable-tab-view/DefaultTabBar';
 import { STabs } from './smart/STabs';
 import { Content as TabContent } from './basic/Content';
 import { Subtitle } from './backward/Widgets/Subtitle';
@@ -85,7 +88,7 @@ export {
   Content,
   Footer,
   Tab,
-  Tabs,
+  ScrollableTabView as Tabs,
   FooterTab,
   PickerNB as Picker,
   List,
@@ -103,7 +106,10 @@ export {
   Text,
   STabs,
   TabContent,
-  View
+  View,
+  TabHeading,
+  TabBorder,
+  DefaultTabBar
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);

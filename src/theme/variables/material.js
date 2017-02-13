@@ -146,6 +146,7 @@ export default {
   topTabBarActiveTextColor: '#fff',
   topTabActiveBgColor: undefined,
   topTabBarBorderColor: '#fff',
+  topTabBarActiveBorderColor: '#fff',
 
 
     // Header
