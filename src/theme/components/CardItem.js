@@ -88,7 +88,6 @@ export default (variables = variable) => {
               fontSize: variables.iconFontSize - 10,
               color: variables.sTabBarActiveTextColor,
               marginHorizontal: null,
-              paddingRight: variables.listItemPadding - 5,
             },
             'NativeBase.IconNB': {
               fontSize: variables.iconFontSize - 10,
@@ -118,7 +117,6 @@ export default (variables = variable) => {
               fontSize: variables.iconFontSize - 10,
               color: variables.sTabBarActiveTextColor,
               marginHorizontal: null,
-              paddingRight: variables.listItemPadding - 5,
             },
             'NativeBase.IconNB': {
               fontSize: variables.iconFontSize - 10,
