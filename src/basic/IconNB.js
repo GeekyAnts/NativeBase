@@ -44,6 +44,8 @@ class IconNB extends Component {
         default:
           this.Icon = Ionicons;
       }
+    } else if(this.props.family) {
+        this.Icon = this.props.family;
     } else {
       this.Icon = Ionicons;
     }
@@ -58,6 +60,7 @@ class IconNB extends Component {
 
 IconNB.propTypes = {
   ...Ionicons.propTypes,
+  family: React.PropTypes.object,
   style: React.PropTypes.object,
 };
 
