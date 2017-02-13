@@ -395,7 +395,7 @@ export default (variables = variable) => {
         height: 60,
         'NativeBase.Text': {
           fontSize: 22,
-          lineHeight: 24,
+          lineHeight: 32,
         },
       },
 

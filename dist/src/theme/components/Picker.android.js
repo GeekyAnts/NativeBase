@@ -6,9 +6,10 @@ var _platform=require('./../variables/platform');var _platform2=_interopRequireD
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var pickerTheme={
 '.note':{
-color:'#aaa'},
+color:'#8F8E95'},
 
-width:_platform2.default.deviceWidth/3.5};
+width:90,
+marginRight:-4};
 
 
 

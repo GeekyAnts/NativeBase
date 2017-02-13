@@ -305,10 +305,14 @@ export default (variables = variable) => {
               marginHorizontal: null,
               fontSize: variables.iconFontSize - 5,
             },
+            'NativeBase.Icon': {
+              marginHorizontal: null,
+              fontSize: variables.iconFontSize - 8,
+            },
             alignSelf: 'center',
-            height: 32,
-            width: 32,
-            borderRadius: 8,
+            height: 29,
+            width: 29,
+            borderRadius: 6,
             paddingVertical: null,
             paddingHorizontal: null,
             alignItems: 'center',
@@ -331,6 +335,7 @@ export default (variables = variable) => {
         'NativeBase.Body': {
           'NativeBase.Text': {
             marginLeft: null,
+            fontSize: 17,
           },
           flex: 1,
           height: 44,
@@ -341,21 +346,26 @@ export default (variables = variable) => {
         'NativeBase.Right': {
           'NativeBase.Text': {
             textAlign: 'center',
-            color: '#aaa',
+            color: '#8F8E95',
+            fontSize: 17,
           },
           'NativeBase.IconNB': {
-            color: variables.listBorderColor,
-            fontSize: variables.iconFontSize - 2,
+            color: '#C8C7CC',
+            fontSize: variables.iconFontSize - 10,
             alignSelf: 'center',
-            paddingLeft: 5,
+            paddingLeft: 10,
             paddingTop: 3,
           },
           'NativeBase.Icon': {
-            color: variables.listBorderColor,
-            fontSize: variables.iconFontSize - 2,
+            color: '#C8C7CC',
+            fontSize: variables.iconFontSize - 10,
             alignSelf: 'center',
-            paddingLeft: 5,
+            paddingLeft: 10,
             paddingTop: 3,
+          },
+          'NativeBase.Switch': {
+            marginRight: (Platform.OS ===  'ios') ? undefined : -5,
+            alignSelf: null,
           },
           'NativeBase.PickerNB': {
             ...pickerTheme(),

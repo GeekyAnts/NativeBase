@@ -146,6 +146,7 @@ topTabBarTextColor:'#b3c7f9',
 topTabBarActiveTextColor:'#fff',
 topTabActiveBgColor:undefined,
 topTabBarBorderColor:'#fff',
+topTabBarActiveBorderColor:'#fff',
 
 
 

@@ -12,20 +12,9 @@ _react2.default.createElement(_reactNative.Text,_extends({ref:function ref(c){re
 }}]);return H3;}(_react.Component);
 
 
-var childrenType=function childrenType(props,propName,component){
-var error=void 0;
-var prop=props[propName];
-_react2.default.Children.forEach(prop,function(child){
-if(typeof child!=='string'){
-error=new Error(component+' should have only string');
-}
-});
-return error;
-};
-
 H3.propTypes=_extends({},
 _reactNative.Text.propTypes,{
-children:childrenType,
+children:_react2.default.PropTypes.oneOfType[(_react2.default.PropTypes.node,_react2.default.PropTypes.string)],
 style:_react2.default.PropTypes.object});
 
 

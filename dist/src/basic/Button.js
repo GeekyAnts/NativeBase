@@ -73,7 +73,7 @@ background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ri
 this.prepareRootProps()),
 _react2.default.createElement(_reactNative.View,this.prepareRootProps(),
 _react2.default.createElement(_reactNative.View,{style:{alignSelf:'center'}},this.props.badgeValue?_react2.default.createElement(_Badge.Badge,{style:{backgroundColor:this.props.badgeColor?this.props.badgeColor:undefined}},_react2.default.createElement(_Text.Text,{style:this.props.badgeValueStyle},this.props.badgeValue)):null),
-this.renderChildren())));
+this.props.children)));
 
 
 

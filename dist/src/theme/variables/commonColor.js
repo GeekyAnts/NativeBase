@@ -146,6 +146,7 @@ topTabBarTextColor:'#b3c7f9',
 topTabBarActiveTextColor:'#fff',
 topTabActiveBgColor:platform==='ios'?'#1569f4':undefined,
 topTabBarBorderColor:'#fff',
+topTabBarActiveBorderColor:'#fff',
 
 
 

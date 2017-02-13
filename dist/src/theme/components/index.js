@@ -23,6 +23,8 @@ var _Text=require('./Text');var _Text2=_interopRequireDefault(_Text);
 var _Tab=require('./Tab');var _Tab2=_interopRequireDefault(_Tab);
 var _TabBar=require('./TabBar');var _TabBar2=_interopRequireDefault(_TabBar);
 var _View=require('./View');var _View2=_interopRequireDefault(_View);
+var _TabBorder=require('./TabBorder');var _TabBorder2=_interopRequireDefault(_TabBorder);
+var _TabHeading=require('./TabHeading');var _TabHeading2=_interopRequireDefault(_TabHeading);
 var _Icon=require('./Icon');var _Icon2=_interopRequireDefault(_Icon);
 var _Spinner=require('./Spinner');var _Spinner2=_interopRequireDefault(_Spinner);
 var _CardItem=require('./CardItem');var _CardItem2=_interopRequireDefault(_CardItem);
@@ -203,11 +205,19 @@ flex:1},
 'NativeBase.ViewNB':_extends({},
 (0,_View2.default)(variables)),
 
+'NativeBase.TabHeading':_extends({},
+(0,_TabHeading2.default)(variables)),
+
+'NativeBase.TabBorder':_extends({},
+(0,_TabBorder2.default)(variables)),
+
 'NativeBase.Switch':{
 marginVertical:-5},
 
 'NativeBase.Separator':_extends({},
-(0,_Separator2.default)(variables))};
+(0,_Separator2.default)(variables)),
+
+'NativeBase.Tabs':{}};
 
 
 

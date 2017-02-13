@@ -76,7 +76,7 @@ alignSelf:'center'},
 
 'NativeBase.Input':{
 alignSelf:'center',
-marginTop:platform==='android'?5:undefined,
+marginTop:2,
 lineHeight:24,
 height:variables.searchBarHeight},
 
@@ -220,6 +220,8 @@ marginLeft:5}},
 
 '.transparent':{
 marginRight:-3,
+paddingHorizontal:10,
+borderRadius:50,
 'NativeBase.Icon':{
 color:variables.toolbarBtnColor,
 fontSize:platform==='ios'?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
