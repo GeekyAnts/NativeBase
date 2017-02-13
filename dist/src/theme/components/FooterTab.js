@@ -60,6 +60,7 @@ fontSize:variables.tabBarTextSize,
 lineHeight:16}},
 
 
+backgroundColor:_reactNative.Platform.OS==='android'?variables.tabActiveBgColor:undefined,
 flexDirection:'row',
 justifyContent:'space-between',
 flex:1,

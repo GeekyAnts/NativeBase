@@ -138,7 +138,7 @@ tabBarTextSize:platform==='ios'?14:11,
 activeTab:platform==='ios'?'#007aff':'#fff',
 sTabBarActiveTextColor:'#007aff',
 tabBarActiveTextColor:platform==='ios'?'#007aff':'#fff',
-tabActiveBgColor:platform==='ios'?'#cde1f9':undefined,
+tabActiveBgColor:platform==='ios'?'#cde1f9':'#3F51B5',
 
 
 tabDefaultBg:platform==='ios'?'#F8F8F8':'#3F51B5',
