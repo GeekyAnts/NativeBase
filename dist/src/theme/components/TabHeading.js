@@ -18,11 +18,13 @@ color:variables.topTabBarTextColor,
 marginHorizontal:7},
 
 'NativeBase.Icon':{
-color:variables.topTabBarTextColor},
+color:variables.topTabBarTextColor,
+fontSize:platform==='ios'?26:undefined},
 
 '.active':{
 'NativeBase.Text':{
-color:variables.topTabBarActiveTextColor},
+color:variables.topTabBarActiveTextColor,
+fontWeight:'600'},
 
 'NativeBase.Icon':{
 color:variables.topTabBarActiveTextColor}}};

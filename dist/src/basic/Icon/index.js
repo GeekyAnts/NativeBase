@@ -20,6 +20,7 @@ var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 
+if(variables.iconFamily==='Ionicons'){
 if(typeof _NBIcons2.default[this.props.name]!=='object'){
 return this.props.name;
 }else
@@ -31,6 +32,10 @@ name=this.props.active?_NBIcons2.default[this.props.name].ios.active:_NBIcons2.d
 name=this.props.active?_NBIcons2.default[this.props.name].android.active:_NBIcons2.default[this.props.name].android.default;
 }
 return name;
+}
+}else
+{
+return this.props.name;
 }
 }},{key:'getIconName',value:function getIconName()
 

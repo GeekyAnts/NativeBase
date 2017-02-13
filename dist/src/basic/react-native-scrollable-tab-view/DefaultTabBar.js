@@ -2,9 +2,10 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.DefaultTabBar=u
 
 var _theme=require('@shoutem/theme');
 var _platform=require('./../../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
-var _index=require('./../../index');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var React=require('react');var ReactNative=require('react-native');var
+var _index=require('./../../index');
 
 
+var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var React=require('react');var ReactNative=require('react-native');var
 
 
 StyleSheet=
@@ -42,6 +43,7 @@ renderTabOption:function renderTabOption(name,page){
 },
 
 renderTab:function renderTab(name,page,isTabActive,onPressHandler){
+
 var headerContent=typeof name!=='string'?name.props.children:undefined;var _props=
 this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor,textStyle=_props.textStyle;
 var textColor=isTabActive?activeTextColor:inactiveTextColor;
@@ -62,7 +64,7 @@ name)));
 {
 return React.createElement(Button,{
 style:{flex:1},
-key:name,
+key:_lodash2.default.random(1.2,5.2),
 onPress:function onPress(){return onPressHandler(page);}},
 
 React.createElement(_index.TabHeading,{style:this.props.style,active:isTabActive},
