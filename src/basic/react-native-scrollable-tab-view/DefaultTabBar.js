@@ -5,6 +5,7 @@ import variable from './../../theme/variables/platform';
 import { TabHeading } from './../../index';
 import { Text } from './../../index';
 import { TabBorder } from './../../index';
+import _ from 'lodash';
 
 const {
   StyleSheet,
@@ -42,6 +43,7 @@ const DefaultTabBar = React.createClass({
   },
 
   renderTab(name, page, isTabActive, onPressHandler) {
+    
     const headerContent = (typeof name!=='string') ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor, textStyle, } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
@@ -62,7 +64,7 @@ const DefaultTabBar = React.createClass({
     else {
       return<Button
         style={{flex: 1, }}
-        key={name}
+        key={_.random(1.2, 5.2)}
         onPress={() => onPressHandler(page)}
         >
         <TabHeading style={this.props.style} active={isTabActive}>
