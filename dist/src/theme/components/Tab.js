@@ -7,7 +7,10 @@ function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 
-var tabTheme={};
+var tabTheme={
+flex:1,
+backgroundColor:'#FFF'};
+
 
 
 return tabTheme;
