@@ -3,8 +3,6 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.DefaultTabBar=u
 var _theme=require('@shoutem/theme');
 var _platform=require('./../../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _index=require('./../../index');
-
-
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var React=require('react');var ReactNative=require('react-native');var
 
 
@@ -42,10 +40,9 @@ backgroundColor:null};
 renderTabOption:function renderTabOption(name,page){
 },
 
-renderTab:function renderTab(name,page,isTabActive,onPressHandler){
-
+renderTab:function renderTab(name,page,isTabActive,onPressHandler,tabStyle,activeTabStyle,textStyle,activeTextStyle,tabHeaderStyle){
 var headerContent=typeof name!=='string'?name.props.children:undefined;var _props=
-this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor,textStyle=_props.textStyle;
+this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor;
 var textColor=isTabActive?activeTextColor:inactiveTextColor;
 var fontWeight=isTabActive?'bold':'normal';
 if(typeof name==='string'){
@@ -54,8 +51,8 @@ style:{flex:1},
 key:name,
 onPress:function onPress(){return onPressHandler(page);}},
 
-React.createElement(_index.TabHeading,{style:this.props.style,active:isTabActive},
-React.createElement(_index.Text,null,
+React.createElement(_index.TabHeading,{style:isTabActive?activeTabStyle:tabStyle,active:isTabActive},
+React.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle},
 name)));
 
 
@@ -67,7 +64,7 @@ style:{flex:1},
 key:_lodash2.default.random(1.2,5.2),
 onPress:function onPress(){return onPressHandler(page);}},
 
-React.createElement(_index.TabHeading,{style:this.props.style,active:isTabActive},
+React.createElement(_index.TabHeading,{style:tabHeaderStyle,active:isTabActive},
 headerContent));
 
 
@@ -86,29 +83,17 @@ height:4,
 backgroundColor:variables.topTabBarActiveBorderColor,
 bottom:0};
 
-var tabs={
-elevation:3,
-height:50,
-flexDirection:'row',
-shadowColor:platformStyle==='material'?'#000':undefined,
-shadowOffset:platformStyle==='material'?{width:0,height:2}:undefined,
-shadowOpacity:platformStyle==='material'?0.2:undefined,
-shadowRadius:platformStyle==='material'?1.2:undefined,
-justifyContent:'space-around',
-borderBottomWidth:Platform.OS=='ios'?variables.borderWidth:0,
-borderColor:variables.topTabBarBorderColor};
-
 
 
 var left=this.props.scrollValue.interpolate({
 inputRange:[0,1],outputRange:[0,containerWidth/numberOfTabs]});
 
 return(
-React.createElement(View,{style:[tabs,{backgroundColor:this.props.backgroundColor},this.props.style]},
+React.createElement(_index.TabContainer,null,
 this.props.tabs.map(function(name,page){
 var isTabActive=_this.props.activeTab===page;
 var renderTab=_this.props.renderTab||_this.renderTab;
-return renderTab(name,page,isTabActive,_this.props.goToPage);
+return renderTab(name,page,isTabActive,_this.props.goToPage,_this.props.tabStyle[page],_this.props.activeTabStyle[page],_this.props.textStyle[page],_this.props.activeTextStyle[page],_this.props.tabHeaderStyle[page]);
 }),
 React.createElement(Animated.View,{style:[tabUnderlineStyle,{left:left},this.props.underlineStyle]})));
 

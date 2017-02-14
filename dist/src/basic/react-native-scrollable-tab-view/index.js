@@ -1,19 +1,20 @@
-var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var React=require('react');var
-
-PropTypes=
-
-React.PropTypes,Component=React.Component;
-var ReactNative=require('react-native');var
-
-Dimensions=
+var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};
 
 
 
 
 
 
-ReactNative.Dimensions,View=ReactNative.View,Animated=ReactNative.Animated,ScrollView=ReactNative.ScrollView,StyleSheet=ReactNative.StyleSheet,InteractionManager=ReactNative.InteractionManager,Platform=ReactNative.Platform;
-var TimerMixin=require('react-timer-mixin');
+
+
+
+
+
+
+
+
+
+var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var React=require('react');var PropTypes=React.PropTypes,Component=React.Component;var ReactNative=require('react-native');var Dimensions=ReactNative.Dimensions,View=ReactNative.View,Animated=ReactNative.Animated,ScrollView=ReactNative.ScrollView,StyleSheet=ReactNative.StyleSheet,InteractionManager=ReactNative.InteractionManager,Platform=ReactNative.Platform;var TimerMixin=require('react-timer-mixin');
 
 var SceneComponent=require('./SceneComponent');var _require=
 require('./DefaultTabBar'),DefaultTabBar=_require.DefaultTabBar;
@@ -230,10 +231,16 @@ return React.Children.map(children,function(child){return child;});
 },
 
 render:function render(){
+console.log('this.props',this.props);
 var overlayTabs=this.props.tabBarPosition==='overlayTop'||this.props.tabBarPosition==='overlayBottom';
 var tabBarProps={
 goToPage:this.goToPage,
 tabs:this._children().map(function(child){return child.props.heading;}),
+tabStyle:this._children().map(function(child){return child.props.tabStyle;}),
+activeTabStyle:this._children().map(function(child){return child.props.activeTabStyle;}),
+textStyle:this._children().map(function(child){return child.props.textStyle;}),
+activeTextStyle:this._children().map(function(child){return child.props.activeTextStyle;}),
+tabHeaderStyle:this._children().map(function(child){return _lodash2.default.get(child.props.heading.props,'style',undefined);}),
 activeTab:this.state.currentPage,
 scrollValue:this.state.scrollValue,
 containerWidth:this.state.containerWidth};

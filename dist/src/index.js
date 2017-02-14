@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.mapPropsToStyleNames=exports.DefaultTabBar=exports.TabBorder=exports.TabHeading=exports.View=exports.TabContent=exports.STabs=exports.Text=exports.Grid=exports.Row=exports.Col=exports.Gravatar=exports.Textarea=exports.Label=exports.Subtitle=exports.Item=exports.DeckSwiper=exports.Separator=exports.ListItem=exports.List=exports.Picker=exports.FooterTab=exports.Tabs=exports.Tab=exports.Footer=exports.Content=exports.Container=exports.Switch=exports.Spinner=exports.H3=exports.H2=exports.H1=exports.CardItem=exports.Card=exports.Thumbnail=exports.Radio=exports.CheckBox=exports.Badge=exports.Body=exports.Right=exports.Left=exports.Fab=exports.Title=exports.Input=exports.InputGroup=exports.Form=exports.Header=exports.Icon=exports.IconNB=exports.Button=exports.Drawer=exports.StyleProvider=exports.variables=exports.getTheme=exports.Swipeout=undefined;var _theme=require('@shoutem/theme');
+Object.defineProperty(exports,"__esModule",{value:true});exports.mapPropsToStyleNames=exports.DefaultTabBar=exports.TabContainer=exports.TabHeading=exports.View=exports.TabContent=exports.STabs=exports.Text=exports.Grid=exports.Row=exports.Col=exports.Gravatar=exports.Textarea=exports.Label=exports.Subtitle=exports.Item=exports.DeckSwiper=exports.Separator=exports.ListItem=exports.List=exports.Picker=exports.FooterTab=exports.Tabs=exports.Tab=exports.Footer=exports.Content=exports.Container=exports.Switch=exports.Spinner=exports.H3=exports.H2=exports.H1=exports.CardItem=exports.Card=exports.Thumbnail=exports.Radio=exports.CheckBox=exports.Badge=exports.Body=exports.Right=exports.Left=exports.Fab=exports.Title=exports.Input=exports.InputGroup=exports.Form=exports.Header=exports.Icon=exports.IconNB=exports.Button=exports.Drawer=exports.StyleProvider=exports.variables=exports.getTheme=exports.Swipeout=undefined;var _theme=require('@shoutem/theme');
 var _lodash=require('lodash');
 var _reactNativeEasyGrid=require('react-native-easy-grid');
 var _Gravatar=require('./backward/Widgets/Gravatar');
@@ -11,7 +11,7 @@ var _Text=require('./basic/Text');
 var _View=require('./basic/View');
 var _Button=require('./basic/Button');
 var _TabHeading=require('./basic/TabHeading');
-var _TabBorder=require('./basic/TabBorder');
+var _TabContainer=require('./basic/TabContainer');
 var _IconNB=require('./basic/IconNB');
 var _Icon=require('./basic/Icon');
 var _Header=require('./basic/Header');
@@ -108,7 +108,7 @@ STabs=_STabs.STabs;exports.
 TabContent=_Content.Content;exports.
 View=_View.ViewNB;exports.
 TabHeading=_TabHeading.TabHeading;exports.
-TabBorder=_TabBorder.TabBorder;exports.
+TabContainer=_TabContainer.TabContainer;exports.
 DefaultTabBar=_DefaultTabBar.DefaultTabBar;
 
 
