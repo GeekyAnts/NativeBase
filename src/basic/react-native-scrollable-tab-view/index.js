@@ -14,6 +14,7 @@ const {
   Platform,
 } = ReactNative;
 const TimerMixin = require('react-timer-mixin');
+import _ from 'lodash';
 
 const SceneComponent = require('./SceneComponent');
 const { DefaultTabBar } = require('./DefaultTabBar');
@@ -230,10 +231,16 @@ const ScrollableTabView = React.createClass({
   },
 
   render() {
+    console.log('this.props', this.props);
     let overlayTabs = (this.props.tabBarPosition === 'overlayTop' || this.props.tabBarPosition === 'overlayBottom');
     let tabBarProps = {
       goToPage: this.goToPage,
       tabs: this._children().map((child) => child.props.heading),
+      tabStyle: this._children().map((child) => child.props.tabStyle),
+      activeTabStyle: this._children().map((child) => child.props.activeTabStyle),
+      textStyle: this._children().map((child) => child.props.textStyle),
+      activeTextStyle: this._children().map((child) => child.props.activeTextStyle),
+      tabHeaderStyle: this._children().map((child) => _.get(child.props.heading.props, 'style', undefined)),
       activeTab: this.state.currentPage,
       scrollValue: this.state.scrollValue,
       containerWidth: this.state.containerWidth,

@@ -2,9 +2,7 @@ const React = require('react');
 const ReactNative = require('react-native');
 import { connectStyle, StyleProvider } from '@shoutem/theme';
 import variable from './../../theme/variables/platform';
-import { TabHeading } from './../../index';
-import { Text } from './../../index';
-import { TabBorder } from './../../index';
+import { TabHeading, Text, TabContainer } from './../../index';
 import _ from 'lodash';
 
 const {
@@ -42,10 +40,9 @@ const DefaultTabBar = React.createClass({
   renderTabOption(name, page) {
   },
 
-  renderTab(name, page, isTabActive, onPressHandler) {
-    
+  renderTab(name, page, isTabActive, onPressHandler, tabStyle, activeTabStyle, textStyle, activeTextStyle, tabHeaderStyle) {
     const headerContent = (typeof name!=='string') ? name.props.children : undefined;
-    const { activeTextColor, inactiveTextColor, textStyle, } = this.props;
+    const { activeTextColor, inactiveTextColor } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? 'bold' : 'normal';
     if (typeof name==='string') {
@@ -54,8 +51,8 @@ const DefaultTabBar = React.createClass({
         key={name}
         onPress={() => onPressHandler(page)}
         >
-        <TabHeading style={this.props.style} active={isTabActive}>
-          <Text>
+        <TabHeading style={(isTabActive) ? activeTabStyle : tabStyle} active={isTabActive}>
+          <Text style={(isTabActive) ? activeTextStyle : textStyle}>
             {name}
           </Text>
         </TabHeading>
@@ -67,7 +64,7 @@ const DefaultTabBar = React.createClass({
         key={_.random(1.2, 5.2)}
         onPress={() => onPressHandler(page)}
         >
-        <TabHeading style={this.props.style} active={isTabActive}>
+        <TabHeading style={tabHeaderStyle} active={isTabActive}>
           {headerContent}
         </TabHeading>
       </Button>
@@ -86,32 +83,20 @@ const DefaultTabBar = React.createClass({
       backgroundColor: variables.topTabBarActiveBorderColor,
       bottom: 0,
     };
-    const tabs = {
-      elevation: 3,
-      height: 50,
-      flexDirection: 'row',
-      shadowColor: (platformStyle==='material') ? '#000' : undefined,
-      shadowOffset: (platformStyle==='material') ? {width: 0, height: 2} : undefined,
-      shadowOpacity: (platformStyle==='material') ?  0.2 : undefined,
-      shadowRadius: (platformStyle==='material') ? 1.2 : undefined,
-      justifyContent: 'space-around',
-      borderBottomWidth: (Platform.OS=='ios') ? variables.borderWidth : 0,
-      borderColor: variables.topTabBarBorderColor,
-    };
 
 
     const left = this.props.scrollValue.interpolate({
       inputRange: [0, 1, ], outputRange: [0,  containerWidth / numberOfTabs, ],
     });
     return (
-      <View style={[tabs, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}>
+      <TabContainer>
         {this.props.tabs.map((name, page) => {
           const isTabActive = this.props.activeTab === page;
           const renderTab = this.props.renderTab || this.renderTab;
-          return renderTab(name, page, isTabActive, this.props.goToPage);
+          return renderTab(name, page, isTabActive, this.props.goToPage, this.props.tabStyle[page], this.props.activeTabStyle[page], this.props.textStyle[page], this.props.activeTextStyle[page], this.props.tabHeaderStyle[page]);
         })}
         <Animated.View style={[tabUnderlineStyle, { left, }, this.props.underlineStyle, ]} />
-      </View>
+      </TabContainer>
     );
   },
 });

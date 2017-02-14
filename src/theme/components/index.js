@@ -23,7 +23,7 @@ import textTheme from './Text';
 import tabTheme from './Tab';
 import tabBarTheme from './TabBar';
 import viewTheme from './View';
-import tabBorderTheme from './TabBorder';
+import tabContainerTheme from './TabContainer';
 import tabHeadingTheme from './TabHeading';
 import iconTheme from './Icon';
 import spinnerTheme from './Spinner';
@@ -208,8 +208,8 @@ export default (variables = variable) => {
     'NativeBase.TabHeading': {
       ...tabHeadingTheme(variables),
     },
-    'NativeBase.TabBorder': {
-      ...tabBorderTheme(variables),
+    'NativeBase.TabContainer': {
+      ...tabContainerTheme(variables),
     },
     'NativeBase.Switch': {
       marginVertical: -5,

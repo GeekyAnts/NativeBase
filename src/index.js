@@ -11,7 +11,7 @@ import { Text } from './basic/Text';
 import { ViewNB as View } from './basic/View';
 import { Button } from './basic/Button';
 import { TabHeading } from './basic/TabHeading';
-import { TabBorder } from './basic/TabBorder';
+import { TabContainer } from './basic/TabContainer';
 import { IconNB } from './basic/IconNB';
 import { Icon } from './basic/Icon';
 import { Header } from './basic/Header';
@@ -108,7 +108,7 @@ export {
   TabContent,
   View,
   TabHeading,
-  TabBorder,
+  TabContainer,
   DefaultTabBar
 };
 
