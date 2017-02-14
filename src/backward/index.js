@@ -1,8 +1,8 @@
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { StyleProvider } from '@shoutem/theme';
-import getTheme from '../theme';
+import getTheme from '../theme/components';
 import setDefaultThemeStyle from '../init';
-import variables from '../theme/variables';
+import variables from '../theme/variables/platform';
 import Drawer from '../basic/Drawer';
 import { Header } from './Widgets/Header';
 import { Footer } from '../basic/Footer';

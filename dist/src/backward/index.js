@@ -1,8 +1,8 @@
 var _reactNativeEasyGrid=require('react-native-easy-grid');
 var _theme=require('@shoutem/theme');
-var _theme2=require('../theme');var _theme3=_interopRequireDefault(_theme2);
+var _components=require('../theme/components');var _components2=_interopRequireDefault(_components);
 var _init=require('../init');var _init2=_interopRequireDefault(_init);
-var _variables=require('../theme/variables');var _variables2=_interopRequireDefault(_variables);
+var _platform=require('../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _Drawer=require('../basic/Drawer');var _Drawer2=_interopRequireDefault(_Drawer);
 var _Header=require('./Widgets/Header');
 var _Footer=require('../basic/Footer');
@@ -80,6 +80,6 @@ Fab:_Fab.Fab,
 Tabs:_Tabs.Tabs,
 Subtitle:_Subtitle.Subtitle,
 StyleProvider:_theme.StyleProvider,
-getTheme:_theme3.default,
-variables:_variables2.default};
+getTheme:_components2.default,
+variables:_platform2.default};
 //# sourceMappingURL=index.js.map
