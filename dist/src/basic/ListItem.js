@@ -9,11 +9,12 @@ ListItem=function(_Component){_inherits(ListItem,_Component);function ListItem()
 {var _this2=this;
 if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||!this.props.onPress){
 return(
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({
-ref:function ref(c){return _this2._root=c;}},
-this.props,{activeOpacity:this.props.onPress?0.4:1}),
+_react2.default.createElement(_reactNative.TouchableHighlight,{
+onPress:this.props.onPress,
+ref:function ref(c){return _this2._root=c;},
+underlayColor:'#DDD'},
 
-this.props.children));
+_react2.default.createElement(_reactNative.View,this.props,this.props.children)));
 
 
 }else
@@ -22,7 +23,9 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,{ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColorDark)},
-_react2.default.createElement(_reactNative.View,this.props,this.props.children)));
+_react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17}},
+_react2.default.createElement(_reactNative.View,this.props,this.props.children))));
+
 
 
 }
@@ -30,7 +33,7 @@ _react2.default.createElement(_reactNative.View,this.props,this.props.children))
 
 
 ListItem.propTypes=_extends({},
-_reactNative.TouchableOpacity.propTypes,{
+_reactNative.TouchableHighlight.propTypes,{
 style:_react2.default.PropTypes.object,
 itemDivider:_react2.default.PropTypes.bool,
 button:_react2.default.PropTypes.bool});
