@@ -160,7 +160,7 @@ searchBarHeight:platform==='ios'?30:40,
 toolbarInverseBg:'#222',
 toolbarTextColor:platform==='ios'?'#000':'#fff',
 toolbarDefaultBorder:platform==='ios'?'#a7a6ab':'#3F51B5',
-iosStatusBar:'dark-content',
+iosStatusbar:'dark-content',
 get statusBarColor(){
 return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 },
