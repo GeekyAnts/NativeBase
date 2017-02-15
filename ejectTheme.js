@@ -10,7 +10,7 @@ try {
     'NativeBase theme has been copied at ' + path.join(process.cwd(), 'native-base-theme'),
     'Here\'s how to theme your app',
     '',
-    'import getTheme from \'./native-base-theme/index\';',
+    'import getTheme from \'./native-base-theme/components\';',
     'export default class ThemeExample extends Component {',
     'render() {',
     '  return (',

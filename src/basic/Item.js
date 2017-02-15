@@ -19,6 +19,10 @@ class Item extends Component {
       opacAnim: new Animated.Value(1),
     };
   }
+  componentDidMount() {
+    if(this.inputProps && this.inputProps.getRef)
+    this.inputProps.getRef(this._inputRef);
+  }
 
   floatBack() {
     Animated.timing(this.state.topAnim, {
@@ -98,6 +102,7 @@ class Item extends Component {
     input = _.remove(childrenArray, (item) => {
       if (item.type === Input) {
         inputProps = item.props;
+        this.inputProps = item.props;
         return item;
       }
     });
@@ -117,10 +122,10 @@ class Item extends Component {
     }
     else if (this.props.floatingLabel) {
         newChildren.push((this.props.floatingLabel) ? <Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 15 : 0, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : undefined, paddingBottom: (Platform.OS === 'ios') ? undefined : 12 }}><Label style={{fontSize: (this.state.text) ? 13 : undefined}}>{this.renderLabel(label, labelProps)}</Label></Animated.View> : <Label style={{width: (this.state.text) ? 0 : undefined, marginLeft: (this.props.last) ? null : 15}}>{this.renderLabel(label, labelProps)}</Label>);
-        newChildren.push(<Input key="l2" {...inputProps} onChangeText={text => {this.setState({ text }); (inputProps.onChangeText) && inputProps.onChangeText(text) }} />);
+        newChildren.push(<Input ref={(c) => this._inputRef = c} key="l2" {...inputProps} onChangeText={text => {this.setState({ text }); (inputProps.onChangeText) && inputProps.onChangeText(text) }} />);
     }
     else if (this.props.stackedLabel && icon.length) {
-      newChildren.push(<View key="s" style={{ flexDirection: 'row', flex: 1, width: variables.deviceWidth - 15 }}><Icon key="s1" {...iconProps} style={{ marginTop: 36 }} /><View style={{ flexDirection: 'column' }}><Label key="s2" {...labelProps}></Label><Input key="s3" {...inputProps} onChangeText={text => this.setState({ text })} style={{ width: variables.deviceWidth - 40 }} /></View></View>);
+      newChildren.push(<View key="s" style={{ flexDirection: 'row', flex: 1, width: variables.deviceWidth - 15 }}><Icon key="s1" {...iconProps} style={{ marginTop: 36 }} /><View style={{ flexDirection: 'column' }}><Label key="s2" {...labelProps}></Label><Input key="s3" {...inputProps} style={{ width: variables.deviceWidth - 40 }} /></View></View>);
 
     }
     else {
