@@ -7,7 +7,7 @@ import variable from '../theme/variables/platform';
 
 class ListItem extends Component {
   render() {
-    if (Platform.OS==='ios' || variable.androidRipple===false || !this.props.onPress) {
+    if (Platform.OS==='ios' || variable.androidRipple===false || !this.props.onPress || Platform['Version'] <= 21) {
       return (
         <TouchableHighlight
           onPress={this.props.onPress}

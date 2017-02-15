@@ -7,7 +7,7 @@ var _platform=require('../theme/variables/platform');var _platform2=_interopRequ
 
 ListItem=function(_Component){_inherits(ListItem,_Component);function ListItem(){_classCallCheck(this,ListItem);return _possibleConstructorReturn(this,(ListItem.__proto__||Object.getPrototypeOf(ListItem)).apply(this,arguments));}_createClass(ListItem,[{key:'render',value:function render()
 {var _this2=this;
-if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||!this.props.onPress){
+if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||!this.props.onPress||_reactNative.Platform['Version']<=21){
 return(
 _react2.default.createElement(_reactNative.TouchableHighlight,{
 onPress:this.props.onPress,
