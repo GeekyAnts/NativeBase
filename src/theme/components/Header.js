@@ -13,7 +13,7 @@ export default (variables = variable) => {
         'NativeBase.Title': {
           fontSize: variables.titleFontSize - 2,
           fontFamily: variables.titleFontfamily,
-          color: variables.titleFontColor,
+          color: variables.inverseTextColor,
           textAlign: 'center',
         },
         'NativeBase.Subtitle': {
@@ -190,7 +190,7 @@ export default (variables = variable) => {
           color: variables.toolbarBtnColor,
         },
         'NativeBase.Text': {
-          color: variables.titleFontColor,
+          color: variables.inverseTextColor,
         },
       },
     },
