@@ -231,7 +231,6 @@ return React.Children.map(children,function(child){return child;});
 },
 
 render:function render(){
-console.log('this.props',this.props);
 var overlayTabs=this.props.tabBarPosition==='overlayTop'||this.props.tabBarPosition==='overlayBottom';
 var tabBarProps={
 goToPage:this.goToPage,
