@@ -160,7 +160,7 @@ export default {
   toolbarInverseBg: '#222',
   toolbarTextColor: (platform === 'ios') ? '#000' : '#fff',
   toolbarDefaultBorder: (platform === 'ios') ? '#a7a6ab' : '#3F51B5',
-  iosStatusBar: 'default',
+  iosStatusBar: 'dark-content',
   get statusBarColor() {
     return color(this.toolbarDefaultBg).darken(0.2).hexString();
   },
