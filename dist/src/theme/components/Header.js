@@ -13,7 +13,6 @@ var headerTheme={
 'NativeBase.Title':{
 fontSize:variables.titleFontSize-2,
 fontFamily:variables.titleFontfamily,
-color:variables.inverseTextColor,
 textAlign:'center'},
 
 'NativeBase.Subtitle':{

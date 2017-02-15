@@ -47,8 +47,8 @@ var _Item=require('./basic/Item');
 var _Label=require('./basic/Label');
 var _Textarea=require('./basic/Textarea');
 var _Tab=require('./basic/Tab');
-var _reactNativeScrollableTabView=require('./basic/react-native-scrollable-tab-view');var _reactNativeScrollableTabView2=_interopRequireDefault(_reactNativeScrollableTabView);
-var _DefaultTabBar=require('./basic/react-native-scrollable-tab-view/DefaultTabBar');
+var _Tabs=require('./basic/Tabs');var _Tabs2=_interopRequireDefault(_Tabs);
+var _DefaultTabBar=require('./basic/Tabs/DefaultTabBar');
 var _STabs=require('./smart/STabs');
 
 var _Subtitle=require('./backward/Widgets/Subtitle');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
@@ -88,7 +88,7 @@ Container=_Container.Container;exports.
 Content=_Content.Content;exports.
 Footer=_Footer.Footer;exports.
 Tab=_Tab.Tab;exports.
-Tabs=_reactNativeScrollableTabView2.default;exports.
+Tabs=_Tabs2.default;exports.
 FooterTab=_FooterTab.FooterTab;exports.
 Picker=_Picker.PickerNB;exports.
 List=_List.List;exports.
