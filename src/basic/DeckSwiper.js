@@ -7,7 +7,7 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 const SWIPE_THRESHOLD = 120;
 
 class DeckSwiper extends Component {
-constructor(props) {
+    constructor(props) {
         super(props);
         this.state = {
             pan: new Animated.ValueXY(),
@@ -17,7 +17,11 @@ constructor(props) {
             selectedItem2 : this.props.dataSource[1],
             card1Top: true,
             card2Top: false,
-            fadeAnim: new Animated.Value(0.8)
+            fadeAnim: new Animated.Value(0.8),
+            looping: this.props.looping || true,
+            index: this.props.index || 0,
+            disabled: this.props.dataSource.length === 0,
+            lastCard: this.props.dataSource.length === 1
         }
     }
 
@@ -32,9 +36,7 @@ constructor(props) {
         }
     }
 
-
-    findNextIndexes() {
-        let currentIndex = this.props.dataSource.indexOf(this.state.selectedItem);
+    findNextIndexes(currentIndex) {
         let newIdx = currentIndex + 1;
         let newIdx2 = currentIndex + 2;
 
@@ -48,7 +50,35 @@ constructor(props) {
     }
 
     selectNext() {
-        let nextIndexes = this.findNextIndexes();
+
+        let currentIndex = this.state.index;
+        this.setState({
+            index: currentIndex + 1;
+        })
+
+        // if not looping, check for these conditionals and return from function
+        if(!looping) {
+            // reached end -> only display static renderEmpty() -> no swiping
+            if(currentIndex === dataSource.length - 1) {
+                return this.setState({
+                  disabled: true
+                });
+            } else if(currentIndex === dataSource.length - 2) {
+                // show last card with renderEmpty() component behind it
+                return setTimeout(() => {
+                    this.setState({
+                        selectedItem: dataSource[index + 1]
+                    });
+                  setTimeout(() => {
+                    this.setState({
+                      lastCard: true
+                    });
+                  }, 350);
+                }, 50);
+            }
+        }
+
+        let nextIndexes = this.findNextIndexes(currentIndex);
         setTimeout( () => {
             this.setState({
                 selectedItem: this.props.dataSource[nextIndexes[0]]
@@ -59,6 +89,7 @@ constructor(props) {
                 });
             }, 350);
         }, 50);
+
     }
 
 
@@ -156,10 +187,10 @@ constructor(props) {
                 if (Math.abs(this.state.pan.x._value) > SWIPE_THRESHOLD) {
 
                     if (velocity>0) {
-                        (this.props.onSwipeRight) ? this.props.onSwipeRight() : undefined;
+                        (this.props.onSwipeRight) ? this.props.onSwipeRight(this.selectedItem) : undefined;
                         this.selectNext();
                     } else {
-                        (this.props.onSwipeLeft) ? this.props.onSwipeLeft() : undefined;
+                        (this.props.onSwipeLeft) ? this.props.onSwipeLeft(this.selectedItem) : undefined;
                         this.selectNext();
                     }
 
@@ -210,29 +241,65 @@ constructor(props) {
 
     render() {
 
+        if(this.state.disabled) {
+            // disable swiping and renderEmpty
+            return(
+                <View ref={c => this._root = c} style={{position: 'relative', flexDirection: 'column'}}>
+                    {
+                        <View>
+                        {
+                          this.props.renderEmpty && this.props.renderEmpty()
+                        }
+                        </View>
+                    }
+                </View>
+                );
+        } else if(this.state.lastCard) {
+            // display renderEmpty underneath last viable card
+            return(
+              <View ref={c => this._root = c} style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
+                    (
+                                <View>
+                                    <Animated.View style={[this.getCardStyles()[1], this.getInitialStyle().topCard, {opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
+                                      {
+                                        this.props.renderEmpty && this.props.renderEmpty()
+                                      }
+                                    </Animated.View>
+                                  <Animated.View style={[ this.getCardStyles()[0], this.getInitialStyle().topCard] } {...this._panResponder.panHandlers} >
+                                      {
+                                        this.props.renderItem(this.state.selectedItem)
+                                      }
+                                  </Animated.View>
+                                </View>
+                            )
+                }
+              </View>
+            );
+        } else {
+            return(
+                <View ref={c => this._root = c} style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
+                    (<View>
+                        <Animated.View style={[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
+                            {(this.props.renderBottom)  ?
+                              this.props.renderBottom(this.state.selectedItem2)
+                            :
+                              this.props.renderItem(this.state.selectedItem2)
+                            }
+                        </Animated.View>
+                        <Animated.View style={[ this.getCardStyles()[0], this.getInitialStyle().topCard] } {...this._panResponder.panHandlers} >
+                            {(this.props.renderTop) ?
+                              this.props.renderTop(this.state.selectedItem)
+                            :
+                              this.props.renderItem(this.state.selectedItem)
+                            }
+                        </Animated.View>
+                        </View>
+                    )
+                }
+                </View>
+            );
+        }
 
-        return(
-            <View ref={c => this._root = c} style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
-                (<View>
-                    <Animated.View style={[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
-                        {(this.props.renderBottom)  ?
-                          this.props.renderBottom(this.state.selectedItem2)
-                        :
-                          this.props.renderItem(this.state.selectedItem2)
-                        }
-                    </Animated.View>
-                    <Animated.View style={[ this.getCardStyles()[0], this.getInitialStyle().topCard] } {...this._panResponder.panHandlers} >
-                        {(this.props.renderTop) ?
-                          this.props.renderTop(this.state.selectedItem)
-                        :
-                          this.props.renderItem(this.state.selectedItem)
-                        }
-                    </Animated.View>
-                    </View>
-                )
-            }
-            </View>
-        );
     }
 
 }
