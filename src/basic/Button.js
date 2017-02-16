@@ -30,28 +30,6 @@ class Button extends Component {
 
     return computeProps(this.props, defaultProps);
   }
-  renderChildren() {
-    const isArray = _.isArray(this.props.children);
-    if (!isArray) {
-      if (this.props.children.type.displayName==="Styled(Text)") {
-        return <Text {...this.props.children.props}>{(!this.props.capitalize) ? this.props.children.props.children : this.props.children.props.children.toUpperCase()}</Text>
-      }
-      else return this.props.children;
-    }
-    else {
-      const newChildren = [];
-      const childrenArray = _.toArray(this.props.children);
-      const iconArray = _.remove(childrenArray, (child)=> child.type.displayName==="Styled(Icon)");
-      if (this.props.iconRight) {
-        newChildren.push(<Text key={5}>{(!this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
-        newChildren.push(iconArray);
-      } else {
-        newChildren.push(iconArray);
-        newChildren.push(<Text key={5}>{(!this.props.capitalize) ? childrenArray[0].props.children : childrenArray[0].props.children.toUpperCase()}</Text>);
-      }
-      return newChildren;
-    }
-  }
   render() {
     if (Platform.OS==='ios' || variables.androidRipple===false || Platform['Version'] <= 21) {
       return (
@@ -60,7 +38,6 @@ class Button extends Component {
           ref={c => this._root = c}
           activeOpacity={(this.props.activeOpacity) ? this.props.activeOpacity : 0.5}
         >
-          <View style={(Platform.OS === 'ios') ? { alignSelf: 'center', zIndex: 999 } : { alignSelf: 'center' }}>{(this.props.badgeValue) ? <Badge style={{ backgroundColor: (this.props.badgeColor) ? this.props.badgeColor : undefined }}><Text style={this.props.badgeValueStyle}>{this.props.badgeValue}</Text></Badge> : null}</View>
           {this.props.children}
         </TouchableOpacity>
       );
@@ -72,7 +49,6 @@ class Button extends Component {
               background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variables.androidRippleColor)}
                {...this.prepareRootProps()}>
               <View {...this.prepareRootProps()}>
-                <View style={{ alignSelf: 'center' }}>{(this.props.badgeValue) ? <Badge style={{ backgroundColor: (this.props.badgeColor) ? this.props.badgeColor : undefined }}><Text style={this.props.badgeValueStyle}>{this.props.badgeValue}</Text></Badge> : null}</View>
                   {this.props.children}
               </View>
           </TouchableNativeFeedback>

@@ -11,9 +11,8 @@ var checkBoxTheme={
 color:variables.checkboxTickColor},
 
 'NativeBase.IconNB':{
-color:variables.checkboxTickColor},
+color:variables.checkboxTickColor}},
 
-backgroundColor:variables.checkboxBgColor},
 
 'NativeBase.Icon':{
 color:'transparent',
@@ -34,8 +33,7 @@ height:variables.checkboxSize,
 borderWidth:variables.CheckboxBorderWidth,
 paddingLeft:variables.CheckboxPaddingLeft-1,
 paddingBottom:variables.CheckboxPaddingBottom,
-borderColor:variables.checkboxBgColor,
-backgroundColor:'transparent'};
+left:10};
 
 
 

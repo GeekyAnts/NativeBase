@@ -6,22 +6,16 @@ import variable from './../variables/platform';
 export default (variables = variable) => {
   const radioTheme = {
       '.selected': {
-        'NativeBase.Icon': {
-          color: variables.radioSelectedColor,
-        },
         'NativeBase.IconNB': {
-          color: variables.radioSelectedColor,
+          color: (Platform.OS === 'ios') ? variables.brandPrimary : variables.radioSelectedColorAndroid,
+          lineHeight: (Platform.OS === 'ios') ? 25 : variables.radioBtnLineHeight,
+          height: (Platform.OS === 'ios') ? 20 : undefined,
         },
-      },
-      'NativeBase.Icon': {
-        color: variables.radioColor,
-        lineHeight: variables.radioBtnLineHeight,
-        fontSize: variables.radioBtnSize,
       },
       'NativeBase.IconNB': {
-        color: variables.radioColor,
-        lineHeight: variables.radioBtnLineHeight,
-        fontSize: variables.radioBtnSize,
+        color: (Platform.OS ===  'ios') ? 'transparent' : undefined,
+        lineHeight: (Platform.OS ===  'ios') ? undefined : variables.radioBtnLineHeight,
+        fontSize: (Platform.OS ===  'ios') ? undefined : variables.radioBtnSize,
       },
   };
 

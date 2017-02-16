@@ -8,6 +8,21 @@ var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 
 var headerTheme={
+'.span':{
+height:128,
+'NativeBase.Left':{
+alignSelf:'flex-start'},
+
+'NativeBase.Body':{
+alignSelf:'flex-end',
+alignItems:'flex-start',
+justifyContent:'center',
+paddingBottom:26},
+
+'NativeBase.Right':{
+alignSelf:'flex-start'}},
+
+
 '.hasSubtitle':{
 'NativeBase.Body':{
 'NativeBase.Title':{
@@ -218,8 +233,8 @@ marginLeft:5}},
 
 
 '.transparent':{
-marginRight:-3,
-paddingHorizontal:10,
+marginRight:-8,
+paddingHorizontal:15,
 borderRadius:50,
 'NativeBase.Icon':{
 color:variables.toolbarBtnColor,

@@ -6,13 +6,19 @@ var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapProps
 var _platform=require('../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 ListItem=function(_Component){_inherits(ListItem,_Component);function ListItem(){_classCallCheck(this,ListItem);return _possibleConstructorReturn(this,(ListItem.__proto__||Object.getPrototypeOf(ListItem)).apply(this,arguments));}_createClass(ListItem,[{key:'render',value:function render()
+
+
+
 {var _this2=this;
-if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||!this.props.onPress){
+var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:_platform2.default;
+var platformStyle=variables.platformStyle;
+
+if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||!this.props.onPress||_reactNative.Platform['Version']<=21){
 return(
 _react2.default.createElement(_reactNative.TouchableHighlight,{
 onPress:this.props.onPress,
 ref:function ref(c){return _this2._root=c;},
-underlayColor:'#DDD'},
+underlayColor:_platform2.default.listBtnUnderlyColor},
 
 _react2.default.createElement(_reactNative.View,this.props,this.props.children)));
 
@@ -23,13 +29,11 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,{ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColorDark)},
-_react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17}},
-_react2.default.createElement(_reactNative.View,this.props,this.props.children))));
-
+_react2.default.createElement(_reactNative.View,this.props,this.props.children)));
 
 
 }
-}}]);return ListItem;}(_react.Component);
+}}]);return ListItem;}(_react.Component);ListItem.contextTypes={theme:_react2.default.PropTypes.object};
 
 
 ListItem.propTypes=_extends({},

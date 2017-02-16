@@ -170,7 +170,7 @@ return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 iconFamily:'Ionicons',
 iconFontSize:platform==='ios'?30:28,
 iconMargin:7,
-iconHeaderSize:platform==='ios'?33:28,
+iconHeaderSize:platform==='ios'?33:24,
 
 
 

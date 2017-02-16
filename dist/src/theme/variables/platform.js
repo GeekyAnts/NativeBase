@@ -170,7 +170,7 @@ return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 iconFamily:'Ionicons',
 iconFontSize:platform==='ios'?30:28,
 iconMargin:7,
-iconHeaderSize:platform==='ios'?33:28,
+iconHeaderSize:platform==='ios'?33:24,
 
 
 
@@ -208,6 +208,7 @@ lineHeight:platform==='ios'?20:24,
 listBorderColor:'#c9c9c9',
 listDividerBg:'#f4f4f4',
 listItemHeight:45,
+listBtnUnderlyColor:'#DDD',
 
 
 cardBorderColor:'#ccc',
@@ -226,7 +227,7 @@ inverseProgressColor:'#1A191B',
 
 
 radioBtnSize:platform==='ios'?25:23,
-radioSelectedColorAndroid:'#5067FF',
+radioSelectedColorAndroid:'#3F51B5',
 
 
 radioBtnLineHeight:platform==='ios'?29:24,
