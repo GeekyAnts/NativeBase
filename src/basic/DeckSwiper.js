@@ -53,7 +53,7 @@ class DeckSwiper extends Component {
 
         let currentIndex = this.state.index;
         this.setState({
-            index: currentIndex + 1;
+            index: currentIndex + 1
         })
 
         // if not looping, check for these conditionals and return from function
