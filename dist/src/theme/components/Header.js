@@ -75,7 +75,6 @@ alignSelf:'center'},
 
 'NativeBase.Input':{
 alignSelf:'center',
-marginTop:2,
 lineHeight:24,
 height:variables.searchBarHeight},
 
