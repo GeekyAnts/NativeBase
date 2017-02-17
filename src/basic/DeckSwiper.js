@@ -19,7 +19,6 @@ class DeckSwiper extends Component {
             card2Top: false,
             fadeAnim: new Animated.Value(0.8),
             looping: this.props.looping || true,
-            index: this.props.index || 0,
             disabled: this.props.dataSource.length === 0,
             lastCard: this.props.dataSource.length === 1
         }
@@ -51,12 +50,10 @@ class DeckSwiper extends Component {
 
     selectNext() {
 
-        let currentIndex = this.state.index;
-        this.setState({
-            index: currentIndex + 1
-        })
+        const dataSource = this.props.dataSource;
+        let currentIndex = dataSource.indexOf(this.state.selectedItem);
 
-        // if not looping, check for these conditionals and return from function
+        // if not looping, check for these conditionals and if true return from selectNext()
         if(!looping) {
             // reached end -> only display static renderEmpty() -> no swiping
             if(currentIndex === dataSource.length - 1) {
@@ -67,13 +64,13 @@ class DeckSwiper extends Component {
                 // show last card with renderEmpty() component behind it
                 return setTimeout(() => {
                     this.setState({
-                        selectedItem: dataSource[index + 1]
+                        selectedItem: dataSource[currentIndex + 1]
                     });
-                  setTimeout(() => {
+                    setTimeout(() => {
                     this.setState({
                       lastCard: true
                     });
-                  }, 350);
+                    }, 350);
                 }, 50);
             }
         }
