@@ -28,7 +28,9 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,{ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColorDark)},
-_react2.default.createElement(_reactNative.View,this.props,this.props.children)));
+_react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17}},
+_react2.default.createElement(_reactNative.View,this.props,this.props.children))));
+
 
 
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
-import { IconNB } from './IconNB';
+import IconNB from 'react-native-vector-icons/Ionicons';
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
@@ -35,7 +35,11 @@ class CheckBox extends Component {
     const platform = variables.platform;
     return (
       <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()}>
-        <IconNB name={((platform === 'ios') && (platformStyle !== 'material')) ? 'ios-checkmark-outline' : 'md-checkmark'} />
+        <IconNB style={{
+            color: variables.checkboxTickColor,
+            fontSize: variables.CheckboxFontSize,
+            lineHeight: variables.CheckboxIconSize
+          }} name={((platform === 'ios') && (platformStyle !== 'material')) ? 'ios-checkmark-outline' : 'md-checkmark'} />
       </TouchableOpacity>
     );
   }

@@ -11,7 +11,7 @@ class ListItem extends Component {
   }
   render() {
     const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
-    
+
     if (Platform.OS === 'ios' || variable.androidRipple === false || !this.props.onPress || Platform.Version <= 21) {
       return (
         <TouchableHighlight
@@ -28,7 +28,9 @@ class ListItem extends Component {
           <TouchableNativeFeedback ref={c => this._root = c}
               onPress={this.props.onPress}
               background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColorDark)}>
-              <View {...this.props}>{this.props.children}</View>
+              <View style={{ marginLeft: -17, paddingLeft: 17 }}>
+                <View {...this.props}>{this.props.children}</View>
+              </View>
           </TouchableNativeFeedback>
       );
     }

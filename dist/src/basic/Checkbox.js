@@ -1,6 +1,6 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.CheckBox=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
-var _IconNB=require('./IconNB');
+var _Ionicons=require('react-native-vector-icons/Ionicons');var _Ionicons2=_interopRequireDefault(_Ionicons);
 var _theme=require('@shoutem/theme');
 var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _platform=require('../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
@@ -35,7 +35,11 @@ var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps()),
-_react2.default.createElement(_IconNB.IconNB,{name:platform==='ios'&&platformStyle!=='material'?'ios-checkmark-outline':'md-checkmark'})));
+_react2.default.createElement(_Ionicons2.default,{style:{
+color:variables.checkboxTickColor,
+fontSize:variables.CheckboxFontSize,
+lineHeight:variables.CheckboxIconSize},
+name:platform==='ios'&&platformStyle!=='material'?'ios-checkmark-outline':'md-checkmark'})));
 
 
 }}]);return CheckBox;}(_react.Component);CheckBox.contextTypes={theme:_react2.default.PropTypes.object};
