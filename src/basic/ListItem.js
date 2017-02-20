@@ -6,13 +6,18 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 
 class ListItem extends Component {
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
   render() {
-    if (Platform.OS==='ios' || variable.androidRipple===false || !this.props.onPress || Platform['Version'] <= 21) {
+    const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
+    
+    if (Platform.OS === 'ios' || variable.androidRipple === false || !this.props.onPress || Platform.Version <= 21) {
       return (
         <TouchableHighlight
           onPress={this.props.onPress}
           ref={c => this._root = c}
-          underlayColor="#DDD"
+          underlayColor={variable.listBtnUnderlayColor}
         >
           <View {...this.props}>{this.props.children}</View>
         </TouchableHighlight>
@@ -23,9 +28,7 @@ class ListItem extends Component {
           <TouchableNativeFeedback ref={c => this._root = c}
               onPress={this.props.onPress}
               background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColorDark)}>
-              <View style={{ marginLeft: -17, paddingLeft: 17 }}>
-                <View {...this.props}>{this.props.children}</View>
-              </View>
+              <View {...this.props}>{this.props.children}</View>
           </TouchableNativeFeedback>
       );
     }

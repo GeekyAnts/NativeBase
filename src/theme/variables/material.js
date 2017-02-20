@@ -170,7 +170,7 @@ export default {
   iconFamily: 'Ionicons',
   iconFontSize: (platform === 'ios') ? 30 : 28,
   iconMargin: 7,
-  iconHeaderSize: (platform === 'ios') ? 29 : 28,
+  iconHeaderSize: (platform === 'ios') ? 29 : 24,
 
 
     // InputGroup
@@ -208,6 +208,7 @@ export default {
   listBorderColor: '#c9c9c9',
   listDividerBg: '#f4f4f4',
   listItemHeight: 45,
+  listBtnUnderlayColor: '#DDD',
 
     // Card
   cardBorderColor: '#ccc',

@@ -170,7 +170,7 @@ export default {
   iconFamily: 'Ionicons',
   iconFontSize: (platform === 'ios') ? 30 : 28,
   iconMargin: 7,
-  iconHeaderSize: (platform === 'ios') ? 33 : 28,
+  iconHeaderSize: (platform === 'ios') ? 33 : 24,
 
 
     // InputGroup
@@ -227,7 +227,7 @@ export default {
 
     // Radio Button
   radioBtnSize: (platform === 'ios') ? 25 : 23,
-  radioSelectedColorAndroid: '#5067FF',
+  radioSelectedColorAndroid: '#3F51B5',
 
     // New Variable
   radioBtnLineHeight: (platform === 'ios') ? 29 : 24,
