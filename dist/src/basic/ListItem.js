@@ -10,18 +10,14 @@ ListItem=function(_Component){_inherits(ListItem,_Component);function ListItem()
 
 
 {var _this2=this;
-<<<<<<< HEAD
-=======
 var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:_platform2.default;
-var platformStyle=variables.platformStyle;
 
->>>>>>> 530e9ca279beb7cf748b37b9c37ccbba2f9e9ec1
-if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||!this.props.onPress||_reactNative.Platform['Version']<=21){
+if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||!this.props.onPress||_reactNative.Platform.Version<=21){
 return(
 _react2.default.createElement(_reactNative.TouchableHighlight,{
 onPress:this.props.onPress,
 ref:function ref(c){return _this2._root=c;},
-underlayColor:_platform2.default.listBtnUnderlyColor},
+underlayColor:_platform2.default.listBtnUnderlayColor},
 
 _react2.default.createElement(_reactNative.View,this.props,this.props.children)));
 

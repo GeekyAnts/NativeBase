@@ -27,6 +27,7 @@ marginLeft:15},
 
 '.stackedLabel':{
 'NativeBase.Label':{
+top:5,
 paddingLeft:null},
 
 'NativeBase.Input':{
@@ -38,13 +39,14 @@ marginLeft:15},
 '.floatingLabel':{
 'NativeBase.Input':{
 paddingLeft:null,
-top:8,
+top:10,
 marginLeft:platform==='ios'?undefined:-5},
 
 'NativeBase.Label':{
 left:0,
 top:8},
 
+marginTop:15,
 marginLeft:15},
 
 '.regular':{

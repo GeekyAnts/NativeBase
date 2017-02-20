@@ -208,7 +208,7 @@ lineHeight:platform==='ios'?20:24,
 listBorderColor:'#c9c9c9',
 listDividerBg:'#f4f4f4',
 listItemHeight:45,
-listBtnUnderlyColor:'#DDD',
+listBtnUnderlayColor:'#DDD',
 
 
 cardBorderColor:'#ccc',

@@ -1,4 +1,4 @@
-import { StyleProvider } from '@shoutem/theme';
+import { StyleProvider, connectStyle } from '@shoutem/theme';
 import { keys } from 'lodash';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Gravatar } from './backward/Widgets/Gravatar';
@@ -60,6 +60,7 @@ export {
   getTheme,
   variables,
   StyleProvider,
+  connectStyle,
   Drawer,
   Button,
   IconNB,

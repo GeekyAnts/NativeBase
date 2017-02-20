@@ -80,6 +80,7 @@ Fab:_Fab.Fab,
 Tabs:_Tabs.Tabs,
 Subtitle:_Subtitle.Subtitle,
 StyleProvider:_theme.StyleProvider,
+connectStyle:_theme.connectStyle,
 getTheme:_components2.default,
 variables:_platform2.default};
 //# sourceMappingURL=index.js.map
