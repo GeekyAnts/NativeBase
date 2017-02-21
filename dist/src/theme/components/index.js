@@ -22,6 +22,7 @@ var _Textarea=require('./Textarea');var _Textarea2=_interopRequireDefault(_Texta
 var _Text=require('./Text');var _Text2=_interopRequireDefault(_Text);
 var _Tab=require('./Tab');var _Tab2=_interopRequireDefault(_Tab);
 var _TabBar=require('./TabBar');var _TabBar2=_interopRequireDefault(_TabBar);
+var _TabContainer=require('./TabContainer');var _TabContainer2=_interopRequireDefault(_TabContainer);
 var _View=require('./View');var _View2=_interopRequireDefault(_View);
 var _TabHeading=require('./TabHeading');var _TabHeading2=_interopRequireDefault(_TabHeading);
 var _Icon=require('./Icon');var _Icon2=_interopRequireDefault(_Icon);
@@ -206,6 +207,9 @@ flex:1},
 
 'NativeBase.TabHeading':_extends({},
 (0,_TabHeading2.default)(variables)),
+
+'NativeBase.TabContainer':_extends({},
+(0,_TabContainer2.default)(variables)),
 
 'NativeBase.Switch':{
 marginVertical:-5},

@@ -22,6 +22,7 @@ import textAreaTheme from './Textarea';
 import textTheme from './Text';
 import tabTheme from './Tab';
 import tabBarTheme from './TabBar';
+import tabContainerTheme from './TabContainer';
 import viewTheme from './View';
 import tabHeadingTheme from './TabHeading';
 import iconTheme from './Icon';
@@ -206,6 +207,9 @@ export default (variables = variable) => {
     },
     'NativeBase.TabHeading': {
       ...tabHeadingTheme(variables),
+    },
+    'NativeBase.TabContainer': {
+      ...tabContainerTheme(variables),
     },
     'NativeBase.Switch': {
       marginVertical: -5,
