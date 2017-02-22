@@ -17,7 +17,7 @@ return(
 _react2.default.createElement(_reactNative.TouchableHighlight,{
 onPress:this.props.onPress,
 ref:function ref(c){return _this2._root=c;},
-underlayColor:_platform2.default.listBtnUnderlayColor},
+underlayColor:variables.listBtnUnderlayColor},
 
 _react2.default.createElement(_reactNative.View,this.props,this.props.children)));
 

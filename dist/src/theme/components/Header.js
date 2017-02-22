@@ -53,6 +53,14 @@ shadowRadius:null,
 shadowOpacity:null,
 borderBottomWidth:null},
 
+'.hasSegment':{
+elevation:0,
+shadowColor:null,
+shadowOffset:null,
+shadowRadius:null,
+shadowOpacity:null,
+borderBottomWidth:null},
+
 'NativeBase.Button':{
 justifyContent:'center',
 alignSelf:'center',
@@ -191,6 +199,11 @@ alignItems:'flex-start'},
 flex:1,
 alignItems:platform==='ios'&&platformStyle!=='material'?'center':'flex-start',
 alignSelf:'center',
+'NativeBase.Segment':{
+borderWidth:0,
+alignSelf:'flex-end',
+marginRight:platform==='ios'?-40:-55},
+
 'NativeBase.Button':{
 alignSelf:'center',
 '.transparent':{

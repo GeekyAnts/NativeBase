@@ -44,6 +44,7 @@ import { ListItem } from './basic/ListItem';
 import { Separator } from './basic/Separator';
 import { DeckSwiper } from './basic/DeckSwiper';
 import { Item } from './basic/Item';
+import { Segment } from './basic/Segment';
 import { Label } from './basic/Label';
 import { Textarea } from './basic/Textarea';
 import { Tab } from './basic/Tab';
@@ -110,7 +111,8 @@ export {
   View,
   TabHeading,
   TabContainer,
-  DefaultTabBar
+  DefaultTabBar,
+  Segment
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);

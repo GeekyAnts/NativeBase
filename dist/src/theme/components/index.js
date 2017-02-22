@@ -26,6 +26,7 @@ var _TabContainer=require('./TabContainer');var _TabContainer2=_interopRequireDe
 var _View=require('./View');var _View2=_interopRequireDefault(_View);
 var _TabHeading=require('./TabHeading');var _TabHeading2=_interopRequireDefault(_TabHeading);
 var _Icon=require('./Icon');var _Icon2=_interopRequireDefault(_Icon);
+var _Segment=require('./Segment');var _Segment2=_interopRequireDefault(_Segment);
 var _Spinner=require('./Spinner');var _Spinner2=_interopRequireDefault(_Spinner);
 var _CardItem=require('./CardItem');var _CardItem2=_interopRequireDefault(_CardItem);
 var _ListItem=require('./ListItem');var _ListItem2=_interopRequireDefault(_ListItem);
@@ -193,6 +194,10 @@ alignSelf:'center'}}),
 
 'NativeBase.Tab':_extends({},
 (0,_Tab2.default)(variables)),
+
+
+'NativeBase.Segment':_extends({},
+(0,_Segment2.default)(variables)),
 
 
 'NativeBase.STabs':{

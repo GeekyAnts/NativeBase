@@ -26,6 +26,7 @@ import tabContainerTheme from './TabContainer';
 import viewTheme from './View';
 import tabHeadingTheme from './TabHeading';
 import iconTheme from './Icon';
+import segmentTheme from './Segment';
 import spinnerTheme from './Spinner';
 import cardItemTheme from './CardItem';
 import listItemTheme from './ListItem';
@@ -193,6 +194,10 @@ export default (variables = variable) => {
 
     'NativeBase.Tab': {
      ...tabTheme(variables),
+    },
+
+    'NativeBase.Segment': {
+     ...segmentTheme(variables),
     },
 
     'NativeBase.STabs': {

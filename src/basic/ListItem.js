@@ -17,7 +17,7 @@ class ListItem extends Component {
         <TouchableHighlight
           onPress={this.props.onPress}
           ref={c => this._root = c}
-          underlayColor={variable.listBtnUnderlayColor}
+          underlayColor={variables.listBtnUnderlayColor}
         >
           <View {...this.props}>{this.props.children}</View>
         </TouchableHighlight>
