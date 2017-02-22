@@ -93,7 +93,7 @@ class PickerNB extends Component {
   renderButton() {
     const onPress = () => { this._setModalVisible(true); };
     if (this.props.renderButton) {
-      return this.props.renderButton(onPress);
+      return this.props.renderButton(this, onPress);
     }
     return <Button
       style={this.props.style}
