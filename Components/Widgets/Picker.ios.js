@@ -107,7 +107,7 @@ export default class PickerNB extends NativeBaseComponent {
 
     renderHeader() {
         return (this.props.headerComponent) ? this.modifyHeader() : (<Header style={this.props.headerStyle}>
-            <Button transparent onPress={() => {this._setModalVisible(false)}}>Back</Button>
+            <Button transparent style={this.props.headerButtonStyle} onPress={() => {this._setModalVisible(false)}}>Back</Button>
             <Title style={this.props.headerTextStyle}>{(this.props.iosHeader) ? this.props.iosHeader : 'Select One'}</Title>
         </Header>)
     }
