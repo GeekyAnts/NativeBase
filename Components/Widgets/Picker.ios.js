@@ -91,7 +91,7 @@ export default class PickerNB extends NativeBaseComponent {
         const onPress = () => { this._setModalVisible(true); };
         const text = this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel;
         if (this.props.renderButton) {
-        return this.props.renderButton(this, text, onPress);
+        return this.props.renderButton(onPress, text, this);
         }
         return <Button
         style={this.props.style}
