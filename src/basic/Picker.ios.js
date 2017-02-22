@@ -90,6 +90,23 @@ class PickerNB extends Component {
     return React.cloneElement(this.props.iosIcon, { style: { fontSize: 22, lineHeight: 26, color: '#7a7a7a' } });
   }
 
+  renderButton() {
+    const onPress = () => { this._setModalVisible(true); };
+    if (this.props.renderButton) {
+      return this.props.renderButton(onPress);
+    }
+    return <Button
+      style={this.props.style}
+      dark
+      picker
+      transparent
+      onPress={onPress}
+    >
+      <Text note={(this.props.note)} style={this.props.textStyle}>{this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel}</Text>
+      {(this.props.iosIcon === undefined) ? null : this.renderIcon()}
+    </Button>;
+  }
+
   renderHeader() {
     return (this.props.headerComponent) ? this.modifyHeader() : (<Header >
       <Left><Button
@@ -104,16 +121,7 @@ class PickerNB extends Component {
   render() {
     return (
       <View ref={c => this._root = c}>
-        <Button
-          style={this.props.style}
-          dark
-          picker
-          transparent
-          onPress={() => { this._setModalVisible(true); }}
-        >
-          <Text note={(this.props.note)} style={this.props.textStyle}>{this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel}</Text>
-          {(this.props.iosIcon === undefined) ? null : this.renderIcon()}
-        </Button>
+        {this.renderButton()}
         <Modal
           animationType="slide"
           transparent={false}
