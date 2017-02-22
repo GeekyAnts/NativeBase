@@ -92,8 +92,9 @@ class PickerNB extends Component {
 
   renderButton() {
     const onPress = () => { this._setModalVisible(true); };
+    const text = this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel;
     if (this.props.renderButton) {
-      return this.props.renderButton(this, onPress);
+      return this.props.renderButton(onPress, text, this);
     }
     return <Button
       style={this.props.style}
@@ -102,7 +103,7 @@ class PickerNB extends Component {
       transparent
       onPress={onPress}
     >
-      <Text note={(this.props.note)} style={this.props.textStyle}>{this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel}</Text>
+      <Text note={(this.props.note)} style={this.props.textStyle}>{text}</Text>
       {(this.props.iosIcon === undefined) ? null : this.renderIcon()}
     </Button>;
   }
