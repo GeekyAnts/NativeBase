@@ -11,7 +11,6 @@ _react2.default.createElement(_reactNative.Text,_extends({ref:function ref(c){re
 
 }}]);return H2;}(_react.Component);
 
-
 var childrenType=function childrenType(props,propName,component){
 var error=void 0;
 var prop=props[propName];

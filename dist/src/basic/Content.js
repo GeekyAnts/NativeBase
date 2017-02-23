@@ -22,7 +22,8 @@ Content.propTypes=_extends({},
 _reactNativeKeyboardAwareScrollView.KeyboardAwareScrollView.propTypes,{
 style:_react2.default.PropTypes.object,
 padder:_react2.default.PropTypes.bool,
-disableKBDismissScroll:_react2.default.PropTypes.bool});
+disableKBDismissScroll:_react2.default.PropTypes.bool,
+enableResetScrollToCoords:_react2.default.PropTypes.bool});
 
 
 var StyledContent=(0,_theme.connectStyle)('NativeBase.Content',{},_mapPropsToStyleNames2.default)(Content);exports.

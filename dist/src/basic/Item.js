@@ -18,7 +18,11 @@ text:'',
 topAnim:new _reactNative.Animated.Value(18),
 opacAnim:new _reactNative.Animated.Value(1)};return _this;
 
-}_createClass(Item,[{key:'floatBack',value:function floatBack()
+}_createClass(Item,[{key:'componentDidMount',value:function componentDidMount()
+{
+if(this.inputProps&&this.inputProps.getRef)
+this.inputProps.getRef(this._inputRef);
+}},{key:'floatBack',value:function floatBack()
 
 {
 _reactNative.Animated.timing(this.state.topAnim,{
@@ -33,7 +37,7 @@ start();
 
 {
 _reactNative.Animated.timing(this.state.topAnim,{
-toValue:-5,
+toValue:-22,
 duration:150}).
 start();
 _reactNative.Animated.timing(this.state.opacAnim,{
@@ -45,13 +49,18 @@ start();
 label,labelProps){
 var newLabel=[];
 if(this.props.floatingLabel){
-if(this.state.text){
+if(this.state.isFocused){
 newLabel.push(_react2.default.createElement(_Label.Label,_extends({},
 
 
 labelProps,{
 key:'newFLabel',
-float:true})));
+float:true,
+style:_extends({
+fontSize:15,
+lineHeight:30},
+labelProps.style)})));
+
 
 
 this.floatUp();
@@ -59,15 +68,6 @@ this.floatUp();
 newLabel.push(label);
 this.floatBack();
 }
-}else if(this.state.text){
-newLabel.push(_react2.default.createElement(_Label.Label,_extends({},
-
-
-labelProps,{
-key:'newLabel',
-focused:true})));
-
-
 }else{
 newLabel.push(_react2.default.createElement(_Label.Label,_extends({},
 
@@ -98,6 +98,7 @@ var inputProps={};
 input=_lodash2.default.remove(childrenArray,function(item){
 if(item.type===_Input.Input){
 inputProps=item.props;
+_this2.inputProps=item.props;
 return item;
 }
 });
@@ -112,15 +113,15 @@ return item;
 });
 if(this.props.floatingLabel&&icon.length){
 newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:'i1'},iconProps,{style:{top:6}})));
-newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?22:22,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12}},_react2.default.createElement(_Label.Label,{style:{fontSize:this.state.text?13:undefined}},this.renderLabel(label,labelProps))));
-newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onChangeText:function onChangeText(text){return _this2.setState({text:text});}})));
+newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?22:22,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12}},_react2.default.createElement(_Label.Label,labelProps,this.renderLabel(label,labelProps))));
+newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onFocus:function onFocus(){_this2.setState({isFocused:true});inputProps.onFocus&&inputProps.onFocus();},onBlur:function onBlur(){!_this2.state.text.length&&_this2.setState({isFocused:false});inputProps.onBlur&&inputProps.onBlur();},onChangeText:function onChangeText(text){_this2.setState({text:text});inputProps.onChangeText&&inputProps.onChangeText(text);}})));
 }else
 if(this.props.floatingLabel){
-newChildren.push(this.props.floatingLabel?_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?15:0,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12}},_react2.default.createElement(_Label.Label,{style:{fontSize:this.state.text?13:undefined}},this.renderLabel(label,labelProps))):_react2.default.createElement(_Label.Label,{style:{width:this.state.text?0:undefined,marginLeft:this.props.last?null:15}},this.renderLabel(label,labelProps)));
-newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onChangeText:function onChangeText(text){return _this2.setState({text:text});}})));
+newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?15:0,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12}},_react2.default.createElement(_Label.Label,labelProps,this.renderLabel(label,labelProps))));
+newChildren.push(_react2.default.createElement(_Input.Input,_extends({ref:function ref(c){return _this2._inputRef=c;},value:this.state.text,key:'l2'},inputProps,{onFocus:function onFocus(){_this2.setState({isFocused:true});inputProps.onFocus&&inputProps.onFocus();},onBlur:function onBlur(){!_this2.state.text.length&&_this2.setState({isFocused:false});inputProps.onBlur&&inputProps.onBlur();},onChangeText:function onChangeText(text){_this2.setState({text:text});inputProps.onChangeText&&inputProps.onChangeText(text);}})));
 }else
 if(this.props.stackedLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'s',style:{flexDirection:'row',flex:1,width:_platform2.default.deviceWidth-15}},_react2.default.createElement(_Icon.Icon,_extends({key:'s1'},iconProps,{style:{marginTop:36}})),_react2.default.createElement(_reactNative.View,{style:{flexDirection:'column'}},_react2.default.createElement(_Label.Label,_extends({key:'s2'},labelProps)),_react2.default.createElement(_Input.Input,_extends({key:'s3'},inputProps,{onChangeText:function onChangeText(text){return _this2.setState({text:text});},style:{width:_platform2.default.deviceWidth-40}})))));
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'s',style:{flexDirection:'row',flex:1,width:_platform2.default.deviceWidth-15}},_react2.default.createElement(_Icon.Icon,_extends({key:'s1'},iconProps,{style:{marginTop:36}})),_react2.default.createElement(_reactNative.View,{style:{flexDirection:'column'}},_react2.default.createElement(_Label.Label,_extends({key:'s2'},labelProps)),_react2.default.createElement(_Input.Input,_extends({key:'s3'},inputProps,{style:{width:_platform2.default.deviceWidth-40}})))));
 
 }else
 {

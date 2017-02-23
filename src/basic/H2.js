@@ -11,7 +11,6 @@ class H2 extends Component {
     );
   }
 }
-
 const childrenType = function (props, propName, component) {
   let error;
   const prop = props[propName];

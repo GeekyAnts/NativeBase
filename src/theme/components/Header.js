@@ -8,12 +8,26 @@ export default (variables = variable) => {
   const platform = variables.platform;
 
   const headerTheme = {
+    '.span': {
+      height: 128,
+      'NativeBase.Left': {
+        alignSelf: 'flex-start',
+      },
+      'NativeBase.Body': {
+        alignSelf: 'flex-end',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        paddingBottom: 26,
+      },
+      'NativeBase.Right': {
+        alignSelf: 'flex-start',
+      },
+    },
     '.hasSubtitle': {
       'NativeBase.Body': {
         'NativeBase.Title': {
           fontSize: variables.titleFontSize - 2,
           fontFamily: variables.titleFontfamily,
-          color: variables.titleFontColor,
           textAlign: 'center',
         },
         'NativeBase.Subtitle': {
@@ -32,6 +46,14 @@ export default (variables = variable) => {
       shadowOpacity: null,
     },
     '.hasTabs': {
+      elevation: 0,
+      shadowColor: null,
+      shadowOffset: null,
+      shadowRadius: null,
+      shadowOpacity: null,
+      borderBottomWidth: null,
+    },
+    '.hasSegment': {
       elevation: 0,
       shadowColor: null,
       shadowOffset: null,
@@ -76,7 +98,6 @@ export default (variables = variable) => {
         },
         'NativeBase.Input': {
           alignSelf: 'center',
-          marginTop: (platform === 'android') ? 5 : undefined,
           lineHeight: 24,
           height: variables.searchBarHeight,
         },
@@ -178,6 +199,11 @@ export default (variables = variable) => {
       flex: 1,
       alignItems: ((platform === 'ios') && (platformStyle!=='material')) ? 'center' : 'flex-start',
       alignSelf: 'center',
+      'NativeBase.Segment': {
+        borderWidth: 0,
+        alignSelf: 'flex-end',
+        marginRight: (platform === 'ios') ? -40 : -55
+      },
       'NativeBase.Button': {
         alignSelf: 'center',
         '.transparent': {
@@ -190,7 +216,7 @@ export default (variables = variable) => {
           color: variables.toolbarBtnColor,
         },
         'NativeBase.Text': {
-          color: variables.titleFontColor,
+          color: variables.inverseTextColor,
         },
       },
     },
@@ -219,7 +245,9 @@ export default (variables = variable) => {
           },
         },
         '.transparent': {
-          marginRight: -3,
+          marginRight: -8,
+          paddingHorizontal: 15,
+          borderRadius: 50,
           'NativeBase.Icon': {
             color: variables.toolbarBtnColor,
             fontSize: (platform==='ios') ? variables.iconHeaderSize-6 : variables.iconHeaderSize-2,

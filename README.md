@@ -8,19 +8,17 @@ Essential cross-platform UI components for React Native
 
 #### Updated docs [here!](http://nativebase.io/docs/v2.0.0)
 
-![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/Screenshots/iOS/demo.gif)
+![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/screenshots/iOS.gif)
+![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/screenshots/Android.gif)
 
 NativeBase is a sleek, ingenious and dynamic front-end framework created by passionate React Loving team at [Geekyants.com](http://geekyants.com/) to build cross platform Android & iOS mobile apps using ready to use generic components of React Native.
 
-### Note about `Icon`
-
-Icon is a wrapper around [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) and uses `Ionicons` as the default iconFamily. To change the icon family you have to set it in the [theme](http://nativebase.io/docs/v0.5.13/customize#themingNativeBaseApp) [variable file](http://nativebase.io/docs/v0.5.13/theme-variables). Other iconfamilies (like FontAwesome) won't work out of the box unless the variable file is changed.
 
 # Table of Content
 
 1. [What is NativeBase?](#1-what-is-nativebase)
 2. [Why NativeBase?](#2-why-nativebase)
-3. [Magic of NativeBase](#3-magic-of-nativebase)
+3. [KitchenSink App](https://github.com/GeekyAnts/NativeBase-KitchenSink)
 4. [Getting Started](#4-getting-started)
 5. [Components](#5-components)
 6. [Native Starter Kit](#6-native-starter-kit)
@@ -45,23 +43,11 @@ Icon is a wrapper around [react-native-vector-icons](https://github.com/oblador/
 ## 2. Why NativeBase?
 What is really great with [NativeBase](http://nativebase.io/) is that you can use shared UI cross-platform components, which will drastically increase your productivity. When using NativeBase, you can use any native third-party libraries out of the box. You do not need to use wrappers or do any other actions. The new additions to the native platform are available immediately. NativeBase provides amazing support for adding components, so that you will by no means hit a lifeless stop.
 
-**Recommended by** ![Microsoft](/img/microsoft-logo.png)
+**Recommended by** *Microsoft*
 > If you're looking to get started with React Native + CodePush, and are looking for an awesome starter kit, you should check out Native Starter Pro - [Microsoft's react-native-code-push repo](https://github.com/Microsoft/react-native-code-push#example-apps--starters)
 
 **Recommended by [Awesome React Native](https://github.com/jondot/awesome-react-native)**
 >NativeBase added into the list of [Frameworks](https://github.com/jondot/awesome-react-native#frameworks) of Awesome React Native and are also used by many other React lovers across the world.
-
-Do you still have a question **Why NativeBase**?
-
-If yes then go ahead and watch this magic.
-
-
-
-## 3. Magic of NativeBase
-<center>[![magic](./img/magic.png)](http://nativebase.io/docs/v0.2.1/assets/img/magic-with-nativebase-020.mp4)</center>
-
-<i>Click to watch the magic</i>
-
 
 
 ## 4. Getting Started

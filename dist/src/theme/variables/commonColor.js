@@ -40,6 +40,14 @@ checkboxSize:20,
 checkboxTickColor:'#fff',
 
 
+segmentBackgroundColor:'#3F51B5',
+segmentActiveBackgroundColor:'#fff',
+segmentTextColor:'#fff',
+segmentActiveTextColor:'#3F51B5',
+segmentBorderColor:'#fff',
+segmentBorderColorMain:'#3F51B5',
+
+
 get defaultTextColor(){
 return this.textColor;
 },
@@ -146,6 +154,7 @@ topTabBarTextColor:'#b3c7f9',
 topTabBarActiveTextColor:'#fff',
 topTabActiveBgColor:platform==='ios'?'#1569f4':undefined,
 topTabBarBorderColor:'#fff',
+topTabBarActiveBorderColor:'#fff',
 
 
 
@@ -169,7 +178,7 @@ return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 iconFamily:'Ionicons',
 iconFontSize:platform==='ios'?30:28,
 iconMargin:7,
-iconHeaderSize:platform==='ios'?33:28,
+iconHeaderSize:platform==='ios'?33:24,
 
 
 
@@ -207,6 +216,7 @@ lineHeight:platform==='ios'?20:24,
 listBorderColor:'#c9c9c9',
 listDividerBg:'#f4f4f4',
 listItemHeight:45,
+listBtnUnderlayColor:'#DDD',
 
 
 cardBorderColor:'#ccc',

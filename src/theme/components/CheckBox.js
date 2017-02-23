@@ -13,7 +13,6 @@ export default (variables = variable) => {
         'NativeBase.IconNB': {
           color: variables.checkboxTickColor,
         },
-        backgroundColor: variables.checkboxBgColor,
       },
       'NativeBase.Icon': {
         color: 'transparent',
@@ -34,8 +33,7 @@ export default (variables = variable) => {
       borderWidth: variables.CheckboxBorderWidth,
       paddingLeft: variables.CheckboxPaddingLeft - 1,
       paddingBottom: variables.CheckboxPaddingBottom,
-      borderColor: variables.checkboxBgColor,
-      backgroundColor: 'transparent',
+      left: 10,
   };
 
 

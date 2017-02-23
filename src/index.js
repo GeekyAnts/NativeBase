@@ -1,4 +1,4 @@
-import { StyleProvider } from '@shoutem/theme';
+import { StyleProvider, connectStyle } from '@shoutem/theme';
 import { keys } from 'lodash';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Gravatar } from './backward/Widgets/Gravatar';
@@ -10,6 +10,8 @@ import { Swipeout } from './basic/Swipe';
 import { Text } from './basic/Text';
 import { ViewNB as View } from './basic/View';
 import { Button } from './basic/Button';
+import { TabHeading } from './basic/TabHeading';
+import { TabContainer } from './basic/TabContainer';
 import { IconNB } from './basic/IconNB';
 import { Icon } from './basic/Icon';
 import { Header } from './basic/Header';
@@ -42,10 +44,12 @@ import { ListItem } from './basic/ListItem';
 import { Separator } from './basic/Separator';
 import { DeckSwiper } from './basic/DeckSwiper';
 import { Item } from './basic/Item';
+import { Segment } from './basic/Segment';
 import { Label } from './basic/Label';
 import { Textarea } from './basic/Textarea';
 import { Tab } from './basic/Tab';
-import { Tabs } from './basic/Tabs';
+import ScrollableTabView from './basic/Tabs';
+import { DefaultTabBar } from './basic/Tabs/DefaultTabBar';
 import { STabs } from './smart/STabs';
 import { Content as TabContent } from './basic/Content';
 import { Subtitle } from './backward/Widgets/Subtitle';
@@ -57,6 +61,7 @@ export {
   getTheme,
   variables,
   StyleProvider,
+  connectStyle,
   Drawer,
   Button,
   IconNB,
@@ -85,7 +90,7 @@ export {
   Content,
   Footer,
   Tab,
-  Tabs,
+  ScrollableTabView as Tabs,
   FooterTab,
   PickerNB as Picker,
   List,
@@ -103,7 +108,11 @@ export {
   Text,
   STabs,
   TabContent,
-  View
+  View,
+  TabHeading,
+  TabContainer,
+  DefaultTabBar,
+  Segment
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);

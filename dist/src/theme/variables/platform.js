@@ -40,6 +40,14 @@ checkboxSize:20,
 checkboxTickColor:'#fff',
 
 
+segmentBackgroundColor:platform==='ios'?'#F8F8F8':'#3F51B5',
+segmentActiveBackgroundColor:platform==='ios'?'#007aff':'#fff',
+segmentTextColor:platform==='ios'?'#007aff':'#fff',
+segmentActiveTextColor:platform==='ios'?'#fff':'#3F51B5',
+segmentBorderColor:platform==='ios'?'#007aff':'#fff',
+segmentBorderColorMain:platform==='ios'?'#a7a6ab':'#3F51B5',
+
+
 get defaultTextColor(){
 return this.textColor;
 },
@@ -138,14 +146,15 @@ tabBarTextSize:platform==='ios'?14:11,
 activeTab:platform==='ios'?'#007aff':'#fff',
 sTabBarActiveTextColor:'#007aff',
 tabBarActiveTextColor:platform==='ios'?'#007aff':'#fff',
-tabActiveBgColor:platform==='ios'?'#cde1f9':undefined,
+tabActiveBgColor:platform==='ios'?'#cde1f9':'#3F51B5',
 
 
 tabDefaultBg:platform==='ios'?'#F8F8F8':'#3F51B5',
 topTabBarTextColor:platform==='ios'?'#6b6b6b':'#b3c7f9',
-topTabBarActiveTextColor:platform==='ios'?'#3F51B5':'#fff',
+topTabBarActiveTextColor:platform==='ios'?'#007aff':'#fff',
 topTabActiveBgColor:platform==='ios'?'#cde1f9':undefined,
-topTabBarBorderColor:platform==='ios'?'#007aff':'#fff',
+topTabBarBorderColor:platform==='ios'?'#a7a6ab':'#fff',
+topTabBarActiveBorderColor:platform==='ios'?'#007aff':'#fff',
 
 
 
@@ -159,6 +168,7 @@ searchBarHeight:platform==='ios'?30:40,
 toolbarInverseBg:'#222',
 toolbarTextColor:platform==='ios'?'#000':'#fff',
 toolbarDefaultBorder:platform==='ios'?'#a7a6ab':'#3F51B5',
+iosStatusbar:'dark-content',
 get statusBarColor(){
 return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 },
@@ -168,7 +178,7 @@ return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
 iconFamily:'Ionicons',
 iconFontSize:platform==='ios'?30:28,
 iconMargin:7,
-iconHeaderSize:platform==='ios'?33:28,
+iconHeaderSize:platform==='ios'?33:24,
 
 
 
@@ -206,6 +216,7 @@ lineHeight:platform==='ios'?20:24,
 listBorderColor:'#c9c9c9',
 listDividerBg:'#f4f4f4',
 listItemHeight:45,
+listBtnUnderlayColor:'#DDD',
 
 
 cardBorderColor:'#ccc',
@@ -224,7 +235,7 @@ inverseProgressColor:'#1A191B',
 
 
 radioBtnSize:platform==='ios'?25:23,
-radioSelectedColorAndroid:'#5067FF',
+radioSelectedColorAndroid:'#3F51B5',
 
 
 radioBtnLineHeight:platform==='ios'?29:24,
