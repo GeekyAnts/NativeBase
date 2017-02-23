@@ -53,7 +53,13 @@ export default class Footer extends NativeBaseComponent {
                 margin: 1,
                 height: this.getTheme().footerHeight-4,
                 borderRadius: (Platform.OS == 'ios') ? 7 : 0
-            }
+            },
+            icon: {
+              color: this.getTheme().tabBarTextColor
+            },
+            activeIcon: {
+              color: this.getTheme().tabBarActiveTextColor
+            }            
         }
     }
 
@@ -125,7 +131,7 @@ export default class Footer extends NativeBaseComponent {
                               key={i} onPress={child.props.onPress}>
                               {children}
                               <Icon
-                                  style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
+                                  style={child.props.active ? this.getInitialStyle().activeIcon : this.getInitialStyle().icon}
                                   name={iconElement[0].props.name} />
                           </Button>
                       );
