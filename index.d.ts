@@ -71,6 +71,19 @@ declare module 'native-base' {
             rounded?: boolean,
             style?: React.ViewStyle
         }
+            
+        interface Left{
+
+        }
+
+        interface Body{
+
+        }
+
+        interface Right{
+
+        }    
+            
         /**
          * see Widget FooterTab.js
          */
@@ -562,6 +575,19 @@ declare module 'native-base' {
      * User can add custom styles while defining <Content> within their app.
      * Replacing Component: React Native <ScrollView>
      */
+    /**
+     * NativeBase.Left
+     */
+    export class Left extends React.Component<NativeBase.Left, any> { }
+    /**
+     * NativeBase.Right
+     */
+    export class Right extends React.Component<NativeBase.Right, any> { }
+    /**
+     * NativeBase.Body
+     */
+    export class Body extends React.Component<NativeBase.Body, any> { }
+            
     export class Content extends React.Component<NativeBase.Content, any> { }
     /**
      * NativeBase.FooterTab
