@@ -28,7 +28,18 @@ declare module 'native-base' {
         /**
          * see Widget Text.js
          */
-        interface Badge extends React.ViewProperties { }
+        interface Badge extends React.ViewProperties {
+            primary?: boolean;
+            success?: boolean;
+            info?: boolean;
+            warning?: boolean;
+            danger?: boolean;
+            textStyle?: {
+                color?: string;
+                fontSize?: number;
+                lineHeight?: number;
+            }
+        }
         /**
          * see Widget CardSwiper.js
          */
@@ -54,7 +65,14 @@ declare module 'native-base' {
             /**
              * Takes a data entry from the data source and should return a renderable component to be rendered as the row.
              */
-            renderItem?: Function
+            renderItem?: Function;
+            renderTop?: Function;
+            renderBottom?: Function;
+            onSwiping?: (
+                direction: 'left' | 'right' | string,
+                /* distance of the gesture since the touch started */
+                distance?: any
+            ) => void;
         }
         /**
          * see Widget Header.js
@@ -63,13 +81,14 @@ declare module 'native-base' {
             /**
              * Prop to be used with <Header> component to have Search bar onto the Header section of your screen.
              */
-            searchBar?: boolean,
+            searchBar?: boolean;
             /**
              * Wraps the search bar with predefined border options.
              * Default: regular
              */
-            rounded?: boolean,
-            style?: React.ViewStyle
+            rounded?: boolean;
+            style?: React.ViewStyle;
+            iconRight?: boolean;
         }
             
         interface Left{
@@ -115,8 +134,11 @@ declare module 'native-base' {
             /**
              * The theme prop can be applied to any component of NativeBase.
              */
-            theme?: Object,
-            style?: React.ViewStyle
+            theme?: Object;
+            padder?: boolean;
+            style?: React.ViewStyle;
+            disableKBDismissScroll?: boolean;
+            contentContainerStyle?: React.ViewStyle;
         }
         /**
          * see Widget Content.js
@@ -189,6 +211,12 @@ declare module 'native-base' {
             disabled?: boolean,
             active?: boolean,
             inputButton?: boolean,
+            vertical?: boolean;
+            /**
+             * Displays Button text in uppercase. (only Android)
+             */
+            capitalize?: boolean;
+            backgroundColor?: string;
         }
         /**
          * see Widget List.js
@@ -236,9 +264,10 @@ declare module 'native-base' {
          * see Widget CardItem.js
          */
         interface CardItem extends React.TouchableOpacityProperties {
-            header?: boolean,
-            cardBody?: boolean,
-            button?: boolean
+            header?: boolean;
+            footer?: boolean;
+            cardBody?: boolean;
+            button?: boolean;
         }
         /**
          * Override React ListViewProperties
@@ -373,9 +402,10 @@ declare module 'native-base' {
          * see Widget Card.js
          */
         interface Card extends React.ViewProperties, ReactListViewProperties {
-            dataArray?: Array<any>,
-            style?: React.Ref<React.ViewProperties | React.ListViewProperties>
-            ref?: React.Ref<React.ViewProperties | ReactListViewProperties>,
+            dataArray?: Array<any>;
+            style?: React.Ref<React.ViewProperties | React.ListViewProperties>;
+            ref?: React.Ref<React.ViewProperties | ReactListViewProperties>;
+            transparent?: boolean;
         }
         /**
          * react-native-easy-grid
@@ -416,18 +446,15 @@ declare module 'native-base' {
          * see Widget Input.js
          */
         interface Input extends React.TextInputProperties {
-            label?: string,
             /**
              * Label placed to the left of the input element.
              * When the user enters text, the label does not hide.
              * This can also be used along with placeholder.
              */
-            inlineLabel?: boolean,
-            /**
-             * Places the label on top of the input element which appears like a stack.
-             * This can also be used along with placeholder.
-             */
-            stackedLabel?: boolean
+            label?: string;
+            inlineLabel?: boolean;
+            toolbar?: boolean;
+            placeholderTextColor?: string;
         }
         /**
          * see Widget Textarea.js
@@ -537,6 +564,37 @@ declare module 'native-base' {
             springTension?: number,
             springFriction?: number
         }
+
+        interface TabBar extends React.ViewProperties {
+
+        }
+        interface Fab extends React.TouchableOpacityProperties {
+            active?: boolean;
+            /**
+             * Direction of Buttons that popup on click of FAB.
+             * Default: up
+             */
+            direction?: 'up' | 'down' | 'left' | 'right' | string;
+            /**
+             * Padding options to render FAB.
+             */
+            containerStyle?: React.ViewStyle;
+            /**
+             * Position of FAB on screen.
+             * Default: bottomRight
+             */
+            position?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | string;
+        }
+        /**
+         * See Widget Gravatar.js
+         */
+        interface Gravatar {
+            email: string;
+            style?: React.ImageStyle,
+            size?: number;
+            circular?: boolean;
+            square?: boolean;
+        }
     }
 
     // Export definitions
@@ -629,7 +687,8 @@ declare module 'native-base' {
     /**
      * NativeBase.Picker
      */
-    export class Picker extends React.Component<NativeBase.Picker, any> { }
+    export class Picker extends React.Component<NativeBase.Picker, any> {}
+
     namespace Picker {
         export class Item extends React.Component<React.PickerItemProperties, any> { }
     }
@@ -753,7 +812,12 @@ declare module 'native-base' {
     /**
      * NativeBase.Drawer
      */
-    export class Drawer extends React.Component<NativeBase.Drawer, any> { }
+    export class Drawer extends React.Component<NativeBase.Drawer, any> {
+        toggle(): void;
+        open(): void;
+        close(): void;
+        static tweenPresets:any;
+    }
     /**
      * NativeBase.Tabs
      *
@@ -761,4 +825,13 @@ declare module 'native-base' {
      * It can contain any combination of text and icons, and is a popular method for enabling mobile navigation.
      */
     export class Tabs extends React.Component<NativeBase.Tabs, any> { }
+
+    export class TabBar extends React.Component<NativeBase.TabBar, any> { }
+    /**
+     * FABs (Floating Action Buttons) are used for a special type of promoted action.
+     * They are distinguished by a circled icon floating above the UI in a fixed position
+     * and have special motion behaviors. When clicked, it may contain more related actions.
+     */
+    export class Fab extends React.Component<NativeBase.Fab, any> { }
+    export class Gravatar extends React.Component<NativeBase.Gravatar, any> { }
 }
