@@ -29,7 +29,6 @@ color:'#fff'},
 
 'NativeBase.Button':{
 backgroundColor:'transparent',
-height:50,
 elevation:0,
 'NativeBase.Text':{
 fontSize:14}}};
