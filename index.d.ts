@@ -224,6 +224,7 @@ declare module 'native-base' {
              * Default: true
              */
             iconLeft?: boolean,
+            icon?:boolean,
             button?: boolean,
             /**
              * Helps to organize and group the list items.
@@ -442,7 +443,8 @@ declare module 'native-base' {
          */
         interface Icon {
             name: string,
-            style?: React.TextStyle
+            style?: React.TextStyle,
+            active?:boolean
         }
         /**
          * see Widget Icon.js
@@ -538,6 +540,23 @@ declare module 'native-base' {
             edgeHitWidth?: number,
             springTension?: number,
             springFriction?: number
+        }
+            
+        interface Item {
+            fixedLabel?:boolean,
+            floatingLabel?:boolean,
+            inlineLabel?:boolean,
+            stackedLabel?:boolean,
+            placeholderLabel?:boolean,
+            bordered?:boolean,
+            underline?:boolean,
+            rounded?:boolean,
+            disabled?: boolean,
+            error?: boolean,
+            placeholder?:string,
+            secureTextEntry?:boolean,
+            success?: boolean,
+            last?:boolean,
         }
     }
 
@@ -763,4 +782,9 @@ declare module 'native-base' {
      * It can contain any combination of text and icons, and is a popular method for enabling mobile navigation.
      */
     export class Tabs extends React.Component<NativeBase.Tabs, any> { }
+    /**
+     * NativeBase.Item
+     */
+    export class Item extends React.Component<NativeBase.Item, any> { }
+
 }
