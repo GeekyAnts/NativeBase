@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-declare module 'native-base2' {
+declare module 'native-base' {
     namespace NativeBase {
 
         interface Text extends React.TextProperties {
