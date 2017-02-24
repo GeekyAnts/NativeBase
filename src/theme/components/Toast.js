@@ -29,6 +29,7 @@ export default (variables = variable) => {
     },
     'NativeBase.Button': {
       backgroundColor: 'transparent',
+      height: 30,
       elevation: 0,
       'NativeBase.Text': {
         fontSize: 14
