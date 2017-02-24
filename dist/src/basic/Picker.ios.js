@@ -88,37 +88,46 @@ return _react2.default.createElement(_Header.Header,this.props.headerComponent.p
 
 {
 return _react2.default.cloneElement(this.props.iosIcon,{style:{fontSize:22,lineHeight:26,color:'#7a7a7a'}});
-}},{key:'renderHeader',value:function renderHeader()
+}},{key:'renderButton',value:function renderButton()
 
 {var _this3=this;
+var onPress=function onPress(){_this3._setModalVisible(true);};
+var text=this.state.currentLabel?this.state.currentLabel:this.props.defaultLabel;
+if(this.props.renderButton){
+return this.props.renderButton(onPress,text,this);
+}
+return _react2.default.createElement(_Button.Button,{
+style:this.props.style,
+dark:true,
+picker:true,
+transparent:true,
+onPress:onPress},
+
+_react2.default.createElement(_Text.Text,{note:this.props.note,style:this.props.textStyle},text),
+this.props.iosIcon===undefined?null:this.renderIcon());
+
+}},{key:'renderHeader',value:function renderHeader()
+
+{var _this4=this;
 return this.props.headerComponent?this.modifyHeader():_react2.default.createElement(_Header.Header,null,
 _react2.default.createElement(_Left.Left,null,_react2.default.createElement(_Button.Button,{
 style:{shadowOffset:null,shadowColor:null,shadowRadius:null,shadowOpacity:null},
-transparent:true,onPress:function onPress(){_this3._setModalVisible(false);}},
+transparent:true,onPress:function onPress(){_this4._setModalVisible(false);}},
 _react2.default.createElement(_Text.Text,null,'Back'))),
 _react2.default.createElement(_Body.Body,null,_react2.default.createElement(_Title.Title,null,this.props.iosHeader?this.props.iosHeader:'Select One')),
 _react2.default.createElement(_Right.Right,null));
 
 }},{key:'render',value:function render()
 
-{var _this4=this;
+{var _this5=this;
 return(
-_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this4._root=c;}},
-_react2.default.createElement(_Button.Button,{
-style:this.props.style,
-dark:true,
-picker:true,
-transparent:true,
-onPress:function onPress(){_this4._setModalVisible(true);}},
-
-_react2.default.createElement(_Text.Text,{note:this.props.note,style:this.props.textStyle},this.state.currentLabel?this.state.currentLabel:this.props.defaultLabel),
-this.props.iosIcon===undefined?null:this.renderIcon()),
-
+_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this5._root=c;}},
+this.renderButton(),
 _react2.default.createElement(_reactNative.Modal,{
 animationType:'slide',
 transparent:false,
 visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){_this4._setModalVisible(false);}},
+onRequestClose:function onRequestClose(){_this5._setModalVisible(false);}},
 
 _react2.default.createElement(_Container.Container,null,
 this.renderHeader(),
@@ -127,17 +136,17 @@ _react2.default.createElement(_reactNative.ListView,{
 dataSource:this.state.dataSource,
 renderRow:function renderRow(child){return(
 _react2.default.createElement(_ListItem.ListItem,{
-selected:child.props.value===_this4.props.selectedValue?true:false,
+selected:child.props.value===_this5.props.selectedValue?true:false,
 button:true,
-style:_this4.props.itemStyle,
+style:_this5.props.itemStyle,
 onPress:function onPress(){
-_this4._setModalVisible(false);_this4.props.onValueChange(child.props.value);
-_this4.setState({current:child.props.label});
+_this5._setModalVisible(false);_this5.props.onValueChange(child.props.value);
+_this5.setState({current:child.props.label});
 }},
 
-_react2.default.createElement(_Text.Text,{style:_this4.props.itemTextStyle},child.props.label),
+_react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle},child.props.label),
 _react2.default.createElement(_Right.Right,null,
-child.props.value===_this4.props.selectedValue?
+child.props.value===_this5.props.selectedValue?
 _react2.default.createElement(_Radio.Radio,{selected:true}):
 
 _react2.default.createElement(_Radio.Radio,{selected:false}))));}}))))));

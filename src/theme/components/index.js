@@ -20,6 +20,7 @@ import itemTheme from './Item';
 import labelTheme from './Label';
 import textAreaTheme from './Textarea';
 import textTheme from './Text';
+import toastTheme from './Toast';
 import tabTheme from './Tab';
 import tabBarTheme from './TabBar';
 import tabContainerTheme from './TabContainer';
@@ -102,6 +103,10 @@ export default (variables = variable) => {
 
     'NativeBase.CardItem1': {
       ...cardItemTheme(variables),
+    },
+
+    'NativeBase.Toast': {
+      ...toastTheme(variables),
     },
 
     'NativeBase.H1': {
