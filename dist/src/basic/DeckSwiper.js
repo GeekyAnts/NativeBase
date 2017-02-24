@@ -208,11 +208,11 @@ var animatedCardStyles2={transform:[{scale:scale}]};
 return[animatedCardStyles,animatedCardStyles2];
 }},{key:'render',value:function render()
 
-{var _this6=this;
+{
 
 
 return(
-_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this6._root=c;},style:{position:'relative',flexDirection:'column'}},this.state.selectedItem===undefined?_react2.default.createElement(_reactNative.View,null):
+_react2.default.createElement(_reactNative.View,{style:{position:'relative',flexDirection:'column'}},this.state.selectedItem===undefined?_react2.default.createElement(_reactNative.View,null):
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity:this.state.fadeAnim}]},this._panResponder.panHandlers),
 this.props.renderBottom?

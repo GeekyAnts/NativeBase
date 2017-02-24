@@ -212,7 +212,7 @@ constructor(props) {
 
 
         return(
-            <View ref={c => this._root = c} style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
+            <View style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
                 (<View>
                     <Animated.View style={[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
                         {(this.props.renderBottom)  ?
