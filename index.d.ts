@@ -1,42 +1,87 @@
+/**
+ * Implementation of NativeBase v0.5.22
+ */
 declare module 'native-base' {
     namespace NativeBase {
-
-        interface Text extends React.TextProperties {
-            note?: boolean
+        interface CommingSoonProps {
+            /**
+             * For any props comming soon
+             */
+            [key: string]: any;
         }
-
-        interface Switch extends React.SwitchProperties { }
-
-        interface View extends React.ViewProperties {
-            padder?: boolean,
-        }
-
-        interface Picker extends React.PickerProperties {
-            iosHeader?: string,
-            inlineLabel?: boolean,
-        }
-
-        interface H1 extends React.TextProperties { }
         /**
          * see Widget Text.js
          */
-        interface H2 extends React.TextProperties { }
+        interface Text extends React.TextProperties, CommingSoonProps { }
         /**
          * see Widget Text.js
          */
-        interface H3 extends React.TextProperties { }
+        interface Switch extends React.SwitchProperties, CommingSoonProps { }
         /**
          * see Widget Text.js
          */
-        interface Badge extends React.ViewProperties { }
+        interface View extends React.ViewProperties, CommingSoonProps {
+            /**
+             * Add View padding
+             */
+            padder?: boolean;
+        }
+        /**
+         * see Widget Text.js
+         */
+        interface Picker extends React.PickerProperties, CommingSoonProps {
+            /**
+             * Not available
+             */
+            iosHeader?: string;
+        }
+        interface PickerItem extends React.PickerItemProperties, CommingSoonProps { }
+        /**
+         * see Widget Text.js
+         */
+        interface H1 extends React.TextProperties, CommingSoonProps { }
+        /**
+         * see Widget Text.js
+         */
+        interface H2 extends React.TextProperties, CommingSoonProps { }
+        /**
+         * see Widget Text.js
+         */
+        interface H3 extends React.TextProperties, CommingSoonProps { }
+        /**
+         * see Widget Text.js
+         */
+        interface Badge extends React.ViewProperties, CommingSoonProps {
+            primary?: boolean;
+            success?: boolean;
+            info?: boolean;
+            warning?: boolean;
+            danger?: boolean;
+            textStyle?: {
+                color?: string;
+                fontSize?: number;
+                lineHeight?: number;
+            }
+        }
         /**
          * see Widget CardSwiper.js
          */
-        interface CardSwiper { }
+        interface CardSwiper extends CommingSoonProps {
+            /**
+             * Direction of iteration for elements
+             * Default: iterates in backward direction
+             */
+            onSwipeLeft?: Function;
+            /**
+             * Direction of iteration for elements
+             * Default: iterates in forward direction
+             */
+            onSwipeRight?: Function;
+        }
         /**
          * see Widget DeckSwiper.js
          */
-        interface DeckSwiper {
+        interface DeckSwiper extends CommingSoonProps {
             /**
              * Array<any>
              */
@@ -54,22 +99,30 @@ declare module 'native-base' {
             /**
              * Takes a data entry from the data source and should return a renderable component to be rendered as the row.
              */
-            renderItem?: Function
+            renderItem?: Function;
+            renderTop?: Function;
+            renderBottom?: Function;
+            onSwiping?: (
+                direction: 'left' | 'right' | string,
+                /* distance of the gesture since the touch started */
+                distance?: any
+            ) => void;
         }
         /**
          * see Widget Header.js
          */
-        interface Header {
+        interface Header extends CommingSoonProps {
             /**
              * Prop to be used with <Header> component to have Search bar onto the Header section of your screen.
              */
-            searchBar?: boolean,
+            searchBar?: boolean;
             /**
              * Wraps the search bar with predefined border options.
              * Default: regular
              */
-            rounded?: boolean,
-            style?: React.ViewStyle
+            rounded?: boolean;
+            style?: React.ViewStyle;
+            iconRight?: boolean;
         }
             
         interface Left{
@@ -87,130 +140,134 @@ declare module 'native-base' {
         /**
          * see Widget FooterTab.js
          */
-        interface FooterTab {
-            style?: React.ViewStyle
+        interface FooterTab extends CommingSoonProps {
+            style?: React.ViewStyle;
         }
         /**
          * see Widget Footer.js
          */
-        interface Footer {
-            style?: React.ViewStyle
+        interface Footer extends CommingSoonProps {
+            style?: React.ViewStyle;
         }
         /**
          * see Widget Title.js
          */
-        interface Title {
-            style?: React.ViewStyle
-        }
-        /**
-         * see Widget Subtitle/index.js
-         */
-        interface SubTitle {
-            style?: React.ViewStyle
+        interface Title extends CommingSoonProps {
+            style?: React.ViewStyle;
         }
         /**
          * see Widget Container.js
          */
-        interface Container {
+        interface Container extends CommingSoonProps {
             /**
              * The theme prop can be applied to any component of NativeBase.
              */
-            theme?: Object,
-            style?: React.ViewStyle
+            theme?: Object;
+            style?: React.ViewStyle;
         }
         /**
          * see Widget Content.js
          */
-        interface Content {
+        interface Content extends CommingSoonProps {
             /**
              * The theme prop can be applied to any component of NativeBase.
              */
-            theme?: Object,
-            padder?: boolean,
-            style?: React.ViewStyle
+            theme?: Object;
+            padder?: boolean;
+            style?: React.ViewStyle;
+            disableKBDismissScroll?: boolean;
+            contentContainerStyle?: React.ViewStyle;
         }
         /**
          * see Widget Button.js
          */
-        interface Button extends React.TouchableOpacityProperties {
+        interface Button extends React.TouchableOpacityProperties, CommingSoonProps {
             /**
              * Defines button style
              */
-            style?: React.ViewStyle,
+            style?: React.ViewStyle;
             /**
              * Defines button text style
              */
-            textStyle?: React.TextStyle,
+            textStyle?: React.TextStyle;
             /**
              * Block level button
              */
-            block?: boolean,
-            primary?: boolean,
+            block?: boolean;
+            primary?: boolean;
             /**
              * Gives you effect of Icon-buttons.
              * To have button with transparent background, include this prop.
              */
-            transparent?: boolean,
-            success?: boolean,
-            danger?: boolean,
-            warning?: boolean,
-            info?: boolean,
-            color?: string,
+            transparent?: boolean;
+            success?: boolean;
+            danger?: boolean;
+            warning?: boolean;
+            info?: boolean;
+            color?: string;
             /**
              * Applies outline button style.
              */
-            bordered?: boolean,
+            bordered?: boolean;
             /**
              * Renders button with slightly round shaped edges.
              */
-            rounded?: boolean,
+            rounded?: boolean;
             /**
              * For large size button
              */
-            large?: boolean,
+            large?: boolean;
             /**
              * For small size button
              */
-            small?: boolean,
+            small?: boolean;
             /**
              * Used for Icon alignment.
              * Aligns icon to the left in button.
-             * By default, icons are aligned to the left in button.
+             * By default; icons are aligned to the left in button.
              */
-            iconLeft?: boolean,
+            iconLeft?: boolean;
             /**
              * Used for Icon alignment.
              * Aligns icon to the right in button.
              */
-            iconRight?: boolean,
+            iconRight?: boolean;
             /**
              * Disables onPress option for button
              */
-            disabled?: boolean,
-            active?: boolean,
-            inputButton?: boolean,
+            disabled?: boolean;
+            active?: boolean;
+            inputButton?: boolean;
+            vertical?: boolean;
+            /**
+             * Displays Button text in uppercase. (only Android)
+             */
+            capitalize?: boolean;
+            backgroundColor?: string;
         }
         /**
          * see Widget List.js
          */
-        interface List {
-            listBorderColor?: string,
-            listDividerBg?: string,
-            listNoteColor?: string,
-            listItemPadding?: number,
-            listNoteSize?: number,
-            listItemHeight?: number,
-            inset?: boolean,
+        interface List extends React.ViewProperties, CommingSoonProps {
+            listBorderColor?: string;
+            listDividerBg?: string;
+            listNoteColor?: string;
+            listItemPadding?: number;
+            listNoteSize?: number;
+            listItemHeight?: number;
             /**
              * Array of data chunks to render iteratively.
              */
-            dataArray?: Array<any>,
-            renderRow?: ( rowData: any, sectionID: string | number, rowID: string | number, highlightRow?: boolean ) => React.ReactElement<any>,
+            dataArray?: Array<any>;
+            inset?: boolean;
+            refreshing?: boolean;
+            onRefresh?: Function;
+            renderRow?: Function;
         }
         /**
          * see Widget ListItem.js
          */
-        interface ListItem extends React.TouchableOpacityProperties {
+        interface ListItem extends React.TouchableOpacityProperties, CommingSoonProps {
             header?: boolean,
             /**
              * Aligns icon to the right of ListItem.
@@ -230,15 +287,16 @@ declare module 'native-base' {
             /**
              * Sub caption for List Item.
              */
-            note?: string
+            note?: string;
         }
         /**
          * see Widget CardItem.js
          */
-        interface CardItem extends React.TouchableOpacityProperties {
-            header?: boolean,
-            cardBody?: boolean,
-            button?: boolean
+        interface CardItem extends React.TouchableOpacityProperties, CommingSoonProps {
+            header?: boolean;
+            footer?: boolean;
+            cardBody?: boolean;
+            button?: boolean;
         }
         /**
          * Override React ListViewProperties
@@ -372,7 +430,8 @@ declare module 'native-base' {
         /**
          * see Widget Card.js
          */
-        interface Card extends React.ViewProperties, ReactListViewProperties {
+        interface Card extends React.ViewProperties, ReactListViewProperties, CommingSoonProps {
+            transparent?: boolean;
             dataArray?: Array<any>,
             style?: React.Ref<React.ViewProperties | React.ListViewProperties>
             ref?: React.Ref<React.ViewProperties | ReactListViewProperties>,
@@ -380,110 +439,107 @@ declare module 'native-base' {
         /**
          * react-native-easy-grid
          */
-        interface Grid extends React.ViewProperties { }
-        interface Row extends React.ViewProperties { size?: number }
-        interface Col extends React.ViewProperties { size?: number }
+        interface Grid extends React.ViewProperties, CommingSoonProps { }
+        interface Row extends React.ViewProperties, CommingSoonProps { size?: number }
+        interface Col extends React.ViewProperties, CommingSoonProps { size?: number }
         /**
          * see Widget InputGroup.js
          */
-        interface InputGroup extends React.ViewProperties {
+        interface InputGroup extends React.ViewProperties, CommingSoonProps {
             /**
              * Wraps the textbox with predefined border options.
              * Default: underline
              */
-            borderType?: 'rounded' | 'regular' | 'underline',
-            toolbar?: boolean,
-            atoolbar?: boolean,
+            borderType?: 'rounded' | 'regular' | 'underline' | string;
+            toolbar?: boolean;
+            atoolbar?: boolean;
             /**
              * If true, the icon in the input text box appears to the right.
              * Default: true
              */
-            iconRight?: boolean,
+            iconRight?: boolean;
             /**
              * The border color of textbox for valid input.
              */
-            success?: boolean,
+            success?: boolean;
             /**
              * The border color of textbox for invalid input.
              */
-            error?: boolean,
+            error?: boolean;
             /**
              * Disables inputting data.
              */
-            disabled?: boolean,
+            disabled?: boolean;
         }
         /**
          * see Widget Input.js
          */
-        interface Input extends React.TextInputProperties {
-            label?: string,
+        interface Input extends React.TextInputProperties, CommingSoonProps {
             /**
              * Label placed to the left of the input element.
              * When the user enters text, the label does not hide.
              * This can also be used along with placeholder.
              */
-            inlineLabel?: boolean,
-            /**
-             * Places the label on top of the input element which appears like a stack.
-             * This can also be used along with placeholder.
-             */
-            stackedLabel?: boolean
+            inlineLabel?: boolean;
+            toolbar?: boolean;
+            placeholderTextColor?: string;
         }
         /**
          * see Widget Textarea.js
          */
-        interface Textarea extends React.TextInputProperties {
+        interface Textarea extends React.TextInputProperties, CommingSoonProps {
             rowSpan: number;
         }
         /**
          * see Widget Icon.js
          */
-        interface Icon {
+        interface Icon extends CommingSoonProps {
             name: string,
             style?: React.TextStyle
         }
         /**
-         * see Widget Icon.js
+         * see Widget Thumbnail.js
          */
-        interface Thumbnail extends React.ImageProperties {
+        interface Thumbnail extends React.ImageProperties, CommingSoonProps {
             /**
              * Dimension of thumbnail.
              * Default: 30
              */
-            size?: number,
+            size?: number;
             /**
              * Represents shape of thumbnail.
              * By default thumbnail is circle in shape.
              */
-            circular?: boolean,
+            circular?: boolean;
             /**
              * Represents shape of thumbnail.
              * By default thumbnail is circle in shape.
              */
-            square?: boolean
+            square?: boolean;
+            contain?: boolean;
         }
         /**
          * see Widget Spinner.js
          */
-        interface Spinner extends React.ActivityIndicatorProperties {
+        interface Spinner extends React.ActivityIndicatorProperties, CommingSoonProps {
             inverse?: boolean
         }
         /**
          * see Widget CheckBox.js
          */
-        interface CheckBox {
+        interface CheckBox extends React.TouchableOpacityProperties, CommingSoonProps {
             checked?: boolean
         }
         /**
          * see Widget CheckBox.js
          */
-        interface Radio {
+        interface Radio extends React.TouchableOpacityProperties, CommingSoonProps {
             selected?: boolean
         }
         /**
          * see Widget ProgressBar.js
          */
-        interface ProgressBar {
+        interface ProgressBar extends CommingSoonProps {
             progress?: number,
             color?: string,
             inverse?: boolean
@@ -497,7 +553,7 @@ declare module 'native-base' {
             drawerOverlay?: React.ViewStyle,
             mainOverlay?: React.ViewStyle
         }
-        interface Drawer {
+        interface Drawer extends CommingSoonProps {
             acceptDoubleTap?: boolean,
             acceptPan?: boolean,
             acceptTap?: boolean,
@@ -531,11 +587,44 @@ declare module 'native-base' {
         /**
          * see Widget Tabs.js
          */
-        interface Tabs {
+        interface Tabs extends CommingSoonProps {
             tabBarPosition?: 'top' | 'bottom',
             edgeHitWidth?: number,
             springTension?: number,
             springFriction?: number
+        }
+        interface TabBar extends React.ViewProperties, CommingSoonProps {
+
+        }
+        /**
+         * see Widget Fab.js
+         */
+        interface Fab extends React.TouchableOpacityProperties, CommingSoonProps {
+            active?: boolean;
+            /**
+             * Direction of Buttons that popup on click of FAB.
+             * Default: up
+             */
+            direction?: 'up' | 'down' | 'left' | 'right' | string;
+            /**
+             * Padding options to render FAB.
+             */
+            containerStyle?: React.ViewStyle;
+            /**
+             * Position of FAB on screen.
+             * Default: bottomRight
+             */
+            position?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | string;
+        }
+        /**
+         * See Widget Gravatar.js
+         */
+        interface Gravatar extends CommingSoonProps {
+            email: string;
+            style?: React.ImageStyle,
+            size?: number;
+            circular?: boolean;
+            square?: boolean;
         }
     }
 
@@ -629,9 +718,8 @@ declare module 'native-base' {
     /**
      * NativeBase.Picker
      */
-    export class Picker extends React.Component<NativeBase.Picker, any> { }
-    namespace Picker {
-        export class Item extends React.Component<React.PickerItemProperties, any> { }
+    export class Picker extends React.Component<NativeBase.Picker, any> {
+        static Item: React.ComponentClass<NativeBase.PickerItem>;
     }
     /**
      * NativeBase.List
@@ -753,7 +841,12 @@ declare module 'native-base' {
     /**
      * NativeBase.Drawer
      */
-    export class Drawer extends React.Component<NativeBase.Drawer, any> { }
+    export class Drawer extends React.Component<NativeBase.Drawer, any> {
+        toggle(): void;
+        open(): void;
+        close(): void;
+        static tweenPresets:any;
+    }
     /**
      * NativeBase.Tabs
      *
@@ -761,4 +854,13 @@ declare module 'native-base' {
      * It can contain any combination of text and icons, and is a popular method for enabling mobile navigation.
      */
     export class Tabs extends React.Component<NativeBase.Tabs, any> { }
+    export class TabBar extends React.Component<NativeBase.TabBar, any> { }
+    /**
+     * FABs (Floating Action Buttons) are used for a special type of promoted action. 
+     * They are distinguished by a circled icon floating above the UI in a fixed position 
+     * and have special motion behaviors. When clicked, it may contain more related actions.
+     */
+    export class Fab extends React.Component<NativeBase.Fab, any> { }
+    export class Gravatar extends React.Component<NativeBase.Gravatar, any> { }
+
 }
