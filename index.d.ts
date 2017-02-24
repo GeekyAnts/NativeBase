@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 declare module 'native-base' {
     namespace NativeBase {
 
@@ -73,7 +71,7 @@ declare module 'native-base' {
             rounded?: boolean,
             style?: React.ViewStyle
         }
-
+            
         interface Left{
 
         }
@@ -84,8 +82,8 @@ declare module 'native-base' {
 
         interface Right{
 
-        }
-
+        }    
+            
         /**
          * see Widget FooterTab.js
          */
@@ -218,11 +216,12 @@ declare module 'native-base' {
              * Aligns icon to the right of ListItem.
              * Default: false
              */
+            iconRight?: boolean,
             /**
              * Aligns icon to the left of ListItem.
              * Default: true
              */
-            icon?: boolean,
+            iconLeft?: boolean,
             button?: boolean,
             /**
              * Helps to organize and group the list items.
@@ -441,8 +440,7 @@ declare module 'native-base' {
          */
         interface Icon {
             name: string,
-            style?: React.TextStyle,
-            active?:boolean
+            style?: React.TextStyle
         }
         /**
          * see Widget Icon.js
@@ -539,23 +537,6 @@ declare module 'native-base' {
             springTension?: number,
             springFriction?: number
         }
-
-        interface Item {
-            fixedLabel?:boolean,
-            floatingLabel?:boolean,
-            inlineLabel?:boolean,
-            stackedLabel?:boolean,
-            placeholderLabel?:boolean,
-            bordered?:boolean,
-            underline?:boolean,
-            rounded?:boolean,
-            disabled?: boolean,
-            error?: boolean,
-            placeholder?:string,
-            secureTextEntry?:boolean,
-            success?: boolean,
-            last?:boolean,
-        }
     }
 
     // Export definitions
@@ -606,7 +587,7 @@ declare module 'native-base' {
      * NativeBase.Body
      */
     export class Body extends React.Component<NativeBase.Body, any> { }
-
+            
     export class Content extends React.Component<NativeBase.Content, any> { }
     /**
      * NativeBase.FooterTab
@@ -772,16 +753,7 @@ declare module 'native-base' {
     /**
      * NativeBase.Drawer
      */
-    export class Drawer extends React.Component<NativeBase.Drawer, any> {
-        _root:{
-            open:()=>void,
-            close:()=>void
-        }
-    }
-
-    export class Item extends React.Component<NativeBase.Item, any> { }
-
-
+    export class Drawer extends React.Component<NativeBase.Drawer, any> { }
     /**
      * NativeBase.Tabs
      *
