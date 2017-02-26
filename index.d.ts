@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ViewStyle } from "react-native";
 
 declare module 'native-base' {
     namespace NativeBase {
@@ -71,9 +72,13 @@ declare module 'native-base' {
              * Default: regular
              */
             rounded?: boolean,
-            style?: React.ViewStyle
+            style?: React.ViewStyle,
+            /**
+             * It is advisable to use hasTabs prop with Header while using Tab
+             */
+            hasTabs?:boolean
         }
-            
+
         interface Left{
 
         }
@@ -84,8 +89,8 @@ declare module 'native-base' {
 
         interface Right{
 
-        }    
-            
+        }
+
         /**
          * see Widget FooterTab.js
          */
@@ -195,7 +200,7 @@ declare module 'native-base' {
         /**
          * see Widget List.js
          */
-        interface List {
+        interface List extends ReactListViewProperties{
             listBorderColor?: string,
             listDividerBg?: string,
             listNoteColor?: string,
@@ -541,7 +546,19 @@ declare module 'native-base' {
             springTension?: number,
             springFriction?: number
         }
-            
+
+        interface Tab{
+            heading:TabHeading,
+
+        }
+        interface TabHeading{
+            activeTabStyle?:ViewStyle,
+            textStyle?:ViewStyle,
+            activeTextStyle?:ViewStyle
+        }
+
+
+
         interface Item {
             fixedLabel?:boolean,
             floatingLabel?:boolean,
@@ -608,7 +625,7 @@ declare module 'native-base' {
      * NativeBase.Body
      */
     export class Body extends React.Component<NativeBase.Body, any> { }
-            
+
     export class Content extends React.Component<NativeBase.Content, any> { }
     /**
      * NativeBase.FooterTab
@@ -782,6 +799,12 @@ declare module 'native-base' {
      * It can contain any combination of text and icons, and is a popular method for enabling mobile navigation.
      */
     export class Tabs extends React.Component<NativeBase.Tabs, any> { }
+    /**
+     * NativeBase.Tab
+     */
+    export class Tab extends React.Component<NativeBase.Tab,any>{}
+
+    export class TabHeading extends React.Component<NativeBase.TabHeading,any>{}
     /**
      * NativeBase.Item
      */
