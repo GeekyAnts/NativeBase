@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ViewStyle } from "react-native";
 
 declare module 'native-base' {
     namespace NativeBase {
@@ -552,13 +551,11 @@ declare module 'native-base' {
 
         }
         interface TabHeading{
-            activeTabStyle?:ViewStyle,
-            textStyle?:ViewStyle,
-            activeTextStyle?:ViewStyle
+            activeTabStyle?:React.ViewStyle,
+            textStyle?:React.TextStyle,
+            activeTextStyle?:React.TextStyle
         }
-
-
-
+        
         interface Item {
             fixedLabel?:boolean,
             floatingLabel?:boolean,
