@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 declare module 'native-base' {
     namespace NativeBase {
 
@@ -69,9 +71,13 @@ declare module 'native-base' {
              * Default: regular
              */
             rounded?: boolean,
-            style?: React.ViewStyle
+            style?: React.ViewStyle,
+            /**
+             * It is advisable to use hasTabs prop with Header while using Tab
+             */
+            hasTabs?:boolean
         }
-            
+
         interface Left{
 
         }
@@ -82,8 +88,8 @@ declare module 'native-base' {
 
         interface Right{
 
-        }    
-            
+        }
+
         /**
          * see Widget FooterTab.js
          */
@@ -193,7 +199,7 @@ declare module 'native-base' {
         /**
          * see Widget List.js
          */
-        interface List {
+        interface List extends ReactListViewProperties{
             listBorderColor?: string,
             listDividerBg?: string,
             listNoteColor?: string,
@@ -222,6 +228,7 @@ declare module 'native-base' {
              * Default: true
              */
             iconLeft?: boolean,
+            icon?:boolean,
             button?: boolean,
             /**
              * Helps to organize and group the list items.
@@ -440,7 +447,8 @@ declare module 'native-base' {
          */
         interface Icon {
             name: string,
-            style?: React.TextStyle
+            style?: React.TextStyle,
+            active?:boolean
         }
         /**
          * see Widget Icon.js
@@ -537,6 +545,33 @@ declare module 'native-base' {
             springTension?: number,
             springFriction?: number
         }
+
+        interface Tab{
+            heading:TabHeading,
+
+        }
+        interface TabHeading{
+            activeTabStyle?:React.ViewStyle,
+            textStyle?:React.TextStyle,
+            activeTextStyle?:React.TextStyle
+        }
+        
+        interface Item {
+            fixedLabel?:boolean,
+            floatingLabel?:boolean,
+            inlineLabel?:boolean,
+            stackedLabel?:boolean,
+            placeholderLabel?:boolean,
+            bordered?:boolean,
+            underline?:boolean,
+            rounded?:boolean,
+            disabled?: boolean,
+            error?: boolean,
+            placeholder?:string,
+            secureTextEntry?:boolean,
+            success?: boolean,
+            last?:boolean,
+        }
     }
 
     // Export definitions
@@ -587,7 +622,7 @@ declare module 'native-base' {
      * NativeBase.Body
      */
     export class Body extends React.Component<NativeBase.Body, any> { }
-            
+
     export class Content extends React.Component<NativeBase.Content, any> { }
     /**
      * NativeBase.FooterTab
@@ -761,4 +796,15 @@ declare module 'native-base' {
      * It can contain any combination of text and icons, and is a popular method for enabling mobile navigation.
      */
     export class Tabs extends React.Component<NativeBase.Tabs, any> { }
+    /**
+     * NativeBase.Tab
+     */
+    export class Tab extends React.Component<NativeBase.Tab,any>{}
+
+    export class TabHeading extends React.Component<NativeBase.TabHeading,any>{}
+    /**
+     * NativeBase.Item
+     */
+    export class Item extends React.Component<NativeBase.Item, any> { }
+
 }
