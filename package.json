@@ -32,7 +32,7 @@
   "private": false,
   "dependencies": {
     "@shoutem/animation": "^0.8.9",
-    "@shoutem/theme": "git+https://github.com/GeekyAnts/theme.git",
+    "@shoutem/theme": "https://github.com/GeekyAnts/theme#testRadius",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~0.11.1",
