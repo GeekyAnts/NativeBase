@@ -15,12 +15,10 @@ class ToastContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalVisible: false,
-      duration: 2500
+      modalVisible: false
     }
   }
   componentWillReceiveProps(nextProps) {
-    console.log('this.props', this.props);
     this.setState({
       modalVisible: nextProps.showToast
     });
