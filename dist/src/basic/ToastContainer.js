@@ -15,12 +15,10 @@ ToastContainer=function(_Component){_inherits(ToastContainer,_Component);
 function ToastContainer(props){_classCallCheck(this,ToastContainer);var _this=_possibleConstructorReturn(this,(ToastContainer.__proto__||Object.getPrototypeOf(ToastContainer)).call(this,
 props));
 _this.state={
-modalVisible:false,
-duration:2500};return _this;
+modalVisible:false};return _this;
 
 }_createClass(ToastContainer,[{key:'componentWillReceiveProps',value:function componentWillReceiveProps(
 nextProps){
-console.log('this.props',this.props);
 this.setState({
 modalVisible:nextProps.showToast});
 
