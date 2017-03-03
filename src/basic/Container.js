@@ -3,11 +3,16 @@ import { View } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import {ToastContainer as Toast} from './ToastContainer';
+import {Text} from './Text';
 
 class Container extends Component {
   render() {
     return (
-      <View ref={c => this._root = c} {...this.props} />
+      <View ref={c => this._root = c} {...this.props}>
+        {this.props.children}
+        <Toast ref={ (c) => {Toast.toastInstance = c;}} />
+      </View>
     );
   }
 }

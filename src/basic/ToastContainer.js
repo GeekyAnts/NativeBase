@@ -18,24 +18,25 @@ class ToastContainer extends Component {
       modalVisible: false
     }
   }
-  componentWillReceiveProps(nextProps) {
+  static toastInstance;
+  static show({...config}) {
+    this.toastInstance._root.showToast({config});
+  }
+  showToast({config}) {
     this.setState({
-      modalVisible: nextProps.showToast
+      modalVisible: true,
+      text: config.text,
+      buttonText: config.buttonText,
+      type: config.type,
+      position: config.position
     });
-    // if (nextProps.autoHide) {
-    //   setTimeout(()=> {
-    //     this.setState({
-    //       modalVisible: false
-    //     });
-    //   }, this.state.duration);
-    // }
-    // else if (nextProps.autoHide && nextProps.duration) {
-    //   setTimeout(()=> {
-    //     this.setState({
-    //       modalVisible: false
-    //     });
-    //   }, nextProps.duration);
-    // }
+    if (config.duration>0) {
+      setTimeout(()=> {
+        this.setState({
+          modalVisible: false
+        });
+      }, config.duration);
+    }
   }
   componentDidMount() {
     if (!this.props.autoHide && this.props.duration) {
@@ -45,7 +46,7 @@ class ToastContainer extends Component {
   render() {
     return (
       <Modal
-        animationType={(this.props.position=='bottom') ? "slide" : "fade"}
+        animationType={(this.state.position=='bottom') ? "slide" : "fade"}
         transparent={true}
         visible={this.state.modalVisible}
         onRequestClose={() => {alert("Modal has been closed.")}}
@@ -53,16 +54,18 @@ class ToastContainer extends Component {
         <View style={{
             margin: (Platform.OS==='ios') ? 20 : 0,
             flex: 1,
-            justifyContent: (this.props.position==='top') ? 'flex-start' : (this.props.position==='bottom') ? 'flex-end' : (this.props.position==='center') ? 'center' : 'flex-start'}}>
+            justifyContent: (this.state.position==='top') ? 'flex-start' : (this.state.position==='bottom') ? 'flex-end' : (this.state.position==='center') ? 'center' : 'flex-start'}}>
           <Toast
-            danger={(this.props.danger) ? true : false}
-            success={(this.props.success) ? true : false}
-            warning={(this.props.warning) ? true : false}>
-            {this.props.children}
-            {(this.props.buttonText) && <Button onPress={() => {
-                (this.props.buttonPress) ? this.props.buttonPress() : undefined
+            danger={(this.state.type == 'danger') ? true : false}
+            success={(this.state.type == 'success') ? true : false}
+            warning={(this.state.type == 'warning') ? true : false}>
+            <Text>{this.state.text}</Text>
+            {(this.state.buttonText) && <Button onPress={() => {
+                this.setState({
+                  modalVisible: false
+                });
               }}>
-              <Text>{this.props.buttonText}</Text>
+              <Text>{this.state.buttonText}</Text>
             </Button>}
 
           </Toast>
@@ -77,6 +80,8 @@ ToastContainer.propTypes = {
   style: React.PropTypes.object,
 };
 
+const StyledToastContainer = connectStyle('NativeBase.ToastContainer', {}, mapPropsToStyleNames)(ToastContainer);
+
 export {
-  ToastContainer,
+  StyledToastContainer as ToastContainer,
 };
