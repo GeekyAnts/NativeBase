@@ -169,7 +169,7 @@
       "active": "ios-arrow-dropleft-circle"
     }
   },
-  "aroow-dropright": {
+  "arrow-dropright": {
     "android": {
       "default": "md-aroow-dropright",
       "active": "md-aroow-dropright"
