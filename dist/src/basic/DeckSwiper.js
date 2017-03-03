@@ -214,7 +214,7 @@ return[animatedCardStyles,animatedCardStyles2];
 return(
 _react2.default.createElement(_reactNative.View,{style:{position:'relative',flexDirection:'column'}},this.state.selectedItem===undefined?_react2.default.createElement(_reactNative.View,null):
 _react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity:this.state.fadeAnim}]},this._panResponder.panHandlers),
+this.state.selectedItem2&&_react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity:this.state.fadeAnim}]},this._panResponder.panHandlers),
 this.props.renderBottom?
 this.props.renderBottom(this.state.selectedItem2):
 
