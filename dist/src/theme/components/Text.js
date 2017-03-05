@@ -7,7 +7,7 @@ function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[
 var textTheme={
 fontSize:variables.DefaultFontSize-1,
 fontFamily:variables.fontFamily,
-color:'#000',
+color:variables.textColor,
 '.note':{
 color:'#a7a7a7',
 fontSize:variables.noteFontSize}};

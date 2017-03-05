@@ -7,7 +7,7 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 const SWIPE_THRESHOLD = 120;
 
 class DeckSwiper extends Component {
-    constructor(props) {
+  constructor(props) {
         super(props);
         this.state = {
             pan: new Animated.ValueXY(),

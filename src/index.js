@@ -38,6 +38,7 @@ import { Content } from './basic/Content';
 import { Footer } from './basic/Footer';
 import { FooterTab } from './basic/FooterTab';
 import { Form } from './basic/Form';
+import { ToastContainer } from './basic/ToastContainer';
 import { PickerNB } from './basic/Picker';
 import { List } from './basic/List';
 import { ListItem } from './basic/ListItem';
@@ -109,6 +110,7 @@ export {
   STabs,
   TabContent,
   View,
+  ToastContainer as Toast,
   TabHeading,
   TabContainer,
   DefaultTabBar,

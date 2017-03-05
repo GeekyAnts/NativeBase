@@ -27,12 +27,12 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
     ]
   },
-  "version": "2.0.9",
+  "version": "2.0.12",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
     "@shoutem/animation": "^0.8.9",
-    "@shoutem/theme": "git+https://github.com/GeekyAnts/theme.git",
+    "@shoutem/theme": "https://github.com/GeekyAnts/theme",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~0.11.1",
