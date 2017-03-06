@@ -572,6 +572,14 @@ declare module 'native-base' {
             success?: boolean,
             last?:boolean,
         }
+            
+        interface Form {
+
+        }
+
+        interface Label {
+            
+        }
     }
 
     // Export definitions
@@ -806,5 +814,19 @@ declare module 'native-base' {
      * NativeBase.Item
      */
     export class Item extends React.Component<NativeBase.Item, any> { }
-
+            
+    /**
+     *  NativeBase.Label
+     * 
+     * Child Component of Form 
+     * Label for the Input Item.
+     */
+     export class Label extends React.Component<NativeBase.Label, any>{ }
+    /**
+     *  NativeBase.Form
+     * 
+     *  Wrapper Component Takes Children of Item, Label, Input
+     */
+    export class Form extends React.Component<NativeBase.Form, any>{ }
+    
 }
