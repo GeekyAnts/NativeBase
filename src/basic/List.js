@@ -6,7 +6,19 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class List extends Component {
 
-
+  constructor(props) {
+    super(props);
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    this.state = {
+      dataSource: ds.cloneWithRows(this.props.dataArray)
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    this.setState({
+      dataSource: ds.cloneWithRows(nextProps.dataArray)
+    });
+  }
   renderChildren() {
     const childrenArray = React.Children.map(this.props.children, child => child);
 
@@ -15,13 +27,11 @@ class List extends Component {
 
   render() {
     if (this.props.dataArray && this.props.renderRow) {
-      const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-      const dataSource = ds.cloneWithRows(this.props.dataArray);
       return (
         <ListView
           {...this.props}
           enableEmptySections
-          dataSource={dataSource}
+          dataSource={this.state.dataSource}
           renderRow={this.props.renderRow}
         />
       );
