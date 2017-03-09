@@ -17,6 +17,7 @@ import footerTheme from './Footer';
 import footerTabTheme from './FooterTab';
 import fabTheme from './Fab';
 import itemTheme from './Item';
+import inputTheme from './Input';
 import labelTheme from './Label';
 import textAreaTheme from './Textarea';
 import textTheme from './Text';
@@ -180,6 +181,10 @@ export default (variables = variable) => {
 
     'NativeBase.Item': {
       ...itemTheme(variables),
+    },
+
+    'NativeBase.Input': {
+      ...inputTheme(variables),
     },
 
     'NativeBase.Label': {

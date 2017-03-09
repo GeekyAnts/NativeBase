@@ -8,7 +8,8 @@ var itemTheme={
 '.floatingLabel':{
 'NativeBase.Input':{
 height:60,
-top:8},
+top:8,
+fontFamily:variables.fontFamily},
 
 'NativeBase.Label':{
 top:8}},
@@ -27,7 +28,8 @@ fontSize:variables.inputFontSize},
 
 'NativeBase.Input':{
 flex:2,
-fontSize:variables.inputFontSize}},
+fontSize:variables.inputFontSize,
+fontFamily:variables.fontFamily}},
 
 
 '.stackedLabel':{
@@ -44,7 +46,8 @@ fontSize:variables.inputFontSize-2},
 alignSelf:_reactNative.Platform.OS==='ios'?'stretch':'flex-start',
 flex:1,
 width:_reactNative.Platform.OS==='ios'?null:variables.deviceWidth-25,
-fontSize:variables.inputFontSize},
+fontSize:variables.inputFontSize,
+fontFamily:variables.fontFamily},
 
 flexDirection:null},
 
@@ -61,7 +64,8 @@ fontSize:variables.inputFontSize},
 
 'NativeBase.Input':{
 paddingLeft:5,
-fontSize:variables.inputFontSize},
+fontSize:variables.inputFontSize,
+fontFamily:variables.fontFamily},
 
 flexDirection:'row'},
 
@@ -84,11 +88,13 @@ color:variables.inputColor,
 flex:1,
 top:_reactNative.Platform.OS==='ios'?1.5:undefined,
 fontSize:variables.inputFontSize,
-lineHeight:variables.inputLineHeight},
+lineHeight:variables.inputLineHeight,
+fontFamily:variables.fontFamily},
 
 '.underline':{
 'NativeBase.Input':{
-paddingLeft:15},
+paddingLeft:15,
+fontFamily:variables.fontFamily},
 
 '.success':{
 borderColor:variables.inputSuccessBorderColor},
@@ -104,7 +110,8 @@ borderColor:variables.inputBorderColor},
 
 '.regular':{
 'NativeBase.Input':{
-paddingLeft:8},
+paddingLeft:8,
+fontFamily:variables.fontFamily},
 
 'NativeBase.Icon':{
 paddingLeft:10},
@@ -120,7 +127,8 @@ borderColor:variables.inputBorderColor},
 
 '.rounded':{
 'NativeBase.Input':{
-paddingLeft:8},
+paddingLeft:8,
+fontFamily:variables.fontFamily},
 
 'NativeBase.Icon':{
 paddingLeft:10},

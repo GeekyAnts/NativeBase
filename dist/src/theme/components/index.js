@@ -17,6 +17,7 @@ var _Footer=require('./Footer');var _Footer2=_interopRequireDefault(_Footer);
 var _FooterTab=require('./FooterTab');var _FooterTab2=_interopRequireDefault(_FooterTab);
 var _Fab=require('./Fab');var _Fab2=_interopRequireDefault(_Fab);
 var _Item=require('./Item');var _Item2=_interopRequireDefault(_Item);
+var _Input=require('./Input');var _Input2=_interopRequireDefault(_Input);
 var _Label=require('./Label');var _Label2=_interopRequireDefault(_Label);
 var _Textarea=require('./Textarea');var _Textarea2=_interopRequireDefault(_Textarea);
 var _Text=require('./Text');var _Text2=_interopRequireDefault(_Text);
@@ -180,6 +181,10 @@ alignSelf:'center'}}),
 
 'NativeBase.Item':_extends({},
 (0,_Item2.default)(variables)),
+
+
+'NativeBase.Input':_extends({},
+(0,_Input2.default)(variables)),
 
 
 'NativeBase.Label':_extends({},
