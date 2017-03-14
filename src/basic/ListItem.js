@@ -12,10 +12,11 @@ class ListItem extends Component {
   render() {
     const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
 
-    if (Platform.OS === 'ios' || variable.androidRipple === false || !this.props.onPress || Platform.Version <= 21) {
+    if (Platform.OS === 'ios' || variable.androidRipple === false || !this.props.onPress || !this.props.onLongPress || Platform.Version <= 21) {
       return (
         <TouchableHighlight
           onPress={this.props.onPress}
+          onLongPress={this.props.onLongPress}
           ref={c => this._root = c}
           underlayColor={variables.listBtnUnderlayColor}
         >
@@ -27,6 +28,7 @@ class ListItem extends Component {
       return(
           <TouchableNativeFeedback ref={c => this._root = c}
               onPress={this.props.onPress}
+              onLongPress={this.props.onLongPress}
               background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColorDark)}>
               <View style={{ marginLeft: -17, paddingLeft: 17 }}>
                 <View {...this.props}>{this.props.children}</View>
