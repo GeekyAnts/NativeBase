@@ -12,10 +12,11 @@ ListItem=function(_Component){_inherits(ListItem,_Component);function ListItem()
 {var _this2=this;
 var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:_platform2.default;
 
-if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||!this.props.onPress||_reactNative.Platform.Version<=21){
+if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||!this.props.onPress||!this.props.onLongPress||_reactNative.Platform.Version<=21){
 return(
 _react2.default.createElement(_reactNative.TouchableHighlight,{
 onPress:this.props.onPress,
+onLongPress:this.props.onLongPress,
 ref:function ref(c){return _this2._root=c;},
 underlayColor:variables.listBtnUnderlayColor},
 
@@ -27,6 +28,7 @@ _react2.default.createElement(_reactNative.View,this.props,this.props.children))
 return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,{ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
+onLongPress:this.props.onLongPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColorDark)},
 _react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17}},
 _react2.default.createElement(_reactNative.View,this.props,this.props.children))));
