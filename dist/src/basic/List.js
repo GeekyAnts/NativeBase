@@ -8,16 +8,21 @@ List=function(_Component){_inherits(List,_Component);
 
 function List(props){_classCallCheck(this,List);var _this=_possibleConstructorReturn(this,(List.__proto__||Object.getPrototypeOf(List)).call(this,
 props));
+if(props.dataArray&&props.renderRow){
 var ds=new _reactNative.ListView.DataSource({rowHasChanged:function rowHasChanged(r1,r2){return r1!==r2;}});
 _this.state={
-dataSource:ds.cloneWithRows(_this.props.dataArray)};return _this;
+dataSource:ds.cloneWithRows(props.dataArray)};
 
+}else{
+_this.state={};
+}return _this;
 }_createClass(List,[{key:'componentWillReceiveProps',value:function componentWillReceiveProps(
 nextProps){
-var ds=new _reactNative.ListView.DataSource({rowHasChanged:function rowHasChanged(r1,r2){return r1!==r2;}});
+if(this.state.dataSource){
 this.setState({
-dataSource:ds.cloneWithRows(nextProps.dataArray)});
+dataSource:this.state.dataSource.cloneWithRows(nextProps.dataArray)});
 
+}
 }},{key:'renderChildren',value:function renderChildren()
 {
 var childrenArray=_react2.default.Children.map(this.props.children,function(child){return child;});
@@ -26,10 +31,11 @@ return childrenArray;
 }},{key:'render',value:function render()
 
 {var _this2=this;
-if(this.props.dataArray&&this.props.renderRow){
+if(this.state.dataSource){
 return(
 _react2.default.createElement(_reactNative.ListView,_extends({},
 this.props,{
+ref:function ref(_ref){return _this2._scrollComponent=_ref;},
 enableEmptySections:true,
 dataSource:this.state.dataSource,
 renderRow:this.props.renderRow})));

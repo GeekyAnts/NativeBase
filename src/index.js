@@ -39,6 +39,7 @@ import { Footer } from './basic/Footer';
 import { FooterTab } from './basic/FooterTab';
 import { Form } from './basic/Form';
 import { ToastContainer } from './basic/ToastContainer';
+import { ActionSheetContainer } from './basic/Actionsheet';
 import { PickerNB } from './basic/Picker';
 import { List } from './basic/List';
 import { ListItem } from './basic/ListItem';
@@ -111,6 +112,7 @@ export {
   TabContent,
   View,
   ToastContainer as Toast,
+  ActionSheetContainer as ActionSheet,
   TabHeading,
   TabContainer,
   DefaultTabBar,
