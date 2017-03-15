@@ -35,6 +35,7 @@ class List extends Component {
       return (
         <ListView
           {...this.props}
+          ref={(ref) => this._scrollComponent = ref} //Adds reference to all ListView methods and properties
           enableEmptySections
           dataSource={this.state.dataSource}
           renderRow={this.props.renderRow}
