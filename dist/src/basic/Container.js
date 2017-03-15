@@ -4,6 +4,7 @@ var _reactNative=require('react-native');
 var _theme=require('@shoutem/theme');
 var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _ToastContainer=require('./ToastContainer');
+var _Actionsheet=require('./Actionsheet');
 var _Text=require('./Text');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 Container=function(_Component){_inherits(Container,_Component);function Container(){_classCallCheck(this,Container);return _possibleConstructorReturn(this,(Container.__proto__||Object.getPrototypeOf(Container)).apply(this,arguments));}_createClass(Container,[{key:'render',value:function render()
@@ -11,7 +12,8 @@ Container=function(_Component){_inherits(Container,_Component);function Containe
 return(
 _react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props),
 this.props.children,
-_react2.default.createElement(_ToastContainer.ToastContainer,{ref:function ref(c){_ToastContainer.ToastContainer.toastInstance=c;}})));
+_react2.default.createElement(_ToastContainer.ToastContainer,{ref:function ref(c){_ToastContainer.ToastContainer.toastInstance=c;}}),
+_react2.default.createElement(_Actionsheet.ActionSheetContainer,{ref:function ref(c){_Actionsheet.ActionSheetContainer.actionsheetInstance=c;}})));
 
 
 }}]);return Container;}(_react.Component);
