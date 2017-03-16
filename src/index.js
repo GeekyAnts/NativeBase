@@ -52,6 +52,7 @@ import { Textarea } from './basic/Textarea';
 import { Tab } from './basic/Tab';
 import ScrollableTabView from './basic/Tabs';
 import { DefaultTabBar } from './basic/Tabs/DefaultTabBar';
+import { ScrollableTab } from './basic/Tabs/ScrollableTabBar';
 import { STabs } from './smart/STabs';
 import { Content as TabContent } from './basic/Content';
 import { Subtitle } from './backward/Widgets/Subtitle';
@@ -112,6 +113,7 @@ export {
   TabContent,
   View,
   ToastContainer as Toast,
+  ScrollableTab,
   ActionSheetContainer as ActionSheet,
   TabHeading,
   TabContainer,

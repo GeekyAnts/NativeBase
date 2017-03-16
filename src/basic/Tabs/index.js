@@ -18,7 +18,7 @@ import _ from 'lodash';
 
 const SceneComponent = require('./SceneComponent');
 const { DefaultTabBar } = require('./DefaultTabBar');
-const ScrollableTabBar = require('./ScrollableTabBar');
+const { ScrollableTabBar } = require('./ScrollableTabBar');
 
 
 const ScrollableTabView = React.createClass({

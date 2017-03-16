@@ -13,6 +13,11 @@ export default (variables = variable) => {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    '.scrollable': {
+      paddingHorizontal: 20,
+      flex: (platform==='android') ? 0 : 1,
+      minWidth: (platform==='android') ? undefined : 60,
+    },
     'NativeBase.Text': {
       color: variables.topTabBarTextColor,
       marginHorizontal: 7
