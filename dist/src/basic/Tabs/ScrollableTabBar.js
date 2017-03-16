@@ -1,5 +1,9 @@
-var React=require('react');
-var ReactNative=require('react-native');var
+Object.defineProperty(exports,"__esModule",{value:true});exports.ScrollableTab=undefined;
+
+var _theme=require('@shoutem/theme');
+var _platform=require('./../../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
+var _index=require('./../../index');
+var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var React=require('react');var ReactNative=require('react-native');var
 
 View=
 
@@ -7,8 +11,7 @@ View=
 
 
 
-
-ReactNative.View,Animated=ReactNative.Animated,StyleSheet=ReactNative.StyleSheet,ScrollView=ReactNative.ScrollView,Text=ReactNative.Text,Platform=ReactNative.Platform,Dimensions=ReactNative.Dimensions;
+ReactNative.View,Animated=ReactNative.Animated,StyleSheet=ReactNative.StyleSheet,ScrollView=ReactNative.ScrollView,Platform=ReactNative.Platform,Dimensions=ReactNative.Dimensions;
 var Button=require('./Button');
 
 var WINDOW_WIDTH=Dimensions.get('window').width;
@@ -25,10 +28,12 @@ scrollOffset:React.PropTypes.number,
 style:View.propTypes.style,
 tabStyle:View.propTypes.style,
 tabsContainerStyle:View.propTypes.style,
-textStyle:Text.propTypes.style,
 renderTab:React.PropTypes.func,
 underlineStyle:View.propTypes.style,
 onScroll:React.PropTypes.func},
+
+contextTypes:{
+theme:React.PropTypes.object},
 
 
 getDefaultProps:function getDefaultProps(){
@@ -122,25 +127,35 @@ this.state._widthTabUnderline.setValue(lineRight-lineLeft);
 }
 },
 
-renderTab:function renderTab(name,page,isTabActive,onPressHandler,onLayoutHandler){var _props=
-this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor,textStyle=_props.textStyle;
+renderTab:function renderTab(name,page,isTabActive,onPressHandler,onLayoutHandler,tabStyle,activeTabStyle,textStyle,activeTextStyle,tabHeaderStyle){
+var headerContent=typeof name!=='string'?name.props.children:undefined;var _props=
+this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor;
 var textColor=isTabActive?activeTextColor:inactiveTextColor;
 var fontWeight=isTabActive?'bold':'normal';
 
+if(typeof name==='string'){
 return React.createElement(Button,{
 key:name+'_'+page,
-accessible:true,
-accessibilityLabel:name,
-accessibilityTraits:'button',
 onPress:function onPress(){return onPressHandler(page);},
 onLayout:onLayoutHandler},
 
-React.createElement(View,{style:[styles.tab,this.props.tabStyle]},
-React.createElement(Text,{style:[{color:textColor,fontWeight:fontWeight},textStyle]},
+React.createElement(_index.TabHeading,{scrollable:true,style:isTabActive?activeTabStyle:tabStyle,active:isTabActive},
+React.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle},
 name)));
 
 
 
+}else
+{
+return React.createElement(Button,{
+key:_lodash2.default.random(1.2,5.2),
+onPress:function onPress(){return onPressHandler(page);}},
+
+React.createElement(_index.TabHeading,{scrollable:true,style:tabHeaderStyle,active:isTabActive},
+headerContent));
+
+
+}
 },
 
 measureTab:function measureTab(page,event){var _event$nativeEvent$la=
@@ -150,10 +165,11 @@ this.updateView({value:this.props.scrollValue._value});
 },
 
 render:function render(){var _this=this;
+var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:_platform2.default;
 var tabUnderlineStyle={
 position:'absolute',
 height:4,
-backgroundColor:'navy',
+backgroundColor:variables.topTabBarActiveBorderColor,
 bottom:0};
 
 
@@ -185,7 +201,7 @@ onLayout:this.onTabContainerLayout},
 this.props.tabs.map(function(name,page){
 var isTabActive=_this.props.activeTab===page;
 var renderTab=_this.props.renderTab||_this.renderTab;
-return renderTab(name,page,isTabActive,_this.props.goToPage,_this.measureTab.bind(_this,page));
+return renderTab(name,page,isTabActive,_this.props.goToPage,_this.measureTab.bind(_this,page),_this.props.tabStyle[page],_this.props.activeTabStyle[page],_this.props.textStyle[page],_this.props.activeTextStyle[page],_this.props.tabHeaderStyle[page]);
 }),
 React.createElement(Animated.View,{style:[tabUnderlineStyle,dynamicTabUnderline,this.props.underlineStyle]}))));
 
@@ -216,7 +232,10 @@ this.updateView({value:this.props.scrollValue._value});
 }});
 
 
-module.exports=ScrollableTabBar;
+
+var StyledTab=(0,_theme.connectStyle)('NativeBase.ScrollableTab',{},mapPropsToStyleNames)(ScrollableTabBar);exports.
+
+ScrollableTab=StyledTab;
 
 var styles=StyleSheet.create({
 tab:{

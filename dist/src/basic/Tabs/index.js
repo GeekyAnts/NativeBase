@@ -17,8 +17,8 @@ var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++)
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var React=require('react');var PropTypes=React.PropTypes,Component=React.Component;var ReactNative=require('react-native');var Dimensions=ReactNative.Dimensions,View=ReactNative.View,Animated=ReactNative.Animated,ScrollView=ReactNative.ScrollView,StyleSheet=ReactNative.StyleSheet,InteractionManager=ReactNative.InteractionManager,Platform=ReactNative.Platform;var TimerMixin=require('react-timer-mixin');
 
 var SceneComponent=require('./SceneComponent');var _require=
-require('./DefaultTabBar'),DefaultTabBar=_require.DefaultTabBar;
-var ScrollableTabBar=require('./ScrollableTabBar');
+require('./DefaultTabBar'),DefaultTabBar=_require.DefaultTabBar;var _require2=
+require('./ScrollableTabBar'),ScrollableTabBar=_require2.ScrollableTabBar;
 
 
 var ScrollableTabView=React.createClass({displayName:'ScrollableTabView',
