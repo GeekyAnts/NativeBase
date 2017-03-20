@@ -27,6 +27,7 @@ import tabContainerTheme from './TabContainer';
 import viewTheme from './View';
 import tabHeadingTheme from './TabHeading';
 import iconTheme from './Icon';
+import inputTheme from './Input';
 import segmentTheme from './Segment';
 import spinnerTheme from './Spinner';
 import cardItemTheme from './CardItem';
@@ -71,6 +72,10 @@ export default (variables = variable) => {
 
     'NativeBase.InputGroup': {
       ...inputGroupTheme(variables),
+    },
+
+    'NativeBase.Input': {
+      ...inputTheme(variables),
     },
 
     'NativeBase.Badge': {

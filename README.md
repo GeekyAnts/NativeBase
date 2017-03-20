@@ -13,6 +13,13 @@ Essential cross-platform UI components for React Native
 
 NativeBase is a sleek, ingenious and dynamic front-end framework created by passionate React Loving team at [Geekyants.com](http://geekyants.com/) to build cross platform Android & iOS mobile apps using ready to use generic components of React Native.
 
+# Usage with CRNA
+
+* Create app using the CRNA cli
+* Install native-base using `npm install native-base --save`
+* Install @expo/vector-icons using `npm install @expo/vector-icons --save`
+* [Load fonts](https://docs.expo.io/versions/v15.0.0/sdk/font.html) in `setup.js`
+* KitchenSink example [here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/CRNA)
 
 # Table of Content
 
