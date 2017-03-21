@@ -83,7 +83,7 @@ class PickerNB extends Component {
         newChildren.push(child);
       }
     });
-    return <Header {...this.props.headerComponent.props} > {newChildren}</Header>;
+    return <Header {...this.props.headerComponent.props} >{newChildren}</Header>;
   }
 
   renderIcon() {
