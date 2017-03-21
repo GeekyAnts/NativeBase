@@ -83,7 +83,7 @@ newChildren.push(_react2.default.cloneElement(child,
 newChildren.push(child);
 }
 });
-return _react2.default.createElement(_Header.Header,this.props.headerComponent.props,' ',newChildren);
+return _react2.default.createElement(_Header.Header,this.props.headerComponent.props,newChildren);
 }},{key:'renderIcon',value:function renderIcon()
 
 {
