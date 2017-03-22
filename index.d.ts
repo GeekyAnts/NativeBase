@@ -454,7 +454,7 @@ declare module 'native-base' {
         /**
          * see Widget Icon.js
          */
-        interface Thumbnail extends React.ImageProperties {
+        interface Thumbnail extends ReactNative.ImageProperties {
             /**
              * Dimension of thumbnail.
              * Default: 30
@@ -474,7 +474,7 @@ declare module 'native-base' {
         /**
          * see Widget Spinner.js
          */
-        interface Spinner extends React.ActivityIndicatorProperties {
+        interface Spinner extends ReactNative.ActivityIndicatorProperties {
             inverse?: boolean
         }
         /**
@@ -515,7 +515,7 @@ declare module 'native-base' {
             open?: boolean,
             closedDrawerOffset?: number,
             content?: any,
-            deviceScreen?: React.ScaledSize,
+            deviceScreen?: ReactNative.ScaledSize,
             disabled?: boolean,
             initializeOpen?: boolean,
             negotiatePan?: boolean,
@@ -667,7 +667,7 @@ declare module 'native-base' {
      */
     export class Picker extends React.Component<NativeBase.Picker, any> { }
     namespace Picker {
-        export class Item extends React.Component<React.PickerItemProperties, any> { }
+        export class Item extends React.Component<ReactNative.PickerItemProperties, any> { }
     }
     /**
      * NativeBase.List
