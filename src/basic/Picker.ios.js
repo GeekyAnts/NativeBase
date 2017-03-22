@@ -25,21 +25,27 @@ class PickerNB extends Component {
 
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       modalVisible: false,
       currentLabel: this.getLabel(props),
-      dataSource: ds.cloneWithRows(this.props.children),
+      dataSource: props.children
     };
   }
 
   componentWillReceiveProps(nextProps) {
     const currentLabel = this.state.currentLabel;
     const nextLabel = this.getLabel(nextProps);
+    const currentDS = this.state.dataSource;
+    const nextDS = nextProps.children
 
     if (currentLabel !== nextLabel) {
       this.setState({
         currentLabel: nextLabel,
+      });
+    }
+    if (currentDS !== nextDS) {
+      this.setState({
+        dataSource: nextDS,
       });
     }
   }
@@ -132,8 +138,8 @@ class PickerNB extends Component {
           <Container>
             {this.renderHeader()}
             <Content>
-              <ListView
-                dataSource={this.state.dataSource}
+              <List
+                dataArray={this.state.dataSource}
                 renderRow={child =>
                   <ListItem
                     selected={(child.props.value === this.props.selectedValue) ? true : false}
