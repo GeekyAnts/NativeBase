@@ -382,7 +382,7 @@ declare module 'native-base' {
          */
         interface Card extends ReactNative.ViewProperties, ReactListViewProperties {
             dataArray?: Array<any>,
-            style?: React.Ref<ReactNative.ViewProperties | ReactNative.ListViewProperties>
+            style?: ReactNative.ViewStyle,
             ref?: React.Ref<ReactNative.ViewProperties | ReactListViewProperties>,
         }
         /**
