@@ -18,7 +18,7 @@ Drawer.defaultProps = {
   tapToClose: true,
   openDrawerOffset: 0.2,
   panCloseMask: 0.2,
-  closedDrawerOffset: -3,
+  closedDrawerOffset: 0,
   styles: {
     drawer: {
       shadowColor: '#000000',
