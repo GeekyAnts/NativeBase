@@ -9,6 +9,7 @@ export default (variables = variable) => {
         'NativeBase.Input': {
           height: 60,
           top: 8,
+          fontFamily: variables.fontFamily,
         },
         'NativeBase.Label': {
           top: 8,
@@ -28,6 +29,7 @@ export default (variables = variable) => {
         'NativeBase.Input': {
           flex: 2,
           fontSize: variables.inputFontSize,
+          fontFamily: variables.fontFamily,
         },
       },
       '.stackedLabel': {
@@ -45,6 +47,7 @@ export default (variables = variable) => {
           flex: 1,
           width: (Platform.OS === 'ios') ? null : variables.deviceWidth - 25,
           fontSize: variables.inputFontSize,
+          fontFamily: variables.fontFamily,
         },
         flexDirection: null,
       },
@@ -62,6 +65,7 @@ export default (variables = variable) => {
         'NativeBase.Input': {
           paddingLeft: 5,
           fontSize: variables.inputFontSize,
+          fontFamily: variables.fontFamily,
         },
         flexDirection: 'row',
       },
@@ -85,10 +89,12 @@ export default (variables = variable) => {
         top: (Platform.OS === 'ios') ? 1.5 : undefined,
         fontSize: variables.inputFontSize,
         lineHeight: variables.inputLineHeight,
+        fontFamily: variables.fontFamily,
       },
       '.underline': {
         'NativeBase.Input': {
           paddingLeft: 15,
+          fontFamily: variables.fontFamily,
         },
         '.success': {
           borderColor: variables.inputSuccessBorderColor,
@@ -105,6 +111,7 @@ export default (variables = variable) => {
       '.regular': {
         'NativeBase.Input': {
           paddingLeft: 8,
+          fontFamily: variables.fontFamily,
         },
         'NativeBase.Icon': {
           paddingLeft: 10,
@@ -121,6 +128,7 @@ export default (variables = variable) => {
       '.rounded': {
         'NativeBase.Input': {
           paddingLeft: 8,
+          fontFamily: variables.fontFamily,
         },
         'NativeBase.Icon': {
           paddingLeft: 10,
