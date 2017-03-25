@@ -51,7 +51,7 @@ NativeBase is an infant and growing rapidly, so we planned to stick to Git Flow.
 -	When a fresh new feature is requested, try to give as many details on your need as feasible. We prefer that you explain the need rather than explaining a technical solution for it. That might trigger a nice conversation on finding the best and broadest technical solution to a specific need.
 
 
-####c. Code Fixes and Enhancements
+#### c. Code Fixes and Enhancements
 
 -	Before submitting a pull request, we appreciate if you create an issue first to discuss the change.
 -	Fork the repo you are planning to work on.

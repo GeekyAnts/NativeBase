@@ -1,6 +1,10 @@
 Hi! Thanks for trying out NativeBase!
 Due to the overwhelming requests and issues/questions we ask you to add the following details with your issue.
 
+Please check the existing open/closed issues for a possible duplicate before creating a new issue :)
+
+Also **DO** fill out the below form to give us a better idea about your environment and help us debug it quicker. Issues without the required details will mostly be unattended to.
+
 ## react-native, react and native-base version
 ## Expected behaviour
 ## Actual behaviour
