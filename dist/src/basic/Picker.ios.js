@@ -25,21 +25,27 @@ PickerNB=function(_Component){_inherits(PickerNB,_Component);
 
 function PickerNB(props){_classCallCheck(this,PickerNB);var _this=_possibleConstructorReturn(this,(PickerNB.__proto__||Object.getPrototypeOf(PickerNB)).call(this,
 props));
-var ds=new _reactNative.ListView.DataSource({rowHasChanged:function rowHasChanged(r1,r2){return r1!==r2;}});
 _this.state={
 modalVisible:false,
 currentLabel:_this.getLabel(props),
-dataSource:ds.cloneWithRows(_this.props.children)};return _this;
+dataSource:props.children};return _this;
 
 }_createClass(PickerNB,[{key:'componentWillReceiveProps',value:function componentWillReceiveProps(
 
 nextProps){
 var currentLabel=this.state.currentLabel;
 var nextLabel=this.getLabel(nextProps);
+var currentDS=this.state.dataSource;
+var nextDS=nextProps.children;
 
 if(currentLabel!==nextLabel){
 this.setState({
 currentLabel:nextLabel});
+
+}
+if(currentDS!==nextDS){
+this.setState({
+dataSource:nextDS});
 
 }
 }},{key:'getInitialStyle',value:function getInitialStyle()
@@ -83,7 +89,7 @@ newChildren.push(_react2.default.cloneElement(child,
 newChildren.push(child);
 }
 });
-return _react2.default.createElement(_Header.Header,this.props.headerComponent.props,' ',newChildren);
+return _react2.default.createElement(_Header.Header,this.props.headerComponent.props,newChildren);
 }},{key:'renderIcon',value:function renderIcon()
 
 {
@@ -132,8 +138,8 @@ onRequestClose:function onRequestClose(){_this5._setModalVisible(false);}},
 _react2.default.createElement(_Container.Container,null,
 this.renderHeader(),
 _react2.default.createElement(_Content.Content,null,
-_react2.default.createElement(_reactNative.ListView,{
-dataSource:this.state.dataSource,
+_react2.default.createElement(_List.List,{
+dataArray:this.state.dataSource,
 renderRow:function renderRow(child){return(
 _react2.default.createElement(_ListItem.ListItem,{
 selected:child.props.value===_this5.props.selectedValue?true:false,
