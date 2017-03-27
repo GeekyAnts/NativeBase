@@ -49,7 +49,11 @@ class ToastContainer extends Component {
         animationType={(this.state.position=='bottom') ? "slide" : "fade"}
         transparent={true}
         visible={this.state.modalVisible}
-        onRequestClose={() => {alert("Modal has been closed.")}}
+        onRequestClose={() => {
+          this.setState({
+            modalVisible: false
+          });
+        }}
         >
         <View style={{
             margin: (Platform.OS==='ios') ? 20 : 0,
