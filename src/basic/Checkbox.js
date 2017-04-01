@@ -14,6 +14,7 @@ class CheckBox extends Component {
   }
 
   getInitialStyle() {
+    const variable = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
     return {
       checkStyle: {
         borderColor: this.props.color ? this.props.color : variable.checkboxBgColor,
