@@ -99,7 +99,7 @@ Check out the [KitchenSink](https://github.com/GeekyAnts/NativeBase-KitchenSink/
 
 ## 6. [Native Starter Kit](https://github.com/start-react/native-starter-kit)
 
-A simple starter project for [React Native](https://github.com/facebook/react-native) + [NativeBase](http://nativebase.io/) + [Redux](http://redux.js.org/) + [CodePush](https://github.com/Microsoft/react-native-code-push) + [React Native Navigator](https://facebook.github.io/react-native/docs/navigator.html) apps on iOS and Android.
+A simple starter project for [React Native](https://github.com/facebook/react-native) + [NativeBase](https://nativebase.io/) + [Redux](http://redux.js.org/) + [CodePush](https://github.com/Microsoft/react-native-code-push) + [React Native Navigator](https://facebook.github.io/react-native/docs/navigator.html) apps on iOS and Android.
 [Take a look at the demo](https://github.com/start-react/native-starter-kit#screens)
 
 
@@ -131,4 +131,4 @@ Go through [NativeBase Docs](https://docs.nativebase.io/) to play with [NativeBa
 
 ## 11. About the creators
 
-We are [GeekyAnts](http://geekyants.com/), a startup based in Bangalore, India with 50+ developers in strength. We have been very active in the React / React Native community where we have developed Strapmobile, StrapUI and StartReact. Our other products include StartLaravel and StartAngular.
+We are [GeekyAnts](https://geekyants.com/), a startup based in Bangalore, India with 50+ developers in strength. We have been very active in the React / React Native community where we have developed StrapUI and StartReact. Our other products include StartLaravel and StartAngular.
