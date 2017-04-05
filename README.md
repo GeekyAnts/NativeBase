@@ -79,7 +79,7 @@ npm install @expo/vector-icons --save
 <br />
 
 **Note** <br />
-NativeBase uses some custom fonts that can be loaded using **loadAsync** function. Check out [this](https://docs.expo.io/versions/v15.0.0/sdk/font.html#expofontloadasyncname-url) expo link.
+[NativeBase](https://nativebase.io/) uses some custom fonts that can be loaded using **loadAsync** function. Check out [this](https://docs.expo.io/versions/v15.0.0/sdk/font.html#expofontloadasyncname-url) expo link.
 <br />
 Synatx <br />
 ```js
@@ -107,12 +107,12 @@ A simple starter project for [React Native](https://github.com/facebook/react-na
 
 Having tried with the free version, [Native Starter Kit](https://github.com/start-react/native-starter-kit) and appreciate our product?
 
-Get on the mobile fast track with the featured apps of NativeBase, to build high-quality iOS and Android mobile apps.<br />
+Get on the mobile fast track with the featured apps of [NativeBase](https://nativebase.io/), to build high-quality iOS and Android mobile apps.<br />
 A [marketplace](https://market.nativebase.io/) for premium React Native app themes to build high-quality iOS and Android mobile apps. <br />
 
 ## 8. Documentation
 
-Go through [NativeBase Docs](https://nativebase.io/documentation) to play with NativeBase.
+Go through [NativeBase Docs](https://docs.nativebase.io/) to play with [NativeBase](https://nativebase.io/).
 
 
 
@@ -123,7 +123,7 @@ Go through [NativeBase Docs](https://nativebase.io/documentation) to play with N
 
 ## 10. Quick Links to NativeBase
 
-*	[NativeBase Documentation](http://nativebase.io/documentation)
+*	[NativeBase Documentation](https://docs.nativebase.io/)
 *	[NativeBase Blog](https://blog.nativebase.io)
 *	[NativeBase on Twitter](https://twitter.com/NativeBaseIO)
 *	[NativeBase on FaceBook](https://www.facebook.com/nativebaseio/)
@@ -131,4 +131,4 @@ Go through [NativeBase Docs](https://nativebase.io/documentation) to play with N
 
 ## 11. About the creators
 
-We are [GeekyAnts](http://geekyants.com/), a startup based in Bangalore, India with 50+ developers in strength. We have been very active in the React / React Native community where we have developed Strapmobile, [StrapUI](https://www.strapui.com/) and [StartReact](http://startreact.com/). Our other products include [StartLaravel](http://startlaravel.com/) and [StartAngular](http://startangular.com/).
+We are [GeekyAnts](http://geekyants.com/), a startup based in Bangalore, India with 50+ developers in strength. We have been very active in the React / React Native community where we have developed Strapmobile, StrapUI and StartReact. Our other products include StartLaravel and StartAngular.
