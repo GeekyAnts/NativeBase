@@ -49,7 +49,11 @@ _react2.default.createElement(_reactNative.Modal,{
 animationType:this.state.position=='bottom'?"slide":"fade",
 transparent:true,
 visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){alert("Modal has been closed.");}},
+onRequestClose:function onRequestClose(){
+_this3.setState({
+modalVisible:false});
+
+}},
 
 _react2.default.createElement(_reactNative.View,{style:{
 margin:_reactNative.Platform.OS==='ios'?20:0,
