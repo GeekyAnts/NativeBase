@@ -1,3 +1,5 @@
+// @flow
+
 import color from 'color';
 
 import { Platform, Dimensions, PixelRatio } from 'react-native';
@@ -6,6 +8,178 @@ const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 const platform = Platform.OS;
 const platformStyle = undefined;
+
+
+type Variables = {
+  platform: string,
+  platformStyle: string,
+
+  androidRipple: boolean,
+  androidRippleColor: string,
+  androidRippleColorDark: string,
+
+  badgeBg: string,
+  badgeColor: string,
+  badgePadding: number,
+
+  btnFontFamily: string,
+  btnDisabledBg: string,
+  btnDisabledClr: string,
+
+  CheckboxRadius: number,
+  CheckboxBorderWidth: number,
+  CheckboxPaddingLeft: number,
+  CheckboxPaddingBottom: number,
+  CheckboxIconSize: number,
+  CheckboxIconMarginTop: number,
+  CheckboxFontSize: number,
+  DefaultFontSize: number,
+  checkboxBgColor: string,
+  checkboxSize: number,
+  checkboxTickColor: string,
+
+  segmentBackgroundColor: string,
+  segmentActiveBackgroundColor: string,
+  segmentTextColor: string,
+  segmentActiveTextColor: string,
+  segmentBorderColor: string,
+  segmentBorderColorMain: string,
+
+  defaultTextColor: string,
+  btnPrimaryBg: string,
+  btnPrimaryColor: string,
+  btnInfoBg: string,
+  btnInfoColor: string,
+  btnSuccessBg: string,
+  btnSuccessColor: string,
+  btnDangerBg: string,
+  btnDangerColor: string,
+  btnWarningBg: string,
+  btnWarningColor: string,
+  btnTextSize: number,
+  btnTextSizeLarge: number,
+  btnTextSizeSmall: number,
+  borderRadiusLarge: number,
+  buttonPadding: number,
+  iconSizeLarge: number,
+  iconSizeSmall: number,
+
+  cardDefaultBg: string,
+  cardBorderColor: string,
+
+  brandPrimary: string,
+  brandInfo: string,
+  brandSuccess: string,
+  brandWarning: string,
+  brandDanger: string,
+  brandSidebar: string,
+
+  fontFamily: string,
+  fontSizeBase: number,
+  fontSizeH1: number,
+  fontSizeH2: number,
+  fontSizeH3: number,
+
+  tabBarTextColor: string,
+  tabBarTextSize: number,
+  activeTab: string,
+  sTabBarActiveTextColor: string,
+  tabBarActiveTextColor: string,
+  tabActiveBgColor: string,
+
+  tabDefaultBg: string,
+  topTabBarTextColor: string,
+  topTabBarActiveTextColor: string,
+  topTabActiveBgColor: string,
+  topTabBarBorderColor: string,
+  topTabBarActiveBorderColor: string,
+
+  toolbarBtnColor: string,
+  toolbarDefaultBg: string,
+  toolbarHeight: number,
+  toolbarIconSize: number,
+  toolbarSearchIconSize: number,
+  toolbarInputColor: string,
+  searchBarHeight: number,
+  toolbarInverseBg: string,
+  toolbarTextColor: string,
+  toolbarDefaultBorder: string,
+  iosStatusbar: string,
+  statusBarColor: string,
+
+  iconFamily: string,
+  iconFontSize: number,
+  iconMargin: number,
+  iconHeaderSize: number,
+
+  inputFontSize: number,
+  inputBorderColor: string,
+  inputSuccessBorderColor: string,
+  inputErrorBorderColor: string,
+  inputColor: string,
+  inputColorPlaceholder: string,
+  inputGroupMarginBottom: number,
+  inputHeightBase: number,
+  inputPaddingLeft: number,
+  inputPaddingLeftIcon: number,
+  inputGroupRoundedBorderRadius: number,
+
+  btnLineHeight: number,
+  lineHeightH1: number,
+  lineHeightH2: number,
+  lineHeightH3: number,
+  iconLineHeight: number,
+  lineHeight: number,
+
+  listBorderColor: string,
+  listDividerBg: string,
+  listItemHeight: number,
+  listBtnUnderlayColor: string,
+  listItemPadding: number,
+  listNoteColor: string,
+  listNoteSize: number,
+
+  defaultProgressColor: string,
+  inverseProgressColor: string,
+
+  radioBtnSize: number,
+  radioSelectedColorAndroid: string,
+  radioBtnLineHeight: number,
+  radioColor: string,
+  radioSelectedColor: string,
+
+  defaultSpinnerColor: string,
+  inverseSpinnerColor: string,
+
+  tabBgColor: string,
+  tabFontSize: number,
+  tabTextColor: string,
+
+  textColor: string,
+  inverseTextColor: string,
+  noteFontSize: number,
+
+  titleFontfamily: string,
+  titleFontSize: number,
+  subTitleFontSize: number,
+  subtitleColor: string,
+  titleFontColor: string,
+
+  borderRadiusBase: number,
+  borderWidth: number,
+  contentPadding: number,
+
+  darkenHeader: string,
+
+  dropdownBg: string,
+  dropdownLinkColor: string,
+  inputLineHeight: number,
+  jumbotronBg: string,
+  jumbotronPadding: number,
+  deviceWidth: number,
+  deviceHeight: number,
+}
+
 
 export default {
   platformStyle,
