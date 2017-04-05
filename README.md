@@ -38,7 +38,7 @@ Essential cross-platform UI components for React Native
 
 
 ## 2. Why NativeBase?
-What is really great with [NativeBase](http://nativebase.io/) is that you can use shared UI cross-platform components, which will drastically increase your productivity. When using NativeBase, you can use any native third-party libraries out of the box. You do not need to use wrappers or do any other actions. The new additions to the native platform are available immediately. NativeBase provides amazing support for adding components, so that you will by no means hit a lifeless stop.<br />
+What is really great with [NativeBase](http://nativebase.io/) is that you can use shared UI cross-platform components, which will drastically increase your productivity. When using NativeBase, you can use any native third-party libraries out of the box.<br />
 
 **Recommended by** *Microsoft*
 > If you're looking to get started with React Native + CodePush, and are looking for an awesome starter kit, you should check out Native Starter Pro - [Microsoft's react-native-code-push repo](https://github.com/Microsoft/react-native-code-push#example-apps--starters)
@@ -79,6 +79,7 @@ npm install native-base --save
 npm install @expo/vector-icons --save
 ```
 <br />
+
 **Note** <br />
 NativeBase uses some custom fonts that can be loaded using **loadAsync** function. Check out [this](https://docs.expo.io/versions/v15.0.0/sdk/font.html#expofontloadasyncname-url) expo link.
 <br />
@@ -91,6 +92,7 @@ async componentWillMount() {
       });
 ```
 <br />
+
 Check out the [KitchenSink](https://github.com/GeekyAnts/NativeBase-KitchenSink/blob/CRNA/js/setup.js) with CRNA for an example of the implementation.<br />
 
 ## 5. Components
