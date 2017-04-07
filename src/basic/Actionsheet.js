@@ -65,7 +65,7 @@ class ActionSheetContainer extends Component {
         animationType={"fade"}
         transparent={true}
         visible={this.state.modalVisible}
-        onRequestClose={() => {alert("Modal has been closed.")}}
+        onRequestClose={()=> this.setState({modalVisible: false})}
         >
        <TouchableOpacity activeOpacity={1} onPress={()=> this.setState({modalVisible: false})} style={{backgroundColor: 'rgba(0,0,0,0.4)', flex: 1, justifyContent: 'flex-end'}}>
         <TouchableOpacity activeOpacity={1} style={{backgroundColor: '#fff', height: this.state.length*80, padding: 15, elevation: 4}}>
