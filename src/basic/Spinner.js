@@ -6,7 +6,11 @@ import variables from '../theme/variables/platform';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Spinner extends Component {
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
   render() {
+    const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
     return (
       <ActivityIndicator
         ref={c => this._root = c} {...this.props}
