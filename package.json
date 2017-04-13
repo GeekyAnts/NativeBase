@@ -27,7 +27,7 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
     ]
   },
-  "version": "2.1.0-rc.2",
+  "version": "2.1.1",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
@@ -59,8 +59,8 @@
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-react-native": "^2.0.0",
     "jest": "17.0.0",
-    "react": "^15.4.2",
-    "react-native": "^0.39.2",
+    "react": "^16.0.0-alpha.3",
+    "react-native": "^0.43.0",
     "react-native-vector-icons": "~4.0.0",
     "react-test-renderer": "^15.3.2"
   },
@@ -69,8 +69,8 @@
   "main": "dist/src/index.js",
   "optionalDependencies": {},
   "peerDependencies": {
-    "react-native": ">=0.40.0",
-    "react": ">=15.4.0",
+    "react-native": ">=0.43.0",
+    "react": ">=16.0.0-alpha.3",
     "react-native-vector-icons": "~4.0.0"
   },
   "readmeFilename": "README.md",
