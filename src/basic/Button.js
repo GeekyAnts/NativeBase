@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { TouchableOpacity, Platform, View, TouchableNativeFeedback } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import variables from './../theme/variables/platform';
 import { Badge } from './Badge';
 import { Text } from './Text';

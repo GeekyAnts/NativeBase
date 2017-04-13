@@ -1,5 +1,5 @@
 var _reactNativeEasyGrid=require('react-native-easy-grid');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _components=require('../theme/components');var _components2=_interopRequireDefault(_components);
 var _init=require('../init');var _init2=_interopRequireDefault(_init);
 var _platform=require('../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
@@ -79,8 +79,8 @@ Tab:_Tab.Tab,
 Fab:_Fab.Fab,
 Tabs:_Tabs.Tabs,
 Subtitle:_Subtitle.Subtitle,
-StyleProvider:_theme.StyleProvider,
-connectStyle:_theme.connectStyle,
+StyleProvider:_nativeBaseShoutemTheme.StyleProvider,
+connectStyle:_nativeBaseShoutemTheme.connectStyle,
 getTheme:_components2.default,
 variables:_platform2.default};
 //# sourceMappingURL=index.js.map

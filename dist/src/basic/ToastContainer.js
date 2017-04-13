@@ -3,7 +3,7 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.ToastContainer=
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _Text=require('./Text');
 var _Button=require('./Button');
 var _View=require('./View');
@@ -84,7 +84,7 @@ _reactNative.View.propTypes,{
 style:_react2.default.PropTypes.object});
 
 
-var StyledToastContainer=(0,_theme.connectStyle)('NativeBase.ToastContainer',{},_mapPropsToStyleNames2.default)(ToastContainer);exports.
+var StyledToastContainer=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.ToastContainer',{},_mapPropsToStyleNames2.default)(ToastContainer);exports.
 
 
 ToastContainer=StyledToastContainer;

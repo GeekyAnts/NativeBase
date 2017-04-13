@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 

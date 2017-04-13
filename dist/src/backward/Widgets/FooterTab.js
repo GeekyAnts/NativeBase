@@ -3,7 +3,7 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.FooterTab=undef
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _Icon=require('./Icon');
@@ -96,7 +96,7 @@ _reactNative.View.propTypes,{
 style:_react2.default.PropTypes.object});
 
 
-var StyledFooterTab=(0,_theme.connectStyle)('NativeBase.FooterTab',{},_mapPropsToStyleNames2.default)(FooterTab);exports.
+var StyledFooterTab=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.FooterTab',{},_mapPropsToStyleNames2.default)(FooterTab);exports.
 
 
 FooterTab=StyledFooterTab;

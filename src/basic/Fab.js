@@ -10,7 +10,7 @@ import { Icon } from './Icon';
 import { IconNB } from './IconNB';
 // import Text from './Text';
 import _ from 'lodash';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 import computeProps from '../Utils/computeProps';
 

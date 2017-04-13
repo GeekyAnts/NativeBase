@@ -1,6 +1,6 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.DefaultTabBar=undefined;
 
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _platform=require('./../../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _index=require('./../../index');
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var React=require('react');var ReactNative=require('react-native');var
@@ -102,7 +102,7 @@ React.createElement(Animated.View,{style:[tabUnderlineStyle,{left:left},this.pro
 
 
 
-var StyledTab=(0,_theme.connectStyle)('NativeBase.DefaultTabBar',{},mapPropsToStyleNames)(DefaultTabBar);exports.
+var StyledTab=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.DefaultTabBar',{},mapPropsToStyleNames)(DefaultTabBar);exports.
 
 DefaultTabBar=StyledTab;
 //# sourceMappingURL=DefaultTabBar.js.map

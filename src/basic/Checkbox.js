@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import IconNB from 'react-native-vector-icons/Ionicons';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 import _ from 'lodash';

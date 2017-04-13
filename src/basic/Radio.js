@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import Icon from 'react-native-vector-icons/Ionicons';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';

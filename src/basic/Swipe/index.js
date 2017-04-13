@@ -1,7 +1,7 @@
 import tweenState from 'react-tween-state';
 import NativeButton from './NativeButton';
 import styles from './styles';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 import React, {

@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { Text as TextRN } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 

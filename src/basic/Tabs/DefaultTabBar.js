@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactNative = require('react-native');
-import { connectStyle, StyleProvider } from '@shoutem/theme';
+import { connectStyle, StyleProvider } from 'native-base-shoutem-theme';
 import variable from './../../theme/variables/platform';
 import { TabHeading, Text, TabContainer } from './../../index';
 import _ from 'lodash';

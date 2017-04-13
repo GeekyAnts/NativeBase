@@ -2,7 +2,7 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.Gravatar=undefi
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _blueimpMd=require('blueimp-md5');var _blueimpMd2=_interopRequireDefault(_blueimpMd);
 var _mapPropsToStyleNames=require('../../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
@@ -63,7 +63,7 @@ circular:_react2.default.PropTypes.bool,
 square:_react2.default.PropTypes.bool});
 
 
-var StyledGravatar=(0,_theme.connectStyle)('NativeBase.Gravatar',{},_mapPropsToStyleNames2.default)(Gravatar);exports.
+var StyledGravatar=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Gravatar',{},_mapPropsToStyleNames2.default)(Gravatar);exports.
 
 Gravatar=StyledGravatar;
 //# sourceMappingURL=Gravatar.js.map

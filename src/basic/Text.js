@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text as RNText } from 'react-native';
 
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import { connectAnimation } from '@shoutem/animation';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 

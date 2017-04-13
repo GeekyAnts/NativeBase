@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '../basic/Text';
 import { Button } from '../basic/Button';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 

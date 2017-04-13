@@ -4,7 +4,7 @@ var _Input=require('./Input');
 var _Label=require('./Label');
 var _Icon=require('./Icon');
 
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _platform=require('../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _computeProps=require('../Utils/computeProps');var _computeProps2=_interopRequireDefault(_computeProps);
 var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
@@ -176,7 +176,7 @@ success:_react2.default.PropTypes.bool,
 error:_react2.default.PropTypes.bool});
 
 
-var StyledItem=(0,_theme.connectStyle)('NativeBase.Item',{},_mapPropsToStyleNames2.default)(Item);exports.
+var StyledItem=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Item',{},_mapPropsToStyleNames2.default)(Item);exports.
 
 
 Item=StyledItem;

@@ -4,7 +4,7 @@ import { Input } from './Input';
 import { Label } from './Label';
 import { Icon } from './Icon';
 
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import variables from '../theme/variables/platform';
 import computeProps from '../Utils/computeProps';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';

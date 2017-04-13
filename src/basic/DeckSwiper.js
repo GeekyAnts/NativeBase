@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Animated, PanResponder } from 'react-native';
 import clamp from 'clamp';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 const SWIPE_THRESHOLD = 120;

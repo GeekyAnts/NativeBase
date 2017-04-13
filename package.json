@@ -32,7 +32,7 @@
   "private": false,
   "dependencies": {
     "@shoutem/animation": "^0.8.9",
-    "@shoutem/theme": "https://github.com/GeekyAnts/theme#caching",
+    "native-base-shoutem-theme": "0.1.0",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~0.11.1",

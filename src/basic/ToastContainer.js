@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import { View, Modal, Platform } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import { Text } from './Text';
 import { Button } from './Button';
 import { ViewNB } from './View';

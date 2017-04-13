@@ -4,7 +4,7 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefine
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _reactNative=require('react-native');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _platform=require('./../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _Badge=require('./Badge');
 var _Text=require('./Text');
@@ -82,7 +82,7 @@ Button.defaultProps={
 capitalize:true};
 
 
-var StyledButton=(0,_theme.connectStyle)('NativeBase.Button',{},_mapPropsToStyleNames2.default)(Button);exports.
+var StyledButton=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Button',{},_mapPropsToStyleNames2.default)(Button);exports.
 
 Button=StyledButton;
 //# sourceMappingURL=Button.js.map
