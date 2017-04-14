@@ -34,6 +34,9 @@ export default (variables = variable) => {
         paddingLeft: null,
         marginLeft: (platform === 'ios') ? undefined : -5,
       },
+      'NativeBase.Icon': {
+        marginTop: 36,
+      },
       marginLeft: 15,
     },
     '.floatingLabel': {
@@ -45,6 +48,9 @@ export default (variables = variable) => {
       'NativeBase.Label': {
         left: 0,
         top: 8,
+      },
+      'NativeBase.Icon': {
+        top: 6,
       },
       marginTop: 15,
       marginLeft: 15,

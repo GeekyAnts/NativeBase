@@ -4,7 +4,7 @@ import { Input } from './Input';
 import { Label } from './Label';
 import { Icon } from './Icon';
 
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import variables from '../theme/variables/platform';
 import computeProps from '../Utils/computeProps';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
@@ -112,7 +112,8 @@ class Item extends Component {
       }
     });
     if(this.props.floatingLabel && icon.length) {
-        newChildren.push(<Icon key="i1" {...iconProps} style={{ top: 6 }} />);
+      console.log(iconProps, "jhdsh");
+        newChildren.push(<Icon key="i1" {...iconProps} />);
         newChildren.push(<Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 22 : 22, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : undefined, paddingBottom: (Platform.OS === 'ios') ? undefined : 12 }}><Label {...labelProps} >{this.renderLabel(label, labelProps)}</Label></Animated.View>);
         newChildren.push(<Input key="l2" {...inputProps} onFocus={() => {this.setState({ isFocused: true }); (inputProps.onFocus) && inputProps.onFocus()}} onBlur={() => {!(this.state.text.length) && this.setState({ isFocused: false }); (inputProps.onBlur) && inputProps.onBlur()}} onChangeText={text => {this.setState({ text }); (inputProps.onChangeText) && inputProps.onChangeText(text) }} />);
     }
@@ -121,7 +122,7 @@ class Item extends Component {
         newChildren.push(<Input ref={(c) => this._inputRef = c} value={this.state.text} key="l2" {...inputProps}  onFocus={() => {this.setState({ isFocused: true }); (inputProps.onFocus) && inputProps.onFocus()}} onBlur={() => {!(this.state.text.length) && this.setState({ isFocused: false }); (inputProps.onBlur) && inputProps.onBlur()}} onChangeText={text => {this.setState({ text }); (inputProps.onChangeText) && inputProps.onChangeText(text) }} />);
     }
     else if (this.props.stackedLabel && icon.length) {
-      newChildren.push(<View key="s" style={{ flexDirection: 'row', flex: 1, width: variables.deviceWidth - 15 }}><Icon key="s1" {...iconProps} style={{ marginTop: 36 }} /><View style={{ flexDirection: 'column' }}><Label key="s2" {...labelProps}></Label><Input key="s3" {...inputProps} style={{ width: variables.deviceWidth - 40 }} /></View></View>);
+      newChildren.push(<View key="s" style={{ flexDirection: 'row', flex: 1, width: variables.deviceWidth - 15 }}><Icon key="s1" {...iconProps} /><View style={{ flexDirection: 'column' }}><Label key="s2" {...labelProps}></Label><Input key="s3" {...inputProps} style={{ width: variables.deviceWidth - 40 }} /></View></View>);
 
     }
     else {
