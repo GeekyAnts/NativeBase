@@ -31,7 +31,16 @@ declare module 'native-base' {
         /**
          * see Widget Text.js
          */
-        interface Badge extends ReactNative.ViewProperties { }
+        interface BsStyle{
+            success?:boolean,
+            primary?:boolean,
+            danger?: boolean,
+            warning?: boolean,
+            info?: boolean,
+        }
+
+        interface Badge extends ReactNative.ViewProperties,BsStyle {
+        }
         /**
          * see Widget CardSwiper.js
          */
@@ -80,15 +89,15 @@ declare module 'native-base' {
         }
 
         interface Left{
-
+            style?: ReactNative.ViewStyle
         }
 
         interface Body{
-
+            style?: ReactNative.ViewStyle
         }
 
         interface Right{
-
+            style?: ReactNative.ViewStyle
         }
 
         /**
@@ -139,7 +148,7 @@ declare module 'native-base' {
         /**
          * see Widget Button.js
          */
-        interface Button extends ReactNative.TouchableOpacityProperties {
+        interface Button extends ReactNative.TouchableOpacityProperties,BsStyle {
             /**
              * Defines button style
              */
@@ -152,16 +161,16 @@ declare module 'native-base' {
              * Block level button
              */
             block?: boolean,
-            primary?: boolean,
+            //primary?: boolean,
             /**
              * Gives you effect of Icon-buttons.
              * To have button with transparent background, include this prop.
              */
             transparent?: boolean,
-            success?: boolean,
-            danger?: boolean,
-            warning?: boolean,
-            info?: boolean,
+            //success?: boolean,
+            //danger?: boolean,
+           // warning?: boolean,
+            //info?: boolean,
             color?: string,
             /**
              * Applies outline button style.
@@ -245,6 +254,7 @@ declare module 'native-base' {
          */
         interface CardItem extends ReactNative.TouchableOpacityProperties {
             header?: boolean,
+            footer?:boolean,
             cardBody?: boolean,
             button?: boolean
         }
@@ -419,6 +429,8 @@ declare module 'native-base' {
              * Disables inputting data.
              */
             disabled?: boolean,
+            regular?:boolean,
+            underline?:boolean
         }
         /**
          * see Widget Input.js
@@ -486,7 +498,7 @@ declare module 'native-base' {
         /**
          * see Widget CheckBox.js
          */
-        interface Radio {
+        interface Radio extends ReactNative.TouchableOpacityProperties{
             selected?: boolean
         }
         /**
@@ -572,6 +584,19 @@ declare module 'native-base' {
             secureTextEntry?:boolean,
             success?: boolean,
             last?:boolean,
+        }
+
+        interface Form{
+
+        }
+
+        interface Fab{
+            active?:boolean,
+            direction?:"down"|"up"|"left"|"right",
+            containerStyle?:ReactNative.ViewStyle,
+            onPress?:()=>void,
+            position?:'topLeft'|'topRight'|'bottomLeft'|'bottomRight',
+            style?:ReactNative.ViewStyle
         }
     }
 
@@ -807,5 +832,13 @@ declare module 'native-base' {
      * NativeBase.Item
      */
     export class Item extends React.Component<NativeBase.Item, any> { }
+    /**
+     * NativeBase.Form
+     */
+    export class Form extends React.Component<NativeBase.Form,any>{}
+    /**
+     * NativeBase.Fab
+     */
+    export class Fab extends React.Component<NativeBase.Fab,any>{}
 
 }
