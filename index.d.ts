@@ -169,7 +169,7 @@ declare module 'native-base' {
             transparent?: boolean,
             //success?: boolean,
             //danger?: boolean,
-           // warning?: boolean,
+            // warning?: boolean,
             //info?: boolean,
             color?: string,
             /**
@@ -247,7 +247,9 @@ declare module 'native-base' {
             /**
              * Sub caption for List Item.
              */
-            note?: string
+            note?: string,
+            itemHeader?:boolean,
+            first?:boolean,
         }
         /**
          * see Widget CardItem.js
@@ -568,7 +570,7 @@ declare module 'native-base' {
             textStyle?:ReactNative.TextStyle,
             activeTextStyle?:ReactNative.TextStyle
         }
-        
+
         interface Item {
             fixedLabel?:boolean,
             floatingLabel?:boolean,
