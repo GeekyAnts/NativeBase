@@ -34,6 +34,9 @@ paddingLeft:null},
 paddingLeft:null,
 marginLeft:platform==='ios'?undefined:-5},
 
+'NativeBase.Icon':{
+marginTop:36},
+
 marginLeft:15},
 
 '.floatingLabel':{
@@ -45,6 +48,9 @@ marginLeft:platform==='ios'?undefined:-5},
 'NativeBase.Label':{
 left:0,
 top:8},
+
+'NativeBase.Icon':{
+top:6},
 
 marginTop:15,
 marginLeft:15},

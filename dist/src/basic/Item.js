@@ -112,7 +112,8 @@ return item;
 }
 });
 if(this.props.floatingLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:'i1'},iconProps,{style:{top:6}})));
+console.log(iconProps,"jhdsh");
+newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:'i1'},iconProps)));
 newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?22:22,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12}},_react2.default.createElement(_Label.Label,labelProps,this.renderLabel(label,labelProps))));
 newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onFocus:function onFocus(){_this2.setState({isFocused:true});inputProps.onFocus&&inputProps.onFocus();},onBlur:function onBlur(){!_this2.state.text.length&&_this2.setState({isFocused:false});inputProps.onBlur&&inputProps.onBlur();},onChangeText:function onChangeText(text){_this2.setState({text:text});inputProps.onChangeText&&inputProps.onChangeText(text);}})));
 }else
@@ -121,7 +122,7 @@ newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'
 newChildren.push(_react2.default.createElement(_Input.Input,_extends({ref:function ref(c){return _this2._inputRef=c;},value:this.state.text,key:'l2'},inputProps,{onFocus:function onFocus(){_this2.setState({isFocused:true});inputProps.onFocus&&inputProps.onFocus();},onBlur:function onBlur(){!_this2.state.text.length&&_this2.setState({isFocused:false});inputProps.onBlur&&inputProps.onBlur();},onChangeText:function onChangeText(text){_this2.setState({text:text});inputProps.onChangeText&&inputProps.onChangeText(text);}})));
 }else
 if(this.props.stackedLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'s',style:{flexDirection:'row',flex:1,width:_platform2.default.deviceWidth-15}},_react2.default.createElement(_Icon.Icon,_extends({key:'s1'},iconProps,{style:{marginTop:36}})),_react2.default.createElement(_reactNative.View,{style:{flexDirection:'column'}},_react2.default.createElement(_Label.Label,_extends({key:'s2'},labelProps)),_react2.default.createElement(_Input.Input,_extends({key:'s3'},inputProps,{style:{width:_platform2.default.deviceWidth-40}})))));
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'s',style:{flexDirection:'row',flex:1,width:_platform2.default.deviceWidth-15}},_react2.default.createElement(_Icon.Icon,_extends({key:'s1'},iconProps)),_react2.default.createElement(_reactNative.View,{style:{flexDirection:'column'}},_react2.default.createElement(_Label.Label,_extends({key:'s2'},labelProps)),_react2.default.createElement(_Input.Input,_extends({key:'s3'},inputProps,{style:{width:_platform2.default.deviceWidth-40}})))));
 
 }else
 {

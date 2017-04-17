@@ -24,7 +24,7 @@ try {
     '  );',
     '}',
     '',
-    'Head over to the docs (http://nativebase.io/docs/v2.0.0/customize) for detailed information on customization',
+    'Head over to the docs (http://docs.nativebase.io/CUSTOMIZE.html#Customize) for detailed information on customization',
   ], {
     color: 'yellow',
     borderColor: 'green',

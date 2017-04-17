@@ -6,6 +6,7 @@ var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapProps
 
 CardItem=function(_Component){_inherits(CardItem,_Component);function CardItem(){_classCallCheck(this,CardItem);return _possibleConstructorReturn(this,(CardItem.__proto__||Object.getPrototypeOf(CardItem)).apply(this,arguments));}_createClass(CardItem,[{key:'render',value:function render()
 {var _this2=this;
+if(this.props.button){
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 ref:function ref(c){return _this2._root=c;}},this.props,{
@@ -14,6 +15,15 @@ activeOpacity:this.props.button?0.2:1}),
 this.props.children));
 
 
+}else
+{
+return(
+_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props),
+
+this.props.children));
+
+
+}
 }}]);return CardItem;}(_react.Component);
 
 

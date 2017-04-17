@@ -14,10 +14,11 @@ CheckBox=function(_Component){_inherits(CheckBox,_Component);function CheckBox()
 
 
 {
+var variable=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:variable;
 return{
 checkStyle:{
-borderColor:this.props.color?this.props.color:_platform2.default.checkboxBgColor,
-backgroundColor:this.props.checked===true?this.props.color?this.props.color:_platform2.default.checkboxBgColor:'transparent'}};
+borderColor:this.props.color?this.props.color:variable.checkboxBgColor,
+backgroundColor:this.props.checked===true?this.props.color?this.props.color:variable.checkboxBgColor:'transparent'}};
 
 
 }},{key:'prepareRootProps',value:function prepareRootProps()
