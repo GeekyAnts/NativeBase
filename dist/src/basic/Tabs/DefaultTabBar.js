@@ -3,7 +3,8 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.DefaultTabBar=u
 var _theme=require('@shoutem/theme');
 var _platform=require('./../../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _index=require('./../../index');
-var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var React=require('react');var ReactNative=require('react-native');var
+var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
+var _mapPropsToStyleNames=require('../../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var React=require('react');var ReactNative=require('react-native');var
 
 
 StyleSheet=
@@ -102,7 +103,7 @@ React.createElement(Animated.View,{style:[tabUnderlineStyle,{left:left},this.pro
 
 
 
-var StyledTab=(0,_theme.connectStyle)('NativeBase.DefaultTabBar',{},mapPropsToStyleNames)(DefaultTabBar);exports.
+var StyledTab=(0,_theme.connectStyle)('NativeBase.DefaultTabBar',{},_mapPropsToStyleNames2.default)(DefaultTabBar);exports.
 
 DefaultTabBar=StyledTab;
 //# sourceMappingURL=DefaultTabBar.js.map

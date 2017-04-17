@@ -4,6 +4,7 @@ import { connectStyle, StyleProvider } from '@shoutem/theme';
 import variable from './../../theme/variables/platform';
 import { TabHeading, Text, TabContainer } from './../../index';
 import _ from 'lodash';
+import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 const {
   StyleSheet,
