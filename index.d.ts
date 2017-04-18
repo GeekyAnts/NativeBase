@@ -251,7 +251,12 @@ declare module 'native-base' {
             itemHeader?:boolean,
             first?:boolean,
         }
-        /**
+
+        interface Separator{
+            bordered?:boolean,
+        }
+
+            /**
          * see Widget CardItem.js
          */
         interface CardItem extends ReactNative.TouchableOpacityProperties {
@@ -843,4 +848,5 @@ declare module 'native-base' {
      */
     export class Fab extends React.Component<NativeBase.Fab,any>{}
 
+    export class Separator extends React.Component<NativeBase.Separator,any>{}
 }
