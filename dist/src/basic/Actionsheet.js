@@ -65,7 +65,7 @@ _react2.default.createElement(_reactNative.Modal,{
 animationType:"fade",
 transparent:true,
 visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){alert("Modal has been closed.");}},
+onRequestClose:function onRequestClose(){return _this2.setState({modalVisible:false});}},
 
 _react2.default.createElement(_reactNative.TouchableOpacity,{activeOpacity:1,onPress:function onPress(){return _this2.setState({modalVisible:false});},style:{backgroundColor:'rgba(0,0,0,0.4)',flex:1,justifyContent:'flex-end'}},
 _react2.default.createElement(_reactNative.TouchableOpacity,{activeOpacity:1,style:{backgroundColor:'#fff',height:this.state.length*80,padding:15,elevation:4}},
