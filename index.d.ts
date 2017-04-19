@@ -250,6 +250,7 @@ declare module 'native-base' {
             note?: string,
             itemHeader?:boolean,
             first?:boolean,
+            selected?:boolean
         }
 
         interface Separator{
@@ -462,6 +463,10 @@ declare module 'native-base' {
          */
         interface Textarea extends ReactNative.TextInputProperties {
             rowSpan: number;
+        }
+
+        interface Label{
+
         }
         /**
          * see Widget Icon.js
@@ -862,4 +867,6 @@ declare module 'native-base' {
 
         )=>void
     }
+
+    export class Label extends React.Component<NativeBase.Label,any>{}
 }
