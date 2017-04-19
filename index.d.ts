@@ -437,7 +437,8 @@ declare module 'native-base' {
              */
             disabled?: boolean,
             regular?:boolean,
-            underline?:boolean
+            underline?:boolean,
+            rounded?:boolean
         }
         /**
          * see Widget Input.js
@@ -849,4 +850,16 @@ declare module 'native-base' {
     export class Fab extends React.Component<NativeBase.Fab,any>{}
 
     export class Separator extends React.Component<NativeBase.Separator,any>{}
+
+    export class ActionSheet{
+        public static show:(
+            options:{
+                  options: string[],
+                  cancelButtonIndex: number,
+                  destructiveButtonIndex: number,
+                  title: string},
+            onSelect:(index:number)=>void
+
+        )=>void
+    }
 }
