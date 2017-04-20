@@ -808,4 +808,26 @@ declare module 'native-base' {
      */
     export class Item extends React.Component<NativeBase.Item, any> { }
 
+    /**
+     * NativeBase.Toast
+     */
+    export class Toast {
+		static show(configuration: {
+			text: string,
+			buttonText: string,
+			position: 'top'|'bottom'|'center',
+			type?: 'danger'|'success'|'warning',
+			duration?: number
+		}): void;
+    }
+
+    /**
+     * NativeBase.Form
+     */
+    interface FormProps extends ReactNative.ViewProperties {
+        style: {}
+    };
+    export class Form extends React.Component<FormProps, void> {
+
+    }
 }
