@@ -825,7 +825,7 @@ declare module 'native-base' {
      * NativeBase.Form
      */
     interface FormProps extends ReactNative.ViewProperties {
-        style: {}
+        style?: {}
     };
     export class Form extends React.Component<FormProps, void> {
 
