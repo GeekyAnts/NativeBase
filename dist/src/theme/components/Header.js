@@ -202,8 +202,7 @@ alignItems:platform==='ios'&&platformStyle!=='material'?'center':'flex-start',
 alignSelf:'center',
 'NativeBase.Segment':{
 borderWidth:0,
-alignSelf:'flex-end',
-marginRight:platform==='ios'?-40:-55},
+alignSelf:'flex-start'},
 
 'NativeBase.Button':{
 alignSelf:'center',
@@ -217,11 +216,8 @@ color:variables.toolbarBtnColor},
 color:variables.toolbarBtnColor},
 
 'NativeBase.Text':{
-color:variables.inverseTextColor}},
+color:variables.inverseTextColor}}},
 
-
-'NativeBase.Segment':{
-alignItems:'center'}},
 
 
 'NativeBase.Right':{

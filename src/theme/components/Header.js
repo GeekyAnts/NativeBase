@@ -202,8 +202,7 @@ export default (variables = variable) => {
       alignSelf: 'center',
       'NativeBase.Segment': {
         borderWidth: 0,
-        alignSelf: 'flex-end',
-        marginRight: (platform === 'ios') ? -40 : -55
+        alignSelf: 'flex-start',
       },
       'NativeBase.Button': {
         alignSelf: 'center',
@@ -220,9 +219,6 @@ export default (variables = variable) => {
           color: variables.inverseTextColor,
         },
       },
-      'NativeBase.Segment': {
-        alignItems: 'center'
-      }
     },
     'NativeBase.Right': {
       'NativeBase.Button': {
