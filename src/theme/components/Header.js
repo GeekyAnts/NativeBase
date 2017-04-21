@@ -44,6 +44,7 @@ export default (variables = variable) => {
       shadowOffset: null,
       shadowRadius: null,
       shadowOpacity: null,
+      borderBottomWidth: null,
     },
     '.hasTabs': {
       elevation: 0,
@@ -219,6 +220,9 @@ export default (variables = variable) => {
           color: variables.inverseTextColor,
         },
       },
+      'NativeBase.Segment': {
+        alignItems: 'center'
+      }
     },
     'NativeBase.Right': {
       'NativeBase.Button': {

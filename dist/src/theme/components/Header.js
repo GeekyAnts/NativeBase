@@ -43,7 +43,8 @@ elevation:0,
 shadowColor:null,
 shadowOffset:null,
 shadowRadius:null,
-shadowOpacity:null},
+shadowOpacity:null,
+borderBottomWidth:null},
 
 '.hasTabs':{
 elevation:0,
@@ -216,8 +217,11 @@ color:variables.toolbarBtnColor},
 color:variables.toolbarBtnColor},
 
 'NativeBase.Text':{
-color:variables.inverseTextColor}}},
+color:variables.inverseTextColor}},
 
+
+'NativeBase.Segment':{
+alignItems:'center'}},
 
 
 'NativeBase.Right':{
