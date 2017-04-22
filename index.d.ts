@@ -205,6 +205,9 @@ declare module 'native-base' {
             disabled?: boolean,
             active?: boolean,
             inputButton?: boolean,
+            full?:boolean,
+            light?:boolean,
+            dark?:boolean
         }
         /**
          * see Widget List.js
@@ -856,9 +859,11 @@ declare module 'native-base' {
 
     export class Separator extends React.Component<NativeBase.Separator,any>{}
 
+    export class Label extends React.Component<NativeBase.Label,any>{}
+
     export class ActionSheet{
-        public static show:(
-            options:{
+        static show:(
+            configuration:{
                   options: string[],
                   cancelButtonIndex: number,
                   destructiveButtonIndex: number,
@@ -868,5 +873,13 @@ declare module 'native-base' {
         )=>void
     }
 
-    export class Label extends React.Component<NativeBase.Label,any>{}
+    export class Toast {
+        static show(configuration: {
+            text: string,
+            buttonText: string,
+            position: 'top'|'bottom'|'center',
+            type?: 'danger'|'success'|'warning',
+            duration?: number
+        }): void;
+    }
 }
