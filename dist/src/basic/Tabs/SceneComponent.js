@@ -3,7 +3,7 @@ var ReactNative=require('react-native');var
 Component=React.Component;var
 View=ReactNative.View,StyleSheet=ReactNative.StyleSheet;
 
-var StaticContainer=require('react-native/Libraries/Components/StaticContainer.react');
+var StaticContainer=require('./StaticContainer');
 
 var SceneComponent=function SceneComponent(Props){var
 shouldUpdated=Props.shouldUpdated,props=_objectWithoutProperties(Props,['shouldUpdated']);
