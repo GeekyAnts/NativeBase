@@ -8,24 +8,23 @@ var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _computeProps=require('../Utils/computeProps');var _computeProps2=_interopRequireDefault(_computeProps);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 
-CheckBox=function(_Component){_inherits(CheckBox,_Component);function CheckBox(){_classCallCheck(this,CheckBox);return _possibleConstructorReturn(this,(CheckBox.__proto__||Object.getPrototypeOf(CheckBox)).apply(this,arguments));}_createClass(CheckBox,[{key:'getInitialStyle',value:function getInitialStyle()
+CheckBox=function(_Component){_inherits(CheckBox,_Component);function CheckBox(){_classCallCheck(this,CheckBox);return _possibleConstructorReturn(this,(CheckBox.__proto__||Object.getPrototypeOf(CheckBox)).apply(this,arguments));}_createClass(CheckBox,[{key:'getInitialStyle',value:function getInitialStyle(
 
 
 
 
-{
-var variable=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'].variables:variable;
+variables){
 return{
 checkStyle:{
-borderColor:this.props.color?this.props.color:variable.checkboxBgColor,
-backgroundColor:this.props.checked===true?this.props.color?this.props.color:variable.checkboxBgColor:'transparent'}};
+borderColor:this.props.color?this.props.color:variables.checkboxBgColor,
+backgroundColor:this.props.checked===true?this.props.color?this.props.color:variables.checkboxBgColor:'transparent'}};
 
 
-}},{key:'prepareRootProps',value:function prepareRootProps()
+}},{key:'prepareRootProps',value:function prepareRootProps(
 
-{
+variables){
 var defaultProps={
-style:this.getInitialStyle().checkStyle};
+style:this.getInitialStyle(variables).checkStyle};
 
 
 return(0,_computeProps2.default)(this.props,defaultProps);
@@ -35,7 +34,7 @@ var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 return(
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps()),
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps(variables)),
 _react2.default.createElement(_Ionicons2.default,{style:{
 color:variables.checkboxTickColor,
 fontSize:variables.CheckboxFontSize,

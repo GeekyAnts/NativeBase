@@ -44,7 +44,6 @@ export default (variables = variable) => {
       shadowOffset: null,
       shadowRadius: null,
       shadowOpacity: null,
-      borderBottomWidth: null,
     },
     '.hasTabs': {
       elevation: 0,
@@ -202,7 +201,8 @@ export default (variables = variable) => {
       alignSelf: 'center',
       'NativeBase.Segment': {
         borderWidth: 0,
-        alignSelf: 'flex-start',
+        alignSelf: 'flex-end',
+        marginRight: (platform === 'ios') ? -40 : -55
       },
       'NativeBase.Button': {
         alignSelf: 'center',

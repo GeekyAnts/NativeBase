@@ -43,8 +43,7 @@ elevation:0,
 shadowColor:null,
 shadowOffset:null,
 shadowRadius:null,
-shadowOpacity:null,
-borderBottomWidth:null},
+shadowOpacity:null},
 
 '.hasTabs':{
 elevation:0,
@@ -202,7 +201,8 @@ alignItems:platform==='ios'&&platformStyle!=='material'?'center':'flex-start',
 alignSelf:'center',
 'NativeBase.Segment':{
 borderWidth:0,
-alignSelf:'flex-start'},
+alignSelf:'flex-end',
+marginRight:platform==='ios'?-40:-55},
 
 'NativeBase.Button':{
 alignSelf:'center',
