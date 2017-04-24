@@ -46,6 +46,7 @@ console.warn('It\'s not recommended to set autoHide false with duration');
 {var _this3=this;
 return(
 _react2.default.createElement(_reactNative.Modal,{
+supportedOrientations:this.state.supportedOrientations||null,
 animationType:this.state.position=='bottom'?"slide":"fade",
 transparent:true,
 visible:this.state.modalVisible,
