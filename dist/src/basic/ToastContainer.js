@@ -28,7 +28,8 @@ modalVisible:true,
 text:config.text,
 buttonText:config.buttonText,
 type:config.type,
-position:config.position});
+position:config.position,
+supportedOrientations:config.supportedOrientations});
 
 if(config.duration>0){
 setTimeout(function(){
