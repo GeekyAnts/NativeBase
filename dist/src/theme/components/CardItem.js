@@ -206,6 +206,7 @@ fontSize:variables.iconFontSize-2},
 borderBottomWidth:variables.borderWidth,
 borderColor:variables.cardBorderColor},
 
+borderRadius:2,
 padding:variables.listItemPadding+5,
 paddingVertical:variables.listItemPadding,
 backgroundColor:variables.cardDefaultBg};
