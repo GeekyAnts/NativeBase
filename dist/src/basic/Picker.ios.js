@@ -131,6 +131,7 @@ _react2.default.createElement(_reactNative.View,{ref:function ref(c){return _thi
 this.renderButton(),
 _react2.default.createElement(_reactNative.Modal,{
 animationType:'slide',
+supportedOrientations:this.props.supportedOrientations,
 transparent:false,
 visible:this.state.modalVisible,
 onRequestClose:function onRequestClose(){_this5._setModalVisible(false);}},
