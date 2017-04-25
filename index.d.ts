@@ -217,28 +217,32 @@ declare module 'native-base' {
         /**
          * see Widget ListItem.js
          */
-        interface ListItem extends ReactNative.TouchableOpacityProperties {
-            header?: boolean,
+       interface ListItem extends ReactNative.TouchableOpacityProperties {
+            header?: boolean;
             /**
              * Aligns icon to the right of ListItem.
              * Default: false
              */
-            iconRight?: boolean,
+            iconRight?: boolean;
             /**
              * Aligns icon to the left of ListItem.
              * Default: true
              */
-            iconLeft?: boolean,
-            icon?:boolean,
-            button?: boolean,
+            iconLeft?: boolean;
+            icon?:boolean;
+            button?: boolean;
             /**
              * Helps to organize and group the list items.
              */
-            itemDivider?: boolean,
+            itemDivider?: boolean;
             /**
              * Sub caption for List Item.
              */
-            note?: string
+            note?: string;
+            /**
+             * Item header
+             */
+            itemHeader?: boolean;
         }
         /**
          * see Widget CardItem.js
@@ -808,4 +812,26 @@ declare module 'native-base' {
      */
     export class Item extends React.Component<NativeBase.Item, any> { }
 
+    /**
+     * NativeBase.Toast
+     */
+    export class Toast {
+		static show(configuration: {
+			text: string,
+			buttonText: string,
+			position: 'top'|'bottom'|'center',
+			type?: 'danger'|'success'|'warning',
+			duration?: number
+		}): void;
+    }
+
+    /**
+     * NativeBase.Form
+     */
+    interface FormProps extends ReactNative.ViewProperties {
+        style?: {}
+    };
+    export class Form extends React.Component<FormProps, void> {
+
+    }
 }
