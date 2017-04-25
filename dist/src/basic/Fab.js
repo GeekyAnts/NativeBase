@@ -90,9 +90,9 @@ left:this.props.active===false?_reactNative.Platform.OS==='ios'?8:8:i*50+65,
 right:0};
 
 }
-}},{key:'getInitialStyle',value:function getInitialStyle()
+}},{key:'getInitialStyle',value:function getInitialStyle(
 
-{
+iconStyle){
 return{
 fab:{
 height:56,
@@ -116,10 +116,11 @@ height:this.containerHeight,
 flexDirection:this.props.direction?this.props.direction=='left || right'?'row':'column':'column',
 alignItems:'center'},
 
-iconStyle:{
+iconStyle:_extends({
 color:'#fff',
 fontSize:24,
 lineHeight:_reactNative.Platform.OS==='ios'?27:undefined},
+iconStyle),
 
 buttonStyle:{
 position:'absolute',
@@ -194,7 +195,7 @@ return true;
 
 
 
-return _react2.default.cloneElement(childrenArray[0],{style:this.getInitialStyle().iconStyle});
+return _react2.default.cloneElement(childrenArray[0],{style:this.getInitialStyle(childrenArray[0].props.style).iconStyle});
 }},{key:'renderButtons',value:function renderButtons()
 
 {var _this3=this;

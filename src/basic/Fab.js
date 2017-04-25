@@ -92,7 +92,7 @@ class Fab extends Component {
     }
   }
 
-  getInitialStyle() {
+  getInitialStyle(iconStyle) {
     return {
       fab: {
         height: 56,
@@ -120,6 +120,7 @@ class Fab extends Component {
         color: '#fff',
         fontSize: 24,
         lineHeight: (Platform.OS === 'ios') ? 27 : undefined,
+        ...iconStyle,
       },
       buttonStyle: {
         position: 'absolute',
@@ -194,7 +195,7 @@ class Fab extends Component {
       // this.setState({
       //   buttons: icon.length
       // });
-    return React.cloneElement(childrenArray[0], { style: this.getInitialStyle().iconStyle });
+    return React.cloneElement(childrenArray[0], { style: this.getInitialStyle(childrenArray[0].props.style).iconStyle });
   }
 
   renderButtons() {
