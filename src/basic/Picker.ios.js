@@ -131,6 +131,7 @@ class PickerNB extends Component {
         {this.renderButton()}
         <Modal
           animationType="slide"
+          supportedOrientations={this.props.supportedOrientations || null}
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => { this._setModalVisible(false); }}
