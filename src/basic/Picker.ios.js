@@ -130,6 +130,7 @@ class PickerNB extends Component {
       <View ref={c => this._root = c}>
         {this.renderButton()}
         <Modal
+          supportedOrientations={this.props.supportedOrientations || null}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}

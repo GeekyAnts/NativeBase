@@ -28,7 +28,8 @@ class ToastContainer extends Component {
       text: config.text,
       buttonText: config.buttonText,
       type: config.type,
-      position: config.position
+      position: config.position,
+      supportedOrientations: config.supportedOrientations
     });
     if (config.duration>0) {
       setTimeout(()=> {
@@ -46,6 +47,7 @@ class ToastContainer extends Component {
   render() {
     return (
       <Modal
+        supportedOrientations={this.state.supportedOrientations || null}
         animationType={(this.state.position=='bottom') ? "slide" : "fade"}
         transparent={true}
         visible={this.state.modalVisible}

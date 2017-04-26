@@ -130,6 +130,7 @@ return(
 _react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this5._root=c;}},
 this.renderButton(),
 _react2.default.createElement(_reactNative.Modal,{
+supportedOrientations:this.props.supportedOrientations||null,
 animationType:'slide',
 transparent:false,
 visible:this.state.modalVisible,
