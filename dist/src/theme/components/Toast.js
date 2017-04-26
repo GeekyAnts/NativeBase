@@ -25,7 +25,8 @@ alignItems:'center',
 padding:10,
 minHeight:50,
 'NativeBase.Text':{
-color:'#fff'},
+color:'#fff',
+flex:1},
 
 'NativeBase.Button':{
 backgroundColor:'transparent',
