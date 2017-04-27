@@ -32,7 +32,7 @@
   "private": false,
   "dependencies": {
     "@shoutem/animation": "^0.8.9",
-    "native-base-shoutem-theme": "0.1.1",
+    "native-base-shoutem-theme": "0.1.2",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~0.11.1",
