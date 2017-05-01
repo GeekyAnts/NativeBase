@@ -156,10 +156,10 @@ class DeckSwiper extends Component {
                 if (Math.abs(this.state.pan.x._value) > SWIPE_THRESHOLD) {
 
                     if (velocity>0) {
-                        (this.props.onSwipeRight) ? this.props.onSwipeRight() : undefined;
+                        (this.props.onSwipeRight) ? this.props.onSwipeRight(this.state.selectedItem) : undefined;
                         this.selectNext();
                     } else {
-                        (this.props.onSwipeLeft) ? this.props.onSwipeLeft() : undefined;
+                        (this.props.onSwipeLeft) ? this.props.onSwipeLeft(this.state.selectedItem) : undefined;
                         this.selectNext();
                     }
 
