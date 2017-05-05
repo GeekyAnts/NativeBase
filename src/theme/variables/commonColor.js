@@ -46,7 +46,7 @@ export default {
   segmentActiveTextColor: '#3F51B5',
   segmentBorderColor: '#fff',
   segmentBorderColorMain: '#3F51B5',
-  
+
     // New Variable
   get defaultTextColor() {
     return this.textColor;
