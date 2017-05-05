@@ -26,13 +26,13 @@ export default (variables = variable) => {
         }
       },
       '.first': {
-        borderTopLeftRadius: (platform=='ios') ? 5 : undefined,
-        borderBottomLeftRadius: (platform=='ios') ? 5 : undefined,
+        borderTopLeftRadius: (platform==='ios') ? 5 : undefined,
+        borderBottomLeftRadius: (platform==='ios') ? 5 : undefined,
         borderRightWidth: 0
       },
       '.last': {
-        borderTopRightRadius: (platform=='ios') ? 5 : undefined,
-        borderBottomRightRadius: (platform=='ios') ? 5 : undefined,
+        borderTopRightRadius: (platform==='ios') ? 5 : undefined,
+        borderBottomRightRadius: (platform==='ios') ? 5 : undefined,
         borderLeftWidth: 0
       },
       'NativeBase.Text': {

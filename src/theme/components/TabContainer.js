@@ -13,7 +13,7 @@ export default (variables = variable) => {
     shadowOpacity: (platformStyle==='material') ?  0.2 : undefined,
     shadowRadius: (platformStyle==='material') ? 1.2 : undefined,
     justifyContent: 'space-around',
-    borderBottomWidth: (Platform.OS=='ios') ? variables.borderWidth : 0,
+    borderBottomWidth: (Platform.OS==='ios') ? variables.borderWidth : 0,
     borderColor: variables.topTabBarBorderColor,
   };
 
