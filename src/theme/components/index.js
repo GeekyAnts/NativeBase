@@ -1,4 +1,3 @@
-import { Platform } from 'react-native';
 import _ from 'lodash';
 import headerTheme from './Header';
 import containerTheme from './Container'
