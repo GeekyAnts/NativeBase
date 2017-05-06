@@ -5,7 +5,6 @@ import variable from './../variables/platform';
 
 export default (variables = variable) => {
   const viewTheme = {
-    flex: 1,
       '.padder': {
         padding: variables.contentPadding,
       },

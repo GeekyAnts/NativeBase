@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class H2 extends Component {
@@ -11,7 +11,6 @@ class H2 extends Component {
     );
   }
 }
-
 const childrenType = function (props, propName, component) {
   let error;
   const prop = props[propName];

@@ -6,9 +6,10 @@ import variable from './../variables/platform';
 export default (variables = variable) => {
   const pickerTheme = {
   		'.note': {
-  			color: '#aaa',
+  			color: '#8F8E95',
   		},
-  		width: variable.deviceWidth / 3.5,
+  		width: 90,
+  		marginRight: -4,
   };
 
 

@@ -18,7 +18,7 @@ if(incomingProps){
 _lodash2.default.assign(computedProps,defaultProps,incomingProps);
 }else{computedProps=defaultProps;}
 
-if(incomingPropsStyle){(function(){
+if(incomingPropsStyle){
 var computedPropsStyle={};
 computedProps.style={};
 if(Array.isArray(incomingPropsStyle)){
@@ -35,7 +35,7 @@ computedPropsStyle=_ReactNativePropRegistry2.default.getByID(incomingPropsStyle)
 computedPropsStyle=incomingPropsStyle;
 }
 
-_lodash2.default.merge(computedProps.style,defaultProps.style,computedPropsStyle);})();
+_lodash2.default.merge(computedProps.style,defaultProps.style,computedPropsStyle);
 }
 
 return computedProps;

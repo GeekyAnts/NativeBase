@@ -2,7 +2,7 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.Header=undefine
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _mapPropsToStyleNames=require('../../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _NativeBaseComponent2=require('../Base/NativeBaseComponent');var _NativeBaseComponent3=_interopRequireDefault(_NativeBaseComponent2);
@@ -150,7 +150,7 @@ _reactNative.View.propTypes,{
 style:_react2.default.PropTypes.object});
 
 
-var StyledHeader=(0,_theme.connectStyle)('NativeBase.Header',{},_mapPropsToStyleNames2.default)(Header);exports.
+var StyledHeader=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Header',{},_mapPropsToStyleNames2.default)(Header);exports.
 
 Header=StyledHeader;
 //# sourceMappingURL=Header.js.map

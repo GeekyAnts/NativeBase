@@ -6,22 +6,16 @@ var _platform=require('./../variables/platform');var _platform2=_interopRequireD
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var radioTheme={
 '.selected':{
-'NativeBase.Icon':{
-color:variables.radioSelectedColor},
+'NativeBase.IconNB':{
+color:_reactNative.Platform.OS==='ios'?variables.brandPrimary:variables.radioSelectedColorAndroid,
+lineHeight:_reactNative.Platform.OS==='ios'?25:variables.radioBtnLineHeight,
+height:_reactNative.Platform.OS==='ios'?20:undefined}},
+
 
 'NativeBase.IconNB':{
-color:variables.radioSelectedColor}},
-
-
-'NativeBase.Icon':{
-color:variables.radioColor,
-lineHeight:variables.radioBtnLineHeight,
-fontSize:variables.radioBtnSize},
-
-'NativeBase.IconNB':{
-color:variables.radioColor,
-lineHeight:variables.radioBtnLineHeight,
-fontSize:variables.radioBtnSize}};
+color:_reactNative.Platform.OS==='ios'?'transparent':undefined,
+lineHeight:_reactNative.Platform.OS==='ios'?undefined:variables.radioBtnLineHeight,
+fontSize:_reactNative.Platform.OS==='ios'?undefined:variables.radioBtnSize}};
 
 
 

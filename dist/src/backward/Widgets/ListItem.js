@@ -2,7 +2,7 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.ListItem=undefi
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _IconNB=require('../../basic/IconNB');
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _mapPropsToStyleNames=require('../../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
@@ -456,7 +456,7 @@ button:_react2.default.PropTypes.bool,
 itemDivider:_react2.default.PropTypes.bool});
 
 
-var StyledListItem=(0,_theme.connectStyle)('NativeBase.ListItem1',{},_mapPropsToStyleNames2.default)(ListItem);exports.
+var StyledListItem=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.ListItem1',{},_mapPropsToStyleNames2.default)(ListItem);exports.
 
 
 ListItem=StyledListItem;

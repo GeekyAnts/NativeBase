@@ -20,10 +20,15 @@ var _Item=require('./Item');var _Item2=_interopRequireDefault(_Item);
 var _Label=require('./Label');var _Label2=_interopRequireDefault(_Label);
 var _Textarea=require('./Textarea');var _Textarea2=_interopRequireDefault(_Textarea);
 var _Text=require('./Text');var _Text2=_interopRequireDefault(_Text);
+var _Toast=require('./Toast');var _Toast2=_interopRequireDefault(_Toast);
 var _Tab=require('./Tab');var _Tab2=_interopRequireDefault(_Tab);
 var _TabBar=require('./TabBar');var _TabBar2=_interopRequireDefault(_TabBar);
+var _TabContainer=require('./TabContainer');var _TabContainer2=_interopRequireDefault(_TabContainer);
 var _View=require('./View');var _View2=_interopRequireDefault(_View);
+var _TabHeading=require('./TabHeading');var _TabHeading2=_interopRequireDefault(_TabHeading);
 var _Icon=require('./Icon');var _Icon2=_interopRequireDefault(_Icon);
+var _Input=require('./Input');var _Input2=_interopRequireDefault(_Input);
+var _Segment=require('./Segment');var _Segment2=_interopRequireDefault(_Segment);
 var _Spinner=require('./Spinner');var _Spinner2=_interopRequireDefault(_Spinner);
 var _CardItem=require('./CardItem');var _CardItem2=_interopRequireDefault(_CardItem);
 var _ListItem=require('./ListItem');var _ListItem2=_interopRequireDefault(_ListItem);
@@ -69,6 +74,10 @@ alignSelf:'center'},
 (0,_InputGroup2.default)(variables)),
 
 
+'NativeBase.Input':_extends({},
+(0,_Input2.default)(variables)),
+
+
 'NativeBase.Badge':_extends({},
 (0,_Badge2.default)(variables)),
 
@@ -99,6 +108,10 @@ alignItems:'center'}),
 
 'NativeBase.CardItem1':_extends({},
 (0,_CardItem2.default)(variables)),
+
+
+'NativeBase.Toast':_extends({},
+(0,_Toast2.default)(variables)),
 
 
 'NativeBase.H1':_extends({},
@@ -193,6 +206,10 @@ alignSelf:'center'}}),
 (0,_Tab2.default)(variables)),
 
 
+'NativeBase.Segment':_extends({},
+(0,_Segment2.default)(variables)),
+
+
 'NativeBase.STabs':{
 flex:1},
 
@@ -203,11 +220,37 @@ flex:1},
 'NativeBase.ViewNB':_extends({},
 (0,_View2.default)(variables)),
 
+'NativeBase.TabHeading':_extends({},
+(0,_TabHeading2.default)(variables)),
+
+'NativeBase.TabContainer':_extends({},
+(0,_TabContainer2.default)(variables)),
+
 'NativeBase.Switch':{
 marginVertical:-5},
 
 'NativeBase.Separator':_extends({},
-(0,_Separator2.default)(variables))};
+(0,_Separator2.default)(variables)),
+
+'NativeBase.Tabs':{},
+
+'NativeBase.Thumbnail':{
+'.square':{
+borderRadius:0},
+
+'.small':{
+width:36,
+height:36,
+borderRadius:18},
+
+'.large':{
+width:80,
+height:80,
+borderRadius:40},
+
+width:56,
+height:56,
+borderRadius:28}};
 
 
 

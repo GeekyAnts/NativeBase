@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { TouchableOpacity, View, Platform, Image } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 import computeProps from '../../Utils/computeProps';

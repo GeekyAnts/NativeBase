@@ -39,6 +39,14 @@ export default {
   checkboxSize: 20,
   checkboxTickColor: '#fff',
 
+  // Segment
+  segmentBackgroundColor: '#3F51B5',
+  segmentActiveBackgroundColor: '#fff',
+  segmentTextColor: '#fff',
+  segmentActiveTextColor: '#3F51B5',
+  segmentBorderColor: '#fff',
+  segmentBorderColorMain: '#3F51B5',
+  
     // New Variable
   get defaultTextColor() {
     return this.textColor;
@@ -146,6 +154,7 @@ export default {
   topTabBarActiveTextColor: '#fff',
   topTabActiveBgColor: (platform === 'ios') ? '#1569f4' : undefined,
   topTabBarBorderColor: '#fff',
+  topTabBarActiveBorderColor: '#fff',
 
 
     // Header
@@ -169,7 +178,7 @@ export default {
   iconFamily: 'Ionicons',
   iconFontSize: (platform === 'ios') ? 30 : 28,
   iconMargin: 7,
-  iconHeaderSize: (platform === 'ios') ? 33 : 28,
+  iconHeaderSize: (platform === 'ios') ? 33 : 24,
 
 
     // InputGroup
@@ -207,6 +216,7 @@ export default {
   listBorderColor: '#c9c9c9',
   listDividerBg: '#f4f4f4',
   listItemHeight: 45,
+  listBtnUnderlayColor: '#DDD',
 
     // Card
   cardBorderColor: '#ccc',

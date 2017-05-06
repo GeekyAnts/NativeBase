@@ -121,7 +121,7 @@
   },
   "arrow-down": {
     "android": {
-      "default": "md-arro-down",
+      "default": "md-arrow-down",
       "active": "md-arrow-down"
     },
     "ios": {
@@ -169,14 +169,14 @@
       "active": "ios-arrow-dropleft-circle"
     }
   },
-  "aroow-dropright": {
+  "arrow-dropright": {
     "android": {
-      "default": "md-aroow-dropright",
-      "active": "md-aroow-dropright"
+      "default": "md-arrow-dropright",
+      "active": "md-arrow-dropright"
     },
     "ios": {
-      "default": "ios-aroow-dropright-outline",
-      "active": "ios-aroow-dropright"
+      "default": "ios-arrow-dropright-outline",
+      "active": "ios-arrow-dropright"
     }
   },
   "arrow-dropright-circle": {

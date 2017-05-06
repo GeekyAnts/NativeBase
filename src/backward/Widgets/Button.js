@@ -3,9 +3,9 @@
 
 import React, { Component } from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import _ from 'lodash';
-import variables from '../../theme/variables';
+import variables from '../../theme/variables/platform';
 import { Icon } from './Icon';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import computeProps from '../../Utils/computeProps';

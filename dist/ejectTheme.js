@@ -10,7 +10,7 @@ printMessage([
 'NativeBase theme has been copied at '+path.join(process.cwd(),'native-base-theme'),
 'Here\'s how to theme your app',
 '',
-'import getTheme from \'./native-base-theme\';',
+'import getTheme from \'./native-base-theme/components\';',
 'export default class ThemeExample extends Component {',
 'render() {',
 '  return (',
@@ -24,7 +24,7 @@ printMessage([
 '  );',
 '}',
 '',
-'Head over to the docs(http://docs.nativebase.io/docs/customize/) for detailed information on customization'],
+'Head over to the docs (http://docs.nativebase.io/CUSTOMIZE.html#Customize) for detailed information on customization'],
 {
 color:'yellow',
 borderColor:'green'});

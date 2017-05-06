@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Animated, Dimensions, ScrollView, Platform, ViewPagerAndroid } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 import { TabBar } from './TabBar';

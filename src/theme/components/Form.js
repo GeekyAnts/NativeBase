@@ -27,24 +27,32 @@ export default (variables = variable) => {
     },
     '.stackedLabel': {
       'NativeBase.Label': {
+        top: 5,
         paddingLeft: null,
       },
       'NativeBase.Input': {
         paddingLeft: null,
         marginLeft: (platform === 'ios') ? undefined : -5,
+      },
+      'NativeBase.Icon': {
+        marginTop: 36,
       },
       marginLeft: 15,
     },
     '.floatingLabel': {
       'NativeBase.Input': {
         paddingLeft: null,
-        top: 8,
+        top: 10,
         marginLeft: (platform === 'ios') ? undefined : -5,
       },
       'NativeBase.Label': {
         left: 0,
         top: 8,
       },
+      'NativeBase.Icon': {
+        top: 6,
+      },
+      marginTop: 15,
       marginLeft: 15,
     },
     '.regular': {

@@ -4,7 +4,7 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefine
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _reactNative=require('react-native');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _platform=require('./../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _Badge=require('./Badge');
 var _Text=require('./Text');
@@ -29,28 +29,6 @@ style:this.getInitialStyle().borderedBtn};
 
 
 return(0,_computeProps2.default)(this.props,defaultProps);
-}},{key:'renderChildren',value:function renderChildren()
-{
-var isArray=_lodash2.default.isArray(this.props.children);
-if(!isArray){
-if(this.props.children.type.displayName==="Styled(Text)"){
-return _react2.default.createElement(_Text.Text,this.props.children.props,!this.props.capitalize?this.props.children.props.children:this.props.children.props.children.toUpperCase());
-}else
-return this.props.children;
-}else
-{
-var newChildren=[];
-var childrenArray=_lodash2.default.toArray(this.props.children);
-var iconArray=_lodash2.default.remove(childrenArray,function(child){return child.type.displayName==="Styled(Icon)";});
-if(this.props.iconRight){
-newChildren.push(_react2.default.createElement(_Text.Text,{key:5},!this.props.capitalize?childrenArray[0].props.children:childrenArray[0].props.children.toUpperCase()));
-newChildren.push(iconArray);
-}else{
-newChildren.push(iconArray);
-newChildren.push(_react2.default.createElement(_Text.Text,{key:5},!this.props.capitalize?childrenArray[0].props.children:childrenArray[0].props.children.toUpperCase()));
-}
-return newChildren;
-}
 }},{key:'render',value:function render()
 {var _this2=this;
 if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||_reactNative.Platform['Version']<=21){
@@ -60,7 +38,6 @@ this.prepareRootProps(),{
 ref:function ref(c){return _this2._root=c;},
 activeOpacity:this.props.activeOpacity?this.props.activeOpacity:0.5}),
 
-_react2.default.createElement(_reactNative.View,{style:_reactNative.Platform.OS==='ios'?{alignSelf:'center',zIndex:999}:{alignSelf:'center'}},this.props.badgeValue?_react2.default.createElement(_Badge.Badge,{style:{backgroundColor:this.props.badgeColor?this.props.badgeColor:undefined}},_react2.default.createElement(_Text.Text,{style:this.props.badgeValueStyle},this.props.badgeValue)):null),
 this.props.children));
 
 
@@ -72,8 +49,7 @@ onPress:this.props.onPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
 this.prepareRootProps()),
 _react2.default.createElement(_reactNative.View,this.prepareRootProps(),
-_react2.default.createElement(_reactNative.View,{style:{alignSelf:'center'}},this.props.badgeValue?_react2.default.createElement(_Badge.Badge,{style:{backgroundColor:this.props.badgeColor?this.props.badgeColor:undefined}},_react2.default.createElement(_Text.Text,{style:this.props.badgeValueStyle},this.props.badgeValue)):null),
-this.renderChildren())));
+this.props.children)));
 
 
 
@@ -106,7 +82,7 @@ Button.defaultProps={
 capitalize:true};
 
 
-var StyledButton=(0,_theme.connectStyle)('NativeBase.Button',{},_mapPropsToStyleNames2.default)(Button);exports.
+var StyledButton=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Button',{},_mapPropsToStyleNames2.default)(Button);exports.
 
 Button=StyledButton;
 //# sourceMappingURL=Button.js.map

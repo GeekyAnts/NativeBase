@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Platform, TouchableNativeFeedback, View } from 'react-native';
+import { TouchableHighlight, Platform, TouchableNativeFeedback, View } from 'react-native';
 
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 
 class ListItem extends Component {
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
   render() {
-    if (Platform.OS==='ios' || variable.androidRipple===false || !this.props.onPress) {
+    const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
+
+    if (Platform.OS === 'ios' || variable.androidRipple === false || !this.props.onPress || !this.props.onLongPress || Platform.Version <= 21) {
       return (
-        <TouchableOpacity
+        <TouchableHighlight
+          onPress={this.props.onPress}
+          onLongPress={this.props.onLongPress}
           ref={c => this._root = c}
-          {...this.props} activeOpacity={(this.props.onPress) ? 0.4 : 1}
+          underlayColor={variables.listBtnUnderlayColor}
         >
-          {this.props.children}
-        </TouchableOpacity>
+          <View {...this.props}>{this.props.children}</View>
+        </TouchableHighlight>
       );
     }
     else {
       return(
           <TouchableNativeFeedback ref={c => this._root = c}
               onPress={this.props.onPress}
+              onLongPress={this.props.onLongPress}
               background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColorDark)}>
-              <View {...this.props}>{this.props.children}</View>
+              <View style={{ marginLeft: -17, paddingLeft: 17 }}>
+                <View {...this.props}>{this.props.children}</View>
+              </View>
           </TouchableNativeFeedback>
       );
     }
@@ -30,7 +40,7 @@ class ListItem extends Component {
 }
 
 ListItem.propTypes = {
-  ...TouchableOpacity.propTypes,
+  ...TouchableHighlight.propTypes,
   style: React.PropTypes.object,
   itemDivider: React.PropTypes.bool,
   button: React.PropTypes.bool,

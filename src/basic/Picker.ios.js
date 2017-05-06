@@ -16,7 +16,7 @@ import { Title } from './Title';
 import { Left } from './Left';
 import { Right } from './Right';
 import { Body } from './Body';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import computeProps from '../Utils/computeProps';
 
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
@@ -25,21 +25,27 @@ class PickerNB extends Component {
 
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       modalVisible: false,
       currentLabel: this.getLabel(props),
-      dataSource: ds.cloneWithRows(this.props.children),
+      dataSource: props.children
     };
   }
 
   componentWillReceiveProps(nextProps) {
     const currentLabel = this.state.currentLabel;
     const nextLabel = this.getLabel(nextProps);
+    const currentDS = this.state.dataSource;
+    const nextDS = nextProps.children
 
     if (currentLabel !== nextLabel) {
       this.setState({
         currentLabel: nextLabel,
+      });
+    }
+    if (currentDS !== nextDS) {
+      this.setState({
+        dataSource: nextDS,
       });
     }
   }
@@ -83,11 +89,29 @@ class PickerNB extends Component {
         newChildren.push(child);
       }
     });
-    return <Header {...this.props.headerComponent.props} > {newChildren}</Header>;
+    return <Header {...this.props.headerComponent.props} >{newChildren}</Header>;
   }
 
   renderIcon() {
     return React.cloneElement(this.props.iosIcon, { style: { fontSize: 22, lineHeight: 26, color: '#7a7a7a' } });
+  }
+
+  renderButton() {
+    const onPress = () => { this._setModalVisible(true); };
+    const text = this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel;
+    if (this.props.renderButton) {
+      return this.props.renderButton(onPress, text, this);
+    }
+    return <Button
+      style={this.props.style}
+      dark
+      picker
+      transparent
+      onPress={onPress}
+    >
+      <Text note={(this.props.note)} style={this.props.textStyle}>{text}</Text>
+      {(this.props.iosIcon === undefined) ? null : this.renderIcon()}
+    </Button>;
   }
 
   renderHeader() {
@@ -104,17 +128,9 @@ class PickerNB extends Component {
   render() {
     return (
       <View ref={c => this._root = c}>
-        <Button
-          style={this.props.style}
-          dark
-          picker
-          transparent
-          onPress={() => { this._setModalVisible(true); }}
-        >
-          <Text note={(this.props.note)} style={this.props.textStyle}>{this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel}</Text>
-          {(this.props.iosIcon === undefined) ? null : this.renderIcon()}
-        </Button>
+        {this.renderButton()}
         <Modal
+          supportedOrientations={this.props.supportedOrientations || null}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
@@ -123,8 +139,8 @@ class PickerNB extends Component {
           <Container>
             {this.renderHeader()}
             <Content>
-              <ListView
-                dataSource={this.state.dataSource}
+              <List
+                dataArray={this.state.dataSource}
                 renderRow={child =>
                   <ListItem
                     selected={(child.props.value === this.props.selectedValue) ? true : false}

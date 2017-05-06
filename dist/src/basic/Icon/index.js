@@ -1,7 +1,7 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Icon=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
 
 var _reactNative=require('react-native');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 
 var _IconNB=require('../IconNB');
 var _NBIcons=require('./NBIcons.json');var _NBIcons2=_interopRequireDefault(_NBIcons);
@@ -20,6 +20,7 @@ var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 
+if(variables.iconFamily==='Ionicons'){
 if(typeof _NBIcons2.default[this.props.name]!=='object'){
 return this.props.name;
 }else
@@ -31,6 +32,10 @@ name=this.props.active?_NBIcons2.default[this.props.name].ios.active:_NBIcons2.d
 name=this.props.active?_NBIcons2.default[this.props.name].android.active:_NBIcons2.default[this.props.name].android.default;
 }
 return name;
+}
+}else
+{
+return this.props.name;
 }
 }},{key:'getIconName',value:function getIconName()
 
@@ -76,7 +81,7 @@ android:_react2.default.PropTypes.string,
 active:_react2.default.PropTypes.bool});
 
 
-var StyledIcon=(0,_theme.connectStyle)('NativeBase.Icon',{},_mapPropsToStyleNames2.default)(Icon);exports.
+var StyledIcon=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Icon',{},_mapPropsToStyleNames2.default)(Icon);exports.
 
 
 Icon=StyledIcon;

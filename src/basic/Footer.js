@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import _ from 'lodash';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Footer extends Component {

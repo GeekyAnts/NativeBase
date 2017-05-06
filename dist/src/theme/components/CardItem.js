@@ -40,8 +40,7 @@ color:variables.sTabBarActiveTextColor},
 'NativeBase.Icon':{
 fontSize:variables.iconFontSize-10,
 color:variables.sTabBarActiveTextColor,
-marginHorizontal:null,
-paddingRight:variables.listItemPadding-5},
+marginHorizontal:null},
 
 'NativeBase.IconNB':{
 fontSize:variables.iconFontSize-10,
@@ -87,8 +86,7 @@ color:variables.sTabBarActiveTextColor},
 'NativeBase.Icon':{
 fontSize:variables.iconFontSize-10,
 color:variables.sTabBarActiveTextColor,
-marginHorizontal:null,
-paddingRight:variables.listItemPadding-5},
+marginHorizontal:null},
 
 'NativeBase.IconNB':{
 fontSize:variables.iconFontSize-10,
@@ -117,8 +115,7 @@ color:variables.sTabBarActiveTextColor},
 'NativeBase.Icon':{
 fontSize:variables.iconFontSize-10,
 color:variables.sTabBarActiveTextColor,
-marginHorizontal:null,
-paddingRight:variables.listItemPadding-5},
+marginHorizontal:null},
 
 'NativeBase.IconNB':{
 fontSize:variables.iconFontSize-10,
@@ -209,6 +206,7 @@ fontSize:variables.iconFontSize-2},
 borderBottomWidth:variables.borderWidth,
 borderColor:variables.cardBorderColor},
 
+borderRadius:2,
 padding:variables.listItemPadding+5,
 paddingVertical:variables.listItemPadding,
 backgroundColor:variables.cardDefaultBg};

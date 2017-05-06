@@ -1,8 +1,6 @@
 import { Platform } from 'react-native';
-import _ from 'lodash';
 
 import variable from './../variables/platform';
-
 
 export default (variables = variable) => {
   const platformStyle = variables.platformStyle;
@@ -395,7 +393,7 @@ export default (variables = variable) => {
         height: 60,
         'NativeBase.Text': {
           fontSize: 22,
-          lineHeight: 24,
+          lineHeight: 32,
         },
       },
 

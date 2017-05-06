@@ -1,7 +1,7 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Swipeout=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _reactTweenState=require('react-tween-state');var _reactTweenState2=_interopRequireDefault(_reactTweenState);
 var _NativeButton=require('./NativeButton');var _NativeButton2=_interopRequireDefault(_NativeButton);
 var _styles=require('./styles');var _styles2=_interopRequireDefault(_styles);
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _mapPropsToStyleNames=require('../../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
@@ -370,7 +370,7 @@ dataArray:_react2.default.PropTypes.object,
 renderRow:_react2.default.PropTypes.object});
 
 
-var StyledSwipeout=(0,_theme.connectStyle)('NativeBase.Swipeout',{},_mapPropsToStyleNames2.default)(Swipeout);exports.
+var StyledSwipeout=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Swipeout',{},_mapPropsToStyleNames2.default)(Swipeout);exports.
 
 
 Swipeout=StyledSwipeout;

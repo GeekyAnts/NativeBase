@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { View, Image, ScrollView } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import { Footer } from '../../basic/Footer';
 import { Fab } from '../../basic/Fab';
 import _ from 'lodash';

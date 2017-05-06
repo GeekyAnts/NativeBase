@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, Animated, PanResponder } from 'react-native';
 import clamp from 'clamp';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 const SWIPE_THRESHOLD = 120;
 
 class DeckSwiper extends Component {
-constructor(props) {
+  constructor(props) {
         super(props);
         this.state = {
             pan: new Animated.ValueXY(),
@@ -212,15 +212,15 @@ constructor(props) {
 
 
         return(
-            <View ref={c => this._root = c} style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
+            <View style={{position: 'relative', flexDirection: 'column'}}>{(this.state.selectedItem)===undefined ? (<View />) :
                 (<View>
-                    <Animated.View style={[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
+                  {(this.state.selectedItem2) &&  <Animated.View style={[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity: this.state.fadeAnim}]} {...this._panResponder.panHandlers}>
                         {(this.props.renderBottom)  ?
                           this.props.renderBottom(this.state.selectedItem2)
                         :
                           this.props.renderItem(this.state.selectedItem2)
                         }
-                    </Animated.View>
+                    </Animated.View>}
                     <Animated.View style={[ this.getCardStyles()[0], this.getInitialStyle().topCard] } {...this._panResponder.panHandlers} >
                         {(this.props.renderTop) ?
                           this.props.renderTop(this.state.selectedItem)

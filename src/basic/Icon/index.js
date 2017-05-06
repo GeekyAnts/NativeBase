@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Platform } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 
 import { IconNB } from '../IconNB';
 import ic from './NBIcons.json';
@@ -19,18 +19,23 @@ class Icon extends Component {
     const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
     const platformStyle = variables.platformStyle;
     const platform = variables.platform;
-
-    if (typeof ic[this.props.name]!=='object' ) {
-      return this.props.name;
-    }
-    else if (typeof ic[this.props.name]==='object') {
-      let name;
-      if ((platform === 'ios') && (platformStyle !== 'material') ) {
-        name = (this.props.active) ? ic[this.props.name].ios.active : ic[this.props.name].ios.default;
-      } else {
-        name = (this.props.active) ? ic[this.props.name].android.active : ic[this.props.name].android.default;
+    
+    if (variables.iconFamily==='Ionicons') {
+      if (typeof ic[this.props.name]!=='object' ) {
+        return this.props.name;
       }
-      return name;
+      else if (typeof ic[this.props.name]==='object') {
+        let name;
+        if ((platform === 'ios') && (platformStyle !== 'material') ) {
+          name = (this.props.active) ? ic[this.props.name].ios.active : ic[this.props.name].ios.default;
+        } else {
+          name = (this.props.active) ? ic[this.props.name].android.active : ic[this.props.name].android.default;
+        }
+        return name;
+      }
+    }
+    else {
+      return this.props.name;
     }
   }
 

@@ -3,9 +3,9 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefine
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
-var _variables=require('../../theme/variables');var _variables2=_interopRequireDefault(_variables);
+var _platform=require('../../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _Icon=require('./Icon');
 var _mapPropsToStyleNames=require('../../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _computeProps=require('../../Utils/computeProps');var _computeProps2=_interopRequireDefault(_computeProps);
@@ -19,7 +19,7 @@ Button=function(_Component){_inherits(Button,_Component);function Button(){_clas
 return{
 borderedBtn:{
 borderWidth:this.props.bordered?1:undefined,
-borderRadius:this.props.rounded&&this.props.bordered?_variables2.default.borderRadiusLarge:2}};
+borderRadius:this.props.rounded&&this.props.bordered?_platform2.default.borderRadiusLarge:2}};
 
 
 }},{key:'iconPresent',value:function iconPresent()
@@ -117,7 +117,7 @@ tabButton:_react2.default.PropTypes.bool});
 
 
 
-var StyledButton=(0,_theme.connectStyle)('NativeBase.Button',{},_mapPropsToStyleNames2.default)(Button);exports.
+var StyledButton=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Button',{},_mapPropsToStyleNames2.default)(Button);exports.
 
 Button=StyledButton;
 //# sourceMappingURL=Button.js.map
