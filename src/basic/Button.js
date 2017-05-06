@@ -14,6 +14,8 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Button extends Component {
 
+  _root: React$Element<TouchableOpacity | TouchableNativeFeedback>;
+
   getInitialStyle() {
     return {
       borderedBtn: {

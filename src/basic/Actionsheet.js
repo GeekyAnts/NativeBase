@@ -17,6 +17,10 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 
 class ActionSheetContainer extends Component {
+
+  props: View.props;
+  state: any;
+
   constructor(props) {
     super(props);
     this.state = {
