@@ -115,12 +115,12 @@ this.props.iosIcon===undefined?null:this.renderIcon());
 }},{key:'renderHeader',value:function renderHeader()
 
 {var _this4=this;
-return this.props.headerComponent?this.modifyHeader():_react2.default.createElement(_Header.Header,null,
+return this.props.headerComponent?this.modifyHeader():_react2.default.createElement(_Header.Header,{style:this.props.headerStyle},
 _react2.default.createElement(_Left.Left,null,_react2.default.createElement(_Button.Button,{
-style:{shadowOffset:null,shadowColor:null,shadowRadius:null,shadowOpacity:null},
+style:_extends({shadowOffset:null,shadowColor:null,shadowRadius:null,shadowOpacity:null},this.props.headerBackButtonStyle),
 transparent:true,onPress:function onPress(){_this4._setModalVisible(false);}},
-_react2.default.createElement(_Text.Text,null,'Back'))),
-_react2.default.createElement(_Body.Body,null,_react2.default.createElement(_Title.Title,null,this.props.iosHeader?this.props.iosHeader:'Select One')),
+_react2.default.createElement(_Text.Text,null,this.props.headerBackButtonText||'Back'))),
+_react2.default.createElement(_Body.Body,null,_react2.default.createElement(_Title.Title,{style:this.props.headerTitleStyle},this.props.iosHeader||'Select One')),
 _react2.default.createElement(_Right.Right,null));
 
 }},{key:'render',value:function render()

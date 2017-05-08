@@ -36,7 +36,7 @@ if(this.state.dataSource){
 return(
 _react2.default.createElement(_reactNative.ListView,_extends({},
 this.props,{
-ref:function ref(_ref){return _this2.root=_ref;},
+ref:function ref(_ref){return _this2._root=_ref;},
 enableEmptySections:true,
 dataSource:this.state.dataSource,
 renderRow:this.props.renderRow})));

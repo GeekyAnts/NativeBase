@@ -112,7 +112,6 @@ return item;
 }
 });
 if(this.props.floatingLabel&&icon.length){
-console.log(iconProps,"jhdsh");
 newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:'i1'},iconProps)));
 newChildren.push(_react2.default.createElement(_reactNative.Animated.View,{key:'float',style:{position:'absolute',left:this.props.last?22:22,right:0,top:this.state.topAnim,opacity:this.state.opacAnim,paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12}},_react2.default.createElement(_Label.Label,labelProps,this.renderLabel(label,labelProps))));
 newChildren.push(_react2.default.createElement(_Input.Input,_extends({key:'l2'},inputProps,{onFocus:function onFocus(){_this2.setState({isFocused:true});inputProps.onFocus&&inputProps.onFocus();},onBlur:function onBlur(){!_this2.state.text.length&&_this2.setState({isFocused:false});inputProps.onBlur&&inputProps.onBlur();},onChangeText:function onChangeText(text){_this2.setState({text:text});inputProps.onChangeText&&inputProps.onChangeText(text);}})));

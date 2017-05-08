@@ -112,7 +112,6 @@ class Item extends Component {
       }
     });
     if(this.props.floatingLabel && icon.length) {
-      console.log(iconProps, "jhdsh");
         newChildren.push(<Icon key="i1" {...iconProps} />);
         newChildren.push(<Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 22 : 22, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : undefined, paddingBottom: (Platform.OS === 'ios') ? undefined : 12 }}><Label {...labelProps} >{this.renderLabel(label, labelProps)}</Label></Animated.View>);
         newChildren.push(<Input key="l2" {...inputProps} onFocus={() => {this.setState({ isFocused: true }); (inputProps.onFocus) && inputProps.onFocus()}} onBlur={() => {!(this.state.text.length) && this.setState({ isFocused: false }); (inputProps.onBlur) && inputProps.onBlur()}} onChangeText={text => {this.setState({ text }); (inputProps.onChangeText) && inputProps.onChangeText(text) }} />);
