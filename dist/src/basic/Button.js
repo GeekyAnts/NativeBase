@@ -2,11 +2,9 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefine
 
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
-var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _reactNative=require('react-native');
 var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _platform=require('./../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
-var _Badge=require('./Badge');
 var _Text=require('./Text');
 var _computeProps=require('../Utils/computeProps');var _computeProps2=_interopRequireDefault(_computeProps);
 
@@ -31,6 +29,9 @@ style:this.getInitialStyle().borderedBtn};
 return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:'render',value:function render()
 {var _this2=this;
+var children=_reactNative.Platform.OS==='ios'?
+this.props.children:
+_react2.default.Children.map(this.props.children,function(child){return child.type===_Text.Text?_react2.default.cloneElement(child,_extends({capitalize:true},child.props)):child;});
 if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||_reactNative.Platform['Version']<=21){
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
@@ -38,7 +39,7 @@ this.prepareRootProps(),{
 ref:function ref(c){return _this2._root=c;},
 activeOpacity:this.props.activeOpacity?this.props.activeOpacity:0.5}),
 
-this.props.children));
+children));
 
 
 }else
@@ -49,7 +50,7 @@ onPress:this.props.onPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
 this.prepareRootProps()),
 _react2.default.createElement(_reactNative.View,this.prepareRootProps(),
-this.props.children)));
+children)));
 
 
 
@@ -73,9 +74,7 @@ disabled:_react2.default.PropTypes.bool,
 rounded:_react2.default.PropTypes.bool,
 large:_react2.default.PropTypes.bool,
 small:_react2.default.PropTypes.bool,
-active:_react2.default.PropTypes.bool,
-badgeColor:_react2.default.PropTypes.string,
-badgeValueStyle:_react2.default.PropTypes.object});
+active:_react2.default.PropTypes.bool});
 
 
 Button.defaultProps={

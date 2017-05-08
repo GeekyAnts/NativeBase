@@ -514,7 +514,7 @@ declare module 'native-base' {
         /**
          * see Widget CheckBox.js
          */
-        interface Radio extends ReactNative.TouchableOpacityProperties{
+        interface Radio extends ReactNative.TouchableOpacityProperties {
             selected?: boolean
         }
         /**
@@ -575,31 +575,31 @@ declare module 'native-base' {
             springFriction?: number
         }
 
-        interface Tab{
+        interface Tab {
             heading:TabHeading,
 
         }
-        interface TabHeading{
+        interface TabHeading {
             activeTabStyle?:ReactNative.ViewStyle,
             textStyle?:ReactNative.TextStyle,
             activeTextStyle?:ReactNative.TextStyle
         }
 
         interface Item {
-            fixedLabel?:boolean,
-            floatingLabel?:boolean,
-            inlineLabel?:boolean,
-            stackedLabel?:boolean,
-            placeholderLabel?:boolean,
-            bordered?:boolean,
-            underline?:boolean,
-            rounded?:boolean,
+            fixedLabel?: boolean,
+            floatingLabel?: boolean,
+            inlineLabel?: boolean,
+            stackedLabel?: boolean,
+            placeholderLabel?: boolean,
+            bordered?: boolean,
+            underline?: boolean,
+            rounded?: boolean,
             disabled?: boolean,
             error?: boolean,
-            placeholder?:string,
-            secureTextEntry?:boolean,
+            placeholder?: string,
+            secureTextEntry?: boolean,
             success?: boolean,
-            last?:boolean,
+            last?: boolean,
         }
 
         interface Form{

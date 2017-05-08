@@ -8,13 +8,19 @@ var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapProps
 Text=function(_Component){_inherits(Text,_Component);function Text(){_classCallCheck(this,Text);return _possibleConstructorReturn(this,(Text.__proto__||Object.getPrototypeOf(Text)).apply(this,arguments));}_createClass(Text,[{key:'render',value:function render()
 {var _this2=this;
 return(
-_react2.default.createElement(_reactNative.Text,_extends({ref:function ref(c){return _this2._root=c;}},this.props)));
+_react2.default.createElement(_reactNative.Text,_extends({
+ref:function ref(c){return _this2._root=c;}},
+this.props),
+
+this.props.capitalize?this.props.children.toUpperCase():this.props.children));
+
 
 }}]);return Text;}(_react.Component);
 
 
 Text.propTypes=_extends({},
 _reactNative.Text.propTypes,{
+uppercase:_react2.default.PropTypes.bool,
 style:_react2.default.PropTypes.object});
 
 
