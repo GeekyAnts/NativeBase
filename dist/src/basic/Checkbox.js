@@ -13,18 +13,18 @@ CheckBox=function(_Component){_inherits(CheckBox,_Component);function CheckBox()
 
 
 
-{
+{var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 return{
 checkStyle:{
-borderColor:this.props.color?this.props.color:_platform2.default.checkboxBgColor,
-backgroundColor:this.props.checked===true?this.props.color?this.props.color:_platform2.default.checkboxBgColor:'transparent'}};
+borderColor:this.props.color?this.props.color:variables.checkboxBgColor,
+backgroundColor:this.props.checked===true?this.props.color?this.props.color:variables.checkboxBgColor:'transparent'}};
 
 
-}},{key:'prepareRootProps',value:function prepareRootProps()
+}},{key:'prepareRootProps',value:function prepareRootProps(
 
-{
+variables){
 var defaultProps={
-style:this.getInitialStyle().checkStyle};
+style:this.getInitialStyle(variables).checkStyle};
 
 
 return(0,_computeProps2.default)(this.props,defaultProps);
@@ -34,7 +34,7 @@ var variables=this.context.theme?this.context.theme['@@shoutem.theme/themeStyle'
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 return(
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps()),
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps(variables)),
 _react2.default.createElement(_Ionicons2.default,{style:{
 color:variables.checkboxTickColor,
 fontSize:variables.CheckboxFontSize,
