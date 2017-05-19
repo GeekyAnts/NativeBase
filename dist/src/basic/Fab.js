@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Fab=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.Fab=undefined;var _jsxFileName='src/basic/Fab.js';var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
@@ -213,7 +213,7 @@ newChildren.push(_react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:212}}),
 child.props.children));
 
 });
@@ -337,11 +337,11 @@ this.containerWidth=this.containerWidth||new _reactNative.Animated.Value(0);
 this.buttonScale=this.buttonScale||new _reactNative.Animated.Value(0);
 }
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle()},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:340}},
 this.renderButtons(),
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 onPress:function onPress(){return _this4.fabOnPress();}},
-this.prepareFabProps(),{activeOpacity:1}),
+this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:342}}),
 
 this.renderFab())));
 

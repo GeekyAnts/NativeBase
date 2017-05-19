@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.PickerNB=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.PickerNB=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/basic/Picker.ios.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
@@ -89,7 +89,7 @@ newChildren.push(_react2.default.cloneElement(child,
 newChildren.push(child);
 }
 });
-return _react2.default.createElement(_Header.Header,this.props.headerComponent.props,newChildren);
+return _react2.default.createElement(_Header.Header,_extends({},this.props.headerComponent.props,{__source:{fileName:_jsxFileName,lineNumber:92}}),newChildren);
 }},{key:'renderIcon',value:function renderIcon()
 
 {
@@ -107,38 +107,38 @@ style:this.props.style,
 dark:true,
 picker:true,
 transparent:true,
-onPress:onPress},
+onPress:onPress,__source:{fileName:_jsxFileName,lineNumber:105}},
 
-_react2.default.createElement(_Text.Text,{note:this.props.note,style:this.props.textStyle},text),
+_react2.default.createElement(_Text.Text,{note:this.props.note,style:this.props.textStyle,__source:{fileName:_jsxFileName,lineNumber:112}},text),
 this.props.iosIcon===undefined?null:this.renderIcon());
 
 }},{key:'renderHeader',value:function renderHeader()
 
 {var _this4=this;
-return this.props.headerComponent?this.modifyHeader():_react2.default.createElement(_Header.Header,{style:this.props.headerStyle},
-_react2.default.createElement(_Left.Left,null,_react2.default.createElement(_Button.Button,{
+return this.props.headerComponent?this.modifyHeader():_react2.default.createElement(_Header.Header,{style:this.props.headerStyle,__source:{fileName:_jsxFileName,lineNumber:118}},
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:119}},_react2.default.createElement(_Button.Button,{
 style:_extends({shadowOffset:null,shadowColor:null,shadowRadius:null,shadowOpacity:null},this.props.headerBackButtonStyle),
-transparent:true,onPress:function onPress(){_this4._setModalVisible(false);}},
-_react2.default.createElement(_Text.Text,null,this.props.headerBackButtonText||'Back'))),
-_react2.default.createElement(_Body.Body,null,_react2.default.createElement(_Title.Title,{style:this.props.headerTitleStyle},this.props.iosHeader||'Select One')),
-_react2.default.createElement(_Right.Right,null));
+transparent:true,onPress:function onPress(){_this4._setModalVisible(false);},__source:{fileName:_jsxFileName,lineNumber:119}},
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:122}},this.props.headerBackButtonText||'Back'))),
+_react2.default.createElement(_Body.Body,{__source:{fileName:_jsxFileName,lineNumber:123}},_react2.default.createElement(_Title.Title,{style:this.props.headerTitleStyle,__source:{fileName:_jsxFileName,lineNumber:123}},this.props.iosHeader||'Select One')),
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:124}}));
 
 }},{key:'render',value:function render()
 
 {var _this5=this;
 return(
-_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this5._root=c;}},
+_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this5._root=c;},__source:{fileName:_jsxFileName,lineNumber:130}},
 this.renderButton(),
 _react2.default.createElement(_reactNative.Modal,{
 supportedOrientations:this.props.supportedOrientations||null,
 animationType:'slide',
 transparent:false,
 visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){_this5._setModalVisible(false);}},
+onRequestClose:function onRequestClose(){_this5._setModalVisible(false);},__source:{fileName:_jsxFileName,lineNumber:132}},
 
-_react2.default.createElement(_Container.Container,null,
+_react2.default.createElement(_Container.Container,{__source:{fileName:_jsxFileName,lineNumber:139}},
 this.renderHeader(),
-_react2.default.createElement(_Content.Content,null,
+_react2.default.createElement(_Content.Content,{__source:{fileName:_jsxFileName,lineNumber:141}},
 _react2.default.createElement(_List.List,{
 dataArray:this.state.dataSource,
 renderRow:function renderRow(child){return(
@@ -149,14 +149,14 @@ style:_this5.props.itemStyle,
 onPress:function onPress(){
 _this5._setModalVisible(false);_this5.props.onValueChange(child.props.value);
 _this5.setState({current:child.props.label});
-}},
+},__source:{fileName:_jsxFileName,lineNumber:145}},
 
-_react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle},child.props.label),
-_react2.default.createElement(_Right.Right,null,
+_react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle,__source:{fileName:_jsxFileName,lineNumber:154}},child.props.label),
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:155}},
 child.props.value===_this5.props.selectedValue?
-_react2.default.createElement(_Radio.Radio,{selected:true}):
+_react2.default.createElement(_Radio.Radio,{selected:true,__source:{fileName:_jsxFileName,lineNumber:157}}):
 
-_react2.default.createElement(_Radio.Radio,{selected:false}))));}}))))));
+_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:159}}))));},__source:{fileName:_jsxFileName,lineNumber:142}}))))));
 
 
 
@@ -175,13 +175,13 @@ PickerNB.Item=_react2.default.createClass({displayName:'Item',
 
 render:function render(){
 return(
-_react2.default.createElement(_reactNative.Picker.Item,this.props()));
+_react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:178}})));
 
 }});
 
 
-PickerNB.propTypes=_extends({},
-_reactNative.View.propTypes);
+PickerNB.propTypes=_extends({},_reactNative.ViewPropTypes);
+
 
 
 var StyledPickerNB=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.PickerNB',{},_mapPropsToStyleNames2.default)(PickerNB);exports.
