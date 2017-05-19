@@ -11,6 +11,7 @@ const {
   ScrollView,
   Platform,
   Dimensions,
+  ViewPropTypes
 } = ReactNative;
 const Button = require('./Button');
 
@@ -25,11 +26,11 @@ const ScrollableTabBar = React.createClass({
     activeTextColor: React.PropTypes.string,
     inactiveTextColor: React.PropTypes.string,
     scrollOffset: React.PropTypes.number,
-    style: View.propTypes.style,
-    tabStyle: View.propTypes.style,
-    tabsContainerStyle: View.propTypes.style,
+    style: ViewPropTypes.style,
+    tabStyle: ViewPropTypes.style,
+    tabsContainerStyle: ViewPropTypes.style,
     renderTab: React.PropTypes.func,
-    underlineStyle: View.propTypes.style,
+    underlineStyle: ViewPropTypes.style,
     onScroll:React.PropTypes.func,
   },
   contextTypes: {

@@ -2,7 +2,7 @@
 
 
 import React, { Component } from 'react';
-import { View, Modal, Platform, ActionSheetIOS, TouchableOpacity } from 'react-native';
+import { View, Modal, Platform, ActionSheetIOS, TouchableOpacity, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { Text } from './Text';
 import { Button } from './Button';
@@ -95,7 +95,7 @@ class ActionSheetContainer extends Component {
 }
 
 ActionSheetContainer.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
 };
 

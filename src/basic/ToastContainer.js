@@ -2,7 +2,7 @@
 
 
 import React, { Component } from 'react';
-import { View, Modal, Platform } from 'react-native';
+import { View, Modal, Platform, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { Text } from './Text';
 import { Button } from './Button';
@@ -82,7 +82,7 @@ class ToastContainer extends Component {
 }
 
 ToastContainer.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
 };
 

@@ -15,6 +15,7 @@ import {
   StyleSheet,
   Text,
   View,
+  ViewPropTypes
 } from 'react-native';
 
 export default class SwipeoutBtn extends Component {
@@ -107,7 +108,7 @@ const Swipeout = React.createClass({
     onOpen: PropTypes.func,
     right: PropTypes.array,
     scroll: PropTypes.func,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
     sensitivity: PropTypes.number,
   },
 
@@ -364,7 +365,7 @@ Swipeout.NativeButton = NativeButton;
 Swipeout.SwipeoutButton = SwipeoutBtn;
 
 Swipeout.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
   dataArray: React.PropTypes.object,
   renderRow: React.PropTypes.object,

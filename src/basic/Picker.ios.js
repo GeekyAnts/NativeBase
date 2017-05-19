@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react';
-import { Picker, Modal, View, ListView } from 'react-native';
+import { Picker, Modal, View, ListView, ViewPropTypes } from 'react-native';
 import _ from 'lodash';
 import { Text } from './Text';
 import { List } from './List';
@@ -181,7 +181,7 @@ PickerNB.Item = React.createClass({
 });
 
 PickerNB.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
 };
 
 const StyledPickerNB = connectStyle('NativeBase.PickerNB', {}, mapPropsToStyleNames)(PickerNB);
