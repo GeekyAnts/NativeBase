@@ -42,7 +42,7 @@
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.7",
     "react-native-scrollable-tab-view": "^0.7.1",
-    "react-native-vector-icons": "~4.0.0",
+    "react-native-vector-icons": "~4.1.1",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1",
     "react-native-drawer": "^2.3.0"
@@ -61,7 +61,7 @@
     "jest": "17.0.0",
     "react": "^16.0.0-alpha.3",
     "react-native": "^0.43.0",
-    "react-native-vector-icons": "~4.0.0",
+    "react-native-vector-icons": "~4.1.1",
     "react-test-renderer": "^15.3.2"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
@@ -71,7 +71,7 @@
   "peerDependencies": {
     "react-native": ">=0.43.0",
     "react": ">=16.0.0-alpha.3",
-    "react-native-vector-icons": "~4.0.0"
+    "react-native-vector-icons": "~4.1.1"
   },
   "readmeFilename": "README.md",
   "repository": {
