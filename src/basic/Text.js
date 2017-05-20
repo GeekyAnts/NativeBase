@@ -12,7 +12,7 @@ class Text extends Component {
         ref={c => this._root = c}
         {...this.props}
       >
-        {this.props.capitalize ? this.props.children.toUpperCase() : this.props.children}
+        {this.props.uppercase ? this.props.children.toUpperCase() : this.props.children}
       </RNText>
     );
   }
