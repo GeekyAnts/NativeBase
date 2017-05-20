@@ -5,7 +5,8 @@ declare module 'native-base' {
     namespace NativeBase {
 
         interface Text extends ReactNative.TextProperties {
-            note?: boolean
+            note?: boolean,
+            uppercase?: boolean
         }
 
         interface Switch extends ReactNative.SwitchProperties { }
@@ -592,6 +593,7 @@ declare module 'native-base' {
             stackedLabel?: boolean,
             placeholderLabel?: boolean,
             bordered?: boolean,
+            regular?: boolean,
             underline?: boolean,
             rounded?: boolean,
             disabled?: boolean,
@@ -602,11 +604,11 @@ declare module 'native-base' {
             last?: boolean,
         }
 
-        interface Form{
-
+        interface Form {
+            style?: ReactNative.ViewStyle
         }
 
-        interface Fab{
+        interface Fab {
             active?:boolean,
             direction?:"down"|"up"|"left"|"right",
             containerStyle?:ReactNative.ViewStyle,

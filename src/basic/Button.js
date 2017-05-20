@@ -31,7 +31,7 @@ class Button extends Component {
   render() {
     const children = Platform.OS === 'ios'
         ? this.props.children
-        : React.Children.map(this.props.children, child => child.type === Text ? React.cloneElement(child, { capitalize: true, ...child.props }) : child);
+        : React.Children.map(this.props.children, child => child.type === Text ? React.cloneElement(child, { uppercase: true, ...child.props }) : child);
     if (Platform.OS==='ios' || variables.androidRipple===false || Platform['Version'] <= 21) {
       return (
         <TouchableOpacity
@@ -69,17 +69,12 @@ Button.propTypes = {
   warning: React.PropTypes.bool,
   info: React.PropTypes.bool,
   bordered: React.PropTypes.bool,
-  capitalize: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   rounded: React.PropTypes.bool,
   large: React.PropTypes.bool,
   small: React.PropTypes.bool,
   active: React.PropTypes.bool,
 };
-
-Button.defaultProps = {
-  capitalize: true
-}
 
 const StyledButton = connectStyle('NativeBase.Button', {}, mapPropsToStyleNames)(Button);
 export {
