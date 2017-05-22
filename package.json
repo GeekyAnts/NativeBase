@@ -41,7 +41,6 @@
     "print-message": "^2.1.0",
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.7",
-    "react-native-scrollable-tab-view": "^0.7.1",
     "react-native-vector-icons": "~4.1.1",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1",
