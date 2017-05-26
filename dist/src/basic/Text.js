@@ -12,7 +12,7 @@ _react2.default.createElement(_reactNative.Text,_extends({
 ref:function ref(c){return _this2._root=c;}},
 this.props,{__source:{fileName:_jsxFileName,lineNumber:11}}),
 
-this.props.capitalize?this.props.children.toUpperCase():this.props.children));
+this.props.uppercase?this.props.children.toUpperCase():this.props.children));
 
 
 }}]);return Text;}(_react.Component);

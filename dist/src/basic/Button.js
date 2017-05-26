@@ -31,7 +31,7 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 {var _this2=this;
 var children=_reactNative.Platform.OS==='ios'?
 this.props.children:
-_react2.default.Children.map(this.props.children,function(child){return child.type===_Text.Text?_react2.default.cloneElement(child,_extends({capitalize:true},child.props)):child;});
+_react2.default.Children.map(this.props.children,function(child){return child.type===_Text.Text?_react2.default.cloneElement(child,_extends({uppercase:true},child.props)):child;});
 if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||_reactNative.Platform['Version']<=21){
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
@@ -69,16 +69,11 @@ danger:_react2.default.PropTypes.bool,
 warning:_react2.default.PropTypes.bool,
 info:_react2.default.PropTypes.bool,
 bordered:_react2.default.PropTypes.bool,
-capitalize:_react2.default.PropTypes.bool,
 disabled:_react2.default.PropTypes.bool,
 rounded:_react2.default.PropTypes.bool,
 large:_react2.default.PropTypes.bool,
 small:_react2.default.PropTypes.bool,
 active:_react2.default.PropTypes.bool});
-
-
-Button.defaultProps={
-capitalize:true};
 
 
 var StyledButton=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Button',{},_mapPropsToStyleNames2.default)(Button);exports.
