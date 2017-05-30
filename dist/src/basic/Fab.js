@@ -200,23 +200,25 @@ return _react2.default.cloneElement(childrenArray[0],{style:this.getInitialStyle
 
 {var _this3=this;
 var childrenArray=_react2.default.Children.toArray(this.props.children);
-var icon=_lodash2.default.remove(childrenArray,function(item){
-if(item.type.displayName==="Styled(Icon)"||item.type.displayName==="Styled(IconNB)"){
-return true;
-}
-});
+
+
+
+
+
 
 var newChildren=[];
 
-{childrenArray.map(function(child,i){
+{
+childrenArray.slice(1).map(function(child,i){
 newChildren.push(_react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i,__source:{fileName:_jsxFileName,lineNumber:212}}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:213}}),
 child.props.children));
 
 });
+
 }
 return newChildren;
 }},{key:'upAnimate',value:function upAnimate()
@@ -337,11 +339,11 @@ this.containerWidth=this.containerWidth||new _reactNative.Animated.Value(0);
 this.buttonScale=this.buttonScale||new _reactNative.Animated.Value(0);
 }
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:340}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:342}},
 this.renderButtons(),
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 onPress:function onPress(){return _this4.fabOnPress();}},
-this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:342}}),
+this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:344}}),
 
 this.renderFab())));
 

@@ -54,7 +54,6 @@ var _Tabs=require('./basic/Tabs');var _Tabs2=_interopRequireDefault(_Tabs);
 var _DefaultTabBar=require('./basic/Tabs/DefaultTabBar');
 var _ScrollableTabBar=require('./basic/Tabs/ScrollableTabBar');
 var _STabs=require('./smart/STabs');
-
 var _Subtitle=require('./backward/Widgets/Subtitle');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
 
 (0,_init2.default)();exports.

@@ -212,7 +212,7 @@ React.createElement(Animated.View,{style:[tabUnderlineStyle,dynamicTabUnderline,
 
 componentWillReceiveProps:function componentWillReceiveProps(nextProps){
 
-if(JSON.stringify(this.props.tabs)!==JSON.stringify(nextProps.tabs)&&this.state._containerWidth){
+if(!_lodash2.default.isEqual(this.props.tabs,nextProps.tabs)&&this.state._containerWidth){
 this.setState({_containerWidth:null});
 }
 },
