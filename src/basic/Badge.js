@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
 
 import { connectStyle } from 'native-base-shoutem-theme';
 import variables from '../theme/variables/platform';
@@ -20,7 +20,7 @@ class Badge extends Component {
 
 
 Badge.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
 };
 

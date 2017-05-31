@@ -54,7 +54,6 @@ import ScrollableTabView from './basic/Tabs';
 import { DefaultTabBar } from './basic/Tabs/DefaultTabBar';
 import { ScrollableTab } from './basic/Tabs/ScrollableTabBar';
 import { STabs } from './smart/STabs';
-import { Content as TabContent } from './basic/Content';
 import { Subtitle } from './backward/Widgets/Subtitle';
 
 setDefaultThemeStyle();
@@ -110,7 +109,7 @@ export {
   Grid,
   Text,
   STabs,
-  TabContent,
+  Content as TabContent,
   View,
   ToastContainer as Toast,
   ScrollableTab,
@@ -118,7 +117,7 @@ export {
   TabHeading,
   TabContainer,
   DefaultTabBar,
-  Segment
+  Segment,
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);

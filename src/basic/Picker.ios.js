@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react';
-import { Picker, Modal, View, ListView } from 'react-native';
+import { Picker, Modal, View, ListView, ViewPropTypes } from 'react-native';
 import _ from 'lodash';
 import { Text } from './Text';
 import { List } from './List';
@@ -115,12 +115,12 @@ class PickerNB extends Component {
   }
 
   renderHeader() {
-    return (this.props.headerComponent) ? this.modifyHeader() : (<Header >
+    return (this.props.headerComponent) ? this.modifyHeader() : (<Header style={this.props.headerStyle} >
       <Left><Button
-        style={{ shadowOffset: null, shadowColor: null, shadowRadius: null, shadowOpacity: null }}
+        style={{ shadowOffset: null, shadowColor: null, shadowRadius: null, shadowOpacity: null, ...this.props.headerBackButtonStyle}}
         transparent onPress={() => { this._setModalVisible(false); }}
-      ><Text>Back</Text></Button></Left>
-    <Body><Title>{(this.props.iosHeader) ? this.props.iosHeader : 'Select One'}</Title></Body>
+      ><Text>{this.props.headerBackButtonText || 'Back'}</Text></Button></Left>
+    <Body><Title style={this.props.headerTitleStyle}>{this.props.iosHeader || 'Select One'}</Title></Body>
       <Right />
     </Header>);
   }
@@ -130,6 +130,7 @@ class PickerNB extends Component {
       <View ref={c => this._root = c}>
         {this.renderButton()}
         <Modal
+          supportedOrientations={this.props.supportedOrientations || null}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
@@ -180,7 +181,7 @@ PickerNB.Item = React.createClass({
 });
 
 PickerNB.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
 };
 
 const StyledPickerNB = connectStyle('NativeBase.PickerNB', {}, mapPropsToStyleNames)(PickerNB);

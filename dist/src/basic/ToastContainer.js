@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.ToastContainer=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.ToastContainer=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/basic/ToastContainer.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
@@ -28,7 +28,8 @@ modalVisible:true,
 text:config.text,
 buttonText:config.buttonText,
 type:config.type,
-position:config.position});
+position:config.position,
+supportedOrientations:config.supportedOrientations});
 
 if(config.duration>0){
 setTimeout(function(){
@@ -46,6 +47,7 @@ console.warn('It\'s not recommended to set autoHide false with duration');
 {var _this3=this;
 return(
 _react2.default.createElement(_reactNative.Modal,{
+supportedOrientations:this.state.supportedOrientations||null,
 animationType:this.state.position=='bottom'?"slide":"fade",
 transparent:true,
 visible:this.state.modalVisible,
@@ -53,23 +55,23 @@ onRequestClose:function onRequestClose(){
 _this3.setState({
 modalVisible:false});
 
-}},
+},__source:{fileName:_jsxFileName,lineNumber:49}},
 
 _react2.default.createElement(_reactNative.View,{style:{
 margin:_reactNative.Platform.OS==='ios'?20:0,
 flex:1,
-justifyContent:this.state.position==='top'?'flex-start':this.state.position==='bottom'?'flex-end':this.state.position==='center'?'center':'flex-start'}},
+justifyContent:this.state.position==='top'?'flex-start':this.state.position==='bottom'?'flex-end':this.state.position==='center'?'center':'flex-start'},__source:{fileName:_jsxFileName,lineNumber:60}},
 _react2.default.createElement(_Toast.Toast,{
 danger:this.state.type=='danger'?true:false,
 success:this.state.type=='success'?true:false,
-warning:this.state.type=='warning'?true:false},
-_react2.default.createElement(_Text.Text,null,this.state.text),
+warning:this.state.type=='warning'?true:false,__source:{fileName:_jsxFileName,lineNumber:64}},
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:68}},this.state.text),
 this.state.buttonText&&_react2.default.createElement(_Button.Button,{onPress:function onPress(){
 _this3.setState({
 modalVisible:false});
 
-}},
-_react2.default.createElement(_Text.Text,null,this.state.buttonText))))));
+},__source:{fileName:_jsxFileName,lineNumber:69}},
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:74}},this.state.buttonText))))));
 
 
 
@@ -79,8 +81,8 @@ _react2.default.createElement(_Text.Text,null,this.state.buttonText))))));
 }}],[{key:'show',value:function show(_ref2){var config=_objectWithoutProperties(_ref2,[]);this.toastInstance._root.showToast({config:config});}}]);return ToastContainer;}(_react.Component);
 
 
-ToastContainer.propTypes=_extends({},
-_reactNative.View.propTypes,{
+ToastContainer.propTypes=_extends({},_reactNative.ViewPropTypes,{
+
 style:_react2.default.PropTypes.object});
 
 

@@ -27,22 +27,21 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
     ]
   },
-  "version": "2.1.2",
+  "version": "2.1.4",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
     "@shoutem/animation": "^0.8.9",
-    "native-base-shoutem-theme": "0.1.0",
+    "native-base-shoutem-theme": "0.1.4",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
-    "color": "~0.11.1",
+    "color": "~1.0.3",
     "fs-extra": "^2.0.0",
     "lodash": "~4.11.1",
     "print-message": "^2.1.0",
     "react-native-easy-grid": "0.1.7",
-    "react-native-keyboard-aware-scroll-view": "0.2.7",
-    "react-native-scrollable-tab-view": "^0.7.1",
-    "react-native-vector-icons": "~4.0.0",
+    "react-native-keyboard-aware-scroll-view": "0.2.9",
+    "react-native-vector-icons": "~4.1.1",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1",
     "react-native-drawer": "^2.3.0"
@@ -61,17 +60,17 @@
     "jest": "17.0.0",
     "react": "^16.0.0-alpha.3",
     "react-native": "^0.43.0",
-    "react-native-vector-icons": "~4.0.0",
+    "react-native-vector-icons": "~4.1.1",
     "react-test-renderer": "^15.3.2"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-  "main": "dist/src/index.js",
+  "main": "src/index.js",
   "optionalDependencies": {},
   "peerDependencies": {
     "react-native": ">=0.43.0",
     "react": ">=16.0.0-alpha.3",
-    "react-native-vector-icons": "~4.0.0"
+    "react-native-vector-icons": "~4.1.1"
   },
   "readmeFilename": "README.md",
   "repository": {

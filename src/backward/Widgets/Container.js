@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react';
-import { View, Image, ScrollView } from 'react-native';
+import { View, Image, ScrollView, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { Footer } from '../../basic/Footer';
 import { Fab } from '../../basic/Fab';
@@ -85,7 +85,7 @@ class Container extends NativeBaseComponent {
 }
 
 Container.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
 };
 
