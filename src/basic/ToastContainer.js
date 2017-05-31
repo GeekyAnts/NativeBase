@@ -29,12 +29,16 @@ class ToastContainer extends Component {
       buttonText: config.buttonText,
       type: config.type,
       position: config.position,
-      supportedOrientations: config.supportedOrientations
+      supportedOrientations: config.supportedOrientations,
+      style: config.style,
+      buttonTextStyle: config.buttonTextStyle,
+      buttonStyle: config.buttonStyle,
+      textStyle: config.textStyle,
     });
     if (config.duration > 0) {
       setTimeout(() => {
         this.setState({
-          modalVisible: false
+          modalVisible: false,
         });
       }, config.duration);
     }
@@ -63,16 +67,18 @@ class ToastContainer extends Component {
           justifyContent: (this.state.position === 'top') ? 'flex-start' : (this.state.position === 'bottom') ? 'flex-end' : (this.state.position === 'center') ? 'center' : 'flex-start'
         }}>
           <Toast
+            style={this.state.style}
             danger={(this.state.type == 'danger') ? true : false}
             success={(this.state.type == 'success') ? true : false}
             warning={(this.state.type == 'warning') ? true : false}>
-            <Text>{this.state.text}</Text>
-            {(this.state.buttonText) && <Button onPress={() => {
-              this.setState({
-                modalVisible: false
-              });
-            }}>
-              <Text>{this.state.buttonText}</Text>
+            <Text style={this.state.textStyle}>{this.state.text}</Text>
+            {(this.state.buttonText) && <Button
+              style={this.state.buttonStyle} onPress={() => {
+                this.setState({
+                  modalVisible: false,
+                });
+              }}>
+              <Text style={this.state.buttonTextStyle}>{this.state.buttonText}</Text>
             </Button>}
 
           </Toast>
