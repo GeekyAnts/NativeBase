@@ -12,8 +12,8 @@ export default {
   platform,
   // AndroidRipple
   androidRipple: true,
-  androidRippleColor: 'rgba(256, 256, 256, 0.3)',
-  androidRippleColorDark: 'rgba(0, 0, 0, 0.15)',
+  androidRippleColor: 'rgba(255, 255, 255, 0.26)',
+  androidRippleColorDark: 'rgba(0, 0, 0, 0.26)',
 
   // Badge
   badgeBg: '#ED1727',
@@ -22,36 +22,9 @@ export default {
   badgePadding: (platform === 'ios') ? 3 : 0,
 
   // Button
-  btnFontFamily: (platform === 'ios') ? 'System' : 'Roboto_medium',
+  btnFontFamily: (platform === 'ios') ? 'System' : 'sans-serif-medium',
   btnDisabledBg: '#b5b5b5',
   btnDisabledClr: '#f1f1f1',
-
-  // CheckBox
-  CheckboxRadius: (platform === 'ios') ? 13 : 0,
-  CheckboxBorderWidth: (platform === 'ios') ? 1 : 2,
-  CheckboxPaddingLeft: (platform === 'ios') ? 4 : 2,
-  CheckboxPaddingBottom: (platform === 'ios') ? 0 : 5,
-  CheckboxIconSize: (platform === 'ios') ? 21 : 14,
-  CheckboxIconMarginTop: (platform === 'ios') ? undefined : 1,
-  CheckboxFontSize: (platform === 'ios') ? (23 / 0.9) : 18,
-  DefaultFontSize: 17,
-  checkboxBgColor: '#039BE5',
-  checkboxSize: 20,
-  checkboxTickColor: '#fff',
-
-  // Segment
-  segmentBackgroundColor: '#3F51B5',
-  segmentActiveBackgroundColor: '#fff',
-  segmentTextColor: '#fff',
-  segmentActiveTextColor: '#3F51B5',
-  segmentBorderColor: '#fff',
-  segmentBorderColorMain: '#3F51B5',
-
-  // New Variable
-  get defaultTextColor() {
-    return this.textColor;
-  },
-
 
   get btnPrimaryBg() {
     return this.brandPrimary;
@@ -84,8 +57,7 @@ export default {
     return this.inverseTextColor;
   },
   get btnTextSize() {
-    return (platform === 'ios') ? this.fontSizeBase * 1.1 :
-      this.fontSizeBase - 1;
+    return (platform === 'ios') ? this.fontSizeBase * 1.1 : this.fontSizeBase;
   },
   get btnTextSizeLarge() {
     return this.fontSizeBase * 1.5;
@@ -97,13 +69,41 @@ export default {
     return this.fontSizeBase * 3.8;
   },
 
-  buttonPadding: 6,
+  btnHeight: (platform === 'ios') ? 45 : 36,
+  btnHeightSmall: 32,
+  btnPadding: (platform === 'ios') ? 10 : 6,
 
   get iconSizeLarge() {
     return this.iconFontSize * 1.5;
   },
   get iconSizeSmall() {
     return this.iconFontSize * 0.6;
+  },
+
+  // CheckBox
+  CheckboxRadius: (platform === 'ios') ? 13 : 0,
+  CheckboxBorderWidth: (platform === 'ios') ? 1 : 2,
+  CheckboxPaddingLeft: (platform === 'ios') ? 4 : 2,
+  CheckboxPaddingBottom: (platform === 'ios') ? 0 : 5,
+  CheckboxIconSize: (platform === 'ios') ? 21 : 14,
+  CheckboxIconMarginTop: (platform === 'ios') ? undefined : 1,
+  CheckboxFontSize: (platform === 'ios') ? (23 / 0.9) : 18,
+  DefaultFontSize: 17,
+  checkboxBgColor: '#039BE5',
+  checkboxSize: 20,
+  checkboxTickColor: '#fff',
+
+  // Segment
+  segmentBackgroundColor: '#3F51B5',
+  segmentActiveBackgroundColor: '#fff',
+  segmentTextColor: '#fff',
+  segmentActiveTextColor: '#3F51B5',
+  segmentBorderColor: '#fff',
+  segmentBorderColorMain: '#3F51B5',
+  
+  // New Variable
+  get defaultTextColor() {
+    return this.textColor;
   },
 
 
@@ -121,8 +121,8 @@ export default {
 
 
   // Font
-  fontFamily: (platform === 'ios') ? 'System' : 'Roboto',
-  fontSizeBase: 15,
+  fontFamily: (platform === 'ios') ? 'System' : 'sans-serif',
+  fontSizeBase: (platform === 'ios') ? 15 : 14,
 
   get fontSizeH1() {
     return this.fontSizeBase * 1.8;
@@ -176,9 +176,9 @@ export default {
 
   // Icon
   iconFamily: 'Ionicons',
-  iconFontSize: (platform === 'ios') ? 30 : 28,
-  iconMargin: 7,
-  iconHeaderSize: (platform === 'ios') ? 33 : 24,
+  iconFontSize: (platform === 'ios') ? 25 : 24,
+  iconMargin: (platform === 'ios') ? 7 : 12,
+  iconHeaderSize: (platform === 'ios') ? 25 : 24,
 
 
   // InputGroup
@@ -204,7 +204,7 @@ export default {
 
 
   // Line Height
-  btnLineHeight: 19,
+  btnLineHeight: (platform === 'ios') ? 19 : 16,
   lineHeightH1: 32,
   lineHeightH2: 27,
   lineHeightH3: 22,
@@ -265,7 +265,7 @@ export default {
 
 
   // Title
-  titleFontfamily: (platform === 'ios') ? 'System' : 'Roboto_medium',
+  titleFontfamily: (platform === 'ios') ? 'System' : 'sans-serif-medium',
   titleFontSize: (platform === 'ios') ? 17 : 19,
   subTitleFontSize: (platform === 'ios') ? 12 : 14,
   subtitleColor: '#FFF',
