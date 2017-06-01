@@ -117,7 +117,7 @@ declare module 'native-base' {
          * see Widget Title.js
          */
         interface Title {
-            style?: ReactNative.ViewStyle
+            style?: ReactNative.TextStyle & ReactNative.ViewStyle
         }
         /**
          * see Widget Subtitle/index.js
@@ -149,7 +149,7 @@ declare module 'native-base' {
         /**
          * see Widget Button.js
          */
-        interface Button extends ReactNative.TouchableOpacityProperties,BsStyle {
+        interface Button extends ReactNative.TouchableNativeFeedbackProperties, ReactNative.TouchableOpacityProperties, BsStyle {
             /**
              * Defines button style
              */
@@ -173,6 +173,10 @@ declare module 'native-base' {
             // warning?: boolean,
             //info?: boolean,
             color?: string,
+            /**
+             * The ripple color used if `background` from TouchableNativeFeedback isn't explicitly given
+             */
+            androidRippleColor?: string,
             /**
              * Applies outline button style.
              */
@@ -206,9 +210,9 @@ declare module 'native-base' {
             disabled?: boolean,
             active?: boolean,
             inputButton?: boolean,
-            full?:boolean,
-            light?:boolean,
-            dark?:boolean
+            full?: boolean,
+            light?: boolean,
+            dark?: boolean,
         }
         /**
          * see Widget List.js
