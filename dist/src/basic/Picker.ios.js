@@ -76,28 +76,14 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 props){
 var item=_lodash2.default.find(props.children,function(child){return child.props.value===props.selectedValue;});
 return _lodash2.default.get(item,'props.label');
-}},{key:'modifyHeader',value:function modifyHeader()
-
-{var _this2=this;
-var childrenArray=_react2.default.Children.toArray(this.props.headerComponent.props.children);
-var newChildren=[];
-childrenArray.forEach(function(child){
-if(child.type===_Button.Button){
-newChildren.push(_react2.default.cloneElement(child,
-{onPress:function onPress(){_this2._setModalVisible(false);}}));
-}else{
-newChildren.push(child);
-}
-});
-return _react2.default.createElement(_Header.Header,_extends({},this.props.headerComponent.props,{__source:{fileName:_jsxFileName,lineNumber:92}}),newChildren);
 }},{key:'renderIcon',value:function renderIcon()
 
 {
 return _react2.default.cloneElement(this.props.iosIcon,{style:{fontSize:22,lineHeight:26,color:'#7a7a7a'}});
 }},{key:'renderButton',value:function renderButton()
 
-{var _this3=this;
-var onPress=function onPress(){_this3._setModalVisible(true);};
+{var _this2=this;
+var onPress=function onPress(){_this2._setModalVisible(true);};
 var text=this.state.currentLabel?this.state.currentLabel:this.props.defaultLabel;
 if(this.props.renderButton){
 return this.props.renderButton(onPress,text,this);
@@ -107,56 +93,56 @@ style:this.props.style,
 dark:true,
 picker:true,
 transparent:true,
-onPress:onPress,__source:{fileName:_jsxFileName,lineNumber:105}},
+onPress:onPress,__source:{fileName:_jsxFileName,lineNumber:91}},
 
-_react2.default.createElement(_Text.Text,{note:this.props.note,style:this.props.textStyle,__source:{fileName:_jsxFileName,lineNumber:112}},text),
+_react2.default.createElement(_Text.Text,{note:this.props.note,style:this.props.textStyle,__source:{fileName:_jsxFileName,lineNumber:98}},text),
 this.props.iosIcon===undefined?null:this.renderIcon());
 
 }},{key:'renderHeader',value:function renderHeader()
 
-{var _this4=this;
-return this.props.headerComponent?this.modifyHeader():_react2.default.createElement(_Header.Header,{style:this.props.headerStyle,__source:{fileName:_jsxFileName,lineNumber:118}},
-_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:119}},_react2.default.createElement(_Button.Button,{
+{var _this3=this;
+return this.props.renderHeader?this.props.renderHeader(function(){return _this3._setModalVisible(false);}):_react2.default.createElement(_Header.Header,{style:this.props.headerStyle,__source:{fileName:_jsxFileName,lineNumber:104}},
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:105}},_react2.default.createElement(_Button.Button,{
 style:_extends({shadowOffset:null,shadowColor:null,shadowRadius:null,shadowOpacity:null},this.props.headerBackButtonStyle),
-transparent:true,onPress:function onPress(){_this4._setModalVisible(false);},__source:{fileName:_jsxFileName,lineNumber:119}},
-_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:122}},this.props.headerBackButtonText||'Back'))),
-_react2.default.createElement(_Body.Body,{__source:{fileName:_jsxFileName,lineNumber:123}},_react2.default.createElement(_Title.Title,{style:this.props.headerTitleStyle,__source:{fileName:_jsxFileName,lineNumber:123}},this.props.iosHeader||'Select One')),
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:124}}));
+transparent:true,onPress:function onPress(){_this3._setModalVisible(false);},__source:{fileName:_jsxFileName,lineNumber:105}},
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:108}},this.props.headerBackButtonText||'Back'))),
+_react2.default.createElement(_Body.Body,{__source:{fileName:_jsxFileName,lineNumber:109}},_react2.default.createElement(_Title.Title,{style:this.props.headerTitleStyle,__source:{fileName:_jsxFileName,lineNumber:109}},this.props.iosHeader||'Select One')),
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:110}}));
 
 }},{key:'render',value:function render()
 
-{var _this5=this;
+{var _this4=this;
 return(
-_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this5._root=c;},__source:{fileName:_jsxFileName,lineNumber:130}},
+_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this4._root=c;},__source:{fileName:_jsxFileName,lineNumber:116}},
 this.renderButton(),
 _react2.default.createElement(_reactNative.Modal,{
 supportedOrientations:this.props.supportedOrientations||null,
 animationType:'slide',
 transparent:false,
 visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){_this5._setModalVisible(false);},__source:{fileName:_jsxFileName,lineNumber:132}},
+onRequestClose:function onRequestClose(){_this4._setModalVisible(false);},__source:{fileName:_jsxFileName,lineNumber:118}},
 
-_react2.default.createElement(_Container.Container,{__source:{fileName:_jsxFileName,lineNumber:139}},
+_react2.default.createElement(_Container.Container,{__source:{fileName:_jsxFileName,lineNumber:125}},
 this.renderHeader(),
-_react2.default.createElement(_Content.Content,{__source:{fileName:_jsxFileName,lineNumber:141}},
+_react2.default.createElement(_Content.Content,{__source:{fileName:_jsxFileName,lineNumber:127}},
 _react2.default.createElement(_List.List,{
 dataArray:this.state.dataSource,
 renderRow:function renderRow(child){return(
 _react2.default.createElement(_ListItem.ListItem,{
-selected:child.props.value===_this5.props.selectedValue?true:false,
+selected:child.props.value===_this4.props.selectedValue?true:false,
 button:true,
-style:_this5.props.itemStyle,
+style:_this4.props.itemStyle,
 onPress:function onPress(){
-_this5._setModalVisible(false);_this5.props.onValueChange(child.props.value);
-_this5.setState({current:child.props.label});
-},__source:{fileName:_jsxFileName,lineNumber:145}},
+_this4._setModalVisible(false);_this4.props.onValueChange(child.props.value);
+_this4.setState({current:child.props.label});
+},__source:{fileName:_jsxFileName,lineNumber:131}},
 
-_react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle,__source:{fileName:_jsxFileName,lineNumber:154}},child.props.label),
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:155}},
-child.props.value===_this5.props.selectedValue?
-_react2.default.createElement(_Radio.Radio,{selected:true,__source:{fileName:_jsxFileName,lineNumber:157}}):
+_react2.default.createElement(_Text.Text,{style:_this4.props.itemTextStyle,__source:{fileName:_jsxFileName,lineNumber:140}},child.props.label),
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:141}},
+child.props.value===_this4.props.selectedValue?
+_react2.default.createElement(_Radio.Radio,{selected:true,__source:{fileName:_jsxFileName,lineNumber:143}}):
 
-_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:159}}))));},__source:{fileName:_jsxFileName,lineNumber:142}}))))));
+_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:145}}))));},__source:{fileName:_jsxFileName,lineNumber:128}}))))));
 
 
 
@@ -175,7 +161,7 @@ PickerNB.Item=_react2.default.createClass({displayName:'Item',
 
 render:function render(){
 return(
-_react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:178}})));
+_react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:164}})));
 
 }});
 

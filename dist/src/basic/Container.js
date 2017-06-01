@@ -12,8 +12,8 @@ Container=function(_Component){_inherits(Container,_Component);function Containe
 return(
 _react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:13}}),
 this.props.children,
-_react2.default.createElement(_ToastContainer.ToastContainer,{ref:function ref(c){_ToastContainer.ToastContainer.toastInstance=c;},__source:{fileName:_jsxFileName,lineNumber:15}}),
-_react2.default.createElement(_Actionsheet.ActionSheetContainer,{ref:function ref(c){_Actionsheet.ActionSheetContainer.actionsheetInstance=c;},__source:{fileName:_jsxFileName,lineNumber:16}})));
+_react2.default.createElement(_ToastContainer.ToastContainer,{ref:function ref(c){if(!_ToastContainer.ToastContainer.toastInstance)_ToastContainer.ToastContainer.toastInstance=c;},__source:{fileName:_jsxFileName,lineNumber:15}}),
+_react2.default.createElement(_Actionsheet.ActionSheetContainer,{ref:function ref(c){if(!_Actionsheet.ActionSheetContainer.actionsheetInstance)_Actionsheet.ActionSheetContainer.actionsheetInstance=c;},__source:{fileName:_jsxFileName,lineNumber:16}})));
 
 
 }}]);return Container;}(_react.Component);

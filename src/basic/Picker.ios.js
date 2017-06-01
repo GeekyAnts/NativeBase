@@ -53,7 +53,7 @@ class PickerNB extends Component {
   getInitialStyle() {
     return {
       picker: {
-                // alignItems: 'flex-end'
+        // alignItems: 'flex-end'
       },
       pickerItem: {
 
@@ -76,20 +76,6 @@ class PickerNB extends Component {
   getLabel(props) {
     const item = _.find(props.children, child => child.props.value === props.selectedValue);
     return _.get(item, 'props.label');
-  }
-
-  modifyHeader() {
-    const childrenArray = React.Children.toArray(this.props.headerComponent.props.children);
-    const newChildren = [];
-    childrenArray.forEach((child) => {
-      if (child.type === Button) {
-        newChildren.push(React.cloneElement(child,
-          { onPress: () => { this._setModalVisible(false); } }));
-      } else {
-        newChildren.push(child);
-      }
-    });
-    return <Header {...this.props.headerComponent.props} >{newChildren}</Header>;
   }
 
   renderIcon() {
@@ -115,12 +101,12 @@ class PickerNB extends Component {
   }
 
   renderHeader() {
-    return (this.props.headerComponent) ? this.modifyHeader() : (<Header style={this.props.headerStyle} >
+    return (this.props.renderHeader) ? this.props.renderHeader(() => this._setModalVisible(false)) : (<Header style={this.props.headerStyle} >
       <Left><Button
-        style={{ shadowOffset: null, shadowColor: null, shadowRadius: null, shadowOpacity: null, ...this.props.headerBackButtonStyle}}
+        style={{ shadowOffset: null, shadowColor: null, shadowRadius: null, shadowOpacity: null, ...this.props.headerBackButtonStyle }}
         transparent onPress={() => { this._setModalVisible(false); }}
       ><Text>{this.props.headerBackButtonText || 'Back'}</Text></Button></Left>
-    <Body><Title style={this.props.headerTitleStyle}>{this.props.iosHeader || 'Select One'}</Title></Body>
+      <Body><Title style={this.props.headerTitleStyle}>{this.props.iosHeader || 'Select One'}</Title></Body>
       <Right />
     </Header>);
   }
@@ -154,13 +140,13 @@ class PickerNB extends Component {
                     <Text style={this.props.itemTextStyle} >{child.props.label}</Text>
                     <Right>
                       {(child.props.value === this.props.selectedValue) ?
-                                        (<Radio selected={true} />)
-                                        :
-                                        (<Radio selected={false} />)
-                                    }
+                        (<Radio selected={true} />)
+                        :
+                        (<Radio selected={false} />)
+                      }
                     </Right>
                   </ListItem>
-                            }
+                }
               />
             </Content>
           </Container>
@@ -175,7 +161,7 @@ PickerNB.Item = React.createClass({
 
   render() {
     return (
-      <Picker.Item {...this.props()} />
+      <Picker.Item {...this.props() } />
     );
   },
 });

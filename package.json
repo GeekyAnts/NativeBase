@@ -32,19 +32,19 @@
   "private": false,
   "dependencies": {
     "@shoutem/animation": "^0.8.9",
-    "native-base-shoutem-theme": "0.1.4",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~1.0.3",
     "fs-extra": "^2.0.0",
     "lodash": "~4.11.1",
+    "native-base-shoutem-theme": "0.1.4",
     "print-message": "^2.1.0",
+    "react-native-drawer": "^2.3.0",
     "react-native-easy-grid": "0.1.7",
     "react-native-keyboard-aware-scroll-view": "0.2.9",
     "react-native-vector-icons": "~4.1.1",
     "react-tween-state": "^0.1.5",
-    "tween-functions": "^1.0.1",
-    "react-native-drawer": "^2.3.0"
+    "tween-functions": "^1.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
