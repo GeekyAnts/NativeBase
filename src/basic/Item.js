@@ -20,8 +20,12 @@ class Item extends Component {
     };
   }
   componentDidMount() {
-    if(this.inputProps && this.inputProps.getRef)
-    this.inputProps.getRef(this._inputRef);
+    if (this.inputProps.value) {
+      this.setState({ isFocused: true });
+      this.floatUp(-16);
+    }
+    if (this.inputProps && this.inputProps.getRef)
+      this.inputProps.getRef(this._inputRef);
   }
 
   floatBack() {
@@ -35,9 +39,9 @@ class Item extends Component {
     }).start();
   }
 
-  floatUp() {
+  floatUp(e) {
     Animated.timing(this.state.topAnim, {
-      toValue: -22,
+      toValue: e ? e : -22,
       duration: 150,
     }).start();
     Animated.timing(this.state.opacAnim, {
@@ -70,12 +74,12 @@ class Item extends Component {
       }
     } else {
       newLabel.push(React.createElement(
-          Label,
+        Label,
         {
           ...labelProps,
           key: 'newLabel',
         }
-        ));
+      ));
     }
     return newLabel;
   }
@@ -111,14 +115,22 @@ class Item extends Component {
         return item;
       }
     });
-    if(this.props.floatingLabel && icon.length) {
-        newChildren.push(<Icon key="i1" {...iconProps} />);
-        newChildren.push(<Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 22 : 22, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : undefined, paddingBottom: (Platform.OS === 'ios') ? undefined : 12 }}><Label {...labelProps} >{this.renderLabel(label, labelProps)}</Label></Animated.View>);
-        newChildren.push(<Input key="l2" {...inputProps} onFocus={() => {this.setState({ isFocused: true }); (inputProps.onFocus) && inputProps.onFocus()}} onBlur={() => {!(this.state.text.length) && this.setState({ isFocused: false }); (inputProps.onBlur) && inputProps.onBlur()}} onChangeText={text => {this.setState({ text }); (inputProps.onChangeText) && inputProps.onChangeText(text) }} />);
+    if (this.props.floatingLabel && icon.length) {
+      newChildren.push(<Icon key="i1" {...iconProps} />);
+      newChildren.push(<Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 22 : 22, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : undefined, paddingBottom: (Platform.OS === 'ios') ? undefined : 12 }}><Label {...labelProps} >{this.renderLabel(label, labelProps)}</Label></Animated.View>);
+      newChildren.push(<Input key="l2" {...inputProps} onFocus={() => { this.setState({ isFocused: true }); (inputProps.onFocus) && inputProps.onFocus() }} onBlur={() => {
+        (inputProps.value) ? this.setState({
+          isFocused: true
+        }) : !(this.state.text.length) && this.setState({ isFocused: false }); (inputProps.onBlur) && inputProps.onBlur()
+      }} onChangeText={text => { this.setState({ text }); (inputProps.onChangeText) && inputProps.onChangeText(text) }} />);
     }
     else if (this.props.floatingLabel) {
-        newChildren.push(<Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 15 : 0, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : undefined, paddingBottom: (Platform.OS === 'ios') ? undefined : 12 }}><Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label></Animated.View>);
-        newChildren.push(<Input ref={(c) => this._inputRef = c} value={this.state.text} key="l2" {...inputProps}  onFocus={() => {this.setState({ isFocused: true }); (inputProps.onFocus) && inputProps.onFocus()}} onBlur={() => {!(this.state.text.length) && this.setState({ isFocused: false }); (inputProps.onBlur) && inputProps.onBlur()}} onChangeText={text => {this.setState({ text }); (inputProps.onChangeText) && inputProps.onChangeText(text) }} />);
+      newChildren.push(<Animated.View key="float" style={{ position: 'absolute', left: (this.props.last) ? 15 : 0, right: 0, top: this.state.topAnim, opacity: this.state.opacAnim, paddingTop: (Platform.OS === 'ios') ? undefined : undefined, paddingBottom: (Platform.OS === 'ios') ? undefined : 12 }}><Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label></Animated.View>);
+      newChildren.push(<Input ref={(c) => this._inputRef = c} value={this.state.text} key="l2" {...inputProps} onFocus={() => { this.setState({ isFocused: true }); (inputProps.onFocus) && inputProps.onFocus() }} onBlur={() => {
+        (inputProps.value) ? this.setState({
+          isFocused: true
+        }) : !(this.state.text.length) && this.setState({ isFocused: false }); (inputProps.onBlur) && inputProps.onBlur()
+      }} onChangeText={text => { this.setState({ text }); (inputProps.onChangeText) && inputProps.onChangeText(text) }} />);
     }
     else if (this.props.stackedLabel && icon.length) {
       newChildren.push(<View key="s" style={{ flexDirection: 'row', flex: 1, width: variables.deviceWidth - 15 }}><Icon key="s1" {...iconProps} /><View style={{ flexDirection: 'column' }}><Label key="s2" {...labelProps}></Label><Input key="s3" {...inputProps} style={{ width: variables.deviceWidth - 40 }} /></View></View>);
@@ -147,7 +159,7 @@ class Item extends Component {
   }
   render() {
     return (
-      <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()} activeOpacity={1}>
+      <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps() } activeOpacity={1}>
         {this.renderChildren()}
       </TouchableOpacity>
     );
