@@ -162,17 +162,21 @@ declare module 'native-base' {
              * Block level button
              */
             block?: boolean,
-            //primary?: boolean,
+            /**
+             * Forces button flex-direction to column
+             */
+            vertical?: boolean,
             /**
              * Gives you effect of Icon-buttons.
              * To have button with transparent background, include this prop.
              */
             transparent?: boolean,
-            //success?: boolean,
-            //danger?: boolean,
+            // primary?: boolean,
+            // success?: boolean,
+            // danger?: boolean,
             // warning?: boolean,
-            //info?: boolean,
-            color?: string,
+            // info?: boolean,
+            // color?: string,
             /**
              * The ripple color used if `background` from TouchableNativeFeedback isn't explicitly given
              */

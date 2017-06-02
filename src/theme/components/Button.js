@@ -401,7 +401,7 @@ export default (variables = variable) => {
     },
 
     '.vertical': {
-      flexDirection: 'row',
+      flexDirection: 'column',
       height: null,
     },
 
