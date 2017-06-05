@@ -1,5 +1,3 @@
-import { Platform } from 'react-native';
-
 import variable from './../variables/platform';
 
 export default (variables = variable) => {
@@ -397,18 +395,6 @@ export default (variables = variable) => {
       },
     },
 
-    '.iconRight': {
-      'NativeBase.Text': {
-        marginRight: variables.buttonPadding,
-      },
-    },
-    '.iconLeft': {
-      'NativeBase.Text': {
-        marginLeft: variables.buttonPadding,
-      },
-    },
-
-
     '.capitalize': {
 
     },
@@ -441,7 +427,12 @@ export default (variables = variable) => {
       marginHorizontal: 5,
       paddingTop: (platform === 'ios') ? 2 : undefined
     },
+
+
     '.iconLeft': {
+      'NativeBase.Text': {
+        marginLeft: variables.buttonPadding,
+      },
       'NativeBase.IconNB': {
         marginRight: 10,
         marginLeft: 0,
@@ -452,6 +443,9 @@ export default (variables = variable) => {
       },
     },
     '.iconRight': {
+      'NativeBase.Text': {
+        marginRight: variables.buttonPadding,
+      },
       'NativeBase.IconNB': {
         marginLeft: 10,
         marginRight: 0,
