@@ -1,5 +1,4 @@
 import { Platform } from 'react-native';
-import _ from 'lodash';
 
 import variable from './../variables/platform';
 
@@ -12,6 +11,9 @@ export default (variables = variable) => {
         },
         'NativeBase.Label': {
           top: 8,
+        },
+        'NativeBase.Icon': {
+          top: 6,
         },
       },
       '.fixedLabel': {
@@ -39,6 +41,9 @@ export default (variables = variable) => {
           paddingTop: 5,
           alignSelf: 'flex-start',
           fontSize: variables.inputFontSize - 2,
+        },
+        'NativeBase.Icon': {
+          marginTop: 36,
         },
         'NativeBase.Input': {
           alignSelf: (Platform.OS === 'ios') ? 'stretch' : 'flex-start',

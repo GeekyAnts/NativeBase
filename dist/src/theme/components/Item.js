@@ -11,7 +11,10 @@ height:60,
 top:8},
 
 'NativeBase.Label':{
-top:8}},
+top:8},
+
+'NativeBase.Icon':{
+top:6}},
 
 
 '.fixedLabel':{
@@ -39,6 +42,9 @@ right:null,
 paddingTop:5,
 alignSelf:'flex-start',
 fontSize:variables.inputFontSize-2},
+
+'NativeBase.Icon':{
+marginTop:36},
 
 'NativeBase.Input':{
 alignSelf:_reactNative.Platform.OS==='ios'?'stretch':'flex-start',

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
 
 import variables from '../theme/variables/platform';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import computeProps from '../Utils/computeProps';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
@@ -34,7 +34,7 @@ class InputGroup extends Component {
 }
 
 InputGroup.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   regular: React.PropTypes.bool,
   underline: React.PropTypes.bool,
   rounded: React.PropTypes.bool,

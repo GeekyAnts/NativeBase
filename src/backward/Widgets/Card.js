@@ -1,8 +1,8 @@
 /* @flow */
 
 import React from 'react';
-import { View, ListView } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { View, ListView, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 
@@ -38,7 +38,7 @@ class Card extends NativeBaseComponent {
 }
 
 Card.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
   dataArray: React.PropTypes.object,
   renderRow: React.PropTypes.object,

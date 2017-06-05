@@ -1,4 +1,3 @@
-import { Platform } from 'react-native';
 import _ from 'lodash';
 import headerTheme from './Header';
 import containerTheme from './Container'
@@ -27,6 +26,7 @@ import tabContainerTheme from './TabContainer';
 import viewTheme from './View';
 import tabHeadingTheme from './TabHeading';
 import iconTheme from './Icon';
+import inputTheme from './Input';
 import segmentTheme from './Segment';
 import spinnerTheme from './Spinner';
 import cardItemTheme from './CardItem';
@@ -71,6 +71,10 @@ export default (variables = variable) => {
 
     'NativeBase.InputGroup': {
       ...inputGroupTheme(variables),
+    },
+
+    'NativeBase.Input': {
+      ...inputTheme(variables),
     },
 
     'NativeBase.Badge': {
@@ -226,8 +230,6 @@ export default (variables = variable) => {
     },
     'NativeBase.Separator': {
       ...separatorTheme(variables),
-    },
-    'NativeBase.Tabs': {
     },
     'NativeBase.Thumbnail': {
       '.square': {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Animated, Dimensions } from 'react-native';
+import { View, Animated, Dimensions, ViewPropTypes } from 'react-native';
 import { IconNB } from '../../basic/IconNB';
 import { Button } from '../../basic/Button';
 import { Text } from '../../basic/Text';
 import variables from '../../theme/variables/platform';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 class TabBar extends Component {
 
@@ -72,7 +72,7 @@ class TabBar extends Component {
 }
 
 TabBar.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
 };
 
 const StyledTabBar = connectStyle('NativeBase.TabBar', {}, mapPropsToStyleNames)(TabBar);

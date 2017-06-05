@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Animated, Dimensions, ScrollView, Platform, ViewPagerAndroid } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { View, Animated, Dimensions, ScrollView, Platform, ViewPagerAndroid, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
 
 import { TabBar } from './TabBar';
@@ -137,8 +137,8 @@ class STabs extends Component {
   render() {
     const tabBarProps = {
       goToPage: this.goToPage.bind(this),
-      tabs: this.props.children.map(child => child.props.tabLabel),
-      tabIcon: this.props.children.map(child => child.props.tabIcon),
+      tabs: this.props.children.map(child => child && child.props.tabLabel),
+      tabIcon: this.props.children.map(child => child && child.props.tabIcon),
       activeTab: this.state.currentPage,
       iconPresent: (this.props.children[0].props.tabIcon) ? true : false,
       tabBarTextStyle: this.props.tabBarTextStyle,
@@ -162,7 +162,7 @@ class STabs extends Component {
 }
 
 STabs.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
   initialPage: React.PropTypes.number,
   tabBarPosition: React.PropTypes.string,

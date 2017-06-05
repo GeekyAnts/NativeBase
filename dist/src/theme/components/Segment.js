@@ -8,7 +8,6 @@ var platform=variables.platform;
 
 var segmentTheme={
 height:45,
-borderBottomWidth:variables.borderWidth,
 borderColor:variables.segmentBorderColorMain,
 flexDirection:'row',
 justifyContent:'center',

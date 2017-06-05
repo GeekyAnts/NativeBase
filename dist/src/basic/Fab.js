@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Fab=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.Fab=undefined;var _jsxFileName='src/basic/Fab.js';var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
@@ -10,7 +10,7 @@ var _Icon=require('./Icon');
 var _IconNB=require('./IconNB');
 
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _computeProps=require('../Utils/computeProps');var _computeProps2=_interopRequireDefault(_computeProps);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}
 
@@ -90,9 +90,9 @@ left:this.props.active===false?_reactNative.Platform.OS==='ios'?8:8:i*50+65,
 right:0};
 
 }
-}},{key:'getInitialStyle',value:function getInitialStyle()
+}},{key:'getInitialStyle',value:function getInitialStyle(
 
-{
+iconStyle){
 return{
 fab:{
 height:56,
@@ -116,10 +116,11 @@ height:this.containerHeight,
 flexDirection:this.props.direction?this.props.direction=='left || right'?'row':'column':'column',
 alignItems:'center'},
 
-iconStyle:{
+iconStyle:_extends({
 color:'#fff',
 fontSize:24,
 lineHeight:_reactNative.Platform.OS==='ios'?27:undefined},
+iconStyle),
 
 buttonStyle:{
 position:'absolute',
@@ -194,28 +195,30 @@ return true;
 
 
 
-return _react2.default.cloneElement(childrenArray[0],{style:this.getInitialStyle().iconStyle});
+return _react2.default.cloneElement(childrenArray[0],{style:this.getInitialStyle(childrenArray[0].props.style).iconStyle});
 }},{key:'renderButtons',value:function renderButtons()
 
 {var _this3=this;
 var childrenArray=_react2.default.Children.toArray(this.props.children);
-var icon=_lodash2.default.remove(childrenArray,function(item){
-if(item.type.displayName==="Styled(Icon)"||item.type.displayName==="Styled(IconNB)"){
-return true;
-}
-});
+
+
+
+
+
 
 var newChildren=[];
 
-{childrenArray.map(function(child,i){
+{
+childrenArray.slice(1).map(function(child,i){
 newChildren.push(_react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:213}}),
 child.props.children));
 
 });
+
 }
 return newChildren;
 }},{key:'upAnimate',value:function upAnimate()
@@ -336,11 +339,11 @@ this.containerWidth=this.containerWidth||new _reactNative.Animated.Value(0);
 this.buttonScale=this.buttonScale||new _reactNative.Animated.Value(0);
 }
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle()},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:342}},
 this.renderButtons(),
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 onPress:function onPress(){return _this4.fabOnPress();}},
-this.prepareFabProps(),{activeOpacity:1}),
+this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:344}}),
 
 this.renderFab())));
 
@@ -357,7 +360,7 @@ direction:_react2.default.PropTypes.string,
 containerStyle:_react2.default.PropTypes.object,
 position:_react2.default.PropTypes.string});
 
-var StyledFab=(0,_theme.connectStyle)('NativeBase.Fab',{},_mapPropsToStyleNames2.default)(Fab);exports.
+var StyledFab=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Fab',{},_mapPropsToStyleNames2.default)(Fab);exports.
 
 Fab=StyledFab;
 //# sourceMappingURL=Fab.js.map

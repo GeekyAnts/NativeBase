@@ -1,4 +1,4 @@
-import { StyleProvider, connectStyle } from '@shoutem/theme';
+import { StyleProvider, connectStyle } from 'native-base-shoutem-theme';
 import { keys } from 'lodash';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Gravatar } from './backward/Widgets/Gravatar';
@@ -39,6 +39,7 @@ import { Footer } from './basic/Footer';
 import { FooterTab } from './basic/FooterTab';
 import { Form } from './basic/Form';
 import { ToastContainer } from './basic/ToastContainer';
+import { ActionSheetContainer } from './basic/Actionsheet';
 import { PickerNB } from './basic/Picker';
 import { List } from './basic/List';
 import { ListItem } from './basic/ListItem';
@@ -51,8 +52,8 @@ import { Textarea } from './basic/Textarea';
 import { Tab } from './basic/Tab';
 import ScrollableTabView from './basic/Tabs';
 import { DefaultTabBar } from './basic/Tabs/DefaultTabBar';
+import { ScrollableTab } from './basic/Tabs/ScrollableTabBar';
 import { STabs } from './smart/STabs';
-import { Content as TabContent } from './basic/Content';
 import { Subtitle } from './backward/Widgets/Subtitle';
 
 setDefaultThemeStyle();
@@ -108,13 +109,15 @@ export {
   Grid,
   Text,
   STabs,
-  TabContent,
+  Content as TabContent,
   View,
   ToastContainer as Toast,
+  ScrollableTab,
+  ActionSheetContainer as ActionSheet,
   TabHeading,
   TabContainer,
   DefaultTabBar,
-  Segment
+  Segment,
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);

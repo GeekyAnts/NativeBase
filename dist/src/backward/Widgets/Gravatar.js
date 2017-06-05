@@ -1,8 +1,8 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Gravatar=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.Gravatar=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/backward/Widgets/Gravatar.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _blueimpMd=require('blueimp-md5');var _blueimpMd2=_interopRequireDefault(_blueimpMd);
 var _mapPropsToStyleNames=require('../../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
@@ -49,7 +49,7 @@ var props=this.prepareRootProps();
 
 var uri=GRAVATAR_URI+(0,_blueimpMd2.default)(this.props.email)+'?s='+props.style.height;
 return(
-_react2.default.createElement(_reactNative.Image,_extends({ref:function ref(c){return _this2._root=c;}},props,{source:{uri:uri}})));
+_react2.default.createElement(_reactNative.Image,_extends({ref:function ref(c){return _this2._root=c;}},props,{source:{uri:uri},__source:{fileName:_jsxFileName,lineNumber:52}})));
 
 }}]);return Gravatar;}(_NativeBaseComponent3.default);
 
@@ -63,7 +63,7 @@ circular:_react2.default.PropTypes.bool,
 square:_react2.default.PropTypes.bool});
 
 
-var StyledGravatar=(0,_theme.connectStyle)('NativeBase.Gravatar',{},_mapPropsToStyleNames2.default)(Gravatar);exports.
+var StyledGravatar=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Gravatar',{},_mapPropsToStyleNames2.default)(Gravatar);exports.
 
 Gravatar=StyledGravatar;
 //# sourceMappingURL=Gravatar.js.map

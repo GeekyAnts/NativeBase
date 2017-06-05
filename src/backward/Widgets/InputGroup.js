@@ -1,8 +1,8 @@
 /* @flow */
 
 import React from 'react';
-import { View, Platform } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { View, Platform, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 import _ from 'lodash';
 import NativeBaseComponent from '../Base/NativeBaseComponent';
 
@@ -125,7 +125,7 @@ class InputGroup extends NativeBaseComponent {
 }
 
 InputGroup.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
 };
 
 

@@ -1,13 +1,13 @@
 
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
 import { Left } from '../basic/Left';
 import { Body } from '../basic/Body';
 import { Right } from '../basic/Right';
 import { Header } from '../basic/Header';
 import { Button } from '../basic/Button';
 import { Title } from '../basic/Title';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class SHeader extends Component {
@@ -37,7 +37,7 @@ class SHeader extends Component {
 }
 
 SHeader.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
   leftButton: React.PropTypes.object,
   title: React.PropTypes.string,

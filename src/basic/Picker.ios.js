@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react';
-import { Picker, Modal, View, ListView } from 'react-native';
+import { Picker, Modal, View, ListView, ViewPropTypes } from 'react-native';
 import _ from 'lodash';
 import { Text } from './Text';
 import { List } from './List';
@@ -16,7 +16,7 @@ import { Title } from './Title';
 import { Left } from './Left';
 import { Right } from './Right';
 import { Body } from './Body';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import computeProps from '../Utils/computeProps';
 
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
@@ -25,21 +25,27 @@ class PickerNB extends Component {
 
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       modalVisible: false,
       currentLabel: this.getLabel(props),
-      dataSource: ds.cloneWithRows(this.props.children),
+      dataSource: props.children
     };
   }
 
   componentWillReceiveProps(nextProps) {
     const currentLabel = this.state.currentLabel;
     const nextLabel = this.getLabel(nextProps);
+    const currentDS = this.state.dataSource;
+    const nextDS = nextProps.children
 
     if (currentLabel !== nextLabel) {
       this.setState({
         currentLabel: nextLabel,
+      });
+    }
+    if (currentDS !== nextDS) {
+      this.setState({
+        dataSource: nextDS,
       });
     }
   }
@@ -47,7 +53,7 @@ class PickerNB extends Component {
   getInitialStyle() {
     return {
       picker: {
-                // alignItems: 'flex-end'
+        // alignItems: 'flex-end'
       },
       pickerItem: {
 
@@ -72,27 +78,13 @@ class PickerNB extends Component {
     return _.get(item, 'props.label');
   }
 
-  modifyHeader() {
-    const childrenArray = React.Children.toArray(this.props.headerComponent.props.children);
-    const newChildren = [];
-    childrenArray.forEach((child) => {
-      if (child.type === Button) {
-        newChildren.push(React.cloneElement(child,
-          { onPress: () => { this._setModalVisible(false); } }));
-      } else {
-        newChildren.push(child);
-      }
-    });
-    return <Header {...this.props.headerComponent.props} > {newChildren}</Header>;
-  }
-
   renderIcon() {
     return React.cloneElement(this.props.iosIcon, { style: { fontSize: 22, lineHeight: 26, color: '#7a7a7a' } });
   }
 
   renderButton() {
     const onPress = () => { this._setModalVisible(true); };
-    const text = this.state.currentLabel ? this.state.currentLabel : this.props.defaultLabel;
+    const text = this.state.currentLabel ? this.state.currentLabel : this.props.placeholder;
     if (this.props.renderButton) {
       return this.props.renderButton(onPress, text, this);
     }
@@ -103,18 +95,22 @@ class PickerNB extends Component {
       transparent
       onPress={onPress}
     >
-      <Text note={(this.props.note)} style={this.props.textStyle}>{text}</Text>
+      {(this.state.currentLabel) ?
+        <Text style={this.props.textStyle} note={(this.props.note)}>{this.state.currentLabel}</Text>
+        :
+        <Text style={this.props.textStyle} note>{this.props.placeholder}</Text>
+      }
       {(this.props.iosIcon === undefined) ? null : this.renderIcon()}
     </Button>;
   }
 
   renderHeader() {
-    return (this.props.headerComponent) ? this.modifyHeader() : (<Header >
+    return (this.props.renderHeader) ? this.props.renderHeader(() => this._setModalVisible(false)) : (<Header style={this.props.headerStyle} >
       <Left><Button
-        style={{ shadowOffset: null, shadowColor: null, shadowRadius: null, shadowOpacity: null }}
+        style={{ shadowOffset: null, shadowColor: null, shadowRadius: null, shadowOpacity: null, ...this.props.headerBackButtonStyle }}
         transparent onPress={() => { this._setModalVisible(false); }}
-      ><Text>Back</Text></Button></Left>
-    <Body><Title>{(this.props.iosHeader) ? this.props.iosHeader : 'Select One'}</Title></Body>
+      ><Text>{this.props.headerBackButtonText || 'Back'}</Text></Button></Left>
+      <Body><Title style={this.props.headerTitleStyle}>{this.props.iosHeader || 'Select One'}</Title></Body>
       <Right />
     </Header>);
   }
@@ -124,6 +120,7 @@ class PickerNB extends Component {
       <View ref={c => this._root = c}>
         {this.renderButton()}
         <Modal
+          supportedOrientations={this.props.supportedOrientations || null}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
@@ -132,8 +129,8 @@ class PickerNB extends Component {
           <Container>
             {this.renderHeader()}
             <Content>
-              <ListView
-                dataSource={this.state.dataSource}
+              <List
+                dataArray={this.state.dataSource}
                 renderRow={child =>
                   <ListItem
                     selected={(child.props.value === this.props.selectedValue) ? true : false}
@@ -147,13 +144,13 @@ class PickerNB extends Component {
                     <Text style={this.props.itemTextStyle} >{child.props.label}</Text>
                     <Right>
                       {(child.props.value === this.props.selectedValue) ?
-                                        (<Radio selected={true} />)
-                                        :
-                                        (<Radio selected={false} />)
-                                    }
+                        (<Radio selected={true} />)
+                        :
+                        (<Radio selected={false} />)
+                      }
                     </Right>
                   </ListItem>
-                            }
+                }
               />
             </Content>
           </Container>
@@ -168,13 +165,13 @@ PickerNB.Item = React.createClass({
 
   render() {
     return (
-      <Picker.Item {...this.props()} />
+      <Picker.Item {...this.props() } />
     );
   },
 });
 
 PickerNB.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
 };
 
 const StyledPickerNB = connectStyle('NativeBase.PickerNB', {}, mapPropsToStyleNames)(PickerNB);
