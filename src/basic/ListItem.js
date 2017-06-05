@@ -12,7 +12,7 @@ class ListItem extends Component {
   render() {
     const variables = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
 
-    if (Platform.OS === 'ios' || variable.androidRipple === false || !this.props.onPress || !this.props.onLongPress || Platform.Version <= 21) {
+    if (Platform.OS === 'ios' || variable.androidRipple === false || (!this.props.onPress && !this.props.onLongPress) || Platform.Version <= 21) {
       return (
         <TouchableHighlight
           onPress={this.props.onPress}
