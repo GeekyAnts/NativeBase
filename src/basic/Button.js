@@ -33,7 +33,7 @@ class Button extends Component {
   render() {
     const children = Platform.OS === 'ios'
         ? this.props.children
-        : React.Children.map(this.props.children, child => child.type === Text ? React.cloneElement(child, { uppercase: true, ...child.props }) : child);
+        : React.Children.map(this.props.children, child => child && child.type === Text ? React.cloneElement(child, { uppercase: true, ...child.props }) : child);
     if (Platform.OS==='ios' || variables.androidRipple===false || Platform['Version'] <= 21) {
       return (
         <TouchableOpacity

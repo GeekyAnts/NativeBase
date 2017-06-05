@@ -137,8 +137,8 @@ class STabs extends Component {
   render() {
     const tabBarProps = {
       goToPage: this.goToPage.bind(this),
-      tabs: this.props.children.map(child => child.props.tabLabel),
-      tabIcon: this.props.children.map(child => child.props.tabIcon),
+      tabs: this.props.children.map(child => child && child.props.tabLabel),
+      tabIcon: this.props.children.map(child => child && child.props.tabIcon),
       activeTab: this.state.currentPage,
       iconPresent: (this.props.children[0].props.tabIcon) ? true : false,
       tabBarTextStyle: this.props.tabBarTextStyle,
