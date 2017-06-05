@@ -4,7 +4,7 @@ import ReactNativePropRegistry from 'react-native/Libraries/Renderer/src/rendere
 // For compatibility with RN 0.25
 // import ReactNativePropRegistry from "react-native/Libraries/ReactNative/ReactNativePropRegistry";
 module.exports = function (incomingProps, defaultProps) {
-    // External props has a higher precedence
+  // External props has a higher precedence
   let computedProps = {};
 
   incomingProps = _.clone(incomingProps);
@@ -13,11 +13,11 @@ module.exports = function (incomingProps, defaultProps) {
   const incomingPropsStyle = incomingProps.style;
   delete incomingProps.style;
 
-    // console.log(defaultProps, incomingProps);
+  // console.log(defaultProps, incomingProps);
   if (incomingProps) {
     _.assign(computedProps, defaultProps, incomingProps);
   } else { computedProps = defaultProps; }
-    // Pass the merged Style Object instead
+  // Pass the merged Style Object instead
   if (incomingPropsStyle) {
     let computedPropsStyle = {};
     computedProps.style = {};
@@ -37,6 +37,6 @@ module.exports = function (incomingProps, defaultProps) {
 
     _.merge(computedProps.style, defaultProps.style, computedPropsStyle);
   }
-    // console.log("computedProps ", computedProps);
+  // console.log("computedProps ", computedProps);
   return computedProps;
 };

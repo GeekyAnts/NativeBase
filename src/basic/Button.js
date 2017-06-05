@@ -12,8 +12,6 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Button extends Component {
 
-  _root: React$Element<TouchableOpacity | TouchableNativeFeedback>;
-
   getInitialStyle() {
     return {
       borderedBtn: {
@@ -22,6 +20,8 @@ class Button extends Component {
       },
     };
   }
+
+  _root: React$Element<TouchableOpacity | TouchableNativeFeedback>;
 
   prepareRootProps() {
     const defaultProps = {
@@ -32,12 +32,12 @@ class Button extends Component {
   }
   render() {
     const children = Platform.OS === 'ios'
-        ? this.props.children
-        : React.Children.map(this.props.children, child => child && child.type === Text ? React.cloneElement(child, { uppercase: true, ...child.props }) : child);
-    if (Platform.OS==='ios' || variables.androidRipple===false || Platform['Version'] <= 21) {
+      ? this.props.children
+      : React.Children.map(this.props.children, child => child && child.type === Text ? React.cloneElement(child, { uppercase: true, ...child.props }) : child);
+    if (Platform.OS === 'ios' || variables.androidRipple === false || Platform['Version'] <= 21) {
       return (
         <TouchableOpacity
-          {...this.prepareRootProps()}
+          {...this.prepareRootProps() }
           ref={c => this._root = c}
           activeOpacity={(this.props.activeOpacity) ? this.props.activeOpacity : 0.5}
         >
@@ -46,15 +46,15 @@ class Button extends Component {
       );
     }
     else {
-      return(
-          <TouchableNativeFeedback ref={c => this._root = c}
-              onPress={this.props.onPress}
-              background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variables.androidRippleColor)}
-               {...this.prepareRootProps()}>
-              <View {...this.prepareRootProps()}>
-                  {children}
-              </View>
-          </TouchableNativeFeedback>
+      return (
+        <TouchableNativeFeedback ref={c => this._root = c}
+          onPress={this.props.onPress}
+          background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variables.androidRippleColor)}
+          {...this.prepareRootProps() }>
+          <View {...this.prepareRootProps() }>
+            {children}
+          </View>
+        </TouchableNativeFeedback>
       );
     }
   }

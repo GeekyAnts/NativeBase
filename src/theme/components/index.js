@@ -202,11 +202,11 @@ export default (variables = variable) => {
     },
 
     'NativeBase.Tab': {
-     ...tabTheme(variables),
+      ...tabTheme(variables),
     },
 
     'NativeBase.Segment': {
-     ...segmentTheme(variables),
+      ...segmentTheme(variables),
     },
 
     'NativeBase.STabs': {
