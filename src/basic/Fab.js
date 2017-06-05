@@ -19,6 +19,14 @@ const AnimatedFab = Animated.createAnimatedComponent(Button);
 
 class Fab extends Component {
 
+  props: Animated.props & {
+    position: ?string;
+  };
+
+  state: {
+    buttons: void | React$Element<Button>;
+    active: boolean
+  };
 
   constructor(props) {
     super(props);
@@ -28,7 +36,7 @@ class Fab extends Component {
     };
   }
 
-  fabTopValue(pos) {
+  fabTopValue(pos): ?{ top: ?number, bottom: ?number, left: ?number, right: ?number } {
     if (pos === 'topLeft') {
       return {
         top: 20,
