@@ -78,6 +78,10 @@ class PickerNB extends Component {
     return _.get(item, 'props.label');
   }
 
+  getSelectedItem() {
+    return _.find(this.props.children, child => child.props.value === this.props.selectedValue);    
+  }
+
   renderIcon() {
     return React.cloneElement(this.props.iosIcon, { style: { fontSize: 22, lineHeight: 26, color: '#7a7a7a' } });
   }
@@ -86,7 +90,7 @@ class PickerNB extends Component {
     const onPress = () => { this._setModalVisible(true); };
     const text = this.state.currentLabel ? this.state.currentLabel : this.props.placeholder;
     if (this.props.renderButton) {
-      return this.props.renderButton(onPress, text, this);
+      return this.props.renderButton({ onPress, text, picker: this, selectedItem: this.getSelectedItem() });
     }
     return <Button
       style={this.props.style}
@@ -172,6 +176,7 @@ PickerNB.Item = React.createClass({
 
 PickerNB.propTypes = {
   ...ViewPropTypes,
+  renderButton: React.PropTypes.func
 };
 
 const StyledPickerNB = connectStyle('NativeBase.PickerNB', {}, mapPropsToStyleNames)(PickerNB);
