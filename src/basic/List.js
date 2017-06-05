@@ -9,7 +9,8 @@ class List extends Component {
   constructor(props) {
     super(props);
     if (props.dataArray && props.renderRow) {
-      const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+      let rowHasChanged = props.rowHasChanged || ((r1, r2) => r1 !== r2);
+      const ds = new ListView.DataSource({ rowHasChanged: rowHasChanged });
       this.state = {
         dataSource: ds.cloneWithRows(props.dataArray)
       }
@@ -35,7 +36,7 @@ class List extends Component {
       return (
         <ListView
           {...this.props}
-          ref={(ref) => this.root = ref}
+          ref={(ref) => this._root = ref}
           enableEmptySections
           dataSource={this.state.dataSource}
           renderRow={this.props.renderRow}

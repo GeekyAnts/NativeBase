@@ -1,4 +1,3 @@
-import { Platform } from 'react-native';
 import _ from 'lodash';
 import headerTheme from './Header';
 import containerTheme from './Container'
@@ -203,11 +202,11 @@ export default (variables = variable) => {
     },
 
     'NativeBase.Tab': {
-     ...tabTheme(variables),
+      ...tabTheme(variables),
     },
 
     'NativeBase.Segment': {
-     ...segmentTheme(variables),
+      ...segmentTheme(variables),
     },
 
     'NativeBase.STabs': {
@@ -231,8 +230,6 @@ export default (variables = variable) => {
     },
     'NativeBase.Separator': {
       ...separatorTheme(variables),
-    },
-    'NativeBase.Tabs': {
     },
     'NativeBase.Thumbnail': {
       '.square': {

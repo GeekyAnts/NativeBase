@@ -19,6 +19,14 @@ const AnimatedFab = Animated.createAnimatedComponent(Button);
 
 class Fab extends Component {
 
+  props: Animated.props & {
+    position: ?string;
+  };
+
+  state: {
+    buttons: void | React$Element<Button>;
+    active: boolean
+  };
 
   constructor(props) {
     super(props);
@@ -28,7 +36,7 @@ class Fab extends Component {
     };
   }
 
-  fabTopValue(pos) {
+  fabTopValue(pos): ?{ top: ?number, bottom: ?number, left: ?number, right: ?number } {
     if (pos === 'topLeft') {
       return {
         top: 20,
@@ -92,7 +100,7 @@ class Fab extends Component {
     }
   }
 
-  getInitialStyle() {
+  getInitialStyle(iconStyle) {
     return {
       fab: {
         height: 56,
@@ -120,6 +128,7 @@ class Fab extends Component {
         color: '#fff',
         fontSize: 24,
         lineHeight: (Platform.OS === 'ios') ? 27 : undefined,
+        ...iconStyle,
       },
       buttonStyle: {
         position: 'absolute',
@@ -191,32 +200,34 @@ class Fab extends Component {
         return true;
       }
     });
-      // this.setState({
-      //   buttons: icon.length
-      // });
-    return React.cloneElement(childrenArray[0], { style: this.getInitialStyle().iconStyle });
+    // this.setState({
+    //   buttons: icon.length
+    // });
+    return React.cloneElement(childrenArray[0], { style: this.getInitialStyle(childrenArray[0].props.style).iconStyle });
   }
 
   renderButtons() {
     const childrenArray = React.Children.toArray(this.props.children);
-    const icon = _.remove(childrenArray, (item) => {
-      if (item.type.displayName === "Styled(Icon)" || item.type.displayName === "Styled(IconNB)") {
-        return true;
-      }
-    });
+    // const icon = _.remove(childrenArray, (item) => {
+    //   if (item.type.displayName === "Styled(Icon)" || item.type.displayName === "Styled(IconNB)") {
+    //     return true;
+    //   }
+    // });
 
     const newChildren = [];
 
-    { childrenArray.map((child, i) => {
-      newChildren.push(<AnimatedFab
-        style={this.getOtherButtonStyle(child, i)}
-        {...this.prepareButtonProps(child, i)}
-        fabButton
-        key={i}
-      >{child.props.children}
-      </AnimatedFab>);
+    {
+      childrenArray.slice(1).map((child, i) => {
+        newChildren.push(<AnimatedFab
+          style={this.getOtherButtonStyle(child, i)}
+          {...this.prepareButtonProps(child, i) }
+          fabButton
+          key={i}
+        >{child.props.children}
+        </AnimatedFab>);
+      }
+      );
     }
-        ); }
     return newChildren;
   }
   upAnimate() {
@@ -340,7 +351,7 @@ class Fab extends Component {
         {this.renderButtons()}
         <TouchableOpacity
           onPress={() => this.fabOnPress()}
-          {...this.prepareFabProps()} activeOpacity={1}
+          {...this.prepareFabProps() } activeOpacity={1}
         >
           {this.renderFab()}
         </TouchableOpacity>

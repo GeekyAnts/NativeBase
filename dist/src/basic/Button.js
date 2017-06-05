@@ -1,12 +1,10 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefined;var _jsxFileName='src/basic/Button.js';var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
-var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _reactNative=require('react-native');
 var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _platform=require('./../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
-var _Badge=require('./Badge');
 var _Text=require('./Text');
 var _computeProps=require('../Utils/computeProps');var _computeProps2=_interopRequireDefault(_computeProps);
 
@@ -23,6 +21,8 @@ borderRadius:this.props.rounded&&this.props.bordered?_platform2.default.borderRa
 
 }},{key:'prepareRootProps',value:function prepareRootProps()
 
+
+
 {
 var defaultProps={
 style:this.getInitialStyle().borderedBtn};
@@ -31,14 +31,17 @@ style:this.getInitialStyle().borderedBtn};
 return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:'render',value:function render()
 {var _this2=this;
+var children=_reactNative.Platform.OS==='ios'?
+this.props.children:
+_react2.default.Children.map(this.props.children,function(child){return child&&child.type===_Text.Text?_react2.default.cloneElement(child,_extends({uppercase:true},child.props)):child;});
 if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||_reactNative.Platform['Version']<=21){
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
 this.prepareRootProps(),{
 ref:function ref(c){return _this2._root=c;},
-activeOpacity:this.props.activeOpacity?this.props.activeOpacity:0.5}),
+activeOpacity:this.props.activeOpacity?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:39}}),
 
-this.props.children));
+children));
 
 
 }else
@@ -47,9 +50,9 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
-this.prepareRootProps()),
-_react2.default.createElement(_reactNative.View,this.prepareRootProps(),
-this.props.children)));
+this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:50}}),
+_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:54}}),
+children)));
 
 
 
@@ -68,18 +71,11 @@ danger:_react2.default.PropTypes.bool,
 warning:_react2.default.PropTypes.bool,
 info:_react2.default.PropTypes.bool,
 bordered:_react2.default.PropTypes.bool,
-capitalize:_react2.default.PropTypes.bool,
 disabled:_react2.default.PropTypes.bool,
 rounded:_react2.default.PropTypes.bool,
 large:_react2.default.PropTypes.bool,
 small:_react2.default.PropTypes.bool,
-active:_react2.default.PropTypes.bool,
-badgeColor:_react2.default.PropTypes.string,
-badgeValueStyle:_react2.default.PropTypes.object});
-
-
-Button.defaultProps={
-capitalize:true};
+active:_react2.default.PropTypes.bool});
 
 
 var StyledButton=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.Button',{},_mapPropsToStyleNames2.default)(Button);exports.

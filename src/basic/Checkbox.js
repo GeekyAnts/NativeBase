@@ -13,19 +13,18 @@ class CheckBox extends Component {
     theme: React.PropTypes.object,
   }
 
-  getInitialStyle() {
-    const variable = (this.context.theme) ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
+  getInitialStyle(variables) {
     return {
       checkStyle: {
-        borderColor: this.props.color ? this.props.color : variable.checkboxBgColor,
-        backgroundColor: (this.props.checked === true) ? (this.props.color ? this.props.color : variable.checkboxBgColor) : 'transparent',
+        borderColor: this.props.color ? this.props.color : variables.checkboxBgColor,
+        backgroundColor: (this.props.checked === true) ? (this.props.color ? this.props.color : variables.checkboxBgColor) : 'transparent',
       },
     };
   }
 
-  prepareRootProps() {
+  prepareRootProps(variables) {
     const defaultProps = {
-      style: this.getInitialStyle().checkStyle,
+      style: this.getInitialStyle(variables).checkStyle,
     };
 
     return computeProps(this.props, defaultProps);
@@ -35,12 +34,12 @@ class CheckBox extends Component {
     const platformStyle = variables.platformStyle;
     const platform = variables.platform;
     return (
-      <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps()}>
+      <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps(variables) }>
         <IconNB style={{
-            color: variables.checkboxTickColor,
-            fontSize: variables.CheckboxFontSize,
-            lineHeight: variables.CheckboxIconSize
-          }} name={((platform === 'ios') && (platformStyle !== 'material')) ? 'ios-checkmark-outline' : 'md-checkmark'} />
+          color: variables.checkboxTickColor,
+          fontSize: variables.CheckboxFontSize,
+          lineHeight: variables.CheckboxIconSize
+        }} name={((platform === 'ios') && (platformStyle !== 'material')) ? 'ios-checkmark-outline' : 'md-checkmark'} />
       </TouchableOpacity>
     );
   }

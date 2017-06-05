@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Swipeout=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _reactTweenState=require('react-tween-state');var _reactTweenState2=_interopRequireDefault(_reactTweenState);
+Object.defineProperty(exports,"__esModule",{value:true});exports.Swipeout=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/basic/Swipe/index.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _reactTweenState=require('react-tween-state');var _reactTweenState2=_interopRequireDefault(_reactTweenState);
 var _NativeButton=require('./NativeButton');var _NativeButton2=_interopRequireDefault(_NativeButton);
 var _styles=require('./styles');var _styles2=_interopRequireDefault(_styles);
 var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
@@ -10,6 +10,7 @@ var _react=require('react');var _react2=_interopRequireDefault(_react);
 
 
 var _reactNative=require('react-native');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
+
 
 
 
@@ -83,10 +84,10 @@ style:_styles2.default.swipeoutBtnTouchable,
 underlayColor:this.props.underlayColor,
 disabled:this.props.disabled,
 style:styleSwipeoutBtn,
-textStyle:styleSwipeoutBtnText},
+textStyle:styleSwipeoutBtnText,__source:{fileName:_jsxFileName,lineNumber:81}},
 
 btn.component?
-_react2.default.createElement(_reactNative.View,{style:styleSwipeoutBtnComponent},btn.component):
+_react2.default.createElement(_reactNative.View,{style:styleSwipeoutBtnComponent,__source:{fileName:_jsxFileName,lineNumber:90}},btn.component):
 
 btn.text));
 
@@ -107,7 +108,7 @@ left:_react.PropTypes.array,
 onOpen:_react.PropTypes.func,
 right:_react.PropTypes.array,
 scroll:_react.PropTypes.func,
-style:_reactNative.View.propTypes.style,
+style:_reactNative.ViewPropTypes.style,
 sensitivity:_react.PropTypes.number},
 
 
@@ -308,12 +309,12 @@ var isRightVisible=posX<0;
 var isLeftVisible=posX>0;
 
 return(
-_react2.default.createElement(_reactNative.View,{style:styleSwipeout},
+_react2.default.createElement(_reactNative.View,{style:styleSwipeout,__source:{fileName:_jsxFileName,lineNumber:312}},
 _react2.default.createElement(_reactNative.View,_extends({
 ref:'swipeoutContent',
 style:styleContent,
 onLayout:this._onLayout},
-this._panResponder.panHandlers),
+this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:313}}),
 this.props.children),
 
 this._renderButtons(this.props.right,isRightVisible,styleRight),
@@ -332,12 +333,12 @@ contentHeight:height});
 
 _renderButtons:function _renderButtons(buttons,isVisible,style){
 if(buttons&&isVisible){
-return _react2.default.createElement(_reactNative.View,{style:style},
+return _react2.default.createElement(_reactNative.View,{style:style,__source:{fileName:_jsxFileName,lineNumber:336}},
 buttons.map(this._renderButton));
 
 }else{
 return(
-_react2.default.createElement(_reactNative.View,null));
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:341}}));
 
 }
 },
@@ -355,7 +356,7 @@ onPress:function onPress(){return _this4._autoClose(btn);},
 text:btn.text,
 type:btn.type,
 underlayColor:btn.underlayColor,
-width:this.state.btnWidth}));
+width:this.state.btnWidth,__source:{fileName:_jsxFileName,lineNumber:348}}));
 
 }});
 
@@ -363,8 +364,8 @@ width:this.state.btnWidth}));
 Swipeout.NativeButton=_NativeButton2.default;
 Swipeout.SwipeoutButton=SwipeoutBtn;
 
-Swipeout.propTypes=_extends({},
-_reactNative.View.propTypes,{
+Swipeout.propTypes=_extends({},_reactNative.ViewPropTypes,{
+
 style:_react2.default.PropTypes.object,
 dataArray:_react2.default.PropTypes.object,
 renderRow:_react2.default.PropTypes.object});
