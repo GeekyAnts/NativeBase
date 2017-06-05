@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react';
-import { Platform, View } from 'react-native';
+import { Platform, View, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import _ from 'lodash';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';
@@ -146,7 +146,7 @@ class Header extends NativeBaseComponent {
 }
 
 Header.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
 };
 

@@ -2,17 +2,17 @@
 
 
 import React, { Component } from 'react';
-import _ from 'lodash';
 import { TouchableOpacity, Platform, View, TouchableNativeFeedback } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import variables from './../theme/variables/platform';
-import { Badge } from './Badge';
 import { Text } from './Text';
 import computeProps from '../Utils/computeProps';
 
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Button extends Component {
+
+  _root: React$Element<TouchableOpacity | TouchableNativeFeedback>;
 
   getInitialStyle() {
     return {
@@ -31,6 +31,9 @@ class Button extends Component {
     return computeProps(this.props, defaultProps);
   }
   render() {
+    const children = Platform.OS === 'ios'
+        ? this.props.children
+        : React.Children.map(this.props.children, child => child && child.type === Text ? React.cloneElement(child, { uppercase: true, ...child.props }) : child);
     if (Platform.OS==='ios' || variables.androidRipple===false || Platform['Version'] <= 21) {
       return (
         <TouchableOpacity
@@ -38,7 +41,7 @@ class Button extends Component {
           ref={c => this._root = c}
           activeOpacity={(this.props.activeOpacity) ? this.props.activeOpacity : 0.5}
         >
-          {this.props.children}
+          {children}
         </TouchableOpacity>
       );
     }
@@ -49,7 +52,7 @@ class Button extends Component {
               background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variables.androidRippleColor)}
                {...this.prepareRootProps()}>
               <View {...this.prepareRootProps()}>
-                  {this.props.children}
+                  {children}
               </View>
           </TouchableNativeFeedback>
       );
@@ -68,19 +71,12 @@ Button.propTypes = {
   warning: React.PropTypes.bool,
   info: React.PropTypes.bool,
   bordered: React.PropTypes.bool,
-  capitalize: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   rounded: React.PropTypes.bool,
   large: React.PropTypes.bool,
   small: React.PropTypes.bool,
   active: React.PropTypes.bool,
-  badgeColor: React.PropTypes.string,
-  badgeValueStyle: React.PropTypes.object,
 };
-
-Button.defaultProps = {
-  capitalize: true
-}
 
 const StyledButton = connectStyle('NativeBase.Button', {}, mapPropsToStyleNames)(Button);
 export {

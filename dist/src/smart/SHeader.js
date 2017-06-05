@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.SHeader=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.SHeader=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/smart/SHeader.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
 var _Left=require('../basic/Left');
@@ -14,30 +14,30 @@ SHeader=function(_Component){_inherits(SHeader,_Component);function SHeader(){_c
 
 {var _this2=this;
 return(
-_react2.default.createElement(_Header.Header,_extends({ref:function ref(c){return _this2._root=c;}},this.props),
-_react2.default.createElement(_Left.Left,null,
+_react2.default.createElement(_Header.Header,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:17}}),
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:18}},
 this.props.leftButton?_react2.default.createElement(_Button.Button,{
 transparent:true,onPress:this.props.leftButtonPress,
-style:this.props.leftButtonStyle},
-this.props.leftButton):_react2.default.createElement(_reactNative.View,null)),
+style:this.props.leftButtonStyle,__source:{fileName:_jsxFileName,lineNumber:19}},
+this.props.leftButton):_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:22}})),
 
-_react2.default.createElement(_Body.Body,null,
-this.props.title?_react2.default.createElement(_Title.Title,{style:this.props.titleStyle},
-this.props.title):_react2.default.createElement(_reactNative.View,null)),
+_react2.default.createElement(_Body.Body,{__source:{fileName:_jsxFileName,lineNumber:24}},
+this.props.title?_react2.default.createElement(_Title.Title,{style:this.props.titleStyle,__source:{fileName:_jsxFileName,lineNumber:25}},
+this.props.title):_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:26}})),
 
-_react2.default.createElement(_Right.Right,null,
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:28}},
 this.props.rightButton?_react2.default.createElement(_Button.Button,{
 transparent:true,
-onPress:this.props.rightButtonPress,style:this.props.rightButtonStyle},
-this.props.rightButton):_react2.default.createElement(_reactNative.View,null))));
+onPress:this.props.rightButtonPress,style:this.props.rightButtonStyle,__source:{fileName:_jsxFileName,lineNumber:29}},
+this.props.rightButton):_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:32}}))));
 
 
 
 }}]);return SHeader;}(_react.Component);
 
 
-SHeader.propTypes=_extends({},
-_reactNative.View.propTypes,{
+SHeader.propTypes=_extends({},_reactNative.ViewPropTypes,{
+
 style:_react2.default.PropTypes.object,
 leftButton:_react2.default.PropTypes.object,
 title:_react2.default.PropTypes.string,

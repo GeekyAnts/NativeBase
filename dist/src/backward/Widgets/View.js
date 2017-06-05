@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.ViewNB=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.ViewNB=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/backward/Widgets/View.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
@@ -11,13 +11,13 @@ var _NativeBaseComponent2=require('../Base/NativeBaseComponent');var _NativeBase
 ViewNB=function(_NativeBaseComponent){_inherits(ViewNB,_NativeBaseComponent);function ViewNB(){_classCallCheck(this,ViewNB);return _possibleConstructorReturn(this,(ViewNB.__proto__||Object.getPrototypeOf(ViewNB)).apply(this,arguments));}_createClass(ViewNB,[{key:'render',value:function render()
 {var _this2=this;
 return(
-_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props)));
+_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:14}})));
 
 }}]);return ViewNB;}(_NativeBaseComponent3.default);
 
 
-ViewNB.propTypes=_extends({},
-_reactNative.View.propTypes,{
+ViewNB.propTypes=_extends({},_reactNative.ViewPropTypes,{
+
 style:_react2.default.PropTypes.object});
 
 

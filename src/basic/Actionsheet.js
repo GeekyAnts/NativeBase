@@ -2,7 +2,7 @@
 
 
 import React, { Component } from 'react';
-import { View, Modal, Platform, ActionSheetIOS, TouchableOpacity } from 'react-native';
+import { View, Modal, Platform, ActionSheetIOS, TouchableOpacity, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { Text } from './Text';
 import { Button } from './Button';
@@ -17,6 +17,10 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 
 class ActionSheetContainer extends Component {
+
+  props: View.props;
+  state: any;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -95,7 +99,7 @@ class ActionSheetContainer extends Component {
 }
 
 ActionSheetContainer.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
 };
 

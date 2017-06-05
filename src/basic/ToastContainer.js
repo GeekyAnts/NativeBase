@@ -2,7 +2,7 @@
 
 
 import React, { Component } from 'react';
-import { View, Modal, Platform } from 'react-native';
+import { View, Modal, Platform, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { Text } from './Text';
 import { Button } from './Button';
@@ -19,22 +19,26 @@ class ToastContainer extends Component {
     }
   }
   static toastInstance;
-  static show({...config}) {
-    this.toastInstance._root.showToast({config});
+  static show({ ...config }) {
+    this.toastInstance._root.showToast({ config });
   }
-  showToast({config}) {
+  showToast({ config }) {
     this.setState({
       modalVisible: true,
       text: config.text,
       buttonText: config.buttonText,
       type: config.type,
       position: config.position,
-      supportedOrientations: config.supportedOrientations
+      supportedOrientations: config.supportedOrientations,
+      style: config.style,
+      buttonTextStyle: config.buttonTextStyle,
+      buttonStyle: config.buttonStyle,
+      textStyle: config.textStyle,
     });
-    if (config.duration>0) {
-      setTimeout(()=> {
+    if (config.duration > 0) {
+      setTimeout(() => {
         this.setState({
-          modalVisible: false
+          modalVisible: false,
         });
       }, config.duration);
     }
@@ -48,7 +52,7 @@ class ToastContainer extends Component {
     return (
       <Modal
         supportedOrientations={this.state.supportedOrientations || null}
-        animationType={(this.state.position=='bottom') ? "slide" : "fade"}
+        animationType={(this.state.position == 'bottom') ? "slide" : "fade"}
         transparent={true}
         visible={this.state.modalVisible}
         onRequestClose={() => {
@@ -56,22 +60,25 @@ class ToastContainer extends Component {
             modalVisible: false
           });
         }}
-        >
+      >
         <View style={{
-            margin: (Platform.OS==='ios') ? 20 : 0,
-            flex: 1,
-            justifyContent: (this.state.position==='top') ? 'flex-start' : (this.state.position==='bottom') ? 'flex-end' : (this.state.position==='center') ? 'center' : 'flex-start'}}>
+          margin: (Platform.OS === 'ios') ? 20 : 0,
+          flex: 1,
+          justifyContent: (this.state.position === 'top') ? 'flex-start' : (this.state.position === 'bottom') ? 'flex-end' : (this.state.position === 'center') ? 'center' : 'flex-start'
+        }}>
           <Toast
+            style={this.state.style}
             danger={(this.state.type == 'danger') ? true : false}
             success={(this.state.type == 'success') ? true : false}
             warning={(this.state.type == 'warning') ? true : false}>
-            <Text>{this.state.text}</Text>
-            {(this.state.buttonText) && <Button onPress={() => {
+            <Text style={this.state.textStyle}>{this.state.text}</Text>
+            {(this.state.buttonText) && <Button
+              style={this.state.buttonStyle} onPress={() => {
                 this.setState({
-                  modalVisible: false
+                  modalVisible: false,
                 });
               }}>
-              <Text>{this.state.buttonText}</Text>
+              <Text style={this.state.buttonTextStyle}>{this.state.buttonText}</Text>
             </Button>}
 
           </Toast>
@@ -82,7 +89,7 @@ class ToastContainer extends Component {
 }
 
 ToastContainer.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
 };
 

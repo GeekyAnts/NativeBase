@@ -36,7 +36,7 @@ class List extends Component {
       return (
         <ListView
           {...this.props}
-          ref={(ref) => this.root = ref}
+          ref={(ref) => this._root = ref}
           enableEmptySections
           dataSource={this.state.dataSource}
           renderRow={this.props.renderRow}

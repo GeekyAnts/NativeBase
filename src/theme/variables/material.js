@@ -10,23 +10,23 @@ const platformStyle = 'material';
 export default {
   platformStyle,
   platform,
-    // AndroidRipple
+  // AndroidRipple
   androidRipple: true,
   androidRippleColor: 'rgba(256, 256, 256, 0.3)',
   androidRippleColorDark: 'rgba(0, 0, 0, 0.15)',
 
-    // Badge
+  // Badge
   badgeBg: '#ED1727',
   badgeColor: '#fff',
-    // New Variable
+  // New Variable
   badgePadding: (platform === 'ios') ? 3 : 0,
 
-    // Button
+  // Button
   btnFontFamily: (platform === 'ios') ? 'Roboto' : 'Roboto_medium',
   btnDisabledBg: '#b5b5b5',
   btnDisabledClr: '#f1f1f1',
 
-    // CheckBox
+  // CheckBox
   CheckboxRadius: 0,
   CheckboxBorderWidth: 2,
   CheckboxPaddingLeft: 2,
@@ -47,7 +47,7 @@ export default {
   segmentBorderColor: '#fff',
   segmentBorderColorMain: '#3F51B5',
 
-    // New Variable
+  // New Variable
   get defaultTextColor() {
     return this.textColor;
   },
@@ -108,11 +108,11 @@ export default {
   },
 
 
-    // Card
+  // Card
   cardDefaultBg: '#fff',
 
 
-      // Color
+  // Color
   brandPrimary: '#3F51B5',
   brandInfo: '#3F57D3',
   brandSuccess: '#5cb85c',
@@ -121,7 +121,7 @@ export default {
   brandSidebar: '#252932',
 
 
-    // Font
+  // Font
   fontFamily: 'Roboto',
   fontSizeBase: 15,
 
@@ -136,12 +136,12 @@ export default {
   },
 
 
-    // Footer
+  // Footer
   footerHeight: 55,
   footerDefaultBg: '#3F51B5',
 
 
-    // FooterTab
+  // FooterTab
   tabBarTextColor: '#b3c7f9',
   tabBarTextSize: (platform === 'ios') ? 14 : 11,
   activeTab: '#fff',
@@ -149,7 +149,7 @@ export default {
   tabBarActiveTextColor: '#fff',
   tabActiveBgColor: undefined,
 
-    // Tab
+  // Tab
   tabDefaultBg: '#3F51B5',
   topTabBarTextColor: '#b3c7f9',
   topTabBarActiveTextColor: '#fff',
@@ -158,7 +158,7 @@ export default {
   topTabBarActiveBorderColor: '#fff',
 
 
-    // Header
+  // Header
   toolbarBtnColor: '#fff',
   toolbarDefaultBg: '#3F51B5',
   toolbarHeight: (platform === 'ios') ? 76 : 56,
@@ -171,18 +171,18 @@ export default {
   toolbarDefaultBorder: '#3F51B5',
   iosStatusbar: 'light-content',
   get statusBarColor() {
-    return color(this.toolbarDefaultBg).darken(0.2).hexString();
+    return color(this.toolbarDefaultBg).darken(0.2).hex();
   },
 
 
-    // Icon
+  // Icon
   iconFamily: 'Ionicons',
   iconFontSize: (platform === 'ios') ? 30 : 28,
   iconMargin: 7,
   iconHeaderSize: (platform === 'ios') ? 29 : 24,
 
 
-    // InputGroup
+  // InputGroup
   inputFontSize: 17,
   inputBorderColor: '#D9D5DC',
   inputSuccessBorderColor: '#2b8339',
@@ -204,7 +204,7 @@ export default {
   },
 
 
-    // Line Height
+  // Line Height
   btnLineHeight: 19,
   lineHeightH1: 32,
   lineHeightH2: 27,
@@ -213,75 +213,75 @@ export default {
   lineHeight: (platform === 'ios') ? 20 : 24,
 
 
-    // List
+  // List
   listBorderColor: '#c9c9c9',
   listDividerBg: '#f4f4f4',
   listItemHeight: 45,
   listBtnUnderlayColor: '#DDD',
 
-    // Card
+  // Card
   cardBorderColor: '#ccc',
 
-    // Changed Variable
+  // Changed Variable
   listItemPadding: (platform === 'ios') ? 10 : 12,
 
   listNoteColor: '#808080',
   listNoteSize: 13,
 
 
-    // Progress Bar
+  // Progress Bar
   defaultProgressColor: '#E4202D',
   inverseProgressColor: '#1A191B',
 
 
-    // Radio Button
+  // Radio Button
   radioBtnSize: (platform === 'ios') ? 25 : 23,
   radioSelectedColorAndroid: '#5067FF',
 
-    // New Variable
+  // New Variable
   radioBtnLineHeight: (platform === 'ios') ? 29 : 24,
 
   radioColor: '#7e7e7e',
 
   get radioSelectedColor() {
-    return color(this.radioColor).darken(0.2).hexString();
+    return color(this.radioColor).darken(0.2).hex();
   },
 
 
-    // Spinner
+  // Spinner
   defaultSpinnerColor: '#45D56E',
   inverseSpinnerColor: '#1A191B',
 
 
-    // Tabs
+  // Tabs
   tabBgColor: '#F8F8F8',
   tabFontSize: 15,
   tabTextColor: '#222222',
 
 
-    // Text
+  // Text
   textColor: '#000',
   inverseTextColor: '#fff',
   noteFontSize: 14,
 
 
-    // Title
+  // Title
   titleFontfamily: (platform === 'ios') ? 'Roboto' : 'Roboto_medium',
   titleFontSize: 19,
   subTitleFontSize: 14,
   subtitleColor: '#FFF',
 
-    // New Variable
+  // New Variable
   titleFontColor: '#FFF',
 
 
-    // Other
+  // Other
   borderRadiusBase: 2,
-  borderWidth: (1/PixelRatio.getPixelSizeForLayoutSize(1)),
+  borderWidth: (1 / PixelRatio.getPixelSizeForLayoutSize(1)),
   contentPadding: 10,
 
   get darkenHeader() {
-    return color(this.tabBgColor).darken(0.03).hexString();
+    return color(this.tabBgColor).darken(0.03).hex();
   },
 
   dropdownBg: '#000',
@@ -292,6 +292,6 @@ export default {
   deviceWidth,
   deviceHeight,
 
-    // New Variable
+  // New Variable
   inputGroupRoundedBorderRadius: 30,
 };

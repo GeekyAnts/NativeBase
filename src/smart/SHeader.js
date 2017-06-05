@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
 import { Left } from '../basic/Left';
 import { Body } from '../basic/Body';
 import { Right } from '../basic/Right';
@@ -37,7 +37,7 @@ class SHeader extends Component {
 }
 
 SHeader.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
   leftButton: React.PropTypes.object,
   title: React.PropTypes.string,

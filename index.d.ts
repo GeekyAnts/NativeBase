@@ -5,7 +5,8 @@ declare module 'native-base' {
     namespace NativeBase {
 
         interface Text extends ReactNative.TextProperties {
-            note?: boolean
+            note?: boolean,
+            uppercase?: boolean
         }
 
         interface Switch extends ReactNative.SwitchProperties { }
@@ -403,7 +404,7 @@ declare module 'native-base' {
          */
         interface Card extends ReactNative.ViewProperties, ReactListViewProperties {
             dataArray?: Array<any>,
-            style?: React.Ref<ReactNative.ViewProperties | ReactNative.ListViewProperties>
+            style?: ReactNative.ViewStyle,
             ref?: React.Ref<ReactNative.ViewProperties | ReactListViewProperties>,
         }
         /**
@@ -514,7 +515,7 @@ declare module 'native-base' {
         /**
          * see Widget CheckBox.js
          */
-        interface Radio extends ReactNative.TouchableOpacityProperties{
+        interface Radio extends ReactNative.TouchableOpacityProperties {
             selected?: boolean
         }
         /**
@@ -575,38 +576,39 @@ declare module 'native-base' {
             springFriction?: number
         }
 
-        interface Tab{
+        interface Tab {
             heading:TabHeading,
 
         }
-        interface TabHeading{
+        interface TabHeading {
             activeTabStyle?:ReactNative.ViewStyle,
             textStyle?:ReactNative.TextStyle,
             activeTextStyle?:ReactNative.TextStyle
         }
 
         interface Item {
-            fixedLabel?:boolean,
-            floatingLabel?:boolean,
-            inlineLabel?:boolean,
-            stackedLabel?:boolean,
-            placeholderLabel?:boolean,
-            bordered?:boolean,
-            underline?:boolean,
-            rounded?:boolean,
+            fixedLabel?: boolean,
+            floatingLabel?: boolean,
+            inlineLabel?: boolean,
+            stackedLabel?: boolean,
+            placeholderLabel?: boolean,
+            bordered?: boolean,
+            regular?: boolean,
+            underline?: boolean,
+            rounded?: boolean,
             disabled?: boolean,
             error?: boolean,
-            placeholder?:string,
-            secureTextEntry?:boolean,
+            placeholder?: string,
+            secureTextEntry?: boolean,
             success?: boolean,
-            last?:boolean,
+            last?: boolean,
         }
 
-        interface Form{
-
+        interface Form {
+            style?: ReactNative.ViewStyle
         }
 
-        interface Fab{
+        interface Fab {
             active?:boolean,
             direction?:"down"|"up"|"left"|"right",
             containerStyle?:ReactNative.ViewStyle,

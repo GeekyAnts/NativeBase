@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.STabs=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
+Object.defineProperty(exports,"__esModule",{value:true});exports.STabs=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/smart/STabs/index.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
 var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _mapPropsToStyleNames=require('../../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
@@ -91,7 +91,7 @@ scrollsToTop:false,
 showsHorizontalScrollIndicator:false,
 scrollEnabled:!this.props.locked,
 directionalLockEnabled:true,
-alwaysBounceVertical:false},
+alwaysBounceVertical:false,__source:{fileName:_jsxFileName,lineNumber:79}},
 
 content);
 
@@ -104,7 +104,7 @@ onPageScroll:function onPageScroll(e){var _e$nativeEvent=
 e.nativeEvent,offset=_e$nativeEvent.offset,position=_e$nativeEvent.position;
 _this2.getScrollValue(position+offset);
 },
-ref:function ref(scrollView){_this2.scrollView=scrollView;}},
+ref:function ref(scrollView){_this2.scrollView=scrollView;},__source:{fileName:_jsxFileName,lineNumber:99}},
 
 content);
 
@@ -114,7 +114,7 @@ content);
 {var _this3=this;
 return this.tabContent().map(function(child,idx){return _react2.default.createElement(_reactNative.View,{
 key:idx,
-style:{width:_this3.state.containerWidth}},
+style:{width:_this3.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:115}},
 
 child);});
 
@@ -130,7 +130,7 @@ return null;
 }else if(this.props.renderTabBar){
 return _react2.default.cloneElement(this.props.renderTabBar(props),props);
 }else{
-return _react2.default.createElement(_TabBar.TabBar,_extends({},props,{vertical:this.props.vertical}));
+return _react2.default.createElement(_TabBar.TabBar,_extends({},props,{vertical:this.props.vertical,__source:{fileName:_jsxFileName,lineNumber:133}}));
 }
 }},{key:'render',value:function render()
 
@@ -150,10 +150,10 @@ scrollValue:this.state.scrollValue};
 
 
 return(
-_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this4._root=c;}},this.props),
+_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this4._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:153}}),
 this.props.tabBarPosition==='top'&&this.renderTab(tabBarProps),
 this.renderContent(),
-_react2.default.createElement(_reactNative.View,{style:this.props.tabBarPosition==='bottom'?{bottom:_reactNative.Platform.OS==='ios'?0:23}:{}},
+_react2.default.createElement(_reactNative.View,{style:this.props.tabBarPosition==='bottom'?{bottom:_reactNative.Platform.OS==='ios'?0:23}:{},__source:{fileName:_jsxFileName,lineNumber:156}},
 this.props.tabBarPosition==='bottom'&&this.renderTab(tabBarProps))));
 
 
@@ -161,8 +161,8 @@ this.props.tabBarPosition==='bottom'&&this.renderTab(tabBarProps))));
 }}]);return STabs;}(_react.Component);
 
 
-STabs.propTypes=_extends({},
-_reactNative.View.propTypes,{
+STabs.propTypes=_extends({},_reactNative.ViewPropTypes,{
+
 style:_react2.default.PropTypes.object,
 initialPage:_react2.default.PropTypes.number,
 tabBarPosition:_react2.default.PropTypes.string,
