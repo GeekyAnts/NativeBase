@@ -25,15 +25,15 @@ class ListItem extends Component {
       );
     }
     else {
-      return(
-          <TouchableNativeFeedback ref={c => this._root = c}
-              onPress={this.props.onPress}
-              onLongPress={this.props.onLongPress}
-              background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColorDark)}>
-              <View style={{ marginLeft: -17, paddingLeft: 17 }}>
-                <View {...this.props}>{this.props.children}</View>
-              </View>
-          </TouchableNativeFeedback>
+      return (
+        <TouchableNativeFeedback ref={c => this._root = c}
+          onPress={this.props.onPress}
+          onLongPress={this.props.onLongPress}
+          background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variable.androidRippleColorDark)}>
+          <View style={{ marginLeft: -17, paddingLeft: 17 }}>
+            <View {...this.props}>{this.props.children}</View>
+          </View>
+        </TouchableNativeFeedback>
       );
     }
   }
