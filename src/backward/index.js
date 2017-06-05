@@ -1,5 +1,5 @@
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { StyleProvider, connectStyle } from '@shoutem/theme';
+import { StyleProvider, connectStyle } from 'native-base-shoutem-theme';
 import getTheme from '../theme/components';
 import setDefaultThemeStyle from '../init';
 import variables from '../theme/variables/platform';

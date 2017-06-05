@@ -1,10 +1,6 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native');
-var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
-
-var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
+Object.defineProperty(exports,"__esModule",{value:true});var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
-var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 
 var cardItemTheme={
@@ -72,10 +68,8 @@ marginTop:5}},
 '.note':{
 color:variables.listNoteColor,
 fontWeight:'200',
-marginRight:20},
+marginRight:20}},
 
-lineHeight:20,
-fontSize:variables.DefaultFontSize-2},
 
 'NativeBase.Button':{
 '.transparent':{
@@ -206,6 +200,7 @@ fontSize:variables.iconFontSize-2},
 borderBottomWidth:variables.borderWidth,
 borderColor:variables.cardBorderColor},
 
+borderRadius:2,
 padding:variables.listItemPadding+5,
 paddingVertical:variables.listItemPadding,
 backgroundColor:variables.cardDefaultBg};

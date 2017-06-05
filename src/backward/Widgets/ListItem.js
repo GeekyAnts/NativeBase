@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import { IconNB as Icon } from '../../basic/IconNB';
 import _ from 'lodash';
 import mapPropsToStyleNames from '../../Utils/mapPropsToStyleNames';

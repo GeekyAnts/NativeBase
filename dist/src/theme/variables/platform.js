@@ -84,7 +84,8 @@ get btnWarningColor(){
 return this.inverseTextColor;
 },
 get btnTextSize(){
-return platform==='ios'?this.fontSizeBase*1.1:
+return platform==='ios'?
+this.fontSizeBase*1.1:
 this.fontSizeBase-1;
 },
 get btnTextSizeLarge(){
@@ -168,9 +169,9 @@ searchBarHeight:platform==='ios'?30:40,
 toolbarInverseBg:'#222',
 toolbarTextColor:platform==='ios'?'#000':'#fff',
 toolbarDefaultBorder:platform==='ios'?'#a7a6ab':'#3F51B5',
-iosStatusbar:'dark-content',
+iosStatusbar:platform==='ios'?'dark-content':'light-content',
 get statusBarColor(){
-return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hexString();
+return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hex();
 },
 
 
@@ -243,7 +244,7 @@ radioBtnLineHeight:platform==='ios'?29:24,
 radioColor:'#7e7e7e',
 
 get radioSelectedColor(){
-return(0,_color2.default)(this.radioColor).darken(0.2).hexString();
+return(0,_color2.default)(this.radioColor).darken(0.2).hex();
 },
 
 
@@ -280,7 +281,7 @@ borderWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 contentPadding:10,
 
 get darkenHeader(){
-return(0,_color2.default)(this.tabBgColor).darken(0.03).hexString();
+return(0,_color2.default)(this.tabBgColor).darken(0.03).hex();
 },
 
 dropdownBg:'#000',

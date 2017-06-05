@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Content extends Component {
@@ -19,7 +19,6 @@ class Content extends Component {
 }
 
 Content.propTypes = {
-  ...KeyboardAwareScrollView.propTypes,
   style: React.PropTypes.object,
   padder: React.PropTypes.bool,
   disableKBDismissScroll: React.PropTypes.bool,

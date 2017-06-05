@@ -1,7 +1,7 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.DeckSwiper=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
+Object.defineProperty(exports,"__esModule",{value:true});exports.DeckSwiper=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/basic/DeckSwiper.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
 var _clamp=require('clamp');var _clamp2=_interopRequireDefault(_clamp);
-var _theme=require('@shoutem/theme');
+var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}
 
 var SWIPE_THRESHOLD=120;var
@@ -17,7 +17,10 @@ selectedItem:_this.props.dataSource[0],
 selectedItem2:_this.props.dataSource[1],
 card1Top:true,
 card2Top:false,
-fadeAnim:new _reactNative.Animated.Value(0.8)};return _this;
+fadeAnim:new _reactNative.Animated.Value(0.8),
+looping:_this.props.looping||true,
+disabled:_this.props.dataSource.length===0,
+lastCard:_this.props.dataSource.length===1};return _this;
 
 }_createClass(DeckSwiper,[{key:'getInitialStyle',value:function getInitialStyle()
 
@@ -30,11 +33,9 @@ right:0,
 left:0}};
 
 
-}},{key:'findNextIndexes',value:function findNextIndexes()
+}},{key:'findNextIndexes',value:function findNextIndexes(
 
-
-{
-var currentIndex=this.props.dataSource.indexOf(this.state.selectedItem);
+currentIndex){
 var newIdx=currentIndex+1;
 var newIdx2=currentIndex+2;
 
@@ -48,7 +49,32 @@ return[newIdx,newIdx2];
 }},{key:'selectNext',value:function selectNext()
 
 {var _this2=this;
-var nextIndexes=this.findNextIndexes();
+var dataSource=this.props.dataSource;
+var currentIndex=dataSource.indexOf(this.state.selectedItem);
+
+
+if(!this.state.looping){
+
+if(currentIndex===dataSource.length-1){
+return this.setState({
+disabled:true});
+
+}else if(currentIndex===dataSource.length-2){
+
+return setTimeout(function(){
+_this2.setState({
+selectedItem:dataSource[currentIndex+1]});
+
+setTimeout(function(){
+_this2.setState({
+lastCard:true});
+
+},350);
+},50);
+}
+}
+
+var nextIndexes=this.findNextIndexes(currentIndex);
 setTimeout(function(){
 _this2.setState({
 selectedItem:_this2.props.dataSource[nextIndexes[0]]});
@@ -59,6 +85,7 @@ selectedItem2:_this2.props.dataSource[nextIndexes[1]]});
 
 },350);
 },50);
+
 }},{key:'swipeRight',value:function swipeRight()
 
 
@@ -156,10 +183,10 @@ velocity=(0,_clamp2.default)(vx*-1,4.5,10)*-1;
 if(Math.abs(_this5.state.pan.x._value)>SWIPE_THRESHOLD){
 
 if(velocity>0){
-_this5.props.onSwipeRight?_this5.props.onSwipeRight():undefined;
+_this5.props.onSwipeRight?_this5.props.onSwipeRight(_this5.state.selectedItem):undefined;
 _this5.selectNext();
 }else{
-_this5.props.onSwipeLeft?_this5.props.onSwipeLeft():undefined;
+_this5.props.onSwipeLeft?_this5.props.onSwipeLeft(_this5.state.selectedItem):undefined;
 _this5.selectNext();
 }
 
@@ -210,18 +237,52 @@ return[animatedCardStyles,animatedCardStyles2];
 
 {var _this6=this;
 
+if(this.state.disabled){
 
 return(
-_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this6._root=c;},style:{position:'relative',flexDirection:'column'}},this.state.selectedItem===undefined?_react2.default.createElement(_reactNative.View,null):
-_react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity:this.state.fadeAnim}]},this._panResponder.panHandlers),
+_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this6._root=c;},style:{position:'relative',flexDirection:'column'},__source:{fileName:_jsxFileName,lineNumber:243}},
+
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:245}},
+
+this.props.renderEmpty&&this.props.renderEmpty())));
+
+
+
+
+
+}else if(this.state.lastCard){
+
+return(
+_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this6._root=c;},style:{position:'relative',flexDirection:'column'},__source:{fileName:_jsxFileName,lineNumber:256}},this.state.selectedItem===undefined?_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:256}}):
+
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:258}},
+_react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity:this.state.fadeAnim}]},this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:259}}),
+
+this.props.renderEmpty&&this.props.renderEmpty()),
+
+
+_react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[0],this.getInitialStyle().topCard]},this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:264}}),
+
+this.props.renderItem(this.state.selectedItem)))));
+
+
+
+
+
+
+
+}else{
+return(
+_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this6._root=c;},style:{position:'relative',flexDirection:'column'},__source:{fileName:_jsxFileName,lineNumber:276}},this.state.selectedItem===undefined?_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:276}}):
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:277}},
+_react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[1],this.getInitialStyle().topCard,{opacity:this.state.fadeAnim}]},this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:278}}),
 this.props.renderBottom?
 this.props.renderBottom(this.state.selectedItem2):
 
 this.props.renderItem(this.state.selectedItem2)),
 
 
-_react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[0],this.getInitialStyle().topCard]},this._panResponder.panHandlers),
+_react2.default.createElement(_reactNative.Animated.View,_extends({style:[this.getCardStyles()[0],this.getInitialStyle().topCard]},this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:285}}),
 this.props.renderTop?
 this.props.renderTop(this.state.selectedItem):
 
@@ -233,17 +294,19 @@ this.props.renderItem(this.state.selectedItem)))));
 
 
 
+}
+
 }}]);return DeckSwiper;}(_react.Component);
 
 
 
-DeckSwiper.propTypes=_extends({},
-_reactNative.View.propTypes,{
+DeckSwiper.propTypes=_extends({},_reactNative.ViewPropTypes,{
+
 style:_react2.default.PropTypes.object,
 dataSource:_react2.default.PropTypes.array});
 
 
-var StyledDeckSwiper=(0,_theme.connectStyle)('NativeBase.DeckSwiper',{},_mapPropsToStyleNames2.default)(DeckSwiper);exports.
+var StyledDeckSwiper=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.DeckSwiper',{},_mapPropsToStyleNames2.default)(DeckSwiper);exports.
 
 
 DeckSwiper=StyledDeckSwiper;

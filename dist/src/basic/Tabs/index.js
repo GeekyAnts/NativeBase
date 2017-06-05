@@ -1,4 +1,4 @@
-var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};
+var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/basic/Tabs/index.js';
 
 
 
@@ -14,11 +14,12 @@ var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++)
 
 
 
-var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var React=require('react');var PropTypes=React.PropTypes,Component=React.Component;var ReactNative=require('react-native');var Dimensions=ReactNative.Dimensions,View=ReactNative.View,Animated=ReactNative.Animated,ScrollView=ReactNative.ScrollView,StyleSheet=ReactNative.StyleSheet,InteractionManager=ReactNative.InteractionManager,Platform=ReactNative.Platform;var TimerMixin=require('react-timer-mixin');
+
+var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var React=require('react');var PropTypes=React.PropTypes,Component=React.Component;var ReactNative=require('react-native');var Dimensions=ReactNative.Dimensions,View=ReactNative.View,Animated=ReactNative.Animated,ScrollView=ReactNative.ScrollView,StyleSheet=ReactNative.StyleSheet,InteractionManager=ReactNative.InteractionManager,Platform=ReactNative.Platform,ViewPropTypes=ReactNative.ViewPropTypes;var TimerMixin=require('react-timer-mixin');
 
 var SceneComponent=require('./SceneComponent');var _require=
-require('./DefaultTabBar'),DefaultTabBar=_require.DefaultTabBar;
-var ScrollableTabBar=require('./ScrollableTabBar');
+require('./DefaultTabBar'),DefaultTabBar=_require.DefaultTabBar;var _require2=
+require('./ScrollableTabBar'),ScrollableTabBar=_require2.ScrollableTabBar;
 
 
 var ScrollableTabView=React.createClass({displayName:'ScrollableTabView',
@@ -35,7 +36,7 @@ page:PropTypes.number,
 onChangeTab:PropTypes.func,
 onScroll:PropTypes.func,
 renderTabBar:PropTypes.any,
-style:View.propTypes.style,
+style:ViewPropTypes.style,
 contentProps:PropTypes.object,
 scrollWithoutAnimation:PropTypes.bool,
 locked:PropTypes.bool,
@@ -106,7 +107,7 @@ return null;
 }else if(this.props.renderTabBar){
 return React.cloneElement(this.props.renderTabBar(props),props);
 }else{
-return React.createElement(DefaultTabBar,props);
+return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:110}}));
 }
 },
 
@@ -162,7 +163,7 @@ scrollEnabled:!this.props.locked,
 directionalLockEnabled:true,
 alwaysBounceVertical:false,
 keyboardDismissMode:'on-drag'},
-this.props.contentProps),
+this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:147}}),
 
 scenes);
 
@@ -174,9 +175,9 @@ var key=_this4._makeSceneKey(child,idx);
 return React.createElement(SceneComponent,{
 key:child.key,
 shouldUpdated:_this4._shouldRenderSceneKey(idx,_this4.state.currentPage),
-style:{width:_this4.state.containerWidth}},
+style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:175}},
 
-_this4._keyExists(_this4.state.sceneKeys,key)?child:React.createElement(View,{heading:child.props.heading}));
+_this4._keyExists(_this4.state.sceneKeys,key)?child:React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:180}}));
 
 });
 },
@@ -269,7 +270,7 @@ this.props.tabBarPosition==='overlayTop'?'top':'bottom',0);
 
 }
 
-return React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout},
+return React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:273}},
 this.props.tabBarPosition==='top'&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
 (this.props.tabBarPosition==='bottom'||overlayTabs)&&this.renderTabBar(tabBarProps));

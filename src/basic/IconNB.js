@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -10,6 +10,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import Zocial from 'react-native-vector-icons/Zocial';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
@@ -44,6 +45,9 @@ class IconNB extends Component {
           break;
         case 'Zocial':
           this.Icon = Zocial;
+          break;
+        case 'SimpleLineIcons':
+          this.Icon = SimpleLineIcons;
           break;
         default:
           this.Icon = Ionicons;

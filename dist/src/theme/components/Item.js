@@ -1,5 +1,4 @@
 Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native');
-var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 
 var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
@@ -11,7 +10,10 @@ height:60,
 top:8},
 
 'NativeBase.Label':{
-top:8}},
+top:8},
+
+'NativeBase.Icon':{
+top:6}},
 
 
 '.fixedLabel':{
@@ -39,6 +41,9 @@ right:null,
 paddingTop:5,
 alignSelf:'flex-start',
 fontSize:variables.inputFontSize-2},
+
+'NativeBase.Icon':{
+marginTop:36},
 
 'NativeBase.Input':{
 alignSelf:_reactNative.Platform.OS==='ios'?'stretch':'flex-start',

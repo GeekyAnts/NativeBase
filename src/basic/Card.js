@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, ListView } from 'react-native';
+import { View, ListView, ViewPropTypes } from 'react-native';
 
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Card extends Component {
@@ -28,7 +28,7 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
   dataArray: React.PropTypes.object,
   renderRow: React.PropTypes.object,

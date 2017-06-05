@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { Picker } from 'react-native';
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 export default class PickerNB extends Component {

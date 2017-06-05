@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
 
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Separator extends Component {
@@ -13,7 +13,7 @@ class Separator extends Component {
 }
 
 Separator.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes,
   style: React.PropTypes.object,
 };
 

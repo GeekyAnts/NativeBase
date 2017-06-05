@@ -1,5 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _reactNative=require('react-native');
-var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
+Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _Header=require('./Header');var _Header2=_interopRequireDefault(_Header);
 var _Container=require('./Container');var _Container2=_interopRequireDefault(_Container);
 var _Content=require('./Content');var _Content2=_interopRequireDefault(_Content);
@@ -20,12 +19,14 @@ var _Item=require('./Item');var _Item2=_interopRequireDefault(_Item);
 var _Label=require('./Label');var _Label2=_interopRequireDefault(_Label);
 var _Textarea=require('./Textarea');var _Textarea2=_interopRequireDefault(_Textarea);
 var _Text=require('./Text');var _Text2=_interopRequireDefault(_Text);
+var _Toast=require('./Toast');var _Toast2=_interopRequireDefault(_Toast);
 var _Tab=require('./Tab');var _Tab2=_interopRequireDefault(_Tab);
 var _TabBar=require('./TabBar');var _TabBar2=_interopRequireDefault(_TabBar);
 var _TabContainer=require('./TabContainer');var _TabContainer2=_interopRequireDefault(_TabContainer);
 var _View=require('./View');var _View2=_interopRequireDefault(_View);
 var _TabHeading=require('./TabHeading');var _TabHeading2=_interopRequireDefault(_TabHeading);
 var _Icon=require('./Icon');var _Icon2=_interopRequireDefault(_Icon);
+var _Input=require('./Input');var _Input2=_interopRequireDefault(_Input);
 var _Segment=require('./Segment');var _Segment2=_interopRequireDefault(_Segment);
 var _Spinner=require('./Spinner');var _Spinner2=_interopRequireDefault(_Spinner);
 var _CardItem=require('./CardItem');var _CardItem2=_interopRequireDefault(_CardItem);
@@ -72,6 +73,10 @@ alignSelf:'center'},
 (0,_InputGroup2.default)(variables)),
 
 
+'NativeBase.Input':_extends({},
+(0,_Input2.default)(variables)),
+
+
 'NativeBase.Badge':_extends({},
 (0,_Badge2.default)(variables)),
 
@@ -102,6 +107,10 @@ alignItems:'center'}),
 
 'NativeBase.CardItem1':_extends({},
 (0,_CardItem2.default)(variables)),
+
+
+'NativeBase.Toast':_extends({},
+(0,_Toast2.default)(variables)),
 
 
 'NativeBase.H1':_extends({},
@@ -221,8 +230,6 @@ marginVertical:-5},
 
 'NativeBase.Separator':_extends({},
 (0,_Separator2.default)(variables)),
-
-'NativeBase.Tabs':{},
 
 'NativeBase.Thumbnail':{
 '.square':{

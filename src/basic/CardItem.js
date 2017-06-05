@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 
-import { connectStyle } from '@shoutem/theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class CardItem extends Component {
   render() {
+    if (this.props.button) {
     return (
       <TouchableOpacity
         ref={c => this._root = c} {...this.props}
@@ -14,6 +15,15 @@ class CardItem extends Component {
         {this.props.children}
       </TouchableOpacity>
     );
+    }
+    else {
+      return (
+      <View ref={c => this._root = c} {...this.props}
+      >
+        {this.props.children}
+      </View>
+      );
+    }
   }
 }
 
