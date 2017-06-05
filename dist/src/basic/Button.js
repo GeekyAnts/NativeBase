@@ -21,6 +21,8 @@ borderRadius:this.props.rounded&&this.props.bordered?_platform2.default.borderRa
 
 }},{key:'prepareRootProps',value:function prepareRootProps()
 
+
+
 {
 var defaultProps={
 style:this.getInitialStyle().borderedBtn};
@@ -31,13 +33,13 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 {var _this2=this;
 var children=_reactNative.Platform.OS==='ios'?
 this.props.children:
-_react2.default.Children.map(this.props.children,function(child){return child.type===_Text.Text?_react2.default.cloneElement(child,_extends({uppercase:true},child.props)):child;});
+_react2.default.Children.map(this.props.children,function(child){return child&&child.type===_Text.Text?_react2.default.cloneElement(child,_extends({uppercase:true},child.props)):child;});
 if(_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||_reactNative.Platform['Version']<=21){
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
 this.prepareRootProps(),{
 ref:function ref(c){return _this2._root=c;},
-activeOpacity:this.props.activeOpacity?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:37}}),
+activeOpacity:this.props.activeOpacity?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:39}}),
 
 children));
 
@@ -48,8 +50,8 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
-this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:48}}),
-_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:52}}),
+this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:50}}),
+_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:54}}),
 children)));
 
 

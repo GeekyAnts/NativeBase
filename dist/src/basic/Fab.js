@@ -20,6 +20,14 @@ var AnimatedFab=_reactNative.Animated.createAnimatedComponent(_Button.Button);va
 Fab=function(_Component){_inherits(Fab,_Component);
 
 
+
+
+
+
+
+
+
+
 function Fab(props){_classCallCheck(this,Fab);var _this=_possibleConstructorReturn(this,(Fab.__proto__||Object.getPrototypeOf(Fab)).call(this,
 props));
 _this.state={
@@ -214,7 +222,7 @@ newChildren.push(_react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i,__source:{fileName:_jsxFileName,lineNumber:213}}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:221}}),
 child.props.children));
 
 });
@@ -339,11 +347,11 @@ this.containerWidth=this.containerWidth||new _reactNative.Animated.Value(0);
 this.buttonScale=this.buttonScale||new _reactNative.Animated.Value(0);
 }
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:342}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:350}},
 this.renderButtons(),
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 onPress:function onPress(){return _this4.fabOnPress();}},
-this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:344}}),
+this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:352}}),
 
 this.renderFab())));
 

@@ -1,6 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native');
-
-var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
+Object.defineProperty(exports,"__esModule",{value:true});var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var platformStyle=variables.platformStyle;
@@ -28,13 +26,13 @@ color:variables.segmentActiveTextColor}},
 
 
 '.first':{
-borderTopLeftRadius:platform=='ios'?5:undefined,
-borderBottomLeftRadius:platform=='ios'?5:undefined,
+borderTopLeftRadius:platform==='ios'?5:undefined,
+borderBottomLeftRadius:platform==='ios'?5:undefined,
 borderRightWidth:0},
 
 '.last':{
-borderTopRightRadius:platform=='ios'?5:undefined,
-borderBottomRightRadius:platform=='ios'?5:undefined,
+borderTopRightRadius:platform==='ios'?5:undefined,
+borderBottomRightRadius:platform==='ios'?5:undefined,
 borderLeftWidth:0},
 
 'NativeBase.Text':{
