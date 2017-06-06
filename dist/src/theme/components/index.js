@@ -68,6 +68,12 @@ alignSelf:'center'},
 'NativeBase.Title':_extends({},
 (0,_Title2.default)(variables)),
 
+'NativeBase.Subtitle':{
+fontSize:variables.subTitleFontSize,
+fontFamily:variables.titleFontfamily,
+color:variables.subtitleColor,
+textAlign:'center'},
+
 
 'NativeBase.InputGroup':_extends({},
 (0,_InputGroup2.default)(variables)),
@@ -233,17 +239,33 @@ marginVertical:-5},
 
 'NativeBase.Thumbnail':{
 '.square':{
-borderRadius:0},
-
+borderRadius:0,
 '.small':{
 width:36,
 height:36,
-borderRadius:18},
+borderRadius:0},
 
 '.large':{
 width:80,
 height:80,
-borderRadius:40},
+borderRadius:0}},
+
+
+'.small':{
+width:36,
+height:36,
+borderRadius:18,
+'.square':{
+borderRadius:0}},
+
+
+'.large':{
+width:80,
+height:80,
+borderRadius:40,
+'.square':{
+borderRadius:0}},
+
 
 width:56,
 height:56,

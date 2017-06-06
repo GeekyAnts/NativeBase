@@ -1,7 +1,6 @@
 Object.defineProperty(exports,"__esModule",{value:true});var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
-var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 
 var segmentTheme={
@@ -13,7 +12,7 @@ backgroundColor:variables.segmentBackgroundColor,
 'NativeBase.Button':{
 alignSelf:'center',
 borderRadius:0,
-paddingHorizontal:25,
+paddingHorizontal:20,
 height:30,
 backgroundColor:'transparent',
 borderWidth:1,

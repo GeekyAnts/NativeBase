@@ -215,7 +215,8 @@ color:variables.toolbarBtnColor},
 color:variables.toolbarBtnColor},
 
 'NativeBase.Text':{
-color:variables.inverseTextColor}}},
+color:variables.inverseTextColor,
+backgroundColor:'transparent'}}},
 
 
 
