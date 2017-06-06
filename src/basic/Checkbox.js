@@ -34,12 +34,12 @@ class CheckBox extends Component {
     const platformStyle = variables.platformStyle;
     const platform = variables.platform;
     return (
-      <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps(variables)}>
+      <TouchableOpacity ref={c => this._root = c} {...this.prepareRootProps(variables) }>
         <IconNB style={{
-            color: variables.checkboxTickColor,
-            fontSize: variables.CheckboxFontSize,
-            lineHeight: variables.CheckboxIconSize
-          }} name={((platform === 'ios') && (platformStyle !== 'material')) ? 'ios-checkmark-outline' : 'md-checkmark'} />
+          color: variables.checkboxTickColor,
+          fontSize: variables.CheckboxFontSize,
+          lineHeight: variables.CheckboxIconSize
+        }} name={((platform === 'ios') && (platformStyle !== 'material')) ? 'ios-checkmark-outline' : 'md-checkmark'} />
       </TouchableOpacity>
     );
   }

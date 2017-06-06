@@ -17,6 +17,7 @@ var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapProps
 
 
 ActionSheetContainer=function(_Component){_inherits(ActionSheetContainer,_Component);
+
 function ActionSheetContainer(props){_classCallCheck(this,ActionSheetContainer);var _this=_possibleConstructorReturn(this,(ActionSheetContainer.__proto__||Object.getPrototypeOf(ActionSheetContainer)).call(this,
 props));
 _this.state={
@@ -70,9 +71,8 @@ onRequestClose:function onRequestClose(){return _this2.setState({modalVisible:fa
 _react2.default.createElement(_reactNative.TouchableOpacity,{activeOpacity:1,onPress:function onPress(){return _this2.setState({modalVisible:false});},style:{backgroundColor:'rgba(0,0,0,0.4)',flex:1,justifyContent:'flex-end'}},
 _react2.default.createElement(_reactNative.TouchableOpacity,{activeOpacity:1,style:{backgroundColor:'#fff',height:this.state.length*80,padding:15,elevation:4}},
 _react2.default.createElement(_Text.Text,{style:{color:'#757575'}},this.state.title),
-_react2.default.createElement(_List.List,{style:{marginHorizontal:-15,marginTop:15},dataArray:this.state.items,renderRow:function renderRow(data,i,id)
-
-{return typeof _this2.state.items[0]==='string'?
+_react2.default.createElement(_List.List,{style:{marginHorizontal:-15,marginTop:15},dataArray:this.state.items,renderRow:function renderRow(data,i,id){
+return typeof _this2.state.items[0]==='string'?
 _react2.default.createElement(_ListItem.ListItem,{onPress:function onPress(){_this2.state.callback(id);_this2.setState({modalVisible:false});},style:{borderColor:'transparent'}},
 _react2.default.createElement(_Text.Text,null,data)):
 
@@ -85,6 +85,7 @@ _react2.default.createElement(_Body.Body,{style:{borderColor:'transparent'}},
 _react2.default.createElement(_Text.Text,null,data.text)),
 
 _react2.default.createElement(_Right.Right,null));
+
 }})))));
 
 

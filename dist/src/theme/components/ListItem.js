@@ -1,11 +1,9 @@
 Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _reactNative=require('react-native');
-var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 
 var _Picker=require('./Picker');var _Picker2=_interopRequireDefault(_Picker);
 var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
-var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 
 var listItemTheme={

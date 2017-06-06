@@ -84,7 +84,8 @@ get btnWarningColor(){
 return this.inverseTextColor;
 },
 get btnTextSize(){
-return platform==='ios'?this.fontSizeBase*1.1:
+return platform==='ios'?
+this.fontSizeBase*1.1:
 this.fontSizeBase-1;
 },
 get btnTextSizeLarge(){

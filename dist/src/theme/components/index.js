@@ -1,5 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _reactNative=require('react-native');
-var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
+Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _Header=require('./Header');var _Header2=_interopRequireDefault(_Header);
 var _Container=require('./Container');var _Container2=_interopRequireDefault(_Container);
 var _Content=require('./Content');var _Content2=_interopRequireDefault(_Content);
@@ -68,6 +67,12 @@ alignSelf:'center'},
 
 'NativeBase.Title':_extends({},
 (0,_Title2.default)(variables)),
+
+'NativeBase.Subtitle':{
+fontSize:variables.subTitleFontSize,
+fontFamily:variables.titleFontfamily,
+color:variables.subtitleColor,
+textAlign:'center'},
 
 
 'NativeBase.InputGroup':_extends({},
@@ -232,21 +237,35 @@ marginVertical:-5},
 'NativeBase.Separator':_extends({},
 (0,_Separator2.default)(variables)),
 
-'NativeBase.Tabs':{},
-
 'NativeBase.Thumbnail':{
 '.square':{
-borderRadius:0},
-
+borderRadius:0,
 '.small':{
 width:36,
 height:36,
-borderRadius:18},
+borderRadius:0},
 
 '.large':{
 width:80,
 height:80,
-borderRadius:40},
+borderRadius:0}},
+
+
+'.small':{
+width:36,
+height:36,
+borderRadius:18,
+'.square':{
+borderRadius:0}},
+
+
+'.large':{
+width:80,
+height:80,
+borderRadius:40,
+'.square':{
+borderRadius:0}},
+
 
 width:56,
 height:56,

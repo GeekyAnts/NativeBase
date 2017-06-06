@@ -1,4 +1,3 @@
-import { Platform } from 'react-native';
 import _ from 'lodash';
 import headerTheme from './Header';
 import containerTheme from './Container'
@@ -68,6 +67,12 @@ export default (variables = variable) => {
 
     'NativeBase.Title': {
       ...titleTheme(variables),
+    },
+    'NativeBase.Subtitle': {
+      fontSize: variables.subTitleFontSize,
+      fontFamily: variables.titleFontfamily,
+      color: variables.subtitleColor,
+      textAlign: 'center',
     },
 
     'NativeBase.InputGroup': {
@@ -203,11 +208,11 @@ export default (variables = variable) => {
     },
 
     'NativeBase.Tab': {
-     ...tabTheme(variables),
+      ...tabTheme(variables),
     },
 
     'NativeBase.Segment': {
-     ...segmentTheme(variables),
+      ...segmentTheme(variables),
     },
 
     'NativeBase.STabs': {
@@ -232,21 +237,35 @@ export default (variables = variable) => {
     'NativeBase.Separator': {
       ...separatorTheme(variables),
     },
-    'NativeBase.Tabs': {
-    },
     'NativeBase.Thumbnail': {
       '.square': {
         borderRadius: 0,
+        '.small': {
+          width: 36,
+          height: 36,
+          borderRadius: 0,
+        },
+        '.large': {
+          width: 80,
+          height: 80,
+          borderRadius: 0,
+        },
       },
       '.small': {
         width: 36,
         height: 36,
         borderRadius: 18,
+        '.square': {
+          borderRadius: 0,
+        },
       },
       '.large': {
         width: 80,
         height: 80,
         borderRadius: 40,
+        '.square': {
+          borderRadius: 0,
+        },
       },
       width: 56,
       height: 56,

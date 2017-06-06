@@ -137,8 +137,8 @@ return _react2.default.createElement(_TabBar.TabBar,_extends({},props,{vertical:
 {var _this4=this;
 var tabBarProps={
 goToPage:this.goToPage.bind(this),
-tabs:this.props.children.map(function(child){return child.props.tabLabel;}),
-tabIcon:this.props.children.map(function(child){return child.props.tabIcon;}),
+tabs:this.props.children.map(function(child){return child&&child.props.tabLabel;}),
+tabIcon:this.props.children.map(function(child){return child&&child.props.tabIcon;}),
 activeTab:this.state.currentPage,
 iconPresent:this.props.children[0].props.tabIcon?true:false,
 tabBarTextStyle:this.props.tabBarTextStyle,

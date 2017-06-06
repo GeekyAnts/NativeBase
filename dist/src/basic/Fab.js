@@ -20,6 +20,14 @@ var AnimatedFab=_reactNative.Animated.createAnimatedComponent(_Button.Button);va
 Fab=function(_Component){_inherits(Fab,_Component);
 
 
+
+
+
+
+
+
+
+
 function Fab(props){_classCallCheck(this,Fab);var _this=_possibleConstructorReturn(this,(Fab.__proto__||Object.getPrototypeOf(Fab)).call(this,
 props));
 _this.state={

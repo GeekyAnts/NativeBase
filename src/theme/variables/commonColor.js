@@ -47,7 +47,7 @@ export default {
   segmentBorderColor: '#fff',
   segmentBorderColorMain: '#3F51B5',
 
-  // New Variable
+    // New Variable
   get defaultTextColor() {
     return this.textColor;
   },
@@ -84,8 +84,9 @@ export default {
     return this.inverseTextColor;
   },
   get btnTextSize() {
-    return (platform === 'ios') ? this.fontSizeBase * 1.1 :
-      this.fontSizeBase - 1;
+    return (platform === 'ios')
+      ? this.fontSizeBase * 1.1
+      : this.fontSizeBase - 1;
   },
   get btnTextSizeLarge() {
     return this.fontSizeBase * 1.5;
