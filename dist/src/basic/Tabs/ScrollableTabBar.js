@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.ScrollableTab=undefined;var _jsxFileName='src/basic/Tabs/ScrollableTabBar.js';
+Object.defineProperty(exports,"__esModule",{value:true});exports.ScrollableTab=undefined;
 
 var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 var _platform=require('./../../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
@@ -138,10 +138,10 @@ if(typeof name==='string'){
 return React.createElement(Button,{
 key:name+'_'+page,
 onPress:function onPress(){return onPressHandler(page);},
-onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:138}},
+onLayout:onLayoutHandler},
 
-React.createElement(_index.TabHeading,{scrollable:true,style:isTabActive?activeTabStyle:tabStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:143}},
-React.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:144}},
+React.createElement(_index.TabHeading,{scrollable:true,style:isTabActive?activeTabStyle:tabStyle,active:isTabActive},
+React.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle},
 name)));
 
 
@@ -150,9 +150,9 @@ name)));
 {
 return React.createElement(Button,{
 key:_lodash2.default.random(1.2,5.2),
-onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:151}},
+onPress:function onPress(){return onPressHandler(page);}},
 
-React.createElement(_index.TabHeading,{scrollable:true,style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:155}},
+React.createElement(_index.TabHeading,{scrollable:true,style:tabHeaderStyle,active:isTabActive},
 headerContent));
 
 
@@ -181,7 +181,7 @@ width:this.state._widthTabUnderline};
 
 return React.createElement(View,{
 style:[styles.container,{backgroundColor:this.props.backgroundColor},this.props.style],
-onLayout:this.onContainerLayout,__source:{fileName:_jsxFileName,lineNumber:182}},
+onLayout:this.onContainerLayout},
 
 React.createElement(ScrollView,{
 automaticallyAdjustContentInsets:false,
@@ -192,19 +192,19 @@ showsVerticalScrollIndicator:false,
 directionalLockEnabled:true,
 onScroll:this.props.onScroll,
 bounces:false,
-scrollsToTop:false,__source:{fileName:_jsxFileName,lineNumber:186}},
+scrollsToTop:false},
 
 React.createElement(View,{
 style:[styles.tabs,{width:this.state._containerWidth},this.props.tabsContainerStyle],
 ref:'tabContainer',
-onLayout:this.onTabContainerLayout,__source:{fileName:_jsxFileName,lineNumber:197}},
+onLayout:this.onTabContainerLayout},
 
 this.props.tabs.map(function(name,page){
 var isTabActive=_this.props.activeTab===page;
 var renderTab=_this.props.renderTab||_this.renderTab;
 return renderTab(name,page,isTabActive,_this.props.goToPage,_this.measureTab.bind(_this,page),_this.props.tabStyle[page],_this.props.activeTabStyle[page],_this.props.textStyle[page],_this.props.activeTextStyle[page],_this.props.tabHeaderStyle[page]);
 }),
-React.createElement(Animated.View,{style:[tabUnderlineStyle,dynamicTabUnderline,this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:207}}))));
+React.createElement(Animated.View,{style:[tabUnderlineStyle,dynamicTabUnderline,this.props.underlineStyle]}))));
 
 
 

@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Header=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/backward/Widgets/Header.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.Header=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
@@ -57,18 +57,18 @@ return true;
 
 if(buttons.length===1&&this.props.iconRight){
 if(_reactNative.Platform.OS==='ios'){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{position:'absolute',left:0,right:0,top:13,bottom:0,alignSelf:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:60}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{position:'absolute',left:0,right:0,top:13,bottom:0,alignSelf:'center',justifyContent:'center'}},
 [title[0],subtitle[0]]));
 
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title2',style:{flex:3,alignSelf:'stretch'},__source:{fileName:_jsxFileName,lineNumber:63}}));
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn1',style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-14},__source:{fileName:_jsxFileName,lineNumber:64}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title2',style:{flex:3,alignSelf:'stretch'}}));
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn1',style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-14}},
 _react2.default.cloneElement(buttons[0])));
 
 }else{
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{flex:3,alignSelf:'stretch',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:68}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{flex:3,alignSelf:'stretch',justifyContent:'center'}},
 [title[0]]));
 
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn1',style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginLeft:-10,marginRight:12},__source:{fileName:_jsxFileName,lineNumber:71}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn1',style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginLeft:-10,marginRight:12}},
 _react2.default.cloneElement(buttons[0],{header:true})));
 
 }
@@ -83,51 +83,51 @@ newChildren.push(_react2.default.cloneElement(input[0],{atoolbar:true}));
 }
 }else if(buttons.length>=1){
 if(_reactNative.Platform.OS==='ios'){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{position:'absolute',left:0,right:0,top:13,bottom:0,alignSelf:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:86}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{position:'absolute',left:0,right:0,top:13,bottom:0,alignSelf:'center',justifyContent:'center'}},
 [title[0],subtitle[0]]));
 
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn1',style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginLeft:-14},__source:{fileName:_jsxFileName,lineNumber:89}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn1',style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginLeft:-14}},
 _react2.default.cloneElement(buttons[0])));
 
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title2',style:{flex:3,alignSelf:'stretch'},__source:{fileName:_jsxFileName,lineNumber:92}}));
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title2',style:{flex:3,alignSelf:'stretch'}}));
 if(buttons.length>1){
 for(var i=1;i<buttons.length;i++){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn'+(i+1),style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-14},__source:{fileName:_jsxFileName,lineNumber:95}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn'+(i+1),style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-14}},
 _react2.default.cloneElement(buttons[i])));
 
 }
 }
 }else{
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn1',style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginLeft:-10,marginRight:12},__source:{fileName:_jsxFileName,lineNumber:101}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn1',style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginLeft:-10,marginRight:12}},
 _react2.default.cloneElement(buttons[0])));
 
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{flex:3,alignSelf:'stretch',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:104}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{flex:3,alignSelf:'stretch',justifyContent:'center'}},
 [title[0]]));
 
 for(var _i=1;_i<buttons.length;_i++){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn'+(_i+1),style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-7},__source:{fileName:_jsxFileName,lineNumber:108}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn'+(_i+1),style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-7}},
 _react2.default.cloneElement(buttons[_i])));
 
 }
 }
 }else if(_reactNative.Platform.OS==='ios'){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{position:'absolute',left:0,right:0,top:13,bottom:0,alignSelf:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:114}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{position:'absolute',left:0,right:0,top:13,bottom:0,alignSelf:'center',justifyContent:'center'}},
 [title[0],subtitle[0]]));
 
 
 if(childrenArray.length>1){
 for(var _i2=1;_i2<childrenArray.length;_i2++){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn'+(_i2+1),style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-14},__source:{fileName:_jsxFileName,lineNumber:120}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn'+(_i2+1),style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-14}},
 _react2.default.cloneElement(childrenArray[_i2],{})));
 
 }
 }
 }else{
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{flex:3,alignSelf:'stretch',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:126}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'title',style:{flex:3,alignSelf:'stretch',justifyContent:'center'}},
 [title[0]]));
 
 for(var _i3=1;_i3<childrenArray.length;_i3++){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn'+(_i3+1),style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-7},__source:{fileName:_jsxFileName,lineNumber:130}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'btn'+(_i3+1),style:{alignItems:'center',justifyContent:'flex-start',flexDirection:'row',marginRight:-7}},
 _react2.default.cloneElement(childrenArray[_i3],{})));
 
 }
@@ -138,7 +138,7 @@ return newChildren;
 
 {var _this2=this;
 return(
-_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:141}}),
+_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props),
 this.renderChildren()));
 
 

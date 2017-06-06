@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _jsxFileName='src/basic/Swipe/NativeButton.js';var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _react=require('react');var _react2=_interopRequireDefault(_react);
+Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _react=require('react');var _react2=_interopRequireDefault(_react);
 
 
 
@@ -58,7 +58,7 @@ return this.props.children;
 }
 
 return(
-_react2.default.createElement(_reactNative.Text,{style:[styles.textButton,this.props.textStyle],__source:{fileName:_jsxFileName,lineNumber:61}},
+_react2.default.createElement(_reactNative.Text,{style:[styles.textButton,this.props.textStyle]},
 this.props.children));
 
 
@@ -92,9 +92,9 @@ background:this.props.background||_reactNative.TouchableNativeFeedback.Selectabl
 
 
 return(
-_react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({},
-buttonProps,{__source:{fileName:_jsxFileName,lineNumber:95}}),
-_react2.default.createElement(_reactNative.View,{style:[styles.button,this.props.style,disabledStyle],__source:{fileName:_jsxFileName,lineNumber:97}},
+_react2.default.createElement(_reactNative.TouchableNativeFeedback,
+buttonProps,
+_react2.default.createElement(_reactNative.View,{style:[styles.button,this.props.style,disabledStyle]},
 this._renderText())));
 
 
@@ -106,7 +106,7 @@ return(
 _react2.default.createElement(_reactNative.TouchableHighlight,_extends({},
 buttonProps,{
 style:[styles.button,this.props.style,disabledStyle],
-underlayColor:this.props.underlayColor,__source:{fileName:_jsxFileName,lineNumber:106}}),
+underlayColor:this.props.underlayColor}),
 this._renderText()));
 
 

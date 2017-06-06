@@ -1,34 +1,42 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.ToastContainer=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/basic/ToastContainer.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.ToastContainer=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
-
-var _react=require('react');var _react2=_interopRequireDefault(_react);
-var _reactNative=require('react-native');
-var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
-var _Text=require('./Text');
-var _Button=require('./Button');
-var _View=require('./View');
-var _Toast=require('./Toast');
-var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _objectWithoutProperties(obj,keys){var target={};for(var i in obj){if(keys.indexOf(i)>=0)continue;if(!Object.prototype.hasOwnProperty.call(obj,i))continue;target[i]=obj[i];}return target;}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
-
+var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _reactNative=require("react-native");
+var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
+var _Text=require("./Text");
+var _Button=require("./Button");
+var _View=require("./View");
+var _Toast=require("./Toast");
+var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _objectWithoutProperties(obj,keys){var target={};for(var i in obj){if(keys.indexOf(i)>=0)continue;if(!Object.prototype.hasOwnProperty.call(obj,i))continue;target[i]=obj[i];}return target;}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 ToastContainer=function(_Component){_inherits(ToastContainer,_Component);
 function ToastContainer(props){_classCallCheck(this,ToastContainer);var _this=_possibleConstructorReturn(this,(ToastContainer.__proto__||Object.getPrototypeOf(ToastContainer)).call(this,
 props));
 _this.state={
-modalVisible:false};return _this;
+modalVisible:false,
+fadeAnim:new _reactNative.Animated.Value(0)};return _this;
 
-}_createClass(ToastContainer,[{key:'showToast',value:function showToast(_ref)
+}_createClass(ToastContainer,[{key:"getToastStyle",value:function getToastStyle()
 
 
 
 
+{
+return{
+position:"absolute",
+opacity:this.state.fadeAnim,
+width:"90%",
+top:this.state.position==="top"?30:undefined,
+bottom:this.state.position==="bottom"?30:undefined};
+
+}},{key:"showToast",value:function showToast(_ref)
 {var _this2=this;var config=_ref.config;
 this.setState({
 modalVisible:true,
 text:config.text,
 buttonText:config.buttonText,
 type:config.type,
-position:config.position,
+position:config.position?config.position:"bottom",
 supportedOrientations:config.supportedOrientations,
 style:config.style,
 buttonTextStyle:config.buttonTextStyle,
@@ -37,55 +45,59 @@ textStyle:config.textStyle});
 
 if(config.duration>0){
 setTimeout(function(){
+_reactNative.Animated.timing(_this2.state.fadeAnim,{
+toValue:0,
+duration:200}).
+start();
+setTimeout(function(){
 _this2.setState({
 modalVisible:false});
 
+},500);
 },config.duration);
 }
-}},{key:'componentDidMount',value:function componentDidMount()
-{
-if(!this.props.autoHide&&this.props.duration){
-console.warn('It\'s not recommended to set autoHide false with duration');
-}
-}},{key:'render',value:function render()
+_reactNative.Animated.timing(this.state.fadeAnim,{
+toValue:1,
+duration:200}).
+start();
+}},{key:"closeToast",value:function closeToast()
 {var _this3=this;
-return(
-_react2.default.createElement(_reactNative.Modal,{
-supportedOrientations:this.state.supportedOrientations||null,
-animationType:this.state.position=='bottom'?"slide":"fade",
-transparent:true,
-visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){
+_reactNative.Animated.timing(this.state.fadeAnim,{
+toValue:0,
+duration:200}).
+start();
+setTimeout(function(){
 _this3.setState({
 modalVisible:false});
 
-},__source:{fileName:_jsxFileName,lineNumber:53}},
-
-_react2.default.createElement(_reactNative.View,{style:{
-margin:_reactNative.Platform.OS==='ios'?20:0,
-flex:1,
-justifyContent:this.state.position==='top'?'flex-start':this.state.position==='bottom'?'flex-end':this.state.position==='center'?'center':'flex-start'},__source:{fileName:_jsxFileName,lineNumber:64}},
-
+},500);
+}},{key:"render",value:function render()
+{var _this4=this;
+if(this.state.modalVisible){
+return(
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle()},
 _react2.default.createElement(_Toast.Toast,{
 style:this.state.style,
-danger:this.state.type=='danger'?true:false,
-success:this.state.type=='success'?true:false,
-warning:this.state.type=='warning'?true:false,__source:{fileName:_jsxFileName,lineNumber:69}},
-_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:74}},this.state.text),
-this.state.buttonText&&_react2.default.createElement(_Button.Button,{
-style:this.state.buttonStyle,onPress:function onPress(){
-_this3.setState({
-modalVisible:false});
+danger:this.state.type=="danger"?true:false,
+success:this.state.type=="success"?true:false,
+warning:this.state.type=="warning"?true:false},
 
-},__source:{fileName:_jsxFileName,lineNumber:75}},
-_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:81}},this.state.buttonText))))));
+_react2.default.createElement(_Text.Text,{style:this.state.textStyle},this.state.text),
+this.state.buttonText&&
+_react2.default.createElement(_Button.Button,{
+style:this.state.buttonStyle,
+onPress:function onPress(){return _this4.closeToast();}},
 
-
-
+_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle},
+this.state.buttonText)))));
 
 
 
-}}],[{key:'show',value:function show(_ref2){var config=_objectWithoutProperties(_ref2,[]);this.toastInstance._root.showToast({config:config});}}]);return ToastContainer;}(_react.Component);
+
+
+
+}else return null;
+}}],[{key:"show",value:function show(_ref2){var config=_objectWithoutProperties(_ref2,[]);this.toastInstance._root.showToast({config:config});}}]);return ToastContainer;}(_react.Component);
 
 
 ToastContainer.propTypes=_extends({},_reactNative.ViewPropTypes,{
@@ -93,8 +105,11 @@ ToastContainer.propTypes=_extends({},_reactNative.ViewPropTypes,{
 style:_react2.default.PropTypes.object});
 
 
-var StyledToastContainer=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.ToastContainer',{},_mapPropsToStyleNames2.default)(ToastContainer);exports.
+var StyledToastContainer=(0,_nativeBaseShoutemTheme.connectStyle)(
+"NativeBase.ToastContainer",
+{},_mapPropsToStyleNames2.default)(
 
+ToastContainer);exports.
 
 ToastContainer=StyledToastContainer;
 //# sourceMappingURL=ToastContainer.js.map

@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.SwipeoutBtn=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/basic/Swipe/SwipeoutBtn.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
+Object.defineProperty(exports,"__esModule",{value:true});exports.SwipeoutBtn=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
 
 var _NativeButton=require('./NativeButton');var _NativeButton2=_interopRequireDefault(_NativeButton);
@@ -61,10 +61,10 @@ style:styles.swipeoutBtnTouchable,
 underlayColor:this.props.underlayColor,
 disabled:this.props.disabled,
 style:styleSwipeoutBtn,
-textStyle:styleSwipeoutBtnText,__source:{fileName:_jsxFileName,lineNumber:58}},
+textStyle:styleSwipeoutBtnText},
 
 btn.component?
-_react2.default.createElement(_reactNative.View,{style:styleSwipeoutBtnComponent,__source:{fileName:_jsxFileName,lineNumber:67}},btn.component):
+_react2.default.createElement(_reactNative.View,{style:styleSwipeoutBtnComponent},btn.component):
 
 btn.text));
 

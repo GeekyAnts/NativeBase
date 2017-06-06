@@ -1,4 +1,4 @@
-var _jsxFileName='__tests__/backward/Button.android.js';require('react-native');
+require('react-native');
 var _reactTestRenderer=require('react-test-renderer');var _reactTestRenderer2=_interopRequireDefault(_reactTestRenderer);
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
@@ -16,7 +16,7 @@ return Platform;
 
 it('renders regular button',function(){
 var tree=_reactTestRenderer2.default.create(
-_react2.default.createElement(_Button.Button,{__source:{fileName:_jsxFileName,lineNumber:19}},'Test')).
+_react2.default.createElement(_Button.Button,null,'Test')).
 
 
 toJSON();

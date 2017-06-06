@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefined;var _jsxFileName='src/basic/Button.js';var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
@@ -37,7 +37,7 @@ return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
 this.prepareRootProps(),{
 ref:function ref(c){return _this2._root=c;},
-activeOpacity:this.props.activeOpacity?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:37}}),
+activeOpacity:this.props.activeOpacity?this.props.activeOpacity:0.5}),
 
 children));
 
@@ -48,8 +48,8 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
 background:this.props.androidRippleColor?_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
-this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:48}}),
-_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:52}}),
+this.prepareRootProps()),
+_react2.default.createElement(_reactNative.View,this.prepareRootProps(),
 children)));
 
 
