@@ -68,6 +68,12 @@ export default (variables = variable) => {
     'NativeBase.Title': {
       ...titleTheme(variables),
     },
+    'NativeBase.Subtitle': {
+      fontSize: variables.subTitleFontSize,
+      fontFamily: variables.titleFontfamily,
+      color: variables.subtitleColor,
+      textAlign: 'center',
+    },
 
     'NativeBase.InputGroup': {
       ...inputGroupTheme(variables),
