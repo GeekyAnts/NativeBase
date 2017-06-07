@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.CardItem1=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.CardItem1=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/backward/Widgets/CardItem.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
@@ -142,7 +142,7 @@ var childrenArray=_react2.default.Children.toArray(this.props.children);
 childrenArray=childrenArray.filter(function(child){return!!child;});
 if(!this.thumbnailPresent()&&!this.iconPresent()){
 if(this.imagePresent()&&!Array.isArray(this.props.children)){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'img',style:{flex:1,margin:_reactNative.Platform.OS==='ios'?-10:-12}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'img',style:{flex:1,margin:_reactNative.Platform.OS==='ios'?-10:-12},__source:{fileName:_jsxFileName,lineNumber:145}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},_this2.getChildProps(child),{key:i})));})));
 
@@ -159,7 +159,7 @@ _react2.default.cloneElement(child,_extends({},_this2.getChildProps(child),{key:
 newChildren=[];
 if(!Array.isArray(this.props.children)){
 newChildren.push(
-_react2.default.createElement(_reactNative.View,{key:'cardItem1',style:{justifyContent:'flex-start'}},
+_react2.default.createElement(_reactNative.View,{key:'cardItem1',style:{justifyContent:'flex-start'},__source:{fileName:_jsxFileName,lineNumber:162}},
 _react2.default.cloneElement(childrenArray)));
 
 
@@ -167,7 +167,7 @@ _react2.default.cloneElement(childrenArray)));
 newChildren.push(
 _react2.default.cloneElement(childrenArray[0],this.getChildProps(childrenArray[0])));
 newChildren.push(
-_react2.default.createElement(_reactNative.View,{key:'cardItem1',style:this.notePresent()?this.getRightStyle().right:this.squareThumbs()?this.getRightStyle().right3:this.getRightStyle().right2},
+_react2.default.createElement(_reactNative.View,{key:'cardItem1',style:this.notePresent()?this.getRightStyle().right:this.squareThumbs()?this.getRightStyle().right3:this.getRightStyle().right2,__source:{fileName:_jsxFileName,lineNumber:170}},
 childrenArray.slice(1).map(function(child,i){return(
 _react2.default.cloneElement(child,{key:i}));})));
 
@@ -193,7 +193,7 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 ref:function ref(c){_this3._root=c;}},this.prepareRootProps(),{
-activeOpacity:this.props.button?0.2:1}),
+activeOpacity:this.props.button?0.2:1,__source:{fileName:_jsxFileName,lineNumber:194}}),
 
 this.renderChildren()));
 

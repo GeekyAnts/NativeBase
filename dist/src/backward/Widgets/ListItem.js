@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.ListItem=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.ListItem=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/backward/Widgets/ListItem.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
@@ -277,7 +277,7 @@ var newChildren=[];
 if(!Array.isArray(this.props.children)&&
 !this.inlinePresent()&&!this.stackedPresent()&&!this.insetPresent()){
 newChildren.push(
-_react2.default.createElement(_reactNative.View,{key:'listItem',style:{flex:1}},
+_react2.default.createElement(_reactNative.View,{key:'listItem',style:{flex:1},__source:{fileName:_jsxFileName,lineNumber:280}},
 _react2.default.cloneElement(this.props.children,this.getChildProps(this.props.children))));
 
 
@@ -293,7 +293,7 @@ return true;
 });
 newChildren.push(_react2.default.cloneElement(iconElement[0],_extends({},this.getChildProps(iconElement[0]),{key:'listItem0'})));
 newChildren.push(
-_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'row',alignItems:'center',justifyContent:'space-between',flex:1}},
+_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'row',alignItems:'center',justifyContent:'space-between',flex:1},__source:{fileName:_jsxFileName,lineNumber:296}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},_this2.getChildProps(child),{key:i})));})));
 
@@ -303,7 +303,7 @@ if(item.type.displayName==='Styled(PickerNB)'){
 return true;
 }
 });
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'row',alignItems:'center',flex:1.8}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'row',alignItems:'center',flex:1.8},__source:{fileName:_jsxFileName,lineNumber:306}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},_this2.getChildProps(child),{key:i})));})));
 
@@ -315,7 +315,7 @@ return true;
 }
 });
 
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0'},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',__source:{fileName:_jsxFileName,lineNumber:318}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},_this2.getChildProps(child),{key:i})));})));
 
@@ -327,7 +327,7 @@ return true;
 }
 });
 
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0'},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',__source:{fileName:_jsxFileName,lineNumber:330}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},_this2.getChildProps(child),{key:i})));})));
 
@@ -339,7 +339,7 @@ return true;
 }
 });
 
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'row',alignItems:'center',justifyContent:'space-between'},__source:{fileName:_jsxFileName,lineNumber:342}},
 childrenArray.slice(0,2).map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},_this2.getChildProps(child),{key:i})));})));
 
@@ -351,7 +351,7 @@ return true;
 }
 });
 newChildren.push(_react2.default.cloneElement(iconElement[0],_extends({},this.getChildProps(iconElement[0]),{key:'listItem0'})));
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'column',paddingLeft:15,alignSelf:this.squareThumbs()?'flex-start':'flex-start',flex:1}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'column',paddingLeft:15,alignSelf:this.squareThumbs()?'flex-start':'flex-start',flex:1},__source:{fileName:_jsxFileName,lineNumber:354}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},_this2.getChildProps(child),{key:i})));})));
 
@@ -362,7 +362,7 @@ return true;
 }
 });
 newChildren.push(_react2.default.cloneElement(iconElement[0],_extends({},this.getChildProps(iconElement[0]),{key:'listItem0'})));
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'column',paddingLeft:15,alignSelf:this.squareThumbs()?'flex-start':'center',flex:1}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'column',paddingLeft:15,alignSelf:this.squareThumbs()?'flex-start':'center',flex:1},__source:{fileName:_jsxFileName,lineNumber:365}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},_this2.getChildProps(child),{key:i})));})));
 
@@ -373,7 +373,7 @@ return true;
 }
 });
 newChildren.push(_react2.default.cloneElement(iconElement[0],this.getChildProps(iconElement[0])));
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'row',paddingLeft:15,justifyContent:'space-between',alignSelf:this.squareThumbs()?'flex-start':'center',flex:1}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'row',paddingLeft:15,justifyContent:'space-between',alignSelf:this.squareThumbs()?'flex-start':'center',flex:1},__source:{fileName:_jsxFileName,lineNumber:376}},
 childrenArray.map(function(child){return _react2.default.cloneElement(child,_this2.getChildProps(child));})));
 
 }else if(this.radioPresent()){
@@ -382,47 +382,47 @@ if(item.type.displayName==='Styled(Radio)'){
 return true;
 }
 });
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'column',alignSelf:this.squareThumbs()?'flex-start':'center',flex:1}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'column',alignSelf:this.squareThumbs()?'flex-start':'center',flex:1},__source:{fileName:_jsxFileName,lineNumber:385}},
 childrenArray.map(function(child){return _react2.default.cloneElement(child,_this2.getChildProps(child));})));
 
 newChildren.push(_react2.default.cloneElement(iconElement[0],this.getChildProps(iconElement[0])));
 }else if(this.inputPresent()&&!this.inlinePresent()&&
 !this.stackedPresent()&&!this.insetPresent()){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'column',alignSelf:'center',flex:1}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'column',alignSelf:'center',flex:1},__source:{fileName:_jsxFileName,lineNumber:391}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},_this2.getChildProps(child),{key:i})));})));
 
 }else if(this.inlinePresent()){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'row',justifyContent:'center',flex:1,borderColor:this.getTheme().listBorderColor,alignItems:'center',marginLeft:-10}},
-_react2.default.createElement(_Text.Text,{style:{color:this.getTheme().inputColorPlaceholder}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'row',justifyContent:'center',flex:1,borderColor:this.getTheme().listBorderColor,alignItems:'center',marginLeft:-10},__source:{fileName:_jsxFileName,lineNumber:396}},
+_react2.default.createElement(_Text.Text,{style:{color:this.getTheme().inputColorPlaceholder},__source:{fileName:_jsxFileName,lineNumber:397}},
 this.props.children.props.children.props.label)));
 
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'column',alignSelf:'center',flex:2.2}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'column',alignSelf:'center',flex:2.2},__source:{fileName:_jsxFileName,lineNumber:400}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},
 _this2.getChildProps(child),{key:i,style:{borderWidth:0}})));})));
 
 }else if(this.stackedPresent()){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{alignSelf:'stretch',flex:1}},
-_react2.default.createElement(_Text.Text,{style:{color:this.getTheme().inputColorPlaceholder,textAlign:'left',fontSize:15}},this.props.children.props.children.props.label),
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{alignSelf:'stretch',flex:1},__source:{fileName:_jsxFileName,lineNumber:406}},
+_react2.default.createElement(_Text.Text,{style:{color:this.getTheme().inputColorPlaceholder,textAlign:'left',fontSize:15},__source:{fileName:_jsxFileName,lineNumber:407}},this.props.children.props.children.props.label),
 
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},
 _this2.getChildProps(child),{key:i,style:{flex:1,marginTop:5}})));})));
 
 }else if(this.insetPresent()){
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'row',alignSelf:'stretch',flex:1,padding:0}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'row',alignSelf:'stretch',flex:1,padding:0},__source:{fileName:_jsxFileName,lineNumber:414}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},
 _this2.getChildProps(child),{key:i})));})));
 
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'row',alignSelf:'stretch',flex:1,padding:0}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem1',style:{flexDirection:'row',alignSelf:'stretch',flex:1,padding:0},__source:{fileName:_jsxFileName,lineNumber:419}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},
 _this2.getChildProps(child),{key:i})));})));
 
 }else{
-newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'row',alignSelf:'stretch',flex:1,padding:0}},
+newChildren.push(_react2.default.createElement(_reactNative.View,{key:'listItem0',style:{flexDirection:'row',alignSelf:'stretch',flex:1,padding:0},__source:{fileName:_jsxFileName,lineNumber:425}},
 childrenArray.map(function(child,i){return(
 _react2.default.cloneElement(child,_extends({},
 _this2.getChildProps(child),{key:i})));})));
@@ -437,7 +437,7 @@ return newChildren;
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 ref:function ref(c){return _this3._root=c;}},
-this.props,{activeOpacity:this.props.button?0.2:1}),
+this.props,{activeOpacity:this.props.button?0.2:1,__source:{fileName:_jsxFileName,lineNumber:438}}),
 
 this.renderChildren()));
 
