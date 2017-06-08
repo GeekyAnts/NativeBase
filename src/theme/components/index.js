@@ -1,284 +1,285 @@
-import _ from 'lodash';
-import headerTheme from './Header';
-import containerTheme from './Container'
-import contentTheme from './Content';
-import buttonTheme from './Button';
-import titleTheme from './Title';
-import inputGroupTheme from './InputGroup';
-import badgeTheme from './Badge';
-import checkBoxTheme from './CheckBox';
-import cardTheme from './Card';
-import radioTheme from './Radio';
-import h3Theme from './H3';
-import h2Theme from './H2';
-import h1Theme from './H1';
-import footerTheme from './Footer';
-import footerTabTheme from './FooterTab';
-import fabTheme from './Fab';
-import itemTheme from './Item';
-import labelTheme from './Label';
-import textAreaTheme from './Textarea';
-import textTheme from './Text';
-import toastTheme from './Toast';
-import tabTheme from './Tab';
-import tabBarTheme from './TabBar';
-import tabContainerTheme from './TabContainer';
-import viewTheme from './View';
-import tabHeadingTheme from './TabHeading';
-import iconTheme from './Icon';
-import inputTheme from './Input';
-import segmentTheme from './Segment';
-import spinnerTheme from './Spinner';
-import cardItemTheme from './CardItem';
-import listItemTheme from './ListItem';
-import formTheme from './Form';
-import separatorTheme from './Separator';
-import variable from './../variables/platform';
+import _ from "lodash";
+import headerTheme from "./Header";
+import containerTheme from "./Container";
+import contentTheme from "./Content";
+import buttonTheme from "./Button";
+import titleTheme from "./Title";
+import inputGroupTheme from "./InputGroup";
+import badgeTheme from "./Badge";
+import checkBoxTheme from "./CheckBox";
+import cardTheme from "./Card";
+import radioTheme from "./Radio";
+import h3Theme from "./H3";
+import h2Theme from "./H2";
+import h1Theme from "./H1";
+import footerTheme from "./Footer";
+import footerTabTheme from "./FooterTab";
+import fabTheme from "./Fab";
+import itemTheme from "./Item";
+import labelTheme from "./Label";
+import textAreaTheme from "./Textarea";
+import textTheme from "./Text";
+import toastTheme from "./Toast";
+import tabTheme from "./Tab";
+import tabBarTheme from "./TabBar";
+import tabContainerTheme from "./TabContainer";
+import viewTheme from "./View";
+import tabHeadingTheme from "./TabHeading";
+import iconTheme from "./Icon";
+import inputTheme from "./Input";
+import segmentTheme from "./Segment";
+import spinnerTheme from "./Spinner";
+import cardItemTheme from "./CardItem";
+import listItemTheme from "./ListItem";
+import formTheme from "./Form";
+import separatorTheme from "./Separator";
+import variable from "./../variables/platform";
 
 export default (variables = variable) => {
   const theme = {
     variables,
-    'NativeBase.Left': {
+    "NativeBase.Left": {
       flex: 1,
-      alignSelf: 'center',
-      alignItems: 'flex-start',
+      alignSelf: "center",
+      alignItems: "flex-start"
     },
-    'NativeBase.Right': {
-      'NativeBase.Button': {
-        alignSelf: null,
+    "NativeBase.Right": {
+      "NativeBase.Button": {
+        alignSelf: null
       },
       flex: 1,
-      alignSelf: 'center',
-      alignItems: 'flex-end',
+      alignSelf: "center",
+      alignItems: "flex-end"
     },
-    'NativeBase.Body': {
+    "NativeBase.Body": {
       flex: 1,
-      alignItems: 'center',
-      alignSelf: 'center',
+      alignItems: "center",
+      alignSelf: "center"
     },
 
-    'NativeBase.Header': {
-      ...headerTheme(variables),
+    "NativeBase.Header": {
+      ...headerTheme(variables)
     },
 
-    'NativeBase.Button': {
-      ...buttonTheme(variables),
+    "NativeBase.Button": {
+      ...buttonTheme(variables)
     },
 
-    'NativeBase.Title': {
-      ...titleTheme(variables),
+    "NativeBase.Title": {
+      ...titleTheme(variables)
     },
-    'NativeBase.Subtitle': {
+    "NativeBase.Subtitle": {
       fontSize: variables.subTitleFontSize,
       fontFamily: variables.titleFontfamily,
       color: variables.subtitleColor,
-      textAlign: 'center',
+      textAlign: "center"
     },
 
-    'NativeBase.InputGroup': {
-      ...inputGroupTheme(variables),
+    "NativeBase.InputGroup": {
+      ...inputGroupTheme(variables)
     },
 
-    'NativeBase.Input': {
-      ...inputTheme(variables),
+    "NativeBase.Input": {
+      ...inputTheme(variables)
     },
 
-    'NativeBase.Badge': {
-      ...badgeTheme(variables),
+    "NativeBase.Badge": {
+      ...badgeTheme(variables)
     },
 
-    'NativeBase.CheckBox': {
-      ...checkBoxTheme(variables),
+    "NativeBase.CheckBox": {
+      ...checkBoxTheme(variables)
     },
 
-    'NativeBase.Radio': {
-      ...radioTheme(variables),
+    "NativeBase.Radio": {
+      ...radioTheme(variables)
     },
 
-    'NativeBase.Card': {
-      ...cardTheme(),
+    "NativeBase.Card": {
+      ...cardTheme()
     },
 
-    'NativeBase.CardItem': {
+    "NativeBase.CardItem": {
       ...cardItemTheme(variables),
-      '.cardBody': {
+      ".cardBody": {
         padding: -5,
-        'NativeBase.Text': {
-          marginTop: 5,
-        },
+        "NativeBase.Text": {
+          marginTop: 5
+        }
       },
-      flexDirection: 'row',
-      alignItems: 'center',
+      flexDirection: "row",
+      alignItems: "center"
     },
 
-    'NativeBase.CardItem1': {
-      ...cardItemTheme(variables),
+    "NativeBase.CardItem1": {
+      ...cardItemTheme(variables)
     },
 
-    'NativeBase.Toast': {
-      ...toastTheme(variables),
+    "NativeBase.Toast": {
+      ...toastTheme(variables)
     },
 
-    'NativeBase.H1': {
-      ...h1Theme(variables),
+    "NativeBase.H1": {
+      ...h1Theme(variables)
     },
-    'NativeBase.H2': {
-      ...h2Theme(variables),
+    "NativeBase.H2": {
+      ...h2Theme(variables)
     },
-    'NativeBase.H3': {
-      ...h3Theme(variables),
+    "NativeBase.H3": {
+      ...h3Theme(variables)
     },
-    'NativeBase.Form': {
-      ...formTheme(variables),
-    },
-
-    'NativeBase.Container': {
-      ...containerTheme(variables),
-    },
-    'NativeBase.Content': {
-      ...contentTheme(variables),
+    "NativeBase.Form": {
+      ...formTheme(variables)
     },
 
-
-    'NativeBase.Footer': {
-      ...footerTheme(variables),
+    "NativeBase.Container": {
+      ...containerTheme(variables)
+    },
+    "NativeBase.Content": {
+      ...contentTheme(variables)
     },
 
-    'NativeBase.Tabs': {
-      flex: 1,
+    "NativeBase.Footer": {
+      ...footerTheme(variables)
     },
 
-    'NativeBase.FooterTab': {
-      ...footerTabTheme(variables),
+    "NativeBase.Tabs": {
+      flex: 1
     },
 
-    'NativeBase.ListItem': {
+    "NativeBase.FooterTab": {
+      ...footerTabTheme(variables)
+    },
+
+    "NativeBase.ListItem": {
       ...listItemTheme(variables),
-      'NativeBase.CheckBox': {
+      "NativeBase.CheckBox": {
         marginLeft: -10,
-        marginRight: 10,
+        marginRight: 10
       },
-      'NativeBase.Text': {
-        '.note': {
+      "NativeBase.Text": {
+        ".note": {
           color: variables.listNoteColor,
-          fontWeight: '200',
+          fontWeight: "200"
         },
-        alignSelf: 'center',
-      },
+        alignSelf: "center"
+      }
     },
 
-    'NativeBase.ListItem1': {
-      ...listItemTheme(variables),
+    "NativeBase.ListItem1": {
+      ...listItemTheme(variables)
     },
 
-    'NativeBase.Icon': {
-      ...iconTheme(variables),
+    "NativeBase.Icon": {
+      ...iconTheme(variables)
     },
-    'NativeBase.IconNB': {
-      ...iconTheme(variables),
+    "NativeBase.IconNB": {
+      ...iconTheme(variables)
     },
-    'NativeBase.Text': {
-      ...textTheme(variables),
+    "NativeBase.Text": {
+      ...textTheme(variables)
     },
-    'NativeBase.Spinner': {
-      ...spinnerTheme(variables),
-    },
-
-    'NativeBase.Fab': {
-      ...fabTheme(variables),
+    "NativeBase.Spinner": {
+      ...spinnerTheme(variables)
     },
 
-    'NativeBase.Item': {
-      ...itemTheme(variables),
+    "NativeBase.Fab": {
+      ...fabTheme(variables)
     },
 
-    'NativeBase.Label': {
-      ...labelTheme(variables),
+    "NativeBase.Item": {
+      ...itemTheme(variables)
     },
 
-    'NativeBase.Textarea': {
-      ...textAreaTheme(variables),
+    "NativeBase.Label": {
+      ...labelTheme(variables)
     },
 
-    'NativeBase.PickerNB': {
-      'NativeBase.Button': {
-        'NativeBase.Text': {
-        },
-      },
+    "NativeBase.Textarea": {
+      ...textAreaTheme(variables)
     },
 
-    'NativeBase.Tab': {
-      ...tabTheme(variables),
+    "NativeBase.PickerNB": {
+      "NativeBase.Button": {
+        "NativeBase.Text": {}
+      }
     },
 
-    'NativeBase.Segment': {
-      ...segmentTheme(variables),
+    "NativeBase.Tab": {
+      ...tabTheme(variables)
     },
 
-    'NativeBase.STabs': {
-      flex: 1,
+    "NativeBase.Segment": {
+      ...segmentTheme(variables)
     },
 
-    'NativeBase.TabBar': {
-      ...tabBarTheme(variables),
+    "NativeBase.STabs": {
+      flex: 1
     },
-    'NativeBase.ViewNB': {
-      ...viewTheme(variables),
+
+    "NativeBase.TabBar": {
+      ...tabBarTheme(variables)
     },
-    'NativeBase.TabHeading': {
-      ...tabHeadingTheme(variables),
+    "NativeBase.ViewNB": {
+      ...viewTheme(variables)
     },
-    'NativeBase.TabContainer': {
-      ...tabContainerTheme(variables),
+    "NativeBase.TabHeading": {
+      ...tabHeadingTheme(variables)
     },
-    'NativeBase.Switch': {
-      marginVertical: -5,
+    "NativeBase.TabContainer": {
+      ...tabContainerTheme(variables)
     },
-    'NativeBase.Separator': {
-      ...separatorTheme(variables),
+    "NativeBase.Switch": {
+      marginVertical: -5
     },
-    'NativeBase.Thumbnail': {
-      '.square': {
+    "NativeBase.Separator": {
+      ...separatorTheme(variables)
+    },
+    "NativeBase.Thumbnail": {
+      ".square": {
         borderRadius: 0,
-        '.small': {
+        ".small": {
           width: 36,
           height: 36,
-          borderRadius: 0,
+          borderRadius: 0
         },
-        '.large': {
+        ".large": {
           width: 80,
           height: 80,
-          borderRadius: 0,
-        },
+          borderRadius: 0
+        }
       },
-      '.small': {
+      ".small": {
         width: 36,
         height: 36,
         borderRadius: 18,
-        '.square': {
-          borderRadius: 0,
-        },
+        ".square": {
+          borderRadius: 0
+        }
       },
-      '.large': {
+      ".large": {
         width: 80,
         height: 80,
         borderRadius: 40,
-        '.square': {
-          borderRadius: 0,
-        },
+        ".square": {
+          borderRadius: 0
+        }
       },
       width: 56,
       height: 56,
-      borderRadius: 28,
-    },
-
+      borderRadius: 28
+    }
   };
 
   const cssifyTheme = (grandparent, parent, parentKey) => {
     _.forEach(parent, (style, styleName) => {
       // console.log('styleName', styleName);
       // console.log('parentKey', parentKey);
-      if (styleName.indexOf('.') === 0 && parentKey && parentKey.indexOf('.') === 0) {
+      if (
+        styleName.indexOf(".") === 0 &&
+        parentKey &&
+        parentKey.indexOf(".") === 0
+      ) {
         if (grandparent) {
           if (!grandparent[styleName]) {
             grandparent[styleName] = {};
@@ -287,7 +288,7 @@ export default (variables = variable) => {
           }
         }
       }
-      if (style && typeof style === 'object') {
+      if (style && typeof style === "object") {
         cssifyTheme(parent, style, styleName);
       }
     });

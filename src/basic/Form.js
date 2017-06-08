@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
-import { View, ViewPropTypes } from 'react-native';
+import React, { Component } from "react";
+import { View, ViewPropTypes } from "react-native";
 
-import { connectStyle } from 'native-base-shoutem-theme';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import { connectStyle } from "native-base-shoutem-theme";
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Form extends Component {
   render() {
-    return (
-      <View ref={c => this._root = c} {...this.props} />
-    );
+    return <View ref={c => (this._root = c)} {...this.props} />;
   }
 }
 
 Form.propTypes = {
   ...ViewPropTypes,
-  style: React.PropTypes.object,
+  style: React.PropTypes.object
 };
 
-const StyledForm = connectStyle('NativeBase.Form', {}, mapPropsToStyleNames)(Form);
+const StyledForm = connectStyle("NativeBase.Form", {}, mapPropsToStyleNames)(
+  Form
+);
 
-export {
-  StyledForm as Form,
-};
+export { StyledForm as Form };

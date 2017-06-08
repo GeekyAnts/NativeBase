@@ -1,23 +1,28 @@
 /* @flow */
 
+import React, { Component } from "react";
+import {
+  TouchableOpacity,
+  Platform,
+  View,
+  TouchableNativeFeedback
+} from "react-native";
+import { connectStyle } from "native-base-shoutem-theme";
+import variables from "./../theme/variables/platform";
+import { Text } from "./Text";
+import computeProps from "../Utils/computeProps";
 
-import React, { Component } from 'react';
-import { TouchableOpacity, Platform, View, TouchableNativeFeedback } from 'react-native';
-import { connectStyle } from 'native-base-shoutem-theme';
-import variables from './../theme/variables/platform';
-import { Text } from './Text';
-import computeProps from '../Utils/computeProps';
-
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Button extends Component {
-
   getInitialStyle() {
     return {
       borderedBtn: {
-        borderWidth: (this.props.bordered) ? 1 : undefined,
-        borderRadius: (this.props.rounded && this.props.bordered) ? variables.borderRadiusLarge : 2,
-      },
+        borderWidth: this.props.bordered ? 1 : undefined,
+        borderRadius: this.props.rounded && this.props.bordered
+          ? variables.borderRadiusLarge
+          : 2
+      }
     };
   }
 
@@ -25,33 +30,50 @@ class Button extends Component {
 
   prepareRootProps() {
     const defaultProps = {
-      style: this.getInitialStyle().borderedBtn,
+      style: this.getInitialStyle().borderedBtn
     };
 
     return computeProps(this.props, defaultProps);
   }
   render() {
-    const children = Platform.OS === 'ios'
+    const children = Platform.OS === "ios"
       ? this.props.children
-      : React.Children.map(this.props.children, child => child && child.type === Text ? React.cloneElement(child, { uppercase: true, ...child.props }) : child);
-    if (Platform.OS === 'ios' || variables.androidRipple === false || Platform['Version'] <= 21) {
+      : React.Children.map(
+          this.props.children,
+          child =>
+            child && child.type === Text
+              ? React.cloneElement(child, { uppercase: true, ...child.props })
+              : child
+        );
+    if (
+      Platform.OS === "ios" ||
+      variables.androidRipple === false ||
+      Platform["Version"] <= 21
+    ) {
       return (
         <TouchableOpacity
-          {...this.prepareRootProps() }
-          ref={c => this._root = c}
-          activeOpacity={(this.props.activeOpacity) ? this.props.activeOpacity : 0.5}
+          {...this.prepareRootProps()}
+          ref={c => (this._root = c)}
+          activeOpacity={
+            this.props.activeOpacity ? this.props.activeOpacity : 0.5
+          }
         >
           {children}
         </TouchableOpacity>
       );
-    }
-    else {
+    } else {
       return (
-        <TouchableNativeFeedback ref={c => this._root = c}
+        <TouchableNativeFeedback
+          ref={c => (this._root = c)}
           onPress={this.props.onPress}
-          background={(this.props.androidRippleColor) ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor) : TouchableNativeFeedback.Ripple(variables.androidRippleColor)}
-          {...this.prepareRootProps() }>
-          <View {...this.prepareRootProps() }>
+          background={
+            this.props.androidRippleColor
+              ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor)
+              : TouchableNativeFeedback.Ripple(variables.androidRippleColor)
+          }
+          {...this.prepareRootProps()}
+        >
+          <View {...this.prepareRootProps()}>
             {children}
           </View>
         </TouchableNativeFeedback>
@@ -75,10 +97,12 @@ Button.propTypes = {
   rounded: React.PropTypes.bool,
   large: React.PropTypes.bool,
   small: React.PropTypes.bool,
-  active: React.PropTypes.bool,
+  active: React.PropTypes.bool
 };
 
-const StyledButton = connectStyle('NativeBase.Button', {}, mapPropsToStyleNames)(Button);
-export {
-  StyledButton as Button,
-};
+const StyledButton = connectStyle(
+  "NativeBase.Button",
+  {},
+  mapPropsToStyleNames
+)(Button);
+export { StyledButton as Button };
