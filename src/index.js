@@ -1,7 +1,7 @@
 import { StyleProvider, connectStyle } from "native-base-shoutem-theme";
 import { keys } from "lodash";
 import { Col, Row, Grid } from "react-native-easy-grid";
-import { Gravatar } from "./backward/Widgets/Gravatar";
+// import { Gravatar } from "./basic/Gravatar";
 import setDefaultThemeStyle from "./init";
 import getTheme from "./theme/components";
 import variables from "./theme/variables/platform";
@@ -53,8 +53,7 @@ import { Tab } from "./basic/Tab";
 import ScrollableTabView from "./basic/Tabs";
 import { DefaultTabBar } from "./basic/Tabs/DefaultTabBar";
 import { ScrollableTab } from "./basic/Tabs/ScrollableTabBar";
-import { STabs } from "./smart/STabs";
-import { Subtitle } from "./backward/Widgets/Subtitle";
+import { Subtitle } from "./basic/Subtitle";
 
 setDefaultThemeStyle();
 // Theme
@@ -103,12 +102,10 @@ export {
   Subtitle,
   Label,
   Textarea,
-  Gravatar,
   Col,
   Row,
   Grid,
   Text,
-  STabs,
   Content as TabContent,
   View,
   ToastContainer as Toast,
