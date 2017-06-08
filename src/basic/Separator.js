@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-import { View, ViewPropTypes } from 'react-native';
+import React, { Component } from "react";
+import { View, ViewPropTypes } from "react-native";
 
-import { connectStyle } from 'native-base-shoutem-theme';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import { connectStyle } from "native-base-shoutem-theme";
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Separator extends Component {
   render() {
-    return (
-      <View ref={c => this._root = c} {...this.props} />
-    );
+    return <View ref={c => (this._root = c)} {...this.props} />;
   }
 }
 
 Separator.propTypes = {
   ...ViewPropTypes,
-  style: React.PropTypes.object,
+  style: React.PropTypes.object
 };
 
-const StyledSeparator = connectStyle('NativeBase.Separator', {}, mapPropsToStyleNames)(Separator);
+const StyledSeparator = connectStyle(
+  "NativeBase.Separator",
+  {},
+  mapPropsToStyleNames
+)(Separator);
 
-export {
-  StyledSeparator as Separator,
-};
+export { StyledSeparator as Separator };

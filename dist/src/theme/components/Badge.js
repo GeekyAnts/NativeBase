@@ -1,33 +1,33 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
+Object.defineProperty(exports,"__esModule",{value:true});var _platform=require("./../variables/platform");var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var badgeTheme={
-'.primary':{
+".primary":{
 backgroundColor:variables.btnPrimaryBg},
 
-'.warning':{
+".warning":{
 backgroundColor:variables.btnWarningBg},
 
-'.info':{
+".info":{
 backgroundColor:variables.btnInfoBg},
 
-'.success':{
+".success":{
 backgroundColor:variables.btnSuccessBg},
 
-'.danger':{
+".danger":{
 backgroundColor:variables.btnDangerBg},
 
-'NativeBase.Text':{
+"NativeBase.Text":{
 color:variables.badgeColor,
 fontSize:variables.fontSizeBase,
 lineHeight:variables.lineHeight-1,
-textAlign:'center',
+textAlign:"center",
 paddingHorizontal:3},
 
 backgroundColor:variables.badgeBg,
 padding:variables.badgePadding,
 paddingHorizontal:6,
-alignSelf:'flex-start',
+alignSelf:"flex-start",
 borderRadius:13.5,
 height:27};
 

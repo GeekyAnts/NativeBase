@@ -1,18 +1,18 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
+Object.defineProperty(exports,"__esModule",{value:true});var _platform=require("./../variables/platform");var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var inputGroupTheme={
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 fontSize:24,
 color:variables.sTabBarActiveTextColor,
 paddingHorizontal:5},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 fontSize:24,
 color:variables.sTabBarActiveTextColor,
 paddingHorizontal:5},
 
-'NativeBase.Input':{
+"NativeBase.Input":{
 height:variables.inputHeightBase,
 color:variables.inputColor,
 paddingLeft:5,
@@ -21,11 +21,11 @@ flex:1,
 fontSize:variables.inputFontSize,
 lineHeight:variables.inputLineHeight},
 
-'.underline':{
-'.success':{
+".underline":{
+".success":{
 borderColor:variables.inputSuccessBorderColor},
 
-'.error':{
+".error":{
 borderColor:variables.inputErrorBorderColor},
 
 paddingLeft:5,
@@ -35,22 +35,22 @@ borderRightWidth:0,
 borderLeftWidth:0,
 borderColor:variables.inputBorderColor},
 
-'.regular':{
-'.success':{
+".regular":{
+".success":{
 borderColor:variables.inputSuccessBorderColor},
 
-'.error':{
+".error":{
 borderColor:variables.inputErrorBorderColor},
 
 paddingLeft:5,
 borderWidth:variables.borderWidth,
 borderColor:variables.inputBorderColor},
 
-'.rounded':{
-'.success':{
+".rounded":{
+".success":{
 borderColor:variables.inputSuccessBorderColor},
 
-'.error':{
+".error":{
 borderColor:variables.inputErrorBorderColor},
 
 paddingLeft:5,
@@ -59,21 +59,21 @@ borderRadius:variables.inputGroupRoundedBorderRadius,
 borderColor:variables.inputBorderColor},
 
 
-'.success':{
-'NativeBase.Icon':{
+".success":{
+"NativeBase.Icon":{
 color:variables.inputSuccessBorderColor},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 color:variables.inputSuccessBorderColor},
 
-'.rounded':{
+".rounded":{
 borderRadius:30,
 borderColor:variables.inputSuccessBorderColor},
 
-'.regular':{
+".regular":{
 borderColor:variables.inputSuccessBorderColor},
 
-'.underline':{
+".underline":{
 borderWidth:variables.borderWidth,
 borderTopWidth:0,
 borderRightWidth:0,
@@ -83,21 +83,21 @@ borderColor:variables.inputSuccessBorderColor},
 borderColor:variables.inputSuccessBorderColor},
 
 
-'.error':{
-'NativeBase.Icon':{
+".error":{
+"NativeBase.Icon":{
 color:variables.inputErrorBorderColor},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 color:variables.inputErrorBorderColor},
 
-'.rounded':{
+".rounded":{
 borderRadius:30,
 borderColor:variables.inputErrorBorderColor},
 
-'.regular':{
+".regular":{
 borderColor:variables.inputErrorBorderColor},
 
-'.underline':{
+".underline":{
 borderWidth:variables.borderWidth,
 borderTopWidth:0,
 borderRightWidth:0,
@@ -106,12 +106,12 @@ borderColor:variables.inputErrorBorderColor},
 
 borderColor:variables.inputErrorBorderColor},
 
-'.disabled':{
-'NativeBase.Icon':{
-color:'#384850'},
+".disabled":{
+"NativeBase.Icon":{
+color:"#384850"},
 
-'NativeBase.IconNB':{
-color:'#384850'}},
+"NativeBase.IconNB":{
+color:"#384850"}},
 
 
 
@@ -121,10 +121,9 @@ borderTopWidth:0,
 borderRightWidth:0,
 borderLeftWidth:0,
 borderColor:variables.inputBorderColor,
-backgroundColor:'transparent',
-flexDirection:'row',
-alignItems:'center'};
-
+backgroundColor:"transparent",
+flexDirection:"row",
+alignItems:"center"};
 
 
 return inputGroupTheme;

@@ -1,30 +1,27 @@
 /* @flow */
 
-
-import React, { Component } from 'react';
-import { Button } from './Button';
-import { Platform, Animated, TouchableOpacity } from 'react-native';
+import React, { Component } from "react";
+import { Button } from "./Button";
+import { Platform, Animated, TouchableOpacity } from "react-native";
 // import View from './View';
-import { Icon } from './Icon';
+import { Icon } from "./Icon";
 // import Badge from './Badge';
-import { IconNB } from './IconNB';
+import { IconNB } from "./IconNB";
 // import Text from './Text';
-import _ from 'lodash';
-import { connectStyle } from 'native-base-shoutem-theme';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
-import computeProps from '../Utils/computeProps';
-
+import _ from "lodash";
+import { connectStyle } from "native-base-shoutem-theme";
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import computeProps from "../Utils/computeProps";
 
 const AnimatedFab = Animated.createAnimatedComponent(Button);
 
 class Fab extends Component {
-
   props: Animated.props & {
-    position: ?string;
+    position: ?string
   };
 
   state: {
-    buttons: void | React$Element<Button>;
+    buttons: void | React$Element<Button>,
     active: boolean
   };
 
@@ -32,70 +29,80 @@ class Fab extends Component {
     super(props);
     this.state = {
       buttons: undefined,
-      active: false,
+      active: false
     };
   }
 
-  fabTopValue(pos): ?{ top: ?number, bottom: ?number, left: ?number, right: ?number } {
-    if (pos === 'topLeft') {
+  fabTopValue(
+    pos
+  ): ?{ top: ?number, bottom: ?number, left: ?number, right: ?number } {
+    if (pos === "topLeft") {
       return {
         top: 20,
         bottom: undefined,
         left: 20,
-        right: undefined,
+        right: undefined
       };
-    } else if (pos === 'bottomRight') {
+    } else if (pos === "bottomRight") {
       return {
         top: undefined,
-        bottom: (Platform.OS === 'ios') ? 20 : 40,
+        bottom: Platform.OS === "ios" ? 20 : 40,
         left: undefined,
-        right: 20,
+        right: 20
       };
-    } else if (pos === 'bottomLeft') {
+    } else if (pos === "bottomLeft") {
       return {
         top: undefined,
-        bottom: (Platform.OS === 'ios') ? 20 : 40,
+        bottom: Platform.OS === "ios" ? 20 : 40,
         left: 20,
-        right: undefined,
+        right: undefined
       };
-    } else if (pos === 'topRight') {
+    } else if (pos === "topRight") {
       return {
         top: 20,
         bottom: undefined,
         left: undefined,
-        right: 20,
+        right: 20
       };
     }
   }
 
   fabOtherBtns(direction, i) {
-    if (direction === 'up') {
+    if (direction === "up") {
       return {
         top: undefined,
-        bottom: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : ((i * 50) + 65),
+        bottom: this.props.active === false
+          ? Platform.OS === "ios" ? 8 : 8
+          : i * 50 + 65,
         left: 8,
-        right: 0,
+        right: 0
       };
-    } else if (direction === 'left') {
+    } else if (direction === "left") {
       return {
         top: 8,
         bottom: 0,
-        left: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : -((i * 50) + 50),
-        right: 0,
+        left: this.props.active === false
+          ? Platform.OS === "ios" ? 8 : 8
+          : -(i * 50 + 50),
+        right: 0
       };
-    } else if (direction === 'down') {
+    } else if (direction === "down") {
       return {
-        top: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : ((i * 50) + 65),
+        top: this.props.active === false
+          ? Platform.OS === "ios" ? 8 : 8
+          : i * 50 + 65,
         bottom: 0,
         left: 8,
-        right: 0,
+        right: 0
       };
-    } else if (direction === 'right') {
+    } else if (direction === "right") {
       return {
         top: 10,
         bottom: 0,
-        left: (this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : ((i * 50) + 65),
-        right: 0,
+        left: this.props.active === false
+          ? Platform.OS === "ios" ? 8 : 8
+          : i * 50 + 65,
+        right: 0
       };
     }
   }
@@ -107,38 +114,48 @@ class Fab extends Component {
         width: 56,
         borderRadius: 28,
         elevation: 4,
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
+        justifyContent: "center",
+        alignItems: "center",
+        position: "absolute",
         bottom: 0,
-        backgroundColor: 'blue',
+        backgroundColor: "blue"
       },
       container: {
-        position: 'absolute',
-        top: (this.props.position) ? this.fabTopValue(this.props.position).top : undefined,
-        bottom: (this.props.position) ? this.fabTopValue(this.props.position).bottom : 20,
-        right: (this.props.position) ? this.fabTopValue(this.props.position).right : 20,
-        left: (this.props.position) ? this.fabTopValue(this.props.position).left : undefined,
+        position: "absolute",
+        top: this.props.position
+          ? this.fabTopValue(this.props.position).top
+          : undefined,
+        bottom: this.props.position
+          ? this.fabTopValue(this.props.position).bottom
+          : 20,
+        right: this.props.position
+          ? this.fabTopValue(this.props.position).right
+          : 20,
+        left: this.props.position
+          ? this.fabTopValue(this.props.position).left
+          : undefined,
         width: 56,
         height: this.containerHeight,
-        flexDirection: (this.props.direction) ? ((this.props.direction == 'left || right') ? 'row' : 'column') : 'column',
-        alignItems: 'center',
+        flexDirection: this.props.direction
+          ? this.props.direction == "left || right" ? "row" : "column"
+          : "column",
+        alignItems: "center"
       },
       iconStyle: {
-        color: '#fff',
+        color: "#fff",
         fontSize: 24,
-        lineHeight: (Platform.OS === 'ios') ? 27 : undefined,
-        ...iconStyle,
+        lineHeight: Platform.OS === "ios" ? 27 : undefined,
+        ...iconStyle
       },
       buttonStyle: {
-        position: 'absolute',
+        position: "absolute",
         height: 40,
         width: 40,
         left: 7,
         borderRadius: 20,
         marginBottom: 10,
-        backgroundColor: 'blue',
-      },
+        backgroundColor: "blue"
+      }
     };
   }
 
@@ -148,7 +165,7 @@ class Fab extends Component {
 
   prepareFabProps() {
     const defaultProps = {
-      style: this.getInitialStyle().fab,
+      style: this.getInitialStyle().fab
     };
     const incomingProps = _.clone(this.props);
     delete incomingProps.onPress;
@@ -158,10 +175,20 @@ class Fab extends Component {
 
   getOtherButtonStyle(child, i) {
     const type = {
-      top: (this.props.direction) ? (this.fabOtherBtns(this.props.direction, i).top) : undefined,
-      left: (this.props.direction) ? (this.fabOtherBtns(this.props.direction, i).left) : 8,
-      right: (this.props.direction) ? (this.fabOtherBtns(this.props.direction, i).right) : 0,
-      bottom: (this.props.direction) ? (this.fabOtherBtns(this.props.direction, i).bottom) : ((this.props.active === false) ? ((Platform.OS === 'ios') ? 8 : 8) : ((i * 50) + 65)),
+      top: this.props.direction
+        ? this.fabOtherBtns(this.props.direction, i).top
+        : undefined,
+      left: this.props.direction
+        ? this.fabOtherBtns(this.props.direction, i).left
+        : 8,
+      right: this.props.direction
+        ? this.fabOtherBtns(this.props.direction, i).right
+        : 0,
+      bottom: this.props.direction
+        ? this.fabOtherBtns(this.props.direction, i).bottom
+        : this.props.active === false
+          ? Platform.OS === "ios" ? 8 : 8
+          : i * 50 + 65
     };
 
     return _.merge(this.getInitialStyle().buttonStyle, child.props.style, type);
@@ -170,7 +197,6 @@ class Fab extends Component {
     const inp = _.clone(child.props);
     delete inp.style;
 
-
     const defaultProps = {};
 
     return computeProps(inp, defaultProps);
@@ -178,24 +204,24 @@ class Fab extends Component {
 
   componentDidMount() {
     const childrenArray = React.Children.toArray(this.props.children);
-    const icon = _.remove(childrenArray, (item) => {
-      if (item.type.displayName === 'Styled(Button)') {
+    const icon = _.remove(childrenArray, item => {
+      if (item.type.displayName === "Styled(Button)") {
         return true;
       }
     });
     this.setState({
-      buttons: icon.length,
+      buttons: icon.length
     });
     setTimeout(() => {
       this.setState({
-        active: this.props.active,
+        active: this.props.active
       });
     }, 0);
   }
 
   renderFab() {
     const childrenArray = React.Children.toArray(this.props.children);
-    const icon = _.remove(childrenArray, (item) => {
+    const icon = _.remove(childrenArray, item => {
       if (item.type === Button) {
         return true;
       }
@@ -203,7 +229,9 @@ class Fab extends Component {
     // this.setState({
     //   buttons: icon.length
     // });
-    return React.cloneElement(childrenArray[0], { style: this.getInitialStyle(childrenArray[0].props.style).iconStyle });
+    return React.cloneElement(childrenArray[0], {
+      style: this.getInitialStyle(childrenArray[0].props.style).iconStyle
+    });
   }
 
   renderButtons() {
@@ -218,32 +246,34 @@ class Fab extends Component {
 
     {
       childrenArray.slice(1).map((child, i) => {
-        newChildren.push(<AnimatedFab
-          style={this.getOtherButtonStyle(child, i)}
-          {...this.prepareButtonProps(child, i) }
-          fabButton
-          key={i}
-        >{child.props.children}
-        </AnimatedFab>);
-      }
-      );
+        newChildren.push(
+          <AnimatedFab
+            style={this.getOtherButtonStyle(child, i)}
+            {...this.prepareButtonProps(child, i)}
+            fabButton
+            key={i}
+          >
+            {child.props.children}
+          </AnimatedFab>
+        );
+      });
     }
     return newChildren;
   }
   upAnimate() {
     if (!this.props.active) {
       Animated.spring(this.containerHeight, {
-        toValue: (this.state.buttons * 51.3) + 56,
+        toValue: this.state.buttons * 51.3 + 56
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 1,
+        toValue: 1
       }).start();
     } else {
       Animated.spring(this.containerHeight, {
-        toValue: 56,
+        toValue: 56
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 0,
+        toValue: 0
       }).start();
     }
   }
@@ -251,20 +281,20 @@ class Fab extends Component {
   leftAnimate() {
     if (!this.state.active) {
       Animated.spring(this.containerWidth, {
-        toValue: (this.state.buttons * 51.3) + 56,
+        toValue: this.state.buttons * 51.3 + 56
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 1,
+        toValue: 1
       }).start();
     } else {
       this.setState({
-        active: false,
+        active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56,
+        toValue: 56
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 0,
+        toValue: 0
       }).start();
     }
   }
@@ -272,20 +302,20 @@ class Fab extends Component {
   rightAnimate() {
     if (!this.state.active) {
       Animated.spring(this.containerWidth, {
-        toValue: (this.state.buttons * 51.3) + 56,
+        toValue: this.state.buttons * 51.3 + 56
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 1,
+        toValue: 1
       }).start();
     } else {
       this.setState({
-        active: false,
+        active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56,
+        toValue: 56
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 0,
+        toValue: 0
       }).start();
     }
   }
@@ -293,20 +323,20 @@ class Fab extends Component {
   downAnimate() {
     if (!this.state.active) {
       Animated.spring(this.containerHeight, {
-        toValue: (56),
+        toValue: 56
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 1,
+        toValue: 1
       }).start();
     } else {
       this.setState({
-        active: false,
+        active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56,
+        toValue: 56
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 0,
+        toValue: 0
       }).start();
     }
   }
@@ -314,13 +344,13 @@ class Fab extends Component {
   _animate() {
     const { props: { direction, position } } = this;
     if (this.props.direction) {
-      if (this.props.direction === 'up') {
+      if (this.props.direction === "up") {
         this.upAnimate();
-      } else if (this.props.direction === 'left') {
+      } else if (this.props.direction === "left") {
         this.leftAnimate();
-      } else if (this.props.direction === 'right') {
+      } else if (this.props.direction === "right") {
         this.rightAnimate();
-      } else if (this.props.direction === 'down') {
+      } else if (this.props.direction === "down") {
         this.downAnimate();
       }
     } else {
@@ -351,7 +381,8 @@ class Fab extends Component {
         {this.renderButtons()}
         <TouchableOpacity
           onPress={() => this.fabOnPress()}
-          {...this.prepareFabProps() } activeOpacity={1}
+          {...this.prepareFabProps()}
+          activeOpacity={1}
         >
           {this.renderFab()}
         </TouchableOpacity>
@@ -366,9 +397,7 @@ Fab.propTypes = {
   active: React.PropTypes.bool,
   direction: React.PropTypes.string,
   containerStyle: React.PropTypes.object,
-  position: React.PropTypes.string,
+  position: React.PropTypes.string
 };
-const StyledFab = connectStyle('NativeBase.Fab', {}, mapPropsToStyleNames)(Fab);
-export {
-  StyledFab as Fab,
-};
+const StyledFab = connectStyle("NativeBase.Fab", {}, mapPropsToStyleNames)(Fab);
+export { StyledFab as Fab };

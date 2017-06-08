@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import { ListView, View } from 'react-native';
+import React, { Component } from "react";
+import { ListView, View } from "react-native";
 
-import { connectStyle } from 'native-base-shoutem-theme';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import { connectStyle } from "native-base-shoutem-theme";
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class List extends Component {
-
   constructor(props) {
     super(props);
     if (props.dataArray && props.renderRow) {
@@ -13,9 +12,9 @@ class List extends Component {
       const ds = new ListView.DataSource({ rowHasChanged: rowHasChanged });
       this.state = {
         dataSource: ds.cloneWithRows(props.dataArray)
-      }
+      };
     } else {
-      this.state = {}
+      this.state = {};
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -26,7 +25,10 @@ class List extends Component {
     }
   }
   renderChildren() {
-    const childrenArray = React.Children.map(this.props.children, child => child);
+    const childrenArray = React.Children.map(
+      this.props.children,
+      child => child
+    );
 
     return childrenArray;
   }
@@ -36,7 +38,7 @@ class List extends Component {
       return (
         <ListView
           {...this.props}
-          ref={(ref) => this._root = ref}
+          ref={ref => (this._root = ref)}
           enableEmptySections
           dataSource={this.state.dataSource}
           renderRow={this.props.renderRow}
@@ -44,15 +46,14 @@ class List extends Component {
       );
     }
     return (
-      <View ref={c => this._root = c} {...this.props} >
+      <View ref={c => (this._root = c)} {...this.props}>
         {this.renderChildren()}
       </View>
     );
   }
-
 }
-const StyledList = connectStyle('NativeBase.List', {}, mapPropsToStyleNames)(List);
+const StyledList = connectStyle("NativeBase.List", {}, mapPropsToStyleNames)(
+  List
+);
 
-export {
-  StyledList as List,
-};
+export { StyledList as List };

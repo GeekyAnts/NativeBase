@@ -1,25 +1,24 @@
 /* @flow */
 
-
-import React, { Component } from 'react';
-import { Text } from 'react-native';
-import { connectStyle } from 'native-base-shoutem-theme';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import React, { Component } from "react";
+import { Text } from "react-native";
+import { connectStyle } from "native-base-shoutem-theme";
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Title extends Component {
   render() {
     return (
-      <Text ref={c => this._root = c} {...this.props} numberOfLines={1} />
+      <Text ref={c => (this._root = c)} {...this.props} numberOfLines={1} />
     );
   }
 }
 
 Title.propTypes = {
   ...Text.propTypes,
-  style: React.PropTypes.object,
+  style: React.PropTypes.object
 };
 
-const StyledTitle = connectStyle('NativeBase.Title', {}, mapPropsToStyleNames)(Title);
-export {
-  StyledTitle as Title,
-};
+const StyledTitle = connectStyle("NativeBase.Title", {}, mapPropsToStyleNames)(
+  Title
+);
+export { StyledTitle as Title };
