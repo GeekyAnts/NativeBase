@@ -1,12 +1,12 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
+Object.defineProperty(exports,"__esModule",{value:true});var _platform=require("./../variables/platform");var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var theme={
-'.bordered':{
-'.noTopBorder':{
+".bordered":{
+".noTopBorder":{
 borderTopWidth:0},
 
-'.noBottomBorder':{
+".noBottomBorder":{
 borderBottomWidth:0},
 
 height:35,
@@ -15,19 +15,19 @@ borderBottomWidth:variables.borderWidth,
 borderTopWidth:variables.borderWidth,
 borderColor:variables.listBorderColor},
 
-'NativeBase.Text':{
+"NativeBase.Text":{
 fontSize:variables.tabBarTextSize},
 
-'.noTopBorder':{
+".noTopBorder":{
 borderTopWidth:0},
 
-'.noBottomBorder':{
+".noBottomBorder":{
 borderBottomWidth:0},
 
 height:38,
-backgroundColor:'#F0EFF5',
+backgroundColor:"#F0EFF5",
 flex:1,
-justifyContent:'center',
+justifyContent:"center",
 paddingLeft:variables.listItemPadding+5};
 
 

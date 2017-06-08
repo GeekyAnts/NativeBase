@@ -1,7 +1,6 @@
-var React = require('react');
+var React = require("react");
 
 class StaticContainer extends React.Component {
-
   shouldComponentUpdate(nextProps: Object): boolean {
     return !!nextProps.shouldUpdate;
   }
@@ -13,7 +12,6 @@ class StaticContainer extends React.Component {
     }
     return React.Children.only(child);
   }
-
 }
 
 module.exports = StaticContainer;

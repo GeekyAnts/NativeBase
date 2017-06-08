@@ -1,49 +1,51 @@
 /* @flow */
 
-
-import React, { Component } from 'react';
-import { View, Modal, Platform, ActionSheetIOS, TouchableOpacity, ViewPropTypes } from 'react-native';
-import { connectStyle } from 'native-base-shoutem-theme';
-import { Text } from './Text';
-import { Button } from './Button';
-import { ViewNB } from './View';
-import { Icon } from './Icon';
-import { Left } from './Left';
-import { Right } from './Right';
-import { Body } from './Body';
-import { List } from './List';
-import { ListItem } from './ListItem';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
-
+import React, { Component } from "react";
+import {
+  View,
+  Modal,
+  Platform,
+  ActionSheetIOS,
+  TouchableOpacity,
+  ViewPropTypes
+} from "react-native";
+import { connectStyle } from "native-base-shoutem-theme";
+import { Text } from "./Text";
+import { Button } from "./Button";
+import { ViewNB } from "./View";
+import { Icon } from "./Icon";
+import { Left } from "./Left";
+import { Right } from "./Right";
+import { Body } from "./Body";
+import { List } from "./List";
+import { ListItem } from "./ListItem";
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class ActionSheetContainer extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       modalVisible: false,
-      items: [],
-    }
+      items: []
+    };
   }
   static actionsheetInstance;
   static show(config, callback) {
     this.actionsheetInstance._root.showActionSheet(config, callback);
   }
   showActionSheet(config, callback) {
-    if (Platform.OS === 'ios') {
-      if (typeof config.options[0] == 'object') {
+    if (Platform.OS === "ios") {
+      if (typeof config.options[0] == "object") {
         let options = config.options;
-        let filtered = options.map((item) => {
-          return item.text
+        let filtered = options.map(item => {
+          return item.text;
         });
         config.options = filtered;
         ActionSheetIOS.showActionSheetWithOptions(config, callback);
-      }
-      else {
+      } else {
         ActionSheetIOS.showActionSheetWithOptions(config, callback);
       }
-    }
-    else {
+    } else {
       this.setState({
         items: config.options,
         title: config.title,
@@ -68,26 +70,57 @@ class ActionSheetContainer extends Component {
         visible={this.state.modalVisible}
         onRequestClose={() => this.setState({ modalVisible: false })}
       >
-        <TouchableOpacity activeOpacity={1} onPress={() => this.setState({ modalVisible: false })} style={{ backgroundColor: 'rgba(0,0,0,0.4)', flex: 1, justifyContent: 'flex-end' }}>
-          <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#fff', height: this.state.length * 80, padding: 15, elevation: 4 }}>
-            <Text style={{ color: '#757575' }}>{this.state.title}</Text>
-            <List style={{ marginHorizontal: -15, marginTop: 15 }} dataArray={this.state.items} renderRow={(data, i, id) => {
-              return (typeof this.state.items[0] === 'string') ?
-                <ListItem onPress={() => { this.state.callback(id); this.setState({ modalVisible: false }) }} style={{ borderColor: 'transparent' }}>
-                  <Text>{data}</Text>
-                </ListItem>
-                :
-                <ListItem onPress={() => { this.state.callback(id); this.setState({ modalVisible: false }) }} style={{ borderColor: 'transparent' }} icon>
-                  <Left>
-                    <Icon name={data.icon} />
-                  </Left>
-                  <Body style={{ borderColor: 'transparent' }}>
-                    <Text>{data.text}</Text>
-                  </Body>
-                  <Right />
-                </ListItem>
-            }
-            } />
+        <TouchableOpacity
+          activeOpacity={1}
+          onPress={() => this.setState({ modalVisible: false })}
+          style={{
+            backgroundColor: "rgba(0,0,0,0.4)",
+            flex: 1,
+            justifyContent: "flex-end"
+          }}
+        >
+          <TouchableOpacity
+            activeOpacity={1}
+            style={{
+              backgroundColor: "#fff",
+              height: this.state.length * 80,
+              padding: 15,
+              elevation: 4
+            }}
+          >
+            <Text style={{ color: "#757575" }}>{this.state.title}</Text>
+            <List
+              style={{ marginHorizontal: -15, marginTop: 15 }}
+              dataArray={this.state.items}
+              renderRow={(data, i, id) => {
+                return typeof this.state.items[0] === "string"
+                  ? <ListItem
+                      onPress={() => {
+                        this.state.callback(id);
+                        this.setState({ modalVisible: false });
+                      }}
+                      style={{ borderColor: "transparent" }}
+                    >
+                      <Text>{data}</Text>
+                    </ListItem>
+                  : <ListItem
+                      onPress={() => {
+                        this.state.callback(id);
+                        this.setState({ modalVisible: false });
+                      }}
+                      style={{ borderColor: "transparent" }}
+                      icon
+                    >
+                      <Left>
+                        <Icon name={data.icon} />
+                      </Left>
+                      <Body style={{ borderColor: "transparent" }}>
+                        <Text>{data.text}</Text>
+                      </Body>
+                      <Right />
+                    </ListItem>;
+              }}
+            />
           </TouchableOpacity>
         </TouchableOpacity>
       </Modal>
@@ -97,11 +130,13 @@ class ActionSheetContainer extends Component {
 
 ActionSheetContainer.propTypes = {
   ...ViewPropTypes,
-  style: React.PropTypes.object,
+  style: React.PropTypes.object
 };
 
-const StyledActionSheetContainer = connectStyle('NativeBase.ActionSheetContainer', {}, mapPropsToStyleNames)(ActionSheetContainer);
+const StyledActionSheetContainer = connectStyle(
+  "NativeBase.ActionSheetContainer",
+  {},
+  mapPropsToStyleNames
+)(ActionSheetContainer);
 
-export {
-  StyledActionSheetContainer as ActionSheetContainer,
-};
+export { StyledActionSheetContainer as ActionSheetContainer };

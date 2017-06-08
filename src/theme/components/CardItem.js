@@ -1,209 +1,209 @@
-import variable from './../variables/platform';
+import variable from "./../variables/platform";
 
 export default (variables = variable) => {
   const platform = variables.platform;
 
   const cardItemTheme = {
-    'NativeBase.Left': {
-      'NativeBase.Body': {
-        'NativeBase.Text': {
-          '.note': {
+    "NativeBase.Left": {
+      "NativeBase.Body": {
+        "NativeBase.Text": {
+          ".note": {
             color: variables.listNoteColor,
-            fontWeight: '400',
-            marginRight: 20,
-          },
+            fontWeight: "400",
+            marginRight: 20
+          }
         },
         flex: 1,
         marginLeft: 10,
-        alignItems: null,
+        alignItems: null
       },
-      'NativeBase.Icon': {
-        fontSize: variables.iconFontSize,
+      "NativeBase.Icon": {
+        fontSize: variables.iconFontSize
       },
-      'NativeBase.IconNB': {
-        fontSize: variables.iconFontSize,
+      "NativeBase.IconNB": {
+        fontSize: variables.iconFontSize
       },
-      'NativeBase.Text': {
+      "NativeBase.Text": {
         marginLeft: 10,
-        alignSelf: 'center',
+        alignSelf: "center"
       },
-      'NativeBase.Button': {
-        '.transparent': {
-          'NativeBase.Text': {
+      "NativeBase.Button": {
+        ".transparent": {
+          "NativeBase.Text": {
             fontSize: variables.DefaultFontSize - 4,
-            color: variables.sTabBarActiveTextColor,
+            color: variables.sTabBarActiveTextColor
           },
-          'NativeBase.Icon': {
+          "NativeBase.Icon": {
             fontSize: variables.iconFontSize - 10,
             color: variables.sTabBarActiveTextColor,
-            marginHorizontal: null,
+            marginHorizontal: null
           },
-          'NativeBase.IconNB': {
+          "NativeBase.IconNB": {
             fontSize: variables.iconFontSize - 10,
-            color: variables.sTabBarActiveTextColor,
+            color: variables.sTabBarActiveTextColor
           },
           paddingVertical: null,
           paddingHorizontal: null,
-          paddingRight: variables.listItemPadding + 5,
-        },
+          paddingRight: variables.listItemPadding + 5
+        }
       },
       flex: 1,
-      flexDirection: 'row',
-      alignItems: 'center',
+      flexDirection: "row",
+      alignItems: "center"
     },
 
-    '.content': {
-      'NativeBase.Text': {
-        color: (platform === 'ios') ? '#555' : '#222',
-        fontSize: variables.DefaultFontSize - 3,
-      },
+    ".content": {
+      "NativeBase.Text": {
+        color: platform === "ios" ? "#555" : "#222",
+        fontSize: variables.DefaultFontSize - 3
+      }
     },
-    '.cardBody': {
-      'NativeBase.Text': {
-        marginTop: 5,
-      },
+    ".cardBody": {
+      "NativeBase.Text": {
+        marginTop: 5
+      }
     },
-    'NativeBase.Body': {
-      'NativeBase.Text': {
-        '.note': {
+    "NativeBase.Body": {
+      "NativeBase.Text": {
+        ".note": {
           color: variables.listNoteColor,
-          fontWeight: '200',
-          marginRight: 20,
-        },
+          fontWeight: "200",
+          marginRight: 20
+        }
       },
-      'NativeBase.Button': {
-        '.transparent': {
-          'NativeBase.Text': {
+      "NativeBase.Button": {
+        ".transparent": {
+          "NativeBase.Text": {
             fontSize: variables.DefaultFontSize - 4,
-            color: variables.sTabBarActiveTextColor,
+            color: variables.sTabBarActiveTextColor
           },
-          'NativeBase.Icon': {
+          "NativeBase.Icon": {
             fontSize: variables.iconFontSize - 10,
             color: variables.sTabBarActiveTextColor,
-            marginHorizontal: null,
+            marginHorizontal: null
           },
-          'NativeBase.IconNB': {
+          "NativeBase.IconNB": {
             fontSize: variables.iconFontSize - 10,
-            color: variables.sTabBarActiveTextColor,
+            color: variables.sTabBarActiveTextColor
           },
           paddingVertical: null,
           paddingHorizontal: null,
           paddingRight: variables.listItemPadding + 5,
-          alignSelf: 'stretch',
-        },
+          alignSelf: "stretch"
+        }
       },
       flex: 1,
-      alignSelf: 'stretch',
-      alignItems: 'flex-start',
+      alignSelf: "stretch",
+      alignItems: "flex-start"
     },
-    'NativeBase.Right': {
-      'NativeBase.Badge': {
-        alignSelf: null,
+    "NativeBase.Right": {
+      "NativeBase.Badge": {
+        alignSelf: null
       },
-      'NativeBase.Button': {
-        '.transparent': {
-          'NativeBase.Text': {
+      "NativeBase.Button": {
+        ".transparent": {
+          "NativeBase.Text": {
             fontSize: variables.DefaultFontSize - 4,
-            color: variables.sTabBarActiveTextColor,
+            color: variables.sTabBarActiveTextColor
           },
-          'NativeBase.Icon': {
+          "NativeBase.Icon": {
             fontSize: variables.iconFontSize - 10,
             color: variables.sTabBarActiveTextColor,
-            marginHorizontal: null,
+            marginHorizontal: null
           },
-          'NativeBase.IconNB': {
+          "NativeBase.IconNB": {
             fontSize: variables.iconFontSize - 10,
-            color: variables.sTabBarActiveTextColor,
+            color: variables.sTabBarActiveTextColor
           },
           paddingVertical: null,
-          paddingHorizontal: null,
+          paddingHorizontal: null
         },
-        alignSelf: null,
+        alignSelf: null
       },
-      'NativeBase.Icon': {
-        alignSelf: null,
-        fontSize: variables.iconFontSize - 8,
-        color: variables.cardBorderColor,
-      },
-      'NativeBase.IconNB': {
+      "NativeBase.Icon": {
         alignSelf: null,
         fontSize: variables.iconFontSize - 8,
-        color: variables.cardBorderColor,
+        color: variables.cardBorderColor
       },
-      'NativeBase.Text': {
+      "NativeBase.IconNB": {
+        alignSelf: null,
+        fontSize: variables.iconFontSize - 8,
+        color: variables.cardBorderColor
+      },
+      "NativeBase.Text": {
         fontSize: variables.DefaultFontSize - 2,
-        alignSelf: null,
+        alignSelf: null
       },
-      'NativeBase.Thumbnail': {
-        alignSelf: null,
+      "NativeBase.Thumbnail": {
+        alignSelf: null
       },
-      'NativeBase.Image': {
-        alignSelf: null,
+      "NativeBase.Image": {
+        alignSelf: null
       },
-      'NativeBase.Radio': {
-        alignSelf: null,
+      "NativeBase.Radio": {
+        alignSelf: null
       },
-      'NativeBase.Checkbox': {
-        alignSelf: null,
+      "NativeBase.Checkbox": {
+        alignSelf: null
       },
-      'NativeBase.Switch': {
-        alignSelf: null,
+      "NativeBase.Switch": {
+        alignSelf: null
       },
-      flex: 0.8,
+      flex: 0.8
     },
-    '.header': {
-      'NativeBase.Text': {
+    ".header": {
+      "NativeBase.Text": {
         fontSize: 16,
-        fontWeight: (platform === 'ios') ? '500' : undefined,
+        fontWeight: platform === "ios" ? "500" : undefined
       },
-      '.bordered': {
-        'NativeBase.Text': {
+      ".bordered": {
+        "NativeBase.Text": {
           color: variables.sTabBarActiveTextColor,
-          fontWeight: (platform === 'ios') ? '500' : undefined,
+          fontWeight: platform === "ios" ? "500" : undefined
         },
-        borderBottomWidth: (platform === 'ios') ? variables.borderWidth : null,
+        borderBottomWidth: platform === "ios" ? variables.borderWidth : null
       },
       borderBottomWidth: null,
-      paddingVertical: variables.listItemPadding + 5,
+      paddingVertical: variables.listItemPadding + 5
     },
-    '.footer': {
-      'NativeBase.Text': {
+    ".footer": {
+      "NativeBase.Text": {
         fontSize: 16,
-        fontWeight: (platform === 'ios') ? '500' : undefined,
+        fontWeight: platform === "ios" ? "500" : undefined
       },
-      '.bordered': {
-        'NativeBase.Text': {
+      ".bordered": {
+        "NativeBase.Text": {
           color: variables.activeTab,
-          fontWeight: '500',
+          fontWeight: "500"
         },
-        borderTopWidth: (platform === 'ios') ? variables.borderWidth : null,
+        borderTopWidth: platform === "ios" ? variables.borderWidth : null
       },
-      borderBottomWidth: null,
+      borderBottomWidth: null
     },
-    'NativeBase.Text': {
-      '.note': {
+    "NativeBase.Text": {
+      ".note": {
         color: variables.listNoteColor,
-        fontWeight: '200',
-      },
+        fontWeight: "200"
+      }
     },
 
-    'NativeBase.Icon': {
+    "NativeBase.Icon": {
       width: variables.iconFontSize + 5,
-      fontSize: variables.iconFontSize - 2,
+      fontSize: variables.iconFontSize - 2
     },
-    'NativeBase.IconNB': {
+    "NativeBase.IconNB": {
       width: variables.iconFontSize + 5,
-      fontSize: variables.iconFontSize - 2,
+      fontSize: variables.iconFontSize - 2
     },
 
-    '.bordered': {
+    ".bordered": {
       borderBottomWidth: variables.borderWidth,
-      borderColor: variables.cardBorderColor,
+      borderColor: variables.cardBorderColor
     },
     borderRadius: 2,
     padding: variables.listItemPadding + 5,
     paddingVertical: variables.listItemPadding,
-    backgroundColor: variables.cardDefaultBg,
+    backgroundColor: variables.cardDefaultBg
   };
 
   return cardItemTheme;

@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
-import { Text } from 'react-native';
+import React, { Component } from "react";
+import { Text } from "react-native";
 
-import { connectStyle } from 'native-base-shoutem-theme';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import { connectStyle } from "native-base-shoutem-theme";
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class H1 extends Component {
   render() {
-    return (
-      <Text ref={c => this._root = c} {...this.props} />
-    );
+    return <Text ref={c => (this._root = c)} {...this.props} />;
   }
 }
 
-const childrenType = function (props, propName, component) {
+const childrenType = function(props, propName, component) {
   let error;
   const prop = props[propName];
-  React.Children.forEach(prop, (child) => {
-    if (typeof child !== 'string') {
+  React.Children.forEach(prop, child => {
+    if (typeof child !== "string") {
       error = new Error(`${component} should have only string`);
     }
   });
@@ -26,11 +24,9 @@ const childrenType = function (props, propName, component) {
 H1.propTypes = {
   ...Text.propTypes,
   children: childrenType,
-  style: React.PropTypes.object,
+  style: React.PropTypes.object
 };
 
-const StyledH1 = connectStyle('NativeBase.H1', {}, mapPropsToStyleNames)(H1);
+const StyledH1 = connectStyle("NativeBase.H1", {}, mapPropsToStyleNames)(H1);
 
-export {
-  StyledH1 as H1,
-};
+export { StyledH1 as H1 };
