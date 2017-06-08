@@ -118,7 +118,7 @@ class PickerNB extends Component {
           ? <Text style={this.props.textStyle} note={this.props.note}>
               {this.state.currentLabel}
             </Text>
-          : <Text style={this.props.textStyle} note>
+          : <Text style={this.props.textStyle} note={this.props.note}>
               {this.props.placeholder}
             </Text>}
         {this.props.iosIcon === undefined ? null : this.renderIcon()}
@@ -174,7 +174,7 @@ class PickerNB extends Component {
             <Content>
               <List
                 dataArray={this.state.dataSource}
-                renderRow={child =>
+                renderRow={child => (
                   <ListItem
                     selected={
                       child.props.value === this.props.selectedValue
@@ -197,7 +197,8 @@ class PickerNB extends Component {
                         ? <Radio selected={true} />
                         : <Radio selected={false} />}
                     </Right>
-                  </ListItem>}
+                  </ListItem>
+                )}
               />
             </Content>
           </Container>
