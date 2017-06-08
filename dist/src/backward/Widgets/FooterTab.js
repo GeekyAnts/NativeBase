@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.FooterTab=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/backward/Widgets/FooterTab.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.FooterTab=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
@@ -51,20 +51,20 @@ _react2.default.createElement(_Button.Button,{
 style:child.props.style,transparent:true,vertical:true,
 key:i,
 active:child.props.active?true:false,
-onPress:child.props.onPress,__source:{fileName:_jsxFileName,lineNumber:50}},
+onPress:child.props.onPress},
 
-_react2.default.createElement(_reactNative.View,{style:_reactNative.Platform.OS==='ios'?{alignSelf:'center',zIndex:999}:{alignSelf:'center'},__source:{fileName:_jsxFileName,lineNumber:56}},
-_react2.default.createElement(_Badge.Badge,_extends({},badgeElement[0].props,{__source:{fileName:_jsxFileName,lineNumber:57}}),
-_react2.default.createElement(_Text.Text,{style:badgeElement[0].props.textStyle,__source:{fileName:_jsxFileName,lineNumber:58}},
+_react2.default.createElement(_reactNative.View,{style:_reactNative.Platform.OS==='ios'?{alignSelf:'center',zIndex:999}:{alignSelf:'center'}},
+_react2.default.createElement(_Badge.Badge,badgeElement[0].props,
+_react2.default.createElement(_Text.Text,{style:badgeElement[0].props.textStyle},
 badgeElement[0].props.children))),
 
 
 _react2.default.createElement(_Icon.Icon,_extends({},
 iconElement[0].props,{active:child.props.active?true:false,
-name:iconElement[0].props.name,__source:{fileName:_jsxFileName,lineNumber:62}})),
+name:iconElement[0].props.name})),
 
 
-_react2.default.createElement(_Text.Text,{style:child.props.textStyle,__source:{fileName:_jsxFileName,lineNumber:67}},children)));
+_react2.default.createElement(_Text.Text,{style:child.props.textStyle},children)));
 
 
 }else{
@@ -84,7 +84,7 @@ return newChildren;
 
 {var _this3=this;
 return(
-_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this3._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:87}}),
+_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this3._root=c;}},this.props),
 this.renderFooter()));
 
 

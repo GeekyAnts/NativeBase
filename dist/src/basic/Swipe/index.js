@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Swipeout=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Swipe/index.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _reactTweenState=require("react-tween-state");var _reactTweenState2=_interopRequireDefault(_reactTweenState);
+Object.defineProperty(exports,"__esModule",{value:true});exports.Swipeout=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _reactTweenState=require("react-tween-state");var _reactTweenState2=_interopRequireDefault(_reactTweenState);
 var _NativeButton=require("./NativeButton");var _NativeButton2=_interopRequireDefault(_NativeButton);
 var _styles=require("./styles");var _styles2=_interopRequireDefault(_styles);
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
@@ -86,10 +86,10 @@ style:_styles2.default.swipeoutBtnTouchable,
 underlayColor:this.props.underlayColor,
 disabled:this.props.disabled,
 style:styleSwipeoutBtn,
-textStyle:styleSwipeoutBtnText,__source:{fileName:_jsxFileName,lineNumber:83}},
+textStyle:styleSwipeoutBtnText},
 
 btn.component?
-_react2.default.createElement(_reactNative.View,{style:styleSwipeoutBtnComponent,__source:{fileName:_jsxFileName,lineNumber:92}},btn.component):
+_react2.default.createElement(_reactNative.View,{style:styleSwipeoutBtnComponent},btn.component):
 btn.text));
 
 
@@ -323,12 +323,12 @@ var isRightVisible=posX<0;
 var isLeftVisible=posX>0;
 
 return(
-_react2.default.createElement(_reactNative.View,{style:styleSwipeout,__source:{fileName:_jsxFileName,lineNumber:326}},
+_react2.default.createElement(_reactNative.View,{style:styleSwipeout},
 _react2.default.createElement(_reactNative.View,_extends({
 ref:"swipeoutContent",
 style:styleContent,
 onLayout:this._onLayout},
-this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:327}}),
+this._panResponder.panHandlers),
 
 this.props.children),
 
@@ -349,12 +349,12 @@ contentHeight:height});
 _renderButtons:function _renderButtons(buttons,isVisible,style){
 if(buttons&&isVisible){
 return(
-_react2.default.createElement(_reactNative.View,{style:style,__source:{fileName:_jsxFileName,lineNumber:352}},
+_react2.default.createElement(_reactNative.View,{style:style},
 buttons.map(this._renderButton)));
 
 
 }else{
-return _react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:357}});
+return _react2.default.createElement(_reactNative.View,null);
 }
 },
 
@@ -371,7 +371,7 @@ onPress:function onPress(){return _this4._autoClose(btn);},
 text:btn.text,
 type:btn.type,
 underlayColor:btn.underlayColor,
-width:this.state.btnWidth,__source:{fileName:_jsxFileName,lineNumber:363}}));
+width:this.state.btnWidth}));
 
 
 }});

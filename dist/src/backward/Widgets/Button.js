@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/backward/Widgets/Button.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);
@@ -42,7 +42,7 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 
 {
 if(typeof this.props.children==='string'){
-return _react2.default.createElement(_Text.Text,{style:this.props.textStyle,__source:{fileName:_jsxFileName,lineNumber:45}},_reactNative.Platform.OS==='ios'||!this.props.capitalize?this.props.children:this.props.children.toUpperCase());
+return _react2.default.createElement(_Text.Text,{style:this.props.textStyle},_reactNative.Platform.OS==='ios'||!this.props.capitalize?this.props.children:this.props.children.toUpperCase());
 }else if(this.props.children.type===_Icon.Icon){
 return _react2.default.cloneElement(this.props.children);
 }else if(Array.isArray(this.props.children)){
@@ -60,9 +60,9 @@ return null;
 
 if(this.props.iconRight){
 if(childrenArray[0].type===undefined){
-newChildren.push(_react2.default.createElement(_Text.Text,{key:'label',__source:{fileName:_jsxFileName,lineNumber:63}},_reactNative.Platform.OS==='ios'||!this.props.capitalize?childrenArray[0]:childrenArray[0].toUpperCase()));
+newChildren.push(_react2.default.createElement(_Text.Text,{key:'label'},_reactNative.Platform.OS==='ios'||!this.props.capitalize?childrenArray[0]:childrenArray[0].toUpperCase()));
 }else{
-newChildren.push(_react2.default.createElement(_Text.Text,{key:'label',__source:{fileName:_jsxFileName,lineNumber:65}},_reactNative.Platform.OS==='ios'||!this.props.capitalize?childrenArray[0].props.children:childrenArray[0].props.children.toUpperCase()));
+newChildren.push(_react2.default.createElement(_Text.Text,{key:'label'},_reactNative.Platform.OS==='ios'||!this.props.capitalize?childrenArray[0].props.children:childrenArray[0].props.children.toUpperCase()));
 }
 
 newChildren.push(_react2.default.cloneElement(iconElement[0]));
@@ -70,12 +70,12 @@ newChildren.push(_react2.default.cloneElement(iconElement[0]));
 newChildren.push(_react2.default.cloneElement(iconElement[0]));
 
 if(childrenArray[0].type===undefined){
-newChildren.push(_react2.default.createElement(_Text.Text,{key:'label',__source:{fileName:_jsxFileName,lineNumber:73}},_reactNative.Platform.OS==='ios'||!this.props.capitalize?childrenArray[0]:childrenArray[0].toUpperCase()));
+newChildren.push(_react2.default.createElement(_Text.Text,{key:'label'},_reactNative.Platform.OS==='ios'||!this.props.capitalize?childrenArray[0]:childrenArray[0].toUpperCase()));
 }else{
-newChildren.push(_react2.default.createElement(_Text.Text,{key:'label',__source:{fileName:_jsxFileName,lineNumber:75}},_reactNative.Platform.OS==='ios'||!this.props.capitalize?childrenArray[0].props.children:childrenArray[0].props.children.toUpperCase()));
+newChildren.push(_react2.default.createElement(_Text.Text,{key:'label'},_reactNative.Platform.OS==='ios'||!this.props.capitalize?childrenArray[0].props.children:childrenArray[0].props.children.toUpperCase()));
 }
 }else{
-return _react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:78}},this.props.children);
+return _react2.default.createElement(_Text.Text,null,this.props.children);
 }
 
 return newChildren;
@@ -87,7 +87,7 @@ return _react2.default.cloneElement(this.props.children);
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 ref:function ref(c){_this2._root=c;}},
-this.prepareRootProps(),{activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:88}}),
+this.prepareRootProps(),{activeOpacity:0.5}),
 
 this.renderChildren()));
 
