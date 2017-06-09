@@ -38,7 +38,7 @@
     "color": "~1.0.3",
     "fs-extra": "^2.0.0",
     "lodash": "~4.11.1",
-    "native-base-shoutem-theme": "0.1.5",
+    "native-base-shoutem-theme": "0.1.7",
     "print-message": "^2.1.0",
     "react-native-drawer": "^2.3.0",
     "react-native-easy-grid": "0.1.7",
