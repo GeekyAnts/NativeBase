@@ -20,18 +20,11 @@ export default class NativeBaseComponent extends Component {
 
   getChildContext() {
     return {
-      theme: this.props.theme ? this.props.theme : this.getTheme(),
-      foregroundColor: this.props.foregroundColor
-        ? this.props.foregroundColor
-        : this.getTheme().textColor
+      theme: this.props.theme ? this.props.theme : this.context.theme
     };
   }
 
   getContextForegroundColor() {
     return this.context.foregroundColor;
-  }
-
-  getTheme() {
-    return this.props.theme ? this.props.theme : this.context.theme;
   }
 }
