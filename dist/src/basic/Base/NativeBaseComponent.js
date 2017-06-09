@@ -20,18 +20,11 @@ NativeBaseComponent=function(_Component){_inherits(NativeBaseComponent,_Componen
 
 {
 return{
-theme:this.props.theme?this.props.theme:this.getTheme(),
-foregroundColor:this.props.foregroundColor?
-this.props.foregroundColor:
-this.getTheme().textColor};
+theme:this.props.theme?this.props.theme:this.context.theme};
 
 }},{key:"getContextForegroundColor",value:function getContextForegroundColor()
 
 {
 return this.context.foregroundColor;
-}},{key:"getTheme",value:function getTheme()
-
-{
-return this.props.theme?this.props.theme:this.context.theme;
 }}]);return NativeBaseComponent;}(_react.Component);NativeBaseComponent.contextTypes={theme:_react2.default.PropTypes.object,foregroundColor:_react2.default.PropTypes.string};NativeBaseComponent.propTypes={theme:_react2.default.PropTypes.object,foregroundColor:_react2.default.PropTypes.string};NativeBaseComponent.childContextTypes={theme:_react2.default.PropTypes.object,foregroundColor:_react2.default.PropTypes.string};exports.default=NativeBaseComponent;
 //# sourceMappingURL=NativeBaseComponent.js.map
