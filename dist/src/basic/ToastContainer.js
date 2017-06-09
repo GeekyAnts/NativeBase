@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.ToastContainer=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.ToastContainer=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/ToastContainer.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
 
 var _react=require("react");var _react2=_interopRequireDefault(_react);
 var _reactNative=require("react-native");
@@ -53,7 +53,7 @@ onRequestClose:function onRequestClose(){
 _this3.setState({
 modalVisible:false});
 
-}},
+},__source:{fileName:_jsxFileName,lineNumber:47}},
 
 _react2.default.createElement(_reactNative.View,{
 style:{
@@ -63,24 +63,24 @@ justifyContent:this.state.position==="top"?
 "flex-start":
 this.state.position==="bottom"?
 "flex-end":
-this.state.position==="center"?"center":"flex-start"}},
+this.state.position==="center"?"center":"flex-start"},__source:{fileName:_jsxFileName,lineNumber:58}},
 
 
 _react2.default.createElement(_Toast.Toast,{
 danger:this.state.type=="danger"?true:false,
 success:this.state.type=="success"?true:false,
-warning:this.state.type=="warning"?true:false},
+warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:69}},
 
-_react2.default.createElement(_Text.Text,null,this.state.text),
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:74}},this.state.text),
 this.state.buttonText&&
 _react2.default.createElement(_Button.Button,{
 onPress:function onPress(){
 _this3.setState({
 modalVisible:false});
 
-}},
+},__source:{fileName:_jsxFileName,lineNumber:76}},
 
-_react2.default.createElement(_Text.Text,null,this.state.buttonText))))));
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:83}},this.state.buttonText))))));
 
 
 
