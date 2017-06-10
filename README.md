@@ -9,6 +9,8 @@ Essential cross-platform UI components for React Native
 
  **For people having trouble upgrading to 2.1.5, check [this.](https://github.com/GeekyAnts/NativeBase/issues/928)**
 
+ **Use 2.1.5 with latest react-native version. Older versions may break**
+
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/screenshots/iOS.gif)
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/screenshots/Android.gif)
 
