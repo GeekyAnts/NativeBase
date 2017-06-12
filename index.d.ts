@@ -643,6 +643,15 @@ declare module "native-base" {
       position?: "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
       style?: ReactNative.ViewStyle;
     }
+
+    interface Image extends ReactNative.TextProperties {
+
+    }
+
+    interface Segment extends ReactNative.TextProperties {
+
+    }
+
   }
 
   // Export definitions
@@ -907,6 +916,10 @@ declare module "native-base" {
       onSelect: (index: number) => void
     ) => void;
   }
+
+  export class Image extends React.Component<NativeBase.Image, any> { }
+
+  export class Segment extends React.Component<NativeBase.Segment, any> { }
 
   export class Toast {
     static show(
