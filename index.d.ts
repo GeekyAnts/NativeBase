@@ -497,7 +497,9 @@ declare module "native-base" {
       rowSpan: number;
     }
 
-    interface Label {}
+    interface Label {
+      style?: ReactNative.TextStyle;
+    }
     /**
          * see Widget Icon.js
          */
