@@ -20,7 +20,7 @@ class Item extends Component {
     };
   }
   componentDidMount() {
-    if (this.inputProps.value) {
+    if (this.inputProps && this.inputProps.value) {
       this.setState({ isFocused: true });
       this.floatUp(-16);
     }
