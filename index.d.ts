@@ -207,6 +207,10 @@ declare module "native-base" {
       full?: boolean;
       light?: boolean;
       dark?: boolean;
+       /**
+       * [android] colored ripple effect
+       */
+      androidRippleColor: string;
     }
     /**
          * see Widget List.js
@@ -258,6 +262,10 @@ declare module "native-base" {
       itemHeader?: boolean;
       first?: boolean;
       selected?: boolean;
+      /**
+       * [android] colored ripple effect
+       */
+      androidRippleColor: string;
     }
 
     interface Separator {
