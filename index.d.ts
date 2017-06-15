@@ -210,7 +210,7 @@ declare module "native-base" {
        /**
        * [android] colored ripple effect
        */
-      androidRippleColor: string;
+      androidRippleColor?: string;
     }
     /**
          * see Widget List.js
