@@ -641,6 +641,10 @@ declare module "native-base" {
       position?: "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
       style?: ReactNative.ViewStyle;
     }
+
+    interface StyleProvider {
+      style?: any;
+    }
   }
 
   // Export definitions
@@ -893,6 +897,8 @@ declare module "native-base" {
   export class Separator extends React.Component<NativeBase.Separator, any> {}
 
   export class Label extends React.Component<NativeBase.Label, any> {}
+
+  export class StyleProvider extends React.Component<NativeBase.StyleProvider, any> {}
 
   export class ActionSheet {
     static show: (
