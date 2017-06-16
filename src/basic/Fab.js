@@ -112,7 +112,7 @@ class Fab extends Component {
 				shadowOpacity: 0.4,
 				justifyContent: 'center',
 				alignItems: 'center',
-				shadowRadius: 4,
+				shadowRadius: 2,
 				position: 'absolute',
 				bottom: 0,
 				backgroundColor: 'blue',
@@ -142,7 +142,7 @@ class Fab extends Component {
 				width: 40,
 				left: 7,
 				borderRadius: 20,
-				transform: this.state.active ? undefined : [{ scale: this.buttonScale }],
+				transform: this.state.active ? [{ scale: new Animated.Value(1) }] : [{ scale: this.buttonScale }],
 				marginBottom: 10,
 				backgroundColor: 'blue',
 			},
@@ -376,7 +376,7 @@ class Fab extends Component {
 		return (
 			<Animated.View style={this.getContainerStyle()}>
 				{this.renderButtons()}
-				<TouchableOpacity onPress={() => this.fabOnPress()} {...this.prepareFabProps()}>
+				<TouchableOpacity onPress={() => this.fabOnPress()} {...this.prepareFabProps()} activeOpacity={1}>
 					{this.renderFab()}
 				</TouchableOpacity>
 			</Animated.View>
