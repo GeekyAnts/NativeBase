@@ -20,7 +20,7 @@ opacAnim:new _reactNative.Animated.Value(1)};return _this;
 
 }_createClass(Item,[{key:'componentDidMount',value:function componentDidMount()
 {
-if(this.inputProps.value){
+if(this.inputProps && this.inputProps.value){
 this.setState({isFocused:true});
 this.floatUp(-16);
 }
