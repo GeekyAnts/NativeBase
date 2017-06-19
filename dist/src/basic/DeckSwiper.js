@@ -18,7 +18,7 @@ selectedItem2:_this.props.dataSource[1],
 card1Top:true,
 card2Top:false,
 fadeAnim:new _reactNative.Animated.Value(0.8),
-looping:_this.props.looping||true,
+looping:typeof _this.props.looping==='undefined'?true:_this.props.looping,
 disabled:_this.props.dataSource.length===0,
 lastCard:_this.props.dataSource.length===1};return _this;
 
@@ -39,16 +39,12 @@ currentIndex){
 var newIdx=currentIndex+1;
 var newIdx2=currentIndex+2;
 
-if(
-newIdx2>this.props.dataSource.length-1&&
-newIdx===this.props.dataSource.length-1)
-{
+if(newIdx2>this.props.dataSource.length-1&&newIdx===this.props.dataSource.length-1){
 return[newIdx,0];
 }else if(newIdx>this.props.dataSource.length-1){
 return[0,1];
 }
 return[newIdx,newIdx2];
-
 }},{key:'selectNext',value:function selectNext()
 
 {var _this2=this;
@@ -131,11 +127,9 @@ _this5.state.pan.setValue({x:0,y:0});
 
 onPanResponderMove:function onPanResponderMove(e,gestureState){
 if(gestureState.dx>20){
-if(_this5.props.onSwiping)
-{_this5.props.onSwiping("right",gestureState.dx);}
+if(_this5.props.onSwiping)_this5.props.onSwiping('right',gestureState.dx);
 }else if(gestureState.dx<-20){
-if(_this5.props.onSwiping)
-{_this5.props.onSwiping("left",gestureState.dx);}
+if(_this5.props.onSwiping)_this5.props.onSwiping('left',gestureState.dx);
 }
 var val=Math.abs(gestureState.dx*0.0013);
 var opa=Math.abs(gestureState.dx*0.0022);
@@ -162,14 +156,10 @@ velocity=(0,_clamp2.default)(vx*-1,4.5,10)*-1;
 
 if(Math.abs(_this5.state.pan.x._value)>SWIPE_THRESHOLD){
 if(velocity>0){
-_this5.props.onSwipeRight?
-_this5.props.onSwipeRight(_this5.state.selectedItem):
-undefined;
+_this5.props.onSwipeRight?_this5.props.onSwipeRight(_this5.state.selectedItem):undefined;
 _this5.selectNext();
 }else{
-_this5.props.onSwipeLeft?
-_this5.props.onSwipeLeft(_this5.state.selectedItem):
-undefined;
+_this5.props.onSwipeLeft?_this5.props.onSwipeLeft(_this5.state.selectedItem):undefined;
 _this5.selectNext();
 }
 
@@ -224,16 +214,13 @@ var animatedCardStyles2={transform:[{scale:scale}]};
 return[animatedCardStyles,animatedCardStyles2];
 }},{key:'render',value:function render()
 
-{var _this6=this;
+{
 if(this.state.disabled){
 
 return(
-_react2.default.createElement(_reactNative.View,{
-ref:function ref(c){return _this6._root=c;},
-style:{position:"relative",flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:231}},
+_react2.default.createElement(_reactNative.View,{style:{position:'relative',flexDirection:'column'},__source:{fileName:_jsxFileName,lineNumber:221}},
 
-
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:236}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:223}},
 this.props.renderEmpty&&this.props.renderEmpty())));
 
 
@@ -242,29 +229,23 @@ this.props.renderEmpty&&this.props.renderEmpty())));
 }else if(this.state.lastCard){
 
 return(
-_react2.default.createElement(_reactNative.View,{
-ref:function ref(c){return _this6._root=c;},
-style:{position:"relative",flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:245}},
-
+_react2.default.createElement(_reactNative.View,{style:{position:'relative',flexDirection:'column'},__source:{fileName:_jsxFileName,lineNumber:232}},
 this.state.selectedItem===undefined?
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:250}}):
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:251}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:234}}):
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:235}},
 _react2.default.createElement(_reactNative.Animated.View,_extends({
 style:[
 this.getCardStyles()[1],
 this.getInitialStyle().topCard,
 {opacity:this.state.fadeAnim}]},
 
-this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:252}}),
+this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:236}}),
 
 this.props.renderEmpty&&this.props.renderEmpty()),
 
 _react2.default.createElement(_reactNative.Animated.View,_extends({
-style:[
-this.getCardStyles()[0],
-this.getInitialStyle().topCard]},
-
-this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:262}}),
+style:[this.getCardStyles()[0],this.getInitialStyle().topCard]},
+this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:246}}),
 
 this.props.renderItem(this.state.selectedItem)))));
 
@@ -273,35 +254,29 @@ this.props.renderItem(this.state.selectedItem)))));
 
 }
 return(
-_react2.default.createElement(_reactNative.View,{
-style:{position:"relative",flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:276}},
-
+_react2.default.createElement(_reactNative.View,{style:{position:'relative',flexDirection:'column'},__source:{fileName:_jsxFileName,lineNumber:257}},
 this.state.selectedItem===undefined?
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:280}}):
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:281}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:259}}):
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:260}},
 _react2.default.createElement(_reactNative.Animated.View,_extends({
 style:[
 this.getCardStyles()[1],
 this.getInitialStyle().topCard,
 {opacity:this.state.fadeAnim}]},
 
-this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:282}}),
+this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:261}}),
 
 this.props.renderBottom?
 this.props.renderBottom(this.state.selectedItem2):
 this.props.renderItem(this.state.selectedItem2)),
 
 _react2.default.createElement(_reactNative.Animated.View,_extends({
-style:[
-this.getCardStyles()[0],
-this.getInitialStyle().topCard]},
-
-this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:294}}),
+style:[this.getCardStyles()[0],this.getInitialStyle().topCard]},
+this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:273}}),
 
 this.props.renderTop?
 this.props.renderTop(this.state.selectedItem):
 this.props.renderItem(this.state.selectedItem)))));
-
 
 
 
@@ -315,11 +290,7 @@ style:_react2.default.PropTypes.object,
 dataSource:_react2.default.PropTypes.array});
 
 
-var StyledDeckSwiper=(0,_nativeBaseShoutemTheme.connectStyle)(
-'NativeBase.DeckSwiper',
-{},_mapPropsToStyleNames2.default)(
-
-DeckSwiper);exports.
+var StyledDeckSwiper=(0,_nativeBaseShoutemTheme.connectStyle)('NativeBase.DeckSwiper',{},_mapPropsToStyleNames2.default)(DeckSwiper);exports.
 
 DeckSwiper=StyledDeckSwiper;
 //# sourceMappingURL=DeckSwiper.js.map
