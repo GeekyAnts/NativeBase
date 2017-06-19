@@ -21,7 +21,7 @@ class Item extends Component {
 	}
 	componentDidMount() {
 		if (this.props.floatingLabel) {
-			if (this.inputProps.value) {
+			if (this.inputProps && this.inputProps.value) {
 				this.setState({ isFocused: true });
 				this.floatUp(-16);
 			}
@@ -39,7 +39,7 @@ class Item extends Component {
 			}
 		});
 		if (this.props.floatingLabel) {
-			if (this.inputProps.value) {
+			if (this.inputProps && this.inputProps.value) {
 				this.setState({ isFocused: true });
 				this.floatUp(-16);
 			}
