@@ -8,6 +8,7 @@ var _reactNative=require('react-native');
 var _Icon=require('./Icon');
 var _IconNB=require('./IconNB');
 var _Button=require('./Button');
+var _platform=require('./../theme/variables/platform');var _platform2=_interopRequireDefault(_platform);
 var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
 var _mapPropsToStyleNames=require('../Utils/mapPropsToStyleNames');var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var _Dimensions$get=
@@ -233,7 +234,7 @@ _react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i,__source:{fileName:_jsxFileName,lineNumber:232}}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:233}}),
 
 child.props.children));
 
@@ -374,10 +375,24 @@ active:_this4.props.active});
 active=this.props.active;
 
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:377}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:378}},
 this.renderButtons(),
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({onPress:function onPress(){return _this5.fabOnPress();}},this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:379}}),
-this.renderFab())));
+_reactNative.Platform.OS==='ios'||_platform2.default.androidRipple===false||_reactNative.Platform['Version']<=21?
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({onPress:function onPress(){return _this5.fabOnPress();}},this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:381}}),
+this.renderFab()):
+
+_react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
+onPress:function onPress(){return _this5.fabOnPress();},
+background:
+this.props.androidRippleColor?
+_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):
+_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
+
+this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:384}}),
+
+_react2.default.createElement(_reactNative.View,_extends({style:this.getInitialStyle().fab},this.props.style,{__source:{fileName:_jsxFileName,lineNumber:393}}),
+this.renderFab()))));
+
 
 
 
