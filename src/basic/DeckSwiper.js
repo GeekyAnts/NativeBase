@@ -18,7 +18,7 @@ class DeckSwiper extends Component {
       card1Top: true,
       card2Top: false,
       fadeAnim: new Animated.Value(0.8),
-      looping: this.props.looping || true,
+      looping: typeof this.props.looping === 'undefined' ? true : this.props.looping,
       disabled: this.props.dataSource.length === 0,
       lastCard: this.props.dataSource.length === 1
     };
