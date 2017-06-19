@@ -8,6 +8,7 @@ import { Platform, Animated, Dimensions, TouchableOpacity, TouchableNativeFeedba
 import { Icon } from './Icon';
 import { IconNB } from './IconNB';
 import { Button } from './Button';
+import variables from './../theme/variables/platform';
 import _ from 'lodash';
 import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 import { connectStyle } from 'native-base-shoutem-theme';
@@ -376,9 +377,23 @@ class Fab extends Component {
 		return (
 			<Animated.View style={this.getContainerStyle()}>
 				{this.renderButtons()}
-				<TouchableOpacity onPress={() => this.fabOnPress()} {...this.prepareFabProps()} activeOpacity={1}>
-					{this.renderFab()}
-				</TouchableOpacity>
+				{Platform.OS === 'ios' || variables.androidRipple === false || Platform['Version'] <= 21
+					? <TouchableOpacity onPress={() => this.fabOnPress()} {...this.prepareFabProps()} activeOpacity={1}>
+							{this.renderFab()}
+						</TouchableOpacity>
+					: <TouchableNativeFeedback
+							onPress={() => this.fabOnPress()}
+							background={
+								this.props.androidRippleColor
+									? TouchableNativeFeedback.Ripple(this.props.androidRippleColor)
+									: TouchableNativeFeedback.Ripple(variables.androidRippleColor)
+							}
+							{...this.prepareFabProps()}
+						>
+							<View style={this.getInitialStyle().fab} {...this.props.style}>
+								{this.renderFab()}
+							</View>
+						</TouchableNativeFeedback>}
 			</Animated.View>
 		);
 	}

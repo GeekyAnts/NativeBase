@@ -20,11 +20,31 @@ class Item extends Component {
 		};
 	}
 	componentDidMount() {
-		if (this.inputProps.value) {
-			this.setState({ isFocused: true });
-			this.floatUp(-16);
+		if (this.props.floatingLabel) {
+			if (this.inputProps.value) {
+				this.setState({ isFocused: true });
+				this.floatUp(-16);
+			}
+			if (this.inputProps && this.inputProps.getRef) this.inputProps.getRef(this._inputRef);
 		}
-		if (this.inputProps && this.inputProps.getRef) this.inputProps.getRef(this._inputRef);
+	}
+	componentWillReceiveProps(nextProps) {
+		const childrenArray = React.Children.toArray(nextProps.children);
+		let inputProps = {};
+		input = _.remove(childrenArray, item => {
+			if (item.type.displayName === 'Styled(Input)') {
+				inputProps = item.props;
+				this.inputProps = item.props;
+				return item;
+			}
+		});
+		if (this.props.floatingLabel) {
+			if (this.inputProps.value) {
+				this.setState({ isFocused: true });
+				this.floatUp(-16);
+			}
+			if (this.inputProps && this.inputProps.getRef) this.inputProps.getRef(this._inputRef);
+		}
 	}
 
 	floatBack() {
@@ -40,7 +60,7 @@ class Item extends Component {
 
 	floatUp(e) {
 		Animated.timing(this.state.topAnim, {
-			toValue: e ? e : -22,
+			toValue: e || -22,
 			duration: 150,
 		}).start();
 		Animated.timing(this.state.opacAnim, {
