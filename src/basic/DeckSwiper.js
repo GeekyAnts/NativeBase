@@ -24,6 +24,30 @@ class DeckSwiper extends Component {
 		};
 	}
 
+  componentWillReceiveProps({ dataSource }) {
+    if (dataSource.length !== this.props.dataSource.length) {
+      if (dataSource.length <= 1) {
+        this.setState({
+          ...this.state,
+          selectedItem: dataSource[0],
+          selectedItem2: undefined,
+          disabled: dataSource.length === 0,
+          lastCard: dataSource.length === 1
+        });
+        return;
+      }
+
+      const visibleIndex = dataSource.indexOf(this.state.selectedItem);
+      const currentIndex = visibleIndex < 0 ? visibleIndex + 1 : visibleIndex;
+      const nextIndex = currentIndex + 1 === dataSource.length ? 0 : currentIndex + 1;
+
+      this.setState({
+        selectedItem: dataSource[currentIndex],
+        selectedItem2: dataSource[nextIndex],
+      });
+    }
+  }
+
 	getInitialStyle() {
 		return {
 			topCard: {
