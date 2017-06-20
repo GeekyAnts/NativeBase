@@ -144,7 +144,7 @@ class PickerNB extends Component {
                 this._setModalVisible(false);
               }}
             >
-              <Text>{this.props.headerBackButtonText || "Back"}</Text>
+              <Text style={this.props.headerBackButtonTextStyle}>{this.props.headerBackButtonText || "Back"}</Text>
             </Button>
           </Left>
           <Body>
