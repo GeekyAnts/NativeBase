@@ -15,6 +15,7 @@ Take a look at [NativeBase on StackOverflow](http://stackoverflow.com/questions/
 	- [Reporting Bugs](#a-reporting-bugs)
     - [Request for New Feature](#b-request-for-new-feature)
     - [Code Fixes and Enhancements](#c-code-fixes-and-enhancements)
+3. [Development Environment](#3-development-environment)
 
 
 ### 1. Coding Style
@@ -66,11 +67,94 @@ NativeBase is an infant and growing rapidly, so we planned to stick to Git Flow.
 -	If you have perfectly accompanied our contribution guide and that if your new feature / bug fixes sounds good to us, then we will merge the changes and you are free to delete your branch.
 -	After your contribution is merged, it’s not immediately available to all users. Your change will be shipped as part of the next release.
 
+Check the procedure to setup the [Development Environment]((#3-development-environment)) for NativeBase.
 
 **Note:** NativeBase changes a lot and is in constant mutation. We usually merge multiple PRs per day, so sometimes when we are done reviewing, your code might not work with the latest `master` branch anymore. To prevent this, before you make any changes after your code has been reviewed, you should always rebase the latest changes from the `master` branch.
 
 
+### 3. Development Environment
 
+-	Clone NativeBase
+
+	```
+	git clone git@github.com:GeekyAnts/NativeBase.git
+	```
+  
+-	Init new app to test NativeBase
+  
+	```
+	react-native init NativeBaseTestApp
+	```
+  
+-	Navigate to your app
+
+	```
+	cd NativeBaseTestApp
+	```
+   
+-	Add `native-base` to the project
+  
+	```
+	npm i --save native-base
+	```
+
+	The reason we are installing `native-base` is to install its dependencies into NativeBaseTestApp.
+  
+-	Delete `/node_modules/native-base` from NativeBaseTestApp
+  
+	```
+	rm -rf /node_modules/native-base
+	```
+  
+-	Install `wml` globally
+  	
+  	```
+	npm install -g wml
+	```
+	
+	A lot of people get messed up while working directly from the node_modules folder.
+
+	Wml makes use of Facebook's ultra-fast Watchman to watch for changes in your source folder and copy them (and only them) into your destination folder.
+
+	Wml is a CLI tool that works pretty much like `ln -s`. You first set up your links (wml add) and then run the wml service (wml start) to start listening.
+  
+-	Add link of `NativeBase` repo cloned earlier to your app i.e., NativeBaseTestApp
+   
+	```
+	wml add ../NativeBase node_modules/native-base
+	```
+   
+-	Run wml in NativeBase folder
+  
+	```
+	wml start
+	```
+  
+-	Run your NativeBaseTestApp
+  
+	```
+	react-native link
+
+	react-native run-ios
+
+	react-native run-android
+	```
+  
+-	In NativeBase's `package.json`, modify `main` from `dist/src/index.js` to `src/index.js` before you start with the development.
+
+-	Add new components / do changes in NativeBase repo which will be reflected in the native-base created in `node_modules` through the wml link.
+
+-	Once done with the development / changes, from NativeBase repo run the following before you push or send a PR.
+  
+	```
+	npm install
+
+	npm run transpile
+	```
+  
+-	Revert back the changes done to `package.json`.
+
+You are now ready to send PR to NativeBase!
 
 
 
