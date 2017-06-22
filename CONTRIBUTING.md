@@ -67,7 +67,7 @@ NativeBase is an infant and growing rapidly, so we planned to stick to Git Flow.
 -	If you have perfectly accompanied our contribution guide and that if your new feature / bug fixes sounds good to us, then we will merge the changes and you are free to delete your branch.
 -	After your contribution is merged, it’s not immediately available to all users. Your change will be shipped as part of the next release.
 
-Check the procedure to setup the [Development Environment](#3-development-environment) for NativeBase.
+Check the procedure to setup the Development Environment for NativeBase.
 
 **Note:** NativeBase changes a lot and is in constant mutation. We usually merge multiple PRs per day, so sometimes when we are done reviewing, your code might not work with the latest `master` branch anymore. To prevent this, before you make any changes after your code has been reviewed, you should always rebase the latest changes from the `master` branch.
 
