@@ -649,7 +649,7 @@ declare module 'native-base' {
 	}
 
 	// Export definitions
-	/*
+	/**
   
      * NativeBase.Container
      *
