@@ -6,6 +6,7 @@ import setDefaultThemeStyle from './init';
 import getTheme from './theme/components';
 import variables from './theme/variables/platform';
 import Drawer from './basic/Drawer';
+import { SwipeRow } from './basic/SwipeRow';
 import { Swipeout } from './basic/Swipe';
 import { Text } from './basic/Text';
 import { ViewNB as View } from './basic/View';
@@ -115,6 +116,7 @@ export {
 	TabContainer,
 	DefaultTabBar,
 	Segment,
+	SwipeRow,
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);
