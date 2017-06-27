@@ -191,6 +191,7 @@ class SwipeRow extends Component {
 					{...this._panResponder.panHandlers}
 					style={{
 						transform: [{ translateX: this._translateX }],
+						zIndex: 2,
 					}}
 				>
 					{!this.props.list
@@ -233,11 +234,11 @@ class SwipeRow extends Component {
 						},
 					]}
 				>
-					<Left style={{ width: this.props.leftOpenValue }}>
+					<Left style={{ width: this.props.leftOpenValue, zIndex: 1 }}>
 						{this.props.left}
 					</Left>
 					<Body style={{ flex: 0 }} />
-					<Right style={{ width: -this.props.rightOpenValue }}>
+					<Right style={{ width: -this.props.rightOpenValue, zIndex: 1 }}>
 						{this.props.right}
 					</Right>
 				</View>
