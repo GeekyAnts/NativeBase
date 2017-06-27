@@ -648,8 +648,8 @@ declare module 'native-base' {
 		}
 	}
 
-  // Export definitions
-  /*
+	// Export definitions
+	/*
   
      * NativeBase.Container
      *
