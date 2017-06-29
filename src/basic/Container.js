@@ -8,21 +8,14 @@ import { ActionSheetContainer as ActionSheet } from "./Actionsheet";
 import { Text } from "./Text";
 
 class Container extends Component {
+  // componentWillUnmount() {
+  //   Toast.toastInstance = null;
+  // }
+
   render() {
     return (
       <View ref={c => (this._root = c)} {...this.props}>
         {this.props.children}
-        <Toast
-          ref={c => {
-            if (!Toast.toastInstance) Toast.toastInstance = c;
-          }}
-        />
-        <ActionSheet
-          ref={c => {
-            if (!ActionSheet.actionsheetInstance)
-              ActionSheet.actionsheetInstance = c;
-          }}
-        />
       </View>
     );
   }

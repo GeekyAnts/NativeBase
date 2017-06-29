@@ -88,7 +88,9 @@ class ActionSheetContainer extends Component {
               elevation: 4
             }}
           >
-            <Text style={{ color: "#757575" }}>{this.state.title}</Text>
+            <Text style={{ color: "#757575" }}>
+              {this.state.title}
+            </Text>
             <List
               style={{ marginHorizontal: -15, marginTop: 15 }}
               dataArray={this.state.items}
@@ -101,7 +103,9 @@ class ActionSheetContainer extends Component {
                       }}
                       style={{ borderColor: "transparent" }}
                     >
-                      <Text>{data}</Text>
+                      <Text>
+                        {data}
+                      </Text>
                     </ListItem>
                   : <ListItem
                       onPress={() => {
@@ -112,10 +116,17 @@ class ActionSheetContainer extends Component {
                       icon
                     >
                       <Left>
-                        <Icon name={data.icon} />
+                        <Icon
+                          name={data.icon}
+                          style={{
+                            color: data.iconColor ? data.iconColor : undefined
+                          }}
+                        />
                       </Left>
                       <Body style={{ borderColor: "transparent" }}>
-                        <Text>{data.text}</Text>
+                        <Text>
+                          {data.text}
+                        </Text>
                       </Body>
                       <Right />
                     </ListItem>;

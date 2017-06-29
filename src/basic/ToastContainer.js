@@ -25,10 +25,19 @@ class ToastContainer extends Component {
     return {
       position: "absolute",
       opacity: this.state.fadeAnim,
-      width: "90%",
-      top: this.state.position === "top" ? 30 : undefined,
-      bottom: this.state.position === "bottom" ? 30 : undefined
+      width: "100%",
+      elevation: 9,
+      paddingHorizontal: Platform.OS === "ios" ? 20 : 0,
+      top: this.state.position === "top" ? this.getTop() : undefined,
+      bottom: this.state.position === "bottom" ? this.getTop() : undefined
     };
+  }
+  getTop() {
+    if (Platform.OS === "ios") {
+      return 30;
+    } else {
+      return 0;
+    }
   }
   showToast({ config }) {
     this.setState({
@@ -82,7 +91,9 @@ class ToastContainer extends Component {
             success={this.state.type == "success" ? true : false}
             warning={this.state.type == "warning" ? true : false}
           >
-            <Text style={this.state.textStyle}>{this.state.text}</Text>
+            <Text style={this.state.textStyle}>
+              {this.state.text}
+            </Text>
             {this.state.buttonText &&
               <Button
                 style={this.state.buttonStyle}
@@ -92,7 +103,6 @@ class ToastContainer extends Component {
                   {this.state.buttonText}
                 </Text>
               </Button>}
-
           </Toast>
         </Animated.View>
       );
