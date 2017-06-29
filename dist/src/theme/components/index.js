@@ -1,9 +1,15 @@
 Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _lodash=require('lodash');var _lodash2=_interopRequireDefault(_lodash);
+var _Body=require('./Body');var _Body2=_interopRequireDefault(_Body);
+var _Left=require('./Left');var _Left2=_interopRequireDefault(_Left);
+var _Right=require('./Right');var _Right2=_interopRequireDefault(_Right);
 var _Header=require('./Header');var _Header2=_interopRequireDefault(_Header);
+var _Switch=require('./Switch');var _Switch2=_interopRequireDefault(_Switch);
+var _Thumbnail=require('./Thumbnail');var _Thumbnail2=_interopRequireDefault(_Thumbnail);
 var _Container=require('./Container');var _Container2=_interopRequireDefault(_Container);
 var _Content=require('./Content');var _Content2=_interopRequireDefault(_Content);
 var _Button=require('./Button');var _Button2=_interopRequireDefault(_Button);
 var _Title=require('./Title');var _Title2=_interopRequireDefault(_Title);
+var _Subtitle=require('./Subtitle');var _Subtitle2=_interopRequireDefault(_Subtitle);
 var _InputGroup=require('./InputGroup');var _InputGroup2=_interopRequireDefault(_InputGroup);
 var _Badge=require('./Badge');var _Badge2=_interopRequireDefault(_Badge);
 var _CheckBox=require('./CheckBox');var _CheckBox2=_interopRequireDefault(_CheckBox);
@@ -39,23 +45,14 @@ var _platform=require('./../variables/platform');var _platform2=_interopRequireD
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var theme={
 variables:variables,
-'NativeBase.Left':{
-flex:1,
-alignSelf:'center',
-alignItems:'flex-start'},
+'NativeBase.Left':_extends({},
+(0,_Left2.default)(variables)),
 
-'NativeBase.Right':{
-'NativeBase.Button':{
-alignSelf:null},
+'NativeBase.Right':_extends({},
+(0,_Right2.default)(variables)),
 
-flex:1,
-alignSelf:'center',
-alignItems:'flex-end'},
-
-'NativeBase.Body':{
-flex:1,
-alignItems:'center',
-alignSelf:'center'},
+'NativeBase.Body':_extends({},
+(0,_Body2.default)(variables)),
 
 
 'NativeBase.Header':_extends({},
@@ -69,11 +66,8 @@ alignSelf:'center'},
 'NativeBase.Title':_extends({},
 (0,_Title2.default)(variables)),
 
-'NativeBase.Subtitle':{
-fontSize:variables.subTitleFontSize,
-fontFamily:variables.titleFontfamily,
-color:variables.subtitleColor,
-textAlign:'center'},
+'NativeBase.Subtitle':_extends({},
+(0,_Subtitle2.default)(variables)),
 
 
 'NativeBase.InputGroup':_extends({},
@@ -101,18 +95,6 @@ textAlign:'center'},
 
 
 'NativeBase.CardItem':_extends({},
-(0,_CardItem2.default)(variables),{
-'.cardBody':{
-padding:-5,
-'NativeBase.Text':{
-marginTop:5}},
-
-
-flexDirection:'row',
-alignItems:'center'}),
-
-
-'NativeBase.CardItem1':_extends({},
 (0,_CardItem2.default)(variables)),
 
 
@@ -153,18 +135,7 @@ flex:1},
 
 
 'NativeBase.ListItem':_extends({},
-(0,_ListItem2.default)(variables),{
-'NativeBase.CheckBox':{
-marginLeft:-10,
-marginRight:10},
-
-'NativeBase.Text':{
-'.note':{
-color:variables.listNoteColor,
-fontWeight:'200'},
-
-alignSelf:'center'}}),
-
+(0,_ListItem2.default)(variables)),
 
 
 'NativeBase.ListItem1':_extends({},
@@ -214,10 +185,6 @@ alignSelf:'center'}}),
 (0,_Segment2.default)(variables)),
 
 
-'NativeBase.STabs':{
-flex:1},
-
-
 'NativeBase.TabBar':_extends({},
 (0,_TabBar2.default)(variables)),
 
@@ -230,8 +197,8 @@ flex:1},
 'NativeBase.TabContainer':_extends({},
 (0,_TabContainer2.default)(variables)),
 
-'NativeBase.Switch':{
-marginVertical:-5},
+'NativeBase.Switch':_extends({},
+(0,_Switch2.default)(variables)),
 
 'NativeBase.Separator':_extends({},
 (0,_Separator2.default)(variables)),
@@ -239,39 +206,8 @@ marginVertical:-5},
 'NativeBase.SwipeRow':_extends({},
 (0,_SwipeRow2.default)(variables)),
 
-'NativeBase.Thumbnail':{
-'.square':{
-borderRadius:0,
-'.small':{
-width:36,
-height:36,
-borderRadius:0},
-
-'.large':{
-width:80,
-height:80,
-borderRadius:0}},
-
-
-'.small':{
-width:36,
-height:36,
-borderRadius:18,
-'.square':{
-borderRadius:0}},
-
-
-'.large':{
-width:80,
-height:80,
-borderRadius:40,
-'.square':{
-borderRadius:0}},
-
-
-width:56,
-height:56,
-borderRadius:28}};
+'NativeBase.Thumbnail':_extends({},
+(0,_Thumbnail2.default)(variables))};
 
 
 
