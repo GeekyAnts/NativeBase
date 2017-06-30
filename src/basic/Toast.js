@@ -1,5 +1,3 @@
-/* @flow */
-
 import React, { Component } from "react";
 import { View, ViewPropTypes } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";

@@ -1,5 +1,3 @@
-/* @flow */
-
 import React, { Component } from "react";
 
 export default class NativeBaseComponent extends Component {

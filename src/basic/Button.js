@@ -1,5 +1,3 @@
-/* @flow */
-
 import React, { Component } from "react";
 import {
   TouchableOpacity,
@@ -19,9 +17,10 @@ class Button extends Component {
     return {
       borderedBtn: {
         borderWidth: this.props.bordered ? 1 : undefined,
-        borderRadius: this.props.rounded && this.props.bordered
-          ? variables.borderRadiusLarge
-          : 2
+        borderRadius:
+          this.props.rounded && this.props.bordered
+            ? variables.borderRadiusLarge
+            : 2
       }
     };
   }
@@ -36,15 +35,16 @@ class Button extends Component {
     return computeProps(this.props, defaultProps);
   }
   render() {
-    const children = Platform.OS === "ios"
-      ? this.props.children
-      : React.Children.map(
-          this.props.children,
-          child =>
-            child && child.type === Text
-              ? React.cloneElement(child, { uppercase: true, ...child.props })
-              : child
-        );
+    const children =
+      Platform.OS === "ios"
+        ? this.props.children
+        : React.Children.map(
+            this.props.children,
+            child =>
+              child && child.type === Text
+                ? React.cloneElement(child, { uppercase: true, ...child.props })
+                : child
+          );
     if (
       Platform.OS === "ios" ||
       variables.androidRipple === false ||

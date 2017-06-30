@@ -1,5 +1,3 @@
-/* @flow */
-
 import React, { Component } from "react";
 import { Picker, Modal, View, ListView, ViewPropTypes } from "react-native";
 import _ from "lodash";
