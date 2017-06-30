@@ -642,11 +642,15 @@ declare module 'native-base' {
 		interface Image extends ReactNative.TextProperties {}
 
 		interface Segment extends ReactNative.TextProperties {}
+
+		interface StyleProvider {
+			style?: any;
+		}
 	}
 
 	// Export definitions
 	/**
-
+  
      * NativeBase.Container
      *
      * Provides its own frame component, named after <Container>.
@@ -890,6 +894,8 @@ declare module 'native-base' {
 	export class Separator extends React.Component<NativeBase.Separator, any> {}
 
 	export class Label extends React.Component<NativeBase.Label, any> {}
+
+	export class StyleProvider extends React.Component<NativeBase.StyleProvider, any> {}
 
 	export class ActionSheet {
 		static show: (
