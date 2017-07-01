@@ -8,12 +8,27 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Text extends Component {
   render() {
-    console.log('Text.props.children', this.props.children);
+    const {
+      uppercase,
+      children,
+    } = this.props;
+
+    let text;
+    if (_.isArray(children)) {
+      // children ['a', 'b'] => iOS: ab, Android: a,b
+      // prevent comma in android
+      text = _.join(children, '');
+    } else {
+      text = children;
+    }
+
+    if (uppercase) {
+      text = _.toUpper(text);
+    }
+
     return (
       <RNText ref={c => (this._root = c)} {...this.props}>
-        {this.props.uppercase
-          ? _.toUpper(this.props.children)
-          : this.props.children}
+        {text}
       </RNText>
     );
   }
