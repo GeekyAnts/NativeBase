@@ -14,7 +14,7 @@ class Text extends Component {
     } = this.props;
 
     let text;
-    if (_.isArray(children)) {
+    if (_.isArray(children) && !_.every(children, _.isObject)) {
       // children ['a', 'b'] => iOS: ab, Android: a,b
       // prevent comma in android
       text = _.join(children, '');

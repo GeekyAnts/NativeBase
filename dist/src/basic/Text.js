@@ -14,7 +14,7 @@ Text=function(_Component){_inherits(Text,_Component);function Text(){_classCallC
 this.props,uppercase=_props.uppercase,children=_props.children;
 
 var text=void 0;
-if(_lodash2.default.isArray(children)){
+if(_lodash2.default.isArray(children)&&!_lodash2.default.every(children,_lodash2.default.isObject)){
 
 
 text=_lodash2.default.join(children,'');
