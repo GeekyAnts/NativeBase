@@ -8,7 +8,7 @@ import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
 
 class Text extends Component {
   render() {
-    console.log('children', this.props.children);
+    console.log('Text.props.children', this.props.children);
     return (
       <RNText ref={c => (this._root = c)} {...this.props}>
         {this.props.uppercase
