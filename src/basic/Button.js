@@ -55,7 +55,7 @@ class Button extends Component {
           {...this.prepareRootProps()}
           ref={c => (this._root = c)}
           activeOpacity={
-            this.props.activeOpacity ? this.props.activeOpacity : 0.5
+            this.props.activeOpacity > 0 ? this.props.activeOpacity : 0.5
           }
         >
           {children}
