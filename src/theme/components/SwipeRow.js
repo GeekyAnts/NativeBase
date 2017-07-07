@@ -1,37 +1,41 @@
-import variable from './../variables/platform';
+import variable from "./../variables/platform";
 
 export default (variables = variable) => {
 	const swipeRowTheme = {
-		'NativeBase.ListItem': {
-			backgroundColor: '#FFF',
+		"NativeBase.ListItem": {
+			backgroundColor: "#FFF",
 			marginLeft: 0,
 		},
-		'NativeBase.Left': {
+		"NativeBase.Left": {
 			flex: 0,
 			alignSelf: null,
 			alignItems: null,
-			'NativeBase.Button': {
-				alignItems: 'center',
-				justifyContent: 'center',
-				alignSelf: 'stretch',
+			"NativeBase.Button": {
+				flex: 1,
+				alignItems: "center",
+				justifyContent: "center",
+				alignSelf: "stretch",
 				borderRadius: 0,
 			},
 		},
-		'NativeBase.Right': {
+		"NativeBase.Right": {
 			flex: 0,
 			alignSelf: null,
 			alignItems: null,
-			'NativeBase.Button': {
-				alignItems: 'center',
-				justifyContent: 'center',
-				alignSelf: 'stretch',
+			"NativeBase.Button": {
+				flex: 1,
+				alignItems: "center",
+				justifyContent: "center",
+				alignSelf: "stretch",
 				borderRadius: 0,
 			},
 		},
-		'NativeBase.Button': {
-			alignItems: 'center',
-			justifyContent: 'center',
-			alignSelf: 'stretch',
+		"NativeBase.Button": {
+			flex: 1,
+			height: null,
+			alignItems: "center",
+			justifyContent: "center",
+			alignSelf: "stretch",
 			borderRadius: 0,
 		},
 	};
