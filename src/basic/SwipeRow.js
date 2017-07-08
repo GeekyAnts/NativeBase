@@ -1,12 +1,12 @@
-import React, { Component, PropTypes } from 'react';
-import { Animated, PanResponder, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { connectStyle } from 'native-base-shoutem-theme';
-import { Text } from './Text';
-import { Left } from './Left';
-import { Right } from './Right';
-import { Body } from './Body';
-import { ListItem } from './ListItem';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import React, { Component, PropTypes } from "react";
+import { Animated, PanResponder, Platform, StyleSheet, TouchableOpacity, View } from "react-native";
+import { connectStyle } from "native-base-shoutem-theme";
+import { Text } from "./Text";
+import { Left } from "./Left";
+import { Right } from "./Right";
+import { Body } from "./Body";
+import { ListItem } from "./ListItem";
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 const PREVIEW_OPEN_DELAY = 700;
 const PREVIEW_CLOSE_DELAY = 300;
@@ -198,7 +198,9 @@ class SwipeRow extends Component {
 						? <ListItem>
 								{this.props.body}
 							</ListItem>
-						: <View>{this.props.body}</View>}
+						: <View>
+								{this.props.body}
+							</View>}
 				</Animated.View>
 			);
 		} else {
@@ -208,13 +210,16 @@ class SwipeRow extends Component {
 					onLayout={e => this.onContentLayout(e)}
 					style={{
 						transform: [{ translateX: this._translateX }],
+						zIndex: 2,
 					}}
 				>
 					{!this.props.list
 						? <ListItem>
 								{this.props.body}
 							</ListItem>
-						: <View>{this.props.body}</View>}
+						: <View>
+								{this.props.body}
+							</View>}
 				</Animated.View>
 			);
 		}
@@ -229,8 +234,8 @@ class SwipeRow extends Component {
 						{
 							height: this.state.hiddenHeight,
 							width: this.state.hiddenWidth,
-							flexDirection: 'row',
-							justifyContent: 'space-between',
+							flexDirection: "row",
+							justifyContent: "space-between",
 						},
 					]}
 				>
@@ -256,12 +261,12 @@ const styles = {
 	hidden: {
 		bottom: 0,
 		left: 0,
-		overflow: 'hidden',
-		position: 'absolute',
+		overflow: "hidden",
+		position: "absolute",
 		right: 0,
 		top: 0,
 	},
 };
 
-const StyledSwipeRow = connectStyle('NativeBase.SwipeRow', {}, mapPropsToStyleNames)(SwipeRow);
+const StyledSwipeRow = connectStyle("NativeBase.SwipeRow", {}, mapPropsToStyleNames)(SwipeRow);
 export { StyledSwipeRow as SwipeRow };
