@@ -59,7 +59,7 @@ export default class Footer extends NativeBaseComponent {
             },
             activeIcon: {
               color: this.getTheme().tabBarActiveTextColor
-            }            
+            }
         }
     }
 
@@ -113,7 +113,7 @@ export default class Footer extends NativeBaseComponent {
                               onPress={child.props.onPress}>
                               {children}
                               <Icon
-                                  style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor}}
+                                  style={{color: (child.props.active) ? this.getTheme().tabBarActiveTextColor : this.getTheme().tabBarTextColor, fontSize: 30, lineHeight: 33}}
                                   name={iconElement[0].props.name} />
                           </Button>
                           <Badge style={{position: 'absolute', top: 4, right: (length==2) ? 68 : (length==3) ? 36 : (length==4) ? 20 : undefined, height: 18, paddingHorizontal: 6, padding: 1.5, backgroundColor: (badgeElement[0].props.badgeColor) ? badgeElement[0].props.badgeColor : undefined }} textStyle={{fontSize: 11, lineHeight: 14, color: (badgeElement[0].props.textColor) ? badgeElement[0].props.textColor : undefined }}>
