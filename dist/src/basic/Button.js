@@ -55,7 +55,7 @@ _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
 this.prepareRootProps(),{
 ref:function ref(c){return _this2._root=c;},
 activeOpacity:
-this.props.activeOpacity?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:54}}),
+this.props.activeOpacity>0?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:54}}),
 
 
 children));
