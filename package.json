@@ -41,7 +41,7 @@
     "native-base-shoutem-theme": "0.1.7",
     "print-message": "^2.1.0",
     "react-native-drawer": "^2.3.0",
-    "react-native-easy-grid": "0.1.9",
+    "react-native-easy-grid": "0.1.14",
     "react-native-keyboard-aware-scroll-view": "0.2.9",
     "react-native-vector-icons": "~4.1.1",
     "react-tween-state": "^0.1.5",
