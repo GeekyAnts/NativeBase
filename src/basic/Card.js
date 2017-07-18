@@ -31,7 +31,7 @@ class Card extends Component {
 Card.propTypes = {
   ...ViewPropTypes,
   style: React.PropTypes.object,
-  dataArray: React.PropTypes.object,
+  dataArray: React.PropTypes.array,
   renderRow: React.PropTypes.object
 };
 
