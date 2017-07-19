@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { ActivityIndicator } from "react-native";
 
 import { connectStyle } from "native-base-shoutem-theme";
@@ -7,7 +7,7 @@ import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Spinner extends Component {
   static contextTypes = {
-    theme: React.PropTypes.object
+    theme: PropTypes.object
   };
   render() {
     const variables = this.context.theme
@@ -32,8 +32,8 @@ class Spinner extends Component {
 
 Spinner.propTypes = {
   ...ActivityIndicator.propTypes,
-  color: React.PropTypes.string,
-  inverse: React.PropTypes.bool
+  color: PropTypes.string,
+  inverse: PropTypes.bool
 };
 
 const StyledSpinner = connectStyle(

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
@@ -24,10 +24,14 @@ class Content extends Component {
 }
 
 Content.propTypes = {
-  style: React.PropTypes.object,
-  padder: React.PropTypes.bool,
-  disableKBDismissScroll: React.PropTypes.bool,
-  enableResetScrollToCoords: React.PropTypes.bool
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
+  padder: PropTypes.bool,
+  disableKBDismissScroll: PropTypes.bool,
+  enableResetScrollToCoords: PropTypes.bool
 };
 
 const StyledContent = connectStyle(

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { Picker, Modal, View, ListView, ViewPropTypes } from "react-native";
 import _ from "lodash";
 import { Text } from "./Text";
@@ -214,7 +214,7 @@ PickerNB.Item = React.createClass({
 
 PickerNB.propTypes = {
   ...ViewPropTypes,
-  renderButton: React.PropTypes.func
+  renderButton: PropTypes.func
 };
 
 const StyledPickerNB = connectStyle(

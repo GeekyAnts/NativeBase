@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { Text } from "react-native";
 
 import { connectStyle } from "native-base-shoutem-theme";
@@ -12,7 +12,11 @@ class Label extends Component {
 
 Label.propTypes = {
   ...Text.propTypes,
-  style: React.PropTypes.object
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
 const StyledLabel = connectStyle("NativeBase.Label", {}, mapPropsToStyleNames)(

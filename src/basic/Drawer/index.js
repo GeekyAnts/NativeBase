@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import RNDrawer from "react-native-drawer";
 
 export default class Drawer extends Component {

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { Text as RNText } from "react-native";
-import _ from 'lodash';
+import _ from "lodash";
 
 import { connectStyle } from "native-base-shoutem-theme";
 import { connectAnimation } from "@shoutem/animation";
@@ -20,8 +20,12 @@ class Text extends Component {
 
 Text.propTypes = {
   ...RNText.propTypes,
-  uppercase: React.PropTypes.bool,
-  style: React.PropTypes.object
+  uppercase: PropTypes.bool,
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
 Text.defaultProps = {

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { TouchableOpacity, Platform } from "react-native";
 import IconNB from "react-native-vector-icons/Ionicons";
 import { connectStyle } from "native-base-shoutem-theme";
@@ -9,7 +9,7 @@ import computeProps from "../Utils/computeProps";
 
 class CheckBox extends Component {
   static contextTypes = {
-    theme: React.PropTypes.object
+    theme: PropTypes.object
   };
 
   getInitialStyle(variables) {
@@ -18,9 +18,10 @@ class CheckBox extends Component {
         borderColor: this.props.color
           ? this.props.color
           : variables.checkboxBgColor,
-        backgroundColor: this.props.checked === true
-          ? this.props.color ? this.props.color : variables.checkboxBgColor
-          : "transparent"
+        backgroundColor:
+          this.props.checked === true
+            ? this.props.color ? this.props.color : variables.checkboxBgColor
+            : "transparent"
       }
     };
   }
@@ -62,8 +63,12 @@ class CheckBox extends Component {
 
 CheckBox.propTypes = {
   ...TouchableOpacity.propTypes,
-  style: React.PropTypes.object,
-  checked: React.PropTypes.bool
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
+  checked: PropTypes.bool
 };
 
 const StyledCheckBox = connectStyle(

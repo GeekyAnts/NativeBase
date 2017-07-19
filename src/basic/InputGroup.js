@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { View, ViewPropTypes } from "react-native";
 
 import variables from "../theme/variables/platform";
@@ -36,12 +36,12 @@ class InputGroup extends Component {
 
 InputGroup.propTypes = {
   ...ViewPropTypes,
-  regular: React.PropTypes.bool,
-  underline: React.PropTypes.bool,
-  rounded: React.PropTypes.bool,
-  success: React.PropTypes.bool,
-  error: React.PropTypes.bool,
-  disabled: React.PropTypes.bool
+  regular: PropTypes.bool,
+  underline: PropTypes.bool,
+  rounded: PropTypes.bool,
+  success: PropTypes.bool,
+  error: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 const StyledInputGroup = connectStyle(
