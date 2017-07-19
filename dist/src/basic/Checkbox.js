@@ -18,7 +18,8 @@ checkStyle:{
 borderColor:this.props.color?
 this.props.color:
 variables.checkboxBgColor,
-backgroundColor:this.props.checked===true?
+backgroundColor:
+this.props.checked===true?
 this.props.color?this.props.color:variables.checkboxBgColor:
 "transparent"}};
 
@@ -41,7 +42,7 @@ var platform=variables.platform;
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 ref:function ref(c){return _this2._root=c;}},
-this.prepareRootProps(variables),{__source:{fileName:_jsxFileName,lineNumber:42}}),
+this.prepareRootProps(variables),{__source:{fileName:_jsxFileName,lineNumber:43}}),
 
 _react2.default.createElement(_Ionicons2.default,{
 style:{
@@ -52,18 +53,22 @@ lineHeight:variables.CheckboxIconSize},
 name:
 platform==="ios"&&platformStyle!=="material"?
 "ios-checkmark-outline":
-"md-checkmark",__source:{fileName:_jsxFileName,lineNumber:46}})));
+"md-checkmark",__source:{fileName:_jsxFileName,lineNumber:47}})));
 
 
 
 
-}}]);return CheckBox;}(_react.Component);CheckBox.contextTypes={theme:_react2.default.PropTypes.object};
+}}]);return CheckBox;}(_react.Component);CheckBox.contextTypes={theme:_react.PropTypes.object};
 
 
 CheckBox.propTypes=_extends({},
 _reactNative.TouchableOpacity.propTypes,{
-style:_react2.default.PropTypes.object,
-checked:_react2.default.PropTypes.bool});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array]),
+
+checked:_react.PropTypes.bool});
 
 
 var StyledCheckBox=(0,_nativeBaseShoutemTheme.connectStyle)(

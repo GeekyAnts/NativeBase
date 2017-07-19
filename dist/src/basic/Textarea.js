@@ -42,10 +42,14 @@ underlineColorAndroid:"rgba(0,0,0,0)",__source:{fileName:_jsxFileName,lineNumber
 
 Textarea.propTypes=_extends({},
 _reactNative.TextInput.propTypes,{
-style:_react2.default.PropTypes.object,
-rowSpan:_react2.default.PropTypes.number,
-bordered:_react2.default.PropTypes.bool,
-underline:_react2.default.PropTypes.bool});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array]),
+
+rowSpan:_react.PropTypes.number,
+bordered:_react.PropTypes.bool,
+underline:_react.PropTypes.bool});
 
 
 var StyledTextarea=(0,_nativeBaseShoutemTheme.connectStyle)(

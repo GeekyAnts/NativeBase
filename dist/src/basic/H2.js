@@ -23,7 +23,11 @@ return error;
 H2.propTypes=_extends({},
 _reactNative.Text.propTypes,{
 children:childrenType,
-style:_react2.default.PropTypes.object});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array])});
+
 
 
 var StyledH2=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.H2",{},_mapPropsToStyleNames2.default)(H2);exports.

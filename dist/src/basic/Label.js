@@ -12,7 +12,11 @@ return _react2.default.createElement(_reactNative.Text,_extends({ref:function re
 
 Label.propTypes=_extends({},
 _reactNative.Text.propTypes,{
-style:_react2.default.PropTypes.object});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array])});
+
 
 
 var StyledLabel=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Label",{},_mapPropsToStyleNames2.default)(

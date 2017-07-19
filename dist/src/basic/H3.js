@@ -24,7 +24,11 @@ return error;
 H3.propTypes=_extends({},
 _reactNative.Text.propTypes,{
 children:childrenType,
-style:_react2.default.PropTypes.object});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array])});
+
 
 
 var StyledH3=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.H3",{},_mapPropsToStyleNames2.default)(H3);exports.

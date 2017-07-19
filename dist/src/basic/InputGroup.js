@@ -36,12 +36,12 @@ this.props.children));
 
 InputGroup.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
-regular:_react2.default.PropTypes.bool,
-underline:_react2.default.PropTypes.bool,
-rounded:_react2.default.PropTypes.bool,
-success:_react2.default.PropTypes.bool,
-error:_react2.default.PropTypes.bool,
-disabled:_react2.default.PropTypes.bool});
+regular:_react.PropTypes.bool,
+underline:_react.PropTypes.bool,
+rounded:_react.PropTypes.bool,
+success:_react.PropTypes.bool,
+error:_react.PropTypes.bool,
+disabled:_react.PropTypes.bool});
 
 
 var StyledInputGroup=(0,_nativeBaseShoutemTheme.connectStyle)(

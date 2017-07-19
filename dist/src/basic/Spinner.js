@@ -27,13 +27,13 @@ variables.defaultSpinnerColor,
 size:this.props.size?this.props.size:"large",__source:{fileName:_jsxFileName,lineNumber:17}})));
 
 
-}}]);return Spinner;}(_react.Component);Spinner.contextTypes={theme:_react2.default.PropTypes.object};
+}}]);return Spinner;}(_react.Component);Spinner.contextTypes={theme:_react.PropTypes.object};
 
 
 Spinner.propTypes=_extends({},
 _reactNative.ActivityIndicator.propTypes,{
-color:_react2.default.PropTypes.string,
-inverse:_react2.default.PropTypes.bool});
+color:_react.PropTypes.string,
+inverse:_react.PropTypes.bool});
 
 
 var StyledSpinner=(0,_nativeBaseShoutemTheme.connectStyle)(

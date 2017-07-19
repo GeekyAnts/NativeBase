@@ -11,7 +11,11 @@ return _react2.default.createElement(_reactNative.Text,_extends({ref:function re
 
 Subtitle.propTypes=_extends({},
 _reactNative.Text.propTypes,{
-style:_react2.default.PropTypes.object});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array])});
+
 
 
 var StyledSubtitle=(0,_nativeBaseShoutemTheme.connectStyle)(

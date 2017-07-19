@@ -20,8 +20,12 @@ this.props.children));
 
 Text.propTypes=_extends({},
 _reactNative.Text.propTypes,{
-uppercase:_react2.default.PropTypes.bool,
-style:_react2.default.PropTypes.object});
+uppercase:_react.PropTypes.bool,
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array])});
+
 
 
 Text.defaultProps={

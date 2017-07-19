@@ -60,11 +60,15 @@ this.Icon=_Ionicons2.default;
 
 {var _this2=this;
 return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:62}}));
-}}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_react2.default.PropTypes.object};
+}}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_react.PropTypes.object};
 
 
 IconNB.propTypes={
-style:_react2.default.PropTypes.object};
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array])};
+
 
 
 var StyledIconNB=(0,_nativeBaseShoutemTheme.connectStyle)(

@@ -24,5 +24,5 @@ theme:this.props.theme?this.props.theme:this.context.theme};
 
 {
 return this.context.foregroundColor;
-}}]);return NativeBaseComponent;}(_react.Component);NativeBaseComponent.contextTypes={theme:_react2.default.PropTypes.object,foregroundColor:_react2.default.PropTypes.string};NativeBaseComponent.propTypes={theme:_react2.default.PropTypes.object,foregroundColor:_react2.default.PropTypes.string};NativeBaseComponent.childContextTypes={theme:_react2.default.PropTypes.object,foregroundColor:_react2.default.PropTypes.string};exports.default=NativeBaseComponent;
+}}]);return NativeBaseComponent;}(_react.Component);NativeBaseComponent.contextTypes={theme:_react.PropTypes.object,foregroundColor:_react.PropTypes.string};NativeBaseComponent.propTypes={theme:_react.PropTypes.object,foregroundColor:_react.PropTypes.string};NativeBaseComponent.childContextTypes={theme:_react.PropTypes.object,foregroundColor:_react.PropTypes.string};exports.default=NativeBaseComponent;
 //# sourceMappingURL=NativeBaseComponent.js.map

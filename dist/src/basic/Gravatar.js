@@ -51,11 +51,15 @@ return _react2.default.createElement(_reactNative.Image,_extends({ref:function r
 
 Gravatar.propTypes=_extends({},
 _reactNative.Image.propTypes,{
-email:_react2.default.PropTypes.string.isRequired,
-style:_react2.default.PropTypes.object,
-size:_react2.default.PropTypes.number,
-circular:_react2.default.PropTypes.bool,
-square:_react2.default.PropTypes.bool});
+email:PropTypes.string.isRequired,
+style:PropTypes.oneOfType([
+PropTypes.object,
+PropTypes.number,
+PropTypes.array]),
+
+size:PropTypes.number,
+circular:PropTypes.bool,
+square:PropTypes.bool});
 
 
 var StyledGravatar=(0,_nativeBaseShoutemTheme.connectStyle)(

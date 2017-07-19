@@ -30,9 +30,13 @@ this.props.children));
 
 Card.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
-style:_react2.default.PropTypes.object,
-dataArray:_react2.default.PropTypes.object,
-renderRow:_react2.default.PropTypes.object});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array]),
+
+dataArray:_react.PropTypes.object,
+renderRow:_react.PropTypes.object});
 
 
 var StyledCard=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Card",{},_mapPropsToStyleNames2.default)(

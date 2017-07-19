@@ -84,20 +84,24 @@ children)));
 
 Button.propTypes=_extends({},
 _reactNative.TouchableOpacity.propTypes,{
-style:_react2.default.PropTypes.object,
-block:_react2.default.PropTypes.bool,
-primary:_react2.default.PropTypes.bool,
-transparent:_react2.default.PropTypes.bool,
-success:_react2.default.PropTypes.bool,
-danger:_react2.default.PropTypes.bool,
-warning:_react2.default.PropTypes.bool,
-info:_react2.default.PropTypes.bool,
-bordered:_react2.default.PropTypes.bool,
-disabled:_react2.default.PropTypes.bool,
-rounded:_react2.default.PropTypes.bool,
-large:_react2.default.PropTypes.bool,
-small:_react2.default.PropTypes.bool,
-active:_react2.default.PropTypes.bool});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array]),
+
+block:_react.PropTypes.bool,
+primary:_react.PropTypes.bool,
+transparent:_react.PropTypes.bool,
+success:_react.PropTypes.bool,
+danger:_react.PropTypes.bool,
+warning:_react.PropTypes.bool,
+info:_react.PropTypes.bool,
+bordered:_react.PropTypes.bool,
+disabled:_react.PropTypes.bool,
+rounded:_react.PropTypes.bool,
+large:_react.PropTypes.bool,
+small:_react.PropTypes.bool,
+active:_react.PropTypes.bool});
 
 
 var StyledButton=(0,_nativeBaseShoutemTheme.connectStyle)(

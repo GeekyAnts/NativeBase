@@ -12,7 +12,11 @@ return _react2.default.createElement(_reactNative.View,_extends({ref:function re
 
 Footer.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
-style:_react2.default.PropTypes.object});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array])});
+
 
 
 var StyledFooter=(0,_nativeBaseShoutemTheme.connectStyle)(
