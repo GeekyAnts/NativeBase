@@ -922,4 +922,8 @@ declare module 'native-base' {
 			duration?: number;
 		}): void;
 	}
+	/**
+     * NativeBase.View
+     */
+	export class Root extends React.Component<NativeBase.Root, any> {}
 }
