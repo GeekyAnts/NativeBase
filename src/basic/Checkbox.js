@@ -46,7 +46,7 @@ class CheckBox extends Component {
       >
         <IconNB
           style={{
-            color: variables.checkboxTickColor,
+            color: this.props.checked === true ? variables.checkboxTickColor : 'transparent',
             fontSize: variables.CheckboxFontSize,
             lineHeight: variables.CheckboxIconSize
           }}
