@@ -12,10 +12,14 @@ return _react2.default.createElement(_reactNative.Image,_extends({ref:function r
 
 Thumbnail.propTypes=_extends({},
 _reactNative.Image.propTypes,{
-style:_react2.default.PropTypes.object,
-square:_react2.default.PropTypes.bool,
-circular:_react2.default.PropTypes.bool,
-size:_react2.default.PropTypes.number});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array]),
+
+square:_react.PropTypes.bool,
+circular:_react.PropTypes.bool,
+size:_react.PropTypes.number});
 
 
 var StyledThumbnail=(0,_nativeBaseShoutemTheme.connectStyle)(

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { View, ViewPropTypes } from "react-native";
 
 import { connectStyle } from "native-base-shoutem-theme";
@@ -12,7 +12,11 @@ class Separator extends Component {
 
 Separator.propTypes = {
   ...ViewPropTypes,
-  style: React.PropTypes.object
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
 const StyledSeparator = connectStyle(

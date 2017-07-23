@@ -1,6 +1,4 @@
-/* @flow */
-
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import {
   TouchableOpacity,
   Platform,
@@ -19,9 +17,10 @@ class Button extends Component {
     return {
       borderedBtn: {
         borderWidth: this.props.bordered ? 1 : undefined,
-        borderRadius: this.props.rounded && this.props.bordered
-          ? variables.borderRadiusLarge
-          : 2
+        borderRadius:
+          this.props.rounded && this.props.bordered
+            ? variables.borderRadiusLarge
+            : 2
       }
     };
   }
@@ -36,15 +35,16 @@ class Button extends Component {
     return computeProps(this.props, defaultProps);
   }
   render() {
-    const children = Platform.OS === "ios"
-      ? this.props.children
-      : React.Children.map(
-          this.props.children,
-          child =>
-            child && child.type === Text
-              ? React.cloneElement(child, { uppercase: true, ...child.props })
-              : child
-        );
+    const children =
+      Platform.OS === "ios"
+        ? this.props.children
+        : React.Children.map(
+            this.props.children,
+            child =>
+              child && child.type === Text
+                ? React.cloneElement(child, { uppercase: true, ...child.props })
+                : child
+          );
     if (
       Platform.OS === "ios" ||
       variables.androidRipple === false ||
@@ -55,7 +55,7 @@ class Button extends Component {
           {...this.prepareRootProps()}
           ref={c => (this._root = c)}
           activeOpacity={
-            this.props.activeOpacity ? this.props.activeOpacity : 0.5
+            this.props.activeOpacity > 0 ? this.props.activeOpacity : 0.5
           }
         >
           {children}
@@ -84,20 +84,24 @@ class Button extends Component {
 
 Button.propTypes = {
   ...TouchableOpacity.propTypes,
-  style: React.PropTypes.object,
-  block: React.PropTypes.bool,
-  primary: React.PropTypes.bool,
-  transparent: React.PropTypes.bool,
-  success: React.PropTypes.bool,
-  danger: React.PropTypes.bool,
-  warning: React.PropTypes.bool,
-  info: React.PropTypes.bool,
-  bordered: React.PropTypes.bool,
-  disabled: React.PropTypes.bool,
-  rounded: React.PropTypes.bool,
-  large: React.PropTypes.bool,
-  small: React.PropTypes.bool,
-  active: React.PropTypes.bool
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
+  block: PropTypes.bool,
+  primary: PropTypes.bool,
+  transparent: PropTypes.bool,
+  success: PropTypes.bool,
+  danger: PropTypes.bool,
+  warning: PropTypes.bool,
+  info: PropTypes.bool,
+  bordered: PropTypes.bool,
+  disabled: PropTypes.bool,
+  rounded: PropTypes.bool,
+  large: PropTypes.bool,
+  small: PropTypes.bool,
+  active: PropTypes.bool
 };
 
 const StyledButton = connectStyle(

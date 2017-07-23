@@ -28,11 +28,15 @@ this.props.children));
 
 CardItem.propTypes=_extends({},
 _reactNative.TouchableOpacity.propTypes,{
-style:_react2.default.PropTypes.object,
-header:_react2.default.PropTypes.bool,
-cardBody:_react2.default.PropTypes.bool,
-footer:_react2.default.PropTypes.bool,
-button:_react2.default.PropTypes.bool});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array]),
+
+header:_react.PropTypes.bool,
+cardBody:_react.PropTypes.bool,
+footer:_react.PropTypes.bool,
+button:_react.PropTypes.bool});
 
 
 var StyledCardItem=(0,_nativeBaseShoutemTheme.connectStyle)(

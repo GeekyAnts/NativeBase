@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import {
   TouchableHighlight,
   Platform,
@@ -12,7 +12,7 @@ import variable from "../theme/variables/platform";
 
 class ListItem extends Component {
   static contextTypes = {
-    theme: React.PropTypes.object
+    theme: PropTypes.object
   };
   render() {
     const variables = this.context.theme
@@ -32,7 +32,9 @@ class ListItem extends Component {
           ref={c => (this._root = c)}
           underlayColor={variables.listBtnUnderlayColor}
         >
-          <View {...this.props}>{this.props.children}</View>
+          <View {...this.props}>
+            {this.props.children}
+          </View>
         </TouchableHighlight>
       );
     } else {
@@ -48,7 +50,9 @@ class ListItem extends Component {
           }
         >
           <View style={{ marginLeft: -17, paddingLeft: 17 }}>
-            <View {...this.props}>{this.props.children}</View>
+            <View {...this.props}>
+              {this.props.children}
+            </View>
           </View>
         </TouchableNativeFeedback>
       );
@@ -58,9 +62,13 @@ class ListItem extends Component {
 
 ListItem.propTypes = {
   ...TouchableHighlight.propTypes,
-  style: React.PropTypes.object,
-  itemDivider: React.PropTypes.bool,
-  button: React.PropTypes.bool
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
+  itemDivider: PropTypes.bool,
+  button: PropTypes.bool
 };
 
 const StyledListItem = connectStyle(

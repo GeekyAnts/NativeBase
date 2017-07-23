@@ -1,4 +1,4 @@
-const React = require("react");
+import React, { Component, PropTypes } from "react";
 const ReactNative = require("react-native");
 import { connectStyle, StyleProvider } from "native-base-shoutem-theme";
 import variable from "./../../theme/variables/platform";
@@ -10,18 +10,18 @@ const Button = require("./Button");
 
 const DefaultTabBar = React.createClass({
   propTypes: {
-    goToPage: React.PropTypes.func,
-    activeTab: React.PropTypes.number,
-    tabs: React.PropTypes.array,
-    backgroundColor: React.PropTypes.string,
-    activeTextColor: React.PropTypes.string,
-    inactiveTextColor: React.PropTypes.string,
+    goToPage: PropTypes.func,
+    activeTab: PropTypes.number,
+    tabs: PropTypes.array,
+    backgroundColor: PropTypes.string,
+    activeTextColor: PropTypes.string,
+    inactiveTextColor: PropTypes.string,
     tabStyle: ViewPropTypes.style,
-    renderTab: React.PropTypes.func,
+    renderTab: PropTypes.func,
     underlineStyle: ViewPropTypes.style
   },
   contextTypes: {
-    theme: React.PropTypes.object
+    theme: PropTypes.object
   },
 
   getDefaultProps() {
@@ -45,9 +45,8 @@ const DefaultTabBar = React.createClass({
     activeTextStyle,
     tabHeaderStyle
   ) {
-    const headerContent = typeof name !== "string"
-      ? name.props.children
-      : undefined;
+    const headerContent =
+      typeof name !== "string" ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? "bold" : "normal";

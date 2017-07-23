@@ -9,7 +9,7 @@ Essential cross-platform UI components for React Native
 
  **For people having trouble upgrading to 2.1.5, check [this.](https://github.com/GeekyAnts/NativeBase/issues/928)**
 
- **Use 2.1.5 with latest react-native version. Older versions may break**
+ ### Use v2.2.1 with latest react-native version(0.46). Older versions may break.
 
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/screenshots/iOS.gif)
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/screenshots/Android.gif)
@@ -22,12 +22,13 @@ Essential cross-platform UI components for React Native
 3. [KitchenSink App](https://github.com/GeekyAnts/NativeBase-KitchenSink)
 4. [Getting Started](#4-getting-started)
 5. [Components](#5-components)
-6. [Native Starter Kit](#6-native-starter-kit)
-7. [NativeBase Market](#7-nativebase-market)
-8. [Documentation](#8-documentation)
-9. [Website](#9-website)
-10. [Quick Links to NativeBase](#10-quick-links-to-nativebase)
-11. [About the creators](#11-about-the-creators)
+6. [Compatibility Versions](#6-compatibility-versions)
+7. [Native Starter Kit](#7-native-starter-kit)
+8. [NativeBase Market](#8-nativebase-market)
+9. [Documentation](#9-documentation)
+10. [Website](#10-website)
+11. [Quick Links to NativeBase](#11-quick-links-to-nativebase)
+12. [About the creators](#12-about-the-creators)
 
 
 
@@ -90,37 +91,52 @@ async componentWillMount() {
 ```
 <br />
 
-Check out the [KitchenSink](https://github.com/GeekyAnts/NativeBase-KitchenSink/blob/CRNA/js/setup.js) with CRNA for an example of the implementation.<br />
+Check out the [KitchenSink](https://expo.io/@geekyants/nativebase-kitchenSink) with CRNA for an example of the implementation.<br />
+Find the [KitchnSink repo here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/CRNA)
 
 ## 5. Components
 
 [NativeBase](https://nativebase.io/) is made from effective building blocks referred to as components. The Components are constructed in pure [React Native](https://github.com/facebook/react-native) platform along with some JavaScript functionality with rich set of customisable properties. These components allow you to quickly build the perfect interface.
 
-## 6. [Native Starter Kit](https://github.com/start-react/native-starter-kit)
+## 6. Compatibility Versions
+
+| NativeBase   |      React Native      |
+|----------|-------------|
+| v0.1.1	| v0.22 to v0.23 |
+| v0.2.0 to v0.3.1 | v0.24 to v0.25 |
+| v0.4.6 to v0.4.9 | v0.26.0 - v0.27.1 |
+| v0.5.0 to v0.5.15 | v0.26.0 - v0.37.0 |
+| v0.5.16 to v0.5.20 | v0.38.0 - v0.39.0 |
+| v2.0.0-alpha1 to v2.1.3 | v0.38.0 to v0.43.0 |
+| v2.1.4 to v2.1.5 | v0.44.0 to v0.45.0 |
+| v2.2.0 | v0.44.0 to v0.45.0 |
+| v2.2.1 | v0.46.0 and above |
+
+## 7. [Native Starter Kit](https://github.com/start-react/native-starter-kit)
 
 A simple starter project for [React Native](https://github.com/facebook/react-native) + [NativeBase](https://nativebase.io/) + [Redux](http://redux.js.org/) + [CodePush](https://github.com/Microsoft/react-native-code-push) + [React Native Navigator](https://facebook.github.io/react-native/docs/navigator.html) apps on iOS and Android.
 [Take a look at the demo](https://github.com/start-react/native-starter-kit#screens)
 
 
-## 7. NativeBase Market
+## 8. NativeBase Market
 
 Having tried with the free version, [Native Starter Kit](https://github.com/start-react/native-starter-kit) and appreciate our product?
 
 Get on the mobile fast track with the featured apps of [NativeBase](https://nativebase.io/), to build high-quality iOS and Android mobile apps.<br />
 A [marketplace](https://market.nativebase.io/) for premium React Native app themes to build high-quality iOS and Android mobile apps. <br />
 
-## 8. Documentation
+## 9. Documentation
 
 Go through [NativeBase Docs](https://docs.nativebase.io/) to play with [NativeBase](https://nativebase.io/).
 
 
 
-## 9. Website
+## 10. Website
 [https://nativebase.io/](https://nativebase.io/)
 
 
 
-## 10. Quick Links to NativeBase
+## 11. Quick Links to NativeBase
 
 *	[NativeBase Documentation](https://docs.nativebase.io/)
 *	[NativeBase Blog](https://blog.nativebase.io)
@@ -128,6 +144,6 @@ Go through [NativeBase Docs](https://docs.nativebase.io/) to play with [NativeBa
 *	[NativeBase on FaceBook](https://www.facebook.com/nativebaseio/)
 
 
-## 11. About the creators
+## 12. About the creators
 
 We are [GeekyAnts](https://geekyants.com/), a startup based in Bangalore, India with 50+ developers in strength. We have been very active in the React / React Native community where we have developed [StrapUI](https://www.strapui.com/) and [StartReact](https://startreact.com/). Our other products include [StartLaravel](http://startlaravel.com) and [StartAngular](http://startangular.com).

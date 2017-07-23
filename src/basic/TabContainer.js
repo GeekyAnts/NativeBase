@@ -1,6 +1,4 @@
-/* @flow */
-
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { View, ViewPropTypes } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
@@ -13,7 +11,11 @@ class TabContainer extends Component {
 
 TabContainer.propTypes = {
   ...ViewPropTypes,
-  style: React.PropTypes.object
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
 const StyledTabContainer = connectStyle(

@@ -1,17 +1,23 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Fab=undefined;var _jsxFileName="src/basic/Fab.js";var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
+Object.defineProperty(exports,"__esModule",{value:true});exports.Fab=undefined;var _jsxFileName="src/basic/Fab.js";var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _computeProps=require("../Utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
 
-var _react=require("react");var _react2=_interopRequireDefault(_react);
-var _Button=require("./Button");
 var _reactNative=require("react-native");
 
+
+
+
+
+
+
 var _Icon=require("./Icon");
-
 var _IconNB=require("./IconNB");
-
+var _Button=require("./Button");
+var _platform=require("./../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);
-var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
-var _computeProps=require("../Utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}
+var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var _Dimensions$get=
+
+_reactNative.Dimensions.get("window"),height=_Dimensions$get.height,width=_Dimensions$get.width;
 
 var AnimatedFab=_reactNative.Animated.createAnimatedComponent(_Button.Button);var
 
@@ -24,9 +30,11 @@ Fab=function(_Component){_inherits(Fab,_Component);
 
 
 
-
 function Fab(props){_classCallCheck(this,Fab);var _this=_possibleConstructorReturn(this,(Fab.__proto__||Object.getPrototypeOf(Fab)).call(this,
 props));
+_this.containerHeight=new _reactNative.Animated.Value(56);
+_this.containerWidth=new _reactNative.Animated.Value(0);
+_this.buttonScale=new _reactNative.Animated.Value(0);
 _this.state={
 buttons:undefined,
 active:false};return _this;
@@ -46,14 +54,14 @@ right:undefined};
 }else if(pos==="bottomRight"){
 return{
 top:undefined,
-bottom:_reactNative.Platform.OS==="ios"?20:40,
+bottom:20,
 left:undefined,
 right:20};
 
 }else if(pos==="bottomLeft"){
 return{
 top:undefined,
-bottom:_reactNative.Platform.OS==="ios"?20:40,
+bottom:20,
 left:20,
 right:undefined};
 
@@ -71,8 +79,9 @@ direction,i){
 if(direction==="up"){
 return{
 top:undefined,
-bottom:this.props.active===false?
-_reactNative.Platform.OS==="ios"?8:8:
+bottom:
+this.props.active===false?
+_reactNative.Platform.OS==="ios"?50:8:
 i*50+65,
 left:8,
 right:0};
@@ -81,15 +90,17 @@ right:0};
 return{
 top:8,
 bottom:0,
-left:this.props.active===false?
+left:
+this.props.active===false?
 _reactNative.Platform.OS==="ios"?8:8:
 -(i*50+50),
 right:0};
 
 }else if(direction==="down"){
 return{
-top:this.props.active===false?
-_reactNative.Platform.OS==="ios"?8:8:
+top:
+this.props.active===false?
+_reactNative.Platform.OS==="ios"?50:8:
 i*50+65,
 bottom:0,
 left:8,
@@ -97,10 +108,11 @@ right:0};
 
 }else if(direction==="right"){
 return{
-top:10,
+top:8,
 bottom:0,
-left:this.props.active===false?
-_reactNative.Platform.OS==="ios"?8:8:
+left:
+this.props.active===false?
+_reactNative.Platform.OS==="ios"?50:8:
 i*50+65,
 right:0};
 
@@ -114,8 +126,12 @@ height:56,
 width:56,
 borderRadius:28,
 elevation:4,
+shadowColor:"#000",
+shadowOffset:{width:0,height:2},
+shadowOpacity:0.4,
 justifyContent:"center",
 alignItems:"center",
+shadowRadius:2,
 position:"absolute",
 bottom:0,
 backgroundColor:"blue"},
@@ -144,7 +160,7 @@ alignItems:"center"},
 iconStyle:_extends({
 color:"#fff",
 fontSize:24,
-lineHeight:_reactNative.Platform.OS==="ios"?27:undefined},
+lineHeight:_reactNative.Platform.OS=="ios"?27:undefined},
 iconStyle),
 
 buttonStyle:{
@@ -153,6 +169,9 @@ height:40,
 width:40,
 left:7,
 borderRadius:20,
+transform:this.state.active?
+[{scale:new _reactNative.Animated.Value(1)}]:
+[{scale:this.buttonScale}],
 marginBottom:10,
 backgroundColor:"blue"}};
 
@@ -222,7 +241,7 @@ active:_this2.props.active});
 {
 var childrenArray=_react2.default.Children.toArray(this.props.children);
 var icon=_lodash2.default.remove(childrenArray,function(item){
-if(item.type===_Button.Button){
+if(item.type.displayName==="Styled(Button)"){
 return true;
 }
 });
@@ -251,7 +270,7 @@ _react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i,__source:{fileName:_jsxFileName,lineNumber:250}}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:269}}),
 
 child.props.children));
 
@@ -269,6 +288,9 @@ _reactNative.Animated.spring(this.buttonScale,{
 toValue:1}).
 start();
 }else{
+this.setState({
+active:false});
+
 _reactNative.Animated.spring(this.containerHeight,{
 toValue:56}).
 start();
@@ -278,8 +300,24 @@ start();
 }
 }},{key:"leftAnimate",value:function leftAnimate()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
-if(!this.state.active){
+if(!this.props.active){
 _reactNative.Animated.spring(this.containerWidth,{
 toValue:this.state.buttons*51.3+56}).
 start();
@@ -300,7 +338,7 @@ start();
 }},{key:"rightAnimate",value:function rightAnimate()
 
 {
-if(!this.state.active){
+if(!this.props.active){
 _reactNative.Animated.spring(this.containerWidth,{
 toValue:this.state.buttons*51.3+56}).
 start();
@@ -321,7 +359,7 @@ start();
 }},{key:"downAnimate",value:function downAnimate()
 
 {
-if(!this.state.active){
+if(!this.props.active){
 _reactNative.Animated.spring(this.containerHeight,{
 toValue:56}).
 start();
@@ -340,7 +378,6 @@ toValue:0}).
 start();
 }
 }},{key:"_animate",value:function _animate()
-
 {var _props=
 this.props,direction=_props.direction,position=_props.position;
 if(this.props.direction){
@@ -358,46 +395,52 @@ this.upAnimate();
 }
 }},{key:"fabOnPress",value:function fabOnPress()
 
-{
+{var _this4=this;
 if(this.props.onPress){
 this.props.onPress();
 this._animate();
+setTimeout(function(){
+_this4.setState({
+active:_this4.props.active});
+
+},100);
 }
 }},{key:"render",value:function render()
 
-{var _this4=this;var
+{var _this5=this;var
 active=this.props.active;
-if(!this.props.active){
-this.containerHeight=new _reactNative.Animated.Value(56);
-this.containerWidth=new _reactNative.Animated.Value(56);
-this.buttonScale=new _reactNative.Animated.Value(1);
-}else{
-this.containerHeight=this.containerHeight||new _reactNative.Animated.Value(0);
-this.containerWidth=this.containerWidth||new _reactNative.Animated.Value(0);
-this.buttonScale=this.buttonScale||new _reactNative.Animated.Value(0);
-}
-return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:380}},
-this.renderButtons(),
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({
-onPress:function onPress(){return _this4.fabOnPress();}},
-this.prepareFabProps(),{
-activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:382}}),
 
-this.renderFab())));
+return(
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:414}},
+this.renderButtons(),
+_reactNative.Platform.OS==="ios"||
+_platform2.default.androidRipple===false||
+_reactNative.Platform["Version"]<=21?
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({
+onPress:function onPress(){return _this5.fabOnPress();}},
+this.prepareFabProps(),{
+activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:419}}),
+
+this.renderFab()):
+
+_react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
+onPress:function onPress(){return _this5.fabOnPress();},
+background:
+this.props.androidRippleColor?
+_reactNative.TouchableNativeFeedback.Ripple(
+this.props.androidRippleColor):
+
+_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
+
+this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:426}}),
+
+_react2.default.createElement(_reactNative.View,_extends({style:this.getInitialStyle().fab},this.props.style,{__source:{fileName:_jsxFileName,lineNumber:437}}),
+this.renderFab()))));
+
 
 
 
 }}]);return Fab;}(_react.Component);
-
-
-Fab.propTypes=_extends({},
-_reactNative.Animated.propTypes,{
-style:_react2.default.PropTypes.object,
-active:_react2.default.PropTypes.bool,
-direction:_react2.default.PropTypes.string,
-containerStyle:_react2.default.PropTypes.object,
-position:_react2.default.PropTypes.string});
 
 var StyledFab=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Fab",{},_mapPropsToStyleNames2.default)(Fab);exports.
 Fab=StyledFab;

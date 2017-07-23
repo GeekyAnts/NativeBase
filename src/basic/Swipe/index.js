@@ -382,9 +382,9 @@ Swipeout.SwipeoutButton = SwipeoutBtn;
 
 Swipeout.propTypes = {
   ...ViewPropTypes,
-  style: React.PropTypes.object,
-  dataArray: React.PropTypes.object,
-  renderRow: React.PropTypes.object
+  style: PropTypes.oneOfType([           PropTypes.object,           PropTypes.number,           PropTypes.array         ]),
+  dataArray: PropTypes.object,
+  renderRow: PropTypes.object
 };
 
 const StyledSwipeout = connectStyle(

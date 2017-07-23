@@ -6,6 +6,7 @@ import setDefaultThemeStyle from "./init";
 import getTheme from "./theme/components";
 import variables from "./theme/variables/platform";
 import Drawer from "./basic/Drawer";
+import { SwipeRow } from "./basic/SwipeRow";
 import { Swipeout } from "./basic/Swipe";
 import { Text } from "./basic/Text";
 import { ViewNB as View } from "./basic/View";
@@ -34,6 +35,7 @@ import { H3 } from "./basic/H3";
 import { Spinner } from "./basic/Spinner";
 import { Switch } from "./basic/Switch";
 import { Container } from "./basic/Container";
+import { Root } from "./basic/Root";
 import { Content } from "./basic/Content";
 import { Footer } from "./basic/Footer";
 import { FooterTab } from "./basic/FooterTab";
@@ -114,7 +116,9 @@ export {
   TabHeading,
   TabContainer,
   DefaultTabBar,
-  Segment
+  Segment,
+  Root,
+  SwipeRow
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);

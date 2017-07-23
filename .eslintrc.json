@@ -1,10 +1,15 @@
 {
-    "parser": "babel-eslint",
-    "extends": "airbnb",
-    "plugins": [
-        "react",
-        "jsx-a11y",
-        "import",
-        "react-native"
+  "parser": "babel-eslint",
+  {
+    "indent": [
+      "error",
+      2
     ]
+  },
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import",
+    "react-native"
+  ]
 }

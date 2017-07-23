@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { View, Animated, PanResponder, ViewPropTypes } from "react-native";
 import clamp from "clamp";
 import { connectStyle } from "native-base-shoutem-theme";
@@ -18,10 +18,38 @@ class DeckSwiper extends Component {
       card1Top: true,
       card2Top: false,
       fadeAnim: new Animated.Value(0.8),
-      looping: this.props.looping || true,
+      looping: typeof this.props.looping === "undefined"
+        ? true
+        : this.props.looping,
       disabled: this.props.dataSource.length === 0,
       lastCard: this.props.dataSource.length === 1
     };
+  }
+
+  componentWillReceiveProps({ dataSource }) {
+    if (dataSource.length !== this.props.dataSource.length) {
+      if (dataSource.length <= 1) {
+        this.setState({
+          ...this.state,
+          selectedItem: dataSource[0],
+          selectedItem2: undefined,
+          disabled: dataSource.length === 0,
+          lastCard: dataSource.length === 1
+        });
+        return;
+      }
+
+      const visibleIndex = dataSource.indexOf(this.state.selectedItem);
+      const currentIndex = visibleIndex < 0 ? visibleIndex + 1 : visibleIndex;
+      const nextIndex = currentIndex + 1 === dataSource.length
+        ? 0
+        : currentIndex + 1;
+
+      this.setState({
+        selectedItem: dataSource[currentIndex],
+        selectedItem2: dataSource[nextIndex]
+      });
+    }
   }
 
   getInitialStyle() {
@@ -36,8 +64,8 @@ class DeckSwiper extends Component {
   }
 
   findNextIndexes(currentIndex) {
-    let newIdx = currentIndex + 1;
-    let newIdx2 = currentIndex + 2;
+    const newIdx = currentIndex + 1;
+    const newIdx2 = currentIndex + 2;
 
     if (
       newIdx2 > this.props.dataSource.length - 1 &&
@@ -46,14 +74,13 @@ class DeckSwiper extends Component {
       return [newIdx, 0];
     } else if (newIdx > this.props.dataSource.length - 1) {
       return [0, 1];
-    } else {
-      return [newIdx, newIdx2];
     }
+    return [newIdx, newIdx2];
   }
 
   selectNext() {
     const dataSource = this.props.dataSource;
-    let currentIndex = dataSource.indexOf(this.state.selectedItem);
+    const currentIndex = dataSource.indexOf(this.state.selectedItem);
 
     // if not looping, check for these conditionals and if true return from selectNext()
     if (!this.state.looping) {
@@ -77,7 +104,7 @@ class DeckSwiper extends Component {
       }
     }
 
-    let nextIndexes = this.findNextIndexes(currentIndex);
+    const nextIndexes = this.findNextIndexes(currentIndex);
     setTimeout(() => {
       this.setState({
         selectedItem: this.props.dataSource[nextIndexes[0]]
@@ -119,9 +146,8 @@ class DeckSwiper extends Component {
   componentWillMount() {
     this._panResponder = PanResponder.create({
       onMoveShouldSetResponderCapture: () => true,
-      onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
-        return Math.abs(gestureState.dx) > 5;
-      },
+      onMoveShouldSetPanResponderCapture: (evt, gestureState) =>
+        Math.abs(gestureState.dx) > 5,
 
       onPanResponderGrant: (e, gestureState) => {
         this.state.pan.setOffset({
@@ -140,7 +166,7 @@ class DeckSwiper extends Component {
             this.props.onSwiping("left", gestureState.dx);
         }
         let val = Math.abs(gestureState.dx * 0.0013);
-        let opa = Math.abs(gestureState.dx * 0.0022);
+        const opa = Math.abs(gestureState.dx * 0.0022);
         if (val > 0.2) {
           val = 0.2;
         }
@@ -154,7 +180,7 @@ class DeckSwiper extends Component {
 
       onPanResponderRelease: (e, { vx, vy }) => {
         if (this.props.onSwiping) this.props.onSwiping(null);
-        var velocity;
+        let velocity;
 
         if (vx >= 0) {
           velocity = clamp(vx, 4.5, 10);
@@ -201,27 +227,27 @@ class DeckSwiper extends Component {
   }
 
   getCardStyles() {
-    let { pan, pan2, enter } = this.state;
+    const { pan, pan2, enter } = this.state;
 
-    let [translateX, translateY] = [pan.x, pan.y];
+    const [translateX, translateY] = [pan.x, pan.y];
     // let [translateX, translateY] = [pan2.x, pan2.y];
 
-    let rotate = pan.x.interpolate({
+    const rotate = pan.x.interpolate({
       inputRange: [-700, 0, 700],
       outputRange: ["-10deg", "0deg", "10deg"]
     });
 
-    let opacity = pan.x.interpolate({
+    const opacity = pan.x.interpolate({
       inputRange: [-320, 0, 320],
       outputRange: [0.9, 1, 0.9]
     });
-    let scale = enter;
+    const scale = enter;
 
-    let animatedCardStyles = {
+    const animatedCardStyles = {
       transform: [{ translateX }, { translateY }, { rotate }],
       opacity
     };
-    let animatedCardStyles2 = { transform: [{ scale }] };
+    const animatedCardStyles2 = { transform: [{ scale }] };
 
     return [animatedCardStyles, animatedCardStyles2];
   }
@@ -230,10 +256,7 @@ class DeckSwiper extends Component {
     if (this.state.disabled) {
       // disable swiping and renderEmpty
       return (
-        <View
-          ref={c => (this._root = c)}
-          style={{ position: "relative", flexDirection: "column" }}
-        >
+        <View style={{ position: "relative", flexDirection: "column" }}>
           {
             <View>
               {this.props.renderEmpty && this.props.renderEmpty()}
@@ -244,10 +267,7 @@ class DeckSwiper extends Component {
     } else if (this.state.lastCard) {
       // display renderEmpty underneath last viable card
       return (
-        <View
-          ref={c => (this._root = c)}
-          style={{ position: "relative", flexDirection: "column" }}
-        >
+        <View style={{ position: "relative", flexDirection: "column" }}>
           {this.state.selectedItem === undefined
             ? <View />
             : <View>
@@ -273,49 +293,45 @@ class DeckSwiper extends Component {
               </View>}
         </View>
       );
-    } else {
-      return (
-        <View
-          ref={c => (this._root = c)}
-          style={{ position: "relative", flexDirection: "column" }}
-        >
-          {this.state.selectedItem === undefined
-            ? <View />
-            : <View>
-                <Animated.View
-                  style={[
-                    this.getCardStyles()[1],
-                    this.getInitialStyle().topCard,
-                    { opacity: this.state.fadeAnim }
-                  ]}
-                  {...this._panResponder.panHandlers}
-                >
-                  {this.props.renderBottom
-                    ? this.props.renderBottom(this.state.selectedItem2)
-                    : this.props.renderItem(this.state.selectedItem2)}
-                </Animated.View>
-                <Animated.View
-                  style={[
-                    this.getCardStyles()[0],
-                    this.getInitialStyle().topCard
-                  ]}
-                  {...this._panResponder.panHandlers}
-                >
-                  {this.props.renderTop
-                    ? this.props.renderTop(this.state.selectedItem)
-                    : this.props.renderItem(this.state.selectedItem)}
-                </Animated.View>
-              </View>}
-        </View>
-      );
     }
+    return (
+      <View style={{ position: "relative", flexDirection: "column" }}>
+        {this.state.selectedItem === undefined
+          ? <View />
+          : <View>
+              <Animated.View
+                style={[
+                  this.getCardStyles()[1],
+                  this.getInitialStyle().topCard,
+                  { opacity: this.state.fadeAnim }
+                ]}
+                {...this._panResponder.panHandlers}
+              >
+                {this.props.renderBottom
+                  ? this.props.renderBottom(this.state.selectedItem2)
+                  : this.props.renderItem(this.state.selectedItem2)}
+              </Animated.View>
+              <Animated.View
+                style={[
+                  this.getCardStyles()[0],
+                  this.getInitialStyle().topCard
+                ]}
+                {...this._panResponder.panHandlers}
+              >
+                {this.props.renderTop
+                  ? this.props.renderTop(this.state.selectedItem)
+                  : this.props.renderItem(this.state.selectedItem)}
+              </Animated.View>
+            </View>}
+      </View>
+    );
   }
 }
 
 DeckSwiper.propTypes = {
   ...ViewPropTypes,
-  style: React.PropTypes.object,
-  dataSource: React.PropTypes.array
+  style: PropTypes.oneOfType([           PropTypes.object,           PropTypes.number,           PropTypes.array         ]),
+  dataSource: PropTypes.array
 };
 
 const StyledDeckSwiper = connectStyle(

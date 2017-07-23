@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { TouchableOpacity, Animated, Platform, View } from "react-native";
 import { Input } from "./Input";
 import { Label } from "./Label";
@@ -20,12 +20,33 @@ class Item extends Component {
     };
   }
   componentDidMount() {
-    if (this.inputProps.value) {
-      this.setState({ isFocused: true });
-      this.floatUp(-16);
+    if (this.props.floatingLabel) {
+      if (this.inputProps && this.inputProps.value) {
+        this.setState({ isFocused: true });
+        this.floatUp(-16);
+      }
+      if (this.inputProps && this.inputProps.getRef)
+        this.inputProps.getRef(this._inputRef);
     }
-    if (this.inputProps && this.inputProps.getRef)
-      this.inputProps.getRef(this._inputRef);
+  }
+  componentWillReceiveProps(nextProps) {
+    const childrenArray = React.Children.toArray(nextProps.children);
+    let inputProps = {};
+    input = _.remove(childrenArray, item => {
+      if (item.type.displayName === "Styled(Input)") {
+        inputProps = item.props;
+        this.inputProps = item.props;
+        return item;
+      }
+    });
+    if (this.props.floatingLabel) {
+      if (this.inputProps && this.inputProps.value) {
+        this.setState({ isFocused: true });
+        this.floatUp(-16);
+      }
+      if (this.inputProps && this.inputProps.getRef)
+        this.inputProps.getRef(this._inputRef);
+    }
   }
 
   floatBack() {
@@ -41,7 +62,7 @@ class Item extends Component {
 
   floatUp(e) {
     Animated.timing(this.state.topAnim, {
-      toValue: e ? e : -22,
+      toValue: e || -22,
       duration: 150
     }).start();
     Animated.timing(this.state.opacAnim, {
@@ -128,7 +149,9 @@ class Item extends Component {
             paddingBottom: Platform.OS === "ios" ? undefined : 12
           }}
         >
-          <Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
+          <Label {...labelProps}>
+            {this.renderLabel(label, labelProps)}
+          </Label>
         </Animated.View>
       );
       newChildren.push(
@@ -167,7 +190,9 @@ class Item extends Component {
             paddingBottom: Platform.OS === "ios" ? undefined : 12
           }}
         >
-          <Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
+          <Label {...labelProps}>
+            {this.renderLabel(label, labelProps)}
+          </Label>
         </Animated.View>
       );
       newChildren.push(
@@ -271,13 +296,17 @@ const childrenType = function(props, propName, component) {
 
 Item.propTypes = {
   ...TouchableOpacity.propTypes,
-  style: React.PropTypes.object,
-  inlineLabel: React.PropTypes.bool,
-  floatingLabel: React.PropTypes.bool,
-  stackedLabel: React.PropTypes.bool,
-  fixedLabel: React.PropTypes.bool,
-  success: React.PropTypes.bool,
-  error: React.PropTypes.bool
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
+  inlineLabel: PropTypes.bool,
+  floatingLabel: PropTypes.bool,
+  stackedLabel: PropTypes.bool,
+  fixedLabel: PropTypes.bool,
+  success: PropTypes.bool,
+  error: PropTypes.bool
 };
 
 const StyledItem = connectStyle("NativeBase.Item", {}, mapPropsToStyleNames)(

@@ -1,9 +1,9 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.ScrollableTab=undefined;var _jsxFileName="src/basic/Tabs/ScrollableTabBar.js";
+Object.defineProperty(exports,"__esModule",{value:true});exports.ScrollableTab=undefined;var _jsxFileName="src/basic/Tabs/ScrollableTabBar.js";var _react=require("react");var _react2=_interopRequireDefault(_react);
 
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _platform=require("./../../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _index=require("./../../index");
-var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var React=require("react");var ReactNative=require("react-native");var
+var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var ReactNative=require("react-native");var
 
 View=
 
@@ -17,24 +17,24 @@ var Button=require("./Button");
 
 var WINDOW_WIDTH=Dimensions.get("window").width;
 
-var ScrollableTabBar=React.createClass({displayName:"ScrollableTabBar",
+var ScrollableTabBar=_react2.default.createClass({displayName:"ScrollableTabBar",
 propTypes:{
-goToPage:React.PropTypes.func,
-activeTab:React.PropTypes.number,
-tabs:React.PropTypes.array,
-backgroundColor:React.PropTypes.string,
-activeTextColor:React.PropTypes.string,
-inactiveTextColor:React.PropTypes.string,
-scrollOffset:React.PropTypes.number,
+goToPage:_react.PropTypes.func,
+activeTab:_react.PropTypes.number,
+tabs:_react.PropTypes.array,
+backgroundColor:_react.PropTypes.string,
+activeTextColor:_react.PropTypes.string,
+inactiveTextColor:_react.PropTypes.string,
+scrollOffset:_react.PropTypes.number,
 style:ViewPropTypes.style,
 tabStyle:ViewPropTypes.style,
 tabsContainerStyle:ViewPropTypes.style,
-renderTab:React.PropTypes.func,
+renderTab:_react.PropTypes.func,
 underlineStyle:ViewPropTypes.style,
-onScroll:React.PropTypes.func},
+onScroll:_react.PropTypes.func},
 
 contextTypes:{
-theme:React.PropTypes.object},
+theme:_react.PropTypes.object},
 
 
 getDefaultProps:function getDefaultProps(){
@@ -117,9 +117,8 @@ this._scrollView.scrollTo({x:newScrollX,y:0,animated:false});
 var rightBoundScroll=
 this._tabContainerMeasurements.width-
 this._containerMeasurements.width;
-newScrollX=newScrollX>rightBoundScroll?
-rightBoundScroll:
-newScrollX;
+newScrollX=
+newScrollX>rightBoundScroll?rightBoundScroll:newScrollX;
 this._scrollView.scrollTo({x:newScrollX,y:0,animated:false});
 }
 },
@@ -157,26 +156,25 @@ textStyle,
 activeTextStyle,
 tabHeaderStyle)
 {
-var headerContent=typeof name!=="string"?
-name.props.children:
-undefined;var _props=
+var headerContent=
+typeof name!=="string"?name.props.children:undefined;var _props=
 this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor;
 var textColor=isTabActive?activeTextColor:inactiveTextColor;
 var fontWeight=isTabActive?"bold":"normal";
 
 if(typeof name==="string"){
 return(
-React.createElement(Button,{
+_react2.default.createElement(Button,{
 key:name+"_"+page,
 onPress:function onPress(){return onPressHandler(page);},
-onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:169}},
+onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:167}},
 
-React.createElement(_index.TabHeading,{
+_react2.default.createElement(_index.TabHeading,{
 scrollable:true,
 style:isTabActive?activeTabStyle:tabStyle,
-active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:174}},
+active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:172}},
 
-React.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:179}},
+_react2.default.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:177}},
 name))));
 
 
@@ -184,8 +182,8 @@ name))));
 
 }else{
 return(
-React.createElement(Button,{key:_lodash2.default.random(1.2,5.2),onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:187}},
-React.createElement(_index.TabHeading,{scrollable:true,style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:188}},
+_react2.default.createElement(Button,{key:_lodash2.default.random(1.2,5.2),onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:185}},
+_react2.default.createElement(_index.TabHeading,{scrollable:true,style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:186}},
 headerContent)));
 
 
@@ -216,15 +214,15 @@ width:this.state._widthTabUnderline};
 
 
 return(
-React.createElement(View,{
+_react2.default.createElement(View,{
 style:[
 styles.container,
 {backgroundColor:this.props.backgroundColor},
 this.props.style],
 
-onLayout:this.onContainerLayout,__source:{fileName:_jsxFileName,lineNumber:219}},
+onLayout:this.onContainerLayout,__source:{fileName:_jsxFileName,lineNumber:217}},
 
-React.createElement(ScrollView,{
+_react2.default.createElement(ScrollView,{
 automaticallyAdjustContentInsets:false,
 ref:function ref(scrollView){
 _this._scrollView=scrollView;
@@ -235,16 +233,16 @@ showsVerticalScrollIndicator:false,
 directionalLockEnabled:true,
 onScroll:this.props.onScroll,
 bounces:false,
-scrollsToTop:false,__source:{fileName:_jsxFileName,lineNumber:227}},
+scrollsToTop:false,__source:{fileName:_jsxFileName,lineNumber:225}},
 
-React.createElement(View,{
+_react2.default.createElement(View,{
 style:[
 styles.tabs,
 {width:this.state._containerWidth},
 this.props.tabsContainerStyle],
 
 ref:"tabContainer",
-onLayout:this.onTabContainerLayout,__source:{fileName:_jsxFileName,lineNumber:240}},
+onLayout:this.onTabContainerLayout,__source:{fileName:_jsxFileName,lineNumber:238}},
 
 this.props.tabs.map(function(name,page){
 var isTabActive=_this.props.activeTab===page;
@@ -262,11 +260,11 @@ _this.props.activeTextStyle[page],
 _this.props.tabHeaderStyle[page]);
 
 }),
-React.createElement(Animated.View,{
+_react2.default.createElement(Animated.View,{
 style:[
 tabUnderlineStyle,
 dynamicTabUnderline,
-this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:265}})))));
+this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:263}})))));
 
 
 

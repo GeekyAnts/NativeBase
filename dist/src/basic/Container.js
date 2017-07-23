@@ -8,21 +8,14 @@ var _Actionsheet=require("./Actionsheet");
 var _Text=require("./Text");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 Container=function(_Component){_inherits(Container,_Component);function Container(){_classCallCheck(this,Container);return _possibleConstructorReturn(this,(Container.__proto__||Object.getPrototypeOf(Container)).apply(this,arguments));}_createClass(Container,[{key:"render",value:function render()
+
+
+
+
 {var _this2=this;
 return(
-_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:13}}),
-this.props.children,
-_react2.default.createElement(_ToastContainer.ToastContainer,{
-ref:function ref(c){
-if(!_ToastContainer.ToastContainer.toastInstance)_ToastContainer.ToastContainer.toastInstance=c;
-},__source:{fileName:_jsxFileName,lineNumber:15}}),
-
-_react2.default.createElement(_Actionsheet.ActionSheetContainer,{
-ref:function ref(c){
-if(!_Actionsheet.ActionSheetContainer.actionsheetInstance)
-_Actionsheet.ActionSheetContainer.actionsheetInstance=c;
-},__source:{fileName:_jsxFileName,lineNumber:20}})));
-
+_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:17}}),
+this.props.children));
 
 
 }}]);return Container;}(_react.Component);
@@ -30,7 +23,11 @@ _Actionsheet.ActionSheetContainer.actionsheetInstance=c;
 
 Container.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
-style:_react2.default.PropTypes.object});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array])});
+
 
 
 var StyledContainer=(0,_nativeBaseShoutemTheme.connectStyle)(

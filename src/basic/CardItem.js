@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { TouchableOpacity, View } from "react-native";
 
 import { connectStyle } from "native-base-shoutem-theme";
@@ -28,11 +28,15 @@ class CardItem extends Component {
 
 CardItem.propTypes = {
   ...TouchableOpacity.propTypes,
-  style: React.PropTypes.object,
-  header: React.PropTypes.bool,
-  cardBody: React.PropTypes.bool,
-  footer: React.PropTypes.bool,
-  button: React.PropTypes.bool
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
+  header: PropTypes.bool,
+  cardBody: PropTypes.bool,
+  footer: PropTypes.bool,
+  button: PropTypes.bool
 };
 
 const StyledCardItem = connectStyle(

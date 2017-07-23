@@ -20,12 +20,33 @@ opacAnim:new _reactNative.Animated.Value(1)};return _this;
 
 }_createClass(Item,[{key:"componentDidMount",value:function componentDidMount()
 {
-if(this.inputProps.value){
+if(this.props.floatingLabel){
+if(this.inputProps&&this.inputProps.value){
 this.setState({isFocused:true});
 this.floatUp(-16);
 }
 if(this.inputProps&&this.inputProps.getRef)
 this.inputProps.getRef(this._inputRef);
+}
+}},{key:"componentWillReceiveProps",value:function componentWillReceiveProps(
+nextProps){var _this2=this;
+var childrenArray=_react2.default.Children.toArray(nextProps.children);
+var inputProps={};
+input=_lodash2.default.remove(childrenArray,function(item){
+if(item.type.displayName==="Styled(Input)"){
+inputProps=item.props;
+_this2.inputProps=item.props;
+return item;
+}
+});
+if(this.props.floatingLabel){
+if(this.inputProps&&this.inputProps.value){
+this.setState({isFocused:true});
+this.floatUp(-16);
+}
+if(this.inputProps&&this.inputProps.getRef)
+this.inputProps.getRef(this._inputRef);
+}
 }},{key:"floatBack",value:function floatBack()
 
 {
@@ -41,7 +62,7 @@ start();
 
 e){
 _reactNative.Animated.timing(this.state.topAnim,{
-toValue:e?e:-22,
+toValue:e||-22,
 duration:150}).
 start();
 _reactNative.Animated.timing(this.state.opacAnim,{
@@ -82,7 +103,7 @@ key:"newLabel"})));
 return newLabel;
 }},{key:"renderChildren",value:function renderChildren()
 
-{var _this2=this;
+{var _this3=this;
 var newChildren=[];
 var childrenArray=_react2.default.Children.toArray(this.props.children);
 
@@ -100,7 +121,7 @@ var inputProps={};
 input=_lodash2.default.remove(childrenArray,function(item){
 if(item.type===_Input.Input){
 inputProps=item.props;
-_this2.inputProps=item.props;
+_this3.inputProps=item.props;
 return item;
 }
 });
@@ -114,7 +135,7 @@ return item;
 }
 });
 if(this.props.floatingLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:"i1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:117}})));
+newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:"i1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:138}})));
 newChildren.push(
 _react2.default.createElement(_reactNative.Animated.View,{
 key:"float",
@@ -125,10 +146,12 @@ right:0,
 top:this.state.topAnim,
 opacity:this.state.opacAnim,
 paddingTop:_reactNative.Platform.OS==="ios"?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:119}},
+paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:140}},
 
 
-_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:131}}),this.renderLabel(label,labelProps))));
+_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:152}}),
+this.renderLabel(label,labelProps))));
+
 
 
 newChildren.push(
@@ -136,21 +159,21 @@ _react2.default.createElement(_Input.Input,_extends({
 key:"l2"},
 inputProps,{
 onFocus:function onFocus(){
-_this2.setState({isFocused:true});
+_this3.setState({isFocused:true});
 inputProps.onFocus&&inputProps.onFocus();
 },
 onBlur:function onBlur(){
 inputProps.value?
-_this2.setState({
+_this3.setState({
 isFocused:true}):
 
-!_this2.state.text.length&&_this2.setState({isFocused:false});
+!_this3.state.text.length&&_this3.setState({isFocused:false});
 inputProps.onBlur&&inputProps.onBlur();
 },
 onChangeText:function onChangeText(text){
-_this2.setState({text:text});
+_this3.setState({text:text});
 inputProps.onChangeText&&inputProps.onChangeText(text);
-},__source:{fileName:_jsxFileName,lineNumber:135}})));
+},__source:{fileName:_jsxFileName,lineNumber:158}})));
 
 
 }else if(this.props.floatingLabel){
@@ -164,34 +187,36 @@ right:0,
 top:this.state.topAnim,
 opacity:this.state.opacAnim,
 paddingTop:_reactNative.Platform.OS==="ios"?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:158}},
+paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:181}},
 
 
-_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:170}}),this.renderLabel(label,labelProps))));
+_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:193}}),
+this.renderLabel(label,labelProps))));
+
 
 
 newChildren.push(
 _react2.default.createElement(_Input.Input,_extends({
-ref:function ref(c){return _this2._inputRef=c;},
+ref:function ref(c){return _this3._inputRef=c;},
 value:this.state.text,
 key:"l2"},
 inputProps,{
 onFocus:function onFocus(){
-_this2.setState({isFocused:true});
+_this3.setState({isFocused:true});
 inputProps.onFocus&&inputProps.onFocus();
 },
 onBlur:function onBlur(){
 inputProps.value?
-_this2.setState({
+_this3.setState({
 isFocused:true}):
 
-!_this2.state.text.length&&_this2.setState({isFocused:false});
+!_this3.state.text.length&&_this3.setState({isFocused:false});
 inputProps.onBlur&&inputProps.onBlur();
 },
 onChangeText:function onChangeText(text){
-_this2.setState({text:text});
+_this3.setState({text:text});
 inputProps.onChangeText&&inputProps.onChangeText(text);
-},__source:{fileName:_jsxFileName,lineNumber:174}})));
+},__source:{fileName:_jsxFileName,lineNumber:199}})));
 
 
 }else if(this.props.stackedLabel&&icon.length){
@@ -201,16 +226,16 @@ key:"s",
 style:{
 flexDirection:"row",
 flex:1,
-width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:199}},
+width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:224}},
 
 
-_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:207}})),
-_react2.default.createElement(_reactNative.View,{style:{flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:208}},
-_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:209}})),
+_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:232}})),
+_react2.default.createElement(_reactNative.View,{style:{flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:233}},
+_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:234}})),
 _react2.default.createElement(_Input.Input,_extends({
 key:"s3"},
 inputProps,{
-style:{width:_platform2.default.deviceWidth-40},__source:{fileName:_jsxFileName,lineNumber:210}})))));
+style:{width:_platform2.default.deviceWidth-40},__source:{fileName:_jsxFileName,lineNumber:235}})))));
 
 
 
@@ -238,12 +263,12 @@ style:this.getInitialStyle().roundedInputGroup};
 
 return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:"render",value:function render()
-{var _this3=this;
+{var _this4=this;
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
-ref:function ref(c){return _this3._root=c;}},
+ref:function ref(c){return _this4._root=c;}},
 this.prepareRootProps(),{
-activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:243}}),
+activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:268}}),
 
 this.renderChildren()));
 
@@ -271,13 +296,17 @@ return error;
 
 Item.propTypes=_extends({},
 _reactNative.TouchableOpacity.propTypes,{
-style:_react2.default.PropTypes.object,
-inlineLabel:_react2.default.PropTypes.bool,
-floatingLabel:_react2.default.PropTypes.bool,
-stackedLabel:_react2.default.PropTypes.bool,
-fixedLabel:_react2.default.PropTypes.bool,
-success:_react2.default.PropTypes.bool,
-error:_react2.default.PropTypes.bool});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array]),
+
+inlineLabel:_react.PropTypes.bool,
+floatingLabel:_react.PropTypes.bool,
+stackedLabel:_react.PropTypes.bool,
+fixedLabel:_react.PropTypes.bool,
+success:_react.PropTypes.bool,
+error:_react.PropTypes.bool});
 
 
 var StyledItem=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Item",{},_mapPropsToStyleNames2.default)(

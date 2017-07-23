@@ -68,7 +68,8 @@ padding:10,
 marginLeft:null},
 
 "NativeBase.CheckBox":{
-marginLeft:-10},
+marginLeft:-10,
+marginRight:10},
 
 ".first":{
 ".itemHeader":{
@@ -213,7 +214,7 @@ flex:0.28},
 color:variables.listNoteColor,
 fontWeight:"200"},
 
-alignSelf:null},
+alignSelf:'center'},
 
 
 ".last":{

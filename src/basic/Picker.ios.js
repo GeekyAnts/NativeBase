@@ -1,6 +1,4 @@
-/* @flow */
-
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { Picker, Modal, View, ListView, ViewPropTypes } from "react-native";
 import _ from "lodash";
 import { Text } from "./Text";
@@ -118,7 +116,10 @@ class PickerNB extends Component {
           ? <Text style={this.props.textStyle} note={this.props.note}>
               {this.state.currentLabel}
             </Text>
-          : <Text style={this.props.textStyle} note={this.props.note}>
+          : <Text
+              style={this.props.textStyle}
+              note={this.props.note === false ? false : true}
+            >
               {this.props.placeholder}
             </Text>}
         {this.props.iosIcon === undefined ? null : this.renderIcon()}
@@ -144,7 +145,9 @@ class PickerNB extends Component {
                 this._setModalVisible(false);
               }}
             >
-              <Text>{this.props.headerBackButtonText || "Back"}</Text>
+              <Text style={this.props.headerBackButtonTextStyle}>
+                {this.props.headerBackButtonText || "Back"}
+              </Text>
             </Button>
           </Left>
           <Body>
@@ -174,13 +177,9 @@ class PickerNB extends Component {
             <Content>
               <List
                 dataArray={this.state.dataSource}
-                renderRow={child => (
+                renderRow={child =>
                   <ListItem
-                    selected={
-                      child.props.value === this.props.selectedValue
-                        ? true
-                        : false
-                    }
+                    selected={child.props.value === this.props.selectedValue}
                     button
                     style={this.props.itemStyle}
                     onPress={() => {
@@ -194,11 +193,10 @@ class PickerNB extends Component {
                     </Text>
                     <Right>
                       {child.props.value === this.props.selectedValue
-                        ? <Radio selected={true} />
+                        ? <Radio selected />
                         : <Radio selected={false} />}
                     </Right>
-                  </ListItem>
-                )}
+                  </ListItem>}
               />
             </Content>
           </Container>
@@ -216,7 +214,7 @@ PickerNB.Item = React.createClass({
 
 PickerNB.propTypes = {
   ...ViewPropTypes,
-  renderButton: React.PropTypes.func
+  renderButton: PropTypes.func
 };
 
 const StyledPickerNB = connectStyle(

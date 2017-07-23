@@ -1,21 +1,19 @@
-/* @flow */
-
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 
 export default class NativeBaseComponent extends Component {
   static contextTypes = {
-    theme: React.PropTypes.object,
-    foregroundColor: React.PropTypes.string
+    theme: PropTypes.object,
+    foregroundColor: PropTypes.string
   };
 
   static propTypes = {
-    theme: React.PropTypes.object,
-    foregroundColor: React.PropTypes.string
+    theme: PropTypes.object,
+    foregroundColor: PropTypes.string
   };
 
   static childContextTypes = {
-    theme: React.PropTypes.object,
-    foregroundColor: React.PropTypes.string
+    theme: PropTypes.object,
+    foregroundColor: PropTypes.string
   };
 
   getChildContext() {

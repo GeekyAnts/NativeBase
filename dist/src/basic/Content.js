@@ -24,10 +24,14 @@ this.props.children));
 
 
 Content.propTypes={
-style:_react2.default.PropTypes.object,
-padder:_react2.default.PropTypes.bool,
-disableKBDismissScroll:_react2.default.PropTypes.bool,
-enableResetScrollToCoords:_react2.default.PropTypes.bool};
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array]),
+
+padder:_react.PropTypes.bool,
+disableKBDismissScroll:_react.PropTypes.bool,
+enableResetScrollToCoords:_react.PropTypes.bool};
 
 
 var StyledContent=(0,_nativeBaseShoutemTheme.connectStyle)(

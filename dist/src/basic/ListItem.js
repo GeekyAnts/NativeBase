@@ -32,7 +32,9 @@ onLongPress:this.props.onLongPress,
 ref:function ref(c){return _this2._root=c;},
 underlayColor:variables.listBtnUnderlayColor,__source:{fileName:_jsxFileName,lineNumber:29}},
 
-_react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:35}}),this.props.children)));
+_react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:35}}),
+this.props.children)));
+
 
 
 }else{
@@ -44,23 +46,29 @@ onLongPress:this.props.onLongPress,
 background:
 this.props.androidRippleColor?
 _reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):
-_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColorDark),__source:{fileName:_jsxFileName,lineNumber:40}},
+_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColorDark),__source:{fileName:_jsxFileName,lineNumber:42}},
 
 
-_react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17},__source:{fileName:_jsxFileName,lineNumber:50}},
-_react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:51}}),this.props.children))));
+_react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17},__source:{fileName:_jsxFileName,lineNumber:52}},
+_react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:53}}),
+this.props.children))));
+
 
 
 
 }
-}}]);return ListItem;}(_react.Component);ListItem.contextTypes={theme:_react2.default.PropTypes.object};
+}}]);return ListItem;}(_react.Component);ListItem.contextTypes={theme:_react.PropTypes.object};
 
 
 ListItem.propTypes=_extends({},
 _reactNative.TouchableHighlight.propTypes,{
-style:_react2.default.PropTypes.object,
-itemDivider:_react2.default.PropTypes.bool,
-button:_react2.default.PropTypes.bool});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array]),
+
+itemDivider:_react.PropTypes.bool,
+button:_react.PropTypes.bool});
 
 
 var StyledListItem=(0,_nativeBaseShoutemTheme.connectStyle)(

@@ -87,16 +87,16 @@ name:this.getName(),__source:{fileName:_jsxFileName,lineNumber:83}})));
 
 
 }
-}}]);return Icon;}(_react.Component);Icon.contextTypes={theme:_react2.default.PropTypes.object};
+}}]);return Icon;}(_react.Component);Icon.contextTypes={theme:_react.PropTypes.object};
 
 
 Icon.propTypes=_extends({},
 _IconNB.IconNB.propTypes,{
-style:_react2.default.PropTypes.object,
-name:_react2.default.PropTypes.string,
-ios:_react2.default.PropTypes.string,
-android:_react2.default.PropTypes.string,
-active:_react2.default.PropTypes.bool});
+style:_react.PropTypes.oneOfType([_react.PropTypes.object,_react.PropTypes.number,_react.PropTypes.array]),
+name:_react.PropTypes.string,
+ios:_react.PropTypes.string,
+android:_react.PropTypes.string,
+active:_react.PropTypes.bool});
 
 
 var StyledIcon=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Icon",{},_mapPropsToStyleNames2.default)(

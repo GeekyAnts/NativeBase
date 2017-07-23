@@ -28,7 +28,11 @@ underlineColorAndroid:"rgba(0,0,0,0)",__source:{fileName:_jsxFileName,lineNumber
 
 Input.propTypes=_extends({},
 _reactNative.TextInput.propTypes,{
-style:_react2.default.PropTypes.object});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array])});
+
 
 
 var StyledInput=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Input",{},_mapPropsToStyleNames2.default)(

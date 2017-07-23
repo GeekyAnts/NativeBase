@@ -1,9 +1,15 @@
 import _ from "lodash";
+import bodyTheme from "./Body";
+import leftTheme from "./Left";
+import rightTheme from "./Right";
 import headerTheme from "./Header";
+import switchTheme from "./Switch";
+import thumbnailTheme from "./Thumbnail";
 import containerTheme from "./Container";
 import contentTheme from "./Content";
 import buttonTheme from "./Button";
 import titleTheme from "./Title";
+import subtitleTheme from "./Subtitle";
 import inputGroupTheme from "./InputGroup";
 import badgeTheme from "./Badge";
 import checkBoxTheme from "./CheckBox";
@@ -27,6 +33,7 @@ import viewTheme from "./View";
 import tabHeadingTheme from "./TabHeading";
 import iconTheme from "./Icon";
 import inputTheme from "./Input";
+import swipeRowTheme from "./SwipeRow";
 import segmentTheme from "./Segment";
 import spinnerTheme from "./Spinner";
 import cardItemTheme from "./CardItem";
@@ -39,22 +46,13 @@ export default (variables = variable) => {
   const theme = {
     variables,
     "NativeBase.Left": {
-      flex: 1,
-      alignSelf: "center",
-      alignItems: "flex-start"
+      ...leftTheme(variables)
     },
     "NativeBase.Right": {
-      "NativeBase.Button": {
-        alignSelf: null
-      },
-      flex: 1,
-      alignSelf: "center",
-      alignItems: "flex-end"
+      ...rightTheme(variables)
     },
     "NativeBase.Body": {
-      flex: 1,
-      alignItems: "center",
-      alignSelf: "center"
+      ...bodyTheme(variables)
     },
 
     "NativeBase.Header": {
@@ -69,10 +67,7 @@ export default (variables = variable) => {
       ...titleTheme(variables)
     },
     "NativeBase.Subtitle": {
-      fontSize: variables.subTitleFontSize,
-      fontFamily: variables.titleFontfamily,
-      color: variables.subtitleColor,
-      textAlign: "center"
+      ...subtitleTheme(variables)
     },
 
     "NativeBase.InputGroup": {
@@ -100,18 +95,6 @@ export default (variables = variable) => {
     },
 
     "NativeBase.CardItem": {
-      ...cardItemTheme(variables),
-      ".cardBody": {
-        padding: -5,
-        "NativeBase.Text": {
-          marginTop: 5
-        }
-      },
-      flexDirection: "row",
-      alignItems: "center"
-    },
-
-    "NativeBase.CardItem1": {
       ...cardItemTheme(variables)
     },
 
@@ -152,18 +135,7 @@ export default (variables = variable) => {
     },
 
     "NativeBase.ListItem": {
-      ...listItemTheme(variables),
-      "NativeBase.CheckBox": {
-        marginLeft: -10,
-        marginRight: 10
-      },
-      "NativeBase.Text": {
-        ".note": {
-          color: variables.listNoteColor,
-          fontWeight: "200"
-        },
-        alignSelf: "center"
-      }
+      ...listItemTheme(variables)
     },
 
     "NativeBase.ListItem1": {
@@ -213,10 +185,6 @@ export default (variables = variable) => {
       ...segmentTheme(variables)
     },
 
-    "NativeBase.STabs": {
-      flex: 1
-    },
-
     "NativeBase.TabBar": {
       ...tabBarTheme(variables)
     },
@@ -230,44 +198,16 @@ export default (variables = variable) => {
       ...tabContainerTheme(variables)
     },
     "NativeBase.Switch": {
-      marginVertical: -5
+      ...switchTheme(variables)
     },
     "NativeBase.Separator": {
       ...separatorTheme(variables)
     },
+    "NativeBase.SwipeRow": {
+      ...swipeRowTheme(variables)
+    },
     "NativeBase.Thumbnail": {
-      ".square": {
-        borderRadius: 0,
-        ".small": {
-          width: 36,
-          height: 36,
-          borderRadius: 0
-        },
-        ".large": {
-          width: 80,
-          height: 80,
-          borderRadius: 0
-        }
-      },
-      ".small": {
-        width: 36,
-        height: 36,
-        borderRadius: 18,
-        ".square": {
-          borderRadius: 0
-        }
-      },
-      ".large": {
-        width: 80,
-        height: 80,
-        borderRadius: 40,
-        ".square": {
-          borderRadius: 0
-        }
-      },
-      width: 56,
-      height: 56,
-      borderRadius: 28
+      ...thumbnailTheme(variables)
     }
   };
 

@@ -1,4 +1,4 @@
-const React = require("react");
+import React, { Component, PropTypes } from "react";
 const ReactNative = require("react-native");
 import { connectStyle, StyleProvider } from "native-base-shoutem-theme";
 import variable from "./../../theme/variables/platform";
@@ -19,22 +19,22 @@ const WINDOW_WIDTH = Dimensions.get("window").width;
 
 const ScrollableTabBar = React.createClass({
   propTypes: {
-    goToPage: React.PropTypes.func,
-    activeTab: React.PropTypes.number,
-    tabs: React.PropTypes.array,
-    backgroundColor: React.PropTypes.string,
-    activeTextColor: React.PropTypes.string,
-    inactiveTextColor: React.PropTypes.string,
-    scrollOffset: React.PropTypes.number,
+    goToPage: PropTypes.func,
+    activeTab: PropTypes.number,
+    tabs: PropTypes.array,
+    backgroundColor: PropTypes.string,
+    activeTextColor: PropTypes.string,
+    inactiveTextColor: PropTypes.string,
+    scrollOffset: PropTypes.number,
     style: ViewPropTypes.style,
     tabStyle: ViewPropTypes.style,
     tabsContainerStyle: ViewPropTypes.style,
-    renderTab: React.PropTypes.func,
+    renderTab: PropTypes.func,
     underlineStyle: ViewPropTypes.style,
-    onScroll: React.PropTypes.func
+    onScroll: PropTypes.func
   },
   contextTypes: {
-    theme: React.PropTypes.object
+    theme: PropTypes.object
   },
 
   getDefaultProps() {
@@ -117,9 +117,8 @@ const ScrollableTabBar = React.createClass({
       const rightBoundScroll =
         this._tabContainerMeasurements.width -
         this._containerMeasurements.width;
-      newScrollX = newScrollX > rightBoundScroll
-        ? rightBoundScroll
-        : newScrollX;
+      newScrollX =
+        newScrollX > rightBoundScroll ? rightBoundScroll : newScrollX;
       this._scrollView.scrollTo({ x: newScrollX, y: 0, animated: false });
     }
   },
@@ -157,9 +156,8 @@ const ScrollableTabBar = React.createClass({
     activeTextStyle,
     tabHeaderStyle
   ) {
-    const headerContent = typeof name !== "string"
-      ? name.props.children
-      : undefined;
+    const headerContent =
+      typeof name !== "string" ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? "bold" : "normal";

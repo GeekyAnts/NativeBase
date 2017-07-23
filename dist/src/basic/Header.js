@@ -35,14 +35,18 @@ variables.iosStatusbar,__source:{fileName:_jsxFileName,lineNumber:21}}),
 _react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:35}}))));
 
 
-}}]);return Header;}(_react.Component);Header.contextTypes={theme:_react2.default.PropTypes.object};
+}}]);return Header;}(_react.Component);Header.contextTypes={theme:_react.PropTypes.object};
 
 
 Header.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
-style:_react2.default.PropTypes.object,
-searchBar:_react2.default.PropTypes.bool,
-rounded:_react2.default.PropTypes.bool});
+style:_react.PropTypes.oneOfType([
+_react.PropTypes.object,
+_react.PropTypes.number,
+_react.PropTypes.array]),
+
+searchBar:_react.PropTypes.bool,
+rounded:_react.PropTypes.bool});
 
 
 var StyledHeader=(0,_nativeBaseShoutemTheme.connectStyle)(
