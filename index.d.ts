@@ -202,14 +202,18 @@ declare module 'native-base' {
 			/**
              * Disables onPress option for button
              */
-			disabled?: boolean;
-			active?: boolean;
-			inputButton?: boolean;
-			full?: boolean;
-			light?: boolean;
-			dark?: boolean;
-		}
-		/**
+      disabled?: boolean;
+      active?: boolean;
+      inputButton?: boolean;
+      full?: boolean;
+      light?: boolean;
+      dark?: boolean;
+       /**
+       * [android] colored ripple effect
+       */
+      androidRippleColor?: string;
+    }
+    /**
          * see Widget List.js
          */
 		interface List extends ReactListViewProperties {
@@ -255,11 +259,16 @@ declare module 'native-base' {
 			/**
              * Sub caption for List Item.
              */
-			note?: string;
-			itemHeader?: boolean;
-			first?: boolean;
-			selected?: boolean;
-		}
+      note?: string;
+      itemHeader?: boolean;
+      first?: boolean;
+      selected?: boolean;
+      /**
+       * [android] colored ripple effect
+       */
+      androidRippleColor?: string;
+    }
+
 
 		interface Separator {
 			bordered?: boolean;
