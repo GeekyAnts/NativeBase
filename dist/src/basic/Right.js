@@ -1,4 +1,5 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Right=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Right.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _reactNative=require("react-native");
 
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
@@ -6,18 +7,16 @@ var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapProps
 
 Right=function(_Component){_inherits(Right,_Component);function Right(){_classCallCheck(this,Right);return _possibleConstructorReturn(this,(Right.__proto__||Object.getPrototypeOf(Right)).apply(this,arguments));}_createClass(Right,[{key:"render",value:function render()
 {var _this2=this;
-return _react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:9}}));
+return _react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:10}}));
 }}]);return Right;}(_react.Component);
 
 
 Right.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
-style:_react2.default.PropTypes.object});
+style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array])});
 
 
-var StyledRight=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Right",{},_mapPropsToStyleNames2.default)(
-Right);exports.
-
+var StyledRight=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Right",{},_mapPropsToStyleNames2.default)(Right);exports.
 
 Right=StyledRight;
 //# sourceMappingURL=Right.js.map

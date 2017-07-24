@@ -215,8 +215,13 @@ declare module 'native-base' {
             full?: boolean;
             light?: boolean;
             dark?: boolean;
+             /**
+             * [android] colored ripple effect
+             */
+            androidRippleColor?: string;
         }
         /**
+
          * see Widget List.js
          */
         interface List extends ReactListViewProperties {
@@ -260,10 +265,15 @@ declare module 'native-base' {
             /**
              * Sub caption for List Item.
              */
+
             note?: string;
             itemHeader?: boolean;
             first?: boolean;
             selected?: boolean;
+            /**
+             * [android] colored ripple effect
+             */
+            androidRippleColor?: string;
         }
 
         interface Separator {
