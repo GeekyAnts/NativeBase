@@ -1,6 +1,6 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Root=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Root.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
 var _reactNative=require("react-native");
-
+var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _ToastContainer=require("./ToastContainer");
@@ -19,8 +19,7 @@ if(!_ToastContainer.ToastContainer.toastInstance)_ToastContainer.ToastContainer.
 
 _react2.default.createElement(_Actionsheet.ActionSheetContainer,{
 ref:function ref(c){
-if(!_Actionsheet.ActionSheetContainer.actionsheetInstance)
-_Actionsheet.ActionSheetContainer.actionsheetInstance=c;
+if(!_Actionsheet.ActionSheetContainer.actionsheetInstance)_Actionsheet.ActionSheetContainer.actionsheetInstance=c;
 },__source:{fileName:_jsxFileName,lineNumber:20}})));
 
 
@@ -30,16 +29,10 @@ _Actionsheet.ActionSheetContainer.actionsheetInstance=c;
 
 Root.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
-style:_react.PropTypes.oneOfType([
-_react.PropTypes.object,
-_react.PropTypes.number,
-_react.PropTypes.array])});
+style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array])});
 
 
-
-var StyledRoot=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Root",{},_mapPropsToStyleNames2.default)(
-Root);exports.
-
+var StyledRoot=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Root",{},_mapPropsToStyleNames2.default)(Root);exports.
 
 Root=StyledRoot;
 //# sourceMappingURL=Root.js.map

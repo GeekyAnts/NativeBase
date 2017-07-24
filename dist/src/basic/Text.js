@@ -10,9 +10,7 @@ Text=function(_Component){_inherits(Text,_Component);function Text(){_classCallC
 {var _this2=this;
 return(
 _react2.default.createElement(_reactNative.Text,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:12}}),
-this.props.uppercase?
-_lodash2.default.toUpper(this.props.children):
-this.props.children));
+this.props.uppercase?_lodash2.default.toUpper(this.props.children):this.props.children));
 
 
 }}]);return Text;}(_react.Component);
@@ -21,11 +19,7 @@ this.props.children));
 Text.propTypes=_extends({},
 _reactNative.Text.propTypes,{
 uppercase:_react.PropTypes.bool,
-style:_react.PropTypes.oneOfType([
-_react.PropTypes.object,
-_react.PropTypes.number,
-_react.PropTypes.array])});
-
+style:_react.PropTypes.oneOfType([_react.PropTypes.object,_react.PropTypes.number,_react.PropTypes.array])});
 
 
 Text.defaultProps={
@@ -33,9 +27,7 @@ uppercase:false};
 
 
 var AnimatedText=(0,_animation.connectAnimation)(Text);
-var StyledText=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Text",{},_mapPropsToStyleNames2.default)(
-Text);exports.
-
+var StyledText=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Text",{},_mapPropsToStyleNames2.default)(Text);exports.
 
 Text=StyledText;
 //# sourceMappingURL=Text.js.map
