@@ -40,7 +40,7 @@ class CheckBox extends Component {
 			<TouchableOpacity ref={c => (this._root = c)} {...this.prepareRootProps(variables)}>
 				<IconNB
 					style={{
-						color: variables.checkboxTickColor,
+						color: this.props.checked === true ? variables.checkboxTickColor : 'transparent',
 						fontSize: variables.CheckboxFontSize,
 						lineHeight: variables.CheckboxIconSize,
 					}}
