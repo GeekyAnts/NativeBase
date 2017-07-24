@@ -1,4 +1,5 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Textarea=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Textarea.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _reactNative=require("react-native");
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _platform=require("../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
@@ -30,11 +31,9 @@ _this2._root=c;
 this.prepareRootProps(),{
 multiline:true,
 placeholderTextColor:
-this.props.placeholderTextColor?
-this.props.placeholderTextColor:
-_platform2.default.inputColorPlaceholder,
+this.props.placeholderTextColor?this.props.placeholderTextColor:_platform2.default.inputColorPlaceholder,
 
-underlineColorAndroid:"rgba(0,0,0,0)",__source:{fileName:_jsxFileName,lineNumber:25}})));
+underlineColorAndroid:"rgba(0,0,0,0)",__source:{fileName:_jsxFileName,lineNumber:26}})));
 
 
 }}]);return Textarea;}(_react.Component);
@@ -42,21 +41,13 @@ underlineColorAndroid:"rgba(0,0,0,0)",__source:{fileName:_jsxFileName,lineNumber
 
 Textarea.propTypes=_extends({},
 _reactNative.TextInput.propTypes,{
-style:_react.PropTypes.oneOfType([
-_react.PropTypes.object,
-_react.PropTypes.number,
-_react.PropTypes.array]),
-
-rowSpan:_react.PropTypes.number,
-bordered:_react.PropTypes.bool,
-underline:_react.PropTypes.bool});
+style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),
+rowSpan:_propTypes2.default.number,
+bordered:_propTypes2.default.bool,
+underline:_propTypes2.default.bool});
 
 
-var StyledTextarea=(0,_nativeBaseShoutemTheme.connectStyle)(
-"NativeBase.Textarea",
-{},_mapPropsToStyleNames2.default)(
-
-Textarea);exports.
+var StyledTextarea=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Textarea",{},_mapPropsToStyleNames2.default)(Textarea);exports.
 
 Textarea=StyledTextarea;
 //# sourceMappingURL=Textarea.js.map

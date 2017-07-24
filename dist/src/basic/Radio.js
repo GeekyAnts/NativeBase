@@ -1,4 +1,5 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Radio=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Radio.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _reactNative=require("react-native");
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _Ionicons=require("react-native-vector-icons/Ionicons");var _Ionicons2=_interopRequireDefault(_Ionicons);
@@ -19,17 +20,12 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:"render",value:function render()
 
 {var _this2=this;
-var variables=this.context.theme?
-this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
-
+var variables=this.context.theme?this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 
 return(
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({
-ref:function ref(c){return _this2._root=c;}},
-this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:29}}),
-
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:28}}),
 _reactNative.Platform.OS==="ios"&&!this.props.standardStyle?
 this.props.selected&&
 _react2.default.createElement(_Ionicons2.default,{
@@ -39,43 +35,35 @@ lineHeight:25,
 height:20,
 fontSize:variables.radioBtnSize},
 
-name:"ios-checkmark",__source:{fileName:_jsxFileName,lineNumber:35}}):
+name:"ios-checkmark",__source:{fileName:_jsxFileName,lineNumber:31}}):
 
 _react2.default.createElement(_Ionicons2.default,{
 style:{
 color:
 _reactNative.Platform.OS==="ios"?
 this.props.selected?variables.brandPrimary:undefined:
-this.props.selected?
-variables.radioSelectedColorAndroid:
-undefined,
+this.props.selected?variables.radioSelectedColorAndroid:undefined,
 lineHeight:variables.radioBtnLineHeight,
 fontSize:variables.radioBtnSize},
 
 name:
 _reactNative.Platform.OS==="ios"?
-this.props.selected?
-"ios-radio-button-on":
-"ios-radio-button-off":
-this.props.selected?
-"md-radio-button-on":
-"md-radio-button-off",__source:{fileName:_jsxFileName,lineNumber:44}})));
+this.props.selected?"ios-radio-button-on":"ios-radio-button-off":
+this.props.selected?"md-radio-button-on":"md-radio-button-off",__source:{fileName:_jsxFileName,lineNumber:40}})));
 
 
 
 
-}}]);return Radio;}(_react.Component);Radio.contextTypes={theme:_react.PropTypes.object};
+}}]);return Radio;}(_react.Component);Radio.contextTypes={theme:_propTypes2.default.object};
 
 
 Radio.propTypes=_extends({},
 _reactNative.TouchableOpacity.propTypes,{
-selected:_react.PropTypes.bool,
-standardStyle:_react.PropTypes.bool});
+selected:_propTypes2.default.bool,
+standardStyle:_propTypes2.default.bool});
 
 
-var StyledRadio=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Radio",{},_mapPropsToStyleNames2.default)(
-Radio);exports.
-
+var StyledRadio=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Radio",{},_mapPropsToStyleNames2.default)(Radio);exports.
 
 Radio=StyledRadio;
 //# sourceMappingURL=Radio.js.map

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Animated, PanResponder, Platform, StyleSheet, TouchableOpacity, View } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import { Text } from "./Text";

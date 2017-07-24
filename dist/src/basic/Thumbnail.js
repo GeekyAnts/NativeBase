@@ -1,4 +1,5 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Thumbnail=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Thumbnail.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _reactNative=require("react-native");
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _computeProps=require("../Utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
@@ -6,27 +7,19 @@ var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapProps
 
 Thumbnail=function(_Component){_inherits(Thumbnail,_Component);function Thumbnail(){_classCallCheck(this,Thumbnail);return _possibleConstructorReturn(this,(Thumbnail.__proto__||Object.getPrototypeOf(Thumbnail)).apply(this,arguments));}_createClass(Thumbnail,[{key:"render",value:function render()
 {var _this2=this;
-return _react2.default.createElement(_reactNative.Image,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:9}}));
+return _react2.default.createElement(_reactNative.Image,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:10}}));
 }}]);return Thumbnail;}(_react.Component);
 
 
 Thumbnail.propTypes=_extends({},
 _reactNative.Image.propTypes,{
-style:_react.PropTypes.oneOfType([
-_react.PropTypes.object,
-_react.PropTypes.number,
-_react.PropTypes.array]),
-
-square:_react.PropTypes.bool,
-circular:_react.PropTypes.bool,
-size:_react.PropTypes.number});
+style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),
+square:_propTypes2.default.bool,
+circular:_propTypes2.default.bool,
+size:_propTypes2.default.number});
 
 
-var StyledThumbnail=(0,_nativeBaseShoutemTheme.connectStyle)(
-"NativeBase.Thumbnail",
-{},_mapPropsToStyleNames2.default)(
-
-Thumbnail);exports.
+var StyledThumbnail=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Thumbnail",{},_mapPropsToStyleNames2.default)(Thumbnail);exports.
 
 Thumbnail=StyledThumbnail;
 //# sourceMappingURL=Thumbnail.js.map

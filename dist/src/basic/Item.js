@@ -1,4 +1,5 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Item=undefined;var _jsxFileName="src/basic/Item.js";var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _reactNative=require("react-native");
 var _Input=require("./Input");
 var _Label=require("./Label");
@@ -25,8 +26,7 @@ if(this.inputProps&&this.inputProps.value){
 this.setState({isFocused:true});
 this.floatUp(-16);
 }
-if(this.inputProps&&this.inputProps.getRef)
-this.inputProps.getRef(this._inputRef);
+if(this.inputProps&&this.inputProps.getRef)this.inputProps.getRef(this._inputRef);
 }
 }},{key:"componentWillReceiveProps",value:function componentWillReceiveProps(
 nextProps){var _this2=this;
@@ -44,8 +44,7 @@ if(this.inputProps&&this.inputProps.value){
 this.setState({isFocused:true});
 this.floatUp(-16);
 }
-if(this.inputProps&&this.inputProps.getRef)
-this.inputProps.getRef(this._inputRef);
+if(this.inputProps&&this.inputProps.getRef)this.inputProps.getRef(this._inputRef);
 }
 }},{key:"floatBack",value:function floatBack()
 
@@ -135,7 +134,7 @@ return item;
 }
 });
 if(this.props.floatingLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:"i1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:138}})));
+newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:"i1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:137}})));
 newChildren.push(
 _react2.default.createElement(_reactNative.Animated.View,{
 key:"float",
@@ -146,10 +145,10 @@ right:0,
 top:this.state.topAnim,
 opacity:this.state.opacAnim,
 paddingTop:_reactNative.Platform.OS==="ios"?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:140}},
+paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:139}},
 
 
-_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:152}}),
+_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:151}}),
 this.renderLabel(label,labelProps))));
 
 
@@ -173,7 +172,7 @@ inputProps.onBlur&&inputProps.onBlur();
 onChangeText:function onChangeText(text){
 _this3.setState({text:text});
 inputProps.onChangeText&&inputProps.onChangeText(text);
-},__source:{fileName:_jsxFileName,lineNumber:158}})));
+},__source:{fileName:_jsxFileName,lineNumber:157}})));
 
 
 }else if(this.props.floatingLabel){
@@ -187,10 +186,10 @@ right:0,
 top:this.state.topAnim,
 opacity:this.state.opacAnim,
 paddingTop:_reactNative.Platform.OS==="ios"?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:181}},
+paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:180}},
 
 
-_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:193}}),
+_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:192}}),
 this.renderLabel(label,labelProps))));
 
 
@@ -216,7 +215,7 @@ inputProps.onBlur&&inputProps.onBlur();
 onChangeText:function onChangeText(text){
 _this3.setState({text:text});
 inputProps.onChangeText&&inputProps.onChangeText(text);
-},__source:{fileName:_jsxFileName,lineNumber:199}})));
+},__source:{fileName:_jsxFileName,lineNumber:198}})));
 
 
 }else if(this.props.stackedLabel&&icon.length){
@@ -226,17 +225,13 @@ key:"s",
 style:{
 flexDirection:"row",
 flex:1,
-width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:224}},
+width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:223}},
 
 
-_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:232}})),
-_react2.default.createElement(_reactNative.View,{style:{flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:233}},
-_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:234}})),
-_react2.default.createElement(_Input.Input,_extends({
-key:"s3"},
-inputProps,{
-style:{width:_platform2.default.deviceWidth-40},__source:{fileName:_jsxFileName,lineNumber:235}})))));
-
+_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:231}})),
+_react2.default.createElement(_reactNative.View,{style:{flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:232}},
+_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:233}})),
+_react2.default.createElement(_Input.Input,_extends({key:"s3"},inputProps,{style:{width:_platform2.default.deviceWidth-40},__source:{fileName:_jsxFileName,lineNumber:234}})))));
 
 
 
@@ -249,9 +244,7 @@ return newChildren;
 return{
 roundedInputGroup:{
 borderWidth:this.props.rounded?_platform2.default.borderWidth*2:undefined,
-borderRadius:this.props.rounded?
-_platform2.default.inputGroupRoundedBorderRadius:
-undefined}};
+borderRadius:this.props.rounded?_platform2.default.inputGroupRoundedBorderRadius:undefined}};
 
 
 }},{key:"prepareRootProps",value:function prepareRootProps()
@@ -265,11 +258,7 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:"render",value:function render()
 {var _this4=this;
 return(
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({
-ref:function ref(c){return _this4._root=c;}},
-this.prepareRootProps(),{
-activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:268}}),
-
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this4._root=c;}},this.prepareRootProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:261}}),
 this.renderChildren()));
 
 
@@ -280,38 +269,28 @@ var childrenType=function childrenType(props,propName,component){
 var error=void 0;
 var prop=props[propName];
 if(!props.children.length){
-error=new Error(
-component+" should have both Label and Input components");
-
+error=new Error(component+" should have both Label and Input components");
 }else if(
 props.children[0].type.displayName!=="Styled(Label)"||
 props.children[1].type.displayName!=="Styled(Input)")
 {
-error=new Error(
-component+" should have Label and Input components only");
-
+error=new Error(component+" should have Label and Input components only");
 }
 return error;
 };
 
 Item.propTypes=_extends({},
 _reactNative.TouchableOpacity.propTypes,{
-style:_react.PropTypes.oneOfType([
-_react.PropTypes.object,
-_react.PropTypes.number,
-_react.PropTypes.array]),
-
-inlineLabel:_react.PropTypes.bool,
-floatingLabel:_react.PropTypes.bool,
-stackedLabel:_react.PropTypes.bool,
-fixedLabel:_react.PropTypes.bool,
-success:_react.PropTypes.bool,
-error:_react.PropTypes.bool});
+style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),
+inlineLabel:_propTypes2.default.bool,
+floatingLabel:_propTypes2.default.bool,
+stackedLabel:_propTypes2.default.bool,
+fixedLabel:_propTypes2.default.bool,
+success:_propTypes2.default.bool,
+error:_propTypes2.default.bool});
 
 
-var StyledItem=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Item",{},_mapPropsToStyleNames2.default)(
-Item);exports.
-
+var StyledItem=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Item",{},_mapPropsToStyleNames2.default)(Item);exports.
 
 Item=StyledItem;
 //# sourceMappingURL=Item.js.map

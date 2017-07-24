@@ -1,4 +1,5 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.ToastContainer=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/ToastContainer.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _reactNative=require("react-native");
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _Text=require("./Text");
@@ -82,22 +83,19 @@ modalVisible:false});
 {var _this4=this;
 if(this.state.modalVisible){
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:85}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:86}},
 _react2.default.createElement(_Toast.Toast,{
 style:this.state.style,
 danger:this.state.type=="danger"?true:false,
 success:this.state.type=="success"?true:false,
-warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:86}},
+warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:87}},
 
-_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:92}},
+_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:93}},
 this.state.text),
 
 this.state.buttonText&&
-_react2.default.createElement(_Button.Button,{
-style:this.state.buttonStyle,
-onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:96}},
-
-_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:100}},
+_react2.default.createElement(_Button.Button,{style:this.state.buttonStyle,onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:97}},
+_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:98}},
 this.state.buttonText)))));
 
 
@@ -110,18 +108,10 @@ this.state.buttonText)))));
 
 ToastContainer.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
-style:_react.PropTypes.oneOfType([
-_react.PropTypes.object,
-_react.PropTypes.number,
-_react.PropTypes.array])});
+style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array])});
 
 
-
-var StyledToastContainer=(0,_nativeBaseShoutemTheme.connectStyle)(
-"NativeBase.ToastContainer",
-{},_mapPropsToStyleNames2.default)(
-
-ToastContainer);exports.
+var StyledToastContainer=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.ToastContainer",{},_mapPropsToStyleNames2.default)(ToastContainer);exports.
 
 ToastContainer=StyledToastContainer;
 //# sourceMappingURL=ToastContainer.js.map
