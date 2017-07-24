@@ -32,8 +32,8 @@ class Card extends Component {
 Card.propTypes = {
 	...ViewPropTypes,
 	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
-	dataArray: PropTypes.object,
-	renderRow: PropTypes.object,
+	dataArray: PropTypes.array,
+	renderRow: PropTypes.func,
 };
 
 const StyledCard = connectStyle("NativeBase.Card", {}, mapPropsToStyleNames)(Card);
