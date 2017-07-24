@@ -1,6 +1,7 @@
 var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Tabs/index.js";
 
 var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
+var _createReactClass=require("create-react-class");var _createReactClass2=_interopRequireDefault(_createReactClass);
 
 
 
@@ -10,7 +11,7 @@ var SceneComponent=require("./SceneComponent");var _require=
 require("./DefaultTabBar"),DefaultTabBar=_require.DefaultTabBar;var _require2=
 require("./ScrollableTabBar"),ScrollableTabBar=_require2.ScrollableTabBar;
 
-var ScrollableTabView=React.createClass({displayName:"ScrollableTabView",
+var ScrollableTabView=(0,_createReactClass2.default)({displayName:"ScrollableTabView",
 mixins:[TimerMixin],
 statics:{
 DefaultTabBar:DefaultTabBar,
@@ -102,7 +103,7 @@ return null;
 }else if(this.props.renderTabBar){
 return React.cloneElement(this.props.renderTabBar(props),props);
 }else{
-return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:105}}));
+return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:106}}));
 }
 },
 
@@ -165,7 +166,7 @@ scrollEnabled:!this.props.locked,
 directionalLockEnabled:true,
 alwaysBounceVertical:false,
 keyboardDismissMode:"on-drag"},
-this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:145}}),
+this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:146}}),
 
 scenes));
 
@@ -179,9 +180,9 @@ return(
 React.createElement(SceneComponent,{
 key:child.key,
 shouldUpdated:_this4._shouldRenderSceneKey(idx,_this4.state.currentPage),
-style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:179}},
+style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:180}},
 
-_this4._keyExists(_this4.state.sceneKeys,key)?child:React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:184}})));
+_this4._keyExists(_this4.state.sceneKeys,key)?child:React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:185}})));
 
 
 });
@@ -276,7 +277,7 @@ this.props.tabBarPosition==="overlayTop"?"top":"bottom",0);
 }
 
 return(
-React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:279}},
+React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:280}},
 this.props.tabBarPosition==="top"&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
 (this.props.tabBarPosition==="bottom"||overlayTabs)&&this.renderTabBar(tabBarProps)));
