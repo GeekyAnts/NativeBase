@@ -1,4 +1,5 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.SwipeRow=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/SwipeRow.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _reactNative=require("react-native");
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _Text=require("./Text");
@@ -191,14 +192,14 @@ _react2.default.createElement(_reactNative.Animated.View,_extends({},
 this._panResponder.panHandlers,{
 style:{
 transform:[{translateX:this._translateX}],
-zIndex:2},__source:{fileName:_jsxFileName,lineNumber:190}}),
+zIndex:2},__source:{fileName:_jsxFileName,lineNumber:191}}),
 
 
 !this.props.list?
-_react2.default.createElement(_ListItem.ListItem,{__source:{fileName:_jsxFileName,lineNumber:198}},
+_react2.default.createElement(_ListItem.ListItem,{__source:{fileName:_jsxFileName,lineNumber:199}},
 this.props.body):
 
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:201}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:202}},
 this.props.body)));
 
 
@@ -210,14 +211,14 @@ this._panResponder.panHandlers,{
 onLayout:function onLayout(e){return _this5.onContentLayout(e);},
 style:{
 transform:[{translateX:this._translateX}],
-zIndex:2},__source:{fileName:_jsxFileName,lineNumber:208}}),
+zIndex:2},__source:{fileName:_jsxFileName,lineNumber:209}}),
 
 
 !this.props.list?
-_react2.default.createElement(_ListItem.ListItem,{__source:{fileName:_jsxFileName,lineNumber:217}},
+_react2.default.createElement(_ListItem.ListItem,{__source:{fileName:_jsxFileName,lineNumber:218}},
 this.props.body):
 
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:220}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:221}},
 this.props.body)));
 
 
@@ -227,7 +228,7 @@ this.props.body)));
 
 {
 return(
-_react2.default.createElement(_reactNative.View,{style:this.props.style?this.props.style:undefined,__source:{fileName:_jsxFileName,lineNumber:230}},
+_react2.default.createElement(_reactNative.View,{style:this.props.style?this.props.style:undefined,__source:{fileName:_jsxFileName,lineNumber:231}},
 _react2.default.createElement(_reactNative.View,{
 style:[
 styles.hidden,
@@ -235,15 +236,15 @@ styles.hidden,
 height:this.state.hiddenHeight,
 width:this.state.hiddenWidth,
 flexDirection:"row",
-justifyContent:"space-between"}],__source:{fileName:_jsxFileName,lineNumber:231}},
+justifyContent:"space-between"}],__source:{fileName:_jsxFileName,lineNumber:232}},
 
 
 
-_react2.default.createElement(_Left.Left,{style:{width:this.props.leftOpenValue,zIndex:1},__source:{fileName:_jsxFileName,lineNumber:242}},
+_react2.default.createElement(_Left.Left,{style:{width:this.props.leftOpenValue,zIndex:1},__source:{fileName:_jsxFileName,lineNumber:243}},
 this.props.left),
 
-_react2.default.createElement(_Body.Body,{style:{flex:0},__source:{fileName:_jsxFileName,lineNumber:245}}),
-_react2.default.createElement(_Right.Right,{style:{width:-this.props.rightOpenValue,zIndex:1},__source:{fileName:_jsxFileName,lineNumber:246}},
+_react2.default.createElement(_Body.Body,{style:{flex:0},__source:{fileName:_jsxFileName,lineNumber:246}}),
+_react2.default.createElement(_Right.Right,{style:{width:-this.props.rightOpenValue,zIndex:1},__source:{fileName:_jsxFileName,lineNumber:247}},
 this.props.right)),
 
 

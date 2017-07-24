@@ -1,4 +1,5 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.IconNB=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/IconNB.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 
@@ -21,8 +22,7 @@ IconNB=function(_Component){_inherits(IconNB,_Component);function IconNB(){_clas
 
 {
 if(this.context.theme){
-switch(this.context.theme["@@shoutem.theme/themeStyle"].variables.
-iconFamily){
+switch(this.context.theme["@@shoutem.theme/themeStyle"].variables.iconFamily){
 case"Ionicons":
 this.Icon=_Ionicons2.default;
 break;
@@ -60,22 +60,14 @@ this.Icon=_Ionicons2.default;
 
 {var _this2=this;
 return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:62}}));
-}}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_react.PropTypes.object};
+}}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_propTypes2.default.object};
 
 
 IconNB.propTypes={
-style:_react.PropTypes.oneOfType([
-_react.PropTypes.object,
-_react.PropTypes.number,
-_react.PropTypes.array])};
+style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array])};
 
 
-
-var StyledIconNB=(0,_nativeBaseShoutemTheme.connectStyle)(
-"NativeBase.IconNB",
-{},_mapPropsToStyleNames2.default)(
-
-IconNB);exports.
+var StyledIconNB=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.IconNB",{},_mapPropsToStyleNames2.default)(IconNB);exports.
 
 IconNB=StyledIconNB;
 //# sourceMappingURL=IconNB.js.map

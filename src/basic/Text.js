@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Text as RNText } from "react-native";
 import _ from "lodash";
 
 import { connectStyle } from "native-base-shoutem-theme";
-import { connectAnimation } from "@shoutem/animation";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Text extends Component {
@@ -26,7 +26,6 @@ Text.defaultProps = {
 	uppercase: false,
 };
 
-const AnimatedText = connectAnimation(Text);
 const StyledText = connectStyle("NativeBase.Text", {}, mapPropsToStyleNames)(Text);
 
 export { StyledText as Text };

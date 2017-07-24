@@ -24,15 +24,12 @@
 	"jest": {
 		"preset": "react-native",
 		"rootDir": "src",
-		"transformIgnorePatterns": [
-			"node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
-		]
+		"transformIgnorePatterns": ["node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"]
 	},
 	"version": "2.3.0",
 	"license": "Apache-2.0",
 	"private": false,
 	"dependencies": {
-		"@shoutem/animation": "^0.8.9",
 		"blueimp-md5": "^2.5.0",
 		"clamp": "^1.0.1",
 		"color": "~1.0.3",
@@ -82,8 +79,6 @@
 		"url": "git+https://github.com/GeekyAnts/NativeBase.git"
 	},
 	"rnpm": {
-		"assets": [
-			"Fonts"
-		]
+		"assets": ["Fonts"]
 	}
 }
