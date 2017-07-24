@@ -40,7 +40,7 @@ return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps(variables),{__source:{fileName:_jsxFileName,lineNumber:40}}),
 _react2.default.createElement(_Ionicons2.default,{
 style:{
-color:variables.checkboxTickColor,
+color:this.props.checked===true?variables.checkboxTickColor:"transparent",
 fontSize:variables.CheckboxFontSize,
 lineHeight:variables.CheckboxIconSize},
 
