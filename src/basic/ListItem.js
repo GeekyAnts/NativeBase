@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
-import { TouchableHighlight, Platform, TouchableNativeFeedback, View } from 'react-native';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { TouchableHighlight, Platform, TouchableNativeFeedback, View } from "react-native";
 
-import { connectStyle } from 'native-base-shoutem-theme';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
-import variable from '../theme/variables/platform';
+import { connectStyle } from "native-base-shoutem-theme";
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import variable from "../theme/variables/platform";
 
 class ListItem extends Component {
 	static contextTypes = {
-		theme: React.PropTypes.object,
+		theme: PropTypes.object,
 	};
 	render() {
-		const variables = this.context.theme ? this.context.theme['@@shoutem.theme/themeStyle'].variables : variable;
+		const variables = this.context.theme ? this.context.theme["@@shoutem.theme/themeStyle"].variables : variable;
 
 		if (
-			Platform.OS === 'ios' ||
+			Platform.OS === "ios" ||
 			variable.androidRipple === false ||
 			(!this.props.onPress && !this.props.onLongPress) ||
 			Platform.Version <= 21
@@ -25,7 +26,9 @@ class ListItem extends Component {
 					ref={c => (this._root = c)}
 					underlayColor={variables.listBtnUnderlayColor}
 				>
-					<View {...this.props}>{this.props.children}</View>
+					<View {...this.props}>
+						{this.props.children}
+					</View>
 				</TouchableHighlight>
 			);
 		} else {
@@ -41,7 +44,9 @@ class ListItem extends Component {
 					}
 				>
 					<View style={{ marginLeft: -17, paddingLeft: 17 }}>
-						<View {...this.props}>{this.props.children}</View>
+						<View {...this.props}>
+							{this.props.children}
+						</View>
 					</View>
 				</TouchableNativeFeedback>
 			);
@@ -51,11 +56,11 @@ class ListItem extends Component {
 
 ListItem.propTypes = {
 	...TouchableHighlight.propTypes,
-	style: React.PropTypes.object,
-	itemDivider: React.PropTypes.bool,
-	button: React.PropTypes.bool,
+	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+	itemDivider: PropTypes.bool,
+	button: PropTypes.bool,
 };
 
-const StyledListItem = connectStyle('NativeBase.ListItem', {}, mapPropsToStyleNames)(ListItem);
+const StyledListItem = connectStyle("NativeBase.ListItem", {}, mapPropsToStyleNames)(ListItem);
 
 export { StyledListItem as ListItem };

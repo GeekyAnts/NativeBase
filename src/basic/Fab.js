@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import computeProps from "../Utils/computeProps";
 // import Button from './../Button';
 import {

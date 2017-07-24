@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.mapPropsToStyleNames=exports.SwipeRow=exports.Root=exports.Segment=exports.DefaultTabBar=exports.TabContainer=exports.TabHeading=exports.ActionSheet=exports.ScrollableTab=exports.Toast=exports.View=exports.TabContent=exports.Text=exports.Grid=exports.Row=exports.Col=exports.Textarea=exports.Label=exports.Subtitle=exports.Item=exports.DeckSwiper=exports.Separator=exports.ListItem=exports.List=exports.Picker=exports.FooterTab=exports.Tabs=exports.Tab=exports.Footer=exports.Content=exports.Container=exports.Switch=exports.Spinner=exports.H3=exports.H2=exports.H1=exports.CardItem=exports.Card=exports.Thumbnail=exports.Radio=exports.CheckBox=exports.Badge=exports.Body=exports.Right=exports.Left=exports.Fab=exports.Title=exports.Input=exports.InputGroup=exports.Form=exports.Header=exports.Icon=exports.IconNB=exports.Button=exports.Drawer=exports.connectStyle=exports.StyleProvider=exports.variables=exports.getTheme=exports.Swipeout=undefined;var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
+Object.defineProperty(exports,"__esModule",{value:true});exports.mapPropsToStyleNames=exports.SwipeRow=exports.Root=exports.Segment=exports.DefaultTabBar=exports.TabContainer=exports.TabHeading=exports.ActionSheet=exports.ScrollableTab=exports.Toast=exports.View=exports.TabContent=exports.Text=exports.Grid=exports.Row=exports.Col=exports.Textarea=exports.Label=exports.Subtitle=exports.Item=exports.DeckSwiper=exports.Separator=exports.ListItem=exports.List=exports.Picker=exports.FooterTab=exports.Tabs=exports.Tab=exports.Footer=exports.Content=exports.Container=exports.Switch=exports.Spinner=exports.H3=exports.H2=exports.H1=exports.CardItem=exports.Card=exports.Thumbnail=exports.Radio=exports.CheckBox=exports.Badge=exports.Body=exports.Right=exports.Left=exports.Fab=exports.Title=exports.Input=exports.InputGroup=exports.Form=exports.Header=exports.Icon=exports.IconNB=exports.Button=exports.Drawer=exports.connectStyle=exports.StyleProvider=exports.variables=exports.getTheme=undefined;var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _lodash=require("lodash");
 var _reactNativeEasyGrid=require("react-native-easy-grid");
 
@@ -7,7 +7,6 @@ var _components=require("./theme/components");var _components2=_interopRequireDe
 var _platform=require("./theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _Drawer=require("./basic/Drawer");var _Drawer2=_interopRequireDefault(_Drawer);
 var _SwipeRow=require("./basic/SwipeRow");
-var _Swipe=require("./basic/Swipe");
 var _Text=require("./basic/Text");
 var _View=require("./basic/View");
 var _Button=require("./basic/Button");
@@ -60,7 +59,6 @@ var _Subtitle=require("./basic/Subtitle");function _interopRequireDefault(obj){r
 (0,_init2.default)();exports.
 
 
-Swipeout=_Swipe.Swipeout;exports.
 getTheme=_components2.default;exports.
 variables=_platform2.default;exports.
 StyleProvider=_nativeBaseShoutemTheme.StyleProvider;exports.
