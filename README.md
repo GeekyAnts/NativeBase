@@ -112,6 +112,7 @@ Find the [KitchnSink repo here](https://github.com/GeekyAnts/NativeBase-KitchenS
 | v2.1.4 to v2.1.5 | v0.44.0 to v0.45.0 |
 | v2.2.0 | v0.44.0 to v0.45.0 |
 | v2.2.1 | v0.46.0 and above |
+| v2.3.0 | v0.46.0 and above *(does not support React 16.0.0-alpha.13)*|
 
 ## 7. [Native Starter Kit](https://github.com/start-react/native-starter-kit)
 
