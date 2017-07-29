@@ -81,7 +81,7 @@ var tabUnderlineStyle={
 position:"absolute",
 width:containerWidth/numberOfTabs,
 height:4,
-backgroundColor:variables.topTabBarActiveBorderColor,
+backgroundColor:'green',
 bottom:0};
 
 
