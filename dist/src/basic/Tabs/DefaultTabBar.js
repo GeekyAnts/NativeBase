@@ -5,9 +5,10 @@ var _createReactClass=require("create-react-class");var _createReactClass2=_inte
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _platform=require("./../../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _index=require("./../../index");
-var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var ReactNative=require("react-native");var
+var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);
 
-StyleSheet=ReactNative.StyleSheet,View=ReactNative.View,Animated=ReactNative.Animated,Platform=ReactNative.Platform,ViewPropTypes=ReactNative.ViewPropTypes;
+
+var _Utils=require("../../Utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var ReactNative=require("react-native");var StyleSheet=ReactNative.StyleSheet,View=ReactNative.View,Animated=ReactNative.Animated,Platform=ReactNative.Platform;
 var Button=require("./Button");
 
 var DefaultTabBar=(0,_createReactClass2.default)({displayName:"DefaultTabBar",
@@ -18,9 +19,9 @@ tabs:_propTypes2.default.array,
 backgroundColor:_propTypes2.default.string,
 activeTextColor:_propTypes2.default.string,
 inactiveTextColor:_propTypes2.default.string,
-tabStyle:ViewPropTypes.style,
+tabStyle:_Utils.ViewPropTypes.style,
 renderTab:_propTypes2.default.func,
-underlineStyle:ViewPropTypes.style},
+underlineStyle:_Utils.ViewPropTypes.style},
 
 contextTypes:{
 theme:_propTypes2.default.object},
@@ -53,9 +54,9 @@ var textColor=isTabActive?activeTextColor:inactiveTextColor;
 var fontWeight=isTabActive?"bold":"normal";
 if(typeof name==="string"){
 return(
-_react2.default.createElement(Button,{style:{flex:1},key:name,onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:56}},
-_react2.default.createElement(_index.TabHeading,{style:isTabActive?activeTabStyle:tabStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:57}},
-_react2.default.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:58}},
+_react2.default.createElement(Button,{style:{flex:1},key:name,onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:57}},
+_react2.default.createElement(_index.TabHeading,{style:isTabActive?activeTabStyle:tabStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:58}},
+_react2.default.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:59}},
 name))));
 
 
@@ -63,8 +64,8 @@ name))));
 
 }else{
 return(
-_react2.default.createElement(Button,{style:{flex:1},key:_lodash2.default.random(1.2,5.2),onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:66}},
-_react2.default.createElement(_index.TabHeading,{style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:67}},
+_react2.default.createElement(Button,{style:{flex:1},key:_lodash2.default.random(1.2,5.2),onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:67}},
+_react2.default.createElement(_index.TabHeading,{style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:68}},
 headerContent)));
 
 
@@ -90,7 +91,7 @@ inputRange:[0,1],
 outputRange:[0,containerWidth/numberOfTabs]});
 
 return(
-_react2.default.createElement(_index.TabContainer,{__source:{fileName:_jsxFileName,lineNumber:93}},
+_react2.default.createElement(_index.TabContainer,{__source:{fileName:_jsxFileName,lineNumber:94}},
 this.props.tabs.map(function(name,page){
 var isTabActive=_this.props.activeTab===page;
 var renderTab=_this.props.renderTab||_this.renderTab;
@@ -106,7 +107,7 @@ _this.props.activeTextStyle[page],
 _this.props.tabHeaderStyle[page]);
 
 }),
-_react2.default.createElement(Animated.View,{style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:109}})));
+_react2.default.createElement(Animated.View,{style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:110}})));
 
 
 }});

@@ -7,7 +7,8 @@ import variable from "./../../theme/variables/platform";
 import { TabHeading, Text, TabContainer } from "./../../index";
 import _ from "lodash";
 
-const { StyleSheet, View, Animated, Platform, ViewPropTypes } = ReactNative;
+const { StyleSheet, View, Animated, Platform } = ReactNative;
+import { ViewPropTypes } from '../../Utils';
 const Button = require("./Button");
 
 const DefaultTabBar = createReactClass({

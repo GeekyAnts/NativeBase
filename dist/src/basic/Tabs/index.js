@@ -4,8 +4,9 @@ var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_pro
 var _createReactClass=require("create-react-class");var _createReactClass2=_interopRequireDefault(_createReactClass);
 
 
+var _Utils=require("../../Utils");
 
-var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var React=require("react");var Component=React.Component;var ReactNative=require("react-native");var Dimensions=ReactNative.Dimensions,View=ReactNative.View,Animated=ReactNative.Animated,ScrollView=ReactNative.ScrollView,StyleSheet=ReactNative.StyleSheet,InteractionManager=ReactNative.InteractionManager,Platform=ReactNative.Platform,ViewPropTypes=ReactNative.ViewPropTypes;var TimerMixin=require("react-timer-mixin");
+var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var React=require("react");var Component=React.Component;var ReactNative=require("react-native");var Dimensions=ReactNative.Dimensions,View=ReactNative.View,Animated=ReactNative.Animated,ScrollView=ReactNative.ScrollView,StyleSheet=ReactNative.StyleSheet,InteractionManager=ReactNative.InteractionManager,Platform=ReactNative.Platform;var TimerMixin=require("react-timer-mixin");
 
 var SceneComponent=require("./SceneComponent");var _require=
 require("./DefaultTabBar"),DefaultTabBar=_require.DefaultTabBar;var _require2=
@@ -25,7 +26,7 @@ page:_propTypes2.default.number,
 onChangeTab:_propTypes2.default.func,
 onScroll:_propTypes2.default.func,
 renderTabBar:_propTypes2.default.any,
-style:ViewPropTypes.style,
+style:_Utils.ViewPropTypes.style,
 contentProps:_propTypes2.default.object,
 scrollWithoutAnimation:_propTypes2.default.bool,
 locked:_propTypes2.default.bool,
@@ -103,7 +104,7 @@ return null;
 }else if(this.props.renderTabBar){
 return React.cloneElement(this.props.renderTabBar(props),props);
 }else{
-return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:106}}));
+return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:107}}));
 }
 },
 
@@ -166,7 +167,7 @@ scrollEnabled:!this.props.locked,
 directionalLockEnabled:true,
 alwaysBounceVertical:false,
 keyboardDismissMode:"on-drag"},
-this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:146}}),
+this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:147}}),
 
 scenes));
 
@@ -180,9 +181,9 @@ return(
 React.createElement(SceneComponent,{
 key:child.key,
 shouldUpdated:_this4._shouldRenderSceneKey(idx,_this4.state.currentPage),
-style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:180}},
+style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:181}},
 
-_this4._keyExists(_this4.state.sceneKeys,key)?child:React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:185}})));
+_this4._keyExists(_this4.state.sceneKeys,key)?child:React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:186}})));
 
 
 });
@@ -277,7 +278,7 @@ this.props.tabBarPosition==="overlayTop"?"top":"bottom",0);
 }
 
 return(
-React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:280}},
+React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:281}},
 this.props.tabBarPosition==="top"&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
 (this.props.tabBarPosition==="bottom"||overlayTabs)&&this.renderTabBar(tabBarProps)));

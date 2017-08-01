@@ -6,7 +6,8 @@ import { connectStyle, StyleProvider } from "native-base-shoutem-theme";
 import variable from "./../../theme/variables/platform";
 import { TabHeading, Text, TabContainer } from "./../../index";
 import _ from "lodash";
-const { View, Animated, StyleSheet, ScrollView, Platform, Dimensions, ViewPropTypes } = ReactNative;
+const { View, Animated, StyleSheet, ScrollView, Platform, Dimensions } = ReactNative;
+import { ViewPropTypes } from '../../Utils';
 const Button = require("./Button");
 
 const WINDOW_WIDTH = Dimensions.get("window").width;
