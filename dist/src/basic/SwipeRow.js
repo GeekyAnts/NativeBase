@@ -199,7 +199,7 @@ zIndex:2},__source:{fileName:_jsxFileName,lineNumber:191}}),
 _react2.default.createElement(_ListItem.ListItem,{__source:{fileName:_jsxFileName,lineNumber:199}},
 this.props.body):
 
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:202}},
+_react2.default.createElement(_reactNative.View,{style:{backgroundColor:"#FFF"},__source:{fileName:_jsxFileName,lineNumber:202}},
 this.props.body)));
 
 
@@ -218,7 +218,7 @@ zIndex:2},__source:{fileName:_jsxFileName,lineNumber:209}}),
 _react2.default.createElement(_ListItem.ListItem,{__source:{fileName:_jsxFileName,lineNumber:218}},
 this.props.body):
 
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:221}},
+_react2.default.createElement(_reactNative.View,{style:{backgroundColor:"#FFF"},__source:{fileName:_jsxFileName,lineNumber:221}},
 this.props.body)));
 
 

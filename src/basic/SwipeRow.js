@@ -199,7 +199,7 @@ class SwipeRow extends Component {
 						? <ListItem>
 								{this.props.body}
 							</ListItem>
-						: <View>
+						: <View style={{ backgroundColor: "#FFF" }}>
 								{this.props.body}
 							</View>}
 				</Animated.View>
@@ -218,7 +218,7 @@ class SwipeRow extends Component {
 						? <ListItem>
 								{this.props.body}
 							</ListItem>
-						: <View>
+						: <View style={{ backgroundColor: "#FFF" }}>
 								{this.props.body}
 							</View>}
 				</Animated.View>
