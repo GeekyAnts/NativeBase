@@ -269,6 +269,7 @@ declare module "native-base" {
 			note?: string;
 			itemHeader?: boolean;
 			first?: boolean;
+			last?: boolean;
 			selected?: boolean;
 			/**
              * [android] colored ripple effect
