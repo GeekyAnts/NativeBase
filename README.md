@@ -69,6 +69,8 @@ You've successfully setup [NativeBase](https://nativebase.io/) with your [React 
 CRNA helps you make React Native apps with no build configuration. Create React App works on macOS, Windows, and Linux. <br />
 Refer to this link for additional information [CRNA](https://github.com/react-community/create-react-native-app)
 
+*It is not necessary to run `react-native link` as described above if using CRNA or Expo*
+
 *Install NativeBase*
 ```js
 npm install native-base --save
