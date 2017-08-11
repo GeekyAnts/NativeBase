@@ -49,6 +49,9 @@ What is really great with [NativeBase](https://nativebase.io/) is that you can u
 
 
 ## 4. Getting Started
+
+**a. Setup with pure React Native app**
+
 *Install NativeBase*
 
 ```js
@@ -64,10 +67,11 @@ react-native link
 You've successfully setup [NativeBase](https://nativebase.io/) with your [React Native](https://facebook.github.io/react-native/) app. Your React Native app is now all set to run on iOS and Android simulator.
 
 
-## Setup with CRNA
+**b. Setup with CRNA**
+
 *Create React Native project using the CRNA cli.* <br />
 CRNA helps you make React Native apps with no build configuration. Create React App works on macOS, Windows, and Linux. <br />
-Refer to this link for additional information [CRNA](https://github.com/react-community/create-react-native-app)
+Refer this link for additional information [CRNA](https://github.com/react-community/create-react-native-app)
 
 *Install NativeBase*
 ```js
