@@ -498,6 +498,10 @@ declare module "native-base" {
              * This can also be used along with placeholder.
              */
 			stackedLabel?: boolean;
+			/**
+             * Disables inputting data.
+             */
+			disabled?: boolean;
 		}
 		/**
          * see Widget Textarea.js
