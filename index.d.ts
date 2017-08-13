@@ -257,6 +257,7 @@ declare module "native-base" {
              */
 			iconLeft?: boolean;
 			icon?: boolean;
+			avatar?: boolean;
 			button?: boolean;
 			/**
              * Helps to organize and group the list items.
