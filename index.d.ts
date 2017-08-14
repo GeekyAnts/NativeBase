@@ -924,8 +924,8 @@ declare module "native-base" {
 		static show: (
 			configuration: {
 				options: string[];
-				cancelButtonIndex: number;
-				destructiveButtonIndex: number;
+				cancelButtonIndex?: number;
+				destructiveButtonIndex?: number;
 				title: string;
 			},
 			onSelect: (index: number) => void
