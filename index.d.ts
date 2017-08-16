@@ -257,6 +257,7 @@ declare module "native-base" {
              */
 			iconLeft?: boolean;
 			icon?: boolean;
+			avatar?: boolean;
 			button?: boolean;
 			/**
              * Helps to organize and group the list items.
@@ -498,6 +499,10 @@ declare module "native-base" {
              * This can also be used along with placeholder.
              */
 			stackedLabel?: boolean;
+			/**
+             * Disables inputting data.
+             */
+			disabled?: boolean;
 		}
 		/**
          * see Widget Textarea.js
