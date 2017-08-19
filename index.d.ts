@@ -87,6 +87,7 @@ declare module "native-base" {
              */
 			hasTabs?: boolean;
 			noShadow?: boolean;
+			androidStatusBarColor?: string;
 		}
 
 		interface Left {
@@ -560,6 +561,7 @@ declare module "native-base" {
          */
 		interface CheckBox {
 			checked?: boolean;
+			color?: string;
 		}
 		/**
          * see Widget CheckBox.js
