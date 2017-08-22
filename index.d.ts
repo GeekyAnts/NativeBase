@@ -87,6 +87,7 @@ declare module "native-base" {
              */
 			hasTabs?: boolean;
 			noShadow?: boolean;
+			androidStatusBarColor?: string;
 		}
 
 		interface Left {
@@ -560,6 +561,7 @@ declare module "native-base" {
          */
 		interface CheckBox {
 			checked?: boolean;
+			color?: string;
 		}
 		/**
          * see Widget CheckBox.js
@@ -629,7 +631,7 @@ declare module "native-base" {
 		}
 
 		interface Tab {
-			heading: TabHeading;
+			heading: _TabHeading;
 		}
 		interface TabHeading {
 			activeTabStyle?: ReactNative.ViewStyle;
@@ -907,6 +909,7 @@ declare module "native-base" {
 	export class Tab extends React.Component<NativeBase.Tab, any> {}
 
 	export class TabHeading extends React.Component<NativeBase.TabHeading, any> {}
+	type _TabHeading = TabHeading;
 	/**
      * NativeBase.Item
      */
