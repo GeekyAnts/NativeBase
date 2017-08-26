@@ -8,6 +8,7 @@ var _View=require("./View");
 var _Toast=require("./Toast");
 var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _objectWithoutProperties(obj,keys){var target={};for(var i in obj){if(keys.indexOf(i)>=0)continue;if(!Object.prototype.hasOwnProperty.call(obj,i))continue;target[i]=obj[i];}return target;}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
+
 ToastContainer=function(_Component){_inherits(ToastContainer,_Component);
 function ToastContainer(props){_classCallCheck(this,ToastContainer);var _this=_possibleConstructorReturn(this,(ToastContainer.__proto__||Object.getPrototypeOf(ToastContainer)).call(this,
 props));
@@ -49,7 +50,8 @@ supportedOrientations:config.supportedOrientations,
 style:config.style,
 buttonTextStyle:config.buttonTextStyle,
 buttonStyle:config.buttonStyle,
-textStyle:config.textStyle});
+textStyle:config.textStyle,
+onClose:config.onClose});
 
 if(config.duration>0){
 setTimeout(function(){
@@ -69,7 +71,13 @@ toValue:1,
 duration:200}).
 start();
 }},{key:"closeToast",value:function closeToast()
-{var _this3=this;
+{var _this3=this;var
+onClose=this.state.onClose;
+
+if(onClose&&typeof onClose==="function"){
+onClose();
+}
+
 _reactNative.Animated.timing(this.state.fadeAnim,{
 toValue:0,
 duration:200}).
@@ -83,19 +91,19 @@ modalVisible:false});
 {var _this4=this;
 if(this.state.modalVisible){
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:86}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:94}},
 _react2.default.createElement(_Toast.Toast,{
 style:this.state.style,
 danger:this.state.type=="danger"?true:false,
 success:this.state.type=="success"?true:false,
-warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:87}},
+warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:95}},
 
-_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:93}},
+_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:101}},
 this.state.text),
 
 this.state.buttonText&&
-_react2.default.createElement(_Button.Button,{style:this.state.buttonStyle,onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:97}},
-_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:98}},
+_react2.default.createElement(_Button.Button,{style:this.state.buttonStyle,onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:105}},
+_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:106}},
 this.state.buttonText)))));
 
 
