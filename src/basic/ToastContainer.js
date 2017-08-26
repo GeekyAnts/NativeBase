@@ -8,6 +8,7 @@ import { ViewNB } from "./View";
 import { Toast } from "./Toast";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
+
 class ToastContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -50,6 +51,7 @@ class ToastContainer extends Component {
 			buttonTextStyle: config.buttonTextStyle,
 			buttonStyle: config.buttonStyle,
 			textStyle: config.textStyle,
+			onClose: config.onClose
 		});
 		if (config.duration > 0) {
 			setTimeout(() => {
@@ -70,6 +72,12 @@ class ToastContainer extends Component {
 		}).start();
 	}
 	closeToast() {
+		const { onClose } = this.state;
+
+		if(onClose && typeof onClose === "function") {
+			onClose();
+		}
+
 		Animated.timing(this.state.fadeAnim, {
 			toValue: 0,
 			duration: 200,
@@ -114,3 +122,4 @@ ToastContainer.propTypes = {
 const StyledToastContainer = connectStyle("NativeBase.ToastContainer", {}, mapPropsToStyleNames)(ToastContainer);
 
 export { StyledToastContainer as ToastContainer };
+
