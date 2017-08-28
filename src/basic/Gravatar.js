@@ -1,5 +1,3 @@
-/* @flow */
-
 import React from "react";
 import { Image } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
@@ -53,11 +51,15 @@ class Gravatar extends NativeBaseComponent {
 
 Gravatar.propTypes = {
   ...Image.propTypes,
-  email: React.PropTypes.string.isRequired,
-  style: React.PropTypes.object,
-  size: React.PropTypes.number,
-  circular: React.PropTypes.bool,
-  square: React.PropTypes.bool
+  email: PropTypes.string.isRequired,
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
+  size: PropTypes.number,
+  circular: PropTypes.bool,
+  square: PropTypes.bool
 };
 
 const StyledGravatar = connectStyle(

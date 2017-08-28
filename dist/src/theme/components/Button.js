@@ -270,7 +270,7 @@ borderRadius:0},
 
 
 ".rounded":{
-paddingHorizontal:variables.buttonPadding+20,
+
 borderRadius:variables.borderRadiusLarge},
 
 
@@ -405,47 +405,49 @@ marginLeft:0,
 marginRight:0,
 color:variables.inverseTextColor,
 fontSize:variables.btnTextSize,
-lineHeight:variables.btnLineHeight},
+lineHeight:variables.btnLineHeight,
+paddingHorizontal:16,
+backgroundColor:"transparent"},
 
 
 
 "NativeBase.Icon":{
 color:variables.inverseTextColor,
 fontSize:24,
-marginHorizontal:5,
+marginHorizontal:16,
 paddingTop:platform==="ios"?2:undefined},
 
 "NativeBase.IconNB":{
 color:variables.inverseTextColor,
 fontSize:24,
-marginHorizontal:5,
+marginHorizontal:16,
 paddingTop:platform==="ios"?2:undefined},
 
 
 ".iconLeft":{
 "NativeBase.Text":{
-marginLeft:variables.buttonPadding},
-
-"NativeBase.IconNB":{
-marginRight:10,
 marginLeft:0},
 
+"NativeBase.IconNB":{
+marginRight:0,
+marginLeft:16},
+
 "NativeBase.Icon":{
-marginRight:10,
-marginLeft:0}},
+marginRight:0,
+marginLeft:16}},
 
 
 ".iconRight":{
 "NativeBase.Text":{
-marginRight:variables.buttonPadding},
-
-"NativeBase.IconNB":{
-marginLeft:10,
 marginRight:0},
 
+"NativeBase.IconNB":{
+marginLeft:0,
+marginRight:16},
+
 "NativeBase.Icon":{
-marginLeft:10,
-marginRight:0}},
+marginLeft:0,
+marginRight:16}},
 
 
 ".picker":{
@@ -458,7 +460,7 @@ lineHeight:null}}},
 
 
 paddingVertical:variables.buttonPadding,
-paddingHorizontal:variables.buttonPadding+10,
+
 backgroundColor:variables.btnPrimaryBg,
 borderRadius:variables.borderRadiusBase,
 borderColor:variables.btnPrimaryBg,
@@ -468,9 +470,7 @@ alignSelf:"flex-start",
 flexDirection:"row",
 elevation:2,
 shadowColor:platformStyle==="material"?"#000":undefined,
-shadowOffset:platformStyle==="material"?
-{width:0,height:2}:
-undefined,
+shadowOffset:platformStyle==="material"?{width:0,height:2}:undefined,
 shadowOpacity:platformStyle==="material"?0.2:undefined,
 shadowRadius:platformStyle==="material"?1.2:undefined,
 alignItems:"center",

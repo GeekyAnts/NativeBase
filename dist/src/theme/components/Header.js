@@ -123,9 +123,7 @@ height:platform==="ios"?undefined:0}},
 
 ".rounded":{
 "NativeBase.Item":{
-borderRadius:platform==="ios"&&platformStyle!=="material"?
-25:
-3}},
+borderRadius:platform==="ios"&&platformStyle!=="material"?25:3}},
 
 
 "NativeBase.Left":{
@@ -198,9 +196,7 @@ alignItems:"flex-start"},
 
 "NativeBase.Body":{
 flex:1,
-alignItems:platform==="ios"&&platformStyle!=="material"?
-"center":
-"flex-start",
+alignItems:platform==="ios"&&platformStyle!=="material"?"center":"flex-start",
 alignSelf:"center",
 "NativeBase.Segment":{
 borderWidth:0,
@@ -254,18 +250,14 @@ paddingHorizontal:15,
 borderRadius:50,
 "NativeBase.Icon":{
 color:variables.toolbarBtnColor,
-fontSize:platform==="ios"?
-variables.iconHeaderSize-6:
-variables.iconHeaderSize-2,
+fontSize:platform==="ios"?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
 marginTop:2,
 marginLeft:2,
 marginRight:2},
 
 "NativeBase.IconNB":{
 color:variables.toolbarBtnColor,
-fontSize:platform==="ios"?
-variables.iconHeaderSize-6:
-variables.iconHeaderSize-2,
+fontSize:platform==="ios"?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
 marginTop:2,
 marginLeft:2,
 marginRight:2},
@@ -303,16 +295,12 @@ flexDirection:"row",
 paddingHorizontal:10,
 justifyContent:"center",
 paddingTop:platform==="ios"?15:0,
-borderBottomWidth:platform==="ios"?
-1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1):
-0,
+borderBottomWidth:platform==="ios"?1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1):0,
 borderBottomColor:variables.toolbarDefaultBorder,
 height:variables.toolbarHeight,
 elevation:3,
 shadowColor:platformStyle==="material"?"#000":undefined,
-shadowOffset:platformStyle==="material"?
-{width:0,height:2}:
-undefined,
+shadowOffset:platformStyle==="material"?{width:0,height:2}:undefined,
 shadowOpacity:platformStyle==="material"?0.2:undefined,
 shadowRadius:platformStyle==="material"?1.2:undefined,
 top:0,

@@ -1,25 +1,25 @@
-/* @flow */
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import createReactClass from "create-react-class";
+import { Picker, Modal, View, ListView, ViewPropTypes } from "react-native";
+import _ from "lodash";
+import { Text } from "./Text";
+import { List } from "./List";
+import { IconNB as Icon } from "./IconNB";
+import { Radio } from "./Radio";
+import { Container } from "./Container";
+import { Content } from "./Content";
+import { ListItem } from "./ListItem";
+import { Button } from "./Button";
+import { Header } from "./Header";
+import { Title } from "./Title";
+import { Left } from "./Left";
+import { Right } from "./Right";
+import { Body } from "./Body";
+import { connectStyle } from "native-base-shoutem-theme";
+import computeProps from "../Utils/computeProps";
 
-import React, { Component } from 'react';
-import { Picker, Modal, View, ListView, ViewPropTypes } from 'react-native';
-import _ from 'lodash';
-import { Text } from './Text';
-import { List } from './List';
-import { IconNB as Icon } from './IconNB';
-import { Radio } from './Radio';
-import { Container } from './Container';
-import { Content } from './Content';
-import { ListItem } from './ListItem';
-import { Button } from './Button';
-import { Header } from './Header';
-import { Title } from './Title';
-import { Left } from './Left';
-import { Right } from './Right';
-import { Body } from './Body';
-import { connectStyle } from 'native-base-shoutem-theme';
-import computeProps from '../Utils/computeProps';
-
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class PickerNB extends Component {
 	constructor(props) {
@@ -72,7 +72,7 @@ class PickerNB extends Component {
 
 	getLabel(props) {
 		const item = _.find(props.children, child => child.props.value === props.selectedValue);
-		return _.get(item, 'props.label');
+		return _.get(item, "props.label");
 	}
 
 	getSelectedItem() {
@@ -81,7 +81,7 @@ class PickerNB extends Component {
 
 	renderIcon() {
 		return React.cloneElement(this.props.iosIcon, {
-			style: { fontSize: 22, lineHeight: 26, color: '#7a7a7a' },
+			style: { fontSize: 22, lineHeight: 26, color: "#7a7a7a" },
 		});
 	}
 
@@ -104,7 +104,7 @@ class PickerNB extends Component {
 					? <Text style={this.props.textStyle} note={this.props.note}>
 							{this.state.currentLabel}
 						</Text>
-					: <Text style={this.props.textStyle} note={this.props.note ? this.props.note : true}>
+					: <Text style={this.props.textStyle} note={this.props.note === false ? false : true}>
 							{this.props.placeholder}
 						</Text>}
 				{this.props.iosIcon === undefined ? null : this.renderIcon()}
@@ -131,13 +131,13 @@ class PickerNB extends Component {
 							}}
 						>
 							<Text style={this.props.headerBackButtonTextStyle}>
-								{this.props.headerBackButtonText || 'Back'}
+								{this.props.headerBackButtonText || "Back"}
 							</Text>
 						</Button>
 					</Left>
 					<Body>
 						<Title style={this.props.headerTitleStyle}>
-							{this.props.iosHeader || 'Select One'}
+							{this.props.iosHeader || "Select One"}
 						</Title>
 					</Body>
 					<Right />
@@ -191,7 +191,7 @@ class PickerNB extends Component {
 	}
 }
 
-PickerNB.Item = React.createClass({
+PickerNB.Item = createReactClass({
 	render() {
 		return <Picker.Item {...this.props()} />;
 	},
@@ -199,9 +199,9 @@ PickerNB.Item = React.createClass({
 
 PickerNB.propTypes = {
 	...ViewPropTypes,
-	renderButton: React.PropTypes.func,
+	renderButton: PropTypes.func,
 };
 
-const StyledPickerNB = connectStyle('NativeBase.PickerNB', {}, mapPropsToStyleNames)(PickerNB);
+const StyledPickerNB = connectStyle("NativeBase.PickerNB", {}, mapPropsToStyleNames)(PickerNB);
 
 export { StyledPickerNB as PickerNB };

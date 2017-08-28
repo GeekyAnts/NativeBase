@@ -1,14 +1,6 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.ActionSheetContainer=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Actionsheet.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();
-
-var _react=require("react");var _react2=_interopRequireDefault(_react);
+Object.defineProperty(exports,"__esModule",{value:true});exports.ActionSheetContainer=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Actionsheet.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _reactNative=require("react-native");
-
-
-
-
-
-
-
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _Text=require("./Text");
 var _Button=require("./Button");
@@ -68,7 +60,7 @@ _react2.default.createElement(_reactNative.Modal,{
 animationType:"fade",
 transparent:true,
 visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){return _this2.setState({modalVisible:false});},__source:{fileName:_jsxFileName,lineNumber:67}},
+onRequestClose:function onRequestClose(){return _this2.setState({modalVisible:false});},__source:{fileName:_jsxFileName,lineNumber:59}},
 
 _react2.default.createElement(_reactNative.TouchableOpacity,{
 activeOpacity:1,
@@ -76,7 +68,7 @@ onPress:function onPress(){return _this2.setState({modalVisible:false});},
 style:{
 backgroundColor:"rgba(0,0,0,0.4)",
 flex:1,
-justifyContent:"flex-end"},__source:{fileName:_jsxFileName,lineNumber:73}},
+justifyContent:"flex-end"},__source:{fileName:_jsxFileName,lineNumber:65}},
 
 
 _react2.default.createElement(_reactNative.TouchableOpacity,{
@@ -85,10 +77,12 @@ style:{
 backgroundColor:"#fff",
 height:this.state.length*80,
 padding:15,
-elevation:4},__source:{fileName:_jsxFileName,lineNumber:82}},
+elevation:4},__source:{fileName:_jsxFileName,lineNumber:74}},
 
 
-_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:91}},this.state.title),
+_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:83}},
+this.state.title),
+
 _react2.default.createElement(_List.List,{
 style:{marginHorizontal:-15,marginTop:15},
 dataArray:this.state.items,
@@ -99,9 +93,11 @@ onPress:function onPress(){
 _this2.state.callback(id);
 _this2.setState({modalVisible:false});
 },
-style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:97}},
+style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:91}},
 
-_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:104}},data)):
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:98}},
+data)):
+
 
 _react2.default.createElement(_ListItem.ListItem,{
 onPress:function onPress(){
@@ -109,17 +105,24 @@ _this2.state.callback(id);
 _this2.setState({modalVisible:false});
 },
 style:{borderColor:"transparent"},
-icon:true,__source:{fileName:_jsxFileName,lineNumber:106}},
+icon:true,__source:{fileName:_jsxFileName,lineNumber:102}},
 
-_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:114}},
-_react2.default.createElement(_Icon.Icon,{name:data.icon,__source:{fileName:_jsxFileName,lineNumber:115}})),
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:110}},
+_react2.default.createElement(_Icon.Icon,{
+name:data.icon,
+style:{
+color:data.iconColor?data.iconColor:undefined},__source:{fileName:_jsxFileName,lineNumber:111}})),
 
-_react2.default.createElement(_Body.Body,{style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:117}},
-_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:118}},data.text)),
 
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:120}}));
 
-},__source:{fileName:_jsxFileName,lineNumber:92}})))));
+_react2.default.createElement(_Body.Body,{style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:118}},
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:119}},
+data.text)),
+
+
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:123}}));
+
+},__source:{fileName:_jsxFileName,lineNumber:86}})))));
 
 
 
@@ -130,14 +133,12 @@ _react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,line
 
 ActionSheetContainer.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
-style:_react2.default.PropTypes.object});
+style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array])});
 
 
-var StyledActionSheetContainer=(0,_nativeBaseShoutemTheme.connectStyle)(
-"NativeBase.ActionSheetContainer",
-{},_mapPropsToStyleNames2.default)(
-
+var StyledActionSheetContainer=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.ActionSheetContainer",{},_mapPropsToStyleNames2.default)(
 ActionSheetContainer);exports.
+
 
 ActionSheetContainer=StyledActionSheetContainer;
 //# sourceMappingURL=Actionsheet.js.map

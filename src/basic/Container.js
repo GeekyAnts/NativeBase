@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { View, ViewPropTypes } from "react-native";
 
 import { connectStyle } from "native-base-shoutem-theme";
@@ -8,35 +9,24 @@ import { ActionSheetContainer as ActionSheet } from "./Actionsheet";
 import { Text } from "./Text";
 
 class Container extends Component {
-  render() {
-    return (
-      <View ref={c => (this._root = c)} {...this.props}>
-        {this.props.children}
-        <Toast
-          ref={c => {
-            if (!Toast.toastInstance) Toast.toastInstance = c;
-          }}
-        />
-        <ActionSheet
-          ref={c => {
-            if (!ActionSheet.actionsheetInstance)
-              ActionSheet.actionsheetInstance = c;
-          }}
-        />
-      </View>
-    );
-  }
+	// componentWillUnmount() {
+	//   Toast.toastInstance = null;
+	// }
+
+	render() {
+		return (
+			<View ref={c => (this._root = c)} {...this.props}>
+				{this.props.children}
+			</View>
+		);
+	}
 }
 
 Container.propTypes = {
-  ...ViewPropTypes,
-  style: React.PropTypes.object
+	...ViewPropTypes,
+	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
 };
 
-const StyledContainer = connectStyle(
-  "NativeBase.Container",
-  {},
-  mapPropsToStyleNames
-)(Container);
+const StyledContainer = connectStyle("NativeBase.Container", {}, mapPropsToStyleNames)(Container);
 
 export { StyledContainer as Container };

@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import { TouchableOpacity, Animated, Platform, View } from 'react-native';
-import { Input } from './Input';
-import { Label } from './Label';
-import { Icon } from './Icon';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { TouchableOpacity, Animated, Platform, View } from "react-native";
+import { Input } from "./Input";
+import { Label } from "./Label";
+import { Icon } from "./Icon";
 
-import { connectStyle } from 'native-base-shoutem-theme';
-import variables from '../theme/variables/platform';
-import computeProps from '../Utils/computeProps';
-import mapPropsToStyleNames from '../Utils/mapPropsToStyleNames';
-import _ from 'lodash';
+import { connectStyle } from "native-base-shoutem-theme";
+import variables from "../theme/variables/platform";
+import computeProps from "../Utils/computeProps";
+import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import _ from "lodash";
 
 class Item extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			text: '',
+			text: "",
 			topAnim: new Animated.Value(18),
 			opacAnim: new Animated.Value(1),
 		};
@@ -32,7 +33,7 @@ class Item extends Component {
 		const childrenArray = React.Children.toArray(nextProps.children);
 		let inputProps = {};
 		input = _.remove(childrenArray, item => {
-			if (item.type.displayName === 'Styled(Input)') {
+			if (item.type.displayName === "Styled(Input)") {
 				inputProps = item.props;
 				this.inputProps = item.props;
 				return item;
@@ -76,7 +77,7 @@ class Item extends Component {
 				newLabel.push(
 					React.createElement(Label, {
 						...labelProps,
-						key: 'newFLabel',
+						key: "newFLabel",
 						float: true,
 						style: {
 							fontSize: 15,
@@ -94,7 +95,7 @@ class Item extends Component {
 			newLabel.push(
 				React.createElement(Label, {
 					...labelProps,
-					key: 'newLabel',
+					key: "newLabel",
 				})
 			);
 		}
@@ -138,16 +139,18 @@ class Item extends Component {
 				<Animated.View
 					key="float"
 					style={{
-						position: 'absolute',
+						position: "absolute",
 						left: this.props.last ? 22 : 22,
 						right: 0,
 						top: this.state.topAnim,
 						opacity: this.state.opacAnim,
-						paddingTop: Platform.OS === 'ios' ? undefined : undefined,
-						paddingBottom: Platform.OS === 'ios' ? undefined : 12,
+						paddingTop: Platform.OS === "ios" ? undefined : undefined,
+						paddingBottom: Platform.OS === "ios" ? undefined : 12,
 					}}
 				>
-					<Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
+					<Label {...labelProps}>
+						{this.renderLabel(label, labelProps)}
+					</Label>
 				</Animated.View>
 			);
 			newChildren.push(
@@ -177,16 +180,18 @@ class Item extends Component {
 				<Animated.View
 					key="float"
 					style={{
-						position: 'absolute',
+						position: "absolute",
 						left: this.props.last ? 15 : 0,
 						right: 0,
 						top: this.state.topAnim,
 						opacity: this.state.opacAnim,
-						paddingTop: Platform.OS === 'ios' ? undefined : undefined,
-						paddingBottom: Platform.OS === 'ios' ? undefined : 12,
+						paddingTop: Platform.OS === "ios" ? undefined : undefined,
+						paddingBottom: Platform.OS === "ios" ? undefined : 12,
 					}}
 				>
-					<Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
+					<Label {...labelProps}>
+						{this.renderLabel(label, labelProps)}
+					</Label>
 				</Animated.View>
 			);
 			newChildren.push(
@@ -218,13 +223,13 @@ class Item extends Component {
 				<View
 					key="s"
 					style={{
-						flexDirection: 'row',
+						flexDirection: "row",
 						flex: 1,
 						width: variables.deviceWidth - 15,
 					}}
 				>
 					<Icon key="s1" {...iconProps} />
-					<View style={{ flexDirection: 'column' }}>
+					<View style={{ flexDirection: "column" }}>
 						<Label key="s2" {...labelProps} />
 						<Input key="s3" {...inputProps} style={{ width: variables.deviceWidth - 40 }} />
 					</View>
@@ -266,8 +271,8 @@ const childrenType = function(props, propName, component) {
 	if (!props.children.length) {
 		error = new Error(`${component} should have both Label and Input components`);
 	} else if (
-		props.children[0].type.displayName !== 'Styled(Label)' ||
-		props.children[1].type.displayName !== 'Styled(Input)'
+		props.children[0].type.displayName !== "Styled(Label)" ||
+		props.children[1].type.displayName !== "Styled(Input)"
 	) {
 		error = new Error(`${component} should have Label and Input components only`);
 	}
@@ -276,15 +281,15 @@ const childrenType = function(props, propName, component) {
 
 Item.propTypes = {
 	...TouchableOpacity.propTypes,
-	style: React.PropTypes.object,
-	inlineLabel: React.PropTypes.bool,
-	floatingLabel: React.PropTypes.bool,
-	stackedLabel: React.PropTypes.bool,
-	fixedLabel: React.PropTypes.bool,
-	success: React.PropTypes.bool,
-	error: React.PropTypes.bool,
+	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+	inlineLabel: PropTypes.bool,
+	floatingLabel: PropTypes.bool,
+	stackedLabel: PropTypes.bool,
+	fixedLabel: PropTypes.bool,
+	success: PropTypes.bool,
+	error: PropTypes.bool,
 };
 
-const StyledItem = connectStyle('NativeBase.Item', {}, mapPropsToStyleNames)(Item);
+const StyledItem = connectStyle("NativeBase.Item", {}, mapPropsToStyleNames)(Item);
 
 export { StyledItem as Item };
