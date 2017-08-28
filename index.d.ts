@@ -147,6 +147,8 @@ declare module "native-base" {
 			padder?: boolean;
 			disableKBDismissScroll?: boolean;
 			enableResetScrollToCoords?: boolean;
+			contentOffset?: Object;
+			scrollEnabled?: boolean;
 			style?: ReactNative.ViewStyle;
 			contentContainerStyle?: ReactNative.ViewStyle;
 		}
@@ -655,6 +657,7 @@ declare module "native-base" {
 			secureTextEntry?: boolean;
 			success?: boolean;
 			last?: boolean;
+			style?: ReactNative.ViewStyle;
 		}
 
 		interface Form {
@@ -673,6 +676,8 @@ declare module "native-base" {
 		interface Image extends ReactNative.TextProperties {}
 
 		interface Segment extends ReactNative.TextProperties {}
+
+		interface Root extends ReactNative.TextProperties {}
 
 		interface StyleProvider {
 			style?: any;
@@ -945,13 +950,16 @@ declare module "native-base" {
 
 	export class Segment extends React.Component<NativeBase.Segment, any> {}
 
+	export class Root extends React.Component<NativeBase.Root, any> {}
+
 	export class Toast {
 		public static show(configuration: {
 			text: string;
-			buttonText: string;
+			buttonText?: string;
 			position: "top" | "bottom" | "center";
 			type?: "danger" | "success" | "warning";
 			duration?: number;
+			textStyle?: object;
 		}): void;
 	}
 }
