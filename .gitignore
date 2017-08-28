@@ -128,6 +128,10 @@ captures/
 *.iml
 .idea
 
+# VsCode
+
+.vscode/*
+
 # Keystore files
 *.jks
 
