@@ -88,6 +88,7 @@ declare module "native-base" {
 			hasTabs?: boolean;
 			noShadow?: boolean;
 			androidStatusBarColor?: string;
+			iosBarStyle?: ReactNative.StatusBarStyle;
 		}
 
 		interface Left {
