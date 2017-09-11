@@ -15,7 +15,7 @@ class ListItem extends Component {
 
 		if (
 			Platform.OS === "ios" ||
-			variable.androidRipple === false ||
+			variables.androidRipple === false ||
 			(!this.props.onPress && !this.props.onLongPress) ||
 			Platform.Version <= 21
 		) {
@@ -40,7 +40,7 @@ class ListItem extends Component {
 					background={
 						this.props.androidRippleColor
 							? TouchableNativeFeedback.Ripple(this.props.androidRippleColor)
-							: TouchableNativeFeedback.Ripple(variable.androidRippleColorDark)
+							: TouchableNativeFeedback.Ripple(variables.androidRippleColorDark)
 					}
 				>
 					<View style={{ marginLeft: -17, paddingLeft: 17 }}>
