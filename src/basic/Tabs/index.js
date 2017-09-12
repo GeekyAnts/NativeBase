@@ -3,7 +3,8 @@ const { Component } = React;
 import PropTypes from "prop-types";
 import createReactClass from "create-react-class";
 const ReactNative = require("react-native");
-const { Dimensions, View, Animated, ScrollView, StyleSheet, InteractionManager, Platform, ViewPropTypes } = ReactNative;
+const { Dimensions, View, Animated, ScrollView, StyleSheet, InteractionManager, Platform } = ReactNative;
+import { ViewPropTypes } from '../../Utils';
 const TimerMixin = require("react-timer-mixin");
 import _ from "lodash";
 
