@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, ViewPropTypes } from "react-native";
+import { View } from "react-native";
 import _ from "lodash";
 import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import { ViewPropTypes } from '../Utils';
 
 class Footer extends Component {
 	render() {

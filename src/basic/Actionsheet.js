@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Modal, Platform, ActionSheetIOS, TouchableOpacity, ViewPropTypes } from "react-native";
+import { View, Modal, Platform, ActionSheetIOS, TouchableOpacity } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import { Text } from "./Text";
 import { Button } from "./Button";
@@ -12,6 +12,7 @@ import { Body } from "./Body";
 import { List } from "./List";
 import { ListItem } from "./ListItem";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import { ViewPropTypes } from '../Utils';
 
 class ActionSheetContainer extends Component {
 	constructor(props) {
