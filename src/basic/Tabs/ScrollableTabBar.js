@@ -153,7 +153,7 @@ const ScrollableTabBar = createReactClass({
 			);
 		} else {
 			return (
-				<Button key={_.random(1.2, 5.2)} onPress={() => onPressHandler(page)}>
+				<Button key={_.random(1.2, 5.2)} onPress={() => onPressHandler(page)} onLayout={onLayoutHandler}>
 					<TabHeading scrollable style={tabHeaderStyle} active={isTabActive}>
 						{headerContent}
 					</TabHeading>
