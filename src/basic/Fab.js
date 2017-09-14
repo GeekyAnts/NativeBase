@@ -193,11 +193,17 @@ class Fab extends Component {
 		this.setState({
 			buttons: icon.length,
 		});
-		setTimeout(() => {
+		this.activeTimer = setTimeout(() => {
 			this.setState({
 				active: this.props.active,
 			});
 		}, 0);
+	}
+
+	componentWillUnmount() {
+		if (this.activeTimer) {
+			clearTimeout(this.activeTimer);
+		}
 	}
 
 	renderFab() {
@@ -361,7 +367,7 @@ class Fab extends Component {
 		if (this.props.onPress) {
 			this.props.onPress();
 			this._animate();
-			setTimeout(() => {
+			this.activeTimer = setTimeout(() => {
 				this.setState({
 					active: this.props.active,
 				});
