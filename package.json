@@ -1,85 +1,88 @@
 {
-	"name": "native-base",
-	"description": "Essential cross-platform UI components for React Native",
-	"keywords": [
-		"android",
-		"ios",
-		"react",
-		"native",
-		"react-native",
-		"native-modules",
-		"react-component",
-		"navbar",
-		"packager",
-		"rnpm"
-	],
-	"scripts": {
-		"compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
-		"transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
-		"test": "jest",
-		"prepublish": "npm run transpile",
-		"postinstall": "node addEjectScript.js",
-		"flow": "flow"
-	},
-	"jest": {
-		"preset": "react-native",
-		"rootDir": "src",
-		"transformIgnorePatterns": ["node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"]
-	},
-	"version": "2.3.1",
-	"license": "Apache-2.0",
-	"private": false,
-	"dependencies": {
-		"blueimp-md5": "^2.5.0",
-		"clamp": "^1.0.1",
-		"color": "~1.0.3",
-		"fs-extra": "^2.0.0",
-		"lodash": "~4.11.1",
-		"native-base-shoutem-theme": "0.2.1",
-		"print-message": "^2.1.0",
-		"prop-types": "^15.5.10",
-		"react-native-drawer": "https://github.com/GeekyAnts/react-native-drawer",
-		"react-native-easy-grid": "0.1.15",
-		"react-native-keyboard-aware-scroll-view":
-			"https://github.com/GeekyAnts/react-native-keyboard-aware-scroll-view",
-		"react-native-vector-icons": "~4.1.1",
-		"react-tween-state": "^0.1.5",
-		"tween-functions": "^1.0.1"
-	},
-	"devDependencies": {
-		"babel-cli": "^6.18.0",
-		"babel-eslint": "^6.1.2",
-		"babel-jest": "^16.0.0",
-		"babel-preset-react-native": "^1.9.0",
-		"eslint": "^3.5.0",
-		"eslint-config-airbnb": "^11.1.0",
-		"eslint-plugin-import": "^1.14.0",
-		"eslint-plugin-jsx-a11y": "^2.2.1",
-		"eslint-plugin-react": "^6.2.0",
-		"eslint-plugin-react-native": "^2.0.0",
-		"flow-bin": "0.40.0",
-		"jest": "17.0.0",
-		"react": "^16.0.0-alpha.3",
-		"react-native": "^0.46.0",
-		"react-native-vector-icons": "~4.3.0",
-		"react-test-renderer": "^15.3.2"
-	},
-	"gitHead": "5bbeacc403ba97622703699132c55d8359344004",
-	"homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-	"main": "dist/src/index.js",
-	"typings": "./index.d.ts",
-	"optionalDependencies": {},
-	"peerDependencies": {
-		"react": ">=16.0.0-alpha.3",
-		"react-native": ">=0.46.0",
-		"react-native-vector-icons": "~4.3.0"
-	},
-	"readmeFilename": "README.md",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/GeekyAnts/NativeBase.git"
-	},
-	"rnpm": {
-		"assets": ["Fonts"]
-	}
+  "name": "native-base",
+  "description": "Essential cross-platform UI components for React Native",
+  "keywords": [
+    "android",
+    "ios",
+    "react",
+    "native",
+    "react-native",
+    "native-modules",
+    "react-component",
+    "navbar",
+    "packager",
+    "rnpm"
+  ],
+  "scripts": {
+    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
+    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
+    "test": "jest",
+    "prepublish": "npm run transpile",
+    "postinstall": "node addEjectScript.js",
+    "flow": "flow"
+  },
+  "jest": {
+    "preset": "react-native",
+    "rootDir": "src",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
+    ]
+  },
+  "version": "2.3.2",
+  "license": "Apache-2.0",
+  "private": false,
+  "dependencies": {
+    "blueimp-md5": "^2.5.0",
+    "clamp": "^1.0.1",
+    "color": "~1.0.3",
+    "fs-extra": "^2.0.0",
+    "lodash": "~4.11.1",
+    "native-base-shoutem-theme": "0.2.1",
+    "print-message": "^2.1.0",
+    "prop-types": "^15.5.10",
+    "react-native-drawer": "https://github.com/GeekyAnts/react-native-drawer",
+    "react-native-easy-grid": "0.1.15",
+    "react-native-keyboard-aware-scroll-view": "https://github.com/GeekyAnts/react-native-keyboard-aware-scroll-view",
+    "react-native-vector-icons": "~4.1.1",
+    "react-tween-state": "^0.1.5",
+    "tween-functions": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^6.1.2",
+    "babel-jest": "^16.0.0",
+    "babel-preset-react-native": "^1.9.0",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-react": "^6.2.0",
+    "eslint-plugin-react-native": "^2.0.0",
+    "flow-bin": "0.40.0",
+    "jest": "17.0.0",
+    "react": "^16.0.0-alpha.3",
+    "react-native": "^0.46.0",
+    "react-native-vector-icons": "~4.3.0",
+    "react-test-renderer": "^15.3.2"
+  },
+  "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
+  "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
+  "main": "dist/src/index.js",
+  "typings": "./index.d.ts",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": ">=16.0.0-alpha.3",
+    "react-native": ">=0.46.0",
+    "react-native-vector-icons": "~4.3.0"
+  },
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeekyAnts/NativeBase.git"
+  },
+  "rnpm": {
+    "assets": [
+      "Fonts"
+    ]
+  }
 }
