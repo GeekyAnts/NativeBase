@@ -15,7 +15,7 @@ var variables=this.context.theme?this.context.theme["@@shoutem.theme/themeStyle"
 
 if(
 _reactNative.Platform.OS==="ios"||
-_platform2.default.androidRipple===false||
+variables.androidRipple===false||
 !this.props.onPress&&!this.props.onLongPress||
 _reactNative.Platform.Version<=21)
 {
@@ -40,7 +40,7 @@ onLongPress:this.props.onLongPress,
 background:
 this.props.androidRippleColor?
 _reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):
-_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColorDark),__source:{fileName:_jsxFileName,lineNumber:36}},
+_reactNative.TouchableNativeFeedback.Ripple(variables.androidRippleColorDark),__source:{fileName:_jsxFileName,lineNumber:36}},
 
 
 _react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17},__source:{fileName:_jsxFileName,lineNumber:46}},

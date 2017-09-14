@@ -153,7 +153,7 @@ name))));
 
 }else{
 return(
-_react2.default.createElement(Button,{key:_lodash2.default.random(1.2,5.2),onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:156}},
+_react2.default.createElement(Button,{key:_lodash2.default.random(1.2,5.2),onPress:function onPress(){return onPressHandler(page);},onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:156}},
 _react2.default.createElement(_index.TabHeading,{scrollable:true,style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:157}},
 headerContent)));
 
