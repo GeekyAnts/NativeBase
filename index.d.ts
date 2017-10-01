@@ -18,6 +18,7 @@ declare module "native-base" {
 			iosHeader?: string;
 			inlineLabel?: boolean;
 			headerBackButtonText?: string;
+			placeholder?: string;
 		}
 
 		interface H1 extends ReactNative.TextProperties {}
