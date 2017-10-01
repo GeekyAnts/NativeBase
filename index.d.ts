@@ -565,6 +565,7 @@ declare module "native-base" {
 		interface CheckBox {
 			checked?: boolean;
 			color?: string;
+			onPress?: () => void;
 		}
 		/**
          * see Widget CheckBox.js
