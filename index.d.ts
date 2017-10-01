@@ -169,6 +169,14 @@ declare module "native-base" {
              * Block level button
              */
 			block?: boolean;
+			/**
+             * Vertical button
+             */
+			vertical?: boolean;
+			/**
+			 * Button with badges
+			 */
+			badge?: boolean;
 			//primary?: boolean,
 			/**
              * Gives you effect of Icon-buttons.
