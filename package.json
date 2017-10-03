@@ -14,7 +14,7 @@
     "rnpm"
   ],
   "scripts": {
-    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
+    "compile": "rimraf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "test": "jest",
     "prepublish": "npm run transpile",
@@ -63,7 +63,8 @@
     "react": "^16.0.0-alpha.3",
     "react-native": "^0.46.0",
     "react-native-vector-icons": "~4.3.0",
-    "react-test-renderer": "^15.3.2"
+    "react-test-renderer": "^15.3.2",
+    "rimraf": "^2.6.2"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
