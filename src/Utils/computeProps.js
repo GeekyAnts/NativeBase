@@ -3,7 +3,7 @@ import _ from "lodash";
 import ReactNativePropRegistry from "react-native/Libraries/Renderer/shims/ReactNativePropRegistry";
 // For compatibility with RN 0.25
 // import ReactNativePropRegistry from "react-native/Libraries/ReactNative/ReactNativePropRegistry";
-module.exports = function(incomingProps, defaultProps) {
+function computeProps(incomingProps, defaultProps) {
   // External props has a higher precedence
   let computedProps = {};
 
@@ -42,3 +42,5 @@ module.exports = function(incomingProps, defaultProps) {
   // console.log("computedProps ", computedProps);
   return computedProps;
 };
+
+export default computeProps;
