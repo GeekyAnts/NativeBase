@@ -14,16 +14,16 @@ Text=function(_Component){_inherits(Text,_Component);function Text(){_classCallC
 this.props,uppercase=_props.uppercase,children=_props.children;
 
 var text=void 0;
-if(_lodash2.default.isArray(children)&&!_lodash2.default.some(children,_lodash2.default.isObject)){
-
-
-text=_lodash2.default.join(children,'');
+if(uppercase){
+text=_react2.default.Children.map(children,function(child){
+if(_lodash2.default.isString(child)){
+return _lodash2.default.toUpper(child);
+}else{
+return child;
+}
+});
 }else{
 text=children;
-}
-
-if(uppercase){
-text=_lodash2.default.toUpper(text);
 }
 
 return(
