@@ -119,7 +119,7 @@ Find the [KitchenSink repo here](https://github.com/GeekyAnts/NativeBase-Kitchen
 | v2.2.1 | v0.46.0 and above |
 | v2.3.0 | v0.46.0 and above *(does not support React 16.0.0-alpha.13)*|
 
-## 7. [Native Starter Kit](https://github.com/start-react/native-starter-kit)
+## 7. [Native Starter Kit](https://github.com/start-react/native-starter-kit) Deprecated
 
 A simple starter project for [React Native](https://github.com/facebook/react-native) + [NativeBase](https://nativebase.io/) + [Redux](http://redux.js.org/) + [CodePush](https://github.com/Microsoft/react-native-code-push) + [React Native Navigator](https://facebook.github.io/react-native/docs/navigator.html) apps on iOS and Android.
 [Take a look at the demo](https://github.com/start-react/native-starter-kit#screens)
