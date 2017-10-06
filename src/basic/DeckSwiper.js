@@ -23,7 +23,8 @@ class DeckSwiper extends Component {
 			looping: typeof this.props.looping === "undefined" ? true : this.props.looping,
 			disabled: this.props.dataSource.length === 0,
 			lastCard: this.props.dataSource.length === 1,
-		};
+            swipeUpEnabled: typeof this.props.swipeUpEnabled === "undefined" ? true : this.props.swipeUpEnabled,
+        };
 	}
 
 	componentWillReceiveProps({ dataSource }) {
@@ -117,6 +118,7 @@ class DeckSwiper extends Component {
 		setTimeout(() => {
 			Animated.timing(this.state.fadeAnim, { toValue: 1 }).start();
 			Animated.spring(this.state.enter, { toValue: 1, friction: 7 }).start();
+			this.props.onSwipeRight ? this.props.onSwipeRight(this.state.selectedItem) : undefined;
 			this.selectNext();
 			Animated.decay(this.state.pan, {
 				velocity: { x: 8, y: 1 },
@@ -130,6 +132,7 @@ class DeckSwiper extends Component {
 		setTimeout(() => {
 			Animated.timing(this.state.fadeAnim, { toValue: 1 }).start();
 			Animated.spring(this.state.enter, { toValue: 1, friction: 7 }).start();
+            this.props.onSwipeLeft ? this.props.onSwipeLeft(this.state.selectedItem) : undefined;
 			this.selectNext();
 			Animated.decay(this.state.pan, {
 				velocity: { x: -8, y: 1 },
@@ -138,10 +141,33 @@ class DeckSwiper extends Component {
 		}, 300);
 	}
 
+    swipeUp() {
+        if (!this.state.swipeUpEnabled){
+            return;
+        }
+        if (this.props.onSwiping) this.props.onSwiping("up");
+        setTimeout(() => {
+            Animated.timing(this.state.fadeAnim, {toValue: 1}).start();
+            Animated.spring(this.state.enter, {toValue: 1, friction: 7}).start();
+            this.props.onSwipeUp ? this.props.onSwipeUp(this.state.selectedItem) : undefined;
+            this.selectNext();
+            Animated.decay(this.state.pan, {
+                velocity: {x: 1, y: -9},
+                deceleration: 0.98,
+            }).start(this._resetState.bind(this));
+        }, 300);
+    }
+
 	componentWillMount() {
 		this._panResponder = PanResponder.create({
 			onMoveShouldSetResponderCapture: () => true,
-			onMoveShouldSetPanResponderCapture: (evt, gestureState) => Math.abs(gestureState.dx) > 5,
+			onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
+                if (this.state.swipeUpEnabled){
+                    return Math.abs(gestureState.dy) > 5 || Math.abs(gestureState.dx) > 5
+                } else {
+                    return Math.abs(gestureState.dx) > 5
+                }
+			},
 
 			onPanResponderGrant: (e, gestureState) => {
 				this.state.pan.setOffset({
@@ -156,9 +182,12 @@ class DeckSwiper extends Component {
 					if (this.props.onSwiping) this.props.onSwiping("right", gestureState.dx);
 				} else if (gestureState.dx < -20) {
 					if (this.props.onSwiping) this.props.onSwiping("left", gestureState.dx);
-				}
-				let val = Math.abs(gestureState.dx * 0.0013);
-				const opa = Math.abs(gestureState.dx * 0.0022);
+				} else if (gestureState.dy < -20 && this.state.swipeUpEnabled) {
+                    if (this.props.onSwiping) this.props.onSwiping("up", gestureState.dy);
+                }
+                let val = Math.abs((gestureState.dx) * 0.0013) + Math.abs((gestureState.dy) * 0.0013);
+
+                const opa = Math.abs(gestureState.dx * 0.0022);
 				if (val > 0.2) {
 					val = 0.2;
 				}
@@ -167,20 +196,23 @@ class DeckSwiper extends Component {
 					toValue: 0.8 + val,
 					friction: 7,
 				}).start();
-				Animated.event([null, { dx: this.state.pan.x }])(e, gestureState);
+                let stateObj = {dx: this.state.pan.x};
+                if (this.state.swipeUpEnabled){
+                    stateObj.dy = this.state.pan.y;
+                }
+                Animated.event([null, stateObj])(e, gestureState);
 			},
 
 			onPanResponderRelease: (e, { vx, vy }) => {
 				if (this.props.onSwiping) this.props.onSwiping(null);
 				let velocity;
 
-				if (vx >= 0) {
-					velocity = clamp(vx, 4.5, 10);
-				} else if (vx < 0) {
-					velocity = clamp(vx * -1, 4.5, 10) * -1;
-				}
-
 				if (Math.abs(this.state.pan.x._value) > SWIPE_THRESHOLD) {
+                    if (vx >= 0) {
+                        velocity = clamp(vx, 4.5, 10);
+                    } else if (vx < 0) {
+                        velocity = clamp(vx * -1, 4.5, 10) * -1;
+                    }
 					if (velocity > 0) {
 						this.props.onSwipeRight ? this.props.onSwipeRight(this.state.selectedItem) : undefined;
 						this.selectNext();
@@ -193,7 +225,17 @@ class DeckSwiper extends Component {
 						velocity: { x: velocity, y: vy },
 						deceleration: 0.98,
 					}).start(this._resetState.bind(this));
-				} else {
+				} else if (Math.abs(this.state.pan.y._value) > SWIPE_THRESHOLD && vy < 0 && this.state.swipeUpEnabled) {
+                    velocity = clamp(vy * -1, 4.5, 10) * -1;
+                    if (velocity <= 0) {
+                        this.props.onSwipeUp ? this.props.onSwipeUp(this.state.selectedItem) : undefined;
+                        this.selectNext();
+                    }
+                    Animated.decay(this.state.pan, {
+                        velocity: {x: vx, y: velocity},
+                        deceleration: 0.98,
+                    }).start(this._resetState.bind(this));
+                } else {
 					Animated.spring(this.state.pan, {
 						toValue: { x: 0, y: 0 },
 						friction: 4,
