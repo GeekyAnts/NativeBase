@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import createReactClass from "create-react-class";
 const ReactNative = require("react-native");
 import { connectStyle, StyleProvider } from "native-base-shoutem-theme";
+import mapPropsToStyleNames from "../../Utils/mapPropsToStyleNames";
 import variable from "./../../theme/variables/platform";
 import { TabHeading, Text, TabContainer } from "./../../index";
 import _ from "lodash";
