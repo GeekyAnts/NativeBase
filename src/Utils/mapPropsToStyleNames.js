@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-export default (mapPropsToStyleNames = (styleNames, props) => {
+const mapPropsToStyleNames = (styleNames, props) => {
   const keys = _.keys(props);
   const values = _.values(props);
 
@@ -11,4 +11,6 @@ export default (mapPropsToStyleNames = (styleNames, props) => {
   });
 
   return styleNames;
-});
+};
+
+export default mapPropsToStyleNames;
