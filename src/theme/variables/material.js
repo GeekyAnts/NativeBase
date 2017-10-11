@@ -6,6 +6,7 @@ const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = "material";
+const isIphoneX = deviceHeight === 812 && deviceWidth === 375;
 
 export default {
   platformStyle,
@@ -154,7 +155,7 @@ export default {
   // Header
   toolbarBtnColor: "#fff",
   toolbarDefaultBg: "#3F51B5",
-  toolbarHeight: platform === "ios" ? 76 : 56,
+  toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarIconSize: platform === "ios" ? 20 : 22,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: "#fff",
@@ -280,7 +281,8 @@ export default {
   jumbotronPadding: 30,
   deviceWidth,
   deviceHeight,
+  isIphoneX,
 
   // New Variable
-  inputGroupRoundedBorderRadius: 30
+  inputGroupRoundedBorderRadius: 30,
 };
