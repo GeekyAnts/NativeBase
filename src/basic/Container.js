@@ -10,9 +10,6 @@ import { ActionSheetContainer as ActionSheet } from "./Actionsheet";
 import { Text } from "./Text";
 
 class Container extends Component {
-	// componentWillUnmount() {
-	//   Toast.toastInstance = null;
-	// }
 
 	render() {
 		return (
