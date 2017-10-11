@@ -193,11 +193,17 @@ class Fab extends Component {
 		this.setState({
 			buttons: icon.length,
 		});
-		setTimeout(() => {
+		this.activeTimer = setTimeout(() => {
 			this.setState({
 				active: this.props.active,
 			});
 		}, 0);
+	}
+
+	componentWillUnmount() {
+		if (this.activeTimer) {
+			clearTimeout(this.activeTimer);
+		}
 	}
 
 	renderFab() {
@@ -361,7 +367,7 @@ class Fab extends Component {
 		if (this.props.onPress) {
 			this.props.onPress();
 			this._animate();
-			setTimeout(() => {
+			this.activeTimer = setTimeout(() => {
 				this.setState({
 					active: this.props.active,
 				});
@@ -375,23 +381,23 @@ class Fab extends Component {
 		return (
 			<Animated.View style={this.getContainerStyle()}>
 				{this.renderButtons()}
-				{Platform.OS === "ios" || variables.androidRipple === false || Platform["Version"] <= 21
-					? <TouchableOpacity onPress={() => this.fabOnPress()} {...this.prepareFabProps()} activeOpacity={1}>
-							{this.renderFab()}
-						</TouchableOpacity>
-					: <TouchableNativeFeedback
-							onPress={() => this.fabOnPress()}
-							background={
-								this.props.androidRippleColor
-									? TouchableNativeFeedback.Ripple(this.props.androidRippleColor)
-									: TouchableNativeFeedback.Ripple(variables.androidRippleColor)
-							}
-							{...this.prepareFabProps()}
-						>
-							<View style={[this.getInitialStyle().fab, this.props.style]}>
-								{this.renderFab()}
-							</View>
-						</TouchableNativeFeedback>}
+				{Platform.OS === "ios" || variables.androidRipple === false || Platform["Version"] <= 21 ? (
+					<TouchableOpacity onPress={() => this.fabOnPress()} {...this.prepareFabProps()} activeOpacity={1}>
+						{this.renderFab()}
+					</TouchableOpacity>
+				) : (
+					<TouchableNativeFeedback
+						onPress={() => this.fabOnPress()}
+						background={
+							this.props.androidRippleColor
+								? TouchableNativeFeedback.Ripple(this.props.androidRippleColor)
+								: TouchableNativeFeedback.Ripple(variables.androidRippleColor)
+						}
+						{...this.prepareFabProps()}
+					>
+						<View style={[this.getInitialStyle().fab, this.props.style]}>{this.renderFab()}</View>
+					</TouchableNativeFeedback>
+				)}
 			</Animated.View>
 		);
 	}
