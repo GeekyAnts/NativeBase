@@ -54,7 +54,8 @@ name:platform==="ios"&&platformStyle!=="material"?"ios-checkmark-outline":"md-ch
 CheckBox.propTypes=_extends({},
 _reactNative.TouchableOpacity.propTypes,{
 style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),
-checked:_propTypes2.default.bool});
+checked:_propTypes2.default.bool,
+onPress:_propTypes2.default.func});
 
 
 var StyledCheckBox=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.CheckBox",{},_mapPropsToStyleNames2.default)(CheckBox);exports.
