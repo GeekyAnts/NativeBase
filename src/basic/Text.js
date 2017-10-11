@@ -14,16 +14,16 @@ class Text extends Component {
     } = this.props;
 
     let text;
-    if (_.isArray(children) && !_.some(children, _.isObject)) {
-      // children ['a', 'b'] => iOS: ab, Android: a,b
-      // prevent comma in android
-      text = _.join(children, '');
+    if (uppercase) {
+      text = React.Children.map(children, child => {
+        if (_.isString(child)) {
+          return _.toUpper(child);
+        } else {
+          return child;
+        }
+      })
     } else {
       text = children;
-    }
-
-    if (uppercase) {
-      text = _.toUpper(text);
     }
 
 		return (
