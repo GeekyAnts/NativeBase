@@ -18,6 +18,7 @@ declare module "native-base" {
 			iosHeader?: string;
 			inlineLabel?: boolean;
 			headerBackButtonText?: string;
+			placeholder?: string;
 		}
 
 		interface H1 extends ReactNative.TextProperties {}
@@ -169,6 +170,14 @@ declare module "native-base" {
              * Block level button
              */
 			block?: boolean;
+			/**
+             * Vertical button
+             */
+			vertical?: boolean;
+			/**
+			 * Button with badges
+			 */
+			badge?: boolean;
 			//primary?: boolean,
 			/**
              * Gives you effect of Icon-buttons.
