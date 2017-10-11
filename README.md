@@ -97,7 +97,7 @@ async componentWillMount() {
 ```
 <br />
 
-Check out the [KitchenSink](https://expo.io/@geekyants/nativebase-kitchenSink) with CRNA for an example of the implementation.<br />
+Check out the [KitchenSink](https://expo.io/@geekyants/nativebasekitchensink) with CRNA for an example of the implementation.<br />
 Find the [KitchenSink repo here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/CRNA)
 
 ## 5. Components
