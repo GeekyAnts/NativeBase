@@ -2,18 +2,23 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { TouchableOpacity, Platform, View, TouchableNativeFeedback } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
-import variables from "./../theme/variables/platform";
+import variable from "./../theme/variables/platform";
 import { Text } from "./Text";
 import computeProps from "../Utils/computeProps";
 
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Button extends Component {
+
+	static contextTypes = {
+		theme: PropTypes.object,
+	};
+
 	getInitialStyle() {
 		return {
 			borderedBtn: {
 				borderWidth: this.props.bordered ? 1 : undefined,
-				borderRadius: this.props.rounded && this.props.bordered ? variables.borderRadiusLarge : 2,
+				borderRadius: this.props.rounded && this.props.bordered ? variable.borderRadiusLarge : 2,
 			},
 		};
 	}
@@ -28,6 +33,7 @@ class Button extends Component {
 		return computeProps(this.props, defaultProps);
 	}
 	render() {
+		const variables = this.context.theme ? this.context.theme["@@shoutem.theme/themeStyle"].variables : variable;
 		const children =
 			Platform.OS === "ios"
 				? this.props.children
