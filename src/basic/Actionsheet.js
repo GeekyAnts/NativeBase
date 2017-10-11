@@ -61,11 +61,17 @@ class ActionSheetContainer extends Component {
 				animationType={"fade"}
 				transparent={true}
 				visible={this.state.modalVisible}
-				onRequestClose={() => this.setState({ modalVisible: false })}
+				onRequestClose={() => {
+					this.state.callback(-1);
+					this.setState({ modalVisible: false });
+				}}
 			>
 				<TouchableOpacity
 					activeOpacity={1}
-					onPress={() => this.setState({ modalVisible: false })}
+					onPress={() => {
+						this.state.callback(-1);
+						this.setState({ modalVisible: false });
+					}}
 					style={{
 						backgroundColor: "rgba(0,0,0,0.4)",
 						flex: 1,
