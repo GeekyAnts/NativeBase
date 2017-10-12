@@ -47,11 +47,6 @@ top:8},
 "NativeBase.Icon":{
 top:6},
 
-".last":{
-"NativeBase.Label":{
-left:-15}},
-
-
 marginTop:15,
 marginLeft:15},
 
