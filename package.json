@@ -14,8 +14,8 @@
     "rnpm"
   ],
   "scripts": {
-    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
-    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
+    "compile": "rimraf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
+    "transpile": "npm run compile && cpy src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "test": "jest",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",
@@ -52,6 +52,7 @@
     "babel-eslint": "^6.1.2",
     "babel-jest": "^16.0.0",
     "babel-preset-react-native": "^1.9.0",
+    "cpy-cli": "^1.0.1",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.14.0",
@@ -63,11 +64,13 @@
     "react": "^16.0.0-alpha.3",
     "react-native": "^0.46.0",
     "react-native-vector-icons": "~4.3.0",
-    "react-test-renderer": "^15.3.2"
+    "react-test-renderer": "^15.3.2",
+    "rimraf": "^2.6.2"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
   "main": "dist/src/index.js",
+  "module": "src/index.js",
   "typings": "./index.d.ts",
   "optionalDependencies": {},
   "peerDependencies": {
