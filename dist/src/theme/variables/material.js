@@ -5,7 +5,8 @@ var _reactNative=require("react-native");function _interopRequireDefault(obj){re
 var deviceHeight=_reactNative.Dimensions.get("window").height;
 var deviceWidth=_reactNative.Dimensions.get("window").width;
 var platform=_reactNative.Platform.OS;
-var platformStyle="material";exports.default=
+var platformStyle="material";
+var isIphoneX=deviceHeight===812&&deviceWidth===375;exports.default=
 
 {
 platformStyle:platformStyle,
@@ -114,6 +115,8 @@ brandSuccess:"#5cb85c",
 brandDanger:"#d9534f",
 brandWarning:"#f0ad4e",
 brandSidebar:"#252932",
+brandDark:"#000",
+brandLight:"#f4f4f4",
 
 
 fontFamily:"Roboto",
@@ -152,7 +155,7 @@ topTabBarActiveBorderColor:"#fff",
 
 toolbarBtnColor:"#fff",
 toolbarDefaultBg:"#3F51B5",
-toolbarHeight:platform==="ios"?76:56,
+toolbarHeight:platform==="ios"?isIphoneX?88:64:56,
 toolbarIconSize:platform==="ios"?20:22,
 toolbarSearchIconSize:platform==="ios"?20:23,
 toolbarInputColor:"#fff",
@@ -162,7 +165,9 @@ toolbarTextColor:"#fff",
 toolbarDefaultBorder:"#3F51B5",
 iosStatusbar:"light-content",
 get statusBarColor(){
-return(0,_color2.default)(this.toolbarDefaultBg).darken(0.2).hex();
+return(0,_color2.default)(this.toolbarDefaultBg).
+darken(0.2).
+hex();
 },
 
 
@@ -230,7 +235,9 @@ radioBtnLineHeight:platform==="ios"?29:24,
 radioColor:"#7e7e7e",
 
 get radioSelectedColor(){
-return(0,_color2.default)(this.radioColor).darken(0.2).hex();
+return(0,_color2.default)(this.radioColor).
+darken(0.2).
+hex();
 },
 
 
@@ -262,7 +269,9 @@ borderWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 contentPadding:10,
 
 get darkenHeader(){
-return(0,_color2.default)(this.tabBgColor).darken(0.03).hex();
+return(0,_color2.default)(this.tabBgColor).
+darken(0.03).
+hex();
 },
 
 dropdownBg:"#000",
@@ -272,6 +281,7 @@ jumbotronBg:"#C9C9CE",
 jumbotronPadding:30,
 deviceWidth:deviceWidth,
 deviceHeight:deviceHeight,
+isIphoneX:isIphoneX,
 
 
 inputGroupRoundedBorderRadius:30};

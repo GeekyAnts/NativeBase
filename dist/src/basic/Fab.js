@@ -193,11 +193,17 @@ return true;
 this.setState({
 buttons:icon.length});
 
-setTimeout(function(){
+this.activeTimer=setTimeout(function(){
 _this2.setState({
 active:_this2.props.active});
 
 },0);
+}},{key:"componentWillUnmount",value:function componentWillUnmount()
+
+{
+if(this.activeTimer){
+clearTimeout(this.activeTimer);
+}
 }},{key:"renderFab",value:function renderFab()
 
 {
@@ -232,7 +238,7 @@ _react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i,__source:{fileName:_jsxFileName,lineNumber:231}}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:237}}),
 
 child.props.children));
 
@@ -361,7 +367,7 @@ this.upAnimate();
 if(this.props.onPress){
 this.props.onPress();
 this._animate();
-setTimeout(function(){
+this.activeTimer=setTimeout(function(){
 _this4.setState({
 active:_this4.props.active});
 
@@ -373,11 +379,12 @@ active:_this4.props.active});
 active=this.props.active;
 
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:376}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:382}},
 this.renderButtons(),
 _reactNative.Platform.OS==="ios"||_platform2.default.androidRipple===false||_reactNative.Platform["Version"]<=21?
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({onPress:function onPress(){return _this5.fabOnPress();}},this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:379}}),
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({onPress:function onPress(){return _this5.fabOnPress();}},this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:385}}),
 this.renderFab()):
+
 
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
 onPress:function onPress(){return _this5.fabOnPress();},
@@ -386,10 +393,9 @@ this.props.androidRippleColor?
 _reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):
 _reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
 
-this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:382}}),
+this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:389}}),
 
-_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:391}},
-this.renderFab()))));
+_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:398}},this.renderFab()))));
 
 
 

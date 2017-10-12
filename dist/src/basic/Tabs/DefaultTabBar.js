@@ -3,6 +3,7 @@ var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_pro
 var _createReactClass=require("create-react-class");var _createReactClass2=_interopRequireDefault(_createReactClass);
 
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
+var _mapPropsToStyleNames=require("../../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _platform=require("./../../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _index=require("./../../index");
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);
@@ -21,7 +22,8 @@ activeTextColor:_propTypes2.default.string,
 inactiveTextColor:_propTypes2.default.string,
 tabStyle:_Utils.ViewPropTypes.style,
 renderTab:_propTypes2.default.func,
-underlineStyle:_Utils.ViewPropTypes.style},
+underlineStyle:_Utils.ViewPropTypes.style,
+tabContainerStyle:_Utils.ViewPropTypes.style},
 
 contextTypes:{
 theme:_propTypes2.default.object},
@@ -54,11 +56,9 @@ var textColor=isTabActive?activeTextColor:inactiveTextColor;
 var fontWeight=isTabActive?"bold":"normal";
 if(typeof name==="string"){
 return(
-_react2.default.createElement(Button,{style:{flex:1},key:name,onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:57}},
-_react2.default.createElement(_index.TabHeading,{style:isTabActive?activeTabStyle:tabStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:58}},
-_react2.default.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:59}},
-name))));
-
+_react2.default.createElement(Button,{style:{flex:1},key:name,onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:59}},
+_react2.default.createElement(_index.TabHeading,{style:isTabActive?activeTabStyle:tabStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:60}},
+_react2.default.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:61}},name))));
 
 
 
@@ -74,7 +74,9 @@ headerContent)));
 },
 
 render:function render(){var _this=this;
-var variables=this.context.theme?this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
+var variables=this.context.theme?
+this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
+
 var platformStyle=variables.platformStyle;
 var containerWidth=this.props.containerWidth;
 var numberOfTabs=this.props.tabs.length;
@@ -91,7 +93,7 @@ inputRange:[0,1],
 outputRange:[0,containerWidth/numberOfTabs]});
 
 return(
-_react2.default.createElement(_index.TabContainer,{__source:{fileName:_jsxFileName,lineNumber:94}},
+_react2.default.createElement(_index.TabContainer,{style:this.props.tabContainerStyle?this.props.tabContainerStyle:{},__source:{fileName:_jsxFileName,lineNumber:96}},
 this.props.tabs.map(function(name,page){
 var isTabActive=_this.props.activeTab===page;
 var renderTab=_this.props.renderTab||_this.renderTab;
@@ -107,13 +109,13 @@ _this.props.activeTextStyle[page],
 _this.props.tabHeaderStyle[page]);
 
 }),
-_react2.default.createElement(Animated.View,{style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:110}})));
+_react2.default.createElement(Animated.View,{style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:112}})));
 
 
 }});
 
 
 
-var StyledTab=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.DefaultTabBar",{},mapPropsToStyleNames)(DefaultTabBar);exports.
+var StyledTab=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.DefaultTabBar",{},_mapPropsToStyleNames2.default)(DefaultTabBar);exports.
 DefaultTabBar=StyledTab;
 //# sourceMappingURL=DefaultTabBar.js.map

@@ -234,7 +234,7 @@ style:[
 styles.hidden,
 {
 height:this.state.hiddenHeight,
-width:this.state.hiddenWidth,
+flex:1,
 flexDirection:"row",
 justifyContent:"space-between"}],__source:{fileName:_jsxFileName,lineNumber:232}},
 

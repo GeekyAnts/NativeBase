@@ -104,7 +104,21 @@ return newLabel;
 
 {var _this3=this;
 var newChildren=[];
+var left=[];
+var right=[];
 var childrenArray=_react2.default.Children.toArray(this.props.children);
+console.log("childrenArray",_react2.default.Children.toArray(this.props.children));
+
+var i=0;
+for(i=0;childrenArray[i].type!==_Label.Label;i++){
+left[i]=childrenArray[i];
+}
+
+i+=2;
+for(j=i,k=0;j<childrenArray.length;j++,k++){
+right[k]=childrenArray[j];
+}
+
 
 var label=[];
 var labelProps={};
@@ -114,6 +128,8 @@ labelProps=item.props;
 return item;
 }
 });
+
+
 
 var input=[];
 var inputProps={};
@@ -133,68 +149,51 @@ iconProps=item.props;
 return item;
 }
 });
-if(this.props.floatingLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:"i1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:137}})));
+if(this.props.floatingLabel){
 newChildren.push(
+_react2.default.createElement(_reactNative.View,{key:"v1",style:{flexDirection:"row"},__source:{fileName:_jsxFileName,lineNumber:154}},
+_lodash2.default.remove(left,function(item){
+return item;
+})));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+newChildren.push(
+_react2.default.createElement(_reactNative.View,{key:"pa1",style:{flex:1},__source:{fileName:_jsxFileName,lineNumber:181}},
 _react2.default.createElement(_reactNative.Animated.View,{
 key:"float",
 style:{
-position:"absolute",
-left:this.props.last?22:22,
-right:0,
-top:this.state.topAnim,
-opacity:this.state.opacAnim,
-paddingTop:_reactNative.Platform.OS==="ios"?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:139}},
-
-
-_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:151}}),
-this.renderLabel(label,labelProps))));
-
-
-
-newChildren.push(
-_react2.default.createElement(_Input.Input,_extends({
-key:"l2"},
-inputProps,{
-onFocus:function onFocus(){
-_this3.setState({isFocused:true});
-inputProps.onFocus&&inputProps.onFocus();
-},
-onBlur:function onBlur(){
-inputProps.value?
-_this3.setState({
-isFocused:true}):
-
-!_this3.state.text.length&&_this3.setState({isFocused:false});
-inputProps.onBlur&&inputProps.onBlur();
-},
-onChangeText:function onChangeText(text){
-_this3.setState({text:text});
-inputProps.onChangeText&&inputProps.onChangeText(text);
-},__source:{fileName:_jsxFileName,lineNumber:157}})));
-
-
-}else if(this.props.floatingLabel){
-newChildren.push(
-_react2.default.createElement(_reactNative.Animated.View,{
-key:"float",
-style:{
+flex:1,
 position:"absolute",
 left:this.props.last?15:0,
 right:0,
 top:this.state.topAnim,
 opacity:this.state.opacAnim,
 paddingTop:_reactNative.Platform.OS==="ios"?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:180}},
+paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:182}},
 
 
-_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:192}}),
-this.renderLabel(label,labelProps))));
+_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:195}}),this.renderLabel(label,labelProps))),
 
-
-
-newChildren.push(
 _react2.default.createElement(_Input.Input,_extends({
 ref:function ref(c){return _this3._inputRef=c;},
 value:this.state.text,
@@ -215,7 +214,41 @@ inputProps.onBlur&&inputProps.onBlur();
 onChangeText:function onChangeText(text){
 _this3.setState({text:text});
 inputProps.onChangeText&&inputProps.onChangeText(text);
-},__source:{fileName:_jsxFileName,lineNumber:198}})));
+},__source:{fileName:_jsxFileName,lineNumber:197}}))));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+newChildren.push(
+_react2.default.createElement(_reactNative.View,{key:"v2",style:{flexDirection:"row"},__source:{fileName:_jsxFileName,lineNumber:248}},
+_lodash2.default.remove(right,function(item){
+return item;
+})));
 
 
 }else if(this.props.stackedLabel&&icon.length){
@@ -225,13 +258,23 @@ key:"s",
 style:{
 flexDirection:"row",
 flex:1,
-width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:223}},
+width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:256}},
 
 
-_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:231}})),
-_react2.default.createElement(_reactNative.View,{style:{flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:232}},
-_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:233}})),
-_react2.default.createElement(_Input.Input,_extends({key:"s3"},inputProps,{style:{width:_platform2.default.deviceWidth-40},__source:{fileName:_jsxFileName,lineNumber:234}})))));
+_react2.default.createElement(_reactNative.View,{key:"v3",style:{flexDirection:"row"},__source:{fileName:_jsxFileName,lineNumber:264}},
+_lodash2.default.remove(left,function(item){
+return item;
+})),
+
+
+_react2.default.createElement(_reactNative.View,{style:{flex:1,flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:270}},
+_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:271}})),
+_react2.default.createElement(_Input.Input,_extends({key:"s3"},inputProps,{__source:{fileName:_jsxFileName,lineNumber:272}}))),
+
+_react2.default.createElement(_reactNative.View,{key:"v4",style:{flexDirection:"row"},__source:{fileName:_jsxFileName,lineNumber:274}},
+_lodash2.default.remove(right,function(item){
+return item;
+}))));
 
 
 
@@ -258,7 +301,7 @@ return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:"render",value:function render()
 {var _this4=this;
 return(
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this4._root=c;}},this.prepareRootProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:261}}),
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this4._root=c;}},this.prepareRootProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:304}}),
 this.renderChildren()));
 
 
