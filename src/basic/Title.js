@@ -6,7 +6,7 @@ import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Title extends Component {
 	render() {
-		return <Text ref={c => (this._root = c)} {...this.props} numberOfLines={1} />;
+		return <Text ref={c => (this._root = c)} numberOfLines={1} {...this.props} />;
 	}
 }
 

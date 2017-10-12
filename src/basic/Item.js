@@ -104,8 +104,22 @@ class Item extends Component {
 
 	renderChildren() {
 		const newChildren = [];
+		let left = [];
+		let right = [];
 		const childrenArray = React.Children.toArray(this.props.children);
+		console.log("childrenArray", React.Children.toArray(this.props.children));
 
+		let i = 0;
+		for (i = 0; childrenArray[i].type !== Label; i++) {
+			left[i] = childrenArray[i];
+		}
+
+		i += 2;
+		for (j = i, k = 0; j < childrenArray.length; j++, k++) {
+			right[k] = childrenArray[j];
+		}
+		// console.log("left", left);
+		// console.log("right", right);
 		let label = [];
 		let labelProps = {};
 		label = _.remove(childrenArray, item => {
@@ -114,6 +128,8 @@ class Item extends Component {
 				return item;
 			}
 		});
+
+		// console.log("label childrenArray", label);
 
 		let input = [];
 		let inputProps = {};
@@ -133,90 +149,107 @@ class Item extends Component {
 				return item;
 			}
 		});
-		if (this.props.floatingLabel && icon.length) {
-			newChildren.push(<Icon key="i1" {...iconProps} />);
+		if (this.props.floatingLabel) {
 			newChildren.push(
-				<Animated.View
-					key="float"
-					style={{
-						position: "absolute",
-						left: this.props.last ? 22 : 22,
-						right: 0,
-						top: this.state.topAnim,
-						opacity: this.state.opacAnim,
-						paddingTop: Platform.OS === "ios" ? undefined : undefined,
-						paddingBottom: Platform.OS === "ios" ? undefined : 12,
-					}}
-				>
-					<Label {...labelProps}>
-						{this.renderLabel(label, labelProps)}
-					</Label>
-				</Animated.View>
+				<View key="v1" style={{ flexDirection: "row" }}>
+					{_.remove(left, item => {
+						return item;
+					})}
+				</View>
 			);
+			/*newChildren.push(
+                <Animated.View
+                    key="float"
+                    style={{
+                        flexGrow: 1,
+                        position: "absolute",
+                        left: this.props.last ? 15 : 0,
+                        right: 0,
+                        top: this.state.topAnim,
+                        opacity: this.state.opacAnim,
+                        paddingTop:
+                            Platform.OS === "ios" ? undefined : undefined,
+                        paddingBottom: Platform.OS === "ios" ? undefined : 12
+                    }}
+                >
+                    <Label {...labelProps}>
+                        {this.renderLabel(label, labelProps)}
+                    </Label>
+                </Animated.View>
+            );*/
 			newChildren.push(
-				<Input
-					key="l2"
-					{...inputProps}
-					onFocus={() => {
-						this.setState({ isFocused: true });
-						inputProps.onFocus && inputProps.onFocus();
-					}}
-					onBlur={() => {
-						inputProps.value
-							? this.setState({
-									isFocused: true,
-								})
-							: !this.state.text.length && this.setState({ isFocused: false });
-						inputProps.onBlur && inputProps.onBlur();
-					}}
-					onChangeText={text => {
-						this.setState({ text });
-						inputProps.onChangeText && inputProps.onChangeText(text);
-					}}
-				/>
+				<View key="pa1" style={{ flex: 1 }}>
+					<Animated.View
+						key="float"
+						style={{
+							flex: 1,
+							position: "absolute",
+							left: this.props.last ? 15 : 0,
+							right: 0,
+							top: this.state.topAnim,
+							opacity: this.state.opacAnim,
+							paddingTop: Platform.OS === "ios" ? undefined : undefined,
+							paddingBottom: Platform.OS === "ios" ? undefined : 12,
+						}}
+					>
+						<Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
+					</Animated.View>
+					<Input
+						ref={c => (this._inputRef = c)}
+						value={this.state.text}
+						key="l2"
+						{...inputProps}
+						onFocus={() => {
+							this.setState({ isFocused: true });
+							inputProps.onFocus && inputProps.onFocus();
+						}}
+						onBlur={() => {
+							inputProps.value
+								? this.setState({
+										isFocused: true,
+									})
+								: !this.state.text.length && this.setState({ isFocused: false });
+							inputProps.onBlur && inputProps.onBlur();
+						}}
+						onChangeText={text => {
+							this.setState({ text });
+							inputProps.onChangeText && inputProps.onChangeText(text);
+						}}
+					/>
+				</View>
 			);
-		} else if (this.props.floatingLabel) {
+			/*newChildren.push(
+                <Input
+                    ref={c => (this._inputRef = c)}
+                    value={this.state.text}
+                    key="l2"
+                    {...inputProps}
+                    onFocus={() => {
+                        this.setState({ isFocused: true });
+                        inputProps.onFocus && inputProps.onFocus();
+                    }}
+                    onBlur={() => {
+                        inputProps.value
+                            ? this.setState({
+                                  isFocused: true
+                              })
+                            : !this.state.text.length &&
+                              this.setState({ isFocused: false });
+                        inputProps.onBlur && inputProps.onBlur();
+                    }}
+                    onChangeText={text => {
+                        this.setState({ text });
+                        inputProps.onChangeText &&
+                            inputProps.onChangeText(text);
+                    }}
+                />
+            );*/
 			newChildren.push(
-				<Animated.View
-					key="float"
-					style={{
-						position: "absolute",
-						left: this.props.last ? 15 : 0,
-						right: 0,
-						top: this.state.topAnim,
-						opacity: this.state.opacAnim,
-						paddingTop: Platform.OS === "ios" ? undefined : undefined,
-						paddingBottom: Platform.OS === "ios" ? undefined : 12,
-					}}
-				>
-					<Label {...labelProps}>
-						{this.renderLabel(label, labelProps)}
-					</Label>
-				</Animated.View>
-			);
-			newChildren.push(
-				<Input
-					ref={c => (this._inputRef = c)}
-					value={this.state.text}
-					key="l2"
-					{...inputProps}
-					onFocus={() => {
-						this.setState({ isFocused: true });
-						inputProps.onFocus && inputProps.onFocus();
-					}}
-					onBlur={() => {
-						inputProps.value
-							? this.setState({
-									isFocused: true,
-								})
-							: !this.state.text.length && this.setState({ isFocused: false });
-						inputProps.onBlur && inputProps.onBlur();
-					}}
-					onChangeText={text => {
-						this.setState({ text });
-						inputProps.onChangeText && inputProps.onChangeText(text);
-					}}
-				/>
+				<View key="v2" style={{ flexDirection: "row" }}>
+					{_.remove(right, item => {
+						return item;
+					})}
+				</View>
 			);
 		} else if (this.props.stackedLabel && icon.length) {
 			newChildren.push(
@@ -228,10 +261,20 @@ class Item extends Component {
 						width: variables.deviceWidth - 15,
 					}}
 				>
-					<Icon key="s1" {...iconProps} />
-					<View style={{ flexDirection: "column" }}>
+					<View key="v3" style={{ flexDirection: "row" }}>
+						{_.remove(left, item => {
+							return item;
+						})}
+					</View>
+
+					<View style={{ flex: 1, flexDirection: "column" }}>
 						<Label key="s2" {...labelProps} />
-						<Input key="s3" {...inputProps} style={{ width: variables.deviceWidth - 40 }} />
+						<Input key="s3" {...inputProps} />
+					</View>
+					<View key="v4" style={{ flexDirection: "row" }}>
+						{_.remove(right, item => {
+							return item;
+						})}
 					</View>
 				</View>
 			);
