@@ -16,4 +16,5 @@ const SceneComponent = Props => {
   );
 };
 
-export default SceneComponent;
+module.exports = SceneComponent;
+//export default SceneComponent;
