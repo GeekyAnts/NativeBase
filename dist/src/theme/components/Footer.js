@@ -46,6 +46,7 @@ shadowOpacity:null},
 
 ".full":{
 height:variables.footerHeight,
+paddingBottom:variables.footerPaddingBottom,
 flex:1},
 
 "NativeBase.Icon":{
@@ -89,10 +90,10 @@ borderColor:platform==="ios"&&platformStyle!=="material"?
 "#cbcbcb":
 undefined,
 height:variables.footerHeight,
+paddingBottom:variables.footerPaddingBottom,
 elevation:3,
 left:0,
 right:0};
-
 
 return footerTheme;
 };
