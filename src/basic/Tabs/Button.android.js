@@ -14,4 +14,5 @@ const Button = props => {
   );
 };
 
-export default Button;
+module.exports = Button;
+//export default Button;
