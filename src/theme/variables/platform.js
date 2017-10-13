@@ -6,7 +6,7 @@ const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = undefined;
-const isIphoneX = deviceHeight === 812 && deviceWidth === 375;
+const isIphoneX = platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
 
 export default {
   platformStyle,
@@ -133,8 +133,9 @@ export default {
   },
 
   // Footer
-  footerHeight: 55,
+  footerHeight: isIphoneX ? 89 : 55,
   footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#4179F7",
+  footerPaddingBottom: isIphoneX ? 34 : 0,
 
   // FooterTab
   tabBarTextColor: platform === "ios" ? "#6b6b6b" : "#b3c7f9",

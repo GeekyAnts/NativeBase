@@ -31,7 +31,7 @@ export default (variables = variable) => {
       shadowOpacity: null,
       alignSelf: "center",
       flex: 1,
-      height: variables.footerHeight,
+      height: (variables.footerHeight - (variables.isIphoneX ? 34 : 0)),
       justifyContent: "center",
       ".badge": {
         "NativeBase.Badge": {
