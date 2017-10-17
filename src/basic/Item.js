@@ -106,23 +106,22 @@ class Item extends Component {
 
     renderChildren() {
         const newChildren = [];
-        let left = [];
-        let right = [];
+
         const childrenArray = React.Children.toArray(this.props.children);
-        console.log(
-            "childrenArray",
-            React.Children.toArray(this.props.children)
-        );
 
-        let i = 0;
-        for (i = 0; childrenArray[i].type !== Label; i++) {
-            left[i] = childrenArray[i];
-        }
+        // console.log(
+        //     "childrenArray",
+        //     React.Children.toArray(this.props.children)
+        // );
 
-        i += 2;
-        for (j = i, k = 0; j < childrenArray.length; j++, k++) {
-            right[k] = childrenArray[j];
-        }
+        // for (i = 0; childrenArray[i].type !== Label; i++) {
+        //     left[i] = childrenArray[i];
+        // }
+
+        // i += 2;
+        // for (j = i, k = 0; j < childrenArray.length; j++, k++) {
+        //     right[k] = childrenArray[j];
+        // }
         // console.log("left", left);
         // console.log("right", right);
         let label = [];
@@ -155,6 +154,19 @@ class Item extends Component {
             }
         });
         if (this.props.floatingLabel) {
+            let left = [];
+            let right = [];
+            const mchildrenArray = React.Children.toArray(this.props.children);
+            var i = 0;
+            for (i = 0; mchildrenArray[i].type !== Label; i++) {
+                left[i] = mchildrenArray[i];
+            }
+
+            i += 2;
+            for (j = i, k = 0; j < mchildrenArray.length; j++, k++) {
+                right[k] = mchildrenArray[j];
+            }
+
             newChildren.push(
                 <View key="v1" style={{ flexDirection: "row" }}>
                     {_.remove(left, item => {
@@ -183,7 +195,7 @@ class Item extends Component {
                 </Animated.View>
             );*/
             newChildren.push(
-                <View key="pa1" style={{ flex: 1 }}>
+                <View {...labelProps} key="pa1" style={{ flex: 1 }}>
                     <Animated.View
                         key="float"
                         style={{
@@ -263,6 +275,17 @@ class Item extends Component {
                 </View>
             );
         } else if (this.props.stackedLabel && icon.length) {
+            let left = [];
+            let right = [];
+            var i = 0;
+            for (i = 0; childrenArray[i].type !== Label; i++) {
+                left[i] = childrenArray[i];
+            }
+
+            i += 2;
+            for (j = i, k = 0; j < childrenArray.length; j++, k++) {
+                right[k] = childrenArray[j];
+            }
             newChildren.push(
                 <View
                     key="s"
