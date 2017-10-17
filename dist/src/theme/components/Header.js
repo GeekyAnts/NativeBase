@@ -250,14 +250,16 @@ paddingHorizontal:15,
 borderRadius:50,
 "NativeBase.Icon":{
 color:variables.toolbarBtnColor,
-fontSize:platform==="ios"?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
+fontSize:
+platform==="ios"?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
 marginTop:2,
 marginLeft:2,
 marginRight:2},
 
 "NativeBase.IconNB":{
 color:variables.toolbarBtnColor,
-fontSize:platform==="ios"?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
+fontSize:
+platform==="ios"?variables.iconHeaderSize-6:variables.iconHeaderSize-2,
 marginTop:2,
 marginLeft:2,
 marginRight:2},
@@ -294,7 +296,7 @@ backgroundColor:variables.toolbarDefaultBg,
 flexDirection:"row",
 paddingHorizontal:10,
 justifyContent:"center",
-paddingTop:platform==="ios"?15:0,
+paddingTop:platform==="ios"?variables.isIphoneX?39:15:0,
 borderBottomWidth:platform==="ios"?1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1):0,
 borderBottomColor:variables.toolbarDefaultBorder,
 height:variables.toolbarHeight,

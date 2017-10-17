@@ -1,7 +1,15 @@
-var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Tabs/index.js";
+Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Tabs/index.js";
 
 var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _createReactClass=require("create-react-class");var _createReactClass2=_interopRequireDefault(_createReactClass);
+
+
+
+
+
+
+
+
 
 
 var _Utils=require("../../Utils");
@@ -104,7 +112,7 @@ return null;
 }else if(this.props.renderTabBar){
 return React.cloneElement(this.props.renderTabBar(props),props);
 }else{
-return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:107}}));
+return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:115}}));
 }
 },
 
@@ -167,7 +175,7 @@ scrollEnabled:!this.props.locked,
 directionalLockEnabled:true,
 alwaysBounceVertical:false,
 keyboardDismissMode:"on-drag"},
-this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:147}}),
+this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:155}}),
 
 scenes));
 
@@ -181,9 +189,13 @@ return(
 React.createElement(SceneComponent,{
 key:child.key,
 shouldUpdated:_this4._shouldRenderSceneKey(idx,_this4.state.currentPage),
-style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:181}},
+style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:189}},
 
-_this4._keyExists(_this4.state.sceneKeys,key)?child:React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:186}})));
+_this4._keyExists(_this4.state.sceneKeys,key)?
+child:
+
+React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:197}})));
+
 
 
 });
@@ -239,7 +251,8 @@ return React.Children.map(children,function(child){return child;});
 },
 
 render:function render(){
-var overlayTabs=this.props.tabBarPosition==="overlayTop"||this.props.tabBarPosition==="overlayBottom";
+var overlayTabs=
+this.props.tabBarPosition==="overlayTop"||this.props.tabBarPosition==="overlayBottom";
 var tabBarProps={
 goToPage:this.goToPage,
 tabs:this._children().map(function(child){return child.props.heading;}),
@@ -247,7 +260,9 @@ tabStyle:this._children().map(function(child){return child.props.tabStyle;}),
 activeTabStyle:this._children().map(function(child){return child.props.activeTabStyle;}),
 textStyle:this._children().map(function(child){return child.props.textStyle;}),
 activeTextStyle:this._children().map(function(child){return child.props.activeTextStyle;}),
-tabHeaderStyle:this._children().map(function(child){return _lodash2.default.get(child.props.heading.props,"style",undefined);}),
+tabHeaderStyle:this._children().map(function(child){return(
+_lodash2.default.get(child.props.heading.props,"style",undefined));}),
+
 activeTab:this.state.currentPage,
 scrollValue:this.state.scrollValue,
 containerWidth:this.state.containerWidth};
@@ -268,6 +283,9 @@ tabBarProps.textStyle=this.props.tabBarTextStyle;
 if(this.props.tabBarUnderlineStyle){
 tabBarProps.underlineStyle=this.props.tabBarUnderlineStyle;
 }
+if(this.props.tabContainerStyle){
+tabBarProps.tabContainerStyle=this.props.tabContainerStyle;
+}
 if(overlayTabs){
 tabBarProps.style=_defineProperty({
 position:"absolute",
@@ -278,16 +296,16 @@ this.props.tabBarPosition==="overlayTop"?"top":"bottom",0);
 }
 
 return(
-React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:281}},
+React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:299}},
 this.props.tabBarPosition==="top"&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
 (this.props.tabBarPosition==="bottom"||overlayTabs)&&this.renderTabBar(tabBarProps)));
 
 
-}});
+}});exports.default=
 
 
-module.exports=ScrollableTabView;
+ScrollableTabView;
 
 var styles=StyleSheet.create({
 container:{

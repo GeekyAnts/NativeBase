@@ -12,139 +12,119 @@ import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 import _ from "lodash";
 
 class Item extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            text: "",
-            topAnim: new Animated.Value(18),
-            opacAnim: new Animated.Value(1)
-        };
-    }
-    componentDidMount() {
-        if (this.props.floatingLabel) {
-            if (this.inputProps && this.inputProps.value) {
-                this.setState({ isFocused: true });
-                this.floatUp(-16);
-            }
-            if (this.inputProps && this.inputProps.getRef)
-                this.inputProps.getRef(this._inputRef);
-        }
-    }
-    componentWillReceiveProps(nextProps) {
-        const childrenArray = React.Children.toArray(nextProps.children);
-        let inputProps = {};
-        input = _.remove(childrenArray, item => {
-            if (item.type.displayName === "Styled(Input)") {
-                inputProps = item.props;
-                this.inputProps = item.props;
-                return item;
-            }
-        });
-        if (this.props.floatingLabel) {
-            if (this.inputProps && this.inputProps.value) {
-                this.setState({ isFocused: true });
-                this.floatUp(-16);
-            }
-            if (this.inputProps && this.inputProps.getRef)
-                this.inputProps.getRef(this._inputRef);
-        }
-    }
+	constructor(props) {
+		super(props);
+		this.state = {
+			text: "",
+			topAnim: new Animated.Value(18),
+			opacAnim: new Animated.Value(1),
+		};
+	}
+	componentDidMount() {
+		if (this.props.floatingLabel) {
+			if (this.inputProps && this.inputProps.value) {
+				this.setState({ isFocused: true });
+				this.floatUp(-16);
+			}
+			if (this.inputProps && this.inputProps.getRef) this.inputProps.getRef(this._inputRef);
+		}
+	}
+	componentWillReceiveProps(nextProps) {
+		const childrenArray = React.Children.toArray(nextProps.children);
+		let inputProps = {};
+		input = _.remove(childrenArray, item => {
+			if (item.type.displayName === "Styled(Input)") {
+				inputProps = item.props;
+				this.inputProps = item.props;
+				return item;
+			}
+		});
+		if (this.props.floatingLabel) {
+			if (this.inputProps && this.inputProps.value) {
+				this.setState({ isFocused: true });
+				this.floatUp(-16);
+			}
+			if (this.inputProps && this.inputProps.getRef) this.inputProps.getRef(this._inputRef);
+		}
+	}
 
-    floatBack() {
-        Animated.timing(this.state.topAnim, {
-            toValue: 18,
-            duration: 150
-        }).start();
-        Animated.timing(this.state.opacAnim, {
-            toValue: 1,
-            duration: 150
-        }).start();
-    }
+	floatBack() {
+		Animated.timing(this.state.topAnim, {
+			toValue: 18,
+			duration: 150,
+		}).start();
+		Animated.timing(this.state.opacAnim, {
+			toValue: 1,
+			duration: 150,
+		}).start();
+	}
 
-    floatUp(e) {
-        Animated.timing(this.state.topAnim, {
-            toValue: e || -22,
-            duration: 150
-        }).start();
-        Animated.timing(this.state.opacAnim, {
-            toValue: 0.7,
-            duration: 150
-        }).start();
-    }
+	floatUp(e) {
+		Animated.timing(this.state.topAnim, {
+			toValue: e || -22,
+			duration: 150,
+		}).start();
+		Animated.timing(this.state.opacAnim, {
+			toValue: 0.7,
+			duration: 150,
+		}).start();
+	}
 
-    renderLabel(label, labelProps) {
-        const newLabel = [];
-        if (this.props.floatingLabel) {
-            if (this.state.isFocused) {
-                newLabel.push(
-                    React.createElement(Label, {
-                        ...labelProps,
-                        key: "newFLabel",
-                        float: true,
-                        style: {
-                            fontSize: 15,
-                            lineHeight: 30,
-                            ...labelProps.style
-                        }
-                    })
-                );
-                this.floatUp();
-            } else {
-                newLabel.push(label);
-                this.floatBack();
-            }
-        } else {
-            newLabel.push(
-                React.createElement(Label, {
-                    ...labelProps,
-                    key: "newLabel"
-                })
-            );
-        }
-        return newLabel;
-    }
+	renderLabel(label, labelProps) {
+		const newLabel = [];
+		if (this.props.floatingLabel) {
+			if (this.state.isFocused) {
+				newLabel.push(
+					React.createElement(Label, {
+						...labelProps,
+						key: "newFLabel",
+						float: true,
+						style: {
+							fontSize: 15,
+							lineHeight: 30,
+							...labelProps.style,
+						},
+					})
+				);
+				this.floatUp();
+			} else {
+				newLabel.push(label);
+				this.floatBack();
+			}
+		} else {
+			newLabel.push(
+				React.createElement(Label, {
+					...labelProps,
+					key: "newLabel",
+				})
+			);
+		}
+		return newLabel;
+	}
 
-    renderChildren() {
-        const newChildren = [];
 
-        const childrenArray = React.Children.toArray(this.props.children);
+	renderChildren() {
+		const newChildren = [];
+		const childrenArray = React.Children.toArray(this.props.children);
 
-        // console.log(
-        //     "childrenArray",
-        //     React.Children.toArray(this.props.children)
-        // );
+		let label = [];
+		let labelProps = {};
+		label = _.remove(childrenArray, item => {
+			if (item.type === Label) {
+				labelProps = item.props;
+				return item;
+			}
+		});
 
-        // for (i = 0; childrenArray[i].type !== Label; i++) {
-        //     left[i] = childrenArray[i];
-        // }
-
-        // i += 2;
-        // for (j = i, k = 0; j < childrenArray.length; j++, k++) {
-        //     right[k] = childrenArray[j];
-        // }
-        // console.log("left", left);
-        // console.log("right", right);
-        let label = [];
-        let labelProps = {};
-        label = _.remove(childrenArray, item => {
-            if (item.type === Label) {
-                labelProps = item.props;
-                return item;
-            }
-        });
-
-        // console.log("label childrenArray", label);
-
-        let input = [];
-        let inputProps = {};
-        input = _.remove(childrenArray, item => {
-            if (item.type === Input) {
-                inputProps = item.props;
-                this.inputProps = item.props;
-                return item;
-            }
-        });
-
+		let input = [];
+		let inputProps = {};
+		input = _.remove(childrenArray, item => {
+			if (item.type === Input) {
+				inputProps = item.props;
+				this.inputProps = item.props;
+				return item;
+			}
+		});
         let icon = [];
         let iconProps = {};
         icon = _.remove(childrenArray, item => {
@@ -351,40 +331,30 @@ class Item extends Component {
 }
 
 const childrenType = function(props, propName, component) {
-    let error;
-    const prop = props[propName];
-    if (!props.children.length) {
-        error = new Error(
-            `${component} should have both Label and Input components`
-        );
-    } else if (
-        props.children[0].type.displayName !== "Styled(Label)" ||
-        props.children[1].type.displayName !== "Styled(Input)"
-    ) {
-        error = new Error(
-            `${component} should have Label and Input components only`
-        );
-    }
-    return error;
+	let error;
+	const prop = props[propName];
+	if (!props.children.length) {
+		error = new Error(`${component} should have both Label and Input components`);
+	} else if (
+		props.children[0].type.displayName !== "Styled(Label)" ||
+		props.children[1].type.displayName !== "Styled(Input)"
+	) {
+		error = new Error(`${component} should have Label and Input components only`);
+	}
+	return error;
 };
 
 Item.propTypes = {
-    ...TouchableOpacity.propTypes,
-    style: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.number,
-        PropTypes.array
-    ]),
-    inlineLabel: PropTypes.bool,
-    floatingLabel: PropTypes.bool,
-    stackedLabel: PropTypes.bool,
-    fixedLabel: PropTypes.bool,
-    success: PropTypes.bool,
-    error: PropTypes.bool
+	...TouchableOpacity.propTypes,
+	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+	inlineLabel: PropTypes.bool,
+	floatingLabel: PropTypes.bool,
+	stackedLabel: PropTypes.bool,
+	fixedLabel: PropTypes.bool,
+	success: PropTypes.bool,
+	error: PropTypes.bool,
 };
 
-const StyledItem = connectStyle("NativeBase.Item", {}, mapPropsToStyleNames)(
-    Item
-);
+const StyledItem = connectStyle("NativeBase.Item", {}, mapPropsToStyleNames)(Item);
 
 export { StyledItem as Item };

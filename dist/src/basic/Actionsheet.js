@@ -61,15 +61,21 @@ _react2.default.createElement(_reactNative.Modal,{
 animationType:"fade",
 transparent:true,
 visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){return _this2.setState({modalVisible:false});},__source:{fileName:_jsxFileName,lineNumber:60}},
+onRequestClose:function onRequestClose(){
+_this2.state.callback(-1);
+_this2.setState({modalVisible:false});
+},__source:{fileName:_jsxFileName,lineNumber:60}},
 
 _react2.default.createElement(_reactNative.TouchableOpacity,{
 activeOpacity:1,
-onPress:function onPress(){return _this2.setState({modalVisible:false});},
+onPress:function onPress(){
+_this2.state.callback(-1);
+_this2.setState({modalVisible:false});
+},
 style:{
 backgroundColor:"rgba(0,0,0,0.4)",
 flex:1,
-justifyContent:"flex-end"},__source:{fileName:_jsxFileName,lineNumber:66}},
+justifyContent:"flex-end"},__source:{fileName:_jsxFileName,lineNumber:69}},
 
 
 _react2.default.createElement(_reactNative.TouchableOpacity,{
@@ -78,10 +84,10 @@ style:{
 backgroundColor:"#fff",
 height:this.state.length*80,
 padding:15,
-elevation:4},__source:{fileName:_jsxFileName,lineNumber:75}},
+elevation:4},__source:{fileName:_jsxFileName,lineNumber:81}},
 
 
-_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:84}},
+_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:90}},
 this.state.title),
 
 _react2.default.createElement(_List.List,{
@@ -94,9 +100,9 @@ onPress:function onPress(){
 _this2.state.callback(id);
 _this2.setState({modalVisible:false});
 },
-style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:92}},
+style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:98}},
 
-_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:99}},
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:105}},
 data)):
 
 
@@ -106,24 +112,24 @@ _this2.state.callback(id);
 _this2.setState({modalVisible:false});
 },
 style:{borderColor:"transparent"},
-icon:true,__source:{fileName:_jsxFileName,lineNumber:103}},
+icon:true,__source:{fileName:_jsxFileName,lineNumber:109}},
 
-_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:111}},
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:117}},
 _react2.default.createElement(_Icon.Icon,{
 name:data.icon,
 style:{
-color:data.iconColor?data.iconColor:undefined},__source:{fileName:_jsxFileName,lineNumber:112}})),
+color:data.iconColor?data.iconColor:undefined},__source:{fileName:_jsxFileName,lineNumber:118}})),
 
 
 
-_react2.default.createElement(_Body.Body,{style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:119}},
-_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:120}},
+_react2.default.createElement(_Body.Body,{style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:125}},
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:126}},
 data.text)),
 
 
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:124}}));
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:130}}));
 
-},__source:{fileName:_jsxFileName,lineNumber:87}})))));
+},__source:{fileName:_jsxFileName,lineNumber:93}})))));
 
 
 

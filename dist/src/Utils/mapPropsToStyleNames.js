@@ -1,6 +1,6 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
+Object.defineProperty(exports,"__esModule",{value:true});var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
 
-mapPropsToStyleNames=function mapPropsToStyleNames(styleNames,props){
+var mapPropsToStyleNames=function mapPropsToStyleNames(styleNames,props){
 var keys=_lodash2.default.keys(props);
 var values=_lodash2.default.values(props);
 
@@ -11,5 +11,7 @@ styleNames.push(key);
 });
 
 return styleNames;
-};
+};exports.default=
+
+mapPropsToStyleNames;
 //# sourceMappingURL=mapPropsToStyleNames.js.map

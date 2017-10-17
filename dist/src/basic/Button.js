@@ -9,6 +9,11 @@ var _computeProps=require("../Utils/computeProps");var _computeProps2=_interopRe
 var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 Button=function(_Component){_inherits(Button,_Component);function Button(){_classCallCheck(this,Button);return _possibleConstructorReturn(this,(Button.__proto__||Object.getPrototypeOf(Button)).apply(this,arguments));}_createClass(Button,[{key:"getInitialStyle",value:function getInitialStyle()
+
+
+
+
+
 {
 return{
 borderedBtn:{
@@ -28,6 +33,7 @@ style:this.getInitialStyle().borderedBtn};
 return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:"render",value:function render()
 {var _this2=this;
+var variables=this.context.theme?this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
 var children=
 _reactNative.Platform.OS==="ios"?
 this.props.children:
@@ -38,12 +44,12 @@ child&&child.type===_Text.Text?
 _react2.default.cloneElement(child,_extends({uppercase:true},child.props)):
 child);});
 
-if(_reactNative.Platform.OS==="ios"||_platform2.default.androidRipple===false||_reactNative.Platform["Version"]<=21){
+if(_reactNative.Platform.OS==="ios"||variables.androidRipple===false||_reactNative.Platform["Version"]<=21){
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
 this.prepareRootProps(),{
 ref:function ref(c){return _this2._root=c;},
-activeOpacity:this.props.activeOpacity>0?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:43}}),
+activeOpacity:this.props.activeOpacity>0?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:49}}),
 
 children));
 
@@ -56,17 +62,17 @@ onPress:this.props.onPress,
 background:
 this.props.androidRippleColor?
 _reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):
-_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
+_reactNative.TouchableNativeFeedback.Ripple(variables.androidRippleColor)},
 
-this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:53}}),
+this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:59}}),
 
-_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:63}}),
+_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:69}}),
 children)));
 
 
 
 }
-}}]);return Button;}(_react.Component);
+}}]);return Button;}(_react.Component);Button.contextTypes={theme:_propTypes2.default.object};
 
 
 Button.propTypes=_extends({},
