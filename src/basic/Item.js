@@ -102,6 +102,7 @@ class Item extends Component {
 		return newLabel;
 	}
 
+
 	renderChildren() {
 		const newChildren = [];
 		const childrenArray = React.Children.toArray(this.props.children);
@@ -124,141 +125,209 @@ class Item extends Component {
 				return item;
 			}
 		});
+        let icon = [];
+        let iconProps = {};
+        icon = _.remove(childrenArray, item => {
+            if (item.type === Icon) {
+                iconProps = item.props;
+                return item;
+            }
+        });
+        if (this.props.floatingLabel) {
+            let left = [];
+            let right = [];
+            const mchildrenArray = React.Children.toArray(this.props.children);
+            var i = 0;
+            for (i = 0; mchildrenArray[i].type !== Label; i++) {
+                left[i] = mchildrenArray[i];
+            }
 
-		let icon = [];
-		let iconProps = {};
-		icon = _.remove(childrenArray, item => {
-			if (item.type === Icon) {
-				iconProps = item.props;
-				return item;
-			}
-		});
-		if (this.props.floatingLabel && icon.length) {
-			newChildren.push(<Icon key="i1" {...iconProps} />);
-			newChildren.push(
-				<Animated.View
-					key="float"
-					style={{
-						position: "absolute",
-						left: this.props.last ? 22 : 22,
-						right: 0,
-						top: this.state.topAnim,
-						opacity: this.state.opacAnim,
-						paddingTop: Platform.OS === "ios" ? undefined : undefined,
-						paddingBottom: Platform.OS === "ios" ? undefined : 12,
-					}}
-				>
-					<Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
-				</Animated.View>
-			);
-			newChildren.push(
-				<Input
-					key="l2"
-					{...inputProps}
-					onFocus={() => {
-						this.setState({ isFocused: true });
-						inputProps.onFocus && inputProps.onFocus();
-					}}
-					onBlur={() => {
-						inputProps.value
-							? this.setState({
-									isFocused: true,
-								})
-							: !this.state.text.length && this.setState({ isFocused: false });
-						inputProps.onBlur && inputProps.onBlur();
-					}}
-					onChangeText={text => {
-						this.setState({ text });
-						inputProps.onChangeText && inputProps.onChangeText(text);
-					}}
-				/>
-			);
-		} else if (this.props.floatingLabel) {
-			newChildren.push(
-				<Animated.View
-					key="float"
-					style={{
-						position: "absolute",
-						left: this.props.last ? 15 : 0,
-						right: 0,
-						top: this.state.topAnim,
-						opacity: this.state.opacAnim,
-						paddingTop: Platform.OS === "ios" ? undefined : undefined,
-						paddingBottom: Platform.OS === "ios" ? undefined : 12,
-					}}
-				>
-					<Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
-				</Animated.View>
-			);
-			newChildren.push(
-				<Input
-					ref={c => (this._inputRef = c)}
-					value={this.state.text}
-					key="l2"
-					{...inputProps}
-					onFocus={() => {
-						this.setState({ isFocused: true });
-						inputProps.onFocus && inputProps.onFocus();
-					}}
-					onBlur={() => {
-						inputProps.value
-							? this.setState({
-									isFocused: true,
-								})
-							: !this.state.text.length && this.setState({ isFocused: false });
-						inputProps.onBlur && inputProps.onBlur();
-					}}
-					onChangeText={text => {
-						this.setState({ text });
-						inputProps.onChangeText && inputProps.onChangeText(text);
-					}}
-				/>
-			);
-		} else if (this.props.stackedLabel && icon.length) {
-			newChildren.push(
-				<View
-					key="s"
-					style={{
-						flexDirection: "row",
-						flex: 1,
-						width: variables.deviceWidth - 15,
-					}}
-				>
-					<Icon key="s1" {...iconProps} />
-					<View style={{ flexDirection: "column" }}>
-						<Label key="s2" {...labelProps} />
-						<Input key="s3" {...inputProps} style={{ width: variables.deviceWidth - 40 }} />
-					</View>
-				</View>
-			);
-		} else {
-			return this.props.children;
-		}
-		return newChildren;
-	}
-	getInitialStyle() {
-		return {
-			roundedInputGroup: {
-				borderWidth: this.props.rounded ? variables.borderWidth * 2 : undefined,
-				borderRadius: this.props.rounded ? variables.inputGroupRoundedBorderRadius : undefined,
-			},
-		};
-	}
+            i += 2;
+            for (j = i, k = 0; j < mchildrenArray.length; j++, k++) {
+                right[k] = mchildrenArray[j];
+            }
 
-	prepareRootProps() {
-		const defaultProps = {
-			style: this.getInitialStyle().roundedInputGroup,
-		};
+            newChildren.push(
+                <View key="v1" style={{ flexDirection: "row" }}>
+                    {_.remove(left, item => {
+                        return item;
+                    })}
+                </View>
+            );
+            /*newChildren.push(
+                <Animated.View
+                    key="float"
+                    style={{
+                        flexGrow: 1,
+                        position: "absolute",
+                        left: this.props.last ? 15 : 0,
+                        right: 0,
+                        top: this.state.topAnim,
+                        opacity: this.state.opacAnim,
+                        paddingTop:
+                            Platform.OS === "ios" ? undefined : undefined,
+                        paddingBottom: Platform.OS === "ios" ? undefined : 12
+                    }}
+                >
+                    <Label {...labelProps}>
+                        {this.renderLabel(label, labelProps)}
+                    </Label>
+                </Animated.View>
+            );*/
+            newChildren.push(
+                <View {...labelProps} key="pa1" style={{ flex: 1 }}>
+                    <Animated.View
+                        key="float"
+                        style={{
+                            flex: 1,
+                            position: "absolute",
+                            left: this.props.last ? 15 : 0,
+                            right: 0,
+                            top: this.state.topAnim,
+                            opacity: this.state.opacAnim,
+                            paddingTop:
+                                Platform.OS === "ios" ? undefined : undefined,
+                            paddingBottom:
+                                Platform.OS === "ios" ? undefined : 12
+                        }}
+                    >
+                        <Label {...labelProps}>
+                            {this.renderLabel(label, labelProps)}
+                        </Label>
+                    </Animated.View>
+                    <Input
+                        ref={c => (this._inputRef = c)}
+                        value={this.state.text}
+                        key="l2"
+                        {...inputProps}
+                        onFocus={() => {
+                            this.setState({ isFocused: true });
+                            inputProps.onFocus && inputProps.onFocus();
+                        }}
+                        onBlur={() => {
+                            inputProps.value
+                                ? this.setState({
+                                      isFocused: true
+                                  })
+                                : !this.state.text.length &&
+                                  this.setState({ isFocused: false });
+                            inputProps.onBlur && inputProps.onBlur();
+                        }}
+                        onChangeText={text => {
+                            this.setState({ text });
+                            inputProps.onChangeText &&
+                                inputProps.onChangeText(text);
+                        }}
+                    />
+                </View>
+            );
+            /*newChildren.push(
+                <Input
+                    ref={c => (this._inputRef = c)}
+                    value={this.state.text}
+                    key="l2"
+                    {...inputProps}
+                    onFocus={() => {
+                        this.setState({ isFocused: true });
+                        inputProps.onFocus && inputProps.onFocus();
+                    }}
+                    onBlur={() => {
+                        inputProps.value
+                            ? this.setState({
+                                  isFocused: true
+                              })
+                            : !this.state.text.length &&
+                              this.setState({ isFocused: false });
+                        inputProps.onBlur && inputProps.onBlur();
+                    }}
+                    onChangeText={text => {
+                        this.setState({ text });
+                        inputProps.onChangeText &&
+                            inputProps.onChangeText(text);
+                    }}
+                />
+            );*/
+            newChildren.push(
+                <View key="v2" style={{ flexDirection: "row" }}>
+                    {_.remove(right, item => {
+                        return item;
+                    })}
+                </View>
+            );
+        } else if (this.props.stackedLabel && icon.length) {
+            let left = [];
+            let right = [];
+            var i = 0;
+            for (i = 0; childrenArray[i].type !== Label; i++) {
+                left[i] = childrenArray[i];
+            }
 
-		return computeProps(this.props, defaultProps);
-	}
-	render() {
-		return (
-			<TouchableOpacity ref={c => (this._root = c)} {...this.prepareRootProps()} activeOpacity={1}>
-				{this.renderChildren()}
-			</TouchableOpacity>
-		);
-	}
+            i += 2;
+            for (j = i, k = 0; j < childrenArray.length; j++, k++) {
+                right[k] = childrenArray[j];
+            }
+            newChildren.push(
+                <View
+                    key="s"
+                    style={{
+                        flexDirection: "row",
+                        flex: 1,
+                        width: variables.deviceWidth - 15
+                    }}
+                >
+                    <View key="v3" style={{ flexDirection: "row" }}>
+                        {_.remove(left, item => {
+                            return item;
+                        })}
+                    </View>
+
+                    <View style={{ flex: 1, flexDirection: "column" }}>
+                        <Label key="s2" {...labelProps} />
+                        <Input key="s3" {...inputProps} />
+                    </View>
+                    <View key="v4" style={{ flexDirection: "row" }}>
+                        {_.remove(right, item => {
+                            return item;
+                        })}
+                    </View>
+                </View>
+            );
+        } else {
+            return this.props.children;
+        }
+        return newChildren;
+    }
+    getInitialStyle() {
+        return {
+            roundedInputGroup: {
+                borderWidth: this.props.rounded
+                    ? variables.borderWidth * 2
+                    : undefined,
+                borderRadius: this.props.rounded
+                    ? variables.inputGroupRoundedBorderRadius
+                    : undefined
+            }
+        };
+    }
+
+    prepareRootProps() {
+        const defaultProps = {
+            style: this.getInitialStyle().roundedInputGroup
+        };
+
+        return computeProps(this.props, defaultProps);
+    }
+    render() {
+        return (
+            <TouchableOpacity
+                ref={c => (this._root = c)}
+                {...this.prepareRootProps()}
+                activeOpacity={1}
+            >
+                {this.renderChildren()}
+            </TouchableOpacity>
+        );
+    }
 }
 
 const childrenType = function(props, propName, component) {
