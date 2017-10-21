@@ -22,7 +22,8 @@ class IconNB extends Component {
 
 	componentWillMount() {
 		if (this.context.theme) {
-			switch (this.context.theme["@@shoutem.theme/themeStyle"].variables.iconFamily) {
+			let iconType = this.props.type != undefined ? this.props.type : this.context.theme["@@shoutem.theme/themeStyle"].variables.iconFamily;
+			switch (iconType) {
 				case "Ionicons":
 					this.Icon = Ionicons;
 					break;
@@ -65,6 +66,7 @@ class IconNB extends Component {
 
 IconNB.propTypes = {
 	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+	type: PropTypes.string.oneOf(["Ionicons", "Entypo", "FontAwesome", "Foundation", "MaterialIcons", "MaterialCommunityIcons", "Octicons", "Zocial", "SimpleLineIcons"]),
 };
 
 const StyledIconNB = connectStyle("NativeBase.IconNB", {}, mapPropsToStyleNames)(IconNB);
