@@ -55,17 +55,7 @@ class ToastContainer extends Component {
 			onClose: config.onClose
 		});
 		if (config.duration > 0) {
-			setTimeout(() => {
-				Animated.timing(this.state.fadeAnim, {
-					toValue: 0,
-					duration: 200,
-				}).start();
-				setTimeout(() => {
-					this.setState({
-						modalVisible: false,
-					});
-				}, 500);
-			}, config.duration);
+			setTimeout(() => { this.closeToast(); }, config.duration);
 		}
 		Animated.timing(this.state.fadeAnim, {
 			toValue: 1,
@@ -123,4 +113,3 @@ ToastContainer.propTypes = {
 const StyledToastContainer = connectStyle("NativeBase.ToastContainer", {}, mapPropsToStyleNames)(ToastContainer);
 
 export { StyledToastContainer as ToastContainer };
-
