@@ -54,8 +54,11 @@ class ToastContainer extends Component {
 			textStyle: config.textStyle,
 			onClose: config.onClose
 		});
+		if (this.timeout) {
+			clearTimeout(this.timeout);
+		}
 		if (config.duration > 0) {
-			setTimeout(() => { this.closeToast(); }, config.duration);
+			this.timeout = setTimeout(() => { this.closeToast(); }, config.duration);
 		}
 		Animated.timing(this.state.fadeAnim, {
 			toValue: 1,

@@ -54,8 +54,11 @@ buttonStyle:config.buttonStyle,
 textStyle:config.textStyle,
 onClose:config.onClose});
 
+if(this.timeout){
+clearTimeout(this.timeout);
+}
 if(config.duration>0){
-setTimeout(function(){_this2.closeToast();},config.duration);
+this.timeout=setTimeout(function(){_this2.closeToast();},config.duration);
 }
 _reactNative.Animated.timing(this.state.fadeAnim,{
 toValue:1,
@@ -82,19 +85,19 @@ modalVisible:false});
 {var _this4=this;
 if(this.state.modalVisible){
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:85}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:88}},
 _react2.default.createElement(_Toast.Toast,{
 style:this.state.style,
 danger:this.state.type=="danger"?true:false,
 success:this.state.type=="success"?true:false,
-warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:86}},
+warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:89}},
 
-_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:92}},
+_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:95}},
 this.state.text),
 
 this.state.buttonText&&
-_react2.default.createElement(_Button.Button,{style:this.state.buttonStyle,onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:96}},
-_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:97}},
+_react2.default.createElement(_Button.Button,{style:this.state.buttonStyle,onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:99}},
+_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:100}},
 this.state.buttonText)))));
 
 
