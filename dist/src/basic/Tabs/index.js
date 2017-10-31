@@ -66,7 +66,7 @@ sceneKeys:this.newSceneKeys({currentPage:this.props.initialPage})};
 
 componentDidMount:function componentDidMount(){var _this=this;
 var scrollFn=function scrollFn(){
-if(_this.scrollView&&Platform.OS==="android"){
+if(_this.scrollView){
 var x=_this.props.initialPage*_this.state.containerWidth;
 _this.scrollView.scrollTo({x:x,animated:false});
 }
