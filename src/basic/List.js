@@ -149,6 +149,7 @@ class List extends Component {
 						this.setRefs(ref);
 						this._root = ref;
 					}}
+					enableEmptySections
 					onScroll={e => this.onScroll(e)}
 					renderRow={(rowData, secId, rowId) => this.renderRow(rowData, secId, rowId, this._rows)}
 				/>
