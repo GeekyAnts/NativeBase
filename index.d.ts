@@ -643,14 +643,16 @@ declare module "native-base" {
 			initialPage?: number;
 		}
 
-		interface Tab {
-			heading: _TabHeading;
-		}
+
 		interface TabHeading {
 			activeTabStyle?: ReactNative.ViewStyle;
 			textStyle?: ReactNative.TextStyle;
 			activeTextStyle?: ReactNative.TextStyle;
 		}
+
+        interface Tab {
+            heading: React.ReactElement<TabHeading> | string;
+        }
 
 		interface Item {
 			fixedLabel?: boolean;
@@ -925,7 +927,7 @@ declare module "native-base" {
 	export class Tab extends React.Component<NativeBase.Tab, any> {}
 
 	export class TabHeading extends React.Component<NativeBase.TabHeading, any> {}
-	type _TabHeading = TabHeading;
+
 	/**
      * NativeBase.Item
      */
