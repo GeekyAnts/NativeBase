@@ -650,9 +650,9 @@ declare module "native-base" {
 			activeTextStyle?: ReactNative.TextStyle;
 		}
 
-        interface Tab {
-            heading: React.ReactElement<TabHeading> | string;
-        }
+		interface Tab {
+		    heading: React.ReactElement<TabHeading> | string;
+		}
 
 		interface Item {
 			fixedLabel?: boolean;
