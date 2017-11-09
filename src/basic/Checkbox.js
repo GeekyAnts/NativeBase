@@ -37,7 +37,7 @@ class CheckBox extends Component {
 		const platformStyle = variables.platformStyle;
 		const platform = variables.platform;
 		return (
-			<TouchableOpacity ref={c => (this._root = c)} {...this.prepareRootProps(variables)}>
+			<TouchableOpacity accessible={true} ref={c => (this._root = c)} {...this.prepareRootProps(variables)}>
 				<IconNB
 					style={{
 						color: this.props.checked === true ? variables.checkboxTickColor : "transparent",
