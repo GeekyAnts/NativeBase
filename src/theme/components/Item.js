@@ -15,6 +15,12 @@ export default (variables = variable) => {
 			'NativeBase.Icon': {
 				top: 6,
 			},
+			'.success': {
+				flexDirection:'row-reverse'
+			},
+			'.error': {
+				flexDirection:'row-reverse'
+			},
 		},
 		'.fixedLabel': {
 			'NativeBase.Label': {
