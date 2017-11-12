@@ -17,7 +17,7 @@ var variables=this.context.theme?this.context.theme["@@shoutem.theme/themeStyle"
 var platformStyle=variables.platformStyle;
 
 return(
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:20}},
+_react2.default.createElement(_reactNative.View,{style:{zIndex:2147483647},__source:{fileName:_jsxFileName,lineNumber:20}},
 _react2.default.createElement(_reactNative.StatusBar,{
 backgroundColor:
 this.props.androidStatusBarColor?this.props.androidStatusBarColor:variables.statusBarColor,
