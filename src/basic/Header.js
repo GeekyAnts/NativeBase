@@ -17,7 +17,7 @@ class Header extends Component {
 		const platformStyle = variables.platformStyle;
 
 		return (
-			<View>
+			<View style={{zIndex: 2147483647}}>
 				<StatusBar
 					backgroundColor={
 						this.props.androidStatusBarColor ? this.props.androidStatusBarColor : variables.statusBarColor
