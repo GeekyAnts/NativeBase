@@ -66,7 +66,7 @@ class IconNB extends Component {
 
 IconNB.propTypes = {
 	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
-	type: PropTypes.string.oneOf(["Ionicons", "Entypo", "FontAwesome", "Foundation", "MaterialIcons", "MaterialCommunityIcons", "Octicons", "Zocial", "SimpleLineIcons"]),
+	type: PropTypes.oneOf(["Ionicons", "Entypo", "FontAwesome", "Foundation", "MaterialIcons", "MaterialCommunityIcons", "Octicons", "Zocial", "SimpleLineIcons"]),
 };
 
 const StyledIconNB = connectStyle("NativeBase.IconNB", {}, mapPropsToStyleNames)(IconNB);
