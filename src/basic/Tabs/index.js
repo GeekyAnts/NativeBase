@@ -39,6 +39,7 @@ const ScrollableTabView = createReactClass({
     scrollWithoutAnimation: PropTypes.bool,
     locked: PropTypes.bool,
     prerenderingSiblingsNumber: PropTypes.number,
+    refreshControl: PropTypes.element,
   },
 
   getDefaultProps() {
@@ -173,6 +174,7 @@ const ScrollableTabView = createReactClass({
         showsHorizontalScrollIndicator={false}
         scrollEnabled={!this.props.locked}
         directionalLockEnabled
+        refreshControl={this.props.refreshControl}
         alwaysBounceVertical={false}
         keyboardDismissMode="on-drag"
         {...this.props.contentProps}
