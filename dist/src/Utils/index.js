@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.ViewPropTypes=undefined;var _viewPropTypes=require('./viewPropTypes');var _viewPropTypes2=_interopRequireDefault(_viewPropTypes);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.
+Object.defineProperty(exports,"__esModule",{value:true});exports.ViewPropTypes=undefined;var _reactNative=require("react-native");exports.
 
-ViewPropTypes=_viewPropTypes2.default;
+ViewPropTypes=_reactNative.ViewPropTypes;
 //# sourceMappingURL=index.js.map
