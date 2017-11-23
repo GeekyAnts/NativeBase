@@ -64,6 +64,11 @@ class ToastContainer extends Component {
 					this.setState({
 						modalVisible: false,
 					});
+
+					const { onClose } = this.state;
+					if(onClose && typeof onClose === "function") {
+						onClose();
+					}
 				}, 500);
 			}, config.duration);
 		}
