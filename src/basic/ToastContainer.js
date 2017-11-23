@@ -73,12 +73,6 @@ class ToastContainer extends Component {
 		}).start();
 	}
 	closeToast() {
-		const { onClose } = this.state;
-
-		if(onClose && typeof onClose === "function") {
-			onClose();
-		}
-
 		Animated.timing(this.state.fadeAnim, {
 			toValue: 0,
 			duration: 200,
@@ -87,6 +81,11 @@ class ToastContainer extends Component {
 			this.setState({
 				modalVisible: false,
 			});
+
+			const { onClose } = this.state;
+			if(onClose && typeof onClose === "function") {
+				onClose();
+			}
 		}, 500);
 	}
 	render() {

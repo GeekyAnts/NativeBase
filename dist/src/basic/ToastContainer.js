@@ -72,39 +72,38 @@ toValue:1,
 duration:200}).
 start();
 }},{key:"closeToast",value:function closeToast()
-{var _this3=this;var
-onClose=this.state.onClose;
-
-if(onClose&&typeof onClose==="function"){
-onClose();
-}
-
+{var _this3=this;
 _reactNative.Animated.timing(this.state.fadeAnim,{
 toValue:0,
 duration:200}).
 start();
 setTimeout(function(){
 _this3.setState({
-modalVisible:false});
+modalVisible:false});var
 
+
+onClose=_this3.state.onClose;
+if(onClose&&typeof onClose==="function"){
+onClose();
+}
 },500);
 }},{key:"render",value:function render()
 {var _this4=this;
 if(this.state.modalVisible){
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:95}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:94}},
 _react2.default.createElement(_Toast.Toast,{
 style:this.state.style,
 danger:this.state.type=="danger"?true:false,
 success:this.state.type=="success"?true:false,
-warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:96}},
+warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:95}},
 
-_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:102}},
+_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:101}},
 this.state.text),
 
 this.state.buttonText&&
-_react2.default.createElement(_Button.Button,{style:this.state.buttonStyle,onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:106}},
-_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:107}},
+_react2.default.createElement(_Button.Button,{style:this.state.buttonStyle,onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:105}},
+_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:106}},
 this.state.buttonText)))));
 
 
