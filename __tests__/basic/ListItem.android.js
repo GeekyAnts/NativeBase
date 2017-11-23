@@ -1,17 +1,17 @@
 import React from "react";
 import "react-native";
 import renderer from "react-test-renderer";
-import { Badge } from "../../src/basic/Badge";
+import { ListItem } from "../../src/basic/ListItem";
 
 // Note: test renderer must be required after react-native.
 
 jest.mock("Platform", () => {
   const Platform = require.requireActual("Platform");
-  Platform.OS = "ios";
+  Platform.OS = "android";
   return Platform;
 });
 
-it("renders regular badge", () => {
-  const tree = renderer.create(<Badge>2</Badge>).toJSON();
+it("renders regular listItem", () => {
+  const tree = renderer.create(<ListItem>This is ListItem</ListItem>).toJSON();
   expect(tree).toMatchSnapshot();
 });

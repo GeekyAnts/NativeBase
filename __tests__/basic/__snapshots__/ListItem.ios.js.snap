@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders regular button 1`] = `
+exports[`renders regular listItem 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
-  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
   isTVSelectable={true}
   nativeID={undefined}
@@ -18,14 +18,21 @@ exports[`renders regular button 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "borderRadius": 2,
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
   }
   testID={undefined}
   tvParallaxProperties={undefined}
 >
-  Test
+  <View
+    style={Object {}}
+    virtual={undefined}
+  >
+    This is ListItem
+  </View>
 </View>
 `;
