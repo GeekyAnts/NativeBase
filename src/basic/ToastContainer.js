@@ -74,6 +74,18 @@ class ToastContainer extends Component {
 					});
 				}, 500);
 			}, config.duration);
+		} else {
+			setTimeout(() => {
+				Animated.timing(this.state.fadeAnim, {
+					toValue: 0,
+					duration: 200,
+				}).start();
+				setTimeout(() => {
+					this.setState({
+						modalVisible: false,
+					});
+				}, 500);
+			}, 1500);
 		}
 		Animated.timing(this.state.fadeAnim, {
 			toValue: 1,
