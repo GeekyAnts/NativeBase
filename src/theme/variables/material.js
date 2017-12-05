@@ -27,6 +27,9 @@ export default {
   btnDisabledBg: "#b5b5b5",
   btnDisabledClr: "#f1f1f1",
 
+  //Android
+  btnUppercaseAndroidText: true,
+
   // CheckBox
   CheckboxRadius: 0,
   CheckboxBorderWidth: 2,
