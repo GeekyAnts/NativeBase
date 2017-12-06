@@ -769,6 +769,9 @@ declare module "native-base" {
      * NativeBase.Title
      */
 	export class Title extends React.Component<NativeBase.Title, any> {}
+
+	export class SubTitle extends React.Component<NativeBase.SubTitle, any> {}
+
 	/**
      * NativeBase.Button
      *
