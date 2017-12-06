@@ -693,6 +693,18 @@ declare module "native-base" {
 		interface StyleProvider {
 			style?: any;
 		}
+		interface SwipeRow {
+            leftOpenValue?: number;
+            rightOpenValue?: number;
+            closeOnRowPress?: boolean;
+            disableLeftSwipe?: boolean;
+            disableRightSwipe?: boolean;
+            recalculateHiddenLayout?: boolean;
+            preview?: boolean;
+            previewDuration?: number;
+            directionalDistanceChangeThreshold: number;
+            swipeToOpenPercent: number;
+        }
 	}
 
 	// Export definitions
@@ -963,6 +975,8 @@ declare module "native-base" {
 
 	export class Root extends React.Component<NativeBase.Root, any> {}
 
+	export class SwipeRow extends React.Component<NativeBase.SwipeRow, any> {}
+	
 	export class Toast {
 		public static show(configuration: {
 			text: string;
