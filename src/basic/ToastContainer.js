@@ -9,7 +9,6 @@ import { ViewNB } from "./View";
 import { Toast } from "./Toast";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
-
 class ToastContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -22,6 +21,12 @@ class ToastContainer extends Component {
 	static show({ ...config }) {
 		this.toastInstance._root.showToast({ config });
 	}
+	static hide() {
+		this.toastInstance._root.closeToast();
+	}
+
+	timerId;
+
 	getToastStyle() {
 		return {
 			position: "absolute",
@@ -55,16 +60,8 @@ class ToastContainer extends Component {
 			onClose: config.onClose
 		});
 		if (config.duration > 0) {
-			setTimeout(() => {
-				Animated.timing(this.state.fadeAnim, {
-					toValue: 0,
-					duration: 200,
-				}).start();
-				setTimeout(() => {
-					this.setState({
-						modalVisible: false,
-					});
-				}, 500);
+			this.timerId = setTimeout(() => {
+				this.closeToast();
 			}, config.duration);
 		}
 		Animated.timing(this.state.fadeAnim, {
@@ -72,22 +69,30 @@ class ToastContainer extends Component {
 			duration: 200,
 		}).start();
 	}
-	closeToast() {
-		const { onClose } = this.state;
 
+	closeToast() {
+		if(this.state.modalVisible) {
+			Animated.timing(this.state.fadeAnim, {
+				toValue: 0,
+				duration: 200,
+			}).start();
+			setTimeout(() => {
+				clearTimeout(this.timerId)
+				this.setState({
+					modalVisible: false,
+				});
+			}, 500);
+		}
+	}
+
+	closeHandler() {
+		const { onClose } = this.state;
+		
 		if(onClose && typeof onClose === "function") {
 			onClose();
 		}
 
-		Animated.timing(this.state.fadeAnim, {
-			toValue: 0,
-			duration: 200,
-		}).start();
-		setTimeout(() => {
-			this.setState({
-				modalVisible: false,
-			});
-		}, 500);
+		this.closeToast();
 	}
 	render() {
 		if (this.state.modalVisible) {
@@ -103,7 +108,7 @@ class ToastContainer extends Component {
 							{this.state.text}
 						</Text>
 						{this.state.buttonText &&
-							<Button style={this.state.buttonStyle} onPress={() => this.closeToast()}>
+							<Button style={this.state.buttonStyle} onPress={() => this.closeHandler()}>
 								<Text style={this.state.buttonTextStyle}>
 									{this.state.buttonText}
 								</Text>
