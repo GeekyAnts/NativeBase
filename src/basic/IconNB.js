@@ -20,44 +20,52 @@ class IconNB extends Component {
 		theme: PropTypes.object,
 	};
 
-	componentWillMount() {
-		if (this.context.theme) {
-			let iconType = this.props.type != undefined ? this.props.type : this.context.theme["@@shoutem.theme/themeStyle"].variables.iconFamily;
-			switch (iconType) {
-				case "Ionicons":
-					this.Icon = Ionicons;
-					break;
-				case "Entypo":
-					this.Icon = Entypo;
-					break;
-				case "FontAwesome":
-					this.Icon = FontAwesome;
-					break;
-				case "Foundation":
-					this.Icon = Foundation;
-					break;
-				case "MaterialIcons":
-					this.Icon = MaterialIcons;
-					break;
-				case "MaterialCommunityIcons":
-					this.Icon = MaterialCommunityIcons;
-					break;
-				case "Octicons":
-					this.Icon = Octicons;
-					break;
-				case "Zocial":
-					this.Icon = Zocial;
-					break;
-				case "SimpleLineIcons":
-					this.Icon = SimpleLineIcons;
-					break;
-				default:
-					this.Icon = Ionicons;
-			}
-		} else {
-			this.Icon = Ionicons;
+	setIcon(iconType) {
+		if (iconType == undefined && this.context.theme) {
+			iconType = this.context.theme["@@shoutem.theme/themeStyle"].variables.iconFamily;
+		}
+		switch (iconType) {
+			case "Ionicons":
+				this.Icon = Ionicons;
+				break;
+			case "Entypo":
+				this.Icon = Entypo;
+				break;
+			case "FontAwesome":
+				this.Icon = FontAwesome;
+				break;
+			case "Foundation":
+				this.Icon = Foundation;
+				break;
+			case "MaterialIcons":
+				this.Icon = MaterialIcons;
+				break;
+			case "MaterialCommunityIcons":
+				this.Icon = MaterialCommunityIcons;
+				break;
+			case "Octicons":
+				this.Icon = Octicons;
+				break;
+			case "Zocial":
+				this.Icon = Zocial;
+				break;
+			case "SimpleLineIcons":
+				this.Icon = SimpleLineIcons;
+				break;
+			default:
+				this.Icon = Ionicons;
 		}
 	}
+
+	componentWillMount() {
+		setIcon(this.props.type);
+	}
+
+	componentWillUpdate(nextProps, nextState) {
+    		if (nextProps.type && this.props.type != nextProps.type) {
+      			setIcon(nextProps.type);
+    		}
+  	}
 
 	render() {
 		return <this.Icon ref={c => (this._root = c)} {...this.props} />;
