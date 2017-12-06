@@ -14,10 +14,8 @@
     "rnpm"
   ],
   "scripts": {
-    "compile":
-      "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
-    "transpile":
-      "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
+    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
+    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "test": "jest",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",
@@ -30,7 +28,7 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
     ]
   },
-  "version": "2.3.3",
+  "version": "2.3.4",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
@@ -44,8 +42,7 @@
     "prop-types": "^15.5.10",
     "react-native-drawer": "https://github.com/GeekyAnts/react-native-drawer",
     "react-native-easy-grid": "0.1.15",
-    "react-native-keyboard-aware-scroll-view":
-      "https://github.com/GeekyAnts/react-native-keyboard-aware-scroll-view",
+    "react-native-keyboard-aware-scroll-view": "https://github.com/GeekyAnts/react-native-keyboard-aware-scroll-view",
     "react-native-vector-icons": "~4.4.2",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1"
@@ -83,6 +80,8 @@
     "url": "git+https://github.com/GeekyAnts/NativeBase.git"
   },
   "rnpm": {
-    "assets": ["Fonts"]
+    "assets": [
+      "Fonts"
+    ]
   }
 }
