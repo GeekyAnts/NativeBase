@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-{"version":3,"sources":["../../../src/Utils/index.js"],"names":["InteractionManager","ViewPropTypes"],"mappings":"oHAAA,8C;AACA,wD;;AAESA,kB,sCAAoBC,a","file":"index.js","sourcesContent":["import ViewPropTypes from './viewPropTypes'\nimport InteractionManager from './interactionManager'\n\nexport { InteractionManager, ViewPropTypes }"]}
-=======
-{"version":3,"sources":["../../../src/Utils/index.js"],"names":["ViewPropTypes"],"mappings":"yFAAA,yC;;AAESA,a","file":"index.js","sourcesContent":["import { ViewPropTypes } from \"react-native\";\n\nexport { ViewPropTypes };\n"]}
->>>>>>> master
