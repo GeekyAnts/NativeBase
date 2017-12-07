@@ -211,7 +211,6 @@ export default {
   listBg: "#fff",
   listBorderColor: "#c9c9c9",
   listDividerBg: "#f4f4f4",
-  listItemHeight: 45,
   listBtnUnderlayColor: "#DDD",
 
   // Card
