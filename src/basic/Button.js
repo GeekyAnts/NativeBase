@@ -41,7 +41,7 @@ class Button extends Component {
 						this.props.children,
 						child =>
 							child && child.type === Text
-								? React.cloneElement(child, { uppercase: true, ...child.props })
+								? React.cloneElement(child, { uppercase: variables.btnUppercaseAndroidText, ...child.props })
 								: child
 					);
 		if (Platform.OS === "ios" || variables.androidRipple === false || Platform["Version"] <= 21) {

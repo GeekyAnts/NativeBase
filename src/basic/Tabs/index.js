@@ -292,14 +292,15 @@ const ScrollableTabView = createReactClass({
         left: 0,
         right: 0,
         [this.props.tabBarPosition === "overlayTop" ? "top" : "bottom"]: 0,
+        backgroundColor: "rgba(255, 255, 255, 0.7)",
       };
     }
 
     return (
       <View style={[styles.container, this.props.style]} onLayout={this._handleLayout}>
-        {this.props.tabBarPosition === "top" && this.renderTabBar(tabBarProps)}
+        {(this.props.tabBarPosition === "top" || this.props.tabBarPosition==="overlayTop")&& this.renderTabBar(tabBarProps)}
         {this.renderScrollableContent()}
-        {(this.props.tabBarPosition === "bottom" || overlayTabs) && this.renderTabBar(tabBarProps)}
+        {(this.props.tabBarPosition === "bottom" || this.props.tabBarPosition==="overlayBottom") && this.renderTabBar(tabBarProps)}
       </View>
     );
   },

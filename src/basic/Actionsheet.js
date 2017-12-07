@@ -138,6 +138,7 @@ class ActionSheetContainer extends Component {
       </Modal>
     );
   }
+
 }
 
 ActionSheetContainer.propTypes = {

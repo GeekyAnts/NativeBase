@@ -10,6 +10,7 @@ class Content extends Component {
 			<KeyboardAwareScrollView
 				automaticallyAdjustContentInsets={false}
 				resetScrollToCoords={this.props.disableKBDismissScroll ? null : { x: 0, y: 0 }}
+				keyboardShouldPersistTaps={this.props.keyboardShouldPersistTaps ? this.props.keyboardShouldPersistTaps : 'handled'}
 				ref={c => {
 					this._scrollview = c;
 					this._root = c;
@@ -27,6 +28,7 @@ Content.propTypes = {
 	padder: PropTypes.bool,
 	disableKBDismissScroll: PropTypes.bool,
 	enableResetScrollToCoords: PropTypes.bool,
+	keyboardShouldPersistTaps: PropTypes.string
 };
 
 const StyledContent = connectStyle("NativeBase.Content", {}, mapPropsToStyleNames)(Content);

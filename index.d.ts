@@ -240,7 +240,6 @@ declare module "native-base" {
 			listNoteColor?: string;
 			listItemPadding?: number;
 			listNoteSize?: number;
-			listItemHeight?: number;
 			inset?: boolean;
 			/**
              * Array of data chunks to render iteratively.

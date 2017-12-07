@@ -76,7 +76,6 @@ class ToastContainer extends Component {
     if (onClose && typeof onClose === "function") {
       onClose();
     }
-
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
       duration: 200
