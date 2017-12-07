@@ -27,6 +27,9 @@ export default {
   btnDisabledBg: "#b5b5b5",
   btnDisabledClr: "#f1f1f1",
 
+  //Android
+  btnUppercaseAndroidText: true,
+
   // CheckBox
   CheckboxRadius: platform === "ios" ? 13 : 0,
   CheckboxBorderWidth: platform === "ios" ? 1 : 2,
