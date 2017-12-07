@@ -82,7 +82,7 @@ class PickerNB extends Component {
 
 	renderIcon() {
 		return React.cloneElement(this.props.iosIcon, {
-			style: { fontSize: 22, lineHeight: 26, color: "#7a7a7a" },
+			style: { fontSize: 22, lineHeight: 26, color: this.props.placeholderIconColor },
 		});
 	}
 
@@ -105,7 +105,7 @@ class PickerNB extends Component {
 					? <Text style={this.props.textStyle} note={this.props.note}>
 							{this.state.currentLabel}
 						</Text>
-					: <Text style={this.props.textStyle} note={this.props.note === false ? false : true}>
+					: <Text style={[this.props.textStyle,this.props.placeholderStyle]} note={this.props.note === false ? false : true}>
 							{this.props.placeholder}
 						</Text>}
 				{this.props.iosIcon === undefined ? null : this.renderIcon()}
