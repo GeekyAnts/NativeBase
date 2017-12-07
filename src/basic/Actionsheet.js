@@ -97,7 +97,7 @@ class ActionSheetContainer extends Component {
 								return typeof this.state.items[0] === "string"
 									? <ListItem
 											onPress={() => {
-												this.state.callback(id);
+												this.state.callback(parseInt(id));
 												this.setState({ modalVisible: false });
 											}}
 											style={{ borderColor: "transparent" }}
@@ -108,7 +108,7 @@ class ActionSheetContainer extends Component {
 										</ListItem>
 									: <ListItem
 											onPress={() => {
-												this.state.callback(id);
+												this.state.callback(parseInt(id));
 												this.setState({ modalVisible: false });
 											}}
 											style={{ borderColor: "transparent" }}
