@@ -140,6 +140,7 @@ _react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,line
 }}],[{key:"show",value:function show(config,callback){this.actionsheetInstance._root.showActionSheet(config,callback);}}]);return ActionSheetContainer;}(_react.Component);
 
 
+
 ActionSheetContainer.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
 style:_propTypes2.default.oneOfType([
