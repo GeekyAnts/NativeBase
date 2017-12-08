@@ -68,14 +68,14 @@ animationType:"fade",
 transparent:true,
 visible:this.state.modalVisible,
 onRequestClose:function onRequestClose(){
-_this2.state.callback(-1);
+_this2.state.callback(_this2.state.cancelButtonIndex);
 _this2.setState({modalVisible:false});
 },__source:{fileName:_jsxFileName,lineNumber:66}},
 
 _react2.default.createElement(_reactNative.TouchableOpacity,{
 activeOpacity:1,
 onPress:function onPress(){
-_this2.state.callback(-1);
+_this2.state.callback(_this2.state.cancelButtonIndex);
 _this2.setState({modalVisible:false});
 },
 style:{
@@ -101,7 +101,7 @@ renderRow:function renderRow(data,i,id){
 return typeof _this2.state.items[0]==="string"?
 _react2.default.createElement(_ListItem.ListItem,{
 onPress:function onPress(){
-_this2.state.callback(id);
+_this2.state.callback(parseInt(id));
 _this2.setState({modalVisible:false});
 },
 style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:102}},
@@ -111,7 +111,7 @@ _react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNu
 
 _react2.default.createElement(_ListItem.ListItem,{
 onPress:function onPress(){
-_this2.state.callback(id);
+_this2.state.callback(parseInt(id));
 _this2.setState({modalVisible:false});
 },
 style:{borderColor:"transparent"},
@@ -138,7 +138,6 @@ _react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,line
 
 
 }}],[{key:"show",value:function show(config,callback){this.actionsheetInstance._root.showActionSheet(config,callback);}}]);return ActionSheetContainer;}(_react.Component);
-
 
 
 ActionSheetContainer.propTypes=_extends({},_reactNative.ViewPropTypes,{

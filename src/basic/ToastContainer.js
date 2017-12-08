@@ -38,11 +38,19 @@ class ToastContainer extends Component {
       return 0;
     }
   }
+  getButtonText(buttonText) {
+    if (buttonText) {
+      if (buttonText.trim().length === 0) {
+        return undefined;
+      } else return buttonText;
+    }
+    return undefined;
+  }
   showToast({ config }) {
     this.setState({
       modalVisible: true,
       text: config.text,
-      buttonText: config.buttonText,
+      buttonText: this.getButtonText(config.buttonText),
       type: config.type,
       position: config.position ? config.position : "bottom",
       supportedOrientations: config.supportedOrientations,
@@ -64,6 +72,18 @@ class ToastContainer extends Component {
           });
         }, 500);
       }, config.duration);
+    } else {
+      setTimeout(() => {
+        Animated.timing(this.state.fadeAnim, {
+          toValue: 0,
+          duration: 200
+        }).start();
+        setTimeout(() => {
+          this.setState({
+            modalVisible: false
+          });
+        }, 500);
+      }, 1500);
     }
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
