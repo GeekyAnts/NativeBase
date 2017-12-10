@@ -1,5 +1,6 @@
 {
   "name": "native-base",
+  "version": "2.3.5",
   "description": "Essential cross-platform UI components for React Native",
   "keywords": [
     "android",
@@ -14,23 +15,29 @@
     "rnpm"
   ],
   "scripts": {
+    "precommit": "lint-staged",
+    "format": "prettier --write **/*.js; eslint --fix .",
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
-    "test": "jest",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",
+    "test": "jest",
     "flow": "flow"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "jest": {
     "preset": "react-native",
-    "rootDir": "src",
     "transformIgnorePatterns": [
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
     ]
   },
-  "version": "2.3.5",
   "license": "Apache-2.0",
-  "private": false,
   "dependencies": {
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
@@ -58,8 +65,11 @@
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-react-native": "^2.0.0",
-    "flow-bin": "0.40.0",
+    "flow-bin": "0.44.0",
+    "husky": "^0.14.3",
     "jest": "17.0.0",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.1",
     "react": "^16.0.0-alpha.3",
     "react-native": "^0.46.0",
     "react-native-vector-icons": "~4.4.2",
