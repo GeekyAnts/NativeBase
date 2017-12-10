@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Animated, PanResponder, View, ViewPropTypes } from "react-native";
-import clamp from "clamp";
+import _ from "lodash";
 import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
@@ -182,9 +182,9 @@ class DeckSwiper extends Component {
         let velocity;
 
         if (vx >= 0) {
-          velocity = clamp(vx, 4.5, 10);
+          velocity = _.clamp(vx, 4.5, 10);
         } else if (vx < 0) {
-          velocity = clamp(vx * -1, 4.5, 10) * -1;
+          velocity = _.clamp(vx * -1, 4.5, 10) * -1;
         }
 
         if (Math.abs(this.state.pan.x._value) > SWIPE_THRESHOLD) {
