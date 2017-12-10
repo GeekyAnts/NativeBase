@@ -17,9 +17,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "format": "prettier --write **/*.js; eslint --fix .",
-    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
-    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
-    "prepublish": "npm run transpile",
+    "prepublish": "rm -rf dist/* && babel src --out-dir dist --source-maps",
     "postinstall": "node addEjectScript.js",
     "test": "jest",
     "flow": "flow"
