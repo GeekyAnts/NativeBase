@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {
-  View,
+  ActionSheetIOS,
   Modal,
   Platform,
-  ActionSheetIOS,
   TouchableOpacity,
   ViewPropTypes
 } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import { Text } from "./Text";
-import { Button } from "./Button";
-import { ViewNB } from "./View";
 import { Icon } from "./Icon";
 import { Left } from "./Left";
 import { Right } from "./Right";
@@ -21,6 +18,8 @@ import { ListItem } from "./ListItem";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class ActionSheetContainer extends Component {
+  static actionsheetInstance;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -28,10 +27,11 @@ class ActionSheetContainer extends Component {
       items: []
     };
   }
-  static actionsheetInstance;
+
   static show(config, callback) {
     this.actionsheetInstance._root.showActionSheet(config, callback);
   }
+
   showActionSheet(config, callback) {
     if (Platform.OS === "ios") {
       if (typeof config.options[0] == "object") {
@@ -56,11 +56,13 @@ class ActionSheetContainer extends Component {
       });
     }
   }
+
   componentDidMount() {
     if (!this.props.autoHide && this.props.duration) {
       console.warn(`It's not recommended to set autoHide false with duration`);
     }
   }
+
   render() {
     return (
       <Modal

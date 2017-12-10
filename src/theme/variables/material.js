@@ -1,12 +1,13 @@
 import color from "color";
 
-import { Platform, Dimensions, PixelRatio } from "react-native";
+import { Dimensions, PixelRatio, Platform } from "react-native";
 
 const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = "material";
-const isIphoneX = platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
+const isIphoneX =
+  platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
 
 export default {
   platformStyle,
@@ -288,5 +289,5 @@ export default {
   isIphoneX,
 
   // New Variable
-  inputGroupRoundedBorderRadius: 30,
+  inputGroupRoundedBorderRadius: 30
 };

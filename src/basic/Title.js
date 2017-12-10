@@ -5,15 +5,23 @@ import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Title extends Component {
-	render() {
-		return <Text ref={c => (this._root = c)} numberOfLines={1} {...this.props} />;
-	}
+  render() {
+    return (
+      <Text ref={c => (this._root = c)} numberOfLines={1} {...this.props} />
+    );
+  }
 }
 
 Title.propTypes = {
-	...Text.propTypes,
-	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  ...Text.propTypes,
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
-const StyledTitle = connectStyle("NativeBase.Title", {}, mapPropsToStyleNames)(Title);
+const StyledTitle = connectStyle("NativeBase.Title", {}, mapPropsToStyleNames)(
+  Title
+);
 export { StyledTitle as Title };

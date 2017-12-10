@@ -5,32 +5,46 @@ import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Content extends Component {
-	render() {
-		return (
-			<KeyboardAwareScrollView
-				automaticallyAdjustContentInsets={false}
-				resetScrollToCoords={this.props.disableKBDismissScroll ? null : { x: 0, y: 0 }}
-				keyboardShouldPersistTaps={this.props.keyboardShouldPersistTaps ? this.props.keyboardShouldPersistTaps : 'handled'}
-				ref={c => {
-					this._scrollview = c;
-					this._root = c;
-				}}
-				{...this.props}
-			>
-				{this.props.children}
-			</KeyboardAwareScrollView>
-		);
-	}
+  render() {
+    return (
+      <KeyboardAwareScrollView
+        automaticallyAdjustContentInsets={false}
+        resetScrollToCoords={
+          this.props.disableKBDismissScroll ? null : { x: 0, y: 0 }
+        }
+        keyboardShouldPersistTaps={
+          this.props.keyboardShouldPersistTaps
+            ? this.props.keyboardShouldPersistTaps
+            : "handled"
+        }
+        ref={c => {
+          this._scrollview = c;
+          this._root = c;
+        }}
+        {...this.props}
+      >
+        {this.props.children}
+      </KeyboardAwareScrollView>
+    );
+  }
 }
 
 Content.propTypes = {
-	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
-	padder: PropTypes.bool,
-	disableKBDismissScroll: PropTypes.bool,
-	enableResetScrollToCoords: PropTypes.bool,
-	keyboardShouldPersistTaps: PropTypes.string
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
+  padder: PropTypes.bool,
+  disableKBDismissScroll: PropTypes.bool,
+  enableResetScrollToCoords: PropTypes.bool,
+  keyboardShouldPersistTaps: PropTypes.string
 };
 
-const StyledContent = connectStyle("NativeBase.Content", {}, mapPropsToStyleNames)(Content);
+const StyledContent = connectStyle(
+  "NativeBase.Content",
+  {},
+  mapPropsToStyleNames
+)(Content);
 
 export { StyledContent as Content };

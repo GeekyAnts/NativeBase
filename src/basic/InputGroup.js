@@ -26,6 +26,7 @@ class InputGroup extends Component {
 
     return computeProps(this.props, defaultProps);
   }
+
   render() {
     return (
       <View ref={c => (this._root = c)} {...this.prepareRootProps()}>

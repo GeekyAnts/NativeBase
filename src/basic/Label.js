@@ -6,16 +6,22 @@ import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Label extends Component {
-	render() {
-		return <Text ref={c => (this._root = c)} {...this.props} />;
-	}
+  render() {
+    return <Text ref={c => (this._root = c)} {...this.props} />;
+  }
 }
 
 Label.propTypes = {
-	...Text.propTypes,
-	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  ...Text.propTypes,
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
-const StyledLabel = connectStyle("NativeBase.Label", {}, mapPropsToStyleNames)(Label);
+const StyledLabel = connectStyle("NativeBase.Label", {}, mapPropsToStyleNames)(
+  Label
+);
 
 export { StyledLabel as Label };

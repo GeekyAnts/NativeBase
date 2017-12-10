@@ -1,12 +1,12 @@
-import variable from './../variables/platform';
+import variable from "./../variables/platform";
 
 export default (variables = variable) => {
-	const subtitleTheme = {
-		fontSize: variables.subTitleFontSize,
-		fontFamily: variables.titleFontfamily,
-		color: variables.subtitleColor,
-		textAlign: 'center',
-	};
+  const subtitleTheme = {
+    fontSize: variables.subTitleFontSize,
+    fontFamily: variables.titleFontfamily,
+    color: variables.subtitleColor,
+    textAlign: "center"
+  };
 
-	return subtitleTheme;
+  return subtitleTheme;
 };

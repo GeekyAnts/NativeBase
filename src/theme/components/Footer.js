@@ -46,7 +46,7 @@ export default (variables = variable) => {
         },
         ".full": {
           height: variables.footerHeight,
-          paddingBottom:variables.footerPaddingBottom,
+          paddingBottom: variables.footerPaddingBottom,
           flex: 1
         },
         "NativeBase.Icon": {
@@ -83,14 +83,16 @@ export default (variables = variable) => {
     backgroundColor: variables.footerDefaultBg,
     flexDirection: "row",
     justifyContent: "center",
-    borderTopWidth: platform === "ios" && platformStyle !== "material"
-      ? variables.borderWidth
-      : undefined,
-    borderColor: platform === "ios" && platformStyle !== "material"
-      ? "#cbcbcb"
-      : undefined,
+    borderTopWidth:
+      platform === "ios" && platformStyle !== "material"
+        ? variables.borderWidth
+        : undefined,
+    borderColor:
+      platform === "ios" && platformStyle !== "material"
+        ? "#cbcbcb"
+        : undefined,
     height: variables.footerHeight,
-    paddingBottom:variables.footerPaddingBottom,
+    paddingBottom: variables.footerPaddingBottom,
     elevation: 3,
     left: 0,
     right: 0

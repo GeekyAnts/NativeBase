@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import createReactClass from "create-react-class";
-import { Picker, Modal, View, ListView, ViewPropTypes } from "react-native";
+import { Modal, Picker, View, ViewPropTypes } from "react-native";
 import _ from "lodash";
 import { Text } from "./Text";
 import { List } from "./List";
-import { IconNB as Icon } from "./IconNB";
 import { Radio } from "./Radio";
 import { Container } from "./Container";
 import { Content } from "./Content";
@@ -57,6 +56,7 @@ class PickerNB extends Component {
       pickerItem: {}
     };
   }
+
   _setModalVisible(visible) {
     this.setState({ modalVisible: visible });
   }

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, StatusBar, ViewPropTypes } from "react-native";
+import { StatusBar, View, ViewPropTypes } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 import variable from "../theme/variables/platform";
-import _ from "lodash";
 
 class Header extends Component {
   static contextTypes = {

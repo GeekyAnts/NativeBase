@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Modal, Platform, Animated, ViewPropTypes } from "react-native";
+import { Animated, Platform, ViewPropTypes } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import { Text } from "./Text";
 import { Button } from "./Button";
-import { ViewNB } from "./View";
 import { Toast } from "./Toast";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class ToastContainer extends Component {
+  static toastInstance;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -16,10 +17,11 @@ class ToastContainer extends Component {
       fadeAnim: new Animated.Value(0)
     };
   }
-  static toastInstance;
+
   static show({ ...config }) {
     this.toastInstance._root.showToast({ config });
   }
+
   getToastStyle() {
     return {
       position: "absolute",
@@ -31,6 +33,7 @@ class ToastContainer extends Component {
       bottom: this.state.position === "bottom" ? this.getTop() : undefined
     };
   }
+
   getTop() {
     if (Platform.OS === "ios") {
       return 30;
@@ -38,6 +41,7 @@ class ToastContainer extends Component {
       return 0;
     }
   }
+
   getButtonText(buttonText) {
     if (buttonText) {
       if (buttonText.trim().length === 0) {
@@ -46,6 +50,7 @@ class ToastContainer extends Component {
     }
     return undefined;
   }
+
   showToast({ config }) {
     this.setState({
       modalVisible: true,
@@ -90,6 +95,7 @@ class ToastContainer extends Component {
       duration: 200
     }).start();
   }
+
   closeToast() {
     const { onClose } = this.state;
 
@@ -106,6 +112,7 @@ class ToastContainer extends Component {
       });
     }, 500);
   }
+
   render() {
     if (this.state.modalVisible) {
       return (
