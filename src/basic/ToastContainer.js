@@ -5,7 +5,7 @@ import { connectStyle } from "native-base-shoutem-theme";
 import { Text } from "./Text";
 import { Button } from "./Button";
 import { Toast } from "./Toast";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class ToastContainer extends Component {
   static toastInstance;

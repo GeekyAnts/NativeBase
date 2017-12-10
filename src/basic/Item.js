@@ -7,8 +7,8 @@ import { Icon } from "./Icon";
 
 import { connectStyle } from "native-base-shoutem-theme";
 import variables from "../theme/variables/platform";
-import computeProps from "../Utils/computeProps";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import computeProps from "../utils/computeProps";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import _ from "lodash";
 
 class Item extends Component {

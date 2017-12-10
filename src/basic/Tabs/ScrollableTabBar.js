@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import createReactClass from "create-react-class";
 import { connectStyle, StyleProvider } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../../utils/mapPropsToStyleNames";
 import variable from "./../../theme/variables/platform";
 import { TabHeading, Text } from "./../../index";
 import _ from "lodash";
-import { ViewPropTypes } from "../../Utils";
+import { ViewPropTypes } from "../../utils";
 
 const ReactNative = require("react-native");
 

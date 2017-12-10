@@ -3,7 +3,7 @@ import { ListView, View } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 
 import { SwipeRow } from "./SwipeRow";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class List extends Component {
   static defaultProps = {

@@ -3,9 +3,9 @@ import { Image } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import _ from "lodash";
 import md5 from "blueimp-md5";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import NativeBaseComponent from "./Base/NativeBaseComponent";
-import computeProps from "../Utils/computeProps";
+import computeProps from "../utils/computeProps";
 
 const GRAVATAR_URI = "https://www.gravatar.com/avatar/";
 

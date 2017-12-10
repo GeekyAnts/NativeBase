@@ -13,7 +13,7 @@ import Octicons from "react-native-vector-icons/Octicons";
 import Zocial from "react-native-vector-icons/Zocial";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class IconNB extends Component {
   static contextTypes = {

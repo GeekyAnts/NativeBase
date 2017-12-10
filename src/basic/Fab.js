@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import computeProps from "../Utils/computeProps";
+import computeProps from "../utils/computeProps";
 // import Button from './../Button';
 import {
   Animated,
@@ -12,7 +12,7 @@ import {
 import { Button } from "./Button";
 import variables from "./../theme/variables/platform";
 import _ from "lodash";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import { connectStyle } from "native-base-shoutem-theme";
 
 const { height, width } = Dimensions.get("window");

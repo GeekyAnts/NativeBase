@@ -8,7 +8,7 @@ import { IconNB } from "../IconNB";
 import iconNames from "./iconNames";
 import variable from "./../../theme/variables/platform";
 
-import mapPropsToStyleNames from "../../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../../utils/mapPropsToStyleNames";
 
 class Icon extends Component {
   static contextTypes = {

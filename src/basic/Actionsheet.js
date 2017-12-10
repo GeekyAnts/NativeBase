@@ -15,7 +15,7 @@ import { Right } from "./Right";
 import { Body } from "./Body";
 import { List } from "./List";
 import { ListItem } from "./ListItem";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class ActionSheetContainer extends Component {
   static actionsheetInstance;
