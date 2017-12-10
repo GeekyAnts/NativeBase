@@ -1,7 +1,7 @@
 import { connectStyle, StyleProvider } from "native-base-shoutem-theme";
-import { keys } from "lodash";
 import { Col, Grid, Row } from "react-native-easy-grid";
-// import { Gravatar } from "./basic/Gravatar";
+import _ from "lodash";
+
 import setDefaultThemeStyle from "./init";
 import getTheme from "./theme/components";
 import variables from "./theme/variables/platform";
@@ -119,6 +119,6 @@ export {
   SwipeRow
 };
 
-const mapPropsToStyleNames = (styleNames, props) => keys(props);
+const mapPropsToStyleNames = (styleNames, props) => _.keys(props);
 
 export { mapPropsToStyleNames };
