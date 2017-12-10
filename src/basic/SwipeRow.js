@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Animated, PanResponder, View } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import { Left } from "./Left";
-import { Right } from "./Right";
-import { Body } from "./Body";
-import { ListItem } from "./ListItem";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import { Animated, PanResponder, View } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import { Left } from './Left';
+import { Right } from './Right';
+import { Body } from './Body';
+import { ListItem } from './ListItem';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 const PREVIEW_OPEN_DELAY = 700;
 const PREVIEW_CLOSE_DELAY = 300;
@@ -211,7 +211,7 @@ class SwipeRow extends Component {
           {!this.props.list ? (
             <ListItem list>{this.props.body}</ListItem>
           ) : (
-            <View style={{ backgroundColor: "#FFF" }}>{this.props.body}</View>
+            <View style={{ backgroundColor: '#FFF' }}>{this.props.body}</View>
           )}
         </Animated.View>
       );
@@ -228,7 +228,7 @@ class SwipeRow extends Component {
           {!this.props.list ? (
             <ListItem list>{this.props.body}</ListItem>
           ) : (
-            <View style={{ backgroundColor: "#FFF" }}>{this.props.body}</View>
+            <View style={{ backgroundColor: '#FFF' }}>{this.props.body}</View>
           )}
         </Animated.View>
       );
@@ -244,8 +244,8 @@ class SwipeRow extends Component {
             {
               height: this.state.hiddenHeight,
               flex: 1,
-              flexDirection: "row",
-              justifyContent: "space-between"
+              flexDirection: 'row',
+              justifyContent: 'space-between'
             }
           ]}
         >
@@ -271,15 +271,15 @@ const styles = {
   hidden: {
     bottom: 0,
     left: 0,
-    overflow: "hidden",
-    position: "absolute",
+    overflow: 'hidden',
+    position: 'absolute',
     right: 0,
     top: 0
   }
 };
 
 const StyledSwipeRow = connectStyle(
-  "NativeBase.SwipeRow",
+  'NativeBase.SwipeRow',
   {},
   mapPropsToStyleNames
 )(SwipeRow);

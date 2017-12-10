@@ -1,13 +1,13 @@
-import variable from "./../variables/platform";
+import variable from './../variables/platform';
 
 export default (variables = variable) => {
   const textAreaTheme = {
-    ".underline": {
+    '.underline': {
       borderBottomWidth: variables.borderWidth,
       marginTop: 5,
       borderColor: variables.inputBorderColor
     },
-    ".bordered": {
+    '.bordered': {
       borderWidth: 1,
       marginTop: 5,
       borderColor: variables.inputBorderColor
@@ -16,7 +16,7 @@ export default (variables = variable) => {
     paddingLeft: 10,
     paddingRight: 5,
     fontSize: 15,
-    textAlignVertical: "top"
+    textAlignVertical: 'top'
   };
 
   return textAreaTheme;

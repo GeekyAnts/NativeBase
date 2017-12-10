@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View } from "react-native";
-import { ViewPropTypes } from "../utils";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View } from 'react-native';
+import { ViewPropTypes } from '../utils';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Container extends Component {
   render() {
@@ -26,7 +26,7 @@ Container.propTypes = {
 };
 
 const StyledContainer = connectStyle(
-  "NativeBase.Container",
+  'NativeBase.Container',
   {},
   mapPropsToStyleNames
 )(Container);

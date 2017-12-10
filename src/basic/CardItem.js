@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { TouchableOpacity, View } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { TouchableOpacity, View } from 'react-native';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class CardItem extends Component {
   render() {
@@ -41,7 +41,7 @@ CardItem.propTypes = {
 };
 
 const StyledCardItem = connectStyle(
-  "NativeBase.CardItem",
+  'NativeBase.CardItem',
   {},
   mapPropsToStyleNames
 )(CardItem);

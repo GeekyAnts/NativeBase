@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ViewPropTypes } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes } from 'react-native';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Badge extends Component {
   render() {
@@ -24,7 +24,7 @@ Badge.propTypes = {
   ])
 };
 
-const StyledBadge = connectStyle("NativeBase.Badge", {}, mapPropsToStyleNames)(
+const StyledBadge = connectStyle('NativeBase.Badge', {}, mapPropsToStyleNames)(
   Badge
 );
 

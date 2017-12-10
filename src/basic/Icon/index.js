@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { Platform } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
+import { Platform } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { IconNB } from "../IconNB";
-import iconNames from "./iconNames";
-import variable from "./../../theme/variables/platform";
+import { IconNB } from '../IconNB';
+import iconNames from './iconNames';
+import variable from './../../theme/variables/platform';
 
-import mapPropsToStyleNames from "../../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../../utils/mapPropsToStyleNames';
 
 class Icon extends Component {
   static contextTypes = {
@@ -17,17 +17,17 @@ class Icon extends Component {
 
   getName() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     const platformStyle = variables.platformStyle;
     const platform = variables.platform;
 
-    if (variables.iconFamily === "Ionicons") {
-      if (typeof iconNames[this.props.name] !== "object") {
+    if (variables.iconFamily === 'Ionicons') {
+      if (typeof iconNames[this.props.name] !== 'object') {
         return this.props.name;
-      } else if (typeof iconNames[this.props.name] === "object") {
+      } else if (typeof iconNames[this.props.name] === 'object') {
         let name;
-        if (platform === "ios" && platformStyle !== "material") {
+        if (platform === 'ios' && platformStyle !== 'material') {
           name = this.props.active
             ? iconNames[this.props.name].ios.active
             : iconNames[this.props.name].ios.default;
@@ -44,7 +44,7 @@ class Icon extends Component {
   }
 
   getIconName() {
-    if (Platform.OS === "ios") {
+    if (Platform.OS === 'ios') {
       if (this.props.ios) {
         return this.props.ios;
       } else {
@@ -67,7 +67,7 @@ class Icon extends Component {
         <IconNB
           ref={c => (this._root = c)}
           {...this.props}
-          name={Platform.OS === "ios" ? this.props.ios : this.props.android}
+          name={Platform.OS === 'ios' ? this.props.ios : this.props.android}
         />
       );
     } else if (this.props.name && (this.props.android || this.props.ios)) {
@@ -103,7 +103,7 @@ Icon.propTypes = {
   active: PropTypes.bool
 };
 
-const StyledIcon = connectStyle("NativeBase.Icon", {}, mapPropsToStyleNames)(
+const StyledIcon = connectStyle('NativeBase.Icon', {}, mapPropsToStyleNames)(
   Icon
 );
 

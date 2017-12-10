@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import createReactClass from "create-react-class";
-import { connectStyle, StyleProvider } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../../utils/mapPropsToStyleNames";
-import variable from "./../../theme/variables/platform";
-import { TabContainer, TabHeading, Text } from "./../../index";
-import _ from "lodash";
-import { ViewPropTypes } from "../../utils";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
+import { connectStyle, StyleProvider } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../../utils/mapPropsToStyleNames';
+import variable from './../../theme/variables/platform';
+import { TabContainer, TabHeading, Text } from './../../index';
+import _ from 'lodash';
+import { ViewPropTypes } from '../../utils';
 
-const ReactNative = require("react-native");
+const ReactNative = require('react-native');
 
 const { StyleSheet, View, Animated, Platform } = ReactNative;
 
-const Button = require("./Button");
+const Button = require('./Button');
 
 const DefaultTabBar = createReactClass({
   propTypes: {
@@ -53,11 +53,11 @@ const DefaultTabBar = createReactClass({
     tabHeaderStyle
   ) {
     const headerContent =
-      typeof name !== "string" ? name.props.children : undefined;
+      typeof name !== 'string' ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
-    const fontWeight = isTabActive ? "bold" : "normal";
-    if (typeof name === "string") {
+    const fontWeight = isTabActive ? 'bold' : 'normal';
+    if (typeof name === 'string') {
       return (
         <Button
           style={{ flex: 1 }}
@@ -91,13 +91,13 @@ const DefaultTabBar = createReactClass({
 
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     const platformStyle = variables.platformStyle;
     const containerWidth = this.props.containerWidth;
     const numberOfTabs = this.props.tabs.length;
     const tabUnderlineStyle = {
-      position: "absolute",
+      position: 'absolute',
       width: containerWidth / numberOfTabs,
       height: 4,
       backgroundColor: variables.topTabBarActiveBorderColor,
@@ -137,7 +137,7 @@ const DefaultTabBar = createReactClass({
 
 // module.exports = DefaultTabBar;
 const StyledTab = connectStyle(
-  "NativeBase.DefaultTabBar",
+  'NativeBase.DefaultTabBar',
   {},
   mapPropsToStyleNames
 )(DefaultTabBar);

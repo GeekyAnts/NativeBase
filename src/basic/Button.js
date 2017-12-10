@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Platform,
   TouchableNativeFeedback,
   TouchableOpacity,
   View
-} from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import variable from "./../theme/variables/platform";
-import { Text } from "./Text";
-import computeProps from "../utils/computeProps";
+} from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import variable from './../theme/variables/platform';
+import { Text } from './Text';
+import computeProps from '../utils/computeProps';
 
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Button extends Component {
   static contextTypes = {
@@ -41,10 +41,10 @@ class Button extends Component {
 
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     const children =
-      Platform.OS === "ios"
+      Platform.OS === 'ios'
         ? this.props.children
         : React.Children.map(
             this.props.children,
@@ -57,9 +57,9 @@ class Button extends Component {
                 : child
           );
     if (
-      Platform.OS === "ios" ||
+      Platform.OS === 'ios' ||
       variables.androidRipple === false ||
-      Platform["Version"] <= 21
+      Platform['Version'] <= 21
     ) {
       return (
         <TouchableOpacity
@@ -114,7 +114,7 @@ Button.propTypes = {
 };
 
 const StyledButton = connectStyle(
-  "NativeBase.Button",
+  'NativeBase.Button',
   {},
   mapPropsToStyleNames
 )(Button);

@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Content extends Component {
   render() {
@@ -15,7 +15,7 @@ class Content extends Component {
         keyboardShouldPersistTaps={
           this.props.keyboardShouldPersistTaps
             ? this.props.keyboardShouldPersistTaps
-            : "handled"
+            : 'handled'
         }
         ref={c => {
           this._scrollview = c;
@@ -42,7 +42,7 @@ Content.propTypes = {
 };
 
 const StyledContent = connectStyle(
-  "NativeBase.Content",
+  'NativeBase.Content',
   {},
   mapPropsToStyleNames
 )(Content);

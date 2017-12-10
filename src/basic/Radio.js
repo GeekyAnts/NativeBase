@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Platform, TouchableOpacity } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import Icon from "react-native-vector-icons/Ionicons";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
-import variable from "../theme/variables/platform";
-import computeProps from "../utils/computeProps";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Platform, TouchableOpacity } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import Icon from 'react-native-vector-icons/Ionicons';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import variable from '../theme/variables/platform';
+import computeProps from '../utils/computeProps';
 
 class Radio extends Component {
   static contextTypes = {
@@ -22,7 +22,7 @@ class Radio extends Component {
 
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     const platformStyle = variables.platformStyle;
     const platform = variables.platform;
@@ -32,7 +32,7 @@ class Radio extends Component {
         ref={c => (this._root = c)}
         {...this.prepareRootProps()}
       >
-        {Platform.OS === "ios" && !this.props.standardStyle ? (
+        {Platform.OS === 'ios' && !this.props.standardStyle ? (
           this.props.selected && (
             <Icon
               style={{
@@ -48,7 +48,7 @@ class Radio extends Component {
           <Icon
             style={{
               color:
-                Platform.OS === "ios"
+                Platform.OS === 'ios'
                   ? this.props.selected ? variables.brandPrimary : undefined
                   : this.props.selected
                     ? variables.radioSelectedColorAndroid
@@ -57,13 +57,13 @@ class Radio extends Component {
               fontSize: variables.radioBtnSize
             }}
             name={
-              Platform.OS === "ios"
+              Platform.OS === 'ios'
                 ? this.props.selected
-                  ? "ios-radio-button-on"
-                  : "ios-radio-button-off"
+                  ? 'ios-radio-button-on'
+                  : 'ios-radio-button-off'
                 : this.props.selected
-                  ? "md-radio-button-on"
-                  : "md-radio-button-off"
+                  ? 'md-radio-button-on'
+                  : 'md-radio-button-off'
             }
           />
         )}
@@ -78,7 +78,7 @@ Radio.propTypes = {
   standardStyle: PropTypes.bool
 };
 
-const StyledRadio = connectStyle("NativeBase.Radio", {}, mapPropsToStyleNames)(
+const StyledRadio = connectStyle('NativeBase.Radio', {}, mapPropsToStyleNames)(
   Radio
 );
 

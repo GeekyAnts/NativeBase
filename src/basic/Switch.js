@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Switch as SwitchNB } from "react-native";
+import React, { Component } from 'react';
+import { Switch as SwitchNB } from 'react-native';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Switch extends Component {
   render() {
@@ -15,7 +15,7 @@ Switch.propTypes = {
 };
 
 const StyledSwitch = connectStyle(
-  "NativeBase.Switch",
+  'NativeBase.Switch',
   {},
   mapPropsToStyleNames
 )(Switch);

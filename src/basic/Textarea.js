@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { TextInput } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import variables from "../theme/variables/platform";
-import computeProps from "../utils/computeProps";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { TextInput } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import variables from '../theme/variables/platform';
+import computeProps from '../utils/computeProps';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Textarea extends Component {
   getStyle() {
@@ -55,7 +55,7 @@ Textarea.propTypes = {
 };
 
 const StyledTextarea = connectStyle(
-  "NativeBase.Textarea",
+  'NativeBase.Textarea',
   {},
   mapPropsToStyleNames
 )(Textarea);

@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "precommit": "lint-staged",
-    "format": "prettier --write **/*.js; eslint --fix .",
+    "format": "prettier --write './**/*.js'; eslint --fix .",
     "prepublish": "rm -rf dist/* && babel src --out-dir dist --source-maps",
     "postinstall": "node addEjectScript.js",
     "test": "jest",

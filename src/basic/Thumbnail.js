@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Image } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Image } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Thumbnail extends Component {
   render() {
@@ -23,7 +23,7 @@ Thumbnail.propTypes = {
 };
 
 const StyledThumbnail = connectStyle(
-  "NativeBase.Thumbnail",
+  'NativeBase.Thumbnail',
   {},
   mapPropsToStyleNames
 )(Thumbnail);

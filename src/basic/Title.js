@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Text } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Text } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Title extends Component {
   render() {
@@ -21,7 +21,7 @@ Title.propTypes = {
   ])
 };
 
-const StyledTitle = connectStyle("NativeBase.Title", {}, mapPropsToStyleNames)(
+const StyledTitle = connectStyle('NativeBase.Title', {}, mapPropsToStyleNames)(
   Title
 );
 export { StyledTitle as Title };

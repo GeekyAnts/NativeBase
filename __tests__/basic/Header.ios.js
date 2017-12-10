@@ -1,27 +1,27 @@
-import "react-native";
-import React from "react";
-import renderer from "react-test-renderer";
-import { Header } from "./../../src/basic/Header";
-import { Button } from "./../../src/basic/Button";
-import { Icon } from "./../../src/basic/Icon";
-import { Title } from "./../../src/basic/Title";
-import Subtitle from "./../../src/backward/Widgets/Subtitle";
+import 'react-native';
+import React from 'react';
+import renderer from 'react-test-renderer';
+import { Header } from './../../src/basic/Header';
+import { Button } from './../../src/basic/Button';
+import { Icon } from './../../src/basic/Icon';
+import { Title } from './../../src/basic/Title';
+import Subtitle from './../../src/backward/Widgets/Subtitle';
 
 // Note: test renderer must be required after react-native.
 
-jest.mock("Platform", () => {
-  const Platform = require.requireActual("Platform");
-  Platform.OS = "ios";
+jest.mock('Platform', () => {
+  const Platform = require.requireActual('Platform');
+  Platform.OS = 'ios';
   return Platform;
 });
-jest.mock("ScrollView", () => "ScrollView");
+jest.mock('ScrollView', () => 'ScrollView');
 
-it("renders correctly", () => {
+it('renders correctly', () => {
   const tree = renderer.create(<Header />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-it("renders header with buttons", () => {
+it('renders header with buttons', () => {
   const tree = renderer
     .create(
       <Header>
@@ -40,7 +40,7 @@ it("renders header with buttons", () => {
   expect(tree).toMatchSnapshot();
 });
 
-it("renders header with a null button", () => {
+it('renders header with a null button', () => {
   const tree = renderer
     .create(
       <Header>
@@ -52,7 +52,7 @@ it("renders header with a null button", () => {
   expect(tree).toMatchSnapshot();
 });
 
-it("renders header with buttons and subtitle", () => {
+it('renders header with buttons and subtitle', () => {
   const tree = renderer
     .create(
       <Header>
@@ -72,7 +72,7 @@ it("renders header with buttons and subtitle", () => {
   expect(tree).toMatchSnapshot();
 });
 
-it("renders header with just one button", () => {
+it('renders header with just one button', () => {
   const tree = renderer
     .create(
       <Header>
@@ -87,7 +87,7 @@ it("renders header with just one button", () => {
   expect(tree).toMatchSnapshot();
 });
 
-it("renders header with just one button and subtitle", () => {
+it('renders header with just one button and subtitle', () => {
   const tree = renderer
     .create(
       <Header>
@@ -103,7 +103,7 @@ it("renders header with just one button and subtitle", () => {
   expect(tree).toMatchSnapshot();
 });
 
-it("renders header with just one button and iconRight", () => {
+it('renders header with just one button and iconRight', () => {
   const tree = renderer
     .create(
       <Header iconRight>
@@ -118,7 +118,7 @@ it("renders header with just one button and iconRight", () => {
   expect(tree).toMatchSnapshot();
 });
 
-it("renders header with just one button, iconRight and a subtitle", () => {
+it('renders header with just one button, iconRight and a subtitle', () => {
   const tree = renderer
     .create(
       <Header iconRight>

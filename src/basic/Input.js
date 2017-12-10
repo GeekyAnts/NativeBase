@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { TextInput } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import variables from "../theme/variables/platform";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
-import NativeBaseComponent from "./Base/NativeBaseComponent";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { TextInput } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import variables from '../theme/variables/platform';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import NativeBaseComponent from './Base/NativeBaseComponent';
 
 class Input extends NativeBaseComponent {
   render() {
@@ -36,7 +36,7 @@ Input.propTypes = {
   ])
 };
 
-const StyledInput = connectStyle("NativeBase.Input", {}, mapPropsToStyleNames)(
+const StyledInput = connectStyle('NativeBase.Input', {}, mapPropsToStyleNames)(
   Input
 );
 
