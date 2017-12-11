@@ -4,7 +4,10 @@ exports[`test renders regular button 1`] = `
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  collapsable={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -18,13 +21,8 @@ exports[`test renders regular button 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}>
-  <View
-    style={
-      Object {
-        "alignSelf": "center",
-      }
-    } />
+  testID={undefined}
+  tvParallaxProperties={undefined}>
   Test
 </View>
 `;

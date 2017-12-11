@@ -1,25 +1,24 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import createReactClass from "create-react-class";
-import { Picker, Modal, View, ListView, ViewPropTypes } from "react-native";
-import _ from "lodash";
-import { Text } from "./Text";
-import { List } from "./List";
-import { IconNB as Icon } from "./IconNB";
-import { Radio } from "./Radio";
-import { Container } from "./Container";
-import { Content } from "./Content";
-import { ListItem } from "./ListItem";
-import { Button } from "./Button";
-import { Header } from "./Header";
-import { Title } from "./Title";
-import { Left } from "./Left";
-import { Right } from "./Right";
-import { Body } from "./Body";
-import { connectStyle } from "native-base-shoutem-theme";
-import computeProps from "../Utils/computeProps";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
+import { Modal, Picker, View, ViewPropTypes } from 'react-native';
+import _ from 'lodash';
+import { Text } from './Text';
+import { List } from './List';
+import { Radio } from './Radio';
+import { Container } from './Container';
+import { Content } from './Content';
+import { ListItem } from './ListItem';
+import { Button } from './Button';
+import { Header } from './Header';
+import { Title } from './Title';
+import { Left } from './Left';
+import { Right } from './Right';
+import { Body } from './Body';
+import { connectStyle } from 'native-base-shoutem-theme';
+import computeProps from '../utils/computeProps';
 
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class PickerNB extends Component {
   constructor(props) {
@@ -57,6 +56,7 @@ class PickerNB extends Component {
       pickerItem: {}
     };
   }
+
   _setModalVisible(visible) {
     this.setState({ modalVisible: visible });
   }
@@ -75,7 +75,7 @@ class PickerNB extends Component {
       props.children,
       child => child.props.value === props.selectedValue
     );
-    return _.get(item, "props.label");
+    return _.get(item, 'props.label');
   }
 
   getSelectedItem() {
@@ -155,13 +155,13 @@ class PickerNB extends Component {
             }}
           >
             <Text style={this.props.headerBackButtonTextStyle}>
-              {this.props.headerBackButtonText || "Back"}
+              {this.props.headerBackButtonText || 'Back'}
             </Text>
           </Button>
         </Left>
         <Body>
           <Title style={this.props.headerTitleStyle}>
-            {this.props.iosHeader || "Select One"}
+            {this.props.iosHeader || 'Select One'}
           </Title>
         </Body>
         <Right />
@@ -231,7 +231,7 @@ PickerNB.propTypes = {
 };
 
 const StyledPickerNB = connectStyle(
-  "NativeBase.PickerNB",
+  'NativeBase.PickerNB',
   {},
   mapPropsToStyleNames
 )(PickerNB);

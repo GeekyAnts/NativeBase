@@ -1,5 +1,6 @@
 # Source file
-Components
+!src/theme
+src
 
 # Dotfiles
 .babelrc

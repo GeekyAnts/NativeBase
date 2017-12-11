@@ -1,10 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, StatusBar, ViewPropTypes } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
-import variable from "../theme/variables/platform";
-import _ from "lodash";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { StatusBar, View, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import variable from '../theme/variables/platform';
 
 class Header extends Component {
   static contextTypes = {
@@ -13,7 +12,7 @@ class Header extends Component {
 
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     const platformStyle = variables.platformStyle;
 
@@ -28,8 +27,8 @@ class Header extends Component {
           barStyle={
             this.props.iosBarStyle
               ? this.props.iosBarStyle
-              : platformStyle === "material"
-                ? "light-content"
+              : platformStyle === 'material'
+                ? 'light-content'
                 : variables.iosStatusbar
           }
         />
@@ -51,7 +50,7 @@ Header.propTypes = {
 };
 
 const StyledHeader = connectStyle(
-  "NativeBase.Header",
+  'NativeBase.Header',
   {},
   mapPropsToStyleNames
 )(Header);

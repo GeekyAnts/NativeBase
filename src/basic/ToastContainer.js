@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, Modal, Platform, Animated, ViewPropTypes } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import { Text } from "./Text";
-import { Button } from "./Button";
-import { ViewNB } from "./View";
-import { Toast } from "./Toast";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Animated, Platform, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import { Text } from './Text';
+import { Button } from './Button';
+import { Toast } from './Toast';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class ToastContainer extends Component {
+  static toastInstance;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -16,28 +17,31 @@ class ToastContainer extends Component {
       fadeAnim: new Animated.Value(0)
     };
   }
-  static toastInstance;
+
   static show({ ...config }) {
     this.toastInstance._root.showToast({ config });
   }
+
   getToastStyle() {
     return {
-      position: "absolute",
+      position: 'absolute',
       opacity: this.state.fadeAnim,
-      width: "100%",
+      width: '100%',
       elevation: 9,
-      paddingHorizontal: Platform.OS === "ios" ? 20 : 0,
-      top: this.state.position === "top" ? this.getTop() : undefined,
-      bottom: this.state.position === "bottom" ? this.getTop() : undefined
+      paddingHorizontal: Platform.OS === 'ios' ? 20 : 0,
+      top: this.state.position === 'top' ? this.getTop() : undefined,
+      bottom: this.state.position === 'bottom' ? this.getTop() : undefined
     };
   }
+
   getTop() {
-    if (Platform.OS === "ios") {
+    if (Platform.OS === 'ios') {
       return 30;
     } else {
       return 0;
     }
   }
+
   getButtonText(buttonText) {
     if (buttonText) {
       if (buttonText.trim().length === 0) {
@@ -46,13 +50,14 @@ class ToastContainer extends Component {
     }
     return undefined;
   }
+
   showToast({ config }) {
     this.setState({
       modalVisible: true,
       text: config.text,
       buttonText: this.getButtonText(config.buttonText),
       type: config.type,
-      position: config.position ? config.position : "bottom",
+      position: config.position ? config.position : 'bottom',
       supportedOrientations: config.supportedOrientations,
       style: config.style,
       buttonTextStyle: config.buttonTextStyle,
@@ -90,10 +95,11 @@ class ToastContainer extends Component {
       duration: 200
     }).start();
   }
+
   closeToast() {
     const { onClose } = this.state;
 
-    if (onClose && typeof onClose === "function") {
+    if (onClose && typeof onClose === 'function') {
       onClose();
     }
     Animated.timing(this.state.fadeAnim, {
@@ -106,15 +112,16 @@ class ToastContainer extends Component {
       });
     }, 500);
   }
+
   render() {
     if (this.state.modalVisible) {
       return (
         <Animated.View style={this.getToastStyle()}>
           <Toast
             style={this.state.style}
-            danger={this.state.type == "danger" ? true : false}
-            success={this.state.type == "success" ? true : false}
-            warning={this.state.type == "warning" ? true : false}
+            danger={this.state.type == 'danger' ? true : false}
+            success={this.state.type == 'success' ? true : false}
+            warning={this.state.type == 'warning' ? true : false}
           >
             <Text style={this.state.textStyle}>{this.state.text}</Text>
             {this.state.buttonText && (
@@ -144,7 +151,7 @@ ToastContainer.propTypes = {
 };
 
 const StyledToastContainer = connectStyle(
-  "NativeBase.ToastContainer",
+  'NativeBase.ToastContainer',
   {},
   mapPropsToStyleNames
 )(ToastContainer);

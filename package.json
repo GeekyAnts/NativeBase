@@ -1,5 +1,6 @@
 {
   "name": "native-base",
+  "version": "2.3.5",
   "description": "Essential cross-platform UI components for React Native",
   "keywords": [
     "android",
@@ -14,26 +15,28 @@
     "rnpm"
   ],
   "scripts": {
-    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
-    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
-    "test": "jest",
-    "prepublish": "npm run transpile",
+    "precommit": "lint-staged",
+    "format": "prettier --write './**/*.js'; eslint --fix .",
+    "prepublish": "rm -rf dist/* && babel src --out-dir dist --source-maps",
     "postinstall": "node addEjectScript.js",
+    "test": "jest",
     "flow": "flow"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "jest": {
     "preset": "react-native",
-    "rootDir": "src",
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
+      "node_modules/(?!react-native|native-base-shoutem-theme|react-clone-referenced-element)"
     ]
   },
-  "version": "2.3.5",
   "license": "Apache-2.0",
-  "private": false,
   "dependencies": {
-    "blueimp-md5": "^2.5.0",
-    "clamp": "^1.0.1",
     "color": "~1.0.3",
     "fs-extra": "^2.0.0",
     "lodash": "~4.11.1",
@@ -58,16 +61,18 @@
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-react-native": "^2.0.0",
-    "flow-bin": "0.40.0",
+    "flow-bin": "0.44.0",
+    "husky": "^0.14.3",
     "jest": "17.0.0",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.1",
     "react": "^16.0.0-alpha.3",
     "react-native": "^0.46.0",
-    "react-native-vector-icons": "~4.4.2",
-    "react-test-renderer": "^15.3.2"
+    "react-test-renderer": "^16.0.0-alpha.3"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "typings": "./index.d.ts",
   "optionalDependencies": {},
   "peerDependencies": {

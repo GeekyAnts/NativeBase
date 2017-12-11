@@ -1,4 +1,4 @@
-var React = require("react");
+var React = require('react');
 
 class StaticContainer extends React.Component {
   shouldComponentUpdate(nextProps: Object): boolean {

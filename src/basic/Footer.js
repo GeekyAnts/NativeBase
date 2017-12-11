@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ViewPropTypes } from "react-native";
-import _ from "lodash";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Footer extends Component {
   render() {
@@ -21,7 +20,7 @@ Footer.propTypes = {
 };
 
 const StyledFooter = connectStyle(
-  "NativeBase.Footer",
+  'NativeBase.Footer',
   {},
   mapPropsToStyleNames
 )(Footer);

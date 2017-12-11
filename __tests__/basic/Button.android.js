@@ -8,17 +8,12 @@ import { Button } from './../../src/basic/Button';
 // Note: test renderer must be required after react-native.
 
 jest.mock('Platform', () => {
-    const Platform = require.requireActual('Platform');
-    Platform.OS = 'android';
-    return Platform;
+  const Platform = require.requireActual('Platform');
+  Platform.OS = 'android';
+  return Platform;
 });
 
-
 it('renders regular button', () => {
-   const tree = renderer.create(
-       <Button>
-           Test
-       </Button>
-   ).toJSON();
-    expect(tree).toMatchSnapshot();
+  const tree = renderer.create(<Button>Test</Button>).toJSON();
+  expect(tree).toMatchSnapshot();
 });

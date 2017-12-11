@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ViewPropTypes } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes } from 'react-native';
 
-import variables from "../theme/variables/platform";
-import { connectStyle } from "native-base-shoutem-theme";
-import computeProps from "../Utils/computeProps";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import variables from '../theme/variables/platform';
+import { connectStyle } from 'native-base-shoutem-theme';
+import computeProps from '../utils/computeProps';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class InputGroup extends Component {
   getInitialStyle() {
@@ -26,6 +26,7 @@ class InputGroup extends Component {
 
     return computeProps(this.props, defaultProps);
   }
+
   render() {
     return (
       <View ref={c => (this._root = c)} {...this.prepareRootProps()}>
@@ -46,7 +47,7 @@ InputGroup.propTypes = {
 };
 
 const StyledInputGroup = connectStyle(
-  "NativeBase.InputGroup",
+  'NativeBase.InputGroup',
   {},
   mapPropsToStyleNames
 )(InputGroup);
