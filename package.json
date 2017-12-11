@@ -32,7 +32,7 @@
   "jest": {
     "preset": "react-native",
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
+      "node_modules/(?!react-native|native-base-shoutem-theme|react-clone-referenced-element)"
     ]
   },
   "license": "Apache-2.0",
@@ -68,7 +68,7 @@
     "prettier": "^1.9.1",
     "react": "^16.0.0-alpha.3",
     "react-native": "^0.46.0",
-    "react-test-renderer": "^15.3.2"
+    "react-test-renderer": "^16.0.0-alpha.3"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",

@@ -5,7 +5,7 @@ import { Header } from './../../src/basic/Header';
 import { Button } from './../../src/basic/Button';
 import { Icon } from './../../src/basic/Icon';
 import { Title } from './../../src/basic/Title';
-import Subtitle from './../../src/backward/Widgets/Subtitle';
+import { Subtitle } from './../../src/basic/Subtitle';
 
 // Note: test renderer must be required after react-native.
 

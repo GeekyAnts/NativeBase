@@ -57,22 +57,10 @@ class Button extends Component {
                 : child
           );
     if (
-      Platform.OS === 'ios' ||
-      variables.androidRipple === false ||
-      Platform['Version'] <= 21
+      Platform.OS === 'android' &&
+      variables.androidRipple &&
+      Platform['Version'] >= 21
     ) {
-      return (
-        <TouchableOpacity
-          {...this.prepareRootProps()}
-          ref={c => (this._root = c)}
-          activeOpacity={
-            this.props.activeOpacity > 0 ? this.props.activeOpacity : 0.5
-          }
-        >
-          {children}
-        </TouchableOpacity>
-      );
-    } else {
       return (
         <TouchableNativeFeedback
           ref={c => (this._root = c)}
@@ -86,6 +74,18 @@ class Button extends Component {
         >
           <View {...this.prepareRootProps()}>{children}</View>
         </TouchableNativeFeedback>
+      );
+    } else {
+      return (
+        <TouchableOpacity
+          {...this.prepareRootProps()}
+          ref={c => (this._root = c)}
+          activeOpacity={
+            this.props.activeOpacity > 0 ? this.props.activeOpacity : 0.5
+          }
+        >
+          {children}
+        </TouchableOpacity>
       );
     }
   }
