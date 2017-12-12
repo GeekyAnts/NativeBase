@@ -640,6 +640,7 @@ declare module "native-base" {
 			onChangeTab?: Function;
 			locked?: boolean;
 			initialPage?: number;
+			tabBarUnderlineStyle?: ReactNative.ViewStyle;
 		}
 
 		interface Tab {
