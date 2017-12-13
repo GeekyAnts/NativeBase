@@ -26,7 +26,6 @@ class ActionSheetContainer extends Component {
     this.state = {
       modalVisible: false,
       items: [],
-      dataArray: []
     };
   }
   static actionsheetInstance;
@@ -46,7 +45,6 @@ class ActionSheetContainer extends Component {
         ActionSheetIOS.showActionSheetWithOptions(config, callback);
       }
     } else {
-      let dataArray = config.options.map((item, index) => { return { id: index, value: item } })
       this.setState({
         items: config.options,
         title: config.title,
@@ -55,7 +53,6 @@ class ActionSheetContainer extends Component {
         cancelButtonIndex: config.cancelButtonIndex,
         modalVisible: true,
         callback: callback,
-        dataArray
       });
     }
   }
@@ -99,22 +96,22 @@ class ActionSheetContainer extends Component {
             <Text style={{ color: "#757575" }}>{this.state.title}</Text>
             <FlatList
               style={{ marginHorizontal: -15, marginTop: 15 }}
-              data={this.state.dataArray}
-              keyExtractor={(item, index) => item.id}
-              renderItem={({ item }) => {
+              data={this.state.items}
+              keyExtractor={(item, index) => index}
+              renderItem={({ index,item }) => {
                 return typeof this.state.items[0] === "string" ? (
                   <ListItem
                     onPress={() => {
-                      this.state.callback(parseInt(item.id));
+                      this.state.callback(parseInt(index));
                       this.setState({ modalVisible: false });
                     }}
                     style={{ borderColor: "transparent" }}>
-                    <Text>{item.value}</Text>
+                    <Text>{item}</Text>
                   </ListItem>
                 ) : (
                     <ListItem
                       onPress={() => {
-                        this.state.callback(parseInt(item.id));
+                        this.state.callback(parseInt(index));
                         this.setState({ modalVisible: false });
                       }}
                       style={{ borderColor: "transparent" }}
@@ -122,14 +119,14 @@ class ActionSheetContainer extends Component {
                     >
                       <Left>
                         <Icon
-                          name={item.value.icon}
+                          name={item.icon}
                           style={{
-                            color: item.value.iconColor ? item.value.iconColor : undefined
+                            color: item.iconColor ? item.iconColor : undefined
                           }}
                         />
                       </Left>
                       <Body style={{ borderColor: "transparent" }}>
-                        <Text>{item.value.text}</Text>
+                        <Text>{item.text}</Text>
                       </Body>
                       <Right />
                     </ListItem>
