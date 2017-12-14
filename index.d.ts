@@ -253,16 +253,16 @@ declare module "native-base" {
 				highlightRow?: boolean
 			) => React.ReactElement<any>;
 			
-			dataSource?:ListViewDataSource;
-            disableLeftSwipe?:boolean;
-            disableRightSwipe?:boolean;
-            rightOpenValue?:number;
-            renderRightHiddenRow?:(
-                rowData: any,
-                sectionID: string | number,
-                rowID: string | number,
-                rowMap?: any
-            ) => React.ReactElement<any>;
+			dataSource?:ReactNative.ListViewDataSource;
+            		disableLeftSwipe?:boolean;
+            		disableRightSwipe?:boolean;
+            		rightOpenValue?:number;
+            		renderRightHiddenRow?:(
+                		rowData: any,
+                		sectionID: string | number,
+                		rowID: string | number,
+                		rowMap?: any
+            		) => React.ReactElement<any>;
 		}
 		/**
          * see Widget ListItem.js
