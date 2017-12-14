@@ -252,6 +252,17 @@ declare module "native-base" {
 				rowID: string | number,
 				highlightRow?: boolean
 			) => React.ReactElement<any>;
+			
+			dataSource?:ListViewDataSource;
+            disableLeftSwipe?:boolean;
+            disableRightSwipe?:boolean;
+            rightOpenValue?:number;
+            renderRightHiddenRow?:(
+                rowData: any,
+                sectionID: string | number,
+                rowID: string | number,
+                rowMap?: any
+            ) => React.ReactElement<any>;
 		}
 		/**
          * see Widget ListItem.js
