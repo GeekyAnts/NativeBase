@@ -1,4 +1,4 @@
-var _jsxFileName='__tests__/basic/Header.android.js';require('react-native');
+var _jsxFileName='__tests__\\basic\\Header.android.js';require('react-native');
 var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactTestRenderer=require('react-test-renderer');var _reactTestRenderer2=_interopRequireDefault(_reactTestRenderer);
 var _Header=require('./../../src/basic/Header');

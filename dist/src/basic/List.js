@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.List=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src/basic/List.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
+Object.defineProperty(exports,"__esModule",{value:true});exports.List=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName='src\\basic\\List.js';var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require('react');var _react2=_interopRequireDefault(_react);
 var _reactNative=require('react-native');
 var _nativeBaseShoutemTheme=require('native-base-shoutem-theme');
 
@@ -134,9 +134,9 @@ tension:this.props.tension,
 friction:this.props.friction,
 directionalDistanceChangeThreshold:this.props.directionalDistanceChangeThreshold,
 swipeToOpenPercent:this.props.swipeToOpenPercent,
-left:this.props.renderLeftHiddenRow(rowData,secId,rowId,this._rows),
-right:this.props.renderRightHiddenRow(rowData,secId,rowId,this._rows),
-body:this.props.renderRow(rowData,secId,rowId,this._rows),__source:{fileName:_jsxFileName,lineNumber:110}}));
+left:this.props.renderLeftHiddenRow&&this.props.renderLeftHiddenRow(rowData,secId,rowId,this._rows),
+right:this.props.renderRightHiddenRow&&this.props.renderRightHiddenRow(rowData,secId,rowId,this._rows),
+body:this.props.renderRow&&this.props.renderRow(rowData,secId,rowId,this._rows),__source:{fileName:_jsxFileName,lineNumber:110}}));
 
 
 }},{key:'render',value:function render()

@@ -1,4 +1,4 @@
-var _jsxFileName='__tests__/basic/Button.ios.js';require('react-native');
+var _jsxFileName='__tests__\\basic\\Button.ios.js';require('react-native');
 var _reactTestRenderer=require('react-test-renderer');var _reactTestRenderer2=_interopRequireDefault(_reactTestRenderer);
 
 var _react=require('react');var _react2=_interopRequireDefault(_react);

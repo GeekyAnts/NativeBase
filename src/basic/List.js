@@ -134,9 +134,9 @@ class List extends Component {
 				friction={this.props.friction}
 				directionalDistanceChangeThreshold={this.props.directionalDistanceChangeThreshold}
 				swipeToOpenPercent={this.props.swipeToOpenPercent}
-				left={this.props.renderLeftHiddenRow(rowData, secId, rowId, this._rows)}
-				right={this.props.renderRightHiddenRow(rowData, secId, rowId, this._rows)}
-				body={this.props.renderRow(rowData, secId, rowId, this._rows)}
+				left={this.props.renderLeftHiddenRow && this.props.renderLeftHiddenRow(rowData, secId, rowId, this._rows)}
+				right={this.props.renderRightHiddenRow && this.props.renderRightHiddenRow(rowData, secId, rowId, this._rows)}
+				body={this.props.renderRow && this.props.renderRow(rowData, secId, rowId, this._rows)}
 			/>
 		);
 	}
