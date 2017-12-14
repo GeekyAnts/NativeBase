@@ -251,6 +251,17 @@ declare module "native-base" {
 				rowID: string | number,
 				highlightRow?: boolean
 			) => React.ReactElement<any>;
+			
+			dataSource?:ReactNative.ListViewDataSource;
+            		disableLeftSwipe?:boolean;
+            		disableRightSwipe?:boolean;
+            		rightOpenValue?:number;
+            		renderRightHiddenRow?:(
+                		rowData: any,
+                		sectionID: string | number,
+                		rowID: string | number,
+                		rowMap?: any
+            		) => React.ReactElement<any>;
 		}
 		/**
          * see Widget ListItem.js
@@ -642,13 +653,15 @@ declare module "native-base" {
 			initialPage?: number;
 		}
 
-		interface Tab {
-			heading: _TabHeading;
-		}
+
 		interface TabHeading {
 			activeTabStyle?: ReactNative.ViewStyle;
 			textStyle?: ReactNative.TextStyle;
 			activeTextStyle?: ReactNative.TextStyle;
+		}
+
+		interface Tab {
+		    heading: React.ReactElement<TabHeading> | string;
 		}
 
 		interface Item {
@@ -924,7 +937,7 @@ declare module "native-base" {
 	export class Tab extends React.Component<NativeBase.Tab, any> {}
 
 	export class TabHeading extends React.Component<NativeBase.TabHeading, any> {}
-	type _TabHeading = TabHeading;
+
 	/**
      * NativeBase.Item
      */
