@@ -302,6 +302,7 @@ declare module "native-base" {
 			footer?: boolean;
 			cardBody?: boolean;
 			button?: boolean;
+			activeOpacity?:number;
 		}
 		/**
          * Override React ListViewProperties

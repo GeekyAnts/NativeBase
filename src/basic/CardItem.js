@@ -12,7 +12,7 @@ class CardItem extends Component {
 				<TouchableOpacity
 					ref={c => (this._root = c)}
 					{...this.props}
-					activeOpacity={this.props.button ? 0.2 : 1}
+					activeOpacity={this.props.activeOpacity ? this.props.activeOpacity : 0.2}
 				>
 					{this.props.children}
 				</TouchableOpacity>
@@ -34,6 +34,7 @@ CardItem.propTypes = {
 	cardBody: PropTypes.bool,
 	footer: PropTypes.bool,
 	button: PropTypes.bool,
+	activeOpacity:PropTypes.number
 };
 
 const StyledCardItem = connectStyle("NativeBase.CardItem", {}, mapPropsToStyleNames)(CardItem);
