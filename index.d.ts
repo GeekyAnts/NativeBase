@@ -269,6 +269,7 @@ declare module "native-base" {
 				rowID: string | number,
 				rowMap?: any
 			) => React.ReactElement<any>;
+			rowHasChanged?: (r1: any, r2: any) => boolean;
 		}
 		/**
          * see Widget ListItem.js
