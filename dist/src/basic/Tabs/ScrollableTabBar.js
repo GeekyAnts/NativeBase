@@ -198,7 +198,7 @@ showsHorizontalScrollIndicator:false,
 showsVerticalScrollIndicator:false,
 directionalLockEnabled:true,
 onScroll:this.props.onScroll,
-bounces:false,
+bounces:true,
 scrollsToTop:false,__source:{fileName:_jsxFileName,lineNumber:191}},
 
 _react2.default.createElement(View,{
