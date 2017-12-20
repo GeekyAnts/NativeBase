@@ -3,8 +3,7 @@ var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_pro
 var _reactNative=require("react-native");
 var _clamp=require("clamp");var _clamp2=_interopRequireDefault(_clamp);
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
-var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
-var _Utils=require("../Utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}
+var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}
 
 var SWIPE_THRESHOLD=120;var
 
@@ -20,7 +19,8 @@ selectedItem2:_this.props.dataSource[1],
 card1Top:true,
 card2Top:false,
 fadeAnim:new _reactNative.Animated.Value(0.8),
-looping:typeof _this.props.looping==="undefined"?true:_this.props.looping,
+looping:
+typeof _this.props.looping==="undefined"?true:_this.props.looping,
 disabled:_this.props.dataSource.length===0,
 lastCard:_this.props.dataSource.length===1};return _this;
 
@@ -41,7 +41,8 @@ return;
 
 var visibleIndex=dataSource.indexOf(this.state.selectedItem);
 var currentIndex=visibleIndex<0?visibleIndex+1:visibleIndex;
-var nextIndex=currentIndex+1===dataSource.length?0:currentIndex+1;
+var nextIndex=
+currentIndex+1===dataSource.length?0:currentIndex+1;
 
 this.setState({
 selectedItem:dataSource[currentIndex],
@@ -65,7 +66,10 @@ currentIndex){
 var newIdx=currentIndex+1;
 var newIdx2=currentIndex+2;
 
-if(newIdx2>this.props.dataSource.length-1&&newIdx===this.props.dataSource.length-1){
+if(
+newIdx2>this.props.dataSource.length-1&&
+newIdx===this.props.dataSource.length-1)
+{
 return[newIdx,0];
 }else if(newIdx>this.props.dataSource.length-1){
 return[0,1];
@@ -141,7 +145,8 @@ start(_this4._resetState.bind(_this4));
 {var _this5=this;
 this._panResponder=_reactNative.PanResponder.create({
 onMoveShouldSetResponderCapture:function onMoveShouldSetResponderCapture(){return true;},
-onMoveShouldSetPanResponderCapture:function onMoveShouldSetPanResponderCapture(evt,gestureState){return Math.abs(gestureState.dx)>5;},
+onMoveShouldSetPanResponderCapture:function onMoveShouldSetPanResponderCapture(evt,gestureState){return(
+Math.abs(gestureState.dx)>5);},
 
 onPanResponderGrant:function onPanResponderGrant(e,gestureState){
 _this5.state.pan.setOffset({
@@ -153,9 +158,11 @@ _this5.state.pan.setValue({x:0,y:0});
 
 onPanResponderMove:function onPanResponderMove(e,gestureState){
 if(gestureState.dx>20){
-if(_this5.props.onSwiping)_this5.props.onSwiping("right",gestureState.dx);
+if(_this5.props.onSwiping)
+_this5.props.onSwiping("right",gestureState.dx);
 }else if(gestureState.dx<-20){
-if(_this5.props.onSwiping)_this5.props.onSwiping("left",gestureState.dx);
+if(_this5.props.onSwiping)
+_this5.props.onSwiping("left",gestureState.dx);
 }
 var val=Math.abs(gestureState.dx*0.0013);
 var opa=Math.abs(gestureState.dx*0.0022);
@@ -182,10 +189,14 @@ velocity=(0,_clamp2.default)(vx*-1,4.5,10)*-1;
 
 if(Math.abs(_this5.state.pan.x._value)>SWIPE_THRESHOLD){
 if(velocity>0){
-_this5.props.onSwipeRight?_this5.props.onSwipeRight(_this5.state.selectedItem):undefined;
+_this5.props.onSwipeRight?
+_this5.props.onSwipeRight(_this5.state.selectedItem):
+undefined;
 _this5.selectNext();
 }else{
-_this5.props.onSwipeLeft?_this5.props.onSwipeLeft(_this5.state.selectedItem):undefined;
+_this5.props.onSwipeLeft?
+_this5.props.onSwipeLeft(_this5.state.selectedItem):
+undefined;
 _this5.selectNext();
 }
 
@@ -244,53 +255,55 @@ return[animatedCardStyles,animatedCardStyles2];
 if(this.state.disabled){
 
 return(
-_react2.default.createElement(_reactNative.View,{style:{position:"relative",flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:247}},
-
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:249}},
-this.props.renderEmpty&&this.props.renderEmpty())));
-
-
+_react2.default.createElement(_reactNative.View,{style:{position:"relative",flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:258}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:259}},this.props.renderEmpty&&this.props.renderEmpty())));
 
 
 }else if(this.state.lastCard){
 
 return(
-_react2.default.createElement(_reactNative.View,{style:{position:"relative",flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:258}},
+_react2.default.createElement(_reactNative.View,{style:{position:"relative",flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:265}},
 this.state.selectedItem===undefined?
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:260}}):
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:261}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:267}}):
+
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:269}},
 _react2.default.createElement(_reactNative.Animated.View,_extends({
 style:[
 this.getCardStyles()[1],
 this.getInitialStyle().topCard,
 {opacity:this.state.fadeAnim}]},
 
-this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:262}}),
+this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:270}}),
 
 this.props.renderEmpty&&this.props.renderEmpty()),
 
 _react2.default.createElement(_reactNative.Animated.View,_extends({
-style:[this.getCardStyles()[0],this.getInitialStyle().topCard]},
-this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:272}}),
+style:[
+this.getCardStyles()[0],
+this.getInitialStyle().topCard]},
+
+this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:280}}),
 
 this.props.renderItem(this.state.selectedItem)))));
 
 
 
 
+
 }
 return(
-_react2.default.createElement(_reactNative.View,{style:{position:"relative",flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:283}},
+_react2.default.createElement(_reactNative.View,{style:{position:"relative",flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:295}},
 this.state.selectedItem===undefined?
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:285}}):
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:286}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:297}}):
+
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:299}},
 _react2.default.createElement(_reactNative.Animated.View,_extends({
 style:[
 this.getCardStyles()[1],
 this.getInitialStyle().topCard,
 {opacity:this.state.fadeAnim}]},
 
-this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:287}}),
+this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:300}}),
 
 this.props.renderBottom?
 this.props.renderBottom(this.state.selectedItem2):
@@ -298,7 +311,7 @@ this.props.renderItem(this.state.selectedItem2)),
 
 _react2.default.createElement(_reactNative.Animated.View,_extends({
 style:[this.getCardStyles()[0],this.getInitialStyle().topCard]},
-this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:299}}),
+this._panResponder.panHandlers,{__source:{fileName:_jsxFileName,lineNumber:312}}),
 
 this.props.renderTop?
 this.props.renderTop(this.state.selectedItem):
@@ -307,16 +320,25 @@ this.props.renderItem(this.state.selectedItem)))));
 
 
 
+
 }}]);return DeckSwiper;}(_react.Component);
 
 
-DeckSwiper.propTypes=_extends({},_Utils.ViewPropTypes,{
+DeckSwiper.propTypes=_extends({},_reactNative.ViewPropTypes,{
 
-style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),
+style:_propTypes2.default.oneOfType([
+_propTypes2.default.object,
+_propTypes2.default.number,
+_propTypes2.default.array]),
+
 dataSource:_propTypes2.default.array});
 
 
-var StyledDeckSwiper=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.DeckSwiper",{},_mapPropsToStyleNames2.default)(DeckSwiper);exports.
+var StyledDeckSwiper=(0,_nativeBaseShoutemTheme.connectStyle)(
+"NativeBase.DeckSwiper",
+{},_mapPropsToStyleNames2.default)(
+
+DeckSwiper);exports.
 
 DeckSwiper=StyledDeckSwiper;
 //# sourceMappingURL=DeckSwiper.js.map

@@ -28,6 +28,9 @@ btnDisabledBg:"#b5b5b5",
 btnDisabledClr:"#f1f1f1",
 
 
+btnUppercaseAndroidText:true,
+
+
 CheckboxRadius:0,
 CheckboxBorderWidth:2,
 CheckboxPaddingLeft:2,
@@ -161,6 +164,7 @@ toolbarIconSize:platform==="ios"?20:22,
 toolbarSearchIconSize:platform==="ios"?20:23,
 toolbarInputColor:"#fff",
 searchBarHeight:platform==="ios"?30:40,
+searchBarInputHeight:platform==="ios"?30:50,
 toolbarInverseBg:"#222",
 toolbarTextColor:"#fff",
 toolbarDefaultBorder:"#3F51B5",
@@ -210,7 +214,6 @@ lineHeight:platform==="ios"?20:24,
 listBg:"#fff",
 listBorderColor:"#c9c9c9",
 listDividerBg:"#f4f4f4",
-listItemHeight:45,
 listBtnUnderlayColor:"#DDD",
 
 

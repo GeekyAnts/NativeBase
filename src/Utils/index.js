@@ -1,3 +1,3 @@
-import ViewPropTypes from './viewPropTypes'
+import { ViewPropTypes } from "react-native";
 
-export { ViewPropTypes }
+export { ViewPropTypes };

@@ -28,6 +28,9 @@ btnDisabledBg:"#b5b5b5",
 btnDisabledClr:"#f1f1f1",
 
 
+btnUppercaseAndroidText:true,
+
+
 CheckboxRadius:platform==="ios"?13:0,
 CheckboxBorderWidth:platform==="ios"?1:2,
 CheckboxPaddingLeft:platform==="ios"?4:2,
@@ -161,6 +164,7 @@ toolbarIconSize:platform==="ios"?20:22,
 toolbarSearchIconSize:platform==="ios"?20:23,
 toolbarInputColor:platform==="ios"?"#CECDD2":"#fff",
 searchBarHeight:platform==="ios"?30:40,
+searchBarInputHeight:platform==="ios"?30:50,
 toolbarInverseBg:"#222",
 toolbarTextColor:platform==="ios"?"#000":"#fff",
 toolbarDefaultBorder:platform==="ios"?"#a7a6ab":"#3F51B5",
@@ -210,7 +214,6 @@ lineHeight:platform==="ios"?20:24,
 listBg:"#fff",
 listBorderColor:"#c9c9c9",
 listDividerBg:"#f4f4f4",
-listItemHeight:45,
 listBtnUnderlayColor:"#DDD",
 
 

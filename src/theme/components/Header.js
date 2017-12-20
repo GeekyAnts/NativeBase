@@ -98,7 +98,7 @@ export default (variables = variable) => {
         "NativeBase.Input": {
           alignSelf: "center",
           lineHeight: 24,
-          height: variables.searchBarHeight,
+          height: variables.searchBarInputHeight,
         },
         alignSelf: "center",
         alignItems: "center",

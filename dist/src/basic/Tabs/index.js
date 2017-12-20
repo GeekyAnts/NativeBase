@@ -286,20 +286,21 @@ tabBarProps.underlineStyle=this.props.tabBarUnderlineStyle;
 if(this.props.tabContainerStyle){
 tabBarProps.tabContainerStyle=this.props.tabContainerStyle;
 }
-if(overlayTabs){
-tabBarProps.style=_defineProperty({
+if(overlayTabs){var _tabBarProps$style;
+tabBarProps.style=(_tabBarProps$style={
 position:"absolute",
 left:0,
-right:0},
-this.props.tabBarPosition==="overlayTop"?"top":"bottom",0);
+right:0},_defineProperty(_tabBarProps$style,
+this.props.tabBarPosition==="overlayTop"?"top":"bottom",0),_defineProperty(_tabBarProps$style,"backgroundColor",
+"rgba(255, 255, 255, 0.7)"),_tabBarProps$style);
 
 }
 
 return(
-React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:299}},
-this.props.tabBarPosition==="top"&&this.renderTabBar(tabBarProps),
+React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:300}},
+(this.props.tabBarPosition==="top"||this.props.tabBarPosition==="overlayTop")&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
-(this.props.tabBarPosition==="bottom"||overlayTabs)&&this.renderTabBar(tabBarProps)));
+(this.props.tabBarPosition==="bottom"||this.props.tabBarPosition==="overlayBottom")&&this.renderTabBar(tabBarProps)));
 
 
 }});exports.default=
