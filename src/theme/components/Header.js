@@ -66,7 +66,7 @@ export default (variables = variable) => {
       alignItems: "center",
       ".transparent": {
         "NativeBase.Text": {
-          color: variables.toolbarBtnColor,
+          color: variables.toolbarTextColor,
           fontWeight: "600",
         },
         "NativeBase.Icon": {
@@ -139,7 +139,7 @@ export default (variables = variable) => {
             marginLeft: 2,
           },
           "NativeBase.Text": {
-            color: variables.toolbarBtnColor,
+            color: variables.toolbarTextColor,
             fontSize: 17,
             marginLeft: 2,
             lineHeight: 21,
@@ -169,7 +169,7 @@ export default (variables = variable) => {
             marginLeft: 2,
           },
           "NativeBase.Text": {
-            color: variables.toolbarBtnColor,
+            color: variables.toolbarTextColor,
             fontSize: 17,
             top: platform === "ios" ? undefined : -1.5,
           },
@@ -232,7 +232,7 @@ export default (variables = variable) => {
             marginLeft: 5,
           },
           "NativeBase.Text": {
-            color: variables.toolbarBtnColor,
+            color: variables.toolbarTextColor,
             fontSize: 17,
             lineHeight: 21,
           },
@@ -265,7 +265,7 @@ export default (variables = variable) => {
             marginRight: 2,
           },
           "NativeBase.Text": {
-            color: variables.toolbarBtnColor,
+            color: variables.toolbarTextColor,
             fontSize: 17,
             top: platform === "ios" ? undefined : -1.5,
           },
