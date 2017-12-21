@@ -166,7 +166,7 @@ export default {
   searchBarHeight: platform === "ios" ? 30 : 40,
   searchBarInputHeight: platform === "ios" ? 30 : 50,
   toolbarInverseBg: "#222",
-  toolbarTextColor: "#fff",
+  toolbarBtnTextColor: "#fff",
   iosStatusbar: "light-content",
   toolbarDefaultBorder: "#2874F0",
   get statusBarColor() {
