@@ -185,28 +185,27 @@ _this5._setModalVisible(false);
 _react2.default.createElement(_Container.Container,{__source:{fileName:_jsxFileName,lineNumber:185}},
 this.renderHeader(),
 _react2.default.createElement(_Content.Content,{__source:{fileName:_jsxFileName,lineNumber:187}},
-_react2.default.createElement(_List.List,{
-dataArray:this.state.dataSource,
-renderRow:function renderRow(child){return(
-_react2.default.createElement(_ListItem.ListItem,{
-selected:child.props.value===_this5.props.selectedValue,
+_react2.default.createElement(_reactNative.FlatList,{
+data:this.state.dataSource,
+keyExtractor:function keyExtractor(item,index){return index;},
+renderItem:function renderItem(_ref){var item=_ref.item;return _react2.default.createElement(_ListItem.ListItem,{
+selected:item.props.value===_this5.props.selectedValue,
 button:true,
 style:_this5.props.itemStyle,
 onPress:function onPress(){
 _this5._setModalVisible(false);
-_this5.props.onValueChange(child.props.value);
-_this5.setState({current:child.props.label});
+_this5.props.onValueChange(item.props.value);
+_this5.setState({current:item.props.label});
 },__source:{fileName:_jsxFileName,lineNumber:191}},
 
 _react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle,__source:{fileName:_jsxFileName,lineNumber:201}},
-child.props.label),
+item.props.label),
 
 _react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:204}},
-child.props.value===_this5.props.selectedValue?
+item.props.value===_this5.props.selectedValue?
 _react2.default.createElement(_Radio.Radio,{selected:true,__source:{fileName:_jsxFileName,lineNumber:206}}):
 
-_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:208}}))));},__source:{fileName:_jsxFileName,lineNumber:188}}))))));
-
+_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:208}})));},__source:{fileName:_jsxFileName,lineNumber:188}}))))));
 
 
 
@@ -221,7 +220,7 @@ _react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_j
 
 PickerNB.Item=(0,_createReactClass2.default)({displayName:"Item",
 render:function render(){
-return _react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:224}}));
+return _react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:223}}));
 }});
 
 

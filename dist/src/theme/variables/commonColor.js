@@ -25,7 +25,6 @@ badgePadding:platform==="ios"?3:0,
 
 btnFontFamily:platform==="ios"?"System":"Roboto_medium",
 btnDisabledBg:"#b5b5b5",
-btnDisabledClr:"#f1f1f1",
 
 
 btnUppercaseAndroidText:true,
@@ -117,7 +116,6 @@ brandInfo:"#62B1F6",
 brandSuccess:"#5cb85c",
 brandDanger:"#d9534f",
 brandWarning:"#f0ad4e",
-brandSidebar:"#252932",
 brandDark:"#000",
 brandLight:"#f4f4f4",
 
@@ -152,7 +150,6 @@ tabActiveBgColor:platform==="ios"?"#1569f4":undefined,
 tabDefaultBg:"#2874F0",
 topTabBarTextColor:"#b3c7f9",
 topTabBarActiveTextColor:"#fff",
-topTabActiveBgColor:platform==="ios"?"#1569f4":undefined,
 topTabBarBorderColor:"#fff",
 topTabBarActiveBorderColor:"#fff",
 
@@ -160,13 +157,11 @@ topTabBarActiveBorderColor:"#fff",
 toolbarBtnColor:"#fff",
 toolbarDefaultBg:"#2874F0",
 toolbarHeight:platform==="ios"?isIphoneX?88:64:56,
-toolbarIconSize:platform==="ios"?20:22,
 toolbarSearchIconSize:platform==="ios"?20:23,
 toolbarInputColor:platform==="ios"?"#CECDD2":"#fff",
 searchBarHeight:platform==="ios"?30:40,
 searchBarInputHeight:platform==="ios"?30:50,
-toolbarInverseBg:"#222",
-toolbarTextColor:"#fff",
+toolbarBtnTextColor:"#fff",
 iosStatusbar:"light-content",
 toolbarDefaultBorder:"#2874F0",
 get statusBarColor(){
@@ -178,7 +173,6 @@ hex();
 
 iconFamily:"Ionicons",
 iconFontSize:platform==="ios"?30:28,
-iconMargin:7,
 iconHeaderSize:platform==="ios"?33:24,
 
 
@@ -194,20 +188,13 @@ get inputColorPlaceholder(){
 return"#575757";
 },
 
-inputGroupMarginBottom:10,
 inputHeightBase:50,
-inputPaddingLeft:5,
-
-get inputPaddingLeftIcon(){
-return this.inputPaddingLeft*8;
-},
 
 
 btnLineHeight:19,
 lineHeightH1:32,
 lineHeightH2:27,
 lineHeightH3:22,
-iconLineHeight:platform==="ios"?37:30,
 lineHeight:platform==="ios"?20:24,
 
 
@@ -236,7 +223,7 @@ radioSelectedColorAndroid:"#5067FF",
 
 radioBtnLineHeight:platform==="ios"?29:24,
 
-radioColor:"#7e7e7e",
+radioColor:this.brandPrimary,
 
 get radioSelectedColor(){
 return(0,_color2.default)(this.radioColor).
@@ -251,7 +238,6 @@ inverseSpinnerColor:"#1A191B",
 
 tabBgColor:"#F8F8F8",
 tabFontSize:15,
-tabTextColor:"#222222",
 
 
 textColor:"#000",
@@ -278,11 +264,8 @@ darken(0.03).
 hex();
 },
 
-dropdownBg:"#000",
 dropdownLinkColor:"#414142",
 inputLineHeight:24,
-jumbotronBg:"#C9C9CE",
-jumbotronPadding:30,
 deviceWidth:deviceWidth,
 deviceHeight:deviceHeight,
 isIphoneX:isIphoneX,
