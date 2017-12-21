@@ -236,7 +236,7 @@ export default {
   // New Variable
   radioBtnLineHeight: platform === "ios" ? 29 : 24,
 
-  radioColor: "#7e7e7e",
+  radioColor: this.brandPrimary,
 
   get radioSelectedColor() {
     return color(this.radioColor)
