@@ -58,6 +58,8 @@ const ScrollableTabView = createReactClass({
   getInitialState() {
     return {
       currentPage: this.props.initialPage,
+      gotNextPage: false,
+      isClicked: false,
       scrollValue: new Animated.Value(this.props.initialPage),
       containerWidth: Dimensions.get("window").width,
       sceneKeys: this.newSceneKeys({ currentPage: this.props.initialPage }),
@@ -89,21 +91,22 @@ const ScrollableTabView = createReactClass({
     }
   },
 
-  goToPage(pageNumber) {
+  goToPage(pageNumber, isClicked = false) {
     const offset = pageNumber * this.state.containerWidth;
-    if (this.scrollView) {
-      this.scrollView.scrollTo({
-        x: offset,
-        y: 0,
-        animated: !this.props.scrollWithoutAnimation,
+    this.setState({ isClicked: isClicked }, () => {
+      if (this.scrollView) {
+        this.scrollView.scrollTo({
+          x: offset,
+          y: 0,
+          animated: !this.props.scrollWithoutAnimation,
+        });
+      }
+      const currentPage = this.state.currentPage;
+      this.updateSceneKeys({
+        page: pageNumber,
+        callback: this._onChangeTab.bind(this, currentPage, pageNumber),
       });
-    }
-
-    const currentPage = this.state.currentPage;
-    this.updateSceneKeys({
-      page: pageNumber,
-      callback: this._onChangeTab.bind(this, currentPage, pageNumber),
-    });
+    })
   },
 
   renderTabBar(props) {
@@ -162,18 +165,7 @@ const ScrollableTabView = createReactClass({
         ref={scrollView => {
           this.scrollView = scrollView;
         }}
-        onScroll={e => {
-          const offsetX = e.nativeEvent.contentOffset.x;
-          const currentPage = this.state.currentPage
-          const currentPageOffset = offsetX / this.state.containerWidth
-          const deltaX = currentPageOffset - currentPage
-          if(Math.abs(deltaX) >= 0 && Math.abs(deltaX) < 1) {
-            const nextPage = deltaX > 0 ? currentPage + 1 : currentPage - 1
-            this._updateSelectedPage(nextPage)
-          }
-          this._updateScrollValue(offsetX / this.state.containerWidth)
-        }}
-        onMomentumScrollBegin={this._onMomentumScrollBeginAndEnd}
+        onScroll={this._optimisticRender}
         onMomentumScrollEnd={this._onMomentumScrollBeginAndEnd}
         scrollEventThrottle={16}
         scrollsToTop={false}
@@ -214,6 +206,23 @@ const ScrollableTabView = createReactClass({
     if (this.state.currentPage !== page) {
       this._updateSelectedPage(page);
     }
+  },
+
+  _optimisticRender(e) {
+    const { currentPage, containerWidth, isClicked, gotNextPage } = this.state
+    const offsetX = e.nativeEvent.contentOffset.x;
+    const currentPageOffset = offsetX / containerWidth
+    const deltaX = currentPageOffset - currentPage
+    if(Math.abs(deltaX) > 0 && Math.abs(deltaX) < 1 && !isClicked && !gotNextPage) {
+      this.setState({ gotNextPage: true }, () => {
+        const nextPage = deltaX > 0 ? currentPage + 1 : currentPage - 1
+        this._updateSelectedPage(nextPage)
+      })
+    }
+    if(!deltaX) {
+      this.setState({ isClicked: false, gotNextPage: false })
+    }
+    this._updateScrollValue(offsetX / this.state.containerWidth)
   },
 
   _updateSelectedPage(nextPage) {

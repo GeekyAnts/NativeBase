@@ -144,7 +144,7 @@ const ScrollableTabBar = createReactClass({
 
 		if (typeof name === "string") {
 			return (
-				<Button key={`${name}_${page}`} onPress={() => onPressHandler(page)} onLayout={onLayoutHandler}>
+				<Button key={`${name}_${page}`} onPress={() => onPressHandler(page, true)} onLayout={onLayoutHandler}>
 					<TabHeading scrollable style={isTabActive ? activeTabStyle : tabStyle} active={isTabActive}>
 						<Text style={isTabActive ? activeTextStyle : textStyle}>
 							{name}
@@ -154,7 +154,7 @@ const ScrollableTabBar = createReactClass({
 			);
 		} else {
 			return (
-				<Button key={_.random(1.2, 5.2)} onPress={() => onPressHandler(page)} onLayout={onLayoutHandler}>
+				<Button key={_.random(1.2, 5.2)} onPress={() => onPressHandler(page, true)} onLayout={onLayoutHandler}>
 					<TabHeading scrollable style={tabHeaderStyle} active={isTabActive}>
 						{headerContent}
 					</TabHeading>
