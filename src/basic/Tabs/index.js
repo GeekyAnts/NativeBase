@@ -207,18 +207,25 @@ const ScrollableTabView = createReactClass({
       this._updateSelectedPage(page);
     }
   },
-
+  // function that optimistically renders the tab based on scrolling
   _optimisticRender(e) {
     const { currentPage, containerWidth, isClicked, gotNextPage } = this.state
+    // overall offset
     const offsetX = e.nativeEvent.contentOffset.x;
+    // offset in reference to screen (to get the scene it should scroll to)
     const currentPageOffset = offsetX / containerWidth
+    // change in page
     const deltaX = currentPageOffset - currentPage
+    // if there is a change (but not > 1 whole screen) and is not a click and the
+    // next page has not already been set to the current page
     if(Math.abs(deltaX) > 0 && Math.abs(deltaX) < 1 && !isClicked && !gotNextPage) {
+      // set the next page and scroll to it
       this.setState({ gotNextPage: true }, () => {
         const nextPage = deltaX > 0 ? currentPage + 1 : currentPage - 1
         this._updateSelectedPage(nextPage)
       })
     }
+    // if we are done scrolling, reset isClicked & gotNextPage
     if(!deltaX) {
       this.setState({ isClicked: false, gotNextPage: false })
     }
