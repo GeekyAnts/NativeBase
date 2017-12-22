@@ -643,7 +643,7 @@ declare module "native-base" {
 		}
 
 		interface Tab {
-			heading: _TabHeading;
+			heading: _TabHeading | string;
 		}
 		interface TabHeading {
 			activeTabStyle?: ReactNative.ViewStyle;
