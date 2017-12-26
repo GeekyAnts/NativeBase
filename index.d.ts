@@ -658,10 +658,17 @@ declare module "native-base" {
 			onChangeTab?: Function;
 			locked?: boolean;
 			initialPage?: number;
+            tabBarUnderlineStyle?:ReactNative.ViewStyle;
+            tabBarBackgroundColor?:string;
+            tabBarActiveTextColor?:string;
+            tabBarInactiveTextColor?:string;
+            tabBarTextStyle?:ReactNative.TextStyle;
+            tabContainerStyle?:ReactNative.ViewStyle;
 		}
 
 
 		interface TabHeading {
+            tabStyle?:ReactNative.ViewStyle;
 			activeTabStyle?: ReactNative.ViewStyle;
 			textStyle?: ReactNative.TextStyle;
 			activeTextStyle?: ReactNative.TextStyle;
@@ -669,6 +676,10 @@ declare module "native-base" {
 
 		interface Tab {
 		    heading: React.ReactElement<TabHeading> | string;
+            tabStyle?:ReactNative.ViewStyle;
+            activeTabStyle?: ReactNative.ViewStyle;
+            textStyle?: ReactNative.TextStyle;
+            activeTextStyle?: ReactNative.TextStyle;
 		}
 
 		interface Item {
