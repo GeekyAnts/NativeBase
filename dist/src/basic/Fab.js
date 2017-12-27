@@ -3,6 +3,13 @@ var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_pro
 var _computeProps=require("../Utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
 
 var _reactNative=require("react-native");
+
+
+
+
+
+
+
 var _Icon=require("./Icon");
 var _IconNB=require("./IconNB");
 var _Button=require("./Button");
@@ -35,7 +42,9 @@ active:false};return _this;
 
 }_createClass(Fab,[{key:"fabTopValue",value:function fabTopValue(
 
-pos){
+
+pos)
+{
 if(pos==="topLeft"){
 return{
 top:20,
@@ -71,7 +80,10 @@ direction,i){
 if(direction==="up"){
 return{
 top:undefined,
-bottom:this.props.active===false?_reactNative.Platform.OS==="ios"?50:8:i*50+65,
+bottom:
+this.props.active===false?
+_reactNative.Platform.OS==="ios"?50:5:
+i*50+65,
 left:8,
 right:0};
 
@@ -79,12 +91,18 @@ right:0};
 return{
 top:8,
 bottom:0,
-left:this.props.active===false?_reactNative.Platform.OS==="ios"?8:8:-(i*50+50),
+left:
+this.props.active===false?
+_reactNative.Platform.OS==="ios"?8:8:
+-(i*50+58),
 right:0};
 
 }else if(direction==="down"){
 return{
-top:this.props.active===false?_reactNative.Platform.OS==="ios"?50:8:i*50+65,
+top:
+this.props.active===false?
+_reactNative.Platform.OS==="ios"?50:8:
+i*50+73,
 bottom:0,
 left:8,
 right:0};
@@ -93,7 +111,10 @@ right:0};
 return{
 top:8,
 bottom:0,
-left:this.props.active===false?_reactNative.Platform.OS==="ios"?50:8:i*50+65,
+left:
+this.props.active===false?
+_reactNative.Platform.OS==="ios"?50:8:
+i*50+73,
 right:0};
 
 }
@@ -118,10 +139,18 @@ backgroundColor:"blue"},
 
 container:{
 position:"absolute",
-top:this.props.position?this.fabTopValue(this.props.position).top:undefined,
-bottom:this.props.position?this.fabTopValue(this.props.position).bottom:20,
-right:this.props.position?this.fabTopValue(this.props.position).right:20,
-left:this.props.position?this.fabTopValue(this.props.position).left:undefined,
+top:this.props.position?
+this.fabTopValue(this.props.position).top:
+undefined,
+bottom:this.props.position?
+this.fabTopValue(this.props.position).bottom:
+20,
+right:this.props.position?
+this.fabTopValue(this.props.position).right:
+20,
+left:this.props.position?
+this.fabTopValue(this.props.position).left:
+undefined,
 width:56,
 height:this.containerHeight,
 flexDirection:this.props.direction?
@@ -141,7 +170,9 @@ height:40,
 width:40,
 left:7,
 borderRadius:20,
-transform:this.state.active?[{scale:new _reactNative.Animated.Value(1)}]:[{scale:this.buttonScale}],
+transform:this.state.active?
+[{scale:new _reactNative.Animated.Value(1)}]:
+[{scale:this.buttonScale}],
 marginBottom:10,
 backgroundColor:"blue"}};
 
@@ -164,12 +195,20 @@ return(0,_computeProps2.default)(incomingProps,defaultProps);
 
 child,i){
 var type={
-top:this.props.direction?this.fabOtherBtns(this.props.direction,i).top:undefined,
-left:this.props.direction?this.fabOtherBtns(this.props.direction,i).left:8,
-right:this.props.direction?this.fabOtherBtns(this.props.direction,i).right:0,
+top:this.props.direction?
+this.fabOtherBtns(this.props.direction,i).top:
+undefined,
+left:this.props.direction?
+this.fabOtherBtns(this.props.direction,i).left:
+8,
+right:this.props.direction?
+this.fabOtherBtns(this.props.direction,i).right:
+0,
 bottom:this.props.direction?
 this.fabOtherBtns(this.props.direction,i).bottom:
-this.props.active===false?_reactNative.Platform.OS==="ios"?8:8:i*50+65};
+this.props.active===false?
+_reactNative.Platform.OS==="ios"?8:8:
+i*50+50};
 
 
 return _lodash2.default.merge(this.getInitialStyle().buttonStyle,child.props.style,type);
@@ -238,7 +277,7 @@ _react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i,__source:{fileName:_jsxFileName,lineNumber:237}}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:276}}),
 
 child.props.children));
 
@@ -379,10 +418,16 @@ active:_this4.props.active});
 active=this.props.active;
 
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:382}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:421}},
 this.renderButtons(),
-_reactNative.Platform.OS==="ios"||_platform2.default.androidRipple===false||_reactNative.Platform["Version"]<=21?
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({onPress:function onPress(){return _this5.fabOnPress();}},this.prepareFabProps(),{activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:385}}),
+_reactNative.Platform.OS==="ios"||
+_platform2.default.androidRipple===false||
+_reactNative.Platform["Version"]<=21?
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({
+onPress:function onPress(){return _this5.fabOnPress();}},
+this.prepareFabProps(),{
+activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:426}}),
+
 this.renderFab()):
 
 
@@ -393,9 +438,11 @@ this.props.androidRippleColor?
 _reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):
 _reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
 
-this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:389}}),
+this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:434}}),
 
-_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:398}},this.renderFab()))));
+_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:443}},
+this.renderFab()))));
+
 
 
 

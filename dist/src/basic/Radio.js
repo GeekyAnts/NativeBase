@@ -30,7 +30,7 @@ _reactNative.Platform.OS==="ios"&&!this.props.standardStyle?
 this.props.selected&&
 _react2.default.createElement(_Ionicons2.default,{
 style:{
-color:variables.brandPrimary,
+color:variables.radioColor,
 lineHeight:25,
 height:20,
 fontSize:variables.radioBtnSize},
@@ -41,7 +41,7 @@ _react2.default.createElement(_Ionicons2.default,{
 style:{
 color:
 _reactNative.Platform.OS==="ios"?
-this.props.selected?variables.brandPrimary:undefined:
+this.props.selected?variables.radioColor:undefined:
 this.props.selected?variables.radioSelectedColorAndroid:undefined,
 lineHeight:variables.radioBtnLineHeight,
 fontSize:variables.radioBtnSize},

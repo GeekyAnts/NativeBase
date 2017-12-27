@@ -25,7 +25,6 @@ export default {
   // Button
   btnFontFamily: platform === "ios" ? "System" : "Roboto_medium",
   btnDisabledBg: "#b5b5b5",
-  btnDisabledClr: "#f1f1f1",
 
   //Android
   btnUppercaseAndroidText: true,
@@ -117,7 +116,6 @@ export default {
   brandSuccess: "#5cb85c",
   brandDanger: "#d9534f",
   brandWarning: "#f0ad4e",
-  brandSidebar: "#252932",
   brandDark: "#000",
   brandLight: "#f4f4f4",
 
@@ -152,7 +150,6 @@ export default {
   tabDefaultBg: "#2874F0",
   topTabBarTextColor: "#b3c7f9",
   topTabBarActiveTextColor: "#fff",
-  topTabActiveBgColor: platform === "ios" ? "#1569f4" : undefined,
   topTabBarBorderColor: "#fff",
   topTabBarActiveBorderColor: "#fff",
 
@@ -160,13 +157,11 @@ export default {
   toolbarBtnColor: "#fff",
   toolbarDefaultBg: "#2874F0",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
-  toolbarIconSize: platform === "ios" ? 20 : 22,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: platform === "ios" ? "#CECDD2" : "#fff",
   searchBarHeight: platform === "ios" ? 30 : 40,
   searchBarInputHeight: platform === "ios" ? 30 : 50,
-  toolbarInverseBg: "#222",
-  toolbarTextColor: "#fff",
+  toolbarBtnTextColor: "#fff",
   iosStatusbar: "light-content",
   toolbarDefaultBorder: "#2874F0",
   get statusBarColor() {
@@ -178,7 +173,6 @@ export default {
   // Icon
   iconFamily: "Ionicons",
   iconFontSize: platform === "ios" ? 30 : 28,
-  iconMargin: 7,
   iconHeaderSize: platform === "ios" ? 33 : 24,
 
   // InputGroup
@@ -194,20 +188,13 @@ export default {
     return "#575757";
   },
 
-  inputGroupMarginBottom: 10,
   inputHeightBase: 50,
-  inputPaddingLeft: 5,
-
-  get inputPaddingLeftIcon() {
-    return this.inputPaddingLeft * 8;
-  },
 
   // Line Height
   btnLineHeight: 19,
   lineHeightH1: 32,
   lineHeightH2: 27,
   lineHeightH3: 22,
-  iconLineHeight: platform === "ios" ? 37 : 30,
   lineHeight: platform === "ios" ? 20 : 24,
 
   // List
@@ -236,7 +223,7 @@ export default {
   // New Variable
   radioBtnLineHeight: platform === "ios" ? 29 : 24,
 
-  radioColor: "#7e7e7e",
+  radioColor: this.brandPrimary,
 
   get radioSelectedColor() {
     return color(this.radioColor)
@@ -251,7 +238,6 @@ export default {
   // Tabs
   tabBgColor: "#F8F8F8",
   tabFontSize: 15,
-  tabTextColor: "#222222",
 
   // Text
   textColor: "#000",
@@ -278,11 +264,8 @@ export default {
       .hex();
   },
 
-  dropdownBg: "#000",
   dropdownLinkColor: "#414142",
   inputLineHeight: 24,
-  jumbotronBg: "#C9C9CE",
-  jumbotronPadding: 30,
   deviceWidth,
   deviceHeight,
   isIphoneX,
