@@ -51,7 +51,7 @@ this._listView.setNativeProps({scrollEnabled:enable});
 
 {
 
-if(this._rows[this.openCellId]._root){
+if(this._rows[this.openCellId]){
 this._rows[this.openCellId]._root.closeRow();
 }
 }},{key:'rowSwipeGestureBegan',value:function rowSwipeGestureBegan(
