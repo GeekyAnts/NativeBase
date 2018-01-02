@@ -164,6 +164,13 @@ _this3.scrollView=scrollView;
 },
 onScroll:function onScroll(e){
 var offsetX=e.nativeEvent.contentOffset.x;
+var currentPage=_this3.state.currentPage;
+var currentPageOffset=offsetX/_this3.state.containerWidth;
+var deltaX=currentPageOffset-currentPage;
+if(Math.abs(deltaX)>=0&&Math.abs(deltaX)<1){
+var nextPage=deltaX>0?currentPage+1:currentPage-1;
+_this3._updateSelectedPage(nextPage);
+}
 _this3._updateScrollValue(offsetX/_this3.state.containerWidth);
 },
 onMomentumScrollBegin:this._onMomentumScrollBeginAndEnd,
@@ -189,12 +196,12 @@ return(
 React.createElement(SceneComponent,{
 key:child.key,
 shouldUpdated:_this4._shouldRenderSceneKey(idx,_this4.state.currentPage),
-style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:189}},
+style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:196}},
 
 _this4._keyExists(_this4.state.sceneKeys,key)?
 child:
 
-React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:197}})));
+React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:204}})));
 
 
 
@@ -297,7 +304,7 @@ this.props.tabBarPosition==="overlayTop"?"top":"bottom",0),_defineProperty(_tabB
 }
 
 return(
-React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:300}},
+React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:307}},
 (this.props.tabBarPosition==="top"||this.props.tabBarPosition==="overlayTop")&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
 (this.props.tabBarPosition==="bottom"||this.props.tabBarPosition==="overlayBottom")&&this.renderTabBar(tabBarProps)));

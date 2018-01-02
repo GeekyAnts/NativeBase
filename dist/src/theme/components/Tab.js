@@ -3,7 +3,7 @@ Object.defineProperty(exports,"__esModule",{value:true});var _platform=require("
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var tabTheme={
 flex:1,
-backgroundColor:"#FFF"};
+backgroundColor:'transparent'};
 
 
 return tabTheme;
