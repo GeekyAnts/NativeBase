@@ -58,6 +58,8 @@ prerenderingSiblingsNumber:0};
 getInitialState:function getInitialState(){
 return{
 currentPage:this.props.initialPage,
+gotNextPage:false,
+isClicked:false,
 scrollValue:new Animated.Value(this.props.initialPage),
 containerWidth:Dimensions.get("window").width,
 sceneKeys:this.newSceneKeys({currentPage:this.props.initialPage})};
@@ -89,21 +91,22 @@ this.goToPage(props.page);
 }
 },
 
-goToPage:function goToPage(pageNumber){
+goToPage:function goToPage(pageNumber){var _this2=this;var isClicked=arguments.length>1&&arguments[1]!==undefined?arguments[1]:false;
 var offset=pageNumber*this.state.containerWidth;
-if(this.scrollView){
-this.scrollView.scrollTo({
+this.setState({isClicked:isClicked},function(){
+if(_this2.scrollView){
+_this2.scrollView.scrollTo({
 x:offset,
 y:0,
-animated:!this.props.scrollWithoutAnimation});
+animated:!_this2.props.scrollWithoutAnimation});
 
 }
-
-var currentPage=this.state.currentPage;
-this.updateSceneKeys({
+var currentPage=_this2.state.currentPage;
+_this2.updateSceneKeys({
 page:pageNumber,
-callback:this._onChangeTab.bind(this,currentPage,pageNumber)});
+callback:_this2._onChangeTab.bind(_this2,currentPage,pageNumber)});
 
+});
 },
 
 renderTabBar:function renderTabBar(props){
@@ -112,7 +115,7 @@ return null;
 }else if(this.props.renderTabBar){
 return React.cloneElement(this.props.renderTabBar(props),props);
 }else{
-return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:115}}));
+return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:118}}));
 }
 },
 
@@ -125,11 +128,11 @@ children:children});
 this.setState({currentPage:page,sceneKeys:newKeys},callback);
 },
 
-newSceneKeys:function newSceneKeys(_ref2){var _this2=this;var _ref2$previousKeys=_ref2.previousKeys,previousKeys=_ref2$previousKeys===undefined?[]:_ref2$previousKeys,_ref2$currentPage=_ref2.currentPage,currentPage=_ref2$currentPage===undefined?0:_ref2$currentPage,_ref2$children=_ref2.children,children=_ref2$children===undefined?this.props.children:_ref2$children;
+newSceneKeys:function newSceneKeys(_ref2){var _this3=this;var _ref2$previousKeys=_ref2.previousKeys,previousKeys=_ref2$previousKeys===undefined?[]:_ref2$previousKeys,_ref2$currentPage=_ref2.currentPage,currentPage=_ref2$currentPage===undefined?0:_ref2$currentPage,_ref2$children=_ref2.children,children=_ref2$children===undefined?this.props.children:_ref2$children;
 var newKeys=[];
 this._children(children).forEach(function(child,idx){
-var key=_this2._makeSceneKey(child,idx);
-if(_this2._keyExists(previousKeys,key)||_this2._shouldRenderSceneKey(idx,currentPage)){
+var key=_this3._makeSceneKey(child,idx);
+if(_this3._keyExists(previousKeys,key)||_this3._shouldRenderSceneKey(idx,currentPage)){
 newKeys.push(key);
 }
 });
@@ -149,7 +152,7 @@ _makeSceneKey:function _makeSceneKey(child,idx){
 return child.props.heading+"_"+idx;
 },
 
-renderScrollableContent:function renderScrollableContent(){var _this3=this;
+renderScrollableContent:function renderScrollableContent(){var _this4=this;
 var scenes=this._composeScenes();
 return(
 React.createElement(ScrollView,_extends({
@@ -160,20 +163,9 @@ contentOffset:{
 x:this.props.initialPage*this.state.containerWidth},
 
 ref:function ref(scrollView){
-_this3.scrollView=scrollView;
+_this4.scrollView=scrollView;
 },
-onScroll:function onScroll(e){
-var offsetX=e.nativeEvent.contentOffset.x;
-var currentPage=_this3.state.currentPage;
-var currentPageOffset=offsetX/_this3.state.containerWidth;
-var deltaX=currentPageOffset-currentPage;
-if(Math.abs(deltaX)>=0&&Math.abs(deltaX)<1){
-var nextPage=deltaX>0?currentPage+1:currentPage-1;
-_this3._updateSelectedPage(nextPage);
-}
-_this3._updateScrollValue(offsetX/_this3.state.containerWidth);
-},
-onMomentumScrollBegin:this._onMomentumScrollBeginAndEnd,
+onScroll:this._optimisticRender,
 onMomentumScrollEnd:this._onMomentumScrollBeginAndEnd,
 scrollEventThrottle:16,
 scrollsToTop:false,
@@ -182,26 +174,26 @@ scrollEnabled:!this.props.locked,
 directionalLockEnabled:true,
 alwaysBounceVertical:false,
 keyboardDismissMode:"on-drag"},
-this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:155}}),
+this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:158}}),
 
 scenes));
 
 
 },
 
-_composeScenes:function _composeScenes(){var _this4=this;
+_composeScenes:function _composeScenes(){var _this5=this;
 return this._children().map(function(child,idx){
-var key=_this4._makeSceneKey(child,idx);
+var key=_this5._makeSceneKey(child,idx);
 return(
 React.createElement(SceneComponent,{
 key:child.key,
-shouldUpdated:_this4._shouldRenderSceneKey(idx,_this4.state.currentPage),
-style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:196}},
+shouldUpdated:_this5._shouldRenderSceneKey(idx,_this5.state.currentPage),
+style:{width:_this5.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:188}},
 
-_this4._keyExists(_this4.state.sceneKeys,key)?
+_this5._keyExists(_this5.state.sceneKeys,key)?
 child:
 
-React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:204}})));
+React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:196}})));
 
 
 
@@ -214,6 +206,30 @@ var page=Math.round(offsetX/this.state.containerWidth);
 if(this.state.currentPage!==page){
 this._updateSelectedPage(page);
 }
+},
+
+_optimisticRender:function _optimisticRender(e){var _this6=this;var _state=
+this.state,currentPage=_state.currentPage,containerWidth=_state.containerWidth,isClicked=_state.isClicked,gotNextPage=_state.gotNextPage;
+
+var offsetX=e.nativeEvent.contentOffset.x;
+
+var currentPageOffset=offsetX/containerWidth;
+
+var deltaX=currentPageOffset-currentPage;
+
+
+if(Math.abs(deltaX)>0&&Math.abs(deltaX)<1&&!isClicked&&!gotNextPage){
+
+this.setState({gotNextPage:true},function(){
+var nextPage=deltaX>0?currentPage+1:currentPage-1;
+_this6._updateSelectedPage(nextPage);
+});
+}
+
+if(!deltaX){
+this.setState({isClicked:false,gotNextPage:false});
+}
+this._updateScrollValue(offsetX/this.state.containerWidth);
 },
 
 _updateSelectedPage:function _updateSelectedPage(nextPage){
@@ -242,13 +258,13 @@ this.state.scrollValue.setValue(value);
 this.props.onScroll(value);
 },
 
-_handleLayout:function _handleLayout(e){var _this5=this;var
+_handleLayout:function _handleLayout(e){var _this7=this;var
 width=e.nativeEvent.layout.width;
 
 if(Math.round(width)!==Math.round(this.state.containerWidth)){
 this.setState({containerWidth:width});
 this.requestAnimationFrame(function(){
-_this5.goToPage(_this5.state.currentPage);
+_this7.goToPage(_this7.state.currentPage);
 });
 }
 },
@@ -304,7 +320,7 @@ this.props.tabBarPosition==="overlayTop"?"top":"bottom",0),_defineProperty(_tabB
 }
 
 return(
-React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:307}},
+React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:323}},
 (this.props.tabBarPosition==="top"||this.props.tabBarPosition==="overlayTop")&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
 (this.props.tabBarPosition==="bottom"||this.props.tabBarPosition==="overlayBottom")&&this.renderTabBar(tabBarProps)));
