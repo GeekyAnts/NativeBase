@@ -18,6 +18,7 @@
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "test": "jest",
     "prepublish": "npm run transpile",
+    "prepare": "npm run transpile",
     "postinstall": "node addEjectScript.js",
     "flow": "flow"
   },
