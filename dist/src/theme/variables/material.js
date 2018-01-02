@@ -139,12 +139,12 @@ footerDefaultBg:"#3F51B5",
 footerPaddingBottom:isIphoneX?34:0,
 
 
-tabBarTextColor:"#b3c7f9",
+tabBarTextColor:"#fff",
 tabBarTextSize:platform==="ios"?14:11,
 activeTab:"#fff",
 sTabBarActiveTextColor:"#007aff",
 tabBarActiveTextColor:"#fff",
-tabActiveBgColor:undefined,
+tabActiveBgColor:"#3F51B5",
 
 
 tabDefaultBg:"#3F51B5",
@@ -155,7 +155,7 @@ topTabBarActiveBorderColor:"#fff",
 
 
 toolbarBtnColor:"#fff",
-toolbarDefaultBg:"#3F51B5",
+toolbarDefaultBg:platform==="ios"?"#F8F8F8":"#3F51B5",
 toolbarHeight:platform==="ios"?isIphoneX?88:64:56,
 toolbarSearchIconSize:platform==="ios"?20:23,
 toolbarInputColor:"#fff",

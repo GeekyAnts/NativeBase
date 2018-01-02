@@ -111,7 +111,7 @@ return this.iconFontSize*0.6;
 cardDefaultBg:"#fff",
 
 
-brandPrimary:platform==="ios"?"#007aff":"#3F51B5",
+brandPrimary:"#007aff",
 brandInfo:"#62B1F6",
 brandSuccess:"#5cb85c",
 brandDanger:"#d9534f",
@@ -139,12 +139,12 @@ footerDefaultBg:platform==="ios"?"#F8F8F8":"#4179F7",
 footerPaddingBottom:isIphoneX?34:0,
 
 
-tabBarTextColor:platform==="ios"?"#6b6b6b":"#b3c7f9",
+tabBarTextColor:"#2874F0",
 tabBarTextSize:platform==="ios"?14:11,
-activeTab:platform==="ios"?"#007aff":"#fff",
+activeTab:"#fff",
 sTabBarActiveTextColor:"#007aff",
-tabBarActiveTextColor:platform==="ios"?"#007aff":"#fff",
-tabActiveBgColor:platform==="ios"?"#cde1f9":"#3F51B5",
+tabBarActiveTextColor:"#2874F0",
+tabActiveBgColor:"#cde1f9",
 
 
 tabDefaultBg:platform==="ios"?"#F8F8F8":"#3F51B5",
@@ -154,15 +154,15 @@ topTabBarBorderColor:platform==="ios"?"#a7a6ab":"#fff",
 topTabBarActiveBorderColor:platform==="ios"?"#007aff":"#fff",
 
 
-toolbarBtnColor:platform==="ios"?"#007aff":"#fff",
+toolbarBtnColor:"#007aff",
 toolbarDefaultBg:platform==="ios"?"#F8F8F8":"#3F51B5",
 toolbarHeight:platform==="ios"?isIphoneX?88:64:56,
 toolbarSearchIconSize:platform==="ios"?20:23,
 toolbarInputColor:platform==="ios"?"#CECDD2":"#fff",
 searchBarHeight:platform==="ios"?30:40,
 searchBarInputHeight:platform==="ios"?30:50,
-toolbarBtnTextColor:platform==="ios"?"#007aff":"#fff",
-toolbarDefaultBorder:platform==="ios"?"#a7a6ab":"#3F51B5",
+toolbarBtnTextColor:"#000",
+toolbarDefaultBorder:"#a7a6ab",
 iosStatusbar:platform==="ios"?"dark-content":"light-content",
 get statusBarColor(){
 return(0,_color2.default)(this.toolbarDefaultBg).
