@@ -3,7 +3,7 @@ var _lodash=require("lodash");
 var _reactNativeEasyGrid=require("react-native-easy-grid");
 
 var _init=require("./init");var _init2=_interopRequireDefault(_init);
-var _components_=require("./theme/components");var _components=_interopRequireDefault(_components_);
+var _components=require("./theme/components");var _components2=_interopRequireDefault(_components);
 var _platform=require("./theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _Drawer=require("./basic/Drawer");var _Drawer2=_interopRequireDefault(_Drawer);
 var _SwipeRow=require("./basic/SwipeRow");
@@ -59,7 +59,7 @@ var _Subtitle=require("./basic/Subtitle");function _interopRequireDefault(obj){r
 (0,_init2.default)();exports.
 
 
-getTheme=_components.default;exports.
+getTheme=_components2.default;exports.
 variables=_platform2.default;exports.
 StyleProvider=_nativeBaseShoutemTheme.StyleProvider;exports.
 connectStyle=_nativeBaseShoutemTheme.connectStyle;exports.
