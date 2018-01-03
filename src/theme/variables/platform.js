@@ -194,11 +194,6 @@ export default {
   radioSelectedColorAndroid: "#3F51B5",
   radioBtnLineHeight: platform === "ios" ? 29 : 24,
   radioColor: this.brandPrimary,
-  get radioSelectedColor() {
-    return color(this.radioColor)
-      .darken(0.2)
-      .hex();
-  },
 
   // Segment
   segmentBackgroundColor: platform === "ios" ? "#F8F8F8" : "#3F51B5",
