@@ -3,7 +3,7 @@ import { keys } from "lodash";
 import { Col, Row, Grid } from "react-native-easy-grid";
 // import { Gravatar } from "./basic/Gravatar";
 import setDefaultThemeStyle from "./init";
-import getTheme from "./theme/components";
+import getTheme from "./theme/components_2";
 import variables from "./theme/variables/platform";
 import Drawer from "./basic/Drawer";
 import { SwipeRow } from "./basic/SwipeRow";
