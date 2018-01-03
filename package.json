@@ -19,7 +19,7 @@
     "test": "jest",
     "prepublish": "npm run transpile",
     "prepare": "npm run transpile",
-    "postinstall": "node addEjectScript.js",
+    "postinstall": "echo 'COMPILING' && npm run transpile && node addEjectScript.js",
     "flow": "flow"
   },
   "jest": {
