@@ -950,7 +950,7 @@ declare module "native-base" {
 				options: string[];
 				cancelButtonIndex?: number;
 				destructiveButtonIndex?: number;
-				title: string;
+				title?: string;
 			},
 			onSelect: (index: number) => void
 		) => void;
