@@ -292,6 +292,7 @@ declare module "native-base" {
 
 		interface Separator {
 			bordered?: boolean;
+			style?: ReactNative.ViewStyle;
 		}
 
 		/**
