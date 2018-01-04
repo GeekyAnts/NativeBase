@@ -13,8 +13,7 @@
 -   **Picker:** Replaced ListView with FlatList in Picker. PR ([#1442](https://github.com/GeekyAnts/NativeBase/pull/1442)), closes ([#1239](https://github.com/GeekyAnts/NativeBase/issues/1239))
 -   **SwipeRow:** Added style implementation for SwipeRow. PR ([#1451](https://github.com/GeekyAnts/NativeBase/pull/1451)), closes ([#1430](https://github.com/GeekyAnts/NativeBase/issues/1430))
 -   **Theme:**
-    -   Updated Shoutem theme from 0.2.1 to 0.2.2. PR ([#4 GeekyAnts/theme]
-    (https://github.com/GeekyAnts/theme/pull/4)), closes ([#1359](https://github.com/GeekyAnts/NativeBase/issues/1359))
+    -   Updated Shoutem theme from 0.2.1 to 0.2.2. PR ([#4 GeekyAnts theme](https://github.com/GeekyAnts/theme/pull/4)), closes ([#1359](https://github.com/GeekyAnts/NativeBase/issues/1359))
     -   Removed unused theme variables. PR ([#1463](https://github.com/GeekyAnts/NativeBase/pull/1463), [#1480](https://github.com/GeekyAnts/NativeBase/pull/1480)), closes ([#1481](https://github.com/GeekyAnts/NativeBase/issues/1481))
     -   Sorted variables component-wise alphabetically.
 -   **Type definition:**
