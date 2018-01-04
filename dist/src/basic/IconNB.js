@@ -67,7 +67,7 @@ this.Icon=_Ionicons2.default;
 }},{key:"render",value:function render()
 
 {var _this2=this;
-return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:66}}));
+return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:70}}));
 }}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_propTypes2.default.object};
 
 
