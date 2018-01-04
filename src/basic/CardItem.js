@@ -11,8 +11,8 @@ class CardItem extends Component {
 			return (
 				<TouchableOpacity
 					ref={c => (this._root = c)}
+					activeOpacity={0.2}
 					{...this.props}
-					activeOpacity={this.props.button ? 0.2 : 1}
 				>
 					{this.props.children}
 				</TouchableOpacity>

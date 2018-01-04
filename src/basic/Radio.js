@@ -30,7 +30,7 @@ class Radio extends Component {
 					? this.props.selected &&
 						<Icon
 							style={{
-								color: variables.brandPrimary,
+								color: variables.radioColor,
 								lineHeight: 25,
 								height: 20,
 								fontSize: variables.radioBtnSize,
@@ -41,7 +41,7 @@ class Radio extends Component {
 							style={{
 								color:
 									Platform.OS === "ios"
-										? this.props.selected ? variables.brandPrimary : undefined
+										? this.props.selected ? variables.radioColor : undefined
 										: this.props.selected ? variables.radioSelectedColorAndroid : undefined,
 								lineHeight: variables.radioBtnLineHeight,
 								fontSize: variables.radioBtnSize,

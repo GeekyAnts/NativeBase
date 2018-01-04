@@ -6,7 +6,8 @@ import {
   Platform,
   ActionSheetIOS,
   TouchableOpacity,
-  ViewPropTypes
+  ViewPropTypes,
+  FlatList
 } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import { Text } from "./Text";
@@ -16,7 +17,6 @@ import { Icon } from "./Icon";
 import { Left } from "./Left";
 import { Right } from "./Right";
 import { Body } from "./Body";
-import { List } from "./List";
 import { ListItem } from "./ListItem";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
@@ -25,7 +25,7 @@ class ActionSheetContainer extends Component {
     super(props);
     this.state = {
       modalVisible: false,
-      items: []
+      items: [],
     };
   }
   static actionsheetInstance;
@@ -52,7 +52,7 @@ class ActionSheetContainer extends Component {
         destructiveButtonIndex: config.destructiveButtonIndex,
         cancelButtonIndex: config.cancelButtonIndex,
         modalVisible: true,
-        callback: callback
+        callback: callback,
       });
     }
   }
@@ -94,43 +94,43 @@ class ActionSheetContainer extends Component {
             }}
           >
             <Text style={{ color: "#757575" }}>{this.state.title}</Text>
-            <List
+            <FlatList
               style={{ marginHorizontal: -15, marginTop: 15 }}
-              dataArray={this.state.items}
-              renderRow={(data, i, id) => {
+              data={this.state.items}
+              keyExtractor={(item, index) => index}
+              renderItem={({ index,item }) => {
                 return typeof this.state.items[0] === "string" ? (
                   <ListItem
                     onPress={() => {
-                      this.state.callback(parseInt(id));
+                      this.state.callback(parseInt(index));
                       this.setState({ modalVisible: false });
                     }}
-                    style={{ borderColor: "transparent" }}
-                  >
-                    <Text>{data}</Text>
+                    style={{ borderColor: "transparent" }}>
+                    <Text>{item}</Text>
                   </ListItem>
                 ) : (
-                  <ListItem
-                    onPress={() => {
-                      this.state.callback(parseInt(id));
-                      this.setState({ modalVisible: false });
-                    }}
-                    style={{ borderColor: "transparent" }}
-                    icon
-                  >
-                    <Left>
-                      <Icon
-                        name={data.icon}
-                        style={{
-                          color: data.iconColor ? data.iconColor : undefined
-                        }}
-                      />
-                    </Left>
-                    <Body style={{ borderColor: "transparent" }}>
-                      <Text>{data.text}</Text>
-                    </Body>
-                    <Right />
-                  </ListItem>
-                );
+                    <ListItem
+                      onPress={() => {
+                        this.state.callback(parseInt(index));
+                        this.setState({ modalVisible: false });
+                      }}
+                      style={{ borderColor: "transparent" }}
+                      icon
+                    >
+                      <Left>
+                        <Icon
+                          name={item.icon}
+                          style={{
+                            color: item.iconColor ? item.iconColor : undefined
+                          }}
+                        />
+                      </Left>
+                      <Body style={{ borderColor: "transparent" }}>
+                        <Text>{item.text}</Text>
+                      </Body>
+                      <Right />
+                    </ListItem>
+                  )
               }}
             />
           </TouchableOpacity>
