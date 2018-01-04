@@ -5,6 +5,7 @@ var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 
 var _Ionicons=require("react-native-vector-icons/Ionicons");var _Ionicons2=_interopRequireDefault(_Ionicons);
 var _Entypo=require("react-native-vector-icons/Entypo");var _Entypo2=_interopRequireDefault(_Entypo);
+var _Feather=require("react-native-vector-icons/Feather");var _Feather2=_interopRequireDefault(_Feather);
 var _FontAwesome=require("react-native-vector-icons/FontAwesome");var _FontAwesome2=_interopRequireDefault(_FontAwesome);
 var _Foundation=require("react-native-vector-icons/Foundation");var _Foundation2=_interopRequireDefault(_Foundation);
 var _MaterialIcons=require("react-native-vector-icons/MaterialIcons");var _MaterialIcons2=_interopRequireDefault(_MaterialIcons);
@@ -29,6 +30,9 @@ this.Icon=_Ionicons2.default;
 break;
 case"Entypo":
 this.Icon=_Entypo2.default;
+break;
+case"Feather":
+this.Icon=_Feather2.default;
 break;
 case"FontAwesome":
 this.Icon=_FontAwesome2.default;
@@ -63,7 +67,7 @@ this.Icon=_Ionicons2.default;
 }},{key:"render",value:function render()
 
 {var _this2=this;
-return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:66}}));
+return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:70}}));
 }}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_propTypes2.default.object};
 
 

@@ -229,6 +229,11 @@ declare module "native-base" {
              * [android] colored ripple effect
              */
 			androidRippleColor?: string;
+			/**
+             * Segments
+             */
+			first?: boolean;
+			last?: boolean;
 		}
 		/**
 
@@ -251,6 +256,23 @@ declare module "native-base" {
 				rowID: string | number,
 				highlightRow?: boolean
 			) => React.ReactElement<any>;
+			dataSource?:ReactNative.ListViewDataSource;
+				disableLeftSwipe?:boolean;
+				disableRightSwipe?:boolean;
+				rightOpenValue?:number;
+				renderRightHiddenRow?:(
+					rowData: any,
+					sectionID: string | number,
+					rowID: string | number,
+					rowMap?: any
+				) => React.ReactElement<any>;
+				renderLeftHiddenRow?:(
+					rowData: any,
+					sectionID: string | number,
+					rowID: string | number,
+					rowMap?: any
+				) => React.ReactElement<any>;
+				rowHasChanged?: (r1: any, r2: any) => boolean;
 		}
 		/**
          * see Widget ListItem.js
@@ -641,15 +663,28 @@ declare module "native-base" {
 			onChangeTab?: Function;
 			locked?: boolean;
 			initialPage?: number;
+			tabBarUnderlineStyle?:ReactNative.ViewStyle;
+			tabBarBackgroundColor?:string;
+			tabBarActiveTextColor?:string;
+			tabBarInactiveTextColor?:string;
+			tabBarTextStyle?:ReactNative.TextStyle;
+			tabContainerStyle?:ReactNative.ViewStyle;
+			style?: ReactNative.ViewStyle;
 		}
 
 		interface Tab {
-			heading: _TabHeading;
-		}
-		interface TabHeading {
+			heading: React.ReactElement<TabHeading> | string;
+			tabStyle?:ReactNative.ViewStyle;
 			activeTabStyle?: ReactNative.ViewStyle;
 			textStyle?: ReactNative.TextStyle;
 			activeTextStyle?: ReactNative.TextStyle;
+		}
+		interface TabHeading {
+			tabStyle?:ReactNative.ViewStyle;
+			activeTabStyle?: ReactNative.ViewStyle;
+			textStyle?: ReactNative.TextStyle;
+			activeTextStyle?: ReactNative.TextStyle;
+			style?: ReactNative.ViewStyle;
 		}
 
 		interface Item {
@@ -940,7 +975,6 @@ declare module "native-base" {
 	export class Tab extends React.Component<NativeBase.Tab, any> {}
 
 	export class TabHeading extends React.Component<NativeBase.TabHeading, any> {}
-	type _TabHeading = TabHeading;
 	/**
      * NativeBase.Item
      */
