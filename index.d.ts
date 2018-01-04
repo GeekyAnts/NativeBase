@@ -229,6 +229,11 @@ declare module "native-base" {
              * [android] colored ripple effect
              */
 			androidRippleColor?: string;
+			/**
+             * Segments
+             */
+			first?: boolean;
+			last?: boolean;
 		}
 		/**
 
@@ -641,15 +646,17 @@ declare module "native-base" {
 			onChangeTab?: Function;
 			locked?: boolean;
 			initialPage?: number;
+			style?: ReactNative.ViewStyle;
 		}
 
 		interface Tab {
-			heading: _TabHeading;
+			heading: _TabHeading | string | React.ReactElement<any>;
 		}
 		interface TabHeading {
 			activeTabStyle?: ReactNative.ViewStyle;
 			textStyle?: ReactNative.TextStyle;
 			activeTextStyle?: ReactNative.TextStyle;
+			style?: ReactNative.ViewStyle;
 		}
 
 		interface Item {
