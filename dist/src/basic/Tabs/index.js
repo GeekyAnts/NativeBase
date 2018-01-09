@@ -11,10 +11,9 @@ var _createReactClass=require("create-react-class");var _createReactClass2=_inte
 
 
 
-
 var _Utils=require("../../Utils");
 
-var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var React=require("react");var Component=React.Component;var ReactNative=require("react-native");var Dimensions=ReactNative.Dimensions,View=ReactNative.View,Animated=ReactNative.Animated,ScrollView=ReactNative.ScrollView,StyleSheet=ReactNative.StyleSheet,InteractionManager=ReactNative.InteractionManager,Platform=ReactNative.Platform;var TimerMixin=require("react-timer-mixin");
+var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var React=require("react");var Component=React.Component;var ReactNative=require("react-native");var Dimensions=ReactNative.Dimensions,View=ReactNative.View,Animated=ReactNative.Animated,ScrollView=ReactNative.ScrollView,StyleSheet=ReactNative.StyleSheet,Platform=ReactNative.Platform;var TimerMixin=require("react-timer-mixin");
 
 var SceneComponent=require("./SceneComponent");var _require=
 require("./DefaultTabBar"),DefaultTabBar=_require.DefaultTabBar;var _require2=
@@ -66,14 +65,11 @@ sceneKeys:this.newSceneKeys({currentPage:this.props.initialPage})};
 
 componentDidMount:function componentDidMount(){var _this=this;
 var scrollFn=function scrollFn(){
-if(_this.scrollView&&Platform.OS==="android"){
-var x=_this.props.initialPage*_this.state.containerWidth;
-_this.scrollView.scrollTo({x:x,animated:false});
+if(_this.scrollView){
+_this.state.scrollValue.setValue(_this.props.initialPage);
 }
 };
-this.setTimeout(function(){
-InteractionManager.runAfterInteractions(scrollFn);
-},0);
+_Utils.InteractionManager.runAfterInteractions(scrollFn);
 },
 
 componentWillReceiveProps:function componentWillReceiveProps(props){
@@ -112,7 +108,7 @@ return null;
 }else if(this.props.renderTabBar){
 return React.cloneElement(this.props.renderTabBar(props),props);
 }else{
-return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:115}}));
+return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:111}}));
 }
 },
 
@@ -175,7 +171,7 @@ scrollEnabled:!this.props.locked,
 directionalLockEnabled:true,
 alwaysBounceVertical:false,
 keyboardDismissMode:"on-drag"},
-this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:155}}),
+this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:151}}),
 
 scenes));
 
@@ -189,12 +185,12 @@ return(
 React.createElement(SceneComponent,{
 key:child.key,
 shouldUpdated:_this4._shouldRenderSceneKey(idx,_this4.state.currentPage),
-style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:189}},
+style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:185}},
 
 _this4._keyExists(_this4.state.sceneKeys,key)?
 child:
 
-React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:197}})));
+React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:193}})));
 
 
 
@@ -286,20 +282,21 @@ tabBarProps.underlineStyle=this.props.tabBarUnderlineStyle;
 if(this.props.tabContainerStyle){
 tabBarProps.tabContainerStyle=this.props.tabContainerStyle;
 }
-if(overlayTabs){
-tabBarProps.style=_defineProperty({
+if(overlayTabs){var _tabBarProps$style;
+tabBarProps.style=(_tabBarProps$style={
 position:"absolute",
 left:0,
-right:0},
-this.props.tabBarPosition==="overlayTop"?"top":"bottom",0);
+right:0},_defineProperty(_tabBarProps$style,
+this.props.tabBarPosition==="overlayTop"?"top":"bottom",0),_defineProperty(_tabBarProps$style,"backgroundColor",
+"rgba(255, 255, 255, 0.7)"),_tabBarProps$style);
 
 }
 
 return(
-React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:299}},
-this.props.tabBarPosition==="top"&&this.renderTabBar(tabBarProps),
+React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:296}},
+(this.props.tabBarPosition==="top"||this.props.tabBarPosition==="overlayTop")&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
-(this.props.tabBarPosition==="bottom"||overlayTabs)&&this.renderTabBar(tabBarProps)));
+(this.props.tabBarPosition==="bottom"||this.props.tabBarPosition==="overlayBottom")&&this.renderTabBar(tabBarProps)));
 
 
 }});exports.default=
