@@ -120,7 +120,7 @@ declare module "native-base" {
          * see Widget Title.js
          */
 		interface Title {
-			style?: ReactNative.ViewStyle;
+			style?: ReactNative.TextStyle;
 		}
 		/**
          * see Widget Subtitle/index.js
@@ -245,7 +245,6 @@ declare module "native-base" {
 			listNoteColor?: string;
 			listItemPadding?: number;
 			listNoteSize?: number;
-			listItemHeight?: number;
 			inset?: boolean;
 			/**
              * Array of data chunks to render iteratively.
@@ -257,6 +256,23 @@ declare module "native-base" {
 				rowID: string | number,
 				highlightRow?: boolean
 			) => React.ReactElement<any>;
+			dataSource?:ReactNative.ListViewDataSource;
+				disableLeftSwipe?:boolean;
+				disableRightSwipe?:boolean;
+				rightOpenValue?:number;
+				renderRightHiddenRow?:(
+					rowData: any,
+					sectionID: string | number,
+					rowID: string | number,
+					rowMap?: any
+				) => React.ReactElement<any>;
+				renderLeftHiddenRow?:(
+					rowData: any,
+					sectionID: string | number,
+					rowID: string | number,
+					rowMap?: any
+				) => React.ReactElement<any>;
+				rowHasChanged?: (r1: any, r2: any) => boolean;
 		}
 		/**
          * see Widget ListItem.js
@@ -298,6 +314,7 @@ declare module "native-base" {
 
 		interface Separator {
 			bordered?: boolean;
+			style?: ReactNative.ViewStyle;
 		}
 
 		/**
@@ -646,13 +663,24 @@ declare module "native-base" {
 			onChangeTab?: Function;
 			locked?: boolean;
 			initialPage?: number;
+			tabBarUnderlineStyle?:ReactNative.ViewStyle;
+			tabBarBackgroundColor?:string;
+			tabBarActiveTextColor?:string;
+			tabBarInactiveTextColor?:string;
+			tabBarTextStyle?:ReactNative.TextStyle;
+			tabContainerStyle?:ReactNative.ViewStyle;
 			style?: ReactNative.ViewStyle;
 		}
 
 		interface Tab {
-			heading: _TabHeading | string | React.ReactElement<any>;
+			heading: React.ReactElement<TabHeading> | string;
+			tabStyle?:ReactNative.ViewStyle;
+			activeTabStyle?: ReactNative.ViewStyle;
+			textStyle?: ReactNative.TextStyle;
+			activeTextStyle?: ReactNative.TextStyle;
 		}
 		interface TabHeading {
+			tabStyle?:ReactNative.ViewStyle;
 			activeTabStyle?: ReactNative.ViewStyle;
 			textStyle?: ReactNative.TextStyle;
 			activeTextStyle?: ReactNative.TextStyle;
@@ -700,6 +728,18 @@ declare module "native-base" {
 		interface StyleProvider {
 			style?: any;
 		}
+		interface SwipeRow {
+            leftOpenValue?: number;
+            rightOpenValue?: number;
+            closeOnRowPress?: boolean;
+            disableLeftSwipe?: boolean;
+            disableRightSwipe?: boolean;
+            recalculateHiddenLayout?: boolean;
+            preview?: boolean;
+            previewDuration?: number;
+            directionalDistanceChangeThreshold: number;
+            swipeToOpenPercent: number;
+        }
 	}
 
 	// Export definitions
@@ -764,6 +804,9 @@ declare module "native-base" {
      * NativeBase.Title
      */
 	export class Title extends React.Component<NativeBase.Title, any> {}
+
+	export class SubTitle extends React.Component<NativeBase.SubTitle, any> {}
+
 	/**
      * NativeBase.Button
      *
@@ -932,7 +975,6 @@ declare module "native-base" {
 	export class Tab extends React.Component<NativeBase.Tab, any> {}
 
 	export class TabHeading extends React.Component<NativeBase.TabHeading, any> {}
-	type _TabHeading = TabHeading;
 	/**
      * NativeBase.Item
      */
@@ -958,7 +1000,7 @@ declare module "native-base" {
 				options: string[];
 				cancelButtonIndex?: number;
 				destructiveButtonIndex?: number;
-				title: string;
+				title?: string;
 			},
 			onSelect: (index: number) => void
 		) => void;
@@ -970,6 +1012,8 @@ declare module "native-base" {
 
 	export class Root extends React.Component<NativeBase.Root, any> {}
 
+	export class SwipeRow extends React.Component<NativeBase.SwipeRow, any> {}
+	
 	export class Toast {
 		public static show(configuration: {
 			text: string;
