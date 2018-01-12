@@ -10,6 +10,7 @@ return(
 _react2.default.createElement(_reactNativeKeyboardAwareScrollView.KeyboardAwareScrollView,_extends({
 automaticallyAdjustContentInsets:false,
 resetScrollToCoords:this.props.disableKBDismissScroll?null:{x:0,y:0},
+keyboardShouldPersistTaps:this.props.keyboardShouldPersistTaps?this.props.keyboardShouldPersistTaps:'handled',
 ref:function ref(c){
 _this2._scrollview=c;
 _this2._root=c;
@@ -26,7 +27,8 @@ Content.propTypes={
 style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),
 padder:_propTypes2.default.bool,
 disableKBDismissScroll:_propTypes2.default.bool,
-enableResetScrollToCoords:_propTypes2.default.bool};
+enableResetScrollToCoords:_propTypes2.default.bool,
+keyboardShouldPersistTaps:_propTypes2.default.string};
 
 
 var StyledContent=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Content",{},_mapPropsToStyleNames2.default)(Content);exports.

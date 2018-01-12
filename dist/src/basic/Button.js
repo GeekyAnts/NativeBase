@@ -41,7 +41,7 @@ _react2.default.Children.map(
 this.props.children,
 function(child){return(
 child&&child.type===_Text.Text?
-_react2.default.cloneElement(child,_extends({uppercase:true},child.props)):
+_react2.default.cloneElement(child,_extends({uppercase:variables.btnUppercaseAndroidText},child.props)):
 child);});
 
 if(_reactNative.Platform.OS==="ios"||variables.androidRipple===false||_reactNative.Platform["Version"]<=21){
