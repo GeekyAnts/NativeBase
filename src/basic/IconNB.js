@@ -58,12 +58,12 @@ class IconNB extends Component {
 	}
 
 	componentWillMount() {
-		setIcon(this.props.type);
+		this.setIcon(this.props.type);
 	}
 
 	componentWillUpdate(nextProps, nextState) {
     		if (nextProps.type && this.props.type != nextProps.type) {
-      			setIcon(nextProps.type);
+      			this.setIcon(nextProps.type);
     		}
   	}
 
