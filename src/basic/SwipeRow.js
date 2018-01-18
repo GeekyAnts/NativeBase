@@ -229,6 +229,7 @@ class SwipeRow extends Component {
 	render() {
 		return (
 			<View style={this.props.style ? this.props.style : undefined}>
+				{this.renderMainContent()}
 				<View
 					style={[
 						styles.hidden,
@@ -248,7 +249,6 @@ class SwipeRow extends Component {
 						{this.props.right}
 					</Right>
 				</View>
-				{this.renderMainContent()}
 			</View>
 		);
 	}
