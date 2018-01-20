@@ -739,6 +739,9 @@ declare module "native-base" {
             previewDuration?: number;
             directionalDistanceChangeThreshold: number;
             swipeToOpenPercent: number;
+					left?: React.ReactElement<any>;
+					body: React.ReactElement<any>;
+					right?: React.ReactElement<any>;
         }
 	}
 
