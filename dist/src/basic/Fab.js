@@ -432,15 +432,10 @@ this.renderFab()):
 
 
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
-onPress:function onPress(){return _this5.fabOnPress();},
-background:
-this.props.androidRippleColor?
-_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor):
-_reactNative.TouchableNativeFeedback.Ripple(_platform2.default.androidRippleColor)},
-
+onPress:function onPress(){return _this5.fabOnPress();}},
 this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:434}}),
 
-_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:443}},
+_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:438}},
 this.renderFab()))));
 
 

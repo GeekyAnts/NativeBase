@@ -433,11 +433,6 @@ class Fab extends Component {
         ) : (
           <TouchableNativeFeedback
             onPress={() => this.fabOnPress()}
-            background={
-              this.props.androidRippleColor
-                ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor)
-                : TouchableNativeFeedback.Ripple(variables.androidRippleColor)
-            }
             {...this.prepareFabProps()}
           >
             <View style={[this.getInitialStyle().fab, this.props.style]}>

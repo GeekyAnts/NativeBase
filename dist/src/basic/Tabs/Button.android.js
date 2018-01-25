@@ -5,8 +5,7 @@ TouchableNativeFeedback=ReactNative.TouchableNativeFeedback,View=ReactNative.Vie
 var Button=function Button(props){
 return(
 React.createElement(TouchableNativeFeedback,_extends({
-delayPressIn:0,
-background:TouchableNativeFeedback.SelectableBackground()},
+delayPressIn:0},
 props,{__source:{fileName:_jsxFileName,lineNumber:7}}),
 
 props.children));
