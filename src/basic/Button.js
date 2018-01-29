@@ -65,7 +65,6 @@ class Button extends Component {
 								? TouchableNativeFeedback.Ripple(this.props.androidRippleColor,true)
 								: TouchableNativeFeedback.Ripple(variables.androidRippleColor,true)
 						}
-						{...this.prepareRootProps()}
 					>
 						<View style={styles.childContainer}>
 							{children}
