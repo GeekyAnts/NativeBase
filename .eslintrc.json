@@ -1,10 +1,28 @@
 {
   "parser": "babel-eslint",
-  {
+  "extends": "airbnb",
+  "rules": {
     "indent": [
       "error",
-      2
-    ]
+      "tab"
+    ],
+    "react/jsx-indent": [
+      "error",
+      "tab"
+    ],
+    "react/jsx-indent-props": [
+      "error",
+      "tab"
+    ],
+    "no-tabs": 0,
+    "quotes": ["error", "double"],
+    "no-underscore-dangle": 0,
+    "react/sort-comp": 0,
+    "react/jsx-filename-extension": 0,
+    "import/prefer-default-export": 0,
+    "no-confusing-arrow": 0,
+    "no-console": 0,
+    "comma-dangle": ["error", "never"]
   },
   "plugins": [
     "react",
