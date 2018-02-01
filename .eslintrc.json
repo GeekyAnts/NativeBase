@@ -4,8 +4,17 @@
   "rules": {
     "indent": [
       "error",
-      2
+      "tab"
     ],
+    "react/jsx-indent": [
+      "error",
+      "tab"
+    ],
+    "react/jsx-indent-props": [
+      "error",
+      "tab"
+    ],
+    "no-tabs": 0,
     "quotes": ["error", "double"],
     "no-underscore-dangle": 0,
     "react/sort-comp": 0,

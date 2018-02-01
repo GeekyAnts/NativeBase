@@ -9,17 +9,16 @@ import computeProps from "../Utils/computeProps";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class Button extends Component {
-
 	static contextTypes = {
-		theme: PropTypes.object,
+		theme: PropTypes.object
 	};
 
 	getInitialStyle() {
 		return {
 			borderedBtn: {
 				borderWidth: this.props.bordered ? 1 : undefined,
-				borderRadius: this.props.rounded && this.props.bordered ? variable.borderRadiusLarge : 2,
-			},
+				borderRadius: this.props.rounded && this.props.bordered ? variable.borderRadiusLarge : 2
+			}
 		};
 	}
 
@@ -27,7 +26,7 @@ class Button extends Component {
 
 	prepareRootProps() {
 		const defaultProps = {
-			style: this.getInitialStyle().borderedBtn,
+			style: this.getInitialStyle().borderedBtn
 		};
 
 		return computeProps(this.props, defaultProps);
@@ -38,13 +37,13 @@ class Button extends Component {
 			Platform.OS === "ios"
 				? this.props.children
 				: React.Children.map(
-						this.props.children,
-						child =>
-							child && child.type === Text
-								? React.cloneElement(child, { uppercase: variables.btnUppercaseAndroidText, ...child.props })
-								: child
-					);
-		if (Platform.OS === "ios" || variables.androidRipple === false || Platform["Version"] <= 21) {
+					this.props.children,
+					child =>
+						child && child.type === Text
+							? React.cloneElement(child, { uppercase: variables.btnUppercaseAndroidText, ...child.props })
+							: child
+				);
+		if (Platform.OS === "ios" || variables.androidRipple === false || Platform.Version <= 21) {
 			return (
 				<TouchableOpacity
 					{...this.prepareRootProps()}
@@ -54,24 +53,23 @@ class Button extends Component {
 					{children}
 				</TouchableOpacity>
 			);
-		} else {
-			return (
-				<TouchableNativeFeedback
-					ref={c => (this._root = c)}
-					onPress={this.props.onPress}
-					background={
-						this.props.androidRippleColor
-							? TouchableNativeFeedback.Ripple(this.props.androidRippleColor)
-							: TouchableNativeFeedback.Ripple(variables.androidRippleColor)
-					}
-					{...this.prepareRootProps()}
-				>
-					<View {...this.prepareRootProps()}>
-						{children}
-					</View>
-				</TouchableNativeFeedback>
-			);
 		}
+		return (
+			<TouchableNativeFeedback
+				ref={c => (this._root = c)}
+				onPress={this.props.onPress}
+				background={
+					this.props.androidRippleColor
+						? TouchableNativeFeedback.Ripple(this.props.androidRippleColor)
+						: TouchableNativeFeedback.Ripple(variables.androidRippleColor)
+				}
+				{...this.prepareRootProps()}
+			>
+				<View {...this.prepareRootProps()}>
+					{children}
+				</View>
+			</TouchableNativeFeedback>
+		);
 	}
 }
 
@@ -90,7 +88,7 @@ Button.propTypes = {
 	rounded: PropTypes.bool,
 	large: PropTypes.bool,
 	small: PropTypes.bool,
-	active: PropTypes.bool,
+	active: PropTypes.bool
 };
 
 const StyledButton = connectStyle("NativeBase.Button", {}, mapPropsToStyleNames)(Button);
