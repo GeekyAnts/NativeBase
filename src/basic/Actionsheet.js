@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {
-  View,
   Modal,
   Platform,
   ActionSheetIOS,
@@ -11,8 +10,6 @@ import {
 } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import { Text } from "./Text";
-import { Button } from "./Button";
-import { ViewNB } from "./View";
 import { Icon } from "./Icon";
 import { Left } from "./Left";
 import { Right } from "./Right";
@@ -25,7 +22,7 @@ class ActionSheetContainer extends Component {
     super(props);
     this.state = {
       modalVisible: false,
-      items: [],
+      items: []
     };
   }
   static actionsheetInstance;
@@ -34,13 +31,11 @@ class ActionSheetContainer extends Component {
   }
   showActionSheet(config, callback) {
     if (Platform.OS === "ios") {
-      if (typeof config.options[0] == "object") {
-        let options = config.options;
-        let filtered = options.map(item => {
-          return item.text;
-        });
-        config.options = filtered;
-        ActionSheetIOS.showActionSheetWithOptions(config, callback);
+      if (typeof config.options[0] === "object") {
+        const { options } = config;
+        const filtered = options.map(item => item.text);
+        const _config = { ...config, options: filtered };
+        ActionSheetIOS.showActionSheetWithOptions(_config, callback);
       } else {
         ActionSheetIOS.showActionSheetWithOptions(config, callback);
       }
@@ -52,20 +47,20 @@ class ActionSheetContainer extends Component {
         destructiveButtonIndex: config.destructiveButtonIndex,
         cancelButtonIndex: config.cancelButtonIndex,
         modalVisible: true,
-        callback: callback,
+        callback
       });
     }
   }
   componentDidMount() {
     if (!this.props.autoHide && this.props.duration) {
-      console.warn(`It's not recommended to set autoHide false with duration`);
+      console.warn("It's not recommended to set autoHide false with duration");
     }
   }
   render() {
     return (
       <Modal
         animationType={"fade"}
-        transparent={true}
+        transparent
         visible={this.state.modalVisible}
         onRequestClose={() => {
           this.state.callback(this.state.cancelButtonIndex);
@@ -98,40 +93,39 @@ class ActionSheetContainer extends Component {
               style={{ marginHorizontal: -15, marginTop: 15 }}
               data={this.state.items}
               keyExtractor={(item, index) => index}
-              renderItem={({ index,item }) => {
-                return typeof this.state.items[0] === "string" ? (
+              renderItem={({ index, item }) => typeof this.state.items[0] === "string" ? (
+                <ListItem
+                  onPress={() => {
+                    this.state.callback(parseInt(index, 10));
+                    this.setState({ modalVisible: false });
+                  }}
+                  style={{ borderColor: "transparent" }}
+                >
+                  <Text>{item}</Text>
+                </ListItem>
+                ) : (
                   <ListItem
                     onPress={() => {
-                      this.state.callback(parseInt(index));
+                      this.state.callback(parseInt(index, 10));
                       this.setState({ modalVisible: false });
                     }}
-                    style={{ borderColor: "transparent" }}>
-                    <Text>{item}</Text>
+                    style={{ borderColor: "transparent" }}
+                    icon
+                  >
+                    <Left>
+                      <Icon
+                        name={item.icon}
+                        style={{
+                          color: item.iconColor ? item.iconColor : undefined
+                        }}
+                      />
+                    </Left>
+                    <Body style={{ borderColor: "transparent" }}>
+                      <Text>{item.text}</Text>
+                    </Body>
+                    <Right />
                   </ListItem>
-                ) : (
-                    <ListItem
-                      onPress={() => {
-                        this.state.callback(parseInt(index));
-                        this.setState({ modalVisible: false });
-                      }}
-                      style={{ borderColor: "transparent" }}
-                      icon
-                    >
-                      <Left>
-                        <Icon
-                          name={item.icon}
-                          style={{
-                            color: item.iconColor ? item.iconColor : undefined
-                          }}
-                        />
-                      </Left>
-                      <Body style={{ borderColor: "transparent" }}>
-                        <Text>{item.text}</Text>
-                      </Body>
-                      <Right />
-                    </ListItem>
-                  )
-              }}
+                  )}
             />
           </TouchableOpacity>
         </TouchableOpacity>
