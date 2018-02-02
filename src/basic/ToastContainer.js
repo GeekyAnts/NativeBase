@@ -60,8 +60,12 @@ class ToastContainer extends Component {
       textStyle: config.textStyle,
       onClose: config.onClose
     });
+    // If we have a toast already open, cut off its close timeout so that it won't affect *this* toast.
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout)
+    }
     if (config.duration > 0) {
-      setTimeout(() => {
+      this.closeTimeout = setTimeout(() => {
         Animated.timing(this.state.fadeAnim, {
           toValue: 0,
           duration: 200
@@ -69,7 +73,7 @@ class ToastContainer extends Component {
         setTimeout(this.closeModal.bind(this), 500);
       }, config.duration);
     } else {
-      setTimeout(() => {
+      this.closeTimeout = setTimeout(() => {
         Animated.timing(this.state.fadeAnim, {
           toValue: 0,
           duration: 200

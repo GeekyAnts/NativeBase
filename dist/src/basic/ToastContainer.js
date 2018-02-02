@@ -66,7 +66,11 @@ _reactNative.Animated.timing(_this2.state.fadeAnim,{
 toValue:0,
 duration:200}).
 start();
-setTimeout(_this2.closeModal.bind(_this2),500);
+setTimeout(function(){
+_this2.setState({
+modalVisible:false});
+
+},500);
 },config.duration);
 }else{
 setTimeout(function(){
@@ -74,47 +78,51 @@ _reactNative.Animated.timing(_this2.state.fadeAnim,{
 toValue:0,
 duration:200}).
 start();
-setTimeout(_this2.closeModal.bind(_this2),500);
+setTimeout(function(){
+_this2.setState({
+modalVisible:false});
+
+},500);
 },1500);
 }
 _reactNative.Animated.timing(this.state.fadeAnim,{
 toValue:1,
 duration:200}).
 start();
-}},{key:"closeModal",value:function closeModal()
-{
-this.setState({
-modalVisible:false});var
-
+}},{key:"closeToast",value:function closeToast()
+{var _this3=this;var
 onClose=this.state.onClose;
+
 if(onClose&&typeof onClose==="function"){
 onClose();
 }
-}},{key:"closeToast",value:function closeToast()
-{
 _reactNative.Animated.timing(this.state.fadeAnim,{
 toValue:0,
 duration:200}).
 start();
-setTimeout(this.closeModal.bind(this),500);
+setTimeout(function(){
+_this3.setState({
+modalVisible:false});
+
+},500);
 }},{key:"render",value:function render()
-{var _this3=this;
+{var _this4=this;
 if(this.state.modalVisible){
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:104}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:112}},
 _react2.default.createElement(_Toast.Toast,{
 style:this.state.style,
 danger:this.state.type=="danger"?true:false,
 success:this.state.type=="success"?true:false,
-warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:105}},
+warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:113}},
 
-_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:111}},this.state.text),
+_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:119}},this.state.text),
 this.state.buttonText&&
 _react2.default.createElement(_Button.Button,{
 style:this.state.buttonStyle,
-onPress:function onPress(){return _this3.closeToast();},__source:{fileName:_jsxFileName,lineNumber:113}},
+onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:121}},
 
-_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:117}},
+_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:125}},
 this.state.buttonText)))));
 
 
