@@ -42,7 +42,7 @@ marginLeft:null},
 
 "NativeBase.Label":{
 left:0,
-top:8},
+top:6},
 
 "NativeBase.Icon":{
 top:6},
