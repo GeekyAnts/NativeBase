@@ -755,8 +755,8 @@ declare module "native-base" {
             recalculateHiddenLayout?: boolean;
             preview?: boolean;
             previewDuration?: number;
-            directionalDistanceChangeThreshold: number;
-            swipeToOpenPercent: number;
+            directionalDistanceChangeThreshold?: number;
+            swipeToOpenPercent?: number;
         }
 	}
 
