@@ -7,7 +7,7 @@ var radioTheme={
 ".selected":{
 "NativeBase.IconNB":{
 color:_reactNative.Platform.OS==="ios"?
-variables.brandPrimary:
+variables.radioColor:
 variables.radioSelectedColorAndroid,
 lineHeight:_reactNative.Platform.OS==="ios"?25:variables.radioBtnLineHeight,
 height:_reactNative.Platform.OS==="ios"?20:undefined}},

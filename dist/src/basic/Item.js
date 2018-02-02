@@ -32,7 +32,7 @@ if(this.inputProps&&this.inputProps.getRef)this.inputProps.getRef(this._inputRef
 nextProps){var _this2=this;
 var childrenArray=_react2.default.Children.toArray(nextProps.children);
 var inputProps={};
-input=_lodash2.default.remove(childrenArray,function(item){
+_lodash2.default.remove(childrenArray,function(item){
 if(item.type.displayName==="Styled(Input)"){
 inputProps=item.props;
 _this2.inputProps=item.props;

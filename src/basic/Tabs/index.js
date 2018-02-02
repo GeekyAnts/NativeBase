@@ -9,10 +9,9 @@ const {
   Animated,
   ScrollView,
   StyleSheet,
-  InteractionManager,
   Platform,
 } = ReactNative;
-import { ViewPropTypes } from "../../Utils";
+import { InteractionManager, ViewPropTypes } from "../../Utils";
 const TimerMixin = require("react-timer-mixin");
 import _ from "lodash";
 
@@ -66,14 +65,11 @@ const ScrollableTabView = createReactClass({
 
   componentDidMount() {
     const scrollFn = () => {
-      if (this.scrollView && Platform.OS === "android") {
-        const x = this.props.initialPage * this.state.containerWidth;
-        this.scrollView.scrollTo({ x, animated: false });
+      if (this.scrollView) {
+        this.state.scrollValue.setValue(this.props.initialPage);
       }
     };
-    this.setTimeout(() => {
-      InteractionManager.runAfterInteractions(scrollFn);
-    }, 0);
+    InteractionManager.runAfterInteractions(scrollFn);
   },
 
   componentWillReceiveProps(props) {
@@ -292,14 +288,15 @@ const ScrollableTabView = createReactClass({
         left: 0,
         right: 0,
         [this.props.tabBarPosition === "overlayTop" ? "top" : "bottom"]: 0,
+        backgroundColor: "rgba(255, 255, 255, 0.7)",
       };
     }
 
     return (
       <View style={[styles.container, this.props.style]} onLayout={this._handleLayout}>
-        {this.props.tabBarPosition === "top" && this.renderTabBar(tabBarProps)}
+        {(this.props.tabBarPosition === "top" || this.props.tabBarPosition==="overlayTop")&& this.renderTabBar(tabBarProps)}
         {this.renderScrollableContent()}
-        {(this.props.tabBarPosition === "bottom" || overlayTabs) && this.renderTabBar(tabBarProps)}
+        {(this.props.tabBarPosition === "bottom" || this.props.tabBarPosition==="overlayBottom") && this.renderTabBar(tabBarProps)}
       </View>
     );
   },

@@ -196,10 +196,10 @@ zIndex:2},__source:{fileName:_jsxFileName,lineNumber:191}}),
 
 
 !this.props.list?
-_react2.default.createElement(_ListItem.ListItem,{list:true,__source:{fileName:_jsxFileName,lineNumber:199}},
+_react2.default.createElement(_ListItem.ListItem,{list:true,style:this.props.style,__source:{fileName:_jsxFileName,lineNumber:199}},
 this.props.body):
 
-_react2.default.createElement(_reactNative.View,{style:{backgroundColor:'#FFF'},__source:{fileName:_jsxFileName,lineNumber:202}},
+_react2.default.createElement(_reactNative.View,{style:[{backgroundColor:'#FFF'},this.props.style],__source:{fileName:_jsxFileName,lineNumber:202}},
 this.props.body)));
 
 
@@ -215,10 +215,10 @@ zIndex:2},__source:{fileName:_jsxFileName,lineNumber:209}}),
 
 
 !this.props.list?
-_react2.default.createElement(_ListItem.ListItem,{list:true,__source:{fileName:_jsxFileName,lineNumber:218}},
+_react2.default.createElement(_ListItem.ListItem,{list:true,style:this.props.style,__source:{fileName:_jsxFileName,lineNumber:218}},
 this.props.body):
 
-_react2.default.createElement(_reactNative.View,{style:{backgroundColor:'#FFF'},__source:{fileName:_jsxFileName,lineNumber:221}},
+_react2.default.createElement(_reactNative.View,{style:[{backgroundColor:'#FFF'},this.props.style],__source:{fileName:_jsxFileName,lineNumber:221}},
 this.props.body)));
 
 

@@ -66,7 +66,7 @@ alignSelf:"center",
 alignItems:"center",
 ".transparent":{
 "NativeBase.Text":{
-color:variables.toolbarBtnColor,
+color:variables.toolbarBtnTextColor,
 fontWeight:"600"},
 
 "NativeBase.Icon":{
@@ -98,7 +98,7 @@ alignSelf:"center"},
 "NativeBase.Input":{
 alignSelf:"center",
 lineHeight:24,
-height:variables.searchBarHeight},
+height:variables.searchBarInputHeight},
 
 alignSelf:"center",
 alignItems:"center",
@@ -139,7 +139,7 @@ marginRight:5,
 marginLeft:2},
 
 "NativeBase.Text":{
-color:variables.toolbarBtnColor,
+color:variables.toolbarBtnTextColor,
 fontSize:17,
 marginLeft:2,
 lineHeight:21},
@@ -169,7 +169,7 @@ marginRight:2,
 marginLeft:2},
 
 "NativeBase.Text":{
-color:variables.toolbarBtnColor,
+color:variables.toolbarBtnTextColor,
 fontSize:17,
 top:platform==="ios"?undefined:-1.5},
 
@@ -232,7 +232,7 @@ marginRight:2,
 marginLeft:5},
 
 "NativeBase.Text":{
-color:variables.toolbarBtnColor,
+color:variables.toolbarBtnTextColor,
 fontSize:17,
 lineHeight:21},
 
@@ -265,7 +265,7 @@ marginLeft:2,
 marginRight:2},
 
 "NativeBase.Text":{
-color:variables.toolbarBtnColor,
+color:variables.toolbarBtnTextColor,
 fontSize:17,
 top:platform==="ios"?undefined:-1.5},
 
