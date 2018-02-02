@@ -653,10 +653,27 @@ declare module "native-base" {
 			tweenHandler?: Function;
 			type?: "overlay" | "static" | "displace";
 		}
+		interface ScrollableTab {
+            goToPage?: Function;
+            activeTab?: number;
+            tabs?: Array<any>;
+            backgroundColor?: string;
+            activeTextColor?: string;
+            inactiveTextColor?: string;
+            scrollOffset?: number;
+            style?: ReactNative.ViewStyle;
+            tabStyle?: ReactNative.ViewStyle;
+            tabsContainerStyle?: ReactNative.ViewStyle;
+            renderTab?: Function;
+            underlineStyle?: ReactNative.ViewStyle;
+            onScroll?: Function;
+        }
+
 		/**
          * see Widget Tabs.js
          */
 		interface Tabs {
+			renderTabBar?: Function;
 			tabBarPosition?: "top" | "bottom";
 			edgeHitWidth?: number;
 			springTension?: number;
@@ -963,6 +980,10 @@ declare module "native-base" {
      * NativeBase.Drawer
      */
 	export class Drawer extends React.Component<NativeBase.Drawer, any> {}
+	/**
+     * NativeBase.ScrollableTab
+     */
+	export class ScrollableTab extends React.Component<NativeBase.ScrollableTab, any> { }
 	/**
      * NativeBase.Tabs
      *
