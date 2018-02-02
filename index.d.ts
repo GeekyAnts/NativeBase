@@ -121,7 +121,7 @@ declare module "native-base" {
          * see Widget Title.js
          */
 		interface Title {
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			style?: ReactNative.TextStyle;
 		}
 		/**
          * see Widget Subtitle/index.js
