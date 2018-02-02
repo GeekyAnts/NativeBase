@@ -60,12 +60,8 @@ buttonStyle:config.buttonStyle,
 textStyle:config.textStyle,
 onClose:config.onClose});
 
-
-if(this.closeTimeout){
-clearTimeout(this.closeTimeout);
-}
 if(config.duration>0){
-this.closeTimeout=setTimeout(function(){
+setTimeout(function(){
 _reactNative.Animated.timing(_this2.state.fadeAnim,{
 toValue:0,
 duration:200}).
@@ -77,7 +73,7 @@ modalVisible:false});
 },500);
 },config.duration);
 }else{
-this.closeTimeout=setTimeout(function(){
+setTimeout(function(){
 _reactNative.Animated.timing(_this2.state.fadeAnim,{
 toValue:0,
 duration:200}).
@@ -113,20 +109,20 @@ modalVisible:false});
 {var _this4=this;
 if(this.state.modalVisible){
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:116}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:112}},
 _react2.default.createElement(_Toast.Toast,{
 style:this.state.style,
 danger:this.state.type=="danger"?true:false,
 success:this.state.type=="success"?true:false,
-warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:117}},
+warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:113}},
 
-_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:123}},this.state.text),
+_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:119}},this.state.text),
 this.state.buttonText&&
 _react2.default.createElement(_Button.Button,{
 style:this.state.buttonStyle,
-onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:125}},
+onPress:function onPress(){return _this4.closeToast();},__source:{fileName:_jsxFileName,lineNumber:121}},
 
-_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:129}},
+_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:125}},
 this.state.buttonText)))));
 
 
