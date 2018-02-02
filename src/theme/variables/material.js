@@ -22,10 +22,10 @@ export default {
   // Badge
   badgeBg: "#ED1727",
   badgeColor: "#fff",
-  badgePadding: platform === "ios" ? 3 : 0,
+  badgePadding: 0,
 
   // Button
-  btnFontFamily: platform === "ios" ? "Roboto" : "Roboto_medium",
+  btnFontFamily: "Roboto",
   btnDisabledBg: "#b5b5b5",
   buttonPadding: 6,
   get btnPrimaryBg() {
@@ -59,7 +59,7 @@ export default {
     return this.inverseTextColor;
   },
   get btnTextSize() {
-    return platform === "ios" ? this.fontSizeBase * 1.1 : this.fontSizeBase - 1;
+    return this.fontSizeBase - 1;
   },
   get btnTextSizeLarge() {
     return this.fontSizeBase * 1.5;
@@ -85,10 +85,10 @@ export default {
   CheckboxRadius: 0,
   CheckboxBorderWidth: 2,
   CheckboxPaddingLeft: 2,
-  CheckboxPaddingBottom: platform === "ios" ? 0 : 5,
-  CheckboxIconSize: platform === "ios" ? 18 : 14,
-  CheckboxIconMarginTop: platform === "ios" ? undefined : 1,
-  CheckboxFontSize: platform === "ios" ? 21 : 18,
+  CheckboxPaddingBottom: 5,
+  CheckboxIconSize: 14,
+  CheckboxIconMarginTop: 1,
+  CheckboxFontSize: 18,
   DefaultFontSize: 17,
   checkboxBgColor: "#039BE5",
   checkboxSize: 20,
@@ -123,7 +123,7 @@ export default {
 
   // FooterTab
   tabBarTextColor: "#fff",
-  tabBarTextSize: platform === "ios" ? 14 : 11,
+  tabBarTextSize: 11,
   activeTab: "#fff",
   sTabBarActiveTextColor: "#007aff",
   tabBarActiveTextColor: "#fff",
@@ -131,12 +131,12 @@ export default {
 
   // Header
   toolbarBtnColor: "#fff",
-  toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
-  toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
-  toolbarSearchIconSize: platform === "ios" ? 20 : 23,
+  toolbarDefaultBg: "#3F51B5",
+  toolbarHeight: 56,
+  toolbarSearchIconSize: 23,
   toolbarInputColor: "#fff",
-  searchBarHeight: platform === "ios" ? 30 : 40,
-  searchBarInputHeight: platform === "ios" ? 30 : 50,
+  searchBarHeight: 40,
+  searchBarInputHeight: 50,
   toolbarBtnTextColor: "#fff",
   toolbarDefaultBorder: "#3F51B5",
   iosStatusbar: "light-content",
@@ -153,8 +153,8 @@ export default {
 
   // Icon
   iconFamily: "Ionicons",
-  iconFontSize: platform === "ios" ? 30 : 28,
-  iconHeaderSize: platform === "ios" ? 29 : 24,
+  iconFontSize: 28,
+  iconHeaderSize: 24,
 
   // InputGroup
   inputFontSize: 17,
@@ -174,14 +174,14 @@ export default {
   lineHeightH1: 32,
   lineHeightH2: 27,
   lineHeightH3: 22,
-  lineHeight: platform === "ios" ? 20 : 24,
+  lineHeight: 24,
 
   // List
   listBg: "transparent",
   listBorderColor: "#c9c9c9",
   listDividerBg: "#f4f4f4",
   listBtnUnderlayColor: "#DDD",
-  listItemPadding: platform === "ios" ? 10 : 12,
+  listItemPadding: 12,
   listNoteColor: "#808080",
   listNoteSize: 13,
 
@@ -190,9 +190,9 @@ export default {
   inverseProgressColor: "#1A191B",
 
   // Radio Button
-  radioBtnSize: platform === "ios" ? 25 : 23,
+  radioBtnSize: 23,
   radioSelectedColorAndroid: "#5067FF",
-  radioBtnLineHeight: platform === "ios" ? 29 : 24,
+  radioBtnLineHeight: 24,
   radioColor: this.brandPrimary,
 
   // Segment
@@ -227,7 +227,7 @@ export default {
   },
 
   // Title
-  titleFontfamily: platform === "ios" ? "Roboto" : "Roboto_medium",
+  titleFontfamily: "Roboto",
   titleFontSize: 19,
   subTitleFontSize: 14,
   subtitleColor: "#FFF",
