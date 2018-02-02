@@ -60,29 +60,25 @@ class ToastContainer extends Component {
       textStyle: config.textStyle,
       onClose: config.onClose
     });
+    // If we have a toast already open, cut off its close timeout so that it won't affect *this* toast.
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout)
+    }
     if (config.duration > 0) {
-      setTimeout(() => {
+      this.closeTimeout = setTimeout(() => {
         Animated.timing(this.state.fadeAnim, {
           toValue: 0,
           duration: 200
         }).start();
-        setTimeout(() => {
-          this.setState({
-            modalVisible: false
-          });
-        }, 500);
+        setTimeout(this.closeModal.bind(this), 500);
       }, config.duration);
     } else {
-      setTimeout(() => {
+      this.closeTimeout = setTimeout(() => {
         Animated.timing(this.state.fadeAnim, {
           toValue: 0,
           duration: 200
         }).start();
-        setTimeout(() => {
-          this.setState({
-            modalVisible: false
-          });
-        }, 500);
+        setTimeout(this.closeModal.bind(this), 500);
       }, 1500);
     }
     Animated.timing(this.state.fadeAnim, {
@@ -90,21 +86,21 @@ class ToastContainer extends Component {
       duration: 200
     }).start();
   }
-  closeToast() {
+  closeModal() {
+    this.setState({
+      modalVisible: false
+    });
     const { onClose } = this.state;
-
-    if (onClose && typeof onClose === "function") {
+    if(onClose && typeof onClose === "function") {
       onClose();
     }
+  }
+  closeToast() {
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
       duration: 200
     }).start();
-    setTimeout(() => {
-      this.setState({
-        modalVisible: false
-      });
-    }, 500);
+    setTimeout(this.closeModal.bind(this), 500);
   }
   render() {
     if (this.state.modalVisible) {

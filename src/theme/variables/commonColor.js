@@ -137,7 +137,7 @@ export default {
   toolbarInputColor: platform === "ios" ? "#CECDD2" : "#fff",
   searchBarHeight: platform === "ios" ? 30 : 40,
   searchBarInputHeight: platform === "ios" ? 30 : 50,
-  toolbarBtnTextColor: platform === "ios" ? "#000" : "#fff",
+  toolbarBtnTextColor: platform === "ios" ? "#007aff" : "#fff",
   iosStatusbar: "dark-content",
   toolbarDefaultBorder: platform === "ios" ? "#a7a6ab" : "#3F51B5",
   get statusBarColor() {
@@ -177,7 +177,7 @@ export default {
   lineHeight: platform === "ios" ? 20 : 24,
 
   // List
-  listBg: "#fff",
+  listBg: "transparent",
   listBorderColor: "#c9c9c9",
   listDividerBg: "#f4f4f4",
   listBtnUnderlayColor: "#DDD",
@@ -191,9 +191,9 @@ export default {
 
   // Radio Button
   radioBtnSize: platform === "ios" ? 25 : 23,
-  radioSelectedColorAndroid: "#5067FF",
+  radioSelectedColorAndroid: "#3F51B5",
   radioBtnLineHeight: platform === "ios" ? 29 : 24,
-  radioColor: this.brandPrimary,
+  radioColor: "#007aff",
 
   // Segment
   segmentBackgroundColor: platform === "ios" ? "#F8F8F8" : "#3F51B5",

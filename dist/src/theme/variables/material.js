@@ -177,7 +177,7 @@ lineHeightH3:22,
 lineHeight:platform==="ios"?20:24,
 
 
-listBg:"#fff",
+listBg:"transparent",
 listBorderColor:"#c9c9c9",
 listDividerBg:"#f4f4f4",
 listBtnUnderlayColor:"#DDD",

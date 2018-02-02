@@ -130,7 +130,7 @@ tabBarActiveTextColor:"#2874F0",
 tabActiveBgColor:"#cde1f9",
 
 
-toolbarBtnColor:"#007aff",
+toolbarBtnColor:platform==="ios"?"#007aff":"#fff",
 toolbarDefaultBg:platform==="ios"?"#F8F8F8":"#3F51B5",
 toolbarHeight:platform==="ios"?isIphoneX?88:64:56,
 toolbarSearchIconSize:platform==="ios"?20:23,
@@ -177,7 +177,7 @@ lineHeightH3:22,
 lineHeight:platform==="ios"?20:24,
 
 
-listBg:"#fff",
+listBg:"transparent",
 listBorderColor:"#c9c9c9",
 listDividerBg:"#f4f4f4",
 listBtnUnderlayColor:"#DDD",

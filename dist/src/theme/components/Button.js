@@ -1,259 +1,199 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
+Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
+var darkCommon={
+'NativeBase.Text':{
+color:variables.brandDark},
+
+'NativeBase.Icon':{
+color:variables.brandDark},
+
+'NativeBase.IconNB':{
+color:variables.brandDark}};
+
+
+var lightCommon={
+'NativeBase.Text':{
+color:variables.brandLight},
+
+'NativeBase.Icon':{
+color:variables.brandLight},
+
+'NativeBase.IconNB':{
+color:variables.brandLight}};
+
+
+var primaryCommon={
+'NativeBase.Text':{
+color:variables.btnPrimaryBg},
+
+'NativeBase.Icon':{
+color:variables.btnPrimaryBg},
+
+'NativeBase.IconNB':{
+color:variables.btnPrimaryBg}};
+
+
+var successCommon={
+'NativeBase.Text':{
+color:variables.btnSuccessBg},
+
+'NativeBase.Icon':{
+color:variables.btnSuccessBg},
+
+'NativeBase.IconNB':{
+color:variables.btnSuccessBg}};
+
+
+var infoCommon={
+'NativeBase.Text':{
+color:variables.btnInfoBg},
+
+'NativeBase.Icon':{
+color:variables.btnInfoBg},
+
+'NativeBase.IconNB':{
+color:variables.btnInfoBg}};
+
+
+var warningCommon={
+'NativeBase.Text':{
+color:variables.btnWarningBg},
+
+'NativeBase.Icon':{
+color:variables.btnWarningBg},
+
+'NativeBase.IconNB':{
+color:variables.btnWarningBg}};
+
+
+var dangerCommon={
+'NativeBase.Text':{
+color:variables.btnDangerBg},
+
+'NativeBase.Icon':{
+color:variables.btnDangerBg},
+
+'NativeBase.IconNB':{
+color:variables.btnDangerBg}};
+
 
 var buttonTheme={
 '.disabled':{
 backgroundColor:variables.btnDisabledBg},
 
-'.bordered':{
-'.dark':{
-'NativeBase.Text':{
-color:variables.brandDark},
-
-'NativeBase.Icon':{
-color:variables.brandDark},
-
-'NativeBase.IconNB':{
-color:variables.brandDark},
-
+'.bordered':_extends({
+'.dark':_extends({},
+darkCommon,{
 backgroundColor:'transparent',
 borderColor:variables.brandDark,
-borderWidth:variables.borderWidth*2},
+borderWidth:variables.borderWidth*2}),
 
-'.light':{
-'NativeBase.Text':{
-color:variables.brandLight},
-
-'NativeBase.Icon':{
-color:variables.brandLight},
-
-'NativeBase.IconNB':{
-color:variables.brandLight},
-
+'.light':_extends({},
+lightCommon,{
 backgroundColor:'transparent',
 borderColor:variables.brandLight,
-borderWidth:variables.borderWidth*2},
+borderWidth:variables.borderWidth*2}),
 
-'.primary':{
-'NativeBase.Text':{
-color:variables.btnPrimaryBg},
-
-'NativeBase.Icon':{
-color:variables.btnPrimaryBg},
-
-'NativeBase.IconNB':{
-color:variables.btnPrimaryBg},
-
+'.primary':_extends({},
+primaryCommon,{
 backgroundColor:'transparent',
 borderColor:variables.btnPrimaryBg,
-borderWidth:variables.borderWidth*2},
+borderWidth:variables.borderWidth*2}),
 
-'.success':{
-'NativeBase.Text':{
-color:variables.btnSuccessBg},
-
-'NativeBase.Icon':{
-color:variables.btnSuccessBg},
-
-'NativeBase.IconNB':{
-color:variables.btnSuccessBg},
-
+'.success':_extends({},
+successCommon,{
 backgroundColor:'transparent',
 borderColor:variables.btnSuccessBg,
-borderWidth:variables.borderWidth*2},
+borderWidth:variables.borderWidth*2}),
 
-'.info':{
-'NativeBase.Text':{
-color:variables.btnInfoBg},
-
-'NativeBase.Icon':{
-color:variables.btnInfoBg},
-
-'NativeBase.IconNB':{
-color:variables.btnInfoBg},
-
+'.info':_extends({},
+infoCommon,{
 backgroundColor:'transparent',
 borderColor:variables.btnInfoBg,
-borderWidth:variables.borderWidth*2},
+borderWidth:variables.borderWidth*2}),
 
-'.warning':{
-'NativeBase.Text':{
-color:variables.btnWarningBg},
-
-'NativeBase.Icon':{
-color:variables.btnWarningBg},
-
-'NativeBase.IconNB':{
-color:variables.btnWarningBg},
-
+'.warning':_extends({},
+warningCommon,{
 backgroundColor:'transparent',
 borderColor:variables.btnWarningBg,
-borderWidth:variables.borderWidth*2},
+borderWidth:variables.borderWidth*2}),
 
-'.danger':{
-'NativeBase.Text':{
-color:variables.btnDangerBg},
-
-'NativeBase.Icon':{
-color:variables.btnDangerBg},
-
-'NativeBase.IconNB':{
-color:variables.btnDangerBg},
-
+'.danger':_extends({},
+dangerCommon,{
 backgroundColor:'transparent',
 borderColor:variables.btnDangerBg,
-borderWidth:variables.borderWidth*2},
+borderWidth:variables.borderWidth*2}),
 
 '.disabled':{
 backgroundColor:null,
 borderColor:variables.btnDisabledBg,
 borderWidth:variables.borderWidth*2,
 'NativeBase.Text':{
-color:variables.btnDisabledBg}},
+color:variables.btnDisabledBg}}},
 
 
-'NativeBase.Text':{
-color:variables.btnPrimaryBg},
-
-'NativeBase.Icon':{
-color:variables.btnPrimaryBg},
-
-'NativeBase.IconNB':{
-color:variables.btnPrimaryBg},
-
+primaryCommon,{
 borderWidth:variables.borderWidth*2,
 elevation:null,
 shadowColor:null,
 shadowOffset:null,
 shadowOpacity:null,
 shadowRadius:null,
-backgroundColor:'transparent'},
+backgroundColor:'transparent'}),
 
 
 '.dark':{
-'.bordered':{
-'NativeBase.Text':{
-color:variables.brandDark},
-
-'NativeBase.Icon':{
-color:variables.brandDark},
-
-'NativeBase.IconNB':{
-color:variables.brandDark}},
-
+'.bordered':_extends({},
+darkCommon),
 
 backgroundColor:variables.brandDark},
 
-'.light':{
-'.transparent':{
-'NativeBase.Text':{
-color:variables.brandLight},
+'.light':_extends({
+'.transparent':_extends({},
+lightCommon,{
+backgroundColor:null}),
 
-'NativeBase.Icon':{
-color:variables.brandLight},
+'.bordered':_extends({},
+lightCommon)},
 
-'NativeBase.IconNB':{
-color:variables.brandLight},
-
-backgroundColor:null},
-
-'.bordered':{
-'NativeBase.Text':{
-color:variables.brandLight},
-
-'NativeBase.Icon':{
-color:variables.brandLight},
-
-'NativeBase.IconNB':{
-color:variables.brandLight}},
-
-
-'NativeBase.Text':{
-color:variables.brandDark},
-
-'NativeBase.Icon':{
-color:variables.brandDark},
-
-'NativeBase.IconNB':{
-color:variables.brandDark},
-
-backgroundColor:variables.brandLight},
+darkCommon,{
+backgroundColor:variables.brandLight}),
 
 
 '.primary':{
-'.bordered':{
-'NativeBase.Text':{
-color:variables.btnPrimaryBg},
-
-'NativeBase.Icon':{
-color:variables.btnPrimaryBg},
-
-'NativeBase.IconNB':{
-color:variables.btnPrimaryBg}},
-
+'.bordered':_extends({},
+primaryCommon),
 
 backgroundColor:variables.btnPrimaryBg},
 
 
 '.success':{
-'.bordered':{
-'NativeBase.Text':{
-color:variables.btnSuccessBg},
-
-'NativeBase.Icon':{
-color:variables.btnSuccessBg},
-
-'NativeBase.IconNB':{
-color:variables.btnSuccessBg}},
-
+'.bordered':_extends({},
+successCommon),
 
 backgroundColor:variables.btnSuccessBg},
 
 
 '.info':{
-'.bordered':{
-'NativeBase.Text':{
-color:variables.btnInfoBg},
-
-'NativeBase.Icon':{
-color:variables.btnInfoBg},
-
-'NativeBase.IconNB':{
-color:variables.btnInfoBg}},
-
+'.bordered':_extends({},
+infoCommon),
 
 backgroundColor:variables.btnInfoBg},
 
 
 '.warning':{
-'.bordered':{
-'NativeBase.Text':{
-color:variables.btnWarningBg},
-
-'NativeBase.Icon':{
-color:variables.btnWarningBg},
-
-'NativeBase.IconNB':{
-color:variables.btnWarningBg}},
-
+'.bordered':_extends({},
+warningCommon),
 
 backgroundColor:variables.btnWarningBg},
 
 
 '.danger':{
-'.bordered':{
-'NativeBase.Text':{
-color:variables.btnDangerBg},
-
-'NativeBase.Icon':{
-color:variables.btnDangerBg},
-
-'NativeBase.IconNB':{
-color:variables.btnDangerBg}},
-
+'.bordered':_extends({},
+dangerCommon),
 
 backgroundColor:variables.btnDangerBg},
 
@@ -274,106 +214,41 @@ borderRadius:0},
 borderRadius:variables.borderRadiusLarge},
 
 
-'.transparent':{
+'.transparent':_extends({
 backgroundColor:'transparent',
 elevation:0,
 shadowColor:null,
 shadowOffset:null,
 shadowRadius:null,
-shadowOpacity:null,
+shadowOpacity:null},
+primaryCommon,{
+'.dark':_extends({},
+darkCommon,{
+backgroundColor:null}),
 
-'NativeBase.Text':{
-color:variables.btnPrimaryBg},
+'.danger':_extends({},
+dangerCommon,{
+backgroundColor:null}),
 
-'NativeBase.Icon':{
-color:variables.btnPrimaryBg},
+'.warning':_extends({},
+warningCommon,{
+backgroundColor:null}),
 
-'NativeBase.IconNB':{
-color:variables.btnPrimaryBg},
+'.info':_extends({},
+infoCommon,{
+backgroundColor:null}),
 
-'.dark':{
-'NativeBase.Text':{
-color:variables.brandDark},
+'.primary':_extends({},
+primaryCommon,{
+backgroundColor:null}),
 
-'NativeBase.IconNB':{
-color:variables.brandDark},
+'.success':_extends({},
+successCommon,{
+backgroundColor:null}),
 
-'NativeBase.Icon':{
-color:variables.brandDark},
-
-backgroundColor:null},
-
-'.danger':{
-'NativeBase.Text':{
-color:variables.btnDangerBg},
-
-'NativeBase.IconNB':{
-color:variables.btnDangerBg},
-
-'NativeBase.Icon':{
-color:variables.btnDangerBg},
-
-backgroundColor:null},
-
-'.warning':{
-'NativeBase.Text':{
-color:variables.btnWarningBg},
-
-'NativeBase.IconNB':{
-color:variables.btnWarningBg},
-
-'NativeBase.Icon':{
-color:variables.btnWarningBg},
-
-backgroundColor:null},
-
-'.info':{
-'NativeBase.Text':{
-color:variables.btnInfoBg},
-
-'NativeBase.IconNB':{
-color:variables.btnInfoBg},
-
-'NativeBase.Icon':{
-color:variables.btnInfoBg},
-
-backgroundColor:null},
-
-'.primary':{
-'NativeBase.Text':{
-color:variables.btnPrimaryBg},
-
-'NativeBase.IconNB':{
-color:variables.btnPrimaryBg},
-
-'NativeBase.Icon':{
-color:variables.btnPrimaryBg},
-
-backgroundColor:null},
-
-'.success':{
-'NativeBase.Text':{
-color:variables.btnSuccessBg},
-
-'NativeBase.IconNB':{
-color:variables.btnSuccessBg},
-
-'NativeBase.Icon':{
-color:variables.btnSuccessBg},
-
-backgroundColor:null},
-
-'.light':{
-'NativeBase.Text':{
-color:variables.brandLight},
-
-'NativeBase.IconNB':{
-color:variables.brandLight},
-
-'NativeBase.Icon':{
-color:variables.brandLight},
-
-backgroundColor:null}},
+'.light':_extends({},
+lightCommon,{
+backgroundColor:null})}),
 
 
 
