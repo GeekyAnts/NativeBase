@@ -64,23 +64,10 @@ class ToastContainer extends Component {
     if (this.closeTimeout) {
       clearTimeout(this.closeTimeout)
     }
-    if (config.duration > 0) {
-      this.closeTimeout = setTimeout(() => {
-        Animated.timing(this.state.fadeAnim, {
-          toValue: 0,
-          duration: 200
-        }).start();
-        setTimeout(this.closeModal.bind(this), 500);
-      }, config.duration);
-    } else {
-      this.closeTimeout = setTimeout(() => {
-        Animated.timing(this.state.fadeAnim, {
-          toValue: 0,
-          duration: 200
-        }).start();
-        setTimeout(this.closeModal.bind(this), 500);
-      }, 1500);
-    }
+    const duration = (config.duration > 0) ? config.duration : 1500;
+    // Set the toast to close after the duration.
+    this.closeTimeout = setTimeout(this.closeToast.bind(this), duration);
+    // Fade the toast in now.
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 200
@@ -99,8 +86,7 @@ class ToastContainer extends Component {
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
       duration: 200
-    }).start();
-    setTimeout(this.closeModal.bind(this), 500);
+    }).start(this.closeModal.bind(this));
   }
   render() {
     if (this.state.modalVisible) {
