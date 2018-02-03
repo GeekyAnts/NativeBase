@@ -182,6 +182,7 @@ ref:function ref(_ref){
 _this3.setRefs(_ref);
 _this3._root=_ref;
 },
+enableEmptySections:true,
 onScroll:function onScroll(e){return _this3.onScroll(e);},
 renderRow:function renderRow(rowData,secId,rowId){return(
 _this3.renderRow(rowData,secId,rowId,_this3._rows));},__source:{fileName:_jsxFileName,lineNumber:179}})));
@@ -195,12 +196,12 @@ this.props,{
 ref:function ref(_ref2){return _this3._root=_ref2;},
 enableEmptySections:true,
 dataSource:this.state.dataSource,
-renderRow:this.props.renderRow,__source:{fileName:_jsxFileName,lineNumber:193}})));
+renderRow:this.props.renderRow,__source:{fileName:_jsxFileName,lineNumber:194}})));
 
 
 }
 return(
-_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this3._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:203}}),
+_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this3._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:204}}),
 this.renderChildren()));
 
 

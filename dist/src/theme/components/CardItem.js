@@ -1,7 +1,24 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
+Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var platform=variables.platform;
+var transparentBtnCommon={
+'NativeBase.Text':{
+fontSize:variables.DefaultFontSize-4,
+color:variables.sTabBarActiveTextColor},
+
+'NativeBase.Icon':{
+fontSize:variables.iconFontSize-10,
+color:variables.sTabBarActiveTextColor,
+marginHorizontal:null},
+
+'NativeBase.IconNB':{
+fontSize:variables.iconFontSize-10,
+color:variables.sTabBarActiveTextColor},
+
+paddingVertical:null,
+paddingHorizontal:null};
+
 
 var cardItemTheme={
 'NativeBase.Left':{
@@ -28,23 +45,9 @@ marginLeft:10,
 alignSelf:'center'},
 
 'NativeBase.Button':{
-'.transparent':{
-'NativeBase.Text':{
-fontSize:variables.DefaultFontSize-4,
-color:variables.sTabBarActiveTextColor},
-
-'NativeBase.Icon':{
-fontSize:variables.iconFontSize-10,
-color:variables.sTabBarActiveTextColor,
-marginHorizontal:null},
-
-'NativeBase.IconNB':{
-fontSize:variables.iconFontSize-10,
-color:variables.sTabBarActiveTextColor},
-
-paddingVertical:null,
-paddingHorizontal:null,
-paddingRight:variables.listItemPadding+5}},
+'.transparent':_extends({},
+transparentBtnCommon,{
+paddingRight:variables.listItemPadding+5})},
 
 
 flex:1,
@@ -73,24 +76,10 @@ marginRight:20}},
 
 
 'NativeBase.Button':{
-'.transparent':{
-'NativeBase.Text':{
-fontSize:variables.DefaultFontSize-4,
-color:variables.sTabBarActiveTextColor},
-
-'NativeBase.Icon':{
-fontSize:variables.iconFontSize-10,
-color:variables.sTabBarActiveTextColor,
-marginHorizontal:null},
-
-'NativeBase.IconNB':{
-fontSize:variables.iconFontSize-10,
-color:variables.sTabBarActiveTextColor},
-
-paddingVertical:null,
-paddingHorizontal:null,
+'.transparent':_extends({},
+transparentBtnCommon,{
 paddingRight:variables.listItemPadding+5,
-alignSelf:'stretch'}},
+alignSelf:'stretch'})},
 
 
 flex:1,
@@ -102,22 +91,8 @@ alignItems:'flex-start'},
 alignSelf:null},
 
 'NativeBase.Button':{
-'.transparent':{
-'NativeBase.Text':{
-fontSize:variables.DefaultFontSize-4,
-color:variables.sTabBarActiveTextColor},
-
-'NativeBase.Icon':{
-fontSize:variables.iconFontSize-10,
-color:variables.sTabBarActiveTextColor,
-marginHorizontal:null},
-
-'NativeBase.IconNB':{
-fontSize:variables.iconFontSize-10,
-color:variables.sTabBarActiveTextColor},
-
-paddingVertical:null,
-paddingHorizontal:null},
+'.transparent':_extends({},
+transparentBtnCommon),
 
 alignSelf:null},
 

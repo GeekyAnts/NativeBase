@@ -15,8 +15,8 @@ var childrenType=function childrenType(props,propName,component){
 var error=void 0;
 var prop=props[propName];
 _react2.default.Children.forEach(prop,function(child){
-if(typeof child!=="string"){
-error=new Error(component+" should have only string");
+if(typeof child!=="string"&&typeof child!=="number"){
+error=new Error(component+" should have only string or number");
 }
 });
 return error;
