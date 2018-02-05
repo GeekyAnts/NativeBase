@@ -37,7 +37,7 @@ var variables=this.context.theme?this.context.theme["@@shoutem.theme/themeStyle"
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 return(
-_react2.default.createElement(_reactNative.TouchableOpacity,_extends({ref:function ref(c){return _this2._root=c;}},this.prepareRootProps(variables),{__source:{fileName:_jsxFileName,lineNumber:40}}),
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({accessible:true,accessibilityLabel:this.props.message,ref:function ref(c){return _this2._root=c;}},this.prepareRootProps(variables),{__source:{fileName:_jsxFileName,lineNumber:40}}),
 _react2.default.createElement(_Ionicons2.default,{
 style:{
 color:this.props.checked===true?variables.checkboxTickColor:"transparent",
@@ -55,7 +55,8 @@ CheckBox.propTypes=_extends({},
 _reactNative.TouchableOpacity.propTypes,{
 style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),
 checked:_propTypes2.default.bool,
-onPress:_propTypes2.default.func});
+onPress:_propTypes2.default.func,
+message:_propTypes2.default.string});
 
 
 var StyledCheckBox=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.CheckBox",{},_mapPropsToStyleNames2.default)(CheckBox);exports.
