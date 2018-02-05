@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { TouchableOpacity, Platform, View, TouchableNativeFeedback } from "react-native";
+import { TouchableOpacity, Platform, View, TouchableNativeFeedback, StyleSheet } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import variable from "./../theme/variables/platform";
 import { Text } from "./Text";
@@ -56,20 +56,21 @@ class Button extends Component {
 			);
 		} else {
 			return (
-				<TouchableNativeFeedback
-					ref={c => (this._root = c)}
-					onPress={this.props.onPress}
-					background={
-						this.props.androidRippleColor
-							? TouchableNativeFeedback.Ripple(this.props.androidRippleColor)
-							: TouchableNativeFeedback.Ripple(variables.androidRippleColor)
-					}
-					{...this.prepareRootProps()}
-				>
-					<View {...this.prepareRootProps()}>
-						{children}
-					</View>
-				</TouchableNativeFeedback>
+				<View {...this.prepareRootProps()}>
+					<TouchableNativeFeedback
+						ref={c => (this._root = c)}
+						onPress={this.props.onPress}
+						background={
+							this.props.androidRippleColor
+								? TouchableNativeFeedback.Ripple(this.props.androidRippleColor,true)
+								: TouchableNativeFeedback.Ripple(variables.androidRippleColor,true)
+						}
+					>
+						<View style={styles.childContainer}>
+							{children}
+						</View>
+					</TouchableNativeFeedback>
+				</View>
 			);
 		}
 	}
@@ -92,6 +93,12 @@ Button.propTypes = {
 	small: PropTypes.bool,
 	active: PropTypes.bool,
 };
+const styles = StyleSheet.create({
+	childContainer: {
+		flexShrink:1,
+		flexDirection:'row'
+	},
+  });
 
 const StyledButton = connectStyle("NativeBase.Button", {}, mapPropsToStyleNames)(Button);
 export { StyledButton as Button };
