@@ -261,6 +261,7 @@ declare module "native-base" {
 				disableLeftSwipe?:boolean;
 				disableRightSwipe?:boolean;
 				rightOpenValue?:number;
+				leftOpenValue?: number;
 				renderRightHiddenRow?:(
 					rowData: any,
 					sectionID: string | number,
