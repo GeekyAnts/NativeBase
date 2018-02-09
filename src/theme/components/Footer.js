@@ -14,7 +14,13 @@ export default (variables = variable) => {
           shadowColor: null,
           shadowOffset: null,
           shadowRadius: null,
-          shadowOpacity: null
+          shadowOpacity: null,
+          "NativeBase.Icon": {
+            color: variables.topTabBarActiveTextColor
+          },
+          "NativeBase.IconNB": {
+            color: variables.topTabBarActiveTextColor
+          }
         },
         "NativeBase.Icon": {
           color: variables.topTabBarActiveTextColor
@@ -42,7 +48,13 @@ export default (variables = variable) => {
           shadowColor: null,
           shadowOffset: null,
           shadowRadius: null,
-          shadowOpacity: null
+          shadowOpacity: null,
+          "NativeBase.Icon": {
+            color: variables.topTabBarActiveTextColor
+          },
+          "NativeBase.IconNB": {
+            color: variables.topTabBarActiveTextColor
+          }
         },
         ".full": {
           height: variables.footerHeight,
@@ -66,7 +78,13 @@ export default (variables = variable) => {
           shadowColor: null,
           shadowOffset: null,
           shadowRadius: null,
-          shadowOpacity: null
+          shadowOpacity: null,
+          "NativeBase.Icon": {
+            color: variables.topTabBarActiveTextColor
+          },
+          "NativeBase.IconNB": {
+            color: variables.topTabBarActiveTextColor
+          }
         },
         "NativeBase.Icon": {
           color: variables.topTabBarActiveTextColor
