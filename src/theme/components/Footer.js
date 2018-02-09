@@ -15,12 +15,18 @@ export default (variables = variable) => {
           shadowOffset: null,
           shadowRadius: null,
           shadowOpacity: null,
+          'NativeBase.Text': {
+            color: variables.topTabBarActiveTextColor
+          },
           "NativeBase.Icon": {
             color: variables.topTabBarActiveTextColor
           },
           "NativeBase.IconNB": {
             color: variables.topTabBarActiveTextColor
           }
+        },
+        'NativeBase.Text': {
+          color: variables.topTabBarActiveTextColor
         },
         "NativeBase.Icon": {
           color: variables.topTabBarActiveTextColor
@@ -49,6 +55,9 @@ export default (variables = variable) => {
           shadowOffset: null,
           shadowRadius: null,
           shadowOpacity: null,
+          'NativeBase.Text': {
+            color: variables.topTabBarActiveTextColor
+          },
           "NativeBase.Icon": {
             color: variables.topTabBarActiveTextColor
           },
@@ -60,6 +69,9 @@ export default (variables = variable) => {
           height: variables.footerHeight,
           paddingBottom:variables.footerPaddingBottom,
           flex: 1
+        },
+        'NativeBase.Text': {
+          color: variables.topTabBarActiveTextColor
         },
         "NativeBase.Icon": {
           color: variables.topTabBarActiveTextColor
@@ -79,12 +91,18 @@ export default (variables = variable) => {
           shadowOffset: null,
           shadowRadius: null,
           shadowOpacity: null,
+          'NativeBase.Text': {
+            color: variables.topTabBarActiveTextColor
+          },
           "NativeBase.Icon": {
             color: variables.topTabBarActiveTextColor
           },
           "NativeBase.IconNB": {
             color: variables.topTabBarActiveTextColor
           }
+        },
+        'NativeBase.Text': {
+          color: variables.topTabBarActiveTextColor
         },
         "NativeBase.Icon": {
           color: variables.topTabBarActiveTextColor
