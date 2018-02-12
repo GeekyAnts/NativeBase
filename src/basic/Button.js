@@ -59,7 +59,7 @@ class Button extends Component {
     if (
       Platform.OS === "ios" ||
       variables.androidRipple === false ||
-      Platform["Version"] <= 21
+      Platform["Version"] < 21
     ) {
       return (
         <TouchableOpacity
