@@ -208,7 +208,8 @@ export default (variables = variable) => {
     backgroundColor: "transparent",
     flexDirection: "row",
     alignItems: "center",
-    marginLeft: 2
+    marginLeft: 2,
+    height: variables.inputHeightBase + 15
   };
 
   return itemTheme;
