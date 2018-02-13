@@ -241,7 +241,6 @@ export default {
   deviceWidth,
   deviceHeight,
   isIphoneX,
-  inputGroupRoundedBorderRadius: 30
-
-  DefaultFontSize: 17,
+  inputGroupRoundedBorderRadius: 30,
+  DefaultFontSize: 17
 };

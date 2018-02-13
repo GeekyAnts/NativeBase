@@ -74,13 +74,12 @@ class Button extends Component {
       );
     } else {
       return (
-        <TouchableNativeFeedback
+        <TouchableOpacity
           ref={c => (this._root = c)}
-          onPress={this.props.onPress}
           {...this.prepareRootProps()}
         >
-          <View {...this.prepareRootProps()}>{children}</View>
-        </TouchableNativeFeedback>
+          {children}
+        </TouchableOpacity>
       );
     }
   }

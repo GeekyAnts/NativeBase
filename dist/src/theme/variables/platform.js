@@ -89,7 +89,6 @@ CheckboxPaddingBottom:platform==="ios"?0:5,
 CheckboxIconSize:platform==="ios"?21:14,
 CheckboxIconMarginTop:platform==="ios"?undefined:1,
 CheckboxFontSize:platform==="ios"?23/0.9:18,
-DefaultFontSize:17,
 checkboxBgColor:"#039BE5",
 checkboxSize:20,
 checkboxTickColor:"#fff",
@@ -242,5 +241,6 @@ inputLineHeight:24,
 deviceWidth:deviceWidth,
 deviceHeight:deviceHeight,
 isIphoneX:isIphoneX,
-inputGroupRoundedBorderRadius:30};
+inputGroupRoundedBorderRadius:30,
+DefaultFontSize:17};
 //# sourceMappingURL=platform.js.map

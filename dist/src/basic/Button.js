@@ -74,12 +74,11 @@ children));
 
 }else{
 return(
-_react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
-ref:function ref(c){return _this2._root=c;},
-onPress:this.props.onPress},
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({
+ref:function ref(c){return _this2._root=c;}},
 this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:77}}),
 
-_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:82}}),children)));
+children));
 
 
 }
