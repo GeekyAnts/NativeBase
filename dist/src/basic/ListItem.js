@@ -38,7 +38,7 @@ _react2.default.createElement(_reactNative.View,_extends({},this.props,{__source
 
 }else{
 return(
-_react2.default.createElement(_reactNative.TouchableNativeFeedback,{
+_react2.default.createElement(_reactNative.TouchableOpacity,{
 ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
 onLongPress:this.props.onLongPress,__source:{fileName:_jsxFileName,lineNumber:41}},

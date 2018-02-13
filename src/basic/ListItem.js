@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {
   TouchableHighlight,
   Platform,
-  TouchableNativeFeedback,
+  TouchableOpacity,
   View
 } from "react-native";
 
@@ -38,7 +38,7 @@ class ListItem extends Component {
       );
     } else {
       return (
-        <TouchableNativeFeedback
+        <TouchableOpacity
           ref={c => (this._root = c)}
           onPress={this.props.onPress}
           onLongPress={this.props.onLongPress}
@@ -46,7 +46,7 @@ class ListItem extends Component {
           <View style={{ marginLeft: -17, paddingLeft: 17 }}>
             <View {...this.props}>{this.props.children}</View>
           </View>
-        </TouchableNativeFeedback>
+        </TouchableOpacity>
       );
     }
   }
