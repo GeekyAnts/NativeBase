@@ -326,6 +326,7 @@ declare module "native-base" {
 			footer?: boolean;
 			cardBody?: boolean;
 			button?: boolean;
+			bordered?: boolean;
 		}
 		/**
          * Override React ListViewProperties
@@ -477,6 +478,7 @@ declare module "native-base" {
 			dataArray?: Array<any>;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			ref?: React.Ref<ReactNative.ViewProperties | ReactListViewProperties>;
+			transparents?: boolean;
 		}
 		/**
          * react-native-easy-grid
