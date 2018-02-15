@@ -584,6 +584,8 @@ declare module "native-base" {
              * By default thumbnail is circle in shape.
              */
 			square?: boolean;
+			small?: boolean;
+			large?: boolean;
 		}
 		/**
          * see Widget Spinner.js
