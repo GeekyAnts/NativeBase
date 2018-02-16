@@ -89,11 +89,12 @@ activeOpacity:1,
 style:{
 backgroundColor:"#fff",
 height:this.state.length*80,
+maxHeight:"100%",
 padding:15,
 elevation:4},__source:{fileName:_jsxFileName,lineNumber:87}},
 
 
-_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:96}},this.state.title),
+_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:97}},this.state.title),
 _react2.default.createElement(_reactNative.FlatList,{
 style:{marginHorizontal:-15,marginTop:15},
 data:this.state.items,
@@ -105,8 +106,8 @@ onPress:function onPress(){
 _this2.state.callback(parseInt(index));
 _this2.setState({modalVisible:false});
 },
-style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:103}},
-_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:109}},item)):
+style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:104}},
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:110}},item)):
 
 
 _react2.default.createElement(_ListItem.ListItem,{
@@ -115,23 +116,23 @@ _this2.state.callback(parseInt(index));
 _this2.setState({modalVisible:false});
 },
 style:{borderColor:"transparent"},
-icon:true,__source:{fileName:_jsxFileName,lineNumber:112}},
+icon:true,__source:{fileName:_jsxFileName,lineNumber:113}},
 
-_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:120}},
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:121}},
 _react2.default.createElement(_Icon.Icon,{
 name:item.icon,
 style:{
-color:item.iconColor?item.iconColor:undefined},__source:{fileName:_jsxFileName,lineNumber:121}})),
+color:item.iconColor?item.iconColor:undefined},__source:{fileName:_jsxFileName,lineNumber:122}})),
 
 
 
-_react2.default.createElement(_Body.Body,{style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:128}},
-_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:129}},item.text)),
+_react2.default.createElement(_Body.Body,{style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:129}},
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:130}},item.text)),
 
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:131}}));
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:132}}));
 
 
-},__source:{fileName:_jsxFileName,lineNumber:97}})))));
+},__source:{fileName:_jsxFileName,lineNumber:98}})))));
 
 
 
