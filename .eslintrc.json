@@ -1,9 +1,11 @@
 {
   "parser": "babel-eslint",
-  "indent": [
-    "error",
-    2
-  ],
+  "rules":{
+    "indent": [
+      "error",
+      2
+    ]
+  },
   "plugins": [
     "react",
     "jsx-a11y",
