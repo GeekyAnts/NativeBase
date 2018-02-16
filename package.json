@@ -28,7 +28,7 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
     ]
   },
-  "version": "2.3.8",
+  "version": "2.3.9",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
