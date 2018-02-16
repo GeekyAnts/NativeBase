@@ -193,7 +193,9 @@ export default {
   radioBtnSize: platform === "ios" ? 25 : 23,
   radioSelectedColorAndroid: "#3F51B5",
   radioBtnLineHeight: platform === "ios" ? 29 : 24,
-  radioColor: this.brandPrimary,
+  get radioColor() {
+    return this.brandPrimary;
+  },
 
   // Segment
   segmentBackgroundColor: platform === "ios" ? "#F8F8F8" : "#3F51B5",

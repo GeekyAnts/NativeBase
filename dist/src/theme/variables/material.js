@@ -193,7 +193,9 @@ inverseProgressColor:"#1A191B",
 radioBtnSize:23,
 radioSelectedColorAndroid:"#5067FF",
 radioBtnLineHeight:24,
-radioColor:this.brandPrimary,
+get radioColor(){
+return this.brandPrimary;
+},
 
 
 segmentBackgroundColor:"#3F51B5",
