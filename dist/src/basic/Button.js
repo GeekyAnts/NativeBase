@@ -59,7 +59,7 @@ child);});
 if(
 _reactNative.Platform.OS==="ios"||
 variables.androidRipple===false||
-_reactNative.Platform["Version"]<=21)
+_reactNative.Platform["Version"]<21)
 {
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},

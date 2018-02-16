@@ -126,7 +126,7 @@ declare module "native-base" {
 		/**
          * see Widget Subtitle/index.js
          */
-		interface SubTitle {
+		interface Subtitle {
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 		}
 		/**
@@ -261,6 +261,7 @@ declare module "native-base" {
 				disableLeftSwipe?:boolean;
 				disableRightSwipe?:boolean;
 				rightOpenValue?:number;
+				leftOpenValue?: number;
 				renderRightHiddenRow?:(
 					rowData: any,
 					sectionID: string | number,
@@ -823,7 +824,7 @@ declare module "native-base" {
      */
 	export class Title extends React.Component<NativeBase.Title, any> {}
 
-	export class SubTitle extends React.Component<NativeBase.SubTitle, any> {}
+	export class Subtitle extends React.Component<NativeBase.Subtitle, any> {}
 
 	/**
      * NativeBase.Button

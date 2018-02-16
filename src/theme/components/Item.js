@@ -51,7 +51,8 @@ export default (variables = variable) => {
         width: Platform.OS === "ios" ? null : variables.deviceWidth - 25,
         fontSize: variables.inputFontSize
       },
-      flexDirection: null
+      flexDirection: null,
+      height: variables.inputHeightBase + 15
     },
     ".inlineLabel": {
       "NativeBase.Label": {

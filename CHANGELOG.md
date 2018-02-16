@@ -29,4 +29,3 @@
     -   `ViewStyles` to accept array. PR ([#1529](https://github.com/GeekyAnts/NativeBase/pull/1529)), closes ([#1520](https://github.com/GeekyAnts/NativeBase/issues/1520))
     -   Typescript declaration file missing `ScrollableTab`. PR ([#1519](https://github.com/GeekyAnts/NativeBase/pull/1519)), closes ([#1517](https://github.com/GeekyAnts/NativeBase/issues/1517))
     -   Fixed Header `Title` type. PR ([#1496](https://github.com/GeekyAnts/NativeBase/pull/1496))
-

@@ -97,8 +97,8 @@ class ActionSheetContainer extends Component {
             <FlatList
               style={{ marginHorizontal: -15, marginTop: 15 }}
               data={this.state.items}
-              keyExtractor={(item, index) => index}
-              renderItem={({ index,item }) => {
+              keyExtractor={(item, index) => String(index)}
+              renderItem={({ index, item }) => {
                 return typeof this.state.items[0] === "string" ? (
                   <ListItem
                     onPress={() => {
