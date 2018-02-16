@@ -478,7 +478,7 @@ declare module "native-base" {
 			dataArray?: Array<any>;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			ref?: React.Ref<ReactNative.ViewProperties | ReactListViewProperties>;
-			transparents?: boolean;
+			transparent?: boolean;
 		}
 		/**
          * react-native-easy-grid
