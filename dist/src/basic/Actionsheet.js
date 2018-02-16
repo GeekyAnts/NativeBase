@@ -97,7 +97,7 @@ _react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{file
 _react2.default.createElement(_reactNative.FlatList,{
 style:{marginHorizontal:-15,marginTop:15},
 data:this.state.items,
-keyExtractor:function keyExtractor(item,index){return index;},
+keyExtractor:function keyExtractor(item,index){return String(index);},
 renderItem:function renderItem(_ref){var index=_ref.index,item=_ref.item;
 return typeof _this2.state.items[0]==="string"?
 _react2.default.createElement(_ListItem.ListItem,{
