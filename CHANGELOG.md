@@ -1,31 +1,33 @@
-# Version [2.3.8](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.3.8)
+# Version [2.3.9](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.3.9)
 
 
 ### General
 
--   **Dev-dependencies:** Upgraded `react-native-easy-grid` from 0.1.15 to 0.1.17
+-   **Button:** TouchableNativeFeedback supports Android Platform Version 21 onwards. PR ([#1581](https://github.com/GeekyAnts/NativeBase/pull/1581)), closes ([#1580](https://github.com/GeekyAnts/NativeBase/issues/1580))
 
 
 ### Enhancement Features
 
--   **Button:** Improved Button theme structure to remove code redundancies. PR ([#1515](https://github.com/GeekyAnts/NativeBase/pull/1515)), closes ([#1137](https://github.com/GeekyAnts/NativeBase/issues/1137))
--   **CardItem:** Improved CardItem theme structure to remove code redundancies. PR ([#1516](https://github.com/GeekyAnts/NativeBase/pull/1516))
--   **Icon:** Accept Icon Type as a prop. PR ([#1319](https://github.com/GeekyAnts/NativeBase/pull/1319)), closes ([#1346](https://github.com/GeekyAnts/NativeBase/issues/1346))
--   **List:** Added enable EmptySections flag to List to render empty section headers. PR ([#1339](https://github.com/GeekyAnts/NativeBase/pull/1339))
--   **Toast:** 
-    -   Toast component improvements with `onClose` callback. PR ([#1392](https://github.com/GeekyAnts/NativeBase/pull/1392))
-    -   Fixed Toast timeout bug. *Save the timeout ID when a toast is shown so that we can clear any existing timeout when a new toast is shown so that an old timeout doesn't close a new toast prematurely.* PR ([#1542](https://github.com/GeekyAnts/NativeBase/pull/1542))
--   **TypeScript:** Added optional `SwipeRow` properties to prevent tslint error. PR ([#1507](https://github.com/GeekyAnts/NativeBase/pull/1507))
+-   **Theme:** Fix/remove platform dependency/materialjs. PR ([#1563](https://github.com/GeekyAnts/NativeBase/pull/1563))
+-   **Toast:**
+    -   Refactored ToastContainer to DRY-up calls to `Animated.timing`.
+    -   Save a timeout when fading the toast out by using the `Animated.timing completion` callback.
+    PR ([#1562](https://github.com/GeekyAnts/NativeBase/pull/1562))
+-   **Typescript:**
+    -   Added `thumbnail` prop in ListItem Typescript. PR ([#1583](https://github.com/GeekyAnts/NativeBase/pull/1583))
+    -   Added `small` and `large` properties to Thumbnail. PR ([#1590](https://github.com/GeekyAnts/NativeBase/pull/1590))
+    -   Added `leftOpenValue` property to interface List. PR ([#1569](https://github.com/GeekyAnts/NativeBase/pull/1569)), closes ([#1565](https://github.com/GeekyAnts/NativeBase/issues/1565))
+    -   Added few Card and CardItem types. PR ([#1588](https://github.com/GeekyAnts/NativeBase/pull/1588))
+    -   Added `type` prop to Icon. PR ([#1594](https://github.com/GeekyAnts/NativeBase/pull/1594))
+    -   Added button icon types for ActionSheet options. PR ([#1589](https://github.com/GeekyAnts/NativeBase/pull/1589))
 
 
 ### Bug Fixes
 
--   **Input:** FLoating Label is cropped from top while it floats on top. PR ([#1547](https://github.com/GeekyAnts/NativeBase/pull/1547)), closes ([#1532](https://github.com/GeekyAnts/NativeBase/issues/1532))
--   **H1, H2, H3:** `H1`, `H2`, `H3` now takes number along with string as input. PR ([#1539](https://github.com/GeekyAnts/NativeBase/pull/1539)), closes ([#516](https://github.com/GeekyAnts/NativeBase/issues/516))
--   **Segment:** Fixed segment overlapping with Right element in Header. PR ([#1554](https://github.com/GeekyAnts/NativeBase/pull/1554)), closes ([#1160](https://github.com/GeekyAnts/NativeBase/issues/1160))
--   **Theme:** Fixed menu icon color for Android. PR ([#1538](https://github.com/GeekyAnts/NativeBase/pull/1538)), closes ([#1537](https://github.com/GeekyAnts/NativeBase/issues/1537))
--   **TypeScript:** 
-    -   Added TypeScript support for Picker `placeholderStyle`. PR ([#1546](https://github.com/GeekyAnts/NativeBase/pull/1546)), closes ([#1544](https://github.com/GeekyAnts/NativeBase/issues/1544))
-    -   `ViewStyles` to accept array. PR ([#1529](https://github.com/GeekyAnts/NativeBase/pull/1529)), closes ([#1520](https://github.com/GeekyAnts/NativeBase/issues/1520))
-    -   Typescript declaration file missing `ScrollableTab`. PR ([#1519](https://github.com/GeekyAnts/NativeBase/pull/1519)), closes ([#1517](https://github.com/GeekyAnts/NativeBase/issues/1517))
-    -   Fixed Header `Title` type. PR ([#1496](https://github.com/GeekyAnts/NativeBase/pull/1496))
+-   **ActionSheet:**
+    -   Fixed warning issue. Changed Flatlist keytype from number to string. PR ([#1573](https://github.com/GeekyAnts/NativeBase/pull/1573)), closes ([#1571](https://github.com/GeekyAnts/NativeBase/issues/1571))
+    -   Defined bounds of ActionSheet modal to restrict within the Root container in case of huge list of options for ActionSheet modal. PR ([#1597](https://github.com/GeekyAnts/NativeBase/pull/1597)), closes ([#1595](https://github.com/GeekyAnts/NativeBase/issues/1595))
+-   **Footer:** Styled child components of Footer. PR ([#1582](https://github.com/GeekyAnts/NativeBase/pull/1582)), closes ([#1576](https://github.com/GeekyAnts/NativeBase/issues/1576))
+-   **Input:** Fixed overlapsping of Stack label with Input text field when wrapped without Content. PR ([#1585](https://github.com/GeekyAnts/NativeBase/pull/1585)), closes ([#1533](https://github.com/GeekyAnts/NativeBase/issues/1533))
+-   **Typescript:**
+    -   Changed `SubTitle` to `Subtitle`. PR ([#1586](https://github.com/GeekyAnts/NativeBase/pull/1586))
