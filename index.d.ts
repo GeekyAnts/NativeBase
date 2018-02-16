@@ -1022,7 +1022,7 @@ declare module "native-base" {
 	export class ActionSheet {
 		static show: (
 			configuration: {
-				options: string[];
+				options: string[] | Array<{text: string, icon?: string, iconColor?: string}>;
 				cancelButtonIndex?: number;
 				destructiveButtonIndex?: number;
 				title?: string;
