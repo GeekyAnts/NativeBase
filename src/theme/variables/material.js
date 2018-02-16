@@ -28,54 +28,23 @@ export default {
   btnFontFamily: platform === "ios" ? "Roboto" : "Roboto_medium",
   btnDisabledBg: "#b5b5b5",
   buttonPadding: 6,
-  get btnPrimaryBg() {
-    return this.brandPrimary;
-  },
-  get btnPrimaryColor() {
-    return this.inverseTextColor;
-  },
-  get btnInfoBg() {
-    return this.brandInfo;
-  },
-  get btnInfoColor() {
-    return this.inverseTextColor;
-  },
-  get btnSuccessBg() {
-    return this.brandSuccess;
-  },
-  get btnSuccessColor() {
-    return this.inverseTextColor;
-  },
-  get btnDangerBg() {
-    return this.brandDanger;
-  },
-  get btnDangerColor() {
-    return this.inverseTextColor;
-  },
-  get btnWarningBg() {
-    return this.brandWarning;
-  },
-  get btnWarningColor() {
-    return this.inverseTextColor;
-  },
-  get btnTextSize() {
-    return platform === "ios" ? this.fontSizeBase * 1.1 : this.fontSizeBase - 1;
-  },
-  get btnTextSizeLarge() {
-    return this.fontSizeBase * 1.5;
-  },
-  get btnTextSizeSmall() {
-    return this.fontSizeBase * 0.8;
-  },
-  get borderRadiusLarge() {
-    return this.fontSizeBase * 3.8;
-  },
-  get iconSizeLarge() {
-    return this.iconFontSize * 1.5;
-  },
-  get iconSizeSmall() {
-    return this.iconFontSize * 0.6;
-  },
+
+  btnPrimaryBg: this.brandPrimary,
+  btnPrimaryColor: this.inverseTextColor,
+  btnInfoBg: this.brandInfo,
+  btnInfoColor: this.inverseTextColor,
+  btnSuccessBg: this.brandSuccess,
+  btnSuccessColor: this.inverseTextColor,
+  btnDangerBg: this.brandDanger,
+  btnDangerColor: this.inverseTextColor,
+  btnWarningBg: this.brandWarning,
+  btnWarningColor: this.inverseTextColor,
+  btnTextSize: platform === "ios" ? this.fontSizeBase * 1.1 : this.fontSizeBase - 1,
+  btnTextSizeLarge: this.fontSizeBase * 1.5,
+  btnTextSizeSmall: this.fontSizeBase * 0.8,
+  borderRadiusLarge: this.fontSizeBase * 3.8,
+  iconSizeLarge: this.iconFontSize * 1.5,
+  iconSizeSmall: this.iconFontSize * 0.6,
 
   // Card
   cardDefaultBg: "#fff",
@@ -106,15 +75,9 @@ export default {
   // Font
   fontFamily: "Roboto",
   fontSizeBase: 15,
-  get fontSizeH1() {
-    return this.fontSizeBase * 1.8;
-  },
-  get fontSizeH2() {
-    return this.fontSizeBase * 1.6;
-  },
-  get fontSizeH3() {
-    return this.fontSizeBase * 1.4;
-  },
+  fontSizeH1: this.fontSizeBase * 1.8,
+  fontSizeH2: this.fontSizeBase * 1.6,
+  fontSizeH3: this.fontSizeBase * 1.4,
 
   // Footer
   footerHeight: isIphoneX ? 89 : 55,
@@ -140,16 +103,8 @@ export default {
   toolbarBtnTextColor: "#fff",
   toolbarDefaultBorder: "#3F51B5",
   iosStatusbar: "light-content",
-  get statusBarColor() {
-    return color(this.toolbarDefaultBg)
-      .darken(0.2)
-      .hex();
-  },
-  get darkenHeader() {
-    return color(this.tabBgColor)
-      .darken(0.03)
-      .hex();
-  },
+  statusBarColor: color(this.toolbarDefaultBg).darken(0.2).hex(),
+  darkenHeader: color(this.tabBgColor).darken(0.03).hex(),
 
   // Icon
   iconFamily: "Ionicons",
@@ -162,12 +117,8 @@ export default {
   inputSuccessBorderColor: "#2b8339",
   inputErrorBorderColor: "#ed2f2f",
   inputHeightBase: 50,
-  get inputColor() {
-    return this.textColor;
-  },
-  get inputColorPlaceholder() {
-    return "#575757";
-  },
+  inputColor: this.textColor,
+  inputColorPlaceholder: "#575757",
 
   // Line Height
   btnLineHeight: 19,
@@ -222,9 +173,7 @@ export default {
   textColor: "#000",
   inverseTextColor: "#fff",
   noteFontSize: 14,
-  get defaultTextColor() {
-    return this.textColor;
-  },
+  defaultTextColor: this.textColor,
 
   // Title
   titleFontfamily: platform === "ios" ? "Roboto" : "Roboto_medium",
