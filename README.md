@@ -83,6 +83,14 @@ npm install @expo/vector-icons --save
 ```
 <br />
 
+**c. Use the Ignite NativeBase Boilerplate**
+
+Ignite is a tool for easily creating React Native apps using boilerplates. <br />
+Provided you have the [Ignite CLI](https://github.com/infinitered/ignite) installed, launch a new Ignite Nativebase project using the NativeBase boilerplate:
+```
+ignite new [appname] --boilerplate native-base-boilerplate
+```
+
 **Note** <br />
 [NativeBase](https://nativebase.io/) uses some custom fonts that can be loaded using **loadAsync** function. Check out [this](https://docs.expo.io/versions/v15.0.0/sdk/font.html#expofontloadasyncname-url) expo link.
 <br />
