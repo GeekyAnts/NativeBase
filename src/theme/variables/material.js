@@ -191,7 +191,7 @@ export default {
 
   // Radio Button
   radioBtnSize: 23,
-  radioSelectedColorAndroid: "#5067FF",
+  radioSelectedColorAndroid: "#3F51B5",
   radioBtnLineHeight: 24,
   get radioColor() {
     return this.brandPrimary;
