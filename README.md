@@ -109,32 +109,16 @@ You can run the following command to create the boilerplate, provided you have [
 ```
 ignite new appname --boilerplate native-base-boilerplate
 ```
-
-You can also change the React Native version.
-
-```sh
-ignite new appname --react-native-version 0.46.4 --boilerplate native-base-boilerplate
-```
-
-By default we'll ask you some questions during install as to which features you'd like.  If you just want them all, you can skip the questions:
-
-```sh
-ignite new appname --max --boilerplate native-base-boilerplate
-```
-
-If you want very few of these extras:
-
-```sh
-ignite new appname --min --boilerplate native-base-boilerplate
-```
-After running any one of the above commands, go to app folder
-
+Go to app location
 ```sh
 cd appname
 ```
-Run your app
+For iOS run
 ```sh
 react-native run-ios
+```
+For Android run
+```sh
 react-native run-android
 ```
 Refer [ignite-native-base-boilerplate](https://github.com/GeekyAnts/ignite-native-base-boilerplate) page for additional information
