@@ -25,7 +25,7 @@ class ListItem extends Component {
       Platform.OS === "web" ||
       variables.androidRipple === false ||
       (!this.props.onPress && !this.props.onLongPress) ||
-      Platform.Version <= 21
+      Platform.Version < 21
     ) {
       return (
         <TouchableHighlight
