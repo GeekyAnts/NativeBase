@@ -713,6 +713,8 @@ declare module "native-base" {
 		}
 
 		interface Item {
+			value:any,
+			label:string,	
 			fixedLabel?: boolean;
 			floatingLabel?: boolean;
 			inlineLabel?: boolean;
