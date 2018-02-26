@@ -24,7 +24,8 @@ IconNB=function(_Component){_inherits(IconNB,_Component);function IconNB(){_clas
 
 iconType){
 if(iconType==undefined&&this.context.theme){
-iconType=this.context.theme["@@shoutem.theme/themeStyle"].variables.iconFamily;
+iconType=this.context.theme["@@shoutem.theme/themeStyle"].variables.
+iconFamily;
 }
 switch(iconType){
 case"Ionicons":
@@ -32,6 +33,9 @@ this.Icon=_Ionicons2.default;
 break;
 case"Entypo":
 this.Icon=_Entypo2.default;
+break;
+case"Feather":
+this.Icon=_Feather2.default;
 break;
 case"FontAwesome":
 this.Icon=_FontAwesome2.default;
@@ -70,16 +74,34 @@ this.setIcon(nextProps.type);
 }},{key:"render",value:function render()
 
 {var _this2=this;
-return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:73}}));
+return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:77}}));
 }}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_propTypes2.default.object};
 
 
 IconNB.propTypes={
-style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),
-type:_propTypes2.default.oneOf(["Ionicons","Entypo","FontAwesome","Foundation","MaterialIcons","MaterialCommunityIcons","Octicons","Zocial","SimpleLineIcons"])};
+style:_propTypes2.default.oneOfType([
+_propTypes2.default.object,
+_propTypes2.default.number,
+_propTypes2.default.array]),
+
+type:_propTypes2.default.oneOf([
+"Ionicons",
+"Entypo",
+"FontAwesome",
+"Foundation",
+"MaterialIcons",
+"MaterialCommunityIcons",
+"Octicons",
+"Zocial",
+"SimpleLineIcons"])};
 
 
-var StyledIconNB=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.IconNB",{},_mapPropsToStyleNames2.default)(IconNB);exports.
+
+var StyledIconNB=(0,_nativeBaseShoutemTheme.connectStyle)(
+"NativeBase.IconNB",
+{},_mapPropsToStyleNames2.default)(
+
+IconNB);exports.
 
 IconNB=StyledIconNB;
 //# sourceMappingURL=IconNB.js.map
