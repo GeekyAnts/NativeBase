@@ -58,6 +58,7 @@ child);});
 
 if(
 _reactNative.Platform.OS==="ios"||
+_reactNative.Platform.OS==="web"||
 variables.androidRipple===false||
 _reactNative.Platform["Version"]<21)
 {
@@ -66,7 +67,7 @@ _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
 this.prepareRootProps(),{
 ref:function ref(c){return _this2._root=c;},
 activeOpacity:
-this.props.activeOpacity>0?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:65}}),
+this.props.activeOpacity>0?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:66}}),
 
 
 children));
@@ -77,9 +78,9 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
 ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress},
-this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:77}}),
+this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:78}}),
 
-_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:82}}),children)));
+_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:83}}),children)));
 
 
 }
