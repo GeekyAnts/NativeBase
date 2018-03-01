@@ -187,7 +187,7 @@ class PickerNB extends Component {
             <Content>
               <FlatList
                 data={this.state.dataSource}
-                keyExtractor={(item, index) => index}
+                keyExtractor={(item, index) => String(index)}
                 renderItem={({ item }) => <ListItem
                   selected={item.props.value === this.props.selectedValue}
                   button
