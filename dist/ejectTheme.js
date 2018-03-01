@@ -28,7 +28,7 @@ path.join(process.cwd(),"native-base-theme"),
 "  );",
 "}",
 "",
-"Head over to the docs (http://docs.nativebase.io/CUSTOMIZE.html#Customize) for detailed information on customization"],
+"Head over to the docs (http://docs.nativebase.io/Customize.html#Customize) for detailed information on customization"],
 
 {
 color:"yellow",
