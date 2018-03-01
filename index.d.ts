@@ -763,7 +763,14 @@ declare module "native-base" {
             preview?: boolean;
             previewDuration?: number;
             directionalDistanceChangeThreshold?: number;
-            swipeToOpenPercent?: number;
+			swipeToOpenPercent?: number;
+			stopLeftSwipe?: number;
+			stopRightSwipe?: number;
+			onRowOpen?: Function;
+			onRowClose?: Function;
+			left?: React.ReactElement<any>;
+			body?: React.ReactElement<any>;
+			right?: React.ReactElement<any>;
         }
 	}
 
