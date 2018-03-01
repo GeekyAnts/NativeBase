@@ -87,6 +87,7 @@ _propTypes2.default.array]),
 type:_propTypes2.default.oneOf([
 "Ionicons",
 "Entypo",
+"Feather",
 "FontAwesome",
 "Foundation",
 "MaterialIcons",
