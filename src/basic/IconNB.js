@@ -87,6 +87,7 @@ IconNB.propTypes = {
   type: PropTypes.oneOf([
     "Ionicons",
     "Entypo",
+    "Feather",
     "FontAwesome",
     "Foundation",
     "MaterialIcons",
