@@ -20,6 +20,7 @@ declare module "native-base" {
 			headerBackButtonText?: string;
 			placeholder?: string;
 			placeholderStyle?: ReactNative.TextStyle;
+			textStyle?: ReactNative.TextStyle;
 		}
 
 		interface H1 extends ReactNative.TextProperties {}
