@@ -560,7 +560,7 @@ declare module "native-base" {
          */
 		interface Icon {
 			name: string;
-			type?: "Ionicons" | "Entypo" | "FontAwesome" | "Foundation" | "MaterialIcons" | "MaterialCommunityIcons" | "Octicons" | "Zocial" | "SimpleLineIcons";
+			type?: "Ionicons" | "Entypo" | "FontAwesome" | "Foundation" | "MaterialIcons" | "MaterialCommunityIcons" | "Octicons" | "Zocial" | "SimpleLineIcons"| "EvilIcons";
 			// TODO position attribute of ReactNative.FlexStyle hasn't another position values without "absolute" and "relative"
 			style?: any;
 			onPress?: (e?: any) => any;

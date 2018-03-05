@@ -28,38 +28,41 @@ class IconNB extends Component {
         .iconFamily;
     }
     switch (iconType) {
-    case "Ionicons":
-      this.Icon = Ionicons;
-      break;
-    case "Entypo":
-      this.Icon = Entypo;
-      break;
-    case "Feather":
-      this.Icon = Feather;
-      break;
-    case "FontAwesome":
-      this.Icon = FontAwesome;
-      break;
-    case "Foundation":
-      this.Icon = Foundation;
-      break;
-    case "MaterialIcons":
-      this.Icon = MaterialIcons;
-      break;
-    case "MaterialCommunityIcons":
-      this.Icon = MaterialCommunityIcons;
-      break;
-    case "Octicons":
-      this.Icon = Octicons;
-      break;
-    case "Zocial":
-      this.Icon = Zocial;
-      break;
-    case "SimpleLineIcons":
-      this.Icon = SimpleLineIcons;
-      break;
-    default:
-      this.Icon = Ionicons;
+      case "Ionicons":
+        this.Icon = Ionicons;
+        break;
+      case "Entypo":
+        this.Icon = Entypo;
+        break;
+      case "Feather":
+        this.Icon = Feather;
+        break;
+      case "FontAwesome":
+        this.Icon = FontAwesome;
+        break;
+      case "Foundation":
+        this.Icon = Foundation;
+        break;
+      case "MaterialIcons":
+        this.Icon = MaterialIcons;
+        break;
+      case "MaterialCommunityIcons":
+        this.Icon = MaterialCommunityIcons;
+        break;
+      case "Octicons":
+        this.Icon = Octicons;
+        break;
+      case "Zocial":
+        this.Icon = Zocial;
+        break;
+      case "SimpleLineIcons":
+        this.Icon = SimpleLineIcons;
+        break;
+      case "EvilIcons":
+        this.Icon = EvilIcons;
+        break;
+      default:
+        this.Icon = Ionicons;
     }
   }
 
@@ -94,7 +97,8 @@ IconNB.propTypes = {
     "MaterialCommunityIcons",
     "Octicons",
     "Zocial",
-    "SimpleLineIcons"
+    "SimpleLineIcons",
+    "EvilIcons"
   ])
 };
 
