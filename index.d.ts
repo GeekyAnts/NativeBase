@@ -605,6 +605,7 @@ declare module "native-base" {
 			checked?: boolean;
 			color?: string;
 			onPress?: Function;
+			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 		}
 		/**
          * see Widget CheckBox.js
