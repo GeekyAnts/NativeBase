@@ -28,11 +28,11 @@ class IconNB extends Component {
         .iconFamily;
     }
     switch (iconType) {
-      case "Ionicons":
-        this.Icon = Ionicons;
-        break;
       case "Entypo":
         this.Icon = Entypo;
+        break;
+      case "EvilIcons":
+        this.Icon = EvilIcons;
         break;
       case "Feather":
         this.Icon = Feather;
@@ -43,23 +43,23 @@ class IconNB extends Component {
       case "Foundation":
         this.Icon = Foundation;
         break;
-      case "MaterialIcons":
-        this.Icon = MaterialIcons;
+      case "Ionicons":
+        this.Icon = Ionicons;
         break;
       case "MaterialCommunityIcons":
         this.Icon = MaterialCommunityIcons;
         break;
+      case "MaterialIcons":
+        this.Icon = MaterialIcons;
+        break;
       case "Octicons":
         this.Icon = Octicons;
-        break;
-      case "Zocial":
-        this.Icon = Zocial;
         break;
       case "SimpleLineIcons":
         this.Icon = SimpleLineIcons;
         break;
-      case "EvilIcons":
-        this.Icon = EvilIcons;
+      case "Zocial":
+        this.Icon = Zocial;
         break;
       default:
         this.Icon = Ionicons;
@@ -88,17 +88,17 @@ IconNB.propTypes = {
     PropTypes.array
   ]),
   type: PropTypes.oneOf([
-    "Ionicons",
     "Entypo",
+    "EvilIcons",
     "Feather",
     "FontAwesome",
     "Foundation",
-    "MaterialIcons",
+    "Ionicons",
     "MaterialCommunityIcons",
+    "MaterialIcons",
     "Octicons",
-    "Zocial",
     "SimpleLineIcons",
-    "EvilIcons"
+    "Zocial"
   ])
 };
 
