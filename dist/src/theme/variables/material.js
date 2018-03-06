@@ -96,7 +96,7 @@ checkboxTickColor:"#fff",
 
 
 brandPrimary:"#3F51B5",
-brandInfo:"#3F57D3",
+brandInfo:"#62B1F6",
 brandSuccess:"#5cb85c",
 brandDanger:"#d9534f",
 brandWarning:"#f0ad4e",
@@ -122,7 +122,7 @@ footerDefaultBg:"#3F51B5",
 footerPaddingBottom:isIphoneX?34:0,
 
 
-tabBarTextColor:"#fff",
+tabBarTextColor:"#bfc6ea",
 tabBarTextSize:11,
 activeTab:"#fff",
 sTabBarActiveTextColor:"#007aff",
@@ -135,8 +135,8 @@ toolbarDefaultBg:"#3F51B5",
 toolbarHeight:56,
 toolbarSearchIconSize:23,
 toolbarInputColor:"#fff",
-searchBarHeight:40,
-searchBarInputHeight:50,
+searchBarHeight:platform==="ios"?30:40,
+searchBarInputHeight:platform==="ios"?40:50,
 toolbarBtnTextColor:"#fff",
 toolbarDefaultBorder:"#3F51B5",
 iosStatusbar:"light-content",
@@ -191,7 +191,7 @@ inverseProgressColor:"#1A191B",
 
 
 radioBtnSize:23,
-radioSelectedColorAndroid:"#5067FF",
+radioSelectedColorAndroid:"#3F51B5",
 radioBtnLineHeight:24,
 get radioColor(){
 return this.brandPrimary;

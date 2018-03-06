@@ -5,6 +5,14 @@ var _platform=require("./../variables/platform");var _platform2=_interopRequireD
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var platform=variables.platform;
+var selectedStyle={
+"NativeBase.Text":{
+color:variables.brandPrimary},
+
+"NativeBase.Icon":{
+color:variables.brandPrimary}};
+
+
 
 var listItemTheme={
 "NativeBase.InputGroup":{
@@ -27,7 +35,8 @@ borderBottomColor:"transparent"},
 "NativeBase.Icon":{
 backgroundColor:"transparent",
 color:variables.dropdownLinkColor,
-fontSize:platform==="ios"?
+fontSize:
+platform==="ios"?
 variables.iconFontSize-10:
 variables.iconFontSize-5,
 alignItems:"center",
@@ -84,12 +93,10 @@ borderBottomWidth:platform==="ios"?variables.borderWidth:null,
 marginLeft:null,
 padding:variables.listItemPadding,
 paddingLeft:variables.listItemPadding+5,
-paddingTop:platform==="ios"?
-variables.listItemPadding+25:
-undefined,
-paddingBottom:platform==="android"?
-variables.listItemPadding+20:
-undefined,
+paddingTop:
+platform==="ios"?variables.listItemPadding+25:undefined,
+paddingBottom:
+platform==="android"?variables.listItemPadding+20:undefined,
 flexDirection:"row",
 borderColor:variables.listBorderColor,
 "NativeBase.Text":{
@@ -106,15 +113,17 @@ backgroundColor:variables.listDividerBg,
 flexDirection:"row",
 borderColor:variables.listBorderColor},
 
-".selected":{
-"NativeBase.Left":{
-"NativeBase.Text":{
-color:variables.brandPrimary}},
+".selected":_extends({
+"NativeBase.Left":_extends({},
+selectedStyle),
 
+"NativeBase.Body":_extends({},
+selectedStyle),
 
-"NativeBase.Text":{
-color:variables.brandPrimary}},
+"NativeBase.Right":_extends({},
+selectedStyle)},
 
+selectedStyle),
 
 "NativeBase.Left":{
 "NativeBase.Body":{
@@ -214,7 +223,7 @@ flex:0.28},
 color:variables.listNoteColor,
 fontWeight:"200"},
 
-alignSelf:'center'},
+alignSelf:"center"},
 
 
 ".last":{
