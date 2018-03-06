@@ -110,11 +110,27 @@ export default (variables = variable) => {
       "NativeBase.Left": {
         "NativeBase.Text": {
           color: variables.brandPrimary
-        }
+        },
+        "NativeBase.Icon": {
+          color: variables.brandPrimary
+        },
       },
       "NativeBase.Text": {
         color: variables.brandPrimary
-      }
+      },
+      "NativeBase.Body": {
+        "NativeBase.Text": {
+          color: variables.brandPrimary
+        }
+      },
+      "NativeBase.Right": {
+        "NativeBase.Text": {
+          color: variables.brandPrimary
+        },
+        "NativeBase.Icon": {
+          color: variables.brandPrimary
+        },
+      },
     },
     "NativeBase.Left": {
       "NativeBase.Body": {
@@ -391,7 +407,13 @@ export default (variables = variable) => {
       justifyContent: "center"
     },
     ".noBorder": {
-      borderBottomWidth: null
+      borderBottomWidth: null,
+      "NativeBase.Body": {
+        borderBottomWidth: null,
+      },
+      "NativeBase.Right": {
+        borderBottomWidth: null,
+      }
     },
     alignItems: "center",
     flexDirection: "row",
