@@ -86,9 +86,9 @@ export default {
   CheckboxBorderWidth: 2,
   CheckboxPaddingLeft: 2,
   CheckboxPaddingBottom: 5,
-  CheckboxIconSize: 14,
+  CheckboxIconSize: 16,
   CheckboxIconMarginTop: 1,
-  CheckboxFontSize: 18,
+  CheckboxFontSize: 17,
   DefaultFontSize: 17,
   checkboxBgColor: "#039BE5",
   checkboxSize: 20,
@@ -96,7 +96,7 @@ export default {
 
   // Color
   brandPrimary: "#3F51B5",
-  brandInfo: "#3F57D3",
+  brandInfo: "#62B1F6",
   brandSuccess: "#5cb85c",
   brandDanger: "#d9534f",
   brandWarning: "#f0ad4e",
@@ -122,7 +122,7 @@ export default {
   footerPaddingBottom: 0,
 
   // FooterTab
-  tabBarTextColor: "#fff",
+  tabBarTextColor: "#bfc6ea",
   tabBarTextSize: 11,
   activeTab: "#fff",
   sTabBarActiveTextColor: "#007aff",
@@ -135,8 +135,8 @@ export default {
   toolbarHeight: 56,
   toolbarSearchIconSize: 23,
   toolbarInputColor: "#fff",
-  searchBarHeight: 40,
-  searchBarInputHeight: 50,
+  searchBarHeight: platform === "ios" ? 30 : 40,
+  searchBarInputHeight: platform === "ios" ? 40 : 50,
   toolbarBtnTextColor: "#fff",
   toolbarDefaultBorder: "#3F51B5",
   iosStatusbar: "light-content",
@@ -191,7 +191,7 @@ export default {
 
   // Radio Button
   radioBtnSize: 23,
-  radioSelectedColorAndroid: "#5067FF",
+  radioSelectedColorAndroid: "#3F51B5",
   radioBtnLineHeight: 24,
   get radioColor() {
     return this.brandPrimary;

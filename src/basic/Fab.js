@@ -8,7 +8,8 @@ import {
   Dimensions,
   TouchableOpacity,
   TouchableNativeFeedback,
-  View
+  View,
+  StyleSheet
 } from "react-native";
 import { Icon } from "./Icon";
 import { IconNB } from "./IconNB";
@@ -211,7 +212,7 @@ class Fab extends Component {
           : i * 50 + 50
     };
 
-    return _.merge(this.getInitialStyle().buttonStyle, child.props.style, type);
+    return _.merge(this.getInitialStyle().buttonStyle, StyleSheet.flatten(child.props.style), type);
   }
   prepareButtonProps(child) {
     var inp = _.clone(child.props);

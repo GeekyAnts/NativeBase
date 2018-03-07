@@ -6,10 +6,6 @@ Essential cross-platform UI components for React Native
 
  Updated docs [here!](https://docs.nativebase.io/)
 
- **For people having trouble upgrading to 2.1.5, check [this.](https://github.com/GeekyAnts/NativeBase/issues/928)**
-
- ### Use v2.2.1 with latest react-native version(0.46). Older versions may break.
-
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/screenshots/iOS.gif)
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/screenshots/Android.gif)
 
@@ -98,6 +94,29 @@ async componentWillMount() {
 Check out the [KitchenSink](https://expo.io/@geekyants/nativebasekitchensink) with CRNA for an example of the implementation.<br />
 Find the [KitchenSink repo here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/CRNA)
 
+**c. Setup with ignite-native-base-boilerplate**
+
+**Quick Start**
+
+You can run the following command to create the boilerplate, provided you have [Ignite CLI](https://github.com/infinitered/ignite) installed.
+
+```
+ignite new appname --boilerplate native-base-boilerplate
+```
+Go to app location
+```sh
+cd appname
+```
+For iOS run
+```sh
+react-native run-ios
+```
+For Android run
+```sh
+react-native run-android
+```
+Refer [ignite-native-base-boilerplate](https://github.com/GeekyAnts/ignite-native-base-boilerplate) page for additional information
+
 ## 5. Components
 
 [NativeBase](https://nativebase.io/) is made from effective building blocks referred to as components. The Components are constructed in pure [React Native](https://github.com/facebook/react-native) platform along with some JavaScript functionality with rich set of customisable properties. These components allow you to quickly build the perfect interface.
@@ -152,3 +171,4 @@ Go through [NativeBase Docs](https://docs.nativebase.io/) to play with [NativeBa
 ## 12. About the creators
 
 We are [GeekyAnts](https://geekyants.com/), a startup based in Bangalore, India with 50+ developers in strength. We have been very active in the React / React Native community where we have developed [StrapUI](https://www.strapui.com/) and [StartReact](https://startreact.com/). Our other products include [StartLaravel](http://startlaravel.com) and [StartAngular](http://startangular.com).
+
