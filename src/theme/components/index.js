@@ -228,7 +228,7 @@ export default (variables = variable) => {
           }
         }
       }
-      if (style && typeof style === "object") {
+      if (style && typeof style === "object" && styleName !== "fontVariant") {
         cssifyTheme(parent, style, styleName);
       }
     });
