@@ -21,7 +21,7 @@ class Icon extends Component {
 		const platformStyle = variables.platformStyle;
 		const platform = variables.platform;
 
-		if (variables.iconFamily === "Ionicons") {
+		if ((this.props.type || variables.iconFamily) === "Ionicons") {
 			if (typeof ic[this.props.name] !== "object") {
 				return this.props.name;
 			} else if (typeof ic[this.props.name] === "object") {
