@@ -228,7 +228,7 @@ grandparent[styleName][parentKey]=style;
 }
 }
 }
-if(style&&typeof style==="object"){
+if(style&&typeof style==="object"&&styleName!=="fontVariant"){
 cssifyTheme(parent,style,styleName);
 }
 });

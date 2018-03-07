@@ -187,7 +187,7 @@ this.renderHeader(),
 _react2.default.createElement(_Content.Content,{__source:{fileName:_jsxFileName,lineNumber:187}},
 _react2.default.createElement(_reactNative.FlatList,{
 data:this.state.dataSource,
-keyExtractor:function keyExtractor(item,index){return index;},
+keyExtractor:function keyExtractor(item,index){return String(index);},
 renderItem:function renderItem(_ref){var item=_ref.item;return _react2.default.createElement(_ListItem.ListItem,{
 selected:item.props.value===_this5.props.selectedValue,
 button:true,

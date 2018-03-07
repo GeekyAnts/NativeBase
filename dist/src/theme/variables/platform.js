@@ -7,7 +7,7 @@ var deviceWidth=_reactNative.Dimensions.get("window").width;
 var platform=_reactNative.Platform.OS;
 var platformStyle=undefined;
 var isIphoneX=
-platform==="ios"&&deviceHeight===812&&deviceWidth===375;exports.default=
+platform==="ios"&&(deviceHeight===812||deviceWidth===812);exports.default=
 
 {
 platformStyle:platformStyle,
@@ -117,9 +117,9 @@ return this.fontSizeBase*1.4;
 },
 
 
-footerHeight:isIphoneX?89:55,
+footerHeight:55,
 footerDefaultBg:platform==="ios"?"#F8F8F8":"#3F51B5",
-footerPaddingBottom:isIphoneX?34:0,
+footerPaddingBottom:0,
 
 
 tabBarTextColor:platform==="ios"?"#6b6b6b":"#b3c7f9",
@@ -132,7 +132,7 @@ tabActiveBgColor:platform==="ios"?"#cde1f9":"#3F51B5",
 
 toolbarBtnColor:platform==="ios"?"#007aff":"#fff",
 toolbarDefaultBg:platform==="ios"?"#F8F8F8":"#3F51B5",
-toolbarHeight:platform==="ios"?isIphoneX?88:64:56,
+toolbarHeight:platform==="ios"?64:56,
 toolbarSearchIconSize:platform==="ios"?20:23,
 toolbarInputColor:platform==="ios"?"#CECDD2":"#fff",
 searchBarHeight:platform==="ios"?30:40,

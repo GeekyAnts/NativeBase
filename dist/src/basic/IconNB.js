@@ -28,11 +28,11 @@ iconType=this.context.theme["@@shoutem.theme/themeStyle"].variables.
 iconFamily;
 }
 switch(iconType){
-case"Ionicons":
-this.Icon=_Ionicons2.default;
-break;
 case"Entypo":
 this.Icon=_Entypo2.default;
+break;
+case"EvilIcons":
+this.Icon=_EvilIcons2.default;
 break;
 case"Feather":
 this.Icon=_Feather2.default;
@@ -43,20 +43,23 @@ break;
 case"Foundation":
 this.Icon=_Foundation2.default;
 break;
-case"MaterialIcons":
-this.Icon=_MaterialIcons2.default;
+case"Ionicons":
+this.Icon=_Ionicons2.default;
 break;
 case"MaterialCommunityIcons":
 this.Icon=_MaterialCommunityIcons2.default;
 break;
+case"MaterialIcons":
+this.Icon=_MaterialIcons2.default;
+break;
 case"Octicons":
 this.Icon=_Octicons2.default;
 break;
-case"Zocial":
-this.Icon=_Zocial2.default;
-break;
 case"SimpleLineIcons":
 this.Icon=_SimpleLineIcons2.default;
+break;
+case"Zocial":
+this.Icon=_Zocial2.default;
 break;
 default:
 this.Icon=_Ionicons2.default;}
@@ -74,7 +77,7 @@ this.setIcon(nextProps.type);
 }},{key:"render",value:function render()
 
 {var _this2=this;
-return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:77}}));
+return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:80}}));
 }}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_propTypes2.default.object};
 
 
@@ -85,16 +88,17 @@ _propTypes2.default.number,
 _propTypes2.default.array]),
 
 type:_propTypes2.default.oneOf([
-"Ionicons",
 "Entypo",
+"EvilIcons",
 "Feather",
 "FontAwesome",
 "Foundation",
-"MaterialIcons",
+"Ionicons",
 "MaterialCommunityIcons",
+"MaterialIcons",
 "Octicons",
-"Zocial",
-"SimpleLineIcons"])};
+"SimpleLineIcons",
+"Zocial"])};
 
 
 
