@@ -560,7 +560,7 @@ declare module "native-base" {
          */
 		interface Icon {
 			name: string;
-			type?: "Ionicons" | "Entypo" | "FontAwesome" | "Foundation" | "MaterialIcons" | "MaterialCommunityIcons" | "Octicons" | "Zocial" | "SimpleLineIcons";
+			type?: "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial" ;
 			// TODO position attribute of ReactNative.FlexStyle hasn't another position values without "absolute" and "relative"
 			style?: any;
 			onPress?: (e?: any) => any;
@@ -605,6 +605,7 @@ declare module "native-base" {
 			checked?: boolean;
 			color?: string;
 			onPress?: Function;
+			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 		}
 		/**
          * see Widget CheckBox.js
@@ -763,7 +764,14 @@ declare module "native-base" {
             preview?: boolean;
             previewDuration?: number;
             directionalDistanceChangeThreshold?: number;
-            swipeToOpenPercent?: number;
+			swipeToOpenPercent?: number;
+			stopLeftSwipe?: number;
+			stopRightSwipe?: number;
+			onRowOpen?: Function;
+			onRowClose?: Function;
+			left?: React.ReactElement<any>;
+			body?: React.ReactElement<any>;
+			right?: React.ReactElement<any>;
         }
 	}
 

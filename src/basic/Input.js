@@ -15,11 +15,11 @@ class Input extends NativeBaseComponent {
 					this._root = c;
 				}}
 				editable={this.props.disabled ? false : true}
-				{...this.props}
+				underlineColorAndroid="rgba(0,0,0,0)"
 				placeholderTextColor={
 					this.props.placeholderTextColor ? this.props.placeholderTextColor : variables.inputColorPlaceholder
 				}
-				underlineColorAndroid="rgba(0,0,0,0)"
+				{...this.props}
 			/>
 		);
 	}
