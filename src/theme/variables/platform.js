@@ -7,7 +7,7 @@ const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = undefined;
 const isIphoneX =
-  platform === "ios" && (deviceHeight === 812 || deviceWidth === 812);
+  platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
 
 export default {
   platformStyle,
@@ -117,9 +117,9 @@ export default {
   },
 
   // Footer
-  footerHeight: 55,
+  footerHeight: isIphoneX ? 89 : 55,
   footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
-  footerPaddingBottom: 0,
+  footerPaddingBottom: isIphoneX ? 34 : 0,
 
   // FooterTab
   tabBarTextColor: platform === "ios" ? "#6b6b6b" : "#b3c7f9",
@@ -132,7 +132,7 @@ export default {
   // Header
   toolbarBtnColor: platform === "ios" ? "#007aff" : "#fff",
   toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
-  toolbarHeight: platform === "ios" ? 64 : 56,
+  toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: platform === "ios" ? "#CECDD2" : "#fff",
   searchBarHeight: platform === "ios" ? 30 : 40,
