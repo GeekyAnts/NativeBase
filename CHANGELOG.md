@@ -4,7 +4,6 @@
 ### Upgraded Features
 
 -   **General:**
-    -   Safearea implementation for Header, footer and Content. PR ([#1614](https://github.com/GeekyAnts/NativeBase/pull/1614))
     -   Included NativeBase support for Ignite in ReadMe. PR ([#1613](https://github.com/GeekyAnts/NativeBase/pull/1613))
 -   **Icons:** Added EvilIcons support for Icons. PR ([#1652](https://github.com/GeekyAnts/NativeBase/pull/1652)), closes ([#1468](https://github.com/GeekyAnts/NativeBase/issues/1468))
 
