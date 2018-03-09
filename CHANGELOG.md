@@ -10,8 +10,7 @@
 
 ### Bug Fixes
 
--   **General:**
-    -   NativeBase components resolved in `PhpStorm / WebStorm`. PR ([#1604](https://github.com/GeekyAnts/NativeBase/pull/1604)), closes ([#1075](https://github.com/GeekyAnts/NativeBase/issues/1075))
+-   **General:** NativeBase components resolved in `PhpStorm / WebStorm`. PR ([#1604](https://github.com/GeekyAnts/NativeBase/pull/1604)), closes ([#1075](https://github.com/GeekyAnts/NativeBase/issues/1075))
 -   **FAB:** Added stylesheet support for styling Fab child buttons. PR ([#1623](https://github.com/GeekyAnts/NativeBase/pull/1623)), closes ([#1618](https://github.com/GeekyAnts/NativeBase/issues/1618))
 -   **Icons:** Icons render wrt `type` when fetching names across different font families. PR ([#1596](https://github.com/GeekyAnts/NativeBase/pull/1596)), closes ([#1640](https://github.com/GeekyAnts/NativeBase/issues/1640))
 -   **Input:** Fix for Input underline color (Android). PR ([#1655](https://github.com/GeekyAnts/NativeBase/pull/1655)), closes ([#611](https://github.com/GeekyAnts/NativeBase/issues/611))
