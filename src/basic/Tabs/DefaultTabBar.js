@@ -93,7 +93,7 @@ const DefaultTabBar = createReactClass({
       outputRange: [0, containerWidth / numberOfTabs],
     });
     return (
-      <TabContainer style={this.props.tabContainerStyle ? this.props.tabContainerStyle : {}}>
+      <TabContainer style={[{backgroundColor:variables.tabDefaultBg},this.props.tabContainerStyle ? this.props.tabContainerStyle : {}]}>
         {this.props.tabs.map((name, page) => {
           const isTabActive = this.props.activeTab === page;
           const renderTab = this.props.renderTab || this.renderTab;
