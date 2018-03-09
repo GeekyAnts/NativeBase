@@ -18,7 +18,14 @@ class ListItem extends Component {
   render() {
     const variables = this.context.theme
       ? this.context.theme["@@shoutem.theme/themeStyle"].variables
-      : variable;
+			: variable;
+		const {clickable} = this.props;
+
+		if (!clickable) {
+			return (
+        <View {...this.props}>{this.props.children}</View>
+			);
+		}
 
     if (
       Platform.OS === "ios" ||
