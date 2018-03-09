@@ -7,7 +7,7 @@ var deviceWidth=_reactNative.Dimensions.get("window").width;
 var platform=_reactNative.Platform.OS;
 var platformStyle="material";
 var isIphoneX=
-platform==="ios"&&(deviceHeight===812||deviceWidth===812);exports.default=
+platform==="ios"&&deviceHeight===812&&deviceWidth===375;exports.default=
 
 {
 platformStyle:platformStyle,
@@ -117,9 +117,9 @@ return this.fontSizeBase*1.4;
 },
 
 
-footerHeight:55,
+footerHeight:isIphoneX?89:55,
 footerDefaultBg:"#3F51B5",
-footerPaddingBottom:0,
+footerPaddingBottom:isIphoneX?34:0,
 
 
 tabBarTextColor:"#bfc6ea",

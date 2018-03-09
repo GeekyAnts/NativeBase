@@ -5,81 +5,20 @@ var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _platform=require("../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
-Header=function(_Component){_inherits(Header,_Component);
+
+Header=function(_Component){_inherits(Header,_Component);function Header(){_classCallCheck(this,Header);return _possibleConstructorReturn(this,(Header.__proto__||Object.getPrototypeOf(Header)).apply(this,arguments));}_createClass(Header,[{key:"render",value:function render()
 
 
 
-function Header(props){_classCallCheck(this,Header);var _this=_possibleConstructorReturn(this,(Header.__proto__||Object.getPrototypeOf(Header)).call(this,
-props));
-_this.state={
-orientation:"portrait"};return _this;
 
-}_createClass(Header,[{key:"layoutChange",value:function layoutChange(
-val){
-var maxComp=Math.max(_platform2.default.deviceWidth,_platform2.default.deviceHeight);
-if(val.width>=maxComp)this.setState({orientation:"landscape"});else
-{
-this.setState({orientation:"portrait"});
-}
-}},{key:"calculateHeight",value:function calculateHeight(
-mode,inSet){
-var inset=null;
-if(inSet!=undefined){
-inset=inSet;
-}else{
-inset=_platform2.default.Inset;
-}
-var InsetValues=mode==="portrait"?inset.portrait:inset.landscape;
-var oldHeight=null;
-if(this.props.style.height!=undefined){
-oldHeight=this.props.style.height;
-}else if(this.props.style[1].height){
-oldHeight=this.props.style[1].height;
-}else{
-oldHeight=this.props.style[0].height;
-}
-var height=oldHeight+InsetValues.topInset;
-return height;
-}},{key:"calculatePadder",value:function calculatePadder(
-mode,inSet){
-var inset=null;
-if(inSet!=undefined){
-inset=inSet;
-}else{
-inset=_platform2.default.Inset;
-}
-var InsetValues=mode==="portrait"?inset.portrait:inset.landscape;
-var topPadder=null;
-if(this.props.style[1]!==undefined){
-if(
-this.props.style[1].padding!==undefined||
-this.props.style[1].paddingTop!==undefined)
-{
-topPadder=
-(this.props.style[1].paddingTop?
-this.props.style[1].paddingTop:
-this.props.style[1].padding)+InsetValues.topInset;
-}
-}else if(
-this.props.style.padding!==undefined&&
-this.props.style.paddingTop!==undefined)
-{
-topPadder=
-(this.props.style.paddingTop?
-this.props.style.paddingTop:
-this.props.style.padding)+InsetValues.topInset;
-}else{
-topPadder=InsetValues.topInset;
-}
-return topPadder;
-}},{key:"render",value:function render()
 {var _this2=this;
 var variables=this.context.theme?
 this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
 
 var platformStyle=variables.platformStyle;
+
 return(
-_react2.default.createElement(_reactNative.View,{onLayout:function onLayout(e){return _this2.layoutChange(e.nativeEvent.layout);},__source:{fileName:_jsxFileName,lineNumber:82}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:21}},
 _react2.default.createElement(_reactNative.StatusBar,{
 backgroundColor:
 this.props.androidStatusBarColor?
@@ -91,30 +30,10 @@ this.props.iosBarStyle?
 this.props.iosBarStyle:
 platformStyle==="material"?
 "light-content":
-variables.iosStatusbar,__source:{fileName:_jsxFileName,lineNumber:83}}),
+variables.iosStatusbar,__source:{fileName:_jsxFileName,lineNumber:22}}),
 
 
-_platform2.default.isIphoneX?
-_react2.default.createElement(_reactNative.View,_extends({
-ref:function ref(c){return _this2._root=c;}},
-this.props,{
-style:[
-this.props.style,
-{
-height:this.calculateHeight(
-this.state.orientation,
-variables.Inset),
-
-paddingTop:this.calculatePadder(
-this.state.orientation,
-variables.Inset)}],__source:{fileName:_jsxFileName,lineNumber:98}})):
-
-
-
-
-
-_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:116}}))));
-
+_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:36}}))));
 
 
 }}]);return Header;}(_react.Component);Header.contextTypes={theme:_propTypes2.default.object};

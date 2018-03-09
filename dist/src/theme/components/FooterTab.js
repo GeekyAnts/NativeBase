@@ -31,7 +31,7 @@ shadowRadius:null,
 shadowOpacity:null,
 alignSelf:"center",
 flex:1,
-height:variables.footerHeight,
+height:variables.footerHeight-(variables.isIphoneX?34:0),
 justifyContent:"center",
 ".badge":{
 "NativeBase.Badge":{
@@ -64,8 +64,9 @@ fontSize:variables.tabBarTextSize,
 lineHeight:16}},
 
 
-backgroundColor:
-_reactNative.Platform.OS==="android"?variables.tabActiveBgColor:undefined,
+backgroundColor:_reactNative.Platform.OS==="android"?
+variables.tabActiveBgColor:
+undefined,
 flexDirection:"row",
 justifyContent:"space-between",
 flex:1,
