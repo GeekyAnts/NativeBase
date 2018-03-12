@@ -152,6 +152,7 @@ React.createElement(ScrollView,_extends({
 horizontal:true,
 pagingEnabled:true,
 automaticallyAdjustContentInsets:false,
+keyboardShouldPersistTaps:"handled",
 contentOffset:{
 x:this.props.initialPage*this.state.containerWidth},
 
@@ -185,12 +186,12 @@ return(
 React.createElement(SceneComponent,{
 key:child.key,
 shouldUpdated:_this4._shouldRenderSceneKey(idx,_this4.state.currentPage),
-style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:185}},
+style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:186}},
 
 _this4._keyExists(_this4.state.sceneKeys,key)?
 child:
 
-React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:193}})));
+React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:194}})));
 
 
 
@@ -293,7 +294,7 @@ this.props.tabBarPosition==="overlayTop"?"top":"bottom",0),_defineProperty(_tabB
 }
 
 return(
-React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:296}},
+React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:297}},
 (this.props.tabBarPosition==="top"||this.props.tabBarPosition==="overlayTop")&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
 (this.props.tabBarPosition==="bottom"||this.props.tabBarPosition==="overlayBottom")&&this.renderTabBar(tabBarProps)));

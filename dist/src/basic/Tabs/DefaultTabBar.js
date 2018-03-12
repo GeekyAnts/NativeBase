@@ -93,7 +93,7 @@ inputRange:[0,1],
 outputRange:[0,containerWidth/numberOfTabs]});
 
 return(
-_react2.default.createElement(_index.TabContainer,{style:this.props.tabContainerStyle?this.props.tabContainerStyle:{},__source:{fileName:_jsxFileName,lineNumber:96}},
+_react2.default.createElement(_index.TabContainer,{style:[{backgroundColor:variables.tabDefaultBg},this.props.tabContainerStyle?this.props.tabContainerStyle:{}],__source:{fileName:_jsxFileName,lineNumber:96}},
 this.props.tabs.map(function(name,page){
 var isTabActive=_this.props.activeTab===page;
 var renderTab=_this.props.renderTab||_this.renderTab;

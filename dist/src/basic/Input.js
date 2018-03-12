@@ -14,12 +14,12 @@ ref:function ref(c){
 _this2._textInput=c;
 _this2._root=c;
 },
-editable:this.props.disabled?false:true},
-this.props,{
+editable:this.props.disabled?false:true,
+underlineColorAndroid:"rgba(0,0,0,0)",
 placeholderTextColor:
-this.props.placeholderTextColor?this.props.placeholderTextColor:_platform2.default.inputColorPlaceholder,
+this.props.placeholderTextColor?this.props.placeholderTextColor:_platform2.default.inputColorPlaceholder},
 
-underlineColorAndroid:"rgba(0,0,0,0)",__source:{fileName:_jsxFileName,lineNumber:12}})));
+this.props,{__source:{fileName:_jsxFileName,lineNumber:12}})));
 
 
 }}]);return Input;}(_NativeBaseComponent3.default);

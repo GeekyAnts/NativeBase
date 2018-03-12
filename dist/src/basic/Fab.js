@@ -10,6 +10,7 @@ var _reactNative=require("react-native");
 
 
 
+
 var _Icon=require("./Icon");
 var _IconNB=require("./IconNB");
 var _Button=require("./Button");
@@ -211,7 +212,7 @@ _reactNative.Platform.OS==="ios"?8:8:
 i*50+50};
 
 
-return _lodash2.default.merge(this.getInitialStyle().buttonStyle,child.props.style,type);
+return _lodash2.default.merge(this.getInitialStyle().buttonStyle,_reactNative.StyleSheet.flatten(child.props.style),type);
 }},{key:"prepareButtonProps",value:function prepareButtonProps(
 child){
 var inp=_lodash2.default.clone(child.props);
@@ -277,7 +278,7 @@ _react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i,__source:{fileName:_jsxFileName,lineNumber:276}}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:277}}),
 
 child.props.children));
 
@@ -418,7 +419,7 @@ active:_this4.props.active});
 active=this.props.active;
 
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:421}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:422}},
 this.renderButtons(),
 _reactNative.Platform.OS==="ios"||
 _platform2.default.androidRipple===false||
@@ -426,16 +427,16 @@ _reactNative.Platform["Version"]<=21?
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 onPress:function onPress(){return _this5.fabOnPress();}},
 this.prepareFabProps(),{
-activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:426}}),
+activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:427}}),
 
 this.renderFab()):
 
 
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
 onPress:function onPress(){return _this5.fabOnPress();}},
-this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:434}}),
+this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:435}}),
 
-_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:438}},
+_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:439}},
 this.renderFab()))));
 
 

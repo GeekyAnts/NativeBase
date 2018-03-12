@@ -21,7 +21,7 @@ var variables=this.context.theme?this.context.theme["@@shoutem.theme/themeStyle"
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 
-if(variables.iconFamily==="Ionicons"){
+if((this.props.type||variables.iconFamily)==="Ionicons"){
 if(typeof _NBIcons2.default[this.props.name]!=="object"){
 return this.props.name;
 }else if(typeof _NBIcons2.default[this.props.name]==="object"){

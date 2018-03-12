@@ -96,8 +96,6 @@ Find the [KitchenSink repo here](https://github.com/GeekyAnts/NativeBase-Kitchen
 
 **c. Setup with ignite-native-base-boilerplate**
 
-**Quick Start**
-
 You can run the following command to create the boilerplate, provided you have [Ignite CLI](https://github.com/infinitered/ignite) installed.
 
 ```
