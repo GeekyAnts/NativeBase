@@ -39,7 +39,7 @@ class SwipeRow extends Component {
 		this._translateX = new Animated.Value(0);
 	}
 
-	componentWillMount() {
+	UNSAFE_componentWillMount() {
 		this._panResponder = PanResponder.create({
 			onMoveShouldSetPanResponder: (e, gs) => this.handleOnMoveShouldSetPanResponder(e, gs),
 			onPanResponderMove: (e, gs) => this.handlePanResponderMove(e, gs),

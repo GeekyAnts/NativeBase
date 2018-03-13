@@ -66,11 +66,11 @@ class IconNB extends Component {
     }
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.setIcon(this.props.type);
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
     if (nextProps.type && this.props.type != nextProps.type) {
       this.setIcon(nextProps.type);
     }

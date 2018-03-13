@@ -26,7 +26,7 @@ class DeckSwiper extends Component {
     };
   }
 
-  componentWillReceiveProps({ dataSource }) {
+  UNSAFE_componentWillReceiveProps({ dataSource }) {
     if (dataSource.length !== this.props.dataSource.length) {
       if (dataSource.length <= 1) {
         this.setState({
@@ -142,7 +142,7 @@ class DeckSwiper extends Component {
     }, 300);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this._panResponder = PanResponder.create({
       onMoveShouldSetResponderCapture: () => true,
       onMoveShouldSetPanResponderCapture: (evt, gestureState) =>
