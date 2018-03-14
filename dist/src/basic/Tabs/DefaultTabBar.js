@@ -111,7 +111,7 @@ _this.props.tabHeaderStyle[page]);
 
 }),
 _react2.default.createElement(Animated.View,{style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:113}},
-renderUnderline?renderUnderline():null)));
+this.props.renderUnderline?this.props.renderUnderline():null)));
 
 
 

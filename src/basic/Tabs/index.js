@@ -264,6 +264,7 @@ const ScrollableTabView = createReactClass({
       activeTab: this.state.currentPage,
       scrollValue: this.state.scrollValue,
       containerWidth: this.state.containerWidth,
+      renderUnderline: this.props.renderUnderline
     };
 
     if (this.props.tabBarBackgroundColor) {

@@ -263,7 +263,8 @@ _lodash2.default.get(child.props.heading.props,"style",undefined));}),
 
 activeTab:this.state.currentPage,
 scrollValue:this.state.scrollValue,
-containerWidth:this.state.containerWidth};
+containerWidth:this.state.containerWidth,
+renderUnderline:this.props.renderUnderline};
 
 
 if(this.props.tabBarBackgroundColor){
@@ -295,7 +296,7 @@ this.props.tabBarPosition==="overlayTop"?"top":"bottom",0),_defineProperty(_tabB
 }
 
 return(
-React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:298}},
+React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:299}},
 (this.props.tabBarPosition==="top"||this.props.tabBarPosition==="overlayTop")&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
 (this.props.tabBarPosition==="bottom"||this.props.tabBarPosition==="overlayBottom")&&this.renderTabBar(tabBarProps)));
