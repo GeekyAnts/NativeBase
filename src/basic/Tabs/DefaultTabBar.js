@@ -22,6 +22,7 @@ const DefaultTabBar = createReactClass({
     inactiveTextColor: PropTypes.string,
     tabStyle: ViewPropTypes.style,
     renderTab: PropTypes.func,
+    renderUnderline: PropTypes.func,
     underlineStyle: ViewPropTypes.style,
     tabContainerStyle: ViewPropTypes.style,
   },
@@ -109,7 +110,9 @@ const DefaultTabBar = createReactClass({
             this.props.tabHeaderStyle[page]
           );
         })}
-        <Animated.View style={[tabUnderlineStyle, { left }, this.props.underlineStyle]} />
+        <Animated.View style={[tabUnderlineStyle, { left }, this.props.underlineStyle]}>
+          {renderUnderline ? renderUnderline() : null}
+        </Animated.View>
       </TabContainer>
     );
   },

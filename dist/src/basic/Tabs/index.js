@@ -33,6 +33,7 @@ page:_propTypes2.default.number,
 onChangeTab:_propTypes2.default.func,
 onScroll:_propTypes2.default.func,
 renderTabBar:_propTypes2.default.any,
+renderUnderline:_propTypes2.default.func,
 style:_Utils.ViewPropTypes.style,
 contentProps:_propTypes2.default.object,
 scrollWithoutAnimation:_propTypes2.default.bool,
@@ -108,7 +109,7 @@ return null;
 }else if(this.props.renderTabBar){
 return React.cloneElement(this.props.renderTabBar(props),props);
 }else{
-return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:111}}));
+return React.createElement(DefaultTabBar,_extends({},props,{__source:{fileName:_jsxFileName,lineNumber:112}}));
 }
 },
 
@@ -172,7 +173,7 @@ scrollEnabled:!this.props.locked,
 directionalLockEnabled:true,
 alwaysBounceVertical:false,
 keyboardDismissMode:"on-drag"},
-this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:151}}),
+this.props.contentProps,{__source:{fileName:_jsxFileName,lineNumber:152}}),
 
 scenes));
 
@@ -186,12 +187,12 @@ return(
 React.createElement(SceneComponent,{
 key:child.key,
 shouldUpdated:_this4._shouldRenderSceneKey(idx,_this4.state.currentPage),
-style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:186}},
+style:{width:_this4.state.containerWidth},__source:{fileName:_jsxFileName,lineNumber:187}},
 
 _this4._keyExists(_this4.state.sceneKeys,key)?
 child:
 
-React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:194}})));
+React.createElement(View,{heading:child.props.heading,__source:{fileName:_jsxFileName,lineNumber:195}})));
 
 
 
@@ -294,7 +295,7 @@ this.props.tabBarPosition==="overlayTop"?"top":"bottom",0),_defineProperty(_tabB
 }
 
 return(
-React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:297}},
+React.createElement(View,{style:[styles.container,this.props.style],onLayout:this._handleLayout,__source:{fileName:_jsxFileName,lineNumber:298}},
 (this.props.tabBarPosition==="top"||this.props.tabBarPosition==="overlayTop")&&this.renderTabBar(tabBarProps),
 this.renderScrollableContent(),
 (this.props.tabBarPosition==="bottom"||this.props.tabBarPosition==="overlayBottom")&&this.renderTabBar(tabBarProps)));
