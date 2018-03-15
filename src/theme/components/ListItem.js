@@ -261,7 +261,9 @@ export default (variables = variable) => {
       },
       borderBottomWidth: null,
       paddingVertical: null,
-      paddingRight: null
+      paddingRight: null,
+      marginLeft: 0,
+      paddingLeft: variables.listItemPadding + 5
     },
 
     ".thumbnail": {
@@ -298,7 +300,9 @@ export default (variables = variable) => {
       },
       borderBottomWidth: null,
       paddingVertical: null,
-      paddingRight: null
+      paddingRight: null,
+      marginLeft: 0,
+      paddingLeft: variables.listItemPadding + 5
     },
 
     ".icon": {
@@ -396,6 +400,8 @@ export default (variables = variable) => {
       borderBottomWidth: null,
       paddingVertical: null,
       paddingRight: null,
+      marginLeft: 0,
+      paddingLeft: variables.listItemPadding + 5,
       height: 44,
       justifyContent: "center"
     },
