@@ -146,6 +146,8 @@ declare module "native-base" {
 			/**
              * The theme prop can be applied to any component of NativeBase.
              */
+			refreshing?: boolean;
+			refreshControl?: object;
 			theme?: Object;
 			padder?: boolean;
 			disableKBDismissScroll?: boolean;
