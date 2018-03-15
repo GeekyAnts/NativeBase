@@ -58,6 +58,7 @@ class Button extends Component {
           );
     if (
       Platform.OS === "ios" ||
+      Platform.OS === "web" ||
       variables.androidRipple === false ||
       Platform["Version"] < 21
     ) {

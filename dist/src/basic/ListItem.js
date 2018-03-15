@@ -22,6 +22,7 @@ this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
 
 if(
 _reactNative.Platform.OS==="ios"||
+_reactNative.Platform.OS==="web"||
 variables.androidRipple===false||
 !this.props.onPress&&!this.props.onLongPress||
 _reactNative.Platform.Version<=21)
@@ -31,9 +32,9 @@ _react2.default.createElement(_reactNative.TouchableHighlight,{
 onPress:this.props.onPress,
 onLongPress:this.props.onLongPress,
 ref:function ref(c){return _this2._root=c;},
-underlayColor:variables.listBtnUnderlayColor,__source:{fileName:_jsxFileName,lineNumber:30}},
+underlayColor:variables.listBtnUnderlayColor,__source:{fileName:_jsxFileName,lineNumber:31}},
 
-_react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:36}}),this.props.children)));
+_react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:37}}),this.props.children)));
 
 
 }else{
@@ -41,10 +42,10 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,{
 ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
-onLongPress:this.props.onLongPress,__source:{fileName:_jsxFileName,lineNumber:41}},
+onLongPress:this.props.onLongPress,__source:{fileName:_jsxFileName,lineNumber:42}},
 
-_react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17},__source:{fileName:_jsxFileName,lineNumber:46}},
-_react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:47}}),this.props.children))));
+_react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17},__source:{fileName:_jsxFileName,lineNumber:47}},
+_react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:48}}),this.props.children))));
 
 
 
