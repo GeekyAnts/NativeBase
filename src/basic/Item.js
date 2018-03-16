@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { TouchableOpacity, Animated, Platform, View } from "react-native";
+import { TouchableOpacity, Animated, Platform, View, StyleSheet } from "react-native";
 import { Input } from "./Input";
 import { Label } from "./Label";
 import { Icon } from "./Icon";
@@ -74,7 +74,7 @@ class Item extends Component {
 
   renderLabel(label, labelProps) {
     const newLabel = [];
-    let labelStyle = labelProps.style;
+    let labelStyle = StyleSheet.flatten({ fontSize: 15, lineHeight: 30 }, labelProps.style);
     if (this.props.floatingLabel) {
       if (this.state.isFocused) {
         newLabel.push(
@@ -82,11 +82,7 @@ class Item extends Component {
             ...labelProps,
             key: "newFLabel",
             float: true,
-            style: {
-              fontSize: 15,
-              lineHeight: 30,
-              labelStyle
-            }
+            style: labelStyle
           })
         );
         this.floatUp(-16);
@@ -165,8 +161,8 @@ class Item extends Component {
           onBlur={() => {
             inputProps.value
               ? this.setState({
-                  isFocused: true
-                })
+                isFocused: true
+              })
               : !this.state.text.length && this.setState({ isFocused: false });
             inputProps.onBlur && inputProps.onBlur();
           }}
@@ -206,8 +202,8 @@ class Item extends Component {
           onBlur={() => {
             inputProps.value
               ? this.setState({
-                  isFocused: true
-                })
+                isFocused: true
+              })
               : !this.state.text.length && this.setState({ isFocused: false });
             inputProps.onBlur && inputProps.onBlur();
           }}
