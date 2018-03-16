@@ -65,7 +65,7 @@ export default (variables = variable) => {
       }
     },
     backgroundColor: Platform.OS === "android"
-      ? variables.tabActiveBgColor
+      ? variables.footerDefaultBg
       : undefined,
     flexDirection: "row",
     justifyContent: "space-between",
