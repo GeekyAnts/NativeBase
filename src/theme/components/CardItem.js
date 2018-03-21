@@ -134,7 +134,7 @@ export default (variables = variable) => {
       },
       ".bordered": {
         "NativeBase.Text": {
-          color: variables.sTabBarActiveTextColor,
+          color: variables.brandPrimary,
           fontWeight: platform === "ios" ? "600" : "500"
         },
         borderBottomWidth: platform === "ios" ? variables.borderWidth : null
@@ -149,6 +149,7 @@ export default (variables = variable) => {
       },
       ".bordered": {
         "NativeBase.Text": {
+          color: variables.brandPrimary,
           fontWeight: platform === "ios" ? "600" : "500"
         },
         borderTopWidth: platform === "ios" ? variables.borderWidth : null
