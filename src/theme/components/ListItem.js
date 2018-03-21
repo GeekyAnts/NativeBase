@@ -147,7 +147,6 @@ export default (variables = variable) => {
         fontSize: variables.iconFontSize - 10
       },
       "NativeBase.Text": {
-        marginLeft: 10,
         alignSelf: "center"
       },
       flexDirection: "row"
@@ -404,9 +403,9 @@ export default (variables = variable) => {
     },
     alignItems: "center",
     flexDirection: "row",
-    paddingRight: variables.listItemPadding + 5,
+    paddingRight: variables.listItemPadding + 6,
     paddingVertical: variables.listItemPadding + 3,
-    marginLeft: variables.listItemPadding + 5,
+    marginLeft: variables.listItemPadding + 6,
     borderBottomWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
     backgroundColor: variables.listBg,
     borderColor: variables.listBorderColor
