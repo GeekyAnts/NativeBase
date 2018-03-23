@@ -664,7 +664,8 @@ declare module "native-base" {
 			type?: "overlay" | "static" | "displace";
 		}
 		interface ScrollableTab {
-            goToPage?: Function;
+			goToPage?: Function;
+			renderUnderline?: Function;
             activeTab?: number;
             tabs?: Array<any>;
             backgroundColor?: string;
@@ -684,6 +685,7 @@ declare module "native-base" {
          */
 		interface Tabs {
 			renderTabBar?: Function;
+			renderUnderline?: Function;
 			tabBarPosition?: "top" | "bottom";
 			edgeHitWidth?: number;
 			springTension?: number;
