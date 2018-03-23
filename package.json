@@ -42,7 +42,7 @@
     "prop-types": "^15.5.10",
     "react-native-drawer": "2.5.0",
     "react-native-easy-grid": "0.1.17",
-    "react-native-keyboard-aware-scroll-view": "0.4.2",
+    "react-native-keyboard-aware-scroll-view": "0.5.0",
     "react-native-vector-icons": "~4.4.2",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1"
