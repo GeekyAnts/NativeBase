@@ -155,7 +155,9 @@ class Fab extends Component {
         width: 56,
         height: this.containerHeight,
         flexDirection: this.props.direction
-          ? ((this.props.direction === "left") || (this.props.direction === "right")) ? "row" : "column"
+          ? this.props.direction === "left" || this.props.direction === "right"
+            ? "row"
+            : "column"
           : "column",
         alignItems: "center"
       },
