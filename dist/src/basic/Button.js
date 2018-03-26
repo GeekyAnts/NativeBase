@@ -6,6 +6,7 @@ var _reactNative=require("react-native");
 
 
 
+
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _platform=require("./../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _Text=require("./Text");
@@ -66,10 +67,31 @@ _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
 this.prepareRootProps(),{
 ref:function ref(c){return _this2._root=c;},
 activeOpacity:
-this.props.activeOpacity>0?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:65}}),
+this.props.activeOpacity>0?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:66}}),
 
 
 children));
+
+
+}else{
+if(this.props.rounded){
+var buttonStyle=_extends({},this.prepareRootProps().style);
+var buttonFlex=this.props.full||this.props.block?1:buttonStyle.flex;
+return(
+_react2.default.createElement(_reactNative.View,{style:[buttonStyle,{paddingTop:undefined,paddingBottom:undefined,flex:buttonFlex}],__source:{fileName:_jsxFileName,lineNumber:81}},
+_react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
+ref:function ref(c){return _this2._root=c;},
+background:
+this.props.androidRippleColor?
+_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor,true):
+_reactNative.TouchableNativeFeedback.Ripple(variables.androidRippleColor,true)},
+
+this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:82}}),
+
+_react2.default.createElement(_reactNative.View,{style:[styles.childContainer,{paddingTop:buttonStyle.paddingTop,paddingBottom:buttonStyle.paddingBottom,height:buttonStyle.height,flexGrow:buttonFlex}],__source:{fileName:_jsxFileName,lineNumber:91}},
+children))));
+
+
 
 
 }else{
@@ -77,11 +99,12 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
 ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress},
-this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:77}}),
+this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:99}}),
 
-_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:82}}),children)));
+_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:104}}),children)));
 
 
+}
 }
 }}]);return Button;}(_react.Component);Button.contextTypes={theme:_propTypes2.default.object};
 
@@ -106,6 +129,15 @@ rounded:_propTypes2.default.bool,
 large:_propTypes2.default.bool,
 small:_propTypes2.default.bool,
 active:_propTypes2.default.bool});
+
+
+var styles=_reactNative.StyleSheet.create({
+childContainer:{
+flexShrink:1,
+flexDirection:'row',
+justifyContent:'center',
+alignItems:'center'}});
+
 
 
 var StyledButton=(0,_nativeBaseShoutemTheme.connectStyle)(

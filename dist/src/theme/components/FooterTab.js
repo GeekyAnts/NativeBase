@@ -65,7 +65,7 @@ lineHeight:16}},
 
 
 backgroundColor:_reactNative.Platform.OS==="android"?
-variables.tabActiveBgColor:
+variables.footerDefaultBg:
 undefined,
 flexDirection:"row",
 justifyContent:"space-between",

@@ -4,7 +4,8 @@ import {
   TouchableOpacity,
   Platform,
   View,
-  TouchableNativeFeedback
+  TouchableNativeFeedback,
+  StyleSheet
 } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import variable from "./../theme/variables/platform";
@@ -73,15 +74,37 @@ class Button extends Component {
         </TouchableOpacity>
       );
     } else {
-      return (
-        <TouchableNativeFeedback
-          ref={c => (this._root = c)}
-          onPress={this.props.onPress}
-          {...this.prepareRootProps()}
-        >
-          <View {...this.prepareRootProps()}>{children}</View>
-        </TouchableNativeFeedback>
-      );
+        if(this.props.rounded){
+            let buttonStyle = { ...this.prepareRootProps().style };
+            let buttonFlex = (this.props.full || this.props.block) ? 1 : buttonStyle.flex;
+            return (
+              <View style={[buttonStyle, { paddingTop: undefined, paddingBottom: undefined,flex:buttonFlex }]} >
+                <TouchableNativeFeedback
+                  ref={c => (this._root = c)}
+                  background={
+                    this.props.androidRippleColor
+                      ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor, true)
+                      : TouchableNativeFeedback.Ripple(variables.androidRippleColor, true)
+                  }
+                  { ...this.prepareRootProps() }
+                >
+                  <View style={[styles.childContainer, { paddingTop: buttonStyle.paddingTop, paddingBottom: buttonStyle.paddingBottom, height: buttonStyle.height,flexGrow:buttonFlex }]}>
+                    {children}
+                  </View>
+                </TouchableNativeFeedback>
+              </View >
+            );  
+        } else {
+            return (
+              <TouchableNativeFeedback
+                ref={c => (this._root = c)}
+                onPress={this.props.onPress}
+                {...this.prepareRootProps()}
+              >
+                <View {...this.prepareRootProps()}>{children}</View>
+              </TouchableNativeFeedback>
+            );
+        }
     }
   }
 }
@@ -107,6 +130,15 @@ Button.propTypes = {
   small: PropTypes.bool,
   active: PropTypes.bool
 };
+
+const styles = StyleSheet.create({
+	childContainer: {
+		flexShrink: 1,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+});
 
 const StyledButton = connectStyle(
   "NativeBase.Button",
