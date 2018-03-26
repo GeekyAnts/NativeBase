@@ -155,7 +155,9 @@ undefined,
 width:56,
 height:this.containerHeight,
 flexDirection:this.props.direction?
-this.props.direction=="left || right"?"row":"column":
+this.props.direction==="left"||this.props.direction==="right"?
+"row":
+"column":
 "column",
 alignItems:"center"},
 
@@ -278,7 +280,7 @@ _react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i,__source:{fileName:_jsxFileName,lineNumber:277}}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:279}}),
 
 child.props.children));
 
@@ -419,7 +421,7 @@ active:_this4.props.active});
 active=this.props.active;
 
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:422}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:424}},
 this.renderButtons(),
 _reactNative.Platform.OS==="ios"||
 _platform2.default.androidRipple===false||
@@ -427,16 +429,16 @@ _reactNative.Platform["Version"]<=21?
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 onPress:function onPress(){return _this5.fabOnPress();}},
 this.prepareFabProps(),{
-activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:427}}),
+activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:429}}),
 
 this.renderFab()):
 
 
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
 onPress:function onPress(){return _this5.fabOnPress();}},
-this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:435}}),
+this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:437}}),
 
-_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:439}},
+_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:441}},
 this.renderFab()))));
 
 
