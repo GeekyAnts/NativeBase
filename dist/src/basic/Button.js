@@ -59,6 +59,7 @@ child);});
 
 if(
 _reactNative.Platform.OS==="ios"||
+_reactNative.Platform.OS==="web"||
 variables.androidRipple===false||
 _reactNative.Platform["Version"]<21)
 {
@@ -99,9 +100,10 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
 ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress},
-this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:99}}),
 
-_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:104}}),children)));
+this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:78}}),
+
+_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:83}}),children)));
 
 
 }
