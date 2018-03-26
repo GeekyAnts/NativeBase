@@ -28,13 +28,15 @@ variables.androidRipple===false||
 _reactNative.Platform.Version<=21)
 {
 return(
-_react2.default.createElement(_reactNative.TouchableHighlight,{
+_react2.default.createElement(_reactNative.TouchableHighlight,_extends({
 onPress:this.props.onPress,
 onLongPress:this.props.onLongPress,
 ref:function ref(c){return _this2._root=c;},
+
 underlayColor:variables.listBtnUnderlayColor,__source:{fileName:_jsxFileName,lineNumber:31}},
 
 _react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:37}}),this.props.children)));
+
 
 
 }else{
@@ -42,10 +44,12 @@ return(
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,{
 ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress,
+
 onLongPress:this.props.onLongPress,__source:{fileName:_jsxFileName,lineNumber:42}},
 
 _react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17},__source:{fileName:_jsxFileName,lineNumber:47}},
 _react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:48}}),this.props.children))));
+
 
 
 
