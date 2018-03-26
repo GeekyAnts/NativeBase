@@ -33,7 +33,7 @@ class List extends Component {
       this.state = {};
     }
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.state.dataSource) {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(nextProps.dataArray)

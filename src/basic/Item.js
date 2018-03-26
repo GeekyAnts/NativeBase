@@ -30,7 +30,7 @@ class Item extends Component {
         this.inputProps.getRef(this._inputRef);
     }
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const childrenArray = React.Children.toArray(nextProps.children);
     let inputProps = {};
     _.remove(childrenArray, item => {
