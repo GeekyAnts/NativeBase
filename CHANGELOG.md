@@ -1,4 +1,11 @@
-# Version [2.3.11](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.3.11)
+# Version [2.4.0](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.4.0)
+
+
+### New Features
+
+-   NativeBase is now available for web. 
+
+
 
 ### Upgraded Features
 
