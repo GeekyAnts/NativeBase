@@ -1,7 +1,7 @@
 declare module "native-base" {
 	import * as React from "react";
 	import * as ReactNative from "react-native";
-	
+
 	namespace NativeBase {
 		interface Text extends ReactNative.TextProperties {
 			note?: boolean;
@@ -563,9 +563,10 @@ declare module "native-base" {
          */
 		interface Icon {
 			name: string;
-			type?: "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial" ;
+			type?: "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial" | "Icomoon";
 			// TODO position attribute of ReactNative.FlexStyle hasn't another position values without "absolute" and "relative"
 			style?: any;
+			iconFactory?: any:
 			onPress?: (e?: any) => any;
 			active?: boolean;
 			ios?: string;
@@ -1053,7 +1054,7 @@ declare module "native-base" {
 	export class Root extends React.Component<NativeBase.Root, any> {}
 
 	export class SwipeRow extends React.Component<NativeBase.SwipeRow, any> {}
-	
+
 	export class Toast {
 		public static show(configuration: {
 			text: string;

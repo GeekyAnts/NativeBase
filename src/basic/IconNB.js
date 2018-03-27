@@ -14,7 +14,6 @@ import Octicons from "react-native-vector-icons/Octicons";
 import Zocial from "react-native-vector-icons/Zocial";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
-
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
 
 class IconNB extends Component {
@@ -61,6 +60,10 @@ class IconNB extends Component {
       case "Zocial":
         this.Icon = Zocial;
         break;
+      case "Icomoon": {
+        this.Icon = this.props.iconFactory;
+        break;
+      }
       default:
         this.Icon = Ionicons;
     }
@@ -87,6 +90,7 @@ IconNB.propTypes = {
     PropTypes.number,
     PropTypes.array
   ]),
+  iconFactory: PropTypes.any,
   type: PropTypes.oneOf([
     "Entypo",
     "EvilIcons",
@@ -98,7 +102,8 @@ IconNB.propTypes = {
     "MaterialIcons",
     "Octicons",
     "SimpleLineIcons",
-    "Zocial"
+    "Zocial",
+    "Icomoon"
   ])
 };
 
