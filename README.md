@@ -122,7 +122,7 @@ Refer [ignite-native-base-boilerplate](https://github.com/GeekyAnts/ignite-nativ
 
 ## 6. NativeBase for Web
 
-NativeBase is now available for React web lovers. Check the [demo](http://nativebase-customizer.geekydev.com/)
+NativeBase is now available for React web lovers. Check the [demo](https://nativebase.io/kitchen-sink-web-app/)
 Find the repo [here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/web-support)
 
 
