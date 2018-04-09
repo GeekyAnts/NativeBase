@@ -257,6 +257,26 @@ export default (variables = variable) => {
       'NativeBase.Text': {
         fontSize: 14,
       },
+      '.iconLeft': {
+        'NativeBase.Icon': {
+          fontSize: 20,
+          paddingTop: 0
+        },
+        'NativeBase.IconNB': {
+          fontSize: 20,
+          paddingTop: 0
+        }
+      },
+      '.iconRight': {
+        'NativeBase.Icon': {
+          fontSize: 20,
+          paddingTop: 0
+        },
+        'NativeBase.IconNB': {
+          fontSize: 20,
+          paddingTop: 0
+        }
+      }
     },
 
     '.large': {
