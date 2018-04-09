@@ -250,6 +250,20 @@ export default (variables = variable) => {
         ...lightCommon,
         backgroundColor: null,
       },
+      '.disabled': {
+        backgroundColor: 'transparent',
+        borderColor: variables.btnDisabledBg,
+        borderWidth: variables.borderWidth * 2,
+        'NativeBase.Text': {
+          color: variables.btnDisabledBg,
+        },
+        'NativeBase.Icon': {
+          color: variables.btnDisabledBg,
+        },
+        'NativeBase.IconNB': {
+          color: variables.btnDisabledBg,
+        }
+      }
     },
 
     '.small': {
