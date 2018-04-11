@@ -17,13 +17,14 @@ Essential cross-platform UI components for React Native
 3. [KitchenSink App](https://github.com/GeekyAnts/NativeBase-KitchenSink)
 4. [Getting Started](#4-getting-started)
 5. [Components](#5-components)
-6. [Compatibility Versions](#6-compatibility-versions)
-7. [Native Starter Kit](#7-native-starter-kit)
-8. [NativeBase Market](#8-nativebase-market)
-9. [Documentation](#9-documentation)
-10. [Website](#10-website)
-11. [Quick Links to NativeBase](#11-quick-links-to-nativebase)
-12. [About the creators](#12-about-the-creators)
+6. [NativeBase for Web](#6-nativebase-for-web)
+7. [Compatibility Versions](#7-compatibility-versions)
+8. [React Native Seed](#8-react-native-seed)
+9. [NativeBase Market](#9-nativebase-market)
+10. [Documentation](#10-documentation)
+11. [Website](#11-website)
+12. [Quick Links to NativeBase](#12-quick-links-to-nativebase)
+13. [About the creators](#13-about-the-creators)
 
 
 
@@ -119,7 +120,13 @@ Refer [ignite-native-base-boilerplate](https://github.com/GeekyAnts/ignite-nativ
 
 [NativeBase](https://nativebase.io/) is made from effective building blocks referred to as components. The Components are constructed in pure [React Native](https://github.com/facebook/react-native) platform along with some JavaScript functionality with rich set of customisable properties. These components allow you to quickly build the perfect interface.
 
-## 6. Compatibility Versions
+## 6. NativeBase for Web
+
+NativeBase is now available for React web lovers. Check the [demo](https://nativebase.io/kitchen-sink-web-app/)
+Find the repo [here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/web-support)
+
+
+## 7. Compatibility Versions
 
 | NativeBase   |      React Native      |
 |----------|-------------|
@@ -132,33 +139,37 @@ Refer [ignite-native-base-boilerplate](https://github.com/GeekyAnts/ignite-nativ
 | v2.1.4 to v2.1.5 | v0.44.0 to v0.45.0 |
 | v2.2.0 | v0.44.0 to v0.45.0 |
 | v2.2.1 | v0.46.0 and above |
-| v2.3.0 | v0.46.0 and above *(does not support React 16.0.0-alpha.13)*|
+| v2.3.0 to 2.4.1 | v0.46.0 and above *(does not support React 16.0.0-alpha.13)*|
 
-## 7. [Native Starter Kit](https://github.com/start-react/native-starter-kit) Deprecated
-
-A simple starter project for [React Native](https://github.com/facebook/react-native) + [NativeBase](https://nativebase.io/) + [Redux](http://redux.js.org/) + [CodePush](https://github.com/Microsoft/react-native-code-push) + [React Native Navigator](https://facebook.github.io/react-native/docs/navigator.html) apps on iOS and Android.
-[Take a look at the demo](https://github.com/start-react/native-starter-kit#screens)
+## 8. [React Native Seed](https://reactnativeseed.com/)
 
 
-## 8. NativeBase Market
+React Native Seed provides you React Native starter kits for your base app with the technologies that you love.
+
+Based on the feedback we received from our users, people had trouble sorting out the right boilerplate for them with the desired technologies and contacted us to enquire. We realized that many people were particular about the technologies they want in the app and that a minimal, neat solution was required to solve this, and hence, React Native Seed.
+
+React Native Seed is for learners and professionals alike, those who want to experiment, learn all aspects and those who already know enough, just want a starter kit to quickly start working on their project.
+
+
+## 9. NativeBase Market
 
 Having tried with the free version, [Native Starter Kit](https://github.com/start-react/native-starter-kit) and appreciate our product?
 
 Get on the mobile fast track with the featured apps of [NativeBase](https://nativebase.io/), to build high-quality iOS and Android mobile apps.<br />
 A [marketplace](https://market.nativebase.io/) for premium React Native app themes to build high-quality iOS and Android mobile apps. <br />
 
-## 9. Documentation
+## 10. Documentation
 
 Go through [NativeBase Docs](https://docs.nativebase.io/) to play with [NativeBase](https://nativebase.io/).
 
 
 
-## 10. Website
+## 11. Website
 [https://nativebase.io/](https://nativebase.io/)
 
 
 
-## 11. Quick Links to NativeBase
+## 12. Quick Links to NativeBase
 
 *	[NativeBase Documentation](https://docs.nativebase.io/)
 *	[NativeBase Blog](https://blog.nativebase.io)
@@ -166,6 +177,6 @@ Go through [NativeBase Docs](https://docs.nativebase.io/) to play with [NativeBa
 *	[NativeBase on FaceBook](https://www.facebook.com/nativebaseio/)
 
 
-## 12. About the creators
+## 13. About the creators
 
 We are [GeekyAnts](https://geekyants.com/), a startup based in Bangalore, India with 50+ developers in strength. We have been very active in the React / React Native community where we have developed [StrapUI](https://www.strapui.com/) and [StartReact](https://startreact.com/). Our other products include [StartLaravel](http://startlaravel.com) and [StartAngular](http://startangular.com).
