@@ -252,30 +252,18 @@ export default (variables = variable) => {
       },
     },
 
-    '.small': {
+    ".small": {
       height: 30,
-      'NativeBase.Text': {
-        fontSize: 14,
+      "NativeBase.Text": {
+        fontSize: 14
       },
-      '.iconLeft': {
-        'NativeBase.Icon': {
-          fontSize: 20,
-          paddingTop: 0
-        },
-        'NativeBase.IconNB': {
-          fontSize: 20,
-          paddingTop: 0
-        }
+      "NativeBase.Icon": {
+        fontSize: 20,
+        lineHeight: 17
       },
-      '.iconRight': {
-        'NativeBase.Icon': {
-          fontSize: 20,
-          paddingTop: 0
-        },
-        'NativeBase.IconNB': {
-          fontSize: 20,
-          paddingTop: 0
-        }
+      "NativeBase.IconNB": {
+        fontSize: 20,
+        lineHeight: 17
       }
     },
 
