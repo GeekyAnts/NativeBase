@@ -252,11 +252,19 @@ export default (variables = variable) => {
       },
     },
 
-    '.small': {
+    ".small": {
       height: 30,
-      'NativeBase.Text': {
-        fontSize: 14,
+      "NativeBase.Text": {
+        fontSize: 14
       },
+      "NativeBase.Icon": {
+        fontSize: 20,
+        lineHeight: 17
+      },
+      "NativeBase.IconNB": {
+        fontSize: 20,
+        lineHeight: 17
+      }
     },
 
     '.large': {
