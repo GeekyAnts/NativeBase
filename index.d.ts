@@ -21,6 +21,7 @@ declare module "native-base" {
 			placeholder?: string;
 			placeholderStyle?: ReactNative.TextStyle;
 			textStyle?: ReactNative.TextStyle;
+			style?: ReactNative.TextStyle;
 		}
 
 		interface H1 extends ReactNative.TextProperties {}
@@ -699,6 +700,7 @@ declare module "native-base" {
 			tabBarTextStyle?:ReactNative.TextStyle;
 			tabContainerStyle?:ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			contentProps?: ReactNative.ScrollViewProperties;
 		}
 
 		interface Tab {

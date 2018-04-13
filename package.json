@@ -42,8 +42,8 @@
     "prop-types": "^15.5.10",
     "react-native-drawer": "2.5.0",
     "react-native-easy-grid": "0.1.17",
-    "react-native-keyboard-aware-scroll-view": "0.4.2",
-    "react-native-vector-icons": "~4.4.2",
+    "react-native-keyboard-aware-scroll-view": "0.5.0",
+    "react-native-vector-icons": "~4.5.0",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1"
   },
@@ -62,7 +62,7 @@
     "jest": "17.0.0",
     "react": "^16.0.0-alpha.3",
     "react-native": "^0.46.0",
-    "react-native-vector-icons": "~4.4.2",
+    "react-native-vector-icons": "~4.5.0",
     "react-test-renderer": "^15.3.2"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
