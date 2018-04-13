@@ -181,7 +181,7 @@ export default (variables = variable) => {
             marginTop: 0,
             marginRight: 2,
             marginLeft: 2,
-            paddingtop: 0
+            paddingTop: 0
           },
           "NativeBase.IconNB": {
             color: variables.toolbarBtnColor,
