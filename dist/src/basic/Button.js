@@ -79,7 +79,7 @@ if(this.props.rounded){
 var buttonStyle=_extends({},this.prepareRootProps().style);
 var buttonFlex=this.props.full||this.props.block?1:buttonStyle.flex;
 return(
-_react2.default.createElement(_reactNative.View,{style:[buttonStyle,{paddingTop:undefined,paddingBottom:undefined,flex:buttonFlex}],__source:{fileName:_jsxFileName,lineNumber:82}},
+_react2.default.createElement(_reactNative.View,{style:[{maxHeight:buttonStyle.height},buttonStyle,{paddingTop:undefined,paddingBottom:undefined,flex:buttonFlex}],__source:{fileName:_jsxFileName,lineNumber:82}},
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
 ref:function ref(c){return _this2._root=c;},
 background:

@@ -81,7 +81,13 @@ color:variables.btnDangerBg}};
 
 
 var buttonTheme={
-'.disabled':{
+".disabled":{
+".transparent":{
+backgroundColor:null,
+"NativeBase.Text":{
+color:variables.btnDisabledBg}},
+
+
 backgroundColor:variables.btnDisabledBg},
 
 '.bordered':_extends({
@@ -248,14 +254,36 @@ backgroundColor:null}),
 
 '.light':_extends({},
 lightCommon,{
-backgroundColor:null})}),
+backgroundColor:null}),
 
-
-
-'.small':{
-height:30,
+'.disabled':{
+backgroundColor:'transparent',
+borderColor:variables.btnDisabledBg,
+borderWidth:variables.borderWidth*2,
 'NativeBase.Text':{
-fontSize:14}},
+color:variables.btnDisabledBg},
+
+'NativeBase.Icon':{
+color:variables.btnDisabledBg},
+
+'NativeBase.IconNB':{
+color:variables.btnDisabledBg}}}),
+
+
+
+
+".small":{
+height:30,
+"NativeBase.Text":{
+fontSize:14},
+
+"NativeBase.Icon":{
+fontSize:20,
+lineHeight:17},
+
+"NativeBase.IconNB":{
+fontSize:20,
+lineHeight:17}},
 
 
 

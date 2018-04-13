@@ -114,7 +114,7 @@ alignSelf:"center"},
 
 "NativeBase.Input":{
 alignSelf:"center",
-lineHeight:24,
+lineHeight:null,
 height:variables.searchBarInputHeight},
 
 alignSelf:"center",
@@ -174,17 +174,25 @@ marginLeft:2}},
 marginLeft:-3,
 "NativeBase.Icon":{
 color:variables.toolbarBtnColor,
-fontSize:variables.iconHeaderSize,
-marginTop:2,
+fontSize:
+platform==="ios"&&variables.platformStyle!=="material"?
+variables.iconHeaderSize-3:
+variables.iconHeaderSize-2,
+marginTop:0,
 marginRight:2,
 marginLeft:2},
 
+
 "NativeBase.IconNB":{
 color:variables.toolbarBtnColor,
-fontSize:variables.iconHeaderSize,
-marginTop:2,
+fontSize:
+platform==="ios"&&variables.platformStyle!=="material"?
+variables.iconHeaderSize-3:
+variables.iconHeaderSize-2,
+marginTop:0,
 marginRight:2,
 marginLeft:2},
+
 
 "NativeBase.Text":{
 color:variables.toolbarBtnTextColor,
@@ -272,22 +280,24 @@ borderRadius:50,
 "NativeBase.Icon":{
 color:variables.toolbarBtnColor,
 fontSize:
-platform==="ios"?
-variables.iconHeaderSize-6:
+platform==="ios"&&variables.platformStyle!=="material"?
+variables.iconHeaderSize-3:
 variables.iconHeaderSize-2,
-marginTop:2,
+marginTop:0,
 marginLeft:2,
 marginRight:2},
+
 
 "NativeBase.IconNB":{
 color:variables.toolbarBtnColor,
 fontSize:
-platform==="ios"?
-variables.iconHeaderSize-6:
+platform==="ios"&&variables.platformStyle!=="material"?
+variables.iconHeaderSize-3:
 variables.iconHeaderSize-2,
-marginTop:2,
+marginTop:0,
 marginLeft:2,
 marginRight:2},
+
 
 "NativeBase.Text":{
 color:variables.toolbarBtnTextColor,
