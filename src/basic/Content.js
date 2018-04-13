@@ -3,9 +3,13 @@ import PropTypes from "prop-types";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import variable from "../theme/variables/platform";
 
 class Content extends Component {
 	render() {
+		const variables = this.context.theme
+			? this.context.theme["@@shoutem.theme/themeStyle"].variables
+			: variable;
 		return (
 			<KeyboardAwareScrollView
 				automaticallyAdjustContentInsets={false}
@@ -16,6 +20,7 @@ class Content extends Component {
 					this._root = c;
 				}}
 				{...this.props}
+				contentContainerStyle={[{ padding: this.props.padder ? variables.contentPadding : undefined }, this.props.contentContainerStyle]}
 			>
 				{this.props.children}
 			</KeyboardAwareScrollView>

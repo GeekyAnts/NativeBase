@@ -22,6 +22,7 @@ class ListItem extends Component {
 
     if (
       Platform.OS === "ios" ||
+      Platform.OS === "web" ||
       variables.androidRipple === false ||
       (!this.props.onPress && !this.props.onLongPress) ||
       Platform.Version <= 21
@@ -32,6 +33,8 @@ class ListItem extends Component {
           onLongPress={this.props.onLongPress}
           ref={c => (this._root = c)}
           underlayColor={variables.listBtnUnderlayColor}
+          {...this.props}
+          style={undefined}
         >
           <View {...this.props}>{this.props.children}</View>
         </TouchableHighlight>

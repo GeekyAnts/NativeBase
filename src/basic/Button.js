@@ -59,6 +59,7 @@ class Button extends Component {
           );
     if (
       Platform.OS === "ios" ||
+      Platform.OS === "web" ||
       variables.androidRipple === false ||
       Platform["Version"] < 21
     ) {
@@ -78,7 +79,7 @@ class Button extends Component {
             let buttonStyle = { ...this.prepareRootProps().style };
             let buttonFlex = (this.props.full || this.props.block) ? 1 : buttonStyle.flex;
             return (
-              <View style={[buttonStyle, { paddingTop: undefined, paddingBottom: undefined,flex:buttonFlex }]} >
+              <View style={[{ maxHeight:buttonStyle.height }, buttonStyle, { paddingTop: undefined, paddingBottom: undefined, flex:buttonFlex }]} >
                 <TouchableNativeFeedback
                   ref={c => (this._root = c)}
                   background={

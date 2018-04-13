@@ -147,7 +147,6 @@ width:variables.iconFontSize-10,
 fontSize:variables.iconFontSize-10},
 
 "NativeBase.Text":{
-marginLeft:10,
 alignSelf:"center"},
 
 flexDirection:"row"},
@@ -404,9 +403,9 @@ borderBottomWidth:null},
 
 alignItems:"center",
 flexDirection:"row",
-paddingRight:variables.listItemPadding+5,
+paddingRight:variables.listItemPadding+6,
 paddingVertical:variables.listItemPadding+3,
-marginLeft:variables.listItemPadding+5,
+marginLeft:variables.listItemPadding+6,
 borderBottomWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 backgroundColor:variables.listBg,
 borderColor:variables.listBorderColor};
