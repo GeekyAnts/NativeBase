@@ -181,7 +181,7 @@ export default (variables = variable) => {
             marginTop: 0,
             marginRight: 2,
             marginLeft: 2,
-            paddingTop: 0
+//             paddingTop: 0
           },
           "NativeBase.IconNB": {
             color: variables.toolbarBtnColor,
@@ -192,7 +192,7 @@ export default (variables = variable) => {
             marginTop: 0,
             marginRight: 2,
             marginLeft: 2,
-            paddingTop: 0
+//             paddingTop: 0
           },
           "NativeBase.Text": {
             color: variables.toolbarBtnTextColor,
@@ -286,7 +286,7 @@ export default (variables = variable) => {
             marginTop: 0,
             marginLeft: 2,
             marginRight: 2,
-            paddingTop: 0
+//             paddingTop: 0
           },
           "NativeBase.IconNB": {
             color: variables.toolbarBtnColor,
@@ -297,7 +297,7 @@ export default (variables = variable) => {
             marginTop: 0,
             marginLeft: 2,
             marginRight: 2,
-            paddingTop: 0
+//             paddingTop: 0
           },
           "NativeBase.Text": {
             color: variables.toolbarBtnTextColor,
