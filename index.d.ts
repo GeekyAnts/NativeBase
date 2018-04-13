@@ -21,6 +21,7 @@ declare module "native-base" {
 			placeholder?: string;
 			placeholderStyle?: ReactNative.TextStyle;
 			textStyle?: ReactNative.TextStyle;
+			style?: ReactNative.TextStyle;
 		}
 
 		interface H1 extends ReactNative.TextProperties {}
