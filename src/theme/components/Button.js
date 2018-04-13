@@ -86,6 +86,12 @@ export default (variables = variable) => {
         backgroundColor: null,
         "NativeBase.Text": {
           color: variables.btnDisabledBg
+        },
+        "NativeBase.Icon": {
+          color: variables.btnDisabledBg,
+        },
+        "NativeBase.IconNB": {
+          color: variables.btnDisabledBg,
         }
       },
       backgroundColor: variables.btnDisabledBg
