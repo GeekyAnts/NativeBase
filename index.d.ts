@@ -480,11 +480,42 @@ declare module "native-base" {
 		/**
          * see Widget Card.js
          */
-		interface Card extends ReactNative.ViewProperties, ReactListViewProperties {
+		interface Card extends ReactNative.ViewProperties {
 			dataArray?: Array<any>;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			ref?: React.Ref<ReactNative.ViewProperties | ReactListViewProperties>;
 			transparent?: boolean;
+
+			// Adding ListView properties
+			// dataSource?: ReactNative.ListViewDataSource; 
+			enableEmptySections?: boolean;
+			initialListSize?: number;
+			onChangeVisibleRows?: (
+				visibleRows: Array<{ [sectionId: string]: { [rowID: string]: boolean } }>,
+				changedRows: Array<{ [sectionId: string]: { [rowID: string]: boolean } }>
+			) => void;
+			onEndReached?: () => void;
+			onEndReachedThreshold?: number;
+			pageSize?: number;
+			removeClippedSubviews?: boolean;
+			renderFooter?: () => React.ReactElement<any>;
+			renderHeader?: () => React.ReactElement<any>;
+			renderRow?: (
+				rowData: any,
+				sectionID: string | number,
+				rowID: string | number,
+				highlightRow?: boolean
+			) => React.ReactElement<any>;
+			renderScrollComponent?: (props: ReactNative.ScrollViewProperties) => React.ReactElement<ReactNative.ScrollViewProperties>;
+			renderSectionHeader?: (sectionData: any, sectionId: string | number) => React.ReactElement<any>;
+			renderSeparator?: (
+				sectionID: string | number,
+				rowID: string | number,
+				adjacentRowHighlighted?: boolean
+			) => React.ReactElement<any>;
+			scrollRenderAheadDistance?: number;
+			stickyHeaderIndices?: number[];
+			stickySectionHeadersEnabled?: boolean;
 		}
 		/**
          * react-native-easy-grid
