@@ -152,6 +152,7 @@ class Item extends Component {
       );
       newChildren.push(
         <Input
+          ref={c => (this._inputRef = c)}
           key="l2"
           {...inputProps}
           onFocus={() => {
