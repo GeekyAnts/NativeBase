@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import createReactClass from "create-react-class";
 import _ from "lodash";
 import { connectStyle, StyleProvider } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../../utils/mapPropsToStyleNames";
 import variable from "./../../theme/variables/platform";
 import { TabHeading, Text, TabContainer } from "./../../index";
-import { ViewPropTypes } from "../../Utils";
+import { ViewPropTypes } from "../../utils";
 const Button = require("./Button");
 const ReactNative = require("react-native");
 const {

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import createReactClass from "create-react-class";
 import _ from "lodash";
-import { InteractionManager, ViewPropTypes } from "../../Utils";
+import { InteractionManager, ViewPropTypes } from "../../utils";
 const React = require("react");
 const { Component } = React;
 const ReactNative = require("react-native");

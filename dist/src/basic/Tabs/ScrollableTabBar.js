@@ -3,10 +3,10 @@ var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_pro
 var _createReactClass=require("create-react-class");var _createReactClass2=_interopRequireDefault(_createReactClass);
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
-var _mapPropsToStyleNames=require("../../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
+var _mapPropsToStyleNames=require("../../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _platform=require("./../../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _index=require("./../../index");
-var _Utils=require("../../Utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
+var _utils=require("../../utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
 var Button=require("./Button");
 var ReactNative=require("react-native");var
 
@@ -29,11 +29,11 @@ backgroundColor:_propTypes2.default.string,
 activeTextColor:_propTypes2.default.string,
 inactiveTextColor:_propTypes2.default.string,
 scrollOffset:_propTypes2.default.number,
-style:_Utils.ViewPropTypes.style,
-tabStyle:_Utils.ViewPropTypes.style,
-tabsContainerStyle:_Utils.ViewPropTypes.style,
+style:_utils.ViewPropTypes.style,
+tabStyle:_utils.ViewPropTypes.style,
+tabsContainerStyle:_utils.ViewPropTypes.style,
 renderTab:_propTypes2.default.func,
-underlineStyle:_Utils.ViewPropTypes.style,
+underlineStyle:_utils.ViewPropTypes.style,
 onScroll:_propTypes2.default.func},
 
 contextTypes:{

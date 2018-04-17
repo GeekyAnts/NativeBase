@@ -9,7 +9,7 @@ import ic from "./NBIcons.json";
 import variable from "./../../theme/variables/platform";
 import _ from "lodash";
 
-import mapPropsToStyleNames from "../../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../../utils/mapPropsToStyleNames";
 
 class Icon extends Component {
 	static contextTypes = {

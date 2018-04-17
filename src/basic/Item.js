@@ -13,8 +13,8 @@ import { Icon } from "./Icon";
 
 import { connectStyle } from "native-base-shoutem-theme";
 import variables from "../theme/variables/platform";
-import computeProps from "../Utils/computeProps";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import computeProps from "../utils/computeProps";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import _ from "lodash";
 
 class Item extends Component {
@@ -142,57 +142,45 @@ class Item extends Component {
       }
     });
     if (this.props.floatingLabel && icon.length) {
-      for (let i = 0; i < this.props.children.length; i++) {
-        if (this.props.children[i].props.name) {
-          newChildren.push(
-            <Icon key={[i]} {...this.props.children[i].props} />
-          );
-        }
-
-        if (this.props.children[i].props.children) {
-          newChildren.push(
-            <Animated.View
-              key="float"
-              style={{
-                position: "absolute",
-                left: this.props.last ? 22 : 22,
-                right: 0,
-                top: this.state.topAnim,
-                opacity: this.state.opacAnim,
-                paddingTop: Platform.OS === "ios" ? undefined : undefined,
-                paddingBottom: Platform.OS === "ios" ? undefined : 12
-              }}
-            >
-              <Label {...labelProps}>
-                {this.renderLabel(label, labelProps)}
-              </Label>
-            </Animated.View>
-          );
-          newChildren.push(
-            <Input
-              key="l2"
-              {...inputProps}
-              onFocus={() => {
-                this.setState({ isFocused: true });
-                inputProps.onFocus && inputProps.onFocus();
-              }}
-              onBlur={() => {
-                inputProps.value
-                  ? this.setState({
-                    isFocused: true
-                  })
-                  : !this.state.text.length &&
-                    this.setState({ isFocused: false });
-                inputProps.onBlur && inputProps.onBlur();
-              }}
-              onChangeText={text => {
-                this.setState({ text });
-                inputProps.onChangeText && inputProps.onChangeText(text);
-              }}
-            />
-          );
-        }
-      }
+      newChildren.push(<Icon key="i1" {...iconProps} />);
+      newChildren.push(
+        <Animated.View
+          key="float"
+          style={{
+            position: "absolute",
+            left: this.props.last ? 22 : 22,
+            right: 0,
+            top: this.state.topAnim,
+            opacity: this.state.opacAnim,
+            paddingTop: Platform.OS === "ios" ? undefined : undefined,
+            paddingBottom: Platform.OS === "ios" ? undefined : 12
+          }}
+        >
+          <Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
+        </Animated.View>
+      );
+      newChildren.push(
+        <Input
+          key="l2"
+          {...inputProps}
+          onFocus={() => {
+            this.setState({ isFocused: true });
+            inputProps.onFocus && inputProps.onFocus();
+          }}
+          onBlur={() => {
+            inputProps.value
+              ? this.setState({
+                isFocused: true
+              })
+              : !this.state.text.length && this.setState({ isFocused: false });
+            inputProps.onBlur && inputProps.onBlur();
+          }}
+          onChangeText={text => {
+            this.setState({ text });
+            inputProps.onChangeText && inputProps.onChangeText(text);
+          }}
+        />
+      );
     } else if (this.props.floatingLabel) {
       newChildren.push(
         <Animated.View

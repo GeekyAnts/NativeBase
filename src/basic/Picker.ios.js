@@ -17,9 +17,9 @@ import { Left } from "./Left";
 import { Right } from "./Right";
 import { Body } from "./Body";
 import { connectStyle } from "native-base-shoutem-theme";
-import computeProps from "../Utils/computeProps";
+import computeProps from "../utils/computeProps";
 
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class PickerNB extends Component {
   constructor(props) {

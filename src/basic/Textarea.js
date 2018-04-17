@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { TextInput } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import variables from "../theme/variables/platform";
-import computeProps from "../Utils/computeProps";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import computeProps from "../utils/computeProps";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class Textarea extends Component {
 	getStyle() {
