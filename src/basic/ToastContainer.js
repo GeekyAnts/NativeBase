@@ -85,6 +85,7 @@ class ToastContainer extends Component {
     }
   }
   closeToast(reason) {
+    clearTimeout(this.closeTimeout);
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
       duration: 200
