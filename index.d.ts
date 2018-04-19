@@ -548,6 +548,7 @@ declare module "native-base" {
              * Disables inputting data.
              */
 			disabled?: boolean;
+			getRef?: React.Ref<ReactNative.TextInput>;
 		}
 		/**
          * see Widget Textarea.js
