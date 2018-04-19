@@ -283,6 +283,8 @@ declare module "native-base" {
 				onRowClose?: Function;
 				onRowDidOpen?: Function;
 				onRowDidClose?: Function;
+				swipeToOpenPercent?: number;
+				closeOnRowBeginSwipe?: boolean;
 		}
 		/**
          * see Widget ListItem.js
