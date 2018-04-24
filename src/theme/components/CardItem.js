@@ -152,7 +152,7 @@ export default (variables = variable) => {
           color: variables.brandPrimary,
           fontWeight: platform === "ios" ? "600" : "500"
         },
-        borderTopWidth: platform === "ios" ? variables.borderWidth : null
+        borderTopWidth: variables.borderWidth
       },
       borderBottomWidth: null
     },
