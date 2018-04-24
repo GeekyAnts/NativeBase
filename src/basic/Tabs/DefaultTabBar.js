@@ -129,7 +129,7 @@ const DefaultTabBar = createReactClass({
           );
         })}
         <Animated.View
-          style={[tabUnderlineStyle, { left }, this.props.underlineStyle]}
+          style={[tabUnderlineStyle, {transform:[{translateX: left}]}, this.props.underlineStyle]}
         />
       </TabContainer>
     );
