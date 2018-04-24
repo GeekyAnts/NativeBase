@@ -142,20 +142,28 @@ class Item extends Component {
       }
     });
     if (this.props.floatingLabel && icon.length) {
+      let isIcon = false;
       for (let i = 0; i < this.props.children.length; i++) {
         if (this.props.children[i].props.name) {
+          isIcon = true;
           newChildren.push(
             <Icon key={[i]} {...this.props.children[i].props} />
           );
         }
-
         if (this.props.children[i].props.children) {
           newChildren.push(
             <Animated.View
               key="float"
               style={{
                 position: "absolute",
-                left: this.props.last ? 22 : 22,
+                left:
+                  this.props.last && isIcon
+                    ? 40
+                    : this.props.last
+                      ? 15
+                      : isIcon
+                        ? 26
+                        : 0,
                 right: 0,
                 top: this.state.topAnim,
                 opacity: this.state.opacAnim,
