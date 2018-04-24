@@ -279,6 +279,12 @@ declare module "native-base" {
 					rowMap?: any
 				) => React.ReactElement<any>;
 				rowHasChanged?: (r1: any, r2: any) => boolean;
+				onRowOpen?: Function;
+				onRowClose?: Function;
+				onRowDidOpen?: Function;
+				onRowDidClose?: Function;
+				swipeToOpenPercent?: number;
+				closeOnRowBeginSwipe?: boolean;
 		}
 		/**
          * see Widget ListItem.js
