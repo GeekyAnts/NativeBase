@@ -485,6 +485,7 @@ declare module "native-base" {
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			ref?: React.Ref<ReactNative.ViewProperties | ReactListViewProperties>;
 			transparent?: boolean;
+			noShadow?: boolean;
 
 			// Adding ListView properties
 			// dataSource?: ReactNative.ListViewDataSource; 
