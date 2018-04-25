@@ -91,6 +91,8 @@ declare module "native-base" {
              */
 			hasTabs?: boolean;
 			noShadow?: boolean;
+			hasSubtitle?: boolean;
+			span?: boolean;
 			androidStatusBarColor?: string;
 			iosBarStyle?: ReactNative.StatusBarStyle;
 		}
