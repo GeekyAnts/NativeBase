@@ -826,6 +826,7 @@ declare module "native-base" {
 			left?: React.ReactElement<any>;
 			body?: React.ReactElement<any>;
 			right?: React.ReactElement<any>;
+			style?: ReactNative.ViewStyle;
         }
 	}
 
