@@ -103,6 +103,7 @@ declare module "native-base" {
 			span?: boolean;
 			androidStatusBarColor?: string;
 			iosBarStyle?: ReactNative.StatusBarStyle;
+			hasSegment?: boolean;
 		}
 
 		interface Left {
