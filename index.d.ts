@@ -1111,11 +1111,13 @@ declare module "native-base" {
 		public static show(configuration: {
 			text: string;
 			buttonText?: string;
-			position: "top" | "bottom" | "center";
+			position?: "top" | "bottom" | "center";
 			type?: "danger" | "success" | "warning";
 			duration?: number;
 			onClose?: Function;
-			textStyle?: object;
+			textStyle?: ReactNative.TextStyle;
+			buttonTextStyle?: ReactNative.TextStyle;
+			buttonStyle?: ReactNative.ViewStyle;
 		}): void;
 	}
 }
