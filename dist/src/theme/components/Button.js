@@ -291,21 +291,18 @@ fontSize:14},
 
 "NativeBase.Icon":{
 fontSize:20,
-lineHeight:platform==="ios"?17:undefined,
-marginHorizontal:platform==="ios"?undefined:16},
+paddingTop:0},
 
 "NativeBase.IconNB":{
 fontSize:20,
-lineHeight:platform==="ios"?17:undefined,
-marginHorizontal:platform==="ios"?undefined:16}},
+paddingTop:0}},
 
 
 
 ".large":{
 height:60,
 "NativeBase.Text":{
-fontSize:22,
-lineHeight:32}},
+fontSize:22}},
 
 
 
@@ -322,7 +319,6 @@ marginLeft:0,
 marginRight:0,
 color:variables.inverseTextColor,
 fontSize:variables.btnTextSize,
-lineHeight:variables.btnLineHeight,
 paddingHorizontal:16,
 backgroundColor:"transparent"},
 

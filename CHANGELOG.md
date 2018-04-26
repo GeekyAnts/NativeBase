@@ -1,24 +1,24 @@
-# Version [2.4.2](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.4.2)
+# Version [2.4.3](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.4.3)
 
 
 ### General
-
--   Upgraded `react native vector icons`. PR ([#1718](https://github.com/GeekyAnts/NativeBase/pull/1718))
--   Upgraded `react-native-keyboard-aware-scroll-view `. PR ([#1719](https://github.com/GeekyAnts/NativeBase/pull/1719))
-
+-   **Folder Structure:** Renamed `Utils` to `utils`. PR ([#1795](https://github.com/GeekyAnts/NativeBase/pull/1795))
 
 
 ### Bug Fixes
--   **Button:**
-    -   Fixed icon alignment with `small` button for iOS. PR ([#1761](https://github.com/GeekyAnts/NativeBase/pull/1761)), closes ([#1743](https://github.com/GeekyAnts/NativeBase/issues/1743))
-    -   Added `transparent` theme with `disabled` button. PR ([#1760](https://github.com/GeekyAnts/NativeBase/pull/1760)), closes ([#1742](https://github.com/GeekyAnts/NativeBase/issues/1742))
-    -   Added `maxHeight` to rounded button. PR ([#1754](https://github.com/GeekyAnts/NativeBase/pull/1754)), closes ([#1749](https://github.com/GeekyAnts/NativeBase/issues/1749))
-    -   Aligned icons with title text. PR ([#1775](https://github.com/GeekyAnts/NativeBase/pull/1775)), closes ([#1724](https://github.com/GeekyAnts/NativeBase/issues/1724))
--   **Content:** Moved padding from Content's style to `contentContainerStyle`. PR ([#1738](https://github.com/GeekyAnts/NativeBase/pull/1738)), closes ([#1720](https://github.com/GeekyAnts/NativeBase/issues/1720))
+-   **Button:** Removed `lineHeight` dependency in button. PR ([#1829](https://github.com/GeekyAnts/NativeBase/pull/1829)), closes ([#1827](https://github.com/GeekyAnts/NativeBase/issues/1827))
+-   **Card:**
+    -   Added `noShadow` to card theme. PR ([#1821](https://github.com/GeekyAnts/NativeBase/pull/1821)), closes ([#1819](https://github.com/GeekyAnts/NativeBase/issues/1819))
+    -   Fixed CardItem header and footer border for Android. PR ([#1820](https://github.com/GeekyAnts/NativeBase/pull/1820)), closes ([#1818](https://github.com/GeekyAnts/NativeBase/issues/1818))
+-   **Header:** Reduce space between left button and title for Android. PR ([#1789](https://github.com/GeekyAnts/NativeBase/pull/1789)), closes ([#1550](https://github.com/GeekyAnts/NativeBase/issues/1550))
 -   **Input:**
-    -   Fixed Input scrolling issue for `stackedLabel`. Closes ([#1766](https://github.com/GeekyAnts/NativeBase/issues/1766))
-    -   Input fixed to fetch variables from theme context. `inputColorPlaceholder` reflects changes when customized in ejected theme. PR ([#1751](https://github.com/GeekyAnts/NativeBase/pull/1751)), closes ([#1750](https://github.com/GeekyAnts/NativeBase/issues/1750))
--   **Searchbar:** Fixed searchbar input lineHeight when `Input` is passed with `value`. PR ([#1759](https://github.com/GeekyAnts/NativeBase/pull/1759)), closes ([#1731](https://github.com/GeekyAnts/NativeBase/issues/1731))
--   **TypeScript:**
-    -   Added contentProps to Tabs. PR ([#1748](https://github.com/GeekyAnts/NativeBase/pull/1748)), closes ([#1747](https://github.com/GeekyAnts/NativeBase/issues/1747))
-    -   Overrided picker style type. PR ([#1753](https://github.com/GeekyAnts/NativeBase/pull/1753)), closes ([#1145](https://github.com/GeekyAnts/NativeBase/issues/1145))
+    -   FloatingLabel renders icon, label and input in its order of definition. PR ([d51b2f9](https://github.com/GeekyAnts/NativeBase/commit/d51b2f94cadd4f60d2a17445c2b9f52d6a35597a), [#1796](https://github.com/GeekyAnts/NativeBase/pull/1796)), closes ([#1781](https://github.com/GeekyAnts/NativeBase/issues/1781))
+    -   Added missing ref to Input in Item.js. PR ([#1786](https://github.com/GeekyAnts/NativeBase/pull/1786)), closes ([#1780](https://github.com/GeekyAnts/NativeBase/issues/1780))
+    -   Removed `lineHeight` dependency of Input. PR ([#1835](https://github.com/GeekyAnts/NativeBase/pull/1835)), closes ([#1731](https://github.com/GeekyAnts/NativeBase/issues/1731))
+-   **Picker:** Removed Content warapping Flatlist. PR ([#1817](https://github.com/GeekyAnts/NativeBase/pull/1817)), closes ([#1816](https://github.com/GeekyAnts/NativeBase/issues/1816))
+-   **Typescript:**
+    -   Moved listview properties of interface ReactListViewProperties to Card interface. PR ([#1785](https://github.com/GeekyAnts/NativeBase/pull/1785)), closes ([#1765](https://github.com/GeekyAnts/NativeBase/issues/1765))
+    -   Added missing props to list interface. PR ([#1802](https://github.com/GeekyAnts/NativeBase/pull/1802)), closes ([#1801](https://github.com/GeekyAnts/NativeBase/issues/1801))
+    -   Added `getRef` to Input interface. PR ([#1804](https://github.com/GeekyAnts/NativeBase/pull/1804)), closes ([#1803](https://github.com/GeekyAnts/NativeBase/issues/1803))
+    -   Added `span` and `hasSubtitle` to Header interface. PR ([#1828](https://github.com/GeekyAnts/NativeBase/pull/1828)), closes ([#1824](https://github.com/GeekyAnts/NativeBase/issues/1824))
+    -   Added missing props of Picker, Header, SwipeRow, Toast. PR ([#1839](https://github.com/GeekyAnts/NativeBase/pull/1839)), closes ([#1838](https://github.com/GeekyAnts/NativeBase/issues/1838))
