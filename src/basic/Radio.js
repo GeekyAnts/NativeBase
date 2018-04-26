@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { TouchableOpacity, Platform } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import Icon from "react-native-vector-icons/Ionicons";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import variable from "../theme/variables/platform";
-import computeProps from "../Utils/computeProps";
+import computeProps from "../utils/computeProps";
 
 class Radio extends Component {
 	static contextTypes = {
