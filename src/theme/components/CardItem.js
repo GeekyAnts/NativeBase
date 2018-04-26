@@ -137,7 +137,7 @@ export default (variables = variable) => {
           color: variables.brandPrimary,
           fontWeight: platform === "ios" ? "600" : "500"
         },
-        borderBottomWidth: platform === "ios" ? variables.borderWidth : null
+        borderBottomWidth: variables.borderWidth
       },
       borderBottomWidth: null,
       paddingVertical: variables.listItemPadding + 5
@@ -152,7 +152,7 @@ export default (variables = variable) => {
           color: variables.brandPrimary,
           fontWeight: platform === "ios" ? "600" : "500"
         },
-        borderTopWidth: platform === "ios" ? variables.borderWidth : null
+        borderTopWidth: variables.borderWidth
       },
       borderBottomWidth: null
     },

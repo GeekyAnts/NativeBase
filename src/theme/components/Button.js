@@ -291,13 +291,11 @@ export default (variables = variable) => {
       },
       "NativeBase.Icon": {
         fontSize: 20,
-        lineHeight: platform === "ios" ? 17 : undefined,
-        marginHorizontal: platform === "ios" ? undefined : 16
+        paddingTop: 0
       },
       "NativeBase.IconNB": {
         fontSize: 20,
-        lineHeight: platform === "ios" ? 17 : undefined,
-        marginHorizontal: platform === "ios" ? undefined : 16
+        paddingTop: 0
       }
     },
 
@@ -305,7 +303,6 @@ export default (variables = variable) => {
       height: 60,
       "NativeBase.Text": {
         fontSize: 22,
-        lineHeight: 32
       }
     },
 
@@ -322,7 +319,6 @@ export default (variables = variable) => {
       marginRight: 0,
       color: variables.inverseTextColor,
       fontSize: variables.btnTextSize,
-      lineHeight: variables.btnLineHeight,
       paddingHorizontal: 16,
       backgroundColor: "transparent"
       // childPosition: 1

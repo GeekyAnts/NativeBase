@@ -13,8 +13,8 @@ var _Icon=require("./Icon");
 
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _platform=require("../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
-var _computeProps=require("../utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
-var _mapPropsToStyleNames=require("../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
+var _computeProps=require("../Utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
+var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 Item=function(_Component){_inherits(Item,_Component);
@@ -142,21 +142,38 @@ return item;
 }
 });
 if(this.props.floatingLabel&&icon.length){
-newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:"i1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:145}})));
+var isIcon=false;
+for(var i=0;i<this.props.children.length;i++){
+if(this.props.children[i].props.name){
+isIcon=true;
+newChildren.push(
+_react2.default.createElement(_Icon.Icon,_extends({key:[i]},this.props.children[i].props,{__source:{fileName:_jsxFileName,lineNumber:150}})));
+
+}
+if(this.props.children[i].props.children){
 newChildren.push(
 _react2.default.createElement(_reactNative.Animated.View,{
 key:"float",
 style:{
 position:"absolute",
-left:this.props.last?22:22,
+left:
+this.props.last&&isIcon?
+40:
+this.props.last?
+15:
+isIcon?
+26:
+0,
 right:0,
 top:this.state.topAnim,
 opacity:this.state.opacAnim,
 paddingTop:_reactNative.Platform.OS==="ios"?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:147}},
+paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:155}},
 
 
-_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:159}}),this.renderLabel(label,labelProps))));
+_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:174}}),
+this.renderLabel(label,labelProps))));
+
 
 
 newChildren.push(
@@ -172,15 +189,18 @@ inputProps.value?
 _this3.setState({
 isFocused:true}):
 
-!_this3.state.text.length&&_this3.setState({isFocused:false});
+!_this3.state.text.length&&
+_this3.setState({isFocused:false});
 inputProps.onBlur&&inputProps.onBlur();
 },
 onChangeText:function onChangeText(text){
 _this3.setState({text:text});
 inputProps.onChangeText&&inputProps.onChangeText(text);
-},__source:{fileName:_jsxFileName,lineNumber:163}})));
+},__source:{fileName:_jsxFileName,lineNumber:180}})));
 
 
+}
+}
 }else if(this.props.floatingLabel){
 newChildren.push(
 _react2.default.createElement(_reactNative.Animated.View,{
@@ -192,10 +212,10 @@ right:0,
 top:this.state.topAnim,
 opacity:this.state.opacAnim,
 paddingTop:_reactNative.Platform.OS==="ios"?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:186}},
+paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:206}},
 
 
-_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:198}}),this.renderLabel(label,labelProps))));
+_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:218}}),this.renderLabel(label,labelProps))));
 
 
 newChildren.push(
@@ -219,7 +239,7 @@ inputProps.onBlur&&inputProps.onBlur();
 onChangeText:function onChangeText(text){
 _this3.setState({text:text});
 inputProps.onChangeText&&inputProps.onChangeText(text);
-},__source:{fileName:_jsxFileName,lineNumber:202}})));
+},__source:{fileName:_jsxFileName,lineNumber:222}})));
 
 
 }else if(this.props.stackedLabel&&icon.length){
@@ -229,16 +249,16 @@ key:"s",
 style:{
 flexDirection:"row",
 flex:1,
-width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:227}},
+width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:247}},
 
 
-_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:235}})),
-_react2.default.createElement(_reactNative.View,{style:{flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:236}},
-_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:237}})),
+_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:255}})),
+_react2.default.createElement(_reactNative.View,{style:{flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:256}},
+_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:257}})),
 _react2.default.createElement(_Input.Input,_extends({
 key:"s3"},
 inputProps,{
-style:{width:_platform2.default.deviceWidth-40},__source:{fileName:_jsxFileName,lineNumber:238}})))));
+style:{width:_platform2.default.deviceWidth-40},__source:{fileName:_jsxFileName,lineNumber:258}})))));
 
 
 
@@ -271,7 +291,7 @@ return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 ref:function ref(c){return _this4._root=c;}},
 this.prepareRootProps(),{
-activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:271}}),
+activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:291}}),
 
 this.renderChildren()));
 
