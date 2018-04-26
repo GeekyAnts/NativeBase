@@ -22,6 +22,14 @@ declare module "native-base" {
 			placeholderStyle?: ReactNative.TextStyle;
 			textStyle?: ReactNative.TextStyle;
 			style?: ReactNative.TextStyle;
+			iosIcon?: React.ReactElement<NativeBase.Icon>;
+			note?: boolean;
+			placeholderIconColor?: string;
+			itemTextStyle?: ReactNative.TextStyle;
+			headerStyle?: ReactNative.ViewStyle;
+			headerTitleStyle?: ReactNative.TextStyle;
+			headerBackButtonTextStyle?: ReactNative.TextStyle;
+			renderHeader?: (backAction: any) => React.ReactElement<any>;
 		}
 
 		interface H1 extends ReactNative.TextProperties {}
@@ -95,6 +103,7 @@ declare module "native-base" {
 			span?: boolean;
 			androidStatusBarColor?: string;
 			iosBarStyle?: ReactNative.StatusBarStyle;
+			hasSegment?: boolean;
 		}
 
 		interface Left {
@@ -818,6 +827,7 @@ declare module "native-base" {
 			left?: React.ReactElement<any>;
 			body?: React.ReactElement<any>;
 			right?: React.ReactElement<any>;
+			style?: ReactNative.ViewStyle;
         }
 	}
 
@@ -1101,11 +1111,13 @@ declare module "native-base" {
 		public static show(configuration: {
 			text: string;
 			buttonText?: string;
-			position: "top" | "bottom" | "center";
+			position?: "top" | "bottom" | "center";
 			type?: "danger" | "success" | "warning";
 			duration?: number;
 			onClose?: Function;
-			textStyle?: object;
+			textStyle?: ReactNative.TextStyle;
+			buttonTextStyle?: ReactNative.TextStyle;
+			buttonStyle?: ReactNative.ViewStyle;
 		}): void;
 	}
 }
