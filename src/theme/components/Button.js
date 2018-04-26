@@ -291,9 +291,11 @@ export default (variables = variable) => {
       },
       "NativeBase.Icon": {
         fontSize: 20,
+        paddingTop: 0
       },
       "NativeBase.IconNB": {
         fontSize: 20,
+        paddingTop: 0
       }
     },
 
