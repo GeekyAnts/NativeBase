@@ -98,8 +98,7 @@ export default (variables = variable) => {
       color: variables.inputColor,
       flex: 1,
       top: Platform.OS === "ios" ? 1.5 : undefined,
-      fontSize: variables.inputFontSize,
-      lineHeight: variables.inputLineHeight
+      fontSize: variables.inputFontSize
     },
     ".underline": {
       "NativeBase.Input": {
