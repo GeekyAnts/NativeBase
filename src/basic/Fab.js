@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import computeProps from "../Utils/computeProps";
+import computeProps from "../utils/computeProps";
 // import Button from './../Button';
 import {
   Platform,
@@ -16,7 +16,7 @@ import { IconNB } from "./IconNB";
 import { Button } from "./Button";
 import variables from "./../theme/variables/platform";
 import _ from "lodash";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import { connectStyle } from "native-base-shoutem-theme";
 
 const { height, width } = Dimensions.get("window");

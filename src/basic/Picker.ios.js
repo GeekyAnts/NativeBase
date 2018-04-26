@@ -8,7 +8,6 @@ import { List } from "./List";
 import { IconNB as Icon } from "./IconNB";
 import { Radio } from "./Radio";
 import { Container } from "./Container";
-import { Content } from "./Content";
 import { ListItem } from "./ListItem";
 import { Button } from "./Button";
 import { Header } from "./Header";
@@ -17,9 +16,9 @@ import { Left } from "./Left";
 import { Right } from "./Right";
 import { Body } from "./Body";
 import { connectStyle } from "native-base-shoutem-theme";
-import computeProps from "../Utils/computeProps";
+import computeProps from "../utils/computeProps";
 
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class PickerNB extends Component {
   constructor(props) {
@@ -184,36 +183,34 @@ class PickerNB extends Component {
         >
           <Container>
             {this.renderHeader()}
-            <Content>
-              <FlatList
-                data={this.state.dataSource}
-                keyExtractor={(item, index) => String(index)}
-                renderItem={({ item }) => <ListItem
-                  selected={item.props.value === this.props.selectedValue}
-                  button
-                  style={this.props.itemStyle}
-                  onPress={() => {
-                    this._setModalVisible(false);
-                    this.props.onValueChange(item.props.value);
-                    this.setState({ current: item.props.label });
-                  }}
-                >
-                  <Text style={this.props.itemTextStyle}>
-                    {item.props.label}
-                  </Text>
-                  <Right>
-                    {item.props.value === this.props.selectedValue ? (
-                      <Radio selected />
-                    ) : (
-                        <Radio selected={false} />
-                      )}
-                  </Right>
-                </ListItem>}
-              />
-            </Content>
+            <FlatList
+              data={this.state.dataSource}
+              keyExtractor={(item, index) => String(index)}
+              renderItem={({ item }) => <ListItem
+                selected={item.props.value === this.props.selectedValue}
+                button
+                style={this.props.itemStyle}
+                onPress={() => {
+                  this._setModalVisible(false);
+                  this.props.onValueChange(item.props.value);
+                  this.setState({ current: item.props.label });
+                }}
+              >
+                <Text style={this.props.itemTextStyle}>
+                  {item.props.label}
+                </Text>
+                <Right>
+                  {item.props.value === this.props.selectedValue ? (
+                    <Radio selected />
+                  ) : (
+                      <Radio selected={false} />
+                    )}
+                </Right>
+              </ListItem>}
+            />
           </Container>
         </Modal>
-      </View>
+      </View >
     );
   }
 }

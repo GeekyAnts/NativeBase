@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { TextInput } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import variable from "../theme/variables/platform";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import NativeBaseComponent from "./Base/NativeBaseComponent";
 
 class Input extends NativeBaseComponent {

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/Utils/index.js"],"names":["InteractionManager","ViewPropTypes"],"mappings":"oHAAA;AACA,wD;;AAESA,kB,sCAAoBC,a","file":"index.js","sourcesContent":["import { ViewPropTypes } from \"react-native\";\nimport InteractionManager from './interactionManager'\n\nexport { InteractionManager, ViewPropTypes }\n"]}

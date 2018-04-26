@@ -13,7 +13,12 @@ top:8},
 top:8},
 
 "NativeBase.Icon":{
-top:6}},
+top:6,
+paddingTop:8},
+
+"NativeBase.IconNB":{
+top:6,
+paddingTop:8}},
 
 
 ".fixedLabel":{
@@ -93,8 +98,7 @@ height:variables.inputHeightBase,
 color:variables.inputColor,
 flex:1,
 top:_reactNative.Platform.OS==="ios"?1.5:undefined,
-fontSize:variables.inputFontSize,
-lineHeight:variables.inputLineHeight},
+fontSize:variables.inputFontSize},
 
 ".underline":{
 "NativeBase.Input":{

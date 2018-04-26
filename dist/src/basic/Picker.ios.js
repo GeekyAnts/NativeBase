@@ -8,7 +8,6 @@ var _List=require("./List");
 var _IconNB=require("./IconNB");
 var _Radio=require("./Radio");
 var _Container=require("./Container");
-var _Content=require("./Content");
 var _ListItem=require("./ListItem");
 var _Button=require("./Button");
 var _Header=require("./Header");
@@ -17,9 +16,9 @@ var _Left=require("./Left");
 var _Right=require("./Right");
 var _Body=require("./Body");
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
-var _computeProps=require("../Utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
+var _computeProps=require("../utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
 
-var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
+var _mapPropsToStyleNames=require("../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 PickerNB=function(_Component){_inherits(PickerNB,_Component);
 function PickerNB(props){_classCallCheck(this,PickerNB);var _this=_possibleConstructorReturn(this,(PickerNB.__proto__||Object.getPrototypeOf(PickerNB)).call(this,
@@ -116,16 +115,16 @@ style:this.props.style,
 dark:true,
 picker:true,
 transparent:true,
-onPress:onPress,__source:{fileName:_jsxFileName,lineNumber:114}},
+onPress:onPress,__source:{fileName:_jsxFileName,lineNumber:113}},
 
 this.state.currentLabel?
-_react2.default.createElement(_Text.Text,{style:this.props.textStyle,note:this.props.note,__source:{fileName:_jsxFileName,lineNumber:122}},
+_react2.default.createElement(_Text.Text,{style:this.props.textStyle,note:this.props.note,__source:{fileName:_jsxFileName,lineNumber:121}},
 this.state.currentLabel):
 
 
 _react2.default.createElement(_Text.Text,{
 style:[this.props.textStyle,this.props.placeholderStyle],
-note:this.props.note===false?false:true,__source:{fileName:_jsxFileName,lineNumber:126}},
+note:this.props.note===false?false:true,__source:{fileName:_jsxFileName,lineNumber:125}},
 
 this.props.placeholder),
 
@@ -139,8 +138,8 @@ this.props.iosIcon===undefined?null:this.renderIcon()));
 return this.props.renderHeader?
 this.props.renderHeader(function(){return _this4._setModalVisible(false);}):
 
-_react2.default.createElement(_Header.Header,{style:this.props.headerStyle,__source:{fileName:_jsxFileName,lineNumber:142}},
-_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:143}},
+_react2.default.createElement(_Header.Header,{style:this.props.headerStyle,__source:{fileName:_jsxFileName,lineNumber:141}},
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:142}},
 _react2.default.createElement(_Button.Button,{
 style:_extends({
 shadowOffset:null,
@@ -152,26 +151,26 @@ this.props.headerBackButtonStyle),
 transparent:true,
 onPress:function onPress(){
 _this4._setModalVisible(false);
-},__source:{fileName:_jsxFileName,lineNumber:144}},
+},__source:{fileName:_jsxFileName,lineNumber:143}},
 
-_react2.default.createElement(_Text.Text,{style:this.props.headerBackButtonTextStyle,__source:{fileName:_jsxFileName,lineNumber:157}},
+_react2.default.createElement(_Text.Text,{style:this.props.headerBackButtonTextStyle,__source:{fileName:_jsxFileName,lineNumber:156}},
 this.props.headerBackButtonText||"Back"))),
 
 
 
-_react2.default.createElement(_Body.Body,{__source:{fileName:_jsxFileName,lineNumber:162}},
-_react2.default.createElement(_Title.Title,{style:this.props.headerTitleStyle,__source:{fileName:_jsxFileName,lineNumber:163}},
+_react2.default.createElement(_Body.Body,{__source:{fileName:_jsxFileName,lineNumber:161}},
+_react2.default.createElement(_Title.Title,{style:this.props.headerTitleStyle,__source:{fileName:_jsxFileName,lineNumber:162}},
 this.props.iosHeader||"Select One")),
 
 
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:167}}));
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:166}}));
 
 
 }},{key:"render",value:function render()
 
 {var _this5=this;
 return(
-_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this5._root=c;},__source:{fileName:_jsxFileName,lineNumber:174}},
+_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this5._root=c;},__source:{fileName:_jsxFileName,lineNumber:173}},
 this.renderButton(),
 _react2.default.createElement(_reactNative.Modal,{
 supportedOrientations:this.props.supportedOrientations||null,
@@ -180,11 +179,10 @@ transparent:false,
 visible:this.state.modalVisible,
 onRequestClose:function onRequestClose(){
 _this5._setModalVisible(false);
-},__source:{fileName:_jsxFileName,lineNumber:176}},
+},__source:{fileName:_jsxFileName,lineNumber:175}},
 
-_react2.default.createElement(_Container.Container,{__source:{fileName:_jsxFileName,lineNumber:185}},
+_react2.default.createElement(_Container.Container,{__source:{fileName:_jsxFileName,lineNumber:184}},
 this.renderHeader(),
-_react2.default.createElement(_Content.Content,{__source:{fileName:_jsxFileName,lineNumber:187}},
 _react2.default.createElement(_reactNative.FlatList,{
 data:this.state.dataSource,
 keyExtractor:function keyExtractor(item,index){return String(index);},
@@ -196,17 +194,16 @@ onPress:function onPress(){
 _this5._setModalVisible(false);
 _this5.props.onValueChange(item.props.value);
 _this5.setState({current:item.props.label});
-},__source:{fileName:_jsxFileName,lineNumber:191}},
+},__source:{fileName:_jsxFileName,lineNumber:189}},
 
-_react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle,__source:{fileName:_jsxFileName,lineNumber:201}},
+_react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle,__source:{fileName:_jsxFileName,lineNumber:199}},
 item.props.label),
 
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:204}},
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:202}},
 item.props.value===_this5.props.selectedValue?
-_react2.default.createElement(_Radio.Radio,{selected:true,__source:{fileName:_jsxFileName,lineNumber:206}}):
+_react2.default.createElement(_Radio.Radio,{selected:true,__source:{fileName:_jsxFileName,lineNumber:204}}):
 
-_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:208}})));},__source:{fileName:_jsxFileName,lineNumber:188}}))))));
-
+_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:206}})));},__source:{fileName:_jsxFileName,lineNumber:186}})))));
 
 
 
@@ -220,7 +217,7 @@ _react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_j
 
 PickerNB.Item=(0,_createReactClass2.default)({displayName:"Item",
 render:function render(){
-return _react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:223}}));
+return _react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:220}}));
 }});
 
 
