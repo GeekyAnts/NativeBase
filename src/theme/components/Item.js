@@ -13,7 +13,12 @@ export default (variables = variable) => {
         top: 8
       },
       "NativeBase.Icon": {
-        top: 6
+        top: 6,
+        paddingTop: 8
+      },
+      "NativeBase.IconNB": {
+        top: 6,
+        paddingTop: 8
       }
     },
     ".fixedLabel": {
