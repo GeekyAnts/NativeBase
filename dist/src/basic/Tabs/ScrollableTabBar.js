@@ -45,7 +45,7 @@ return{
 scrollOffset:52,
 activeTextColor:"navy",
 inactiveTextColor:"black",
-backgroundColor:null,
+backgroundColor:_platform2.default.tabDefaultBg,
 style:{},
 tabStyle:{},
 tabsContainerStyle:{},
