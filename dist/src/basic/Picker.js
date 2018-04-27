@@ -27,8 +27,8 @@ _reactNative.Picker.propTypes);
 
 var StyledPickerNB=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.PickerNB",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 PickerNB);exports.
 
 PickerNB=StyledPickerNB;

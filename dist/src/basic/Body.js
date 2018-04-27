@@ -11,8 +11,8 @@ return _react2.default.createElement(_reactNative.View,_extends({ref:function re
 }}]);return Body;}(_react.Component);
 
 
-Body.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+Body.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,

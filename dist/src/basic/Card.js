@@ -29,8 +29,8 @@ this.props.children));
 }}]);return Card;}(_react.Component);
 
 
-Card.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+Card.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,

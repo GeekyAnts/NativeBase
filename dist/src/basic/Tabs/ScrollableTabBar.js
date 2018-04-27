@@ -206,8 +206,8 @@ this.updateView({value:this.props.scrollValue._value});
 
 render:function render(){var _this=this;
 var variables=this.context.theme?
-this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
-
+this.context.theme["@@shoutem.theme/themeStyle"].variables:
+_platform2.default;
 var tabUnderlineStyle={
 position:"absolute",
 height:4,
@@ -309,8 +309,8 @@ this.updateView({value:this.props.scrollValue._value});
 
 var StyledTab=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.ScrollableTab",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 ScrollableTabBar);exports.
 ScrollableTab=StyledTab;
 var styles=StyleSheet.create({

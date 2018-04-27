@@ -35,8 +35,8 @@ this.props.children));
 }}]);return InputGroup;}(_react.Component);
 
 
-InputGroup.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+InputGroup.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 regular:_propTypes2.default.bool,
 underline:_propTypes2.default.bool,
 rounded:_propTypes2.default.bool,
@@ -47,8 +47,8 @@ disabled:_propTypes2.default.bool});
 
 var StyledInputGroup=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.InputGroup",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 InputGroup);exports.
 
 InputGroup=StyledInputGroup;

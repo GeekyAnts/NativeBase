@@ -17,8 +17,8 @@ ListItem=function(_Component){_inherits(ListItem,_Component);function ListItem()
 
 {var _this2=this;
 var variables=this.context.theme?
-this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
-
+this.context.theme["@@shoutem.theme/themeStyle"].variables:
+_platform2.default;
 
 if(
 _reactNative.Platform.OS==="ios"||
@@ -68,8 +68,8 @@ button:_propTypes2.default.bool});
 
 var StyledListItem=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.ListItem",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 ListItem);exports.
 
 ListItem=StyledListItem;

@@ -324,8 +324,8 @@ this.props.renderItem(this.state.selectedItem)))));
 }}]);return DeckSwiper;}(_react.Component);
 
 
-DeckSwiper.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+DeckSwiper.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
@@ -336,8 +336,8 @@ dataSource:_propTypes2.default.array});
 
 var StyledDeckSwiper=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.DeckSwiper",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 DeckSwiper);exports.
 
 DeckSwiper=StyledDeckSwiper;

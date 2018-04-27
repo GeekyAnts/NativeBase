@@ -8,8 +8,8 @@ var _platform=require("../theme/variables/platform");var _platform2=_interopRequ
 Content=function(_Component){_inherits(Content,_Component);function Content(){_classCallCheck(this,Content);return _possibleConstructorReturn(this,(Content.__proto__||Object.getPrototypeOf(Content)).apply(this,arguments));}_createClass(Content,[{key:"render",value:function render()
 {var _this2=this;
 var variables=this.context.theme?
-this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
-
+this.context.theme["@@shoutem.theme/themeStyle"].variables:
+_platform2.default;
 return(
 _react2.default.createElement(_reactNativeKeyboardAwareScrollView.KeyboardAwareScrollView,_extends({
 automaticallyAdjustContentInsets:false,

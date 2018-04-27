@@ -221,15 +221,15 @@ return _react2.default.createElement(_reactNative.Picker.Item,_extends({},this.p
 }});
 
 
-PickerNB.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+PickerNB.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 renderButton:_propTypes2.default.func});
 
 
 var StyledPickerNB=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.PickerNB",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 PickerNB);exports.
 
 PickerNB=StyledPickerNB;

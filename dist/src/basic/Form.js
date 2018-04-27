@@ -11,8 +11,8 @@ return _react2.default.createElement(_reactNative.View,_extends({ref:function re
 }}]);return Form;}(_react.Component);
 
 
-Form.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+Form.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
