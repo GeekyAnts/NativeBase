@@ -7,7 +7,9 @@ export default (variables = variable) => {
     ".floatingLabel": {
       "NativeBase.Input": {
         height: 50,
-        top: 8
+        top: 8,
+        paddingTop: 3,
+        paddingBottom: 7
       },
       "NativeBase.Label": {
         top: 8
