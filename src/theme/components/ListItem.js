@@ -311,6 +311,14 @@ export default (variables = variable) => {
         borderBottomWidth: variables.borderWidth,
         borderColor: variables.listBorderColor
       },
+      ".noBorder": {
+        "NativeBase.Body": {
+          borderBottomWidth: null
+        },
+        "NativeBase.Right": {
+          borderBottomWidth: null
+        },
+      },
       "NativeBase.Left": {
         "NativeBase.Button": {
           "NativeBase.IconNB": {
