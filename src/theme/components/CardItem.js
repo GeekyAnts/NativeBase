@@ -1,3 +1,4 @@
+import { StyleSheet } from "react-native";
 import variable from "./../variables/platform";
 
 export default (variables = variable) => {
@@ -173,7 +174,7 @@ export default (variables = variable) => {
     },
 
     ".bordered": {
-      borderBottomWidth: variables.borderWidth,
+      borderBottomWidth: StyleSheet.hairlineWidth,
       borderColor: variables.cardBorderColor
     },
     flexDirection: "row",
