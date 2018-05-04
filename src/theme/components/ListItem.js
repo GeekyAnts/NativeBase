@@ -113,6 +113,11 @@ export default (variables = variable) => {
       flexDirection: "row",
       borderColor: variables.listBorderColor
     },
+    ".noIndent": {
+      marginLeft: null,
+      padding: variables.listItemPadding,
+      paddingLeft: variables.listItemPadding + 6,
+    },
     ".selected": {
       "NativeBase.Left": {
         ...selectedStyle
