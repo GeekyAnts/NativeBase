@@ -28,30 +28,30 @@ class Radio extends Component {
 			<TouchableOpacity ref={c => (this._root = c)} {...this.prepareRootProps()}>
 				{Platform.OS === "ios" && !this.props.standardStyle
 					? this.props.selected &&
-						<Icon
-							style={{
-								color: variables.radioColor,
-								lineHeight: 25,
-								height: 20,
-								fontSize: variables.radioBtnSize,
-							}}
-							name="ios-checkmark"
-						/>
+					<Icon
+						style={{
+							color: this.props.selectedColor ? this.props.selectedColor : variables.radioColor,
+							lineHeight: 25,
+							height: 20,
+							fontSize: variables.radioBtnSize,
+						}}
+						name="ios-checkmark"
+					/>
 					: <Icon
-							style={{
-								color:
-									Platform.OS === "ios"
-										? this.props.selected ? variables.radioColor : undefined
-										: this.props.selected ? variables.radioSelectedColorAndroid : undefined,
-								lineHeight: variables.radioBtnLineHeight,
-								fontSize: variables.radioBtnSize,
-							}}
-							name={
+						style={{
+							color:
 								Platform.OS === "ios"
-									? this.props.selected ? "ios-radio-button-on" : "ios-radio-button-off"
-									: this.props.selected ? "md-radio-button-on" : "md-radio-button-off"
-							}
-						/>}
+									? this.props.selected ? (this.props.selectedColor ? this.props.selectedColor : variables.radioColor) : (this.props.color ? this.props.color : undefined)
+									: this.props.selected ? (this.props.selectedColor ? this.props.selectedColor : variables.radioSelectedColorAndroid) : (this.props.color ? this.props.color : undefined),
+							lineHeight: variables.radioBtnLineHeight,
+							fontSize: variables.radioBtnSize,
+						}}
+						name={
+							Platform.OS === "ios"
+								? this.props.selected ? "ios-radio-button-on" : "ios-radio-button-off"
+								: this.props.selected ? "md-radio-button-on" : "md-radio-button-off"
+						}
+					/>}
 			</TouchableOpacity>
 		);
 	}
