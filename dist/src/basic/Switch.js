@@ -12,7 +12,7 @@ return _react2.default.createElement(_reactNative.Switch,_extends({ref:function 
 
 
 Switch.propTypes=_extends({},
-Switch.propTypes);
+_reactNative.Switch.propTypes);
 
 
 var StyledSwitch=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Switch",{},_mapPropsToStyleNames2.default)(Switch);exports.
