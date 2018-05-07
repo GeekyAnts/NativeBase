@@ -89,8 +89,8 @@ headerContent)));
 
 render:function render(){var _this=this;
 var variables=this.context.theme?
-this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
-
+this.context.theme["@@shoutem.theme/themeStyle"].variables:
+_platform2.default;
 var platformStyle=variables.platformStyle;
 var containerWidth=this.props.containerWidth;
 var numberOfTabs=this.props.tabs.length;
@@ -139,8 +139,8 @@ style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileNa
 
 var StyledTab=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.DefaultTabBar",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 DefaultTabBar);exports.
 DefaultTabBar=StyledTab;
 //# sourceMappingURL=DefaultTabBar.js.map

@@ -104,8 +104,8 @@ type:_propTypes2.default.oneOf([
 
 var StyledIconNB=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.IconNB",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 IconNB);exports.
 
 IconNB=StyledIconNB;

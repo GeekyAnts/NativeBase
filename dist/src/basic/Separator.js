@@ -11,8 +11,8 @@ return _react2.default.createElement(_reactNative.View,_extends({ref:function re
 }}]);return Separator;}(_react.Component);
 
 
-Separator.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+Separator.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
@@ -22,8 +22,8 @@ _propTypes2.default.array])});
 
 var StyledSeparator=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.Separator",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 Separator);exports.
 
 Separator=StyledSeparator;

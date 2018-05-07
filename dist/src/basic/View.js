@@ -10,8 +10,8 @@ return _react2.default.createElement(_reactNative.View,_extends({ref:function re
 }}]);return ViewNB;}(_react.Component);
 
 
-ViewNB.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+ViewNB.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
@@ -21,8 +21,8 @@ _propTypes2.default.array])});
 
 var StyledViewNB=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.ViewNB",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 ViewNB);exports.
 ViewNB=StyledViewNB;
 //# sourceMappingURL=View.js.map

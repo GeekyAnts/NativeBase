@@ -19,8 +19,8 @@ this.props.children));
 }}]);return Container;}(_react.Component);
 
 
-Container.propTypes=_extends({},_utils.ViewPropTypes,{
-
+Container.propTypes=_extends({},
+_utils.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array])});
 
 

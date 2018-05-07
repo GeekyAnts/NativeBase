@@ -15,8 +15,8 @@ this.props.children));
 }}]);return FooterTab;}(_react.Component);
 
 
-FooterTab.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+FooterTab.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
@@ -26,8 +26,8 @@ _propTypes2.default.array])});
 
 var StyledFooterTab=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.FooterTab",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 FooterTab);exports.
 
 FooterTab=StyledFooterTab;

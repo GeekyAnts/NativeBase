@@ -10,8 +10,8 @@ return _react2.default.createElement(_reactNative.View,_extends({ref:function re
 }}]);return Segment;}(_react.Component);
 
 
-Segment.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+Segment.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
@@ -21,8 +21,8 @@ _propTypes2.default.array])});
 
 var StyledSegment=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.Segment",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 Segment);exports.
 Segment=StyledSegment;
 //# sourceMappingURL=Segment.js.map

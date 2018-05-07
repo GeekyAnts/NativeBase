@@ -9,8 +9,8 @@ var _NativeBaseComponent2=require("./Base/NativeBaseComponent");var _NativeBaseC
 Input=function(_NativeBaseComponent){_inherits(Input,_NativeBaseComponent);function Input(){_classCallCheck(this,Input);return _possibleConstructorReturn(this,(Input.__proto__||Object.getPrototypeOf(Input)).apply(this,arguments));}_createClass(Input,[{key:"render",value:function render()
 {var _this2=this;
 var variables=this.context.theme?
-this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
-
+this.context.theme["@@shoutem.theme/themeStyle"].variables:
+_platform2.default;
 return(
 _react2.default.createElement(_reactNative.TextInput,_extends({
 ref:function ref(c){

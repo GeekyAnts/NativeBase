@@ -13,8 +13,8 @@ Header=function(_Component){_inherits(Header,_Component);function Header(){_clas
 
 {var _this2=this;
 var variables=this.context.theme?
-this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
-
+this.context.theme["@@shoutem.theme/themeStyle"].variables:
+_platform2.default;
 var platformStyle=variables.platformStyle;
 
 return(
@@ -39,8 +39,8 @@ _react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){re
 }}]);return Header;}(_react.Component);Header.contextTypes={theme:_propTypes2.default.object};
 
 
-Header.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+Header.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
@@ -52,8 +52,8 @@ rounded:_propTypes2.default.bool});
 
 var StyledHeader=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.Header",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 Header);exports.
 Header=StyledHeader;
 //# sourceMappingURL=Header.js.map

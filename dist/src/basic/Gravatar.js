@@ -64,8 +64,8 @@ square:PropTypes.bool});
 
 var StyledGravatar=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.Gravatar",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 Gravatar);exports.
 Gravatar=StyledGravatar;
 //# sourceMappingURL=Gravatar.js.map

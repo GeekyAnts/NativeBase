@@ -116,8 +116,8 @@ this.state.buttonText)))));
 }}],[{key:"show",value:function show(_ref2){var config=_objectWithoutProperties(_ref2,[]);this.toastInstance._root.showToast({config:config});}}]);return ToastContainer;}(_react.Component);
 
 
-ToastContainer.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+ToastContainer.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
@@ -127,8 +127,8 @@ _propTypes2.default.array])});
 
 var StyledToastContainer=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.ToastContainer",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 ToastContainer);exports.
 
 ToastContainer=StyledToastContainer;

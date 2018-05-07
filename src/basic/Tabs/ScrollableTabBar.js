@@ -45,7 +45,7 @@ const ScrollableTabBar = createReactClass({
       scrollOffset: 52,
       activeTextColor: "navy",
       inactiveTextColor: "black",
-      backgroundColor: null,
+      backgroundColor: variable.tabDefaultBg,
       style: {},
       tabStyle: {},
       tabsContainerStyle: {},
