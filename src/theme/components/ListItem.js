@@ -258,6 +258,14 @@ export default (variables = variable) => {
         borderBottomWidth: variables.borderWidth,
         borderColor: variables.listBorderColor
       },
+      ".noBorder": {
+        "NativeBase.Body": {
+          borderBottomWidth: null
+        },
+        "NativeBase.Right": {
+          borderBottomWidth: null
+        }
+      },
       borderBottomWidth: null,
       paddingVertical: null,
       paddingRight: null
@@ -295,6 +303,14 @@ export default (variables = variable) => {
         borderBottomWidth: variables.borderWidth,
         borderColor: variables.listBorderColor
       },
+      ".noBorder": {
+        "NativeBase.Body": {
+          borderBottomWidth: null
+        },
+        "NativeBase.Right": {
+          borderBottomWidth: null
+        }
+      },
       borderBottomWidth: null,
       paddingVertical: null,
       paddingRight: null
@@ -310,14 +326,6 @@ export default (variables = variable) => {
         },
         borderBottomWidth: variables.borderWidth,
         borderColor: variables.listBorderColor
-      },
-      ".noBorder": {
-        "NativeBase.Body": {
-          borderBottomWidth: null
-        },
-        "NativeBase.Right": {
-          borderBottomWidth: null
-        },
       },
       "NativeBase.Left": {
         "NativeBase.Button": {
@@ -399,6 +407,14 @@ export default (variables = variable) => {
         borderBottomWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
         borderColor: variables.listBorderColor,
         paddingRight: variables.listItemPadding + 5
+      },
+      ".noBorder": {
+        "NativeBase.Body": {
+          borderBottomWidth: null
+        },
+        "NativeBase.Right": {
+          borderBottomWidth: null
+        }
       },
       borderBottomWidth: null,
       paddingVertical: null,
