@@ -23,9 +23,11 @@ IconNB=function(_Component){_inherits(IconNB,_Component);function IconNB(){_clas
 
 
 iconType){
+var customIconSet=undefined;
 if(iconType==undefined&&this.context.theme){
-iconType=this.context.theme["@@shoutem.theme/themeStyle"].variables.
-iconFamily;
+var themeStyle=this.context.theme['@@shoutem.theme/themeStyle'];
+iconType=themeStyle.variables.iconFamily;
+customIconSet=themeStyle.variables.iconSet;
 }
 switch(iconType){
 case"Entypo":
@@ -62,7 +64,7 @@ case"Zocial":
 this.Icon=_Zocial2.default;
 break;
 default:
-this.Icon=_Ionicons2.default;}
+this.Icon=customIconSet||_Ionicons2.default;}
 
 }},{key:"componentWillMount",value:function componentWillMount()
 
@@ -77,7 +79,7 @@ this.setIcon(nextProps.type);
 }},{key:"render",value:function render()
 
 {var _this2=this;
-return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:80}}));
+return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:82}}));
 }}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_propTypes2.default.object};
 
 

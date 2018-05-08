@@ -23,9 +23,11 @@ class IconNB extends Component {
   };
 
   setIcon(iconType) {
+    let customIconSet = undefined;
     if (iconType == undefined && this.context.theme) {
-      iconType = this.context.theme["@@shoutem.theme/themeStyle"].variables
-        .iconFamily;
+      const themeStyle = this.context.theme['@@shoutem.theme/themeStyle'];
+      iconType = themeStyle.variables.iconFamily;
+      customIconSet = themeStyle.variables.iconSet;
     }
     switch (iconType) {
     case "Entypo":
@@ -61,8 +63,8 @@ class IconNB extends Component {
     case "Zocial":
       this.Icon = Zocial;
       break;
-    default:
-      this.Icon = Ionicons;
+      default:
+        this.Icon = customIconSet || Ionicons;
     }
   }
 

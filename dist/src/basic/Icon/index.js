@@ -33,6 +33,18 @@ name=this.props.active?_NBIcons2.default[this.props.name].android.active:_NBIcon
 }
 return name;
 }
+}else if(variables.iconSet&&variables.iconMap){
+if(typeof variables.iconMap[this.props.name]!=="object"){
+return this.props.name;
+}else if(typeof variables.iconMap[this.props.name]==="object"){
+var _name=void 0;
+if(platform==="ios"&&platformStyle!=="material"){
+_name=this.props.active?variables.iconMap[this.props.name].ios.active:variables.iconMap[this.props.name].ios.default;
+}else{
+_name=this.props.active?variables.iconMap[this.props.name].android.active:variables.iconMap[this.props.name].android.default;
+}
+return _name;
+}
 }else{
 return this.props.name;
 }
@@ -58,13 +70,13 @@ return(
 _react2.default.createElement(_IconNB.IconNB,_extends({
 ref:function ref(c){return _this2._root=c;}},
 this.props,{
-name:_reactNative.Platform.OS==="ios"?this.props.ios:this.props.android,__source:{fileName:_jsxFileName,lineNumber:58}})));
+name:_reactNative.Platform.OS==="ios"?this.props.ios:this.props.android,__source:{fileName:_jsxFileName,lineNumber:70}})));
 
 
 }else if(this.props.name&&(this.props.android||this.props.ios)){
-return _react2.default.createElement(_IconNB.IconNB,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{name:this.getIconName(),__source:{fileName:_jsxFileName,lineNumber:65}}));
+return _react2.default.createElement(_IconNB.IconNB,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{name:this.getIconName(),__source:{fileName:_jsxFileName,lineNumber:77}}));
 }else{
-return _react2.default.createElement(_IconNB.IconNB,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{name:this.getName(),__source:{fileName:_jsxFileName,lineNumber:67}}));
+return _react2.default.createElement(_IconNB.IconNB,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{name:this.getName(),__source:{fileName:_jsxFileName,lineNumber:79}}));
 }
 }}]);return Icon;}(_react.Component);Icon.contextTypes={theme:_propTypes2.default.object};
 
