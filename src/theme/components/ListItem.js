@@ -7,10 +7,10 @@ export default (variables = variable) => {
   const platform = variables.platform;
   const selectedStyle = {
     "NativeBase.Text": {
-      color: variables.brandPrimary
+      color: variables.listItemSelected
     },
     "NativeBase.Icon": {
-      color: variables.brandPrimary
+      color: variables.listItemSelected
     }
   };
 
