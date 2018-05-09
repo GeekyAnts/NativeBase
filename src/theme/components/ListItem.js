@@ -113,11 +113,6 @@ export default (variables = variable) => {
       flexDirection: "row",
       borderColor: variables.listBorderColor
     },
-    ".noIndent": {
-      marginLeft: null,
-      padding: variables.listItemPadding,
-      paddingLeft: variables.listItemPadding + 6,
-    },
     ".selected": {
       "NativeBase.Left": {
         ...selectedStyle
@@ -408,12 +403,13 @@ export default (variables = variable) => {
     },
     alignItems: "center",
     flexDirection: "row",
-    paddingRight: variables.listItemPadding + 6,
-    paddingVertical: variables.listItemPadding + 3,
-    marginLeft: variables.listItemPadding + 6,
-    borderBottomWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
     backgroundColor: variables.listBg,
-    borderColor: variables.listBorderColor
+    borderBottomWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
+    borderColor: variables.listBorderColor,
+    marginLeft: null,
+    paddingLeft: variables.listItemPadding + 6,
+    paddingRight: variables.listItemPadding + 6,
+    paddingVertical: variables.listItemPadding + 3
   };
 
   return listItemTheme;
