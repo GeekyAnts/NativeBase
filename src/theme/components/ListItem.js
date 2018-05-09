@@ -421,15 +421,19 @@ export default (variables = variable) => {
     ".noBorder": {
       borderBottomWidth: null
     },
+    ".noIndent": {
+      marginLeft: null,
+      padding: variables.listItemPadding,
+      paddingLeft: variables.listItemPadding + 6,
+    },
     alignItems: "center",
     flexDirection: "row",
-    backgroundColor: variables.listBg,
-    borderBottomWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
-    borderColor: variables.listBorderColor,
-    marginLeft: null,
-    paddingLeft: variables.listItemPadding + 6,
     paddingRight: variables.listItemPadding + 6,
-    paddingVertical: variables.listItemPadding + 3
+    paddingVertical: variables.listItemPadding + 3,
+    marginLeft: variables.listItemPadding + 6,
+    borderBottomWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
+    backgroundColor: variables.listBg,
+    borderColor: variables.listBorderColor
   };
 
   return listItemTheme;
