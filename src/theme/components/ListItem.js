@@ -224,13 +224,11 @@ export default (variables = variable) => {
       },
       alignSelf: "center"
     },
-
     ".last": {
       marginLeft: -(variables.listItemPadding + 5),
       paddingLeft: (variables.listItemPadding + 5) * 2,
       top: 1
     },
-
     ".avatar": {
       "NativeBase.Left": {
         flex: 0
@@ -270,7 +268,6 @@ export default (variables = variable) => {
       paddingVertical: null,
       paddingRight: null
     },
-
     ".thumbnail": {
       "NativeBase.Left": {
         flex: 0
@@ -315,7 +312,6 @@ export default (variables = variable) => {
       paddingVertical: null,
       paddingRight: null
     },
-
     ".icon": {
       ".last": {
         "NativeBase.Body": {
@@ -424,6 +420,11 @@ export default (variables = variable) => {
     },
     ".noBorder": {
       borderBottomWidth: null
+    },
+    ".noIndent": {
+      marginLeft: null,
+      padding: variables.listItemPadding,
+      paddingLeft: variables.listItemPadding + 6,
     },
     alignItems: "center",
     flexDirection: "row",
