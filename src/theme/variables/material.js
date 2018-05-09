@@ -184,7 +184,7 @@ export default {
   listItemPadding: 12,
   listNoteColor: "#808080",
   listNoteSize: 13,
-  listItemSelected: platform === "ios" ? "#007aff" : "#3F51B5",
+  listItemSelected: "#3F51B5",
 
   // Progress Bar
   defaultProgressColor: "#E4202D",
