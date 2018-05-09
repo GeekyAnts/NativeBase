@@ -175,6 +175,7 @@ export default {
   lineHeightH2: 27,
   lineHeightH3: 22,
   lineHeight: platform === "ios" ? 20 : 24,
+  listItemSelected: platform === "ios" ? "#007aff" : "#3F51B5",
 
   // List
   listBg: "transparent",
