@@ -89,7 +89,6 @@ CheckboxPaddingBottom:platform==="ios"?0:5,
 CheckboxIconSize:platform==="ios"?21:16,
 CheckboxIconMarginTop:platform==="ios"?undefined:1,
 CheckboxFontSize:platform==="ios"?23/0.9:17,
-DefaultFontSize:17,
 checkboxBgColor:"#039BE5",
 checkboxSize:20,
 checkboxTickColor:"#fff",
@@ -104,6 +103,7 @@ brandDark:"#000",
 brandLight:"#f4f4f4",
 
 
+DefaultFontSize:16,
 fontFamily:platform==="ios"?"System":"Roboto",
 fontSizeBase:15,
 get fontSizeH1(){
@@ -175,6 +175,7 @@ lineHeightH1:32,
 lineHeightH2:27,
 lineHeightH3:22,
 lineHeight:platform==="ios"?20:24,
+listItemSelected:platform==="ios"?"#007aff":"#3F51B5",
 
 
 listBg:"transparent",
