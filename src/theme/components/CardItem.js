@@ -5,7 +5,7 @@ export default (variables = variable) => {
   const platform = variables.platform;
   const transparentBtnCommon = {
     "NativeBase.Text": {
-      fontSize: variables.DefaultFontSize - 4,
+      fontSize: variables.DefaultFontSize - 3,
       color: variables.sTabBarActiveTextColor
     },
     "NativeBase.Icon": {
@@ -59,7 +59,7 @@ export default (variables = variable) => {
     ".content": {
       "NativeBase.Text": {
         color: platform === "ios" ? "#555" : "#222",
-        fontSize: variables.DefaultFontSize - 3
+        fontSize: variables.DefaultFontSize - 2
       }
     },
     ".cardBody": {
@@ -108,7 +108,7 @@ export default (variables = variable) => {
         color: variables.cardBorderColor
       },
       "NativeBase.Text": {
-        fontSize: variables.DefaultFontSize - 2,
+        fontSize: variables.DefaultFontSize - 1,
         alignSelf: null
       },
       "NativeBase.Thumbnail": {
