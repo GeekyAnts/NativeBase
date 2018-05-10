@@ -89,7 +89,6 @@ export default {
   CheckboxIconSize: platform === "ios" ? 21 : 16,
   CheckboxIconMarginTop: platform === "ios" ? undefined : 1,
   CheckboxFontSize: platform === "ios" ? 23 / 0.9 : 17,
-  DefaultFontSize: 16,
   checkboxBgColor: "#039BE5",
   checkboxSize: 20,
   checkboxTickColor: "#fff",
@@ -104,6 +103,7 @@ export default {
   brandLight: "#f4f4f4",
 
   // Font
+  DefaultFontSize: 16,
   fontFamily: platform === "ios" ? "System" : "Roboto",
   fontSizeBase: 15,
   get fontSizeH1() {

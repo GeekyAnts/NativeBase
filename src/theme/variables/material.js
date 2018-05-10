@@ -89,7 +89,6 @@ export default {
   CheckboxIconSize: 16,
   CheckboxIconMarginTop: 1,
   CheckboxFontSize: 17,
-  DefaultFontSize: 16,
   checkboxBgColor: "#039BE5",
   checkboxSize: 20,
   checkboxTickColor: "#fff",
@@ -104,6 +103,7 @@ export default {
   brandLight: "#f4f4f4",
 
   // Font
+  DefaultFontSize: 16,
   fontFamily: "Roboto",
   fontSizeBase: 15,
   get fontSizeH1() {

@@ -89,7 +89,6 @@ CheckboxPaddingBottom:5,
 CheckboxIconSize:16,
 CheckboxIconMarginTop:1,
 CheckboxFontSize:17,
-DefaultFontSize:16,
 checkboxBgColor:"#039BE5",
 checkboxSize:20,
 checkboxTickColor:"#fff",
@@ -104,6 +103,7 @@ brandDark:"#000",
 brandLight:"#f4f4f4",
 
 
+DefaultFontSize:16,
 fontFamily:"Roboto",
 fontSizeBase:15,
 get fontSizeH1(){
