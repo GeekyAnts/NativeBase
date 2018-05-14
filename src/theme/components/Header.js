@@ -284,7 +284,7 @@ export default (variables = variable) => {
           }
         },
         ".transparent": {
-          marginRight: -8,
+          marginRight: -9,
           paddingLeft: 15,
           paddingRight: 12,
           paddingHorizontal: 15,
@@ -314,7 +314,7 @@ export default (variables = variable) => {
           "NativeBase.Text": {
             color: variables.toolbarBtnTextColor,
             fontSize: 17,
-            top: platform === "ios" ? undefined : -1.5,
+            top: platform === "ios" ? 1 : -1.5,
             paddingRight:
               platform === "ios" && variables.platformStyle !== "material"
                 ? 0
