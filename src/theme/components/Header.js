@@ -183,7 +183,7 @@ export default (variables = variable) => {
                 : variables.iconHeaderSize - 2,
             marginTop: 0,
             marginRight: 2,
-            marginLeft: 2,
+            marginLeft: 1,
             paddingTop: 1
           },
           "NativeBase.IconNB": {
@@ -194,7 +194,7 @@ export default (variables = variable) => {
                 : variables.iconHeaderSize - 2,
             marginTop: 0,
             marginRight: 2,
-            marginLeft: 2,
+            marginLeft: 1,
             paddingTop: 1
           },
           "NativeBase.Text": {
