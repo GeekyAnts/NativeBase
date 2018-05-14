@@ -161,8 +161,8 @@ export default (variables = variable) => {
           "NativeBase.Text": {
             color: variables.toolbarBtnTextColor,
             fontSize: 17,
-            marginLeft: 2,
-            lineHeight: 21
+            marginLeft: 7,
+            lineHeight: 19.5
           },
           "NativeBase.IconNB": {
             color: variables.toolbarBtnColor,
@@ -273,7 +273,7 @@ export default (variables = variable) => {
           "NativeBase.Text": {
             color: variables.toolbarBtnTextColor,
             fontSize: 17,
-            lineHeight: 21
+            lineHeight: 19.5
           },
           "NativeBase.IconNB": {
             color: variables.toolbarBtnColor,
