@@ -27,7 +27,9 @@ alignSelf:"flex-start"}},
 "NativeBase.Title":{
 fontSize:variables.titleFontSize-2,
 fontFamily:variables.titleFontfamily,
-textAlign:"center"},
+textAlign:"center",
+fontWeight:"500",
+paddingBottom:3},
 
 "NativeBase.Subtitle":{
 fontSize:variables.subTitleFontSize,
@@ -159,8 +161,8 @@ marginLeft:2},
 "NativeBase.Text":{
 color:variables.toolbarBtnTextColor,
 fontSize:17,
-marginLeft:2,
-lineHeight:21},
+marginLeft:7,
+lineHeight:19.5},
 
 "NativeBase.IconNB":{
 color:variables.toolbarBtnColor,
@@ -171,35 +173,40 @@ marginLeft:2}},
 
 
 ".transparent":{
-marginLeft:platform==="ios"&&platformStyle!=="material"?-3:0,
+marginLeft:
+platform==="ios"&&platformStyle!=="material"?-3:0,
 "NativeBase.Icon":{
 color:variables.toolbarBtnColor,
 fontSize:
 platform==="ios"&&variables.platformStyle!=="material"?
-variables.iconHeaderSize-3:
+variables.iconHeaderSize+1:
 variables.iconHeaderSize-2,
 marginTop:0,
 marginRight:2,
-marginLeft:2},
-
+marginLeft:1,
+paddingTop:1},
 
 "NativeBase.IconNB":{
 color:variables.toolbarBtnColor,
 fontSize:
 platform==="ios"&&variables.platformStyle!=="material"?
-variables.iconHeaderSize-3:
+variables.iconHeaderSize+1:
 variables.iconHeaderSize-2,
 marginTop:0,
 marginRight:2,
-marginLeft:2},
-
+marginLeft:1,
+paddingTop:1},
 
 "NativeBase.Text":{
 color:variables.toolbarBtnTextColor,
 fontSize:17,
-top:platform==="ios"?undefined:-1.5,
-paddingLeft:platform==="ios"&&platformStyle!=="material"?undefined:5,
-paddingRight:platform==="ios"&&platformStyle!=="material"?undefined:10},
+top:platform==="ios"?1:-1.5,
+paddingLeft:
+platform==="ios"&&platformStyle!=="material"?2:5,
+paddingRight:
+platform==="ios"&&platformStyle!=="material"?
+undefined:
+10},
 
 backgroundColor:"transparent",
 borderColor:null,
@@ -217,7 +224,7 @@ color:variables.toolbarBtnColor},
 
 alignSelf:null,
 paddingRight:variables.buttonPadding,
-paddingLeft:platform==="ios"&&platformStyle!=="material"?variables.buttonPadding:10},
+paddingLeft:platform==="ios"&&platformStyle!=="material"?4:10},
 
 flex:platform==="ios"&&platformStyle!=="material"?1:0.4,
 alignSelf:"center",
@@ -266,7 +273,7 @@ marginLeft:5},
 "NativeBase.Text":{
 color:variables.toolbarBtnTextColor,
 fontSize:17,
-lineHeight:21},
+lineHeight:19.5},
 
 "NativeBase.IconNB":{
 color:variables.toolbarBtnColor,
@@ -277,35 +284,41 @@ marginLeft:5}},
 
 
 ".transparent":{
-marginRight:-8,
+marginRight:-9,
+paddingLeft:15,
+paddingRight:12,
 paddingHorizontal:15,
 borderRadius:50,
 "NativeBase.Icon":{
 color:variables.toolbarBtnColor,
 fontSize:
 platform==="ios"&&variables.platformStyle!=="material"?
-variables.iconHeaderSize-3:
+variables.iconHeaderSize-9:
 variables.iconHeaderSize-2,
 marginTop:0,
 marginLeft:2,
-marginRight:2},
+marginRight:0},
 
 
 "NativeBase.IconNB":{
 color:variables.toolbarBtnColor,
 fontSize:
 platform==="ios"&&variables.platformStyle!=="material"?
-variables.iconHeaderSize-3:
+variables.iconHeaderSize-9:
 variables.iconHeaderSize-2,
 marginTop:0,
 marginLeft:2,
-marginRight:2},
+marginRight:0},
 
 
 "NativeBase.Text":{
 color:variables.toolbarBtnTextColor,
 fontSize:17,
-top:platform==="ios"?undefined:-1.5},
+top:platform==="ios"?1:-1.5,
+paddingRight:
+platform==="ios"&&variables.platformStyle!=="material"?
+0:
+undefined},
 
 backgroundColor:"transparent",
 borderColor:null,
@@ -332,9 +345,12 @@ justifyContent:"flex-end"},
 
 backgroundColor:variables.toolbarDefaultBg,
 flexDirection:"row",
-paddingHorizontal:10,
+
+paddingLeft:
+platform==="ios"&&variables.platformStyle!=="material"?6:10,
+paddingRight:10,
 justifyContent:"center",
-paddingTop:platform==="ios"?variables.isIphoneX?39:15:0,
+paddingTop:platform==="ios"?variables.isIphoneX?39:18:0,
 borderBottomWidth:
 platform==="ios"?1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1):0,
 borderBottomColor:variables.toolbarDefaultBorder,

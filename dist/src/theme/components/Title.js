@@ -7,8 +7,10 @@ var titleTheme={
 fontSize:variables.titleFontSize,
 fontFamily:variables.titleFontfamily,
 color:variables.titleFontColor,
-fontWeight:_reactNative.Platform.OS==="ios"?"600":undefined,
-textAlign:"center"};
+fontWeight:_reactNative.Platform.OS==="ios"?"700":undefined,
+textAlign:"center",
+paddingLeft:4,
+paddingTop:1};
 
 
 return titleTheme;
