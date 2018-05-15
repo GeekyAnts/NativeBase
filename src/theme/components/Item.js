@@ -7,7 +7,9 @@ export default (variables = variable) => {
     ".floatingLabel": {
       "NativeBase.Input": {
         height: 50,
-        top: 8
+        top: 8,
+        paddingTop: 3,
+        paddingBottom: 7
       },
       "NativeBase.Label": {
         top: 8
@@ -54,8 +56,7 @@ export default (variables = variable) => {
         alignSelf: Platform.OS === "ios" ? "stretch" : "flex-start",
         flex: 1,
         width: Platform.OS === "ios" ? null : variables.deviceWidth - 25,
-        fontSize: variables.inputFontSize,
-        lineHeight: variables.inputLineHeight - 6
+        fontSize: variables.inputFontSize
       },
       flexDirection: null,
       height: variables.inputHeightBase + 15
