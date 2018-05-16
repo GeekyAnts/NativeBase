@@ -96,6 +96,8 @@ class PickerNB extends Component {
 
   renderButton() {
     const onPress = () => {
+      if (this.props.enabled !== undefined && !this.props.enabled)
+        return;
       this._setModalVisible(true);
     };
     const text = this.state.currentLabel
