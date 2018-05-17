@@ -89,7 +89,6 @@ CheckboxPaddingBottom:5,
 CheckboxIconSize:16,
 CheckboxIconMarginTop:1,
 CheckboxFontSize:17,
-DefaultFontSize:17,
 checkboxBgColor:"#039BE5",
 checkboxSize:20,
 checkboxTickColor:"#fff",
@@ -104,6 +103,7 @@ brandDark:"#000",
 brandLight:"#f4f4f4",
 
 
+DefaultFontSize:16,
 fontFamily:"Roboto",
 fontSizeBase:15,
 get fontSizeH1(){
@@ -184,6 +184,7 @@ listBtnUnderlayColor:"#DDD",
 listItemPadding:12,
 listNoteColor:"#808080",
 listNoteSize:13,
+listItemSelected:"#3F51B5",
 
 
 defaultProgressColor:"#E4202D",

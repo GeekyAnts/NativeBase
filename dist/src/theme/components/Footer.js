@@ -36,8 +36,8 @@ textCommon),
 
 alignSelf:null},
 iconCommon,
-iconNBCommon,
-textCommon),
+iconNBCommon),
+
 
 flex:1,
 alignSelf:"center",
@@ -68,8 +68,8 @@ paddingBottom:variables.footerPaddingBottom,
 flex:1}},
 
 iconCommon,
-iconNBCommon,
-textCommon)},
+iconNBCommon)},
+
 
 
 "NativeBase.Right":{
@@ -88,8 +88,8 @@ textCommon),
 
 alignSelf:null},
 iconCommon,
-iconNBCommon,
-textCommon),
+iconNBCommon),
+
 
 flex:1,
 alignSelf:"center",

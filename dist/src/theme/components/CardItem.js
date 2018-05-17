@@ -5,7 +5,7 @@ function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[
 var platform=variables.platform;
 var transparentBtnCommon={
 "NativeBase.Text":{
-fontSize:variables.DefaultFontSize-4,
+fontSize:variables.DefaultFontSize-3,
 color:variables.sTabBarActiveTextColor},
 
 "NativeBase.Icon":{
@@ -59,7 +59,7 @@ alignItems:"center"},
 ".content":{
 "NativeBase.Text":{
 color:platform==="ios"?"#555":"#222",
-fontSize:variables.DefaultFontSize-3}},
+fontSize:variables.DefaultFontSize-2}},
 
 
 ".cardBody":{
@@ -108,7 +108,7 @@ fontSize:variables.iconFontSize-8,
 color:variables.cardBorderColor},
 
 "NativeBase.Text":{
-fontSize:variables.DefaultFontSize-2,
+fontSize:variables.DefaultFontSize-1,
 alignSelf:null},
 
 "NativeBase.Thumbnail":{
