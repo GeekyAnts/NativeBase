@@ -180,7 +180,7 @@ export default (variables = variable) => {
             fontSize:
               platform === "ios" && variables.platformStyle !== "material"
                 ? variables.iconHeaderSize + 1
-                : variables.iconHeaderSize - 2,
+                : variables.iconHeaderSize,
             marginTop: 0,
             marginRight: 2,
             marginLeft: 1,
@@ -224,7 +224,7 @@ export default (variables = variable) => {
         },
         alignSelf: null,
         paddingRight: variables.buttonPadding,
-        paddingLeft: platform === "ios" && platformStyle !== "material" ? 4 : 10
+        paddingLeft: platform === "ios" && platformStyle !== "material" ? 4 : 8
       },
       flex: platform === "ios" && platformStyle !== "material" ? 1 : 0.4,
       alignSelf: "center",
@@ -284,7 +284,7 @@ export default (variables = variable) => {
           }
         },
         ".transparent": {
-          marginRight: -9,
+          marginRight: platform === "ios" ? -9 : -5,
           paddingLeft: 15,
           paddingRight: 12,
           paddingHorizontal: 15,

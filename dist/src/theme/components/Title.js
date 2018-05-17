@@ -9,7 +9,8 @@ fontFamily:variables.titleFontfamily,
 color:variables.titleFontColor,
 fontWeight:_reactNative.Platform.OS==="ios"?"700":undefined,
 textAlign:"center",
-paddingLeft:4,
+paddingLeft:_reactNative.Platform.OS==="ios"?4:0,
+marginLeft:_reactNative.Platform.OS==="ios"?undefined:-3,
 paddingTop:1};
 
 
