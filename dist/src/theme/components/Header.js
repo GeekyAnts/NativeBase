@@ -160,7 +160,7 @@ marginLeft:2},
 
 "NativeBase.Text":{
 color:variables.toolbarBtnTextColor,
-fontSize:17,
+fontSize:platform==="ios"?17:0,
 marginLeft:7,
 lineHeight:19.5},
 
@@ -199,7 +199,7 @@ paddingTop:1},
 
 "NativeBase.Text":{
 color:variables.toolbarBtnTextColor,
-fontSize:17,
+fontSize:platform==="ios"?17:0,
 top:platform==="ios"?1:-1.5,
 paddingLeft:
 platform==="ios"&&platformStyle!=="material"?2:5,
@@ -272,7 +272,7 @@ marginLeft:5},
 
 "NativeBase.Text":{
 color:variables.toolbarBtnTextColor,
-fontSize:14,
+fontSize:platform==="ios"?17:14,
 lineHeight:19.5},
 
 "NativeBase.IconNB":{
@@ -313,7 +313,7 @@ marginRight:0},
 
 "NativeBase.Text":{
 color:variables.toolbarBtnTextColor,
-fontSize:14,
+fontSize:platform==="ios"?17:14,
 top:platform==="ios"?1:-1.5,
 paddingRight:
 platform==="ios"&&variables.platformStyle!=="material"?
