@@ -272,7 +272,7 @@ export default (variables = variable) => {
           },
           "NativeBase.Text": {
             color: variables.toolbarBtnTextColor,
-            fontSize: 17,
+            fontSize: 14,
             lineHeight: 19.5
           },
           "NativeBase.IconNB": {
@@ -313,7 +313,7 @@ export default (variables = variable) => {
           },
           "NativeBase.Text": {
             color: variables.toolbarBtnTextColor,
-            fontSize: 17,
+            fontSize: 14,
             top: platform === "ios" ? 1 : -1.5,
             paddingRight:
               platform === "ios" && variables.platformStyle !== "material"
