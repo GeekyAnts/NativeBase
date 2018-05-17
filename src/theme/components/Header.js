@@ -79,6 +79,13 @@ export default (variables = variable) => {
         }
       }
     },
+    ".noLeft": {
+      "NativeBase.Body": {
+        "NativeBase.Title": {
+          paddingLeft: 10
+        }
+      }
+    },
     "NativeBase.Button": {
       justifyContent: "center",
       alignSelf: "center",
