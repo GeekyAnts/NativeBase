@@ -232,7 +232,7 @@ return this.textColor;
 
 titleFontfamily:platform==="ios"?"System":"Roboto_medium",
 titleFontSize:platform==="ios"?17:19,
-subTitleFontSize:platform==="ios"?12:14,
+subTitleFontSize:platform==="ios"?11:14,
 subtitleColor:platform==="ios"?"#000":"#fff",
 titleFontColor:platform==="ios"?"#000":"#fff",
 
