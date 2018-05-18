@@ -86,6 +86,9 @@ flex:platform==="ios"?1:0},
 
 "NativeBase.Body":{
 "NativeBase.Title":{
+paddingLeft:platform==="ios"?undefined:10},
+
+"NativeBase.Subtitle":{
 paddingLeft:platform==="ios"?undefined:10}}},
 
 

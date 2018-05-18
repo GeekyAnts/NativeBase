@@ -87,6 +87,9 @@ export default (variables = variable) => {
       "NativeBase.Body": {
         "NativeBase.Title": {
           paddingLeft: platform === "ios" ? undefined : 10
+        },
+        "NativeBase.Subtitle": {
+          paddingLeft: platform === "ios" ? undefined : 10
         }
       }
     },
