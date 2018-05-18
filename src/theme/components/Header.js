@@ -82,7 +82,7 @@ export default (variables = variable) => {
     ".noLeft": {
       "NativeBase.Body": {
         "NativeBase.Title": {
-          paddingLeft: 10
+          paddingLeft: platform === "ios" ? undefined : 10
         }
       }
     },
