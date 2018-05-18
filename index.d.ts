@@ -155,21 +155,25 @@ declare module "native-base" {
 		/**
          * see Widget Content.js
          */
-		interface Content {
-			/**
-             * The theme prop can be applied to any component of NativeBase.
-             */
-			refreshing?: boolean;
-			refreshControl?: object;
+		interface Content extends ReactNative.ScrollViewProperties {
+      /**
+       * The theme prop can be applied to any component of NativeBase.
+       */
 			theme?: Object;
 			padder?: boolean;
 			disableKBDismissScroll?: boolean;
+			viewIsInsideTabBar?: boolean;
+			resetScrollToCoords?: {
+				x: number;
+				y: number;
+			};
 			enableResetScrollToCoords?: boolean;
-			contentOffset?: Object;
-			scrollEnabled?: boolean;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			contentContainerStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-		}
+			enableAutomaticScroll?: boolean;
+			enableOnAndroid?: boolean;
+			extraHeight?: number;
+			extraScrollHeight?: number;
+			keyboardOpeningTime?: number;
+    }
 		/**
          * see Widget Button.js
          */
