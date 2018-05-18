@@ -80,6 +80,10 @@ paddingRight:0}}}},
 
 
 ".noLeft":{
+"NativeBase.Left":{
+width:platform==="ios"?undefined:0,
+flex:platform==="ios"?1:0},
+
 "NativeBase.Body":{
 "NativeBase.Title":{
 paddingLeft:platform==="ios"?undefined:10}}},
