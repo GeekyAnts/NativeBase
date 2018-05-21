@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import computeProps from "../Utils/computeProps";
+import computeProps from "../utils/computeProps";
 // import Button from './../Button';
 import {
   Platform,
@@ -16,7 +16,7 @@ import { IconNB } from "./IconNB";
 import { Button } from "./Button";
 import variables from "./../theme/variables/platform";
 import _ from "lodash";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import { connectStyle } from "native-base-shoutem-theme";
 
 const { height, width } = Dimensions.get("window");
@@ -155,7 +155,9 @@ class Fab extends Component {
         width: 56,
         height: this.containerHeight,
         flexDirection: this.props.direction
-          ? this.props.direction == "left || right" ? "row" : "column"
+          ? this.props.direction === "left" || this.props.direction === "right"
+            ? "row"
+            : "column"
           : "column",
         alignItems: "center"
       },

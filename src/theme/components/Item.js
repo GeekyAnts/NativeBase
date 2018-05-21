@@ -7,13 +7,20 @@ export default (variables = variable) => {
     ".floatingLabel": {
       "NativeBase.Input": {
         height: 50,
-        top: 8
+        top: 8,
+        paddingTop: 3,
+        paddingBottom: 7
       },
       "NativeBase.Label": {
         top: 8
       },
       "NativeBase.Icon": {
-        top: 6
+        top: 6,
+        paddingTop: 8
+      },
+      "NativeBase.IconNB": {
+        top: 6,
+        paddingTop: 8
       }
     },
     ".fixedLabel": {
@@ -92,8 +99,7 @@ export default (variables = variable) => {
       color: variables.inputColor,
       flex: 1,
       top: Platform.OS === "ios" ? 1.5 : undefined,
-      fontSize: variables.inputFontSize,
-      lineHeight: variables.inputLineHeight
+      fontSize: variables.inputFontSize
     },
     ".underline": {
       "NativeBase.Input": {

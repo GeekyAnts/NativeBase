@@ -7,7 +7,7 @@ const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = "material";
 const isIphoneX =
-  platform === "ios" && (deviceHeight === 812 || deviceWidth === 812);
+  platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
 
 export default {
   platformStyle,
@@ -89,7 +89,6 @@ export default {
   CheckboxIconSize: 16,
   CheckboxIconMarginTop: 1,
   CheckboxFontSize: 17,
-  DefaultFontSize: 17,
   checkboxBgColor: "#039BE5",
   checkboxSize: 20,
   checkboxTickColor: "#fff",
@@ -104,6 +103,7 @@ export default {
   brandLight: "#f4f4f4",
 
   // Font
+  DefaultFontSize: 16,
   fontFamily: "Roboto",
   fontSizeBase: 15,
   get fontSizeH1() {
@@ -117,9 +117,9 @@ export default {
   },
 
   // Footer
-  footerHeight: 55,
+  footerHeight: isIphoneX ? 89 : 55,
   footerDefaultBg: "#3F51B5",
-  footerPaddingBottom: 0,
+  footerPaddingBottom: isIphoneX ? 34 : 0,
 
   // FooterTab
   tabBarTextColor: "#bfc6ea",
@@ -184,6 +184,7 @@ export default {
   listItemPadding: 12,
   listNoteColor: "#808080",
   listNoteSize: 13,
+  listItemSelected: "#3F51B5",
 
   // Progress Bar
   defaultProgressColor: "#E4202D",
