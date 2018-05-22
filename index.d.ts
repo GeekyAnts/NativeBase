@@ -308,6 +308,7 @@ declare module "native-base" {
 		interface ListItem extends ReactNative.TouchableOpacityProperties {
 			header?: boolean;
 			noBorder?: boolean;
+			noIndent?: boolean;
 			/**
              * Aligns icon to the right of ListItem.
              * Default: false
