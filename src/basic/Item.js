@@ -144,7 +144,7 @@ class Item extends Component {
     if (this.props.floatingLabel && icon.length) {
       let isIcon = false;
       for (let i = 0; i < this.props.children.length; i++) {
-        if (this.props.children[i].props.name) {
+        if (this.props.children[i].props.name && this.props.children[i].type.displayName !== "Styled(Input)") {
           isIcon = true;
           newChildren.push(
             <Icon key={[i]} {...this.props.children[i].props} />
@@ -191,7 +191,7 @@ class Item extends Component {
                     isFocused: true
                   })
                   : !this.state.text.length &&
-                    this.setState({ isFocused: false });
+                  this.setState({ isFocused: false });
                 inputProps.onBlur && inputProps.onBlur();
               }}
               onChangeText={text => {
@@ -300,7 +300,7 @@ class Item extends Component {
   }
 }
 
-const childrenType = function(props, propName, component) {
+const childrenType = function (props, propName, component) {
   let error;
   const prop = props[propName];
   if (!props.children.length) {
