@@ -29,6 +29,7 @@ declare module "native-base" {
 			headerStyle?: ReactNative.ViewStyle;
 			headerTitleStyle?: ReactNative.TextStyle;
 			headerBackButtonTextStyle?: ReactNative.TextStyle;
+			modalStyle?: ReactNative.ViewStyle;
 			renderHeader?: (backAction: any) => React.ReactElement<any>;
 		}
 
