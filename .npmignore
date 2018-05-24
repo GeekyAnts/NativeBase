@@ -9,3 +9,7 @@ _config.yml
 CONTRIBUTING.md
 ISSUE_TEMPLATE.txt
 img
+
+# Test cases
+__tests__
+dist/__tests__
