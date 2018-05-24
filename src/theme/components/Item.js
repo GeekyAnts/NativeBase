@@ -59,7 +59,7 @@ export default (variables = variable) => {
         fontSize: variables.inputFontSize
       },
       flexDirection: null,
-      height: variables.inputHeightBase + 15
+      minHeight: variables.inputHeightBase + 15
     },
     ".inlineLabel": {
       "NativeBase.Label": {
