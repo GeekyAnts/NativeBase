@@ -12,7 +12,6 @@ export default (variables = variable) => {
 		"NativeBase.Button": {
 			alignSelf: "center",
 			borderRadius: 0,
-			paddingHorizontal: 20,
 			height: 30,
 			backgroundColor: "transparent",
 			borderWidth: 1,
