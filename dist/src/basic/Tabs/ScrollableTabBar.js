@@ -281,13 +281,7 @@ this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:270}})))))
 },
 
 componentWillReceiveProps:function componentWillReceiveProps(nextProps){
-
-if(
-!_lodash2.default.isEqual(this.props.tabs,nextProps.tabs)&&
-this.state._containerWidth)
-{
 this.setState({_containerWidth:null});
-}
 },
 
 onTabContainerLayout:function onTabContainerLayout(e){
