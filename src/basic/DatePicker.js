@@ -9,7 +9,7 @@ import {
 import { Text } from "native-base";
 import variable from "../theme/variables/platform";
 
-export default class DatePicker extends React.Component {
+export class DatePicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
