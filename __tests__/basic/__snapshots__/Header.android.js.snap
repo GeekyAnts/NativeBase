@@ -1,0 +1,1123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Header noLeft 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      noLeft={true}
+      style={Object {}}
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={Object {}}
+          virtual={undefined}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header noShadow 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      noShadow={true}
+      style={Object {}}
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={Object {}}
+          virtual={undefined}
+        >
+          Header No Shadow
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header span 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      span={true}
+      style={Object {}}
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={Object {}}
+          virtual={undefined}
+        >
+          Header Span
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with Custom background color 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      androidStatusBarColor="#dc2015"
+      iosBarStyle="light-content"
+      style={
+        Array [
+          Object {},
+          Object {
+            "backgroundColor": "#dc4239",
+          },
+        ]
+      }
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={
+            Array [
+              Object {},
+              Object {
+                "color": "#FFF",
+              },
+            ]
+          }
+          virtual={undefined}
+        >
+          Custom Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with Icon & Text Button 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      style={Object {}}
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={Object {}}
+          virtual={undefined}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with Icon Button & Text Button 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      style={Object {}}
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={Object {}}
+          virtual={undefined}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with Icon Buttons 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      style={Object {}}
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={Object {}}
+          virtual={undefined}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with Text Buttons 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      style={Object {}}
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={Object {}}
+          virtual={undefined}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with Title and Subtitle 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      hasSubtitle={true}
+      style={Object {}}
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={Object {}}
+          virtual={undefined}
+        >
+          Title
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={Object {}}
+          virtual={undefined}
+        >
+          Subtitle
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with multiple Icon Button 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      style={Object {}}
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={Object {}}
+          virtual={undefined}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffbcbc",
+                "borderColor": "red",
+                "borderWidth": 1,
+                "height": 100,
+                "justifyContent": "center",
+                "margin": 10,
+                "width": 300,
+              },
+              Object {
+                "borderRadius": 2,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#333333",
+                "margin": 20,
+              }
+            }
+          >
+            TouchableNativeFeedback is not supported on this platform!
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with only Title 1`] = `
+<View
+  style={Object {}}
+  virtual={undefined}
+>
+  <View>
+    <View
+      style={Object {}}
+      virtual={undefined}
+    >
+      <View
+        style={Object {}}
+        virtual={undefined}
+      />
+      <View
+        style={Object {}}
+        virtual={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={Object {}}
+          virtual={undefined}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+        virtual={undefined}
+      />
+    </View>
+  </View>
+</View>
+`;

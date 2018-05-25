@@ -103,6 +103,10 @@ brandDark:"#000",
 brandLight:"#f4f4f4",
 
 
+datePickerTextColor:"#000",
+datePickerBg:"transparent",
+
+
 DefaultFontSize:16,
 fontFamily:"Roboto",
 fontSizeBase:15,
