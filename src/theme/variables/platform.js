@@ -13,6 +13,12 @@ export default {
   platformStyle,
   platform,
 
+  //Accordion
+  headerStyle: "#d8d3d8",
+  iconStyle: "#000",
+  contentStyle: "#F4F3F4",
+  expandedIconStyle: "#000",
+
   // Android
   androidRipple: true,
   androidRippleColor: "rgba(256, 256, 256, 0.3)",

@@ -56,6 +56,7 @@ import ScrollableTabView from "./basic/Tabs";
 import { DefaultTabBar } from "./basic/Tabs/DefaultTabBar";
 import { ScrollableTab } from "./basic/Tabs/ScrollableTabBar";
 import { Subtitle } from "./basic/Subtitle";
+import { Accordion } from "./basic/Accordion";
 
 setDefaultThemeStyle();
 // Theme
@@ -118,7 +119,8 @@ export {
   DefaultTabBar,
   Segment,
   Root,
-  SwipeRow
+  SwipeRow,
+  Accordion
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);
