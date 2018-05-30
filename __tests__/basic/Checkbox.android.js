@@ -3,7 +3,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { Content } from "./../../src/basic/Content";
 import { ListItem } from "./../../src/basic/ListItem";
-import { CheckBox } from "./../../src/basic/CheckBox";
+import { CheckBox } from "./../../src/basic/Checkbox";
 import { Body } from "./../../src/basic/Body";
 import { Text } from "./../../src/basic/Text";
 
