@@ -43,8 +43,7 @@ class ListItem extends Component {
       return (
         <TouchableNativeFeedback
           ref={c => (this._root = c)}
-          onPress={this.props.onPress}
-          onLongPress={this.props.onLongPress}
+          {...this.props}
         >
           <View style={{ marginLeft: -17, paddingLeft: 17 }}>
             <View {...this.props}>{this.props.children}</View>
