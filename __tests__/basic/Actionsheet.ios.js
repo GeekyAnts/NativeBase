@@ -2,7 +2,7 @@ import "react-native";
 import React from "react";
 import renderer from "react-test-renderer";
 import { Button } from "./../../src/basic/Button";
-import { ActionSheet } from "./../../src/basic/ActionSheet";
+import { ActionSheet } from "./../../src/basic/Actionsheet";
 import { Text } from "./../../src/basic/Text";
 
 var BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
