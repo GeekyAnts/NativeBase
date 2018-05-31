@@ -5,7 +5,9 @@ exports[`renders anatomy 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}

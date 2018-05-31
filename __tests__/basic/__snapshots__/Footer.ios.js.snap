@@ -5,7 +5,9 @@ exports[`renders Footer with Badge 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -369,7 +371,9 @@ exports[`renders Footer with Icon and Text 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -694,7 +698,9 @@ exports[`renders Footer with Icons 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -975,7 +981,9 @@ exports[`renders basic Footer 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
