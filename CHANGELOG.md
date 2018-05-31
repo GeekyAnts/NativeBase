@@ -2,15 +2,15 @@
 
 ### New Features
 
-*   Added Accordion component. [28b1033](https://github.com/GeekyAnts/NativeBase/commit/28b1033241a3b91177bb7eda5d5ca0cacf9f14b8), closes [#1721](https://github.com/GeekyAnts/NativeBase/issues/1721)
-*   Added Date Picker component. [b7968c4](https://github.com/GeekyAnts/NativeBase/commit/b7968c4cc057f3162f75812134bf5c0bb06f59ef), closes [#882](https://github.com/GeekyAnts/NativeBase/issues/882)
-*   Added Jest test cases to components. [b267c1c](https://github.com/GeekyAnts/NativeBase/commit/b267c1cc8af542c13db8641c791cbd3233b82f10)
+*   Added Accordion component. ([28b1033](https://github.com/GeekyAnts/NativeBase/commit/28b1033241a3b91177bb7eda5d5ca0cacf9f14b8)), closes [#1721](https://github.com/GeekyAnts/NativeBase/issues/1721)
+*   Added Date Picker component. ([b7968c4](https://github.com/GeekyAnts/NativeBase/commit/b7968c4cc057f3162f75812134bf5c0bb06f59ef)), closes [#882](https://github.com/GeekyAnts/NativeBase/issues/882)
+*   Added Jest test cases to components. ([b267c1c](https://github.com/GeekyAnts/NativeBase/commit/b267c1cc8af542c13db8641c791cbd3233b82f10))
 
 
 
 ### Upgraded Features
 
-*	Upgraded dev dependencies to support Jest test cases. [b267c1c](https://github.com/GeekyAnts/NativeBase/commit/b267c1cc8af542c13db8641c791cbd3233b82f10)
+*	Upgraded dev dependencies to support Jest test cases. ([b267c1c](https://github.com/GeekyAnts/NativeBase/commit/b267c1cc8af542c13db8641c791cbd3233b82f10))
 *   Safearea implementation for Header, Content and Footer. PR [#1614](https://github.com/GeekyAnts/NativeBase/pull/1614), [#1920](https://github.com/GeekyAnts/NativeBase/pull/1920), closes [#1951](https://github.com/GeekyAnts/NativeBase/issues/1951)
 *   **Icon:** Added `type` Icon Proptypes. PR [#1797](https://github.com/GeekyAnts/NativeBase/pull/1797)
 *   **Picker:** Added back `modalStyle` for iOS picker. PR [#1928](https://github.com/GeekyAnts/NativeBase/pull/1928), closes [#1923](https://github.com/GeekyAnts/NativeBase/issues/1923)
