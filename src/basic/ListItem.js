@@ -34,7 +34,7 @@ class ListItem extends Component {
           ref={c => (this._root = c)}
           underlayColor={variables.listBtnUnderlayColor}
           {...this.props}
-          style={undefined}
+          style={this.props.touchableHighlightStyle}
         >
           <View {...this.props}>{this.props.children}</View>
         </TouchableHighlight>
@@ -60,6 +60,10 @@ ListItem.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
+    PropTypes.array
+  ]),
+  touchableHighlightStyle: PropTypes.oneOfType([
+    PropTypes.object,
     PropTypes.array
   ]),
   itemDivider: PropTypes.bool,

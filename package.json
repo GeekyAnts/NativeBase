@@ -14,8 +14,8 @@
     "rnpm"
   ],
   "scripts": {
-    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
-    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
+    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
+    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon && npm run test && rm -rf dist/__tests__",
     "test": "jest",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",
@@ -23,9 +23,8 @@
   },
   "jest": {
     "preset": "react-native",
-    "rootDir": "src",
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
+      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
     ]
   },
   "version": "2.4.5",
@@ -36,6 +35,7 @@
     "clamp": "^1.0.1",
     "color": "~1.0.3",
     "fs-extra": "^2.0.0",
+    "jest-react-native": "^18.0.0",
     "lodash": "~4.11.1",
     "native-base-shoutem-theme": "0.2.2",
     "print-message": "^2.1.0",
@@ -49,21 +49,21 @@
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
-    "babel-eslint": "^6.1.2",
+    "babel-eslint": "^7.2.3",
     "babel-jest": "^16.0.0",
-    "babel-preset-react-native": "^1.9.0",
+    "babel-preset-react-native": "^1.9.2",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-react-native": "^2.0.0",
-    "flow-bin": "0.40.0",
-    "jest": "17.0.0",
-    "react": "^16.0.0-alpha.3",
+    "flow-bin": "0.47.0",
+    "jest": "19.0.2",
+    "react": "^16.0.0-alpha.12",
     "react-native": "^0.46.0",
     "react-native-vector-icons": "~4.5.0",
-    "react-test-renderer": "^15.3.2"
+    "react-test-renderer": "^16.0.0-alpha.12"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
@@ -71,7 +71,7 @@
   "typings": "./index.d.ts",
   "optionalDependencies": {},
   "peerDependencies": {
-    "react": ">=16.0.0-alpha.3",
+    "react": ">=16.0.0-alpha.12",
     "react-native": ">=0.46.0"
   },
   "readmeFilename": "README.md",
