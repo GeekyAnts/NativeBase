@@ -656,11 +656,9 @@ declare module "native-base" {
 		/**
          * see Widget CheckBox.js
          */
-		interface CheckBox {
+		interface CheckBox extends ReactNative.TouchableOpacityProperties{
 			checked?: boolean;
 			color?: string;
-			onPress?: Function;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 		}
 		/**
          * see Widget CheckBox.js
