@@ -334,6 +334,7 @@ declare module "native-base" {
              * [android] colored ripple effect
              */
 			androidRippleColor?: string;
+			touchableHighlightStyle?: ReactNative.ViewStyle;
 		}
 
 		interface Separator {
