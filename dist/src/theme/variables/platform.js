@@ -14,6 +14,12 @@ platformStyle:platformStyle,
 platform:platform,
 
 
+headerStyle:"#d8d3d8",
+iconStyle:"#000",
+contentStyle:"#F4F3F4",
+expandedIconStyle:"#000",
+
+
 androidRipple:true,
 androidRippleColor:"rgba(256, 256, 256, 0.3)",
 androidRippleColorDark:"rgba(0, 0, 0, 0.15)",
