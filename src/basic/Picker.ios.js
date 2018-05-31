@@ -196,9 +196,11 @@ class PickerNB extends Component {
                   this.setState({ current: item.props.label });
                 }}
               >
-                <Text style={this.props.itemTextStyle}>
-                  {item.props.label}
-                </Text>
+                <Left>
+                  <Text style={this.props.itemTextStyle}>
+                    {item.props.label}
+                  </Text>
+                </Left>
                 <Right>
                   {item.props.value === this.props.selectedValue ? (
                     <Radio selected />
