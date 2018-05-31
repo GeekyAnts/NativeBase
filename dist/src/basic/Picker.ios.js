@@ -204,14 +204,16 @@ _this5.props.onValueChange(item.props.value);
 _this5.setState({current:item.props.label});
 },__source:{fileName:_jsxFileName,lineNumber:197}},
 
-_react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle,__source:{fileName:_jsxFileName,lineNumber:207}},
-item.props.label),
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:207}},
+_react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle,__source:{fileName:_jsxFileName,lineNumber:208}},
+item.props.label)),
 
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:210}},
+
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:212}},
 item.props.value===_this5.props.selectedValue?
-_react2.default.createElement(_Radio.Radio,{selected:true,__source:{fileName:_jsxFileName,lineNumber:212}}):
+_react2.default.createElement(_Radio.Radio,{selected:true,__source:{fileName:_jsxFileName,lineNumber:214}}):
 
-_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:214}})));},__source:{fileName:_jsxFileName,lineNumber:194}})))));
+_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:216}})));},__source:{fileName:_jsxFileName,lineNumber:194}})))));
 
 
 
@@ -225,7 +227,7 @@ _react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_j
 
 PickerNB.Item=(0,_createReactClass2.default)({displayName:"Item",
 render:function render(){
-return _react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:228}}));
+return _react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:230}}));
 }});
 
 
