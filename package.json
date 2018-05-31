@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
-    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon && npm run test && rm -rf dist/__tests__",
+    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon && rm -rf dist/__tests__ && npm run test",
     "test": "jest",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",

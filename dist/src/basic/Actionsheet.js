@@ -94,9 +94,9 @@ padding:15,
 elevation:4},__source:{fileName:_jsxFileName,lineNumber:87}},
 
 
-_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:97}},this.state.title),
+this.state.title?_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:97}},this.state.title):null,
 _react2.default.createElement(_reactNative.FlatList,{
-style:{marginHorizontal:-15,marginTop:15},
+style:{marginHorizontal:-15,marginTop:this.state.title?15:0},
 data:this.state.items,
 keyExtractor:function keyExtractor(item,index){return String(index);},
 renderItem:function renderItem(_ref){var index=_ref.index,item=_ref.item;

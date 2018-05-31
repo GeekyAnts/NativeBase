@@ -34,20 +34,19 @@ onLongPress:this.props.onLongPress,
 ref:function ref(c){return _this2._root=c;},
 underlayColor:variables.listBtnUnderlayColor},
 this.props,{
-style:undefined,__source:{fileName:_jsxFileName,lineNumber:31}}),
+style:this.props.touchableHighlightStyle,__source:{fileName:_jsxFileName,lineNumber:31}}),
 
 _react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:39}}),this.props.children)));
 
 
 }else{
 return(
-_react2.default.createElement(_reactNative.TouchableNativeFeedback,{
-ref:function ref(c){return _this2._root=c;},
-onPress:this.props.onPress,
-onLongPress:this.props.onLongPress,__source:{fileName:_jsxFileName,lineNumber:44}},
+_react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
+ref:function ref(c){return _this2._root=c;}},
+this.props,{__source:{fileName:_jsxFileName,lineNumber:44}}),
 
-_react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17},__source:{fileName:_jsxFileName,lineNumber:49}},
-_react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:50}}),this.props.children))));
+_react2.default.createElement(_reactNative.View,{style:{marginLeft:-17,paddingLeft:17},__source:{fileName:_jsxFileName,lineNumber:48}},
+_react2.default.createElement(_reactNative.View,_extends({},this.props,{__source:{fileName:_jsxFileName,lineNumber:49}}),this.props.children))));
 
 
 
@@ -60,6 +59,10 @@ _reactNative.TouchableHighlight.propTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
+_propTypes2.default.array]),
+
+touchableHighlightStyle:_propTypes2.default.oneOfType([
+_propTypes2.default.object,
 _propTypes2.default.array]),
 
 itemDivider:_propTypes2.default.bool,
