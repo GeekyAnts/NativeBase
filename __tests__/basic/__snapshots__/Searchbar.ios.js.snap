@@ -5,7 +5,9 @@ exports[`renders searchbar 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       rounded={true}
       searchBar={true}

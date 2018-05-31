@@ -5,7 +5,9 @@ exports[`renders Segments inside Header 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       hasSegment={true}
       style={Object {}}
@@ -177,7 +179,9 @@ exports[`renders Segments outside Header 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       hasSegment={true}
       style={Object {}}

@@ -5,7 +5,9 @@ exports[`renders Header noShadow 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       noShadow={true}
       style={Object {}}
@@ -151,7 +153,9 @@ exports[`renders Header span 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       span={true}
       style={Object {}}
@@ -244,7 +248,9 @@ exports[`renders Header with Custom background color 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       androidStatusBarColor="#dc2015"
       iosBarStyle="light-content"
@@ -355,7 +361,9 @@ exports[`renders Header with Icon & Text Button 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -496,7 +504,9 @@ exports[`renders Header with Icon Button & Text Button 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -626,7 +636,9 @@ exports[`renders Header with Icon Buttons 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -771,7 +783,9 @@ exports[`renders Header with Text Buttons 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -886,7 +900,9 @@ exports[`renders Header with Title and Subtitle 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       hasSubtitle={true}
       style={Object {}}
@@ -989,7 +1005,9 @@ exports[`renders Header with multiple Icon Button 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -1238,7 +1256,9 @@ exports[`renders Header with only Title 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}

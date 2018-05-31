@@ -5,7 +5,9 @@ exports[`renders Card Header and Footer 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -168,7 +170,9 @@ exports[`renders Card Image 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -400,7 +404,9 @@ exports[`renders Card List 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -976,7 +982,9 @@ exports[`renders Card Showcase 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -1170,7 +1178,9 @@ exports[`renders basic Card 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -1268,7 +1278,9 @@ exports[`renders bordered CardItem 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -1436,7 +1448,9 @@ exports[`renders button CardItem 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
@@ -1615,7 +1629,9 @@ exports[`renders transparent Card 1`] = `
   style={Object {}}
   virtual={undefined}
 >
-  <View>
+  <View
+    onLayout={[Function]}
+  >
     <View
       style={Object {}}
       virtual={undefined}
