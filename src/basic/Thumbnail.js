@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Image } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
-import computeProps from "../Utils/computeProps";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import computeProps from "../utils/computeProps";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class Thumbnail extends Component {
 	render() {

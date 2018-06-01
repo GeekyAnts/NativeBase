@@ -1,10 +1,11 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _platform=require("./../variables/platform");var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
+Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _reactNative=require("react-native");
+var _platform=require("./../variables/platform");var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var platform=variables.platform;
 var transparentBtnCommon={
 "NativeBase.Text":{
-fontSize:variables.DefaultFontSize-4,
+fontSize:variables.DefaultFontSize-3,
 color:variables.sTabBarActiveTextColor},
 
 "NativeBase.Icon":{
@@ -58,7 +59,7 @@ alignItems:"center"},
 ".content":{
 "NativeBase.Text":{
 color:platform==="ios"?"#555":"#222",
-fontSize:variables.DefaultFontSize-3}},
+fontSize:variables.DefaultFontSize-2}},
 
 
 ".cardBody":{
@@ -107,7 +108,7 @@ fontSize:variables.iconFontSize-8,
 color:variables.cardBorderColor},
 
 "NativeBase.Text":{
-fontSize:variables.DefaultFontSize-2,
+fontSize:variables.DefaultFontSize-1,
 alignSelf:null},
 
 "NativeBase.Thumbnail":{
@@ -137,7 +138,7 @@ fontWeight:platform==="ios"?"600":"500"},
 color:variables.brandPrimary,
 fontWeight:platform==="ios"?"600":"500"},
 
-borderBottomWidth:platform==="ios"?variables.borderWidth:null},
+borderBottomWidth:variables.borderWidth},
 
 borderBottomWidth:null,
 paddingVertical:variables.listItemPadding+5},
@@ -152,7 +153,7 @@ fontWeight:platform==="ios"?"600":"500"},
 color:variables.brandPrimary,
 fontWeight:platform==="ios"?"600":"500"},
 
-borderTopWidth:platform==="ios"?variables.borderWidth:null},
+borderTopWidth:variables.borderWidth},
 
 borderBottomWidth:null},
 
@@ -173,7 +174,7 @@ fontSize:variables.iconFontSize-2},
 
 
 ".bordered":{
-borderBottomWidth:variables.borderWidth,
+borderBottomWidth:_reactNative.StyleSheet.hairlineWidth,
 borderColor:variables.cardBorderColor},
 
 flexDirection:"row",

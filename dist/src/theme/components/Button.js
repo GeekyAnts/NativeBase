@@ -1,137 +1,155 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _platform=require('./../variables/platform');var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
+Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _platform=require("./../variables/platform");var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var platformStyle=variables.platformStyle;
 var platform=variables.platform;
 var darkCommon={
-'NativeBase.Text':{
+"NativeBase.Text":{
 color:variables.brandDark},
 
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 color:variables.brandDark},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 color:variables.brandDark}};
 
 
 var lightCommon={
-'NativeBase.Text':{
+"NativeBase.Text":{
 color:variables.brandLight},
 
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 color:variables.brandLight},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 color:variables.brandLight}};
 
 
 var primaryCommon={
-'NativeBase.Text':{
+"NativeBase.Text":{
 color:variables.btnPrimaryBg},
 
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 color:variables.btnPrimaryBg},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 color:variables.btnPrimaryBg}};
 
 
 var successCommon={
-'NativeBase.Text':{
+"NativeBase.Text":{
 color:variables.btnSuccessBg},
 
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 color:variables.btnSuccessBg},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 color:variables.btnSuccessBg}};
 
 
 var infoCommon={
-'NativeBase.Text':{
+"NativeBase.Text":{
 color:variables.btnInfoBg},
 
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 color:variables.btnInfoBg},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 color:variables.btnInfoBg}};
 
 
 var warningCommon={
-'NativeBase.Text':{
+"NativeBase.Text":{
 color:variables.btnWarningBg},
 
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 color:variables.btnWarningBg},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 color:variables.btnWarningBg}};
 
 
 var dangerCommon={
-'NativeBase.Text':{
+"NativeBase.Text":{
 color:variables.btnDangerBg},
 
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 color:variables.btnDangerBg},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 color:variables.btnDangerBg}};
 
 
 var buttonTheme={
-'.disabled':{
+".disabled":{
+".transparent":{
+backgroundColor:null,
+"NativeBase.Text":{
+color:variables.btnDisabledBg},
+
+"NativeBase.Icon":{
+color:variables.btnDisabledBg},
+
+"NativeBase.IconNB":{
+color:variables.btnDisabledBg}},
+
+
+"NativeBase.Icon":{
+color:variables.brandLight},
+
+"NativeBase.IconNB":{
+color:variables.brandLight},
+
 backgroundColor:variables.btnDisabledBg},
 
-'.bordered':_extends({
-'.dark':_extends({},
+".bordered":_extends({
+".dark":_extends({},
 darkCommon,{
-backgroundColor:'transparent',
+backgroundColor:"transparent",
 borderColor:variables.brandDark,
 borderWidth:variables.borderWidth*2}),
 
-'.light':_extends({},
+".light":_extends({},
 lightCommon,{
-backgroundColor:'transparent',
+backgroundColor:"transparent",
 borderColor:variables.brandLight,
 borderWidth:variables.borderWidth*2}),
 
-'.primary':_extends({},
+".primary":_extends({},
 primaryCommon,{
-backgroundColor:'transparent',
+backgroundColor:"transparent",
 borderColor:variables.btnPrimaryBg,
 borderWidth:variables.borderWidth*2}),
 
-'.success':_extends({},
+".success":_extends({},
 successCommon,{
-backgroundColor:'transparent',
+backgroundColor:"transparent",
 borderColor:variables.btnSuccessBg,
 borderWidth:variables.borderWidth*2}),
 
-'.info':_extends({},
+".info":_extends({},
 infoCommon,{
-backgroundColor:'transparent',
+backgroundColor:"transparent",
 borderColor:variables.btnInfoBg,
 borderWidth:variables.borderWidth*2}),
 
-'.warning':_extends({},
+".warning":_extends({},
 warningCommon,{
-backgroundColor:'transparent',
+backgroundColor:"transparent",
 borderColor:variables.btnWarningBg,
 borderWidth:variables.borderWidth*2}),
 
-'.danger':_extends({},
+".danger":_extends({},
 dangerCommon,{
-backgroundColor:'transparent',
+backgroundColor:"transparent",
 borderColor:variables.btnDangerBg,
 borderWidth:variables.borderWidth*2}),
 
-'.disabled':{
+".disabled":{
 backgroundColor:null,
 borderColor:variables.btnDisabledBg,
 borderWidth:variables.borderWidth*2,
-'NativeBase.Text':{
+"NativeBase.Text":{
 color:variables.btnDisabledBg}}},
 
 
@@ -142,192 +160,212 @@ shadowColor:null,
 shadowOffset:null,
 shadowOpacity:null,
 shadowRadius:null,
-backgroundColor:'transparent'}),
+backgroundColor:"transparent"}),
 
 
-'.dark':{
-'.bordered':_extends({},
+".dark":{
+".bordered":_extends({},
 darkCommon),
 
 backgroundColor:variables.brandDark},
 
-'.light':_extends({
-'.transparent':_extends({},
+".light":_extends({
+".transparent":_extends({},
 lightCommon,{
 backgroundColor:null}),
 
-'.bordered':_extends({},
+".bordered":_extends({},
 lightCommon)},
 
 darkCommon,{
 backgroundColor:variables.brandLight}),
 
 
-'.primary':{
-'.bordered':_extends({},
+".primary":{
+".bordered":_extends({},
 primaryCommon),
 
 backgroundColor:variables.btnPrimaryBg},
 
 
-'.success':{
-'.bordered':_extends({},
+".success":{
+".bordered":_extends({},
 successCommon),
 
 backgroundColor:variables.btnSuccessBg},
 
 
-'.info':{
-'.bordered':_extends({},
+".info":{
+".bordered":_extends({},
 infoCommon),
 
 backgroundColor:variables.btnInfoBg},
 
 
-'.warning':{
-'.bordered':_extends({},
+".warning":{
+".bordered":_extends({},
 warningCommon),
 
 backgroundColor:variables.btnWarningBg},
 
 
-'.danger':{
-'.bordered':_extends({},
+".danger":{
+".bordered":_extends({},
 dangerCommon),
 
 backgroundColor:variables.btnDangerBg},
 
 
-'.block':{
-justifyContent:'center',
-alignSelf:'stretch'},
+".block":{
+justifyContent:"center",
+alignSelf:"stretch"},
 
 
-'.full':{
-justifyContent:'center',
-alignSelf:'stretch',
+".full":{
+justifyContent:"center",
+alignSelf:"stretch",
 borderRadius:0},
 
 
-'.rounded':{
+".rounded":{
 
 borderRadius:variables.borderRadiusLarge},
 
 
-'.transparent':_extends({
-backgroundColor:'transparent',
+".transparent":_extends({
+backgroundColor:"transparent",
 elevation:0,
 shadowColor:null,
 shadowOffset:null,
 shadowRadius:null,
 shadowOpacity:null},
 primaryCommon,{
-'.dark':_extends({},
+".dark":_extends({},
 darkCommon,{
 backgroundColor:null}),
 
-'.danger':_extends({},
+".danger":_extends({},
 dangerCommon,{
 backgroundColor:null}),
 
-'.warning':_extends({},
+".warning":_extends({},
 warningCommon,{
 backgroundColor:null}),
 
-'.info':_extends({},
+".info":_extends({},
 infoCommon,{
 backgroundColor:null}),
 
-'.primary':_extends({},
+".primary":_extends({},
 primaryCommon,{
 backgroundColor:null}),
 
-'.success':_extends({},
+".success":_extends({},
 successCommon,{
 backgroundColor:null}),
 
-'.light':_extends({},
+".light":_extends({},
 lightCommon,{
-backgroundColor:null})}),
+backgroundColor:null}),
+
+".disabled":{
+backgroundColor:"transparent",
+borderColor:variables.btnDisabledBg,
+borderWidth:variables.borderWidth*2,
+"NativeBase.Text":{
+color:variables.btnDisabledBg},
+
+"NativeBase.Icon":{
+color:variables.btnDisabledBg},
+
+"NativeBase.IconNB":{
+color:variables.btnDisabledBg}}}),
 
 
 
-'.small':{
+
+".small":{
 height:30,
-'NativeBase.Text':{
-fontSize:14}},
+"NativeBase.Text":{
+fontSize:14},
+
+"NativeBase.Icon":{
+fontSize:20,
+paddingTop:0},
+
+"NativeBase.IconNB":{
+fontSize:20,
+paddingTop:0}},
 
 
 
-'.large':{
+".large":{
 height:60,
-'NativeBase.Text':{
-fontSize:22,
-lineHeight:32}},
+"NativeBase.Text":{
+fontSize:22}},
 
 
 
-'.capitalize':{},
+".capitalize":{},
 
-'.vertical':{
-flexDirection:'column',
+".vertical":{
+flexDirection:"column",
 height:null},
 
 
-'NativeBase.Text':{
+"NativeBase.Text":{
 fontFamily:variables.btnFontFamily,
 marginLeft:0,
 marginRight:0,
 color:variables.inverseTextColor,
 fontSize:variables.btnTextSize,
-lineHeight:variables.btnLineHeight,
 paddingHorizontal:16,
-backgroundColor:'transparent'},
+backgroundColor:"transparent"},
 
 
 
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 color:variables.inverseTextColor,
 fontSize:24,
 marginHorizontal:16,
-paddingTop:platform==='ios'?2:undefined},
+paddingTop:platform==="ios"?2:undefined},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 color:variables.inverseTextColor,
 fontSize:24,
 marginHorizontal:16,
-paddingTop:platform==='ios'?2:undefined},
+paddingTop:platform==="ios"?2:undefined},
 
 
-'.iconLeft':{
-'NativeBase.Text':{
+".iconLeft":{
+"NativeBase.Text":{
 marginLeft:0},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 marginRight:0,
 marginLeft:16},
 
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 marginRight:0,
 marginLeft:16}},
 
 
-'.iconRight':{
-'NativeBase.Text':{
+".iconRight":{
+"NativeBase.Text":{
 marginRight:0},
 
-'NativeBase.IconNB':{
+"NativeBase.IconNB":{
 marginLeft:0,
 marginRight:16},
 
-'NativeBase.Icon':{
+"NativeBase.Icon":{
 marginLeft:0,
 marginRight:16}},
 
 
-'.picker':{
-'NativeBase.Text':{
-'.note':{
+".picker":{
+"NativeBase.Text":{
+".note":{
 fontSize:16,
 lineHeight:null}}},
 
@@ -341,16 +379,16 @@ borderRadius:variables.borderRadiusBase,
 borderColor:variables.btnPrimaryBg,
 borderWidth:null,
 height:45,
-alignSelf:'flex-start',
-flexDirection:'row',
+alignSelf:"flex-start",
+flexDirection:"row",
 elevation:2,
-shadowColor:platformStyle==='material'?variables.brandDark:undefined,
+shadowColor:platformStyle==="material"?variables.brandDark:undefined,
 shadowOffset:
-platformStyle==='material'?{width:0,height:2}:undefined,
-shadowOpacity:platformStyle==='material'?0.2:undefined,
-shadowRadius:platformStyle==='material'?1.2:undefined,
-alignItems:'center',
-justifyContent:'space-between'};
+platformStyle==="material"?{width:0,height:2}:undefined,
+shadowOpacity:platformStyle==="material"?0.2:undefined,
+shadowRadius:platformStyle==="material"?1.2:undefined,
+alignItems:"center",
+justifyContent:"space-between"};
 
 return buttonTheme;
 };

@@ -7,11 +7,17 @@ var deviceWidth=_reactNative.Dimensions.get("window").width;
 var platform=_reactNative.Platform.OS;
 var platformStyle="material";
 var isIphoneX=
-platform==="ios"&&deviceHeight===812&&deviceWidth===375;exports.default=
+platform==="ios"&&(deviceHeight===812||deviceWidth===812);exports.default=
 
 {
 platformStyle:platformStyle,
 platform:platform,
+
+
+headerStyle:"#d8d3d8",
+iconStyle:"#000",
+contentStyle:"#F4F3F4",
+expandedIconStyle:"#000",
 
 
 androidRipple:true,
@@ -89,7 +95,6 @@ CheckboxPaddingBottom:5,
 CheckboxIconSize:16,
 CheckboxIconMarginTop:1,
 CheckboxFontSize:17,
-DefaultFontSize:17,
 checkboxBgColor:"#039BE5",
 checkboxSize:20,
 checkboxTickColor:"#fff",
@@ -104,6 +109,11 @@ brandDark:"#000",
 brandLight:"#f4f4f4",
 
 
+datePickerTextColor:"#000",
+datePickerBg:"transparent",
+
+
+DefaultFontSize:16,
 fontFamily:"Roboto",
 fontSizeBase:15,
 get fontSizeH1(){
@@ -117,9 +127,9 @@ return this.fontSizeBase*1.4;
 },
 
 
-footerHeight:isIphoneX?89:55,
+footerHeight:55,
 footerDefaultBg:"#3F51B5",
-footerPaddingBottom:isIphoneX?34:0,
+footerPaddingBottom:0,
 
 
 tabBarTextColor:"#bfc6ea",
@@ -184,6 +194,7 @@ listBtnUnderlayColor:"#DDD",
 listItemPadding:12,
 listNoteColor:"#808080",
 listNoteSize:13,
+listItemSelected:"#3F51B5",
 
 
 defaultProgressColor:"#E4202D",
@@ -244,5 +255,19 @@ inputLineHeight:24,
 deviceWidth:deviceWidth,
 deviceHeight:deviceHeight,
 isIphoneX:isIphoneX,
-inputGroupRoundedBorderRadius:30};
+inputGroupRoundedBorderRadius:30,
+
+
+Inset:{
+portrait:{
+topInset:24,
+leftInset:0,
+rightInset:0,
+bottomInset:34},
+
+landscape:{
+topInset:0,
+leftInset:44,
+rightInset:44,
+bottomInset:21}}};
 //# sourceMappingURL=material.js.map

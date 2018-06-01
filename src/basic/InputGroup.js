@@ -4,8 +4,8 @@ import { View, ViewPropTypes } from "react-native";
 
 import variables from "../theme/variables/platform";
 import { connectStyle } from "native-base-shoutem-theme";
-import computeProps from "../Utils/computeProps";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import computeProps from "../utils/computeProps";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class InputGroup extends Component {
   getInitialStyle() {

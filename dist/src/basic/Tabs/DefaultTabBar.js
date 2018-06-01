@@ -3,10 +3,10 @@ var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_pro
 var _createReactClass=require("create-react-class");var _createReactClass2=_interopRequireDefault(_createReactClass);
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
-var _mapPropsToStyleNames=require("../../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
+var _mapPropsToStyleNames=require("../../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _platform=require("./../../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _index=require("./../../index");
-var _Utils=require("../../Utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
+var _utils=require("../../utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
 var ReactNative=require("react-native");var
 
 StyleSheet=ReactNative.StyleSheet,View=ReactNative.View,Animated=ReactNative.Animated,Platform=ReactNative.Platform;
@@ -20,10 +20,10 @@ tabs:_propTypes2.default.array,
 backgroundColor:_propTypes2.default.string,
 activeTextColor:_propTypes2.default.string,
 inactiveTextColor:_propTypes2.default.string,
-tabStyle:_Utils.ViewPropTypes.style,
+tabStyle:_utils.ViewPropTypes.style,
 renderTab:_propTypes2.default.func,
-underlineStyle:_Utils.ViewPropTypes.style,
-tabContainerStyle:_Utils.ViewPropTypes.style},
+underlineStyle:_utils.ViewPropTypes.style,
+tabContainerStyle:_utils.ViewPropTypes.style},
 
 contextTypes:{
 theme:_propTypes2.default.object},
@@ -89,8 +89,8 @@ headerContent)));
 
 render:function render(){var _this=this;
 var variables=this.context.theme?
-this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
-
+this.context.theme["@@shoutem.theme/themeStyle"].variables:
+_platform2.default;
 var platformStyle=variables.platformStyle;
 var containerWidth=this.props.containerWidth;
 var numberOfTabs=this.props.tabs.length;
@@ -139,8 +139,8 @@ style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileNa
 
 var StyledTab=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.DefaultTabBar",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 DefaultTabBar);exports.
 DefaultTabBar=StyledTab;
 //# sourceMappingURL=DefaultTabBar.js.map

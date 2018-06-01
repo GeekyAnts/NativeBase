@@ -18,7 +18,7 @@ var _Left=require("./Left");
 var _Right=require("./Right");
 var _Body=require("./Body");
 var _ListItem=require("./ListItem");
-var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
+var _mapPropsToStyleNames=require("../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 ActionSheetContainer=function(_Component){_inherits(ActionSheetContainer,_Component);
 function ActionSheetContainer(props){_classCallCheck(this,ActionSheetContainer);var _this=_possibleConstructorReturn(this,(ActionSheetContainer.__proto__||Object.getPrototypeOf(ActionSheetContainer)).call(this,
@@ -94,9 +94,9 @@ padding:15,
 elevation:4},__source:{fileName:_jsxFileName,lineNumber:87}},
 
 
-_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:97}},this.state.title),
+this.state.title?_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:97}},this.state.title):null,
 _react2.default.createElement(_reactNative.FlatList,{
-style:{marginHorizontal:-15,marginTop:15},
+style:{marginHorizontal:-15,marginTop:this.state.title?15:0},
 data:this.state.items,
 keyExtractor:function keyExtractor(item,index){return String(index);},
 renderItem:function renderItem(_ref){var index=_ref.index,item=_ref.item;
@@ -141,8 +141,8 @@ _react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,line
 }}],[{key:"show",value:function show(config,callback){this.actionsheetInstance._root.showActionSheet(config,callback);}}]);return ActionSheetContainer;}(_react.Component);
 
 
-ActionSheetContainer.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+ActionSheetContainer.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
@@ -152,8 +152,8 @@ _propTypes2.default.array])});
 
 var StyledActionSheetContainer=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.ActionSheetContainer",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 ActionSheetContainer);exports.
 
 ActionSheetContainer=StyledActionSheetContainer;

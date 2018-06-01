@@ -4,8 +4,8 @@ var _reactNative=require("react-native");
 
 var _platform=require("../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
-var _computeProps=require("../Utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
-var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
+var _computeProps=require("../utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
+var _mapPropsToStyleNames=require("../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 InputGroup=function(_Component){_inherits(InputGroup,_Component);function InputGroup(){_classCallCheck(this,InputGroup);return _possibleConstructorReturn(this,(InputGroup.__proto__||Object.getPrototypeOf(InputGroup)).apply(this,arguments));}_createClass(InputGroup,[{key:"getInitialStyle",value:function getInitialStyle()
 {
@@ -35,8 +35,8 @@ this.props.children));
 }}]);return InputGroup;}(_react.Component);
 
 
-InputGroup.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+InputGroup.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 regular:_propTypes2.default.bool,
 underline:_propTypes2.default.bool,
 rounded:_propTypes2.default.bool,
@@ -47,8 +47,8 @@ disabled:_propTypes2.default.bool});
 
 var StyledInputGroup=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.InputGroup",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 InputGroup);exports.
 
 InputGroup=StyledInputGroup;

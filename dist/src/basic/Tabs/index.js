@@ -1,7 +1,7 @@
 Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Tabs/index.js";var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _createReactClass=require("create-react-class");var _createReactClass2=_interopRequireDefault(_createReactClass);
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);
-var _Utils=require("../../Utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}
+var _utils=require("../../utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}
 var React=require("react");var
 Component=React.Component;
 var ReactNative=require("react-native");var
@@ -38,7 +38,7 @@ page:_propTypes2.default.number,
 onChangeTab:_propTypes2.default.func,
 onScroll:_propTypes2.default.func,
 renderTabBar:_propTypes2.default.any,
-style:_Utils.ViewPropTypes.style,
+style:_utils.ViewPropTypes.style,
 contentProps:_propTypes2.default.object,
 scrollWithoutAnimation:_propTypes2.default.bool,
 locked:_propTypes2.default.bool,
@@ -74,7 +74,7 @@ if(_this.scrollView){
 _this.state.scrollValue.setValue(_this.props.initialPage);
 }
 };
-_Utils.InteractionManager.runAfterInteractions(scrollFn);
+_utils.InteractionManager.runAfterInteractions(scrollFn);
 },
 
 componentWillReceiveProps:function componentWillReceiveProps(props){

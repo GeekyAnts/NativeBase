@@ -7,10 +7,10 @@ function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[
 var platform=variables.platform;
 var selectedStyle={
 "NativeBase.Text":{
-color:variables.brandPrimary},
+color:variables.listItemSelected},
 
 "NativeBase.Icon":{
-color:variables.brandPrimary}};
+color:variables.listItemSelected}};
 
 
 
@@ -224,12 +224,10 @@ fontWeight:"200"},
 
 alignSelf:"center"},
 
-
 ".last":{
 marginLeft:-(variables.listItemPadding+5),
 paddingLeft:(variables.listItemPadding+5)*2,
 top:1},
-
 
 ".avatar":{
 "NativeBase.Left":{
@@ -258,10 +256,17 @@ paddingVertical:variables.listItemPadding,
 borderBottomWidth:variables.borderWidth,
 borderColor:variables.listBorderColor},
 
+".noBorder":{
+"NativeBase.Body":{
+borderBottomWidth:null},
+
+"NativeBase.Right":{
+borderBottomWidth:null}},
+
+
 borderBottomWidth:null,
 paddingVertical:null,
 paddingRight:null},
-
 
 ".thumbnail":{
 "NativeBase.Left":{
@@ -295,10 +300,17 @@ paddingVertical:variables.listItemPadding+5,
 borderBottomWidth:variables.borderWidth,
 borderColor:variables.listBorderColor},
 
+".noBorder":{
+"NativeBase.Body":{
+borderBottomWidth:null},
+
+"NativeBase.Right":{
+borderBottomWidth:null}},
+
+
 borderBottomWidth:null,
 paddingVertical:null,
 paddingRight:null},
-
 
 ".icon":{
 ".last":{
@@ -392,6 +404,14 @@ borderBottomWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 borderColor:variables.listBorderColor,
 paddingRight:variables.listItemPadding+5},
 
+".noBorder":{
+"NativeBase.Body":{
+borderBottomWidth:null},
+
+"NativeBase.Right":{
+borderBottomWidth:null}},
+
+
 borderBottomWidth:null,
 paddingVertical:null,
 paddingRight:null,
@@ -400,6 +420,11 @@ justifyContent:"center"},
 
 ".noBorder":{
 borderBottomWidth:null},
+
+".noIndent":{
+marginLeft:null,
+padding:variables.listItemPadding,
+paddingLeft:variables.listItemPadding+6},
 
 alignItems:"center",
 flexDirection:"row",

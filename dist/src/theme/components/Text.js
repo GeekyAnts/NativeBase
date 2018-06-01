@@ -2,7 +2,7 @@ Object.defineProperty(exports,"__esModule",{value:true});var _platform=require("
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var textTheme={
-fontSize:variables.DefaultFontSize-1,
+fontSize:variables.DefaultFontSize,
 fontFamily:variables.fontFamily,
 color:variables.textColor,
 ".note":{
