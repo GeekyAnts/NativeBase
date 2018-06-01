@@ -234,6 +234,11 @@ declare module "native-base" {
              */
 			iconRight?: boolean;
 			/**
+			 * Used to enable/disable icons
+			 * Icons align in the center of the bu8tton.
+			 */
+			icon?: boolean;
+			/**
              * Disables onPress option for button
              */
 			disabled?: boolean;
@@ -304,6 +309,7 @@ declare module "native-base" {
 		interface ListItem extends ReactNative.TouchableOpacityProperties {
 			header?: boolean;
 			noBorder?: boolean;
+			noIndent?: boolean;
 			/**
              * Aligns icon to the right of ListItem.
              * Default: false
