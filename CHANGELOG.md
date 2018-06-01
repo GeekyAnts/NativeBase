@@ -1,4 +1,5 @@
-# Version [](https://github.com/GeekyAnts/NativeBase/releases/tag/)
+# Version [2.5.0](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.5.0)
+
 
 ### New Features
 
@@ -13,7 +14,9 @@
 *	Upgraded dev dependencies to support Jest test cases. ([b267c1c](https://github.com/GeekyAnts/NativeBase/commit/b267c1cc8af542c13db8641c791cbd3233b82f10))
 *   Safearea implementation for Header, Content and Footer. PR [#1614](https://github.com/GeekyAnts/NativeBase/pull/1614), [#1920](https://github.com/GeekyAnts/NativeBase/pull/1920), closes [#1951](https://github.com/GeekyAnts/NativeBase/issues/1951)
 *   **Icon:** Added `type` Icon Proptypes. PR [#1797](https://github.com/GeekyAnts/NativeBase/pull/1797)
-*   **Picker:** Added back `modalStyle` for iOS picker. PR [#1928](https://github.com/GeekyAnts/NativeBase/pull/1928), closes [#1923](https://github.com/GeekyAnts/NativeBase/issues/1923)
+*   **Picker:**
+    -   Added back `modalStyle` for iOS picker. PR [#1928](https://github.com/GeekyAnts/NativeBase/pull/1928), closes [#1923](https://github.com/GeekyAnts/NativeBase/issues/1923)
+    -   Added `enabled` prop to picker for iOS. PR [#1899](https://github.com/GeekyAnts/NativeBase/pull/1899), closes [#1825](https://github.com/GeekyAnts/NativeBase/issues/1825)
 *   **Segment:** Added icon support with segments. PR [#1929](https://github.com/GeekyAnts/NativeBase/pull/1929)
 *   **Typescript:**
     -   Added Icon typing to Button. PR [#1902](https://github.com/GeekyAnts/NativeBase/pull/1902)

@@ -75,7 +75,8 @@ style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.defa
 name:_propTypes2.default.string,
 ios:_propTypes2.default.string,
 android:_propTypes2.default.string,
-active:_propTypes2.default.bool});
+active:_propTypes2.default.bool,
+type:_propTypes2.default.string});
 
 
 var StyledIcon=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.Icon",{},_mapPropsToStyleNames2.default)(Icon);exports.

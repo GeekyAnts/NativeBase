@@ -103,6 +103,8 @@ this.props.iosIcon.props.style)]});
 
 {var _this3=this;
 var onPress=function onPress(){
+if(_this3.props.enabled!==undefined&&!_this3.props.enabled)
+return;
 _this3._setModalVisible(true);
 };
 var text=this.state.currentLabel?
@@ -122,16 +124,16 @@ style:this.props.style,
 dark:true,
 picker:true,
 transparent:true,
-onPress:onPress,__source:{fileName:_jsxFileName,lineNumber:120}},
+onPress:onPress,__source:{fileName:_jsxFileName,lineNumber:122}},
 
 this.state.currentLabel?
-_react2.default.createElement(_Text.Text,{style:this.props.textStyle,note:this.props.note,__source:{fileName:_jsxFileName,lineNumber:128}},
+_react2.default.createElement(_Text.Text,{style:this.props.textStyle,note:this.props.note,__source:{fileName:_jsxFileName,lineNumber:130}},
 this.state.currentLabel):
 
 
 _react2.default.createElement(_Text.Text,{
 style:[this.props.textStyle,this.props.placeholderStyle],
-note:this.props.note===false?false:true,__source:{fileName:_jsxFileName,lineNumber:132}},
+note:this.props.note===false?false:true,__source:{fileName:_jsxFileName,lineNumber:134}},
 
 this.props.placeholder),
 
@@ -145,8 +147,8 @@ this.props.iosIcon===undefined?null:this.renderIcon()));
 return this.props.renderHeader?
 this.props.renderHeader(function(){return _this4._setModalVisible(false);}):
 
-_react2.default.createElement(_Header.Header,{style:this.props.headerStyle,__source:{fileName:_jsxFileName,lineNumber:148}},
-_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:149}},
+_react2.default.createElement(_Header.Header,{style:this.props.headerStyle,__source:{fileName:_jsxFileName,lineNumber:150}},
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:151}},
 _react2.default.createElement(_Button.Button,{
 style:_extends({
 shadowOffset:null,
@@ -158,26 +160,26 @@ this.props.headerBackButtonStyle),
 transparent:true,
 onPress:function onPress(){
 _this4._setModalVisible(false);
-},__source:{fileName:_jsxFileName,lineNumber:150}},
+},__source:{fileName:_jsxFileName,lineNumber:152}},
 
-_react2.default.createElement(_Text.Text,{style:this.props.headerBackButtonTextStyle,__source:{fileName:_jsxFileName,lineNumber:163}},
+_react2.default.createElement(_Text.Text,{style:this.props.headerBackButtonTextStyle,__source:{fileName:_jsxFileName,lineNumber:165}},
 this.props.headerBackButtonText||"Back"))),
 
 
 
-_react2.default.createElement(_Body.Body,{__source:{fileName:_jsxFileName,lineNumber:168}},
-_react2.default.createElement(_Title.Title,{style:this.props.headerTitleStyle,__source:{fileName:_jsxFileName,lineNumber:169}},
+_react2.default.createElement(_Body.Body,{__source:{fileName:_jsxFileName,lineNumber:170}},
+_react2.default.createElement(_Title.Title,{style:this.props.headerTitleStyle,__source:{fileName:_jsxFileName,lineNumber:171}},
 this.props.iosHeader||"Select One")),
 
 
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:173}}));
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:175}}));
 
 
 }},{key:"render",value:function render()
 
 {var _this5=this;
 return(
-_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this5._root=c;},__source:{fileName:_jsxFileName,lineNumber:180}},
+_react2.default.createElement(_reactNative.View,{ref:function ref(c){return _this5._root=c;},__source:{fileName:_jsxFileName,lineNumber:182}},
 this.renderButton(),
 _react2.default.createElement(_reactNative.Modal,{
 supportedOrientations:this.props.supportedOrientations||null,
@@ -186,9 +188,9 @@ transparent:false,
 visible:this.state.modalVisible,
 onRequestClose:function onRequestClose(){
 _this5._setModalVisible(false);
-},__source:{fileName:_jsxFileName,lineNumber:182}},
+},__source:{fileName:_jsxFileName,lineNumber:184}},
 
-_react2.default.createElement(_Container.Container,{style:this.props.modalStyle,__source:{fileName:_jsxFileName,lineNumber:191}},
+_react2.default.createElement(_Container.Container,{style:this.props.modalStyle,__source:{fileName:_jsxFileName,lineNumber:193}},
 this.renderHeader(),
 _react2.default.createElement(_reactNative.FlatList,{
 data:this.state.dataSource,
@@ -201,18 +203,18 @@ onPress:function onPress(){
 _this5._setModalVisible(false);
 _this5.props.onValueChange(item.props.value);
 _this5.setState({current:item.props.label});
-},__source:{fileName:_jsxFileName,lineNumber:196}},
+},__source:{fileName:_jsxFileName,lineNumber:198}},
 
-_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:206}},
-_react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle,__source:{fileName:_jsxFileName,lineNumber:207}},
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:208}},
+_react2.default.createElement(_Text.Text,{style:_this5.props.itemTextStyle,__source:{fileName:_jsxFileName,lineNumber:209}},
 item.props.label)),
 
 
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:211}},
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:213}},
 item.props.value===_this5.props.selectedValue?
-_react2.default.createElement(_Radio.Radio,{selected:true,__source:{fileName:_jsxFileName,lineNumber:213}}):
+_react2.default.createElement(_Radio.Radio,{selected:true,__source:{fileName:_jsxFileName,lineNumber:215}}):
 
-_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:215}})));},__source:{fileName:_jsxFileName,lineNumber:193}})))));
+_react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_jsxFileName,lineNumber:217}})));},__source:{fileName:_jsxFileName,lineNumber:195}})))));
 
 
 
@@ -226,7 +228,7 @@ _react2.default.createElement(_Radio.Radio,{selected:false,__source:{fileName:_j
 
 PickerNB.Item=(0,_createReactClass2.default)({displayName:"Item",
 render:function render(){
-return _react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:229}}));
+return _react2.default.createElement(_reactNative.Picker.Item,_extends({},this.props(),{__source:{fileName:_jsxFileName,lineNumber:231}}));
 }});
 
 
