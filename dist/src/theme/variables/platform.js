@@ -14,9 +14,9 @@ platformStyle:platformStyle,
 platform:platform,
 
 
-headerStyle:"#d8d3d8",
+headerStyle:"#edebed",
 iconStyle:"#000",
-contentStyle:"#F4F3F4",
+contentStyle:"#f5f4f5",
 expandedIconStyle:"#000",
 
 
