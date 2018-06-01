@@ -7,11 +7,17 @@ const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = undefined;
 const isIphoneX =
-  platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
+  platform === "ios" && (deviceHeight === 812 || deviceWidth === 812);
 
 export default {
   platformStyle,
   platform,
+
+  //Accordion
+  headerStyle: "#d8d3d8",
+  iconStyle: "#000",
+  contentStyle: "#F4F3F4",
+  expandedIconStyle: "#000",
 
   // Android
   androidRipple: true,
@@ -102,6 +108,10 @@ export default {
   brandDark: "#000",
   brandLight: "#f4f4f4",
 
+  //Date Picker
+  datePickerTextColor: "#000",
+  datePickerBg: "transparent",
+
   // Font
   DefaultFontSize: 16,
   fontFamily: platform === "ios" ? "System" : "Roboto",
@@ -117,9 +127,9 @@ export default {
   },
 
   // Footer
-  footerHeight: isIphoneX ? 89 : 55,
+  footerHeight: 55,
   footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
-  footerPaddingBottom: isIphoneX ? 34 : 0,
+  footerPaddingBottom: 0,
 
   // FooterTab
   tabBarTextColor: platform === "ios" ? "#6b6b6b" : "#b3c7f9",
@@ -132,7 +142,7 @@ export default {
   // Header
   toolbarBtnColor: platform === "ios" ? "#007aff" : "#fff",
   toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
-  toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
+  toolbarHeight: platform === "ios" ? 64 : 56,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: platform === "ios" ? "#CECDD2" : "#fff",
   searchBarHeight: platform === "ios" ? 30 : 40,
@@ -245,5 +255,21 @@ export default {
   deviceWidth,
   deviceHeight,
   isIphoneX,
-  inputGroupRoundedBorderRadius: 30
+  inputGroupRoundedBorderRadius: 30,
+
+  //iPhoneX SafeArea
+  Inset: {
+    portrait: {
+      topInset: 24,
+      leftInset: 0,
+      rightInset: 0,
+      bottomInset: 34
+    },
+    landscape: {
+      topInset: 0,
+      leftInset: 44,
+      rightInset: 44,
+      bottomInset: 21
+    }
+  }
 };

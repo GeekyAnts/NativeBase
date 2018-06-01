@@ -29,6 +29,7 @@ declare module "native-base" {
 			headerStyle?: ReactNative.ViewStyle;
 			headerTitleStyle?: ReactNative.TextStyle;
 			headerBackButtonTextStyle?: ReactNative.TextStyle;
+			modalStyle?: ReactNative.ViewStyle;
 			renderHeader?: (backAction: any) => React.ReactElement<any>;
 		}
 
@@ -334,6 +335,7 @@ declare module "native-base" {
              * [android] colored ripple effect
              */
 			androidRippleColor?: string;
+			touchableHighlightStyle?: ReactNative.ViewStyle;
 		}
 
 		interface Separator {
@@ -356,7 +358,7 @@ declare module "native-base" {
          */
 		interface ReactListViewProperties
 			extends ReactNative.ScrollViewProperties,
-				React.Props<ReactNative.ListViewStatic> {
+				React.Props<ReactNative.ListView> {
 			/**
              * Flag indicating whether empty section headers should be rendered.
              * In the future release empty section headers will be rendered by
@@ -492,7 +494,7 @@ declare module "native-base" {
              */
 			stickyHeaderIndices?: number[];
 
-			ref?: React.Ref<ReactNative.ListViewStatic & ReactNative.ScrollViewStatic & ReactNative.ViewStatic>;
+			ref?: React.Ref<ReactNative.ListView & ReactNative.ScrollView & ReactNative.View>;
 		}
 		/**
          * see Widget Card.js
@@ -655,11 +657,9 @@ declare module "native-base" {
 		/**
          * see Widget CheckBox.js
          */
-		interface CheckBox {
+		interface CheckBox extends ReactNative.TouchableOpacityProperties{
 			checked?: boolean;
 			color?: string;
-			onPress?: Function;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 		}
 		/**
          * see Widget CheckBox.js

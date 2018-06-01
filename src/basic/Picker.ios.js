@@ -26,7 +26,7 @@ class PickerNB extends Component {
     this.state = {
       modalVisible: false,
       currentLabel: this.getLabel(props),
-      dataSource: props.children
+      dataSource: this.getChildren(props.children)
     };
   }
 
@@ -34,7 +34,7 @@ class PickerNB extends Component {
     const currentLabel = this.state.currentLabel;
     const nextLabel = this.getLabel(nextProps);
     const currentDS = this.state.dataSource;
-    const nextDS = nextProps.children;
+    const nextDS = this.getChildren(nextProps.children);
 
     if (currentLabel !== nextLabel) {
       this.setState({
@@ -70,8 +70,9 @@ class PickerNB extends Component {
   }
 
   getLabel(props) {
+    let children = this.getChildren(props.children);
     const item = _.find(
-      props.children,
+      children,
       child => child.props.value === props.selectedValue
     );
     return _.get(item, "props.label");
@@ -84,12 +85,18 @@ class PickerNB extends Component {
     );
   }
 
+  getChildren(children) {
+    if (children && !Array.isArray(children)) {
+      return [].concat(children)
+    }
+    return children;
+  }
+
   renderIcon() {
     return React.cloneElement(this.props.iosIcon, {
       style: [{
         fontSize: 22,
-        lineHeight: 26,
-        color: this.props.placeholderIconColor
+        lineHeight: 26
       }, { ...this.props.iosIcon.props.style }]
     });
   }
@@ -181,7 +188,7 @@ class PickerNB extends Component {
             this._setModalVisible(false);
           }}
         >
-          <Container>
+          <Container style={this.props.modalStyle}>
             {this.renderHeader()}
             <FlatList
               data={this.state.dataSource}
@@ -196,9 +203,11 @@ class PickerNB extends Component {
                   this.setState({ current: item.props.label });
                 }}
               >
-                <Text style={this.props.itemTextStyle}>
-                  {item.props.label}
-                </Text>
+                <Left>
+                  <Text style={this.props.itemTextStyle}>
+                    {item.props.label}
+                  </Text>
+                </Left>
                 <Right>
                   {item.props.value === this.props.selectedValue ? (
                     <Radio selected />
