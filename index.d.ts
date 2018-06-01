@@ -1114,7 +1114,7 @@ declare module "native-base" {
 			position?: "top" | "bottom" | "center";
 			type?: "danger" | "success" | "warning";
 			duration?: number;
-			onClose?: Function;
+			onClose?: (reason: "user" | "timeout") => any;;
 			textStyle?: ReactNative.TextStyle;
 			buttonTextStyle?: ReactNative.TextStyle;
 			buttonStyle?: ReactNative.ViewStyle;
