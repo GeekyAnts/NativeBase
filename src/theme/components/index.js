@@ -40,6 +40,7 @@ import cardItemTheme from "./CardItem";
 import listItemTheme from "./ListItem";
 import formTheme from "./Form";
 import separatorTheme from "./Separator";
+import pickerTheme from "./Picker"
 import variable from "./../variables/platform";
 
 export default (variables = variable) => {
@@ -172,6 +173,7 @@ export default (variables = variable) => {
     },
 
     "NativeBase.PickerNB": {
+      ...pickerTheme(variables),
       "NativeBase.Button": {
         "NativeBase.Text": {}
       }
@@ -228,7 +230,7 @@ export default (variables = variable) => {
           }
         }
       }
-      if (style && typeof style === "object") {
+      if (style && typeof style === "object" && styleName !== "fontVariant") {
         cssifyTheme(parent, style, styleName);
       }
     });

@@ -5,6 +5,14 @@ var _platform=require("./../variables/platform");var _platform2=_interopRequireD
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
 var platform=variables.platform;
+var selectedStyle={
+"NativeBase.Text":{
+color:variables.listItemSelected},
+
+"NativeBase.Icon":{
+color:variables.listItemSelected}};
+
+
 
 var listItemTheme={
 "NativeBase.InputGroup":{
@@ -27,7 +35,8 @@ borderBottomColor:"transparent"},
 "NativeBase.Icon":{
 backgroundColor:"transparent",
 color:variables.dropdownLinkColor,
-fontSize:platform==="ios"?
+fontSize:
+platform==="ios"?
 variables.iconFontSize-10:
 variables.iconFontSize-5,
 alignItems:"center",
@@ -84,12 +93,10 @@ borderBottomWidth:platform==="ios"?variables.borderWidth:null,
 marginLeft:null,
 padding:variables.listItemPadding,
 paddingLeft:variables.listItemPadding+5,
-paddingTop:platform==="ios"?
-variables.listItemPadding+25:
-undefined,
-paddingBottom:platform==="android"?
-variables.listItemPadding+20:
-undefined,
+paddingTop:
+platform==="ios"?variables.listItemPadding+25:undefined,
+paddingBottom:
+platform==="android"?variables.listItemPadding+20:undefined,
 flexDirection:"row",
 borderColor:variables.listBorderColor,
 "NativeBase.Text":{
@@ -106,15 +113,17 @@ backgroundColor:variables.listDividerBg,
 flexDirection:"row",
 borderColor:variables.listBorderColor},
 
-".selected":{
-"NativeBase.Left":{
-"NativeBase.Text":{
-color:variables.brandPrimary}},
+".selected":_extends({
+"NativeBase.Left":_extends({},
+selectedStyle),
 
+"NativeBase.Body":_extends({},
+selectedStyle),
 
-"NativeBase.Text":{
-color:variables.brandPrimary}},
+"NativeBase.Right":_extends({},
+selectedStyle)},
 
+selectedStyle),
 
 "NativeBase.Left":{
 "NativeBase.Body":{
@@ -138,7 +147,6 @@ width:variables.iconFontSize-10,
 fontSize:variables.iconFontSize-10},
 
 "NativeBase.Text":{
-marginLeft:10,
 alignSelf:"center"},
 
 flexDirection:"row"},
@@ -214,14 +222,12 @@ flex:0.28},
 color:variables.listNoteColor,
 fontWeight:"200"},
 
-alignSelf:'center'},
-
+alignSelf:"center"},
 
 ".last":{
 marginLeft:-(variables.listItemPadding+5),
 paddingLeft:(variables.listItemPadding+5)*2,
 top:1},
-
 
 ".avatar":{
 "NativeBase.Left":{
@@ -250,10 +256,17 @@ paddingVertical:variables.listItemPadding,
 borderBottomWidth:variables.borderWidth,
 borderColor:variables.listBorderColor},
 
+".noBorder":{
+"NativeBase.Body":{
+borderBottomWidth:null},
+
+"NativeBase.Right":{
+borderBottomWidth:null}},
+
+
 borderBottomWidth:null,
 paddingVertical:null,
 paddingRight:null},
-
 
 ".thumbnail":{
 "NativeBase.Left":{
@@ -287,10 +300,17 @@ paddingVertical:variables.listItemPadding+5,
 borderBottomWidth:variables.borderWidth,
 borderColor:variables.listBorderColor},
 
+".noBorder":{
+"NativeBase.Body":{
+borderBottomWidth:null},
+
+"NativeBase.Right":{
+borderBottomWidth:null}},
+
+
 borderBottomWidth:null,
 paddingVertical:null,
 paddingRight:null},
-
 
 ".icon":{
 ".last":{
@@ -384,6 +404,14 @@ borderBottomWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 borderColor:variables.listBorderColor,
 paddingRight:variables.listItemPadding+5},
 
+".noBorder":{
+"NativeBase.Body":{
+borderBottomWidth:null},
+
+"NativeBase.Right":{
+borderBottomWidth:null}},
+
+
 borderBottomWidth:null,
 paddingVertical:null,
 paddingRight:null,
@@ -393,11 +421,16 @@ justifyContent:"center"},
 ".noBorder":{
 borderBottomWidth:null},
 
+".noIndent":{
+marginLeft:null,
+padding:variables.listItemPadding,
+paddingLeft:variables.listItemPadding+6},
+
 alignItems:"center",
 flexDirection:"row",
-paddingRight:variables.listItemPadding+5,
+paddingRight:variables.listItemPadding+6,
 paddingVertical:variables.listItemPadding+3,
-marginLeft:variables.listItemPadding+5,
+marginLeft:variables.listItemPadding+6,
 borderBottomWidth:1/_reactNative.PixelRatio.getPixelSizeForLayoutSize(1),
 backgroundColor:variables.listBg,
 borderColor:variables.listBorderColor};

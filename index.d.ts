@@ -1,7 +1,7 @@
-import * as React from "react";
-import * as ReactNative from "react-native";
-
 declare module "native-base" {
+	import * as React from "react";
+	import * as ReactNative from "react-native";
+	
 	namespace NativeBase {
 		interface Text extends ReactNative.TextProperties {
 			note?: boolean;
@@ -20,6 +20,17 @@ declare module "native-base" {
 			headerBackButtonText?: string;
 			placeholder?: string;
 			placeholderStyle?: ReactNative.TextStyle;
+			textStyle?: ReactNative.TextStyle;
+			style?: ReactNative.TextStyle;
+			iosIcon?: React.ReactElement<NativeBase.Icon>;
+			note?: boolean;
+			placeholderIconColor?: string;
+			itemTextStyle?: ReactNative.TextStyle;
+			headerStyle?: ReactNative.ViewStyle;
+			headerTitleStyle?: ReactNative.TextStyle;
+			headerBackButtonTextStyle?: ReactNative.TextStyle;
+			modalStyle?: ReactNative.ViewStyle;
+			renderHeader?: (backAction: any) => React.ReactElement<any>;
 		}
 
 		interface H1 extends ReactNative.TextProperties {}
@@ -89,8 +100,11 @@ declare module "native-base" {
              */
 			hasTabs?: boolean;
 			noShadow?: boolean;
+			hasSubtitle?: boolean;
+			span?: boolean;
 			androidStatusBarColor?: string;
 			iosBarStyle?: ReactNative.StatusBarStyle;
+			hasSegment?: boolean;
 		}
 
 		interface Left {
@@ -146,6 +160,8 @@ declare module "native-base" {
 			/**
              * The theme prop can be applied to any component of NativeBase.
              */
+			refreshing?: boolean;
+			refreshControl?: object;
 			theme?: Object;
 			padder?: boolean;
 			disableKBDismissScroll?: boolean;
@@ -275,6 +291,12 @@ declare module "native-base" {
 					rowMap?: any
 				) => React.ReactElement<any>;
 				rowHasChanged?: (r1: any, r2: any) => boolean;
+				onRowOpen?: Function;
+				onRowClose?: Function;
+				onRowDidOpen?: Function;
+				onRowDidClose?: Function;
+				swipeToOpenPercent?: number;
+				closeOnRowBeginSwipe?: boolean;
 		}
 		/**
          * see Widget ListItem.js
@@ -313,6 +335,7 @@ declare module "native-base" {
              * [android] colored ripple effect
              */
 			androidRippleColor?: string;
+			touchableHighlightStyle?: ReactNative.ViewStyle;
 		}
 
 		interface Separator {
@@ -335,7 +358,7 @@ declare module "native-base" {
          */
 		interface ReactListViewProperties
 			extends ReactNative.ScrollViewProperties,
-				React.Props<ReactNative.ListViewStatic> {
+				React.Props<ReactNative.ListView> {
 			/**
              * Flag indicating whether empty section headers should be rendered.
              * In the future release empty section headers will be rendered by
@@ -471,16 +494,48 @@ declare module "native-base" {
              */
 			stickyHeaderIndices?: number[];
 
-			ref?: React.Ref<ReactNative.ListViewStatic & ReactNative.ScrollViewStatic & ReactNative.ViewStatic>;
+			ref?: React.Ref<ReactNative.ListView & ReactNative.ScrollView & ReactNative.View>;
 		}
 		/**
          * see Widget Card.js
          */
-		interface Card extends ReactNative.ViewProperties, ReactListViewProperties {
+		interface Card extends ReactNative.ViewProperties {
 			dataArray?: Array<any>;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			ref?: React.Ref<ReactNative.ViewProperties | ReactListViewProperties>;
 			transparent?: boolean;
+			noShadow?: boolean;
+
+			// Adding ListView properties
+			// dataSource?: ReactNative.ListViewDataSource; 
+			enableEmptySections?: boolean;
+			initialListSize?: number;
+			onChangeVisibleRows?: (
+				visibleRows: Array<{ [sectionId: string]: { [rowID: string]: boolean } }>,
+				changedRows: Array<{ [sectionId: string]: { [rowID: string]: boolean } }>
+			) => void;
+			onEndReached?: () => void;
+			onEndReachedThreshold?: number;
+			pageSize?: number;
+			removeClippedSubviews?: boolean;
+			renderFooter?: () => React.ReactElement<any>;
+			renderHeader?: () => React.ReactElement<any>;
+			renderRow?: (
+				rowData: any,
+				sectionID: string | number,
+				rowID: string | number,
+				highlightRow?: boolean
+			) => React.ReactElement<any>;
+			renderScrollComponent?: (props: ReactNative.ScrollViewProperties) => React.ReactElement<ReactNative.ScrollViewProperties>;
+			renderSectionHeader?: (sectionData: any, sectionId: string | number) => React.ReactElement<any>;
+			renderSeparator?: (
+				sectionID: string | number,
+				rowID: string | number,
+				adjacentRowHighlighted?: boolean
+			) => React.ReactElement<any>;
+			scrollRenderAheadDistance?: number;
+			stickyHeaderIndices?: number[];
+			stickySectionHeadersEnabled?: boolean;
 		}
 		/**
          * react-native-easy-grid
@@ -544,6 +599,7 @@ declare module "native-base" {
              * Disables inputting data.
              */
 			disabled?: boolean;
+			getRef?: React.Ref<ReactNative.TextInput>;
 		}
 		/**
          * see Widget Textarea.js
@@ -560,7 +616,7 @@ declare module "native-base" {
          */
 		interface Icon {
 			name: string;
-			type?: "Ionicons" | "Entypo" | "FontAwesome" | "Foundation" | "MaterialIcons" | "MaterialCommunityIcons" | "Octicons" | "Zocial" | "SimpleLineIcons";
+			type?: "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial" ;
 			// TODO position attribute of ReactNative.FlexStyle hasn't another position values without "absolute" and "relative"
 			style?: any;
 			onPress?: (e?: any) => any;
@@ -601,10 +657,9 @@ declare module "native-base" {
 		/**
          * see Widget CheckBox.js
          */
-		interface CheckBox {
+		interface CheckBox extends ReactNative.TouchableOpacityProperties{
 			checked?: boolean;
 			color?: string;
-			onPress?: Function;
 		}
 		/**
          * see Widget CheckBox.js
@@ -695,6 +750,7 @@ declare module "native-base" {
 			tabBarTextStyle?:ReactNative.TextStyle;
 			tabContainerStyle?:ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			contentProps?: ReactNative.ScrollViewProperties;
 		}
 
 		interface Tab {
@@ -763,7 +819,15 @@ declare module "native-base" {
             preview?: boolean;
             previewDuration?: number;
             directionalDistanceChangeThreshold?: number;
-            swipeToOpenPercent?: number;
+			swipeToOpenPercent?: number;
+			stopLeftSwipe?: number;
+			stopRightSwipe?: number;
+			onRowOpen?: Function;
+			onRowClose?: Function;
+			left?: React.ReactElement<any>;
+			body?: React.ReactElement<any>;
+			right?: React.ReactElement<any>;
+			style?: ReactNative.ViewStyle;
         }
 	}
 
@@ -1047,11 +1111,13 @@ declare module "native-base" {
 		public static show(configuration: {
 			text: string;
 			buttonText?: string;
-			position: "top" | "bottom" | "center";
+			position?: "top" | "bottom" | "center";
 			type?: "danger" | "success" | "warning";
 			duration?: number;
 			onClose?: Function;
-			textStyle?: object;
+			textStyle?: ReactNative.TextStyle;
+			buttonTextStyle?: ReactNative.TextStyle;
+			buttonStyle?: ReactNative.ViewStyle;
 		}): void;
 	}
 }

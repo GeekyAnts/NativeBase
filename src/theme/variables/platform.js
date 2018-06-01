@@ -7,11 +7,17 @@ const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = undefined;
 const isIphoneX =
-  platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
+  platform === "ios" && (deviceHeight === 812 || deviceWidth === 812);
 
 export default {
   platformStyle,
   platform,
+
+  //Accordion
+  headerStyle: "#d8d3d8",
+  iconStyle: "#000",
+  contentStyle: "#F4F3F4",
+  expandedIconStyle: "#000",
 
   // Android
   androidRipple: true,
@@ -86,16 +92,15 @@ export default {
   CheckboxBorderWidth: platform === "ios" ? 1 : 2,
   CheckboxPaddingLeft: platform === "ios" ? 4 : 2,
   CheckboxPaddingBottom: platform === "ios" ? 0 : 5,
-  CheckboxIconSize: platform === "ios" ? 21 : 14,
+  CheckboxIconSize: platform === "ios" ? 21 : 16,
   CheckboxIconMarginTop: platform === "ios" ? undefined : 1,
-  CheckboxFontSize: platform === "ios" ? 23 / 0.9 : 18,
-  DefaultFontSize: 17,
+  CheckboxFontSize: platform === "ios" ? 23 / 0.9 : 17,
   checkboxBgColor: "#039BE5",
   checkboxSize: 20,
   checkboxTickColor: "#fff",
 
   // Color
-  brandPrimary: "#007aff",
+  brandPrimary: platform === "ios" ? "#007aff" : "#3F51B5",
   brandInfo: "#62B1F6",
   brandSuccess: "#5cb85c",
   brandDanger: "#d9534f",
@@ -103,7 +108,12 @@ export default {
   brandDark: "#000",
   brandLight: "#f4f4f4",
 
+  //Date Picker
+  datePickerTextColor: "#000",
+  datePickerBg: "transparent",
+
   // Font
+  DefaultFontSize: 16,
   fontFamily: platform === "ios" ? "System" : "Roboto",
   fontSizeBase: 15,
   get fontSizeH1() {
@@ -117,28 +127,28 @@ export default {
   },
 
   // Footer
-  footerHeight: isIphoneX ? 89 : 55,
-  footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#4179F7",
-  footerPaddingBottom: isIphoneX ? 34 : 0,
+  footerHeight: 55,
+  footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
+  footerPaddingBottom: 0,
 
   // FooterTab
-  tabBarTextColor: "#2874F0",
+  tabBarTextColor: platform === "ios" ? "#6b6b6b" : "#b3c7f9",
   tabBarTextSize: platform === "ios" ? 14 : 11,
-  activeTab: "#fff",
+  activeTab: platform === "ios" ? "#007aff" : "#fff",
   sTabBarActiveTextColor: "#007aff",
-  tabBarActiveTextColor: "#2874F0",
-  tabActiveBgColor: "#cde1f9",
+  tabBarActiveTextColor: platform === "ios" ? "#007aff" : "#fff",
+  tabActiveBgColor: platform === "ios" ? "#cde1f9" : "#3F51B5",
 
   // Header
   toolbarBtnColor: platform === "ios" ? "#007aff" : "#fff",
   toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
-  toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
+  toolbarHeight: platform === "ios" ? 64 : 56,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: platform === "ios" ? "#CECDD2" : "#fff",
   searchBarHeight: platform === "ios" ? 30 : 40,
   searchBarInputHeight: platform === "ios" ? 30 : 50,
-  toolbarBtnTextColor: "#000",
-  toolbarDefaultBorder: "#a7a6ab",
+  toolbarBtnTextColor: platform === "ios" ? "#007aff" : "#fff",
+  toolbarDefaultBorder: platform === "ios" ? "#a7a6ab" : "#3F51B5",
   iosStatusbar: platform === "ios" ? "dark-content" : "light-content",
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
@@ -175,6 +185,7 @@ export default {
   lineHeightH2: 27,
   lineHeightH3: 22,
   lineHeight: platform === "ios" ? 20 : 24,
+  listItemSelected: platform === "ios" ? "#007aff" : "#3F51B5",
 
   // List
   listBg: "transparent",
@@ -231,7 +242,7 @@ export default {
   // Title
   titleFontfamily: platform === "ios" ? "System" : "Roboto_medium",
   titleFontSize: platform === "ios" ? 17 : 19,
-  subTitleFontSize: platform === "ios" ? 12 : 14,
+  subTitleFontSize: platform === "ios" ? 11 : 14,
   subtitleColor: platform === "ios" ? "#8e8e93" : "#FFF",
   titleFontColor: platform === "ios" ? "#000" : "#FFF",
 
@@ -244,5 +255,21 @@ export default {
   deviceWidth,
   deviceHeight,
   isIphoneX,
-  inputGroupRoundedBorderRadius: 30
+  inputGroupRoundedBorderRadius: 30,
+
+  //iPhoneX SafeArea
+  Inset: {
+    portrait: {
+      topInset: 24,
+      leftInset: 0,
+      rightInset: 0,
+      bottomInset: 34
+    },
+    landscape: {
+      topInset: 0,
+      leftInset: 44,
+      rightInset: 44,
+      bottomInset: 21
+    }
+  }
 };

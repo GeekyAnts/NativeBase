@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import variable from "../theme/variables/platform";
 
 class ListItem extends Component {
@@ -22,6 +22,7 @@ class ListItem extends Component {
 
     if (
       Platform.OS === "ios" ||
+      Platform.OS === "web" ||
       variables.androidRipple === false ||
       (!this.props.onPress && !this.props.onLongPress) ||
       Platform.Version <= 21
@@ -32,6 +33,8 @@ class ListItem extends Component {
           onLongPress={this.props.onLongPress}
           ref={c => (this._root = c)}
           underlayColor={variables.listBtnUnderlayColor}
+          {...this.props}
+          style={this.props.touchableHighlightStyle}
         >
           <View {...this.props}>{this.props.children}</View>
         </TouchableHighlight>
@@ -40,8 +43,7 @@ class ListItem extends Component {
       return (
         <TouchableNativeFeedback
           ref={c => (this._root = c)}
-          onPress={this.props.onPress}
-          onLongPress={this.props.onLongPress}
+          {...this.props}
         >
           <View style={{ marginLeft: -17, paddingLeft: 17 }}>
             <View {...this.props}>{this.props.children}</View>
@@ -57,6 +59,10 @@ ListItem.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
+    PropTypes.array
+  ]),
+  touchableHighlightStyle: PropTypes.oneOfType([
+    PropTypes.object,
     PropTypes.array
   ]),
   itemDivider: PropTypes.bool,

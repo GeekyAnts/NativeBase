@@ -1,8 +1,9 @@
 Object.defineProperty(exports,"__esModule",{value:true});exports.Fab=undefined;var _jsxFileName="src/basic/Fab.js";var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
 var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
-var _computeProps=require("../Utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
+var _computeProps=require("../utils/computeProps");var _computeProps2=_interopRequireDefault(_computeProps);
 
 var _reactNative=require("react-native");
+
 
 
 
@@ -15,7 +16,7 @@ var _IconNB=require("./IconNB");
 var _Button=require("./Button");
 var _platform=require("./../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);
-var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
+var _mapPropsToStyleNames=require("../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var _Dimensions$get=
 
 _reactNative.Dimensions.get("window"),height=_Dimensions$get.height,width=_Dimensions$get.width;
@@ -154,7 +155,9 @@ undefined,
 width:56,
 height:this.containerHeight,
 flexDirection:this.props.direction?
-this.props.direction=="left || right"?"row":"column":
+this.props.direction==="left"||this.props.direction==="right"?
+"row":
+"column":
 "column",
 alignItems:"center"},
 
@@ -211,7 +214,7 @@ _reactNative.Platform.OS==="ios"?8:8:
 i*50+50};
 
 
-return _lodash2.default.merge(this.getInitialStyle().buttonStyle,child.props.style,type);
+return _lodash2.default.merge(this.getInitialStyle().buttonStyle,_reactNative.StyleSheet.flatten(child.props.style),type);
 }},{key:"prepareButtonProps",value:function prepareButtonProps(
 child){
 var inp=_lodash2.default.clone(child.props);
@@ -277,7 +280,7 @@ _react2.default.createElement(AnimatedFab,_extends({
 style:_this3.getOtherButtonStyle(child,i)},
 _this3.prepareButtonProps(child,i),{
 fabButton:true,
-key:i,__source:{fileName:_jsxFileName,lineNumber:276}}),
+key:i,__source:{fileName:_jsxFileName,lineNumber:279}}),
 
 child.props.children));
 
@@ -418,7 +421,7 @@ active:_this4.props.active});
 active=this.props.active;
 
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:421}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getContainerStyle(),__source:{fileName:_jsxFileName,lineNumber:424}},
 this.renderButtons(),
 _reactNative.Platform.OS==="ios"||
 _platform2.default.androidRipple===false||
@@ -426,16 +429,16 @@ _reactNative.Platform["Version"]<=21?
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 onPress:function onPress(){return _this5.fabOnPress();}},
 this.prepareFabProps(),{
-activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:426}}),
+activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:429}}),
 
 this.renderFab()):
 
 
 _react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
 onPress:function onPress(){return _this5.fabOnPress();}},
-this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:434}}),
+this.prepareFabProps(),{__source:{fileName:_jsxFileName,lineNumber:437}}),
 
-_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:438}},
+_react2.default.createElement(_reactNative.View,{style:[this.getInitialStyle().fab,this.props.style],__source:{fileName:_jsxFileName,lineNumber:441}},
 this.renderFab()))));
 
 

@@ -15,7 +15,7 @@ var _Zocial=require("react-native-vector-icons/Zocial");var _Zocial2=_interopReq
 var _SimpleLineIcons=require("react-native-vector-icons/SimpleLineIcons");var _SimpleLineIcons2=_interopRequireDefault(_SimpleLineIcons);
 var _EvilIcons=require("react-native-vector-icons/EvilIcons");var _EvilIcons2=_interopRequireDefault(_EvilIcons);
 
-var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
+var _mapPropsToStyleNames=require("../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 IconNB=function(_Component){_inherits(IconNB,_Component);function IconNB(){_classCallCheck(this,IconNB);return _possibleConstructorReturn(this,(IconNB.__proto__||Object.getPrototypeOf(IconNB)).apply(this,arguments));}_createClass(IconNB,[{key:"setIcon",value:function setIcon(
 
@@ -24,14 +24,18 @@ IconNB=function(_Component){_inherits(IconNB,_Component);function IconNB(){_clas
 
 iconType){
 if(iconType==undefined&&this.context.theme){
-iconType=this.context.theme["@@shoutem.theme/themeStyle"].variables.iconFamily;
+iconType=this.context.theme["@@shoutem.theme/themeStyle"].variables.
+iconFamily;
 }
 switch(iconType){
-case"Ionicons":
-this.Icon=_Ionicons2.default;
-break;
 case"Entypo":
 this.Icon=_Entypo2.default;
+break;
+case"EvilIcons":
+this.Icon=_EvilIcons2.default;
+break;
+case"Feather":
+this.Icon=_Feather2.default;
 break;
 case"FontAwesome":
 this.Icon=_FontAwesome2.default;
@@ -39,20 +43,23 @@ break;
 case"Foundation":
 this.Icon=_Foundation2.default;
 break;
-case"MaterialIcons":
-this.Icon=_MaterialIcons2.default;
+case"Ionicons":
+this.Icon=_Ionicons2.default;
 break;
 case"MaterialCommunityIcons":
 this.Icon=_MaterialCommunityIcons2.default;
 break;
+case"MaterialIcons":
+this.Icon=_MaterialIcons2.default;
+break;
 case"Octicons":
 this.Icon=_Octicons2.default;
 break;
-case"Zocial":
-this.Icon=_Zocial2.default;
-break;
 case"SimpleLineIcons":
 this.Icon=_SimpleLineIcons2.default;
+break;
+case"Zocial":
+this.Icon=_Zocial2.default;
 break;
 default:
 this.Icon=_Ionicons2.default;}
@@ -70,16 +77,36 @@ this.setIcon(nextProps.type);
 }},{key:"render",value:function render()
 
 {var _this2=this;
-return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:73}}));
+return _react2.default.createElement(this.Icon,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:80}}));
 }}]);return IconNB;}(_react.Component);IconNB.contextTypes={theme:_propTypes2.default.object};
 
 
 IconNB.propTypes={
-style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),
-type:_propTypes2.default.oneOf(["Ionicons","Entypo","FontAwesome","Foundation","MaterialIcons","MaterialCommunityIcons","Octicons","Zocial","SimpleLineIcons"])};
+style:_propTypes2.default.oneOfType([
+_propTypes2.default.object,
+_propTypes2.default.number,
+_propTypes2.default.array]),
+
+type:_propTypes2.default.oneOf([
+"Entypo",
+"EvilIcons",
+"Feather",
+"FontAwesome",
+"Foundation",
+"Ionicons",
+"MaterialCommunityIcons",
+"MaterialIcons",
+"Octicons",
+"SimpleLineIcons",
+"Zocial"])};
 
 
-var StyledIconNB=(0,_nativeBaseShoutemTheme.connectStyle)("NativeBase.IconNB",{},_mapPropsToStyleNames2.default)(IconNB);exports.
+
+var StyledIconNB=(0,_nativeBaseShoutemTheme.connectStyle)(
+"NativeBase.IconNB",
+{},
+_mapPropsToStyleNames2.default)(
+IconNB);exports.
 
 IconNB=StyledIconNB;
 //# sourceMappingURL=IconNB.js.map

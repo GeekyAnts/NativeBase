@@ -31,7 +31,7 @@ export default (variables = variable) => {
       shadowOpacity: null,
       alignSelf: "center",
       flex: 1,
-      height: (variables.footerHeight - (variables.isIphoneX ? 34 : 0)),
+      height: variables.footerHeight,
       justifyContent: "center",
       ".badge": {
         "NativeBase.Badge": {
@@ -65,7 +65,7 @@ export default (variables = variable) => {
       }
     },
     backgroundColor: Platform.OS === "android"
-      ? variables.tabActiveBgColor
+      ? variables.footerDefaultBg
       : undefined,
     flexDirection: "row",
     justifyContent: "space-between",

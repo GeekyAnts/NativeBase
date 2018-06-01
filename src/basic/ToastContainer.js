@@ -6,7 +6,7 @@ import { Text } from "./Text";
 import { Button } from "./Button";
 import { ViewNB } from "./View";
 import { Toast } from "./Toast";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class ToastContainer extends Component {
   constructor(props) {

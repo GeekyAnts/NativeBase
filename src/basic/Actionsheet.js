@@ -18,7 +18,7 @@ import { Left } from "./Left";
 import { Right } from "./Right";
 import { Body } from "./Body";
 import { ListItem } from "./ListItem";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class ActionSheetContainer extends Component {
   constructor(props) {
@@ -94,9 +94,9 @@ class ActionSheetContainer extends Component {
               elevation: 4
             }}
           >
-            <Text style={{ color: "#757575" }}>{this.state.title}</Text>
+            {this.state.title ? <Text style={{ color: "#757575" }}>{this.state.title}</Text> : null}
             <FlatList
-              style={{ marginHorizontal: -15, marginTop: 15 }}
+              style={{ marginHorizontal: -15, marginTop: this.state.title ? 15 : 0 }}
               data={this.state.items}
               keyExtractor={(item, index) => String(index)}
               renderItem={({ index, item }) => {

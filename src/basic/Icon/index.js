@@ -9,7 +9,7 @@ import ic from "./NBIcons.json";
 import variable from "./../../theme/variables/platform";
 import _ from "lodash";
 
-import mapPropsToStyleNames from "../../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../../utils/mapPropsToStyleNames";
 
 class Icon extends Component {
 	static contextTypes = {
@@ -21,7 +21,7 @@ class Icon extends Component {
 		const platformStyle = variables.platformStyle;
 		const platform = variables.platform;
 
-		if (variables.iconFamily === "Ionicons") {
+		if ((this.props.type || variables.iconFamily) === "Ionicons") {
 			if (typeof ic[this.props.name] !== "object") {
 				return this.props.name;
 			} else if (typeof ic[this.props.name] === "object") {
