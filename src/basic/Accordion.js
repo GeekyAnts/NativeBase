@@ -102,16 +102,16 @@ class AccordionItem extends React.Component {
             {this.props.renderHeader ? (
               this.props.renderHeader(this.props.item.title)
             ) : (
-              <DefaultHeader
-                title={this.props.item.title}
-                expanded={this.props.expanded}
-                headerStyle={this.props.headerStyle}
-                icon={this.props.icon}
-                iconStyle={this.props.iconStyle}
-                expandedIcon={this.props.expandedIcon}
-                expandedIconStyle={this.props.expandedIconStyle}
-              />
-            )}
+                <DefaultHeader
+                  title={this.props.item.title}
+                  expanded={this.props.expanded}
+                  headerStyle={this.props.headerStyle}
+                  icon={this.props.icon}
+                  iconStyle={this.props.iconStyle}
+                  expandedIcon={this.props.expandedIcon}
+                  expandedIconStyle={this.props.expandedIconStyle}
+                />
+              )}
           </View>
         </TouchableWithoutFeedback>
         {this.props.expanded ? (
@@ -119,11 +119,11 @@ class AccordionItem extends React.Component {
             {this.props.renderContent ? (
               this.props.renderContent(this.props.item.content)
             ) : (
-              <DefaultContent
-                content={this.props.item.content}
-                contentStyle={this.props.contentStyle}
-              />
-            )}
+                <DefaultContent
+                  content={this.props.item.content}
+                  contentStyle={this.props.contentStyle}
+                />
+              )}
           </AccordionSubItem>
         ) : null}
       </View>
@@ -140,6 +140,11 @@ export class Accordion extends React.Component {
       this.setState({ selected: index });
     }
   }
+
+  componentDidMount() {
+    this.setState({ selected: this.props.expanded });
+  }
+
   render() {
     const variables = this.context.theme
       ? this.context.theme["@@shoutem.theme/themeStyle"].variables
