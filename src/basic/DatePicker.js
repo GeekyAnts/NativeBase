@@ -66,16 +66,16 @@ export class DatePicker extends React.Component {
           <Text
             onPress={this.showDatePicker.bind(this)}
             style={[
-              this.props.textStyle,
-              { padding: 10, color: variables.datePickerTextColor }
+              { padding: 10, color: variables.datePickerTextColor },
+              this.state.chosenDate ? this.props.textStyle : this.props.placeHolderTextStyle
             ]}
           >
             {this.state.chosenDate
               ? this.state.chosenDate.getDate() +
-                "/" +
-                (this.state.chosenDate.getMonth() + 1) +
-                "/" +
-                +this.state.chosenDate.getFullYear()
+              "/" +
+              (this.state.chosenDate.getMonth() + 1) +
+              "/" +
+              +this.state.chosenDate.getFullYear()
               : this.props.placeHolderText
                 ? this.props.placeHolderText
                 : "Select Date"}
