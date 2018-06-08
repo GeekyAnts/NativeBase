@@ -19,7 +19,7 @@
     "clearCache": "npm run test --no-cache --no-watchman",
     "test": "jest",
     "prepublish": "npm run transpile",
-    "postinstall": "node addEjectScript.js && npm run clearCache",
+    "postinstall": "node addEjectScript.js",
     "flow": "flow"
   },
   "jest": {
