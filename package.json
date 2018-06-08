@@ -16,9 +16,10 @@
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon && rm -rf dist/__tests__ && npm run test",
+    "clearCache": "node clearCache.js && npm run test",
     "test": "jest",
     "prepublish": "npm run transpile",
-    "postinstall": "node addEjectScript.js",
+    "postinstall": "node addEjectScript.js && npm run clearCache",
     "flow": "flow"
   },
   "jest": {
