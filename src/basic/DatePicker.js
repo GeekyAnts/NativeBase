@@ -27,6 +27,9 @@ export class DatePicker extends React.Component {
 
   setDate(date) {
     this.setState({ chosenDate: new Date(date) });
+    if (this.props.onDateChange) {
+      this.props.onDateChange(date);
+    }
   }
 
   showDatePicker() {
