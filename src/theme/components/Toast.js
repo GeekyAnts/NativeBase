@@ -2,6 +2,12 @@ import variable from "./../variables/platform";
 
 export default (variables = variable) => {
   const platform = variables.platform;
+   
+  const padding = { top: 10, right: 10, bottom: 10, left: 10 }; 
+  if ( platform === 'android' ) {
+    padding.top  = padding.bottom = 14;
+    padding.left = padding.right  = 24;
+  }
 
   const toastTheme = {
     ".danger": {
@@ -18,7 +24,10 @@ export default (variables = variable) => {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: 10,
+    paddingTop: padding.top,
+    paddingBottom: padding.bottom,
+    paddingLeft: padding.left,
+    paddingRight: padding.right,
     minHeight: 50,
     "NativeBase.Text": {
       color: "#fff",
