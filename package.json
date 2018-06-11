@@ -15,8 +15,7 @@
   ],
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
-    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon && rm -rf dist/__tests__ && npm run test",
-    "test": "jest",
+    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",
     "flow": "flow"
@@ -27,7 +26,7 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
     ]
   },
-  "version": "2.4.5",
+  "version": "2.5.1",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {

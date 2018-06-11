@@ -14,12 +14,12 @@ _react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){re
 this.props.children,
 _react2.default.createElement(_ToastContainer.ToastContainer,{
 ref:function ref(c){
-if(!_ToastContainer.ToastContainer.toastInstance)_ToastContainer.ToastContainer.toastInstance=c;
+if(c)_ToastContainer.ToastContainer.toastInstance=c;
 },__source:{fileName:_jsxFileName,lineNumber:15}}),
 
 _react2.default.createElement(_Actionsheet.ActionSheetContainer,{
 ref:function ref(c){
-if(!_Actionsheet.ActionSheetContainer.actionsheetInstance)
+if(c)
 _Actionsheet.ActionSheetContainer.actionsheetInstance=c;
 },__source:{fileName:_jsxFileName,lineNumber:20}})));
 
