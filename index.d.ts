@@ -847,6 +847,20 @@ declare module "native-base" {
 			iconStyle?: ReactNative.TextStyle;
 			expandedIconStyle?: ReactNative.TextStyle;
 		}
+
+		interface DatePicker {
+			defaultDate?: Date;
+			minimumDate?: Date;
+			maximumDate?: Date;
+			locale?: string;
+			placeHolderText?: string;
+			textStyle?: ReactNative.TextStyle;
+			placeHolderTextStyle?: ReactNative.TextStyle;
+			androidMode?: "calendar" | "spinner" | "default";
+			timeZoneOffsetInMinutes?: number;
+			modalTransparent?: boolean;
+			animationType?: "slide" | "fade" | "none";
+		}
 	}
 
 	// Export definitions
@@ -1140,4 +1154,6 @@ declare module "native-base" {
 	}
 	
 	export class Accordion extends React.Component<NativeBase.Accordion, any>{ }
+
+	export class DatePicker extends React.Component<NativeBase.DatePicker, any> { }
 }
