@@ -115,36 +115,33 @@ class Item extends Component {
   }
 
   renderChildren() {
-    const newChildren = [];
-    const childrenArray = React.Children.toArray(this.props.children);
-
-    let label = [];
+    const label = [];
     let labelProps = {};
-    label = _.remove(childrenArray, item => {
-      if (item.type === Label) {
-        labelProps = item.props;
-        return item;
-      }
-    });
-
-    let input = [];
+    const input = [];
     let inputProps = {};
-    input = _.remove(childrenArray, item => {
-      if (item.type === Input) {
-        inputProps = item.props;
-        this.inputProps = item.props;
-        return item;
-      }
-    });
-
-    let icon = [];
+    const icon = [];
     let iconProps = {};
-    icon = _.remove(childrenArray, item => {
-      if (item.type === Icon) {
-        iconProps = item.props;
-        return item;
-      }
-    });
+    let newChildren = [];
+
+    React.Children.toArray(this.props.children)
+      .forEach((item) => {
+        if (item.type.displayName === 'Styled(Label)') {
+          label.push(item);
+          labelProps = item.props;
+          return false;
+        } else if (item.type.displayName === 'Styled(Input)') {
+          input.push(item);
+          inputProps = item.props;
+          this.inputProps = item.props;
+          return false;
+        } else if (item.type.displayName === 'Styled(Label)') {
+          icon.push(item);
+          iconProps = item.props;
+          return false;
+        }
+        return true;
+      });
+
     if (this.props.floatingLabel && icon.length) {
       let isIcon = false;
       for (let i = 0; i < this.props.children.length; i++) {
