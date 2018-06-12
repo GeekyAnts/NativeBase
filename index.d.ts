@@ -834,7 +834,19 @@ declare module "native-base" {
 			body?: React.ReactElement<any>;
 			right?: React.ReactElement<any>;
 			style?: ReactNative.ViewStyle;
-        }
+		}
+		
+		interface Accordion {
+			dataArray: Array<any>;
+			headerStyle?: ReactNative.ViewStyle;
+			contentStyle?: ReactNative.ViewStyle;
+			renderHeader?: (item: any) => React.ReactElement<any>;
+			renderContent?: (item: any) => React.ReactElement<any>;
+			icon?: string;
+			expandedIcon?: string;
+			iconStyle?: ReactNative.TextStyle;
+			expandedIconStyle?: ReactNative.TextStyle;
+		}
 	}
 
 	// Export definitions
@@ -1120,10 +1132,12 @@ declare module "native-base" {
 			position?: "top" | "bottom" | "center";
 			type?: "danger" | "success" | "warning";
 			duration?: number;
-			onClose?: (reason: "user" | "timeout") => any;;
+			onClose?: (reason: "user" | "timeout") => any;
 			textStyle?: ReactNative.TextStyle;
 			buttonTextStyle?: ReactNative.TextStyle;
 			buttonStyle?: ReactNative.ViewStyle;
 		}): void;
 	}
+	
+	export class Accordion extends React.Component<NativeBase.Accordion, any>{ }
 }
