@@ -149,6 +149,7 @@ export class Accordion extends React.Component {
         data={this.props.dataArray}
         extraData={this.state}
         keyExtractor={(item, index) => String(index)}
+        style={[{ borderColor: "lightgrey", borderWidth: StyleSheet.hairlineWidth }, this.props.style]}
         renderItem={({ item, index }) => (
           <AccordionItem
             key={String(index)}
