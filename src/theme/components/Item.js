@@ -56,7 +56,11 @@ export default (variables = variable) => {
         alignSelf: Platform.OS === "ios" ? "stretch" : "flex-start",
         flex: 1,
         width: Platform.OS === "ios" ? null : variables.deviceWidth - 25,
-        fontSize: variables.inputFontSize
+        fontSize: variables.inputFontSize,
+        lineHeight: variables.inputLineHeight - 6,
+        ".secureTextEntry": {
+          fontSize: variables.inputFontSize - 4
+        }
       },
       flexDirection: null,
       height: variables.inputHeightBase + 15
