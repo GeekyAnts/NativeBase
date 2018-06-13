@@ -846,6 +846,7 @@ declare module "native-base" {
 			expandedIcon?: string;
 			iconStyle?: ReactNative.TextStyle;
 			expandedIconStyle?: ReactNative.TextStyle;
+			style?: ReactNative.ViewStyle;
 		}
 
 		interface DatePicker {
