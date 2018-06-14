@@ -56,10 +56,14 @@ export default (variables = variable) => {
         alignSelf: Platform.OS === "ios" ? "stretch" : "flex-start",
         flex: 1,
         width: Platform.OS === "ios" ? null : variables.deviceWidth - 25,
-        fontSize: variables.inputFontSize
+        fontSize: variables.inputFontSize,
+        ".multiline": {
+          paddingTop: Platform.OS === "ios" ? 9 : undefined,
+          paddingBottom: Platform.OS === "ios" ? 9 : undefined,
+        }
       },
       flexDirection: null,
-      height: variables.inputHeightBase + 15
+      minHeight: variables.inputHeightBase + 15
     },
     ".inlineLabel": {
       "NativeBase.Label": {
