@@ -148,6 +148,13 @@ return(
 _react2.default.createElement(_reactNative.FlatList,_extends({
 data:this.props.dataArray,
 extraData:this.state,
+style:[
+{
+borderColor:variables.accordionBorderColor,
+borderWidth:variables.borderWidth},
+
+this.props.style],
+
 keyExtractor:function keyExtractor(item,index){return String(index);},
 renderItem:function renderItem(_ref3){var item=_ref3.item,index=_ref3.index;return(
 _react2.default.createElement(AccordionItem,{
@@ -163,7 +170,7 @@ renderContent:_this7.props.renderContent,
 icon:_this7.props.icon,
 iconStyle:_this7.props.iconStyle,
 expandedIcon:_this7.props.expandedIcon,
-expandedIconStyle:_this7.props.expandedIconStyle,__source:{fileName:_jsxFileName,lineNumber:153}}));}},
+expandedIconStyle:_this7.props.expandedIconStyle,__source:{fileName:_jsxFileName,lineNumber:160}}));}},
 
 
 this.props,{__source:{fileName:_jsxFileName,lineNumber:148}})));

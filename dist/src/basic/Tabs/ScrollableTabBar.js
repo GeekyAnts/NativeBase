@@ -49,7 +49,8 @@ backgroundColor:_platform2.default.tabDefaultBg,
 style:{},
 tabStyle:{},
 tabsContainerStyle:{},
-underlineStyle:{}};
+underlineStyle:{},
+tabFontSize:_platform2.default.tabFontSize};
 
 },
 
@@ -161,23 +162,29 @@ tabHeaderStyle)
 {
 var headerContent=
 typeof name!=="string"?name.props.children:undefined;var _props=
-this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor;
+this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor,tabFontSize=_props.tabFontSize;
 var textColor=isTabActive?activeTextColor:inactiveTextColor;
 var fontWeight=isTabActive?"bold":"normal";
+var fontSize=tabFontSize;
 
 if(typeof name==="string"){
 return(
 _react2.default.createElement(Button,{
 key:name+"_"+page,
 onPress:function onPress(){return onPressHandler(page);},
-onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:170}},
+onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:172}},
 
 _react2.default.createElement(_index.TabHeading,{
 scrollable:true,
 style:isTabActive?activeTabStyle:tabStyle,
-active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:175}},
+active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:177}},
 
-_react2.default.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:180}},
+_react2.default.createElement(_index.Text,{
+style:[
+isTabActive?activeTextStyle:textStyle,
+{fontSize:tabFontSize}],__source:{fileName:_jsxFileName,lineNumber:182}},
+
+
 name))));
 
 
@@ -188,9 +195,9 @@ return(
 _react2.default.createElement(Button,{
 key:_lodash2.default.random(1.2,5.2),
 onPress:function onPress(){return onPressHandler(page);},
-onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:188}},
+onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:195}},
 
-_react2.default.createElement(_index.TabHeading,{scrollable:true,style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:193}},
+_react2.default.createElement(_index.TabHeading,{scrollable:true,style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:200}},
 headerContent)));
 
 
@@ -227,7 +234,7 @@ styles.container,
 {backgroundColor:this.props.backgroundColor},
 this.props.style],
 
-onLayout:this.onContainerLayout,__source:{fileName:_jsxFileName,lineNumber:224}},
+onLayout:this.onContainerLayout,__source:{fileName:_jsxFileName,lineNumber:231}},
 
 _react2.default.createElement(ScrollView,{
 automaticallyAdjustContentInsets:false,
@@ -240,7 +247,7 @@ showsVerticalScrollIndicator:false,
 directionalLockEnabled:true,
 onScroll:this.props.onScroll,
 bounces:false,
-scrollsToTop:false,__source:{fileName:_jsxFileName,lineNumber:232}},
+scrollsToTop:false,__source:{fileName:_jsxFileName,lineNumber:239}},
 
 _react2.default.createElement(View,{
 style:[
@@ -249,7 +256,7 @@ styles.tabs,
 this.props.tabsContainerStyle],
 
 ref:"tabContainer",
-onLayout:this.onTabContainerLayout,__source:{fileName:_jsxFileName,lineNumber:245}},
+onLayout:this.onTabContainerLayout,__source:{fileName:_jsxFileName,lineNumber:252}},
 
 this.props.tabs.map(function(name,page){
 var isTabActive=_this.props.activeTab===page;
@@ -271,7 +278,7 @@ _react2.default.createElement(Animated.View,{
 style:[
 tabUnderlineStyle,
 dynamicTabUnderline,
-this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:270}})))));
+this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:277}})))));
 
 
 

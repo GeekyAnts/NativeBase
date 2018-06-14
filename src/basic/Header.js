@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, StatusBar, ViewPropTypes } from "react-native";
+import { View, StatusBar, ViewPropTypes, StyleSheet } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import variable from "../theme/variables/platform";
@@ -50,24 +50,9 @@ class Header extends Component {
     }
     const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
     let topPadder = null;
-    if (this.props.style[1] !== undefined) {
-      if (
-        this.props.style[1].padding !== undefined ||
-        this.props.style[1].paddingTop !== undefined
-      ) {
-        topPadder =
-          (this.props.style[1].paddingTop
-            ? this.props.style[1].paddingTop
-            : this.props.style[1].padding) + InsetValues.topInset;
-      }
-    } else if (
-      this.props.style.padding !== undefined &&
-      this.props.style.paddingTop !== undefined
-    ) {
-      topPadder =
-        (this.props.style.paddingTop
-          ? this.props.style.paddingTop
-          : this.props.style.padding) + InsetValues.topInset;
+    let style = StyleSheet.flatten(this.props.style);
+    if (style.padding !== undefined && style.paddingTop !== undefined) {
+      topPadder = (style.paddingTop ? style.paddingTop : style.padding) + InsetValues.topInset;
     } else {
       topPadder = InsetValues.topInset;
     }

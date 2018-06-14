@@ -33,7 +33,8 @@ getDefaultProps:function getDefaultProps(){
 return{
 activeTextColor:_platform2.default.topTabBarActiveTextColor,
 inactiveTextColor:_platform2.default.topTabBarTextColor,
-backgroundColor:null};
+backgroundColor:null,
+tabFontSize:_platform2.default.tabFontSize};
 
 },
 
@@ -52,21 +53,27 @@ tabHeaderStyle)
 {
 var headerContent=
 typeof name!=="string"?name.props.children:undefined;var _props=
-this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor;
+this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor,tabFontSize=_props.tabFontSize;
 var textColor=isTabActive?activeTextColor:inactiveTextColor;
 var fontWeight=isTabActive?"bold":"normal";
+var fontSize=tabFontSize;
 if(typeof name==="string"){
 return(
 _react2.default.createElement(Button,{
 style:{flex:1},
 key:name,
-onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:60}},
+onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:62}},
 
 _react2.default.createElement(_index.TabHeading,{
 style:isTabActive?activeTabStyle:tabStyle,
-active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:65}},
+active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:67}},
 
-_react2.default.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:69}},
+_react2.default.createElement(_index.Text,{
+style:[
+isTabActive?activeTextStyle:textStyle,
+{fontSize:tabFontSize}],__source:{fileName:_jsxFileName,lineNumber:71}},
+
+
 name))));
 
 
@@ -77,9 +84,9 @@ return(
 _react2.default.createElement(Button,{
 style:{flex:1},
 key:_lodash2.default.random(1.2,5.2),
-onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:77}},
+onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:84}},
 
-_react2.default.createElement(_index.TabHeading,{style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:82}},
+_react2.default.createElement(_index.TabHeading,{style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:89}},
 headerContent)));
 
 
@@ -110,7 +117,7 @@ return(
 _react2.default.createElement(_index.TabContainer,{
 style:[
 {backgroundColor:variables.tabDefaultBg},
-this.props.tabContainerStyle?this.props.tabContainerStyle:{}],__source:{fileName:_jsxFileName,lineNumber:110}},
+this.props.tabContainerStyle?this.props.tabContainerStyle:{}],__source:{fileName:_jsxFileName,lineNumber:117}},
 
 
 this.props.tabs.map(function(name,page){
@@ -129,7 +136,7 @@ _this.props.tabHeaderStyle[page]);
 
 }),
 _react2.default.createElement(Animated.View,{
-style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:131}})));
+style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:138}})));
 
 
 

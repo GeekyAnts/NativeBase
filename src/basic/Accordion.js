@@ -148,6 +148,13 @@ export class Accordion extends React.Component {
       <FlatList
         data={this.props.dataArray}
         extraData={this.state}
+        style={[
+          {
+            borderColor: variables.accordionBorderColor,
+            borderWidth: variables.borderWidth
+          },
+          this.props.style
+        ]}
         keyExtractor={(item, index) => String(index)}
         renderItem={({ item, index }) => (
           <AccordionItem

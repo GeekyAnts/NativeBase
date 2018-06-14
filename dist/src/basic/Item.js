@@ -148,7 +148,7 @@ return item;
 if(this.props.floatingLabel&&icon.length){
 var isIcon=false;
 for(var i=0;i<this.props.children.length;i++){
-if(this.props.children[i].props.name){
+if(this.props.children[i].props.name&&this.props.children[i].type.displayName!=="Styled(Input)"){
 isIcon=true;
 newChildren.push(
 _react2.default.createElement(_Icon.Icon,_extends({key:[i]},this.props.children[i].props,{__source:{fileName:_jsxFileName,lineNumber:154}})));

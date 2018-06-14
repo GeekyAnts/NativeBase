@@ -27,6 +27,9 @@ defaultDate:_this.props.defaultDate?_this.props.defaultDate:new Date()});
 
 date){
 this.setState({chosenDate:new Date(date)});
+if(this.props.onDateChange){
+this.props.onDateChange(date);
+}
 }},{key:"showDatePicker",value:function showDatePicker()
 
 {
@@ -61,13 +64,13 @@ var variables=this.context.theme?
 this.context.theme["@@shoutem.theme/themeStyle"].variables:
 _platform2.default;
 return(
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:64}},
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:65}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:67}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:68}},
 _react2.default.createElement(_nativeBase.Text,{
 onPress:this.showDatePicker.bind(this),
 style:[
-this.props.textStyle,
-{padding:10,color:variables.datePickerTextColor}],__source:{fileName:_jsxFileName,lineNumber:66}},
+{padding:10,color:variables.datePickerTextColor},
+this.state.chosenDate?this.props.textStyle:this.props.placeHolderTextStyle],__source:{fileName:_jsxFileName,lineNumber:69}},
 
 
 this.state.chosenDate?
@@ -80,16 +83,16 @@ this.props.placeHolderText?
 this.props.placeHolderText:
 "Select Date"),
 
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:83}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:86}},
 _react2.default.createElement(_reactNative.Modal,{
 animationType:this.props.animationType,
 transparent:this.props.modalTransparent,
 visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){},__source:{fileName:_jsxFileName,lineNumber:84}},
+onRequestClose:function onRequestClose(){},__source:{fileName:_jsxFileName,lineNumber:87}},
 
 _react2.default.createElement(_nativeBase.Text,{
 onPress:function onPress(){return _this2.setState({modalVisible:false});},
-style:{backgroundColor:variables.datePickerBg,flex:1},__source:{fileName:_jsxFileName,lineNumber:90}}),
+style:{backgroundColor:variables.datePickerBg,flex:1},__source:{fileName:_jsxFileName,lineNumber:93}}),
 
 _react2.default.createElement(_reactNative.DatePickerIOS,{
 date:
@@ -102,7 +105,7 @@ minimumDate:this.props.minimumDate,
 maximumDate:this.props.maximumDate,
 mode:"date",
 locale:this.props.locale,
-timeZoneOffsetInMinutes:this.props.timeZoneOffsetInMinutes,__source:{fileName:_jsxFileName,lineNumber:94}}))))));
+timeZoneOffsetInMinutes:this.props.timeZoneOffsetInMinutes,__source:{fileName:_jsxFileName,lineNumber:97}}))))));
 
 
 

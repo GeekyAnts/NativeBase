@@ -27,6 +27,9 @@ export class DatePicker extends React.Component {
 
   setDate(date) {
     this.setState({ chosenDate: new Date(date) });
+    if (this.props.onDateChange) {
+      this.props.onDateChange(date);
+    }
   }
 
   showDatePicker() {
@@ -66,8 +69,8 @@ export class DatePicker extends React.Component {
           <Text
             onPress={this.showDatePicker.bind(this)}
             style={[
-              this.props.textStyle,
-              { padding: 10, color: variables.datePickerTextColor }
+              { padding: 10, color: variables.datePickerTextColor },
+              this.state.chosenDate ? this.props.textStyle : this.props.placeHolderTextStyle
             ]}
           >
             {this.state.chosenDate
@@ -76,9 +79,9 @@ export class DatePicker extends React.Component {
                 (this.state.chosenDate.getMonth() + 1) +
                 "/" +
                 +this.state.chosenDate.getFullYear()
-              : this.props.placeHolderText
-                ? this.props.placeHolderText
-                : "Select Date"}
+                : this.props.placeHolderText
+                  ? this.props.placeHolderText
+                  : "Select Date"}
           </Text>
           <View>
             <Modal

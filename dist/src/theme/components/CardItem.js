@@ -55,7 +55,6 @@ flex:1,
 flexDirection:"row",
 alignItems:"center"},
 
-
 ".content":{
 "NativeBase.Text":{
 color:platform==="ios"?"#555":"#222",
@@ -163,7 +162,6 @@ color:variables.listNoteColor,
 fontWeight:"200"}},
 
 
-
 "NativeBase.Icon":{
 width:variables.iconFontSize+5,
 fontSize:variables.iconFontSize-2},
@@ -172,10 +170,17 @@ fontSize:variables.iconFontSize-2},
 width:variables.iconFontSize+5,
 fontSize:variables.iconFontSize-2},
 
-
 ".bordered":{
 borderBottomWidth:_reactNative.StyleSheet.hairlineWidth,
 borderColor:variables.cardBorderColor},
+
+".first":{
+borderTopLeftRadius:variables.cardBorderRadius,
+borderTopRightRadius:variables.cardBorderRadius},
+
+".last":{
+borderBottomLeftRadius:variables.cardBorderRadius,
+borderBottomRightRadius:variables.cardBorderRadius},
 
 flexDirection:"row",
 alignItems:"center",
