@@ -33,7 +33,8 @@ const DefaultTabBar = createReactClass({
     return {
       activeTextColor: variable.topTabBarActiveTextColor,
       inactiveTextColor: variable.topTabBarTextColor,
-      backgroundColor: null
+      backgroundColor: null,
+      tabFontSize: variable.tabFontSize
     };
   },
 
@@ -52,9 +53,10 @@ const DefaultTabBar = createReactClass({
   ) {
     const headerContent =
       typeof name !== "string" ? name.props.children : undefined;
-    const { activeTextColor, inactiveTextColor } = this.props;
+    const { activeTextColor, inactiveTextColor, tabFontSize } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? "bold" : "normal";
+    const fontSize = tabFontSize;
     if (typeof name === "string") {
       return (
         <Button
@@ -66,7 +68,12 @@ const DefaultTabBar = createReactClass({
             style={isTabActive ? activeTabStyle : tabStyle}
             active={isTabActive}
           >
-            <Text style={isTabActive ? activeTextStyle : textStyle}>
+            <Text
+              style={[
+                isTabActive ? activeTextStyle : textStyle,
+                { fontSize: tabFontSize }
+              ]}
+            >
               {name}
             </Text>
           </TabHeading>
