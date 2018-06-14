@@ -9,7 +9,12 @@ export default (variables = variable) => {
         height: 50,
         top: 8,
         paddingTop: 3,
-        paddingBottom: 7
+        paddingBottom: 7,
+        ".multiline": {
+          minHeight: variables.inputHeightBase,
+          paddingTop: Platform.OS === "ios" ? 10 : 3,
+          paddingBottom: Platform.OS === "ios" ? 14 : 10
+        }
       },
       "NativeBase.Label": {
         top: 8
@@ -60,10 +65,14 @@ export default (variables = variable) => {
         lineHeight: variables.inputLineHeight - 6,
         ".secureTextEntry": {
           fontSize: variables.inputFontSize - 4
+        },
+        ".multiline": {
+          paddingTop: Platform.OS === "ios" ? 9 : undefined,
+          paddingBottom: Platform.OS === "ios" ? 9 : undefined,
         }
       },
       flexDirection: null,
-      height: variables.inputHeightBase + 15
+      minHeight: variables.inputHeightBase + 15
     },
     ".inlineLabel": {
       "NativeBase.Label": {
