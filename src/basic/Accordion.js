@@ -140,6 +140,9 @@ export class Accordion extends React.Component {
       this.setState({ selected: index });
     }
   }
+  componentDidMount() {
+    this.setState({ selected: this.props.expanded });
+  }
   render() {
     const variables = this.context.theme
       ? this.context.theme["@@shoutem.theme/themeStyle"].variables
@@ -148,8 +151,14 @@ export class Accordion extends React.Component {
       <FlatList
         data={this.props.dataArray}
         extraData={this.state}
+        style={[
+          {
+            borderColor: variables.accordionBorderColor,
+            borderWidth: variables.borderWidth
+          },
+          this.props.style
+        ]}
         keyExtractor={(item, index) => String(index)}
-        style={[{ borderColor: "lightgrey", borderWidth: StyleSheet.hairlineWidth }, this.props.style]}
         renderItem={({ item, index }) => (
           <AccordionItem
             key={String(index)}
