@@ -9,7 +9,12 @@ export default (variables = variable) => {
         height: 50,
         top: 8,
         paddingTop: 3,
-        paddingBottom: 7
+        paddingBottom: 7,
+        ".multiline": {
+          minHeight: variables.inputHeightBase,
+          paddingTop: Platform.OS === "ios" ? 10 : 3,
+          paddingBottom: Platform.OS === "ios" ? 14 : 10
+        }
       },
       "NativeBase.Label": {
         top: 8
