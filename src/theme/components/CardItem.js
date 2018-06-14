@@ -55,7 +55,6 @@ export default (variables = variable) => {
       flexDirection: "row",
       alignItems: "center"
     },
-
     ".content": {
       "NativeBase.Text": {
         color: platform === "ios" ? "#555" : "#222",
@@ -163,7 +162,6 @@ export default (variables = variable) => {
         fontWeight: "200"
       }
     },
-
     "NativeBase.Icon": {
       width: variables.iconFontSize + 5,
       fontSize: variables.iconFontSize - 2
@@ -172,10 +170,17 @@ export default (variables = variable) => {
       width: variables.iconFontSize + 5,
       fontSize: variables.iconFontSize - 2
     },
-
     ".bordered": {
       borderBottomWidth: StyleSheet.hairlineWidth,
       borderColor: variables.cardBorderColor
+    },
+    ".first": {
+      borderTopLeftRadius: variables.cardBorderRadius,
+      borderTopRightRadius: variables.cardBorderRadius
+    },
+    ".last": {
+      borderBottomLeftRadius: variables.cardBorderRadius,
+      borderBottomRightRadius: variables.cardBorderRadius
     },
     flexDirection: "row",
     alignItems: "center",

@@ -86,6 +86,7 @@ export default {
   // Card
   cardDefaultBg: "#fff",
   cardBorderColor: "#ccc",
+  cardBorderRadius: 2,
 
   // CheckBox
   CheckboxRadius: 0,
