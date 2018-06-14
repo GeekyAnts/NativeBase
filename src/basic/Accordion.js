@@ -140,9 +140,6 @@ export class Accordion extends React.Component {
       this.setState({ selected: index });
     }
   }
-  componentDidMount() {
-    this.setState({ selected: this.props.expanded });
-  }
   render() {
     const variables = this.context.theme
       ? this.context.theme["@@shoutem.theme/themeStyle"].variables
