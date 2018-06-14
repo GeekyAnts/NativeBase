@@ -62,6 +62,10 @@ export default (variables = variable) => {
         flex: 1,
         width: Platform.OS === "ios" ? null : variables.deviceWidth - 25,
         fontSize: variables.inputFontSize,
+        lineHeight: variables.inputLineHeight - 6,
+        ".secureTextEntry": {
+          fontSize: variables.inputFontSize - 4
+        },
         ".multiline": {
           paddingTop: Platform.OS === "ios" ? 9 : undefined,
           paddingBottom: Platform.OS === "ios" ? 9 : undefined,
