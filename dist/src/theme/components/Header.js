@@ -39,6 +39,15 @@ textAlign:"center"}}},
 
 
 
+".transparent":{
+backgroundColor:"transparent",
+borderBottomColor:"transparent",
+elevation:0,
+shadowColor:null,
+shadowOffset:null,
+shadowRadius:null,
+shadowOpacity:null},
+
 ".noShadow":{
 elevation:0,
 shadowColor:null,

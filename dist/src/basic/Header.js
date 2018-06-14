@@ -50,24 +50,9 @@ inset=_platform2.default.Inset;
 }
 var InsetValues=mode==="portrait"?inset.portrait:inset.landscape;
 var topPadder=null;
-if(this.props.style[1]!==undefined){
-if(
-this.props.style[1].padding!==undefined||
-this.props.style[1].paddingTop!==undefined)
-{
-topPadder=
-(this.props.style[1].paddingTop?
-this.props.style[1].paddingTop:
-this.props.style[1].padding)+InsetValues.topInset;
-}
-}else if(
-this.props.style.padding!==undefined&&
-this.props.style.paddingTop!==undefined)
-{
-topPadder=
-(this.props.style.paddingTop?
-this.props.style.paddingTop:
-this.props.style.padding)+InsetValues.topInset;
+var style=_reactNative.StyleSheet.flatten(this.props.style);
+if(style.padding!==undefined&&style.paddingTop!==undefined){
+topPadder=(style.paddingTop?style.paddingTop:style.padding)+InsetValues.topInset;
 }else{
 topPadder=InsetValues.topInset;
 }
@@ -79,7 +64,7 @@ this.context.theme["@@shoutem.theme/themeStyle"].variables:
 _platform2.default;
 var platformStyle=variables.platformStyle;
 return(
-_react2.default.createElement(_reactNative.View,{onLayout:function onLayout(e){return _this2.layoutChange(e.nativeEvent.layout);},__source:{fileName:_jsxFileName,lineNumber:82}},
+_react2.default.createElement(_reactNative.View,{onLayout:function onLayout(e){return _this2.layoutChange(e.nativeEvent.layout);},__source:{fileName:_jsxFileName,lineNumber:67}},
 _react2.default.createElement(_reactNative.StatusBar,{
 backgroundColor:
 this.props.androidStatusBarColor?
@@ -91,7 +76,7 @@ this.props.iosBarStyle?
 this.props.iosBarStyle:
 platformStyle==="material"?
 "light-content":
-variables.iosStatusbar,__source:{fileName:_jsxFileName,lineNumber:83}}),
+variables.iosStatusbar,__source:{fileName:_jsxFileName,lineNumber:68}}),
 
 
 _platform2.default.isIphoneX?
@@ -107,13 +92,13 @@ variables.Inset),
 
 paddingTop:this.calculatePadder(
 this.state.orientation,
-variables.Inset)}],__source:{fileName:_jsxFileName,lineNumber:98}})):
+variables.Inset)}],__source:{fileName:_jsxFileName,lineNumber:83}})):
 
 
 
 
 
-_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:116}}))));
+_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:101}}))));
 
 
 
