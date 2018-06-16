@@ -15,6 +15,7 @@ declare module "native-base" {
 		}
 
 		interface Picker extends ReactNative.PickerProperties {
+			mode?: "dialog" | "dropdown";
 			iosHeader?: string;
 			inlineLabel?: boolean;
 			headerBackButtonText?: string;
