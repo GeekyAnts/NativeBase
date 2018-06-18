@@ -1,0 +1,406 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with custom formatted chosen date 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  contentContainerStyle={
+    Array [
+      Object {
+        "padding": undefined,
+      },
+      undefined,
+    ]
+  }
+  contentInset={
+    Object {
+      "bottom": 0,
+    }
+  }
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  getScrollResponder={[Function]}
+  handleOnScroll={[Function]}
+  keyboardDismissMode="interactive"
+  keyboardOpeningTime={250}
+  keyboardShouldPersistTaps="handled"
+  keyboardSpace={0}
+  onScroll={[Function]}
+  resetKeyboardSpace={[Function]}
+  resetScrollToCoords={
+    Object {
+      "x": 0,
+      "y": 0,
+    }
+  }
+  scrollEventThrottle={1}
+  scrollForExtraHeightOnAndroid={[Function]}
+  scrollToEnd={[Function]}
+  scrollToFocusedInput={[Function]}
+  scrollToPosition={[Function]}
+  showsVerticalScrollIndicator={true}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "flex": 1,
+    }
+  }
+  viewIsInsideTabBar={false}
+  virtual={undefined}
+>
+  <View>
+    <View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "Roboto",
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#000",
+                "padding": 10,
+              },
+              undefined,
+            ]
+          }
+          uppercase={false}
+          virtual={undefined}
+        >
+          2018-2-2
+        </Text>
+        <View>
+          <Modal
+            animationType="fade"
+            hardwareAccelerated={false}
+            onRequestClose={[Function]}
+            transparent={false}
+            visible={false}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Roboto",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "flex": 1,
+                  },
+                ]
+              }
+              uppercase={false}
+              virtual={undefined}
+            />
+            <View
+              style={undefined}
+            >
+              <RCTDatePicker
+                date={1517558400000}
+                maximumDate={1549008000000}
+                minimumDate={1517472000000}
+                minuteInterval={undefined}
+                mode="date"
+                onChange={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "height": 216,
+                  }
+                }
+                timeZoneOffsetInMinutes={undefined}
+              />
+            </View>
+          </Modal>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`renders with default formatted chosen date 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  contentContainerStyle={
+    Array [
+      Object {
+        "padding": undefined,
+      },
+      undefined,
+    ]
+  }
+  contentInset={
+    Object {
+      "bottom": 0,
+    }
+  }
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  getScrollResponder={[Function]}
+  handleOnScroll={[Function]}
+  keyboardDismissMode="interactive"
+  keyboardOpeningTime={250}
+  keyboardShouldPersistTaps="handled"
+  keyboardSpace={0}
+  onScroll={[Function]}
+  resetKeyboardSpace={[Function]}
+  resetScrollToCoords={
+    Object {
+      "x": 0,
+      "y": 0,
+    }
+  }
+  scrollEventThrottle={1}
+  scrollForExtraHeightOnAndroid={[Function]}
+  scrollToEnd={[Function]}
+  scrollToFocusedInput={[Function]}
+  scrollToPosition={[Function]}
+  showsVerticalScrollIndicator={true}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "flex": 1,
+    }
+  }
+  viewIsInsideTabBar={false}
+  virtual={undefined}
+>
+  <View>
+    <View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "Roboto",
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#000",
+                "padding": 10,
+              },
+              undefined,
+            ]
+          }
+          uppercase={false}
+          virtual={undefined}
+        >
+          2/2/2018
+        </Text>
+        <View>
+          <Modal
+            animationType="fade"
+            hardwareAccelerated={false}
+            onRequestClose={[Function]}
+            transparent={false}
+            visible={false}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Roboto",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "flex": 1,
+                  },
+                ]
+              }
+              uppercase={false}
+              virtual={undefined}
+            />
+            <View
+              style={undefined}
+            >
+              <RCTDatePicker
+                date={1517558400000}
+                maximumDate={1549008000000}
+                minimumDate={1517472000000}
+                minuteInterval={undefined}
+                mode="date"
+                onChange={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "height": 216,
+                  }
+                }
+                timeZoneOffsetInMinutes={undefined}
+              />
+            </View>
+          </Modal>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`renders with placeholder 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  contentContainerStyle={
+    Array [
+      Object {
+        "padding": undefined,
+      },
+      undefined,
+    ]
+  }
+  contentInset={
+    Object {
+      "bottom": 0,
+    }
+  }
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  getScrollResponder={[Function]}
+  handleOnScroll={[Function]}
+  keyboardDismissMode="interactive"
+  keyboardOpeningTime={250}
+  keyboardShouldPersistTaps="handled"
+  keyboardSpace={0}
+  onScroll={[Function]}
+  resetKeyboardSpace={[Function]}
+  resetScrollToCoords={
+    Object {
+      "x": 0,
+      "y": 0,
+    }
+  }
+  scrollEventThrottle={1}
+  scrollForExtraHeightOnAndroid={[Function]}
+  scrollToEnd={[Function]}
+  scrollToFocusedInput={[Function]}
+  scrollToPosition={[Function]}
+  showsVerticalScrollIndicator={true}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "flex": 1,
+    }
+  }
+  viewIsInsideTabBar={false}
+  virtual={undefined}
+>
+  <View>
+    <View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "Roboto",
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#000",
+                "padding": 10,
+              },
+              undefined,
+            ]
+          }
+          uppercase={false}
+          virtual={undefined}
+        >
+          Select Date
+        </Text>
+        <View>
+          <Modal
+            animationType="fade"
+            hardwareAccelerated={false}
+            onRequestClose={[Function]}
+            transparent={false}
+            visible={false}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Roboto",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                    "flex": 1,
+                  },
+                ]
+              }
+              uppercase={false}
+              virtual={undefined}
+            />
+            <View
+              style={undefined}
+            >
+              <RCTDatePicker
+                date={1517472000000}
+                maximumDate={1549008000000}
+                minimumDate={1517472000000}
+                minuteInterval={undefined}
+                mode="date"
+                onChange={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "height": 216,
+                  }
+                }
+                timeZoneOffsetInMinutes={undefined}
+              />
+            </View>
+          </Modal>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
