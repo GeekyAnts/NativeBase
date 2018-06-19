@@ -3,10 +3,10 @@ var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_pro
 var _createReactClass=require("create-react-class");var _createReactClass2=_interopRequireDefault(_createReactClass);
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
-var _mapPropsToStyleNames=require("../../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
+var _mapPropsToStyleNames=require("../../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _platform=require("./../../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _index=require("./../../index");
-var _Utils=require("../../Utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
+var _utils=require("../../utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
 var ReactNative=require("react-native");var
 
 StyleSheet=ReactNative.StyleSheet,View=ReactNative.View,Animated=ReactNative.Animated,Platform=ReactNative.Platform;
@@ -20,10 +20,10 @@ tabs:_propTypes2.default.array,
 backgroundColor:_propTypes2.default.string,
 activeTextColor:_propTypes2.default.string,
 inactiveTextColor:_propTypes2.default.string,
-tabStyle:_Utils.ViewPropTypes.style,
+tabStyle:_utils.ViewPropTypes.style,
 renderTab:_propTypes2.default.func,
-underlineStyle:_Utils.ViewPropTypes.style,
-tabContainerStyle:_Utils.ViewPropTypes.style},
+underlineStyle:_utils.ViewPropTypes.style,
+tabContainerStyle:_utils.ViewPropTypes.style},
 
 contextTypes:{
 theme:_propTypes2.default.object},
@@ -33,7 +33,8 @@ getDefaultProps:function getDefaultProps(){
 return{
 activeTextColor:_platform2.default.topTabBarActiveTextColor,
 inactiveTextColor:_platform2.default.topTabBarTextColor,
-backgroundColor:null};
+backgroundColor:null,
+tabFontSize:_platform2.default.tabFontSize};
 
 },
 
@@ -52,21 +53,27 @@ tabHeaderStyle)
 {
 var headerContent=
 typeof name!=="string"?name.props.children:undefined;var _props=
-this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor;
+this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor,tabFontSize=_props.tabFontSize;
 var textColor=isTabActive?activeTextColor:inactiveTextColor;
 var fontWeight=isTabActive?"bold":"normal";
+var fontSize=tabFontSize;
 if(typeof name==="string"){
 return(
 _react2.default.createElement(Button,{
 style:{flex:1},
 key:name,
-onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:60}},
+onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:62}},
 
 _react2.default.createElement(_index.TabHeading,{
 style:isTabActive?activeTabStyle:tabStyle,
-active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:65}},
+active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:67}},
 
-_react2.default.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:69}},
+_react2.default.createElement(_index.Text,{
+style:[
+isTabActive?activeTextStyle:textStyle,
+{fontSize:tabFontSize}],__source:{fileName:_jsxFileName,lineNumber:71}},
+
+
 name))));
 
 
@@ -77,9 +84,9 @@ return(
 _react2.default.createElement(Button,{
 style:{flex:1},
 key:_lodash2.default.random(1.2,5.2),
-onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:77}},
+onPress:function onPress(){return onPressHandler(page);},__source:{fileName:_jsxFileName,lineNumber:84}},
 
-_react2.default.createElement(_index.TabHeading,{style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:82}},
+_react2.default.createElement(_index.TabHeading,{style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:89}},
 headerContent)));
 
 
@@ -89,8 +96,8 @@ headerContent)));
 
 render:function render(){var _this=this;
 var variables=this.context.theme?
-this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
-
+this.context.theme["@@shoutem.theme/themeStyle"].variables:
+_platform2.default;
 var platformStyle=variables.platformStyle;
 var containerWidth=this.props.containerWidth;
 var numberOfTabs=this.props.tabs.length;
@@ -110,7 +117,7 @@ return(
 _react2.default.createElement(_index.TabContainer,{
 style:[
 {backgroundColor:variables.tabDefaultBg},
-this.props.tabContainerStyle?this.props.tabContainerStyle:{}],__source:{fileName:_jsxFileName,lineNumber:110}},
+this.props.tabContainerStyle?this.props.tabContainerStyle:{}],__source:{fileName:_jsxFileName,lineNumber:117}},
 
 
 this.props.tabs.map(function(name,page){
@@ -129,7 +136,7 @@ _this.props.tabHeaderStyle[page]);
 
 }),
 _react2.default.createElement(Animated.View,{
-style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:131}})));
+style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:138}})));
 
 
 
@@ -139,8 +146,8 @@ style:[tabUnderlineStyle,{left:left},this.props.underlineStyle],__source:{fileNa
 
 var StyledTab=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.DefaultTabBar",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 DefaultTabBar);exports.
 DefaultTabBar=StyledTab;
 //# sourceMappingURL=DefaultTabBar.js.map

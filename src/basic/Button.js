@@ -10,9 +10,9 @@ import {
 import { connectStyle } from "native-base-shoutem-theme";
 import variable from "./../theme/variables/platform";
 import { Text } from "./Text";
-import computeProps from "../Utils/computeProps";
+import computeProps from "../utils/computeProps";
 
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class Button extends Component {
   static contextTypes = {
@@ -79,7 +79,7 @@ class Button extends Component {
             let buttonStyle = { ...this.prepareRootProps().style };
             let buttonFlex = (this.props.full || this.props.block) ? 1 : buttonStyle.flex;
             return (
-              <View style={[{ maxHeight:buttonStyle.height }, buttonStyle, { paddingTop: undefined, paddingBottom: undefined, flex:buttonFlex }]} >
+              <View style={[{ maxHeight:buttonStyle.height }, buttonStyle, { paddingTop: undefined, paddingBottom: undefined }]} >
                 <TouchableNativeFeedback
                   ref={c => (this._root = c)}
                   background={

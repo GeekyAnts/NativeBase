@@ -7,13 +7,25 @@ export default (variables = variable) => {
     ".floatingLabel": {
       "NativeBase.Input": {
         height: 50,
-        top: 8
+        top: 8,
+        paddingTop: 3,
+        paddingBottom: 7,
+        ".multiline": {
+          minHeight: variables.inputHeightBase,
+          paddingTop: Platform.OS === "ios" ? 10 : 3,
+          paddingBottom: Platform.OS === "ios" ? 14 : 10
+        }
       },
       "NativeBase.Label": {
         top: 8
       },
       "NativeBase.Icon": {
-        top: 6
+        top: 6,
+        paddingTop: 8
+      },
+      "NativeBase.IconNB": {
+        top: 6,
+        paddingTop: 8
       }
     },
     ".fixedLabel": {
@@ -51,9 +63,16 @@ export default (variables = variable) => {
         width: Platform.OS === "ios" ? null : variables.deviceWidth - 25,
         fontSize: variables.inputFontSize,
         lineHeight: variables.inputLineHeight - 6,
+        ".secureTextEntry": {
+          fontSize: variables.inputFontSize - 4
+        },
+        ".multiline": {
+          paddingTop: Platform.OS === "ios" ? 9 : undefined,
+          paddingBottom: Platform.OS === "ios" ? 9 : undefined,
+        }
       },
       flexDirection: null,
-      height: variables.inputHeightBase + 15
+      minHeight: variables.inputHeightBase + 15
     },
     ".inlineLabel": {
       "NativeBase.Label": {
@@ -93,8 +112,7 @@ export default (variables = variable) => {
       color: variables.inputColor,
       flex: 1,
       top: Platform.OS === "ios" ? 1.5 : undefined,
-      fontSize: variables.inputFontSize,
-      lineHeight: variables.inputLineHeight
+      fontSize: variables.inputFontSize
     },
     ".underline": {
       "NativeBase.Input": {

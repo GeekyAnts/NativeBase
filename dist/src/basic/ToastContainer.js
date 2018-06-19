@@ -6,7 +6,7 @@ var _Text=require("./Text");
 var _Button=require("./Button");
 var _View=require("./View");
 var _Toast=require("./Toast");
-var _mapPropsToStyleNames=require("../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _objectWithoutProperties(obj,keys){var target={};for(var i in obj){if(keys.indexOf(i)>=0)continue;if(!Object.prototype.hasOwnProperty.call(obj,i))continue;target[i]=obj[i];}return target;}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
+var _mapPropsToStyleNames=require("../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _objectWithoutProperties(obj,keys){var target={};for(var i in obj){if(keys.indexOf(i)>=0)continue;if(!Object.prototype.hasOwnProperty.call(obj,i))continue;target[i]=obj[i];}return target;}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 ToastContainer=function(_Component){_inherits(ToastContainer,_Component);
 function ToastContainer(props){_classCallCheck(this,ToastContainer);var _this=_possibleConstructorReturn(this,(ToastContainer.__proto__||Object.getPrototypeOf(ToastContainer)).call(this,
@@ -64,47 +64,50 @@ onClose:config.onClose});
 if(this.closeTimeout){
 clearTimeout(this.closeTimeout);
 }
-var duration=config.duration>0?config.duration:1500;
 
-this.closeTimeout=setTimeout(this.closeToast.bind(this),duration);
+if(config.duration!==0){
+var duration=config.duration>0?config.duration:1500;
+this.closeTimeout=setTimeout(this.closeToast.bind(this,'timeout'),duration);
+}
 
 _reactNative.Animated.timing(this.state.fadeAnim,{
 toValue:1,
 duration:200}).
 start();
-}},{key:"closeModal",value:function closeModal()
-{
+}},{key:"closeModal",value:function closeModal(
+reason){
 this.setState({
 modalVisible:false});var
 
 onClose=this.state.onClose;
 if(onClose&&typeof onClose==="function"){
-onClose();
+onClose(reason);
 }
-}},{key:"closeToast",value:function closeToast()
-{
+}},{key:"closeToast",value:function closeToast(
+reason){
+clearTimeout(this.closeTimeout);
 _reactNative.Animated.timing(this.state.fadeAnim,{
 toValue:0,
 duration:200}).
-start(this.closeModal.bind(this));
+start(this.closeModal.bind(this,reason));
 }},{key:"render",value:function render()
 {var _this2=this;
 if(this.state.modalVisible){
 return(
-_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:94}},
+_react2.default.createElement(_reactNative.Animated.View,{style:this.getToastStyle(),__source:{fileName:_jsxFileName,lineNumber:97}},
 _react2.default.createElement(_Toast.Toast,{
 style:this.state.style,
 danger:this.state.type=="danger"?true:false,
 success:this.state.type=="success"?true:false,
-warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:95}},
+warning:this.state.type=="warning"?true:false,__source:{fileName:_jsxFileName,lineNumber:98}},
 
-_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:101}},this.state.text),
+_react2.default.createElement(_Text.Text,{style:this.state.textStyle,__source:{fileName:_jsxFileName,lineNumber:104}},this.state.text),
 this.state.buttonText&&
 _react2.default.createElement(_Button.Button,{
 style:this.state.buttonStyle,
-onPress:function onPress(){return _this2.closeToast();},__source:{fileName:_jsxFileName,lineNumber:103}},
+onPress:function onPress(){return _this2.closeToast('user');},__source:{fileName:_jsxFileName,lineNumber:106}},
 
-_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:107}},
+_react2.default.createElement(_Text.Text,{style:this.state.buttonTextStyle,__source:{fileName:_jsxFileName,lineNumber:110}},
 this.state.buttonText)))));
 
 
@@ -116,8 +119,8 @@ this.state.buttonText)))));
 }}],[{key:"show",value:function show(_ref2){var config=_objectWithoutProperties(_ref2,[]);this.toastInstance._root.showToast({config:config});}}]);return ToastContainer;}(_react.Component);
 
 
-ToastContainer.propTypes=_extends({},_reactNative.ViewPropTypes,{
-
+ToastContainer.propTypes=_extends({},
+_reactNative.ViewPropTypes,{
 style:_propTypes2.default.oneOfType([
 _propTypes2.default.object,
 _propTypes2.default.number,
@@ -127,8 +130,8 @@ _propTypes2.default.array])});
 
 var StyledToastContainer=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.ToastContainer",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 ToastContainer);exports.
 
 ToastContainer=StyledToastContainer;

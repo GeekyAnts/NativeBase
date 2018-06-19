@@ -7,11 +7,18 @@ var deviceWidth=_reactNative.Dimensions.get("window").width;
 var platform=_reactNative.Platform.OS;
 var platformStyle=undefined;
 var isIphoneX=
-platform==="ios"&&deviceHeight===812&&deviceWidth===375;exports.default=
+platform==="ios"&&(deviceHeight===812||deviceWidth===812);exports.default=
 
 {
 platformStyle:platformStyle,
 platform:platform,
+
+
+headerStyle:"#edebed",
+iconStyle:"#000",
+contentStyle:"#f5f4f5",
+expandedIconStyle:"#000",
+accordionBorderColor:"#d3d3d3",
 
 
 androidRipple:true,
@@ -80,6 +87,7 @@ return this.iconFontSize*0.6;
 
 cardDefaultBg:"#fff",
 cardBorderColor:"#ccc",
+cardBorderRadius:2,
 
 
 CheckboxRadius:platform==="ios"?13:0,
@@ -89,7 +97,6 @@ CheckboxPaddingBottom:platform==="ios"?0:5,
 CheckboxIconSize:platform==="ios"?21:16,
 CheckboxIconMarginTop:platform==="ios"?undefined:1,
 CheckboxFontSize:platform==="ios"?23/0.9:17,
-DefaultFontSize:17,
 checkboxBgColor:"#039BE5",
 checkboxSize:20,
 checkboxTickColor:"#fff",
@@ -104,6 +111,11 @@ brandDark:"#000",
 brandLight:"#f4f4f4",
 
 
+datePickerTextColor:"#000",
+datePickerBg:"transparent",
+
+
+DefaultFontSize:16,
 fontFamily:platform==="ios"?"System":"Roboto",
 fontSizeBase:15,
 get fontSizeH1(){
@@ -117,9 +129,9 @@ return this.fontSizeBase*1.4;
 },
 
 
-footerHeight:isIphoneX?89:55,
+footerHeight:55,
 footerDefaultBg:platform==="ios"?"#F8F8F8":"#3F51B5",
-footerPaddingBottom:isIphoneX?34:0,
+footerPaddingBottom:0,
 
 
 tabBarTextColor:platform==="ios"?"#6b6b6b":"#b3c7f9",
@@ -132,7 +144,7 @@ tabActiveBgColor:platform==="ios"?"#cde1f9":"#3F51B5",
 
 toolbarBtnColor:platform==="ios"?"#007aff":"#fff",
 toolbarDefaultBg:platform==="ios"?"#F8F8F8":"#3F51B5",
-toolbarHeight:platform==="ios"?isIphoneX?88:64:56,
+toolbarHeight:platform==="ios"?64:56,
 toolbarSearchIconSize:platform==="ios"?20:23,
 toolbarInputColor:platform==="ios"?"#CECDD2":"#fff",
 searchBarHeight:platform==="ios"?30:40,
@@ -175,6 +187,7 @@ lineHeightH1:32,
 lineHeightH2:27,
 lineHeightH3:22,
 lineHeight:platform==="ios"?20:24,
+listItemSelected:platform==="ios"?"#007aff":"#3F51B5",
 
 
 listBg:"transparent",
@@ -231,7 +244,7 @@ return this.textColor;
 
 titleFontfamily:platform==="ios"?"System":"Roboto_medium",
 titleFontSize:platform==="ios"?17:19,
-subTitleFontSize:platform==="ios"?12:14,
+subTitleFontSize:platform==="ios"?11:14,
 subtitleColor:platform==="ios"?"#8e8e93":"#FFF",
 titleFontColor:platform==="ios"?"#000":"#FFF",
 
@@ -244,5 +257,19 @@ inputLineHeight:24,
 deviceWidth:deviceWidth,
 deviceHeight:deviceHeight,
 isIphoneX:isIphoneX,
-inputGroupRoundedBorderRadius:30};
+inputGroupRoundedBorderRadius:30,
+
+
+Inset:{
+portrait:{
+topInset:24,
+leftInset:0,
+rightInset:0,
+bottomInset:34},
+
+landscape:{
+topInset:0,
+leftInset:44,
+rightInset:44,
+bottomInset:21}}};
 //# sourceMappingURL=platform.js.map

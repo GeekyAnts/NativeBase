@@ -3,10 +3,10 @@ var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_pro
 var _createReactClass=require("create-react-class");var _createReactClass2=_interopRequireDefault(_createReactClass);
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
-var _mapPropsToStyleNames=require("../../Utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
+var _mapPropsToStyleNames=require("../../utils/mapPropsToStyleNames");var _mapPropsToStyleNames2=_interopRequireDefault(_mapPropsToStyleNames);
 var _platform=require("./../../theme/variables/platform");var _platform2=_interopRequireDefault(_platform);
 var _index=require("./../../index");
-var _Utils=require("../../Utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
+var _utils=require("../../utils");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
 var Button=require("./Button");
 var ReactNative=require("react-native");var
 
@@ -29,11 +29,11 @@ backgroundColor:_propTypes2.default.string,
 activeTextColor:_propTypes2.default.string,
 inactiveTextColor:_propTypes2.default.string,
 scrollOffset:_propTypes2.default.number,
-style:_Utils.ViewPropTypes.style,
-tabStyle:_Utils.ViewPropTypes.style,
-tabsContainerStyle:_Utils.ViewPropTypes.style,
+style:_utils.ViewPropTypes.style,
+tabStyle:_utils.ViewPropTypes.style,
+tabsContainerStyle:_utils.ViewPropTypes.style,
 renderTab:_propTypes2.default.func,
-underlineStyle:_Utils.ViewPropTypes.style,
+underlineStyle:_utils.ViewPropTypes.style,
 onScroll:_propTypes2.default.func},
 
 contextTypes:{
@@ -45,11 +45,12 @@ return{
 scrollOffset:52,
 activeTextColor:"navy",
 inactiveTextColor:"black",
-backgroundColor:null,
+backgroundColor:_platform2.default.tabDefaultBg,
 style:{},
 tabStyle:{},
 tabsContainerStyle:{},
-underlineStyle:{}};
+underlineStyle:{},
+tabFontSize:_platform2.default.tabFontSize};
 
 },
 
@@ -161,23 +162,29 @@ tabHeaderStyle)
 {
 var headerContent=
 typeof name!=="string"?name.props.children:undefined;var _props=
-this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor;
+this.props,activeTextColor=_props.activeTextColor,inactiveTextColor=_props.inactiveTextColor,tabFontSize=_props.tabFontSize;
 var textColor=isTabActive?activeTextColor:inactiveTextColor;
 var fontWeight=isTabActive?"bold":"normal";
+var fontSize=tabFontSize;
 
 if(typeof name==="string"){
 return(
 _react2.default.createElement(Button,{
 key:name+"_"+page,
 onPress:function onPress(){return onPressHandler(page);},
-onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:170}},
+onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:172}},
 
 _react2.default.createElement(_index.TabHeading,{
 scrollable:true,
 style:isTabActive?activeTabStyle:tabStyle,
-active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:175}},
+active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:177}},
 
-_react2.default.createElement(_index.Text,{style:isTabActive?activeTextStyle:textStyle,__source:{fileName:_jsxFileName,lineNumber:180}},
+_react2.default.createElement(_index.Text,{
+style:[
+isTabActive?activeTextStyle:textStyle,
+{fontSize:tabFontSize}],__source:{fileName:_jsxFileName,lineNumber:182}},
+
+
 name))));
 
 
@@ -188,9 +195,9 @@ return(
 _react2.default.createElement(Button,{
 key:_lodash2.default.random(1.2,5.2),
 onPress:function onPress(){return onPressHandler(page);},
-onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:188}},
+onLayout:onLayoutHandler,__source:{fileName:_jsxFileName,lineNumber:195}},
 
-_react2.default.createElement(_index.TabHeading,{scrollable:true,style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:193}},
+_react2.default.createElement(_index.TabHeading,{scrollable:true,style:tabHeaderStyle,active:isTabActive,__source:{fileName:_jsxFileName,lineNumber:200}},
 headerContent)));
 
 
@@ -206,8 +213,8 @@ this.updateView({value:this.props.scrollValue._value});
 
 render:function render(){var _this=this;
 var variables=this.context.theme?
-this.context.theme["@@shoutem.theme/themeStyle"].variables:_platform2.default;
-
+this.context.theme["@@shoutem.theme/themeStyle"].variables:
+_platform2.default;
 var tabUnderlineStyle={
 position:"absolute",
 height:4,
@@ -227,7 +234,7 @@ styles.container,
 {backgroundColor:this.props.backgroundColor},
 this.props.style],
 
-onLayout:this.onContainerLayout,__source:{fileName:_jsxFileName,lineNumber:224}},
+onLayout:this.onContainerLayout,__source:{fileName:_jsxFileName,lineNumber:231}},
 
 _react2.default.createElement(ScrollView,{
 automaticallyAdjustContentInsets:false,
@@ -240,7 +247,7 @@ showsVerticalScrollIndicator:false,
 directionalLockEnabled:true,
 onScroll:this.props.onScroll,
 bounces:false,
-scrollsToTop:false,__source:{fileName:_jsxFileName,lineNumber:232}},
+scrollsToTop:false,__source:{fileName:_jsxFileName,lineNumber:239}},
 
 _react2.default.createElement(View,{
 style:[
@@ -249,7 +256,7 @@ styles.tabs,
 this.props.tabsContainerStyle],
 
 ref:"tabContainer",
-onLayout:this.onTabContainerLayout,__source:{fileName:_jsxFileName,lineNumber:245}},
+onLayout:this.onTabContainerLayout,__source:{fileName:_jsxFileName,lineNumber:252}},
 
 this.props.tabs.map(function(name,page){
 var isTabActive=_this.props.activeTab===page;
@@ -271,7 +278,7 @@ _react2.default.createElement(Animated.View,{
 style:[
 tabUnderlineStyle,
 dynamicTabUnderline,
-this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:270}})))));
+this.props.underlineStyle],__source:{fileName:_jsxFileName,lineNumber:277}})))));
 
 
 
@@ -309,8 +316,8 @@ this.updateView({value:this.props.scrollValue._value});
 
 var StyledTab=(0,_nativeBaseShoutemTheme.connectStyle)(
 "NativeBase.ScrollableTab",
-{},_mapPropsToStyleNames2.default)(
-
+{},
+_mapPropsToStyleNames2.default)(
 ScrollableTabBar);exports.
 ScrollableTab=StyledTab;
 var styles=StyleSheet.create({

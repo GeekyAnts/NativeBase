@@ -7,11 +7,18 @@ const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = undefined;
 const isIphoneX =
-  platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
+  platform === "ios" && (deviceHeight === 812 || deviceWidth === 812);
 
 export default {
   platformStyle,
   platform,
+
+  //Accordion
+  headerStyle: "#edebed",
+  iconStyle: "#000",
+  contentStyle: "#f5f4f5",
+  expandedIconStyle: "#000",
+  accordionBorderColor: "#d3d3d3",
 
   //Android
   androidRipple: true,
@@ -80,6 +87,7 @@ export default {
   // Card
   cardDefaultBg: "#fff",
   cardBorderColor: "#ccc",
+  cardBorderRadius: 2,
 
   // CheckBox
   CheckboxRadius: platform === "ios" ? 13 : 0,
@@ -89,7 +97,6 @@ export default {
   CheckboxIconSize: platform === "ios" ? 21 : 16,
   CheckboxIconMarginTop: platform === "ios" ? undefined : 1,
   CheckboxFontSize: platform === "ios" ? 23 / 0.9 : 17,
-  DefaultFontSize: 17,
   checkboxBgColor: "#039BE5",
   checkboxSize: 20,
   checkboxTickColor: "#fff",
@@ -103,7 +110,12 @@ export default {
   brandDark: "#000",
   brandLight: "#f4f4f4",
 
+  //Date Picker
+  datePickerTextColor: "#000",
+  datePickerBg: "transparent",
+
   // Font
+  DefaultFontSize: 16,
   fontFamily: platform === "ios" ? "System" : "Roboto",
   fontSizeBase: 15,
   get fontSizeH1() {
@@ -117,9 +129,9 @@ export default {
   },
 
   // Footer
-  footerHeight: isIphoneX ? 89 : 55,
+  footerHeight: 55,
   footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
-  footerPaddingBottom: isIphoneX ? 34 : 0,
+  footerPaddingBottom: 0,
 
   // FooterTab
   tabBarTextColor: platform === "ios" ? "#737373" : "#bfc6ea",
@@ -132,7 +144,7 @@ export default {
   // Header
   toolbarBtnColor: platform === "ios" ? "#007aff" : "#fff",
   toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
-  toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
+  toolbarHeight: platform === "ios" ? 64 : 56,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: platform === "ios" ? "#CECDD2" : "#fff",
   searchBarHeight: platform === "ios" ? 30 : 40,
@@ -184,6 +196,7 @@ export default {
   listItemPadding: platform === "ios" ? 10 : 12,
   listNoteColor: "#808080",
   listNoteSize: 13,
+  listItemSelected: platform === "ios" ? "#007aff" : "#3F51B5",
 
   // Progress Bar
   defaultProgressColor: "#E4202D",
@@ -231,7 +244,7 @@ export default {
   // Title
   titleFontfamily: platform === "ios" ? "System" : "Roboto_medium",
   titleFontSize: platform === "ios" ? 17 : 19,
-  subTitleFontSize: platform === "ios" ? 12 : 14,
+  subTitleFontSize: platform === "ios" ? 11 : 14,
   subtitleColor: platform === "ios" ? "#000" : "#fff",
   titleFontColor: platform === "ios" ? "#000" : "#fff",
 
@@ -244,5 +257,21 @@ export default {
   deviceWidth,
   deviceHeight,
   isIphoneX,
-  inputGroupRoundedBorderRadius: 30
+  inputGroupRoundedBorderRadius: 30,
+
+  //iPhoneX SafeArea
+  Inset: {
+    portrait: {
+      topInset: 24,
+      leftInset: 0,
+      rightInset: 0,
+      bottomInset: 34
+    },
+    landscape: {
+      topInset: 0,
+      leftInset: 44,
+      rightInset: 44,
+      bottomInset: 21
+    }
+  }
 };

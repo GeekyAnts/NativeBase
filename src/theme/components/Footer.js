@@ -37,7 +37,7 @@ export default (variables = variable) => {
         alignSelf: null,
         ...iconCommon,
         ...iconNBCommon,
-        ...textCommon
+        // ...textCommon
       },
       flex: 1,
       alignSelf: "center",
@@ -69,7 +69,7 @@ export default (variables = variable) => {
         },
         ...iconCommon,
         ...iconNBCommon,
-        ...textCommon
+        // ...textCommon
       }
     },
     "NativeBase.Right": {
@@ -89,7 +89,7 @@ export default (variables = variable) => {
         alignSelf: null,
         ...iconCommon,
         ...iconNBCommon,
-        ...textCommon
+        // ...textCommon
       },
       flex: 1,
       alignSelf: "center",

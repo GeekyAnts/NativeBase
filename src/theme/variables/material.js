@@ -7,11 +7,18 @@ const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = "material";
 const isIphoneX =
-  platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
+  platform === "ios" && (deviceHeight === 812 || deviceWidth === 812);
 
 export default {
   platformStyle,
   platform,
+
+  //Accordion
+  headerStyle: "#edebed",
+  iconStyle: "#000",
+  contentStyle: "#f5f4f5",
+  expandedIconStyle: "#000",
+  accordionBorderColor: "#d3d3d3",
 
   // Android
   androidRipple: true,
@@ -80,6 +87,7 @@ export default {
   // Card
   cardDefaultBg: "#fff",
   cardBorderColor: "#ccc",
+  cardBorderRadius: 2,
 
   // CheckBox
   CheckboxRadius: 0,
@@ -89,7 +97,6 @@ export default {
   CheckboxIconSize: 16,
   CheckboxIconMarginTop: 1,
   CheckboxFontSize: 17,
-  DefaultFontSize: 17,
   checkboxBgColor: "#039BE5",
   checkboxSize: 20,
   checkboxTickColor: "#fff",
@@ -103,7 +110,12 @@ export default {
   brandDark: "#000",
   brandLight: "#f4f4f4",
 
+  //Date Picker
+  datePickerTextColor: "#000",
+  datePickerBg: "transparent",
+
   // Font
+  DefaultFontSize: 16,
   fontFamily: "Roboto",
   fontSizeBase: 15,
   get fontSizeH1() {
@@ -117,9 +129,9 @@ export default {
   },
 
   // Footer
-  footerHeight: isIphoneX ? 89 : 55,
+  footerHeight: 55,
   footerDefaultBg: "#3F51B5",
-  footerPaddingBottom: isIphoneX ? 34 : 0,
+  footerPaddingBottom: 0,
 
   // FooterTab
   tabBarTextColor: "#bfc6ea",
@@ -184,6 +196,7 @@ export default {
   listItemPadding: 12,
   listNoteColor: "#808080",
   listNoteSize: 13,
+  listItemSelected: "#3F51B5",
 
   // Progress Bar
   defaultProgressColor: "#E4202D",
@@ -244,5 +257,21 @@ export default {
   deviceWidth,
   deviceHeight,
   isIphoneX,
-  inputGroupRoundedBorderRadius: 30
+  inputGroupRoundedBorderRadius: 30,
+
+  //iPhoneX SafeArea
+  Inset: {
+    portrait: {
+      topInset: 24,
+      leftInset: 0,
+      rightInset: 0,
+      bottomInset: 34
+    },
+    landscape: {
+      topInset: 0,
+      leftInset: 44,
+      rightInset: 44,
+      bottomInset: 21
+    }
+  }
 };

@@ -40,6 +40,7 @@ var _CardItem=require("./CardItem");var _CardItem2=_interopRequireDefault(_CardI
 var _ListItem=require("./ListItem");var _ListItem2=_interopRequireDefault(_ListItem);
 var _Form=require("./Form");var _Form2=_interopRequireDefault(_Form);
 var _Separator=require("./Separator");var _Separator2=_interopRequireDefault(_Separator);
+var _Picker=require("./Picker");var _Picker2=_interopRequireDefault(_Picker);
 var _platform=require("./../variables/platform");var _platform2=_interopRequireDefault(_platform);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}exports.default=
 
 function(){var variables=arguments.length>0&&arguments[0]!==undefined?arguments[0]:_platform2.default;
@@ -171,9 +172,10 @@ flex:1},
 (0,_Textarea2.default)(variables)),
 
 
-"NativeBase.PickerNB":{
+"NativeBase.PickerNB":_extends({},
+(0,_Picker2.default)(variables),{
 "NativeBase.Button":{
-"NativeBase.Text":{}}},
+"NativeBase.Text":{}}}),
 
 
 

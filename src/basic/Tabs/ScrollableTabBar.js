@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import createReactClass from "create-react-class";
 import _ from "lodash";
 import { connectStyle, StyleProvider } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../../utils/mapPropsToStyleNames";
 import variable from "./../../theme/variables/platform";
 import { TabHeading, Text, TabContainer } from "./../../index";
-import { ViewPropTypes } from "../../Utils";
+import { ViewPropTypes } from "../../utils";
 const Button = require("./Button");
 const ReactNative = require("react-native");
 const {
@@ -45,11 +45,12 @@ const ScrollableTabBar = createReactClass({
       scrollOffset: 52,
       activeTextColor: "navy",
       inactiveTextColor: "black",
-      backgroundColor: null,
+      backgroundColor: variable.tabDefaultBg,
       style: {},
       tabStyle: {},
       tabsContainerStyle: {},
-      underlineStyle: {}
+      underlineStyle: {},
+      tabFontSize: variable.tabFontSize
     };
   },
 
@@ -161,9 +162,10 @@ const ScrollableTabBar = createReactClass({
   ) {
     const headerContent =
       typeof name !== "string" ? name.props.children : undefined;
-    const { activeTextColor, inactiveTextColor } = this.props;
+    const { activeTextColor, inactiveTextColor, tabFontSize } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? "bold" : "normal";
+    const fontSize = tabFontSize;
 
     if (typeof name === "string") {
       return (
@@ -177,7 +179,12 @@ const ScrollableTabBar = createReactClass({
             style={isTabActive ? activeTabStyle : tabStyle}
             active={isTabActive}
           >
-            <Text style={isTabActive ? activeTextStyle : textStyle}>
+            <Text
+              style={[
+                isTabActive ? activeTextStyle : textStyle,
+                { fontSize: tabFontSize }
+              ]}
+            >
               {name}
             </Text>
           </TabHeading>

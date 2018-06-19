@@ -4,7 +4,7 @@ import { Text as RNText } from "react-native";
 import _ from "lodash";
 
 import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class Text extends Component {
 	render() {

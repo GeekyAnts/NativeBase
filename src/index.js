@@ -10,6 +10,7 @@ import { SwipeRow } from "./basic/SwipeRow";
 import { Text } from "./basic/Text";
 import { ViewNB as View } from "./basic/View";
 import { Button } from "./basic/Button";
+import { DatePicker } from "./basic/DatePicker";
 import { TabHeading } from "./basic/TabHeading";
 import { TabContainer } from "./basic/TabContainer";
 import { IconNB } from "./basic/IconNB";
@@ -55,6 +56,7 @@ import ScrollableTabView from "./basic/Tabs";
 import { DefaultTabBar } from "./basic/Tabs/DefaultTabBar";
 import { ScrollableTab } from "./basic/Tabs/ScrollableTabBar";
 import { Subtitle } from "./basic/Subtitle";
+import { Accordion } from "./basic/Accordion";
 
 import VueNativeBase from "./vue-native.js";
 
@@ -63,10 +65,11 @@ setDefaultThemeStyle();
 export {
   getTheme,
   variables,
-  connectStyle,
   StyleProvider,
+  connectStyle,
   Drawer,
   Button,
+  DatePicker,
   IconNB,
   Icon,
   Header,
@@ -120,6 +123,7 @@ export {
   Root,
   SwipeRow,
   VueNativeBase
+  Accordion
 };
 
 const mapPropsToStyleNames = (styleNames, props) => keys(props);
