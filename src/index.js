@@ -122,7 +122,7 @@ export {
   Segment,
   Root,
   SwipeRow,
-  VueNativeBase
+  VueNativeBase,
   Accordion
 };
 
