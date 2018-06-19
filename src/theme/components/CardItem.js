@@ -48,7 +48,7 @@ export default (variables = variable) => {
       "NativeBase.Button": {
         ".transparent": {
           ...transparentBtnCommon,
-          paddingRight: variables.listItemPadding + 5
+          paddingRight: variables.cardItemPadding + 5
         }
       },
       flex: 1,
@@ -78,7 +78,7 @@ export default (variables = variable) => {
       "NativeBase.Button": {
         ".transparent": {
           ...transparentBtnCommon,
-          paddingRight: variables.listItemPadding + 5,
+          paddingRight: variables.cardItemPadding + 5,
           alignSelf: "stretch"
         }
       },
@@ -140,7 +140,7 @@ export default (variables = variable) => {
         borderBottomWidth: variables.borderWidth
       },
       borderBottomWidth: null,
-      paddingVertical: variables.listItemPadding + 5
+      paddingVertical: variables.cardItemPadding + 5
     },
     ".footer": {
       "NativeBase.Text": {
@@ -185,8 +185,8 @@ export default (variables = variable) => {
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 2,
-    padding: variables.listItemPadding + 5,
-    paddingVertical: variables.listItemPadding,
+    padding: variables.cardItemPadding + 5,
+    paddingVertical: variables.cardItemPadding,
     backgroundColor: variables.cardDefaultBg
   };
 
