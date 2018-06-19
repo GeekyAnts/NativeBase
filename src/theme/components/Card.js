@@ -7,7 +7,9 @@ export default (variables = variable) => {
       shadowOffset: null,
       shadowOpacity: null,
       shadowRadius: null,
-      elevation: null
+      elevation: null,
+      backgroundColor: "transparent",
+      borderWidth: 0
     },
     ".noShadow": {
       shadowColor: null,
