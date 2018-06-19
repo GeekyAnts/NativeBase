@@ -51,6 +51,7 @@ import ScrollableTabView from "./basic/Tabs";
 import { DefaultTabBar } from "./basic/Tabs/DefaultTabBar";
 import { ScrollableTab } from "./basic/Tabs/ScrollableTabBar";
 import { Subtitle } from "./basic/Subtitle";
+import { Accordion } from "./basic/Accordion";
 
 const VueNativeBasePlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -111,6 +112,7 @@ const VueNativeBasePlugin = {
     Vue.component("nb-default-tab-bar", DefaultTabBar);
     Vue.component("nb-scrollable-tab", ScrollableTab);
     Vue.component("nb-subtitle", Subtitle);
+    Vue.component("nb-accordion", Accordion);
   }
 };
 
