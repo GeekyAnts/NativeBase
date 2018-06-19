@@ -50,7 +50,8 @@ var _Tab=require("./basic/Tab");
 var _Tabs=require("./basic/Tabs");var _Tabs2=_interopRequireDefault(_Tabs);
 var _DefaultTabBar=require("./basic/Tabs/DefaultTabBar");
 var _ScrollableTabBar=require("./basic/Tabs/ScrollableTabBar");
-var _Subtitle=require("./basic/Subtitle");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
+var _Subtitle=require("./basic/Subtitle");
+var _Accordion=require("./basic/Accordion");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}
 
 var VueNativeBasePlugin={
 
@@ -111,6 +112,7 @@ Vue.component("nb-tabs",_Tabs2.default);
 Vue.component("nb-default-tab-bar",_DefaultTabBar.DefaultTabBar);
 Vue.component("nb-scrollable-tab",_ScrollableTabBar.ScrollableTab);
 Vue.component("nb-subtitle",_Subtitle.Subtitle);
+Vue.component("nb-accordion",_Accordion.Accordion);
 }};exports.default=
 
 
