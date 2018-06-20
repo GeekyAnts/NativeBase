@@ -6,6 +6,7 @@ import { SwipeRow } from "./basic/SwipeRow";
 import { Text } from "./basic/Text";
 import { ViewNB as View } from "./basic/View";
 import { Button } from "./basic/Button";
+import { DatePicker } from "./basic/DatePicker";
 import { TabHeading } from "./basic/TabHeading";
 import { TabContainer } from "./basic/TabContainer";
 import { IconNB } from "./basic/IconNB";
@@ -65,6 +66,7 @@ const VueNativeBasePlugin = {
     Vue.component("nb-text", Text);
     Vue.component("nb-view", View);
     Vue.component("nb-button", Button);
+    Vue.component("nb-date-picker", DatePicker);
     Vue.component("nb-tab-heading", TabHeading);
     Vue.component("nb-tab-container", TabContainer);
     Vue.component("nb-icon-nb", IconNB);
