@@ -58,6 +58,8 @@ import { ScrollableTab } from "./basic/Tabs/ScrollableTabBar";
 import { Subtitle } from "./basic/Subtitle";
 import { Accordion } from "./basic/Accordion";
 
+import VueNativeBase from "./vue-native.js";
+
 setDefaultThemeStyle();
 // Theme
 export {
@@ -120,6 +122,7 @@ export {
   Segment,
   Root,
   SwipeRow,
+  VueNativeBase,
   Accordion
 };
 
