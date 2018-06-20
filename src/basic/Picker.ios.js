@@ -87,24 +87,26 @@ class PickerNB extends Component {
 
   getChildren(children) {
     if (children && !Array.isArray(children)) {
-      return [].concat(children)
+      return [].concat(children);
     }
     return children;
   }
 
   renderIcon() {
     return React.cloneElement(this.props.iosIcon, {
-      style: [{
-        fontSize: 22,
-        lineHeight: 26
-      }, { ...this.props.iosIcon.props.style }]
+      style: [
+        {
+          fontSize: 22,
+          lineHeight: 26
+        },
+        { ...this.props.iosIcon.props.style }
+      ]
     });
   }
 
   renderButton() {
     const onPress = () => {
-      if (this.props.enabled !== undefined && !this.props.enabled)
-        return;
+      if (this.props.enabled !== undefined && !this.props.enabled) return;
       this._setModalVisible(true);
     };
     const text = this.state.currentLabel
@@ -131,13 +133,13 @@ class PickerNB extends Component {
             {this.state.currentLabel}
           </Text>
         ) : (
-            <Text
-              style={[this.props.textStyle, this.props.placeholderStyle]}
-              note={this.props.note === false ? false : true}
-            >
-              {this.props.placeholder}
-            </Text>
-          )}
+          <Text
+            style={[this.props.textStyle, this.props.placeholderStyle]}
+            note={this.props.note === false ? false : true}
+          >
+            {this.props.placeholder}
+          </Text>
+        )}
         {this.props.iosIcon === undefined ? null : this.renderIcon()}
       </Button>
     );
@@ -147,34 +149,35 @@ class PickerNB extends Component {
     return this.props.renderHeader ? (
       this.props.renderHeader(() => this._setModalVisible(false))
     ) : (
-        <Header style={this.props.headerStyle}>
-          <Left>
-            <Button
-              style={{
-                shadowOffset: null,
-                shadowColor: null,
-                shadowRadius: null,
-                shadowOpacity: null,
-                ...this.props.headerBackButtonStyle
-              }}
-              transparent
-              onPress={() => {
-                this._setModalVisible(false);
-              }}
-            >
-              <Text style={this.props.headerBackButtonTextStyle}>
-                {this.props.headerBackButtonText || "Back"}
-              </Text>
-            </Button>
-          </Left>
-          <Body>
-            <Title style={this.props.headerTitleStyle}>
-              {this.props.iosHeader || "Select One"}
-            </Title>
-          </Body>
-          <Right />
-        </Header>
-      );
+      <Header style={this.props.headerStyle}>
+        <Left>
+          <Button
+            style={{
+              shadowOffset: null,
+              shadowColor: null,
+              shadowRadius: null,
+              shadowOpacity: null,
+              marginLeft: 3,
+              ...this.props.headerBackButtonStyle
+            }}
+            transparent
+            onPress={() => {
+              this._setModalVisible(false);
+            }}
+          >
+            <Text style={this.props.headerBackButtonTextStyle}>
+              {this.props.headerBackButtonText || "Back"}
+            </Text>
+          </Button>
+        </Left>
+        <Body>
+          <Title style={this.props.headerTitleStyle}>
+            {this.props.iosHeader || "Select One"}
+          </Title>
+        </Body>
+        <Right />
+      </Header>
+    );
   }
 
   render() {
@@ -195,33 +198,35 @@ class PickerNB extends Component {
             <FlatList
               data={this.state.dataSource}
               keyExtractor={(item, index) => String(index)}
-              renderItem={({ item }) => <ListItem
-                selected={item.props.value === this.props.selectedValue}
-                button
-                style={this.props.itemStyle}
-                onPress={() => {
-                  this._setModalVisible(false);
-                  this.props.onValueChange(item.props.value);
-                  this.setState({ current: item.props.label });
-                }}
-              >
-                <Left>
-                  <Text style={this.props.itemTextStyle}>
-                    {item.props.label}
-                  </Text>
-                </Left>
-                <Right>
-                  {item.props.value === this.props.selectedValue ? (
-                    <Radio selected />
-                  ) : (
+              renderItem={({ item }) => (
+                <ListItem
+                  selected={item.props.value === this.props.selectedValue}
+                  button
+                  style={this.props.itemStyle}
+                  onPress={() => {
+                    this._setModalVisible(false);
+                    this.props.onValueChange(item.props.value);
+                    this.setState({ current: item.props.label });
+                  }}
+                >
+                  <Left>
+                    <Text style={this.props.itemTextStyle}>
+                      {item.props.label}
+                    </Text>
+                  </Left>
+                  <Right>
+                    {item.props.value === this.props.selectedValue ? (
+                      <Radio selected />
+                    ) : (
                       <Radio selected={false} />
                     )}
-                </Right>
-              </ListItem>}
+                  </Right>
+                </ListItem>
+              )}
             />
           </Container>
         </Modal>
-      </View >
+      </View>
     );
   }
 }
