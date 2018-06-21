@@ -219,6 +219,9 @@ color:"#384850"},
 color:"#384850"}},
 
 
+".picker":{
+marginLeft:0},
+
 
 borderWidth:variables.borderWidth*2,
 borderTopWidth:0,
