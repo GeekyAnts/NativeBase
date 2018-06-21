@@ -9,6 +9,7 @@ var _reactNative=require("react-native");
 
 
 
+
 var _nativeBaseShoutemTheme=require("native-base-shoutem-theme");
 var _Text=require("./Text");
 var _Button=require("./Button");
@@ -70,7 +71,7 @@ visible:this.state.modalVisible,
 onRequestClose:function onRequestClose(){
 _this2.state.callback(_this2.state.cancelButtonIndex);
 _this2.setState({modalVisible:false});
-},__source:{fileName:_jsxFileName,lineNumber:66}},
+},__source:{fileName:_jsxFileName,lineNumber:67}},
 
 _react2.default.createElement(_reactNative.TouchableOpacity,{
 activeOpacity:1,
@@ -81,22 +82,28 @@ _this2.setState({modalVisible:false});
 style:{
 backgroundColor:"rgba(0,0,0,0.4)",
 flex:1,
-justifyContent:"flex-end"},__source:{fileName:_jsxFileName,lineNumber:75}},
+justifyContent:"flex-end"},__source:{fileName:_jsxFileName,lineNumber:76}},
 
 
 _react2.default.createElement(_reactNative.TouchableOpacity,{
 activeOpacity:1,
 style:{
 backgroundColor:"#fff",
+minHeight:56,
 height:this.state.length*80,
-maxHeight:"100%",
+maxHeight:_reactNative.Dimensions.get("window").height/2,
 padding:15,
-elevation:4},__source:{fileName:_jsxFileName,lineNumber:87}},
+elevation:4},__source:{fileName:_jsxFileName,lineNumber:88}},
 
 
-this.state.title?_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:97}},this.state.title):null,
+this.state.title?
+_react2.default.createElement(_Text.Text,{style:{color:"#757575"},__source:{fileName:_jsxFileName,lineNumber:100}},this.state.title):
+null,
 _react2.default.createElement(_reactNative.FlatList,{
-style:{marginHorizontal:-15,marginTop:this.state.title?15:0},
+style:{
+marginHorizontal:-15,
+marginTop:this.state.title?15:0},
+
 data:this.state.items,
 keyExtractor:function keyExtractor(item,index){return String(index);},
 renderItem:function renderItem(_ref){var index=_ref.index,item=_ref.item;
@@ -106,8 +113,9 @@ onPress:function onPress(){
 _this2.state.callback(parseInt(index));
 _this2.setState({modalVisible:false});
 },
-style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:104}},
-_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:110}},item)):
+style:{borderColor:"transparent",marginLeft:14},__source:{fileName:_jsxFileName,lineNumber:111}},
+
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:118}},item)):
 
 
 _react2.default.createElement(_ListItem.ListItem,{
@@ -115,24 +123,30 @@ onPress:function onPress(){
 _this2.state.callback(parseInt(index));
 _this2.setState({modalVisible:false});
 },
-style:{borderColor:"transparent"},
-icon:true,__source:{fileName:_jsxFileName,lineNumber:113}},
+style:{
+borderColor:"transparent",
+marginLeft:14,
+height:50},
 
-_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:121}},
+icon:true,__source:{fileName:_jsxFileName,lineNumber:121}},
+
+_react2.default.createElement(_Left.Left,{__source:{fileName:_jsxFileName,lineNumber:133}},
 _react2.default.createElement(_Icon.Icon,{
 name:item.icon,
 style:{
-color:item.iconColor?item.iconColor:undefined},__source:{fileName:_jsxFileName,lineNumber:122}})),
+color:item.iconColor?item.iconColor:undefined},__source:{fileName:_jsxFileName,lineNumber:134}})),
 
 
 
-_react2.default.createElement(_Body.Body,{style:{borderColor:"transparent"},__source:{fileName:_jsxFileName,lineNumber:129}},
-_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:130}},item.text)),
+_react2.default.createElement(_Body.Body,{
+style:{borderColor:"transparent",paddingLeft:7},__source:{fileName:_jsxFileName,lineNumber:141}},
 
-_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:132}}));
+_react2.default.createElement(_Text.Text,{__source:{fileName:_jsxFileName,lineNumber:144}},item.text)),
+
+_react2.default.createElement(_Right.Right,{__source:{fileName:_jsxFileName,lineNumber:146}}));
 
 
-},__source:{fileName:_jsxFileName,lineNumber:98}})))));
+},__source:{fileName:_jsxFileName,lineNumber:102}})))));
 
 
 
