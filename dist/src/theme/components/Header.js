@@ -46,7 +46,9 @@ elevation:0,
 shadowColor:null,
 shadowOffset:null,
 shadowRadius:null,
-shadowOpacity:null},
+shadowOpacity:null,
+paddingTop:platform==="android"?_reactNative.StatusBar.currentHeight:undefined,
+height:platform==="android"?variables.toolbarHeight+_reactNative.StatusBar.currentHeight:variables.toolbarHeight},
 
 ".noShadow":{
 elevation:0,

@@ -100,7 +100,7 @@ onPress:function onPress(){return _this5.props.setSelected(_this5.props.index);}
 
 _react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:101}},
 this.props.renderHeader?
-this.props.renderHeader(this.props.item.title):
+this.props.renderHeader(this.props.item.title,this.props.expanded):
 
 _react2.default.createElement(DefaultHeader,{
 title:this.props.item.title,
@@ -139,7 +139,12 @@ this.setState({selected:undefined});
 }else{
 this.setState({selected:index});
 }
+}},{key:"componentDidMount",value:function componentDidMount()
+
+{
+this.setState({selected:this.props.expanded});
 }},{key:"render",value:function render()
+
 {var _this7=this;
 var variables=this.context.theme?
 this.context.theme["@@shoutem.theme/themeStyle"].variables:
@@ -170,10 +175,10 @@ renderContent:_this7.props.renderContent,
 icon:_this7.props.icon,
 iconStyle:_this7.props.iconStyle,
 expandedIcon:_this7.props.expandedIcon,
-expandedIconStyle:_this7.props.expandedIconStyle,__source:{fileName:_jsxFileName,lineNumber:160}}));}},
+expandedIconStyle:_this7.props.expandedIconStyle,__source:{fileName:_jsxFileName,lineNumber:165}}));}},
 
 
-this.props,{__source:{fileName:_jsxFileName,lineNumber:148}})));
+this.props,{__source:{fileName:_jsxFileName,lineNumber:153}})));
 
 
 }}]);return Accordion;}(_react2.default.Component);
