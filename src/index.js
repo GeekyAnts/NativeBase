@@ -11,6 +11,7 @@ import { Text } from "./basic/Text";
 import { ViewNB as View } from "./basic/View";
 import { Button } from "./basic/Button";
 import { DatePicker } from "./basic/DatePicker";
+import { TimePicker } from "./basic/TimePicker";
 import { TabHeading } from "./basic/TabHeading";
 import { TabContainer } from "./basic/TabContainer";
 import { IconNB } from "./basic/IconNB";
@@ -68,6 +69,7 @@ export {
   Drawer,
   Button,
   DatePicker,
+  TimePicker,
   IconNB,
   Icon,
   Header,
