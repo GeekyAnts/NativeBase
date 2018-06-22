@@ -38,7 +38,7 @@ this.openAndroidDatePicker();
 }else{
 this.setState({modalVisible:true});
 }
-}},{key:"openAndroidDatePicker",value:function openAndroidDatePicker(){var newDate,action,year,month,day,code,message;return regeneratorRuntime.async(function openAndroidDatePicker$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;_context.next=3;return regeneratorRuntime.awrap(
+}},{key:"openAndroidDatePicker",value:function openAndroidDatePicker(){var newDate,action,year,month,day,selectedDate,code,message;return regeneratorRuntime.async(function openAndroidDatePicker$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;_context.next=3;return regeneratorRuntime.awrap(
 
 
 
@@ -52,7 +52,9 @@ mode:this.props.androidMode}));case 3:newDate=_context.sent;
 
 action=newDate.action,year=newDate.year,month=newDate.month,day=newDate.day;
 if(action==="dateSetAction"){
-this.setState({chosenDate:new Date(year,month,day)});
+selectedDate=new Date(year,month,day);
+this.setState({chosenDate:selectedDate});
+this.props.onDateChange(selectedDate);
 }_context.next=13;break;case 8:_context.prev=8;_context.t0=_context["catch"](0);
 code=_context.t0.code;message=_context.t0.message;
 console.warn("Cannot open date picker",message);case 13:case"end":return _context.stop();}}},null,this,[[0,8]]);}},{key:"render",value:function render()
@@ -64,13 +66,13 @@ var variables=this.context.theme?
 this.context.theme["@@shoutem.theme/themeStyle"].variables:
 _platform2.default;
 return(
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:67}},
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:68}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:69}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:70}},
 _react2.default.createElement(_nativeBase.Text,{
 onPress:this.showDatePicker.bind(this),
 style:[
 {padding:10,color:variables.datePickerTextColor},
-this.state.chosenDate?this.props.textStyle:this.props.placeHolderTextStyle],__source:{fileName:_jsxFileName,lineNumber:69}},
+this.state.chosenDate?this.props.textStyle:this.props.placeHolderTextStyle],__source:{fileName:_jsxFileName,lineNumber:71}},
 
 
 this.state.chosenDate?
@@ -83,16 +85,16 @@ this.props.placeHolderText?
 this.props.placeHolderText:
 "Select Date"),
 
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:86}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:88}},
 _react2.default.createElement(_reactNative.Modal,{
 animationType:this.props.animationType,
 transparent:this.props.modalTransparent,
 visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){},__source:{fileName:_jsxFileName,lineNumber:87}},
+onRequestClose:function onRequestClose(){},__source:{fileName:_jsxFileName,lineNumber:89}},
 
 _react2.default.createElement(_nativeBase.Text,{
 onPress:function onPress(){return _this2.setState({modalVisible:false});},
-style:{backgroundColor:variables.datePickerBg,flex:1},__source:{fileName:_jsxFileName,lineNumber:93}}),
+style:{backgroundColor:variables.datePickerBg,flex:1},__source:{fileName:_jsxFileName,lineNumber:95}}),
 
 _react2.default.createElement(_reactNative.DatePickerIOS,{
 date:
@@ -105,7 +107,7 @@ minimumDate:this.props.minimumDate,
 maximumDate:this.props.maximumDate,
 mode:"date",
 locale:this.props.locale,
-timeZoneOffsetInMinutes:this.props.timeZoneOffsetInMinutes,__source:{fileName:_jsxFileName,lineNumber:97}}))))));
+timeZoneOffsetInMinutes:this.props.timeZoneOffsetInMinutes,__source:{fileName:_jsxFileName,lineNumber:99}}))))));
 
 
 

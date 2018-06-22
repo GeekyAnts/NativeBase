@@ -48,7 +48,7 @@ alignSelf:"center"},
 "NativeBase.Button":{
 ".transparent":_extends({},
 transparentBtnCommon,{
-paddingRight:variables.listItemPadding+5})},
+paddingRight:variables.cardItemPadding+5})},
 
 
 flex:1,
@@ -78,7 +78,7 @@ marginRight:20}},
 "NativeBase.Button":{
 ".transparent":_extends({},
 transparentBtnCommon,{
-paddingRight:variables.listItemPadding+5,
+paddingRight:variables.cardItemPadding+5,
 alignSelf:"stretch"})},
 
 
@@ -140,7 +140,7 @@ fontWeight:platform==="ios"?"600":"500"},
 borderBottomWidth:variables.borderWidth},
 
 borderBottomWidth:null,
-paddingVertical:variables.listItemPadding+5},
+paddingVertical:variables.cardItemPadding+5},
 
 ".footer":{
 "NativeBase.Text":{
@@ -185,8 +185,8 @@ borderBottomRightRadius:variables.cardBorderRadius},
 flexDirection:"row",
 alignItems:"center",
 borderRadius:2,
-padding:variables.listItemPadding+5,
-paddingVertical:variables.listItemPadding,
+padding:variables.cardItemPadding+5,
+paddingVertical:variables.cardItemPadding,
 backgroundColor:variables.cardDefaultBg};
 
 

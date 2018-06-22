@@ -76,8 +76,9 @@ this.props.iosBarStyle?
 this.props.iosBarStyle:
 platformStyle==="material"?
 "light-content":
-variables.iosStatusbar,__source:{fileName:_jsxFileName,lineNumber:68}}),
+variables.iosStatusbar,
 
+translucent:this.props.transparent?true:this.props.translucent,__source:{fileName:_jsxFileName,lineNumber:68}}),
 
 _platform2.default.isIphoneX?
 _react2.default.createElement(_reactNative.View,_extends({
@@ -92,13 +93,13 @@ variables.Inset),
 
 paddingTop:this.calculatePadder(
 this.state.orientation,
-variables.Inset)}],__source:{fileName:_jsxFileName,lineNumber:83}})):
+variables.Inset)}],__source:{fileName:_jsxFileName,lineNumber:84}})):
 
 
 
 
 
-_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:101}}))));
+_react2.default.createElement(_reactNative.View,_extends({ref:function ref(c){return _this2._root=c;}},this.props,{__source:{fileName:_jsxFileName,lineNumber:102}}))));
 
 
 

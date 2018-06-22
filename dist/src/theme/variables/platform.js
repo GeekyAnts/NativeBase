@@ -88,6 +88,7 @@ return this.iconFontSize*0.6;
 cardDefaultBg:"#fff",
 cardBorderColor:"#ccc",
 cardBorderRadius:2,
+cardItemPadding:platform==="ios"?10:12,
 
 
 CheckboxRadius:platform==="ios"?13:0,

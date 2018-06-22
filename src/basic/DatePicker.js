@@ -52,7 +52,9 @@ export class DatePicker extends React.Component {
       });
       const { action, year, month, day } = newDate;
       if (action === "dateSetAction") {
-        this.setState({ chosenDate: new Date(year, month, day) });
+        let selectedDate = new Date(year, month, day);
+        this.setState({ chosenDate: selectedDate });
+        this.props.onDateChange(selectedDate);
       }
     } catch ({ code, message }) {
       console.warn("Cannot open date picker", message);

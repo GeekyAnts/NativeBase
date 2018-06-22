@@ -68,7 +68,7 @@ export default (variables = variable) => {
         },
         ".multiline": {
           paddingTop: Platform.OS === "ios" ? 9 : undefined,
-          paddingBottom: Platform.OS === "ios" ? 9 : undefined,
+          paddingBottom: Platform.OS === "ios" ? 9 : undefined
         }
       },
       flexDirection: null,
@@ -218,6 +218,9 @@ export default (variables = variable) => {
       "NativeBase.IconNB": {
         color: "#384850"
       }
+    },
+    ".picker": {
+      marginLeft: 0
     },
 
     borderWidth: variables.borderWidth * 2,

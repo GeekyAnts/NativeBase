@@ -31,8 +31,6 @@ class Item extends Component {
       if (this.inputProps && this.inputProps.value) {
         this.setState({ isFocused: true });
         this.floatUp(-16);
-      } else {
-        this.setState({ isFocused: false });
       }
       if (this.inputProps && this.inputProps.getRef)
         this.inputProps.getRef(this._inputRef);
@@ -52,8 +50,6 @@ class Item extends Component {
       if (this.inputProps && this.inputProps.value) {
         this.setState({ isFocused: true });
         this.floatUp(-16);
-      } else {
-        this.setState({ isFocused: false });
       }
       if (this.inputProps && this.inputProps.getRef)
         this.inputProps.getRef(this._inputRef);

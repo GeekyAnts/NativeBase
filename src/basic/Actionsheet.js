@@ -7,7 +7,8 @@ import {
   ActionSheetIOS,
   TouchableOpacity,
   ViewPropTypes,
-  FlatList
+  FlatList,
+  Dimensions
 } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import { Text } from "./Text";
@@ -25,7 +26,7 @@ class ActionSheetContainer extends Component {
     super(props);
     this.state = {
       modalVisible: false,
-      items: [],
+      items: []
     };
   }
   static actionsheetInstance;
@@ -52,7 +53,7 @@ class ActionSheetContainer extends Component {
         destructiveButtonIndex: config.destructiveButtonIndex,
         cancelButtonIndex: config.cancelButtonIndex,
         modalVisible: true,
-        callback: callback,
+        callback: callback
       });
     }
   }
@@ -88,15 +89,21 @@ class ActionSheetContainer extends Component {
             activeOpacity={1}
             style={{
               backgroundColor: "#fff",
+              minHeight: 56,
               height: this.state.length * 80,
-              maxHeight: "100%",
+              maxHeight: Dimensions.get("window").height / 2,
               padding: 15,
               elevation: 4
             }}
           >
-            {this.state.title ? <Text style={{ color: "#757575" }}>{this.state.title}</Text> : null}
+            {this.state.title ? (
+              <Text style={{ color: "#757575" }}>{this.state.title}</Text>
+            ) : null}
             <FlatList
-              style={{ marginHorizontal: -15, marginTop: this.state.title ? 15 : 0 }}
+              style={{
+                marginHorizontal: -15,
+                marginTop: this.state.title ? 15 : 0
+              }}
               data={this.state.items}
               keyExtractor={(item, index) => String(index)}
               renderItem={({ index, item }) => {
@@ -106,32 +113,39 @@ class ActionSheetContainer extends Component {
                       this.state.callback(parseInt(index));
                       this.setState({ modalVisible: false });
                     }}
-                    style={{ borderColor: "transparent" }}>
+                    style={{ borderColor: "transparent", marginLeft: 14 }}
+                  >
                     <Text>{item}</Text>
                   </ListItem>
                 ) : (
-                    <ListItem
-                      onPress={() => {
-                        this.state.callback(parseInt(index));
-                        this.setState({ modalVisible: false });
-                      }}
-                      style={{ borderColor: "transparent" }}
-                      icon
+                  <ListItem
+                    onPress={() => {
+                      this.state.callback(parseInt(index));
+                      this.setState({ modalVisible: false });
+                    }}
+                    style={{
+                      borderColor: "transparent",
+                      marginLeft: 14,
+                      height: 50
+                    }}
+                    icon
+                  >
+                    <Left>
+                      <Icon
+                        name={item.icon}
+                        style={{
+                          color: item.iconColor ? item.iconColor : undefined
+                        }}
+                      />
+                    </Left>
+                    <Body
+                      style={{ borderColor: "transparent", paddingLeft: 7 }}
                     >
-                      <Left>
-                        <Icon
-                          name={item.icon}
-                          style={{
-                            color: item.iconColor ? item.iconColor : undefined
-                          }}
-                        />
-                      </Left>
-                      <Body style={{ borderColor: "transparent" }}>
-                        <Text>{item.text}</Text>
-                      </Body>
-                      <Right />
-                    </ListItem>
-                  )
+                      <Text>{item.text}</Text>
+                    </Body>
+                    <Right />
+                  </ListItem>
+                );
               }}
             />
           </TouchableOpacity>
