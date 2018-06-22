@@ -78,6 +78,7 @@ class Header extends Component {
                 ? "light-content"
                 : variables.iosStatusbar
           }
+          translucent={this.props.transparent ? true : this.props.translucent}
         />
         {variable.isIphoneX ? (
           <View
@@ -98,8 +99,8 @@ class Header extends Component {
             ]}
           />
         ) : (
-          <View ref={c => (this._root = c)} {...this.props} />
-        )}
+            <View ref={c => (this._root = c)} {...this.props} />
+          )}
       </View>
     );
   }
