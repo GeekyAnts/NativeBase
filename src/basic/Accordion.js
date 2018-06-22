@@ -100,7 +100,7 @@ class AccordionItem extends React.Component {
         >
           <View>
             {this.props.renderHeader ? (
-              this.props.renderHeader(this.props.item.title)
+              this.props.renderHeader(this.props.item.title, this.props.expanded)
             ) : (
                 <DefaultHeader
                   title={this.props.item.title}
