@@ -48,7 +48,7 @@ export default (variables = variable) => {
       shadowRadius: null,
       shadowOpacity: null,
       paddingTop: platform === "android" ? StatusBar.currentHeight : undefined,
-      height: platform === "android" ? variables.toolbarHeight + StatusBar.currentHeight : undefined
+      height: platform === "android" ? variables.toolbarHeight + StatusBar.currentHeight : variables.toolbarHeight
     },
     ".noShadow": {
       elevation: 0,
