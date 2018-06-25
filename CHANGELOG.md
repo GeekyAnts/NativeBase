@@ -1,25 +1,22 @@
-# Version [2.5.2](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.5.2)
+# Version [2.6.1](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.6.1)
 
 ### Upgraded Features
 
-*   **Accordion:** Added border style to accordion along with customisable from theme. PR [#2010](https://github.com/GeekyAnts/NativeBase/pull/2010) 
-*   **Card:** Added card borderRadius to theme. PR [#2008](https://github.com/GeekyAnts/NativeBase/pull/2008), closes [#1845](https://github.com/GeekyAnts/NativeBase/issues/1845)
-*   **DatePicker:**
-    -   Exposed `onDateChange` method for iOS. PR [#1987](https://github.com/GeekyAnts/NativeBase/pull/1987)
-    -   Added `placeHolderTextStyle` props to DatePicker. PR [#1972](https://github.com/GeekyAnts/NativeBase/pull/1972), closes [#1991](https://github.com/GeekyAnts/NativeBase/issues/1991)
-*	**Header:** Added `transparent` prop with Header. PR [#1995](https://github.com/GeekyAnts/NativeBase/pull/1995), closes [#1981](https://github.com/GeekyAnts/NativeBase/issues/1981)
-*   **Typescript:** Added definitions for Accordion and DatePicker. PR [#1997](https://github.com/GeekyAnts/NativeBase/pull/1997), closes [#1986](https://github.com/GeekyAnts/NativeBase/issues/1986)
+*   **Accordion:** Added `expanded` props to accordion. PR [#1970](https://github.com/GeekyAnts/NativeBase/pull/1970)
+*   **ActionSheet:** Fixed as per design guidelines. Commit [1a22d69](https://github.com/GeekyAnts/NativeBase/commit/1a22d69ddc87799a2e7f82741d5ce865e6a899ca)
+*   **Date Picker:** Added `onDateChange` callback support for Android. PR [#2027](https://github.com/GeekyAnts/NativeBase/pull/2027), closes [#2016](https://github.com/GeekyAnts/NativeBase/issues/2016)
+*   **Picker:** Fixed Header Left Button alignment as per design guidelines. Commit [0b4e5af](https://github.com/GeekyAnts/NativeBase/commit/0b4e5af82d5afc17bafb4b143d3694b5ebc3588c)
+*   **Theme:**
+    -   **Card:**
+        -   Replaced `listItemPadding` for cards with new variable `cardItemPadding`. This lets to customize space between Card and CardItem. Commit [470494c](https://github.com/GeekyAnts/NativeBase/commit/470494ca720e553095022b149e49f245cd323654), closes [#2020](https://github.com/GeekyAnts/NativeBase/issues/2020)
+        -   Updated `transparent` prop to render without elevation and border. PR [#2031](https://github.com/GeekyAnts/NativeBase/pull/2031)
+    -   **Input:** Added Picker support with Input. Introduced `picker` prop with `<Item>`. Commit [2138e2b](https://github.com/GeekyAnts/NativeBase/commit/2138e2b51902d1e924c476090d1c96353e9c1be8)
+
 
 
 ### Bug Fixes
 
-*   **General:** NativeBase passes flow check. [4663af0](https://github.com/GeekyAnts/NativeBase/commit/4663af052e6e4852d3c37289503f84201ba04c26), closes [#633](https://github.com/GeekyAnts/NativeBase/issues/633)
-*   **Header:** Fix header padding issue on iphoneX in case of inline styles. PR [#2012](https://github.com/GeekyAnts/NativeBase/pull/2012), closes [#1985](https://github.com/GeekyAnts/NativeBase/issues/1985)
-*   **Input:**
-    -   StackedLabel supports `multiline` prop. PR [#1927](https://github.com/GeekyAnts/NativeBase/pull/1927), closes [#1924](https://github.com/GeekyAnts/NativeBase/issues/1924)
-    -   Fixed back StackedLabel input scroll. PR [#2007](https://github.com/GeekyAnts/NativeBase/pull/2007), closes [#2006](https://github.com/GeekyAnts/NativeBase/issues/2006)
-    -   FloatingLabel supports `multiline` prop. PR [#1935](https://github.com/GeekyAnts/NativeBase/pull/1935)
-    -   Added check to filter out Input. PR [#1922](https://github.com/GeekyAnts/NativeBase/pull/1922), closes [#1915](https://github.com/GeekyAnts/NativeBase/issues/1915)
-*   **Tabs:** Tab button text font size is customizable from theme. PR [#1996](https://github.com/GeekyAnts/NativeBase/pull/1996), closes [#1992](https://github.com/GeekyAnts/NativeBase/issues/1992)
-*   **Typescript:** 
-    -   Fixed typo. PR [#1990](https://github.com/GeekyAnts/NativeBase/pull/1990), closes [#1982](https://github.com/GeekyAnts/NativeBase/issues/1982)
+*   **Accordion:** Added expanded parameter to renderHeader callback method. PR [#2039](https://github.com/GeekyAnts/NativeBase/pull/2039), closes [#2023](https://github.com/GeekyAnts/NativeBase/issues/2023)
+*   **Font:** Added `Fonts/MaterialCommunityIcons.ttf`. Commit [a8235c5](https://github.com/GeekyAnts/NativeBase/commit/a8235c50bdb79b955b436932d4470e263064c849)
+*   **Header:** Added Statusbar color support for `transparent` Header on Android. PR [#2032](https://github.com/GeekyAnts/NativeBase/pull/2032), closes [#1981](https://github.com/GeekyAnts/NativeBase/issues/1981)
+*   **Input:** Fixed FloatingLabel's float issue onFocus of Input. (everted [#1606](https://github.com/GeekyAnts/NativeBase/pull/1606)) PR [#2030](https://github.com/GeekyAnts/NativeBase/pull/2030), closes [#2000](https://github.com/GeekyAnts/NativeBase/issues/2000)
