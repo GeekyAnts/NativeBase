@@ -1,14 +1,16 @@
 Hi! Thanks for trying out NativeBase!
-Due to the overwhelming requests and issues/questions we ask you to add the following details with your issue.
 
-Please check the existing open/closed issues for a possible duplicate before creating a new issue :)
+Take a look at these befoe heading in creating issue
+-   Check latest documentation: https://docs.nativebase.io/
+-   Check for existing open/closed issues for a possible duplicate before creating a new issue: https://github.com/GeekyAnts/NativeBase/issues
+-   Use the latest NativeBase release: https://github.com/GeekyAnts/NativeBase/releases
+-   For discussion purpose make use of NativeBase Slack: http://slack.nativebase.io/
 
-Also **DO** fill out the below form to give us a better idea about your environment and help us debug it quicker. Issues without the required details will mostly be unattended to.
+Also **DO** fill out the below form to give us a better idea about your environment and help us debug it quicker. Issues without the required details will mostly be closed.
 
-## react-native, react and native-base version
+## node, npm, react-native, react and native-base version
 ## Expected behaviour
 ## Actual behaviour
-## Steps to reproduce (code snippet or screenshot)
-## Screenshot of emulator/device
-## Is the bug present in both ios and android or in any one of them?
+## Steps to reproduce should include code snippet and screenshot
+## Is the bug present in both iOS and Android or in any one of them?
 ## Any other additional info which would help us debug the issue quicker.
