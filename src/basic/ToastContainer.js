@@ -58,7 +58,7 @@ class ToastContainer extends Component {
       buttonTextStyle: config.buttonTextStyle,
       buttonStyle: config.buttonStyle,
       textStyle: config.textStyle,
-      onClose: config.onClose
+      onClose: config.onClose,
       onButtonClick: config.onButtonClick
     });
     // If we have a toast already open, cut off its close timeout so that it won't affect *this* toast.
