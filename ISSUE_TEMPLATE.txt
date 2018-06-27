@@ -1,6 +1,6 @@
 Hi! Thanks for trying out NativeBase!
 
-Take a look at these befoe heading in creating issue
+Take a look at these before heading towards creating an issue
 -   Check latest documentation: https://docs.nativebase.io/
 -   Check for existing open/closed issues for a possible duplicate before creating a new issue: https://github.com/GeekyAnts/NativeBase/issues
 -   Use the latest NativeBase release: https://github.com/GeekyAnts/NativeBase/releases
