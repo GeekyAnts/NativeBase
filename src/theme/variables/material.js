@@ -111,6 +111,9 @@ export default {
   brandDark: "#000",
   brandLight: "#f4f4f4",
 
+  //Container
+  containerBgColor: "#fff",
+
   //Date Picker
   datePickerTextColor: "#000",
   datePickerBg: "transparent",
