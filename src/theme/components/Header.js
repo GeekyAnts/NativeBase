@@ -241,6 +241,13 @@ export default (variables = variable) => {
           shadowRadius: null,
           shadowOpacity: null
         },
+        ".rounded": {
+           width: variables.iconHeaderSize + 16,
+           height: variables.iconHeaderSize + 16,
+           alignItems: "center",
+           justifyContent: "center",
+           padding: 0
+        },
         "NativeBase.Icon": {
           color: variables.toolbarBtnColor
         },
@@ -352,6 +359,14 @@ export default (variables = variable) => {
           shadowOffset: null,
           shadowRadius: null,
           shadowOpacity: null
+        },
+        ".rounded": {
+           width: variables.iconHeaderSize + 16,
+           height: variables.iconHeaderSize + 16,
+           alignItems: "center",
+           justifyContent: "center",
+           marginLeft: 10,
+           padding: 0
         },
         "NativeBase.Icon": {
           color: variables.toolbarBtnColor
