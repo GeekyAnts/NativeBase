@@ -139,6 +139,9 @@ export default (variables = variable) => {
           color: null,
           alignSelf: "center"
         },
+        "NativeBase.Button": {
+          alignSelf: "center"
+        },
         "NativeBase.Input": {
           alignSelf: "center",
           lineHeight: null,
