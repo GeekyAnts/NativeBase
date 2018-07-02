@@ -26,7 +26,11 @@ class ActionSheetContainer extends Component {
     super(props);
     this.state = {
       modalVisible: false,
-      items: []
+      items: [],
+      modalStyle: undefined,
+      actionSheetStyle: undefined,
+      titleStyle: undefined,
+      itemStyle: undefined
     };
   }
   static actionsheetInstance;
@@ -53,7 +57,11 @@ class ActionSheetContainer extends Component {
         destructiveButtonIndex: config.destructiveButtonIndex,
         cancelButtonIndex: config.cancelButtonIndex,
         modalVisible: true,
-        callback: callback
+        callback: callback,
+        modalStyle: config.modalStyle,
+        actionSheetStyle: config.actionSheetStyle,
+        titleStyle: config.titleStyle,
+        itemStyle: config.itemStyle
       });
     }
   }
@@ -79,25 +87,25 @@ class ActionSheetContainer extends Component {
             this.state.callback(this.state.cancelButtonIndex);
             this.setState({ modalVisible: false });
           }}
-          style={{
+          style={[{
             backgroundColor: "rgba(0,0,0,0.4)",
             flex: 1,
             justifyContent: "flex-end"
-          }}
+          }, this.state.modalStyle]}
         >
           <TouchableOpacity
             activeOpacity={1}
-            style={{
+            style={[{
               backgroundColor: "#fff",
               minHeight: 56,
               height: this.state.length * 80,
               maxHeight: Dimensions.get("window").height / 2,
               padding: 15,
               elevation: 4
-            }}
+            }, this.state.actionSheetStyle]}
           >
             {this.state.title ? (
-              <Text style={{ color: "#757575" }}>{this.state.title}</Text>
+              <Text style={[{ color: "#757575" }, this.state.titleStyle]}>{this.state.title}</Text>
             ) : null}
             <FlatList
               style={{
@@ -113,39 +121,39 @@ class ActionSheetContainer extends Component {
                       this.state.callback(parseInt(index));
                       this.setState({ modalVisible: false });
                     }}
-                    style={{ borderColor: "transparent", marginLeft: 14 }}
+                    style={[{ borderColor: "transparent", marginLeft: 14 }, this.state.itemStyle]}
                   >
                     <Text>{item}</Text>
                   </ListItem>
                 ) : (
-                  <ListItem
-                    onPress={() => {
-                      this.state.callback(parseInt(index));
-                      this.setState({ modalVisible: false });
-                    }}
-                    style={{
-                      borderColor: "transparent",
-                      marginLeft: 14,
-                      height: 50
-                    }}
-                    icon
-                  >
-                    <Left>
-                      <Icon
-                        name={item.icon}
-                        style={{
-                          color: item.iconColor ? item.iconColor : undefined
-                        }}
-                      />
-                    </Left>
-                    <Body
-                      style={{ borderColor: "transparent", paddingLeft: 7 }}
+                    <ListItem
+                      onPress={() => {
+                        this.state.callback(parseInt(index));
+                        this.setState({ modalVisible: false });
+                      }}
+                      style={[{
+                        borderColor: "transparent",
+                        marginLeft: 14,
+                        height: 50
+                      }, this.state.itemStyle]}
+                      icon
                     >
-                      <Text>{item.text}</Text>
-                    </Body>
-                    <Right />
-                  </ListItem>
-                );
+                      <Left>
+                        <Icon
+                          name={item.icon}
+                          style={{
+                            color: item.iconColor ? item.iconColor : undefined
+                          }}
+                        />
+                      </Left>
+                      <Body
+                        style={{ borderColor: "transparent", paddingLeft: 7 }}
+                      >
+                        <Text>{item.text}</Text>
+                      </Body>
+                      <Right />
+                    </ListItem>
+                  );
               }}
             />
           </TouchableOpacity>
