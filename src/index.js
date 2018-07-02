@@ -32,6 +32,9 @@ import { CardItem } from "./basic/CardItem";
 import { H1 } from "./basic/H1";
 import { H2 } from "./basic/H2";
 import { H3 } from "./basic/H3";
+import { H4 } from "./basic/H4";
+import { H5 } from "./basic/H5";
+import { H6 } from "./basic/H6";
 import { Spinner } from "./basic/Spinner";
 import { Switch } from "./basic/Switch";
 import { Container } from "./basic/Container";
@@ -90,6 +93,9 @@ export {
   H1,
   H2,
   H3,
+  H4,
+  H5,
+  H6,
   Spinner,
   Switch,
   Container,
