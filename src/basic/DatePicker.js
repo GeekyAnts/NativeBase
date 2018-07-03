@@ -23,6 +23,9 @@ export class DatePicker extends React.Component {
     this.setState({
       defaultDate: this.props.defaultDate ? this.props.defaultDate : new Date()
     });
+    if (!this.props.placeHolderText && this.props.defaultDate) {
+      this.setState({ chosenDate: this.props.defaultDate })
+    }
   };
 
   setDate(date) {
@@ -77,20 +80,20 @@ export class DatePicker extends React.Component {
           >
             {this.state.chosenDate
               ? this.state.chosenDate.getDate() +
-                "/" +
-                (this.state.chosenDate.getMonth() + 1) +
-                "/" +
-                +this.state.chosenDate.getFullYear()
-                : this.props.placeHolderText
-                  ? this.props.placeHolderText
-                  : "Select Date"}
+              "/" +
+              (this.state.chosenDate.getMonth() + 1) +
+              "/" +
+              +this.state.chosenDate.getFullYear()
+              : this.props.placeHolderText
+                ? this.props.placeHolderText
+                : "Select Date"}
           </Text>
           <View>
             <Modal
               animationType={this.props.animationType}
               transparent={this.props.modalTransparent} //from api
               visible={this.state.modalVisible}
-              onRequestClose={() => {}}
+              onRequestClose={() => { }}
             >
               <Text
                 onPress={() => this.setState({ modalVisible: false })}
