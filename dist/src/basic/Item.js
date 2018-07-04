@@ -21,11 +21,13 @@ Item=function(_Component){_inherits(Item,_Component);
 function Item(props){_classCallCheck(this,Item);var _this=_possibleConstructorReturn(this,(Item.__proto__||Object.getPrototypeOf(Item)).call(this,
 props));
 _this.state={
-text:"",
+text:'',
 topAnim:new _reactNative.Animated.Value(18),
-opacAnim:new _reactNative.Animated.Value(1)};return _this;
+opacAnim:new _reactNative.Animated.Value(1),
+isFocused:false};return _this;
 
 }_createClass(Item,[{key:"componentDidMount",value:function componentDidMount()
+
 {
 if(this.props.floatingLabel){
 if(this.inputProps&&this.inputProps.value){
@@ -34,19 +36,20 @@ this.floatUp(-16);
 }else{
 this.setState({isFocused:false});
 }
-if(this.inputProps&&this.inputProps.getRef)
+if(this.inputProps&&this.inputProps.getRef){
 this.inputProps.getRef(this._inputRef);
 }
+}
 }},{key:"componentWillReceiveProps",value:function componentWillReceiveProps(
+
 nextProps){var _this2=this;
 var childrenArray=_react2.default.Children.toArray(nextProps.children);
-var inputProps={};
 _lodash2.default.remove(childrenArray,function(item){
-if(item.type.displayName==="Styled(Input)"){
-inputProps=item.props;
+if(item.type.displayName==='Styled(Input)'){
 _this2.inputProps=item.props;
 return item;
 }
+return false;
 });
 if(this.props.floatingLabel){
 if(this.inputProps&&this.inputProps.value){
@@ -55,8 +58,9 @@ this.floatUp(-16);
 }else{
 this.setState({isFocused:false});
 }
-if(this.inputProps&&this.inputProps.getRef)
+if(this.inputProps&&this.inputProps.getRef){
 this.inputProps.getRef(this._inputRef);
+}
 }
 }},{key:"floatBack",value:function floatBack()
 
@@ -83,149 +87,39 @@ start();
 }},{key:"renderLabel",value:function renderLabel(
 
 label,labelProps){
-var newLabel=[];
+if(!label){
+return _react2.default.createElement(_Label.Label,_extends({},labelProps));
+}
+
+if(this.props.floatingLabel){
+if(this.state.isFocused){
 var labelStyle=_reactNative.StyleSheet.flatten(
 {fontSize:15,lineHeight:30},
 labelProps.style);
 
-if(this.props.floatingLabel){
-if(this.state.isFocused){
-newLabel.push(
-_react2.default.createElement(_Label.Label,_extends({},
-labelProps,{
-key:"newFLabel",
-float:true,
-style:labelStyle})));
-
-
 this.floatUp(-16);
-}else{
-newLabel.push(label);
-this.floatBack();
-}
-}else{
-newLabel.push(
-_react2.default.createElement(_Label.Label,_extends({},
+return _react2.default.cloneElement(label,_extends({},
 labelProps,{
-key:"newLabel"})));
-
-
-}
-return newLabel;
-}},{key:"renderChildren",value:function renderChildren()
-
-{var _this3=this;
-var label=[];
-var labelProps={};
-var input=[];
-var inputProps={};
-var icon=[];
-var iconProps={};
-var newChildren=[];
-
-_react2.default.Children.toArray(this.props.children).
-forEach(function(item){
-if(item.type.displayName==='Styled(Label)'){
-label.push(item);
-labelProps=item.props;
-return false;
-}else if(item.type.displayName==='Styled(Input)'){
-input.push(item);
-inputProps=item.props;
-_this3.inputProps=item.props;
-return false;
-}else if(item.type.displayName==='Styled(Label)'){
-icon.push(item);
-iconProps=item.props;
-return false;
-}
-return true;
-});
-
-if(this.props.floatingLabel&&icon.length){
-var isIcon=false;
-for(var i=0;i<this.props.children.length;i++){
-if(this.props.children[i].props.name){
-isIcon=true;
-newChildren.push(
-_react2.default.createElement(_Icon.Icon,_extends({key:[i]},this.props.children[i].props,{__source:{fileName:_jsxFileName,lineNumber:151}})));
+key:'newFLabel',
+float:true,
+style:labelStyle}));
 
 }
-if(this.props.children[i].props.children){
-newChildren.push(
-_react2.default.createElement(_reactNative.Animated.View,{
-key:"float",
-style:{
-position:"absolute",
-left:
-this.props.last&&isIcon?
-40:
-this.props.last?
-15:
-isIcon?
-26:
-0,
-right:0,
-top:this.state.topAnim,
-opacity:this.state.opacAnim,
-paddingTop:_reactNative.Platform.OS==="ios"?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:156}},
+this.floatBack();
+return label;
+}
+return _react2.default.cloneElement(label,_extends({},
+labelProps,{
+key:'newLabel'}));
 
+}},{key:"renderInput",value:function renderInput(
 
-_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:175}}),
-this.renderLabel(label,labelProps))));
-
-
-
-newChildren.push(
-_react2.default.createElement(_Input.Input,_extends({
-ref:function ref(c){return _this3._inputRef=c;},
-key:"l2"},
+inputElement,inputProps){var _this3=this;
+var props=_extends({
+value:this.state.text},
 inputProps,{
-onFocus:function onFocus(){
-_this3.setState({isFocused:true});
-inputProps.onFocus&&inputProps.onFocus();
-},
-onBlur:function onBlur(){
-inputProps.value?
-_this3.setState({
-isFocused:true}):
-
-!_this3.state.text.length&&
-_this3.setState({isFocused:false});
-inputProps.onBlur&&inputProps.onBlur();
-},
-onChangeText:function onChangeText(text){
-_this3.setState({text:text});
-inputProps.onChangeText&&inputProps.onChangeText(text);
-},__source:{fileName:_jsxFileName,lineNumber:181}})));
-
-
-}
-}
-}else if(this.props.floatingLabel){
-newChildren.push(
-_react2.default.createElement(_reactNative.Animated.View,{
-key:"float",
-style:{
-position:"absolute",
-left:this.props.last?15:0,
-right:0,
-top:this.state.topAnim,
-opacity:this.state.opacAnim,
-paddingTop:_reactNative.Platform.OS==="ios"?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==="ios"?undefined:12},__source:{fileName:_jsxFileName,lineNumber:208}},
-
-
-_react2.default.createElement(_Label.Label,_extends({},labelProps,{__source:{fileName:_jsxFileName,lineNumber:220}}),this.renderLabel(label,labelProps))));
-
-
-newChildren.push(
-_react2.default.createElement(_Input.Input,_extends({
-ref:function ref(c){return _this3._inputRef=c;},
-value:this.state.text,
-key:"l2"},
-inputProps,{
+ref:function ref(c){_this3._inputRef=c;},
+key:'l2',
 onFocus:function onFocus(){
 _this3.setState({isFocused:true});
 inputProps.onFocus&&inputProps.onFocus();
@@ -240,36 +134,102 @@ inputProps.onBlur&&inputProps.onBlur();
 },
 onChangeText:function onChangeText(text){
 _this3.setState({text:text});
-inputProps.onChangeText&&inputProps.onChangeText(text);
-},__source:{fileName:_jsxFileName,lineNumber:224}})));
+inputProps.onChangeText&&_this3.inputProps.onChangeText(text);
+}});
 
 
+if(!inputElement){
+return _react2.default.createElement(_Input.Input,props);
+}
+return _react2.default.cloneElement(inputElement,props);
+}},{key:"renderChildren",value:function renderChildren()
+
+{var _this4=this;
+var labelChild=null;
+var labelProps={};
+var inputChild=null;
+var inputProps={};
+var icon=[];
+var iconProps={};
+var newChildren=[];
+
+_react2.default.Children.toArray(this.props.children).
+forEach(function(item){
+if(item.type.displayName==='Styled(Label)'){
+labelChild=item;
+labelProps=item.props;
+return false;
+}else if(item.type.displayName==='Styled(Input)'){
+inputChild=item;
+inputProps=item.props;
+_this4.inputProps=item.props;
+return false;
+}else if(item.type.displayName==='Styled(Icon)'){
+icon.push(item);
+iconProps=item.props;
+return false;
+}
+return true;
+});
+
+if(this.props.floatingLabel){
+var hasIcon=icon&&icon.length;
+if(hasIcon){
+icon.forEach(function(iconItem){
+newChildren.push(_react2.default.createElement(_Icon.Icon,_extends({key:iconItem.key},iconItem.props,{__source:{fileName:_jsxFileName,lineNumber:179}})));
+});
+}
+newChildren.push(
+_react2.default.createElement(_reactNative.Animated.View,{
+key:"float",
+style:{
+position:'absolute',
+left:
+this.props.last&&hasIcon?
+40:
+this.props.last?
+15:
+hasIcon?
+26:
+0,
+right:0,
+top:this.state.topAnim,
+opacity:this.state.opacAnim,
+paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,
+paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12},__source:{fileName:_jsxFileName,lineNumber:183}},
+
+
+this.renderLabel(labelChild,labelProps)));
+
+
+newChildren.push(this.renderInput(inputChild,inputProps));
 }else if(this.props.stackedLabel&&icon.length){
 newChildren.push(
 _react2.default.createElement(_reactNative.View,{
 key:"s",
 style:{
-flexDirection:"row",
+flexDirection:'row',
 flex:1,
-width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:249}},
+width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:208}},
 
 
-_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:257}})),
-_react2.default.createElement(_reactNative.View,{style:{flexDirection:"column"},__source:{fileName:_jsxFileName,lineNumber:258}},
-_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:259}})),
-_react2.default.createElement(_Input.Input,_extends({
-key:"s3"},
+_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:216}})),
+_react2.default.createElement(_reactNative.View,{style:{flexDirection:'column'},__source:{fileName:_jsxFileName,lineNumber:217}},
+_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:218}})),
+_react2.default.cloneElement(inputChild,_extends({},
 inputProps,{
-style:{width:_platform2.default.deviceWidth-40},__source:{fileName:_jsxFileName,lineNumber:260}})))));
+key:'s3',
+style:{width:_platform2.default.deviceWidth-40}})))));
 
 
 
 
 }else{
-return this.props.children;
+newChildren=this.props.children;
 }
 return newChildren;
 }},{key:"getInitialStyle",value:function getInitialStyle()
+
 {
 return{
 roundedInputGroup:{
@@ -288,12 +248,13 @@ style:this.getInitialStyle().roundedInputGroup};
 
 return(0,_computeProps2.default)(this.props,defaultProps);
 }},{key:"render",value:function render()
-{var _this4=this;
+
+{var _this5=this;
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
-ref:function ref(c){return _this4._root=c;}},
+ref:function ref(c){_this5._root=c;}},
 this.prepareRootProps(),{
-activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:293}}),
+activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:254}}),
 
 this.renderChildren()));
 
