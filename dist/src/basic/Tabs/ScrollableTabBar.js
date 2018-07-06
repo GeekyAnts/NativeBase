@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.ScrollableTab=undefined;var _jsxFileName="src/basic/Tabs/ScrollableTabBar.js";var _react=require("react");var _react2=_interopRequireDefault(_react);
+Object.defineProperty(exports,"__esModule",{value:true});exports.ScrollableTab=undefined;var _jsxFileName="src\\basic\\Tabs\\ScrollableTabBar.js";var _react=require("react");var _react2=_interopRequireDefault(_react);
 var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _createReactClass=require("create-react-class");var _createReactClass2=_interopRequireDefault(_createReactClass);
 var _lodash=require("lodash");var _lodash2=_interopRequireDefault(_lodash);
