@@ -26,7 +26,7 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
     ]
   },
-  "version": "2.6.1",
+  "version": "2.7.0",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
