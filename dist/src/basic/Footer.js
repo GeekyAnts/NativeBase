@@ -36,7 +36,7 @@ var InsetValues=mode==="portrait"?inset.portrait:inset.landscape;
 var oldHeight=null;
 if(this.props.style.height!=undefined){
 oldHeight=this.props.style.height;
-}else if(this.props.style[1].height){
+}else if(this.props.style[1]!=undefined&&this.props.style[1].height){
 oldHeight=this.props.style[1].height;
 }else{
 oldHeight=this.props.style[0].height;
