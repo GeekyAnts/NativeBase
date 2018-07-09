@@ -35,6 +35,13 @@ export class DatePicker extends React.Component {
     }
   }
 
+  hideModal() {
+    this.setState({ modalVisible: false });
+    if (!this.state.chosenDate && this.props.selectDefaultDate) {
+      this.setState({ chosenDate: this.state.defaultDate })
+    }
+  }
+
   showDatePicker() {
     if (Platform.OS === "android") {
       this.openAndroidDatePicker();
@@ -96,7 +103,7 @@ export class DatePicker extends React.Component {
               onRequestClose={() => { }}
             >
               <Text
-                onPress={() => this.setState({ modalVisible: false })}
+                onPress={this.hideModal.bind(this)}
                 style={{ backgroundColor: variables.datePickerBg, flex: 1 }}
               />
               <DatePickerIOS
