@@ -15,13 +15,15 @@ export class DatePicker extends React.Component {
     this.state = {
       modalVisible: false,
       defaultDate: new Date(),
-      chosenDate: undefined
+      chosenDate: undefined,
+      enabled: true
     };
   }
 
   componentDidMount = () => {
     this.setState({
-      defaultDate: this.props.defaultDate ? this.props.defaultDate : new Date()
+      defaultDate: this.props.defaultDate ? this.props.defaultDate : new Date(),
+      enabled: this.props.enabled === false ? false : true
     });
     if (!this.props.placeHolderText && this.props.defaultDate) {
       this.setState({ chosenDate: this.props.defaultDate })
@@ -72,7 +74,7 @@ export class DatePicker extends React.Component {
       <View>
         <View>
           <Text
-            onPress={this.showDatePicker.bind(this)}
+            onPress={this.state.enabled ? this.showDatePicker.bind(this) : undefined}
             style={[
               { padding: 10, color: variables.datePickerTextColor },
               this.state.chosenDate ? this.props.textStyle : this.props.placeHolderTextStyle
