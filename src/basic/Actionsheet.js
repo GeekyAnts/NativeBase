@@ -33,6 +33,9 @@ class ActionSheetContainer extends Component {
   static show(config, callback) {
     this.actionsheetInstance._root.showActionSheet(config, callback);
   }
+  static hide(){
+    this.actionsheetInstance._root.hideActionSheet();
+  }
   showActionSheet(config, callback) {
     if (Platform.OS === "ios") {
       if (typeof config.options[0] == "object") {
@@ -57,6 +60,11 @@ class ActionSheetContainer extends Component {
       });
     }
   }
+
+  hideActionSheet(){
+    this.setState({ modalVisible: false });
+  }
+
   componentDidMount() {
     if (!this.props.autoHide && this.props.duration) {
       console.warn(`It's not recommended to set autoHide false with duration`);
