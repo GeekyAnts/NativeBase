@@ -172,6 +172,8 @@ declare module "native-base" {
 			scrollEnabled?: boolean;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			contentContainerStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			keyboardShouldPersistTaps?: string;
+		        keyboardDismissMode?: string;
 		}
 		/**
          * see Widget Button.js
@@ -683,46 +685,7 @@ declare module "native-base" {
 			color?: string;
 			inverse?: boolean;
 		}
-		/**
-         * vendor react-native-drawer
-         */
-		interface DrawerStyles {
-			drawer?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			main?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			drawerOverlay?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			mainOverlay?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-		}
-		interface Drawer {
-			acceptDoubleTap?: boolean;
-			acceptPan?: boolean;
-			acceptTap?: boolean;
-			captureGestures?: boolean;
-			children?: any;
-			open?: boolean;
-			closedDrawerOffset?: number;
-			content?: any;
-			deviceScreen?: ReactNative.ScaledSize;
-			disabled?: boolean;
-			initializeOpen?: boolean;
-			negotiatePan?: boolean;
-			onClose?: Function;
-			onCloseStart?: Function;
-			onOpen?: Function;
-			onOpenStart?: Function;
-			openDrawerOffset?: number;
-			openDrawerThreshold?: number;
-			panCloseMask?: number;
-			panOpenMask?: number;
-			panStartCompensation?: boolean;
-			relativeDrag?: boolean;
-			side?: "left" | "right";
-			styles?: DrawerStyles;
-			tapToClose?: boolean;
-			tweenDuration?: number;
-			tweenEasing?: string;
-			tweenHandler?: Function;
-			type?: "overlay" | "static" | "displace";
-		}
+	
 		interface ScrollableTab {
             goToPage?: Function;
             activeTab?: number;
@@ -863,6 +826,7 @@ declare module "native-base" {
 			timeZoneOffsetInMinutes?: number;
 			modalTransparent?: boolean;
 			animationType?: "slide" | "fade" | "none";
+			disabled:? boolean;
 			onDateChange?: (date: any) => void;
 		}
 	}
@@ -1083,10 +1047,6 @@ declare module "native-base" {
      * NativeBase.ProgressBar
      */
 	export class ProgressBar extends React.Component<NativeBase.ProgressBar, any> {}
-	/**
-     * NativeBase.Drawer
-     */
-	export class Drawer extends React.Component<NativeBase.Drawer, any> {}
 	/**
      * NativeBase.ScrollableTab
      */

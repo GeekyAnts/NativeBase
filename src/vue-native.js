@@ -1,7 +1,6 @@
 import { StyleProvider } from "native-base-shoutem-theme";
 // import { Gravatar } from "./basic/Gravatar";
 import { Col, Row, Grid } from "react-native-easy-grid";
-import Drawer from "./basic/Drawer";
 import { SwipeRow } from "./basic/SwipeRow";
 import { Text } from "./basic/Text";
 import { ViewNB as View } from "./basic/View";
@@ -58,7 +57,6 @@ const VueNativeBasePlugin = {
   // The install method is all that needs to exist on the plugin object.
   // It takes the global Vue object as well as user-defined options.
   install(Vue, options) {
-    Vue.component("nb-drawer", Drawer);
     Vue.component("nb-row", Row);
     Vue.component("nb-col", Col);
     Vue.component("nb-grid", Grid);

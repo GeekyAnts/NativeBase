@@ -15,14 +15,19 @@ export class DatePicker extends React.Component {
     this.state = {
       modalVisible: false,
       defaultDate: new Date(),
-      chosenDate: undefined
+      chosenDate: undefined,
+      disabled: true
     };
   }
 
   componentDidMount = () => {
     this.setState({
-      defaultDate: this.props.defaultDate ? this.props.defaultDate : new Date()
+      defaultDate: this.props.defaultDate ? this.props.defaultDate : new Date(),
+      disabled: this.props.disabled ? true : false
     });
+    if (!this.props.placeHolderText && this.props.defaultDate) {
+      this.setState({ chosenDate: this.props.defaultDate })
+    }
   };
 
   setDate(date) {
@@ -61,6 +66,17 @@ export class DatePicker extends React.Component {
     }
   }
 
+  formatChosenDate(date) {
+    if (this.props.formatChosenDate) {
+      return this.props.formatChosenDate(date);
+    }
+    return [
+      date.getDate(),
+      date.getMonth() + 1,
+      date.getFullYear(),
+    ].join('/');
+  }
+
   render() {
     const variables = this.context.theme
       ? this.context.theme["@@shoutem.theme/themeStyle"].variables
@@ -69,28 +85,24 @@ export class DatePicker extends React.Component {
       <View>
         <View>
           <Text
-            onPress={this.showDatePicker.bind(this)}
+            onPress={ !this.state.disabled ? this.showDatePicker.bind(this) : undefined }
             style={[
               { padding: 10, color: variables.datePickerTextColor },
               this.state.chosenDate ? this.props.textStyle : this.props.placeHolderTextStyle
             ]}
           >
             {this.state.chosenDate
-              ? this.state.chosenDate.getDate() +
-                "/" +
-                (this.state.chosenDate.getMonth() + 1) +
-                "/" +
-                +this.state.chosenDate.getFullYear()
-                : this.props.placeHolderText
-                  ? this.props.placeHolderText
-                  : "Select Date"}
+              ? this.formatChosenDate(this.state.chosenDate)
+              : this.props.placeHolderText
+                ? this.props.placeHolderText
+                : "Select Date"}
           </Text>
           <View>
             <Modal
               animationType={this.props.animationType}
               transparent={this.props.modalTransparent} //from api
               visible={this.state.modalVisible}
-              onRequestClose={() => {}}
+              onRequestClose={() => { }}
             >
               <Text
                 onPress={() => this.setState({ modalVisible: false })}

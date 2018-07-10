@@ -158,14 +158,15 @@ const ScrollableTabBar = createReactClass({
     activeTabStyle,
     textStyle,
     activeTextStyle,
-    tabHeaderStyle
+    tabHeaderStyle,
+    tabFontSize
   ) {
     const headerContent =
       typeof name !== "string" ? name.props.children : undefined;
-    const { activeTextColor, inactiveTextColor, tabFontSize } = this.props;
+    const { activeTextColor, inactiveTextColor } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? "bold" : "normal";
-    const fontSize = tabFontSize;
+    // const fontSize = tabFontSize;
 
     if (typeof name === "string") {
       return (
@@ -271,7 +272,8 @@ const ScrollableTabBar = createReactClass({
                 this.props.activeTabStyle[page],
                 this.props.textStyle[page],
                 this.props.activeTextStyle[page],
-                this.props.tabHeaderStyle[page]
+                this.props.tabHeaderStyle[page],
+                variables.tabFontSize
               );
             })}
             <Animated.View
