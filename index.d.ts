@@ -171,6 +171,8 @@ declare module "native-base" {
 			scrollEnabled?: boolean;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			contentContainerStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			keyboardShouldPersistTaps?: string;
+		        keyboardDismissMode?: string;
 		}
 		/**
          * see Widget Button.js
