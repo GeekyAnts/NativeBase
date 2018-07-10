@@ -3,14 +3,12 @@
 exports[`renders Footer with Badge 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -54,17 +52,14 @@ exports[`renders Footer with Badge 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View />
   </RCTScrollView>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={
@@ -86,10 +81,6 @@ exports[`renders Footer with Badge 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -120,10 +111,6 @@ exports[`renders Footer with Badge 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -154,10 +141,6 @@ exports[`renders Footer with Badge 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -188,10 +171,6 @@ exports[`renders Footer with Badge 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -210,14 +189,12 @@ exports[`renders Footer with Badge 1`] = `
 exports[`renders Footer with Icon and Text 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -261,17 +238,14 @@ exports[`renders Footer with Icon and Text 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View />
   </RCTScrollView>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={
@@ -293,10 +267,6 @@ exports[`renders Footer with Icon and Text 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -327,10 +297,6 @@ exports[`renders Footer with Icon and Text 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -361,10 +327,6 @@ exports[`renders Footer with Icon and Text 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -395,10 +357,6 @@ exports[`renders Footer with Icon and Text 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -417,14 +375,12 @@ exports[`renders Footer with Icon and Text 1`] = `
 exports[`renders Footer with Icons 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -468,17 +424,14 @@ exports[`renders Footer with Icons 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View />
   </RCTScrollView>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={
@@ -500,10 +453,6 @@ exports[`renders Footer with Icons 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -534,10 +483,6 @@ exports[`renders Footer with Icons 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -568,10 +513,6 @@ exports[`renders Footer with Icons 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -602,10 +543,6 @@ exports[`renders Footer with Icons 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -624,14 +561,12 @@ exports[`renders Footer with Icons 1`] = `
 exports[`renders basic Footer 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -675,17 +610,14 @@ exports[`renders basic Footer 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View />
   </RCTScrollView>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={
@@ -707,10 +639,6 @@ exports[`renders basic Footer 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -741,10 +669,6 @@ exports[`renders basic Footer 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -775,10 +699,6 @@ exports[`renders basic Footer 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",
@@ -809,10 +729,6 @@ exports[`renders basic Footer 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",

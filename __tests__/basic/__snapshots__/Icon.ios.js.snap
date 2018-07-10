@@ -43,45 +43,24 @@ exports[`renders Icon and Icons with icon family 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -103,48 +82,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -154,15 +111,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           Ionicons
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -184,48 +137,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="Ionicons"
-          virtual={undefined}
         >
           
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -235,15 +166,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           Entypo
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -265,48 +192,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="Entypo"
-          virtual={undefined}
         >
           
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -316,15 +221,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           Feather
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -346,48 +247,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="Feather"
-          virtual={undefined}
         >
           
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -397,15 +276,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           FontAwesome
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -427,48 +302,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="FontAwesome"
-          virtual={undefined}
         >
           
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -478,15 +331,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           Foundation
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -508,48 +357,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="Foundation"
-          virtual={undefined}
         >
           
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -559,15 +386,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           Material Icons
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -589,48 +412,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="MaterialIcons"
-          virtual={undefined}
         >
           
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -640,15 +441,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           Material Community Icons
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -670,48 +467,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="MaterialCommunityIcons"
-          virtual={undefined}
         >
           
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -721,15 +496,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           Octicons
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -751,48 +522,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="Octicons"
-          virtual={undefined}
         >
-          
+          
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -802,15 +551,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           Zocial
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -832,48 +577,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="Zocial"
-          virtual={undefined}
         >
           
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -883,15 +606,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           Simple Line Icons
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -913,48 +632,26 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="SimpleLineIcons"
-          virtual={undefined}
         >
           
         </Text>
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {},
@@ -964,15 +661,11 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           uppercase={false}
-          virtual={undefined}
         >
           Evil Icons
         </Text>
         <Text
-          accessible={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -994,7 +687,6 @@ exports[`renders Icon and Icons with icon family 1`] = `
             ]
           }
           type="EvilIcons"
-          virtual={undefined}
         >
           
         </Text>

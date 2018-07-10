@@ -42,71 +42,39 @@ exports[`renders custom radio 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         selected={true}
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Lunch Break
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
             isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -118,14 +86,9 @@ exports[`renders custom radio 1`] = `
                 "opacity": 1,
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -152,67 +115,36 @@ exports[`renders custom radio 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         selected={false}
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Daily Stand Up
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
             isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -224,14 +156,9 @@ exports[`renders custom radio 1`] = `
                 "opacity": 1,
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -303,71 +230,39 @@ exports[`renders default radio 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         selected={true}
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Lunch Break
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
             isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -379,14 +274,9 @@ exports[`renders default radio 1`] = `
                 "opacity": 1,
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -413,67 +303,36 @@ exports[`renders default radio 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         selected={false}
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Daily Stand Up
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
             isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -485,14 +344,9 @@ exports[`renders default radio 1`] = `
                 "opacity": 1,
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {

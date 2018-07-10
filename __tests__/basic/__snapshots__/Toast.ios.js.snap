@@ -2,15 +2,8 @@
 
 exports[`renders Toast Text style 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  collapsable={undefined}
-  hitSlop={undefined}
   isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -23,17 +16,10 @@ exports[`renders Toast Text style 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={Object {}}
     uppercase={false}
-    virtual={undefined}
   >
     Toast
   </Text>
@@ -83,19 +69,11 @@ exports[`renders Toast Type 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -108,31 +86,17 @@ exports[`renders Toast Type 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Default Toast
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -145,31 +109,17 @@ exports[`renders Toast Type 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Success Toast
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -182,31 +132,17 @@ exports[`renders Toast Type 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Warning Toast
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -219,17 +155,10 @@ exports[`renders Toast Type 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Danger Toast
       </Text>
@@ -240,15 +169,8 @@ exports[`renders Toast Type 1`] = `
 
 exports[`renders Toast button style 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  collapsable={undefined}
-  hitSlop={undefined}
   isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -261,17 +183,10 @@ exports[`renders Toast button style 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={Object {}}
     uppercase={false}
-    virtual={undefined}
   >
     Toast
   </Text>
@@ -321,19 +236,11 @@ exports[`renders Toast position 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -346,31 +253,17 @@ exports[`renders Toast position 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Top Toast
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -383,17 +276,10 @@ exports[`renders Toast position 1`] = `
           "opacity": 1,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Bottom Toast
       </Text>
@@ -404,15 +290,8 @@ exports[`renders Toast position 1`] = `
 
 exports[`renders Toast with duration 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  collapsable={undefined}
-  hitSlop={undefined}
   isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -425,17 +304,10 @@ exports[`renders Toast with duration 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={Object {}}
     uppercase={false}
-    virtual={undefined}
   >
     Toast
   </Text>
@@ -444,15 +316,8 @@ exports[`renders Toast with duration 1`] = `
 
 exports[`renders default Toast 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  collapsable={undefined}
-  hitSlop={undefined}
   isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -465,17 +330,10 @@ exports[`renders default Toast 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={Object {}}
     uppercase={false}
-    virtual={undefined}
   >
     Toast
   </Text>

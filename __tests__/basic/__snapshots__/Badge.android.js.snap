@@ -3,7 +3,6 @@
 exports[`renders regular badge 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   2
 </View>

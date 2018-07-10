@@ -43,7 +43,6 @@ exports[`renders regular Single SwipeRow 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
@@ -79,7 +78,6 @@ exports[`renders regular Single SwipeRow 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           <View
             style={
@@ -101,10 +99,6 @@ exports[`renders regular Single SwipeRow 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#333333",
@@ -125,7 +119,6 @@ exports[`renders regular Single SwipeRow 1`] = `
               },
             ]
           }
-          virtual={undefined}
         />
         <View
           style={
@@ -137,7 +130,6 @@ exports[`renders regular Single SwipeRow 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           <View
             style={
@@ -159,10 +151,6 @@ exports[`renders regular Single SwipeRow 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#333333",
@@ -176,7 +164,6 @@ exports[`renders regular Single SwipeRow 1`] = `
         </View>
       </View>
       <View
-        collapsable={undefined}
         onLayout={[Function]}
         onMoveShouldSetResponder={[Function]}
         onMoveShouldSetResponderCapture={[Function]}
@@ -202,31 +189,15 @@ exports[`renders regular Single SwipeRow 1`] = `
         }
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
+          style={null}
         >
           <View
             list={true}
@@ -236,7 +207,6 @@ exports[`renders regular Single SwipeRow 1`] = `
                 Object {},
               ]
             }
-            virtual={undefined}
           >
             <View
               style={
@@ -246,13 +216,8 @@ exports[`renders regular Single SwipeRow 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                disabled={false}
-                ellipsizeMode="tail"
                 style={Object {}}
                 uppercase={false}
-                virtual={undefined}
               >
                 Swipe me to left and right
               </Text>
@@ -308,7 +273,6 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
@@ -351,7 +315,6 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           <View
             style={
@@ -373,10 +336,6 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#333333",
@@ -397,7 +356,6 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
               },
             ]
           }
-          virtual={undefined}
         />
         <View
           style={
@@ -409,7 +367,6 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           <View
             style={
@@ -431,10 +388,6 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#333333",
@@ -448,7 +401,6 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
         </View>
       </View>
       <View
-        collapsable={undefined}
         onLayout={[Function]}
         onMoveShouldSetResponder={[Function]}
         onMoveShouldSetResponderCapture={[Function]}
@@ -474,31 +426,15 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
         }
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
+          style={null}
         >
           <View
             list={true}
@@ -511,7 +447,6 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             <View
               style={
@@ -521,10 +456,6 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                disabled={false}
-                ellipsizeMode="tail"
                 style={
                   Array [
                     Object {},
@@ -534,7 +465,6 @@ exports[`renders regular Single SwipeRow Custom Style 1`] = `
                   ]
                 }
                 uppercase={false}
-                virtual={undefined}
               >
                 Swipe me to left and right
               </Text>

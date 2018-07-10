@@ -3,18 +3,15 @@
 exports[`renders anatomy 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -36,10 +33,6 @@ exports[`renders anatomy 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -53,23 +46,16 @@ exports[`renders anatomy 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       />
     </View>
   </View>
@@ -115,17 +101,11 @@ exports[`renders anatomy 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View>
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Content goes here
       </Text>
@@ -133,11 +113,9 @@ exports[`renders anatomy 1`] = `
   </RCTScrollView>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={
@@ -159,10 +137,6 @@ exports[`renders anatomy 1`] = `
         }
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Object {
               "color": "#333333",

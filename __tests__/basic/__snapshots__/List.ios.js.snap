@@ -34,65 +34,37 @@ exports[`renders Basic List 1`] = `
   rightOpenValue={0}
   style={Object {}}
   swipeToOpenPercent={50}
-  virtual={undefined}
 >
   <View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Simon Mignolet
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -110,7 +82,6 @@ exports[`renders Basic List 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -118,61 +89,34 @@ exports[`renders Basic List 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Nathaniel Clyne
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -190,7 +134,6 @@ exports[`renders Basic List 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -198,61 +141,34 @@ exports[`renders Basic List 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Dejan Lovren
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -270,7 +186,6 @@ exports[`renders Basic List 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -278,61 +193,34 @@ exports[`renders Basic List 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Mama Sakho
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -350,7 +238,6 @@ exports[`renders Basic List 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -358,61 +245,34 @@ exports[`renders Basic List 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Alberto Moreno
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -430,7 +290,6 @@ exports[`renders Basic List 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -438,61 +297,34 @@ exports[`renders Basic List 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Emre Can
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -510,7 +342,6 @@ exports[`renders Basic List 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -518,61 +349,34 @@ exports[`renders Basic List 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Joe Allen
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -590,7 +394,6 @@ exports[`renders Basic List 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -598,61 +401,34 @@ exports[`renders Basic List 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Phil Coutinho
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -670,7 +446,6 @@ exports[`renders Basic List 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -689,12 +464,16 @@ exports[`renders ListItem avatar 1`] = `
   dataArray={
     Array [
       Object {
-        "img": 1,
+        "img": Object {
+          "testUri": "../../../__tests__/assets/pratik.png",
+        },
         "note": "Its time to build a difference . .",
         "text": "Kumar Pratik",
       },
       Object {
-        "img": 1,
+        "img": Object {
+          "testUri": "../../../__tests__/assets/sanket.png",
+        },
         "note": "One needs courage to be happy and smiling all time . . ",
         "text": "Kumar Sanket",
       },
@@ -717,96 +496,61 @@ exports[`renders ListItem avatar 1`] = `
   rightOpenValue={0}
   style={Object {}}
   swipeToOpenPercent={50}
-  virtual={undefined}
 >
   <View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
         thumbnail={true}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Image
             size={55}
-            source={1}
+            source={
+              Object {
+                "testUri": "../../../__tests__/assets/pratik.png",
+              }
+            }
             square={true}
             style={Object {}}
-            virtual={undefined}
           />
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Kumar Pratik
           </Text>
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             note={true}
             numberOfLines={1}
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Its time to build a difference . .
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
             isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -819,17 +563,10 @@ exports[`renders ListItem avatar 1`] = `
                 "opacity": 1,
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               View
             </Text>
@@ -838,92 +575,58 @@ exports[`renders ListItem avatar 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
         thumbnail={true}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Image
             size={55}
-            source={1}
+            source={
+              Object {
+                "testUri": "../../../__tests__/assets/sanket.png",
+              }
+            }
             square={true}
             style={Object {}}
-            virtual={undefined}
           />
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Kumar Sanket
           </Text>
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             note={true}
             numberOfLines={1}
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             One needs courage to be happy and smiling all time . . 
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
             isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -936,17 +639,10 @@ exports[`renders ListItem avatar 1`] = `
                 "opacity": 1,
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               View
             </Text>
@@ -972,54 +668,28 @@ exports[`renders ListItem icon 1`] = `
   rightOpenValue={0}
   style={Object {}}
   swipeToOpenPercent={50}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       icon={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1033,15 +703,10 @@ exports[`renders ListItem icon 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             active={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1059,7 +724,6 @@ exports[`renders ListItem icon 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -1067,23 +731,16 @@ exports[`renders ListItem icon 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Airplane Mode
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <RCTSwitch
           disabled={false}
@@ -1101,57 +758,31 @@ exports[`renders ListItem icon 1`] = `
             ]
           }
           value={false}
-          virtual={undefined}
         />
       </View>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       icon={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1165,15 +796,10 @@ exports[`renders ListItem icon 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             active={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1191,7 +817,6 @@ exports[`renders ListItem icon 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -1199,41 +824,26 @@ exports[`renders ListItem icon 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Bluetooth
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           On
         </Text>
         <Text
-          accessible={true}
           active={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1251,7 +861,6 @@ exports[`renders ListItem icon 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
@@ -1259,51 +868,26 @@ exports[`renders ListItem icon 1`] = `
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       icon={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1317,15 +901,10 @@ exports[`renders ListItem icon 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             active={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1343,7 +922,6 @@ exports[`renders ListItem icon 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -1351,34 +929,20 @@ exports[`renders ListItem icon 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Mobile Data
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1390,14 +954,9 @@ exports[`renders ListItem icon 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1425,51 +984,26 @@ exports[`renders ListItem icon 1`] = `
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       icon={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1483,15 +1017,10 @@ exports[`renders ListItem icon 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             active={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1509,7 +1038,6 @@ exports[`renders ListItem icon 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -1517,30 +1045,20 @@ exports[`renders ListItem icon 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Notifications
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
           active={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -1558,7 +1076,6 @@ exports[`renders ListItem icon 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
@@ -1566,52 +1083,27 @@ exports[`renders ListItem icon 1`] = `
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       icon={true}
       last={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1625,15 +1117,10 @@ exports[`renders ListItem icon 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             active={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1651,7 +1138,6 @@ exports[`renders ListItem icon 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -1659,32 +1145,20 @@ exports[`renders ListItem icon 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Do Not Disturb
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Yes
         </Text>
@@ -1692,52 +1166,27 @@ exports[`renders ListItem icon 1`] = `
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       icon={true}
       last={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1751,15 +1200,10 @@ exports[`renders ListItem icon 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             active={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1777,7 +1221,6 @@ exports[`renders ListItem icon 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -1785,23 +1228,16 @@ exports[`renders ListItem icon 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Software Update
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -1812,16 +1248,10 @@ exports[`renders ListItem icon 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             2
           </Text>
@@ -1846,359 +1276,182 @@ exports[`renders ListItem itemDivider 1`] = `
   rightOpenValue={0}
   style={Object {}}
   swipeToOpenPercent={50}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       itemDivider={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         A
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Aaron Bennet
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Ali Connors
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       last={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Angana Ghosh
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       itemDivider={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         B
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Bradley Horowitz
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Brian Swetland
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       last={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Brittany Kelso
       </Text>
@@ -2221,360 +1474,183 @@ exports[`renders ListItem itemHeader 1`] = `
   rightOpenValue={0}
   style={Object {}}
   swipeToOpenPercent={50}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       first={true}
       itemHeader={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         COMEDY
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Hangover
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Horrible Bosses
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       last={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Cop Out
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       itemHeader={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         HORROR
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         The Evil Dead
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Residential Evil
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       last={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Conjuring
       </Text>
@@ -2597,34 +1673,17 @@ exports[`renders ListItem noIndent 1`] = `
   rightOpenValue={0}
   style={Object {}}
   swipeToOpenPercent={50}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       noIndent={true}
@@ -2636,104 +1695,54 @@ exports[`renders ListItem noIndent 1`] = `
           },
         ]
       }
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Caroline Aaron
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Urbino Cendre
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Lee Allen
       </Text>
@@ -2756,136 +1765,69 @@ exports[`renders ListItem selected 1`] = `
   rightOpenValue={0}
   style={Object {}}
   swipeToOpenPercent={50}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       selected={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Caroline Aaron
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Urbino Cendre
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Lee Allen
       </Text>
@@ -2908,153 +1850,80 @@ exports[`renders ListItem separator 1`] = `
   rightOpenValue={0}
   style={Object {}}
   swipeToOpenPercent={50}
-  virtual={undefined}
 >
   <View
     bordered={true}
     style={Object {}}
-    virtual={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
       uppercase={false}
-      virtual={undefined}
     >
       MIDFIELD
     </Text>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Caroline Aaron
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Urbino Cendre
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       last={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Lee Allen
       </Text>
@@ -3063,148 +1932,76 @@ exports[`renders ListItem separator 1`] = `
   <View
     bordered={true}
     style={Object {}}
-    virtual={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
       uppercase={false}
-      virtual={undefined}
     >
       MIDFIELD
     </Text>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Caroline Aaron
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Urbino Cendre
       </Text>
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={null}
   >
     <View
       last={true}
       style={Object {}}
-      virtual={undefined}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Lee Allen
       </Text>
@@ -3221,12 +2018,16 @@ exports[`renders ListItem thumbnail 1`] = `
   dataArray={
     Array [
       Object {
-        "img": 1,
+        "img": Object {
+          "testUri": "../../../__tests__/assets/pratik.png",
+        },
         "note": "Its time to build a difference . .",
         "text": "Kumar Pratik",
       },
       Object {
-        "img": 1,
+        "img": Object {
+          "testUri": "../../../__tests__/assets/sanket.png",
+        },
         "note": "One needs courage to be happy and smiling all time . . ",
         "text": "Kumar Sanket",
       },
@@ -3249,96 +2050,61 @@ exports[`renders ListItem thumbnail 1`] = `
   rightOpenValue={0}
   style={Object {}}
   swipeToOpenPercent={50}
-  virtual={undefined}
 >
   <View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
         thumbnail={true}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Image
             size={55}
-            source={1}
+            source={
+              Object {
+                "testUri": "../../../__tests__/assets/pratik.png",
+              }
+            }
             square={true}
             style={Object {}}
-            virtual={undefined}
           />
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Kumar Pratik
           </Text>
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             note={true}
             numberOfLines={1}
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Its time to build a difference . .
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
             isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -3351,17 +2117,10 @@ exports[`renders ListItem thumbnail 1`] = `
                 "opacity": 1,
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               View
             </Text>
@@ -3370,92 +2129,58 @@ exports[`renders ListItem thumbnail 1`] = `
       </View>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+      style={null}
     >
       <View
         style={Object {}}
         thumbnail={true}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Image
             size={55}
-            source={1}
+            source={
+              Object {
+                "testUri": "../../../__tests__/assets/sanket.png",
+              }
+            }
             square={true}
             style={Object {}}
-            virtual={undefined}
           />
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Kumar Sanket
           </Text>
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             note={true}
             numberOfLines={1}
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             One needs courage to be happy and smiling all time . . 
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
             isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -3468,17 +2193,10 @@ exports[`renders ListItem thumbnail 1`] = `
                 "opacity": 1,
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               View
             </Text>

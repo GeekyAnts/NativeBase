@@ -3,7 +3,6 @@
 exports[`renders Spinner 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <ActivityIndicator
     animating={true}
@@ -11,7 +10,6 @@ exports[`renders Spinner 1`] = `
     hidesWhenStopped={true}
     size="large"
     style={Object {}}
-    virtual={undefined}
   />
   <ActivityIndicator
     animating={true}
@@ -19,7 +17,6 @@ exports[`renders Spinner 1`] = `
     hidesWhenStopped={true}
     size="large"
     style={Object {}}
-    virtual={undefined}
   />
   <ActivityIndicator
     animating={true}
@@ -27,7 +24,6 @@ exports[`renders Spinner 1`] = `
     hidesWhenStopped={true}
     size="large"
     style={Object {}}
-    virtual={undefined}
   />
   <ActivityIndicator
     animating={true}
@@ -35,7 +31,6 @@ exports[`renders Spinner 1`] = `
     hidesWhenStopped={true}
     size="large"
     style={Object {}}
-    virtual={undefined}
   />
 </View>
 `;

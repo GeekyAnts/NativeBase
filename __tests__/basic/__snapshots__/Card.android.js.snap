@@ -3,14 +3,12 @@
 exports[`renders Card Header and Footer 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -55,46 +53,31 @@ exports[`renders Card Header and Footer 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           header={true}
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             NativeBase
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               NativeBase is a free and open source framework that enable developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6.
             </Text>
@@ -102,20 +85,13 @@ exports[`renders Card Header and Footer 1`] = `
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development.
             </Text>
@@ -123,20 +99,13 @@ exports[`renders Card Header and Footer 1`] = `
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               Get on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS and Android development.
             </Text>
@@ -145,16 +114,10 @@ exports[`renders Card Header and Footer 1`] = `
         <View
           footer={true}
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             GeekyAnts
           </Text>
@@ -168,14 +131,12 @@ exports[`renders Card Header and Footer 1`] = `
 exports[`renders Card Image 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -220,50 +181,38 @@ exports[`renders Card Image 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Image
-              source={1}
+              source={
+                Object {
+                  "testUri": "../../../__tests__/assets/logo.png",
+                }
+              }
               style={Object {}}
-              virtual={undefined}
             />
             <View
               style={Object {}}
-              virtual={undefined}
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                disabled={false}
-                ellipsizeMode="tail"
                 style={Object {}}
                 uppercase={false}
-                virtual={undefined}
               >
                 NativeBase
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                disabled={false}
-                ellipsizeMode="tail"
                 note={true}
                 style={Object {}}
                 uppercase={false}
-                virtual={undefined}
               >
                 GeekyAnts
               </Text>
@@ -273,10 +222,13 @@ exports[`renders Card Image 1`] = `
         <View
           cardBody={true}
           style={Object {}}
-          virtual={undefined}
         >
           <Image
-            source={1}
+            source={
+              Object {
+                "testUri": "../../../__tests__/assets/drawer-cover.png",
+              }
+            }
             style={
               Object {
                 "flex": 1,
@@ -296,11 +248,9 @@ exports[`renders Card Image 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <View
               style={
@@ -322,10 +272,6 @@ exports[`renders Card Image 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                disabled={false}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "color": "#333333",
@@ -339,7 +285,6 @@ exports[`renders Card Image 1`] = `
           </View>
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <View
               style={
@@ -361,10 +306,6 @@ exports[`renders Card Image 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                disabled={false}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "color": "#333333",
@@ -378,16 +319,10 @@ exports[`renders Card Image 1`] = `
           </View>
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               11h ago
             </Text>
@@ -402,14 +337,12 @@ exports[`renders Card Image 1`] = `
 exports[`renders Card List 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -454,45 +387,32 @@ exports[`renders Card List 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           bordered={true}
           header={true}
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Social Applications
           </Text>
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               active={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -513,31 +433,21 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               Google Plus
             </Text>
           </View>
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -555,7 +465,6 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
@@ -563,18 +472,13 @@ exports[`renders Card List 1`] = `
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               active={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -595,31 +499,21 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               facebook
             </Text>
           </View>
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -637,7 +531,6 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
@@ -645,18 +538,13 @@ exports[`renders Card List 1`] = `
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               active={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -677,31 +565,21 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               Twitter
             </Text>
           </View>
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -719,7 +597,6 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
@@ -727,18 +604,13 @@ exports[`renders Card List 1`] = `
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               active={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -759,31 +631,21 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               Reddit
             </Text>
           </View>
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -801,7 +663,6 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
@@ -809,18 +670,13 @@ exports[`renders Card List 1`] = `
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               active={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -841,31 +697,21 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               LinkedIn
             </Text>
           </View>
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -883,7 +729,6 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
@@ -891,18 +736,13 @@ exports[`renders Card List 1`] = `
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               active={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -923,31 +763,21 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               YouTube
             </Text>
           </View>
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
               allowFontScaling={false}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Array [
                   Object {
@@ -965,7 +795,6 @@ exports[`renders Card List 1`] = `
                   },
                 ]
               }
-              virtual={undefined}
             >
               
             </Text>
@@ -980,14 +809,12 @@ exports[`renders Card List 1`] = `
 exports[`renders Card Showcase 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -1032,51 +859,39 @@ exports[`renders Card Showcase 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           bordered={true}
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Image
-              source={1}
+              source={
+                Object {
+                  "testUri": "../../../__tests__/assets/logo.png",
+                }
+              }
               style={Object {}}
-              virtual={undefined}
             />
             <View
               style={Object {}}
-              virtual={undefined}
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                disabled={false}
-                ellipsizeMode="tail"
                 style={Object {}}
                 uppercase={false}
-                virtual={undefined}
               >
                 NativeBase
               </Text>
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                disabled={false}
-                ellipsizeMode="tail"
                 note={true}
                 style={Object {}}
                 uppercase={false}
-                virtual={undefined}
               >
                 April 15, 2016
               </Text>
@@ -1085,14 +900,16 @@ exports[`renders Card Showcase 1`] = `
         </View>
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Image
-              source={1}
+              source={
+                Object {
+                  "testUri": "../../../__tests__/assets/drawer-cover.png",
+                }
+              }
               style={
                 Object {
                   "alignSelf": "center",
@@ -1104,13 +921,8 @@ exports[`renders Card Showcase 1`] = `
               }
             />
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               NativeBase is a free and source framework that enable developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6. NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development.
             </Text>
@@ -1125,11 +937,9 @@ exports[`renders Card Showcase 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <View
               style={
@@ -1151,10 +961,6 @@ exports[`renders Card Showcase 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                disabled={false}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "color": "#333333",
@@ -1176,14 +982,12 @@ exports[`renders Card Showcase 1`] = `
 exports[`renders basic Card 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -1228,40 +1032,26 @@ exports[`renders basic Card 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               This is just a basic card with some text to boot.
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               Like it? Keep Scrolling...
             </Text>
@@ -1276,14 +1066,12 @@ exports[`renders basic Card 1`] = `
 exports[`renders bordered CardItem 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -1328,27 +1116,19 @@ exports[`renders bordered CardItem 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           bordered={true}
           header={true}
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             NativeBase
           </Text>
@@ -1356,20 +1136,13 @@ exports[`renders bordered CardItem 1`] = `
         <View
           bordered={true}
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               NativeBase is a free and open source framework that enable developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6.
             </Text>
@@ -1378,20 +1151,13 @@ exports[`renders bordered CardItem 1`] = `
         <View
           bordered={true}
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development.
             </Text>
@@ -1400,20 +1166,13 @@ exports[`renders bordered CardItem 1`] = `
         <View
           bordered={true}
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               Get on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS and Android development.
             </Text>
@@ -1423,16 +1182,10 @@ exports[`renders bordered CardItem 1`] = `
           bordered={true}
           footer={true}
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             GeekyAnts
           </Text>
@@ -1446,14 +1199,12 @@ exports[`renders bordered CardItem 1`] = `
 exports[`renders button CardItem 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -1498,23 +1249,14 @@ exports[`renders button CardItem 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1526,31 +1268,17 @@ exports[`renders button CardItem 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             NativeBase
           </Text>
         </View>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1562,36 +1290,21 @@ exports[`renders button CardItem 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               Click on any carditem
             </Text>
           </View>
         </View>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1603,17 +1316,10 @@ exports[`renders button CardItem 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             GeekyAnts
           </Text>
@@ -1627,14 +1333,12 @@ exports[`renders button CardItem 1`] = `
 exports[`renders transparent Card 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -1679,30 +1383,21 @@ exports[`renders transparent Card 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View>
       <View
         style={Object {}}
         transparent={true}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={Object {}}
-            virtual={undefined}
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={Object {}}
               uppercase={false}
-              virtual={undefined}
             >
               This is just a transparent card with some text to boot.
             </Text>

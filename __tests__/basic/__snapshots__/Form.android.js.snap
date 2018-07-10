@@ -3,18 +3,10 @@
 exports[`renders Disabled Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -26,23 +18,18 @@ exports[`renders Disabled Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <TextInput
+      allowFontScaling={true}
       disabled={true}
       editable={false}
       placeholder="Disabled Textbox"
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
     <Text
-      accessible={true}
       allowFontScaling={false}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -60,7 +47,6 @@ exports[`renders Disabled Input 1`] = `
           },
         ]
       }
-      virtual={undefined}
     >
       
     </Text>
@@ -71,18 +57,10 @@ exports[`renders Disabled Input 1`] = `
 exports[`renders Error Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -94,22 +72,17 @@ exports[`renders Error Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholder="Textbox with Error Input"
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
     <Text
-      accessible={true}
       allowFontScaling={false}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -127,7 +100,6 @@ exports[`renders Error Input 1`] = `
           },
         ]
       }
-      virtual={undefined}
     >
       
     </Text>
@@ -138,18 +110,10 @@ exports[`renders Error Input 1`] = `
 exports[`renders Fixed Label Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -161,37 +125,23 @@ exports[`renders Fixed Label Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
-      virtual={undefined}
     >
       Username
     </Text>
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -203,26 +153,19 @@ exports[`renders Fixed Label Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
-      virtual={undefined}
     >
       Password
     </Text>
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholderTextColor="#575757"
       secureTextEntry={true}
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
 </View>
@@ -231,18 +174,10 @@ exports[`renders Fixed Label Input 1`] = `
 exports[`renders Floating Label Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -254,11 +189,8 @@ exports[`renders Floating Label Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
-      collapsable={undefined}
       style={
         Object {
           "left": 0,
@@ -272,26 +204,17 @@ exports[`renders Floating Label Input 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
-          virtual={undefined}
         >
           Username
         </Text>
       </Text>
     </View>
     <TextInput
+      allowFontScaling={true}
       editable={true}
       onBlur={[Function]}
       onChangeText={[Function]}
@@ -300,19 +223,11 @@ exports[`renders Floating Label Input 1`] = `
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
       value=""
-      virtual={undefined}
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -324,11 +239,8 @@ exports[`renders Floating Label Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
-      collapsable={undefined}
       style={
         Object {
           "left": 15,
@@ -342,26 +254,17 @@ exports[`renders Floating Label Input 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
-          virtual={undefined}
         >
           Password
         </Text>
       </Text>
     </View>
     <TextInput
+      allowFontScaling={true}
       editable={true}
       onBlur={[Function]}
       onChangeText={[Function]}
@@ -371,7 +274,6 @@ exports[`renders Floating Label Input 1`] = `
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
       value=""
-      virtual={undefined}
     />
   </View>
 </View>
@@ -380,18 +282,10 @@ exports[`renders Floating Label Input 1`] = `
 exports[`renders Icon Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -403,15 +297,10 @@ exports[`renders Icon Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
       active={true}
       allowFontScaling={false}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -429,29 +318,21 @@ exports[`renders Icon Input 1`] = `
           },
         ]
       }
-      virtual={undefined}
     >
       
     </Text>
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholder="Icon Textbox"
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -463,23 +344,18 @@ exports[`renders Icon Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholder="Icon Alignment in Textbox"
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
     <Text
-      accessible={true}
       active={true}
       allowFontScaling={false}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -497,7 +373,6 @@ exports[`renders Icon Input 1`] = `
           },
         ]
       }
-      virtual={undefined}
     >
       
     </Text>
@@ -508,18 +383,10 @@ exports[`renders Icon Input 1`] = `
 exports[`renders Inline Label Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -531,37 +398,23 @@ exports[`renders Inline Label Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
-      virtual={undefined}
     >
       Username
     </Text>
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -573,26 +426,19 @@ exports[`renders Inline Label Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
-      virtual={undefined}
     >
       Password
     </Text>
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholderTextColor="#575757"
       secureTextEntry={true}
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
 </View>
@@ -601,18 +447,10 @@ exports[`renders Inline Label Input 1`] = `
 exports[`renders Placeholder Label Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -624,28 +462,19 @@ exports[`renders Placeholder Label Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholder="Username"
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -657,17 +486,15 @@ exports[`renders Placeholder Label Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholder="Password"
       placeholderTextColor="#575757"
       secureTextEntry={true}
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
 </View>
@@ -676,18 +503,10 @@ exports[`renders Placeholder Label Input 1`] = `
 exports[`renders Regular Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -699,16 +518,14 @@ exports[`renders Regular Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholder="Regular Textbox"
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
 </View>
@@ -717,18 +534,10 @@ exports[`renders Regular Input 1`] = `
 exports[`renders Rounded Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -742,16 +551,14 @@ exports[`renders Rounded Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholder="Rounded Textbox"
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
 </View>
@@ -760,18 +567,10 @@ exports[`renders Rounded Input 1`] = `
 exports[`renders Stacked Label Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -783,37 +582,23 @@ exports[`renders Stacked Label Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
-      virtual={undefined}
     >
       Username
     </Text>
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -825,26 +610,19 @@ exports[`renders Stacked Label Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
-      virtual={undefined}
     >
       Password
     </Text>
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholderTextColor="#575757"
       secureTextEntry={true}
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
 </View>
@@ -853,18 +631,10 @@ exports[`renders Stacked Label Input 1`] = `
 exports[`renders Success Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -876,22 +646,17 @@ exports[`renders Success Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholder="Textbox with Success Input"
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
     <Text
-      accessible={true}
       allowFontScaling={false}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -909,7 +674,6 @@ exports[`renders Success Input 1`] = `
           },
         ]
       }
-      virtual={undefined}
     >
       
     </Text>
@@ -920,9 +684,9 @@ exports[`renders Success Input 1`] = `
 exports[`renders Textarea Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <TextInput
+    allowFontScaling={true}
     bordered={true}
     multiline={true}
     placeholder="Textarea"
@@ -934,7 +698,6 @@ exports[`renders Textarea Input 1`] = `
       }
     }
     underlineColorAndroid="rgba(0,0,0,0)"
-    virtual={undefined}
   />
 </View>
 `;
@@ -942,18 +705,10 @@ exports[`renders Textarea Input 1`] = `
 exports[`renders Underline Input 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -965,16 +720,14 @@ exports[`renders Underline Input 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <TextInput
+      allowFontScaling={true}
       editable={true}
       placeholder="Underline Textbox"
       placeholderTextColor="#575757"
       style={Object {}}
       underlineColorAndroid="rgba(0,0,0,0)"
-      virtual={undefined}
     />
   </View>
 </View>

@@ -42,47 +42,26 @@ exports[`renders Typography 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
-      virtual={undefined}
     >
       Header One
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
-      virtual={undefined}
     >
       Header Two
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
-      virtual={undefined}
     >
       Header Three
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={Object {}}
       uppercase={false}
-      virtual={undefined}
     >
       Default
     </Text>

@@ -2,15 +2,8 @@
 
 exports[`renders ActionSheet 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  collapsable={undefined}
-  hitSlop={undefined}
   isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -23,17 +16,10 @@ exports[`renders ActionSheet 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={Object {}}
     uppercase={false}
-    virtual={undefined}
   >
     Actionsheet
   </Text>

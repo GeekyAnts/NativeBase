@@ -3,7 +3,6 @@
 exports[`renders Segments inside Header 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -11,11 +10,9 @@ exports[`renders Segments inside Header 1`] = `
     <View
       hasSegment={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -37,10 +34,6 @@ exports[`renders Segments inside Header 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -54,11 +47,9 @@ exports[`renders Segments inside Header 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <View
             style={
@@ -80,10 +71,6 @@ exports[`renders Segments inside Header 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#333333",
@@ -114,10 +101,6 @@ exports[`renders Segments inside Header 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#333333",
@@ -132,7 +115,6 @@ exports[`renders Segments inside Header 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -154,10 +136,6 @@ exports[`renders Segments inside Header 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -177,7 +155,6 @@ exports[`renders Segments inside Header 1`] = `
 exports[`renders Segments outside Header 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -185,12 +162,10 @@ exports[`renders Segments outside Header 1`] = `
     <View
       hasSegment={true}
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={
@@ -212,10 +187,6 @@ exports[`renders Segments outside Header 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -246,10 +217,6 @@ exports[`renders Segments outside Header 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -280,10 +247,6 @@ exports[`renders Segments outside Header 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
