@@ -66,6 +66,17 @@ export class DatePicker extends React.Component {
     }
   }
 
+  formatChosenDate(date) {
+    if (this.props.formatChosenDate) {
+      return this.props.formatChosenDate(date);
+    }
+    return [
+      date.getDate(),
+      date.getMonth() + 1,
+      date.getFullYear(),
+    ].join('/');
+  }
+
   render() {
     const variables = this.context.theme
       ? this.context.theme["@@shoutem.theme/themeStyle"].variables
@@ -81,11 +92,7 @@ export class DatePicker extends React.Component {
             ]}
           >
             {this.state.chosenDate
-              ? this.state.chosenDate.getDate() +
-              "/" +
-              (this.state.chosenDate.getMonth() + 1) +
-              "/" +
-              +this.state.chosenDate.getFullYear()
+              ? this.formatChosenDate(this.state.chosenDate)
               : this.props.placeHolderText
                 ? this.props.placeHolderText
                 : "Select Date"}
