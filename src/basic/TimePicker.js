@@ -77,7 +77,7 @@ export class TimePicker extends React.Component {
             >
                 <Text
                     onPress={() => this.setState({ modalVisible: false })}
-                    style={{ backgroundColor: variables.datePickerBg, flex: 1 }}
+                    style={{ backgroundColor: variables.timePickerBg, flex: 1 }}
                 />
                 <DatePickerIOS
                     date={this.state.date ? this.state.date : this.state.defaultDate}
