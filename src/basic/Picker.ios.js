@@ -89,6 +89,7 @@ class PickerNB extends Component {
     if (children && !Array.isArray(children)) {
       return [].concat(children);
     }
+    children = [].concat.apply([], children)
     return children;
   }
 
