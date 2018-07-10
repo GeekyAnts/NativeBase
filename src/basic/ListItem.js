@@ -34,7 +34,7 @@ class ListItem extends Component {
           ref={c => (this._root = c)}
           underlayColor={variables.listBtnUnderlayColor}
           {...this.props}
-          style={undefined}
+          style={this.props.touchableHighlightStyle}
         >
           <View {...this.props}>{this.props.children}</View>
         </TouchableHighlight>
@@ -43,8 +43,7 @@ class ListItem extends Component {
       return (
         <TouchableNativeFeedback
           ref={c => (this._root = c)}
-          onPress={this.props.onPress}
-          onLongPress={this.props.onLongPress}
+          {...this.props}
         >
           <View style={{ marginLeft: -17, paddingLeft: 17 }}>
             <View {...this.props}>{this.props.children}</View>
@@ -60,6 +59,10 @@ ListItem.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
+    PropTypes.array
+  ]),
+  touchableHighlightStyle: PropTypes.oneOfType([
+    PropTypes.object,
     PropTypes.array
   ]),
   itemDivider: PropTypes.bool,

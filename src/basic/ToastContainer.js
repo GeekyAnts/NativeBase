@@ -64,29 +64,32 @@ class ToastContainer extends Component {
     if (this.closeTimeout) {
       clearTimeout(this.closeTimeout)
     }
-    const duration = (config.duration > 0) ? config.duration : 1500;
     // Set the toast to close after the duration.
-    this.closeTimeout = setTimeout(this.closeToast.bind(this), duration);
+    if (config.duration !== 0) {
+      const duration = (config.duration > 0) ? config.duration : 1500;
+      this.closeTimeout = setTimeout(this.closeToast.bind(this, 'timeout'), duration);
+    }  
     // Fade the toast in now.
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 200
     }).start();
   }
-  closeModal() {
+  closeModal(reason) {
     this.setState({
       modalVisible: false
     });
     const { onClose } = this.state;
     if(onClose && typeof onClose === "function") {
-      onClose();
+      onClose(reason);
     }
   }
-  closeToast() {
+  closeToast(reason) {
+    clearTimeout(this.closeTimeout);
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
       duration: 200
-    }).start(this.closeModal.bind(this));
+    }).start(this.closeModal.bind(this, reason));
   }
   render() {
     if (this.state.modalVisible) {
@@ -102,7 +105,7 @@ class ToastContainer extends Component {
             {this.state.buttonText && (
               <Button
                 style={this.state.buttonStyle}
-                onPress={() => this.closeToast()}
+                onPress={() => this.closeToast('user')}
               >
                 <Text style={this.state.buttonTextStyle}>
                   {this.state.buttonText}

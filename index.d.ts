@@ -15,6 +15,7 @@ declare module "native-base" {
 		}
 
 		interface Picker extends ReactNative.PickerProperties {
+			mode?: "dialog" | "dropdown";
 			iosHeader?: string;
 			inlineLabel?: boolean;
 			headerBackButtonText?: string;
@@ -29,6 +30,7 @@ declare module "native-base" {
 			headerStyle?: ReactNative.ViewStyle;
 			headerTitleStyle?: ReactNative.TextStyle;
 			headerBackButtonTextStyle?: ReactNative.TextStyle;
+			modalStyle?: ReactNative.ViewStyle;
 			renderHeader?: (backAction: any) => React.ReactElement<any>;
 		}
 
@@ -104,6 +106,7 @@ declare module "native-base" {
 			androidStatusBarColor?: string;
 			iosBarStyle?: ReactNative.StatusBarStyle;
 			hasSegment?: boolean;
+			translucent?: boolean;
 		}
 
 		interface Left {
@@ -233,6 +236,11 @@ declare module "native-base" {
              */
 			iconRight?: boolean;
 			/**
+			 * Used to enable/disable icons
+			 * Icons align in the center of the bu8tton.
+			 */
+			icon?: boolean;
+			/**
              * Disables onPress option for button
              */
 			disabled?: boolean;
@@ -303,6 +311,7 @@ declare module "native-base" {
 		interface ListItem extends ReactNative.TouchableOpacityProperties {
 			header?: boolean;
 			noBorder?: boolean;
+			noIndent?: boolean;
 			/**
              * Aligns icon to the right of ListItem.
              * Default: false
@@ -334,6 +343,7 @@ declare module "native-base" {
              * [android] colored ripple effect
              */
 			androidRippleColor?: string;
+			touchableHighlightStyle?: ReactNative.ViewStyle;
 		}
 
 		interface Separator {
@@ -356,7 +366,7 @@ declare module "native-base" {
          */
 		interface ReactListViewProperties
 			extends ReactNative.ScrollViewProperties,
-				React.Props<ReactNative.ListViewStatic> {
+				React.Props<ReactNative.ListView> {
 			/**
              * Flag indicating whether empty section headers should be rendered.
              * In the future release empty section headers will be rendered by
@@ -492,7 +502,7 @@ declare module "native-base" {
              */
 			stickyHeaderIndices?: number[];
 
-			ref?: React.Ref<ReactNative.ListViewStatic & ReactNative.ScrollViewStatic & ReactNative.ViewStatic>;
+			ref?: React.Ref<ReactNative.ListView & ReactNative.ScrollView & ReactNative.View>;
 		}
 		/**
          * see Widget Card.js
@@ -655,11 +665,9 @@ declare module "native-base" {
 		/**
          * see Widget CheckBox.js
          */
-		interface CheckBox {
+		interface CheckBox extends ReactNative.TouchableOpacityProperties{
 			checked?: boolean;
 			color?: string;
-			onPress?: Function;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 		}
 		/**
          * see Widget CheckBox.js
@@ -828,7 +836,35 @@ declare module "native-base" {
 			body?: React.ReactElement<any>;
 			right?: React.ReactElement<any>;
 			style?: ReactNative.ViewStyle;
-        }
+		}
+		
+		interface Accordion {
+			dataArray: Array<any>;
+			headerStyle?: ReactNative.ViewStyle;
+			contentStyle?: ReactNative.ViewStyle;
+			renderHeader?: (item: any) => React.ReactElement<any>;
+			renderContent?: (item: any) => React.ReactElement<any>;
+			icon?: string;
+			expandedIcon?: string;
+			iconStyle?: ReactNative.TextStyle;
+			expandedIconStyle?: ReactNative.TextStyle;
+			style?: ReactNative.ViewStyle;
+		}
+
+		interface DatePicker {
+			defaultDate?: Date;
+			minimumDate?: Date;
+			maximumDate?: Date;
+			locale?: string;
+			placeHolderText?: string;
+			textStyle?: ReactNative.TextStyle;
+			placeHolderTextStyle?: ReactNative.TextStyle;
+			androidMode?: "calendar" | "spinner" | "default";
+			timeZoneOffsetInMinutes?: number;
+			modalTransparent?: boolean;
+			animationType?: "slide" | "fade" | "none";
+			onDateChange?: (date: any) => void;
+		}
 	}
 
 	// Export definitions
@@ -1114,10 +1150,14 @@ declare module "native-base" {
 			position?: "top" | "bottom" | "center";
 			type?: "danger" | "success" | "warning";
 			duration?: number;
-			onClose?: Function;
+			onClose?: (reason: "user" | "timeout") => any;
 			textStyle?: ReactNative.TextStyle;
 			buttonTextStyle?: ReactNative.TextStyle;
 			buttonStyle?: ReactNative.ViewStyle;
 		}): void;
 	}
+	
+	export class Accordion extends React.Component<NativeBase.Accordion, any>{ }
+
+	export class DatePicker extends React.Component<NativeBase.DatePicker, any> { }
 }

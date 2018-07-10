@@ -139,7 +139,8 @@ Find the repo [here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/we
 | v2.1.4 to v2.1.5 | v0.44.0 to v0.45.0 |
 | v2.2.0 | v0.44.0 to v0.45.0 |
 | v2.2.1 | v0.46.0 and above |
-| v2.3.0 to 2.4.1 | v0.46.0 and above *(does not support React 16.0.0-alpha.13)*|
+| v2.3.0 to 2.6.1 | v0.46.0 and above *(does not support React 16.0.0-alpha.13)*|
+| v2.7.0 | v0.56.0 and above |
 
 ## 8. [React Native Seed](https://reactnativeseed.com/)
 

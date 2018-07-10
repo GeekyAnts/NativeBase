@@ -76,6 +76,7 @@ Icon.propTypes = {
 	ios: PropTypes.string,
 	android: PropTypes.string,
 	active: PropTypes.bool,
+	type: PropTypes.string,
 };
 
 const StyledIcon = connectStyle("NativeBase.Icon", {}, mapPropsToStyleNames)(Icon);
