@@ -21,10 +21,6 @@ exports[`renders Toast Text style 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#333333",
@@ -80,7 +76,6 @@ exports[`renders Toast Type 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
@@ -103,10 +98,6 @@ exports[`renders Toast Type 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -137,10 +128,6 @@ exports[`renders Toast Type 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -171,10 +158,6 @@ exports[`renders Toast Type 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -205,10 +188,6 @@ exports[`renders Toast Type 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -244,10 +223,6 @@ exports[`renders Toast button style 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#333333",
@@ -303,7 +278,6 @@ exports[`renders Toast position 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
@@ -326,10 +300,6 @@ exports[`renders Toast position 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -360,10 +330,6 @@ exports[`renders Toast position 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -399,10 +365,6 @@ exports[`renders Toast with duration 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#333333",
@@ -436,10 +398,6 @@ exports[`renders default Toast 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#333333",

@@ -3,7 +3,6 @@
 exports[`renders Header noShadow 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -11,22 +10,13 @@ exports[`renders Header noShadow 1`] = `
     <View
       noShadow={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -39,14 +29,9 @@ exports[`renders Header noShadow 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -64,7 +49,6 @@ exports[`renders Header noShadow 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -72,34 +56,20 @@ exports[`renders Header noShadow 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header No Shadow
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -112,14 +82,9 @@ exports[`renders Header noShadow 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -137,7 +102,6 @@ exports[`renders Header noShadow 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -151,7 +115,6 @@ exports[`renders Header noShadow 1`] = `
 exports[`renders Header span 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -159,22 +122,13 @@ exports[`renders Header span 1`] = `
     <View
       span={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -187,14 +141,9 @@ exports[`renders Header span 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -212,7 +161,6 @@ exports[`renders Header span 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -220,23 +168,16 @@ exports[`renders Header span 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header Span
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       />
     </View>
   </View>
@@ -246,7 +187,6 @@ exports[`renders Header span 1`] = `
 exports[`renders Header with Custom background color 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -262,22 +202,13 @@ exports[`renders Header with Custom background color 1`] = `
           },
         ]
       }
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -290,14 +221,9 @@ exports[`renders Header with Custom background color 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -318,7 +244,6 @@ exports[`renders Header with Custom background color 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -326,13 +251,8 @@ exports[`renders Header with Custom background color 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={
             Array [
@@ -342,14 +262,12 @@ exports[`renders Header with Custom background color 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           Custom Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       />
     </View>
   </View>
@@ -359,29 +277,19 @@ exports[`renders Header with Custom background color 1`] = `
 exports[`renders Header with Icon & Text Button 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -394,14 +302,9 @@ exports[`renders Header with Icon & Text Button 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -419,18 +322,12 @@ exports[`renders Header with Icon & Text Button 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Back
           </Text>
@@ -438,34 +335,20 @@ exports[`renders Header with Icon & Text Button 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -478,17 +361,10 @@ exports[`renders Header with Icon & Text Button 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Cancel
           </Text>
@@ -502,29 +378,19 @@ exports[`renders Header with Icon & Text Button 1`] = `
 exports[`renders Header with Icon Button & Text Button 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -537,14 +403,9 @@ exports[`renders Header with Icon Button & Text Button 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -562,7 +423,6 @@ exports[`renders Header with Icon Button & Text Button 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -570,34 +430,20 @@ exports[`renders Header with Icon Button & Text Button 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -610,17 +456,10 @@ exports[`renders Header with Icon Button & Text Button 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Cancel
           </Text>
@@ -634,29 +473,19 @@ exports[`renders Header with Icon Button & Text Button 1`] = `
 exports[`renders Header with Icon Buttons 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -669,14 +498,9 @@ exports[`renders Header with Icon Buttons 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -694,7 +518,6 @@ exports[`renders Header with Icon Buttons 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -702,34 +525,20 @@ exports[`renders Header with Icon Buttons 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -742,14 +551,9 @@ exports[`renders Header with Icon Buttons 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -767,7 +571,6 @@ exports[`renders Header with Icon Buttons 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -781,29 +584,19 @@ exports[`renders Header with Icon Buttons 1`] = `
 exports[`renders Header with Text Buttons 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -816,17 +609,10 @@ exports[`renders Header with Text Buttons 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Back
           </Text>
@@ -834,34 +620,20 @@ exports[`renders Header with Text Buttons 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -874,17 +646,10 @@ exports[`renders Header with Text Buttons 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             Cancel
           </Text>
@@ -898,7 +663,6 @@ exports[`renders Header with Text Buttons 1`] = `
 exports[`renders Header with Title and Subtitle 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -906,22 +670,13 @@ exports[`renders Header with Title and Subtitle 1`] = `
     <View
       hasSubtitle={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -934,14 +689,9 @@ exports[`renders Header with Title and Subtitle 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -959,7 +709,6 @@ exports[`renders Header with Title and Subtitle 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -967,33 +716,21 @@ exports[`renders Header with Title and Subtitle 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Title
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
-          virtual={undefined}
         >
           Subtitle
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       />
     </View>
   </View>
@@ -1003,29 +740,19 @@ exports[`renders Header with Title and Subtitle 1`] = `
 exports[`renders Header with multiple Icon Button 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1038,14 +765,9 @@ exports[`renders Header with multiple Icon Button 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1063,7 +785,6 @@ exports[`renders Header with multiple Icon Button 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -1071,34 +792,20 @@ exports[`renders Header with multiple Icon Button 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1111,14 +818,9 @@ exports[`renders Header with multiple Icon Button 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1136,21 +838,13 @@ exports[`renders Header with multiple Icon Button 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
         </View>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1163,14 +857,9 @@ exports[`renders Header with multiple Icon Button 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1188,21 +877,13 @@ exports[`renders Header with multiple Icon Button 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
         </View>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -1215,14 +896,9 @@ exports[`renders Header with multiple Icon Button 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -1240,7 +916,6 @@ exports[`renders Header with multiple Icon Button 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -1254,38 +929,28 @@ exports[`renders Header with multiple Icon Button 1`] = `
 exports[`renders Header with only Title 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       />
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       />
     </View>
   </View>

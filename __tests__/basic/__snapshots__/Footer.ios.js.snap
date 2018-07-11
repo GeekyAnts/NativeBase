@@ -3,14 +3,12 @@
 exports[`renders Footer with Badge 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -54,28 +52,18 @@ exports[`renders Footer with Badge 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View />
   </RCTScrollView>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -88,31 +76,20 @@ exports[`renders Footer with Badge 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
           style={Object {}}
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             2
           </Text>
         </View>
         <Text
-          accessible={true}
           active={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -130,32 +107,19 @@ exports[`renders Footer with Badge 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Apps
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -168,15 +132,10 @@ exports[`renders Footer with Badge 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
           active={false}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -194,32 +153,19 @@ exports[`renders Footer with Badge 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Camera
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -232,8 +178,6 @@ exports[`renders Footer with Badge 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -244,26 +188,17 @@ exports[`renders Footer with Badge 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={Object {}}
             uppercase={false}
-            virtual={undefined}
           >
             51
           </Text>
         </View>
         <Text
-          accessible={true}
           active={false}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -281,32 +216,19 @@ exports[`renders Footer with Badge 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Compass
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -319,15 +241,10 @@ exports[`renders Footer with Badge 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
           active={false}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -345,18 +262,12 @@ exports[`renders Footer with Badge 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Contact
         </Text>
@@ -369,14 +280,12 @@ exports[`renders Footer with Badge 1`] = `
 exports[`renders Footer with Icon and Text 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -420,28 +329,18 @@ exports[`renders Footer with Icon and Text 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View />
   </RCTScrollView>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -454,15 +353,10 @@ exports[`renders Footer with Icon and Text 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
           active={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -480,32 +374,19 @@ exports[`renders Footer with Icon and Text 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Apps
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -518,15 +399,10 @@ exports[`renders Footer with Icon and Text 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
           active={false}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -544,32 +420,19 @@ exports[`renders Footer with Icon and Text 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Camera
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -582,15 +445,10 @@ exports[`renders Footer with Icon and Text 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
           active={false}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -608,32 +466,19 @@ exports[`renders Footer with Icon and Text 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Compass
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -646,15 +491,10 @@ exports[`renders Footer with Icon and Text 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
           active={false}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -672,18 +512,12 @@ exports[`renders Footer with Icon and Text 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Contact
         </Text>
@@ -696,14 +530,12 @@ exports[`renders Footer with Icon and Text 1`] = `
 exports[`renders Footer with Icons 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -747,28 +579,18 @@ exports[`renders Footer with Icons 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View />
   </RCTScrollView>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -781,15 +603,10 @@ exports[`renders Footer with Icons 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
           active={true}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -807,21 +624,13 @@ exports[`renders Footer with Icons 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -834,15 +643,10 @@ exports[`renders Footer with Icons 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
           active={false}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -860,21 +664,13 @@ exports[`renders Footer with Icons 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -887,15 +683,10 @@ exports[`renders Footer with Icons 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
           active={false}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -913,21 +704,13 @@ exports[`renders Footer with Icons 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -940,15 +723,10 @@ exports[`renders Footer with Icons 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
           active={false}
           allowFontScaling={false}
-          disabled={false}
-          ellipsizeMode="tail"
           style={
             Array [
               Object {
@@ -966,7 +744,6 @@ exports[`renders Footer with Icons 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           
         </Text>
@@ -979,14 +756,12 @@ exports[`renders Footer with Icons 1`] = `
 exports[`renders basic Footer 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     />
   </View>
   <RCTScrollView
@@ -1030,28 +805,18 @@ exports[`renders basic Footer 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View />
   </RCTScrollView>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1064,31 +829,17 @@ exports[`renders basic Footer 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Apps
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1101,31 +852,17 @@ exports[`renders basic Footer 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Camera
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1138,31 +875,17 @@ exports[`renders basic Footer 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Navigate
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1175,17 +898,10 @@ exports[`renders basic Footer 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Contact
         </Text>

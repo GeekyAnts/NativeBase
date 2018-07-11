@@ -3,7 +3,6 @@
 exports[`renders Header noLeft 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -11,11 +10,9 @@ exports[`renders Header noLeft 1`] = `
     <View
       noLeft={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -37,10 +34,6 @@ exports[`renders Header noLeft 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -54,23 +47,16 @@ exports[`renders Header noLeft 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -92,10 +78,6 @@ exports[`renders Header noLeft 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -115,7 +97,6 @@ exports[`renders Header noLeft 1`] = `
 exports[`renders Header noShadow 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -123,11 +104,9 @@ exports[`renders Header noShadow 1`] = `
     <View
       noShadow={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -149,10 +128,6 @@ exports[`renders Header noShadow 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -166,23 +141,16 @@ exports[`renders Header noShadow 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header No Shadow
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -204,10 +172,6 @@ exports[`renders Header noShadow 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -227,7 +191,6 @@ exports[`renders Header noShadow 1`] = `
 exports[`renders Header span 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -235,11 +198,9 @@ exports[`renders Header span 1`] = `
     <View
       span={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -261,10 +222,6 @@ exports[`renders Header span 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -278,23 +235,16 @@ exports[`renders Header span 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header Span
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       />
     </View>
   </View>
@@ -304,7 +254,6 @@ exports[`renders Header span 1`] = `
 exports[`renders Header with Custom background color 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -320,11 +269,9 @@ exports[`renders Header with Custom background color 1`] = `
           },
         ]
       }
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -346,10 +293,6 @@ exports[`renders Header with Custom background color 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -363,13 +306,8 @@ exports[`renders Header with Custom background color 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={
             Array [
@@ -379,14 +317,12 @@ exports[`renders Header with Custom background color 1`] = `
               },
             ]
           }
-          virtual={undefined}
         >
           Custom Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       />
     </View>
   </View>
@@ -396,18 +332,15 @@ exports[`renders Header with Custom background color 1`] = `
 exports[`renders Header with Icon & Text Button 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -429,10 +362,6 @@ exports[`renders Header with Icon & Text Button 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -446,23 +375,16 @@ exports[`renders Header with Icon & Text Button 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -484,10 +406,6 @@ exports[`renders Header with Icon & Text Button 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -507,18 +425,15 @@ exports[`renders Header with Icon & Text Button 1`] = `
 exports[`renders Header with Icon Button & Text Button 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -540,10 +455,6 @@ exports[`renders Header with Icon Button & Text Button 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -557,23 +468,16 @@ exports[`renders Header with Icon Button & Text Button 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -595,10 +499,6 @@ exports[`renders Header with Icon Button & Text Button 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -618,18 +518,15 @@ exports[`renders Header with Icon Button & Text Button 1`] = `
 exports[`renders Header with Icon Buttons 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -651,10 +548,6 @@ exports[`renders Header with Icon Buttons 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -668,23 +561,16 @@ exports[`renders Header with Icon Buttons 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -706,10 +592,6 @@ exports[`renders Header with Icon Buttons 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -729,18 +611,15 @@ exports[`renders Header with Icon Buttons 1`] = `
 exports[`renders Header with Text Buttons 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -762,10 +641,6 @@ exports[`renders Header with Text Buttons 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -779,23 +654,16 @@ exports[`renders Header with Text Buttons 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -817,10 +685,6 @@ exports[`renders Header with Text Buttons 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -840,7 +704,6 @@ exports[`renders Header with Text Buttons 1`] = `
 exports[`renders Header with Title and Subtitle 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
@@ -848,11 +711,9 @@ exports[`renders Header with Title and Subtitle 1`] = `
     <View
       hasSubtitle={true}
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -874,10 +735,6 @@ exports[`renders Header with Title and Subtitle 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -891,33 +748,21 @@ exports[`renders Header with Title and Subtitle 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Title
         </Text>
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
-          virtual={undefined}
         >
           Subtitle
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       />
     </View>
   </View>
@@ -927,18 +772,15 @@ exports[`renders Header with Title and Subtitle 1`] = `
 exports[`renders Header with multiple Icon Button 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -960,10 +802,6 @@ exports[`renders Header with multiple Icon Button 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -977,23 +815,16 @@ exports[`renders Header with multiple Icon Button 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
           style={
@@ -1015,10 +846,6 @@ exports[`renders Header with multiple Icon Button 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -1049,10 +876,6 @@ exports[`renders Header with multiple Icon Button 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -1083,10 +906,6 @@ exports[`renders Header with multiple Icon Button 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Object {
                 "color": "#333333",
@@ -1106,38 +925,28 @@ exports[`renders Header with multiple Icon Button 1`] = `
 exports[`renders Header with only Title 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       />
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       />
     </View>
   </View>
