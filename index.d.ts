@@ -828,7 +828,7 @@ declare module "native-base" {
 			animationType?: "slide" | "fade" | "none";
 			disabled?: boolean;
 			onDateChange?: (date: any) => void;
-			
+			formatChosenDate?: (date: any) => void;
 		}
 	}
 
