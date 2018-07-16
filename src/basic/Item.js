@@ -165,6 +165,7 @@ class Item extends Component {
       });
 
     if (this.props.floatingLabel) {
+      const hasIcon = icon && icon.length;
       newChildren.push(
         <Animated.View
           key="float"
@@ -189,7 +190,6 @@ class Item extends Component {
         </Animated.View>,
       );
       newChildren.push(this.renderInput(inputChild, inputProps));
-      const hasIcon = icon && icon.length;
       if (hasIcon) {
         icon.forEach(({ iconItem, isRight }) => {
           const iconComponent = <Icon key={iconItem.key} {...iconItem.props} />;
