@@ -60,6 +60,7 @@
     "jest": "23.3.0",
     "react": "16.4.1",
     "react-native": "0.56.0",
+    "react-native-vector-icons": "4.6.0",
     "react-test-renderer": "16.4.1"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
