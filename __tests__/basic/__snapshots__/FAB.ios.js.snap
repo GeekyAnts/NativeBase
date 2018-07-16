@@ -9,7 +9,6 @@ exports[`renders multiple FAB active 1`] = `
   }
 >
   <View
-    collapsable={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -25,15 +24,8 @@ exports[`renders multiple FAB active 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -59,14 +51,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -81,21 +68,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -121,14 +100,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -143,21 +117,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -183,14 +149,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -205,21 +166,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -247,14 +200,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 56,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -276,14 +224,12 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -299,15 +245,8 @@ exports[`renders multiple FAB active 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -334,14 +273,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -356,21 +290,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -397,14 +323,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -419,21 +340,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -460,14 +373,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -482,21 +390,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -524,14 +424,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 56,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -553,14 +448,12 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -576,15 +469,8 @@ exports[`renders multiple FAB active 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -611,14 +497,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -633,21 +514,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -674,14 +547,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -696,21 +564,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -737,14 +597,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -759,21 +614,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -801,14 +648,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 56,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -830,14 +672,12 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -853,15 +693,8 @@ exports[`renders multiple FAB active 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -888,14 +721,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -910,21 +738,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -951,14 +771,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -973,21 +788,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1014,14 +821,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1036,21 +838,13 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1078,14 +872,9 @@ exports[`renders multiple FAB active 1`] = `
           "width": 56,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1107,7 +896,6 @@ exports[`renders multiple FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
@@ -1125,7 +913,6 @@ exports[`renders multiple FAB inactive 1`] = `
   }
 >
   <View
-    collapsable={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -1141,15 +928,8 @@ exports[`renders multiple FAB inactive 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1175,14 +955,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1197,21 +972,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1237,14 +1004,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1259,21 +1021,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1299,14 +1053,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1321,21 +1070,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1363,14 +1104,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 56,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1392,14 +1128,12 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -1415,15 +1149,8 @@ exports[`renders multiple FAB inactive 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1450,14 +1177,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1472,21 +1194,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1513,14 +1227,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1535,21 +1244,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1576,14 +1277,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1598,21 +1294,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1640,14 +1328,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 56,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1669,14 +1352,12 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -1692,15 +1373,8 @@ exports[`renders multiple FAB inactive 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1727,14 +1401,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1749,21 +1418,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1790,14 +1451,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1812,21 +1468,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1853,14 +1501,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1875,21 +1518,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -1917,14 +1552,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 56,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -1946,14 +1576,12 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -1969,15 +1597,8 @@ exports[`renders multiple FAB inactive 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2004,14 +1625,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2026,21 +1642,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2067,14 +1675,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2089,21 +1692,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2130,14 +1725,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2152,21 +1742,13 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2194,14 +1776,9 @@ exports[`renders multiple FAB inactive 1`] = `
           "width": 56,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2223,7 +1800,6 @@ exports[`renders multiple FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
@@ -2241,7 +1817,6 @@ exports[`renders single FAB active 1`] = `
   }
 >
   <View
-    collapsable={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -2257,15 +1832,8 @@ exports[`renders single FAB active 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2291,14 +1859,9 @@ exports[`renders single FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2313,21 +1876,13 @@ exports[`renders single FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2353,14 +1908,9 @@ exports[`renders single FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2375,21 +1925,13 @@ exports[`renders single FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2415,14 +1957,9 @@ exports[`renders single FAB active 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2437,21 +1974,13 @@ exports[`renders single FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2479,14 +2008,9 @@ exports[`renders single FAB active 1`] = `
           "width": 56,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2508,7 +2032,6 @@ exports[`renders single FAB active 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
@@ -2526,7 +2049,6 @@ exports[`renders single FAB inactive 1`] = `
   }
 >
   <View
-    collapsable={undefined}
     style={
       Object {
         "alignItems": "center",
@@ -2542,15 +2064,8 @@ exports[`renders single FAB inactive 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2576,14 +2091,9 @@ exports[`renders single FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2598,21 +2108,13 @@ exports[`renders single FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2638,14 +2140,9 @@ exports[`renders single FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2660,21 +2157,13 @@ exports[`renders single FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2700,14 +2189,9 @@ exports[`renders single FAB inactive 1`] = `
           "width": 40,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2722,21 +2206,13 @@ exports[`renders single FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>
     </View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -2764,14 +2240,9 @@ exports[`renders single FAB inactive 1`] = `
           "width": 56,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -2793,7 +2264,6 @@ exports[`renders single FAB inactive 1`] = `
             },
           ]
         }
-        virtual={undefined}
       >
         
       </Text>

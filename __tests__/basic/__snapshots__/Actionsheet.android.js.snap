@@ -21,10 +21,6 @@ exports[`renders Icon ActionSheet 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#333333",
@@ -58,10 +54,6 @@ exports[`renders Regular ActionSheet 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#333333",

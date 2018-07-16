@@ -33,11 +33,12 @@ const DefaultTabBar = createReactClass({
     return {
       activeTextColor: variable.topTabBarActiveTextColor,
       inactiveTextColor: variable.topTabBarTextColor,
-      backgroundColor: null
+      backgroundColor: null,
+      tabFontSize: variable.tabFontSize
     };
   },
 
-  renderTabOption(name, page) {},
+  renderTabOption(name, page) { },
 
   renderTab(
     name,
@@ -48,13 +49,15 @@ const DefaultTabBar = createReactClass({
     activeTabStyle,
     textStyle,
     activeTextStyle,
-    tabHeaderStyle
+    tabHeaderStyle,
+    tabFontSize
   ) {
     const headerContent =
       typeof name !== "string" ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? "bold" : "normal";
+    // const fontSize = tabFontSize;
     if (typeof name === "string") {
       return (
         <Button
@@ -66,7 +69,12 @@ const DefaultTabBar = createReactClass({
             style={isTabActive ? activeTabStyle : tabStyle}
             active={isTabActive}
           >
-            <Text style={isTabActive ? activeTextStyle : textStyle}>
+            <Text
+              style={[
+                isTabActive ? activeTextStyle : textStyle,
+                { fontSize: tabFontSize }
+              ]}
+            >
               {name}
             </Text>
           </TabHeading>
@@ -125,7 +133,8 @@ const DefaultTabBar = createReactClass({
             this.props.activeTabStyle[page],
             this.props.textStyle[page],
             this.props.activeTextStyle[page],
-            this.props.tabHeaderStyle[page]
+            this.props.tabHeaderStyle[page],
+            variables.tabFontSize
           );
         })}
         <Animated.View

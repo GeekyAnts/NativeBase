@@ -42,7 +42,6 @@ exports[`renders block button 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
@@ -65,10 +64,6 @@ exports[`renders block button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -99,10 +94,6 @@ exports[`renders block button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -133,10 +124,6 @@ exports[`renders block button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -167,10 +154,6 @@ exports[`renders block button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -201,10 +184,6 @@ exports[`renders block button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -235,10 +214,6 @@ exports[`renders block button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -269,10 +244,6 @@ exports[`renders block button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -309,10 +280,6 @@ exports[`renders custom size button 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#333333",
@@ -343,10 +310,6 @@ exports[`renders custom size button 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#333333",
@@ -377,10 +340,6 @@ exports[`renders custom size button 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#333333",
@@ -436,7 +395,6 @@ exports[`renders disabled button 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
@@ -459,10 +417,6 @@ exports[`renders disabled button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -494,10 +448,6 @@ exports[`renders disabled button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -528,10 +478,6 @@ exports[`renders disabled button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -562,10 +508,6 @@ exports[`renders disabled button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -596,10 +538,6 @@ exports[`renders disabled button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -630,10 +568,6 @@ exports[`renders disabled button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -670,10 +604,6 @@ exports[`renders full button 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#333333",
@@ -704,10 +634,6 @@ exports[`renders full button 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#333333",
@@ -738,10 +664,6 @@ exports[`renders full button 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#333333",
@@ -772,10 +694,6 @@ exports[`renders full button 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#333333",
@@ -806,10 +724,6 @@ exports[`renders full button 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#333333",
@@ -840,10 +754,6 @@ exports[`renders full button 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#333333",
@@ -874,10 +784,6 @@ exports[`renders full button 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#333333",
@@ -933,7 +839,6 @@ exports[`renders icon button 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
@@ -956,10 +861,6 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -990,10 +891,6 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1024,10 +921,6 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1058,10 +951,6 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1092,79 +981,6 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#333333",
-            "margin": 20,
-          }
-        }
-      >
-        TouchableNativeFeedback is not supported on this platform!
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffbcbc",
-            "borderColor": "red",
-            "borderWidth": 1,
-            "height": 100,
-            "justifyContent": "center",
-            "margin": 10,
-            "width": 300,
-          },
-          Object {
-            "borderRadius": 2,
-            "borderWidth": 1,
-          },
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#333333",
-            "margin": 20,
-          }
-        }
-      >
-        TouchableNativeFeedback is not supported on this platform!
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffbcbc",
-            "borderColor": "red",
-            "borderWidth": 1,
-            "height": 100,
-            "justifyContent": "center",
-            "margin": 10,
-            "width": 300,
-          },
-          Object {
-            "borderRadius": 2,
-          },
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1196,10 +1012,6 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1230,113 +1042,6 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#333333",
-            "margin": 20,
-          }
-        }
-      >
-        TouchableNativeFeedback is not supported on this platform!
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffbcbc",
-            "borderColor": "red",
-            "borderWidth": 1,
-            "height": 100,
-            "justifyContent": "center",
-            "margin": 10,
-            "width": 300,
-          },
-          Object {
-            "borderRadius": 2,
-            "borderWidth": 1,
-          },
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#333333",
-            "margin": 20,
-          }
-        }
-      >
-        TouchableNativeFeedback is not supported on this platform!
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffbcbc",
-            "borderColor": "red",
-            "borderWidth": 1,
-            "height": 100,
-            "justifyContent": "center",
-            "margin": 10,
-            "width": 300,
-          },
-          Object {
-            "borderRadius": 2,
-          },
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#333333",
-            "margin": 20,
-          }
-        }
-      >
-        TouchableNativeFeedback is not supported on this platform!
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffbcbc",
-            "borderColor": "red",
-            "borderWidth": 1,
-            "height": 100,
-            "justifyContent": "center",
-            "margin": 10,
-            "width": 300,
-          },
-          Object {
-            "borderRadius": 2,
-          },
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1368,10 +1073,6 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1402,10 +1103,37 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "borderRadius": 2,
+            "borderWidth": 1,
+          },
+        ]
+      }
+    >
+      <Text
         style={
           Object {
             "color": "#333333",
@@ -1436,10 +1164,6 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1470,10 +1194,37 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "borderRadius": 2,
+            "borderWidth": 1,
+          },
+        ]
+      }
+    >
+      <Text
         style={
           Object {
             "color": "#333333",
@@ -1504,10 +1255,6 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1538,10 +1285,96 @@ exports[`renders icon button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "borderRadius": 2,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "borderRadius": 2,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "borderRadius": 2,
+          },
+        ]
+      }
+    >
+      <Text
         style={
           Object {
             "color": "#333333",
@@ -1598,7 +1431,6 @@ exports[`renders outline button 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
@@ -1622,10 +1454,6 @@ exports[`renders outline button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1657,10 +1485,6 @@ exports[`renders outline button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1692,10 +1516,6 @@ exports[`renders outline button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1727,10 +1547,6 @@ exports[`renders outline button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1762,10 +1578,6 @@ exports[`renders outline button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1797,10 +1609,6 @@ exports[`renders outline button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1832,10 +1640,6 @@ exports[`renders outline button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1892,7 +1696,6 @@ exports[`renders regular button 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
@@ -1915,10 +1718,6 @@ exports[`renders regular button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1949,10 +1748,6 @@ exports[`renders regular button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -1983,10 +1778,6 @@ exports[`renders regular button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2017,10 +1808,6 @@ exports[`renders regular button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2051,10 +1838,6 @@ exports[`renders regular button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2085,10 +1868,6 @@ exports[`renders regular button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2119,10 +1898,6 @@ exports[`renders regular button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2179,7 +1954,6 @@ exports[`renders transparent button 1`] = `
   showsVerticalScrollIndicator={true}
   style={Object {}}
   viewIsInsideTabBar={false}
-  virtual={undefined}
 >
   <View>
     <View
@@ -2202,10 +1976,6 @@ exports[`renders transparent button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2236,10 +2006,6 @@ exports[`renders transparent button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2270,10 +2036,6 @@ exports[`renders transparent button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2304,10 +2066,6 @@ exports[`renders transparent button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2338,10 +2096,6 @@ exports[`renders transparent button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2372,10 +2126,6 @@ exports[`renders transparent button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",
@@ -2406,10 +2156,6 @@ exports[`renders transparent button 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#333333",

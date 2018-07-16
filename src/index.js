@@ -5,7 +5,6 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 import setDefaultThemeStyle from "./init";
 import getTheme from "./theme/components";
 import variables from "./theme/variables/platform";
-import Drawer from "./basic/Drawer";
 import { SwipeRow } from "./basic/SwipeRow";
 import { Text } from "./basic/Text";
 import { ViewNB as View } from "./basic/View";
@@ -58,6 +57,8 @@ import { ScrollableTab } from "./basic/Tabs/ScrollableTabBar";
 import { Subtitle } from "./basic/Subtitle";
 import { Accordion } from "./basic/Accordion";
 
+import VueNativeBase from "./vue-native.js";
+
 setDefaultThemeStyle();
 // Theme
 export {
@@ -65,7 +66,6 @@ export {
   variables,
   StyleProvider,
   connectStyle,
-  Drawer,
   Button,
   DatePicker,
   IconNB,
@@ -120,6 +120,7 @@ export {
   Segment,
   Root,
   SwipeRow,
+  VueNativeBase,
   Accordion
 };
 

@@ -15,18 +15,26 @@ export class DatePicker extends React.Component {
     this.state = {
       modalVisible: false,
       defaultDate: new Date(),
-      chosenDate: undefined
+      chosenDate: undefined,
+      disabled: true
     };
   }
 
   componentDidMount = () => {
     this.setState({
-      defaultDate: this.props.defaultDate ? this.props.defaultDate : new Date()
+      defaultDate: this.props.defaultDate ? this.props.defaultDate : new Date(),
+      disabled: this.props.disabled ? true : false
     });
+    if (!this.props.placeHolderText && this.props.defaultDate) {
+      this.setState({ chosenDate: this.props.defaultDate })
+    }
   };
 
   setDate(date) {
     this.setState({ chosenDate: new Date(date) });
+    if (this.props.onDateChange) {
+      this.props.onDateChange(date);
+    }
   }
 
   showDatePicker() {
@@ -49,11 +57,24 @@ export class DatePicker extends React.Component {
       });
       const { action, year, month, day } = newDate;
       if (action === "dateSetAction") {
-        this.setState({ chosenDate: new Date(year, month, day) });
+        let selectedDate = new Date(year, month, day);
+        this.setState({ chosenDate: selectedDate });
+        this.props.onDateChange(selectedDate);
       }
     } catch ({ code, message }) {
       console.warn("Cannot open date picker", message);
     }
+  }
+
+  formatChosenDate(date) {
+    if (this.props.formatChosenDate) {
+      return this.props.formatChosenDate(date);
+    }
+    return [
+      date.getDate(),
+      date.getMonth() + 1,
+      date.getFullYear(),
+    ].join('/');
   }
 
   render() {
@@ -64,18 +85,14 @@ export class DatePicker extends React.Component {
       <View>
         <View>
           <Text
-            onPress={this.showDatePicker.bind(this)}
+            onPress={ !this.state.disabled ? this.showDatePicker.bind(this) : undefined }
             style={[
-              this.props.textStyle,
-              { padding: 10, color: variables.datePickerTextColor }
+              { padding: 10, color: variables.datePickerTextColor },
+              this.state.chosenDate ? this.props.textStyle : this.props.placeHolderTextStyle
             ]}
           >
             {this.state.chosenDate
-              ? this.state.chosenDate.getDate() +
-                "/" +
-                (this.state.chosenDate.getMonth() + 1) +
-                "/" +
-                +this.state.chosenDate.getFullYear()
+              ? this.formatChosenDate(this.state.chosenDate)
               : this.props.placeHolderText
                 ? this.props.placeHolderText
                 : "Select Date"}
@@ -85,7 +102,7 @@ export class DatePicker extends React.Component {
               animationType={this.props.animationType}
               transparent={this.props.modalTransparent} //from api
               visible={this.state.modalVisible}
-              onRequestClose={() => {}}
+              onRequestClose={() => { }}
             >
               <Text
                 onPress={() => this.setState({ modalVisible: false })}

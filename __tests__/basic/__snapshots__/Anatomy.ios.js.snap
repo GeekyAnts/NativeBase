@@ -3,29 +3,19 @@
 exports[`renders anatomy 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}
 >
   <View
     onLayout={[Function]}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
           isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -38,14 +28,9 @@ exports[`renders anatomy 1`] = `
               "opacity": 1,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <Text
-            accessible={true}
             allowFontScaling={false}
-            disabled={false}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {
@@ -63,7 +48,6 @@ exports[`renders anatomy 1`] = `
                 },
               ]
             }
-            virtual={undefined}
           >
             
           </Text>
@@ -71,23 +55,16 @@ exports[`renders anatomy 1`] = `
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           numberOfLines={1}
           style={Object {}}
-          virtual={undefined}
         >
           Header
         </Text>
       </View>
       <View
         style={Object {}}
-        virtual={undefined}
       />
     </View>
   </View>
@@ -133,17 +110,11 @@ exports[`renders anatomy 1`] = `
     showsVerticalScrollIndicator={true}
     style={Object {}}
     viewIsInsideTabBar={false}
-    virtual={undefined}
   >
     <View>
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
         style={Object {}}
         uppercase={false}
-        virtual={undefined}
       >
         Content goes here
       </Text>
@@ -151,22 +122,13 @@ exports[`renders anatomy 1`] = `
   </RCTScrollView>
   <View
     style={Object {}}
-    virtual={undefined}
   >
     <View
       style={Object {}}
-      virtual={undefined}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -179,17 +141,10 @@ exports[`renders anatomy 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
           style={Object {}}
           uppercase={false}
-          virtual={undefined}
         >
           Footer
         </Text>

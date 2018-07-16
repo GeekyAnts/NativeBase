@@ -18,6 +18,7 @@ export default {
   iconStyle: "#000",
   contentStyle: "#f5f4f5",
   expandedIconStyle: "#000",
+  accordionBorderColor: "#d3d3d3",
 
   // Android
   androidRipple: true,
@@ -86,6 +87,8 @@ export default {
   // Card
   cardDefaultBg: "#fff",
   cardBorderColor: "#ccc",
+  cardBorderRadius: 2,
+  cardItemPadding: platform === "ios" ? 10 : 12,
 
   // CheckBox
   CheckboxRadius: 0,
@@ -107,6 +110,9 @@ export default {
   brandWarning: "#f0ad4e",
   brandDark: "#000",
   brandLight: "#f4f4f4",
+
+  //Container
+  containerBgColor: "#fff",
 
   //Date Picker
   datePickerTextColor: "#000",

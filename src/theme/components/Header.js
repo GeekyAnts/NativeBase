@@ -39,6 +39,17 @@ export default (variables = variable) => {
         }
       }
     },
+    ".transparent": {
+      backgroundColor: "transparent",
+      borderBottomColor: "transparent",
+      elevation: 0,
+      shadowColor: null,
+      shadowOffset: null,
+      shadowRadius: null,
+      shadowOpacity: null,
+      paddingTop: platform === "android" ? StatusBar.currentHeight : undefined,
+      height: platform === "android" ? variables.toolbarHeight + StatusBar.currentHeight : variables.toolbarHeight
+    },
     ".noShadow": {
       elevation: 0,
       shadowColor: null,
@@ -364,7 +375,7 @@ export default (variables = variable) => {
       platform === "ios" && variables.platformStyle !== "material" ? 6 : 10,
     paddingRight: 10,
     justifyContent: "center",
-    paddingTop: platform === "ios" ?  18 : 0,
+    paddingTop: platform === "ios" ? 18 : 0,
     borderBottomWidth:
       platform === "ios" ? 1 / PixelRatio.getPixelSizeForLayoutSize(1) : 0,
     borderBottomColor: variables.toolbarDefaultBorder,
