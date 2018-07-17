@@ -826,8 +826,9 @@ declare module "native-base" {
 			timeZoneOffsetInMinutes?: number;
 			modalTransparent?: boolean;
 			animationType?: "slide" | "fade" | "none";
-			disabled:? boolean;
+			disabled?: boolean;
 			onDateChange?: (date: any) => void;
+			formatChosenDate?: (date: any) => void;
 		}
 	}
 
