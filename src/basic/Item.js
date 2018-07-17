@@ -166,17 +166,18 @@ class Item extends Component {
 
     if (this.props.floatingLabel) {
       const hasIcon = icon && icon.length;
+      const hasIconLeft = icon && icon.length && icon.some(iconElement => !iconElement.isRight);
       newChildren.push(
         <Animated.View
           key="float"
           style={{
             position: 'absolute',
             left:
-              this.props.last && hasIcon
+              this.props.last && hasIconLeft
                 ? 40
                 : this.props.last
                   ? 15
-                  : hasIcon
+                  : hasIconLeft
                     ? 26
                     : 0,
             right: 0,

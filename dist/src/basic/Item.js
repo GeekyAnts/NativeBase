@@ -166,24 +166,25 @@ iconProps=item.props;
 
 if(this.props.floatingLabel){
 var hasIcon=icon&&icon.length;
+var hasIconLeft=icon&&icon.length&&icon.some(function(iconElement){return!iconElement.isRight;});
 newChildren.push(
 _react2.default.createElement(_reactNative.Animated.View,{
 key:"float",
 style:{
 position:'absolute',
 left:
-this.props.last&&hasIcon?
+this.props.last&&hasIconLeft?
 40:
 this.props.last?
 15:
-hasIcon?
+hasIconLeft?
 26:
 0,
 right:0,
 top:this.state.topAnim,
 opacity:this.state.opacAnim,
 paddingTop:_reactNative.Platform.OS==='ios'?undefined:undefined,
-paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12},__source:{fileName:_jsxFileName,lineNumber:170}},
+paddingBottom:_reactNative.Platform.OS==='ios'?undefined:12},__source:{fileName:_jsxFileName,lineNumber:171}},
 
 
 this.renderLabel(labelChild,labelProps)));
@@ -192,7 +193,7 @@ this.renderLabel(labelChild,labelProps)));
 newChildren.push(this.renderInput(inputChild,inputProps));
 if(hasIcon){
 icon.forEach(function(_ref){var iconItem=_ref.iconItem,isRight=_ref.isRight;
-var iconComponent=_react2.default.createElement(_Icon.Icon,_extends({key:iconItem.key},iconItem.props,{__source:{fileName:_jsxFileName,lineNumber:195}}));
+var iconComponent=_react2.default.createElement(_Icon.Icon,_extends({key:iconItem.key},iconItem.props,{__source:{fileName:_jsxFileName,lineNumber:196}}));
 if(isRight){
 newChildren.push(iconComponent);
 }else{
@@ -207,12 +208,12 @@ key:"s",
 style:{
 flexDirection:'row',
 flex:1,
-width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:205}},
+width:_platform2.default.deviceWidth-15},__source:{fileName:_jsxFileName,lineNumber:206}},
 
 
-_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:213}})),
-_react2.default.createElement(_reactNative.View,{style:{flexDirection:'column'},__source:{fileName:_jsxFileName,lineNumber:214}},
-_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:215}})),
+_react2.default.createElement(_Icon.Icon,_extends({key:"s1"},iconProps,{__source:{fileName:_jsxFileName,lineNumber:214}})),
+_react2.default.createElement(_reactNative.View,{style:{flexDirection:'column'},__source:{fileName:_jsxFileName,lineNumber:215}},
+_react2.default.createElement(_Label.Label,_extends({key:"s2"},labelProps,{__source:{fileName:_jsxFileName,lineNumber:216}})),
 _react2.default.cloneElement(inputChild,_extends({},
 inputProps,{
 key:'s3',
@@ -251,7 +252,7 @@ return(
 _react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 ref:function ref(c){_this5._root=c;}},
 this.prepareRootProps(),{
-activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:251}}),
+activeOpacity:1,__source:{fileName:_jsxFileName,lineNumber:252}}),
 
 this.renderChildren()));
 
