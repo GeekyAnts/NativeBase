@@ -6,10 +6,11 @@ export default (variables = variable) => {
   const itemTheme = {
     ".floatingLabel": {
       "NativeBase.Input": {
-        height: 50,
+        height: 48,
         top: 8,
         paddingTop: 3,
         paddingBottom: 7,
+        marginBottom:2,
         ".multiline": {
           minHeight: variables.inputHeightBase,
           paddingTop: Platform.OS === "ios" ? 10 : 3,
