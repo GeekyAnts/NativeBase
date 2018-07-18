@@ -167,7 +167,7 @@ class Item extends Component {
                 right: 0,
                 top: this.state.topAnim,
                 opacity: this.state.opacAnim,
-                paddingTop: Platform.OS === "ios" ? undefined : undefined,
+                paddingTop: Platform.OS === "ios" ? undefined : 2,
                 paddingBottom: Platform.OS === "ios" ? undefined : 12
               }}
             >
@@ -212,7 +212,7 @@ class Item extends Component {
             right: 0,
             top: this.state.topAnim,
             opacity: this.state.opacAnim,
-            paddingTop: Platform.OS === "ios" ? undefined : undefined,
+            paddingTop: Platform.OS === "ios" ? undefined : 2,
             paddingBottom: Platform.OS === "ios" ? undefined : 12
           }}
         >
