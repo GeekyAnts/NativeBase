@@ -1,5 +1,8 @@
 # Version [2.7.2](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.7.2)
 
+### General Features
+
+*   **lodash:** Upgraded lodash to 4.17.0 to fix low severity vulnerability. 
 
 
 ### Upgraded Features
@@ -16,5 +19,5 @@
 *   **Header:**
     -   Fixed vertical alignment of elements in Header on iPhoneX. PR [#2133](https://github.com/GeekyAnts/NativeBase/pull/2133), closes [#2128](https://github.com/GeekyAnts/NativeBase/issues/2128)
     -   Vue Native - Header issue fixed for iPhoneX. Commits ([a4a077d](https://github.com/GeekyAnts/NativeBase/commit/a4a077d1fa59aa049ab093d0e32a5c6def0ff5e1))
-*   **Icon:** Fixed Ionicons, Feather and MaterialCommunityIcons font issue of 2.7.1. Commits ([951f154](https://github.com/GeekyAnts/NativeBase/commit/951f154d2a10d5459801ddce57addf3ee867e0ac)), ([f93b115](https://github.com/GeekyAnts/NativeBase/commit/f93b11530e572431ffd3148bcd65063609896e2f)), closes [#2138](https://github.com/GeekyAnts/NativeBase/issues/2138), [#2153](https://github.com/GeekyAnts/NativeBase/issues/2153)
+*   **Icon:** Fixed Ionicons, Feather and MaterialCommunityIcons font issue of 2.7.1. Commits ([951f154](https://github.com/GeekyAnts/NativeBase/commit/951f154d2a10d5459801ddce57addf3ee867e0ac)), ([f93b115](https://github.com/GeekyAnts/NativeBase/commit/f93b11530e572431ffd3148bcd65063609896e2f)), ([7a42759](https://github.com/GeekyAnts/NativeBase/commit/7a42759513706f60546ce3045376a6a93f574a48)), closes [#2138](https://github.com/GeekyAnts/NativeBase/issues/2138), [#2153](https://github.com/GeekyAnts/NativeBase/issues/2153)
 *   **TypeScript:** Fixed date picker props. PR [#2132](https://github.com/GeekyAnts/NativeBase/pull/2132), closes [#2126](https://github.com/GeekyAnts/NativeBase/issues/2126)
