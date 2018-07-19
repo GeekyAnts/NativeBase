@@ -100,7 +100,7 @@ class AccordionItem extends React.Component {
         >
           <View>
             {this.props.renderHeader ? (
-              this.props.renderHeader(this.props.item.title, this.props.expanded)
+              this.props.renderHeader(this.props.item, this.props.expanded)
             ) : (
                 <DefaultHeader
                   title={this.props.item.title}
@@ -117,7 +117,7 @@ class AccordionItem extends React.Component {
         {this.props.expanded ? (
           <AccordionSubItem>
             {this.props.renderContent ? (
-              this.props.renderContent(this.props.item.content)
+              this.props.renderContent(this.props.item)
             ) : (
                 <DefaultContent
                   content={this.props.item.content}

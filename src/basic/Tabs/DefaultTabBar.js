@@ -71,8 +71,8 @@ const DefaultTabBar = createReactClass({
           >
             <Text
               style={[
-                isTabActive ? activeTextStyle : textStyle,
-                { fontSize: tabFontSize }
+                { fontSize: tabFontSize },
+                isTabActive ? activeTextStyle : textStyle
               ]}
             >
               {name}

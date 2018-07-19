@@ -35,7 +35,7 @@
     "color": "~1.0.3",
     "fs-extra": "^2.0.0",
     "jest-react-native": "^18.0.0",
-    "lodash": "~4.11.1",
+    "lodash": "4.17.0",
     "native-base-shoutem-theme": "0.2.2",
     "print-message": "^2.1.0",
     "prop-types": "^15.5.10",
@@ -60,6 +60,7 @@
     "jest": "23.3.0",
     "react": "16.4.1",
     "react-native": "0.56.0",
+    "react-native-vector-icons": "4.6.0",
     "react-test-renderer": "16.4.1"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
