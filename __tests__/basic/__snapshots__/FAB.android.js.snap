@@ -1,0 +1,1963 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders multiple FAB active 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 20,
+        "flexDirection": "column",
+        "height": 56,
+        "left": undefined,
+        "position": "absolute",
+        "right": 20,
+        "top": undefined,
+        "width": 56,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#34A34F",
+            "borderRadius": 20,
+            "bottom": 65,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#3B5998",
+            "borderRadius": 20,
+            "bottom": 115,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#DD5144",
+            "borderRadius": 20,
+            "bottom": 165,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5067FF",
+            "borderRadius": 28,
+            "bottom": 0,
+            "elevation": 4,
+            "height": 56,
+            "justifyContent": "center",
+            "position": "absolute",
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.4,
+            "shadowRadius": 2,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": undefined,
+        "flexDirection": "row",
+        "height": 56,
+        "left": undefined,
+        "position": "absolute",
+        "right": 20,
+        "top": 20,
+        "width": 56,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#34A34F",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": -58,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#3B5998",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": -108,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#DD5144",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": -158,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5067FF",
+            "borderRadius": 28,
+            "bottom": 0,
+            "elevation": 4,
+            "height": 56,
+            "justifyContent": "center",
+            "position": "absolute",
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.4,
+            "shadowRadius": 2,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": undefined,
+        "flexDirection": "column",
+        "height": 56,
+        "left": 20,
+        "position": "absolute",
+        "right": undefined,
+        "top": 20,
+        "width": 56,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#34A34F",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 73,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#3B5998",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 123,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#DD5144",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 173,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5067FF",
+            "borderRadius": 28,
+            "bottom": 0,
+            "elevation": 4,
+            "height": 56,
+            "justifyContent": "center",
+            "position": "absolute",
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.4,
+            "shadowRadius": 2,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 20,
+        "flexDirection": "row",
+        "height": 56,
+        "left": 20,
+        "position": "absolute",
+        "right": undefined,
+        "top": undefined,
+        "width": 56,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#34A34F",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 73,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#3B5998",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 123,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#DD5144",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 173,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5067FF",
+            "borderRadius": 28,
+            "bottom": 0,
+            "elevation": 4,
+            "height": 56,
+            "justifyContent": "center",
+            "position": "absolute",
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.4,
+            "shadowRadius": 2,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders multiple FAB inactive 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 20,
+        "flexDirection": "column",
+        "height": 56,
+        "left": undefined,
+        "position": "absolute",
+        "right": 20,
+        "top": undefined,
+        "width": 56,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#34A34F",
+            "borderRadius": 20,
+            "bottom": 5,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#3B5998",
+            "borderRadius": 20,
+            "bottom": 5,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#DD5144",
+            "borderRadius": 20,
+            "bottom": 5,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5067FF",
+            "borderRadius": 28,
+            "bottom": 0,
+            "elevation": 4,
+            "height": 56,
+            "justifyContent": "center",
+            "position": "absolute",
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.4,
+            "shadowRadius": 2,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": undefined,
+        "flexDirection": "row",
+        "height": 56,
+        "left": undefined,
+        "position": "absolute",
+        "right": 20,
+        "top": 20,
+        "width": 56,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#34A34F",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#3B5998",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#DD5144",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5067FF",
+            "borderRadius": 28,
+            "bottom": 0,
+            "elevation": 4,
+            "height": 56,
+            "justifyContent": "center",
+            "position": "absolute",
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.4,
+            "shadowRadius": 2,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": undefined,
+        "flexDirection": "column",
+        "height": 56,
+        "left": 20,
+        "position": "absolute",
+        "right": undefined,
+        "top": 20,
+        "width": 56,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#34A34F",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#3B5998",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#DD5144",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5067FF",
+            "borderRadius": 28,
+            "bottom": 0,
+            "elevation": 4,
+            "height": 56,
+            "justifyContent": "center",
+            "position": "absolute",
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.4,
+            "shadowRadius": 2,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 20,
+        "flexDirection": "row",
+        "height": 56,
+        "left": 20,
+        "position": "absolute",
+        "right": undefined,
+        "top": undefined,
+        "width": 56,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#34A34F",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#3B5998",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#DD5144",
+            "borderRadius": 20,
+            "bottom": 0,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "top": 8,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5067FF",
+            "borderRadius": 28,
+            "bottom": 0,
+            "elevation": 4,
+            "height": 56,
+            "justifyContent": "center",
+            "position": "absolute",
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.4,
+            "shadowRadius": 2,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders single FAB active 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 20,
+        "flexDirection": "column",
+        "height": 56,
+        "left": undefined,
+        "position": "absolute",
+        "right": 20,
+        "top": undefined,
+        "width": 56,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#34A34F",
+            "borderRadius": 20,
+            "bottom": 65,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#3B5998",
+            "borderRadius": 20,
+            "bottom": 115,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#DD5144",
+            "borderRadius": 20,
+            "bottom": 165,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5067FF",
+            "borderRadius": 28,
+            "bottom": 0,
+            "elevation": 4,
+            "height": 56,
+            "justifyContent": "center",
+            "position": "absolute",
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.4,
+            "shadowRadius": 2,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders single FAB inactive 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 20,
+        "flexDirection": "column",
+        "height": 56,
+        "left": undefined,
+        "position": "absolute",
+        "right": 20,
+        "top": undefined,
+        "width": 56,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#34A34F",
+            "borderRadius": 20,
+            "bottom": 5,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#3B5998",
+            "borderRadius": 20,
+            "bottom": 5,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "backgroundColor": "#DD5144",
+            "borderRadius": 20,
+            "bottom": 5,
+            "height": 40,
+            "left": 8,
+            "marginBottom": 10,
+            "position": "absolute",
+            "right": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffbcbc",
+            "borderColor": "red",
+            "borderWidth": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "margin": 10,
+            "width": 300,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5067FF",
+            "borderRadius": 28,
+            "bottom": 0,
+            "elevation": 4,
+            "height": 56,
+            "justifyContent": "center",
+            "position": "absolute",
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.4,
+            "shadowRadius": 2,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "margin": 20,
+          }
+        }
+      >
+        TouchableNativeFeedback is not supported on this platform!
+      </Text>
+    </View>
+  </View>
+</View>
+`;

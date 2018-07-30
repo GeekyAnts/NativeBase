@@ -1,0 +1,734 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Disabled Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      disabled={true}
+      editable={false}
+      placeholder="Disabled Textbox"
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {},
+            Object {},
+          ],
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders Error Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholder="Textbox with Error Input"
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {},
+            Object {},
+          ],
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders Fixed Label Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={Object {}}
+    >
+      Username
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={Object {}}
+    >
+      Password
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholderTextColor="#575757"
+      secureTextEntry={true}
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+</View>
+`;
+
+exports[`renders Floating Label Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "left": 0,
+          "opacity": 1,
+          "paddingBottom": 12,
+          "paddingTop": undefined,
+          "position": "absolute",
+          "right": 0,
+          "top": 18,
+        }
+      }
+    >
+      <Text
+        style={Object {}}
+      >
+        <Text
+          style={Object {}}
+        >
+          Username
+        </Text>
+      </Text>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
+    />
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "left": 15,
+          "opacity": 1,
+          "paddingBottom": 12,
+          "paddingTop": undefined,
+          "position": "absolute",
+          "right": 0,
+          "top": 18,
+        }
+      }
+    >
+      <Text
+        style={Object {}}
+      >
+        <Text
+          style={Object {}}
+        >
+          Password
+        </Text>
+      </Text>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      placeholderTextColor="#575757"
+      secureTextEntry={true}
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
+    />
+  </View>
+</View>
+`;
+
+exports[`renders Icon Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      active={true}
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {},
+            Object {},
+          ],
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholder="Icon Textbox"
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholder="Icon Alignment in Textbox"
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+    <Text
+      active={true}
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {},
+            Object {},
+          ],
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders Inline Label Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={Object {}}
+    >
+      Username
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={Object {}}
+    >
+      Password
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholderTextColor="#575757"
+      secureTextEntry={true}
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+</View>
+`;
+
+exports[`renders Placeholder Label Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholder="Username"
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholder="Password"
+      placeholderTextColor="#575757"
+      secureTextEntry={true}
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+</View>
+`;
+
+exports[`renders Regular Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholder="Regular Textbox"
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+</View>
+`;
+
+exports[`renders Rounded Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "borderRadius": 30,
+        "borderWidth": 1,
+        "opacity": 1,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholder="Rounded Textbox"
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+</View>
+`;
+
+exports[`renders Stacked Label Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={Object {}}
+    >
+      Username
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={Object {}}
+    >
+      Password
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholderTextColor="#575757"
+      secureTextEntry={true}
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+</View>
+`;
+
+exports[`renders Success Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholder="Textbox with Success Input"
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {},
+            Object {},
+          ],
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders Textarea Input 1`] = `
+<View
+  style={Object {}}
+>
+  <TextInput
+    allowFontScaling={true}
+    bordered={true}
+    multiline={true}
+    placeholder="Textarea"
+    placeholderTextColor="#575757"
+    rowSpan={5}
+    style={
+      Object {
+        "height": 125,
+      }
+    }
+    underlineColorAndroid="rgba(0,0,0,0)"
+  />
+</View>
+`;
+
+exports[`renders Underline Input 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      placeholder="Underline Textbox"
+      placeholderTextColor="#575757"
+      style={Object {}}
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+</View>
+`;

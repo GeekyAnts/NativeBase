@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders default shape thumbnail 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  contentContainerStyle={
+    Array [
+      Object {
+        "padding": undefined,
+      },
+      undefined,
+    ]
+  }
+  contentInset={
+    Object {
+      "bottom": 0,
+    }
+  }
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  getScrollResponder={[Function]}
+  handleOnScroll={[Function]}
+  keyboardDismissMode="interactive"
+  keyboardOpeningTime={250}
+  keyboardShouldPersistTaps="handled"
+  keyboardSpace={0}
+  onScroll={[Function]}
+  resetKeyboardSpace={[Function]}
+  resetScrollToCoords={
+    Object {
+      "x": 0,
+      "y": 0,
+    }
+  }
+  scrollEventThrottle={1}
+  scrollForExtraHeightOnAndroid={[Function]}
+  scrollToEnd={[Function]}
+  scrollToFocusedInput={[Function]}
+  scrollToPosition={[Function]}
+  showsVerticalScrollIndicator={true}
+  style={Object {}}
+  viewIsInsideTabBar={false}
+>
+  <View>
+    <Image
+      small={true}
+      source={
+        Object {
+          "testUri": "../../../__tests__/assets/drawer-cover.png",
+        }
+      }
+      style={Object {}}
+    />
+    <Image
+      source={
+        Object {
+          "testUri": "../../../__tests__/assets/drawer-cover.png",
+        }
+      }
+      style={Object {}}
+    />
+    <Image
+      large={true}
+      source={
+        Object {
+          "testUri": "../../../__tests__/assets/drawer-cover.png",
+        }
+      }
+      style={Object {}}
+    />
+  </View>
+</RCTScrollView>
+`;
+
+exports[`renders square shape thumbnail 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  contentContainerStyle={
+    Array [
+      Object {
+        "padding": undefined,
+      },
+      undefined,
+    ]
+  }
+  contentInset={
+    Object {
+      "bottom": 0,
+    }
+  }
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  getScrollResponder={[Function]}
+  handleOnScroll={[Function]}
+  keyboardDismissMode="interactive"
+  keyboardOpeningTime={250}
+  keyboardShouldPersistTaps="handled"
+  keyboardSpace={0}
+  onScroll={[Function]}
+  resetKeyboardSpace={[Function]}
+  resetScrollToCoords={
+    Object {
+      "x": 0,
+      "y": 0,
+    }
+  }
+  scrollEventThrottle={1}
+  scrollForExtraHeightOnAndroid={[Function]}
+  scrollToEnd={[Function]}
+  scrollToFocusedInput={[Function]}
+  scrollToPosition={[Function]}
+  showsVerticalScrollIndicator={true}
+  style={Object {}}
+  viewIsInsideTabBar={false}
+>
+  <View>
+    <Image
+      small={true}
+      source={
+        Object {
+          "testUri": "../../../__tests__/assets/drawer-cover.png",
+        }
+      }
+      square={true}
+      style={Object {}}
+    />
+    <Image
+      source={
+        Object {
+          "testUri": "../../../__tests__/assets/drawer-cover.png",
+        }
+      }
+      square={true}
+      style={Object {}}
+    />
+    <Image
+      large={true}
+      source={
+        Object {
+          "testUri": "../../../__tests__/assets/drawer-cover.png",
+        }
+      }
+      square={true}
+      style={Object {}}
+    />
+  </View>
+</RCTScrollView>
+`;

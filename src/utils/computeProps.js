@@ -1,8 +1,7 @@
 "use_strict";
 import _ from "lodash";
-import ReactNativePropRegistry from "react-native/Libraries/Renderer/shims/ReactNativePropRegistry";
-// For compatibility with RN 0.25
-// import ReactNativePropRegistry from "react-native/Libraries/ReactNative/ReactNativePropRegistry";
+import { StyleSheet } from "react-native";
+
 module.exports = function(incomingProps, defaultProps) {
   // External props has a higher precedence
   let computedProps = {};
@@ -26,13 +25,13 @@ module.exports = function(incomingProps, defaultProps) {
     if (Array.isArray(incomingPropsStyle)) {
       _.forEach(incomingPropsStyle, style => {
         if (typeof style === "number") {
-          _.merge(computedPropsStyle, ReactNativePropRegistry.getByID(style));
+          _.merge(computedPropsStyle, StyleSheet.flatten(style));
         } else {
           _.merge(computedPropsStyle, style);
         }
       });
     } else if (typeof incomingPropsStyle === "number") {
-      computedPropsStyle = ReactNativePropRegistry.getByID(incomingPropsStyle);
+      computedPropsStyle = StyleSheet.flatten(incomingPropsStyle);
     } else {
       computedPropsStyle = incomingPropsStyle;
     }
