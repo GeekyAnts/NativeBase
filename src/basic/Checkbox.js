@@ -43,6 +43,7 @@ class CheckBox extends Component {
 						color: this.props.checked === true ? variables.checkboxTickColor : "transparent",
 						fontSize: variables.CheckboxFontSize,
 						lineHeight: variables.CheckboxIconSize,
+						marginTop: variables.CheckboxIconMarginTop,
 					}}
 					name={platform === "ios" && platformStyle !== "material" ? "ios-checkmark-outline" : "md-checkmark"}
 				/>

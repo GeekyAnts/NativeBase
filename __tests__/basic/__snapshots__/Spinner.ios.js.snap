@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Spinner 1`] = `
+<View
+  style={Object {}}
+>
+  <ActivityIndicator
+    animating={true}
+    color="#45D56E"
+    hidesWhenStopped={true}
+    size="large"
+    style={Object {}}
+  />
+  <ActivityIndicator
+    animating={true}
+    color="red"
+    hidesWhenStopped={true}
+    size="large"
+    style={Object {}}
+  />
+  <ActivityIndicator
+    animating={true}
+    color="green"
+    hidesWhenStopped={true}
+    size="large"
+    style={Object {}}
+  />
+  <ActivityIndicator
+    animating={true}
+    color="blue"
+    hidesWhenStopped={true}
+    size="large"
+    style={Object {}}
+  />
+</View>
+`;

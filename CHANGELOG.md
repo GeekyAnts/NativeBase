@@ -1,24 +1,26 @@
-# Version [2.4.3](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.4.3)
+# Version [2.7.2](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.7.2)
+
+### General Features
+
+*   **lodash:** Upgraded lodash to 4.17.0 to fix low severity vulnerability. Commit ([c2fe1e7](https://github.com/GeekyAnts/NativeBase/commit/c2fe1e70f923d9283cf4f5f227bcc0e1a38b8183)), closes [#2118](https://github.com/GeekyAnts/NativeBase/issues/2118)
 
 
-### General
--   **Folder Structure:** Renamed `Utils` to `utils`. PR ([#1795](https://github.com/GeekyAnts/NativeBase/pull/1795))
+### Upgraded Features
+
+*   **Accordion:** Takes flexible dataArray input by passing `item` as callback parameter instead of `title` and `content`. PR [#2125](https://github.com/GeekyAnts/NativeBase/pull/2125), closes [#2116](https://github.com/GeekyAnts/NativeBase/issues/2116)
+*   **Toast:** Added `hide` function for hiding toast. PR [#2124](https://github.com/GeekyAnts/NativeBase/pull/2124), closes [#1287](https://github.com/GeekyAnts/NativeBase/issues/1287)
+*   **Typescript:** Updated extended prop names. PR [#2070](https://github.com/GeekyAnts/NativeBase/pull/2070)
+
 
 
 ### Bug Fixes
--   **Button:** Removed `lineHeight` dependency in button. PR ([#1829](https://github.com/GeekyAnts/NativeBase/pull/1829)), closes ([#1827](https://github.com/GeekyAnts/NativeBase/issues/1827))
--   **Card:**
-    -   Added `noShadow` to card theme. PR ([#1821](https://github.com/GeekyAnts/NativeBase/pull/1821)), closes ([#1819](https://github.com/GeekyAnts/NativeBase/issues/1819))
-    -   Fixed CardItem header and footer border for Android. PR ([#1820](https://github.com/GeekyAnts/NativeBase/pull/1820)), closes ([#1818](https://github.com/GeekyAnts/NativeBase/issues/1818))
--   **Header:** Reduce space between left button and title for Android. PR ([#1789](https://github.com/GeekyAnts/NativeBase/pull/1789)), closes ([#1550](https://github.com/GeekyAnts/NativeBase/issues/1550))
--   **Input:**
-    -   FloatingLabel renders icon, label and input in its order of definition. PR ([d51b2f9](https://github.com/GeekyAnts/NativeBase/commit/d51b2f94cadd4f60d2a17445c2b9f52d6a35597a), [#1796](https://github.com/GeekyAnts/NativeBase/pull/1796)), closes ([#1781](https://github.com/GeekyAnts/NativeBase/issues/1781))
-    -   Added missing ref to Input in Item.js. PR ([#1786](https://github.com/GeekyAnts/NativeBase/pull/1786)), closes ([#1780](https://github.com/GeekyAnts/NativeBase/issues/1780))
-    -   Removed `lineHeight` dependency of Input. PR ([#1835](https://github.com/GeekyAnts/NativeBase/pull/1835)), closes ([#1731](https://github.com/GeekyAnts/NativeBase/issues/1731))
--   **Picker:** Removed Content warapping Flatlist. PR ([#1817](https://github.com/GeekyAnts/NativeBase/pull/1817)), closes ([#1816](https://github.com/GeekyAnts/NativeBase/issues/1816))
--   **Typescript:**
-    -   Moved listview properties of interface ReactListViewProperties to Card interface. PR ([#1785](https://github.com/GeekyAnts/NativeBase/pull/1785)), closes ([#1765](https://github.com/GeekyAnts/NativeBase/issues/1765))
-    -   Added missing props to list interface. PR ([#1802](https://github.com/GeekyAnts/NativeBase/pull/1802)), closes ([#1801](https://github.com/GeekyAnts/NativeBase/issues/1801))
-    -   Added `getRef` to Input interface. PR ([#1804](https://github.com/GeekyAnts/NativeBase/pull/1804)), closes ([#1803](https://github.com/GeekyAnts/NativeBase/issues/1803))
-    -   Added `span` and `hasSubtitle` to Header interface. PR ([#1828](https://github.com/GeekyAnts/NativeBase/pull/1828)), closes ([#1824](https://github.com/GeekyAnts/NativeBase/issues/1824))
-    -   Added missing props of Picker, Header, SwipeRow, Toast. PR ([#1839](https://github.com/GeekyAnts/NativeBase/pull/1839)), closes ([#1838](https://github.com/GeekyAnts/NativeBase/issues/1838))
+
+*   **Card:** Fixe Card flexes with wrapping Content. PR [#2148](https://github.com/GeekyAnts/NativeBase/pull/2148), closes [#2136](https://github.com/GeekyAnts/NativeBase/issues/2136)
+*   **Footer:** Vue Native - Footer issue fixed for iPhoneX. Commits ([a4a077d](https://github.com/GeekyAnts/NativeBase/commit/a4a077d1fa59aa049ab093d0e32a5c6def0ff5e1))
+*   **Header:**
+    -   Fixed vertical alignment of elements in Header on iPhoneX. PR [#2133](https://github.com/GeekyAnts/NativeBase/pull/2133), closes [#2128](https://github.com/GeekyAnts/NativeBase/issues/2128)
+    -   Vue Native - Header issue fixed for iPhoneX. Commits ([a4a077d](https://github.com/GeekyAnts/NativeBase/commit/a4a077d1fa59aa049ab093d0e32a5c6def0ff5e1))
+*   **Icon:** Fixed Ionicons, Feather and MaterialCommunityIcons font issue of 2.7.1. Commits ([951f154](https://github.com/GeekyAnts/NativeBase/commit/951f154d2a10d5459801ddce57addf3ee867e0ac)), ([f93b115](https://github.com/GeekyAnts/NativeBase/commit/f93b11530e572431ffd3148bcd65063609896e2f)), ([7a42759](https://github.com/GeekyAnts/NativeBase/commit/7a42759513706f60546ce3045376a6a93f574a48)), closes [#2138](https://github.com/GeekyAnts/NativeBase/issues/2138), [#2153](https://github.com/GeekyAnts/NativeBase/issues/2153)
+*   **Input:** Modified assertion on the `Item` component to use the `displayName` prop to support HOC. PR [#2001](https://github.com/GeekyAnts/NativeBase/pull/2001), closes [#2011](https://github.com/GeekyAnts/NativeBase/issues/2011)
+*   **Tabs:** Allow overriding of theme variable with explicit styles prop on Tab. PR [#2144](https://github.com/GeekyAnts/NativeBase/pull/2144), closes [#2134](https://github.com/GeekyAnts/NativeBase/issues/2134)
+*   **TypeScript:** Fixed date picker props. PR [#2132](https://github.com/GeekyAnts/NativeBase/pull/2132), closes [#2126](https://github.com/GeekyAnts/NativeBase/issues/2126)
