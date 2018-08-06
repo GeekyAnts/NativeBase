@@ -35,7 +35,7 @@
     "color": "~1.0.3",
     "fs-extra": "^2.0.0",
     "jest-react-native": "^18.0.0",
-    "lodash": "4.17.0",
+    "lodash": "4.17.10",
     "native-base-shoutem-theme": "0.2.2",
     "print-message": "^2.1.0",
     "prop-types": "^15.5.10",
