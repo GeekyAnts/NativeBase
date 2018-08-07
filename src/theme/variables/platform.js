@@ -131,6 +131,15 @@ export default {
   get fontSizeH3() {
     return this.fontSizeBase * 1.4;
   },
+  get fontSizeH4() {
+    return this.fontSizeBase * 1.2;
+  },
+  get fontSizeH5() {
+    return this.fontSizeBase * 1;
+  },
+  get fontSizeH6() {
+    return this.fontSizeBase * 0.8;
+  },
 
   // Footer
   footerHeight: 55,
@@ -190,6 +199,9 @@ export default {
   lineHeightH1: 32,
   lineHeightH2: 27,
   lineHeightH3: 22,
+  lineHeightH4: 18,
+  lineHeightH5: 15,
+  lineHeightH6: 12,
   lineHeight: platform === "ios" ? 20 : 24,
   listItemSelected: platform === "ios" ? "#007aff" : "#3F51B5",
 

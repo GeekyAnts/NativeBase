@@ -18,6 +18,9 @@ import radioTheme from "./Radio";
 import h3Theme from "./H3";
 import h2Theme from "./H2";
 import h1Theme from "./H1";
+import h4Theme from "./H4";
+import h5Theme from "./H5";
+import h6Theme from "./H6";
 import footerTheme from "./Footer";
 import footerTabTheme from "./FooterTab";
 import fabTheme from "./Fab";
@@ -111,6 +114,15 @@ export default (variables = variable) => {
     },
     "NativeBase.H3": {
       ...h3Theme(variables)
+    },
+    "NativeBase.H4": {
+      ...h4Theme(variables)
+    },
+    "NativeBase.H5": {
+      ...h5Theme(variables)
+    },
+    "NativeBase.H6": {
+      ...h6Theme(variables)
     },
     "NativeBase.Form": {
       ...formTheme(variables)
