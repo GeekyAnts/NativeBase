@@ -7,7 +7,7 @@ import { Left } from "./Left";
 import { Right } from "./Right";
 import { Body } from "./Body";
 import { ListItem } from "./ListItem";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 const PREVIEW_OPEN_DELAY = 700;
 const PREVIEW_CLOSE_DELAY = 300;

@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Icon ActionSheet 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffbcbc",
+        "borderColor": "red",
+        "borderWidth": 1,
+        "height": 100,
+        "justifyContent": "center",
+        "margin": 10,
+        "width": 300,
+      },
+      Object {
+        "borderRadius": 2,
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#333333",
+        "margin": 20,
+      }
+    }
+  >
+    TouchableNativeFeedback is not supported on this platform!
+  </Text>
+</View>
+`;
+
+exports[`renders Regular ActionSheet 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffbcbc",
+        "borderColor": "red",
+        "borderWidth": 1,
+        "height": 100,
+        "justifyContent": "center",
+        "margin": 10,
+        "width": 300,
+      },
+      Object {
+        "borderRadius": 2,
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#333333",
+        "margin": 20,
+      }
+    }
+  >
+    TouchableNativeFeedback is not supported on this platform!
+  </Text>
+</View>
+`;

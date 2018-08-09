@@ -1,0 +1,478 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders regular Single SwipeRow 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  contentContainerStyle={
+    Array [
+      Object {
+        "padding": undefined,
+      },
+      undefined,
+    ]
+  }
+  contentInset={
+    Object {
+      "bottom": 0,
+    }
+  }
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  getScrollResponder={[Function]}
+  handleOnScroll={[Function]}
+  keyboardDismissMode="interactive"
+  keyboardOpeningTime={250}
+  keyboardShouldPersistTaps="handled"
+  keyboardSpace={0}
+  onScroll={[Function]}
+  resetKeyboardSpace={[Function]}
+  resetScrollToCoords={
+    Object {
+      "x": 0,
+      "y": 0,
+    }
+  }
+  scrollEnabled={false}
+  scrollEventThrottle={1}
+  scrollForExtraHeightOnAndroid={[Function]}
+  scrollToEnd={[Function]}
+  scrollToFocusedInput={[Function]}
+  scrollToPosition={[Function]}
+  showsVerticalScrollIndicator={true}
+  style={Object {}}
+  viewIsInsideTabBar={false}
+>
+  <View>
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "overflow": "hidden",
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            Object {
+              "flex": 1,
+              "flexDirection": "row",
+              "height": 0,
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 75,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffbcbc",
+                  "borderColor": "red",
+                  "borderWidth": 1,
+                  "height": 100,
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "width": 300,
+                },
+                Object {
+                  "borderRadius": 2,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#333333",
+                  "margin": 20,
+                }
+              }
+            >
+              TouchableNativeFeedback is not supported on this platform!
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flex": 0,
+              },
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 75,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffbcbc",
+                  "borderColor": "red",
+                  "borderWidth": 1,
+                  "height": 100,
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "width": 300,
+                },
+                Object {
+                  "borderRadius": 2,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#333333",
+                  "margin": 20,
+                }
+              }
+            >
+              TouchableNativeFeedback is not supported on this platform!
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        style={
+          Object {
+            "transform": Array [
+              Object {
+                "translateX": 0,
+              },
+            ],
+            "zIndex": 2,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+        >
+          <View
+            list={true}
+            style={
+              Array [
+                Object {},
+                Object {},
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              <Text
+                style={Object {}}
+                uppercase={false}
+              >
+                Swipe me to left and right
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`renders regular Single SwipeRow Custom Style 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  contentContainerStyle={
+    Array [
+      Object {
+        "padding": undefined,
+      },
+      undefined,
+    ]
+  }
+  contentInset={
+    Object {
+      "bottom": 0,
+    }
+  }
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  getScrollResponder={[Function]}
+  handleOnScroll={[Function]}
+  keyboardDismissMode="interactive"
+  keyboardOpeningTime={250}
+  keyboardShouldPersistTaps="handled"
+  keyboardSpace={0}
+  onScroll={[Function]}
+  resetKeyboardSpace={[Function]}
+  resetScrollToCoords={
+    Object {
+      "x": 0,
+      "y": 0,
+    }
+  }
+  scrollEnabled={false}
+  scrollEventThrottle={1}
+  scrollForExtraHeightOnAndroid={[Function]}
+  scrollToEnd={[Function]}
+  scrollToFocusedInput={[Function]}
+  scrollToPosition={[Function]}
+  showsVerticalScrollIndicator={true}
+  style={Object {}}
+  viewIsInsideTabBar={false}
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "backgroundColor": "#9370DB",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "overflow": "hidden",
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            Object {
+              "flex": 1,
+              "flexDirection": "row",
+              "height": 0,
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 75,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffbcbc",
+                  "borderColor": "red",
+                  "borderWidth": 1,
+                  "height": 100,
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "width": 300,
+                },
+                Object {
+                  "borderRadius": 2,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#333333",
+                  "margin": 20,
+                }
+              }
+            >
+              TouchableNativeFeedback is not supported on this platform!
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flex": 0,
+              },
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 75,
+                "zIndex": 1,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffbcbc",
+                  "borderColor": "red",
+                  "borderWidth": 1,
+                  "height": 100,
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "width": 300,
+                },
+                Object {
+                  "borderRadius": 2,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#333333",
+                  "margin": 20,
+                }
+              }
+            >
+              TouchableNativeFeedback is not supported on this platform!
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        style={
+          Object {
+            "transform": Array [
+              Object {
+                "translateX": 0,
+              },
+            ],
+            "zIndex": 2,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+        >
+          <View
+            list={true}
+            style={
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "backgroundColor": "#9370DB",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "paddingLeft": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#FFF",
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                Swipe me to left and right
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
