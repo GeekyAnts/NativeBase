@@ -318,8 +318,8 @@ export default (variables = variable) => {
             color: variables.toolbarBtnColor,
             fontSize:
               platform === "ios" && variables.platformStyle !== "material"
-                ? variables.iconHeaderSize - 9
-                : variables.iconHeaderSize - 2,
+                ? variables.iconHeaderSize - 2
+                : variables.iconHeaderSize - 9,
             marginTop: 0,
             marginLeft: 2,
             marginRight: 0
@@ -329,8 +329,8 @@ export default (variables = variable) => {
             color: variables.toolbarBtnColor,
             fontSize:
               platform === "ios" && variables.platformStyle !== "material"
-                ? variables.iconHeaderSize - 9
-                : variables.iconHeaderSize - 2,
+                ? variables.iconHeaderSize - 2
+                : variables.iconHeaderSize - 9,
             marginTop: 0,
             marginLeft: 2,
             marginRight: 0
