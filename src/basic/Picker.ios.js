@@ -4,8 +4,6 @@ import createReactClass from "create-react-class";
 import { Picker, Modal, View, ViewPropTypes, FlatList } from "react-native";
 import _ from "lodash";
 import { Text } from "./Text";
-import { List } from "./List";
-import { IconNB as Icon } from "./IconNB";
 import { Radio } from "./Radio";
 import { Container } from "./Container";
 import { ListItem } from "./ListItem";
@@ -50,9 +48,7 @@ class PickerNB extends Component {
 
   getInitialStyle() {
     return {
-      picker: {
-        // alignItems: 'flex-end'
-      },
+      picker: {},
       pickerItem: {}
     };
   }
@@ -63,7 +59,8 @@ class PickerNB extends Component {
   prepareRootProps() {
     const defaultProps = {
       style: this.getInitialStyle().picker,
-      itemStyle: this.getInitialStyle().pickerItem
+      itemStyle: this.getInitialStyle().pickerItem,
+      modalAnimationType: 'slide'
     };
 
     return computeProps(this.props, defaultProps);
@@ -187,7 +184,7 @@ class PickerNB extends Component {
         {this.renderButton()}
         <Modal
           supportedOrientations={this.props.supportedOrientations || null}
-          animationType="slide"
+          animationType={this.props.modalAnimationType}
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {

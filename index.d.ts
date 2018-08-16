@@ -31,6 +31,7 @@ declare module "native-base" {
 			headerTitleStyle?: ReactNative.TextStyle;
 			headerBackButtonTextStyle?: ReactNative.TextStyle;
 			modalStyle?: ReactNative.ViewStyle;
+                        modalAnimationType?: "none" | "slide" | 'fade';
 			renderHeader?: (backAction: any) => React.ReactElement<any>;
 		}
 
