@@ -59,8 +59,7 @@ class PickerNB extends Component {
   prepareRootProps() {
     const defaultProps = {
       style: this.getInitialStyle().picker,
-      itemStyle: this.getInitialStyle().pickerItem,
-      modalAnimationType: 'slide'
+      itemStyle: this.getInitialStyle().pickerItem
     };
 
     return computeProps(this.props, defaultProps);
@@ -184,7 +183,7 @@ class PickerNB extends Component {
         {this.renderButton()}
         <Modal
           supportedOrientations={this.props.supportedOrientations || null}
-          animationType={this.props.modalAnimationType}
+          animationType={this.props.modalAnimationType || 'slide'}
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {
