@@ -12,6 +12,6 @@ Also **DO** fill out the below form to give us a better idea about your environm
 ## node, npm, react-native, react and native-base version, expo version if used
 ## Expected behaviour
 ## Actual behaviour
-## Steps to reproduce should include code snippet and screenshot
+## Steps to reproduce should include code snippet and screenshot. Include code snippet in preformatted mode (```code```)
 ## Is the bug present in both iOS and Android or in any one of them?
 ## Any other additional info which would help us debug the issue quicker.
