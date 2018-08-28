@@ -227,7 +227,7 @@ class Item extends Component {
     }
     return newChildren;
   }
-  
+
   getInitialStyle() {
     return {
       roundedInputGroup: {

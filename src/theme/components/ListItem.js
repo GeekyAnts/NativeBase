@@ -231,7 +231,9 @@ export default (variables = variable) => {
     },
     ".avatar": {
       "NativeBase.Left": {
-        flex: 0
+        flex: 0,
+        alignSelf: 'flex-start',
+        paddingTop: 14
       },
       "NativeBase.Body": {
         "NativeBase.Text": {

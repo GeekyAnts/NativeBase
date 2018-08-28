@@ -33,8 +33,8 @@ class Header extends Component {
     let oldHeight = null;
     if (this.props.style.height != undefined) {
       oldHeight = this.props.style.height;
-    } else if (this.props.style[1].height) {
-      oldHeight = this.props.style[1].height;
+    } else if (this.props.style[1]) {
+      oldHeight = this.props.style[1].height ? this.props.style[1].height : this.props.style[0].height;
     } else {
       oldHeight = this.props.style[0].height;
     }
@@ -51,7 +51,7 @@ class Header extends Component {
     const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
     let topPadder = null;
     let style = StyleSheet.flatten(this.props.style);
-    if (style.padding !== undefined && style.paddingTop !== undefined) {
+    if (style.padding !== undefined || style.paddingTop !== undefined) {
       topPadder = (style.paddingTop ? style.paddingTop : style.padding) + InsetValues.topInset;
     } else {
       topPadder = InsetValues.topInset;

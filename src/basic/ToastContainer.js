@@ -20,6 +20,11 @@ class ToastContainer extends Component {
   static show({ ...config }) {
     this.toastInstance._root.showToast({ config });
   }
+  static hide() {
+    if (this.toastInstance._root.getModalState()) {
+      this.toastInstance._root.closeToast("functionCall");
+    }
+  }
   getToastStyle() {
     return {
       position: "absolute",
@@ -46,6 +51,9 @@ class ToastContainer extends Component {
     }
     return undefined;
   }
+  getModalState() {
+    return this.state.modalVisible;
+  }
   showToast({ config }) {
     this.setState({
       modalVisible: true,
@@ -68,7 +76,7 @@ class ToastContainer extends Component {
     if (config.duration !== 0) {
       const duration = (config.duration > 0) ? config.duration : 1500;
       this.closeTimeout = setTimeout(this.closeToast.bind(this, 'timeout'), duration);
-    }  
+    }
     // Fade the toast in now.
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
@@ -80,7 +88,7 @@ class ToastContainer extends Component {
       modalVisible: false
     });
     const { onClose } = this.state;
-    if(onClose && typeof onClose === "function") {
+    if (onClose && typeof onClose === "function") {
       onClose(reason);
     }
   }
