@@ -54,7 +54,7 @@ class List extends Component {
 
   safeCloseOpenRow() {
     // if the openCellId is stale due to deleting a row this could be undefined
-    if (this._rows[this.openCellId]._root) {
+    if (this._rows[this.openCellId] && this._rows[this.openCellId]._root) {
       this._rows[this.openCellId]._root.closeRow();
     }
   }
