@@ -48,15 +48,15 @@ class Button extends Component {
       Platform.OS === "ios"
         ? this.props.children
         : React.Children.map(
-            this.props.children,
-            child =>
-              child && child.type === Text
-                ? React.cloneElement(child, {
-                    uppercase: variables.btnUppercaseAndroidText,
-                    ...child.props
-                  })
-                : child
-          );
+          this.props.children,
+          child =>
+            child && child.type === Text
+              ? React.cloneElement(child, {
+                uppercase: variables.btnUppercaseAndroidText,
+                ...child.props
+              })
+              : child
+        );
     if (
       Platform.OS === "ios" ||
       Platform.OS === "web" ||
@@ -75,37 +75,38 @@ class Button extends Component {
         </TouchableOpacity>
       );
     } else {
-        if(this.props.rounded){
-            let buttonStyle = { ...this.prepareRootProps().style };
-            let buttonFlex = (this.props.full || this.props.block) ? 1 : buttonStyle.flex;
-            return (
-              <View style={[{ maxHeight:buttonStyle.height }, buttonStyle, { paddingTop: undefined, paddingBottom: undefined }]} >
-                <TouchableNativeFeedback
-                  ref={c => (this._root = c)}
-                  background={
-                    this.props.androidRippleColor
-                      ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor, true)
-                      : TouchableNativeFeedback.Ripple(variables.androidRippleColor, true)
-                  }
-                  { ...this.prepareRootProps() }
-                >
-                  <View style={[styles.childContainer, { paddingTop: buttonStyle.paddingTop, paddingBottom: buttonStyle.paddingBottom, height: buttonStyle.height,flexGrow:buttonFlex }]}>
-                    {children}
-                  </View>
-                </TouchableNativeFeedback>
-              </View >
-            );  
-        } else {
-            return (
-              <TouchableNativeFeedback
-                ref={c => (this._root = c)}
-                onPress={this.props.onPress}
-                {...this.prepareRootProps()}
-              >
-                <View {...this.prepareRootProps()}>{children}</View>
-              </TouchableNativeFeedback>
-            );
-        }
+      if (this.props.rounded) {
+        let buttonStyle = { ...this.prepareRootProps().style };
+        let buttonFlex = (this.props.full || this.props.block) ? 1 : buttonStyle.flex;
+        return (
+          <View style={[{ maxHeight: buttonStyle.height }, buttonStyle, { paddingTop: undefined, paddingBottom: undefined }]} >
+            <TouchableNativeFeedback
+              ref={c => (this._root = c)}
+              background={
+                this.props.androidRippleColor
+                  ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor, true)
+                  : TouchableNativeFeedback.Ripple(variables.androidRippleColor, true)
+              }
+              {...this.prepareRootProps()}
+            >
+              <View style={[styles.childContainer, { paddingTop: buttonStyle.paddingTop, paddingBottom: buttonStyle.paddingBottom, height: buttonStyle.height, flexGrow: buttonFlex }]}>
+                {children}
+              </View>
+            </TouchableNativeFeedback>
+          </View >
+        );
+      } else {
+        return (
+          <TouchableNativeFeedback
+            ref={c => (this._root = c)}
+            onPress={this.props.onPress}
+            background={this.props.transparent ? TouchableNativeFeedback.Ripple('transparent') : undefined}
+            {...this.prepareRootProps()}
+          >
+            <View {...this.prepareRootProps()}>{children}</View>
+          </TouchableNativeFeedback>
+        );
+      }
     }
   }
 }
@@ -133,12 +134,12 @@ Button.propTypes = {
 };
 
 const styles = StyleSheet.create({
-	childContainer: {
-		flexShrink: 1,
-		flexDirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
+  childContainer: {
+    flexShrink: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
 });
 
 const StyledButton = connectStyle(
