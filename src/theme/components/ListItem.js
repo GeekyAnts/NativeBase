@@ -428,6 +428,9 @@ export default (variables = variable) => {
       padding: variables.listItemPadding,
       paddingLeft: variables.listItemPadding + 6,
     },
+    ".small": {
+      paddingVertical: variables.listItemPadding - 5,
+    },
     alignItems: "center",
     flexDirection: "row",
     paddingRight: variables.listItemPadding + 6,
