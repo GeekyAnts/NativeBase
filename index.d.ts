@@ -845,7 +845,7 @@ declare module "native-base" {
 			dataArray: Array<any>;
 			headerStyle?: ReactNative.ViewStyle;
 			contentStyle?: ReactNative.ViewStyle;
-			renderHeader?: (item: any, expanded: boolean) => React.ReactElement;
+			renderHeader?: (item: any, expanded: boolean) => React.ReactElement<any>;
 			renderContent?: (item: any) => React.ReactElement<any>;
 			icon?: string;
 			expandedIcon?: string;
