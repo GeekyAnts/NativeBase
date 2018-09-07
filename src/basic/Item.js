@@ -21,236 +21,276 @@ class Item extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
+      text: "",
       topAnim: new Animated.Value(18),
-      opacAnim: new Animated.Value(1),
-      isFocused: false,
+      opacAnim: new Animated.Value(1)
     };
   }
-
   componentDidMount() {
     if (this.props.floatingLabel) {
       if (this.inputProps && this.inputProps.value) {
         this.setState({ isFocused: true });
         this.floatUp(-16);
       }
-      if (this.inputProps && this.inputProps.getRef) {
+      if (this.inputProps && this.inputProps.getRef)
         this.inputProps.getRef(this._inputRef);
-      }
     }
   }
-
   componentWillReceiveProps(nextProps) {
     const childrenArray = React.Children.toArray(nextProps.children);
-    _.remove(childrenArray, (item) => {
-      if (item.type.displayName === 'Styled(Input)') {
+    let inputProps = {};
+    _.remove(childrenArray, item => {
+      if (item.type.displayName === "Styled(Input)") {
+        inputProps = item.props;
         this.inputProps = item.props;
         return item;
       }
-      return false;
     });
     if (this.props.floatingLabel) {
       if (this.inputProps && this.inputProps.value) {
         this.setState({ isFocused: true });
         this.floatUp(-16);
       }
-      if (this.inputProps && this.inputProps.getRef) {
+      if (this.inputProps && this.inputProps.getRef)
         this.inputProps.getRef(this._inputRef);
-      }
     }
   }
 
   floatBack() {
     Animated.timing(this.state.topAnim, {
       toValue: 18,
-      duration: 150,
+      duration: 150
     }).start();
     Animated.timing(this.state.opacAnim, {
       toValue: 1,
-      duration: 150,
+      duration: 150
     }).start();
   }
 
   floatUp(e) {
     Animated.timing(this.state.topAnim, {
       toValue: e || -22,
-      duration: 150,
+      duration: 150
     }).start();
     Animated.timing(this.state.opacAnim, {
       toValue: 0.7,
-      duration: 150,
+      duration: 150
     }).start();
   }
 
   renderLabel(label, labelProps) {
-    if (!label) {
-      return React.createElement(Label, { ...labelProps });
-    }
-
+    const newLabel = [];
+    let labelStyle = StyleSheet.flatten(
+      { fontSize: 15, lineHeight: 30 },
+      labelProps.style
+    );
     if (this.props.floatingLabel) {
       if (this.state.isFocused) {
-        const labelStyle = StyleSheet.flatten(
-          { fontSize: 15, lineHeight: 30 },
-          labelProps.style,
+        newLabel.push(
+          React.createElement(Label, {
+            ...labelProps,
+            key: "newFLabel",
+            float: true,
+            style: labelProps.style
+          })
         );
         this.floatUp(-16);
-        return React.cloneElement(label, {
-          ...labelProps,
-          key: 'newFLabel',
-          float: true,
-          style: labelProps.style,
-        });
+      } else {
+        newLabel.push(label);
+        this.floatBack();
       }
-      this.floatBack();
-      return label;
+    } else {
+      newLabel.push(
+        React.createElement(Label, {
+          ...labelProps,
+          key: "newLabel"
+        })
+      );
     }
-    return React.cloneElement(label, {
-      ...labelProps,
-      key: 'newLabel',
-    });
-  }
-
-  renderInput(inputElement, inputProps) {
-    const props = {
-      value: this.state.text,
-      ...inputProps,
-      ref: (c) => { this._inputRef = c; },
-      key: 'l2',
-      onFocus: () => {
-        this.setState({ isFocused: true });
-        inputProps.onFocus && inputProps.onFocus();
-      },
-      onBlur: () => {
-        inputProps.value
-          ? this.setState({
-            isFocused: true,
-          })
-          : !this.state.text.length && this.setState({ isFocused: false });
-        inputProps.onBlur && inputProps.onBlur();
-      },
-      onChangeText: (text) => {
-        this.setState({ text });
-        inputProps.onChangeText && this.inputProps.onChangeText(text);
-      },
-    };
-
-    if (!inputElement) {
-      return React.createElement(Input, props);
-    }
-    return React.cloneElement(inputElement, props);
+    return newLabel;
   }
 
   renderChildren() {
-    let labelChild = null;
+    const newChildren = [];
+    const childrenArray = React.Children.toArray(this.props.children);
+
+    let label = [];
     let labelProps = {};
-    let inputChild = null;
+    label = _.remove(childrenArray, item => {
+      if (item.type === Label) {
+        labelProps = item.props;
+        return item;
+      }
+    });
+
+    let input = [];
     let inputProps = {};
-    const icon = [];
+    input = _.remove(childrenArray, item => {
+      if (item.type === Input) {
+        inputProps = item.props;
+        this.inputProps = item.props;
+        return item;
+      }
+    });
+
+    let icon = [];
     let iconProps = {};
-    let newChildren = [];
-
-    React.Children.toArray(this.props.children)
-      .forEach((item) => {
-        if (item.type.displayName === 'Styled(Label)') {
-          labelChild = item;
-          labelProps = item.props;
-        } else if (item.type.displayName === 'Styled(Input)') {
-          inputChild = item;
-          inputProps = item.props;
-          this.inputProps = item.props;
-        } else if (item.type.displayName === 'Styled(Icon)') {
-          icon.push({ iconItem: item, isRight: !!inputChild });
-          iconProps = item.props;
+    icon = _.remove(childrenArray, item => {
+      if (item.type === Icon) {
+        iconProps = item.props;
+        return item;
+      }
+    });
+    if (this.props.floatingLabel && icon.length) {
+      let isIcon = false;
+      for (let i = 0; i < this.props.children.length; i++) {
+        if (this.props.children[i].props.name && this.props.children[i].type.displayName !== "Styled(Input)") {
+          isIcon = true;
+          newChildren.push(
+            <Icon key={[i]} {...this.props.children[i].props} />
+          );
         }
-      });
-
-    if (this.props.floatingLabel) {
-      const hasIcon = icon && icon.length;
-      const hasIconLeft = icon && icon.length && icon.some(iconElement => !iconElement.isRight);
+        if (this.props.children[i].props.children) {
+          newChildren.push(
+            <Animated.View
+              key="float"
+              style={{
+                position: "absolute",
+                left:
+                  this.props.last && isIcon
+                    ? 40
+                    : this.props.last
+                      ? 15
+                      : isIcon
+                        ? 26
+                        : 0,
+                right: 0,
+                top: this.state.topAnim,
+                opacity: this.state.opacAnim,
+                paddingTop: Platform.OS === "ios" ? undefined : undefined,
+                paddingBottom: Platform.OS === "ios" ? undefined : 12
+              }}
+            >
+              <Label {...labelProps}>
+                {this.renderLabel(label, labelProps)}
+              </Label>
+            </Animated.View>
+          );
+          newChildren.push(
+            <Input
+              ref={c => (this._inputRef = c)}
+              key="l2"
+              {...inputProps}
+              onFocus={() => {
+                this.setState({ isFocused: true });
+                inputProps.onFocus && inputProps.onFocus();
+              }}
+              onBlur={() => {
+                inputProps.value
+                  ? this.setState({
+                    isFocused: true
+                  })
+                  : !this.state.text.length &&
+                  this.setState({ isFocused: false });
+                inputProps.onBlur && inputProps.onBlur();
+              }}
+              onChangeText={text => {
+                this.setState({ text });
+                inputProps.onChangeText && inputProps.onChangeText(text);
+              }}
+            />
+          );
+        }
+      }
+    } else if (this.props.floatingLabel) {
       newChildren.push(
         <Animated.View
           key="float"
           style={{
-            position: 'absolute',
-            left:
-              this.props.last && hasIconLeft
-                ? 40
-                : this.props.last
-                  ? 15
-                  : hasIconLeft
-                    ? 26
-                    : 0,
+            position: "absolute",
+            left: this.props.last ? 15 : 0,
             right: 0,
             top: this.state.topAnim,
             opacity: this.state.opacAnim,
-            paddingTop: Platform.OS === 'ios' ? undefined : 2,
-            paddingBottom: Platform.OS === 'ios' ? undefined : 12,
+            paddingTop: Platform.OS === "ios" ? undefined : undefined,
+            paddingBottom: Platform.OS === "ios" ? undefined : 12
           }}
         >
-          {this.renderLabel(labelChild, labelProps)}
-        </Animated.View>,
+          <Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
+        </Animated.View>
       );
-      newChildren.push(this.renderInput(inputChild, inputProps));
-      if (hasIcon) {
-        icon.forEach(({ iconItem, isRight }) => {
-          const iconComponent = <Icon key={iconItem.key} {...iconItem.props} />;
-          if (isRight) {
-            newChildren.push(iconComponent);
-          } else {
-            newChildren.unshift(iconComponent);
-          }
-        });
-      }
+      newChildren.push(
+        <Input
+          ref={c => (this._inputRef = c)}
+          value={this.state.text}
+          key="l2"
+          {...inputProps}
+          onFocus={() => {
+            this.setState({ isFocused: true });
+            inputProps.onFocus && inputProps.onFocus();
+          }}
+          onBlur={() => {
+            inputProps.value
+              ? this.setState({
+                isFocused: true
+              })
+              : !this.state.text.length && this.setState({ isFocused: false });
+            inputProps.onBlur && inputProps.onBlur();
+          }}
+          onChangeText={text => {
+            this.setState({ text });
+            inputProps.onChangeText && inputProps.onChangeText(text);
+          }}
+        />
+      );
     } else if (this.props.stackedLabel && icon.length) {
       newChildren.push(
         <View
           key="s"
           style={{
-            flexDirection: 'row',
+            flexDirection: "row",
             flex: 1,
-            width: variables.deviceWidth - 15,
+            width: variables.deviceWidth - 15
           }}
         >
           <Icon key="s1" {...iconProps} />
-          <View style={{ flexDirection: 'column' }}>
+          <View style={{ flexDirection: "column" }}>
             <Label key="s2" {...labelProps} />
-            {React.cloneElement(inputChild, {
-              ...inputProps,
-              key: 's3',
-              style: { width: variables.deviceWidth - 40 },
-            })}
+            <Input
+              key="s3"
+              {...inputProps}
+              style={{ width: variables.deviceWidth - 40 }}
+            />
           </View>
-        </View>,
+        </View>
       );
     } else {
-      newChildren = this.props.children;
+      return this.props.children;
     }
     return newChildren;
   }
-
   getInitialStyle() {
     return {
       roundedInputGroup: {
         borderWidth: this.props.rounded ? variables.borderWidth * 2 : undefined,
         borderRadius: this.props.rounded
           ? variables.inputGroupRoundedBorderRadius
-          : undefined,
-      },
+          : undefined
+      }
     };
   }
 
   prepareRootProps() {
     const defaultProps = {
-      style: this.getInitialStyle().roundedInputGroup,
+      style: this.getInitialStyle().roundedInputGroup
     };
 
     return computeProps(this.props, defaultProps);
   }
-
   render() {
     return (
       <TouchableOpacity
-        ref={(c) => { this._root = c; }}
+        ref={c => (this._root = c)}
         {...this.prepareRootProps()}
         activeOpacity={1}
       >
