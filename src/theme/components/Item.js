@@ -17,7 +17,7 @@ export default (variables = variable) => {
         }
       },
       "NativeBase.Label": {
-        top: 8
+        paddingTop: 5
       },
       "NativeBase.Icon": {
         top: 6,
