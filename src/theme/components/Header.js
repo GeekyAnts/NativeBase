@@ -316,10 +316,7 @@ export default (variables = variable) => {
           borderRadius: 50,
           "NativeBase.Icon": {
             color: variables.toolbarBtnColor,
-            fontSize:
-              platform === "ios" && variables.platformStyle !== "material"
-                ? variables.iconHeaderSize - 9
-                : variables.iconHeaderSize - 2,
+            fontSize: variables.iconHeaderSize - 2,
             marginTop: 0,
             marginLeft: 2,
             marginRight: 0
@@ -327,10 +324,7 @@ export default (variables = variable) => {
           },
           "NativeBase.IconNB": {
             color: variables.toolbarBtnColor,
-            fontSize:
-              platform === "ios" && variables.platformStyle !== "material"
-                ? variables.iconHeaderSize - 9
-                : variables.iconHeaderSize - 2,
+            fontSize: variables.iconHeaderSize - 2,
             marginTop: 0,
             marginLeft: 2,
             marginRight: 0
