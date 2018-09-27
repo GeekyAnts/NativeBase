@@ -23,7 +23,8 @@ const DefaultTabBar = createReactClass({
     tabStyle: ViewPropTypes.style,
     renderTab: PropTypes.func,
     underlineStyle: ViewPropTypes.style,
-    tabContainerStyle: ViewPropTypes.style
+    tabContainerStyle: ViewPropTypes.style,
+    tabButtonStyle: ViewPropTypes.style,
   },
   contextTypes: {
     theme: PropTypes.object
@@ -50,7 +51,8 @@ const DefaultTabBar = createReactClass({
     textStyle,
     activeTextStyle,
     tabHeaderStyle,
-    tabFontSize
+    tabButtonStyle,
+    tabFontSize,
   ) {
     const headerContent =
       typeof name !== "string" ? name.props.children : undefined;
@@ -61,8 +63,7 @@ const DefaultTabBar = createReactClass({
     if (typeof name === "string") {
       return (
         <Button
-          style={{ flex: 1 }}
-          key={name}
+          style={[{ flex: 1 }, tabButtonStyle]}
           onPress={() => onPressHandler(page)}
         >
           <TabHeading
@@ -83,7 +84,7 @@ const DefaultTabBar = createReactClass({
     } else {
       return (
         <Button
-          style={{ flex: 1 }}
+          style={[{ flex: 1 }, tabButtonStyle]}
           key={_.random(1.2, 5.2)}
           onPress={() => onPressHandler(page)}
         >
@@ -134,6 +135,7 @@ const DefaultTabBar = createReactClass({
             this.props.textStyle[page],
             this.props.activeTextStyle[page],
             this.props.tabHeaderStyle[page],
+            this.props.tabButtonStyle[page],
             variables.tabFontSize
           );
         })}

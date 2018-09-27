@@ -32,6 +32,7 @@ const ScrollableTabBar = createReactClass({
     style: ViewPropTypes.style,
     tabStyle: ViewPropTypes.style,
     tabsContainerStyle: ViewPropTypes.style,
+    tabButtonStyle: ViewPropTypes.style,
     renderTab: PropTypes.func,
     underlineStyle: ViewPropTypes.style,
     onScroll: PropTypes.func
@@ -49,6 +50,7 @@ const ScrollableTabBar = createReactClass({
       style: {},
       tabStyle: {},
       tabsContainerStyle: {},
+      tabButtonStyle: {},
       underlineStyle: {},
       tabFontSize: variable.tabFontSize
     };
@@ -159,7 +161,8 @@ const ScrollableTabBar = createReactClass({
     textStyle,
     activeTextStyle,
     tabHeaderStyle,
-    tabFontSize
+    tabButtonStyle,
+    tabFontSize,
   ) {
     const headerContent =
       typeof name !== "string" ? name.props.children : undefined;
@@ -174,6 +177,7 @@ const ScrollableTabBar = createReactClass({
           key={`${name}_${page}`}
           onPress={() => onPressHandler(page)}
           onLayout={onLayoutHandler}
+          style={tabButtonStyle}
         >
           <TabHeading
             scrollable
@@ -197,6 +201,7 @@ const ScrollableTabBar = createReactClass({
           key={_.random(1.2, 5.2)}
           onPress={() => onPressHandler(page)}
           onLayout={onLayoutHandler}
+          style={tabButtonStyle}
         >
           <TabHeading scrollable style={tabHeaderStyle} active={isTabActive}>
             {headerContent}
@@ -273,6 +278,7 @@ const ScrollableTabBar = createReactClass({
                 this.props.textStyle[page],
                 this.props.activeTextStyle[page],
                 this.props.tabHeaderStyle[page],
+                this.props.tabButtonStyle[page],
                 variables.tabFontSize
               );
             })}
