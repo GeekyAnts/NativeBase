@@ -5,6 +5,10 @@ import variable from "./../variables/platform";
 export default (variables /*: * */ = variable) => {
   const cardTheme = {
     ".transparent": {
+     'NativeBase.CardItem': {
+        backgroundColor: null,
+        borderWidth: 0,
+      },
       shadowColor: null,
       shadowOffset: null,
       shadowOpacity: null,
