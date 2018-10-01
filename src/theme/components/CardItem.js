@@ -1,7 +1,9 @@
+// @flow
+
 import { StyleSheet } from "react-native";
 import variable from "./../variables/platform";
 
-export default (variables = variable) => {
+export default (variables /*: * */ = variable) => {
   const platform = variables.platform;
   const transparentBtnCommon = {
     "NativeBase.Text": {

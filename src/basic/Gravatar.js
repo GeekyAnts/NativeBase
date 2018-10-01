@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Image } from "react-native";
 import { connectStyle } from "native-base-shoutem-theme";
 import _ from "lodash";
