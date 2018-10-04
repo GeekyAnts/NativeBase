@@ -796,6 +796,7 @@ declare module "native-base" {
 			success?: boolean;
 			last?: boolean;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			picker?: boolean;
 		}
 
 		interface Form {
