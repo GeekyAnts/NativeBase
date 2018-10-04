@@ -677,6 +677,7 @@ declare module "native-base" {
          */
 		interface Radio extends ReactNative.TouchableOpacityProperties {
 			selected?: boolean;
+			selectedColor?: string;
 		}
 		/**
          * see Widget ProgressBar.js
