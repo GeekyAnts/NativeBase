@@ -754,6 +754,7 @@ declare module "native-base" {
 			onChangeTab?: Function;
 			locked?: boolean;
 			initialPage?: number;
+			page?: number;
 			tabBarUnderlineStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			tabBarBackgroundColor?: string;
 			tabBarActiveTextColor?: string;
