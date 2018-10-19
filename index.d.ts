@@ -752,6 +752,7 @@ declare module "native-base" {
 			springTension?: number;
 			springFriction?: number;
 			onChangeTab?: Function;
+		        page?: number;
 			locked?: boolean;
 			initialPage?: number;
 			tabBarUnderlineStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
