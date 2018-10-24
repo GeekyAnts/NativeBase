@@ -44,6 +44,7 @@ class CheckBox extends Component {
             fontSize: variables.CheckboxFontSize,
             lineHeight: variables.CheckboxIconSize,
             marginTop: variables.CheckboxIconMarginTop,
+            textShadowRadius: 0
           }}
           name={platform === "ios" && platformStyle !== "material" ? "ios-checkmark" : "md-checkmark"}
         />
