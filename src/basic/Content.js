@@ -105,7 +105,7 @@ class Content extends Component {
         ref={c => {
           this._scrollview = c;
           this._root = c;
-		}}
+        }}
         {...this.props}
         onLayout={e => this.layoutChange(e.nativeEvent.layout)}
         style={[
@@ -116,7 +116,7 @@ class Content extends Component {
               variables.Inset
             )
           }
-		]}
+        ]}
 		contentContainerStyle={[{ padding: this.props.padder ? variables.contentPadding : undefined }, this.props.contentContainerStyle]}
       >
         {this.props.children}
