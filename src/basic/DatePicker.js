@@ -6,7 +6,7 @@ import {
   DatePickerIOS,
   DatePickerAndroid
 } from "react-native";
-import { Text } from "native-base";
+import { Text } from "./Text";
 import variable from "../theme/variables/platform";
 
 export class DatePicker extends React.Component {
