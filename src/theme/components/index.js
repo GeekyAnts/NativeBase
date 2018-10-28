@@ -94,7 +94,7 @@ export default (variables /*: * */ = variable) => {
     },
 
     "NativeBase.Card": {
-      ...cardTheme()
+      ...cardTheme(variables)
     },
 
     "NativeBase.CardItem": {
