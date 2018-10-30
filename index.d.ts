@@ -616,6 +616,7 @@ declare module "native-base" {
          * see Widget Textarea.js
          */
 		interface Textarea extends ReactNative.TextInputProperties {
+			bordered: boolean;
 			rowSpan: number;
 		}
 
