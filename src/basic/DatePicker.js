@@ -85,7 +85,7 @@ export class DatePicker extends React.Component {
       <View>
         <View>
           <Text
-            onPress={ !this.state.disabled ? this.showDatePicker.bind(this) : undefined }
+            onPress={!this.state.disabled ? this.showDatePicker.bind(this) : undefined}
             style={[
               { padding: 10, color: variables.datePickerTextColor },
               this.state.chosenDate ? this.props.textStyle : this.props.placeHolderTextStyle
@@ -99,6 +99,7 @@ export class DatePicker extends React.Component {
           </Text>
           <View>
             <Modal
+              supportedOrientations={['portrait', 'landscape']}
               animationType={this.props.animationType}
               transparent={this.props.modalTransparent} //from api
               visible={this.state.modalVisible}
