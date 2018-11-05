@@ -25,24 +25,17 @@ class Footer extends Component {
     }
   }
 
+  get heightFromProps() {
+    const { style } = this.props
+    if (style.height != undefined) return style.height;
+    const overriddenHeight = _.get(style, [1, 'height']);
+    return overriddenHeight != undefined ? overriddenHeight : _.get(style, [0, 'height'])
+  }
+
   calculateHeight(mode, inSet) {
-    let inset = null;
-    if (inSet != undefined) {
-      inset = inSet;
-    } else {
-      inset = variable.Inset;
-    }
+    const inset = inSet != undefined ? inSet : variable.Inset
     const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
-    let oldHeight = null;
-    if (this.props.style.height != undefined) {
-      oldHeight = this.props.style.height;
-    }else if(this.props.style[1]){
-      oldHeight= this.props.style[1].height ? this.props.style[1].height : this.props.style[0].height;
-    } else {
-      oldHeight = this.props.style[0].height;
-    }
-    let height = oldHeight + InsetValues.bottomInset;
-    return height;
+    return this.heightFromProps + InsetValues.bottomInset;
   }
 
   calculatePadder(mode, inSet) {

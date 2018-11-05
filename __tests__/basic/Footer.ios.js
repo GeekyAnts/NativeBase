@@ -144,3 +144,9 @@ it("renders Footer with Badge", () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('renders Footer with height == 0', function () {
+  const tree = renderer
+    .create(<Footer style={{height: 0}}/>);
+  expect(tree.toJSON()).toMatchSnapshot();
+});
