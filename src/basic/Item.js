@@ -18,6 +18,9 @@ import computeProps from "../utils/computeProps";
 import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import _ from "lodash";
 
+const STYLED_INPUT_DISPLAY_NAME = __DEV__ ? 'Styled(Input)' : 'Styled(p)';
+const STYLED_LABEL_DISPLAY_NAME = __DEV__ ? 'Styled(Label)' : 'Styled(l)';
+
 class Item extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +44,7 @@ class Item extends Component {
     const childrenArray = React.Children.toArray(nextProps.children);
     let inputProps = {};
     _.remove(childrenArray, item => {
-      if (item.type.displayName === "Styled(Input)") {
+      if (item.type.displayName === STYLED_INPUT_DISPLAY_NAME) {
         inputProps = item.props;
         this.inputProps = item.props;
         return item;
@@ -154,7 +157,7 @@ class Item extends Component {
     if (this.props.floatingLabel && icon.length) {
       let isIcon = false;
       for (let i = 0; i < this.props.children.length; i++) {
-        if (this.props.children[i].props.name && this.props.children[i].type.displayName !== "Styled(Input)") {
+        if (this.props.children[i].props.name && this.props.children[i].type.displayName !== STYLED_INPUT_DISPLAY_NAME) {
           isIcon = true;
           newChildren.push(
             <Icon key={[i]} {...this.props.children[i].props} />
@@ -399,8 +402,8 @@ const childrenType = function (props, propName, component) {
       `${component} should have both Label and Input components`
     );
   } else if (
-    props.children[0].type.displayName !== "Styled(Label)" ||
-    props.children[1].type.displayName !== "Styled(Input)"
+    props.children[0].type.displayName !== STYLED_LABEL_DISPLAY_NAME ||
+    props.children[1].type.displayName !== STYLED_INPUT_DISPLAY_NAME
   ) {
     error = new Error(
       `${component} should have Label and Input components only`
