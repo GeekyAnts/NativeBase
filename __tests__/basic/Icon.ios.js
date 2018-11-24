@@ -38,6 +38,10 @@ it("renders Icon and Icons with icon family", () => {
           <Icon type="FontAwesome" name="home" style={{ color: "#999" }} />
         </ListItem>
         <ListItem>
+          <Text style={{ width: 220 }}>FontAwesome5</Text>
+          <Icon type="FontAwesome5" name="home" style={{ color: "#999" }} />
+        </ListItem>
+        <ListItem>
           <Text style={{ width: 220 }}>Foundation</Text>
           <Icon type="Foundation" name="home" style={{ color: "#999" }} />
         </ListItem>
