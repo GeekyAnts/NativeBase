@@ -159,6 +159,13 @@ class SwipeRow extends Component {
 		this.manuallySwipeRow(0);
 	}
 
+	/*
+	 * This method is called by SwipeListView
+	 */
+	openRow() {
+		this.manuallySwipeRow(-this.state.hiddenWidth);	
+	}
+
 	manuallySwipeRow(toValue) {
 		Animated.spring(this._translateX, {
 			toValue,

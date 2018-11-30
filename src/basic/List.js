@@ -86,6 +86,7 @@ class List extends Component {
       }
     }
   }
+
   closeRow(id) {
     if (this.openCellId) {
       if (this.props.closeOnRowPress) {
@@ -93,6 +94,10 @@ class List extends Component {
         this.openCellId = null;
       }
     }
+  }
+ 
+  openRow(id) {
+    this._rows[id]._root.openRow();
   }
 
   onScroll(e) {
@@ -135,6 +140,7 @@ class List extends Component {
           this.props.onRowDidClose(secId, rowId, this._rows)
         }
         onRowPress={_ => this.onRowPress(`${secId}${rowId}`)}
+        openRow={_ => this.openRow(`${secId}${rowId}`)}
         closeRow={_ => this.closeRow(`${secId}${rowId}`)}
         setScrollEnabled={enable => this.setScrollEnabled(enable)}
         leftOpenValue={this.props.leftOpenValue}
