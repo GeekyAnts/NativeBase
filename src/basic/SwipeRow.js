@@ -159,6 +159,14 @@ class SwipeRow extends Component {
 		this.manuallySwipeRow(0);
 	}
 
+	openLeftRow() {
+		this.manuallySwipeRow(this.props.leftOpenValue);
+	}
+
+	openRightRow() {
+		this.manuallySwipeRow(this.props.rightOpenValue);
+	}
+
 	manuallySwipeRow(toValue) {
 		Animated.spring(this._translateX, {
 			toValue,
