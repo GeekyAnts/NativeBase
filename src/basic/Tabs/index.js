@@ -27,6 +27,7 @@ const ScrollableTabView = createReactClass({
   },
 
   propTypes: {
+    isRTL: PropTypes.bool,
     tabBarPosition: PropTypes.oneOf([
       "top",
       "bottom",
@@ -47,6 +48,7 @@ const ScrollableTabView = createReactClass({
 
   getDefaultProps() {
     return {
+      isRTL: false,
       tabBarPosition: "top",
       initialPage: 0,
       page: -1,
@@ -59,19 +61,25 @@ const ScrollableTabView = createReactClass({
     };
   },
 
+  getRTLPageIfNeeded(pageNumber) {
+    return this.props.isRTL ? this.props.children.length - 1 - pageNumber : pageNumber
+  },
+
   getInitialState() {
+    const initialPage = this.getRTLPageIfNeeded(this.props.initialPage)
     return {
-      currentPage: this.props.initialPage,
-      scrollValue: new Animated.Value(this.props.initialPage),
+      currentPage: initialPage,
+      scrollValue: new Animated.Value(initialPage),
       containerWidth: Dimensions.get("window").width,
-      sceneKeys: this.newSceneKeys({ currentPage: this.props.initialPage })
+      sceneKeys: this.newSceneKeys({ currentPage: initialPage })
     };
   },
 
   componentDidMount() {
+    const initialPage = this.getRTLPageIfNeeded(this.props.initialPage)
     const scrollFn = () => {
       if (this.scrollView) {
-        this.state.scrollValue.setValue(this.props.initialPage);
+        this.state.scrollValue.setValue(initialPage);
       }
     };
     InteractionManager.runAfterInteractions(scrollFn);
@@ -91,6 +99,7 @@ const ScrollableTabView = createReactClass({
   },
 
   goToPage(pageNumber) {
+    pageNumber = this.getRTLPageIfNeeded(pageNumber)
     const offset = pageNumber * this.state.containerWidth;
     if (this.scrollView) {
       this.scrollView.scrollTo({
@@ -166,6 +175,8 @@ const ScrollableTabView = createReactClass({
 
   renderScrollableContent() {
     const scenes = this._composeScenes();
+    const initialPage = this.getRTLPageIfNeeded(initialPage)
+
     return (
       <ScrollView
         horizontal
@@ -173,7 +184,7 @@ const ScrollableTabView = createReactClass({
         automaticallyAdjustContentInsets={false}
         keyboardShouldPersistTaps="handled"
         contentOffset={{
-          x: this.props.initialPage * this.state.containerWidth
+          x: initialPage * this.state.containerWidth
         }}
         ref={scrollView => {
           this.scrollView = scrollView;
@@ -285,7 +296,7 @@ const ScrollableTabView = createReactClass({
       tabHeaderStyle: this._children().map(child =>
         _.get(child.props.heading.props, "style", undefined)
       ),
-      activeTab: this.state.currentPage,
+      activeTab: this.getRTLPageIfNeeded(this.state.currentPage),
       scrollValue: this.state.scrollValue,
       containerWidth: this.state.containerWidth
     };
