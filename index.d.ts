@@ -842,12 +842,12 @@ declare module "native-base" {
 			style?: ReactNative.ViewStyle;
 		}
 
-		interface Accordion {
-			dataArray: Array<any>;
+		interface Accordion<T> {
+			dataArray: Array<T>;
 			headerStyle?: ReactNative.ViewStyle;
 			contentStyle?: ReactNative.ViewStyle;
-			renderHeader?: (item: any, expanded: boolean) => React.ReactElement<any>;
-			renderContent?: (item: any) => React.ReactElement<any>;
+			renderHeader?: (item: T, expanded: boolean) => React.ReactElement<any>;
+			renderContent?: (item: T) => React.ReactElement<any>;
 			icon?: string;
 			expandedIcon?: string;
 			iconStyle?: ReactNative.TextStyle;
@@ -1163,7 +1163,7 @@ declare module "native-base" {
 		}): void;
 	}
 
-	export class Accordion extends React.Component<NativeBase.Accordion, any>{ }
+	export class Accordion<T> extends React.Component<NativeBase.Accordion<T>, any>{ }
 
 	export class DatePicker extends React.Component<NativeBase.DatePicker, any> { }
 }
