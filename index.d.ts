@@ -849,6 +849,7 @@ declare module "native-base" {
 			renderHeader?: (item: T, expanded: boolean) => React.ReactElement<any>;
 			renderContent?: (item: T) => React.ReactElement<any>;
 			icon?: string;
+			expanded?: number;
 			expandedIcon?: string;
 			iconStyle?: ReactNative.TextStyle;
 			expandedIconStyle?: ReactNative.TextStyle;
