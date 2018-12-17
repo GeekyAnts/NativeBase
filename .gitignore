@@ -62,6 +62,7 @@ jspm_packages
 .node_repl_history
 
 dist/**/__snapshots__
+dist/__tests__
 
 ### Xcode ###
 # Xcode
