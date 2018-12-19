@@ -241,7 +241,7 @@ declare module "native-base" {
 			iconRight?: boolean;
 			/**
 			 * Used to enable/disable icons
-			 * Icons align in the center of the bu8tton.
+			 * Icons align in the center of the button.
 			 */
 			icon?: boolean;
 			/**
