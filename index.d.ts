@@ -797,6 +797,7 @@ declare module "native-base" {
 			secureTextEntry?: boolean;
 			success?: boolean;
 			last?: boolean;
+			picker?: boolean;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 		}
 
