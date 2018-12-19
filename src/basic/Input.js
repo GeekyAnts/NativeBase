@@ -7,16 +7,16 @@ import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 import NativeBaseComponent from "./Base/NativeBaseComponent";
 
 class Input extends NativeBaseComponent {
-	render() {
-		const variables = this.context.theme
+  render() {
+    const variables = this.context.theme
 			? this.context.theme["@@shoutem.theme/themeStyle"].variables
 			: variable;
-		return (
+    return (
 			<TextInput
 				ref={c => {
-					this._textInput = c;
-					this._root = c;
-				}}
+  this._textInput = c;
+  this._root = c;
+}}
 				editable={this.props.disabled ? false : true}
 				underlineColorAndroid="rgba(0,0,0,0)"
 				placeholderTextColor={
@@ -24,13 +24,13 @@ class Input extends NativeBaseComponent {
 				}
 				{...this.props}
 			/>
-		);
-	}
+    );
+  }
 }
 
 Input.propTypes = {
-	...TextInput.propTypes,
-	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  ...TextInput.propTypes,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
 };
 
 const StyledInput = connectStyle("NativeBase.Input", {}, mapPropsToStyleNames)(Input);

@@ -16,6 +16,7 @@ declare module "native-base" {
 
 		interface Picker extends ReactNative.PickerProperties {
 			mode?: "dialog" | "dropdown";
+			supportedOrientations?: "portrait" | "landscape"
 			iosHeader?: string;
 			inlineLabel?: boolean;
 			headerBackButtonText?: string;
@@ -240,7 +241,7 @@ declare module "native-base" {
 			iconRight?: boolean;
 			/**
 			 * Used to enable/disable icons
-			 * Icons align in the center of the bu8tton.
+			 * Icons align in the center of the button.
 			 */
 			icon?: boolean;
 			/**
@@ -628,7 +629,7 @@ declare module "native-base" {
          */
 		interface Icon {
 			name: string;
-			type?: "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial";
+			type?: "AntDesign" | "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "FontAwesome5" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial";
 			// TODO position attribute of ReactNative.FlexStyle hasn't another position values without "absolute" and "relative"
 			style?: any;
 			onPress?: (e?: any) => any;
@@ -678,6 +679,7 @@ declare module "native-base" {
          */
 		interface Radio extends ReactNative.TouchableOpacityProperties {
 			selected?: boolean;
+			selectedColor?: string;
 		}
 		/**
          * see Widget ProgressBar.js
@@ -753,6 +755,7 @@ declare module "native-base" {
 			springTension?: number;
 			springFriction?: number;
 			onChangeTab?: Function;
+		        page?: number;
 			locked?: boolean;
 			initialPage?: number;
 			tabBarUnderlineStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
@@ -796,6 +799,7 @@ declare module "native-base" {
 			secureTextEntry?: boolean;
 			success?: boolean;
 			last?: boolean;
+			picker?: boolean;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 		}
 
@@ -848,6 +852,7 @@ declare module "native-base" {
 			contentStyle?: ReactNative.ViewStyle;
 			renderHeader?: (item: any, expanded: boolean) => React.ReactElement<any>;
 			renderContent?: (item: any) => React.ReactElement<any>;
+			expanded?: number;
 			icon?: string;
 			expandedIcon?: string;
 			iconStyle?: ReactNative.TextStyle;

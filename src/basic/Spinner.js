@@ -7,12 +7,12 @@ import variable from "../theme/variables/platform";
 import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class Spinner extends Component {
-	static contextTypes = {
-		theme: PropTypes.object,
-	};
-	render() {
-		const variables = this.context.theme ? this.context.theme["@@shoutem.theme/themeStyle"].variables : variable;
-		return (
+  static contextTypes = {
+    theme: PropTypes.object,
+  };
+  render() {
+    const variables = this.context.theme ? this.context.theme["@@shoutem.theme/themeStyle"].variables : variable;
+    return (
 			<ActivityIndicator
 				ref={c => (this._root = c)}
 				{...this.props}
@@ -23,14 +23,14 @@ class Spinner extends Component {
 				}
 				size={this.props.size ? this.props.size : "large"}
 			/>
-		);
-	}
+    );
+  }
 }
 
 Spinner.propTypes = {
-	...ActivityIndicator.propTypes,
-	color: PropTypes.string,
-	inverse: PropTypes.bool,
+  ...ActivityIndicator.propTypes,
+  color: PropTypes.string,
+  inverse: PropTypes.bool,
 };
 
 const StyledSpinner = connectStyle("NativeBase.Spinner", {}, mapPropsToStyleNames)(Spinner);
