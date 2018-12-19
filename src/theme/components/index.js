@@ -217,8 +217,6 @@ export default (variables /*: * */ = variable) => {
 
   const cssifyTheme = (grandparent, parent, parentKey) => {
     _.forEach(parent, (style, styleName) => {
-      // console.log('styleName', styleName);
-      // console.log('parentKey', parentKey);
       if (
         styleName.indexOf(".") === 0 &&
         parentKey &&
