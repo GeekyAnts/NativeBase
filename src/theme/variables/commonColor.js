@@ -210,8 +210,11 @@ export default {
 
   // Radio Button
   radioBtnSize: platform === "ios" ? 25 : 23,
+  radioCheckmarkBtnSize: platform === "ios" ? 25 : 23,
   radioSelectedColorAndroid: "#3F51B5",
   radioBtnLineHeight: platform === "ios" ? 29 : 24,
+  radioCheckmarkBtnLineHeight: platform === "ios" ? 29 : 24,
+  radioCheckmarkBtnHeight: 20,
   get radioColor() {
     return this.brandPrimary;
   },

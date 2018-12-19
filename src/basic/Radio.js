@@ -38,9 +38,9 @@ class Radio extends Component {
                 color: this.props.selectedColor
                   ? this.props.selectedColor
                   : variables.radioColor,
-                lineHeight: 25,
-                height: 20,
-                fontSize: variables.radioBtnSize
+                lineHeight: variables.radioCheckmarkBtnLineHeight || 25,
+                height: variables.radioCheckmarkBtnHeight || 20,
+                fontSize: variables.radioCheckmarkBtnSize || variables.radioBtnSize
               }}
               name="ios-checkmark"
             />

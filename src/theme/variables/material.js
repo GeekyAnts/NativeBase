@@ -210,8 +210,10 @@ export default {
 
   // Radio Button
   radioBtnSize: 23,
+  radioCheckmarkBtnSize: 23,
   radioSelectedColorAndroid: "#3F51B5",
   radioBtnLineHeight: 24,
+  radioCheckmarkBtnLineHeight: 24,
   get radioColor() {
     return this.brandPrimary;
   },
