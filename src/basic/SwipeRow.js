@@ -159,18 +159,26 @@ class SwipeRow extends Component {
     this.manuallySwipeRow(0);
   }
 
-  manuallySwipeRow(toValue) {
-    Animated.spring(this._translateX, {
-      toValue,
-      friction: this.props.friction,
-      tension: this.props.tension,
-    }).start(_ => {
-      if (toValue === 0) {
-        this.props.onRowDidClose && this.props.onRowDidClose();
-      } else {
-        this.props.onRowDidOpen && this.props.onRowDidOpen();
-      }
-    });
+	openLeftRow() {
+		this.manuallySwipeRow(this.props.leftOpenValue);
+	}
+
+	openRightRow() {
+		this.manuallySwipeRow(this.props.rightOpenValue);
+	}
+
+	manuallySwipeRow(toValue) {
+		Animated.spring(this._translateX, {
+			toValue,
+			friction: this.props.friction,
+			tension: this.props.tension,
+		}).start(_ => {
+			if (toValue === 0) {
+				this.props.onRowDidClose && this.props.onRowDidClose();
+			} else {
+				this.props.onRowDidOpen && this.props.onRowDidOpen();
+			}
+		});
 
     if (toValue === 0) {
       this.props.onRowClose && this.props.onRowClose();
