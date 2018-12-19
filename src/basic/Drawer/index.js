@@ -27,7 +27,7 @@ Drawer.defaultProps = {
 		mainOverlay: {
 			opacity: 0,
 			backgroundColor: "rgba(0, 0, 0, 0.8)",
-			elevation: 8,
+			elevation: 0,
 		},
 	},
 	tweenHandler: ratio => ({
