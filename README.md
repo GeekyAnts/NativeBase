@@ -79,7 +79,7 @@ npm install @expo/vector-icons --save
 <br />
 
 **Note** <br />
-[NativeBase](https://nativebase.io/) uses some custom fonts that can be loaded using **loadAsync** function. Check out [this](https://docs.expo.io/versions/v15.0.0/sdk/font.html#expofontloadasyncname-url) expo link.
+[NativeBase](https://nativebase.io/) uses some custom fonts that can be loaded using **loadAsync** function. Check out [this](https://docs.expo.io/versions/latest/sdk/font#expofontloadasyncobject) expo link.
 <br />
 Syntax <br />
 ```js
