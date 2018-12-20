@@ -109,6 +109,7 @@ declare module "native-base" {
 			hasSegment?: boolean;
 			translucent?: boolean;
 			transparent?: boolean;
+			noLeft?: boolean;
 		}
 
 		interface Left {
