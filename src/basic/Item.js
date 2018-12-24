@@ -81,10 +81,10 @@ class Item extends Component {
 
   renderLabel(label, labelProps) {
     const newLabel = [];
-    let labelStyle = StyleSheet.flatten(
+    let labelStyle = StyleSheet.flatten([
       { fontSize: 15, lineHeight: 30 },
       labelProps.style
-    );
+    ]);
     if (this.props.floatingLabel) {
       if (this.state.isFocused) {
         newLabel.push(
@@ -92,7 +92,7 @@ class Item extends Component {
             ...labelProps,
             key: "newFLabel",
             float: true,
-            style: labelProps.style
+            style: labelStyle
           })
         );
         this.floatUp(-16);
