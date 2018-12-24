@@ -715,7 +715,7 @@
       "active": "md-checkmark"
     },
     "ios": {
-      "default": "ios-checkmarke",
+      "default": "ios-checkmark",
       "active": "ios-checkmark"
     }
   },
