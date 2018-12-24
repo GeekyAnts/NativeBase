@@ -39,9 +39,9 @@
     "native-base-shoutem-theme": "0.2.2",
     "print-message": "^2.1.0",
     "prop-types": "^15.5.10",
-    "react-native-drawer": "2.5.0",
+    "react-native-drawer": "2.5.1",
     "react-native-easy-grid": "0.2.0",
-    "react-native-keyboard-aware-scroll-view": "0.5.0",
+    "react-native-keyboard-aware-scroll-view": "0.8.0",
     "react-native-vector-icons": "6.1.0",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1"
