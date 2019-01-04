@@ -8,7 +8,7 @@ declare module "native-base" {
 			uppercase?: boolean;
 		}
 
-		interface Switch extends ReactNative.SwitchProps {}
+    interface Switch extends ReactNative.SwitchProps {}
 
 		interface View extends ReactNative.ViewProps {
 			padder?: boolean;
