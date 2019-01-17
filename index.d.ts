@@ -263,6 +263,10 @@ declare module "native-base" {
              */
 			first?: boolean;
 			last?: boolean;
+			/**
+             * Adds necessary padding when Text button defined in Left / Right of Header (iOS)
+             */
+			hasText?: boolean;
 		}
 		/**
 
