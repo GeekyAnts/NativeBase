@@ -767,6 +767,7 @@ declare module "native-base" {
 			tabContainerStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
 			contentProps?: ReactNative.ScrollViewProperties;
+			prerenderingSiblingsNumber?: number;
 		}
 
 		interface Tab {
