@@ -44,7 +44,8 @@
     "react-native-keyboard-aware-scroll-view": "0.8.0",
     "react-native-vector-icons": "6.1.0",
     "react-tween-state": "^0.1.5",
-    "tween-functions": "^1.0.1"
+    "tween-functions": "^1.0.1",
+    "react-timer-mixin": "^0.13.4"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
