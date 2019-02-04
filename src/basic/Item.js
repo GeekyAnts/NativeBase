@@ -195,14 +195,14 @@ class Item extends Component {
                 this.setState({ isFocused: true });
                 inputProps.onFocus && inputProps.onFocus();
               }}
-              onBlur={() => {
+              onBlur={(e) => {
                 inputProps.value
                   ? this.setState({
                     isFocused: true
                   })
                   : !this.state.text.length &&
                   this.setState({ isFocused: false });
-                inputProps.onBlur && inputProps.onBlur();
+                inputProps.onBlur && inputProps.onBlur(e);
               }}
               onChangeText={text => {
                 this.setState({ text });
@@ -266,14 +266,14 @@ class Item extends Component {
                 this.setState({ isFocused: true });
                 inputProps.onFocus && inputProps.onFocus();
               }}
-              onBlur={() => {
+              onBlur={(e) => {
                 inputProps.value
                   ? this.setState({
                     isFocused: true
                   })
                   : !this.state.text.length &&
                   this.setState({ isFocused: false });
-                inputProps.onBlur && inputProps.onBlur();
+                inputProps.onBlur && inputProps.onBlur(e);
               }}
               onChangeText={text => {
                 this.setState({ text });
@@ -320,13 +320,13 @@ class Item extends Component {
             this.setState({ isFocused: true });
             inputProps.onFocus && inputProps.onFocus();
           }}
-          onBlur={() => {
+          onBlur={(e) => {
             inputProps.value
               ? this.setState({
                 isFocused: true
               })
               : !this.state.text.length && this.setState({ isFocused: false });
-            inputProps.onBlur && inputProps.onBlur();
+            inputProps.onBlur && inputProps.onBlur(e);
           }}
           onChangeText={text => {
             this.setState({ text });
