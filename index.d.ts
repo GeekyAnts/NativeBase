@@ -1171,6 +1171,11 @@ declare module "native-base" {
 			buttonTextStyle?: ReactNative.TextStyle;
 			buttonStyle?: ReactNative.ViewStyle;
 		}): void;
+		
+		/**
+		* Hides the currently visible toast
+		*/
+		public static hide(): void;
 	}
 
 	export class Accordion extends React.Component<NativeBase.Accordion, any>{ }
