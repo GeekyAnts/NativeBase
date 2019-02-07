@@ -281,7 +281,7 @@ export default (variables /*: * */ = variable) => {
           marginLeft: null
         },
         flex: 1,
-        paddingVertical: variables.listItemPadding + 5,
+        paddingVertical: variables.listItemPadding + 8,
         borderBottomWidth: variables.borderWidth,
         borderColor: variables.listBorderColor,
         marginLeft: variables.listItemPadding + 5
