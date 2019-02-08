@@ -267,6 +267,10 @@ declare module "native-base" {
              */
 			first?: boolean;
 			last?: boolean;
+			/**
+             * Adds necessary padding when Text button defined in Left / Right of Header (iOS)
+             */
+			hasText?: boolean;
 		}
 		/**
 
@@ -1171,6 +1175,11 @@ declare module "native-base" {
 			buttonTextStyle?: RnTextStyleProp;
 			buttonStyle?: RnViewStyleProp;
 		}): void;
+		
+		/**
+		* Hides the currently visible toast
+		*/
+		public static hide(): void;
 	}
 
 	export class Accordion extends React.Component<NativeBase.Accordion, any>{ }
