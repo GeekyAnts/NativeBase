@@ -81,10 +81,10 @@ class Item extends Component {
 
   renderLabel(label, labelProps) {
     const newLabel = [];
-    let labelStyle = StyleSheet.flatten(
+    let labelStyle = StyleSheet.flatten([
       { fontSize: 15, lineHeight: 30 },
       labelProps.style
-    );
+    ]);
     if (this.props.floatingLabel) {
       if (this.state.isFocused) {
         newLabel.push(
@@ -92,7 +92,7 @@ class Item extends Component {
             ...labelProps,
             key: "newFLabel",
             float: true,
-            style: labelProps.style
+            style: labelStyle
           })
         );
         this.floatUp(-16);
@@ -195,14 +195,14 @@ class Item extends Component {
                 this.setState({ isFocused: true });
                 inputProps.onFocus && inputProps.onFocus();
               }}
-              onBlur={() => {
+              onBlur={(e) => {
                 inputProps.value
                   ? this.setState({
                     isFocused: true
                   })
                   : !this.state.text.length &&
                   this.setState({ isFocused: false });
-                inputProps.onBlur && inputProps.onBlur();
+                inputProps.onBlur && inputProps.onBlur(e);
               }}
               onChangeText={text => {
                 this.setState({ text });
@@ -266,14 +266,14 @@ class Item extends Component {
                 this.setState({ isFocused: true });
                 inputProps.onFocus && inputProps.onFocus();
               }}
-              onBlur={() => {
+              onBlur={(e) => {
                 inputProps.value
                   ? this.setState({
                     isFocused: true
                   })
                   : !this.state.text.length &&
                   this.setState({ isFocused: false });
-                inputProps.onBlur && inputProps.onBlur();
+                inputProps.onBlur && inputProps.onBlur(e);
               }}
               onChangeText={text => {
                 this.setState({ text });
@@ -320,13 +320,13 @@ class Item extends Component {
             this.setState({ isFocused: true });
             inputProps.onFocus && inputProps.onFocus();
           }}
-          onBlur={() => {
+          onBlur={(e) => {
             inputProps.value
               ? this.setState({
                 isFocused: true
               })
               : !this.state.text.length && this.setState({ isFocused: false });
-            inputProps.onBlur && inputProps.onBlur();
+            inputProps.onBlur && inputProps.onBlur(e);
           }}
           onChangeText={text => {
             this.setState({ text });
