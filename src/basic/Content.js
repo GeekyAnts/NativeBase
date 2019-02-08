@@ -91,7 +91,7 @@ class Content extends Component {
     const variables = this.context.theme
       ? this.context.theme["@@shoutem.theme/themeStyle"].variables
       : variable;
-    return variable.isIphoneX ? (
+    return variables.isIphoneX ? (
       <KeyboardAwareScrollView
         automaticallyAdjustContentInsets={false}
         resetScrollToCoords={
