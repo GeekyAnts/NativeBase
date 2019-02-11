@@ -33,7 +33,7 @@ class ActionSheetContainer extends Component {
   static show(config, callback) {
     this.actionsheetInstance._root.showActionSheet(config, callback);
   }
-  static hide(){
+  static hide() {
     this.actionsheetInstance._root.hideActionSheet();
   }
   showActionSheet(config, callback) {
@@ -61,7 +61,7 @@ class ActionSheetContainer extends Component {
     }
   }
 
-  hideActionSheet(){
+  hideActionSheet() {
     this.setState({ modalVisible: false });
   }
 
@@ -98,7 +98,7 @@ class ActionSheetContainer extends Component {
             style={{
               backgroundColor: "#fff",
               minHeight: 56,
-              height: this.state.length * 80,
+              height: this.state.items.length * 80,
               maxHeight: Dimensions.get("window").height / 2,
               padding: 15,
               elevation: 4

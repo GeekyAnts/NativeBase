@@ -38,6 +38,12 @@ class Button extends Component {
       style: this.getInitialStyle().borderedBtn
     };
 
+    if(Array.isArray(this.props.style)){
+      const flattenedStyle = this.props.style.reduce(( accumulator, currentValue ) => accumulator.concat(currentValue), []);
+      return computeProps({...this.props, style: flattenedStyle}, defaultProps);
+    }
+
+
     return computeProps(this.props, defaultProps);
   }
   render() {
