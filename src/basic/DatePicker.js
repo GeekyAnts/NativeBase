@@ -10,25 +10,17 @@ import { Text } from "./Text";
 import variable from "../theme/variables/platform";
 
 export class DatePicker extends React.Component {
+  static defaultProps = {
+    disabled: false
+  };
   constructor(props) {
     super(props);
     this.state = {
       modalVisible: false,
-      defaultDate: new Date(),
-      chosenDate: undefined,
-      disabled: true
+      defaultDate: props.defaultDate ? props.defaultDate : new Date(),
+      chosenDate: !props.placeHolderText && props.defaultDate ? props.defaultDate : undefined
     };
   }
-
-  componentDidMount = () => {
-    this.setState({
-      defaultDate: this.props.defaultDate ? this.props.defaultDate : new Date(),
-      disabled: this.props.disabled ? true : false
-    });
-    if (!this.props.placeHolderText && this.props.defaultDate) {
-      this.setState({ chosenDate: this.props.defaultDate })
-    }
-  };
 
   setDate(date) {
     this.setState({ chosenDate: new Date(date) });
@@ -85,7 +77,7 @@ export class DatePicker extends React.Component {
       <View>
         <View>
           <Text
-            onPress={!this.state.disabled ? this.showDatePicker.bind(this) : undefined}
+            onPress={ !this.props.disabled ? this.showDatePicker.bind(this) : undefined }
             style={[
               { padding: 10, color: variables.datePickerTextColor },
               this.state.chosenDate ? this.props.textStyle : this.props.placeHolderTextStyle
