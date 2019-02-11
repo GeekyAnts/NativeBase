@@ -66,7 +66,6 @@ class Header extends Component {
     return (
       <View onLayout={e => this.layoutChange(e.nativeEvent.layout)}>
         <StatusBar
-          hidden={false}
           backgroundColor={
             this.props.androidStatusBarColor
               ? this.props.androidStatusBarColor

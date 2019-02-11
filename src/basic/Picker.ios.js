@@ -150,7 +150,7 @@ class PickerNB extends Component {
     return this.props.renderHeader ? (
       this.props.renderHeader(() => this._setModalVisible(false))
     ) : (
-        <Header style={this.props.headerStyle} iosBarStyle={this.props.iosBarStyle}>
+        <Header style={this.props.headerStyle}>
           <Left>
             <Button
               style={{
