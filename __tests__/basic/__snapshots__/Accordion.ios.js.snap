@@ -1,0 +1,1418 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Header and Content Style Accordion 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableOnAndroid={false}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollIntoView={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    update={[Function]}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <RCTScrollView
+        contentStyle={
+          Object {
+            "backgroundColor": "#ddecf8",
+          }
+        }
+        data={
+          Array [
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "First Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Second Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Third Element",
+            },
+          ]
+        }
+        dataArray={
+          Array [
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "First Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Second Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Third Element",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        extraData={
+          Object {
+            "selected": undefined,
+          }
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        headerStyle={
+          Object {
+            "backgroundColor": "#b7daf8",
+          }
+        }
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "borderColor": "#d3d3d3",
+              "borderWidth": 0.5,
+            },
+            undefined,
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#b7daf8",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    First Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "#000",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#b7daf8",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    Second Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "#000",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#b7daf8",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    Third Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "#000",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders Icon and Expanded Icon Accordion 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableOnAndroid={false}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollIntoView={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    update={[Function]}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "First Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Second Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Third Element",
+            },
+          ]
+        }
+        dataArray={
+          Array [
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "First Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Second Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Third Element",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        expandedIcon="remove"
+        extraData={
+          Object {
+            "selected": undefined,
+          }
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        icon="add"
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "borderColor": "#d3d3d3",
+              "borderWidth": 0.5,
+            },
+            undefined,
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#edebed",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    First Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "#000",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#edebed",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    Second Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "#000",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#edebed",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    Third Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "#000",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders Icon and Expanded Icon Style Accordion 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableOnAndroid={false}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollIntoView={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    update={[Function]}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "First Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Second Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Third Element",
+            },
+          ]
+        }
+        dataArray={
+          Array [
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "First Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Second Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Third Element",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        expandedIcon="remove"
+        expandedIconStyle={
+          Object {
+            "color": "red",
+          }
+        }
+        extraData={
+          Object {
+            "selected": undefined,
+          }
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        icon="add"
+        iconStyle={
+          Object {
+            "color": "green",
+          }
+        }
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "borderColor": "#d3d3d3",
+              "borderWidth": 0.5,
+            },
+            undefined,
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#edebed",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    First Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "green",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#edebed",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    Second Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "green",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#edebed",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    Third Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "green",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders Regular Accordion 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableOnAndroid={false}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollIntoView={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    update={[Function]}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "First Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Second Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Third Element",
+            },
+          ]
+        }
+        dataArray={
+          Array [
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "First Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Second Element",
+            },
+            Object {
+              "content": "Lorem ipsum dolor sit amet",
+              "title": "Third Element",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        expanded={0}
+        extraData={
+          Object {
+            "selected": 0,
+          }
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "borderColor": "#d3d3d3",
+              "borderWidth": 0.5,
+            },
+            undefined,
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#edebed",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    First Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "#000",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "opacity": 0.3,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#f5f4f5",
+                      },
+                    ]
+                  }
+                  uppercase={false}
+                >
+                  Lorem ipsum dolor sit amet
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#edebed",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    Second Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "#000",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View>
+              <View
+                accessible={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "padding": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#edebed",
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    style={Object {}}
+                    uppercase={false}
+                  >
+                     
+                    Third Element
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {},
+                          Object {},
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "#000",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </RCTScrollView>
+</View>
+`;
