@@ -62,37 +62,39 @@ react-native link
 You've successfully setup [NativeBase](https://nativebase.io/) with your [React Native](https://facebook.github.io/react-native/) app. Your React Native app is now all set to run on iOS and Android simulator.
 
 
-**b. Setup with CRNA**
+**b. Setup with Expo**
 
-*Create React Native project using the CRNA cli.* <br />
-CRNA helps you make React Native apps with no build configuration. Create React App works on macOS, Windows, and Linux. <br />
-Refer this link for additional information [CRNA](https://github.com/react-community/create-react-native-app)
+Expo helps you make React Native apps with no build configuration. It works on macOS, Windows, and Linux. <br />
+Refer this link for additional information on [Expo](https://docs.expo.io/)
 
 *Install NativeBase*
 ```js
 npm install native-base --save
 ```
-*Install @expo/vector-icons*
-```js
-npm install @expo/vector-icons --save
-```
+
 <br />
 
 **Note** <br />
-[NativeBase](https://nativebase.io/) uses some custom fonts that can be loaded using **loadAsync** function. Check out [this](https://docs.expo.io/versions/latest/sdk/font#expofontloadasyncobject) expo link.
+[NativeBase](https://nativebase.io/) uses some custom fonts that can be loaded using **Font.loadAsync**. Check out the [Expo Font documentation](https://docs.expo.io/versions/latest/sdk/font/).
 <br />
 Syntax <br />
 ```js
-async componentWillMount() {
-      await Expo.Font.loadAsync({
-        'Roboto': require('native-base/Fonts/Roboto.ttf'),
-        'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
-        'Ionicons': require('@expo/vector-icons/fonts/Ionicons.ttf'),
-      });
+// At the top of your file
+import { Font } from 'expo';
+import { Ionicons } from '@expo/vector-icons';
+
+// Later on in your component
+async componentDidMount() {
+  await Font.loadAsync({
+    'Roboto': require('native-base/Fonts/Roboto.ttf'),
+    'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+    ...Ionicons.font,
+  });
+}
 ```
 <br />
 
-Check out the [KitchenSink](https://expo.io/@geekyants/nativebasekitchensink) with CRNA for an example of the implementation.<br />
+Check out the [KitchenSink](https://expo.io/@geekyants/nativebasekitchensink) with Expo for an example of the implementation.<br />
 Find the [KitchenSink repo here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/CRNA)
 
 **c. Setup with ignite-native-base-boilerplate**
