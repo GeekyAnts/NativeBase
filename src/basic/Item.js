@@ -33,9 +33,9 @@ class Item extends Component {
         this.setState({ isFocused: true });
         this.floatUp(-16);
       }
-      if (this.inputProps && this.inputProps.getRef)
-        this.inputProps.getRef(this._inputRef);
-    }
+    }    
+    if (this.inputProps && this.inputProps.getRef)
+      this.inputProps.getRef(this._inputRef);
   }
   componentWillReceiveProps(nextProps) {
     const childrenArray = React.Children.toArray(nextProps.children);
@@ -52,9 +52,9 @@ class Item extends Component {
         this.setState({ isFocused: true });
         this.floatUp(-16);
       }
-      if (this.inputProps && this.inputProps.getRef)
-        this.inputProps.getRef(this._inputRef);
     }
+    if (this.inputProps && this.inputProps.getRef)
+      this.inputProps.getRef(this._inputRef);
   }
 
   floatBack() {
