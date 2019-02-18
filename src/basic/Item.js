@@ -348,6 +348,7 @@ class Item extends Component {
           <View style={{ flexDirection: "column" }}>
             <Label key="s2" {...labelProps} />
             <Input
+              ref={c => (this._inputRef = c)}
               key="s3"
               {...inputProps}
               style={{ width: variables.deviceWidth - 40 }}
@@ -356,7 +357,15 @@ class Item extends Component {
         </View>
       );
     } else {
-      return this.props.children;
+      return React.Children.map(this.props.children, (child, i) => {
+        if (child.type.displayName === "Styled(Input)") {
+          return React.cloneElement(child, {
+            ref: c => this._inputRef = c
+          });
+        }
+
+        return child;
+      });
     }
     return newChildren;
   }
