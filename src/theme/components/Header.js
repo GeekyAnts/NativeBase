@@ -377,7 +377,7 @@ export default (variables /*: * */ = variable) => {
     borderBottomColor: variables.toolbarDefaultBorder,
     height:
       variables.platform === "ios" && variables.platformStyle === "material"
-        ? variables.toolbarHeight + StatusBar.height
+        ? variables.toolbarHeight + 10
         : variables.toolbarHeight,
     elevation: 3,
     shadowColor: platformStyle === "material" ? "#000" : undefined,
