@@ -357,8 +357,8 @@ class Item extends Component {
         </View>
       );
     } else {
-      return React.Children.map(this.props.children, (child, i) => {
-        if (child.type.displayName === "Styled(Input)") {
+      return React.Children.map(this.props.children, (child) => {
+        if (child && child.type && child.type.displayName === "Styled(Input)") {
           return React.cloneElement(child, {
             ref: c => this._inputRef = c
           });
