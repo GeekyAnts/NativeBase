@@ -1,4 +1,4 @@
-# Version [2.12.0] (https://github.com/GeekyAnts/NativeBase/releases/tag/v2.12.0)
+# Version [2.12.0](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.12.0)
 
 
 ### General Features
