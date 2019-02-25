@@ -16,7 +16,6 @@ const DefaultTabBar = createReactClass({
     propTypes: {
         goToPage: PropTypes.func,
         activeTab: PropTypes.number,
-        disabled: PropTypes.bool,
         tabs: PropTypes.array,
         backgroundColor: PropTypes.string,
         activeTextColor: PropTypes.string,
@@ -25,7 +24,6 @@ const DefaultTabBar = createReactClass({
         renderTab: PropTypes.func,
         underlineStyle: ViewPropTypes.style,
         tabContainerStyle: ViewPropTypes.style,
-        disabled: ViewPropTypes.bool
     },
     contextTypes: {
         theme: PropTypes.object
