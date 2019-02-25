@@ -7,18 +7,22 @@ declare module "native-base" {
 	type RnStatusBarStyleProp = ReactNative.StyleProp<ReactNative.StatusBarStyle>;
 
 	namespace NativeBase {
-		interface Text extends ReactNative.TextProps {
+		interface Testable {
+			testID?: string;
+		}
+
+		interface Text extends ReactNative.TextProps, Testable {
 			note?: boolean;
 			uppercase?: boolean;
 		}
 
-    interface Switch extends ReactNative.SwitchProps {}
+		interface Switch extends ReactNative.SwitchProps, Testable { }
 
-		interface View extends ReactNative.ViewProps {
+		interface View extends ReactNative.ViewProps, Testable {
 			padder?: boolean;
 		}
 
-		interface Picker extends ReactNative.PickerProps {
+		interface Picker extends ReactNative.PickerProps, Testable {
 			mode?: "dialog" | "dropdown";
 			supportedOrientations?: "portrait" | "landscape"
 			iosHeader?: string;
@@ -39,15 +43,15 @@ declare module "native-base" {
 			renderHeader?: (backAction: any) => React.ReactElement<any>;
 		}
 
-		interface H1 extends ReactNative.TextProps {}
+		interface H1 extends ReactNative.TextProps, Testable { }
 		/**
          * see Widget Text.js
          */
-		interface H2 extends ReactNative.TextProps {}
+		interface H2 extends ReactNative.TextProps, Testable { }
 		/**
          * see Widget Text.js
          */
-		interface H3 extends ReactNative.TextProps {}
+		interface H3 extends ReactNative.TextProps, Testable { }
 		/**
          * see Widget Text.js
          */
@@ -59,15 +63,15 @@ declare module "native-base" {
 			info?: boolean;
 		}
 
-		interface Badge extends ReactNative.ViewProps, BsStyle {}
+		interface Badge extends ReactNative.ViewProps, BsStyle, Testable { }
 		/**
          * see Widget CardSwiper.js
          */
-		interface CardSwiper { }
+		interface CardSwiper extends Testable { }
 		/**
          * see Widget DeckSwiper.js
          */
-		interface DeckSwiper {
+		interface DeckSwiper extends Testable {
 			/**
              * Array<any>
              */
@@ -90,7 +94,7 @@ declare module "native-base" {
 		/**
          * see Widget Header.js
          */
-		interface Header {
+		interface Header extends Testable {
 			/**
              * Prop to be used with <Header> component to have Search bar onto the Header section of your screen.
              */
@@ -116,46 +120,46 @@ declare module "native-base" {
 			noLeft?: boolean;
 		}
 
-		interface Left {
+		interface Left extends Testable {
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
-		interface Body {
+		interface Body extends Testable {
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
-		interface Right {
+		interface Right extends Testable {
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
 		/**
          * see Widget FooterTab.js
          */
-		interface FooterTab {
+		interface FooterTab extends Testable {
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 		/**
          * see Widget Footer.js
          */
-		interface Footer {
+		interface Footer extends Testable {
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 		/**
          * see Widget Title.js
          */
-		interface Title {
+		interface Title extends Testable {
 			style?: RnTextStyleProp;
 		}
 		/**
          * see Widget Subtitle/index.js
          */
-		interface Subtitle {
+		interface Subtitle extends Testable {
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 		/**
          * see Widget Container.js
          */
-		interface Container {
+		interface Container extends Testable {
 			/**
              * The theme prop can be applied to any component of NativeBase.
              */
@@ -165,7 +169,7 @@ declare module "native-base" {
 		/**
          * see Widget Content.js
          */
-		interface Content {
+		interface Content extends Testable {
 			/**
              * The theme prop can be applied to any component of NativeBase.
              */
@@ -185,7 +189,7 @@ declare module "native-base" {
 		/**
          * see Widget Button.js
          */
-		interface Button extends ReactNative.TouchableOpacityProps, BsStyle {
+		interface Button extends ReactNative.TouchableOpacityProps, BsStyle, Testable {
 			/**
              * Defines button style
              */
@@ -276,7 +280,7 @@ declare module "native-base" {
 
          * see Widget List.js
          */
-		interface List extends ReactListViewProps {
+		interface List extends ReactListViewProps, Testable {
 			listBorderColor?: string;
 			listDividerBg?: string;
 			listNoteColor?: string;
@@ -321,7 +325,7 @@ declare module "native-base" {
 		/**
          * see Widget ListItem.js
          */
-		interface ListItem extends ReactNative.TouchableOpacityProps {
+		interface ListItem extends ReactNative.TouchableOpacityProps, Testable {
 			header?: boolean;
 			noBorder?: boolean;
 			noIndent?: boolean;
@@ -359,7 +363,7 @@ declare module "native-base" {
 			touchableHighlightStyle?: RnViewStyleProp;
 		}
 
-		interface Separator {
+		interface Separator extends Testable {
 			bordered?: boolean;
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
@@ -367,7 +371,7 @@ declare module "native-base" {
 		/**
          * see Widget CardItem.js
          */
-		interface CardItem extends ReactNative.TouchableOpacityProps {
+		interface CardItem extends ReactNative.TouchableOpacityProps, Testable {
 			header?: boolean;
 			footer?: boolean;
 			cardBody?: boolean;
@@ -377,9 +381,7 @@ declare module "native-base" {
 		/**
          * Override React ListViewProps
          */
-		interface ReactListViewProps
-			extends ReactNative.ScrollViewProps,
-				React.Props<ReactNative.ListView> {
+		interface ReactListViewProps extends ReactNative.ScrollViewProps, React.Props<ReactNative.ListView>, Testable {
 			/**
              * Flag indicating whether empty section headers should be rendered.
              * In the future release empty section headers will be rendered by
@@ -520,7 +522,7 @@ declare module "native-base" {
 		/**
          * see Widget Card.js
          */
-		interface Card extends ReactNative.ViewProps {
+		interface Card extends ReactNative.ViewProps, Testable {
 			dataArray?: Array<any>;
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 			ref?: React.Ref<ReactNative.ViewProperties | ReactNative.ListViewProperties>;
@@ -561,17 +563,17 @@ declare module "native-base" {
 		/**
          * react-native-easy-grid
          */
-		interface Grid extends ReactNative.ViewProps {}
-		interface Row extends ReactNative.ViewProps {
+		interface Grid extends ReactNative.ViewProps, Testable { }
+		interface Row extends ReactNative.ViewProps, Testable {
 			size?: number;
 		}
-		interface Col extends ReactNative.ViewProps {
+		interface Col extends ReactNative.ViewProps, Testable {
 			size?: number;
 		}
 		/**
          * see Widget InputGroup.js
          */
-		interface InputGroup extends ReactNative.ViewProps {
+		interface InputGroup extends ReactNative.ViewProps, Testable {
 			/**
              * Wraps the textbox with predefined border options.
              * Default: underline
@@ -603,7 +605,7 @@ declare module "native-base" {
 		/**
          * see Widget Input.js
          */
-		interface Input extends ReactNative.TextInputProps {
+		interface Input extends ReactNative.TextInputProps, Testable {
 			label?: string;
 			/**
              * Label placed to the left of the input element.
@@ -625,17 +627,17 @@ declare module "native-base" {
 		/**
          * see Widget Textarea.js
          */
-		interface Textarea extends ReactNative.TextInputProps {
+		interface Textarea extends ReactNative.TextInputProps, Testable {
 			rowSpan: number;
 		}
 
-		interface Label {
+		interface Label extends Testable {
 			style?: RnTextStyleProp;
 		}
 		/**
          * see Widget Icon.js
          */
-		interface Icon {
+		interface Icon extends Testable {
 			name: string;
 			type?: "AntDesign" | "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "FontAwesome5" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial";
 			// TODO position attribute of ReactNative.FlexStyle hasn't another position values without "absolute" and "relative"
@@ -650,7 +652,7 @@ declare module "native-base" {
 		/**
          * see Widget Icon.js
          */
-		interface Thumbnail extends ReactNative.ImageProps {
+		interface Thumbnail extends ReactNative.ImageProps, Testable {
 			/**
              * Dimension of thumbnail.
              * Default: 30
@@ -672,27 +674,27 @@ declare module "native-base" {
 		/**
          * see Widget Spinner.js
          */
-		interface Spinner extends ReactNative.ActivityIndicatorProps {
+		interface Spinner extends ReactNative.ActivityIndicatorProps, Testable {
 			inverse?: boolean;
 		}
 		/**
          * see Widget CheckBox.js
          */
-		interface CheckBox extends ReactNative.TouchableOpacityProps{
+		interface CheckBox extends ReactNative.TouchableOpacityProps, Testable {
 			checked?: boolean;
 			color?: string;
 		}
 		/**
          * see Widget CheckBox.js
          */
-		interface Radio extends ReactNative.TouchableOpacityProps {
+		interface Radio extends ReactNative.TouchableOpacityProps, Testable {
 			selected?: boolean;
 			selectedColor?: string;
 		}
 		/**
          * see Widget ProgressBar.js
          */
-		interface ProgressBar {
+		interface ProgressBar extends Testable {
 			progress?: number;
 			color?: string;
 			inverse?: boolean;
@@ -700,13 +702,13 @@ declare module "native-base" {
 		/**
          * vendor react-native-drawer
          */
-		interface DrawerStyles {
+		interface DrawerStyles extends Testable {
 			drawer?: RnViewStyleProp | Array<RnViewStyleProp>;
 			main?: RnViewStyleProp | Array<RnViewStyleProp>;
 			drawerOverlay?: RnViewStyleProp | Array<RnViewStyleProp>;
 			mainOverlay?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
-		interface Drawer {
+		interface Drawer extends Testable {
 			acceptDoubleTap?: boolean;
 			acceptPan?: boolean;
 			acceptTap?: boolean;
@@ -737,7 +739,7 @@ declare module "native-base" {
 			tweenHandler?: Function;
 			type?: "overlay" | "static" | "displace";
 		}
-		interface ScrollableTab {
+		interface ScrollableTab extends Testable {
 			goToPage?: Function;
 			activeTab?: number;
 			tabs?: Array<any>;
@@ -756,14 +758,14 @@ declare module "native-base" {
 		/**
          * see Widget Tabs.js
          */
-		interface Tabs {
+		interface Tabs extends Testable {
 			renderTabBar?: Function;
 			tabBarPosition?: "top" | "bottom";
 			edgeHitWidth?: number;
 			springTension?: number;
 			springFriction?: number;
 			onChangeTab?: Function;
-		  page?: number;
+			page?: number;
 			locked?: boolean;
 			initialPage?: number;
 			tabBarUnderlineStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
@@ -777,14 +779,14 @@ declare module "native-base" {
 			prerenderingSiblingsNumber?: number;
 		}
 
-		interface Tab {
+		interface Tab extends Testable {
 			heading: React.ReactElement<TabHeading> | string;
 			tabStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
 			activeTabStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
 			textStyle?: RnTextStyleProp;
 			activeTextStyle?: RnTextStyleProp;
 		}
-		interface TabHeading {
+		interface TabHeading extends Testable {
 			tabStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
 			activeTabStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
 			textStyle?: RnTextStyleProp;
@@ -792,7 +794,7 @@ declare module "native-base" {
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
-		interface Item {
+		interface Item extends Testable {
 			fixedLabel?: boolean;
 			floatingLabel?: boolean;
 			inlineLabel?: boolean;
@@ -812,11 +814,11 @@ declare module "native-base" {
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
-		interface Form {
+		interface Form extends Testable {
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
-		interface Fab {
+		interface Fab extends Testable {
 			active?: boolean;
 			direction?: "down" | "up" | "left" | "right";
 			containerStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
@@ -825,16 +827,17 @@ declare module "native-base" {
 			style?: RnViewStyleProp;
 		}
 
-		interface Image extends ReactNative.TextProps {}
+		interface Image extends ReactNative.TextProps, Testable { }
 
-		interface Segment extends ReactNative.TextProps {}
+		interface Segment extends ReactNative.TextProps, Testable { }
 
-		interface Root extends ReactNative.TextProps {}
+		interface Root extends ReactNative.TextProps, Testable { }
 
-		interface StyleProvider {
+		interface StyleProvider extends Testable {
 			style?: any;
 		}
-		interface SwipeRow {
+
+		interface SwipeRow extends Testable {
 			leftOpenValue?: number;
 			rightOpenValue?: number;
 			closeOnRowPress?: boolean;
@@ -855,7 +858,7 @@ declare module "native-base" {
 			style?: RnViewStyleProp;
 		}
 
-		interface Accordion {
+		interface Accordion extends Testable {
 			dataArray: Array<any>;
 			headerStyle?: RnViewStyleProp;
 			contentStyle?: RnViewStyleProp;
@@ -869,7 +872,7 @@ declare module "native-base" {
 			style?: RnViewStyleProp;
 		}
 
-		interface DatePicker {
+		interface DatePicker extends Testable {
 			defaultDate?: Date;
 			minimumDate?: Date;
 			maximumDate?: Date;
@@ -982,7 +985,7 @@ declare module "native-base" {
      */
 	export class Picker extends React.Component<NativeBase.Picker, any> { }
 	namespace Picker {
-		export class Item extends React.Component<ReactNative.PickerItemProps, any> {}
+		export class Item extends React.Component<ReactNative.PickerItemProps, any> { }
 	}
 	/**
      * NativeBase.List
@@ -1175,7 +1178,7 @@ declare module "native-base" {
 			buttonTextStyle?: RnTextStyleProp;
 			buttonStyle?: RnViewStyleProp;
 		}): void;
-		
+
 		/**
 		* Hides the currently visible toast
 		*/
