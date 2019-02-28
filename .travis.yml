@@ -4,3 +4,9 @@ node_js:
   - "10.14.2"
   - "8.14.1"
   - "6.15.1"
+install:
+  - react-native init AwesomeNativeBase
+  - cd AwesomeNativeBase
+  - npm install native-base --save
+  - react-native link
+  - react-native run-ios
