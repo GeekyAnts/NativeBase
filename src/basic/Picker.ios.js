@@ -130,17 +130,19 @@ class PickerNB extends Component {
         onPress={onPress}
       >
         {this.state.currentLabel ? (
-          <Text style={this.props.textStyle} note={this.props.note}>
+          <Text style={this.props.textStyle} note={this.props.note} numberOfLines={1} ellipsizeMode="tail">
             {this.state.currentLabel}
           </Text>
         ) : (
-          <Text
-            style={[this.props.textStyle, this.props.placeholderStyle]}
-            note={this.props.note === false ? false : true}
-          >
-            {this.props.placeholder}
-          </Text>
-        )}
+            <Text
+              style={[this.props.textStyle, this.props.placeholderStyle]}
+              note={this.props.note === false ? false : true}
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            >
+              {this.props.placeholder}
+            </Text>
+          )}
         {this.props.iosIcon === undefined ? null : this.renderIcon()}
       </Button>
     );
@@ -150,35 +152,35 @@ class PickerNB extends Component {
     return this.props.renderHeader ? (
       this.props.renderHeader(() => this._setModalVisible(false))
     ) : (
-      <Header style={this.props.headerStyle}>
-        <Left>
-          <Button
-            style={{
-              shadowOffset: null,
-              shadowColor: null,
-              shadowRadius: null,
-              shadowOpacity: null,
-              marginLeft: 3,
-              ...this.props.headerBackButtonStyle
-            }}
-            transparent
-            onPress={() => {
-              this._setModalVisible(false);
-            }}
-          >
-            <Text style={this.props.headerBackButtonTextStyle}>
-              {this.props.headerBackButtonText || "Back"}
-            </Text>
-          </Button>
-        </Left>
-        <Body>
-          <Title style={this.props.headerTitleStyle}>
-            {this.props.iosHeader || "Select One"}
-          </Title>
-        </Body>
-        <Right />
-      </Header>
-    );
+        <Header style={this.props.headerStyle}>
+          <Left>
+            <Button
+              style={{
+                shadowOffset: null,
+                shadowColor: null,
+                shadowRadius: null,
+                shadowOpacity: null,
+                marginLeft: 3,
+                ...this.props.headerBackButtonStyle
+              }}
+              transparent
+              onPress={() => {
+                this._setModalVisible(false);
+              }}
+            >
+              <Text style={this.props.headerBackButtonTextStyle}>
+                {this.props.headerBackButtonText || "Back"}
+              </Text>
+            </Button>
+          </Left>
+          <Body>
+            <Title style={this.props.headerTitleStyle}>
+              {this.props.iosHeader || "Select One"}
+            </Title>
+          </Body>
+          <Right />
+        </Header>
+      );
   }
 
   render() {
@@ -186,7 +188,8 @@ class PickerNB extends Component {
       <View ref={c => (this._root = c)}>
         {this.renderButton()}
         <Modal
-          supportedOrientations={this.props.supportedOrientations || null}
+          // supportedOrientations={this.props.supportedOrientations || null}
+          supportedOrientations={['portrait', 'landscape']}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
@@ -219,8 +222,8 @@ class PickerNB extends Component {
                     {item.props.value === this.props.selectedValue ? (
                       <Radio selected />
                     ) : (
-                      <Radio selected={false} />
-                    )}
+                        <Radio selected={false} />
+                      )}
                   </Right>
                 </ListItem>
               )}

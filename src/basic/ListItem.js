@@ -36,7 +36,7 @@ class ListItem extends Component {
           {...this.props}
           style={this.props.touchableHighlightStyle}
         >
-          <View {...this.props}>{this.props.children}</View>
+          <View {...this.props} testID={undefined}>{this.props.children}</View>
         </TouchableHighlight>
       );
     } else {
@@ -46,7 +46,7 @@ class ListItem extends Component {
           {...this.props}
         >
           <View style={{ marginLeft: -17, paddingLeft: 17 }}>
-            <View {...this.props}>{this.props.children}</View>
+            <View {...this.props} testID={undefined}>{this.props.children}</View>
           </View>
         </TouchableNativeFeedback>
       );

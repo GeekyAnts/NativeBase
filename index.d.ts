@@ -1,48 +1,57 @@
 declare module "native-base" {
 	import * as React from "react";
 	import * as ReactNative from "react-native";
-	
+
+	type RnViewStyleProp = ReactNative.StyleProp<ReactNative.ViewStyle>;
+	type RnTextStyleProp = ReactNative.StyleProp<ReactNative.TextStyle>;
+	type RnStatusBarStyleProp = ReactNative.StyleProp<ReactNative.StatusBarStyle>;
+
 	namespace NativeBase {
-		interface Text extends ReactNative.TextProperties {
+		interface Testable {
+			testID?: string;
+		}
+
+		interface Text extends ReactNative.TextProps, Testable {
 			note?: boolean;
 			uppercase?: boolean;
 		}
 
-		interface Switch extends ReactNative.SwitchProperties {}
+		interface Switch extends ReactNative.SwitchProps, Testable { }
 
-		interface View extends ReactNative.ViewProperties {
+		interface View extends ReactNative.ViewProps, Testable {
 			padder?: boolean;
 		}
 
-		interface Picker extends ReactNative.PickerProperties {
+		interface Picker extends ReactNative.PickerProps, Testable {
 			mode?: "dialog" | "dropdown";
+			supportedOrientations?: "portrait" | "landscape"
 			iosHeader?: string;
 			inlineLabel?: boolean;
 			headerBackButtonText?: string;
 			placeholder?: string;
-			placeholderStyle?: ReactNative.TextStyle;
-			textStyle?: ReactNative.TextStyle;
-			style?: ReactNative.TextStyle;
+			placeholderStyle?: RnTextStyleProp;
+			textStyle?: RnTextStyleProp;
+			style?: RnTextStyleProp;
 			iosIcon?: React.ReactElement<NativeBase.Icon>;
 			note?: boolean;
 			placeholderIconColor?: string;
-			itemTextStyle?: ReactNative.TextStyle;
-			headerStyle?: ReactNative.ViewStyle;
-			headerTitleStyle?: ReactNative.TextStyle;
-			headerBackButtonTextStyle?: ReactNative.TextStyle;
-			modalStyle?: ReactNative.ViewStyle;
+			itemTextStyle?: RnTextStyleProp;
+			headerStyle?: RnViewStyleProp;
+			headerTitleStyle?: RnTextStyleProp;
+			headerBackButtonTextStyle?: RnTextStyleProp;
+			modalStyle?: RnViewStyleProp;
 			renderHeader?: (backAction: any) => React.ReactElement<any>;
 		}
 
-		interface H1 extends ReactNative.TextProperties {}
+		interface H1 extends ReactNative.TextProps, Testable { }
 		/**
          * see Widget Text.js
          */
-		interface H2 extends ReactNative.TextProperties {}
+		interface H2 extends ReactNative.TextProps, Testable { }
 		/**
          * see Widget Text.js
          */
-		interface H3 extends ReactNative.TextProperties {}
+		interface H3 extends ReactNative.TextProps, Testable { }
 		/**
          * see Widget Text.js
          */
@@ -54,15 +63,15 @@ declare module "native-base" {
 			info?: boolean;
 		}
 
-		interface Badge extends ReactNative.ViewProperties, BsStyle {}
+		interface Badge extends ReactNative.ViewProps, BsStyle, Testable { }
 		/**
          * see Widget CardSwiper.js
          */
-		interface CardSwiper {}
+		interface CardSwiper extends Testable { }
 		/**
          * see Widget DeckSwiper.js
          */
-		interface DeckSwiper {
+		interface DeckSwiper extends Testable {
 			/**
              * Array<any>
              */
@@ -85,7 +94,7 @@ declare module "native-base" {
 		/**
          * see Widget Header.js
          */
-		interface Header {
+		interface Header extends Testable {
 			/**
              * Prop to be used with <Header> component to have Search bar onto the Header section of your screen.
              */
@@ -95,7 +104,7 @@ declare module "native-base" {
              * Default: regular
              */
 			rounded?: boolean;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 			/**
              * It is advisable to use hasTabs prop with Header while using Tab
              */
@@ -104,61 +113,63 @@ declare module "native-base" {
 			hasSubtitle?: boolean;
 			span?: boolean;
 			androidStatusBarColor?: string;
-			iosBarStyle?: ReactNative.StatusBarStyle;
+			iosBarStyle?: RnStatusBarStyleProp;
 			hasSegment?: boolean;
 			translucent?: boolean;
+			transparent?: boolean;
+			noLeft?: boolean;
 		}
 
-		interface Left {
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+		interface Left extends Testable {
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
-		interface Body {
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+		interface Body extends Testable {
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
-		interface Right {
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+		interface Right extends Testable {
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
 		/**
          * see Widget FooterTab.js
          */
-		interface FooterTab {
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+		interface FooterTab extends Testable {
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 		/**
          * see Widget Footer.js
          */
-		interface Footer {
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+		interface Footer extends Testable {
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 		/**
          * see Widget Title.js
          */
-		interface Title {
-			style?: ReactNative.TextStyle;
+		interface Title extends Testable {
+			style?: RnTextStyleProp;
 		}
 		/**
          * see Widget Subtitle/index.js
          */
-		interface Subtitle {
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+		interface Subtitle extends Testable {
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 		/**
          * see Widget Container.js
          */
-		interface Container {
+		interface Container extends Testable {
 			/**
              * The theme prop can be applied to any component of NativeBase.
              */
 			theme?: Object;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 		/**
          * see Widget Content.js
          */
-		interface Content {
+		interface Content extends Testable {
 			/**
              * The theme prop can be applied to any component of NativeBase.
              */
@@ -170,23 +181,23 @@ declare module "native-base" {
 			enableResetScrollToCoords?: boolean;
 			contentOffset?: Object;
 			scrollEnabled?: boolean;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			contentContainerStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
+			contentContainerStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
 			keyboardShouldPersistTaps?: string;
-		        keyboardDismissMode?: string;
+			keyboardDismissMode?: string;
 		}
 		/**
          * see Widget Button.js
          */
-		interface Button extends ReactNative.TouchableOpacityProperties, BsStyle {
+		interface Button extends ReactNative.TouchableOpacityProps, BsStyle, Testable {
 			/**
              * Defines button style
              */
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 			/**
              * Defines button text style
              */
-			textStyle?: ReactNative.TextStyle;
+			textStyle?: RnTextStyleProp;
 			/**
              * Block level button
              */
@@ -239,7 +250,7 @@ declare module "native-base" {
 			iconRight?: boolean;
 			/**
 			 * Used to enable/disable icons
-			 * Icons align in the center of the bu8tton.
+			 * Icons align in the center of the button.
 			 */
 			icon?: boolean;
 			/**
@@ -260,12 +271,16 @@ declare module "native-base" {
              */
 			first?: boolean;
 			last?: boolean;
+			/**
+             * Adds necessary padding when Text button defined in Left / Right of Header (iOS)
+             */
+			hasText?: boolean;
 		}
 		/**
 
          * see Widget List.js
          */
-		interface List extends ReactListViewProperties {
+		interface List extends ReactListViewProps, Testable {
 			listBorderColor?: string;
 			listDividerBg?: string;
 			listNoteColor?: string;
@@ -282,35 +297,35 @@ declare module "native-base" {
 				rowID: string | number,
 				highlightRow?: boolean
 			) => React.ReactElement<any>;
-			dataSource?:ReactNative.ListViewDataSource;
-				disableLeftSwipe?:boolean;
-				disableRightSwipe?:boolean;
-				rightOpenValue?:number;
-				leftOpenValue?: number;
-				renderRightHiddenRow?:(
-					rowData: any,
-					sectionID: string | number,
-					rowID: string | number,
-					rowMap?: any
-				) => React.ReactElement<any>;
-				renderLeftHiddenRow?:(
-					rowData: any,
-					sectionID: string | number,
-					rowID: string | number,
-					rowMap?: any
-				) => React.ReactElement<any>;
-				rowHasChanged?: (r1: any, r2: any) => boolean;
-				onRowOpen?: Function;
-				onRowClose?: Function;
-				onRowDidOpen?: Function;
-				onRowDidClose?: Function;
-				swipeToOpenPercent?: number;
-				closeOnRowBeginSwipe?: boolean;
+			dataSource?: ReactNative.ListViewDataSource;
+			disableLeftSwipe?: boolean;
+			disableRightSwipe?: boolean;
+			rightOpenValue?: number;
+			leftOpenValue?: number;
+			renderRightHiddenRow?: (
+				rowData: any,
+				sectionID: string | number,
+				rowID: string | number,
+				rowMap?: any
+			) => React.ReactElement<any>;
+			renderLeftHiddenRow?: (
+				rowData: any,
+				sectionID: string | number,
+				rowID: string | number,
+				rowMap?: any
+			) => React.ReactElement<any>;
+			rowHasChanged?: (r1: any, r2: any) => boolean;
+			onRowOpen?: Function;
+			onRowClose?: Function;
+			onRowDidOpen?: Function;
+			onRowDidClose?: Function;
+			swipeToOpenPercent?: number;
+			closeOnRowBeginSwipe?: boolean;
 		}
 		/**
          * see Widget ListItem.js
          */
-		interface ListItem extends ReactNative.TouchableOpacityProperties {
+		interface ListItem extends ReactNative.TouchableOpacityProps, Testable {
 			header?: boolean;
 			noBorder?: boolean;
 			noIndent?: boolean;
@@ -345,18 +360,18 @@ declare module "native-base" {
              * [android] colored ripple effect
              */
 			androidRippleColor?: string;
-			touchableHighlightStyle?: ReactNative.ViewStyle;
+			touchableHighlightStyle?: RnViewStyleProp;
 		}
 
-		interface Separator {
+		interface Separator extends Testable {
 			bordered?: boolean;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
 		/**
          * see Widget CardItem.js
          */
-		interface CardItem extends ReactNative.TouchableOpacityProperties {
+		interface CardItem extends ReactNative.TouchableOpacityProps, Testable {
 			header?: boolean;
 			footer?: boolean;
 			cardBody?: boolean;
@@ -364,11 +379,9 @@ declare module "native-base" {
 			bordered?: boolean;
 		}
 		/**
-         * Override React ListViewProperties
+         * Override React ListViewProps
          */
-		interface ReactListViewProperties
-			extends ReactNative.ScrollViewProperties,
-				React.Props<ReactNative.ListView> {
+		interface ReactListViewProps extends ReactNative.ScrollViewProps, React.Props<ReactNative.ListView>, Testable {
 			/**
              * Flag indicating whether empty section headers should be rendered.
              * In the future release empty section headers will be rendered by
@@ -462,8 +475,8 @@ declare module "native-base" {
              * Defaults to returning a ScrollView with the given props.
              */
 			renderScrollComponent?: (
-				props: ReactNative.ScrollViewProperties
-			) => React.ReactElement<ReactNative.ScrollViewProperties>;
+				props: ReactNative.ScrollViewProps
+			) => React.ReactElement<ReactNative.ScrollViewProps>;
 
 			/**
              * (sectionData, sectionID) => renderable
@@ -509,15 +522,15 @@ declare module "native-base" {
 		/**
          * see Widget Card.js
          */
-		interface Card extends ReactNative.ViewProperties {
+		interface Card extends ReactNative.ViewProps, Testable {
 			dataArray?: Array<any>;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			ref?: React.Ref<ReactNative.ViewProperties | ReactListViewProperties>;
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
+			ref?: React.Ref<ReactNative.ViewProperties | ReactNative.ListViewProperties>;
 			transparent?: boolean;
 			noShadow?: boolean;
 
 			// Adding ListView properties
-			// dataSource?: ReactNative.ListViewDataSource; 
+			// dataSource?: ReactNative.ListViewDataSource;
 			enableEmptySections?: boolean;
 			initialListSize?: number;
 			onChangeVisibleRows?: (
@@ -536,7 +549,7 @@ declare module "native-base" {
 				rowID: string | number,
 				highlightRow?: boolean
 			) => React.ReactElement<any>;
-			renderScrollComponent?: (props: ReactNative.ScrollViewProperties) => React.ReactElement<ReactNative.ScrollViewProperties>;
+			renderScrollComponent?: (props: ReactNative.ScrollViewProps) => React.ReactElement<ReactNative.ScrollViewProps>;
 			renderSectionHeader?: (sectionData: any, sectionId: string | number) => React.ReactElement<any>;
 			renderSeparator?: (
 				sectionID: string | number,
@@ -550,17 +563,17 @@ declare module "native-base" {
 		/**
          * react-native-easy-grid
          */
-		interface Grid extends ReactNative.ViewProperties {}
-		interface Row extends ReactNative.ViewProperties {
+		interface Grid extends ReactNative.ViewProps, Testable { }
+		interface Row extends ReactNative.ViewProps, Testable {
 			size?: number;
 		}
-		interface Col extends ReactNative.ViewProperties {
+		interface Col extends ReactNative.ViewProps, Testable {
 			size?: number;
 		}
 		/**
          * see Widget InputGroup.js
          */
-		interface InputGroup extends ReactNative.ViewProperties {
+		interface InputGroup extends ReactNative.ViewProps, Testable {
 			/**
              * Wraps the textbox with predefined border options.
              * Default: underline
@@ -592,7 +605,7 @@ declare module "native-base" {
 		/**
          * see Widget Input.js
          */
-		interface Input extends ReactNative.TextInputProperties {
+		interface Input extends ReactNative.TextInputProps, Testable {
 			label?: string;
 			/**
              * Label placed to the left of the input element.
@@ -614,19 +627,19 @@ declare module "native-base" {
 		/**
          * see Widget Textarea.js
          */
-		interface Textarea extends ReactNative.TextInputProperties {
+		interface Textarea extends ReactNative.TextInputProps, Testable {
 			rowSpan: number;
 		}
 
-		interface Label {
-			style?: ReactNative.TextStyle;
+		interface Label extends Testable {
+			style?: RnTextStyleProp;
 		}
 		/**
          * see Widget Icon.js
          */
-		interface Icon {
+		interface Icon extends Testable {
 			name: string;
-			type?: "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial" ;
+			type?: "AntDesign" | "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "FontAwesome5" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial";
 			// TODO position attribute of ReactNative.FlexStyle hasn't another position values without "absolute" and "relative"
 			style?: any;
 			onPress?: (e?: any) => any;
@@ -639,7 +652,7 @@ declare module "native-base" {
 		/**
          * see Widget Icon.js
          */
-		interface Thumbnail extends ReactNative.ImageProperties {
+		interface Thumbnail extends ReactNative.ImageProps, Testable {
 			/**
              * Dimension of thumbnail.
              * Default: 30
@@ -661,85 +674,127 @@ declare module "native-base" {
 		/**
          * see Widget Spinner.js
          */
-		interface Spinner extends ReactNative.ActivityIndicatorProperties {
+		interface Spinner extends ReactNative.ActivityIndicatorProps, Testable {
 			inverse?: boolean;
 		}
 		/**
          * see Widget CheckBox.js
          */
-		interface CheckBox extends ReactNative.TouchableOpacityProperties{
+		interface CheckBox extends ReactNative.TouchableOpacityProps, Testable {
 			checked?: boolean;
 			color?: string;
 		}
 		/**
          * see Widget CheckBox.js
          */
-		interface Radio extends ReactNative.TouchableOpacityProperties {
+		interface Radio extends ReactNative.TouchableOpacityProps, Testable {
 			selected?: boolean;
+			selectedColor?: string;
 		}
 		/**
          * see Widget ProgressBar.js
          */
-		interface ProgressBar {
+		interface ProgressBar extends Testable {
 			progress?: number;
 			color?: string;
 			inverse?: boolean;
 		}
-	
-		interface ScrollableTab {
-            goToPage?: Function;
-            activeTab?: number;
-            tabs?: Array<any>;
-            backgroundColor?: string;
-            activeTextColor?: string;
-            inactiveTextColor?: string;
-            scrollOffset?: number;
-            style?: ReactNative.ViewStyle;
-            tabStyle?: ReactNative.ViewStyle;
-            tabsContainerStyle?: ReactNative.ViewStyle;
-            renderTab?: Function;
-            underlineStyle?: ReactNative.ViewStyle;
-            onScroll?: Function;
-        }
+		/**
+         * vendor react-native-drawer
+         */
+		interface DrawerStyles extends Testable {
+			drawer?: RnViewStyleProp | Array<RnViewStyleProp>;
+			main?: RnViewStyleProp | Array<RnViewStyleProp>;
+			drawerOverlay?: RnViewStyleProp | Array<RnViewStyleProp>;
+			mainOverlay?: RnViewStyleProp | Array<RnViewStyleProp>;
+		}
+		interface Drawer extends Testable {
+			acceptDoubleTap?: boolean;
+			acceptPan?: boolean;
+			acceptTap?: boolean;
+			captureGestures?: boolean;
+			children?: any;
+			open?: boolean;
+			closedDrawerOffset?: number;
+			content?: any;
+			deviceScreen?: ReactNative.ScaledSize;
+			disabled?: boolean;
+			initializeOpen?: boolean;
+			negotiatePan?: boolean;
+			onClose?: Function;
+			onCloseStart?: Function;
+			onOpen?: Function;
+			onOpenStart?: Function;
+			openDrawerOffset?: number;
+			openDrawerThreshold?: number;
+			panCloseMask?: number;
+			panOpenMask?: number;
+			panStartCompensation?: boolean;
+			relativeDrag?: boolean;
+			side?: "left" | "right";
+			styles?: DrawerStyles;
+			tapToClose?: boolean;
+			tweenDuration?: number;
+			tweenEasing?: string;
+			tweenHandler?: Function;
+			type?: "overlay" | "static" | "displace";
+		}
+		interface ScrollableTab extends Testable {
+			goToPage?: Function;
+			activeTab?: number;
+			tabs?: Array<any>;
+			backgroundColor?: string;
+			activeTextColor?: string;
+			inactiveTextColor?: string;
+			scrollOffset?: number;
+			style?: RnViewStyleProp;
+			tabStyle?: RnViewStyleProp;
+			tabsContainerStyle?: RnViewStyleProp;
+			renderTab?: Function;
+			underlineStyle?: RnViewStyleProp;
+			onScroll?: Function;
+		}
 
 		/**
          * see Widget Tabs.js
          */
-		interface Tabs {
+		interface Tabs extends Testable {
 			renderTabBar?: Function;
 			tabBarPosition?: "top" | "bottom";
 			edgeHitWidth?: number;
 			springTension?: number;
 			springFriction?: number;
 			onChangeTab?: Function;
+			page?: number;
 			locked?: boolean;
 			initialPage?: number;
-			tabBarUnderlineStyle?:ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			tabBarBackgroundColor?:string;
-			tabBarActiveTextColor?:string;
-			tabBarInactiveTextColor?:string;
-			tabBarTextStyle?:ReactNative.TextStyle;
-			tabContainerStyle?:ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			tabBarUnderlineStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
+			tabBarBackgroundColor?: string;
+			tabBarActiveTextColor?: string;
+			tabBarInactiveTextColor?: string;
+			tabBarTextStyle?: RnTextStyleProp;
+			tabContainerStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 			contentProps?: ReactNative.ScrollViewProperties;
+			prerenderingSiblingsNumber?: number;
 		}
 
-		interface Tab {
+		interface Tab extends Testable {
 			heading: React.ReactElement<TabHeading> | string;
-			tabStyle?:ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			activeTabStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			textStyle?: ReactNative.TextStyle;
-			activeTextStyle?: ReactNative.TextStyle;
+			tabStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
+			activeTabStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
+			textStyle?: RnTextStyleProp;
+			activeTextStyle?: RnTextStyleProp;
 		}
-		interface TabHeading {
-			tabStyle?:ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			activeTabStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
-			textStyle?: ReactNative.TextStyle;
-			activeTextStyle?: ReactNative.TextStyle;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+		interface TabHeading extends Testable {
+			tabStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
+			activeTabStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
+			textStyle?: RnTextStyleProp;
+			activeTextStyle?: RnTextStyleProp;
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
-		interface Item {
+		interface Item extends Testable {
 			fixedLabel?: boolean;
 			floatingLabel?: boolean;
 			inlineLabel?: boolean;
@@ -755,41 +810,43 @@ declare module "native-base" {
 			secureTextEntry?: boolean;
 			success?: boolean;
 			last?: boolean;
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			picker?: boolean;
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
-		interface Form {
-			style?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+		interface Form extends Testable {
+			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 		}
 
-		interface Fab {
+		interface Fab extends Testable {
 			active?: boolean;
 			direction?: "down" | "up" | "left" | "right";
-			containerStyle?: ReactNative.ViewStyle | Array<ReactNative.ViewStyle>;
+			containerStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
 			onPress?: () => void;
 			position?: "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
-			style?: ReactNative.ViewStyle;
+			style?: RnViewStyleProp;
 		}
 
-		interface Image extends ReactNative.TextProperties {}
+		interface Image extends ReactNative.TextProps, Testable { }
 
-		interface Segment extends ReactNative.TextProperties {}
+		interface Segment extends ReactNative.TextProps, Testable { }
 
-		interface Root extends ReactNative.TextProperties {}
+		interface Root extends ReactNative.TextProps, Testable { }
 
-		interface StyleProvider {
+		interface StyleProvider extends Testable {
 			style?: any;
 		}
-		interface SwipeRow {
-            leftOpenValue?: number;
-            rightOpenValue?: number;
-            closeOnRowPress?: boolean;
-            disableLeftSwipe?: boolean;
-            disableRightSwipe?: boolean;
-            recalculateHiddenLayout?: boolean;
-            preview?: boolean;
-            previewDuration?: number;
-            directionalDistanceChangeThreshold?: number;
+
+		interface SwipeRow extends Testable {
+			leftOpenValue?: number;
+			rightOpenValue?: number;
+			closeOnRowPress?: boolean;
+			disableLeftSwipe?: boolean;
+			disableRightSwipe?: boolean;
+			recalculateHiddenLayout?: boolean;
+			preview?: boolean;
+			previewDuration?: number;
+			directionalDistanceChangeThreshold?: number;
 			swipeToOpenPercent?: number;
 			stopLeftSwipe?: number;
 			stopRightSwipe?: number;
@@ -798,36 +855,38 @@ declare module "native-base" {
 			left?: React.ReactElement<any>;
 			body?: React.ReactElement<any>;
 			right?: React.ReactElement<any>;
-			style?: ReactNative.ViewStyle;
-		}
-		
-		interface Accordion {
-			dataArray: Array<any>;
-			headerStyle?: ReactNative.ViewStyle;
-			contentStyle?: ReactNative.ViewStyle;
-			renderHeader?: (item: any) => React.ReactElement<any>;
-			renderContent?: (item: any) => React.ReactElement<any>;
-			icon?: string;
-			expandedIcon?: string;
-			iconStyle?: ReactNative.TextStyle;
-			expandedIconStyle?: ReactNative.TextStyle;
-			style?: ReactNative.ViewStyle;
+			style?: RnViewStyleProp;
 		}
 
-		interface DatePicker {
+		interface Accordion extends Testable {
+			dataArray: Array<any>;
+			headerStyle?: RnViewStyleProp;
+			contentStyle?: RnViewStyleProp;
+			renderHeader?: (item: any, expanded: boolean) => React.ReactElement<any>;
+			renderContent?: (item: any) => React.ReactElement<any>;
+			expanded?: number;
+			icon?: string;
+			expandedIcon?: string;
+			iconStyle?: RnTextStyleProp;
+			expandedIconStyle?: RnTextStyleProp;
+			style?: RnViewStyleProp;
+		}
+
+		interface DatePicker extends Testable {
 			defaultDate?: Date;
 			minimumDate?: Date;
 			maximumDate?: Date;
 			locale?: string;
 			placeHolderText?: string;
-			textStyle?: ReactNative.TextStyle;
-			placeHolderTextStyle?: ReactNative.TextStyle;
+			textStyle?: RnTextStyleProp;
+			placeHolderTextStyle?: RnTextStyleProp;
 			androidMode?: "calendar" | "spinner" | "default";
 			timeZoneOffsetInMinutes?: number;
 			modalTransparent?: boolean;
 			animationType?: "slide" | "fade" | "none";
-			disabled:? boolean;
+			disabled?: boolean;
 			onDateChange?: (date: any) => void;
+			formatChosenDate?: (date: any) => void;
 		}
 	}
 
@@ -842,7 +901,7 @@ declare module "native-base" {
      * Usage of Container's Header component is very similar to your HTML <head>.
      * The Content component of Container is nothing but the body section of your screen.
      */
-	export class Container extends React.Component<NativeBase.Container, any> {}
+	export class Container extends React.Component<NativeBase.Container, any> { }
 	/**
      * NativeBase.Header
      *
@@ -856,7 +915,7 @@ declare module "native-base" {
      * User can add custom styles while defining <Header> within their app.
      * Replacing Component: React Native <View>
      */
-	export class Header extends React.Component<NativeBase.Header, any> {}
+	export class Header extends React.Component<NativeBase.Header, any> { }
 	/**
      * NativeBase.Content
      *
@@ -870,31 +929,31 @@ declare module "native-base" {
 	/**
      * NativeBase.Left
      */
-	export class Left extends React.Component<NativeBase.Left, any> {}
+	export class Left extends React.Component<NativeBase.Left, any> { }
 	/**
      * NativeBase.Right
      */
-	export class Right extends React.Component<NativeBase.Right, any> {}
+	export class Right extends React.Component<NativeBase.Right, any> { }
 	/**
      * NativeBase.Body
      */
-	export class Body extends React.Component<NativeBase.Body, any> {}
+	export class Body extends React.Component<NativeBase.Body, any> { }
 
-	export class Content extends React.Component<NativeBase.Content, any> {}
+	export class Content extends React.Component<NativeBase.Content, any> { }
 	/**
      * NativeBase.FooterTab
      */
-	export class FooterTab extends React.Component<NativeBase.FooterTab, any> {}
+	export class FooterTab extends React.Component<NativeBase.FooterTab, any> { }
 	/**
      * NativeBase.Footer
      */
-	export class Footer extends React.Component<NativeBase.Footer, any> {}
+	export class Footer extends React.Component<NativeBase.Footer, any> { }
 	/**
      * NativeBase.Title
      */
-	export class Title extends React.Component<NativeBase.Title, any> {}
+	export class Title extends React.Component<NativeBase.Title, any> { }
 
-	export class Subtitle extends React.Component<NativeBase.Subtitle, any> {}
+	export class Subtitle extends React.Component<NativeBase.Subtitle, any> { }
 
 	/**
      * NativeBase.Button
@@ -908,25 +967,25 @@ declare module "native-base" {
      * NativeBase has provided its users with enormous list of props that can be used with Button.
      * Replacing Component: React Native <TouchableOpacity>
      */
-	export class Button extends React.Component<NativeBase.Button, any> {}
+	export class Button extends React.Component<NativeBase.Button, any> { }
 	/**
      * NativeBase.View
      */
-	export class View extends React.Component<NativeBase.View, any> {}
+	export class View extends React.Component<NativeBase.View, any> { }
 	/**
      * NativeBase.Text
      */
-	export class Text extends React.Component<NativeBase.Text, any> {}
+	export class Text extends React.Component<NativeBase.Text, any> { }
 	/**
      * NativeBase.Switch
      */
-	export class Switch extends React.Component<NativeBase.Switch, any> {}
+	export class Switch extends React.Component<NativeBase.Switch, any> { }
 	/**
      * NativeBase.Picker
      */
-	export class Picker extends React.Component<NativeBase.Picker, any> {}
+	export class Picker extends React.Component<NativeBase.Picker, any> { }
 	namespace Picker {
-		export class Item extends React.Component<ReactNative.PickerItemProperties, any> {}
+		export class Item extends React.Component<ReactNative.PickerItemProps, any> { }
 	}
 	/**
      * NativeBase.List
@@ -934,7 +993,7 @@ declare module "native-base" {
      * A base component for specifying lists of information. List must contain one or more list elements.
      * Props provide configurability for several features. Provides a number of attributes that follows styling and interaction guidelines for each platform, so that they are intuitive for users to  interact with.
      */
-	export class List extends React.Component<NativeBase.List, any> {}
+	export class List extends React.Component<NativeBase.List, any> { }
 	/**
      * NativeBase.ListItem
      *
@@ -943,31 +1002,31 @@ declare module "native-base" {
      * • Adds border at bottom of each ListItem.
      * • List takes any number of ListItem.
      */
-	export class ListItem extends React.Component<NativeBase.ListItem, any> {}
+	export class ListItem extends React.Component<NativeBase.ListItem, any> { }
 	/**
      * NativeBase.H1
      */
-	export class H1 extends React.Component<NativeBase.H1, any> {}
+	export class H1 extends React.Component<NativeBase.H1, any> { }
 	/**
      * NativeBase.H2
      */
-	export class H2 extends React.Component<NativeBase.H2, any> {}
+	export class H2 extends React.Component<NativeBase.H2, any> { }
 	/**
      * NativeBase.H3
      */
-	export class H3 extends React.Component<NativeBase.H3, any> {}
+	export class H3 extends React.Component<NativeBase.H3, any> { }
 	/**
      * NativeBase.Row
      */
-	export class Row extends React.Component<NativeBase.Row, any> {}
+	export class Row extends React.Component<NativeBase.Row, any> { }
 	/**
      * NativeBase.Col
      */
-	export class Col extends React.Component<NativeBase.Col, any> {}
+	export class Col extends React.Component<NativeBase.Col, any> { }
 	/**
      * NativeBase.Grid
      */
-	export class Grid extends React.Component<NativeBase.Grid, any> {}
+	export class Grid extends React.Component<NativeBase.Grid, any> { }
 	/**
      * NativeBase.InputGroup
      *
@@ -981,15 +1040,15 @@ declare module "native-base" {
 	/**
      * NativeBase.Input
      */
-	export class Input extends React.Component<NativeBase.Input, any> {}
+	export class Input extends React.Component<NativeBase.Input, any> { }
 	/**
      * NativeBase.Textarea
      */
-	export class Textarea extends React.Component<NativeBase.Textarea, any> {}
+	export class Textarea extends React.Component<NativeBase.Textarea, any> { }
 	/**
      * NativeBase.Icon
      */
-	export class Icon extends React.Component<NativeBase.Icon, any> {}
+	export class Icon extends React.Component<NativeBase.Icon, any> { }
 	/**
      * NativeBase.Thumbnail
      *
@@ -997,7 +1056,7 @@ declare module "native-base" {
      * It helps you to showcase an image with variuos dimensions and shapes.
      * By default, Thumbnail renders an image in circular shape.
      */
-	export class Thumbnail extends React.Component<NativeBase.Thumbnail, any> {}
+	export class Thumbnail extends React.Component<NativeBase.Thumbnail, any> { }
 	/**
      * NativeBase.Card
      *
@@ -1006,47 +1065,51 @@ declare module "native-base" {
      * NativeBase Cards support a wide variety of content, including images, text, list groups, links, and more.
      * Mix and match multiple content types to create the card you need.
      */
-	export class Card extends React.Component<NativeBase.Card, any> {}
+	export class Card extends React.Component<NativeBase.Card, any> { }
 	/**
      * NativeBase.CardItem
      *
      * This is the child component of Card. Works very similar to the list items of list. Card takes any number of CardItem.
      * CardItem component takes input such as: Text, Button, Image, Thumbnail, Icon.
      */
-	export class CardItem extends React.Component<NativeBase.CardItem, any> {}
+	export class CardItem extends React.Component<NativeBase.CardItem, any> { }
 	/**
      * NativeBase.CardSwiper
      *
      * Looking at data one piece at a time is more efficient when you consider people you might want to date, restaurants, streaming music, or local events you might want to check out.
      * NativeBase Card Swiper helps you evaluate one option at a time, instead of selecting from a set of options.
      */
-	export class CardSwiper extends React.Component<NativeBase.CardSwiper, any> {}
+	export class CardSwiper extends React.Component<NativeBase.CardSwiper, any> { }
 	/**
      * NativeBase.DeckSwiper
      */
-	export class DeckSwiper extends React.Component<NativeBase.DeckSwiper, any> {}
+	export class DeckSwiper extends React.Component<NativeBase.DeckSwiper, any> { }
 	/**
      * NativeBase.Badge
      *
      * All of us must have seen notification badges somewhere, such as on smart phones or facebook.
      */
-	export class Badge extends React.Component<NativeBase.Badge, any> {}
+	export class Badge extends React.Component<NativeBase.Badge, any> { }
 	/**
      * NativeBase.Spinner
      */
-	export class Spinner extends React.Component<NativeBase.Spinner, any> {}
+	export class Spinner extends React.Component<NativeBase.Spinner, any> { }
 	/**
      * NativeBase.CheckBox
      */
-	export class CheckBox extends React.Component<NativeBase.CheckBox, any> {}
+	export class CheckBox extends React.Component<NativeBase.CheckBox, any> { }
 	/**
      * NativeBase.Radio
      */
-	export class Radio extends React.Component<NativeBase.Radio, any> {}
+	export class Radio extends React.Component<NativeBase.Radio, any> { }
 	/**
      * NativeBase.ProgressBar
      */
-	export class ProgressBar extends React.Component<NativeBase.ProgressBar, any> {}
+	export class ProgressBar extends React.Component<NativeBase.ProgressBar, any> { }
+	/**
+     * NativeBase.Drawer
+     */
+	export class Drawer extends React.Component<NativeBase.Drawer, any> { }
 	/**
      * NativeBase.ScrollableTab
      */
@@ -1057,36 +1120,36 @@ declare module "native-base" {
      * Tabs are a horizontal region of buttons or links that allow for a consistent navigation experience between screens.
      * It can contain any combination of text and icons, and is a popular method for enabling mobile navigation.
      */
-	export class Tabs extends React.Component<NativeBase.Tabs, any> {}
+	export class Tabs extends React.Component<NativeBase.Tabs, any> { }
 	/**
      * NativeBase.Tab
      */
-	export class Tab extends React.Component<NativeBase.Tab, any> {}
+	export class Tab extends React.Component<NativeBase.Tab, any> { }
 
-	export class TabHeading extends React.Component<NativeBase.TabHeading, any> {}
+	export class TabHeading extends React.Component<NativeBase.TabHeading, any> { }
 	/**
      * NativeBase.Item
      */
-	export class Item extends React.Component<NativeBase.Item, any> {}
+	export class Item extends React.Component<NativeBase.Item, any> { }
 	/**
      * NativeBase.Form
      */
-	export class Form extends React.Component<NativeBase.Form, any> {}
+	export class Form extends React.Component<NativeBase.Form, any> { }
 	/**
      * NativeBase.Fab
      */
-	export class Fab extends React.Component<NativeBase.Fab, any> {}
+	export class Fab extends React.Component<NativeBase.Fab, any> { }
 
-	export class Separator extends React.Component<NativeBase.Separator, any> {}
+	export class Separator extends React.Component<NativeBase.Separator, any> { }
 
-	export class Label extends React.Component<NativeBase.Label, any> {}
+	export class Label extends React.Component<NativeBase.Label, any> { }
 
-	export class StyleProvider extends React.Component<NativeBase.StyleProvider, any> {}
+	export class StyleProvider extends React.Component<NativeBase.StyleProvider, any> { }
 
 	export class ActionSheet {
 		static show: (
 			configuration: {
-				options: string[] | Array<{text: string, icon?: string, iconColor?: string}>;
+				options: string[] | Array<{ text: string, icon?: string, iconColor?: string }>;
 				cancelButtonIndex?: number;
 				destructiveButtonIndex?: number;
 				title?: string;
@@ -1095,14 +1158,14 @@ declare module "native-base" {
 		) => void;
 	}
 
-	export class Image extends React.Component<NativeBase.Image, any> {}
+	export class Image extends React.Component<NativeBase.Image, any> { }
 
-	export class Segment extends React.Component<NativeBase.Segment, any> {}
+	export class Segment extends React.Component<NativeBase.Segment, any> { }
 
-	export class Root extends React.Component<NativeBase.Root, any> {}
+	export class Root extends React.Component<NativeBase.Root, any> { }
 
-	export class SwipeRow extends React.Component<NativeBase.SwipeRow, any> {}
-	
+	export class SwipeRow extends React.Component<NativeBase.SwipeRow, any> { }
+
 	export class Toast {
 		public static show(configuration: {
 			text: string;
@@ -1111,12 +1174,17 @@ declare module "native-base" {
 			type?: "danger" | "success" | "warning";
 			duration?: number;
 			onClose?: (reason: "user" | "timeout" | "functionCall") => any;
-			textStyle?: ReactNative.TextStyle;
-			buttonTextStyle?: ReactNative.TextStyle;
-			buttonStyle?: ReactNative.ViewStyle;
+			textStyle?: RnTextStyleProp;
+			buttonTextStyle?: RnTextStyleProp;
+			buttonStyle?: RnViewStyleProp;
 		}): void;
+
+		/**
+		* Hides the currently visible toast
+		*/
+		public static hide(): void;
 	}
-	
+
 	export class Accordion extends React.Component<NativeBase.Accordion, any>{ }
 
 	export class DatePicker extends React.Component<NativeBase.DatePicker, any> { }

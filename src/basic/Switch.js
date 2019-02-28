@@ -6,13 +6,13 @@ import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class Switch extends Component {
-	render() {
-		return <SwitchNB ref={c => (this._root = c)} {...this.props} />;
-	}
+  render() {
+    return <SwitchNB ref={c => (this._root = c)} {...this.props} />;
+  }
 }
 
 Switch.propTypes = {
-	...Switch.propTypes,
+  ...Switch.propTypes,
 };
 
 const StyledSwitch = connectStyle("NativeBase.Switch", {}, mapPropsToStyleNames)(Switch);

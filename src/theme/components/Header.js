@@ -1,8 +1,10 @@
+// @flow
+
 import { PixelRatio, StatusBar } from "react-native";
 
 import variable from "./../variables/platform";
 
-export default (variables = variable) => {
+export default (variables /*: * */ = variable) => {
   const platformStyle = variables.platformStyle;
   const platform = variables.platform;
 
@@ -316,10 +318,7 @@ export default (variables = variable) => {
           borderRadius: 50,
           "NativeBase.Icon": {
             color: variables.toolbarBtnColor,
-            fontSize:
-              platform === "ios" && variables.platformStyle !== "material"
-                ? variables.iconHeaderSize - 9
-                : variables.iconHeaderSize - 2,
+            fontSize: variables.iconHeaderSize - 2,
             marginTop: 0,
             marginLeft: 2,
             marginRight: 0
@@ -327,10 +326,7 @@ export default (variables = variable) => {
           },
           "NativeBase.IconNB": {
             color: variables.toolbarBtnColor,
-            fontSize:
-              platform === "ios" && variables.platformStyle !== "material"
-                ? variables.iconHeaderSize - 9
-                : variables.iconHeaderSize - 2,
+            fontSize: variables.iconHeaderSize - 2,
             marginTop: 0,
             marginLeft: 2,
             marginRight: 0
@@ -381,7 +377,7 @@ export default (variables = variable) => {
     borderBottomColor: variables.toolbarDefaultBorder,
     height:
       variables.platform === "ios" && variables.platformStyle === "material"
-        ? variables.toolbarHeight + StatusBar.height
+        ? variables.toolbarHeight + 10
         : variables.toolbarHeight,
     elevation: 3,
     shadowColor: platformStyle === "material" ? "#000" : undefined,

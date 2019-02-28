@@ -1,8 +1,10 @@
+// @flow
+
 import { Platform } from "react-native";
 
 import variable from "./../variables/platform";
 
-export default (variables = variable) => {
+export default (variables /*: * */ = variable) => {
   const itemTheme = {
     ".floatingLabel": {
       "NativeBase.Input": {
@@ -17,7 +19,7 @@ export default (variables = variable) => {
         }
       },
       "NativeBase.Label": {
-        top: 8
+        paddingTop: 5
       },
       "NativeBase.Icon": {
         top: 6,

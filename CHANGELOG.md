@@ -1,26 +1,35 @@
-# Version [2.7.2](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.7.2)
+# Version [2.12.0](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.12.0)
+
 
 ### General Features
 
-*   **lodash:** Upgraded lodash to 4.17.0 to fix low severity vulnerability. Commit ([c2fe1e7](https://github.com/GeekyAnts/NativeBase/commit/c2fe1e70f923d9283cf4f5f227bcc0e1a38b8183)), closes [#2118](https://github.com/GeekyAnts/NativeBase/issues/2118)
+*   **Installation:** Changed `CRNA` to `Expo` in installation instructions. PR [#2584](https://github.com/GeekyAnts/NativeBase/pull/2584).
+*   **Vulnerability Issue:** Upgraded loadsh to fix vulnerability issue. Commit [10d381a](https://github.com/GeekyAnts/NativeBase/commit/10d381a81ca0df072bfcf9d55622f80bf8ab8a8c), [e6e7946](https://github.com/GeekyAnts/NativeBase/commit/e6e794630ca6db29e1d072c02798fc1f4cb7f744), closes [#2602](https://github.com/GeekyAnts/NativeBase/issues/2602)
 
 
 ### Upgraded Features
 
-*   **Accordion:** Takes flexible dataArray input by passing `item` as callback parameter instead of `title` and `content`. PR [#2125](https://github.com/GeekyAnts/NativeBase/pull/2125), closes [#2116](https://github.com/GeekyAnts/NativeBase/issues/2116)
-*   **Toast:** Added `hide` function for hiding toast. PR [#2124](https://github.com/GeekyAnts/NativeBase/pull/2124), closes [#1287](https://github.com/GeekyAnts/NativeBase/issues/1287)
-*   **Typescript:** Updated extended prop names. PR [#2070](https://github.com/GeekyAnts/NativeBase/pull/2070)
+*   **Accordion:** Added Test case for Accordion. PR[#2578](https://github.com/GeekyAnts/NativeBase/pull/2578), closes [#2546](https://github.com/GeekyAnts/NativeBase/issues/2546)
+*   **FAB:** Disable FABs android ripple effect and ripple effect wrt borderRadius. Commit[56597c4](https://github.com/GeekyAnts/NativeBase/commit/56597c45df1b75e1658b1e049d38e08dbc954e3e), closes [#2313](https://github.com/GeekyAnts/NativeBase/issues/2313)
+*   **Item:** Added Item Event Handler. PR [#2552](https://github.com/GeekyAnts/NativeBase/pull/2552), closes [#2525](https://github.com/GeekyAnts/NativeBase/issues/2525).
+*   **Tabs:** Tabs width update. PR [#2572](https://github.com/GeekyAnts/NativeBase/pull/2572), closes [#2558](https://github.com/GeekyAnts/NativeBase/issues/2558)
+*   **Theme:** 
+    -   iPhoneX feature flag modification from specified theme. PR[#2514](https://github.com/GeekyAnts/NativeBase/pull/2514), closes [#2382](https://github.com/GeekyAnts/NativeBase/issues/2382)
+    -   Updated theme variable value for ListItem. PR[#2569](https://github.com/GeekyAnts/NativeBase/pull/2569), closes [#2513](https://github.com/GeekyAnts/NativeBase/issues/2513)
+*   **Typescript:** 
+    -   Added Button `hasText` to Typescript. PR[#2526](https://github.com/GeekyAnts/NativeBase/pull/2526).
+    -   Added hide() function to Toast typing. PR[#2521](https://github.com/GeekyAnts/NativeBase/pull/2521).
+    -   Added `prerenderingSiblingsNumber` to Tabs. PR [#2531](https://github.com/GeekyAnts/NativeBase/pull/2531), closes [#1620](https://github.com/GeekyAnts/NativeBase/issues/1620)
+    -   Updated Type definitions. PR [#2210](https://github.com/GeekyAnts/NativeBase/pull/2210).
 
 
 
 ### Bug Fixes
 
-*   **Card:** Fixe Card flexes with wrapping Content. PR [#2148](https://github.com/GeekyAnts/NativeBase/pull/2148), closes [#2136](https://github.com/GeekyAnts/NativeBase/issues/2136)
-*   **Footer:** Vue Native - Footer issue fixed for iPhoneX. Commits ([a4a077d](https://github.com/GeekyAnts/NativeBase/commit/a4a077d1fa59aa049ab093d0e32a5c6def0ff5e1))
-*   **Header:**
-    -   Fixed vertical alignment of elements in Header on iPhoneX. PR [#2133](https://github.com/GeekyAnts/NativeBase/pull/2133), closes [#2128](https://github.com/GeekyAnts/NativeBase/issues/2128)
-    -   Vue Native - Header issue fixed for iPhoneX. Commits ([a4a077d](https://github.com/GeekyAnts/NativeBase/commit/a4a077d1fa59aa049ab093d0e32a5c6def0ff5e1))
-*   **Icon:** Fixed Ionicons, Feather and MaterialCommunityIcons font issue of 2.7.1. Commits ([951f154](https://github.com/GeekyAnts/NativeBase/commit/951f154d2a10d5459801ddce57addf3ee867e0ac)), ([f93b115](https://github.com/GeekyAnts/NativeBase/commit/f93b11530e572431ffd3148bcd65063609896e2f)), ([7a42759](https://github.com/GeekyAnts/NativeBase/commit/7a42759513706f60546ce3045376a6a93f574a48)), closes [#2138](https://github.com/GeekyAnts/NativeBase/issues/2138), [#2153](https://github.com/GeekyAnts/NativeBase/issues/2153)
-*   **Input:** Modified assertion on the `Item` component to use the `displayName` prop to support HOC. PR [#2001](https://github.com/GeekyAnts/NativeBase/pull/2001), closes [#2011](https://github.com/GeekyAnts/NativeBase/issues/2011)
-*   **Tabs:** Allow overriding of theme variable with explicit styles prop on Tab. PR [#2144](https://github.com/GeekyAnts/NativeBase/pull/2144), closes [#2134](https://github.com/GeekyAnts/NativeBase/issues/2134)
-*   **TypeScript:** Fixed date picker props. PR [#2132](https://github.com/GeekyAnts/NativeBase/pull/2132), closes [#2126](https://github.com/GeekyAnts/NativeBase/issues/2126)
+*   **ActionSheet:** Fixed height issue. PR [#2553](https://github.com/GeekyAnts/NativeBase/pull/2553), closes [#2545](https://github.com/GeekyAnts/NativeBase/issues/2545)
+*   **Button:** Fixed nested array style. PR [#2511](https://github.com/GeekyAnts/NativeBase/pull/2511), closes [#2419](https://github.com/GeekyAnts/NativeBase/issues/2419)
+*   **DatePicker:** Date Picker disabled prop fix. PR [#2510](https://github.com/GeekyAnts/NativeBase/pull/2510), closes [#2509](https://github.com/GeekyAnts/NativeBase/issues/2509)
+*   **Fab:** Fixed Fab syntax bugs. PR [#2577](https://github.com/GeekyAnts/NativeBase/pull/2577)
+*   **Picker:** Picker text ellipsize for iOS. Commit [460eddc](https://github.com/GeekyAnts/NativeBase/commit/460eddcc843662061bc1de11650585360d72321f), closes [#2431](https://github.com/GeekyAnts/NativeBase/issues/2431)
+*   **Theme:** Fixed Header height issue for iPhoneX with material theme combination. Commit [4c8a68b](https://github.com/GeekyAnts/NativeBase/commit/4c8a68b1886bfd1eca8d976d72726ffe6062bc94), closes [#2581](https://github.com/GeekyAnts/NativeBase/issues/2581)
+*   **Typescript:** Fixed React Native style types refs. PR [#2562](https://github.com/GeekyAnts/NativeBase/pull/2562), closes [#2123](https://github.com/GeekyAnts/NativeBase/issues/2123)
