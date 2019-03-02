@@ -11,6 +11,7 @@ class Text extends Component {
     const {
       uppercase,
       children,
+      ...others
     } = this.props;
 
     let text;
@@ -27,7 +28,7 @@ class Text extends Component {
     }
 
     return (
-			<RNText ref={c => (this._root = c)} {...this.props}>
+			<RNText ref={c => (this._root = c)} {...others}>
 				{text}
 			</RNText>
     );
