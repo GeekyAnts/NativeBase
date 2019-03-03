@@ -19,7 +19,7 @@
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",
     "flow": "flow",
-    "test": "jest",
+    "test": "jest"
   },
   "jest": {
     "preset": "react-native",
