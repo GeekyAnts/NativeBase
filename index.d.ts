@@ -198,6 +198,7 @@ declare module "native-base" {
              * Defines button text style
              */
 			textStyle?: RnTextStyleProp;
+			onPress?: () => void;
 			/**
              * Block level button
              */
@@ -377,6 +378,7 @@ declare module "native-base" {
 			cardBody?: boolean;
 			button?: boolean;
 			bordered?: boolean;
+			onPress?: () => void;
 		}
 		/**
          * Override React ListViewProps
