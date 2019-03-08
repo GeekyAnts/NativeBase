@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import createReactClass from "create-react-class";
-import { Picker, Modal, View, ViewPropTypes, FlatList } from "react-native";
+import { Picker, Modal, View, ViewPropTypes, FlatList, Dimensions } from "react-native";
 import _ from "lodash";
 import { Text } from "./Text";
 import { List } from "./List";
@@ -130,12 +130,12 @@ class PickerNB extends Component {
         onPress={onPress}
       >
         {this.state.currentLabel ? (
-          <Text style={this.props.textStyle} note={this.props.note} numberOfLines={1} ellipsizeMode="tail">
+          <Text style={[this.props.textStyle, { width: Dimensions.get("window").width - 50 }]} note={this.props.note} numberOfLines={1} ellipsizeMode="tail">
             {this.state.currentLabel}
           </Text>
         ) : (
             <Text
-              style={[this.props.textStyle, this.props.placeholderStyle]}
+              style={[this.props.textStyle, this.props.placeholderStyle, { width: Dimensions.get("window").width - 50 }]}
               note={this.props.note === false ? false : true}
               numberOfLines={1}
               ellipsizeMode="tail"
