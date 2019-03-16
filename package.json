@@ -28,7 +28,6 @@
   },
   "version": "2.12.2",
   "license": "Apache-2.0",
-  "private": true,
   "dependencies": {
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
