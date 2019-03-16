@@ -25,7 +25,7 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
     ]
   },
-  "version": "2.12.3",
+  "version": "2.12.4",
   "license": "Apache-2.0",
   "dependencies": {
     "blueimp-md5": "^2.5.0",
@@ -41,9 +41,9 @@
     "react-native-easy-grid": "0.2.1",
     "react-native-keyboard-aware-scroll-view": "0.8.0",
     "react-native-vector-icons": "6.3.0",
+    "react-timer-mixin": "^0.13.4",
     "react-tween-state": "^0.1.5",
-    "tween-functions": "^1.0.1",
-    "react-timer-mixin": "^0.13.4"
+    "tween-functions": "^1.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
