@@ -16,7 +16,6 @@
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
-    "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",
     "flow": "flow"
   },
@@ -61,7 +60,7 @@
     "jest": "23.3.0",
     "react": "16.4.1",
     "react-native": "0.56.0",
-    "react-native-vector-icons": "6.1.0",
+    "react-native-vector-icons": "6.3.0",
     "react-test-renderer": "16.4.1"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
