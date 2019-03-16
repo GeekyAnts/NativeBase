@@ -50,19 +50,7 @@ class Button extends Component {
     const variables = this.context.theme
       ? this.context.theme["@@shoutem.theme/themeStyle"].variables
       : variable;
-    const children =
-      Platform.OS === "ios"
-        ? this.props.children
-        : React.Children.map(
-          this.props.children,
-          child =>
-            child && child.type === Text
-              ? React.cloneElement(child, {
-                uppercase: variables.btnUppercaseAndroidText,
-                ...child.props
-              })
-              : child
-        );
+    const children = this.props.children;
     if (
       Platform.OS === "ios" ||
       Platform.OS === "web" ||
