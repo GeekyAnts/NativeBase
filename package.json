@@ -1,5 +1,5 @@
 {
-  "name": "native-base",
+  "name": "@outfix/native-base",
   "description": "Essential cross-platform UI components for React Native",
   "keywords": [
     "android",
@@ -28,7 +28,7 @@
   },
   "version": "2.12.1",
   "license": "Apache-2.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
@@ -42,7 +42,7 @@
     "react-native-drawer": "2.5.1",
     "react-native-easy-grid": "0.2.1",
     "react-native-keyboard-aware-scroll-view": "0.8.0",
-    "react-native-vector-icons": "6.1.0",
+    "react-native-vector-icons": "6.3.0",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1",
     "react-timer-mixin": "^0.13.4"
