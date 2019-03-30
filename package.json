@@ -65,7 +65,7 @@
     "react-native-vector-icons": "6.4.2",
     "react-test-renderer": "16.8.6"
   },
-  "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
+  "gitHead": "3eba228ec8fb2b9b6db024111b0a4fe85abddf2b",
   "homepage": "https://github.com/ajaybhatia/NativeBase#readme",
   "main": "dist/src/index.js",
   "typings": "./index.d.ts",
