@@ -38,7 +38,7 @@ class Content extends Component {
         this.props.style[1].paddingLeft !== undefined
       ) {
         leftPadder =
-          (this.props.style[1].paddingLeft
+          (this.props.style[1].paddingLeft !== undefined
             ? this.props.style[1].paddingLeft
             : this.props.style[1].padding) + InsetValues.leftInset;
       }
@@ -47,7 +47,7 @@ class Content extends Component {
       this.props.style.paddingLeft !== undefined
     ) {
       leftPadder =
-        (this.props.style.paddingLeft
+        (this.props.style.paddingLeft !== undefined
           ? this.props.style.paddingLeft
           : this.props.style.padding) + InsetValues.leftInset;
     } else {
@@ -70,7 +70,7 @@ class Content extends Component {
         this.props.style[1].paddingRight !== undefined
       ) {
         rightPadder =
-          (this.props.style[1].paddingRight
+          (this.props.style[1].paddingRight !== undefined
             ? this.props.style[1].paddingRight
             : this.props.style[1].padding) + InsetValues.rightInset;
       }
@@ -79,7 +79,7 @@ class Content extends Component {
       this.props.style.paddingRight !== undefined
     ) {
       rightPadder =
-        (this.props.style.paddingRight
+        (this.props.style.paddingRight !== undefined
           ? this.props.style.paddingRight
           : this.props.style.padding) + InsetValues.rightInset;
     } else {
