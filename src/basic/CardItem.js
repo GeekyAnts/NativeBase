@@ -6,9 +6,9 @@ import { connectStyle } from "native-base-shoutem-theme";
 import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class CardItem extends Component {
-	render() {
-		if (this.props.button) {
-			return (
+  render() {
+    if (this.props.button) {
+      return (
 				<TouchableOpacity
 					ref={c => (this._root = c)}
 					activeOpacity={0.2}
@@ -16,24 +16,24 @@ class CardItem extends Component {
 				>
 					{this.props.children}
 				</TouchableOpacity>
-			);
-		} else {
-			return (
+      );
+    } else {
+      return (
 				<View ref={c => (this._root = c)} {...this.props}>
 					{this.props.children}
 				</View>
-			);
-		}
-	}
+      );
+    }
+  }
 }
 
 CardItem.propTypes = {
-	...TouchableOpacity.propTypes,
-	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
-	header: PropTypes.bool,
-	cardBody: PropTypes.bool,
-	footer: PropTypes.bool,
-	button: PropTypes.bool,
+  ...TouchableOpacity.propTypes,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  header: PropTypes.bool,
+  cardBody: PropTypes.bool,
+  footer: PropTypes.bool,
+  button: PropTypes.bool,
 };
 
 const StyledCardItem = connectStyle("NativeBase.CardItem", {}, mapPropsToStyleNames)(CardItem);

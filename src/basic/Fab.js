@@ -25,7 +25,11 @@ const AnimatedFab = Animated.createAnimatedComponent(Button);
 
 class Fab extends Component {
   props: Animated.props & {
-    position: ?string
+    pos?: string;
+    top?: number;
+    left?: number;
+    right?: number;
+    bottom?: number;
   };
 
   state: {
@@ -43,9 +47,7 @@ class Fab extends Component {
     };
   }
 
-  fabTopValue(
-    pos
-  ): ?{ top: ?number, bottom: ?number, left: ?number, right: ?number } {
+  fabTopValue(pos) {
     if (pos === "topLeft") {
       return {
         top: 20,
@@ -424,25 +426,26 @@ class Fab extends Component {
       <Animated.View style={this.getContainerStyle()}>
         {this.renderButtons()}
         {Platform.OS === "ios" ||
-        variables.androidRipple === false ||
-        Platform["Version"] <= 21 ? (
-          <TouchableOpacity
-            onPress={() => this.fabOnPress()}
-            {...this.prepareFabProps()}
-            activeOpacity={1}
-          >
-            {this.renderFab()}
-          </TouchableOpacity>
-        ) : (
-          <TouchableNativeFeedback
-            onPress={() => this.fabOnPress()}
-            {...this.prepareFabProps()}
-          >
-            <View style={[this.getInitialStyle().fab, this.props.style]}>
+          variables.androidRipple === false ||
+          Platform["Version"] <= 21 ? (
+            <TouchableOpacity
+              onPress={() => this.fabOnPress()}
+              {...this.prepareFabProps()}
+              activeOpacity={1}
+            >
               {this.renderFab()}
-            </View>
-          </TouchableNativeFeedback>
-        )}
+            </TouchableOpacity>
+          ) : (
+            <TouchableNativeFeedback
+              onPress={() => this.fabOnPress()}
+              background={TouchableNativeFeedback.Ripple(variables.androidRippleColor, false)}
+              {...this.prepareFabProps()}
+            >
+              <View style={[this.getInitialStyle().fab, this.props.style]}>
+                {this.renderFab()}
+              </View>
+            </TouchableNativeFeedback>
+          )}
       </Animated.View>
     );
   }

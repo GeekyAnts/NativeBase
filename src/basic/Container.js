@@ -10,18 +10,18 @@ import { ActionSheetContainer as ActionSheet } from "./Actionsheet";
 import { Text } from "./Text";
 
 class Container extends Component {
-	render() {
-		return (
+  render() {
+    return (
 			<View ref={c => (this._root = c)} {...this.props}>
 				{this.props.children}
 			</View>
-		);
-	}
+    );
+  }
 }
 
 Container.propTypes = {
-	...ViewPropTypes,
-	style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  ...ViewPropTypes,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
 };
 
 const StyledContainer = connectStyle("NativeBase.Container", {}, mapPropsToStyleNames)(Container);
