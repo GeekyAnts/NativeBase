@@ -778,6 +778,7 @@ declare module "native-base" {
 			tabContainerStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 			contentProps?: ReactNative.ScrollViewProperties;
+			scrollWithoutAnimation: boolean;
 			prerenderingSiblingsNumber?: number;
 		}
 
