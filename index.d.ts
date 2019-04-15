@@ -797,6 +797,7 @@ declare module "native-base" {
 		}
 
 		interface Item extends Testable {
+			onPress?: () => void;
 			fixedLabel?: boolean;
 			floatingLabel?: boolean;
 			inlineLabel?: boolean;
