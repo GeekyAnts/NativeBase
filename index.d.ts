@@ -1,6 +1,7 @@
 declare module "native-base" {
 	import * as React from "react";
 	import * as ReactNative from "react-native";
+	import {KeyboardAwareScrollViewProps} from "react-native-keyboard-aware-scroll-view";
 
 	type RnViewStyleProp = ReactNative.StyleProp<ReactNative.ViewStyle>;
 	type RnTextStyleProp = ReactNative.StyleProp<ReactNative.TextStyle>;
@@ -169,7 +170,7 @@ declare module "native-base" {
 		/**
          * see Widget Content.js
          */
-		interface Content extends Testable {
+		interface Content extends Testable, KeyboardAwareScrollViewProps {
 			/**
              * The theme prop can be applied to any component of NativeBase.
              */
