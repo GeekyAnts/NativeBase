@@ -66,16 +66,20 @@ class ToastContainer extends Component {
       buttonTextStyle: config.buttonTextStyle,
       buttonStyle: config.buttonStyle,
       textStyle: config.textStyle,
-      onClose: config.onClose
+      onClose: config.onClose,
+      onDismiss: config.onDismiss
     });
     // If we have a toast already open, cut off its close timeout so that it won't affect *this* toast.
     if (this.closeTimeout) {
-      clearTimeout(this.closeTimeout)
+      clearTimeout(this.closeTimeout);
     }
     // Set the toast to close after the duration.
     if (config.duration !== 0) {
-      const duration = (config.duration > 0) ? config.duration : 1500;
-      this.closeTimeout = setTimeout(this.closeToast.bind(this, 'timeout'), duration);
+      const duration = config.duration > 0 ? config.duration : 1500;
+      this.closeTimeout = setTimeout(
+        this.closeToast.bind(this, "timeout"),
+        duration
+      );
     }
     // Fade the toast in now.
     Animated.timing(this.state.fadeAnim, {
@@ -87,11 +91,21 @@ class ToastContainer extends Component {
     this.setState({
       modalVisible: false
     });
+
+    this.onDismiss();
     const { onClose } = this.state;
     if (onClose && typeof onClose === "function") {
       onClose(reason);
     }
   }
+
+  onDismiss() {
+    const { onDismiss } = this.state;
+    if (onDismiss && typeof onClose === "function") {
+      onDismiss();
+    }
+  }
+
   closeToast(reason) {
     clearTimeout(this.closeTimeout);
     Animated.timing(this.state.fadeAnim, {
@@ -113,7 +127,7 @@ class ToastContainer extends Component {
             {this.state.buttonText && (
               <Button
                 style={this.state.buttonStyle}
-                onPress={() => this.closeToast('user')}
+                onPress={() => this.closeToast("user")}
               >
                 <Text style={this.state.buttonTextStyle}>
                   {this.state.buttonText}
