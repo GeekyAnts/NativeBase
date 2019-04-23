@@ -1,7 +1,7 @@
 declare module "native-base" {
 	import * as React from "react";
 	import * as ReactNative from "react-native";
-	import {KeyboardAwareScrollViewProps} from "react-native-keyboard-aware-scroll-view";
+	import { KeyboardAwareScrollViewProps } from "react-native-keyboard-aware-scroll-view";
 
 	type RnViewStyleProp = ReactNative.StyleProp<ReactNative.ViewStyle>;
 	type RnTextStyleProp = ReactNative.StyleProp<ReactNative.TextStyle>;
@@ -1179,6 +1179,7 @@ declare module "native-base" {
 			type?: "danger" | "success" | "warning";
 			duration?: number;
 			onClose?: (reason: "user" | "timeout" | "functionCall") => any;
+			Style?: RnViewStyleProp;
 			textStyle?: RnTextStyleProp;
 			buttonTextStyle?: RnTextStyleProp;
 			buttonStyle?: RnViewStyleProp;
