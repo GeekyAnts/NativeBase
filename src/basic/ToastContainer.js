@@ -101,7 +101,7 @@ class ToastContainer extends Component {
 
   onDismiss() {
     const { onDismiss } = this.state;
-    if (onDismiss && typeof onClose === "function") {
+    if (onDismiss && typeof onDismiss === "function") {
       onDismiss();
     }
   }
