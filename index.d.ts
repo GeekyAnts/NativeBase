@@ -1179,7 +1179,7 @@ declare module "native-base" {
 			type?: "danger" | "success" | "warning";
 			duration?: number;
 			onClose?: (reason: "user" | "timeout" | "functionCall") => any;
-			Style?: RnViewStyleProp;
+			style?: RnViewStyleProp;
 			textStyle?: RnTextStyleProp;
 			buttonTextStyle?: RnTextStyleProp;
 			buttonStyle?: RnViewStyleProp;
