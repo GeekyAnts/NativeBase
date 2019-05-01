@@ -1,6 +1,7 @@
 declare module "native-base" {
 	import * as React from "react";
 	import * as ReactNative from "react-native";
+	import { KeyboardAwareScrollViewProps } from "react-native-keyboard-aware-scroll-view";
 
 	type RnViewStyleProp = ReactNative.StyleProp<ReactNative.ViewStyle>;
 	type RnTextStyleProp = ReactNative.StyleProp<ReactNative.TextStyle>;
@@ -169,7 +170,7 @@ declare module "native-base" {
 		/**
          * see Widget Content.js
          */
-		interface Content extends Testable {
+		interface Content extends Testable, KeyboardAwareScrollViewProps {
 			/**
              * The theme prop can be applied to any component of NativeBase.
              */
@@ -778,6 +779,7 @@ declare module "native-base" {
 			tabContainerStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 			contentProps?: ReactNative.ScrollViewProperties;
+			scrollWithoutAnimation: boolean;
 			prerenderingSiblingsNumber?: number;
 		}
 
@@ -797,6 +799,7 @@ declare module "native-base" {
 		}
 
 		interface Item extends Testable {
+			onPress?: () => void;
 			fixedLabel?: boolean;
 			floatingLabel?: boolean;
 			inlineLabel?: boolean;
@@ -1176,6 +1179,7 @@ declare module "native-base" {
 			type?: "danger" | "success" | "warning";
 			duration?: number;
 			onClose?: (reason: "user" | "timeout" | "functionCall") => any;
+			style?: RnViewStyleProp;
 			textStyle?: RnTextStyleProp;
 			buttonTextStyle?: RnTextStyleProp;
 			buttonStyle?: RnViewStyleProp;
