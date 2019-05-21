@@ -294,20 +294,24 @@ class Fab extends Component {
   upAnimate() {
     if (!this.props.active) {
       Animated.spring(this.containerHeight, {
-        toValue: this.state.buttons * 51.3 + 56
+        toValue: this.state.buttons * 51.3 + 56,
+        useNativeDriver: true
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 1
+        toValue: 1,
+        useNativeDriver: true
       }).start();
     } else {
       this.setState({
         active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56
+        toValue: 56,
+        useNativeDriver: true
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 0
+        toValue: 0,
+        useNativeDriver: true
       }).start();
     }
   }
@@ -331,20 +335,24 @@ class Fab extends Component {
   leftAnimate() {
     if (!this.props.active) {
       Animated.spring(this.containerWidth, {
-        toValue: this.state.buttons * 51.3 + 56
+        toValue: this.state.buttons * 51.3 + 56,
+        useNativeDriver: true
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 1
+        toValue: 1,
+        useNativeDriver: true
       }).start();
     } else {
       this.setState({
         active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56
+        toValue: 56,
+        useNativeDriver: true
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 0
+        toValue: 0,
+        useNativeDriver: true
       }).start();
     }
   }
@@ -352,20 +360,24 @@ class Fab extends Component {
   rightAnimate() {
     if (!this.props.active) {
       Animated.spring(this.containerWidth, {
-        toValue: this.state.buttons * 51.3 + 56
+        toValue: this.state.buttons * 51.3 + 56,
+        useNativeDriver: true
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 1
+        toValue: 1,
+        useNativeDriver: true
       }).start();
     } else {
       this.setState({
         active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56
+        toValue: 56,
+        useNativeDriver: true
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 0
+        toValue: 0,
+        useNativeDriver: true
       }).start();
     }
   }
@@ -373,20 +385,24 @@ class Fab extends Component {
   downAnimate() {
     if (!this.props.active) {
       Animated.spring(this.containerHeight, {
-        toValue: 56
+        toValue: 56,
+        useNativeDriver: true
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 1
+        toValue: 1,
+        useNativeDriver: true
       }).start();
     } else {
       this.setState({
         active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56
+        toValue: 56,
+        useNativeDriver: true
       }).start();
       Animated.spring(this.buttonScale, {
-        toValue: 0
+        toValue: 0,
+        useNativeDriver: true
       }).start();
     }
   }

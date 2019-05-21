@@ -78,7 +78,8 @@ class AccordionSubItem extends React.Component {
   componentDidMount() {
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
-      duration: 500
+      duration: 500,
+      useNativeDriver: true
     }).start();
   }
   render() {
