@@ -691,8 +691,10 @@ declare module "native-base" {
          * see Widget CheckBox.js
          */
 		interface Radio extends ReactNative.TouchableOpacityProps, Testable {
+			color?: string;
 			selected?: boolean;
 			selectedColor?: string;
+			standardStyle?: boolean;
 		}
 		/**
          * see Widget ProgressBar.js
