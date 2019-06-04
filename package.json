@@ -1,5 +1,5 @@
 {
-  "name": "native-base",
+  "name": "@ajaybhatia/native-base",
   "description": "Essential cross-platform UI components for React Native",
   "keywords": [
     "android",
@@ -66,7 +66,7 @@
     "react-test-renderer": "16.4.1"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
-  "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
+  "homepage": "https://github.com/ajaybhatia/NativeBase#readme",
   "main": "dist/src/index.js",
   "typings": "./index.d.ts",
   "optionalDependencies": {},
@@ -77,7 +77,7 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GeekyAnts/NativeBase.git"
+    "url": "git+https://github.com/ajaybhatia/NativeBase.git"
   },
   "rnpm": {
     "assets": [
@@ -85,4 +85,3 @@
     ]
   }
 }
-
