@@ -19,6 +19,7 @@ class Input extends NativeBaseComponent {
 }}
 				editable={this.props.disabled ? false : true}
 				underlineColorAndroid="rgba(0,0,0,0)"
+				onFocus={this.props.onFocus}
 				placeholderTextColor={
 					this.props.placeholderTextColor ? this.props.placeholderTextColor : variables.inputColorPlaceholder
 				}
@@ -29,7 +30,8 @@ class Input extends NativeBaseComponent {
 }
 
 Input.propTypes = {
-  ...TextInput.propTypes,
+	...TextInput.propTypes,
+	onFocus: propTypes.func,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
 };
 
