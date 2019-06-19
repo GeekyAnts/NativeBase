@@ -14,6 +14,9 @@
     "react-native",
     "reactnative"
   ],
+  "devDependencies": {
+    "react-native": "0.59.9"
+  },
   "author": "GeekyAnts",
   "license": "MIT",
   "bugs": {
