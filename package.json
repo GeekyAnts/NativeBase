@@ -15,6 +15,7 @@
   ],
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
+    "format": "prettier --write \"src/**/*.{js,json}\"",
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",
@@ -71,6 +72,7 @@
   "typings": "./index.d.ts",
   "optionalDependencies": {},
   "peerDependencies": {
+    "prettier": "1.16.4",
     "react": ">=16.4.1",
     "react-native": ">=0.56.0"
   },

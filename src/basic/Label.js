@@ -13,9 +13,15 @@ class Label extends Component {
 
 Label.propTypes = {
   ...Text.propTypes,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
-const StyledLabel = connectStyle("NativeBase.Label", {}, mapPropsToStyleNames)(Label);
+const StyledLabel = connectStyle("NativeBase.Label", {}, mapPropsToStyleNames)(
+  Label
+);
 
 export { StyledLabel as Label };

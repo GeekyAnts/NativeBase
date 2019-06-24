@@ -38,7 +38,7 @@ export default (variables /*: * */ = variable) => {
         },
         alignSelf: null,
         ...iconCommon,
-        ...iconNBCommon,
+        ...iconNBCommon
         // ...textCommon
       },
       flex: 1,
@@ -70,7 +70,7 @@ export default (variables /*: * */ = variable) => {
           flex: 1
         },
         ...iconCommon,
-        ...iconNBCommon,
+        ...iconNBCommon
         // ...textCommon
       }
     },
@@ -90,7 +90,7 @@ export default (variables /*: * */ = variable) => {
         },
         alignSelf: null,
         ...iconCommon,
-        ...iconNBCommon,
+        ...iconNBCommon
         // ...textCommon
       },
       flex: 1,

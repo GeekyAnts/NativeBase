@@ -38,11 +38,16 @@ class Button extends Component {
       style: this.getInitialStyle().borderedBtn
     };
 
-    if(Array.isArray(this.props.style)){
-      const flattenedStyle = this.props.style.reduce(( accumulator, currentValue ) => accumulator.concat(currentValue), []);
-      return computeProps({...this.props, style: flattenedStyle}, defaultProps);
+    if (Array.isArray(this.props.style)) {
+      const flattenedStyle = this.props.style.reduce(
+        (accumulator, currentValue) => accumulator.concat(currentValue),
+        []
+      );
+      return computeProps(
+        { ...this.props, style: flattenedStyle },
+        defaultProps
+      );
     }
-
 
     return computeProps(this.props, defaultProps);
   }
@@ -53,16 +58,14 @@ class Button extends Component {
     const children =
       Platform.OS === "ios"
         ? this.props.children
-        : React.Children.map(
-          this.props.children,
-          child =>
+        : React.Children.map(this.props.children, child =>
             child && child.type === Text
               ? React.cloneElement(child, {
-                uppercase: variables.btnUppercaseAndroidText,
-                ...child.props
-              })
+                  uppercase: variables.btnUppercaseAndroidText,
+                  ...child.props
+                })
               : child
-        );
+          );
     if (
       Platform.OS === "ios" ||
       Platform.OS === "web" ||
@@ -83,30 +86,60 @@ class Button extends Component {
     } else {
       if (this.props.rounded) {
         let buttonStyle = { ...this.prepareRootProps().style };
-        let buttonFlex = (this.props.full || this.props.block) ? 1 : buttonStyle.flex;
+        let buttonFlex =
+          this.props.full || this.props.block ? 1 : buttonStyle.flex;
         return (
-          <View style={[{ maxHeight: buttonStyle.height }, buttonStyle, { paddingTop: undefined, paddingBottom: undefined }]} >
+          <View
+            style={[
+              { maxHeight: buttonStyle.height },
+              buttonStyle,
+              { paddingTop: undefined, paddingBottom: undefined }
+            ]}
+          >
             <TouchableNativeFeedback
               ref={c => (this._root = c)}
               background={
                 this.props.androidRippleColor
-                  ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor, true)
-                  : TouchableNativeFeedback.Ripple(variables.androidRippleColor, true)
+                  ? TouchableNativeFeedback.Ripple(
+                      this.props.androidRippleColor,
+                      true
+                    )
+                  : TouchableNativeFeedback.Ripple(
+                      variables.androidRippleColor,
+                      true
+                    )
               }
               {...this.prepareRootProps()}
             >
-              <View style={[styles.childContainer, { paddingTop: buttonStyle.paddingTop, paddingBottom: buttonStyle.paddingBottom, height: buttonStyle.height, flexGrow: buttonFlex }]}>
+              <View
+                style={[
+                  styles.childContainer,
+                  {
+                    paddingTop: buttonStyle.paddingTop,
+                    paddingBottom: buttonStyle.paddingBottom,
+                    height: buttonStyle.height,
+                    flexGrow: buttonFlex
+                  }
+                ]}
+              >
                 {children}
               </View>
             </TouchableNativeFeedback>
-          </View >
+          </View>
         );
       } else {
         return (
           <TouchableNativeFeedback
             ref={c => (this._root = c)}
             onPress={this.props.onPress}
-            background={this.props.transparent ? TouchableNativeFeedback.Ripple('transparent') : TouchableNativeFeedback.Ripple(variables.androidRippleColor, false)}
+            background={
+              this.props.transparent
+                ? TouchableNativeFeedback.Ripple("transparent")
+                : TouchableNativeFeedback.Ripple(
+                    variables.androidRippleColor,
+                    false
+                  )
+            }
             {...this.prepareRootProps()}
           >
             <View {...this.prepareRootProps()}>{children}</View>
@@ -142,10 +175,10 @@ Button.propTypes = {
 const styles = StyleSheet.create({
   childContainer: {
     flexShrink: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  }
 });
 
 const StyledButton = connectStyle(

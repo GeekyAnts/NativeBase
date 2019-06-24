@@ -8,21 +8,25 @@ import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class Spinner extends Component {
   static contextTypes = {
-    theme: PropTypes.object,
+    theme: PropTypes.object
   };
   render() {
-    const variables = this.context.theme ? this.context.theme["@@shoutem.theme/themeStyle"].variables : variable;
+    const variables = this.context.theme
+      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      : variable;
     return (
-			<ActivityIndicator
-				ref={c => (this._root = c)}
-				{...this.props}
-				color={
-					this.props.color
-						? this.props.color
-						: this.props.inverse ? variables.inverseSpinnerColor : variables.defaultSpinnerColor
-				}
-				size={this.props.size ? this.props.size : "large"}
-			/>
+      <ActivityIndicator
+        ref={c => (this._root = c)}
+        {...this.props}
+        color={
+          this.props.color
+            ? this.props.color
+            : this.props.inverse
+            ? variables.inverseSpinnerColor
+            : variables.defaultSpinnerColor
+        }
+        size={this.props.size ? this.props.size : "large"}
+      />
     );
   }
 }
@@ -30,9 +34,13 @@ class Spinner extends Component {
 Spinner.propTypes = {
   ...ActivityIndicator.propTypes,
   color: PropTypes.string,
-  inverse: PropTypes.bool,
+  inverse: PropTypes.bool
 };
 
-const StyledSpinner = connectStyle("NativeBase.Spinner", {}, mapPropsToStyleNames)(Spinner);
+const StyledSpinner = connectStyle(
+  "NativeBase.Spinner",
+  {},
+  mapPropsToStyleNames
+)(Spinner);
 
 export { StyledSpinner as Spinner };

@@ -257,13 +257,17 @@ const ScrollableTabView = createReactClass({
   _handleLayout(e) {
     const { width } = e.nativeEvent.layout;
 
-    if (!width || width <= 0 || Math.round(width) === Math.round(this.state.containerWidth)) {
+    if (
+      !width ||
+      width <= 0 ||
+      Math.round(width) === Math.round(this.state.containerWidth)
+    ) {
       return;
     }
-      this.setState({ containerWidth: width });
-      this.requestAnimationFrame(() => {
-        this.goToPage(this.state.currentPage);
-      });
+    this.setState({ containerWidth: width });
+    this.requestAnimationFrame(() => {
+      this.goToPage(this.state.currentPage);
+    });
   },
 
   _children(children = this.props.children) {

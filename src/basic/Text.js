@@ -8,10 +8,7 @@ import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
 
 class Text extends Component {
   render() {
-    const {
-      uppercase,
-      children,
-    } = this.props;
+    const { uppercase, children } = this.props;
 
     let text;
     if (uppercase) {
@@ -21,15 +18,15 @@ class Text extends Component {
         } else {
           return child;
         }
-      })
+      });
     } else {
       text = children;
     }
 
     return (
-			<RNText ref={c => (this._root = c)} {...this.props}>
-				{text}
-			</RNText>
+      <RNText ref={c => (this._root = c)} {...this.props}>
+        {text}
+      </RNText>
     );
   }
 }
@@ -37,13 +34,19 @@ class Text extends Component {
 Text.propTypes = {
   ...RNText.propTypes,
   uppercase: PropTypes.bool,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
 Text.defaultProps = {
-  uppercase: false,
+  uppercase: false
 };
 
-const StyledText = connectStyle("NativeBase.Text", {}, mapPropsToStyleNames)(Text);
+const StyledText = connectStyle("NativeBase.Text", {}, mapPropsToStyleNames)(
+  Text
+);
 
 export { StyledText as Text };
