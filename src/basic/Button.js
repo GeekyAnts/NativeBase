@@ -22,11 +22,13 @@ class Button extends Component {
   getInitialStyle() {
     return {
       borderedBtn: {
-        borderWidth: this.props.bordered ? 1 : undefined,
+        borderWidth: this.props.bordered
+          ? variable.defaultBorderWidth
+          : undefined,
         borderRadius:
           this.props.rounded && this.props.bordered
             ? variable.borderRadiusLarge
-            : 2
+            : variable.defaultBorderRadius
       }
     };
   }
@@ -77,7 +79,9 @@ class Button extends Component {
           {...this.prepareRootProps()}
           ref={c => (this._root = c)}
           activeOpacity={
-            this.props.activeOpacity > 0 ? this.props.activeOpacity : 0.5
+            this.props.activeOpacity > 0
+              ? this.props.activeOpacity
+              : variable.defaultActiveOpacity
           }
         >
           {children}
@@ -87,7 +91,9 @@ class Button extends Component {
       if (this.props.rounded) {
         let buttonStyle = { ...this.prepareRootProps().style };
         let buttonFlex =
-          this.props.full || this.props.block ? 1 : buttonStyle.flex;
+          this.props.full || this.props.block
+            ? variable.defaultButtonFlex
+            : buttonStyle.flex;
         return (
           <View
             style={[
@@ -98,17 +104,10 @@ class Button extends Component {
           >
             <TouchableNativeFeedback
               ref={c => (this._root = c)}
-              background={
-                this.props.androidRippleColor
-                  ? TouchableNativeFeedback.Ripple(
-                      this.props.androidRippleColor,
-                      true
-                    )
-                  : TouchableNativeFeedback.Ripple(
-                      variables.androidRippleColor,
-                      true
-                    )
-              }
+              background={TouchableNativeFeedback.Ripple(
+                this.props.androidRippleColor || variables.androidRippleColor,
+                true
+              )}
               {...this.prepareRootProps()}
             >
               <View
