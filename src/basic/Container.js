@@ -12,18 +12,26 @@ import { Text } from "./Text";
 class Container extends Component {
   render() {
     return (
-			<View ref={c => (this._root = c)} {...this.props}>
-				{this.props.children}
-			</View>
+      <View ref={c => (this._root = c)} {...this.props}>
+        {this.props.children}
+      </View>
     );
   }
 }
 
 Container.propTypes = {
   ...ViewPropTypes,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
-const StyledContainer = connectStyle("NativeBase.Container", {}, mapPropsToStyleNames)(Container);
+const StyledContainer = connectStyle(
+  "NativeBase.Container",
+  {},
+  mapPropsToStyleNames
+)(Container);
 
 export { StyledContainer as Container };

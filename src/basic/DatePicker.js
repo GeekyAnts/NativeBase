@@ -18,7 +18,10 @@ export class DatePicker extends React.Component {
     this.state = {
       modalVisible: false,
       defaultDate: props.defaultDate ? props.defaultDate : new Date(),
-      chosenDate: !props.placeHolderText && props.defaultDate ? props.defaultDate : undefined
+      chosenDate:
+        !props.placeHolderText && props.defaultDate
+          ? props.defaultDate
+          : undefined
     };
   }
 
@@ -62,11 +65,7 @@ export class DatePicker extends React.Component {
     if (this.props.formatChosenDate) {
       return this.props.formatChosenDate(date);
     }
-    return [
-      date.getDate(),
-      date.getMonth() + 1,
-      date.getFullYear(),
-    ].join('/');
+    return [date.getDate(), date.getMonth() + 1, date.getFullYear()].join("/");
   }
 
   render() {
@@ -77,25 +76,29 @@ export class DatePicker extends React.Component {
       <View>
         <View>
           <Text
-            onPress={ !this.props.disabled ? this.showDatePicker.bind(this) : undefined }
+            onPress={
+              !this.props.disabled ? this.showDatePicker.bind(this) : undefined
+            }
             style={[
               { padding: 10, color: variables.datePickerTextColor },
-              this.state.chosenDate ? this.props.textStyle : this.props.placeHolderTextStyle
+              this.state.chosenDate
+                ? this.props.textStyle
+                : this.props.placeHolderTextStyle
             ]}
           >
             {this.state.chosenDate
               ? this.formatChosenDate(this.state.chosenDate)
               : this.props.placeHolderText
-                ? this.props.placeHolderText
-                : "Select Date"}
+              ? this.props.placeHolderText
+              : "Select Date"}
           </Text>
           <View>
             <Modal
-              supportedOrientations={['portrait', 'landscape']}
+              supportedOrientations={["portrait", "landscape"]}
               animationType={this.props.animationType}
               transparent={this.props.modalTransparent} //from api
               visible={this.state.modalVisible}
-              onRequestClose={() => { }}
+              onRequestClose={() => {}}
             >
               <Text
                 onPress={() => this.setState({ modalVisible: false })}

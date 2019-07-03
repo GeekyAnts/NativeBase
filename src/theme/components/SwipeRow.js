@@ -6,9 +6,9 @@ export default (variables /*: * */ = variable) => {
   const swipeRowTheme = {
     "NativeBase.ListItem": {
       ".list": {
-        backgroundColor: "#FFF",
+        backgroundColor: "#FFF"
       },
-      marginLeft: 0,
+      marginLeft: 0
     },
     "NativeBase.Left": {
       flex: 0,
@@ -19,8 +19,8 @@ export default (variables /*: * */ = variable) => {
         alignItems: "center",
         justifyContent: "center",
         alignSelf: "stretch",
-        borderRadius: 0,
-      },
+        borderRadius: 0
+      }
     },
     "NativeBase.Right": {
       flex: 0,
@@ -31,8 +31,8 @@ export default (variables /*: * */ = variable) => {
         alignItems: "center",
         justifyContent: "center",
         alignSelf: "stretch",
-        borderRadius: 0,
-      },
+        borderRadius: 0
+      }
     },
     "NativeBase.Button": {
       flex: 1,
@@ -40,8 +40,8 @@ export default (variables /*: * */ = variable) => {
       alignItems: "center",
       justifyContent: "center",
       alignSelf: "stretch",
-      borderRadius: 0,
-    },
+      borderRadius: 0
+    }
   };
 
   return swipeRowTheme;

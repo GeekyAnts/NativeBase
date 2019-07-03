@@ -22,15 +22,15 @@ Drawer.defaultProps = {
       shadowColor: "#000000",
       shadowOpacity: 0,
       shadowRadius: 0,
-      elevation: 5,
+      elevation: 5
     },
     mainOverlay: {
       opacity: 0,
       backgroundColor: "rgba(0, 0, 0, 0.8)",
-      elevation: 0,
-    },
+      elevation: 0
+    }
   },
   tweenHandler: ratio => ({
-    mainOverlay: { opacity: ratio / 2 },
-  }),
+    mainOverlay: { opacity: ratio / 2 }
+  })
 };

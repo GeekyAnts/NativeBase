@@ -70,12 +70,15 @@ class ToastContainer extends Component {
     });
     // If we have a toast already open, cut off its close timeout so that it won't affect *this* toast.
     if (this.closeTimeout) {
-      clearTimeout(this.closeTimeout)
+      clearTimeout(this.closeTimeout);
     }
     // Set the toast to close after the duration.
     if (config.duration !== 0) {
-      const duration = (config.duration > 0) ? config.duration : 1500;
-      this.closeTimeout = setTimeout(this.closeToast.bind(this, 'timeout'), duration);
+      const duration = config.duration > 0 ? config.duration : 1500;
+      this.closeTimeout = setTimeout(
+        this.closeToast.bind(this, "timeout"),
+        duration
+      );
     }
     // Fade the toast in now.
     Animated.timing(this.state.fadeAnim, {
@@ -113,7 +116,7 @@ class ToastContainer extends Component {
             {this.state.buttonText && (
               <Button
                 style={this.state.buttonStyle}
-                onPress={() => this.closeToast('user')}
+                onPress={() => this.closeToast("user")}
               >
                 <Text style={this.state.buttonTextStyle}>
                   {this.state.buttonText}

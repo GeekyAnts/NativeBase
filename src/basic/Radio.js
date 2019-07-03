@@ -55,15 +55,15 @@ class Radio extends Component {
                       ? this.props.selectedColor
                       : variables.radioColor
                     : this.props.color
-                      ? this.props.color
-                      : undefined
+                    ? this.props.color
+                    : undefined
                   : this.props.selected
+                  ? this.props.selectedColor
                     ? this.props.selectedColor
-                      ? this.props.selectedColor
-                      : variables.radioSelectedColorAndroid
-                    : this.props.color
-                      ? this.props.color
-                      : undefined,
+                    : variables.radioSelectedColorAndroid
+                  : this.props.color
+                  ? this.props.color
+                  : undefined,
               lineHeight: variables.radioBtnLineHeight,
               fontSize: variables.radioBtnSize
             }}
@@ -73,8 +73,8 @@ class Radio extends Component {
                   ? "ios-radio-button-on"
                   : "ios-radio-button-off"
                 : this.props.selected
-                  ? "md-radio-button-on"
-                  : "md-radio-button-off"
+                ? "md-radio-button-on"
+                : "md-radio-button-off"
             }
           />
         )}

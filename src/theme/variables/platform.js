@@ -9,7 +9,11 @@ const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = undefined;
 const isIphoneX =
-platform === "ios" && (deviceHeight === 812 || deviceWidth === 812 || deviceHeight === 896 || deviceWidth === 896);
+  platform === "ios" &&
+  (deviceHeight === 812 ||
+    deviceWidth === 812 ||
+    deviceHeight === 896 ||
+    deviceWidth === 896);
 
 export default {
   platformStyle,
@@ -37,6 +41,10 @@ export default {
   btnFontFamily: platform === "ios" ? "System" : "Roboto_medium",
   btnDisabledBg: "#b5b5b5",
   buttonPadding: 6,
+  defaultActiveOpacity: 0.5,
+  defaultButtonFlex: 1,
+  defaultBorderRadius: 2,
+  defaultBorderWidth: 1,
   get btnPrimaryBg() {
     return this.brandPrimary;
   },

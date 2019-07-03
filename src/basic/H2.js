@@ -10,7 +10,7 @@ class H2 extends Component {
     return <Text ref={c => (this._root = c)} {...this.props} />;
   }
 }
-const childrenType = function (props, propName, component) {
+const childrenType = function(props, propName, component) {
   let error;
   const prop = props[propName];
   React.Children.forEach(prop, child => {
@@ -24,7 +24,11 @@ const childrenType = function (props, propName, component) {
 H2.propTypes = {
   ...Text.propTypes,
   children: childrenType,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
 const StyledH2 = connectStyle("NativeBase.H2", {}, mapPropsToStyleNames)(H2);
