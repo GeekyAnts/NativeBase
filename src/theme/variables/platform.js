@@ -41,6 +41,10 @@ export default {
   btnFontFamily: platform === "ios" ? "System" : "Roboto_medium",
   btnDisabledBg: "#b5b5b5",
   buttonPadding: 6,
+  defaultActiveOpacity: 0.5,
+  defaultButtonFlex: 1,
+  defaultBorderRadius: 2,
+  defaultBorderWidth: 1,
   get btnPrimaryBg() {
     return this.brandPrimary;
   },
