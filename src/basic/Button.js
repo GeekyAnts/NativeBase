@@ -23,12 +23,12 @@ class Button extends Component {
     return {
       borderedBtn: {
         borderWidth: this.props.bordered
-          ? variable.defaultBorderWidth
+          ? variable.buttonDefaultBorderWidth
           : undefined,
         borderRadius:
           this.props.rounded && this.props.bordered
             ? variable.borderRadiusLarge
-            : variable.defaultBorderRadius
+            : variable.buttonDefaultBorderRadius
       }
     };
   }
@@ -63,9 +63,9 @@ class Button extends Component {
         : React.Children.map(this.props.children, child =>
             child && child.type === Text
               ? React.cloneElement(child, {
-                  uppercase: variables.btnUppercaseAndroidText,
-                  ...child.props
-                })
+                uppercase: variables.buttonUppercaseAndroidText,
+                ...child.props
+              })
               : child
           );
     if (
@@ -81,7 +81,7 @@ class Button extends Component {
           activeOpacity={
             this.props.activeOpacity > 0
               ? this.props.activeOpacity
-              : variable.defaultActiveOpacity
+              : variable.buttonDefaultActiveOpacity
           }
         >
           {children}
@@ -92,7 +92,7 @@ class Button extends Component {
         let buttonStyle = { ...this.prepareRootProps().style };
         let buttonFlex =
           this.props.full || this.props.block
-            ? variable.defaultButtonFlex
+            ? variable.buttonDefaultFlex
             : buttonStyle.flex;
         return (
           <View

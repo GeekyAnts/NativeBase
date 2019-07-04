@@ -5,19 +5,19 @@ import variable from "./../variables/platform";
 export default (variables /*: * */ = variable) => {
   const badgeTheme = {
     ".primary": {
-      backgroundColor: variables.btnPrimaryBg
+      backgroundColor: variables.buttonPrimaryBg
     },
     ".warning": {
-      backgroundColor: variables.btnWarningBg
+      backgroundColor: variables.buttonWarningBg
     },
     ".info": {
-      backgroundColor: variables.btnInfoBg
+      backgroundColor: variables.buttonInfoBg
     },
     ".success": {
-      backgroundColor: variables.btnSuccessBg
+      backgroundColor: variables.buttonSuccessBg
     },
     ".danger": {
-      backgroundColor: variables.btnDangerBg
+      backgroundColor: variables.buttonDangerBg
     },
     "NativeBase.Text": {
       color: variables.badgeColor,
