@@ -23,7 +23,7 @@ const DefaultTabBar = createReactClass({
         tabStyle: ViewPropTypes.style,
         renderTab: PropTypes.func,
         underlineStyle: ViewPropTypes.style,
-        tabContainerStyle: ViewPropTypes.style,
+        tabContainerStyle: ViewPropTypes.style
     },
     contextTypes: {
         theme: PropTypes.object
@@ -58,18 +58,12 @@ const DefaultTabBar = createReactClass({
         const { activeTextColor, inactiveTextColor } = this.props;
         const textColor = isTabActive ? activeTextColor : inactiveTextColor;
         const fontWeight = isTabActive ? "bold" : "normal";
-        // const fontSize = tabFontSize;
         if (typeof name === "string") {
             return (
                 <Button
                     style={{ flex: 1 }}
                     key={name}
-                    onPress={() => {
-                        if (disabled === true) {
-                            return;
-                        }
-                        onPressHandler(page);
-                    }}
+                    onPress={() => (disabled ? {} : onPressHandler(page))}
                 >
                     <TabHeading
                         style={isTabActive ? activeTabStyle : tabStyle}
@@ -91,12 +85,7 @@ const DefaultTabBar = createReactClass({
                 <Button
                     style={{ flex: 1 }}
                     key={_.random(1.2, 5.2)}
-                    onPress={() => {
-                        if (disabled === true) {
-                            return;
-                        }
-                        onPressHandler(page);
-                    }}
+                    onPress={() => (disabled ? {} : onPressHandler(page))}
                 >
                     <TabHeading style={tabHeaderStyle} active={isTabActive}>
                         {headerContent}
@@ -125,7 +114,6 @@ const DefaultTabBar = createReactClass({
             inputRange: [0, 1],
             outputRange: [0, containerWidth / numberOfTabs]
         });
-        console.log("tabs:", this.props.tabs);
         return (
             <TabContainer
                 style={[
