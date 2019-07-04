@@ -264,7 +264,7 @@ const ScrollableTabView = createReactClass({
         if (
             !width ||
             width <= 0 ||
-            Math.round(width) !== Math.round(this.state.containerWidth)
+            Math.round(width) === Math.round(this.state.containerWidth)
         ) {
             return;
         }
