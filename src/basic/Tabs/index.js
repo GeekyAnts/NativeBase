@@ -266,11 +266,12 @@ const ScrollableTabView = createReactClass({
             width <= 0 ||
             Math.round(width) !== Math.round(this.state.containerWidth)
         ) {
-            this.setState({ containerWidth: width });
-            this.requestAnimationFrame(() => {
-                this.goToPage(this.state.currentPage);
-            });
+            return;
         }
+        this.setState({ containerWidth: width });
+        this.requestAnimationFrame(() => {
+            this.goToPage(this.state.currentPage);
+        });
     },
 
     _children(children = this.props.children) {
