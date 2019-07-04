@@ -19,8 +19,7 @@ class Root extends Component {
         />
         <ActionSheet
           ref={c => {
-            if (c)
-              ActionSheet.actionsheetInstance = c;
+            if (c) ActionSheet.actionsheetInstance = c;
           }}
         />
       </View>

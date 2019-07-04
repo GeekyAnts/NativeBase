@@ -13,12 +13,20 @@ class Thumbnail extends Component {
 
 Thumbnail.propTypes = {
   ...Image.propTypes,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
   square: PropTypes.bool,
   circular: PropTypes.bool,
-  size: PropTypes.number,
+  size: PropTypes.number
 };
 
-const StyledThumbnail = connectStyle("NativeBase.Thumbnail", {}, mapPropsToStyleNames)(Thumbnail);
+const StyledThumbnail = connectStyle(
+  "NativeBase.Thumbnail",
+  {},
+  mapPropsToStyleNames
+)(Thumbnail);
 
 export { StyledThumbnail as Thumbnail };

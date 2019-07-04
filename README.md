@@ -77,19 +77,48 @@ npm install native-base --save
 **Note** <br />
 [NativeBase](https://nativebase.io/) uses some custom fonts that can be loaded using **Font.loadAsync**. Check out the [Expo Font documentation](https://docs.expo.io/versions/latest/sdk/font/).
 <br />
-Syntax <br />
+
+*Install Expo Fonts*
+```bash
+expo install expo-font
+```
+
+*App.js* <br />
 ```js
-// At the top of your file
-import { Font } from 'expo';
+import React from 'react';
+import { AppLoading } from 'expo';
+import { Container, Text } from 'native-base';
+import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 
-// Later on in your component
-async componentDidMount() {
-  await Font.loadAsync({
-    'Roboto': require('native-base/Fonts/Roboto.ttf'),
-    'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
-    ...Ionicons.font,
-  });
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isReady: false,
+    };
+  }
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+      ...Ionicons.font,
+    });
+    this.setState({ isReady: true });
+  }
+
+  render() {
+    if (!this.state.isReady) {
+      return <AppLoading />;
+    }
+
+    return (
+      <Container>
+        <Text>Open up App.js to start working on your app!</Text>
+      </Container>
+    );
+  }
 }
 ```
 <br />

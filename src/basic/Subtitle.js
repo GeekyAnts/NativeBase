@@ -12,8 +12,16 @@ class Subtitle extends Component {
 
 Subtitle.propTypes = {
   ...Text.propTypes,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
-const StyledSubtitle = connectStyle("NativeBase.Subtitle", {}, mapPropsToStyleNames)(Subtitle);
+const StyledSubtitle = connectStyle(
+  "NativeBase.Subtitle",
+  {},
+  mapPropsToStyleNames
+)(Subtitle);
 export { StyledSubtitle as Subtitle };

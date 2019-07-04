@@ -12,9 +12,11 @@ class Item extends Component {
 }
 
 Item.propTypes = {
-  ...Picker.Item.propTypes,
+  ...Picker.Item.propTypes
 };
 
-const StyledItem = connectStyle("NativeBase.Item", {}, mapPropsToStyleNames)(Item);
+const StyledItem = connectStyle("NativeBase.Item", {}, mapPropsToStyleNames)(
+  Item
+);
 
 export { StyledItem as Item };

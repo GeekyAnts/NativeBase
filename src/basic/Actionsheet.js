@@ -98,7 +98,6 @@ class ActionSheetContainer extends Component {
             style={{
               backgroundColor: "#fff",
               minHeight: 56,
-              height: this.state.items.length * 80,
               maxHeight: Dimensions.get("window").height / 2,
               padding: 15,
               elevation: 4

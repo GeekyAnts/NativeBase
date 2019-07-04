@@ -14,15 +14,15 @@ export default (variables /*: * */ = variable) => {
         alignSelf: "center",
         fontSize: 20,
         marginLeft: 0,
-        marginRight: 0,
+        marginRight: 0
       },
       "NativeBase.IconNB": {
         alignSelf: "center",
         fontSize: 20,
         marginLeft: 0,
-        marginRight: 0,
-      },
-    },
+        marginRight: 0
+      }
+    }
   };
 
   return fabTheme;

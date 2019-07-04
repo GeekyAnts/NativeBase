@@ -1,48 +1,48 @@
 // @flow
 
-import variable from './../variables/platform';
+import variable from "./../variables/platform";
 
 export default (variables /*: * */ = variable) => {
   const theme = {
-    '.group': {
+    ".group": {
       height: 50,
       paddingVertical: variables.listItemPadding - 8,
       paddingTop: variables.listItemPadding + 12,
-      '.bordered': {
+      ".bordered": {
         height: 50,
         paddingVertical: variables.listItemPadding - 8,
-        paddingTop: variables.listItemPadding + 12,
-      },
+        paddingTop: variables.listItemPadding + 12
+      }
     },
-    '.bordered': {
-      '.noTopBorder': {
-        borderTopWidth: 0,
+    ".bordered": {
+      ".noTopBorder": {
+        borderTopWidth: 0
       },
-      '.noBottomBorder': {
-        borderBottomWidth: 0,
+      ".noBottomBorder": {
+        borderBottomWidth: 0
       },
       height: 35,
       paddingTop: variables.listItemPadding + 2,
       paddingBottom: variables.listItemPadding,
       borderBottomWidth: variables.borderWidth,
       borderTopWidth: variables.borderWidth,
-      borderColor: variables.listBorderColor,
+      borderColor: variables.listBorderColor
     },
-    'NativeBase.Text': {
+    "NativeBase.Text": {
       fontSize: variables.tabBarTextSize - 2,
-      color: '#777',
+      color: "#777"
     },
-    '.noTopBorder': {
-      borderTopWidth: 0,
+    ".noTopBorder": {
+      borderTopWidth: 0
     },
-    '.noBottomBorder': {
-      borderBottomWidth: 0,
+    ".noBottomBorder": {
+      borderBottomWidth: 0
     },
     height: 38,
-    backgroundColor: '#F0EFF5',
+    backgroundColor: "#F0EFF5",
     flex: 1,
-    justifyContent: 'center',
-    paddingLeft: variables.listItemPadding + 5,
+    justifyContent: "center",
+    paddingLeft: variables.listItemPadding + 5
   };
 
   return theme;

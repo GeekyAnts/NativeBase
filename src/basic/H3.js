@@ -11,7 +11,7 @@ class H3 extends Component {
   }
 }
 
-const childrenType = function (props, propName, component) {
+const childrenType = function(props, propName, component) {
   let error;
   const prop = props[propName];
   React.Children.forEach(prop, child => {
@@ -25,7 +25,11 @@ const childrenType = function (props, propName, component) {
 H3.propTypes = {
   ...Text.propTypes,
   children: childrenType,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
 };
 
 const StyledH3 = connectStyle("NativeBase.H3", {}, mapPropsToStyleNames)(H3);
