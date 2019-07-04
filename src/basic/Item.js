@@ -60,22 +60,26 @@ class Item extends Component {
   floatBack() {
     Animated.timing(this.state.topAnim, {
       toValue: 18,
-      duration: 150
+      duration: 150,
+      useNativeDriver: true
     }).start();
     Animated.timing(this.state.opacAnim, {
       toValue: 1,
-      duration: 150
+      duration: 150,
+      useNativeDriver: true
     }).start();
   }
 
   floatUp(e) {
     Animated.timing(this.state.topAnim, {
       toValue: e || -22,
-      duration: 150
+      duration: 150,
+      useNativeDriver: true
     }).start();
     Animated.timing(this.state.opacAnim, {
       toValue: 0.7,
-      duration: 150
+      duration: 150,
+      useNativeDriver: true
     }).start();
   }
 
