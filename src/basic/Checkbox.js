@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { TouchableOpacity, Platform } from "react-native";
-import IconNB from "react-native-vector-icons/Ionicons";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
-import variable from "../theme/variables/platform";
-import _ from "lodash";
-import computeProps from "../utils/computeProps";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { TouchableOpacity, Platform } from 'react-native';
+import IconNB from 'react-native-vector-icons/Ionicons';
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import variable from '../theme/variables/platform';
+import _ from 'lodash';
+import computeProps from '../utils/computeProps';
 
 class CheckBox extends Component {
   static contextTypes = {
@@ -24,7 +24,7 @@ class CheckBox extends Component {
             ? this.props.color
               ? this.props.color
               : variables.checkboxBgColor
-            : "transparent"
+            : 'transparent'
       }
     };
   }
@@ -38,7 +38,7 @@ class CheckBox extends Component {
   }
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     const platformStyle = variables.platformStyle;
     const platform = variables.platform;
@@ -52,16 +52,16 @@ class CheckBox extends Component {
             color:
               this.props.checked === true
                 ? variables.checkboxTickColor
-                : "transparent",
+                : 'transparent',
             fontSize: variables.CheckboxFontSize,
             lineHeight: variables.CheckboxIconSize,
             marginTop: variables.CheckboxIconMarginTop,
             textShadowRadius: 0
           }}
           name={
-            platform === "ios" && platformStyle !== "material"
-              ? "ios-checkmark"
-              : "md-checkmark"
+            platform === 'ios' && platformStyle !== 'material'
+              ? 'ios-checkmark'
+              : 'md-checkmark'
           }
         />
       </TouchableOpacity>
@@ -81,7 +81,7 @@ CheckBox.propTypes = {
 };
 
 const StyledCheckBox = connectStyle(
-  "NativeBase.CheckBox",
+  'NativeBase.CheckBox',
   {},
   mapPropsToStyleNames
 )(CheckBox);

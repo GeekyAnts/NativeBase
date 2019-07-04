@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   TouchableHighlight,
   Platform,
   TouchableNativeFeedback,
   View
-} from "react-native";
+} from 'react-native';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
-import variable from "../theme/variables/platform";
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import variable from '../theme/variables/platform';
 
 class ListItem extends Component {
   static contextTypes = {
@@ -17,12 +17,12 @@ class ListItem extends Component {
   };
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
 
     if (
-      Platform.OS === "ios" ||
-      Platform.OS === "web" ||
+      Platform.OS === 'ios' ||
+      Platform.OS === 'web' ||
       variables.androidRipple === false ||
       (!this.props.onPress && !this.props.onLongPress) ||
       Platform.Version <= 21
@@ -71,7 +71,7 @@ ListItem.propTypes = {
 };
 
 const StyledListItem = connectStyle(
-  "NativeBase.ListItem",
+  'NativeBase.ListItem',
   {},
   mapPropsToStyleNames
 )(ListItem);

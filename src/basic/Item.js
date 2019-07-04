@@ -1,28 +1,28 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   TouchableOpacity,
   Animated,
   Platform,
   View,
   StyleSheet
-} from "react-native";
-import { Input } from "./Input";
-import { Label } from "./Label";
-import { Icon } from "./Icon";
-import { Thumbnail } from "./Thumbnail";
+} from 'react-native';
+import { Input } from './Input';
+import { Label } from './Label';
+import { Icon } from './Icon';
+import { Thumbnail } from './Thumbnail';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import variables from "../theme/variables/platform";
-import computeProps from "../utils/computeProps";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
-import _ from "lodash";
+import { connectStyle } from 'native-base-shoutem-theme';
+import variables from '../theme/variables/platform';
+import computeProps from '../utils/computeProps';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import _ from 'lodash';
 
 class Item extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: "",
+      text: '',
       topAnim: new Animated.Value(18),
       opacAnim: new Animated.Value(1)
     };
@@ -41,7 +41,7 @@ class Item extends Component {
     const childrenArray = React.Children.toArray(nextProps.children);
     let inputProps = {};
     _.remove(childrenArray, item => {
-      if (item.type.displayName === "Styled(Input)") {
+      if (item.type.displayName === 'Styled(Input)') {
         inputProps = item.props;
         this.inputProps = item.props;
         return item;
@@ -94,7 +94,7 @@ class Item extends Component {
         newLabel.push(
           React.createElement(Label, {
             ...labelProps,
-            key: "newFLabel",
+            key: 'newFLabel',
             float: true,
             style: labelStyle
           })
@@ -108,7 +108,7 @@ class Item extends Component {
       newLabel.push(
         React.createElement(Label, {
           ...labelProps,
-          key: "newLabel"
+          key: 'newLabel'
         })
       );
     }
@@ -160,7 +160,7 @@ class Item extends Component {
       for (let i = 0; i < this.props.children.length; i++) {
         if (
           this.props.children[i].props.name &&
-          this.props.children[i].type.displayName !== "Styled(Input)"
+          this.props.children[i].type.displayName !== 'Styled(Input)'
         ) {
           isIcon = true;
           newChildren.push(
@@ -172,7 +172,7 @@ class Item extends Component {
             <Animated.View
               key="float"
               style={{
-                position: "absolute",
+                position: 'absolute',
                 left:
                   this.props.last && isIcon
                     ? 40
@@ -184,8 +184,8 @@ class Item extends Component {
                 right: 0,
                 top: this.state.topAnim,
                 opacity: this.state.opacAnim,
-                paddingTop: Platform.OS === "ios" ? undefined : undefined,
-                paddingBottom: Platform.OS === "ios" ? undefined : 12
+                paddingTop: Platform.OS === 'ios' ? undefined : undefined,
+                paddingBottom: Platform.OS === 'ios' ? undefined : 12
               }}
             >
               <Label {...labelProps}>
@@ -222,7 +222,7 @@ class Item extends Component {
     } else if (this.props.floatingLabel && image.length) {
       let isImage = false;
       for (let i = 0; i < this.props.children.length; i++) {
-        if (this.props.children[i].type.displayName === "Styled(Thumbnail)") {
+        if (this.props.children[i].type.displayName === 'Styled(Thumbnail)') {
           isImage = true;
           newChildren.push(
             <Thumbnail
@@ -241,7 +241,7 @@ class Item extends Component {
             <Animated.View
               key="float"
               style={{
-                position: "absolute",
+                position: 'absolute',
                 left:
                   this.props.last && isImage
                     ? 57
@@ -253,8 +253,8 @@ class Item extends Component {
                 right: 0,
                 top: this.state.topAnim,
                 opacity: this.state.opacAnim,
-                paddingTop: Platform.OS === "ios" ? undefined : undefined,
-                paddingBottom: Platform.OS === "ios" ? undefined : 12
+                paddingTop: Platform.OS === 'ios' ? undefined : undefined,
+                paddingBottom: Platform.OS === 'ios' ? undefined : 12
               }}
             >
               <Label {...labelProps}>
@@ -304,13 +304,13 @@ class Item extends Component {
         <Animated.View
           key="float"
           style={{
-            position: "absolute",
+            position: 'absolute',
             left: this.props.last ? 15 : 0,
             right: 0,
             top: this.state.topAnim,
             opacity: this.state.opacAnim,
-            paddingTop: Platform.OS === "ios" ? undefined : undefined,
-            paddingBottom: Platform.OS === "ios" ? undefined : 12
+            paddingTop: Platform.OS === 'ios' ? undefined : undefined,
+            paddingBottom: Platform.OS === 'ios' ? undefined : 12
           }}
         >
           <Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
@@ -345,13 +345,13 @@ class Item extends Component {
         <View
           key="s"
           style={{
-            flexDirection: "row",
+            flexDirection: 'row',
             flex: 1,
             width: variables.deviceWidth - 15
           }}
         >
           <Icon key="s1" {...iconProps} />
-          <View style={{ flexDirection: "column" }}>
+          <View style={{ flexDirection: 'column' }}>
             <Label key="s2" {...labelProps} />
             <Input
               key="s3"
@@ -405,8 +405,8 @@ const childrenType = function(props, propName, component) {
       `${component} should have both Label and Input components`
     );
   } else if (
-    props.children[0].type.displayName !== "Styled(Label)" ||
-    props.children[1].type.displayName !== "Styled(Input)"
+    props.children[0].type.displayName !== 'Styled(Label)' ||
+    props.children[1].type.displayName !== 'Styled(Input)'
   ) {
     error = new Error(
       `${component} should have Label and Input components only`
@@ -430,7 +430,7 @@ Item.propTypes = {
   error: PropTypes.bool
 };
 
-const StyledItem = connectStyle("NativeBase.Item", {}, mapPropsToStyleNames)(
+const StyledItem = connectStyle('NativeBase.Item', {}, mapPropsToStyleNames)(
   Item
 );
 

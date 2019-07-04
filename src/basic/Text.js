@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Text as RNText } from "react-native";
-import _ from "lodash";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Text as RNText } from 'react-native';
+import _ from 'lodash';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Text extends Component {
   render() {
@@ -45,7 +45,7 @@ Text.defaultProps = {
   uppercase: false
 };
 
-const StyledText = connectStyle("NativeBase.Text", {}, mapPropsToStyleNames)(
+const StyledText = connectStyle('NativeBase.Text', {}, mapPropsToStyleNames)(
   Text
 );
 

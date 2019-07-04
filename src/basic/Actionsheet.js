@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   View,
   Modal,
@@ -9,17 +9,17 @@ import {
   ViewPropTypes,
   FlatList,
   Dimensions
-} from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import { Text } from "./Text";
-import { Button } from "./Button";
-import { ViewNB } from "./View";
-import { Icon } from "./Icon";
-import { Left } from "./Left";
-import { Right } from "./Right";
-import { Body } from "./Body";
-import { ListItem } from "./ListItem";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+} from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import { Text } from './Text';
+import { Button } from './Button';
+import { ViewNB } from './View';
+import { Icon } from './Icon';
+import { Left } from './Left';
+import { Right } from './Right';
+import { Body } from './Body';
+import { ListItem } from './ListItem';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class ActionSheetContainer extends Component {
   constructor(props) {
@@ -37,8 +37,8 @@ class ActionSheetContainer extends Component {
     this.actionsheetInstance._root.hideActionSheet();
   }
   showActionSheet(config, callback) {
-    if (Platform.OS === "ios") {
-      if (typeof config.options[0] == "object") {
+    if (Platform.OS === 'ios') {
+      if (typeof config.options[0] == 'object') {
         let options = config.options;
         let filtered = options.map(item => {
           return item.text;
@@ -73,7 +73,7 @@ class ActionSheetContainer extends Component {
   render() {
     return (
       <Modal
-        animationType={"fade"}
+        animationType={'fade'}
         transparent={true}
         visible={this.state.modalVisible}
         onRequestClose={() => {
@@ -88,23 +88,23 @@ class ActionSheetContainer extends Component {
             this.setState({ modalVisible: false });
           }}
           style={{
-            backgroundColor: "rgba(0,0,0,0.4)",
+            backgroundColor: 'rgba(0,0,0,0.4)',
             flex: 1,
-            justifyContent: "flex-end"
+            justifyContent: 'flex-end'
           }}
         >
           <TouchableOpacity
             activeOpacity={1}
             style={{
-              backgroundColor: "#fff",
+              backgroundColor: '#fff',
               minHeight: 56,
-              maxHeight: Dimensions.get("window").height / 2,
+              maxHeight: Dimensions.get('window').height / 2,
               padding: 15,
               elevation: 4
             }}
           >
             {this.state.title ? (
-              <Text style={{ color: "#757575" }}>{this.state.title}</Text>
+              <Text style={{ color: '#757575' }}>{this.state.title}</Text>
             ) : null}
             <FlatList
               style={{
@@ -114,13 +114,13 @@ class ActionSheetContainer extends Component {
               data={this.state.items}
               keyExtractor={(item, index) => String(index)}
               renderItem={({ index, item }) => {
-                return typeof this.state.items[0] === "string" ? (
+                return typeof this.state.items[0] === 'string' ? (
                   <ListItem
                     onPress={() => {
                       this.state.callback(parseInt(index));
                       this.setState({ modalVisible: false });
                     }}
-                    style={{ borderColor: "transparent", marginLeft: 14 }}
+                    style={{ borderColor: 'transparent', marginLeft: 14 }}
                   >
                     <Text>{item}</Text>
                   </ListItem>
@@ -131,7 +131,7 @@ class ActionSheetContainer extends Component {
                       this.setState({ modalVisible: false });
                     }}
                     style={{
-                      borderColor: "transparent",
+                      borderColor: 'transparent',
                       marginLeft: 14,
                       height: 50
                     }}
@@ -146,7 +146,7 @@ class ActionSheetContainer extends Component {
                       />
                     </Left>
                     <Body
-                      style={{ borderColor: "transparent", paddingLeft: 7 }}
+                      style={{ borderColor: 'transparent', paddingLeft: 7 }}
                     >
                       <Text>{item.text}</Text>
                     </Body>
@@ -172,7 +172,7 @@ ActionSheetContainer.propTypes = {
 };
 
 const StyledActionSheetContainer = connectStyle(
-  "NativeBase.ActionSheetContainer",
+  'NativeBase.ActionSheetContainer',
   {},
   mapPropsToStyleNames
 )(ActionSheetContainer);

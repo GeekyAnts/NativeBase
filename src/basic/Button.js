@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   TouchableOpacity,
   Platform,
   View,
   TouchableNativeFeedback,
   StyleSheet
-} from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import variable from "./../theme/variables/platform";
-import { Text } from "./Text";
-import computeProps from "../utils/computeProps";
+} from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import variable from './../theme/variables/platform';
+import { Text } from './Text';
+import computeProps from '../utils/computeProps';
 
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Button extends Component {
   static contextTypes = {
@@ -55,10 +55,10 @@ class Button extends Component {
   }
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     const children =
-      Platform.OS === "ios"
+      Platform.OS === 'ios'
         ? this.props.children
         : React.Children.map(this.props.children, child =>
             child && child.type === Text
@@ -69,10 +69,10 @@ class Button extends Component {
               : child
           );
     if (
-      Platform.OS === "ios" ||
-      Platform.OS === "web" ||
+      Platform.OS === 'ios' ||
+      Platform.OS === 'web' ||
       variables.androidRipple === false ||
-      Platform["Version"] < 21
+      Platform['Version'] < 21
     ) {
       return (
         <TouchableOpacity
@@ -133,7 +133,7 @@ class Button extends Component {
             onPress={this.props.onPress}
             background={
               this.props.transparent
-                ? TouchableNativeFeedback.Ripple("transparent")
+                ? TouchableNativeFeedback.Ripple('transparent')
                 : TouchableNativeFeedback.Ripple(
                     variables.androidRippleColor,
                     false
@@ -174,14 +174,14 @@ Button.propTypes = {
 const styles = StyleSheet.create({
   childContainer: {
     flexShrink: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
 const StyledButton = connectStyle(
-  "NativeBase.Button",
+  'NativeBase.Button',
   {},
   mapPropsToStyleNames
 )(Button);

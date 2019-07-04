@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Animated,
   PanResponder,
@@ -7,14 +7,14 @@ import {
   StyleSheet,
   TouchableOpacity,
   View
-} from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import { Text } from "./Text";
-import { Left } from "./Left";
-import { Right } from "./Right";
-import { Body } from "./Body";
-import { ListItem } from "./ListItem";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+} from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import { Text } from './Text';
+import { Left } from './Left';
+import { Right } from './Right';
+import { Body } from './Body';
+import { ListItem } from './ListItem';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 const PREVIEW_OPEN_DELAY = 700;
 const PREVIEW_CLOSE_DELAY = 300;
@@ -58,7 +58,12 @@ class SwipeRow extends Component {
   }
 
   getPreviewAnimation(toValue, delay) {
-    return Animated.timing(this._translateX, { duration: this.props.previewDuration, toValue, delay, useNativeDriver: true});
+    return Animated.timing(this._translateX, {
+      duration: this.props.previewDuration,
+      toValue,
+      delay,
+      useNativeDriver: true
+    });
   }
 
   onContentLayout(e) {
@@ -184,21 +189,19 @@ class SwipeRow extends Component {
     this.manuallySwipeRow(this.props.rightOpenValue);
   }
 
-
-	manuallySwipeRow(toValue) {
-		Animated.spring(this._translateX, {
-			toValue,
-			friction: this.props.friction,
-			tension: this.props.tension,
+  manuallySwipeRow(toValue) {
+    Animated.spring(this._translateX, {
+      toValue,
+      friction: this.props.friction,
+      tension: this.props.tension,
       useNativeDriver: true
-		}).start(_ => {
-			if (toValue === 0) {
-				this.props.onRowDidClose && this.props.onRowDidClose();
-			} else {
-				this.props.onRowDidOpen && this.props.onRowDidOpen();
-			}
-		});
-
+    }).start(_ => {
+      if (toValue === 0) {
+        this.props.onRowDidClose && this.props.onRowDidClose();
+      } else {
+        this.props.onRowDidOpen && this.props.onRowDidOpen();
+      }
+    });
 
     if (toValue === 0) {
       this.props.onRowClose && this.props.onRowClose();
@@ -228,7 +231,7 @@ class SwipeRow extends Component {
               {this.props.body}
             </ListItem>
           ) : (
-            <View style={[{ backgroundColor: "#FFF" }, this.props.style]}>
+            <View style={[{ backgroundColor: '#FFF' }, this.props.style]}>
               {this.props.body}
             </View>
           )}
@@ -249,7 +252,7 @@ class SwipeRow extends Component {
               {this.props.body}
             </ListItem>
           ) : (
-            <View style={[{ backgroundColor: "#FFF" }, this.props.style]}>
+            <View style={[{ backgroundColor: '#FFF' }, this.props.style]}>
               {this.props.body}
             </View>
           )}
@@ -267,8 +270,8 @@ class SwipeRow extends Component {
             {
               height: this.state.hiddenHeight,
               flex: 1,
-              flexDirection: "row",
-              justifyContent: "space-between"
+              flexDirection: 'row',
+              justifyContent: 'space-between'
             }
           ]}
         >
@@ -294,15 +297,15 @@ const styles = {
   hidden: {
     bottom: 0,
     left: 0,
-    overflow: "hidden",
-    position: "absolute",
+    overflow: 'hidden',
+    position: 'absolute',
     right: 0,
     top: 0
   }
 };
 
 const StyledSwipeRow = connectStyle(
-  "NativeBase.SwipeRow",
+  'NativeBase.SwipeRow',
   {},
   mapPropsToStyleNames
 )(SwipeRow);

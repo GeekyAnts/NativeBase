@@ -1,36 +1,36 @@
 // @flow
 
-import variable from "./../variables/platform";
+import variable from './../variables/platform';
 
 export default (variables /*: * */ = variable) => {
   const badgeTheme = {
-    ".primary": {
+    '.primary': {
       backgroundColor: variables.buttonPrimaryBg
     },
-    ".warning": {
+    '.warning': {
       backgroundColor: variables.buttonWarningBg
     },
-    ".info": {
+    '.info': {
       backgroundColor: variables.buttonInfoBg
     },
-    ".success": {
+    '.success': {
       backgroundColor: variables.buttonSuccessBg
     },
-    ".danger": {
+    '.danger': {
       backgroundColor: variables.buttonDangerBg
     },
-    "NativeBase.Text": {
+    'NativeBase.Text': {
       color: variables.badgeColor,
       fontSize: variables.fontSizeBase,
       lineHeight: variables.lineHeight - 1,
-      textAlign: "center",
+      textAlign: 'center',
       paddingHorizontal: 3
     },
     backgroundColor: variables.badgeBg,
     padding: variables.badgePadding,
     paddingHorizontal: 6,
-    alignSelf: "flex-start",
-    justifyContent: variables.platform === "ios" ? "center" : undefined,
+    alignSelf: 'flex-start',
+    justifyContent: variables.platform === 'ios' ? 'center' : undefined,
     borderRadius: 13.5,
     height: 27
   };

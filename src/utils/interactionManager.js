@@ -1,4 +1,4 @@
-import { InteractionManager } from "react-native";
+import { InteractionManager } from 'react-native';
 export default {
   ...InteractionManager,
   runAfterInteractions: f => {

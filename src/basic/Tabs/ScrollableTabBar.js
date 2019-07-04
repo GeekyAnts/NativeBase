@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import createReactClass from "create-react-class";
-import _ from "lodash";
-import { connectStyle, StyleProvider } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../../utils/mapPropsToStyleNames";
-import variable from "./../../theme/variables/platform";
-import { TabHeading } from "../TabHeading";
-import { Text } from "../Text";
-import { TabContainer } from "../TabContainer";
-import { ViewPropTypes } from "../../utils";
-const Button = require("./Button");
-const ReactNative = require("react-native");
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
+import _ from 'lodash';
+import { connectStyle, StyleProvider } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../../utils/mapPropsToStyleNames';
+import variable from './../../theme/variables/platform';
+import { TabHeading } from '../TabHeading';
+import { Text } from '../Text';
+import { TabContainer } from '../TabContainer';
+import { ViewPropTypes } from '../../utils';
+const Button = require('./Button');
+const ReactNative = require('react-native');
 const {
   View,
   Animated,
@@ -20,7 +20,7 @@ const {
   Dimensions
 } = ReactNative;
 
-const WINDOW_WIDTH = Dimensions.get("window").width;
+const WINDOW_WIDTH = Dimensions.get('window').width;
 
 const ScrollableTabBar = createReactClass({
   propTypes: {
@@ -45,8 +45,8 @@ const ScrollableTabBar = createReactClass({
   getDefaultProps() {
     return {
       scrollOffset: 52,
-      activeTextColor: "navy",
-      inactiveTextColor: "black",
+      activeTextColor: 'navy',
+      inactiveTextColor: 'black',
       backgroundColor: variable.tabDefaultBg,
       style: {},
       tabStyle: {},
@@ -117,7 +117,7 @@ const ScrollableTabBar = createReactClass({
       2;
     newScrollX = newScrollX >= 0 ? newScrollX : 0;
 
-    if (Platform.OS === "android") {
+    if (Platform.OS === 'android') {
       this._scrollView.scrollTo({ x: newScrollX, y: 0, animated: false });
     } else {
       const rightBoundScroll =
@@ -164,13 +164,13 @@ const ScrollableTabBar = createReactClass({
     tabFontSize
   ) {
     const headerContent =
-      typeof name !== "string" ? name.props.children : undefined;
+      typeof name !== 'string' ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
-    const fontWeight = isTabActive ? "bold" : "normal";
+    const fontWeight = isTabActive ? 'bold' : 'normal';
     // const fontSize = tabFontSize;
 
-    if (typeof name === "string") {
+    if (typeof name === 'string') {
       return (
         <Button
           key={`${name}_${page}`}
@@ -216,10 +216,10 @@ const ScrollableTabBar = createReactClass({
 
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     const tabUnderlineStyle = {
-      position: "absolute",
+      position: 'absolute',
       height: 4,
       backgroundColor: variables.topTabBarActiveBorderColor,
       bottom: 0
@@ -258,7 +258,7 @@ const ScrollableTabBar = createReactClass({
               { width: this.state._containerWidth },
               this.props.tabsContainerStyle
             ]}
-            ref={"tabContainer"}
+            ref={'tabContainer'}
             onLayout={this.onTabContainerLayout}
           >
             {this.props.tabs.map((name, page) => {
@@ -319,7 +319,7 @@ const ScrollableTabBar = createReactClass({
 
 // module.exports = ScrollableTabBar;
 const StyledTab = connectStyle(
-  "NativeBase.ScrollableTab",
+  'NativeBase.ScrollableTab',
   {},
   mapPropsToStyleNames
 )(ScrollableTabBar);
@@ -327,8 +327,8 @@ export { StyledTab as ScrollableTab };
 const styles = StyleSheet.create({
   tab: {
     height: 49,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingLeft: 20,
     paddingRight: 20
   },
@@ -338,10 +338,10 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    borderColor: "#ccc"
+    borderColor: '#ccc'
   },
   tabs: {
-    flexDirection: "row",
-    justifyContent: "space-around"
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   }
 });

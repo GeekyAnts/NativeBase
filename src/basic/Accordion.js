@@ -1,19 +1,19 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Animated,
   TouchableWithoutFeedback,
   FlatList,
   StyleSheet,
   View
-} from "react-native";
-import { Text } from "./Text";
-import { Icon } from "./Icon";
-import variable from "../theme/variables/platform";
+} from 'react-native';
+import { Text } from './Text';
+import { Icon } from './Icon';
+import variable from '../theme/variables/platform';
 
 class DefaultHeader extends React.Component {
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
       <View
@@ -40,10 +40,10 @@ class DefaultHeader extends React.Component {
             this.props.expanded
               ? this.props.expandedIcon
                 ? this.props.expandedIcon
-                : "ios-arrow-up"
+                : 'ios-arrow-up'
               : this.props.icon
               ? this.props.icon
-              : "ios-arrow-down"
+              : 'ios-arrow-down'
           }
         />
       </View>
@@ -54,7 +54,7 @@ class DefaultHeader extends React.Component {
 class DefaultContent extends React.Component {
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
       <Text
@@ -148,7 +148,7 @@ export class Accordion extends React.Component {
 
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
       <FlatList
@@ -187,9 +187,9 @@ export class Accordion extends React.Component {
 
 const styles = StyleSheet.create({
   defaultHeader: {
-    flexDirection: "row",
+    flexDirection: 'row',
     padding: 10,
-    justifyContent: "space-between",
-    alignItems: "center"
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 });

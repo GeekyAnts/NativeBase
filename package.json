@@ -15,7 +15,8 @@
   ],
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
-    "format": "prettier --write \"src/**/*.{js,json}\"",
+    "format": "prettier --write \"src/**/*.{js, json}\"",
+    "lint": "esw \"src/**/*.{js}\"",
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",
@@ -55,11 +56,15 @@
     "babel-preset-react-native": "4.0.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-react-native": "^2.0.0",
+    "eslint-watch": "^5.1.2",
     "flow-bin": "0.47.0",
+    "husky": "^3.0.0",
     "jest": "23.3.0",
     "react": "16.4.1",
     "react-native": "0.56.0",
@@ -75,6 +80,12 @@
     "prettier": "1.16.4",
     "react": ">=16.4.1",
     "react-native": ">=0.56.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run format"
+    }
   },
   "readmeFilename": "README.md",
   "repository": {

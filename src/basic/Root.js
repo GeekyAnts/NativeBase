@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { View, ViewPropTypes } from "react-native";
-import PropTypes from "prop-types";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
-import { ToastContainer as Toast } from "./ToastContainer";
-import { ActionSheetContainer as ActionSheet } from "./Actionsheet";
-import { Text } from "./Text";
+import React, { Component } from 'react';
+import { View, ViewPropTypes } from 'react-native';
+import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import { ToastContainer as Toast } from './ToastContainer';
+import { ActionSheetContainer as ActionSheet } from './Actionsheet';
+import { Text } from './Text';
 
 class Root extends Component {
   render() {
@@ -36,7 +36,7 @@ Root.propTypes = {
   ])
 };
 
-const StyledRoot = connectStyle("NativeBase.Root", {}, mapPropsToStyleNames)(
+const StyledRoot = connectStyle('NativeBase.Root', {}, mapPropsToStyleNames)(
   Root
 );
 
