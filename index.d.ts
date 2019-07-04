@@ -694,6 +694,7 @@ declare module "native-base" {
 			color?: string;
 			selected?: boolean;
 			selectedColor?: string;
+			standardStyle?: boolean;
 		}
 		/**
          * see Widget ProgressBar.js
