@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   Modal,
   View,
   Platform,
   DatePickerIOS,
   DatePickerAndroid
-} from "react-native";
-import { Text } from "./Text";
-import variable from "../theme/variables/platform";
+} from 'react-native';
+import { Text } from './Text';
+import variable from '../theme/variables/platform';
 
 export class DatePicker extends React.Component {
   static defaultProps = {
@@ -33,7 +33,7 @@ export class DatePicker extends React.Component {
   }
 
   showDatePicker() {
-    if (Platform.OS === "android") {
+    if (Platform.OS === 'android') {
       this.openAndroidDatePicker();
     } else {
       this.setState({ modalVisible: true });
@@ -51,13 +51,13 @@ export class DatePicker extends React.Component {
         mode: this.props.androidMode
       });
       const { action, year, month, day } = newDate;
-      if (action === "dateSetAction") {
+      if (action === 'dateSetAction') {
         let selectedDate = new Date(year, month, day);
         this.setState({ chosenDate: selectedDate });
         this.props.onDateChange(selectedDate);
       }
     } catch ({ code, message }) {
-      console.warn("Cannot open date picker", message);
+      console.warn('Cannot open date picker', message);
     }
   }
 
@@ -65,12 +65,12 @@ export class DatePicker extends React.Component {
     if (this.props.formatChosenDate) {
       return this.props.formatChosenDate(date);
     }
-    return [date.getDate(), date.getMonth() + 1, date.getFullYear()].join("/");
+    return [date.getDate(), date.getMonth() + 1, date.getFullYear()].join('/');
   }
 
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
       <View>
@@ -90,11 +90,11 @@ export class DatePicker extends React.Component {
               ? this.formatChosenDate(this.state.chosenDate)
               : this.props.placeHolderText
               ? this.props.placeHolderText
-              : "Select Date"}
+              : 'Select Date'}
           </Text>
           <View>
             <Modal
-              supportedOrientations={["portrait", "landscape"]}
+              supportedOrientations={['portrait', 'landscape']}
               animationType={this.props.animationType}
               transparent={this.props.modalTransparent} //from api
               visible={this.state.modalVisible}

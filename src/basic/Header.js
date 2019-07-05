@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, StatusBar, ViewPropTypes, StyleSheet } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
-import variable from "../theme/variables/platform";
-import _ from "lodash";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, StatusBar, ViewPropTypes, StyleSheet } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import variable from '../theme/variables/platform';
+import _ from 'lodash';
 class Header extends Component {
   static contextTypes = {
     theme: PropTypes.object
@@ -12,14 +12,14 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      orientation: "portrait"
+      orientation: 'portrait'
     };
   }
   layoutChange(val) {
     let maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
-    if (val.width >= maxComp) this.setState({ orientation: "landscape" });
+    if (val.width >= maxComp) this.setState({ orientation: 'landscape' });
     else {
-      this.setState({ orientation: "portrait" });
+      this.setState({ orientation: 'portrait' });
     }
   }
   calculateHeight(mode, inSet) {
@@ -29,7 +29,7 @@ class Header extends Component {
     } else {
       inset = variable.Inset;
     }
-    const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
+    const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let oldHeight = null;
     if (this.props.style.height != undefined) {
       oldHeight = this.props.style.height;
@@ -50,7 +50,7 @@ class Header extends Component {
     } else {
       inset = variable.Inset;
     }
-    const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
+    const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let topPadder = null;
     let style = StyleSheet.flatten(this.props.style);
     if (style.padding !== undefined || style.paddingTop !== undefined) {
@@ -64,7 +64,7 @@ class Header extends Component {
   }
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     const platformStyle = variables.platformStyle;
     return (
@@ -78,8 +78,8 @@ class Header extends Component {
           barStyle={
             this.props.iosBarStyle
               ? this.props.iosBarStyle
-              : platformStyle === "material"
-              ? "light-content"
+              : platformStyle === 'material'
+              ? 'light-content'
               : variables.iosStatusbar
           }
           translucent={this.props.transparent ? true : this.props.translucent}
@@ -122,7 +122,7 @@ Header.propTypes = {
 };
 
 const StyledHeader = connectStyle(
-  "NativeBase.Header",
+  'NativeBase.Header',
   {},
   mapPropsToStyleNames
 )(Header);

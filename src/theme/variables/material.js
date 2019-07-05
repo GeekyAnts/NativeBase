@@ -1,13 +1,13 @@
 // @flow
 
-import color from "color";
+import color from 'color';
 
-import { Platform, Dimensions, PixelRatio } from "react-native";
+import { Platform, Dimensions, PixelRatio } from 'react-native';
 
-import { PLATFORM } from "./commonColor";
+import { PLATFORM } from './commonColor';
 
-const deviceHeight = Dimensions.get("window").height;
-const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
 const platform = Platform.OS;
 const platformStyle = PLATFORM.MATERIAL;
 const isIphoneX =
@@ -22,26 +22,26 @@ export default {
   platform,
 
   //Accordion
-  headerStyle: "#edebed",
-  iconStyle: "#000",
-  contentStyle: "#f5f4f5",
-  expandedIconStyle: "#000",
-  accordionBorderColor: "#d3d3d3",
+  headerStyle: '#edebed',
+  iconStyle: '#000',
+  contentStyle: '#f5f4f5',
+  expandedIconStyle: '#000',
+  accordionBorderColor: '#d3d3d3',
 
   // Android
   androidRipple: true,
-  androidRippleColor: "rgba(256, 256, 256, 0.3)",
-  androidRippleColorDark: "rgba(0, 0, 0, 0.15)",
+  androidRippleColor: 'rgba(256, 256, 256, 0.3)',
+  androidRippleColorDark: 'rgba(0, 0, 0, 0.15)',
   buttonUppercaseAndroidText: true,
 
   // Badge
-  badgeBg: "#ED1727",
-  badgeColor: "#fff",
+  badgeBg: '#ED1727',
+  badgeColor: '#fff',
   badgePadding: 0,
 
   // Button
-  buttonFontFamily: "Roboto",
-  buttonDisabledBg: "#b5b5b5",
+  buttonFontFamily: 'Roboto',
+  buttonDisabledBg: '#b5b5b5',
   buttonPadding: 6,
   get buttonPrimaryBg() {
     return this.brandPrimary;
@@ -93,8 +93,8 @@ export default {
   },
 
   // Card
-  cardDefaultBg: "#fff",
-  cardBorderColor: "#ccc",
+  cardDefaultBg: '#fff',
+  cardBorderColor: '#ccc',
   cardBorderRadius: 2,
   cardItemPadding: platform === PLATFORM.IOS ? 10 : 12,
 
@@ -106,29 +106,29 @@ export default {
   CheckboxIconSize: 16,
   CheckboxIconMarginTop: 1,
   CheckboxFontSize: 17,
-  checkboxBgColor: "#039BE5",
+  checkboxBgColor: '#039BE5',
   checkboxSize: 20,
-  checkboxTickColor: "#fff",
+  checkboxTickColor: '#fff',
 
   // Color
-  brandPrimary: "#3F51B5",
-  brandInfo: "#62B1F6",
-  brandSuccess: "#5cb85c",
-  brandDanger: "#d9534f",
-  brandWarning: "#f0ad4e",
-  brandDark: "#000",
-  brandLight: "#f4f4f4",
+  brandPrimary: '#3F51B5',
+  brandInfo: '#62B1F6',
+  brandSuccess: '#5cb85c',
+  brandDanger: '#d9534f',
+  brandWarning: '#f0ad4e',
+  brandDark: '#000',
+  brandLight: '#f4f4f4',
 
   //Container
-  containerBgColor: "#fff",
+  containerBgColor: '#fff',
 
   //Date Picker
-  datePickerTextColor: "#000",
-  datePickerBg: "transparent",
+  datePickerTextColor: '#000',
+  datePickerBg: 'transparent',
 
   // Font
   DefaultFontSize: 16,
-  fontFamily: "Roboto",
+  fontFamily: 'Roboto',
   fontSizeBase: 15,
   get fontSizeH1() {
     return this.fontSizeBase * 1.8;
@@ -142,28 +142,28 @@ export default {
 
   // Footer
   footerHeight: 55,
-  footerDefaultBg: "#3F51B5",
+  footerDefaultBg: '#3F51B5',
   footerPaddingBottom: 0,
 
   // FooterTab
-  tabBarTextColor: "#bfc6ea",
+  tabBarTextColor: '#bfc6ea',
   tabBarTextSize: 11,
-  activeTab: "#fff",
-  sTabBarActiveTextColor: "#007aff",
-  tabBarActiveTextColor: "#fff",
-  tabActiveBgColor: "#3F51B5",
+  activeTab: '#fff',
+  sTabBarActiveTextColor: '#007aff',
+  tabBarActiveTextColor: '#fff',
+  tabActiveBgColor: '#3F51B5',
 
   // Header
-  toolbarBtnColor: "#fff",
-  toolbarDefaultBg: "#3F51B5",
+  toolbarBtnColor: '#fff',
+  toolbarDefaultBg: '#3F51B5',
   toolbarHeight: 56,
   toolbarSearchIconSize: 23,
-  toolbarInputColor: "#fff",
+  toolbarInputColor: '#fff',
   searchBarHeight: platform === PLATFORM.IOS ? 30 : 40,
   searchBarInputHeight: platform === PLATFORM.IOS ? 40 : 50,
-  toolbarBtnTextColor: "#fff",
-  toolbarDefaultBorder: "#3F51B5",
-  iosStatusbar: "light-content",
+  toolbarBtnTextColor: '#fff',
+  toolbarDefaultBorder: '#3F51B5',
+  iosStatusbar: 'light-content',
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
       .darken(0.2)
@@ -176,21 +176,21 @@ export default {
   },
 
   // Icon
-  iconFamily: "Ionicons",
+  iconFamily: 'Ionicons',
   iconFontSize: 28,
   iconHeaderSize: 24,
 
   // InputGroup
   inputFontSize: 17,
-  inputBorderColor: "#D9D5DC",
-  inputSuccessBorderColor: "#2b8339",
-  inputErrorBorderColor: "#ed2f2f",
+  inputBorderColor: '#D9D5DC',
+  inputSuccessBorderColor: '#2b8339',
+  inputErrorBorderColor: '#ed2f2f',
   inputHeightBase: 50,
   get inputColor() {
     return this.textColor;
   },
   get inputColorPlaceholder() {
-    return "#575757";
+    return '#575757';
   },
 
   // Line Height
@@ -201,70 +201,70 @@ export default {
   lineHeight: 24,
 
   // List
-  listBg: "transparent",
-  listBorderColor: "#c9c9c9",
-  listDividerBg: "#f4f4f4",
-  listBtnUnderlayColor: "#DDD",
+  listBg: 'transparent',
+  listBorderColor: '#c9c9c9',
+  listDividerBg: '#f4f4f4',
+  listBtnUnderlayColor: '#DDD',
   listItemPadding: 12,
-  listNoteColor: "#808080",
+  listNoteColor: '#808080',
   listNoteSize: 13,
-  listItemSelected: "#3F51B5",
+  listItemSelected: '#3F51B5',
 
   // Progress Bar
-  defaultProgressColor: "#E4202D",
-  inverseProgressColor: "#1A191B",
+  defaultProgressColor: '#E4202D',
+  inverseProgressColor: '#1A191B',
 
   // Radio Button
   radioBtnSize: 23,
-  radioSelectedColorAndroid: "#3F51B5",
+  radioSelectedColorAndroid: '#3F51B5',
   radioBtnLineHeight: 24,
   get radioColor() {
     return this.brandPrimary;
   },
 
   // Segment
-  segmentBackgroundColor: "#3F51B5",
-  segmentActiveBackgroundColor: "#fff",
-  segmentTextColor: "#fff",
-  segmentActiveTextColor: "#3F51B5",
-  segmentBorderColor: "#fff",
-  segmentBorderColorMain: "#3F51B5",
+  segmentBackgroundColor: '#3F51B5',
+  segmentActiveBackgroundColor: '#fff',
+  segmentTextColor: '#fff',
+  segmentActiveTextColor: '#3F51B5',
+  segmentBorderColor: '#fff',
+  segmentBorderColorMain: '#3F51B5',
 
   // Spinner
-  defaultSpinnerColor: "#45D56E",
-  inverseSpinnerColor: "#1A191B",
+  defaultSpinnerColor: '#45D56E',
+  inverseSpinnerColor: '#1A191B',
 
   // Tab
-  tabDefaultBg: "#3F51B5",
-  topTabBarTextColor: "#b3c7f9",
-  topTabBarActiveTextColor: "#fff",
-  topTabBarBorderColor: "#fff",
-  topTabBarActiveBorderColor: "#fff",
+  tabDefaultBg: '#3F51B5',
+  topTabBarTextColor: '#b3c7f9',
+  topTabBarActiveTextColor: '#fff',
+  topTabBarBorderColor: '#fff',
+  topTabBarActiveBorderColor: '#fff',
 
   // Tabs
-  tabBgColor: "#F8F8F8",
+  tabBgColor: '#F8F8F8',
   tabFontSize: 15,
 
   // Text
-  textColor: "#000",
-  inverseTextColor: "#fff",
+  textColor: '#000',
+  inverseTextColor: '#fff',
   noteFontSize: 14,
   get defaultTextColor() {
     return this.textColor;
   },
 
   // Title
-  titleFontfamily: "Roboto",
+  titleFontfamily: 'Roboto',
   titleFontSize: 19,
   subTitleFontSize: 14,
-  subtitleColor: "#FFF",
-  titleFontColor: "#FFF",
+  subtitleColor: '#FFF',
+  titleFontColor: '#FFF',
 
   // Other
   borderRadiusBase: 2,
   borderWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
   contentPadding: 10,
-  dropdownLinkColor: "#414142",
+  dropdownLinkColor: '#414142',
   inputLineHeight: 24,
   deviceWidth,
   deviceHeight,

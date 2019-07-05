@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Image } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import _ from "lodash";
-import md5 from "blueimp-md5";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
-import NativeBaseComponent from "./Base/NativeBaseComponent";
-import computeProps from "../utils/computeProps";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Image } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import _ from 'lodash';
+import md5 from 'blueimp-md5';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import NativeBaseComponent from './Base/NativeBaseComponent';
+import computeProps from '../utils/computeProps';
 
-const GRAVATAR_URI = "https://www.gravatar.com/avatar/";
+const GRAVATAR_URI = 'https://www.gravatar.com/avatar/';
 
 class Gravatar extends NativeBaseComponent {
   getInitialStyle() {
@@ -17,7 +17,7 @@ class Gravatar extends NativeBaseComponent {
         borderRadius: this.props.size ? this.props.size / 2 : 15,
         width: this.props.size ? this.props.size : 30,
         height: this.props.size ? this.props.size : 30,
-        resizeMode: this.props.contain ? "contain" : undefined
+        resizeMode: this.props.contain ? 'contain' : undefined
       }
     };
   }
@@ -65,7 +65,7 @@ Gravatar.propTypes = {
 };
 
 const StyledGravatar = connectStyle(
-  "NativeBase.Gravatar",
+  'NativeBase.Gravatar',
   {},
   mapPropsToStyleNames
 )(Gravatar);

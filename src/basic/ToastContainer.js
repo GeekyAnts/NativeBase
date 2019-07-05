@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, Modal, Platform, Animated, ViewPropTypes } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import { Text } from "./Text";
-import { Button } from "./Button";
-import { ViewNB } from "./View";
-import { Toast } from "./Toast";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, Modal, Platform, Animated, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+import { Text } from './Text';
+import { Button } from './Button';
+import { ViewNB } from './View';
+import { Toast } from './Toast';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class ToastContainer extends Component {
   constructor(props) {
@@ -22,22 +22,22 @@ class ToastContainer extends Component {
   }
   static hide() {
     if (this.toastInstance._root.getModalState()) {
-      this.toastInstance._root.closeToast("functionCall");
+      this.toastInstance._root.closeToast('functionCall');
     }
   }
   getToastStyle() {
     return {
-      position: "absolute",
+      position: 'absolute',
       opacity: this.state.fadeAnim,
-      width: "100%",
+      width: '100%',
       elevation: 9,
-      paddingHorizontal: Platform.OS === "ios" ? 20 : 0,
-      top: this.state.position === "top" ? this.getTop() : undefined,
-      bottom: this.state.position === "bottom" ? this.getTop() : undefined
+      paddingHorizontal: Platform.OS === 'ios' ? 20 : 0,
+      top: this.state.position === 'top' ? this.getTop() : undefined,
+      bottom: this.state.position === 'bottom' ? this.getTop() : undefined
     };
   }
   getTop() {
-    if (Platform.OS === "ios") {
+    if (Platform.OS === 'ios') {
       return 30;
     } else {
       return 0;
@@ -60,7 +60,7 @@ class ToastContainer extends Component {
       text: config.text,
       buttonText: this.getButtonText(config.buttonText),
       type: config.type,
-      position: config.position ? config.position : "bottom",
+      position: config.position ? config.position : 'bottom',
       supportedOrientations: config.supportedOrientations,
       style: config.style,
       buttonTextStyle: config.buttonTextStyle,
@@ -76,7 +76,7 @@ class ToastContainer extends Component {
     if (config.duration !== 0) {
       const duration = config.duration > 0 ? config.duration : 1500;
       this.closeTimeout = setTimeout(
-        this.closeToast.bind(this, "timeout"),
+        this.closeToast.bind(this, 'timeout'),
         duration
       );
     }
@@ -91,7 +91,7 @@ class ToastContainer extends Component {
       modalVisible: false
     });
     const { onClose } = this.state;
-    if (onClose && typeof onClose === "function") {
+    if (onClose && typeof onClose === 'function') {
       onClose(reason);
     }
   }
@@ -108,15 +108,15 @@ class ToastContainer extends Component {
         <Animated.View style={this.getToastStyle()}>
           <Toast
             style={this.state.style}
-            danger={this.state.type == "danger" ? true : false}
-            success={this.state.type == "success" ? true : false}
-            warning={this.state.type == "warning" ? true : false}
+            danger={this.state.type == 'danger' ? true : false}
+            success={this.state.type == 'success' ? true : false}
+            warning={this.state.type == 'warning' ? true : false}
           >
             <Text style={this.state.textStyle}>{this.state.text}</Text>
             {this.state.buttonText && (
               <Button
                 style={this.state.buttonStyle}
-                onPress={() => this.closeToast("user")}
+                onPress={() => this.closeToast('user')}
               >
                 <Text style={this.state.buttonTextStyle}>
                   {this.state.buttonText}
@@ -140,7 +140,7 @@ ToastContainer.propTypes = {
 };
 
 const StyledToastContainer = connectStyle(
-  "NativeBase.ToastContainer",
+  'NativeBase.ToastContainer',
   {},
   mapPropsToStyleNames
 )(ToastContainer);

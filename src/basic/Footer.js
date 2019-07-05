@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ViewPropTypes } from "react-native";
-import _ from "lodash";
-import { connectStyle } from "native-base-shoutem-theme";
-import variable from "../theme/variables/platform";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes } from 'react-native';
+import _ from 'lodash';
+import { connectStyle } from 'native-base-shoutem-theme';
+import variable from '../theme/variables/platform';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Footer extends Component {
   static contextTypes = {
@@ -14,14 +14,14 @@ class Footer extends Component {
     super(props);
     this.state = {
       orientation:
-        variable.deviceHeight > variable.deviceWidth ? "portrait" : "landscape"
+        variable.deviceHeight > variable.deviceWidth ? 'portrait' : 'landscape'
     };
   }
   layoutChange(val) {
     let maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
-    if (val.width >= maxComp) this.setState({ orientation: "landscape" });
+    if (val.width >= maxComp) this.setState({ orientation: 'landscape' });
     else {
-      this.setState({ orientation: "portrait" });
+      this.setState({ orientation: 'portrait' });
     }
   }
 
@@ -32,7 +32,7 @@ class Footer extends Component {
     } else {
       inset = variable.Inset;
     }
-    const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
+    const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let oldHeight = null;
     if (this.props.style.height != undefined) {
       oldHeight = this.props.style.height;
@@ -54,7 +54,7 @@ class Footer extends Component {
     } else {
       inset = variable.Inset;
     }
-    const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
+    const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let bottomPadder = null;
     if (this.props.style[1] !== undefined) {
       if (
@@ -81,7 +81,7 @@ class Footer extends Component {
   }
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return variables.isIphoneX ? (
       <View
@@ -118,7 +118,7 @@ Footer.propTypes = {
 };
 
 const StyledFooter = connectStyle(
-  "NativeBase.Footer",
+  'NativeBase.Footer',
   {},
   mapPropsToStyleNames
 )(Footer);

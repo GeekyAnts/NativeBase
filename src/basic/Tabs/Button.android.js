@@ -1,5 +1,5 @@
-const React = require("react");
-const ReactNative = require("react-native");
+const React = require('react');
+const ReactNative = require('react-native');
 const { TouchableNativeFeedback, View } = ReactNative;
 
 const Button = props => {

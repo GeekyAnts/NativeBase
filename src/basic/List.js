@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { ListView, View } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
+import React, { Component } from 'react';
+import { ListView, View } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { SwipeRow } from "./SwipeRow";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import { SwipeRow } from './SwipeRow';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class List extends Component {
   static defaultProps = {
@@ -218,7 +218,7 @@ class List extends Component {
     );
   }
 }
-const StyledList = connectStyle("NativeBase.List", {}, mapPropsToStyleNames)(
+const StyledList = connectStyle('NativeBase.List', {}, mapPropsToStyleNames)(
   List
 );
 

@@ -1,15 +1,7 @@
 {
   "parser": "babel-eslint",
   "rules": {
-    "indent": [
-      "error",
-      2
-    ]
+    "indent": ["warn", 2]
   },
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "import",
-    "react-native"
-  ]
+  "plugins": ["react", "jsx-a11y", "import", "react-native"]
 }
