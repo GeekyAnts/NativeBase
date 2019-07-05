@@ -5,7 +5,7 @@ import {
   Animated,
   Platform,
   View,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 import { Input } from './Input';
 import { Label } from './Label';
@@ -205,8 +205,8 @@ class Item extends Component {
               onBlur={e => {
                 inputProps.value
                   ? this.setState({
-                      isFocused: true
-                    })
+                    isFocused: true
+                  })
                   : !this.state.text.length &&
                     this.setState({ isFocused: false });
                 inputProps.onBlur && inputProps.onBlur(e);
@@ -274,8 +274,8 @@ class Item extends Component {
               onBlur={e => {
                 inputProps.value
                   ? this.setState({
-                      isFocused: true
-                    })
+                    isFocused: true
+                  })
                   : !this.state.text.length &&
                     this.setState({ isFocused: false });
                 inputProps.onBlur && inputProps.onBlur(e);
@@ -329,8 +329,8 @@ class Item extends Component {
           onBlur={e => {
             inputProps.value
               ? this.setState({
-                  isFocused: true
-                })
+                isFocused: true
+              })
               : !this.state.text.length && this.setState({ isFocused: false });
             inputProps.onBlur && inputProps.onBlur(e);
           }}

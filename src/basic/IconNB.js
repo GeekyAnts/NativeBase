@@ -30,47 +30,47 @@ class IconNB extends Component {
         .iconFamily;
     }
     switch (iconType) {
-      case 'AntDesign':
-        this.Icon = AntDesign;
-        break;
-      case 'Entypo':
-        this.Icon = Entypo;
-        break;
-      case 'EvilIcons':
-        this.Icon = EvilIcons;
-        break;
-      case 'Feather':
-        this.Icon = Feather;
-        break;
-      case 'FontAwesome':
-        this.Icon = FontAwesome;
-        break;
-      case 'FontAwesome5':
-        this.Icon = FontAwesome5;
-        break;
-      case 'Foundation':
-        this.Icon = Foundation;
-        break;
-      case 'Ionicons':
-        this.Icon = Ionicons;
-        break;
-      case 'MaterialCommunityIcons':
-        this.Icon = MaterialCommunityIcons;
-        break;
-      case 'MaterialIcons':
-        this.Icon = MaterialIcons;
-        break;
-      case 'Octicons':
-        this.Icon = Octicons;
-        break;
-      case 'SimpleLineIcons':
-        this.Icon = SimpleLineIcons;
-        break;
-      case 'Zocial':
-        this.Icon = Zocial;
-        break;
-      default:
-        this.Icon = Ionicons;
+    case 'AntDesign':
+      this.Icon = AntDesign;
+      break;
+    case 'Entypo':
+      this.Icon = Entypo;
+      break;
+    case 'EvilIcons':
+      this.Icon = EvilIcons;
+      break;
+    case 'Feather':
+      this.Icon = Feather;
+      break;
+    case 'FontAwesome':
+      this.Icon = FontAwesome;
+      break;
+    case 'FontAwesome5':
+      this.Icon = FontAwesome5;
+      break;
+    case 'Foundation':
+      this.Icon = Foundation;
+      break;
+    case 'Ionicons':
+      this.Icon = Ionicons;
+      break;
+    case 'MaterialCommunityIcons':
+      this.Icon = MaterialCommunityIcons;
+      break;
+    case 'MaterialIcons':
+      this.Icon = MaterialIcons;
+      break;
+    case 'Octicons':
+      this.Icon = Octicons;
+      break;
+    case 'SimpleLineIcons':
+      this.Icon = SimpleLineIcons;
+      break;
+    case 'Zocial':
+      this.Icon = Zocial;
+      break;
+    default:
+      this.Icon = Ionicons;
     }
   }
 
