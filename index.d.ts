@@ -1089,6 +1089,7 @@ declare module "native-base" {
 			configuration: {
 				options: string[] | Array<{text: string, icon?: string, iconColor?: string}>;
 				cancelButtonIndex?: number;
+				itemHeight?: number,
 				destructiveButtonIndex?: number;
 				title?: string;
 			},

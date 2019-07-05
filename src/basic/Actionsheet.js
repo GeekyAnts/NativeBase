@@ -51,6 +51,8 @@ class ActionSheetContainer extends Component {
     } else {
       this.setState({
         items: config.options,
+        itemHeight: config.itemHeight,
+        listHeight: config.itemHeight ? config.options.length * config.itemHeight : 'auto',
         title: config.title,
         message: config.message,
         destructiveButtonIndex: config.destructiveButtonIndex,
@@ -98,7 +100,7 @@ class ActionSheetContainer extends Component {
             style={{
               backgroundColor: "#fff",
               minHeight: 56,
-              height: this.state.length * 80,
+              height: this.state.listHeight + 30, // 30 - top and bottom padding
               maxHeight: Dimensions.get("window").height / 2,
               padding: 15,
               elevation: 4
@@ -134,7 +136,7 @@ class ActionSheetContainer extends Component {
                     style={{
                       borderColor: "transparent",
                       marginLeft: 14,
-                      height: 50
+                      height: this.state.itemHeight,
                     }}
                     icon
                   >
