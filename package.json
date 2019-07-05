@@ -83,8 +83,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run format"
+      "pre-commit": "npm run format"
     }
   },
   "readmeFilename": "README.md",
