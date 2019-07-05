@@ -10,8 +10,7 @@
     "native-modules",
     "react-component",
     "navbar",
-    "packager",
-    "rnpm"
+    "packager"
   ],
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
@@ -91,10 +90,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GeekyAnts/NativeBase.git"
-  },
-  "rnpm": {
-    "assets": [
-      "Fonts"
-    ]
   }
 }
