@@ -1,17 +1,19 @@
-import variable from "./../variables/platform";
+// @flow
 
-export default (variables = variable) => {
+import variable from './../variables/platform';
+
+export default (variables /*: * */ = variable) => {
   const cardTheme = {
-    ".transparent": {
+    '.transparent': {
       shadowColor: null,
       shadowOffset: null,
       shadowOpacity: null,
       shadowRadius: null,
       elevation: null,
-      backgroundColor: "transparent",
+      backgroundColor: 'transparent',
       borderWidth: 0
     },
-    ".noShadow": {
+    '.noShadow': {
       shadowColor: null,
       shadowOffset: null,
       shadowOpacity: null,
@@ -22,9 +24,9 @@ export default (variables = variable) => {
     borderWidth: variables.borderWidth,
     borderRadius: variables.cardBorderRadius,
     borderColor: variables.cardBorderColor,
-    flexWrap: "nowrap",
+    flexWrap: 'nowrap',
     backgroundColor: variables.cardDefaultBg,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 1.5,

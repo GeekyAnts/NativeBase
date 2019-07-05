@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from 'lodash';
 
 const mapPropsToStyleNames = (styleNames, props) => {
   const keys = _.keys(props);

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ListView, ViewPropTypes } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ListView, ViewPropTypes } from 'react-native';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import { connectStyle } from 'native-base-shoutem-theme';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Card extends Component {
   render() {
@@ -40,7 +40,7 @@ Card.propTypes = {
   renderRow: PropTypes.func
 };
 
-const StyledCard = connectStyle("NativeBase.Card", {}, mapPropsToStyleNames)(
+const StyledCard = connectStyle('NativeBase.Card', {}, mapPropsToStyleNames)(
   Card
 );
 

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { connectStyle } from "native-base-shoutem-theme";
-import variable from "../theme/variables/platform";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { connectStyle } from 'native-base-shoutem-theme';
+import variable from '../theme/variables/platform';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Content extends Component {
   static contextTypes = {
@@ -12,14 +12,14 @@ class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      orientation: "portrait"
+      orientation: 'portrait'
     };
   }
   layoutChange(val) {
     let maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
-    if (val.width >= maxComp) this.setState({ orientation: "landscape" });
+    if (val.width >= maxComp) this.setState({ orientation: 'landscape' });
     else {
-      this.setState({ orientation: "portrait" });
+      this.setState({ orientation: 'portrait' });
     }
   }
 
@@ -30,7 +30,7 @@ class Content extends Component {
     } else {
       inset = variable.Inset;
     }
-    const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
+    const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let leftPadder = null;
     if (this.props.style[1] !== undefined) {
       if (
@@ -38,7 +38,7 @@ class Content extends Component {
         this.props.style[1].paddingLeft !== undefined
       ) {
         leftPadder =
-          (this.props.style[1].paddingLeft
+          (this.props.style[1].paddingLeft !== undefined
             ? this.props.style[1].paddingLeft
             : this.props.style[1].padding) + InsetValues.leftInset;
       }
@@ -47,7 +47,7 @@ class Content extends Component {
       this.props.style.paddingLeft !== undefined
     ) {
       leftPadder =
-        (this.props.style.paddingLeft
+        (this.props.style.paddingLeft !== undefined
           ? this.props.style.paddingLeft
           : this.props.style.padding) + InsetValues.leftInset;
     } else {
@@ -62,7 +62,7 @@ class Content extends Component {
     } else {
       inset = variable.Inset;
     }
-    const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
+    const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let rightPadder = null;
     if (this.props.style[1] !== undefined) {
       if (
@@ -70,7 +70,7 @@ class Content extends Component {
         this.props.style[1].paddingRight !== undefined
       ) {
         rightPadder =
-          (this.props.style[1].paddingRight
+          (this.props.style[1].paddingRight !== undefined
             ? this.props.style[1].paddingRight
             : this.props.style[1].padding) + InsetValues.rightInset;
       }
@@ -79,7 +79,7 @@ class Content extends Component {
       this.props.style.paddingRight !== undefined
     ) {
       rightPadder =
-        (this.props.style.paddingRight
+        (this.props.style.paddingRight !== undefined
           ? this.props.style.paddingRight
           : this.props.style.padding) + InsetValues.rightInset;
     } else {
@@ -89,9 +89,9 @@ class Content extends Component {
   }
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
-    return variable.isIphoneX ? (
+    return variables.isIphoneX ? (
       <KeyboardAwareScrollView
         automaticallyAdjustContentInsets={false}
         resetScrollToCoords={
@@ -100,12 +100,12 @@ class Content extends Component {
         keyboardShouldPersistTaps={
           this.props.keyboardShouldPersistTaps
             ? this.props.keyboardShouldPersistTaps
-            : "handled"
+            : 'handled'
         }
         ref={c => {
           this._scrollview = c;
           this._root = c;
-		}}
+        }}
         {...this.props}
         onLayout={e => this.layoutChange(e.nativeEvent.layout)}
         style={[
@@ -114,10 +114,17 @@ class Content extends Component {
             paddingLeft: this.calculateLeft(
               this.state.orientation,
               variables.Inset
+            ),
+            paddingRight: this.calculateRight(
+              this.state.orientation,
+              variables.Inset
             )
           }
-		]}
-		contentContainerStyle={[{ padding: this.props.padder ? variables.contentPadding : undefined }, this.props.contentContainerStyle]}
+        ]}
+        contentContainerStyle={[
+          { padding: this.props.padder ? variables.contentPadding : undefined },
+          this.props.contentContainerStyle
+        ]}
       >
         {this.props.children}
       </KeyboardAwareScrollView>
@@ -130,14 +137,17 @@ class Content extends Component {
         keyboardShouldPersistTaps={
           this.props.keyboardShouldPersistTaps
             ? this.props.keyboardShouldPersistTaps
-            : "handled"
+            : 'handled'
         }
         ref={c => {
           this._scrollview = c;
           this._root = c;
         }}
-		{...this.props}
-		contentContainerStyle={[{ padding: this.props.padder ? variables.contentPadding : undefined }, this.props.contentContainerStyle]}
+        {...this.props}
+        contentContainerStyle={[
+          { padding: this.props.padder ? variables.contentPadding : undefined },
+          this.props.contentContainerStyle
+        ]}
       >
         {this.props.children}
       </KeyboardAwareScrollView>
@@ -158,7 +168,7 @@ Content.propTypes = {
 };
 
 const StyledContent = connectStyle(
-  "NativeBase.Content",
+  'NativeBase.Content',
   {},
   mapPropsToStyleNames
 )(Content);

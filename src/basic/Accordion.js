@@ -1,19 +1,19 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Animated,
   TouchableWithoutFeedback,
   FlatList,
   StyleSheet,
   View
-} from "react-native";
-import { Text } from "./Text";
-import { Icon } from "./Icon";
-import variable from "../theme/variables/platform";
+} from 'react-native';
+import { Text } from './Text';
+import { Icon } from './Icon';
+import variable from '../theme/variables/platform';
 
 class DefaultHeader extends React.Component {
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
       <View
@@ -33,17 +33,17 @@ class DefaultHeader extends React.Component {
                 ? this.props.expandedIconStyle
                 : { color: variables.expandedIconStyle }
               : this.props.icon && this.props.iconStyle
-                ? this.props.iconStyle
-                : { color: variables.iconStyle }
+              ? this.props.iconStyle
+              : { color: variables.iconStyle }
           ]}
           name={
             this.props.expanded
               ? this.props.expandedIcon
                 ? this.props.expandedIcon
-                : "ios-arrow-up"
+                : 'ios-arrow-up'
               : this.props.icon
-                ? this.props.icon
-                : "ios-arrow-down"
+              ? this.props.icon
+              : 'ios-arrow-down'
           }
         />
       </View>
@@ -54,7 +54,7 @@ class DefaultHeader extends React.Component {
 class DefaultContent extends React.Component {
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
       <Text
@@ -78,7 +78,8 @@ class AccordionSubItem extends React.Component {
   componentDidMount() {
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
-      duration: 500
+      duration: 500,
+      useNativeDriver: true
     }).start();
   }
   render() {
@@ -102,16 +103,16 @@ class AccordionItem extends React.Component {
             {this.props.renderHeader ? (
               this.props.renderHeader(this.props.item, this.props.expanded)
             ) : (
-                <DefaultHeader
-                  title={this.props.item.title}
-                  expanded={this.props.expanded}
-                  headerStyle={this.props.headerStyle}
-                  icon={this.props.icon}
-                  iconStyle={this.props.iconStyle}
-                  expandedIcon={this.props.expandedIcon}
-                  expandedIconStyle={this.props.expandedIconStyle}
-                />
-              )}
+              <DefaultHeader
+                title={this.props.item.title}
+                expanded={this.props.expanded}
+                headerStyle={this.props.headerStyle}
+                icon={this.props.icon}
+                iconStyle={this.props.iconStyle}
+                expandedIcon={this.props.expandedIcon}
+                expandedIconStyle={this.props.expandedIconStyle}
+              />
+            )}
           </View>
         </TouchableWithoutFeedback>
         {this.props.expanded ? (
@@ -119,11 +120,11 @@ class AccordionItem extends React.Component {
             {this.props.renderContent ? (
               this.props.renderContent(this.props.item)
             ) : (
-                <DefaultContent
-                  content={this.props.item.content}
-                  contentStyle={this.props.contentStyle}
-                />
-              )}
+              <DefaultContent
+                content={this.props.item.content}
+                contentStyle={this.props.contentStyle}
+              />
+            )}
           </AccordionSubItem>
         ) : null}
       </View>
@@ -147,7 +148,7 @@ export class Accordion extends React.Component {
 
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
       <FlatList
@@ -186,9 +187,9 @@ export class Accordion extends React.Component {
 
 const styles = StyleSheet.create({
   defaultHeader: {
-    flexDirection: "row",
+    flexDirection: 'row',
     padding: 10,
-    justifyContent: "space-between",
-    alignItems: "center"
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 });

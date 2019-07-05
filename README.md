@@ -62,37 +62,68 @@ react-native link
 You've successfully setup [NativeBase](https://nativebase.io/) with your [React Native](https://facebook.github.io/react-native/) app. Your React Native app is now all set to run on iOS and Android simulator.
 
 
-**b. Setup with CRNA**
+**b. Setup with Expo**
 
-*Create React Native project using the CRNA cli.* <br />
-CRNA helps you make React Native apps with no build configuration. Create React App works on macOS, Windows, and Linux. <br />
-Refer this link for additional information [CRNA](https://github.com/react-community/create-react-native-app)
+Expo helps you make React Native apps with no build configuration. It works on macOS, Windows, and Linux. <br />
+Refer this link for additional information on [Expo](https://docs.expo.io/)
 
 *Install NativeBase*
 ```js
 npm install native-base --save
 ```
-*Install @expo/vector-icons*
-```js
-npm install @expo/vector-icons --save
-```
+
 <br />
 
 **Note** <br />
-[NativeBase](https://nativebase.io/) uses some custom fonts that can be loaded using **loadAsync** function. Check out [this](https://docs.expo.io/versions/v15.0.0/sdk/font.html#expofontloadasyncname-url) expo link.
+[NativeBase](https://nativebase.io/) uses some custom fonts that can be loaded using **Font.loadAsync**. Check out the [Expo Font documentation](https://docs.expo.io/versions/latest/sdk/font/).
 <br />
-Syntax <br />
+
+*Install Expo Fonts*
+```bash
+expo install expo-font
+```
+
+*App.js* <br />
 ```js
-async componentWillMount() {
-      await Expo.Font.loadAsync({
-        'Roboto': require('native-base/Fonts/Roboto.ttf'),
-        'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
-        'Ionicons': require('@expo/vector-icons/fonts/Ionicons.ttf'),
-      });
+import React from 'react';
+import { AppLoading } from 'expo';
+import { Container, Text } from 'native-base';
+import * as Font from 'expo-font';
+import { Ionicons } from '@expo/vector-icons';
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isReady: false,
+    };
+  }
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+      ...Ionicons.font,
+    });
+    this.setState({ isReady: true });
+  }
+
+  render() {
+    if (!this.state.isReady) {
+      return <AppLoading />;
+    }
+
+    return (
+      <Container>
+        <Text>Open up App.js to start working on your app!</Text>
+      </Container>
+    );
+  }
+}
 ```
 <br />
 
-Check out the [KitchenSink](https://expo.io/@geekyants/nativebasekitchensink) with CRNA for an example of the implementation.<br />
+Check out the [KitchenSink](https://expo.io/@geekyants/nativebasekitchensink) with Expo for an example of the implementation.<br />
 Find the [KitchenSink repo here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/CRNA)
 
 **c. Setup with ignite-native-base-boilerplate**

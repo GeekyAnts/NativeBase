@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { ListView, View } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
+import React, { Component } from 'react';
+import { ListView, View } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { SwipeRow } from "./SwipeRow";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import { SwipeRow } from './SwipeRow';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class List extends Component {
   static defaultProps = {
@@ -86,6 +86,7 @@ class List extends Component {
       }
     }
   }
+
   closeRow(id) {
     if (this.openCellId) {
       if (this.props.closeOnRowPress) {
@@ -93,6 +94,14 @@ class List extends Component {
         this.openCellId = null;
       }
     }
+  }
+
+  openLeftRow(id) {
+    this._rows[id]._root.openLeftRow();
+  }
+
+  openRightRow(id) {
+    this._rows[id]._root.openRightRow();
   }
 
   onScroll(e) {
@@ -135,6 +144,8 @@ class List extends Component {
           this.props.onRowDidClose(secId, rowId, this._rows)
         }
         onRowPress={_ => this.onRowPress(`${secId}${rowId}`)}
+        openLeftRow={_ => this.openLeftRow(`${secId}${rowId}`)}
+        openRightRow={_ => this.openRightRow(`${secId}${rowId}`)}
         closeRow={_ => this.closeRow(`${secId}${rowId}`)}
         setScrollEnabled={enable => this.setScrollEnabled(enable)}
         leftOpenValue={this.props.leftOpenValue}
@@ -207,7 +218,7 @@ class List extends Component {
     );
   }
 }
-const StyledList = connectStyle("NativeBase.List", {}, mapPropsToStyleNames)(
+const StyledList = connectStyle('NativeBase.List', {}, mapPropsToStyleNames)(
   List
 );
 

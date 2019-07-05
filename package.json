@@ -15,6 +15,8 @@
   ],
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
+    "format": "prettier --write \"src/**/*.{js, json}\"",
+    "lint": "esw \"src/**/*.{js}\"",
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js",
@@ -26,7 +28,7 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
     ]
   },
-  "version": "2.7.2",
+  "version": "2.12.1",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
@@ -35,15 +37,17 @@
     "color": "~1.0.3",
     "fs-extra": "^2.0.0",
     "jest-react-native": "^18.0.0",
-    "lodash": "4.17.10",
-    "native-base-shoutem-theme": "0.2.2",
+    "lodash": "4.17.11",
+    "native-base-shoutem-theme": "0.2.3",
     "print-message": "^2.1.0",
     "prop-types": "^15.5.10",
-    "react-native-easy-grid": "0.2.0",
-    "react-native-keyboard-aware-scroll-view": "0.5.0",
-    "react-native-vector-icons": "4.6.0",
+    "react-native-drawer": "2.5.1",
+    "react-native-easy-grid": "0.2.1",
+    "react-native-keyboard-aware-scroll-view": "0.8.0",
+    "react-native-vector-icons": "6.1.0",
     "react-tween-state": "^0.1.5",
-    "tween-functions": "^1.0.1"
+    "tween-functions": "^1.0.1",
+    "react-timer-mixin": "^0.13.4"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -52,15 +56,19 @@
     "babel-preset-react-native": "4.0.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-react-native": "^2.0.0",
+    "eslint-watch": "^5.1.2",
     "flow-bin": "0.47.0",
+    "husky": "^3.0.0",
     "jest": "23.3.0",
     "react": "16.4.1",
     "react-native": "0.56.0",
-    "react-native-vector-icons": "4.6.0",
+    "react-native-vector-icons": "6.1.0",
     "react-test-renderer": "16.4.1"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
@@ -69,8 +77,14 @@
   "typings": "./index.d.ts",
   "optionalDependencies": {},
   "peerDependencies": {
+    "prettier": "1.16.4",
     "react": ">=16.4.1",
     "react-native": ">=0.56.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
   },
   "readmeFilename": "README.md",
   "repository": {

@@ -1,24 +1,31 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import createReactClass from "create-react-class";
-import { Picker, Modal, View, ViewPropTypes, FlatList } from "react-native";
-import _ from "lodash";
-import { Text } from "./Text";
-import { List } from "./List";
-import { IconNB as Icon } from "./IconNB";
-import { Radio } from "./Radio";
-import { Container } from "./Container";
-import { ListItem } from "./ListItem";
-import { Button } from "./Button";
-import { Header } from "./Header";
-import { Title } from "./Title";
-import { Left } from "./Left";
-import { Right } from "./Right";
-import { Body } from "./Body";
-import { connectStyle } from "native-base-shoutem-theme";
-import computeProps from "../utils/computeProps";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
+import {
+  Picker,
+  Modal,
+  View,
+  ViewPropTypes,
+  FlatList,
+  Dimensions
+} from 'react-native';
+import _ from 'lodash';
+import { Text } from './Text';
+import { List } from './List';
+import { IconNB as Icon } from './IconNB';
+import { Radio } from './Radio';
+import { Container } from './Container';
+import { ListItem } from './ListItem';
+import { Button } from './Button';
+import { Header } from './Header';
+import { Title } from './Title';
+import { Left } from './Left';
+import { Right } from './Right';
+import { Body } from './Body';
+import { connectStyle } from 'native-base-shoutem-theme';
+import computeProps from '../utils/computeProps';
 
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class PickerNB extends Component {
   constructor(props) {
@@ -75,7 +82,7 @@ class PickerNB extends Component {
       children,
       child => child.props.value === props.selectedValue
     );
-    return _.get(item, "props.label");
+    return _.get(item, 'props.label');
   }
 
   getSelectedItem() {
@@ -89,7 +96,7 @@ class PickerNB extends Component {
     if (children && !Array.isArray(children)) {
       return [].concat(children);
     }
-    children = [].concat.apply([], children)
+    children = [].concat.apply([], children);
     return children;
   }
 
@@ -130,13 +137,27 @@ class PickerNB extends Component {
         onPress={onPress}
       >
         {this.state.currentLabel ? (
-          <Text style={this.props.textStyle} note={this.props.note}>
+          <Text
+            style={[
+              this.props.textStyle,
+              { width: Dimensions.get('window').width - 50 }
+            ]}
+            note={this.props.note}
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
             {this.state.currentLabel}
           </Text>
         ) : (
           <Text
-            style={[this.props.textStyle, this.props.placeholderStyle]}
+            style={[
+              this.props.textStyle,
+              this.props.placeholderStyle,
+              { width: Dimensions.get('window').width - 50 }
+            ]}
             note={this.props.note === false ? false : true}
+            numberOfLines={1}
+            ellipsizeMode="tail"
           >
             {this.props.placeholder}
           </Text>
@@ -167,13 +188,13 @@ class PickerNB extends Component {
             }}
           >
             <Text style={this.props.headerBackButtonTextStyle}>
-              {this.props.headerBackButtonText || "Back"}
+              {this.props.headerBackButtonText || 'Back'}
             </Text>
           </Button>
         </Left>
         <Body>
           <Title style={this.props.headerTitleStyle}>
-            {this.props.iosHeader || "Select One"}
+            {this.props.iosHeader || 'Select One'}
           </Title>
         </Body>
         <Right />
@@ -186,7 +207,8 @@ class PickerNB extends Component {
       <View ref={c => (this._root = c)}>
         {this.renderButton()}
         <Modal
-          supportedOrientations={this.props.supportedOrientations || null}
+          // supportedOrientations={this.props.supportedOrientations || null}
+          supportedOrientations={['portrait', 'landscape']}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
@@ -244,7 +266,7 @@ PickerNB.propTypes = {
 };
 
 const StyledPickerNB = connectStyle(
-  "NativeBase.PickerNB",
+  'NativeBase.PickerNB',
   {},
   mapPropsToStyleNames
 )(PickerNB);
