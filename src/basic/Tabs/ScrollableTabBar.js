@@ -193,19 +193,19 @@ const ScrollableTabBar = createReactClass({
           </TabHeading>
         </Button>
       );
-    } else {
-      return (
-        <Button
-          key={_.random(1.2, 5.2)}
-          onPress={() => onPressHandler(page)}
-          onLayout={onLayoutHandler}
-        >
-          <TabHeading scrollable style={tabHeaderStyle} active={isTabActive}>
-            {headerContent}
-          </TabHeading>
-        </Button>
-      );
-    }
+    } 
+    return (
+      <Button
+        key={_.random(1.2, 5.2)}
+        onPress={() => onPressHandler(page)}
+        onLayout={onLayoutHandler}
+      >
+        <TabHeading scrollable style={tabHeaderStyle} active={isTabActive}>
+          {headerContent}
+        </TabHeading>
+      </Button>
+    );
+    
   },
 
   measureTab(page, event) {
@@ -244,10 +244,10 @@ const ScrollableTabBar = createReactClass({
           ref={scrollView => {
             this._scrollView = scrollView;
           }}
-          horizontal={true}
+          horizontal
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
-          directionalLockEnabled={true}
+          directionalLockEnabled
           onScroll={this.props.onScroll}
           bounces={false}
           scrollsToTop={false}

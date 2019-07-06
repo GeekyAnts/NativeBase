@@ -9,10 +9,13 @@ import {
   FlatList,
   Dimensions
 } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 import _ from 'lodash';
+
+import computeProps from '../utils/computeProps';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+
 import { Text } from './Text';
-import { List } from './List';
-import { IconNB as Icon } from './IconNB';
 import { Radio } from './Radio';
 import { Container } from './Container';
 import { ListItem } from './ListItem';
@@ -22,10 +25,6 @@ import { Title } from './Title';
 import { Left } from './Left';
 import { Right } from './Right';
 import { Body } from './Body';
-import { connectStyle } from 'native-base-shoutem-theme';
-import computeProps from '../utils/computeProps';
-
-import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class PickerNB extends Component {
   constructor(props) {
@@ -55,29 +54,17 @@ class PickerNB extends Component {
     }
   }
 
-  getInitialStyle() {
+  getInitialStyle = () => {
     return {
       picker: {
         // alignItems: 'flex-end'
       },
       pickerItem: {}
     };
-  }
-  _setModalVisible(visible) {
-    this.setState({ modalVisible: visible });
-  }
-
-  prepareRootProps() {
-    const defaultProps = {
-      style: this.getInitialStyle().picker,
-      itemStyle: this.getInitialStyle().pickerItem
-    };
-
-    return computeProps(this.props, defaultProps);
-  }
+  };
 
   getLabel(props) {
-    let children = this.getChildren(props.children);
+    const children = this.getChildren(props.children);
     const item = _.find(
       children,
       child => child.props.value === props.selectedValue
@@ -92,12 +79,26 @@ class PickerNB extends Component {
     );
   }
 
-  getChildren(children) {
+  getChildren = children => {
     if (children && !Array.isArray(children)) {
       return [].concat(children);
     }
-    children = [].concat.apply([], children);
-    return children;
+    // eslint-disable-next-line prefer-spread
+    const appliedChildren = [].concat.apply([], children);
+    return appliedChildren;
+  };
+
+  prepareRootProps() {
+    const defaultProps = {
+      style: this.getInitialStyle().picker,
+      itemStyle: this.getInitialStyle().pickerItem
+    };
+
+    return computeProps(this.props, defaultProps);
+  }
+
+  _setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
   }
 
   renderIcon() {
@@ -155,7 +156,7 @@ class PickerNB extends Component {
               this.props.placeholderStyle,
               { width: Dimensions.get('window').width - 50 }
             ]}
-            note={this.props.note === false ? false : true}
+            note={this.props.note !== false}
             numberOfLines={1}
             ellipsizeMode="tail"
           >

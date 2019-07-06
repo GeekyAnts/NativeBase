@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
-import { SwipeRow } from './SwipeRow';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+
+import { SwipeRow } from './SwipeRow';
 
 class List extends Component {
   static defaultProps = {
@@ -24,8 +25,8 @@ class List extends Component {
     this._rows = {};
     this.openCellId = null;
     if (props.dataArray && props.renderRow) {
-      let rowHasChanged = props.rowHasChanged || ((r1, r2) => r1 !== r2);
-      const ds = new ListView.DataSource({ rowHasChanged: rowHasChanged });
+      const rowHasChanged = props.rowHasChanged || ((r1, r2) => r1 !== r2);
+      const ds = new ListView.DataSource({ rowHasChanged });
       this.state = {
         dataSource: ds.cloneWithRows(props.dataArray)
       };
@@ -40,22 +41,66 @@ class List extends Component {
       });
     }
   }
-  renderChildren() {
-    const childrenArray = React.Children.map(
-      this.props.children,
-      child => child
-    );
 
-    return childrenArray;
+  onRowOpen(secId, rowId, rowMap) {
+    const cellIdentifier = `${secId}${rowId}`;
+    if (this.openCellId && this.openCellId !== cellIdentifier) {
+      this.safeCloseOpenRow();
+    }
+    this.openCellId = cellIdentifier;
+    if (this.props.onRowOpen) {
+      this.props.onRowOpen(secId, rowId, rowMap);
+    }
   }
+
+  onRowPress() {
+    if (this.openCellId) {
+      if (this.props.closeOnRowPress) {
+        this.safeCloseOpenRow();
+        this.openCellId = null;
+      }
+    }
+  }
+
+  onScroll(e) {
+    if (this.openCellId) {
+      if (this.props.closeOnScroll) {
+        this.safeCloseOpenRow();
+        this.openCellId = null;
+      }
+    }
+
+    if (this.props.onScroll) {
+      this.props.onScroll(e);
+    }
+  }
+
   setScrollEnabled(enable) {
     this._listView.setNativeProps({ scrollEnabled: enable });
   }
 
-  safeCloseOpenRow() {
-    // if the openCellId is stale due to deleting a row this could be undefined
-    if (this._rows[this.openCellId]._root) {
-      this._rows[this.openCellId]._root.closeRow();
+  setRefs(ref) {
+    this._listView = ref;
+
+    if (this.props.listViewRef) {
+      this.props.listViewRef(ref);
+    }
+  }
+
+  openLeftRow(id) {
+    this._rows[id]._root.openLeftRow();
+  }
+
+  openRightRow(id) {
+    this._rows[id]._root.openRightRow();
+  }
+
+  closeRow() {
+    if (this.openCellId) {
+      if (this.props.closeOnRowPress) {
+        this.safeCloseOpenRow();
+        this.openCellId = null;
+      }
     }
   }
 
@@ -69,57 +114,23 @@ class List extends Component {
     }
   }
 
-  onRowOpen(secId, rowId, rowMap) {
-    const cellIdentifier = `${secId}${rowId}`;
-    if (this.openCellId && this.openCellId !== cellIdentifier) {
-      this.safeCloseOpenRow();
-    }
-    this.openCellId = cellIdentifier;
-    this.props.onRowOpen && this.props.onRowOpen(secId, rowId, rowMap);
-  }
-
-  onRowPress(id) {
-    if (this.openCellId) {
-      if (this.props.closeOnRowPress) {
-        this.safeCloseOpenRow();
-        this.openCellId = null;
-      }
+  safeCloseOpenRow() {
+    // if the openCellId is stale due to deleting a row this could be undefined
+    if (this._rows[this.openCellId]._root) {
+      this._rows[this.openCellId]._root.closeRow();
     }
   }
 
-  closeRow(id) {
-    if (this.openCellId) {
-      if (this.props.closeOnRowPress) {
-        this.safeCloseOpenRow();
-        this.openCellId = null;
-      }
-    }
+  renderChildren() {
+    const childrenArray = React.Children.map(
+      this.props.children,
+      child => child
+    );
+
+    return childrenArray;
   }
 
-  openLeftRow(id) {
-    this._rows[id]._root.openLeftRow();
-  }
-
-  openRightRow(id) {
-    this._rows[id]._root.openRightRow();
-  }
-
-  onScroll(e) {
-    if (this.openCellId) {
-      if (this.props.closeOnScroll) {
-        this.safeCloseOpenRow();
-        this.openCellId = null;
-      }
-    }
-    this.props.onScroll && this.props.onScroll(e);
-  }
-
-  setRefs(ref) {
-    this._listView = ref;
-    this.props.listViewRef && this.props.listViewRef(ref);
-  }
-
-  renderRow(rowData, secId, rowId, rowMap) {
+  renderRow(rowData, secId, rowId) {
     const previewRowId =
       this.props.dataSource &&
       this.props.dataSource.getRowIDForFlatIndex(
@@ -127,26 +138,26 @@ class List extends Component {
       );
     return (
       <SwipeRow
-        list={true}
+        list
         ref={row => (this._rows[`${secId}${rowId}`] = row)}
-        swipeGestureBegan={_ => this.rowSwipeGestureBegan(`${secId}${rowId}`)}
-        onRowOpen={_ => this.onRowOpen(secId, rowId, this._rows)}
-        onRowDidOpen={_ =>
+        swipeGestureBegan={() => this.rowSwipeGestureBegan(`${secId}${rowId}`)}
+        onRowOpen={() => this.onRowOpen(secId, rowId, this._rows)}
+        onRowDidOpen={() =>
           this.props.onRowDidOpen &&
           this.props.onRowDidOpen(secId, rowId, this._rows)
         }
-        onRowClose={_ =>
+        onRowClose={() =>
           this.props.onRowClose &&
           this.props.onRowClose(secId, rowId, this._rows)
         }
-        onRowDidClose={_ =>
+        onRowDidClose={() =>
           this.props.onRowDidClose &&
           this.props.onRowDidClose(secId, rowId, this._rows)
         }
-        onRowPress={_ => this.onRowPress(`${secId}${rowId}`)}
-        openLeftRow={_ => this.openLeftRow(`${secId}${rowId}`)}
-        openRightRow={_ => this.openRightRow(`${secId}${rowId}`)}
-        closeRow={_ => this.closeRow(`${secId}${rowId}`)}
+        onRowPress={() => this.onRowPress(`${secId}${rowId}`)}
+        openLeftRow={() => this.openLeftRow(`${secId}${rowId}`)}
+        openRightRow={() => this.openRightRow(`${secId}${rowId}`)}
+        closeRow={() => this.closeRow(`${secId}${rowId}`)}
         setScrollEnabled={enable => this.setScrollEnabled(enable)}
         leftOpenValue={this.props.leftOpenValue}
         rightOpenValue={this.props.rightOpenValue}

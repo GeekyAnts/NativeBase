@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -5,23 +6,25 @@ import {
   Animated,
   Platform,
   View,
-  StyleSheet,
+  StyleSheet
 } from 'react-native';
+import _ from 'lodash';
+import { connectStyle } from 'native-base-shoutem-theme';
+
+import variables from '../theme/variables/platform';
+import computeProps from '../utils/computeProps';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+
 import { Input } from './Input';
 import { Label } from './Label';
 import { Icon } from './Icon';
 import { Thumbnail } from './Thumbnail';
 
-import { connectStyle } from 'native-base-shoutem-theme';
-import variables from '../theme/variables/platform';
-import computeProps from '../utils/computeProps';
-import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
-import _ from 'lodash';
-
 class Item extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isFocussed: true,
       text: '',
       topAnim: new Animated.Value(18),
       opacAnim: new Animated.Value(1)
@@ -30,7 +33,6 @@ class Item extends Component {
   componentDidMount() {
     if (this.props.floatingLabel) {
       if (this.inputProps && this.inputProps.value) {
-        this.setState({ isFocused: true });
         this.floatUp(-16);
       }
       if (this.inputProps && this.inputProps.getRef)
@@ -39,13 +41,13 @@ class Item extends Component {
   }
   componentWillReceiveProps(nextProps) {
     const childrenArray = React.Children.toArray(nextProps.children);
-    let inputProps = {};
+
     _.remove(childrenArray, item => {
       if (item.type.displayName === 'Styled(Input)') {
-        inputProps = item.props;
         this.inputProps = item.props;
         return item;
       }
+      return null;
     });
     if (this.props.floatingLabel) {
       if (this.inputProps && this.inputProps.value) {
@@ -55,6 +57,17 @@ class Item extends Component {
       if (this.inputProps && this.inputProps.getRef)
         this.inputProps.getRef(this._inputRef);
     }
+  }
+
+  getInitialStyle() {
+    return {
+      roundedInputGroup: {
+        borderWidth: this.props.rounded ? variables.borderWidth * 2 : undefined,
+        borderRadius: this.props.rounded
+          ? variables.inputGroupRoundedBorderRadius
+          : undefined
+      }
+    };
   }
 
   floatBack() {
@@ -83,36 +96,12 @@ class Item extends Component {
     }).start();
   }
 
-  renderLabel(label, labelProps) {
-    const newLabel = [];
-    let labelStyle = StyleSheet.flatten([
-      { fontSize: 15, lineHeight: 30 },
-      labelProps.style
-    ]);
-    if (this.props.floatingLabel) {
-      if (this.state.isFocused) {
-        newLabel.push(
-          React.createElement(Label, {
-            ...labelProps,
-            key: 'newFLabel',
-            float: true,
-            style: labelStyle
-          })
-        );
-        this.floatUp(-16);
-      } else {
-        newLabel.push(label);
-        this.floatBack();
-      }
-    } else {
-      newLabel.push(
-        React.createElement(Label, {
-          ...labelProps,
-          key: 'newLabel'
-        })
-      );
-    }
-    return newLabel;
+  prepareRootProps() {
+    const defaultProps = {
+      style: this.getInitialStyle().roundedInputGroup
+    };
+
+    return computeProps(this.props, defaultProps);
   }
 
   renderChildren() {
@@ -126,16 +115,17 @@ class Item extends Component {
         labelProps = item.props;
         return item;
       }
+      return null;
     });
 
-    let input = [];
     let inputProps = {};
-    input = _.remove(childrenArray, item => {
+    _.remove(childrenArray, item => {
       if (item.type === Input) {
         inputProps = item.props;
         this.inputProps = item.props;
         return item;
       }
+      return null;
     });
 
     let icon = [];
@@ -145,19 +135,19 @@ class Item extends Component {
         iconProps = item.props;
         return item;
       }
+      return null;
     });
 
     let image = [];
-    let imageProps = {};
     image = _.remove(childrenArray, item => {
       if (item.type === Thumbnail) {
-        imageProps = item.props;
         return item;
       }
+      return null;
     });
     if (this.props.floatingLabel && icon.length) {
       let isIcon = false;
-      for (let i = 0; i < this.props.children.length; i++) {
+      for (let i = 0; i < this.props.children.length; i + 1) {
         if (
           this.props.children[i].props.name &&
           this.props.children[i].type.displayName !== 'Styled(Input)'
@@ -200,20 +190,28 @@ class Item extends Component {
               {...inputProps}
               onFocus={() => {
                 this.setState({ isFocused: true });
-                inputProps.onFocus && inputProps.onFocus();
+                if (inputProps.onFocus) {
+                  inputProps.onFocus();
+                }
               }}
               onBlur={e => {
-                inputProps.value
-                  ? this.setState({
+                if (inputProps.value) {
+                  this.setState({
                     isFocused: true
-                  })
-                  : !this.state.text.length &&
-                    this.setState({ isFocused: false });
-                inputProps.onBlur && inputProps.onBlur(e);
+                  });
+                } else if (!this.state.text.length) {
+                  this.setState({ isFocused: false });
+                }
+
+                if (inputProps.onBlur) {
+                  inputProps.onBlur(e);
+                }
               }}
               onChangeText={text => {
                 this.setState({ text });
-                inputProps.onChangeText && inputProps.onChangeText(text);
+                if (inputProps.onChangeText) {
+                  inputProps.onChangeText(text);
+                }
               }}
             />
           );
@@ -221,7 +219,7 @@ class Item extends Component {
       }
     } else if (this.props.floatingLabel && image.length) {
       let isImage = false;
-      for (let i = 0; i < this.props.children.length; i++) {
+      for (let i = 0; i < this.props.children.length; i + 1) {
         if (this.props.children[i].type.displayName === 'Styled(Thumbnail)') {
           isImage = true;
           newChildren.push(
@@ -231,7 +229,7 @@ class Item extends Component {
               {...this.props.children[i].props}
               style={{
                 right: 10,
-                left: i == this.props.children.length - 1 ? undefined : 0
+                left: i === this.props.children.length - 1 ? undefined : 0
               }}
             />
           );
@@ -366,24 +364,39 @@ class Item extends Component {
     }
     return newChildren;
   }
-  getInitialStyle() {
-    return {
-      roundedInputGroup: {
-        borderWidth: this.props.rounded ? variables.borderWidth * 2 : undefined,
-        borderRadius: this.props.rounded
-          ? variables.inputGroupRoundedBorderRadius
-          : undefined
+
+  renderLabel(label, labelProps) {
+    const newLabel = [];
+    const labelStyle = StyleSheet.flatten([
+      { fontSize: 15, lineHeight: 30 },
+      labelProps.style
+    ]);
+    if (this.props.floatingLabel) {
+      if (this.state.isFocused) {
+        newLabel.push(
+          React.createElement(Label, {
+            ...labelProps,
+            key: 'newFLabel',
+            float: true,
+            style: labelStyle
+          })
+        );
+        this.floatUp(-16);
+      } else {
+        newLabel.push(label);
+        this.floatBack();
       }
-    };
+    } else {
+      newLabel.push(
+        React.createElement(Label, {
+          ...labelProps,
+          key: 'newLabel'
+        })
+      );
+    }
+    return newLabel;
   }
 
-  prepareRootProps() {
-    const defaultProps = {
-      style: this.getInitialStyle().roundedInputGroup
-    };
-
-    return computeProps(this.props, defaultProps);
-  }
   render() {
     return (
       <TouchableOpacity
@@ -396,24 +409,6 @@ class Item extends Component {
     );
   }
 }
-
-const childrenType = function(props, propName, component) {
-  let error;
-  const prop = props[propName];
-  if (!props.children.length) {
-    error = new Error(
-      `${component} should have both Label and Input components`
-    );
-  } else if (
-    props.children[0].type.displayName !== 'Styled(Label)' ||
-    props.children[1].type.displayName !== 'Styled(Input)'
-  ) {
-    error = new Error(
-      `${component} should have Label and Input components only`
-    );
-  }
-  return error;
-};
 
 Item.propTypes = {
   ...TouchableOpacity.propTypes,

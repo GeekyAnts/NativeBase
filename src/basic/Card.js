@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, ListView, ViewPropTypes } from 'react-native';
-
 import { connectStyle } from 'native-base-shoutem-theme';
+
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Card extends Component {
@@ -36,6 +36,7 @@ Card.propTypes = {
     PropTypes.number,
     PropTypes.array
   ]),
+  // eslint-disable-next-line react/forbid-prop-types
   dataArray: PropTypes.array,
   renderRow: PropTypes.func
 };

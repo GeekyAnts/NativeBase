@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -8,11 +9,12 @@ import {
   StyleSheet
 } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
-import variable from './../theme/variables/platform';
-import { Text } from './Text';
-import computeProps from '../utils/computeProps';
 
+import variable from '../theme/variables/platform';
+import computeProps from '../utils/computeProps';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+
+import { Text } from './Text';
 
 class Button extends Component {
   static contextTypes = {
@@ -32,8 +34,6 @@ class Button extends Component {
       }
     };
   }
-
-  _root: React$Element<TouchableOpacity | TouchableNativeFeedback>;
 
   prepareRootProps() {
     const defaultProps = {
@@ -72,7 +72,7 @@ class Button extends Component {
       Platform.OS === 'ios' ||
       Platform.OS === 'web' ||
       variables.androidRipple === false ||
-      Platform['Version'] < 21
+      Platform.Version < 21
     ) {
       return (
         <TouchableOpacity
@@ -87,65 +87,64 @@ class Button extends Component {
           {children}
         </TouchableOpacity>
       );
-    } else {
-      if (this.props.rounded) {
-        let buttonStyle = { ...this.prepareRootProps().style };
-        let buttonFlex =
-          this.props.full || this.props.block
-            ? variable.buttonDefaultFlex
-            : buttonStyle.flex;
-        return (
-          <View
-            style={[
-              { maxHeight: buttonStyle.height },
-              buttonStyle,
-              { paddingTop: undefined, paddingBottom: undefined }
-            ]}
-          >
-            <TouchableNativeFeedback
-              ref={c => (this._root = c)}
-              background={TouchableNativeFeedback.Ripple(
-                this.props.androidRippleColor || variables.androidRippleColor,
-                true
-              )}
-              {...this.prepareRootProps()}
-            >
-              <View
-                style={[
-                  styles.childContainer,
-                  {
-                    paddingTop: buttonStyle.paddingTop,
-                    paddingBottom: buttonStyle.paddingBottom,
-                    height: buttonStyle.height,
-                    flexGrow: buttonFlex
-                  }
-                ]}
-              >
-                {children}
-              </View>
-            </TouchableNativeFeedback>
-          </View>
-        );
-      } else {
-        return (
+    }
+    if (this.props.rounded) {
+      const buttonStyle = { ...this.prepareRootProps().style };
+      const buttonFlex =
+        this.props.full || this.props.block
+          ? variable.buttonDefaultFlex
+          : buttonStyle.flex;
+      return (
+        <View
+          style={[
+            { maxHeight: buttonStyle.height },
+            buttonStyle,
+            { paddingTop: undefined, paddingBottom: undefined }
+          ]}
+        >
           <TouchableNativeFeedback
             ref={c => (this._root = c)}
-            onPress={this.props.onPress}
-            background={
-              this.props.transparent
-                ? TouchableNativeFeedback.Ripple('transparent')
-                : TouchableNativeFeedback.Ripple(
-                    variables.androidRippleColor,
-                    false
-                  )
-            }
+            background={TouchableNativeFeedback.Ripple(
+              this.props.androidRippleColor || variables.androidRippleColor,
+              true
+            )}
             {...this.prepareRootProps()}
           >
-            <View {...this.prepareRootProps()}>{children}</View>
+            <View
+              style={[
+                // eslint-disable-next-line no-use-before-define
+                styles.childContainer,
+                {
+                  paddingTop: buttonStyle.paddingTop,
+                  paddingBottom: buttonStyle.paddingBottom,
+                  height: buttonStyle.height,
+                  flexGrow: buttonFlex
+                }
+              ]}
+            >
+              {children}
+            </View>
           </TouchableNativeFeedback>
-        );
-      }
+        </View>
+      );
     }
+    return (
+      <TouchableNativeFeedback
+        ref={c => (this._root = c)}
+        onPress={this.props.onPress}
+        background={
+          this.props.transparent
+            ? TouchableNativeFeedback.Ripple('transparent')
+            : TouchableNativeFeedback.Ripple(
+                variables.androidRippleColor,
+                false
+              )
+        }
+        {...this.prepareRootProps()}
+      >
+        <View {...this.prepareRootProps()}>{children}</View>
+      </TouchableNativeFeedback>
+    );
   }
 }
 

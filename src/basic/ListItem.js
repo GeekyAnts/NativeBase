@@ -6,8 +6,8 @@ import {
   TouchableNativeFeedback,
   View
 } from 'react-native';
-
 import { connectStyle } from 'native-base-shoutem-theme';
+
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 
@@ -41,17 +41,16 @@ class ListItem extends Component {
           </View>
         </TouchableHighlight>
       );
-    } else {
-      return (
-        <TouchableNativeFeedback ref={c => (this._root = c)} {...this.props}>
-          <View style={{ marginLeft: -17, paddingLeft: 17 }}>
-            <View {...this.props} testID={undefined}>
-              {this.props.children}
-            </View>
-          </View>
-        </TouchableNativeFeedback>
-      );
     }
+    return (
+      <TouchableNativeFeedback ref={c => (this._root = c)} {...this.props}>
+        <View style={{ marginLeft: -17, paddingLeft: 17 }}>
+          <View {...this.props} testID={undefined}>
+            {this.props.children}
+          </View>
+        </View>
+      </TouchableNativeFeedback>
+    );
   }
 }
 

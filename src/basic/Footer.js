@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, ViewPropTypes } from 'react-native';
-import _ from 'lodash';
 import { connectStyle } from 'native-base-shoutem-theme';
+
 import variable from '../theme/variables/platform';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
@@ -18,7 +18,7 @@ class Footer extends Component {
     };
   }
   layoutChange(val) {
-    let maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
+    const maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
     if (val.width >= maxComp) this.setState({ orientation: 'landscape' });
     else {
       this.setState({ orientation: 'portrait' });
@@ -27,14 +27,14 @@ class Footer extends Component {
 
   calculateHeight(mode, inSet) {
     let inset = null;
-    if (inSet != undefined) {
+    if (inSet !== undefined) {
       inset = inSet;
     } else {
       inset = variable.Inset;
     }
     const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let oldHeight = null;
-    if (this.props.style.height != undefined) {
+    if (this.props.style.height !== undefined) {
       oldHeight = this.props.style.height;
     } else if (this.props.style[1]) {
       oldHeight = this.props.style[1].height
@@ -43,13 +43,13 @@ class Footer extends Component {
     } else {
       oldHeight = this.props.style[0].height;
     }
-    let height = oldHeight + InsetValues.bottomInset;
+    const height = oldHeight + InsetValues.bottomInset;
     return height;
   }
 
   calculatePadder(mode, inSet) {
     let inset = null;
-    if (inSet != undefined) {
+    if (inSet !== undefined) {
       inset = inSet;
     } else {
       inset = variable.Inset;

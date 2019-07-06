@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { TextInput } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
-import variable from '../theme/variables/platform';
+
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import variable from '../theme/variables/platform';
+
 import NativeBaseComponent from './Base/NativeBaseComponent';
 
 class Input extends NativeBaseComponent {
@@ -17,7 +19,7 @@ class Input extends NativeBaseComponent {
           this._textInput = c;
           this._root = c;
         }}
-        editable={this.props.disabled ? false : true}
+        editable={!this.props.disabled}
         underlineColorAndroid="rgba(0,0,0,0)"
         placeholderTextColor={
           this.props.placeholderTextColor

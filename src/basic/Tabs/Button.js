@@ -7,4 +7,4 @@ const Button = props => {
 };
 
 module.exports = Button;
-//export default Button;
+// export default Button;

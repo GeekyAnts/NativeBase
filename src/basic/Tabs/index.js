@@ -112,9 +112,9 @@ const ScrollableTabView = createReactClass({
       return null;
     } else if (this.props.renderTabBar) {
       return React.cloneElement(this.props.renderTabBar(props), props);
-    } else {
-      return <DefaultTabBar {...props} />;
-    }
+    } 
+    return <DefaultTabBar {...props} />;
+    
   },
 
   updateSceneKeys({
@@ -122,7 +122,7 @@ const ScrollableTabView = createReactClass({
     children = this.props.children,
     callback = () => {}
   }) {
-    let newKeys = this.newSceneKeys({
+    const newKeys = this.newSceneKeys({
       previousKeys: this.state.sceneKeys,
       currentPage: page,
       children
@@ -135,9 +135,9 @@ const ScrollableTabView = createReactClass({
     currentPage = 0,
     children = this.props.children
   }) {
-    let newKeys = [];
+    const newKeys = [];
     this._children(children).forEach((child, idx) => {
-      let key = this._makeSceneKey(child, idx);
+      const key = this._makeSceneKey(child, idx);
       if (
         this._keyExists(previousKeys, key) ||
         this._shouldRenderSceneKey(idx, currentPage)
@@ -149,7 +149,7 @@ const ScrollableTabView = createReactClass({
   },
 
   _shouldRenderSceneKey(idx, currentPageKey) {
-    let numOfSibling = this.props.prerenderingSiblingsNumber;
+    const numOfSibling = this.props.prerenderingSiblingsNumber;
     return (
       idx < currentPageKey + numOfSibling + 1 &&
       idx > currentPageKey - numOfSibling - 1
@@ -161,7 +161,7 @@ const ScrollableTabView = createReactClass({
   },
 
   _makeSceneKey(child, idx) {
-    return child.props.heading + '_' + idx;
+    return `${child.props.heading  }_${  idx}`;
   },
 
   renderScrollableContent() {
@@ -200,7 +200,7 @@ const ScrollableTabView = createReactClass({
 
   _composeScenes() {
     return this._children().map((child, idx) => {
-      let key = this._makeSceneKey(child, idx);
+      const key = this._makeSceneKey(child, idx);
       return (
         <SceneComponent
           key={child.key}
@@ -275,10 +275,10 @@ const ScrollableTabView = createReactClass({
   },
 
   render() {
-    let overlayTabs =
+    const overlayTabs =
       this.props.tabBarPosition === 'overlayTop' ||
       this.props.tabBarPosition === 'overlayBottom';
-    let tabBarProps = {
+    const tabBarProps = {
       goToPage: this.goToPage,
       tabs: this._children().map(child => child.props.heading),
       tabStyle: this._children().map(child => child.props.tabStyle),

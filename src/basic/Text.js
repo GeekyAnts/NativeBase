@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Text as RNText } from 'react-native';
 import _ from 'lodash';
-
 import { connectStyle } from 'native-base-shoutem-theme';
+
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Text extends Component {
@@ -15,9 +15,8 @@ class Text extends Component {
       text = React.Children.map(children, child => {
         if (_.isString(child)) {
           return _.toUpper(child);
-        } else {
-          return child;
         }
+        return child;
       });
     } else {
       text = children;
