@@ -1,4 +1,4 @@
-# NativeBase [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
+# NativeBase [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
 
 [![NPM](https://nodei.co/npm/native-base.png?downloads=true)](https://nodei.co/npm/native-base/)
 
@@ -214,3 +214,33 @@ Go through [NativeBase Docs](https://docs.nativebase.io/) to play with [NativeBa
 We are [GeekyAnts](https://geekyants.com/), a startup based in Bangalore, India with 50+ developers in strength. We have been very active in the React / React Native community where we have developed [StrapUI](https://www.strapui.com/) and [StartReact](https://startreact.com/). Our other products include [StartLaravel](http://startlaravel.com) and [StartAngular](http://startangular.com).
 
 Another major project by us is [BuilderX](https://builderx.io/?utm_source=github&utm_medium=nativebase&utm_campaign=nativebase), a screen design tool which codes React Native for you.
+
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/GeekyAnts/NativeBase/graphs/contributors"><img src="https://opencollective.com/NativeBase/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/NativeBase/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/NativeBase"><img src="https://opencollective.com/NativeBase/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/NativeBase/contribute)]
+
+<a href="https://opencollective.com/NativeBase/organization/0/website"><img src="https://opencollective.com/NativeBase/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/NativeBase/organization/1/website"><img src="https://opencollective.com/NativeBase/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/NativeBase/organization/2/website"><img src="https://opencollective.com/NativeBase/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/NativeBase/organization/3/website"><img src="https://opencollective.com/NativeBase/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/NativeBase/organization/4/website"><img src="https://opencollective.com/NativeBase/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/NativeBase/organization/5/website"><img src="https://opencollective.com/NativeBase/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/NativeBase/organization/6/website"><img src="https://opencollective.com/NativeBase/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/NativeBase/organization/7/website"><img src="https://opencollective.com/NativeBase/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/NativeBase/organization/8/website"><img src="https://opencollective.com/NativeBase/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/NativeBase/organization/9/website"><img src="https://opencollective.com/NativeBase/organization/9/avatar.svg"></a>
