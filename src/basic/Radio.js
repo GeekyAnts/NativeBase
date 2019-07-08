@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity, Platform } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import Icon from 'react-native-vector-icons/Ionicons';
+
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 import computeProps from '../utils/computeProps';
@@ -23,8 +24,6 @@ class Radio extends Component {
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
-    const platformStyle = variables.platformStyle;
-    const platform = variables.platform;
 
     return (
       <TouchableOpacity

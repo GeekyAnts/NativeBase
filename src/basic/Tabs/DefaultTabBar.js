@@ -82,19 +82,19 @@ const DefaultTabBar = createReactClass({
           </TabHeading>
         </Button>
       );
-    } else {
-      return (
-        <Button
-          style={{ flex: 1 }}
-          key={_.random(1.2, 5.2)}
-          onPress={() => onPressHandler(page)}
-        >
-          <TabHeading style={tabHeaderStyle} active={isTabActive}>
-            {headerContent}
-          </TabHeading>
-        </Button>
-      );
-    }
+    } 
+    return (
+      <Button
+        style={{ flex: 1 }}
+        key={_.random(1.2, 5.2)}
+        onPress={() => onPressHandler(page)}
+      >
+        <TabHeading style={tabHeaderStyle} active={isTabActive}>
+          {headerContent}
+        </TabHeading>
+      </Button>
+    );
+    
   },
 
   render() {

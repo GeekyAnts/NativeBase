@@ -1,7 +1,7 @@
+/* eslint-disable radix */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  View,
   Modal,
   Platform,
   ActionSheetIOS,
@@ -11,24 +11,17 @@ import {
   Dimensions
 } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
+
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+
 import { Text } from './Text';
-import { Button } from './Button';
-import { ViewNB } from './View';
 import { Icon } from './Icon';
 import { Left } from './Left';
 import { Right } from './Right';
 import { Body } from './Body';
 import { ListItem } from './ListItem';
-import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class ActionSheetContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalVisible: false,
-      items: []
-    };
-  }
   static actionsheetInstance;
   static show(config, callback) {
     this.actionsheetInstance._root.showActionSheet(config, callback);
@@ -36,15 +29,31 @@ class ActionSheetContainer extends Component {
   static hide() {
     this.actionsheetInstance._root.hideActionSheet();
   }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalVisible: false,
+      items: []
+    };
+  }
+
+  componentDidMount() {
+    if (!this.props.autoHide && this.props.duration) {
+      console.warn(`It's not recommended to set autoHide false with duration`);
+    }
+  }
+
   showActionSheet(config, callback) {
     if (Platform.OS === 'ios') {
-      if (typeof config.options[0] == 'object') {
-        let options = config.options;
-        let filtered = options.map(item => {
+      if (typeof config.options[0] === 'object') {
+        const options = config.options;
+        const filtered = options.map(item => {
           return item.text;
         });
-        config.options = filtered;
-        ActionSheetIOS.showActionSheetWithOptions(config, callback);
+
+        const filteredConfig = { ...config, options: filtered };
+        ActionSheetIOS.showActionSheetWithOptions(filteredConfig, callback);
       } else {
         ActionSheetIOS.showActionSheetWithOptions(config, callback);
       }
@@ -56,7 +65,7 @@ class ActionSheetContainer extends Component {
         destructiveButtonIndex: config.destructiveButtonIndex,
         cancelButtonIndex: config.cancelButtonIndex,
         modalVisible: true,
-        callback: callback
+        callback
       });
     }
   }
@@ -65,16 +74,11 @@ class ActionSheetContainer extends Component {
     this.setState({ modalVisible: false });
   }
 
-  componentDidMount() {
-    if (!this.props.autoHide && this.props.duration) {
-      console.warn(`It's not recommended to set autoHide false with duration`);
-    }
-  }
   render() {
     return (
       <Modal
         animationType={'fade'}
-        transparent={true}
+        transparent
         visible={this.state.modalVisible}
         onRequestClose={() => {
           this.state.callback(this.state.cancelButtonIndex);

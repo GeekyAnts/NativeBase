@@ -6,8 +6,10 @@ import {
   DatePickerIOS,
   DatePickerAndroid
 } from 'react-native';
-import { Text } from './Text';
+
 import variable from '../theme/variables/platform';
+
+import { Text } from './Text';
 
 export class DatePicker extends React.Component {
   static defaultProps = {
@@ -32,13 +34,13 @@ export class DatePicker extends React.Component {
     }
   }
 
-  showDatePicker() {
+  showDatePicker = () => {
     if (Platform.OS === 'android') {
       this.openAndroidDatePicker();
     } else {
       this.setState({ modalVisible: true });
     }
-  }
+  };
 
   async openAndroidDatePicker() {
     try {
@@ -52,7 +54,7 @@ export class DatePicker extends React.Component {
       });
       const { action, year, month, day } = newDate;
       if (action === 'dateSetAction') {
-        let selectedDate = new Date(year, month, day);
+        const selectedDate = new Date(year, month, day);
         this.setState({ chosenDate: selectedDate });
         this.props.onDateChange(selectedDate);
       }
@@ -76,8 +78,8 @@ export class DatePicker extends React.Component {
       <View>
         <View>
           <Text
-            onPress={
-              !this.props.disabled ? this.showDatePicker.bind(this) : undefined
+            onPress={() =>
+              !this.props.disabled ? this.showDatePicker() : undefined
             }
             style={[
               { padding: 10, color: variables.datePickerTextColor },
@@ -96,7 +98,7 @@ export class DatePicker extends React.Component {
             <Modal
               supportedOrientations={['portrait', 'landscape']}
               animationType={this.props.animationType}
-              transparent={this.props.modalTransparent} //from api
+              transparent={this.props.modalTransparent} // from api
               visible={this.state.modalVisible}
               onRequestClose={() => {}}
             >
@@ -110,7 +112,7 @@ export class DatePicker extends React.Component {
                     ? this.state.chosenDate
                     : this.state.defaultDate
                 }
-                onDateChange={this.setDate.bind(this)}
+                onDateChange={date => this.setDate(date)}
                 minimumDate={this.props.minimumDate}
                 maximumDate={this.props.maximumDate}
                 mode="date"

@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+/* eslint-disable react/no-multi-comp */
+/* eslint-disable react/prefer-stateless-function */
+import React from 'react';
 import {
   Animated,
   TouchableWithoutFeedback,
@@ -6,9 +8,11 @@ import {
   StyleSheet,
   View
 } from 'react-native';
+
+import variable from '../theme/variables/platform';
+
 import { Text } from './Text';
 import { Icon } from './Icon';
-import variable from '../theme/variables/platform';
 
 class DefaultHeader extends React.Component {
   render() {
@@ -18,6 +22,7 @@ class DefaultHeader extends React.Component {
     return (
       <View
         style={[
+          // eslint-disable-next-line no-use-before-define
           styles.defaultHeader,
           this.props.headerStyle
             ? this.props.headerStyle
@@ -83,7 +88,7 @@ class AccordionSubItem extends React.Component {
     }).start();
   }
   render() {
-    let { fadeAnim } = this.state;
+    const { fadeAnim } = this.state;
     return (
       <Animated.View style={{ ...this.props.style, opacity: fadeAnim }}>
         {this.props.children}
@@ -133,17 +138,19 @@ class AccordionItem extends React.Component {
 }
 
 export class Accordion extends React.Component {
-  state = { selected: undefined };
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: props.expanded
+    };
+  }
+
   setSelected(index) {
     if (this.state.selected === index) {
       this.setState({ selected: undefined });
     } else {
       this.setState({ selected: index });
     }
-  }
-
-  componentDidMount() {
-    this.setState({ selected: this.props.expanded });
   }
 
   render() {
@@ -168,7 +175,7 @@ export class Accordion extends React.Component {
             item={item}
             expanded={this.state.selected === index}
             index={index}
-            setSelected={this.setSelected.bind(this)}
+            setSelected={i => this.setSelected(i)}
             headerStyle={this.props.headerStyle}
             contentStyle={this.props.contentStyle}
             renderHeader={this.props.renderHeader}

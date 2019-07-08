@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { Platform } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
-import { IconNB } from '../IconNB';
-import ic from './NBIcons.json';
-import variable from './../../theme/variables/platform';
-import _ from 'lodash';
-
+import variable from '../../theme/variables/platform';
 import mapPropsToStyleNames from '../../utils/mapPropsToStyleNames';
+import { IconNB } from '../IconNB';
+
+import ic from './NBIcons.json';
 
 class Icon extends Component {
   static contextTypes = {
@@ -42,24 +40,23 @@ class Icon extends Component {
     } else {
       return this.props.name;
     }
+    return null;
   }
 
   getIconName() {
     if (Platform.OS === 'ios') {
       if (this.props.ios) {
         return this.props.ios;
-      } else {
-        return this.props.active
-          ? ic[this.props.name].ios.active
-          : ic[this.props.name].ios.default;
       }
+      return this.props.active
+        ? ic[this.props.name].ios.active
+        : ic[this.props.name].ios.default;
     } else if (this.props.android) {
       return this.props.android;
-    } else {
-      return this.props.active
-        ? ic[this.props.name].android.active
-        : ic[this.props.name].android.default;
     }
+    return this.props.active
+      ? ic[this.props.name].android.active
+      : ic[this.props.name].android.default;
   }
 
   render() {
@@ -79,15 +76,14 @@ class Icon extends Component {
           name={this.getIconName()}
         />
       );
-    } else {
-      return (
-        <IconNB
-          ref={c => (this._root = c)}
-          {...this.props}
-          name={this.getName()}
-        />
-      );
     }
+    return (
+      <IconNB
+        ref={c => (this._root = c)}
+        {...this.props}
+        name={this.getName()}
+      />
+    );
   }
 }
 

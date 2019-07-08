@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connectStyle } from 'native-base-shoutem-theme';
+
 import variable from '../theme/variables/platform';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
@@ -16,7 +17,7 @@ class Content extends Component {
     };
   }
   layoutChange(val) {
-    let maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
+    const maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
     if (val.width >= maxComp) this.setState({ orientation: 'landscape' });
     else {
       this.setState({ orientation: 'portrait' });
@@ -163,7 +164,6 @@ Content.propTypes = {
   ]),
   padder: PropTypes.bool,
   disableKBDismissScroll: PropTypes.bool,
-  enableResetScrollToCoords: PropTypes.bool,
   keyboardShouldPersistTaps: PropTypes.string
 };
 

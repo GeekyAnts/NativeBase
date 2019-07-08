@@ -6,13 +6,12 @@ module.exports = function(incomingProps, defaultProps) {
   // External props has a higher precedence
   let computedProps = {};
 
-  incomingProps = _.clone(incomingProps);
-  delete incomingProps.children;
+  const clonedIncomingProps = _.clone(incomingProps);
+  delete clonedIncomingProps.children;
 
   const incomingPropsStyle = incomingProps.style;
-  delete incomingProps.style;
+  delete clonedIncomingProps.style;
 
-  // console.log(defaultProps, incomingProps);
   if (incomingProps) {
     _.assign(computedProps, defaultProps, incomingProps);
   } else {
@@ -38,6 +37,5 @@ module.exports = function(incomingProps, defaultProps) {
 
     _.merge(computedProps.style, defaultProps.style, computedPropsStyle);
   }
-  // console.log("computedProps ", computedProps);
   return computedProps;
 };

@@ -1,21 +1,18 @@
+/* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Modal, Platform, Animated, ViewPropTypes } from 'react-native';
+import { Platform, Animated, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
-import { Text } from './Text';
-import { Button } from './Button';
-import { ViewNB } from './View';
-import { Toast } from './Toast';
+
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
+import { Text } from './Text';
+import { Button } from './Button';
+import { Toast } from './Toast';
+
+
 class ToastContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalVisible: false,
-      fadeAnim: new Animated.Value(0)
-    };
-  }
+  
   static toastInstance;
   static show({ ...config }) {
     this.toastInstance._root.showToast({ config });
@@ -24,6 +21,13 @@ class ToastContainer extends Component {
     if (this.toastInstance._root.getModalState()) {
       this.toastInstance._root.closeToast('functionCall');
     }
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalVisible: false,
+      fadeAnim: new Animated.Value(0)
+    };
   }
   getToastStyle() {
     return {
@@ -39,15 +43,15 @@ class ToastContainer extends Component {
   getTop() {
     if (Platform.OS === 'ios') {
       return 30;
-    } else {
-      return 0;
-    }
+    } 
+    return 0;
+    
   }
   getButtonText(buttonText) {
     if (buttonText) {
       if (buttonText.trim().length === 0) {
         return undefined;
-      } else return buttonText;
+      } return buttonText;
     }
     return undefined;
   }
@@ -108,9 +112,9 @@ class ToastContainer extends Component {
         <Animated.View style={this.getToastStyle()}>
           <Toast
             style={this.state.style}
-            danger={this.state.type == 'danger' ? true : false}
-            success={this.state.type == 'success' ? true : false}
-            warning={this.state.type == 'warning' ? true : false}
+            danger={this.state.type === 'danger'}
+            success={this.state.type === 'success'}
+            warning={this.state.type === 'warning'}
           >
             <Text style={this.state.textStyle}>{this.state.text}</Text>
             {this.state.buttonText && (
@@ -126,7 +130,7 @@ class ToastContainer extends Component {
           </Toast>
         </Animated.View>
       );
-    } else return null;
+    } return null;
   }
 }
 

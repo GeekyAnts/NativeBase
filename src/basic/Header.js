@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, StatusBar, ViewPropTypes, StyleSheet } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
+
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
-import _ from 'lodash';
+
 class Header extends Component {
   static contextTypes = {
     theme: PropTypes.object
@@ -16,7 +17,7 @@ class Header extends Component {
     };
   }
   layoutChange(val) {
-    let maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
+    const maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
     if (val.width >= maxComp) this.setState({ orientation: 'landscape' });
     else {
       this.setState({ orientation: 'portrait' });
@@ -24,14 +25,14 @@ class Header extends Component {
   }
   calculateHeight(mode, inSet) {
     let inset = null;
-    if (inSet != undefined) {
+    if (inSet !== undefined) {
       inset = inSet;
     } else {
       inset = variable.Inset;
     }
     const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let oldHeight = null;
-    if (this.props.style.height != undefined) {
+    if (this.props.style.height !== undefined) {
       oldHeight = this.props.style.height;
     } else if (this.props.style[1]) {
       oldHeight = this.props.style[1].height
@@ -40,19 +41,19 @@ class Header extends Component {
     } else {
       oldHeight = this.props.style[0].height;
     }
-    let height = oldHeight + InsetValues.topInset;
+    const height = oldHeight + InsetValues.topInset;
     return height;
   }
   calculatePadder(mode, inSet) {
     let inset = null;
-    if (inSet != undefined) {
+    if (inSet !== undefined) {
       inset = inSet;
     } else {
       inset = variable.Inset;
     }
     const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let topPadder = null;
-    let style = StyleSheet.flatten(this.props.style);
+    const style = StyleSheet.flatten(this.props.style);
     if (style.padding !== undefined || style.paddingTop !== undefined) {
       topPadder =
         (style.paddingTop ? style.paddingTop : style.padding) +

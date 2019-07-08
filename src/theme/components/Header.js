@@ -4,7 +4,7 @@ import { PixelRatio, StatusBar } from 'react-native';
 
 import variable from './../variables/platform';
 
-export default (variables /*: * */ = variable) => {
+export default (variables /* : * */ = variable) => {
   const platformStyle = variables.platformStyle;
   const platform = variables.platform;
 

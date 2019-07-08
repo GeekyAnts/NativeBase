@@ -3,18 +3,16 @@ import PropTypes from 'prop-types';
 import {
   Animated,
   PanResponder,
-  Platform,
-  StyleSheet,
-  TouchableOpacity,
   View
 } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
-import { Text } from './Text';
+
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+
 import { Left } from './Left';
 import { Right } from './Right';
 import { Body } from './Body';
 import { ListItem } from './ListItem';
-import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 const PREVIEW_OPEN_DELAY = 700;
 const PREVIEW_CLOSE_DELAY = 300;
@@ -75,7 +73,7 @@ class SwipeRow extends Component {
 
     if (this.props.preview && !this.ranPreview) {
       this.ranPreview = true;
-      let previewOpenValue =
+      const previewOpenValue =
         this.props.previewOpenValue || this.props.rightOpenValue * 0.5;
       this.getPreviewAnimation(previewOpenValue, PREVIEW_OPEN_DELAY).start(
         _ => {
@@ -237,28 +235,28 @@ class SwipeRow extends Component {
           )}
         </Animated.View>
       );
-    } else {
-      return (
-        <Animated.View
-          {...this._panResponder.panHandlers}
-          onLayout={e => this.onContentLayout(e)}
-          style={{
-            transform: [{ translateX: this._translateX }],
-            zIndex: 2
-          }}
-        >
-          {!this.props.list ? (
-            <ListItem list style={this.props.style}>
-              {this.props.body}
-            </ListItem>
+    } 
+    return (
+      <Animated.View
+        {...this._panResponder.panHandlers}
+        onLayout={e => this.onContentLayout(e)}
+        style={{
+          transform: [{ translateX: this._translateX }],
+          zIndex: 2
+        }}
+      >
+        {!this.props.list ? (
+          <ListItem list style={this.props.style}>
+            {this.props.body}
+          </ListItem>
           ) : (
             <View style={[{ backgroundColor: '#FFF' }, this.props.style]}>
               {this.props.body}
             </View>
           )}
-        </Animated.View>
-      );
-    }
+      </Animated.View>
+    );
+    
   }
 
   render() {

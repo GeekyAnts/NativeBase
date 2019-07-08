@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class NativeBaseComponent extends Component {
@@ -8,8 +8,8 @@ export default class NativeBaseComponent extends Component {
   };
 
   static propTypes = {
-    theme: PropTypes.object,
-    foregroundColor: PropTypes.string
+    // eslint-disable-next-line react/forbid-prop-types
+    theme: PropTypes.object
   };
 
   static childContextTypes = {

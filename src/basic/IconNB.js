@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { connectStyle } from 'native-base-shoutem-theme';
-
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
@@ -24,9 +22,20 @@ class IconNB extends Component {
     theme: PropTypes.object
   };
 
+  componentWillMount() {
+    this.setIcon(this.props.type);
+  }
+
+  componentWillUpdate(nextProps) {
+    if (nextProps.type && this.props.type !== nextProps.type) {
+      this.setIcon(nextProps.type);
+    }
+  }
+
   setIcon(iconType) {
-    if (iconType == undefined && this.context.theme) {
-      iconType = this.context.theme['@@shoutem.theme/themeStyle'].variables
+    if (iconType === undefined && this.context.theme) {
+      // eslint-disable-next-line
+      let iconType = this.context.theme['@@shoutem.theme/themeStyle'].variables
         .iconFamily;
     }
     switch (iconType) {
@@ -74,27 +83,12 @@ class IconNB extends Component {
     }
   }
 
-  componentWillMount() {
-    this.setIcon(this.props.type);
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    if (nextProps.type && this.props.type != nextProps.type) {
-      this.setIcon(nextProps.type);
-    }
-  }
-
   render() {
     return <this.Icon ref={c => (this._root = c)} {...this.props} />;
   }
 }
 
 IconNB.propTypes = {
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array
-  ]),
   type: PropTypes.oneOf([
     'AntDesign',
     'Entypo',

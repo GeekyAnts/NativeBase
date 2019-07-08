@@ -2,7 +2,7 @@
 
 import variable from './../variables/platform';
 
-export default (variables /*: * */ = variable) => {
+export default (variables /* : * */ = variable) => {
   const h3Theme = {
     color: variables.textColor,
     fontSize: variables.fontSizeH3,
