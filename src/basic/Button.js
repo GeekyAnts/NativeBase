@@ -11,6 +11,8 @@ import {
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import variable from '../theme/variables/platform';
+import { PLATFORM } from '../theme/variables/commonColor';
+
 import computeProps from '../utils/computeProps';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
@@ -58,19 +60,19 @@ class Button extends Component {
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     const children =
-      Platform.OS === 'ios'
+      Platform.OS === PLATFORM.IOS
         ? this.props.children
         : React.Children.map(this.props.children, child =>
             child && child.type === Text
               ? React.cloneElement(child, {
-                uppercase: variables.buttonUppercaseAndroidText,
-                ...child.props
-              })
+                  uppercase: variables.buttonUppercaseAndroidText,
+                  ...child.props
+                })
               : child
           );
     if (
-      Platform.OS === 'ios' ||
-      Platform.OS === 'web' ||
+      Platform.OS === PLATFORM.IOS ||
+      Platform.OS === PLATFORM.WEB ||
       variables.androidRipple === false ||
       Platform.Version < 21
     ) {

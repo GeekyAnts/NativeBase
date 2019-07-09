@@ -128,6 +128,8 @@ export default {
   containerBgColor: '#fff',
 
   // Date Picker
+  datePickerFlex: 1,
+  datePickerPadding: 10,
   datePickerTextColor: '#000',
   datePickerBg: 'transparent',
 
