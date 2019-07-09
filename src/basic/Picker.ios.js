@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
-import {
-  Picker,
-  Modal,
-  View,
-  ViewPropTypes,
-  FlatList,
-  Dimensions
-} from 'react-native';
+import { FlatList, Modal, Picker, View, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import _ from 'lodash';
 
@@ -139,10 +132,7 @@ class PickerNB extends Component {
       >
         {this.state.currentLabel ? (
           <Text
-            style={[
-              this.props.textStyle,
-              { width: Dimensions.get('window').width - 50 }
-            ]}
+            style={[this.props.textStyle]}
             note={this.props.note}
             numberOfLines={1}
             ellipsizeMode="tail"
@@ -151,11 +141,7 @@ class PickerNB extends Component {
           </Text>
         ) : (
           <Text
-            style={[
-              this.props.textStyle,
-              this.props.placeholderStyle,
-              { width: Dimensions.get('window').width - 50 }
-            ]}
+            style={[this.props.textStyle, this.props.placeholderStyle]}
             note={this.props.note !== false}
             numberOfLines={1}
             ellipsizeMode="tail"
