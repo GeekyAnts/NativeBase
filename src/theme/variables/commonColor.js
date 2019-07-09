@@ -4,8 +4,10 @@ import color from 'color';
 import { Platform, Dimensions, PixelRatio } from 'react-native';
 
 export const PLATFORM = {
+  ANDROID: 'android',
   IOS: 'ios',
-  MATERIAL: 'material'
+  MATERIAL: 'material',
+  WEB: 'web'
 };
 
 const deviceHeight = Dimensions.get('window').height;

@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import variable from '../theme/variables/platform';
+import { PLATFORM } from '../theme/variables/commonColor';
 
 import { Text } from './Text';
 
@@ -35,7 +36,7 @@ export class DatePicker extends React.Component {
   }
 
   showDatePicker = () => {
-    if (Platform.OS === 'android') {
+    if (Platform.OS === PLATFORM.ANDROID) {
       this.openAndroidDatePicker();
     } else {
       this.setState({ modalVisible: true });
@@ -71,40 +72,59 @@ export class DatePicker extends React.Component {
   }
 
   render() {
+    const {
+      androidMode,
+      animationType,
+      disabled,
+      formatChosenDate,
+      locale,
+      maximumDate,
+      minimumDate,
+      modalTransparent,
+      onDateChange,
+      placeHolderText,
+      placeHolderTextStyle,
+      textStyle,
+      timeZoneOffsetInMinutes
+    } = this.props;
+
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
+
     return (
       <View>
         <View>
           <Text
-            onPress={() =>
-              !this.props.disabled ? this.showDatePicker() : undefined
-            }
+            onPress={() => (!disabled ? this.showDatePicker() : undefined)}
             style={[
-              { padding: 10, color: variables.datePickerTextColor },
-              this.state.chosenDate
-                ? this.props.textStyle
-                : this.props.placeHolderTextStyle
+              {
+                padding: variables.datePickerPadding,
+                color: variables.datePickerTextColor
+              },
+              this.state.chosenDate ? textStyle : placeHolderTextStyle
             ]}
           >
             {this.state.chosenDate
               ? this.formatChosenDate(this.state.chosenDate)
-              : this.props.placeHolderText
-              ? this.props.placeHolderText
+              : placeHolderText
+              ? placeHolderText
               : 'Select Date'}
           </Text>
           <View>
             <Modal
               supportedOrientations={['portrait', 'landscape']}
-              animationType={this.props.animationType}
-              transparent={this.props.modalTransparent} // from api
+              animationType={animationType}
+              transparent={modalTransparent} // from api
               visible={this.state.modalVisible}
               onRequestClose={() => {}}
             >
               <Text
                 onPress={() => this.setState({ modalVisible: false })}
-                style={{ backgroundColor: variables.datePickerBg, flex: 1 }}
+                style={{
+                  backgroundColor: variables.datePickerBg,
+                  flex: variables.datePickerFlex
+                }}
               />
               <DatePickerIOS
                 date={
@@ -113,11 +133,11 @@ export class DatePicker extends React.Component {
                     : this.state.defaultDate
                 }
                 onDateChange={date => this.setDate(date)}
-                minimumDate={this.props.minimumDate}
-                maximumDate={this.props.maximumDate}
+                minimumDate={minimumDate}
+                maximumDate={maximumDate}
                 mode="date"
-                locale={this.props.locale}
-                timeZoneOffsetInMinutes={this.props.timeZoneOffsetInMinutes}
+                locale={locale}
+                timeZoneOffsetInMinutes={timeZoneOffsetInMinutes}
               />
             </Modal>
           </View>
