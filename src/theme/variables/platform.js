@@ -245,6 +245,7 @@ export default {
   inverseSpinnerColor: '#1A191B',
 
   // Tab
+  tabBarDisabledTextColor: '#BDBDBD',
   tabDefaultBg: platform === PLATFORM.IOS ? '#F8F8F8' : '#3F51B5',
   topTabBarTextColor: platform === PLATFORM.IOS ? '#6b6b6b' : '#b3c7f9',
   topTabBarActiveTextColor: platform === PLATFORM.IOS ? '#007aff' : '#fff',
