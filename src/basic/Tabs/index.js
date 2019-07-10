@@ -112,9 +112,8 @@ const ScrollableTabView = createReactClass({
       return null;
     } else if (this.props.renderTabBar) {
       return React.cloneElement(this.props.renderTabBar(props), props);
-    } 
+    }
     return <DefaultTabBar {...props} />;
-    
   },
 
   updateSceneKeys({
@@ -161,7 +160,7 @@ const ScrollableTabView = createReactClass({
   },
 
   _makeSceneKey(child, idx) {
-    return `${child.props.heading  }_${  idx}`;
+    return `${child.props.heading}_${idx}`;
   },
 
   renderScrollableContent() {
@@ -290,6 +289,7 @@ const ScrollableTabView = createReactClass({
       tabHeaderStyle: this._children().map(child =>
         _.get(child.props.heading.props, 'style', undefined)
       ),
+      disabled: this._children().map(child => child.props.disabled),
       activeTab: this.state.currentPage,
       scrollValue: this.state.scrollValue,
       containerWidth: this.state.containerWidth

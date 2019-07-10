@@ -22,6 +22,7 @@ const DefaultTabBar = createReactClass({
     backgroundColor: PropTypes.string,
     activeTextColor: PropTypes.string,
     inactiveTextColor: PropTypes.string,
+    disabledTextColor: PropTypes.string,
     tabStyle: ViewPropTypes.style,
     renderTab: PropTypes.func,
     underlineStyle: ViewPropTypes.style,
@@ -35,6 +36,7 @@ const DefaultTabBar = createReactClass({
     return {
       activeTextColor: variable.topTabBarActiveTextColor,
       inactiveTextColor: variable.topTabBarTextColor,
+      disabledTextColor: variable.tabBarDisabledTextColor,
       backgroundColor: null,
       tabFontSize: variable.tabFontSize
     };
@@ -52,18 +54,26 @@ const DefaultTabBar = createReactClass({
     textStyle,
     activeTextStyle,
     tabHeaderStyle,
-    tabFontSize
+    tabFontSize,
+    disabled,
+    disabledTextColor
   ) {
     const headerContent =
       typeof name !== 'string' ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor } = this.props;
-    const textColor = isTabActive ? activeTextColor : inactiveTextColor;
+    const textColor = disabled
+      ? disabledTextColor
+      : isTabActive
+      ? activeTextColor
+      : inactiveTextColor;
     const fontWeight = isTabActive ? 'bold' : 'normal';
-    // const fontSize = tabFontSize;
+    const isDisabled = disabled == undefined ? false : true;
+
     if (typeof name === 'string') {
       return (
         <Button
           style={{ flex: 1 }}
+          disabled={isDisabled}
           key={name}
           onPress={() => onPressHandler(page)}
         >
@@ -74,7 +84,8 @@ const DefaultTabBar = createReactClass({
             <Text
               style={[
                 { fontSize: tabFontSize },
-                isTabActive ? activeTextStyle : textStyle
+                isTabActive ? activeTextStyle : textStyle,
+                { color: textColor }
               ]}
             >
               {name}
@@ -82,10 +93,11 @@ const DefaultTabBar = createReactClass({
           </TabHeading>
         </Button>
       );
-    } 
+    }
     return (
       <Button
         style={{ flex: 1 }}
+        disabled={isDisabled}
         key={_.random(1.2, 5.2)}
         onPress={() => onPressHandler(page)}
       >
@@ -94,7 +106,6 @@ const DefaultTabBar = createReactClass({
         </TabHeading>
       </Button>
     );
-    
   },
 
   render() {
@@ -136,7 +147,9 @@ const DefaultTabBar = createReactClass({
             this.props.textStyle[page],
             this.props.activeTextStyle[page],
             this.props.tabHeaderStyle[page],
-            variables.tabFontSize
+            variables.tabFontSize,
+            this.props.disabled[page],
+            this.props.disabledTextColor
           );
         })}
         <Animated.View
