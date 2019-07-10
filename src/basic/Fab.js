@@ -16,12 +16,26 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 import { Button } from './Button';
 
+const DIRECTION = {
+  DOWN: 'down',
+  LEFT: 'left',
+  RIGHT: 'right',
+  UP: 'up'
+};
+
+const POSITION = {
+  BOTTOM_LEFT: 'bottomLeft',
+  BOTTOM_RIGHT: 'bottomRight',
+  TOP_LEFT: 'topLeft',
+  TOP_RIGHT: 'topRight'
+};
+
 const AnimatedFab = Animated.createAnimatedComponent(Button);
 
 class Fab extends Component {
   constructor(props) {
     super(props);
-    this.containerHeight = new Animated.Value(56);
+    this.containerHeight = new Animated.Value(variables.fabWidth);
     this.containerWidth = new Animated.Value(0);
     this.buttonScale = new Animated.Value(0);
     this.state = {
@@ -89,8 +103,8 @@ class Fab extends Component {
   getInitialStyle(iconStyle) {
     return {
       fab: {
-        height: 56,
-        width: 56,
+        height: variables.fabWidth,
+        width: variables.fabWidth,
         borderRadius: 28,
         elevation: 4,
         shadowColor: '#000',
@@ -117,10 +131,11 @@ class Fab extends Component {
         left: this.props.position
           ? this.fabTopValue(this.props.position).left
           : undefined,
-        width: 56,
+        width: variables.fabWidth,
         height: this.containerHeight,
         flexDirection: this.props.direction
-          ? this.props.direction === 'left' || this.props.direction === 'right'
+          ? this.props.direction === DIRECTION.LEFT ||
+            this.props.direction === DIRECTION.RIGHT
             ? 'row'
             : 'column'
           : 'column',
@@ -190,7 +205,7 @@ class Fab extends Component {
   };
 
   fabOtherBtns(direction, i) {
-    if (direction === 'up') {
+    if (direction === DIRECTION.UP) {
       return {
         top: undefined,
         bottom:
@@ -202,7 +217,7 @@ class Fab extends Component {
         left: 8,
         right: 0
       };
-    } else if (direction === 'left') {
+    } else if (direction === DIRECTION.LEFT) {
       return {
         top: 8,
         bottom: 0,
@@ -211,10 +226,10 @@ class Fab extends Component {
             ? Platform.OS === 'ios'
               ? 8
               : 8
-            : -(i * 50 + 58),
+            : -(i * 50 + variables.fabWidth + 2),
         right: 0
       };
-    } else if (direction === 'down') {
+    } else if (direction === DIRECTION.DOWN) {
       return {
         top:
           this.props.active === false
@@ -226,7 +241,7 @@ class Fab extends Component {
         left: 8,
         right: 0
       };
-    } else if (direction === 'right') {
+    } else if (direction === DIRECTION.RIGHT) {
       return {
         top: 8,
         bottom: 0,
@@ -255,8 +270,7 @@ class Fab extends Component {
   upAnimate() {
     if (!this.props.active) {
       Animated.spring(this.containerHeight, {
-        toValue: this.state.buttons * 51.3 + 56,
-        useNativeDriver: true
+        toValue: this.state.buttons * 51.3 + variables.fabWidth
       }).start();
       Animated.spring(this.buttonScale, {
         toValue: 1,
@@ -267,8 +281,7 @@ class Fab extends Component {
         active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56,
-        useNativeDriver: true
+        toValue: variables.fabWidth
       }).start();
       Animated.spring(this.buttonScale, {
         toValue: 0,
@@ -276,28 +289,11 @@ class Fab extends Component {
       }).start();
     }
   }
-  // componentWillReceiveProps(nextProps) {
-  // 	const { props: { direction, position } } = this;
-  // 	if (this.props.direction) {
-  // 		if (this.props.direction === 'up') {
-  // 			this.upAnimate(nextProps.active);
-  // 		} else if (this.props.direction === 'left') {
-  // 			this.leftAnimate(nextProps.active);
-  // 		} else if (this.props.direction === 'right') {
-  // 			this.rightAnimate(nextProps.active);
-  // 		} else if (this.props.direction === 'down') {
-  // 			this.downAnimate(nextProps.active);
-  // 		}
-  // 	} else {
-  // 		this.upAnimate(nextProps.active);
-  // 	}
-  // }
 
   leftAnimate() {
     if (!this.props.active) {
       Animated.spring(this.containerWidth, {
-        toValue: this.state.buttons * 51.3 + 56,
-        useNativeDriver: true
+        toValue: this.state.buttons * 51.3 + variables.fabWidth
       }).start();
       Animated.spring(this.buttonScale, {
         toValue: 1,
@@ -308,8 +304,7 @@ class Fab extends Component {
         active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56,
-        useNativeDriver: true
+        toValue: variables.fabWidth
       }).start();
       Animated.spring(this.buttonScale, {
         toValue: 0,
@@ -321,8 +316,7 @@ class Fab extends Component {
   rightAnimate() {
     if (!this.props.active) {
       Animated.spring(this.containerWidth, {
-        toValue: this.state.buttons * 51.3 + 56,
-        useNativeDriver: true
+        toValue: this.state.buttons * 51.3 + variables.fabWidth
       }).start();
       Animated.spring(this.buttonScale, {
         toValue: 1,
@@ -333,8 +327,7 @@ class Fab extends Component {
         active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56,
-        useNativeDriver: true
+        toValue: variables.fabWidth
       }).start();
       Animated.spring(this.buttonScale, {
         toValue: 0,
@@ -346,8 +339,7 @@ class Fab extends Component {
   downAnimate() {
     if (!this.props.active) {
       Animated.spring(this.containerHeight, {
-        toValue: 56,
-        useNativeDriver: true
+        toValue: variables.fabWidth
       }).start();
       Animated.spring(this.buttonScale, {
         toValue: 1,
@@ -358,8 +350,7 @@ class Fab extends Component {
         active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: 56,
-        useNativeDriver: true
+        toValue: variables.fabWidth
       }).start();
       Animated.spring(this.buttonScale, {
         toValue: 0,
@@ -369,17 +360,51 @@ class Fab extends Component {
   }
   _animate() {
     const {
-      props: { direction }
+      props: { direction, position }
     } = this;
+
     if (direction) {
-      if (direction === 'up') {
-        this.upAnimate();
-      } else if (direction === 'left') {
-        this.leftAnimate();
-      } else if (direction === 'right') {
-        this.rightAnimate();
-      } else if (direction === 'down') {
-        this.downAnimate();
+      if (direction === DIRECTION.UP) {
+        if (position === POSITION.TOP_LEFT || position === POSITION.TOP_RIGHT) {
+          console.warn(
+            'Passing direction = up with position = topLeft/topRight is not suggested.'
+          );
+        } else {
+          this.upAnimate();
+        }
+      } else if (direction === DIRECTION.LEFT) {
+        if (
+          position === POSITION.TOP_LEFT ||
+          position === POSITION.BOTTOM_LEFT
+        ) {
+          console.warn(
+            'Passing direction = left with position = topLeft/bottomLeft is not suggested.'
+          );
+        } else {
+          this.leftAnimate();
+        }
+      } else if (direction === DIRECTION.RIGHT) {
+        if (
+          position === POSITION.TOP_RIGHT ||
+          position === POSITION.BOTTOM_RIGHT
+        ) {
+          console.warn(
+            'Passing direction = right with position = topRight/bottomRight is not suggested.'
+          );
+        } else {
+          this.rightAnimate();
+        }
+      } else if (direction === DIRECTION.DOWN) {
+        if (
+          position === POSITION.BOTTOM_LEFT ||
+          position === POSITION.BOTTOM_RIGHT
+        ) {
+          console.warn(
+            'Passing direction = down with position = bottomLeft/bottomRight is not suggested.'
+          );
+        } else {
+          this.downAnimate();
+        }
       }
     } else {
       this.upAnimate();

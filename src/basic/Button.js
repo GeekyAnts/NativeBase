@@ -12,7 +12,6 @@ import { connectStyle } from 'native-base-shoutem-theme';
 
 import variable from '../theme/variables/platform';
 import { PLATFORM } from '../theme/variables/commonColor';
-
 import computeProps from '../utils/computeProps';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
@@ -65,9 +64,9 @@ class Button extends Component {
         : React.Children.map(this.props.children, child =>
             child && child.type === Text
               ? React.cloneElement(child, {
-                  uppercase: variables.buttonUppercaseAndroidText,
-                  ...child.props
-                })
+                uppercase: variables.buttonUppercaseAndroidText,
+                ...child.props
+              })
               : child
           );
     if (
