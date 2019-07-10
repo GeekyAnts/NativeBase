@@ -73,15 +73,12 @@ export class DatePicker extends React.Component {
 
   render() {
     const {
-      androidMode,
       animationType,
       disabled,
-      formatChosenDate,
       locale,
       maximumDate,
       minimumDate,
       modalTransparent,
-      onDateChange,
       placeHolderText,
       placeHolderTextStyle,
       textStyle,
@@ -107,9 +104,7 @@ export class DatePicker extends React.Component {
           >
             {this.state.chosenDate
               ? this.formatChosenDate(this.state.chosenDate)
-              : placeHolderText
-              ? placeHolderText
-              : 'Select Date'}
+              : placeHolderText || 'Select Date'}
           </Text>
           <View>
             <Modal

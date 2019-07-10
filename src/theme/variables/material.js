@@ -125,6 +125,9 @@ export default {
   datePickerTextColor: '#000',
   datePickerBg: 'transparent',
 
+  // FAB
+  fabWidth: 56,
+
   // Font
   DefaultFontSize: 16,
   fontFamily: 'Roboto',
