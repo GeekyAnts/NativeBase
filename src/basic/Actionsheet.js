@@ -1,18 +1,21 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable radix */
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import {
+  ActionSheetIOS,
+  Dimensions,
+  FlatList,
   Modal,
   Platform,
-  ActionSheetIOS,
   TouchableOpacity,
-  ViewPropTypes,
-  FlatList,
-  Dimensions
+  StyleSheet,
+  ViewPropTypes
 } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import commonColor, { PLATFORM } from '../theme/variables/commonColor';
 
 import { Text } from './Text';
 import { Icon } from './Icon';
@@ -45,7 +48,7 @@ class ActionSheetContainer extends Component {
   }
 
   showActionSheet(config, callback) {
-    if (Platform.OS === 'ios') {
+    if (Platform.OS === PLATFORM.IOS) {
       if (typeof config.options[0] === 'object') {
         const options = config.options;
         const filtered = options.map(item => {
@@ -91,30 +94,17 @@ class ActionSheetContainer extends Component {
             this.state.callback(this.state.cancelButtonIndex);
             this.setState({ modalVisible: false });
           }}
-          style={{
-            backgroundColor: 'rgba(0,0,0,0.4)',
-            flex: 1,
-            justifyContent: 'flex-end'
-          }}
+          style={styles.containerTouchable}
         >
-          <TouchableOpacity
-            activeOpacity={1}
-            style={{
-              backgroundColor: '#fff',
-              minHeight: 56,
-              maxHeight: Dimensions.get('window').height / 2,
-              padding: 15,
-              elevation: 4
-            }}
-          >
+          <TouchableOpacity activeOpacity={1} style={styles.innerTouchable}>
             {this.state.title ? (
-              <Text style={{ color: '#757575' }}>{this.state.title}</Text>
+              <Text style={styles.touchableText}>{this.state.title}</Text>
             ) : null}
             <FlatList
-              style={{
-                marginHorizontal: -15,
-                marginTop: this.state.title ? 15 : 0
-              }}
+              style={[
+                styles.flatList,
+                { marginTop: this.state.title ? commonColor.marginTop : 0 }
+              ]}
               data={this.state.items}
               keyExtractor={(item, index) => String(index)}
               renderItem={({ index, item }) => {
@@ -124,7 +114,7 @@ class ActionSheetContainer extends Component {
                       this.state.callback(parseInt(index));
                       this.setState({ modalVisible: false });
                     }}
-                    style={{ borderColor: 'transparent', marginLeft: 14 }}
+                    style={styles.listItem}
                   >
                     <Text>{item}</Text>
                   </ListItem>
@@ -134,11 +124,12 @@ class ActionSheetContainer extends Component {
                       this.state.callback(parseInt(index));
                       this.setState({ modalVisible: false });
                     }}
-                    style={{
-                      borderColor: 'transparent',
-                      marginLeft: 14,
-                      height: 50
-                    }}
+                    style={[
+                      styles.listItem,
+                      {
+                        height: commonColor.listItemHeight
+                      }
+                    ]}
                     icon
                   >
                     <Left>
@@ -149,9 +140,7 @@ class ActionSheetContainer extends Component {
                         }}
                       />
                     </Left>
-                    <Body
-                      style={{ borderColor: 'transparent', paddingLeft: 7 }}
-                    >
+                    <Body style={styles.listItemBody}>
                       <Text>{item.text}</Text>
                     </Body>
                     <Right />
@@ -174,6 +163,35 @@ ActionSheetContainer.propTypes = {
     PropTypes.array
   ])
 };
+
+const styles = StyleSheet.create({
+  containerTouchable: {
+    backgroundColor: commonColor.containerTouchableBackgroundColor,
+    flex: 1,
+    justifyContent: 'flex-end'
+  },
+  flatList: {
+    marginHorizontal: commonColor.marginHorizontal
+  },
+  innerTouchable: {
+    backgroundColor: commonColor.innerTouchableBackgroundColor,
+    minHeight: commonColor.minHeight,
+    maxHeight: Dimensions.get('window').height / 2,
+    padding: commonColor.padding,
+    elevation: commonColor.elevation
+  },
+  listItem: {
+    borderColor: commonColor.listItemBorderColor,
+    marginLeft: commonColor.marginLeft
+  },
+  listItemBody: {
+    borderColor: commonColor.listItemBorderColor,
+    paddingLeft: commonColor.marginLeft / 2
+  },
+  touchableText: {
+    color: commonColor.touchableTextColor
+  }
+});
 
 const StyledActionSheetContainer = connectStyle(
   'NativeBase.ActionSheetContainer',

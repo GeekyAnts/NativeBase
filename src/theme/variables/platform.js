@@ -29,6 +29,19 @@ export default {
   headerStyle: '#edebed',
   iconStyle: '#000',
 
+  // ActionSheet
+  elevation: 4,
+  containerTouchableBackgroundColor: 'rgba(0,0,0,0.4)',
+  innerTouchableBackgroundColor: '#fff',
+  listItemHeight: 50,
+  listItemBorderColor: 'transparent',
+  marginHorizontal: -15,
+  marginLeft: 14,
+  marginTop: 15,
+  minHeight: 56,
+  padding: 15,
+  touchableTextColor: '#757575',
+
   // Android
   androidRipple: true,
   androidRippleColor: 'rgba(256, 256, 256, 0.3)',
