@@ -3,6 +3,7 @@
 import { Platform } from 'react-native';
 
 import variable from './../variables/platform';
+import { PLATFORM } from './../variables/commonColor';
 
 export default (variables /* : * */ = variable) => {
   const itemTheme = {
@@ -14,8 +15,8 @@ export default (variables /* : * */ = variable) => {
         paddingBottom: 7,
         '.multiline': {
           minHeight: variables.inputHeightBase,
-          paddingTop: Platform.OS === 'ios' ? 10 : 3,
-          paddingBottom: Platform.OS === 'ios' ? 14 : 10
+          paddingTop: Platform.OS === PLATFORM.IOS ? 10 : 3,
+          paddingBottom: Platform.OS === PLATFORM.IOS ? 14 : 10
         }
       },
       'NativeBase.Label': {
@@ -60,17 +61,17 @@ export default (variables /* : * */ = variable) => {
         marginTop: 36
       },
       'NativeBase.Input': {
-        alignSelf: Platform.OS === 'ios' ? 'stretch' : 'flex-start',
+        alignSelf: Platform.OS === PLATFORM.IOS ? 'stretch' : 'flex-start',
         flex: 1,
-        width: Platform.OS === 'ios' ? null : variables.deviceWidth - 25,
+        width: Platform.OS === PLATFORM.IOS ? null : variables.deviceWidth - 25,
         fontSize: variables.inputFontSize,
         lineHeight: variables.inputLineHeight - 6,
         '.secureTextEntry': {
           fontSize: variables.inputFontSize - 4
         },
         '.multiline': {
-          paddingTop: Platform.OS === 'ios' ? 9 : undefined,
-          paddingBottom: Platform.OS === 'ios' ? 9 : undefined
+          paddingTop: Platform.OS === PLATFORM.IOS ? 9 : undefined,
+          paddingBottom: Platform.OS === PLATFORM.IOS ? 9 : undefined
         }
       },
       flexDirection: null,
@@ -113,7 +114,7 @@ export default (variables /* : * */ = variable) => {
       height: variables.inputHeightBase,
       color: variables.inputColor,
       flex: 1,
-      top: Platform.OS === 'ios' ? 1.5 : undefined,
+      top: Platform.OS === PLATFORM.IOS ? 1.5 : undefined,
       fontSize: variables.inputFontSize
     },
     '.underline': {
