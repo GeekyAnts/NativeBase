@@ -16,39 +16,42 @@ import { Icon } from './Icon';
 
 class DefaultHeader extends React.Component {
   render() {
+    const {
+      expanded,
+      expandedIcon,
+      expandedIconStyle,
+      headerStyle,
+      icon,
+      iconStyle,
+      title
+    } = this.props;
+
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
+
     return (
       <View
         style={[
           // eslint-disable-next-line no-use-before-define
           styles.defaultHeader,
-          this.props.headerStyle
-            ? this.props.headerStyle
-            : { backgroundColor: variables.headerStyle }
+          headerStyle || { backgroundColor: variables.headerStyle }
         ]}
       >
-        <Text> {this.props.title}</Text>
+        <Text> {title}</Text>
         <Icon
           style={[
-            { fontSize: 18 },
-            this.props.expanded
-              ? this.props.expandedIcon && this.props.expandedIconStyle
-                ? this.props.expandedIconStyle
+            { fontSize: variables.accordionIconFontSize },
+            expanded
+              ? expandedIcon && expandedIconStyle
+                ? expandedIconStyle
                 : { color: variables.expandedIconStyle }
-              : this.props.icon && this.props.iconStyle
-              ? this.props.iconStyle
+              : icon && iconStyle
+              ? iconStyle
               : { color: variables.iconStyle }
           ]}
           name={
-            this.props.expanded
-              ? this.props.expandedIcon
-                ? this.props.expandedIcon
-                : 'ios-arrow-up'
-              : this.props.icon
-              ? this.props.icon
-              : 'ios-arrow-down'
+            expanded ? expandedIcon || 'ios-arrow-up' : icon || 'ios-arrow-down'
           }
         />
       </View>
@@ -58,19 +61,18 @@ class DefaultHeader extends React.Component {
 
 class DefaultContent extends React.Component {
   render() {
+    const { content, contentStyle } = this.props;
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
       <Text
         style={[
-          { padding: 10 },
-          this.props.contentStyle
-            ? this.props.contentStyle
-            : { backgroundColor: variables.contentStyle }
+          { padding: variable.accordionContentPadding },
+          contentStyle || { backgroundColor: variables.contentStyle }
         ]}
       >
-        {this.props.content}
+        {content}
       </Text>
     );
   }
@@ -88,10 +90,11 @@ class AccordionSubItem extends React.Component {
     }).start();
   }
   render() {
+    const { children, style } = this.props;
     const { fadeAnim } = this.state;
     return (
-      <Animated.View style={{ ...this.props.style, opacity: fadeAnim }}>
-        {this.props.children}
+      <Animated.View style={{ ...style, opacity: fadeAnim }}>
+        {children}
       </Animated.View>
     );
   }
@@ -99,35 +102,56 @@ class AccordionSubItem extends React.Component {
 
 class AccordionItem extends React.Component {
   render() {
+    const {
+      contentStyle,
+      expanded,
+      expandedIcon,
+      expandedIconStyle,
+      headerStyle,
+      icon,
+      iconStyle,
+      index,
+      item,
+      onAccordionClose,
+      onAccordionOpen,
+      renderContent,
+      renderHeader,
+      setSelected
+    } = this.props;
+
     return (
       <View>
         <TouchableWithoutFeedback
-          onPress={() => this.props.setSelected(this.props.index)}
+          onPress={() => {
+            onAccordionOpen && !expanded && onAccordionOpen(item, index);
+            onAccordionClose && expanded && onAccordionClose(item, index);
+            setSelected(index);
+          }}
         >
           <View>
-            {this.props.renderHeader ? (
-              this.props.renderHeader(this.props.item, this.props.expanded)
+            {renderHeader ? (
+              renderHeader(item, expanded)
             ) : (
               <DefaultHeader
-                title={this.props.item.title}
-                expanded={this.props.expanded}
-                headerStyle={this.props.headerStyle}
-                icon={this.props.icon}
-                iconStyle={this.props.iconStyle}
-                expandedIcon={this.props.expandedIcon}
-                expandedIconStyle={this.props.expandedIconStyle}
+                expanded={expanded}
+                expandedIcon={expandedIcon}
+                expandedIconStyle={expandedIconStyle}
+                headerStyle={headerStyle}
+                icon={icon}
+                iconStyle={iconStyle}
+                title={item.title}
               />
             )}
           </View>
         </TouchableWithoutFeedback>
-        {this.props.expanded ? (
+        {expanded ? (
           <AccordionSubItem>
-            {this.props.renderContent ? (
-              this.props.renderContent(this.props.item)
+            {renderContent ? (
+              renderContent(item)
             ) : (
               <DefaultContent
-                content={this.props.item.content}
-                contentStyle={this.props.contentStyle}
+                content={item.content}
+                contentStyle={contentStyle}
               />
             )}
           </AccordionSubItem>
@@ -154,36 +178,53 @@ export class Accordion extends React.Component {
   }
 
   render() {
+    const {
+      contentStyle,
+      dataArray,
+      expandedIcon,
+      expandedIconStyle,
+      headerStyle,
+      icon,
+      iconStyle,
+      onAccordionClose,
+      onAccordionOpen,
+      renderContent,
+      renderHeader,
+      style
+    } = this.props;
+
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
       <FlatList
-        data={this.props.dataArray}
+        data={dataArray}
         extraData={this.state}
         style={[
           {
             borderColor: variables.accordionBorderColor,
             borderWidth: variables.borderWidth
           },
-          this.props.style
+          style
         ]}
         keyExtractor={(item, index) => String(index)}
         renderItem={({ item, index }) => (
           <AccordionItem
             key={String(index)}
-            item={item}
+            contentStyle={contentStyle}
             expanded={this.state.selected === index}
+            expandedIcon={expandedIcon}
+            expandedIconStyle={expandedIconStyle}
+            headerStyle={headerStyle}
+            icon={icon}
+            iconStyle={iconStyle}
             index={index}
+            item={item}
+            renderContent={renderContent}
+            renderHeader={renderHeader}
+            onAccordionOpen={onAccordionOpen}
+            onAccordionClose={onAccordionClose}
             setSelected={i => this.setSelected(i)}
-            headerStyle={this.props.headerStyle}
-            contentStyle={this.props.contentStyle}
-            renderHeader={this.props.renderHeader}
-            renderContent={this.props.renderContent}
-            icon={this.props.icon}
-            iconStyle={this.props.iconStyle}
-            expandedIcon={this.props.expandedIcon}
-            expandedIconStyle={this.props.expandedIconStyle}
           />
         )}
         {...this.props}
@@ -195,7 +236,7 @@ export class Accordion extends React.Component {
 const styles = StyleSheet.create({
   defaultHeader: {
     flexDirection: 'row',
-    padding: 10,
+    padding: variable.accordionContentPadding,
     justifyContent: 'space-between',
     alignItems: 'center'
   }

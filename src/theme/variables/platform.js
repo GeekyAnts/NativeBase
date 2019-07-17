@@ -21,11 +21,13 @@ export default {
   platform,
 
   // Accordion
-  headerStyle: '#edebed',
-  iconStyle: '#000',
+  accordionBorderColor: '#d3d3d3',
+  accordionContentPadding: 10,
+  accordionIconFontSize: 18,
   contentStyle: '#f5f4f5',
   expandedIconStyle: '#000',
-  accordionBorderColor: '#d3d3d3',
+  headerStyle: '#edebed',
+  iconStyle: '#000',
 
   // Android
   androidRipple: true,
