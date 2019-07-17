@@ -31,26 +31,23 @@ class Content extends Component {
     } else {
       inset = variable.Inset;
     }
+    const { style } = this.props;
     const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let leftPadder = null;
-    if (this.props.style[1] !== undefined) {
+    if (style[1] !== undefined) {
       if (
-        this.props.style[1].padding !== undefined ||
-        this.props.style[1].paddingLeft !== undefined
+        style[1].padding !== undefined ||
+        style[1].paddingLeft !== undefined
       ) {
         leftPadder =
-          (this.props.style[1].paddingLeft !== undefined
-            ? this.props.style[1].paddingLeft
-            : this.props.style[1].padding) + InsetValues.leftInset;
+          (style[1].paddingLeft !== undefined
+            ? style[1].paddingLeft
+            : style[1].padding) + InsetValues.leftInset;
       }
-    } else if (
-      this.props.style.padding !== undefined ||
-      this.props.style.paddingLeft !== undefined
-    ) {
+    } else if (style.padding !== undefined || style.paddingLeft !== undefined) {
       leftPadder =
-        (this.props.style.paddingLeft !== undefined
-          ? this.props.style.paddingLeft
-          : this.props.style.padding) + InsetValues.leftInset;
+        (style.paddingLeft !== undefined ? style.paddingLeft : style.padding) +
+        InsetValues.leftInset;
     } else {
       leftPadder = InsetValues.leftInset;
     }
@@ -63,46 +60,49 @@ class Content extends Component {
     } else {
       inset = variable.Inset;
     }
+    const { style } = this.props;
     const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let rightPadder = null;
-    if (this.props.style[1] !== undefined) {
+    if (style[1] !== undefined) {
       if (
-        this.props.style[1].padding !== undefined ||
-        this.props.style[1].paddingRight !== undefined
+        style[1].padding !== undefined ||
+        style[1].paddingRight !== undefined
       ) {
         rightPadder =
-          (this.props.style[1].paddingRight !== undefined
-            ? this.props.style[1].paddingRight
-            : this.props.style[1].padding) + InsetValues.rightInset;
+          (style[1].paddingRight !== undefined
+            ? style[1].paddingRight
+            : style[1].padding) + InsetValues.rightInset;
       }
     } else if (
-      this.props.style.padding !== undefined ||
-      this.props.style.paddingRight !== undefined
+      style.padding !== undefined ||
+      style.paddingRight !== undefined
     ) {
       rightPadder =
-        (this.props.style.paddingRight !== undefined
-          ? this.props.style.paddingRight
-          : this.props.style.padding) + InsetValues.rightInset;
+        (style.paddingRight !== undefined
+          ? style.paddingRight
+          : style.padding) + InsetValues.rightInset;
     } else {
       rightPadder = InsetValues.rightInset;
     }
     return rightPadder;
   }
   render() {
+    const {
+      children,
+      contentContainerStyle,
+      disableKBDismissScroll,
+      keyboardShouldPersistTaps,
+      padder,
+      style
+    } = this.props;
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return variables.isIphoneX ? (
       <KeyboardAwareScrollView
         automaticallyAdjustContentInsets={false}
-        resetScrollToCoords={
-          this.props.disableKBDismissScroll ? null : { x: 0, y: 0 }
-        }
-        keyboardShouldPersistTaps={
-          this.props.keyboardShouldPersistTaps
-            ? this.props.keyboardShouldPersistTaps
-            : 'handled'
-        }
+        resetScrollToCoords={disableKBDismissScroll ? null : { x: 0, y: 0 }}
+        keyboardShouldPersistTaps={keyboardShouldPersistTaps || 'handled'}
         ref={c => {
           this._scrollview = c;
           this._root = c;
@@ -110,7 +110,7 @@ class Content extends Component {
         {...this.props}
         onLayout={e => this.layoutChange(e.nativeEvent.layout)}
         style={[
-          this.props.style,
+          style,
           {
             paddingLeft: this.calculateLeft(
               this.state.orientation,
@@ -123,34 +123,28 @@ class Content extends Component {
           }
         ]}
         contentContainerStyle={[
-          { padding: this.props.padder ? variables.contentPadding : undefined },
-          this.props.contentContainerStyle
+          { padding: padder ? variables.contentPadding : undefined },
+          contentContainerStyle
         ]}
       >
-        {this.props.children}
+        {children}
       </KeyboardAwareScrollView>
     ) : (
       <KeyboardAwareScrollView
         automaticallyAdjustContentInsets={false}
-        resetScrollToCoords={
-          this.props.disableKBDismissScroll ? null : { x: 0, y: 0 }
-        }
-        keyboardShouldPersistTaps={
-          this.props.keyboardShouldPersistTaps
-            ? this.props.keyboardShouldPersistTaps
-            : 'handled'
-        }
+        resetScrollToCoords={disableKBDismissScroll ? null : { x: 0, y: 0 }}
+        keyboardShouldPersistTaps={keyboardShouldPersistTaps || 'handled'}
         ref={c => {
           this._scrollview = c;
           this._root = c;
         }}
         {...this.props}
         contentContainerStyle={[
-          { padding: this.props.padder ? variables.contentPadding : undefined },
-          this.props.contentContainerStyle
+          { padding: padder ? variables.contentPadding : undefined },
+          contentContainerStyle
         ]}
       >
-        {this.props.children}
+        {children}
       </KeyboardAwareScrollView>
     );
   }
