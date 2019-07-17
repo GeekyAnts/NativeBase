@@ -6,6 +6,7 @@ import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
+import { PLATFORM } from '../theme/variables/commonColor';
 import computeProps from '../utils/computeProps';
 
 class CheckBox extends Component {
@@ -14,17 +15,14 @@ class CheckBox extends Component {
   };
 
   getInitialStyle(variables) {
+    const { color, checked } = this.props;
     return {
       checkStyle: {
-        borderColor: this.props.color
-          ? this.props.color
-          : variables.checkboxBgColor,
+        borderColor: color || variables.checkboxBgColor,
         backgroundColor:
-          this.props.checked === true
-            ? this.props.color
-              ? this.props.color
-              : variables.checkboxBgColor
-            : 'transparent'
+          checked === true
+            ? color || variables.checkboxBgColor
+            : variables.checkboxDefaultColor
       }
     };
   }
@@ -37,6 +35,7 @@ class CheckBox extends Component {
     return computeProps(this.props, defaultProps);
   }
   render() {
+    const { checked } = this.props;
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
@@ -50,16 +49,16 @@ class CheckBox extends Component {
         <IconNB
           style={{
             color:
-              this.props.checked === true
+              checked === true
                 ? variables.checkboxTickColor
-                : 'transparent',
+                : variables.checkboxDefaultColor,
             fontSize: variables.CheckboxFontSize,
             lineHeight: variables.CheckboxIconSize,
             marginTop: variables.CheckboxIconMarginTop,
-            textShadowRadius: 0
+            textShadowRadius: variables.checkboxTextShadowRadius
           }}
           name={
-            platform === 'ios' && platformStyle !== 'material'
+            platform === PLATFORM.IOS && platformStyle !== PLATFORM.MATERIAL
               ? 'ios-checkmark'
               : 'md-checkmark'
           }

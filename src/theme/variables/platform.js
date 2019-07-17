@@ -129,6 +129,8 @@ export default {
   checkboxBgColor: '#039BE5',
   checkboxSize: 20,
   checkboxTickColor: '#fff',
+  checkboxDefaultColor: 'transparent',
+  checkboxTextShadowRadius: 0,
 
   // Color
   brandPrimary: platform === PLATFORM.IOS ? '#007aff' : '#3F51B5',
