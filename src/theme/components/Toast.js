@@ -1,6 +1,7 @@
 // @flow
 
 import variable from './../variables/platform';
+import { PLATFORM } from './../variables/commonColor';
 
 export default (variables /* : * */ = variable) => {
   const platform = variables.platform;
@@ -16,7 +17,7 @@ export default (variables /* : * */ = variable) => {
       backgroundColor: variables.brandSuccess
     },
     backgroundColor: 'rgba(0,0,0,0.8)',
-    borderRadius: platform === 'ios' ? 5 : 0,
+    borderRadius: platform === PLATFORM.IOS ? 5 : 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

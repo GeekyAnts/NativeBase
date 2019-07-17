@@ -3,6 +3,7 @@
 import { Platform } from 'react-native';
 
 import variable from './../variables/platform';
+import { PLATFORM } from './../variables/commonColor';
 
 export default (variables /* : * */ = variable) => {
   const platform = variables.platform;
@@ -39,7 +40,7 @@ export default (variables /* : * */ = variable) => {
         'NativeBase.Badge': {
           'NativeBase.Text': {
             fontSize: 11,
-            fontWeight: platform === 'ios' ? '600' : undefined,
+            fontWeight: platform === PLATFORM.IOS ? '600' : undefined,
             lineHeight: 14
           },
           top: -3,
@@ -67,7 +68,7 @@ export default (variables /* : * */ = variable) => {
       }
     },
     backgroundColor:
-      Platform.OS === 'android' ? variables.footerDefaultBg : undefined,
+      Platform.OS === PLATFORM.ANDROID ? variables.footerDefaultBg : undefined,
     flexDirection: 'row',
     justifyContent: 'space-between',
     flex: 1,
