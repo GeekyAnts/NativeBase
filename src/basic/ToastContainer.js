@@ -5,14 +5,19 @@ import { Platform, Animated, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import { PLATFORM } from '../theme/variables/commonColor';
 
 import { Text } from './Text';
 import { Button } from './Button';
 import { Toast } from './Toast';
 
+const POSITION = {
+  ABSOLUTE: 'absolute',
+  BOTTOM: 'bottom',
+  TOP: 'top'
+};
 
 class ToastContainer extends Component {
-  
   static toastInstance;
   static show({ ...config }) {
     this.toastInstance._root.showToast({ config });
@@ -31,27 +36,28 @@ class ToastContainer extends Component {
   }
   getToastStyle() {
     return {
-      position: 'absolute',
+      position: POSITION.ABSOLUTE,
       opacity: this.state.fadeAnim,
       width: '100%',
       elevation: 9,
-      paddingHorizontal: Platform.OS === 'ios' ? 20 : 0,
-      top: this.state.position === 'top' ? this.getTop() : undefined,
-      bottom: this.state.position === 'bottom' ? this.getTop() : undefined
+      paddingHorizontal: Platform.OS === PLATFORM.IOS ? 20 : 0,
+      top: this.state.position === POSITION.TOP ? this.getTop() : undefined,
+      bottom:
+        this.state.position === POSITION.BOTTOM ? this.getTop() : undefined
     };
   }
   getTop() {
-    if (Platform.OS === 'ios') {
+    if (Platform.OS === PLATFORM.IOS) {
       return 30;
-    } 
+    }
     return 0;
-    
   }
   getButtonText(buttonText) {
     if (buttonText) {
       if (buttonText.trim().length === 0) {
         return undefined;
-      } return buttonText;
+      }
+      return buttonText;
     }
     return undefined;
   }
@@ -64,7 +70,7 @@ class ToastContainer extends Component {
       text: config.text,
       buttonText: this.getButtonText(config.buttonText),
       type: config.type,
-      position: config.position ? config.position : 'bottom',
+      position: config.position ? config.position : POSITION.BOTTOM,
       supportedOrientations: config.supportedOrientations,
       style: config.style,
       buttonTextStyle: config.buttonTextStyle,
@@ -106,6 +112,7 @@ class ToastContainer extends Component {
       duration: 200
     }).start(this.closeModal.bind(this, reason));
   }
+
   render() {
     if (this.state.modalVisible) {
       return (
@@ -130,7 +137,8 @@ class ToastContainer extends Component {
           </Toast>
         </Animated.View>
       );
-    } return null;
+    }
+    return null;
   }
 }
 
