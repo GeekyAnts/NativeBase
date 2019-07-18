@@ -37,7 +37,7 @@
     "eslint-config-prettier": "^6.0.0",
     "fs-extra": "^2.0.0",
     "jest-react-native": "^18.0.0",
-    "lodash": "4.17.11",
+    "lodash": "^4.17.14",
     "native-base-shoutem-theme": "GeekyAnts/theme#master",
     "opencollective-postinstall": "^2.0.2",
     "print-message": "^2.1.0",
