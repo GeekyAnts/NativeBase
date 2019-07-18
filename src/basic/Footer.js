@@ -26,6 +26,7 @@ class Footer extends Component {
   }
 
   calculateHeight(mode, inSet) {
+    const { style } = this.props;
     let inset = null;
     if (inSet !== undefined) {
       inset = inSet;
@@ -34,20 +35,19 @@ class Footer extends Component {
     }
     const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let oldHeight = null;
-    if (this.props.style.height !== undefined) {
-      oldHeight = this.props.style.height;
-    } else if (this.props.style[1]) {
-      oldHeight = this.props.style[1].height
-        ? this.props.style[1].height
-        : this.props.style[0].height;
+    if (style.height !== undefined) {
+      oldHeight = style.height;
+    } else if (style[1]) {
+      oldHeight = style[1].height || style[0].height;
     } else {
-      oldHeight = this.props.style[0].height;
+      oldHeight = style[0].height;
     }
     const height = oldHeight + InsetValues.bottomInset;
     return height;
   }
 
   calculatePadder(mode, inSet) {
+    const { style } = this.props;
     let inset = null;
     if (inSet !== undefined) {
       inset = inSet;
@@ -56,30 +56,21 @@ class Footer extends Component {
     }
     const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let bottomPadder = null;
-    if (this.props.style[1] !== undefined) {
-      if (
-        this.props.style[1].padding !== undefined ||
-        this.props.style[1].paddingTop !== undefined
-      ) {
+    if (style[1] !== undefined) {
+      if (style[1].padding !== undefined || style[1].paddingTop !== undefined) {
         bottomPadder =
-          (this.props.style[1].paddingTop
-            ? this.props.style[1].paddingTop
-            : this.props.style[1].padding) + InsetValues.bottomInset;
+          (style[1].paddingTop || style[1].padding) + InsetValues.bottomInset;
       }
-    } else if (
-      this.props.style.padding !== undefined &&
-      this.props.style.paddingTop !== undefined
-    ) {
+    } else if (style.padding !== undefined && style.paddingTop !== undefined) {
       bottomPadder =
-        (this.props.style.paddingTop
-          ? this.props.style.paddingTop
-          : this.props.style.padding) + InsetValues.bottomInset;
+        (style.paddingTop || style.padding) + InsetValues.bottomInset;
     } else {
       bottomPadder = InsetValues.bottomInset;
     }
     return bottomPadder;
   }
   render() {
+    const { style } = this.props;
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
@@ -89,7 +80,7 @@ class Footer extends Component {
         {...this.props}
         onLayout={e => this.layoutChange(e.nativeEvent.layout)}
         style={[
-          this.props.style,
+          style,
           {
             height: this.calculateHeight(
               this.state.orientation,
