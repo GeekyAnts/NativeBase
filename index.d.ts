@@ -175,17 +175,13 @@ declare module "native-base" {
              * The theme prop can be applied to any component of NativeBase.
              */
 			refreshing?: boolean;
-			refreshControl?: object;
 			theme?: Object;
 			padder?: boolean;
 			disableKBDismissScroll?: boolean;
 			enableResetScrollToCoords?: boolean;
-			contentOffset?: Object;
 			scrollEnabled?: boolean;
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 			contentContainerStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
-			keyboardShouldPersistTaps?: string;
-			keyboardDismissMode?: string;
 		}
 		/**
          * see Widget Button.js
