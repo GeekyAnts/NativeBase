@@ -35,7 +35,7 @@ class IconNB extends Component {
   setIcon(iconType) {
     if (iconType === undefined && this.context.theme) {
       // eslint-disable-next-line
-      let iconType = this.context.theme['@@shoutem.theme/themeStyle'].variables
+      iconType = this.context.theme['@@shoutem.theme/themeStyle'].variables
         .iconFamily;
     }
     switch (iconType) {
