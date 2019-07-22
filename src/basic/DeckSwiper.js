@@ -98,7 +98,7 @@ class DeckSwiper extends Component {
     });
   }
 
-  componentWillReceiveProps({ dataSource }) {
+  componentWillUpdate({ dataSource }) {
     if (dataSource.length !== this.props.dataSource.length) {
       if (dataSource.length <= 1) {
         this.setState({

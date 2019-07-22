@@ -39,7 +39,7 @@ class Item extends Component {
         this.inputProps.getRef(this._inputRef);
     }
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillUpdate(nextProps) {
     const childrenArray = React.Children.toArray(nextProps.children);
 
     _.remove(childrenArray, item => {
