@@ -151,6 +151,23 @@ export default {
   datePickerBg: 'transparent',
 
   // FAB
+  fabBackgroundColor: 'blue',
+  fabBorderRadius: 28,
+  fabBottom: 0,
+  fabButtonBorderRadius: 20,
+  fabButtonHeight: 40,
+  fabButtonLeft: 7,
+  fabButtonMarginBottom: 10,
+  fabContainerBottom: 20,
+  fabDefaultPosition: 20,
+  fabElevation: 4,
+  fabIconColor: '#fff',
+  fabIconSize: 24,
+  fabShadowColor: '#000',
+  fabShadowOffsetHeight: 2,
+  fabShadowOffsetWidth: 0,
+  fabShadowOpacity: 0.4,
+  fabShadowRadius: 2,
   fabWidth: 56,
 
   // Font
