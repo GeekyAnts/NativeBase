@@ -7,7 +7,6 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import FontAwesome5Pro from 'react-native-vector-icons/FontAwesome5Pro';
 import Foundation from 'react-native-vector-icons/Foundation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -58,9 +57,6 @@ class IconNB extends Component {
     case 'FontAwesome5':
       this.Icon = FontAwesome5;
       break;
-    case 'FontAwesome5Pro':
-      this.Icon = FontAwesome5Pro;
-      break;
     case 'Foundation':
       this.Icon = Foundation;
       break;
@@ -100,7 +96,6 @@ IconNB.propTypes = {
     'Feather',
     'FontAwesome',
     'FontAwesome5',
-    'FontAwesome5Pro',
     'Foundation',
     'Ionicons',
     'MaterialCommunityIcons',
