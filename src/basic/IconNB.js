@@ -23,7 +23,7 @@ class IconNB extends Component {
     theme: PropTypes.object
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.setIcon(this.props.type);
   }
 

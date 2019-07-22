@@ -27,7 +27,7 @@ class DeckSwiper extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this._panResponder = PanResponder.create({
       onMoveShouldSetResponderCapture: () => true,
       onMoveShouldSetPanResponderCapture: (evt, gestureState) =>

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Animated,
-  PanResponder,
-  View
-} from 'react-native';
+import { Animated, PanResponder, View } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
@@ -44,7 +40,7 @@ class SwipeRow extends Component {
     this._translateX = new Animated.Value(0);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this._panResponder = PanResponder.create({
       onMoveShouldSetPanResponder: (e, gs) =>
         this.handleOnMoveShouldSetPanResponder(e, gs),
@@ -235,7 +231,7 @@ class SwipeRow extends Component {
           )}
         </Animated.View>
       );
-    } 
+    }
     return (
       <Animated.View
         {...this._panResponder.panHandlers}
@@ -249,14 +245,13 @@ class SwipeRow extends Component {
           <ListItem list style={this.props.style}>
             {this.props.body}
           </ListItem>
-          ) : (
-            <View style={[{ backgroundColor: '#FFF' }, this.props.style]}>
-              {this.props.body}
-            </View>
-          )}
+        ) : (
+          <View style={[{ backgroundColor: '#FFF' }, this.props.style]}>
+            {this.props.body}
+          </View>
+        )}
       </Animated.View>
     );
-    
   }
 
   render() {
