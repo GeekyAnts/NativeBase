@@ -7,7 +7,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import FontAwesome5Pro from "react-native-vector-icons/FontAwesome5Pro"
+import FontAwesome5Pro from 'react-native-vector-icons/FontAwesome5Pro';
 import Foundation from 'react-native-vector-icons/Foundation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -36,7 +36,7 @@ class IconNB extends Component {
   setIcon(iconType) {
     if (iconType === undefined && this.context.theme) {
       // eslint-disable-next-line
-      let iconType = this.context.theme['@@shoutem.theme/themeStyle'].variables
+      iconType = this.context.theme['@@shoutem.theme/themeStyle'].variables
         .iconFamily;
     }
     switch (iconType) {
@@ -58,7 +58,7 @@ class IconNB extends Component {
     case 'FontAwesome5':
       this.Icon = FontAwesome5;
       break;
-    case "FontAwesome5Pro":
+    case 'FontAwesome5Pro':
       this.Icon = FontAwesome5Pro;
       break;
     case 'Foundation':
@@ -100,7 +100,7 @@ IconNB.propTypes = {
     'Feather',
     'FontAwesome',
     'FontAwesome5',
-    "FontAwesome5Pro",
+    'FontAwesome5Pro',
     'Foundation',
     'Ionicons',
     'MaterialCommunityIcons',
