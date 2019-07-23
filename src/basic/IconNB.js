@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connectStyle } from 'native-base-shoutem-theme';
+import { get } from 'lodash';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
@@ -22,18 +23,19 @@ class IconNB extends Component {
     theme: PropTypes.object
   };
 
-  componentDidMount() {
-    this.setIcon(this.props.type);
+  constructor(props) {
+    super(props);
+    this.setIcon(props.type);
   }
 
-  componentDidUpdate(nextProps) {
+  componentWillUpdate(nextProps) {
     if (nextProps.type && this.props.type !== nextProps.type) {
       this.setIcon(nextProps.type);
     }
   }
 
   setIcon(iconType) {
-    if (iconType === undefined && this.context.theme) {
+    if (iconType === undefined && get(this, 'context.theme')) {
       // eslint-disable-next-line
       iconType = this.context.theme['@@shoutem.theme/themeStyle'].variables
         .iconFamily;
