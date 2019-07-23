@@ -67,7 +67,7 @@ const DefaultTabBar = createReactClass({
       ? activeTextColor
       : inactiveTextColor;
     const fontWeight = isTabActive ? 'bold' : 'normal';
-    const isDisabled = disabled == undefined ? false : true;
+    const isDisabled = disabled != undefined;
 
     if (typeof name === 'string') {
       return (
@@ -84,8 +84,8 @@ const DefaultTabBar = createReactClass({
             <Text
               style={[
                 { fontSize: tabFontSize },
-                isTabActive ? activeTextStyle : textStyle,
-                { color: textColor }
+                { color: textColor },
+                isTabActive ? activeTextStyle : textStyle
               ]}
             >
               {name}
