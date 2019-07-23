@@ -17,11 +17,7 @@ class List extends Component {
         />
       );
     }
-    return (
-      <View ref={c => (this._root = c)} {...this.props}>
-        {this.renderChildren()}
-      </View>
-    );
+    return <View ref={c => (this._root = c)} {...this.props} />;
   }
 }
 const StyledList = connectStyle('NativeBase.List', {}, mapPropsToStyleNames)(

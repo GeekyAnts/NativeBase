@@ -77,7 +77,7 @@ const ScrollableTabView = createReactClass({
     InteractionManager.runAfterInteractions(scrollFn);
   },
 
-  componentWillUpdate(props) {
+  componentDidUpdate(props) {
     if (props.children !== this.props.children) {
       this.updateSceneKeys({
         page: this.state.currentPage,

@@ -29,7 +29,7 @@ class PickerNB extends Component {
     };
   }
 
-  componentWillUpdate(nextProps) {
+  componentDidUpdate(nextProps) {
     const currentLabel = this.state.currentLabel;
     const nextLabel = this.getLabel(nextProps);
     const currentDS = this.state.dataSource;

@@ -12,6 +12,7 @@
     "no-underscore-dangle": "off",
     "no-unused-expressions": "off",
     "react/jsx-filename-extension": "off",
+    "react/no-did-update-set-state": "off",
     "react/prop-types": "off"
   },
   "plugins": ["react", "jsx-a11y", "import", "react-native"]
