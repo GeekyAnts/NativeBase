@@ -25,9 +25,72 @@ class DeckSwiper extends Component {
       disabled: this.props.dataSource.length === 0,
       lastCard: this.props.dataSource.length === 1
     };
+    this.setPanresponder();
   }
 
-  componentDidMount() {
+  componentDidUpdate({ dataSource }) {
+    if (dataSource.length !== this.props.dataSource.length) {
+      if (dataSource.length <= 1) {
+        this.setState({
+          ...this.state,
+          selectedItem: dataSource[0],
+          selectedItem2: undefined,
+          disabled: dataSource.length === 0,
+          lastCard: dataSource.length === 1
+        });
+        return;
+      }
+
+      const visibleIndex = dataSource.indexOf(this.state.selectedItem);
+      const currentIndex = visibleIndex < 0 ? visibleIndex + 1 : visibleIndex;
+      const nextIndex =
+        currentIndex + 1 === dataSource.length ? 0 : currentIndex + 1;
+
+      this.setState({
+        selectedItem: dataSource[currentIndex],
+        selectedItem2: dataSource[nextIndex]
+      });
+    }
+  }
+
+  getInitialStyle = () => {
+    return {
+      topCard: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        left: 0
+      }
+    };
+  };
+
+  getCardStyles() {
+    const { pan, enter } = this.state;
+
+    const [translateX, translateY] = [pan.x, pan.y];
+    // let [translateX, translateY] = [pan2.x, pan2.y];
+
+    const rotate = pan.x.interpolate({
+      inputRange: [-700, 0, 700],
+      outputRange: ['-10deg', '0deg', '10deg']
+    });
+
+    const opacity = pan.x.interpolate({
+      inputRange: [-320, 0, 320],
+      outputRange: [0.9, 1, 0.9]
+    });
+    const scale = enter;
+
+    const animatedCardStyles = {
+      transform: [{ translateX }, { translateY }, { rotate }],
+      opacity
+    };
+    const animatedCardStyles2 = { transform: [{ scale }] };
+
+    return [animatedCardStyles, animatedCardStyles2];
+  }
+
+  setPanresponder() {
     this._panResponder = PanResponder.create({
       onMoveShouldSetResponderCapture: () => true,
       onMoveShouldSetPanResponderCapture: (evt, gestureState) =>
@@ -96,68 +159,6 @@ class DeckSwiper extends Component {
         }
       }
     });
-  }
-
-  componentDidUpdate({ dataSource }) {
-    if (dataSource.length !== this.props.dataSource.length) {
-      if (dataSource.length <= 1) {
-        this.setState({
-          ...this.state,
-          selectedItem: dataSource[0],
-          selectedItem2: undefined,
-          disabled: dataSource.length === 0,
-          lastCard: dataSource.length === 1
-        });
-        return;
-      }
-
-      const visibleIndex = dataSource.indexOf(this.state.selectedItem);
-      const currentIndex = visibleIndex < 0 ? visibleIndex + 1 : visibleIndex;
-      const nextIndex =
-        currentIndex + 1 === dataSource.length ? 0 : currentIndex + 1;
-
-      this.setState({
-        selectedItem: dataSource[currentIndex],
-        selectedItem2: dataSource[nextIndex]
-      });
-    }
-  }
-
-  getInitialStyle = () => {
-    return {
-      topCard: {
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        left: 0
-      }
-    };
-  };
-
-  getCardStyles() {
-    const { pan, enter } = this.state;
-
-    const [translateX, translateY] = [pan.x, pan.y];
-    // let [translateX, translateY] = [pan2.x, pan2.y];
-
-    const rotate = pan.x.interpolate({
-      inputRange: [-700, 0, 700],
-      outputRange: ['-10deg', '0deg', '10deg']
-    });
-
-    const opacity = pan.x.interpolate({
-      inputRange: [-320, 0, 320],
-      outputRange: [0.9, 1, 0.9]
-    });
-    const scale = enter;
-
-    const animatedCardStyles = {
-      transform: [{ translateX }, { translateY }, { rotate }],
-      opacity
-    };
-    const animatedCardStyles2 = { transform: [{ scale }] };
-
-    return [animatedCardStyles, animatedCardStyles2];
   }
 
   _resetState() {
