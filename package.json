@@ -34,6 +34,7 @@
     "clamp": "^1.0.1",
     "color": "~1.0.3",
     "create-react-class": "^15.6.3",
+    "eslint-config-prettier": "^6.0.0",
     "fs-extra": "^2.0.0",
     "jest-react-native": "^18.0.0",
     "lodash": "^4.17.14",
