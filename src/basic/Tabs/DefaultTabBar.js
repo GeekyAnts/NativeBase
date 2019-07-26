@@ -61,13 +61,16 @@ const DefaultTabBar = createReactClass({
     const headerContent =
       typeof name !== 'string' ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor } = this.props;
-    const textColor = disabled
-      ? disabledTextColor
-      : isTabActive
-      ? activeTextColor
-      : inactiveTextColor;
     const fontWeight = isTabActive ? 'bold' : 'normal';
-    const isDisabled = disabled != undefined;
+    const isDisabled = disabled !== undefined;
+    let textColor;
+    if (isDisabled) {
+      textColor = disabledTextColor;
+    } else if (isTabActive) {
+      textColor = activeTextStyle ? activeTextStyle.color : activeTextColor; // activeTextColor: default color for active Tab
+    } else {
+      textColor = textStyle ? textStyle.color : inactiveTextColor; // inactiveTextColor: default color for inactive Tab
+    }
 
     if (typeof name === 'string') {
       return (
@@ -84,8 +87,8 @@ const DefaultTabBar = createReactClass({
             <Text
               style={[
                 { fontSize: tabFontSize },
-                { color: textColor },
-                isTabActive ? activeTextStyle : textStyle
+                isTabActive ? activeTextStyle : textStyle,
+                { color: textColor }
               ]}
             >
               {name}
