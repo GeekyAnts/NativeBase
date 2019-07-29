@@ -13,7 +13,11 @@ class List extends Component {
         <FlatList
           ref={ref => (this._root = ref)}
           data={dataArray}
-          renderItem={({ item, index }) => this.props.renderRow(item, index)}
+          renderItem={({ item, index }) =>
+            this.props.renderItem
+              ? this.props.renderItem({ item, index })
+              : this.props.renderRow(item, 0, index)
+          }
           {...this.props}
         />
       );
