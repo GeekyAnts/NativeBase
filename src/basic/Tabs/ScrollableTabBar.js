@@ -290,7 +290,7 @@ const ScrollableTabBar = createReactClass({
     );
   },
 
-  componentDidUpdate(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     // If the tabs change, force the width of the tabs container to be recalculated
     if (
       !isEqual(this.props.tabs, nextProps.tabs) &&
