@@ -289,6 +289,10 @@ declare module "native-base" {
              * Array of data chunks to render iteratively.
              */
 			dataArray?: Array<any>;
+			renderItem?: (
+				rowData: any,
+				rowID: string | number,
+			) => React.ReactElement<any>;
 			renderRow?: (
 				rowData: any,
 				sectionID: string | number,
