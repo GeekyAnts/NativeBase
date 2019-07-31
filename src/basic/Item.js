@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-loop-func */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -148,7 +149,7 @@ class Item extends Component {
     });
     if (this.props.floatingLabel && icon.length) {
       let isIcon = false;
-      for (let i = 0; i < this.props.children.length; i + 1) {
+      for (let i = 0; i < this.props.children.length; i++) {
         if (
           this.props.children[i].props.name &&
           this.props.children[i].type.displayName !== 'Styled(Input)'
@@ -158,7 +159,7 @@ class Item extends Component {
             <Icon key={[i]} {...this.props.children[i].props} />
           );
         }
-        if (this.props.children[i].props.children) {
+        if (this.props.children[i].props.children || this.props.children[i].props.placeholder) {
           newChildren.push(
             <Animated.View
               key="float"
@@ -220,7 +221,7 @@ class Item extends Component {
       }
     } else if (this.props.floatingLabel && image.length) {
       let isImage = false;
-      for (let i = 0; i < this.props.children.length; i + 1) {
+      for (let i = 0; i < this.props.children.length; i++) {
         if (this.props.children[i].type.displayName === 'Styled(Thumbnail)') {
           isImage = true;
           newChildren.push(
