@@ -53,7 +53,7 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.2.3",
-    "babel-jest": "23.2.0",
+    "babel-jest": "^24.8.0",
     "babel-preset-react-native": "4.0.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
@@ -64,9 +64,9 @@
     "eslint-watch": "^5.1.2",
     "flow-bin": "0.47.0",
     "husky": "^3.0.0",
-    "jest": "23.3.0",
+    "jest": "^24.8.0",
     "react": "16.4.1",
-    "react-native": "0.56.0",
+    "react-native": "^0.60.4",
     "react-native-vector-icons": "6.1.0",
     "react-test-renderer": "16.4.1"
   },
