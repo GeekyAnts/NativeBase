@@ -1,8 +1,7 @@
-import { StyleProvider, connectStyle } from 'native-base-shoutem-theme';
+import { connectStyle } from 'native-base-shoutem-theme';
 import { keys } from 'lodash';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
-import setDefaultThemeStyle from './init';
 import getTheme from './theme/components';
 import variables from './theme/variables/platform';
 import Drawer from './basic/Drawer';
@@ -57,9 +56,9 @@ import { DefaultTabBar } from './basic/Tabs/DefaultTabBar';
 import { ScrollableTab } from './basic/Tabs/ScrollableTabBar';
 import { Subtitle } from './basic/Subtitle';
 import { Accordion } from './basic/Accordion';
+import { StyleProviderContextProvider as StyleProvider } from './StyleProviderContext';
 import VueNativeBase from './vue-native.js';
 
-setDefaultThemeStyle();
 // Theme
 export {
   getTheme,

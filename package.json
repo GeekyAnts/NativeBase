@@ -65,7 +65,7 @@
     "flow-bin": "0.47.0",
     "husky": "^3.0.0",
     "jest": "23.3.0",
-    "react": "16.4.1",
+    "react": "16.8.6",
     "react-native": "0.56.0",
     "react-native-vector-icons": "6.1.0",
     "react-test-renderer": "16.4.1"
