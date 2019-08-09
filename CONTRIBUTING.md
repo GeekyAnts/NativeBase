@@ -115,13 +115,19 @@ You are now ready to send PR to NativeBase!
 - Move over to the TestBed App [here](https://github.com/GeekyAnts/native-base-testbed) and clone it.
 
   ```bash
-  cd NativeBaseTestBed and npm install
+  cd native-base-testbed and npm install
   ```
 
 - Clone your fork of NativeBase
 
   ```git
   git clone git@github.com:${YOUR_USERNAME}/NativeBase.git
+  ```
+
+- Navigate to NativeBase
+
+  ```
+  cd NativeBase/
   ```
 
 - Add main repo remote
