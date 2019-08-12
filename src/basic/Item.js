@@ -52,9 +52,9 @@ class Item extends Component {
     };
   }
 
-  floatBack() {
+  floatBack(e) {
     Animated.timing(this.state.topAnim, {
-      toValue: 18,
+      toValue: e || 18,
       duration: 150
     }).start();
     Animated.timing(this.state.opacAnim, {
@@ -386,7 +386,7 @@ class Item extends Component {
         this.floatUp(-16);
       } else {
         newLabel.push(label);
-        this.floatBack();
+        this.floatBack(labelProps.floatBack);
       }
     } else {
       newLabel.push(
