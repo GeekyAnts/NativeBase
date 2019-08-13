@@ -9,7 +9,7 @@ import {
   View,
   StyleSheet
 } from 'react-native';
-import _ from 'lodash';
+import { isArray, remove } from 'lodash';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import variables from '../theme/variables/platform';
@@ -52,6 +52,18 @@ class Item extends Component {
     };
   }
 
+  getPlacholderValue(inputProps) {
+    let placeholderValue;
+
+    if (isArray(this.props.children) && this.props.children[0].props.children) {
+      placeholderValue = null;
+    } else {
+      placeholderValue = inputProps.placeholder;
+    }
+
+    return placeholderValue;
+  }
+
   floatBack(e) {
     Animated.timing(this.state.topAnim, {
       toValue: e || 18,
@@ -89,7 +101,7 @@ class Item extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     const childrenArray = React.Children.toArray(nextProps.children);
 
-    _.remove(childrenArray, item => {
+    remove(childrenArray, item => {
       if (item.type.displayName === 'Styled(Input)') {
         this.inputProps = item.props;
         return item;
@@ -112,7 +124,7 @@ class Item extends Component {
 
     let label = [];
     let labelProps = {};
-    label = _.remove(childrenArray, item => {
+    label = remove(childrenArray, item => {
       if (item.type === Label) {
         labelProps = item.props;
         return item;
@@ -121,7 +133,7 @@ class Item extends Component {
     });
 
     let inputProps = {};
-    _.remove(childrenArray, item => {
+    remove(childrenArray, item => {
       if (item.type === Input) {
         inputProps = item.props;
         this.inputProps = item.props;
@@ -132,7 +144,7 @@ class Item extends Component {
 
     let icon = [];
     let iconProps = {};
-    icon = _.remove(childrenArray, item => {
+    icon = remove(childrenArray, item => {
       if (item.type === Icon) {
         iconProps = item.props;
         return item;
@@ -141,14 +153,17 @@ class Item extends Component {
     });
 
     let image = [];
-    image = _.remove(childrenArray, item => {
+    image = remove(childrenArray, item => {
       if (item.type === Thumbnail) {
         return item;
       }
       return null;
     });
+
     if (this.props.floatingLabel && icon.length) {
+      let flag = true;
       let isIcon = false;
+
       for (let i = 0; i < this.props.children.length; i++) {
         if (
           this.props.children[i].props.name &&
@@ -159,7 +174,14 @@ class Item extends Component {
             <Icon key={[i]} {...this.props.children[i].props} />
           );
         }
-        if (this.props.children[i].props.children || this.props.children[i].props.placeholder) {
+
+        if (
+          (this.props.children[i].props.children ||
+            this.props.children[i].props.placeholder) &&
+          flag
+        ) {
+          flag = false;
+
           newChildren.push(
             <Animated.View
               key="float"
@@ -185,11 +207,13 @@ class Item extends Component {
               </Label>
             </Animated.View>
           );
+
           newChildren.push(
             <Input
               ref={c => (this._inputRef = c)}
               key="l2"
               {...inputProps}
+              placeholder={this.getPlacholderValue(inputProps)}
               onFocus={() => {
                 this.setState({ isFocused: true });
                 if (inputProps.onFocus) {
@@ -224,6 +248,7 @@ class Item extends Component {
       for (let i = 0; i < this.props.children.length; i++) {
         if (this.props.children[i].type.displayName === 'Styled(Thumbnail)') {
           isImage = true;
+
           newChildren.push(
             <Thumbnail
               small
@@ -236,6 +261,7 @@ class Item extends Component {
             />
           );
         }
+
         if (this.props.children[i].props.children) {
           newChildren.push(
             <Animated.View
@@ -262,11 +288,13 @@ class Item extends Component {
               </Label>
             </Animated.View>
           );
+
           newChildren.push(
             <Input
               ref={c => (this._inputRef = c)}
               key="l2"
               {...inputProps}
+              placeholder={this.getPlacholderValue(inputProps)}
               onFocus={() => {
                 this.setState({ isFocused: true });
                 inputProps.onFocus && inputProps.onFocus();
@@ -316,12 +344,14 @@ class Item extends Component {
           <Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
         </Animated.View>
       );
+
       newChildren.push(
         <Input
           ref={c => (this._inputRef = c)}
           value={this.state.text}
           key="l2"
           {...inputProps}
+          placeholder={this.getPlacholderValue(inputProps)}
           onFocus={() => {
             this.setState({ isFocused: true });
             inputProps.onFocus && inputProps.onFocus();
