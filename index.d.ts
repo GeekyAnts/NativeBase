@@ -91,6 +91,8 @@ declare module "native-base" {
              * Takes a data entry from the data source and should return a renderable component to be rendered as the row.
              */
 			renderItem?: Function;
+			renderBottom?: Function;
+			renderEmpty?: Function;
 		}
 		/**
          * see Widget Header.js
