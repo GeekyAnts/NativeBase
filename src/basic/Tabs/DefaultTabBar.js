@@ -37,7 +37,7 @@ const DefaultTabBar = createReactClass({
       activeTextColor: variable.topTabBarActiveTextColor,
       inactiveTextColor: variable.topTabBarTextColor,
       disabledTextColor: variable.tabBarDisabledTextColor,
-      backgroundColor: null,
+      backgroundColor: 'transparent',
       tabFontSize: variable.tabFontSize
     };
   },
