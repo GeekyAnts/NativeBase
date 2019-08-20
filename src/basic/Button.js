@@ -12,7 +12,6 @@ import { connectStyle } from 'native-base-shoutem-theme';
 
 import variable from '../theme/variables/platform';
 import { PLATFORM } from '../theme/variables/commonColor';
-import computeProps from '../utils/computeProps';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 import { Text } from './Text';
@@ -42,22 +41,14 @@ class Button extends React.PureComponent {
   }
 
   prepareRootProps() {
-    const defaultProps = {
-      style: this.getInitialStyle().borderedBtn
-    };
 
-    if (Array.isArray(this.props.style)) {
-      const flattenedStyle = this.props.style.reduce(
-        (accumulator, currentValue) => accumulator.concat(currentValue),
-        []
-      );
-      return computeProps(
-        { ...this.props, style: flattenedStyle },
-        defaultProps
-      );
+    const {style, ...others} = this.props;
+
+    return {
+      style: StyleSheet.compose(this.getInitialStyle().borderedBtn, style),
+      ...others
     }
 
-    return computeProps(this.props, defaultProps);
   }
 
   render() {
