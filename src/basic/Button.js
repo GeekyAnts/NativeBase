@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   TouchableOpacity,
@@ -17,10 +17,15 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 import { Text } from './Text';
 
-class Button extends Component {
+
+class Button extends React.PureComponent {
   static contextTypes = {
     theme: PropTypes.object
   };
+
+  setRoot(c){
+    this._root = c;
+  }
 
   getInitialStyle() {
     return {
@@ -54,21 +59,26 @@ class Button extends Component {
 
     return computeProps(this.props, defaultProps);
   }
+
   render() {
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
+
     const children =
-      Platform.OS === PLATFORM.IOS
+      Platform.OS === PLATFORM.IOS || !variables.buttonUppercaseAndroidText
         ? this.props.children
         : React.Children.map(this.props.children, child =>
             child && child.type === Text
               ? React.cloneElement(child, {
-                uppercase: variables.buttonUppercaseAndroidText,
+                uppercase: true,
                 ...child.props
               })
               : child
           );
+
+    const rootProps = this.prepareRootProps();
+
     if (
       Platform.OS === PLATFORM.IOS ||
       Platform.OS === PLATFORM.WEB ||
@@ -77,8 +87,8 @@ class Button extends Component {
     ) {
       return (
         <TouchableOpacity
-          {...this.prepareRootProps()}
-          ref={c => (this._root = c)}
+          {...rootProps}
+          ref={this.setRoot}
           activeOpacity={
             this.props.activeOpacity > 0
               ? this.props.activeOpacity
@@ -90,7 +100,7 @@ class Button extends Component {
       );
     }
     if (this.props.rounded) {
-      const buttonStyle = { ...this.prepareRootProps().style };
+      const buttonStyle = { ...rootProps.style };
       const buttonFlex =
         this.props.full || this.props.block
           ? variable.buttonDefaultFlex
@@ -104,12 +114,12 @@ class Button extends Component {
           ]}
         >
           <TouchableNativeFeedback
-            ref={c => (this._root = c)}
+            ref={this.setRoot}
             background={TouchableNativeFeedback.Ripple(
               this.props.androidRippleColor || variables.androidRippleColor,
               true
             )}
-            {...this.prepareRootProps()}
+            {...rootProps}
           >
             <View
               style={[
@@ -131,7 +141,7 @@ class Button extends Component {
     }
     return (
       <TouchableNativeFeedback
-        ref={c => (this._root = c)}
+        ref={this.setRoot}
         onPress={this.props.onPress}
         background={
           this.props.transparent
@@ -141,9 +151,9 @@ class Button extends Component {
                 false
               )
         }
-        {...this.prepareRootProps()}
+        {...rootProps}
       >
-        <View {...this.prepareRootProps()}>{children}</View>
+        <View {...rootProps}>{children}</View>
       </TouchableNativeFeedback>
     );
   }
