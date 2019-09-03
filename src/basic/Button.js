@@ -45,7 +45,7 @@ class Button extends React.PureComponent {
     const {style, ...others} = this.props;
 
     return {
-      style: StyleSheet.compose(this.getInitialStyle().borderedBtn, style),
+      style: StyleSheet.flatten(StyleSheet.compose(this.getInitialStyle().borderedBtn, style)),
       ...others
     }
 
