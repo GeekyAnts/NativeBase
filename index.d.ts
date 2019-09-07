@@ -838,7 +838,7 @@ declare module "native-base" {
 			style?: RnViewStyleProp;
 		}
 
-		interface Image extends ReactNative.TextProps, Testable { }
+		interface Image extends ReactNative.ImageProps, Testable { }
 
 		interface Segment extends ReactNative.TextProps, Testable { }
 
