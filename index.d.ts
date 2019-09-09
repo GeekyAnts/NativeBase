@@ -280,7 +280,7 @@ declare module "native-base" {
 
          * see Widget List.js
          */
-		interface List extends ReactNative.FlatListProperties<any>, Testable {
+		interface List extends ReactListViewProps, Testable {
 			listBorderColor?: string;
 			listDividerBg?: string;
 			listNoteColor?: string;
@@ -290,7 +290,11 @@ declare module "native-base" {
 			/**
              * Array of data chunks to render iteratively.
              */
-			dataArray?: Array<any>;
+      dataArray?: Array<any>;
+      renderItem?: (	
+				item: any,	
+				index: string | number,	
+			) => React.ReactElement<any>;
 			renderRow?: (
 				rowData: any,
 				sectionID: string | number,
@@ -300,7 +304,8 @@ declare module "native-base" {
 			dataSource?: ReactNative.ListViewDataSource;
 			disableLeftSwipe?: boolean;
 			disableRightSwipe?: boolean;
-			rightOpenValue?: number;
+      rightOpenValue?: number;
+      keyExtractor?: (item, index: number) => string;
 			leftOpenValue?: number;
 			renderRightHiddenRow?: (
 				rowData: any,
