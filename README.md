@@ -47,12 +47,12 @@ What is really great with [NativeBase](https://nativebase.io/) is that you can u
 
 **a. Setup with pure React Native app**
 
-*Install NativeBase*
+*Install NativeBase:*
 
 ```js
 npm install native-base --save
 ```
-*Install Peer Dependencies*<br />
+*Install Peer Dependencies:*<br />
 The peer dependencies included from any npm packages does not automatically get installed. Your application will not depend on it explicitly.
 
 ```js
@@ -67,7 +67,7 @@ You've successfully setup [NativeBase](https://nativebase.io/) with your [React 
 Expo helps you make React Native apps with no build configuration. It works on macOS, Windows, and Linux. <br />
 Refer this link for additional information on [Expo](https://docs.expo.io/)
 
-*Install NativeBase*
+*Install NativeBase:*
 ```js
 npm install native-base --save
 ```
@@ -78,7 +78,7 @@ npm install native-base --save
 [NativeBase](https://nativebase.io/) uses some custom fonts that can be loaded using **Font.loadAsync**. Check out the [Expo Font documentation](https://docs.expo.io/versions/latest/sdk/font/).
 <br />
 
-*Install Expo Fonts*
+*Install Expo Fonts:*
 ```bash
 expo install expo-font
 ```
@@ -133,19 +133,19 @@ You can run the following command to create the boilerplate, provided you have [
 ```
 ignite new appname --boilerplate native-base-boilerplate
 ```
-Go to app location
+Go to app location:
 ```sh
 cd appname
 ```
-For iOS run
+For iOS run:
 ```sh
 react-native run-ios
 ```
-For Android run
+For Android run:
 ```sh
 react-native run-android
 ```
-Refer [ignite-native-base-boilerplate](https://github.com/GeekyAnts/ignite-native-base-boilerplate) page for additional information
+Refer [ignite-native-base-boilerplate](https://github.com/GeekyAnts/ignite-native-base-boilerplate) page for additional information.
 
 ## 5. Components
 
@@ -153,8 +153,8 @@ Refer [ignite-native-base-boilerplate](https://github.com/GeekyAnts/ignite-nativ
 
 ## 6. NativeBase for Web
 
-NativeBase is now available for React web lovers. Check the [demo](https://nativebase.io/kitchen-sink-web-app/)
-Find the repo [here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/web-support)
+NativeBase is now available for React web lovers. Check the [demo](https://nativebase.io/kitchen-sink-web-app/).
+Find the repo [here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/web-support).
 
 
 ## 7. Compatibility Versions
