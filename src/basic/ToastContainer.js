@@ -53,7 +53,7 @@ class ToastContainer extends Component {
       width: '100%',
       elevation: 9,
       paddingHorizontal: Platform.OS === PLATFORM.IOS ? 20 : 0,
-      top: this.state.position === POSITION.TOP ? this.getTop() : undefined,
+      top: this.state.position === POSITION.TOP ? 30 : undefined,
       bottom:
         this.state.position === POSITION.BOTTOM ? this.getTop() : undefined
     };
