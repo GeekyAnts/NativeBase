@@ -64,6 +64,8 @@
     "eslint-watch": "^5.1.2",
     "flow-bin": "0.47.0",
     "husky": "^3.0.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
     "jest": "^24.8.0",
     "react": "16.4.1",
     "react-native": "^0.60.4",
@@ -80,7 +82,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run lint && pretty-quick --staged"
     }
   },
   "readmeFilename": "README.md",
