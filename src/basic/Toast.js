@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ViewPropTypes } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Toast extends Component {
   render() {
@@ -19,7 +20,7 @@ Toast.propTypes = {
   ])
 };
 
-const StyledToast = connectStyle("NativeBase.Toast", {}, mapPropsToStyleNames)(
+const StyledToast = connectStyle('NativeBase.Toast', {}, mapPropsToStyleNames)(
   Toast
 );
 export { StyledToast as Toast };

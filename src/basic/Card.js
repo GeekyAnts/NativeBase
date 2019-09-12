@@ -1,23 +1,19 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ListView, ViewPropTypes } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { FlatList, View, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Card extends Component {
   render() {
     if (this.props.dataArray && this.props.renderRow) {
-      const ds = new ListView.DataSource({
-        rowHasChanged: (r1, r2) => r1 !== r2
-      });
-      const dataSource = ds.cloneWithRows(this.props.dataArray);
       return (
-        <ListView
+        <FlatList
           {...this.props}
-          enableEmptySections
-          dataSource={dataSource}
-          renderRow={this.props.renderRow}
+          data={this.props.dataArray}
+          renderItem={this.props.renderRow}
+          keyExtractor={(item, index) => index.toString()}
         />
       );
     }
@@ -36,11 +32,12 @@ Card.propTypes = {
     PropTypes.number,
     PropTypes.array
   ]),
+  // eslint-disable-next-line react/forbid-prop-types
   dataArray: PropTypes.array,
   renderRow: PropTypes.func
 };
 
-const StyledCard = connectStyle("NativeBase.Card", {}, mapPropsToStyleNames)(
+const StyledCard = connectStyle('NativeBase.Card', {}, mapPropsToStyleNames)(
   Card
 );
 

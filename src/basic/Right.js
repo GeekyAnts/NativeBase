@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ViewPropTypes } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Right extends Component {
   render() {
@@ -20,7 +20,7 @@ Right.propTypes = {
   ])
 };
 
-const StyledRight = connectStyle("NativeBase.Right", {}, mapPropsToStyleNames)(
+const StyledRight = connectStyle('NativeBase.Right', {}, mapPropsToStyleNames)(
   Right
 );
 

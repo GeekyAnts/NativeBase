@@ -1,85 +1,81 @@
 // @flow
 
-import variable from "./../variables/platform";
-
-export default (variables /*: * */ = variable) => {
-  const platform = variables.platform;
-
+export default () => {
   const theme = {
-    "NativeBase.Item": {
-      ".fixedLabel": {
-        "NativeBase.Label": {
+    'NativeBase.Item': {
+      '.fixedLabel': {
+        'NativeBase.Label': {
           paddingLeft: null
         },
         marginLeft: 15
       },
-      ".inlineLabel": {
-        "NativeBase.Label": {
+      '.inlineLabel': {
+        'NativeBase.Label': {
           paddingLeft: null
         },
         marginLeft: 15
       },
-      ".placeholderLabel": {
-        "NativeBase.Input": {}
+      '.placeholderLabel': {
+        'NativeBase.Input': {}
       },
-      ".stackedLabel": {
-        "NativeBase.Label": {
+      '.stackedLabel': {
+        'NativeBase.Label': {
           top: 5,
           paddingLeft: null
         },
-        "NativeBase.Input": {
+        'NativeBase.Input': {
           paddingLeft: null,
           marginLeft: null
         },
-        "NativeBase.Icon": {
+        'NativeBase.Icon': {
           marginTop: 36
         },
         marginLeft: 15
       },
-      ".floatingLabel": {
-        "NativeBase.Input": {
+      '.floatingLabel': {
+        'NativeBase.Input': {
           paddingLeft: null,
           top: 10,
           marginLeft: null
         },
-        "NativeBase.Label": {
+        'NativeBase.Label': {
           left: 0,
           top: 6
         },
-        "NativeBase.Icon": {
+        'NativeBase.Icon': {
           top: 6
         },
         marginTop: 15,
         marginLeft: 15
       },
-      ".regular": {
-        "NativeBase.Label": {
+      '.regular': {
+        'NativeBase.Label': {
           left: 0
         },
         marginLeft: 0
       },
-      ".rounded": {
-        "NativeBase.Label": {
+      '.rounded': {
+        'NativeBase.Label': {
           left: 0
         },
         marginLeft: 0
       },
-      ".underline": {
-        "NativeBase.Label": {
+      '.underline': {
+        'NativeBase.Label': {
           left: 0,
           top: 0,
-          position: "relative"
+          position: 'relative'
         },
-        "NativeBase.Input": {
+        'NativeBase.Input': {
           left: -15
         },
         marginLeft: 15
       },
-      ".last": {
+      '.last': {
         marginLeft: 0,
         paddingLeft: 15
       },
-      "NativeBase.Label": {
+      'NativeBase.Label': {
         paddingRight: 5
       },
       marginLeft: 15

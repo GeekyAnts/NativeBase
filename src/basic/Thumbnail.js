@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Image } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import computeProps from "../utils/computeProps";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Image } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Thumbnail extends Component {
   render() {
@@ -13,12 +13,20 @@ class Thumbnail extends Component {
 
 Thumbnail.propTypes = {
   ...Image.propTypes,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
   square: PropTypes.bool,
   circular: PropTypes.bool,
-  size: PropTypes.number,
+  size: PropTypes.number
 };
 
-const StyledThumbnail = connectStyle("NativeBase.Thumbnail", {}, mapPropsToStyleNames)(Thumbnail);
+const StyledThumbnail = connectStyle(
+  'NativeBase.Thumbnail',
+  {},
+  mapPropsToStyleNames
+)(Thumbnail);
 
 export { StyledThumbnail as Thumbnail };
