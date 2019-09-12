@@ -204,7 +204,6 @@ const ScrollableTabBar = createReactClass({
         </TabHeading>
       </Button>
     );
-    
   },
 
   measureTab(page, event) {
@@ -297,6 +296,7 @@ const ScrollableTabBar = createReactClass({
       this.state._containerWidth
     ) {
       this.setState({ _containerWidth: null });
+    }
   },
 
   onTabContainerLayout(e) {

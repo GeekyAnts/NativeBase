@@ -38,18 +38,22 @@ class Icon extends Component {
         return name;
       }
     } else if (variables.iconSet && variables.iconMap) {
-			if (typeof variables.iconMap[this.props.name] !== "object") {
-				return this.props.name;
-			} else if (typeof variables.iconMap[this.props.name] === "object") {
-				let name;
-				if (platform === "ios" && platformStyle !== "material") {
-					name = this.props.active ? variables.iconMap[this.props.name].ios.active : variables.iconMap[this.props.name].ios.default;
-				} else {
-					name = this.props.active ? variables.iconMap[this.props.name].android.active : variables.iconMap[this.props.name].android.default;
-				}
-				return name;
-			}
-		} else {
+      if (typeof variables.iconMap[this.props.name] !== 'object') {
+        return this.props.name;
+      } else if (typeof variables.iconMap[this.props.name] === 'object') {
+        let name;
+        if (platform === 'ios' && platformStyle !== 'material') {
+          name = this.props.active
+            ? variables.iconMap[this.props.name].ios.active
+            : variables.iconMap[this.props.name].ios.default;
+        } else {
+          name = this.props.active
+            ? variables.iconMap[this.props.name].android.active
+            : variables.iconMap[this.props.name].android.default;
+        }
+        return name;
+      }
+    } else {
       return this.props.name;
     }
     return null;
