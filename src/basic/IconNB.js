@@ -23,15 +23,18 @@ class IconNB extends Component {
     theme: PropTypes.object
   };
 
-  constructor(props) {
+  constructor(props, context) {
     super(props);
-    this.setIcon(props.type);
+    this.setIcon(props.type, context && context.theme);
   }
 
-  setIcon(iconType) {
-    if (iconType === undefined && get(this, 'context.theme')) {
+  setIcon(iconType, theme) {
+    if (theme === undefined) {
+      theme = get(this, 'context.theme')
+    }
+    if (iconType === undefined && theme !== undefined) {
       // eslint-disable-next-line
-      iconType = this.context.theme['@@shoutem.theme/themeStyle'].variables
+      iconType = theme['@@shoutem.theme/themeStyle'].variables
         .iconFamily;
     }
     switch (iconType) {
