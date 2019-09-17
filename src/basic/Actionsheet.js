@@ -108,6 +108,7 @@ class ActionSheetContainer extends Component {
               data={this.state.items}
               keyExtractor={(item, index) => String(index)}
               renderItem={({ index, item }) => {
+                const iconType = item.iconType ? item.iconType : 'FontAwesome';
                 return typeof this.state.items[0] === 'string' ? (
                   <ListItem
                     onPress={() => {
@@ -138,6 +139,7 @@ class ActionSheetContainer extends Component {
                         style={{
                           color: item.iconColor ? item.iconColor : undefined
                         }}
+                        type={iconType}
                       />
                     </Left>
                     <Body style={styles.listItemBody}>
