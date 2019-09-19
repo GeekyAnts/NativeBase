@@ -1,74 +1,83 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connectStyle } from 'native-base-shoutem-theme';
+import { get } from 'lodash';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Entypo from 'react-native-vector-icons/Entypo';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import Feather from 'react-native-vector-icons/Feather';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Foundation from 'react-native-vector-icons/Foundation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Octicons from 'react-native-vector-icons/Octicons';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import Zocial from 'react-native-vector-icons/Zocial';
 
-import { connectStyle } from "native-base-shoutem-theme";
-
-import AntDesign from "react-native-vector-icons/AntDesign";
-import Entypo from "react-native-vector-icons/Entypo";
-import EvilIcons from "react-native-vector-icons/EvilIcons";
-import Feather from "react-native-vector-icons/Feather";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import Foundation from "react-native-vector-icons/Foundation";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import Octicons from "react-native-vector-icons/Octicons";
-import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
-import Zocial from "react-native-vector-icons/Zocial";
-
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class IconNB extends Component {
   static contextTypes = {
     theme: PropTypes.object
   };
 
-  setIcon(iconType) {
-    let customIconSet = undefined;
-    if (iconType == undefined && this.context.theme) {
-      const themeStyle = this.context.theme['@@shoutem.theme/themeStyle'];
+  constructor(props, context) {
+    super(props);
+    this.setIcon(props.type, context && context.theme);
+  }
+
+  setIcon(iconType, theme) {
+    if (theme === undefined) {
+      // eslint-disable-next-line
+      theme = get(this, 'context.theme');
+    }
+    let customIconSet;
+    if (iconType === undefined && theme !== undefined) {
+      const themeStyle = theme['@@shoutem.theme/themeStyle'];
+      // eslint-disable-next-line
       iconType = themeStyle.variables.iconFamily;
       customIconSet = themeStyle.variables.iconSet;
     }
     switch (iconType) {
-      case "AntDesign":
+      case 'AntDesign':
         this.Icon = AntDesign;
         break;
-      case "Entypo":
+      case 'Entypo':
         this.Icon = Entypo;
         break;
-      case "EvilIcons":
+      case 'EvilIcons':
         this.Icon = EvilIcons;
         break;
-      case "Feather":
+      case 'Feather':
         this.Icon = Feather;
         break;
-      case "FontAwesome":
+      case 'FontAwesome':
         this.Icon = FontAwesome;
         break;
-      case "FontAwesome5":
+      case 'FontAwesome5':
         this.Icon = FontAwesome5;
         break;
-      case "Foundation":
+      case 'Foundation':
         this.Icon = Foundation;
         break;
-      case "Ionicons":
+      case 'Ionicons':
         this.Icon = Ionicons;
         break;
-      case "MaterialCommunityIcons":
+      case 'MaterialCommunityIcons':
         this.Icon = MaterialCommunityIcons;
         break;
-      case "MaterialIcons":
+      case 'MaterialIcons':
         this.Icon = MaterialIcons;
         break;
-      case "Octicons":
+      case 'Octicons':
         this.Icon = Octicons;
         break;
-      case "SimpleLineIcons":
+      case 'SimpleLineIcons':
         this.Icon = SimpleLineIcons;
         break;
-      case "Zocial":
+      case 'Zocial':
         this.Icon = Zocial;
         break;
       default:
@@ -76,12 +85,9 @@ class IconNB extends Component {
     }
   }
 
-  componentWillMount() {
-    this.setIcon(this.props.type);
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    if (nextProps.type && this.props.type != nextProps.type) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillUpdate(nextProps) {
+    if (nextProps.type && this.props.type !== nextProps.type) {
       this.setIcon(nextProps.type);
     }
   }
@@ -92,30 +98,25 @@ class IconNB extends Component {
 }
 
 IconNB.propTypes = {
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array
-  ]),
   type: PropTypes.oneOf([
-    "AntDesign",
-    "Entypo",
-    "EvilIcons",
-    "Feather",
-    "FontAwesome",
-    "FontAwesome5",
-    "Foundation",
-    "Ionicons",
-    "MaterialCommunityIcons",
-    "MaterialIcons",
-    "Octicons",
-    "SimpleLineIcons",
-    "Zocial"
+    'AntDesign',
+    'Entypo',
+    'EvilIcons',
+    'Feather',
+    'FontAwesome',
+    'FontAwesome5',
+    'Foundation',
+    'Ionicons',
+    'MaterialCommunityIcons',
+    'MaterialIcons',
+    'Octicons',
+    'SimpleLineIcons',
+    'Zocial'
   ])
 };
 
 const StyledIconNB = connectStyle(
-  "NativeBase.IconNB",
+  'NativeBase.IconNB',
   {},
   mapPropsToStyleNames
 )(IconNB);

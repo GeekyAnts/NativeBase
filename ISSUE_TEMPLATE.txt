@@ -3,23 +3,26 @@
 <!--Take a look at these before heading towards creating an issue. Before you submit your issue, please make sure to check the following boxes by putting an x in the [ ] (don't: [x ], [ x], do: [x])-->
 
 ## I have gone through these following points
-- []   Check latest documentation: https://docs.nativebase.io/
-- []   Check for existing open/closed issues for a possible duplicate before creating a new issue: https://github.com/GeekyAnts/NativeBase/issues
-- []   Use the latest NativeBase release: https://github.com/GeekyAnts/NativeBase/releases
-- []   Check examples from NativeBase KitchenSink https://github.com/GeekyAnts/NativeBase-KitchenSink
-- []   For discussion purpose make use of NativeBase Slack: http://slack.nativebase.io/
-- []   For queries related to theme, check [Theme Variables](https://docs.nativebase.io/docs/ThemeVariables.html) from Docs and live NativeBase Theme Editor http://nativebase.io/customizer/
+
+- [] Check latest documentation: https://docs.nativebase.io/
+- [] Check for existing open/closed issues for a possible duplicate before creating a new issue: https://github.com/GeekyAnts/NativeBase/issues
+- [] Use the latest NativeBase release: https://github.com/GeekyAnts/NativeBase/releases
+- [] Check examples from NativeBase KitchenSink https://github.com/GeekyAnts/NativeBase-KitchenSink
+- [] For discussion purpose make use of NativeBase Slack: http://slack.nativebase.io/
+- [] For queries related to theme, check [Theme Variables](https://docs.nativebase.io/docs/ThemeVariables.html) from Docs and live NativeBase Theme Editor http://nativebase.io/customizer/
 
 ## Issue Description
+
 <!-- **DO** fill out the below form to give us a better idea about your environment and help us debug it quicker. Issues without the required details will mostly be closed.-->
 
-### node, npm, react-native, react and native-base version, expo version if used, xcode version
+#### node, npm, react-native, react and native-base version, expo version if used, xcode version
 
-### Expected behaviour
+#### Expected behaviour
 
-### Actual behaviour
+#### Actual behaviour
 
-### Steps to reproduce
+#### Steps to reproduce
+
 <!--
 - Include code snippet and output screenshot.
 - Include code snippet in preformatted mode (```code```) and not in screenshot.
@@ -28,9 +31,12 @@
 - Issue will be closed abruptly in case of buggy code snippet.
 -->
 
-### Is the bug present in both iOS and Android or in any one of them?
+#### Is the bug present in both iOS and Android or in any one of them?
 
-### Any other additional info which would help us debug the issue quicker.
+#### Any other additional info which would help us debug the issue quicker.
 
+###Important
+
+If you want your issue to be looked at quicker, attach a snack reproducible with your issue. Makes it easier for us!
 
 <!-- In case of not following the above instructions, the issue will be closed abruptly -->

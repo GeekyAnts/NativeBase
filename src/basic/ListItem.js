@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   TouchableHighlight,
   Platform,
   TouchableNativeFeedback,
   View
-} from "react-native";
+} from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
-import variable from "../theme/variables/platform";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import variable from '../theme/variables/platform';
 
 class ListItem extends Component {
   static contextTypes = {
@@ -17,12 +17,12 @@ class ListItem extends Component {
   };
   render() {
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
 
     if (
-      Platform.OS === "ios" ||
-      Platform.OS === "web" ||
+      Platform.OS === 'ios' ||
+      Platform.OS === 'web' ||
       variables.androidRipple === false ||
       (!this.props.onPress && !this.props.onLongPress) ||
       Platform.Version <= 21
@@ -36,21 +36,21 @@ class ListItem extends Component {
           {...this.props}
           style={this.props.touchableHighlightStyle}
         >
-          <View {...this.props} testID={undefined}>{this.props.children}</View>
+          <View {...this.props} testID={undefined}>
+            {this.props.children}
+          </View>
         </TouchableHighlight>
       );
-    } else {
-      return (
-        <TouchableNativeFeedback
-          ref={c => (this._root = c)}
-          {...this.props}
-        >
-          <View style={{ marginLeft: -17, paddingLeft: 17 }}>
-            <View {...this.props} testID={undefined}>{this.props.children}</View>
-          </View>
-        </TouchableNativeFeedback>
-      );
     }
+    return (
+      <TouchableNativeFeedback ref={c => (this._root = c)} {...this.props}>
+        <View style={{ marginLeft: -17, paddingLeft: 17 }}>
+          <View {...this.props} testID={undefined}>
+            {this.props.children}
+          </View>
+        </View>
+      </TouchableNativeFeedback>
+    );
   }
 }
 
@@ -70,7 +70,7 @@ ListItem.propTypes = {
 };
 
 const StyledListItem = connectStyle(
-  "NativeBase.ListItem",
+  'NativeBase.ListItem',
   {},
   mapPropsToStyleNames
 )(ListItem);

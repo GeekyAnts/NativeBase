@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ViewPropTypes } from "react-native";
-import _ from "lodash";
-import { connectStyle } from "native-base-shoutem-theme";
-import variable from "../theme/variables/platform";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+
+import variable from '../theme/variables/platform';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Footer extends Component {
   static contextTypes = {
@@ -14,72 +14,65 @@ class Footer extends Component {
     super(props);
     this.state = {
       orientation:
-        variable.deviceHeight > variable.deviceWidth ? "portrait" : "landscape"
+        variable.deviceHeight > variable.deviceWidth ? 'portrait' : 'landscape'
     };
   }
   layoutChange(val) {
-    let maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
-    if (val.width >= maxComp) this.setState({ orientation: "landscape" });
+    const maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
+    if (val.width >= maxComp) this.setState({ orientation: 'landscape' });
     else {
-      this.setState({ orientation: "portrait" });
+      this.setState({ orientation: 'portrait' });
     }
   }
 
   calculateHeight(mode, inSet) {
+    const { style } = this.props;
     let inset = null;
-    if (inSet != undefined) {
+    if (inSet !== undefined) {
       inset = inSet;
     } else {
       inset = variable.Inset;
     }
-    const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
+    const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let oldHeight = null;
-    if (this.props.style.height != undefined) {
-      oldHeight = this.props.style.height;
-    }else if(this.props.style[1]){
-      oldHeight= this.props.style[1].height ? this.props.style[1].height : this.props.style[0].height;
+    if (style.height !== undefined) {
+      oldHeight = style.height;
+    } else if (style[1]) {
+      oldHeight = style[1].height || style[0].height;
     } else {
-      oldHeight = this.props.style[0].height;
+      oldHeight = style[0].height;
     }
-    let height = oldHeight + InsetValues.bottomInset;
+    const height = oldHeight + InsetValues.bottomInset;
     return height;
   }
 
   calculatePadder(mode, inSet) {
+    const { style } = this.props;
     let inset = null;
-    if (inSet != undefined) {
+    if (inSet !== undefined) {
       inset = inSet;
     } else {
       inset = variable.Inset;
     }
-    const InsetValues = mode === "portrait" ? inset.portrait : inset.landscape;
+    const InsetValues = mode === 'portrait' ? inset.portrait : inset.landscape;
     let bottomPadder = null;
-    if (this.props.style[1] !== undefined) {
-      if (
-        this.props.style[1].padding !== undefined ||
-        this.props.style[1].paddingTop !== undefined
-      ) {
+    if (style[1] !== undefined) {
+      if (style[1].padding !== undefined || style[1].paddingTop !== undefined) {
         bottomPadder =
-          (this.props.style[1].paddingTop
-            ? this.props.style[1].paddingTop
-            : this.props.style[1].padding) + InsetValues.bottomInset;
+          (style[1].paddingTop || style[1].padding) + InsetValues.bottomInset;
       }
-    } else if (
-      this.props.style.padding !== undefined &&
-      this.props.style.paddingTop !== undefined
-    ) {
+    } else if (style.padding !== undefined && style.paddingTop !== undefined) {
       bottomPadder =
-        (this.props.style.paddingTop
-          ? this.props.style.paddingTop
-          : this.props.style.padding) + InsetValues.bottomInset;
+        (style.paddingTop || style.padding) + InsetValues.bottomInset;
     } else {
       bottomPadder = InsetValues.bottomInset;
     }
     return bottomPadder;
   }
   render() {
+    const { style } = this.props;
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return variables.isIphoneX ? (
       <View
@@ -87,7 +80,7 @@ class Footer extends Component {
         {...this.props}
         onLayout={e => this.layoutChange(e.nativeEvent.layout)}
         style={[
-          this.props.style,
+          style,
           {
             height: this.calculateHeight(
               this.state.orientation,
@@ -116,7 +109,7 @@ Footer.propTypes = {
 };
 
 const StyledFooter = connectStyle(
-  "NativeBase.Footer",
+  'NativeBase.Footer',
   {},
   mapPropsToStyleNames
 )(Footer);

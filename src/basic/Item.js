@@ -1,28 +1,32 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+/* eslint-disable no-plusplus */
+/* eslint-disable no-loop-func */
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   TouchableOpacity,
   Animated,
   Platform,
   View,
   StyleSheet
-} from "react-native";
-import { Input } from "./Input";
-import { Label } from "./Label";
-import { Icon } from "./Icon";
-import { Thumbnail } from "./Thumbnail";
+} from 'react-native';
+import { isArray, remove } from 'lodash';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import variables from "../theme/variables/platform";
-import computeProps from "../utils/computeProps";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
-import _ from "lodash";
+import variables from '../theme/variables/platform';
+import computeProps from '../utils/computeProps';
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+
+import { Input } from './Input';
+import { Label } from './Label';
+import { Icon } from './Icon';
+import { Thumbnail } from './Thumbnail';
 
 class Item extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: "",
+      isFocussed: true,
+      text: '',
       topAnim: new Animated.Value(18),
       opacAnim: new Animated.Value(1)
     };
@@ -30,26 +34,6 @@ class Item extends Component {
   componentDidMount() {
     if (this.props.floatingLabel) {
       if (this.inputProps && this.inputProps.value) {
-        this.setState({ isFocused: true });
-        this.floatUp(-16);
-      }
-      if (this.inputProps && this.inputProps.getRef)
-        this.inputProps.getRef(this._inputRef);
-    }
-  }
-  componentWillReceiveProps(nextProps) {
-    const childrenArray = React.Children.toArray(nextProps.children);
-    let inputProps = {};
-    _.remove(childrenArray, item => {
-      if (item.type.displayName === "Styled(Input)") {
-        inputProps = item.props;
-        this.inputProps = item.props;
-        return item;
-      }
-    });
-    if (this.props.floatingLabel) {
-      if (this.inputProps && this.inputProps.value) {
-        this.setState({ isFocused: true });
         this.floatUp(-16);
       }
       if (this.inputProps && this.inputProps.getRef)
@@ -57,9 +41,32 @@ class Item extends Component {
     }
   }
 
-  floatBack() {
+  getInitialStyle() {
+    return {
+      roundedInputGroup: {
+        borderWidth: this.props.rounded ? variables.borderWidth * 2 : undefined,
+        borderRadius: this.props.rounded
+          ? variables.inputGroupRoundedBorderRadius
+          : undefined
+      }
+    };
+  }
+
+  getPlacholderValue(inputProps) {
+    let placeholderValue;
+
+    if (isArray(this.props.children) && this.props.children[0].props.children) {
+      placeholderValue = null;
+    } else {
+      placeholderValue = inputProps.placeholder;
+    }
+
+    return placeholderValue;
+  }
+
+  floatBack(e) {
     Animated.timing(this.state.topAnim, {
-      toValue: 18,
+      toValue: e || 18,
       duration: 150
     }).start();
     Animated.timing(this.state.opacAnim, {
@@ -79,36 +86,36 @@ class Item extends Component {
     }).start();
   }
 
-  renderLabel(label, labelProps) {
-    const newLabel = [];
-    let labelStyle = StyleSheet.flatten([
-      { fontSize: 15, lineHeight: 30 },
-      labelProps.style
-    ]);
-    if (this.props.floatingLabel) {
-      if (this.state.isFocused) {
-        newLabel.push(
-          React.createElement(Label, {
-            ...labelProps,
-            key: "newFLabel",
-            float: true,
-            style: labelStyle
-          })
-        );
-        this.floatUp(-16);
-      } else {
-        newLabel.push(label);
-        this.floatBack();
+  prepareRootProps() {
+    const defaultProps = {
+      style: this.getInitialStyle().roundedInputGroup
+    };
+
+    return computeProps(this.props, defaultProps);
+  }
+
+  // Temporary fix to avoid the crash.
+  // To be refactored to getDerivedStateFromProps.
+
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    const childrenArray = React.Children.toArray(nextProps.children);
+
+    remove(childrenArray, item => {
+      if (item.type.displayName === 'Styled(Input)') {
+        this.inputProps = item.props;
+        return item;
       }
-    } else {
-      newLabel.push(
-        React.createElement(Label, {
-          ...labelProps,
-          key: "newLabel"
-        })
-      );
+      return null;
+    });
+    if (this.props.floatingLabel) {
+      if (this.inputProps && this.inputProps.value) {
+        this.setState({ isFocused: true });
+        this.floatUp(-16);
+      }
+      if (this.inputProps && this.inputProps.getRef)
+        this.inputProps.getRef(this._inputRef);
     }
-    return newLabel;
   }
 
   renderChildren() {
@@ -117,68 +124,82 @@ class Item extends Component {
 
     let label = [];
     let labelProps = {};
-    label = _.remove(childrenArray, item => {
+    label = remove(childrenArray, item => {
       if (item.type === Label) {
         labelProps = item.props;
         return item;
       }
+      return null;
     });
 
-    let input = [];
     let inputProps = {};
-    input = _.remove(childrenArray, item => {
+    remove(childrenArray, item => {
       if (item.type === Input) {
         inputProps = item.props;
         this.inputProps = item.props;
         return item;
       }
+      return null;
     });
 
     let icon = [];
     let iconProps = {};
-    icon = _.remove(childrenArray, item => {
+    icon = remove(childrenArray, item => {
       if (item.type === Icon) {
         iconProps = item.props;
         return item;
       }
+      return null;
     });
 
     let image = [];
-    let imageProps = {};
-    image = _.remove(childrenArray, item => {
+    image = remove(childrenArray, item => {
       if (item.type === Thumbnail) {
-        imageProps = item.props;
         return item;
       }
+      return null;
     });
+
     if (this.props.floatingLabel && icon.length) {
+      let flag = true;
       let isIcon = false;
+
       for (let i = 0; i < this.props.children.length; i++) {
-        if (this.props.children[i].props.name && this.props.children[i].type.displayName !== "Styled(Input)") {
+        if (
+          this.props.children[i].props.name &&
+          this.props.children[i].type.displayName !== 'Styled(Input)'
+        ) {
           isIcon = true;
           newChildren.push(
             <Icon key={[i]} {...this.props.children[i].props} />
           );
         }
-        if (this.props.children[i].props.children) {
+
+        if (
+          (this.props.children[i].props.children ||
+            this.props.children[i].props.placeholder) &&
+          flag
+        ) {
+          flag = false;
+
           newChildren.push(
             <Animated.View
               key="float"
               style={{
-                position: "absolute",
+                position: 'absolute',
                 left:
                   this.props.last && isIcon
                     ? 40
                     : this.props.last
-                      ? 15
-                      : isIcon
-                        ? 26
-                        : 0,
+                    ? 15
+                    : isIcon
+                    ? 26
+                    : 0,
                 right: 0,
                 top: this.state.topAnim,
                 opacity: this.state.opacAnim,
-                paddingTop: Platform.OS === "ios" ? undefined : undefined,
-                paddingBottom: Platform.OS === "ios" ? undefined : 12
+                paddingTop: Platform.OS === 'ios' ? undefined : undefined,
+                paddingBottom: Platform.OS === 'ios' ? undefined : 12
               }}
             >
               <Label {...labelProps}>
@@ -186,27 +207,37 @@ class Item extends Component {
               </Label>
             </Animated.View>
           );
+
           newChildren.push(
             <Input
               ref={c => (this._inputRef = c)}
               key="l2"
               {...inputProps}
+              placeholder={this.getPlacholderValue(inputProps)}
               onFocus={() => {
                 this.setState({ isFocused: true });
-                inputProps.onFocus && inputProps.onFocus();
+                if (inputProps.onFocus) {
+                  inputProps.onFocus();
+                }
               }}
-              onBlur={(e) => {
-                inputProps.value
-                  ? this.setState({
+              onBlur={e => {
+                if (inputProps.value) {
+                  this.setState({
                     isFocused: true
-                  })
-                  : !this.state.text.length &&
+                  });
+                } else if (!this.state.text.length) {
                   this.setState({ isFocused: false });
-                inputProps.onBlur && inputProps.onBlur(e);
+                }
+
+                if (inputProps.onBlur) {
+                  inputProps.onBlur(e);
+                }
               }}
               onChangeText={text => {
                 this.setState({ text });
-                inputProps.onChangeText && inputProps.onChangeText(text);
+                if (inputProps.onChangeText) {
+                  inputProps.onChangeText(text);
+                }
               }}
             />
           );
@@ -215,8 +246,9 @@ class Item extends Component {
     } else if (this.props.floatingLabel && image.length) {
       let isImage = false;
       for (let i = 0; i < this.props.children.length; i++) {
-        if (this.props.children[i].type.displayName === "Styled(Thumbnail)") {
+        if (this.props.children[i].type.displayName === 'Styled(Thumbnail)') {
           isImage = true;
+
           newChildren.push(
             <Thumbnail
               small
@@ -224,32 +256,31 @@ class Item extends Component {
               {...this.props.children[i].props}
               style={{
                 right: 10,
-                left: (i == this.props.children.length - 1)
-                  ? undefined
-                  : 0
+                left: i === this.props.children.length - 1 ? undefined : 0
               }}
             />
           );
         }
+
         if (this.props.children[i].props.children) {
           newChildren.push(
             <Animated.View
               key="float"
               style={{
-                position: "absolute",
+                position: 'absolute',
                 left:
                   this.props.last && isImage
                     ? 57
                     : this.props.last
-                      ? 15
-                      : isImage
-                        ? 42
-                        : 0,
+                    ? 15
+                    : isImage
+                    ? 42
+                    : 0,
                 right: 0,
                 top: this.state.topAnim,
                 opacity: this.state.opacAnim,
-                paddingTop: Platform.OS === "ios" ? undefined : undefined,
-                paddingBottom: Platform.OS === "ios" ? undefined : 12
+                paddingTop: Platform.OS === 'ios' ? undefined : undefined,
+                paddingBottom: Platform.OS === 'ios' ? undefined : 12
               }}
             >
               <Label {...labelProps}>
@@ -257,22 +288,24 @@ class Item extends Component {
               </Label>
             </Animated.View>
           );
+
           newChildren.push(
             <Input
               ref={c => (this._inputRef = c)}
               key="l2"
               {...inputProps}
+              placeholder={this.getPlacholderValue(inputProps)}
               onFocus={() => {
                 this.setState({ isFocused: true });
                 inputProps.onFocus && inputProps.onFocus();
               }}
-              onBlur={(e) => {
+              onBlur={e => {
                 inputProps.value
                   ? this.setState({
                     isFocused: true
                   })
                   : !this.state.text.length &&
-                  this.setState({ isFocused: false });
+                    this.setState({ isFocused: false });
                 inputProps.onBlur && inputProps.onBlur(e);
               }}
               onChangeText={text => {
@@ -280,13 +313,14 @@ class Item extends Component {
                 inputProps.onChangeText && inputProps.onChangeText(text);
               }}
               style={{
-                left: this.props.last && isImage
-                  ? 10
-                  : this.props.last
+                left:
+                  this.props.last && isImage
+                    ? 10
+                    : this.props.last
                     ? 4
                     : isImage
-                      ? 10
-                      : 0,
+                    ? 10
+                    : 0,
                 marginRight: 12
               }}
             />
@@ -298,29 +332,31 @@ class Item extends Component {
         <Animated.View
           key="float"
           style={{
-            position: "absolute",
+            position: 'absolute',
             left: this.props.last ? 15 : 0,
             right: 0,
             top: this.state.topAnim,
             opacity: this.state.opacAnim,
-            paddingTop: Platform.OS === "ios" ? undefined : undefined,
-            paddingBottom: Platform.OS === "ios" ? undefined : 12
+            paddingTop: Platform.OS === 'ios' ? undefined : undefined,
+            paddingBottom: Platform.OS === 'ios' ? undefined : 12
           }}
         >
           <Label {...labelProps}>{this.renderLabel(label, labelProps)}</Label>
         </Animated.View>
       );
+
       newChildren.push(
         <Input
           ref={c => (this._inputRef = c)}
           value={this.state.text}
           key="l2"
           {...inputProps}
+          placeholder={this.getPlacholderValue(inputProps)}
           onFocus={() => {
             this.setState({ isFocused: true });
             inputProps.onFocus && inputProps.onFocus();
           }}
-          onBlur={(e) => {
+          onBlur={e => {
             inputProps.value
               ? this.setState({
                 isFocused: true
@@ -339,13 +375,13 @@ class Item extends Component {
         <View
           key="s"
           style={{
-            flexDirection: "row",
+            flexDirection: 'row',
             flex: 1,
             width: variables.deviceWidth - 15
           }}
         >
           <Icon key="s1" {...iconProps} />
-          <View style={{ flexDirection: "column" }}>
+          <View style={{ flexDirection: 'column' }}>
             <Label key="s2" {...labelProps} />
             <Input
               key="s3"
@@ -360,24 +396,39 @@ class Item extends Component {
     }
     return newChildren;
   }
-  getInitialStyle() {
-    return {
-      roundedInputGroup: {
-        borderWidth: this.props.rounded ? variables.borderWidth * 2 : undefined,
-        borderRadius: this.props.rounded
-          ? variables.inputGroupRoundedBorderRadius
-          : undefined
+
+  renderLabel(label, labelProps) {
+    const newLabel = [];
+    const labelStyle = StyleSheet.flatten([
+      { fontSize: 15, lineHeight: 30 },
+      labelProps.style
+    ]);
+    if (this.props.floatingLabel) {
+      if (this.state.isFocused) {
+        newLabel.push(
+          React.createElement(Label, {
+            ...labelProps,
+            key: 'newFLabel',
+            float: true,
+            style: labelStyle
+          })
+        );
+        this.floatUp(-16);
+      } else {
+        newLabel.push(label);
+        this.floatBack(labelProps.floatBack);
       }
-    };
+    } else {
+      newLabel.push(
+        React.createElement(Label, {
+          ...labelProps,
+          key: 'newLabel'
+        })
+      );
+    }
+    return newLabel;
   }
 
-  prepareRootProps() {
-    const defaultProps = {
-      style: this.getInitialStyle().roundedInputGroup
-    };
-
-    return computeProps(this.props, defaultProps);
-  }
   render() {
     return (
       <TouchableOpacity
@@ -390,24 +441,6 @@ class Item extends Component {
     );
   }
 }
-
-const childrenType = function (props, propName, component) {
-  let error;
-  const prop = props[propName];
-  if (!props.children.length) {
-    error = new Error(
-      `${component} should have both Label and Input components`
-    );
-  } else if (
-    props.children[0].type.displayName !== "Styled(Label)" ||
-    props.children[1].type.displayName !== "Styled(Input)"
-  ) {
-    error = new Error(
-      `${component} should have Label and Input components only`
-    );
-  }
-  return error;
-};
 
 Item.propTypes = {
   ...TouchableOpacity.propTypes,
@@ -424,7 +457,7 @@ Item.propTypes = {
   error: PropTypes.bool
 };
 
-const StyledItem = connectStyle("NativeBase.Item", {}, mapPropsToStyleNames)(
+const StyledItem = connectStyle('NativeBase.Item', {}, mapPropsToStyleNames)(
   Item
 );
 

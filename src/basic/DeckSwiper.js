@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, Animated, PanResponder, ViewPropTypes } from "react-native";
-import clamp from "clamp";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, Animated, PanResponder, ViewPropTypes } from 'react-native';
+import clamp from 'clamp';
+import { connectStyle } from 'native-base-shoutem-theme';
+
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 const SWIPE_THRESHOLD = 120;
 
@@ -20,13 +21,14 @@ class DeckSwiper extends Component {
       card2Top: false,
       fadeAnim: new Animated.Value(0.8),
       looping:
-        typeof this.props.looping === "undefined" ? true : this.props.looping,
+        typeof this.props.looping === 'undefined' ? true : this.props.looping,
       disabled: this.props.dataSource.length === 0,
       lastCard: this.props.dataSource.length === 1
     };
+    this.setPanresponder();
   }
 
-  componentWillReceiveProps({ dataSource }) {
+  componentDidUpdate({ dataSource }) {
     if (dataSource.length !== this.props.dataSource.length) {
       if (dataSource.length <= 1) {
         this.setState({
@@ -51,104 +53,50 @@ class DeckSwiper extends Component {
     }
   }
 
-  getInitialStyle() {
+  getInitialStyle = () => {
     return {
       topCard: {
-        position: "absolute",
+        position: 'absolute',
         top: 0,
         right: 0,
         left: 0
       }
     };
+  };
+
+  getCardStyles() {
+    const { pan, enter } = this.state;
+
+    const [translateX, translateY] = [pan.x, pan.y];
+    // let [translateX, translateY] = [pan2.x, pan2.y];
+
+    const rotate = pan.x.interpolate({
+      inputRange: [-700, 0, 700],
+      outputRange: ['-10deg', '0deg', '10deg']
+    });
+
+    const opacity = pan.x.interpolate({
+      inputRange: [-320, 0, 320],
+      outputRange: [0.9, 1, 0.9]
+    });
+    const scale = enter;
+
+    const animatedCardStyles = {
+      transform: [{ translateX }, { translateY }, { rotate }],
+      opacity
+    };
+    const animatedCardStyles2 = { transform: [{ scale }] };
+
+    return [animatedCardStyles, animatedCardStyles2];
   }
 
-  findNextIndexes(currentIndex) {
-    const newIdx = currentIndex + 1;
-    const newIdx2 = currentIndex + 2;
-
-    if (
-      newIdx2 > this.props.dataSource.length - 1 &&
-      newIdx === this.props.dataSource.length - 1
-    ) {
-      return [newIdx, 0];
-    } else if (newIdx > this.props.dataSource.length - 1) {
-      return [0, 1];
-    }
-    return [newIdx, newIdx2];
-  }
-
-  selectNext() {
-    const dataSource = this.props.dataSource;
-    const currentIndex = dataSource.indexOf(this.state.selectedItem);
-
-    // if not looping, check for these conditionals and if true return from selectNext()
-    if (!this.state.looping) {
-      // reached end -> only display static renderEmpty() -> no swiping
-      if (currentIndex === dataSource.length - 1) {
-        return this.setState({
-          disabled: true
-        });
-      } else if (currentIndex === dataSource.length - 2) {
-        // show last card with renderEmpty() component behind it
-        return setTimeout(() => {
-          this.setState({
-            selectedItem: dataSource[currentIndex + 1]
-          });
-          setTimeout(() => {
-            this.setState({
-              lastCard: true
-            });
-          }, 350);
-        }, 50);
-      }
-    }
-
-    const nextIndexes = this.findNextIndexes(currentIndex);
-    setTimeout(() => {
-      this.setState({
-        selectedItem: this.props.dataSource[nextIndexes[0]]
-      });
-      setTimeout(() => {
-        this.setState({
-          selectedItem2: this.props.dataSource[nextIndexes[1]]
-        });
-      }, 350);
-    }, 50);
-  }
-
-  swipeRight() {
-    if (this.props.onSwiping) this.props.onSwiping("right");
-    setTimeout(() => {
-      Animated.timing(this.state.fadeAnim, { toValue: 1 }).start();
-      Animated.spring(this.state.enter, { toValue: 1, friction: 7 }).start();
-      this.selectNext();
-      Animated.decay(this.state.pan, {
-        velocity: { x: 8, y: 1 },
-        deceleration: 0.98
-      }).start(this._resetState.bind(this));
-    }, 300);
-  }
-
-  swipeLeft() {
-    if (this.props.onSwiping) this.props.onSwiping("left");
-    setTimeout(() => {
-      Animated.timing(this.state.fadeAnim, { toValue: 1 }).start();
-      Animated.spring(this.state.enter, { toValue: 1, friction: 7 }).start();
-      this.selectNext();
-      Animated.decay(this.state.pan, {
-        velocity: { x: -8, y: 1 },
-        deceleration: 0.98
-      }).start(this._resetState.bind(this));
-    }, 300);
-  }
-
-  componentWillMount() {
+  setPanresponder() {
     this._panResponder = PanResponder.create({
       onMoveShouldSetResponderCapture: () => true,
       onMoveShouldSetPanResponderCapture: (evt, gestureState) =>
         Math.abs(gestureState.dx) > 5,
 
-      onPanResponderGrant: (e, gestureState) => {
+      onPanResponderGrant: () => {
         this.state.pan.setOffset({
           x: this.state.pan.x._value,
           y: this.state.pan.y._value
@@ -159,13 +107,12 @@ class DeckSwiper extends Component {
       onPanResponderMove: (e, gestureState) => {
         if (gestureState.dx > 20) {
           if (this.props.onSwiping)
-            this.props.onSwiping("right", gestureState.dx);
+            this.props.onSwiping('right', gestureState.dx);
         } else if (gestureState.dx < -20) {
           if (this.props.onSwiping)
-            this.props.onSwiping("left", gestureState.dx);
+            this.props.onSwiping('left', gestureState.dx);
         }
         let val = Math.abs(gestureState.dx * 0.0013);
-        const opa = Math.abs(gestureState.dx * 0.0022);
         if (val > 0.2) {
           val = 0.2;
         }
@@ -225,44 +172,100 @@ class DeckSwiper extends Component {
     if (this.props.onSwiping) this.props.onSwiping(null);
   }
 
-  getCardStyles() {
-    const { pan, pan2, enter } = this.state;
+  swipeRight() {
+    if (this.props.onSwiping) this.props.onSwiping('right');
+    setTimeout(() => {
+      Animated.timing(this.state.fadeAnim, { toValue: 1 }).start();
+      Animated.spring(this.state.enter, { toValue: 1, friction: 7 }).start();
+      this.selectNext();
+      Animated.decay(this.state.pan, {
+        velocity: { x: 8, y: 1 },
+        deceleration: 0.98
+      }).start(this._resetState.bind(this));
+    }, 300);
+  }
 
-    const [translateX, translateY] = [pan.x, pan.y];
-    // let [translateX, translateY] = [pan2.x, pan2.y];
+  swipeLeft() {
+    if (this.props.onSwiping) this.props.onSwiping('left');
+    setTimeout(() => {
+      Animated.timing(this.state.fadeAnim, { toValue: 1 }).start();
+      Animated.spring(this.state.enter, { toValue: 1, friction: 7 }).start();
+      this.selectNext();
+      Animated.decay(this.state.pan, {
+        velocity: { x: -8, y: 1 },
+        deceleration: 0.98
+      }).start(this._resetState.bind(this));
+    }, 300);
+  }
 
-    const rotate = pan.x.interpolate({
-      inputRange: [-700, 0, 700],
-      outputRange: ["-10deg", "0deg", "10deg"]
-    });
+  selectNext() {
+    const dataSource = this.props.dataSource;
+    const currentIndex = dataSource.indexOf(this.state.selectedItem);
 
-    const opacity = pan.x.interpolate({
-      inputRange: [-320, 0, 320],
-      outputRange: [0.9, 1, 0.9]
-    });
-    const scale = enter;
+    // if not looping, check for these conditionals and if true return from selectNext()
+    if (!this.state.looping) {
+      // reached end -> only display static renderEmpty() -> no swiping
+      if (currentIndex === dataSource.length - 1) {
+        return this.setState({
+          disabled: true
+        });
+      } else if (currentIndex === dataSource.length - 2) {
+        // show last card with renderEmpty() component behind it
+        return setTimeout(() => {
+          this.setState({
+            selectedItem: dataSource[currentIndex + 1]
+          });
+          setTimeout(() => {
+            this.setState({
+              lastCard: true
+            });
+          }, 350);
+        }, 50);
+      }
+    }
 
-    const animatedCardStyles = {
-      transform: [{ translateX }, { translateY }, { rotate }],
-      opacity
-    };
-    const animatedCardStyles2 = { transform: [{ scale }] };
+    const nextIndexes = this.findNextIndexes(currentIndex);
+    setTimeout(() => {
+      this.setState({
+        selectedItem: this.props.dataSource[nextIndexes[0]]
+      });
+      setTimeout(() => {
+        this.setState({
+          selectedItem2: this.props.dataSource[nextIndexes[1]]
+        });
+      }, 350);
+    }, 50);
 
-    return [animatedCardStyles, animatedCardStyles2];
+    return null;
+  }
+
+  findNextIndexes(currentIndex) {
+    const newIdx = currentIndex + 1;
+    const newIdx2 = currentIndex + 2;
+
+    if (
+      newIdx2 > this.props.dataSource.length - 1 &&
+      newIdx === this.props.dataSource.length - 1
+    ) {
+      return [newIdx, 0];
+    } else if (newIdx > this.props.dataSource.length - 1) {
+      return [0, 1];
+    }
+    return [newIdx, newIdx2];
   }
 
   render() {
     if (this.state.disabled) {
       // disable swiping and renderEmpty
       return (
-        <View style={{ position: "relative", flexDirection: "column" }}>
+        <View style={{ position: 'relative', flexDirection: 'column' }}>
           {<View>{this.props.renderEmpty && this.props.renderEmpty()}</View>}
         </View>
       );
     } else if (this.state.lastCard) {
       // display renderEmpty underneath last viable card
       return (
-        <View style={{ position: "relative", flexDirection: "column" }}>
+        <View style={{ position: 'relative', flexDirection: 'column' }}>
           {this.state.selectedItem === undefined ? (
             <View />
           ) : (
@@ -292,7 +295,7 @@ class DeckSwiper extends Component {
       );
     }
     return (
-      <View style={{ position: "relative", flexDirection: "column" }}>
+      <View style={{ position: 'relative', flexDirection: 'column' }}>
         {this.state.selectedItem === undefined ? (
           <View />
         ) : (
@@ -331,11 +334,12 @@ DeckSwiper.propTypes = {
     PropTypes.number,
     PropTypes.array
   ]),
+  // eslint-disable-next-line react/forbid-prop-types
   dataSource: PropTypes.array
 };
 
 const StyledDeckSwiper = connectStyle(
-  "NativeBase.DeckSwiper",
+  'NativeBase.DeckSwiper',
   {},
   mapPropsToStyleNames
 )(DeckSwiper);
