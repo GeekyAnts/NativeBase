@@ -29,7 +29,7 @@ class DeckSwiper extends Component {
   }
 
   componentDidUpdate({ dataSource }) {
-    if (dataSource.length !== this.props.dataSource.length) {
+    if (dataSource.length !== this.props.dataSource.length || dataSource[0] !== this.props.dataSource[0]) {
       if (dataSource.length <= 1) {
         this.setState({
           ...this.state,
