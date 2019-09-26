@@ -67,7 +67,7 @@ export default (variables /* : * */ = variable) => {
         fontSize: variables.inputFontSize,
         lineHeight: variables.inputLineHeight - 6,
         '.secureTextEntry': {
-          fontSize: variables.inputFontSize - 4
+          fontSize: variables.inputFontSize
         },
         '.multiline': {
           paddingTop: Platform.OS === PLATFORM.IOS ? 9 : undefined,
