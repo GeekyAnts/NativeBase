@@ -114,11 +114,11 @@ class Header extends Component {
             ref={c => (this._root = c)}
             {...this.props}
             style={[
-              style,
               {
                 height: this.calculateHeight(orientation, variables.Inset),
                 paddingTop: this.calculatePadder(orientation, variables.Inset)
-              }
+              },
+              style
             ]}
           />
         ) : (
