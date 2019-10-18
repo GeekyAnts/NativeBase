@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Text } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Text } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Label extends Component {
   render() {
@@ -13,9 +13,16 @@ class Label extends Component {
 
 Label.propTypes = {
   ...Text.propTypes,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
+  floatBack: PropTypes.number,
 };
 
-const StyledLabel = connectStyle("NativeBase.Label", {}, mapPropsToStyleNames)(Label);
+const StyledLabel = connectStyle('NativeBase.Label', {}, mapPropsToStyleNames)(
+  Label
+);
 
 export { StyledLabel as Label };

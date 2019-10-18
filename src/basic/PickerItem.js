@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Picker } from "react-native";
+import React, { Component } from 'react';
+import { Picker } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Item extends Component {
   render() {
@@ -12,9 +11,11 @@ class Item extends Component {
 }
 
 Item.propTypes = {
-  ...Picker.Item.propTypes,
+  ...Picker.Item.propTypes
 };
 
-const StyledItem = connectStyle("NativeBase.Item", {}, mapPropsToStyleNames)(Item);
+const StyledItem = connectStyle('NativeBase.Item', {}, mapPropsToStyleNames)(
+  Item
+);
 
 export { StyledItem as Item };

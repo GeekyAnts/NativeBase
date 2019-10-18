@@ -1,6 +1,7 @@
 declare module "native-base" {
 	import * as React from "react";
 	import * as ReactNative from "react-native";
+	import { KeyboardAwareScrollViewProps } from "react-native-keyboard-aware-scroll-view";
 
 	type RnViewStyleProp = ReactNative.StyleProp<ReactNative.ViewStyle>;
 	type RnTextStyleProp = ReactNative.StyleProp<ReactNative.TextStyle>;
@@ -90,6 +91,8 @@ declare module "native-base" {
              * Takes a data entry from the data source and should return a renderable component to be rendered as the row.
              */
 			renderItem?: Function;
+			renderBottom?: Function;
+			renderEmpty?: Function;
 		}
 		/**
          * see Widget Header.js
@@ -169,22 +172,18 @@ declare module "native-base" {
 		/**
          * see Widget Content.js
          */
-		interface Content extends Testable {
+		interface Content extends Testable, KeyboardAwareScrollViewProps {
 			/**
              * The theme prop can be applied to any component of NativeBase.
              */
 			refreshing?: boolean;
-			refreshControl?: object;
 			theme?: Object;
 			padder?: boolean;
 			disableKBDismissScroll?: boolean;
 			enableResetScrollToCoords?: boolean;
-			contentOffset?: Object;
 			scrollEnabled?: boolean;
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 			contentContainerStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
-			keyboardShouldPersistTaps?: string;
-			keyboardDismissMode?: string;
 		}
 		/**
          * see Widget Button.js
@@ -291,7 +290,11 @@ declare module "native-base" {
 			/**
              * Array of data chunks to render iteratively.
              */
-			dataArray?: Array<any>;
+      dataArray?: Array<any>;
+      renderItem?: (	
+				item: any,	
+				index: string | number,	
+			) => React.ReactElement<any>;
 			renderRow?: (
 				rowData: any,
 				sectionID: string | number,
@@ -301,7 +304,8 @@ declare module "native-base" {
 			dataSource?: ReactNative.ListViewDataSource;
 			disableLeftSwipe?: boolean;
 			disableRightSwipe?: boolean;
-			rightOpenValue?: number;
+      rightOpenValue?: number;
+      keyExtractor?: (item, index: number) => string;
 			leftOpenValue?: number;
 			renderRightHiddenRow?: (
 				rowData: any,
@@ -631,6 +635,12 @@ declare module "native-base" {
          */
 		interface Textarea extends ReactNative.TextInputProps, Testable {
 			rowSpan: number;
+			bordered: boolean;
+			underline: boolean;
+			/**
+             * Disables inputting data.
+             */
+			disabled?: boolean;
 		}
 
 		interface Label extends Testable {
@@ -690,8 +700,10 @@ declare module "native-base" {
          * see Widget CheckBox.js
          */
 		interface Radio extends ReactNative.TouchableOpacityProps, Testable {
+			color?: string;
 			selected?: boolean;
 			selectedColor?: string;
+			standardStyle?: boolean;
 		}
 		/**
          * see Widget ProgressBar.js
@@ -778,6 +790,7 @@ declare module "native-base" {
 			tabContainerStyle?: RnViewStyleProp | Array<RnViewStyleProp>;
 			style?: RnViewStyleProp | Array<RnViewStyleProp>;
 			contentProps?: ReactNative.ScrollViewProperties;
+			scrollWithoutAnimation?: boolean;
 			prerenderingSiblingsNumber?: number;
 		}
 
@@ -797,6 +810,7 @@ declare module "native-base" {
 		}
 
 		interface Item extends Testable {
+			onPress?: () => void;
 			fixedLabel?: boolean;
 			floatingLabel?: boolean;
 			inlineLabel?: boolean;
@@ -829,7 +843,7 @@ declare module "native-base" {
 			style?: RnViewStyleProp;
 		}
 
-		interface Image extends ReactNative.TextProps, Testable { }
+		interface Image extends ReactNative.ImageProps, Testable { }
 
 		interface Segment extends ReactNative.TextProps, Testable { }
 
@@ -1176,6 +1190,7 @@ declare module "native-base" {
 			type?: "danger" | "success" | "warning";
 			duration?: number;
 			onClose?: (reason: "user" | "timeout" | "functionCall") => any;
+			style?: RnViewStyleProp;
 			textStyle?: RnTextStyleProp;
 			buttonTextStyle?: RnTextStyleProp;
 			buttonStyle?: RnViewStyleProp;

@@ -1,37 +1,38 @@
 // @flow
 
-import { Platform } from "react-native";
+import { Platform } from 'react-native';
 
-import variable from "./../variables/platform";
+import variable from './../variables/platform';
+import { PLATFORM } from './../variables/commonColor';
 
-export default (variables /*: * */ = variable) => {
+export default (variables /* : * */ = variable) => {
   const itemTheme = {
-    ".floatingLabel": {
-      "NativeBase.Input": {
+    '.floatingLabel': {
+      'NativeBase.Input': {
         height: 50,
         top: 8,
         paddingTop: 3,
         paddingBottom: 7,
-        ".multiline": {
+        '.multiline': {
           minHeight: variables.inputHeightBase,
-          paddingTop: Platform.OS === "ios" ? 10 : 3,
-          paddingBottom: Platform.OS === "ios" ? 14 : 10
+          paddingTop: Platform.OS === PLATFORM.IOS ? 10 : 3,
+          paddingBottom: Platform.OS === PLATFORM.IOS ? 14 : 10
         }
       },
-      "NativeBase.Label": {
+      'NativeBase.Label': {
         paddingTop: 5
       },
-      "NativeBase.Icon": {
+      'NativeBase.Icon': {
         top: 6,
         paddingTop: 8
       },
-      "NativeBase.IconNB": {
+      'NativeBase.IconNB': {
         top: 6,
         paddingTop: 8
       }
     },
-    ".fixedLabel": {
-      "NativeBase.Label": {
+    '.fixedLabel': {
+      'NativeBase.Label': {
         position: null,
         top: null,
         left: null,
@@ -41,43 +42,43 @@ export default (variables /*: * */ = variable) => {
         width: null,
         fontSize: variables.inputFontSize
       },
-      "NativeBase.Input": {
+      'NativeBase.Input': {
         flex: 2,
         fontSize: variables.inputFontSize
       }
     },
-    ".stackedLabel": {
-      "NativeBase.Label": {
+    '.stackedLabel': {
+      'NativeBase.Label': {
         position: null,
         top: null,
         left: null,
         right: null,
         paddingTop: 5,
-        alignSelf: "flex-start",
+        alignSelf: 'flex-start',
         fontSize: variables.inputFontSize - 2
       },
-      "NativeBase.Icon": {
+      'NativeBase.Icon': {
         marginTop: 36
       },
-      "NativeBase.Input": {
-        alignSelf: Platform.OS === "ios" ? "stretch" : "flex-start",
+      'NativeBase.Input': {
+        alignSelf: Platform.OS === PLATFORM.IOS ? 'stretch' : 'flex-start',
         flex: 1,
-        width: Platform.OS === "ios" ? null : variables.deviceWidth - 25,
+        width: Platform.OS === PLATFORM.IOS ? null : variables.deviceWidth - 25,
         fontSize: variables.inputFontSize,
         lineHeight: variables.inputLineHeight - 6,
-        ".secureTextEntry": {
-          fontSize: variables.inputFontSize - 4
+        '.secureTextEntry': {
+          fontSize: variables.inputFontSize
         },
-        ".multiline": {
-          paddingTop: Platform.OS === "ios" ? 9 : undefined,
-          paddingBottom: Platform.OS === "ios" ? 9 : undefined
+        '.multiline': {
+          paddingTop: Platform.OS === PLATFORM.IOS ? 9 : undefined,
+          paddingBottom: Platform.OS === PLATFORM.IOS ? 9 : undefined
         }
       },
       flexDirection: null,
       minHeight: variables.inputHeightBase + 15
     },
-    ".inlineLabel": {
-      "NativeBase.Label": {
+    '.inlineLabel': {
+      'NativeBase.Label': {
         position: null,
         top: null,
         left: null,
@@ -87,43 +88,43 @@ export default (variables /*: * */ = variable) => {
         width: null,
         fontSize: variables.inputFontSize
       },
-      "NativeBase.Input": {
+      'NativeBase.Input': {
         paddingLeft: 5,
         fontSize: variables.inputFontSize
       },
-      flexDirection: "row"
+      flexDirection: 'row'
     },
-    "NativeBase.Label": {
+    'NativeBase.Label': {
       fontSize: variables.inputFontSize,
       color: variables.inputColorPlaceholder,
       paddingRight: 5
     },
-    "NativeBase.Icon": {
+    'NativeBase.Icon': {
       fontSize: 24,
       paddingRight: 8
     },
-    "NativeBase.IconNB": {
+    'NativeBase.IconNB': {
       fontSize: 24,
       paddingRight: 8
     },
-    "NativeBase.Input": {
-      ".multiline": {
+    'NativeBase.Input': {
+      '.multiline': {
         height: null
       },
       height: variables.inputHeightBase,
       color: variables.inputColor,
       flex: 1,
-      top: Platform.OS === "ios" ? 1.5 : undefined,
+      top: Platform.OS === PLATFORM.IOS ? 1.5 : undefined,
       fontSize: variables.inputFontSize
     },
-    ".underline": {
-      "NativeBase.Input": {
+    '.underline': {
+      'NativeBase.Input': {
         paddingLeft: 15
       },
-      ".success": {
+      '.success': {
         borderColor: variables.inputSuccessBorderColor
       },
-      ".error": {
+      '.error': {
         borderColor: variables.inputErrorBorderColor
       },
       borderWidth: variables.borderWidth * 2,
@@ -132,33 +133,33 @@ export default (variables /*: * */ = variable) => {
       borderLeftWidth: 0,
       borderColor: variables.inputBorderColor
     },
-    ".regular": {
-      "NativeBase.Input": {
+    '.regular': {
+      'NativeBase.Input': {
         paddingLeft: 8
       },
-      "NativeBase.Icon": {
+      'NativeBase.Icon': {
         paddingLeft: 10
       },
-      ".success": {
+      '.success': {
         borderColor: variables.inputSuccessBorderColor
       },
-      ".error": {
+      '.error': {
         borderColor: variables.inputErrorBorderColor
       },
       borderWidth: variables.borderWidth * 2,
       borderColor: variables.inputBorderColor
     },
-    ".rounded": {
-      "NativeBase.Input": {
+    '.rounded': {
+      'NativeBase.Input': {
         paddingLeft: 8
       },
-      "NativeBase.Icon": {
+      'NativeBase.Icon': {
         paddingLeft: 10
       },
-      ".success": {
+      '.success': {
         borderColor: variables.inputSuccessBorderColor
       },
-      ".error": {
+      '.error': {
         borderColor: variables.inputErrorBorderColor
       },
       borderWidth: variables.borderWidth * 2,
@@ -166,21 +167,21 @@ export default (variables /*: * */ = variable) => {
       borderColor: variables.inputBorderColor
     },
 
-    ".success": {
-      "NativeBase.Icon": {
+    '.success': {
+      'NativeBase.Icon': {
         color: variables.inputSuccessBorderColor
       },
-      "NativeBase.IconNB": {
+      'NativeBase.IconNB': {
         color: variables.inputSuccessBorderColor
       },
-      ".rounded": {
+      '.rounded': {
         borderRadius: 30,
         borderColor: variables.inputSuccessBorderColor
       },
-      ".regular": {
+      '.regular': {
         borderColor: variables.inputSuccessBorderColor
       },
-      ".underline": {
+      '.underline': {
         borderWidth: variables.borderWidth * 2,
         borderTopWidth: 0,
         borderRightWidth: 0,
@@ -190,21 +191,21 @@ export default (variables /*: * */ = variable) => {
       borderColor: variables.inputSuccessBorderColor
     },
 
-    ".error": {
-      "NativeBase.Icon": {
+    '.error': {
+      'NativeBase.Icon': {
         color: variables.inputErrorBorderColor
       },
-      "NativeBase.IconNB": {
+      'NativeBase.IconNB': {
         color: variables.inputErrorBorderColor
       },
-      ".rounded": {
+      '.rounded': {
         borderRadius: 30,
         borderColor: variables.inputErrorBorderColor
       },
-      ".regular": {
+      '.regular': {
         borderColor: variables.inputErrorBorderColor
       },
-      ".underline": {
+      '.underline': {
         borderWidth: variables.borderWidth * 2,
         borderTopWidth: 0,
         borderRightWidth: 0,
@@ -213,15 +214,15 @@ export default (variables /*: * */ = variable) => {
       },
       borderColor: variables.inputErrorBorderColor
     },
-    ".disabled": {
-      "NativeBase.Icon": {
-        color: "#384850"
+    '.disabled': {
+      'NativeBase.Icon': {
+        color: '#384850'
       },
-      "NativeBase.IconNB": {
-        color: "#384850"
+      'NativeBase.IconNB': {
+        color: '#384850'
       }
     },
-    ".picker": {
+    '.picker': {
       marginLeft: 0
     },
 
@@ -230,9 +231,9 @@ export default (variables /*: * */ = variable) => {
     borderRightWidth: 0,
     borderLeftWidth: 0,
     borderColor: variables.inputBorderColor,
-    backgroundColor: "transparent",
-    flexDirection: "row",
-    alignItems: "center",
+    backgroundColor: 'transparent',
+    flexDirection: 'row',
+    alignItems: 'center',
     marginLeft: 2
   };
 

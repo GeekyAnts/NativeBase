@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ViewPropTypes } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Tab extends Component {
   render() {
@@ -24,6 +24,6 @@ Tab.propTypes = {
   ])
 };
 
-const StyledTab = connectStyle("NativeBase.Tab", {}, mapPropsToStyleNames)(Tab);
+const StyledTab = connectStyle('NativeBase.Tab', {}, mapPropsToStyleNames)(Tab);
 
 export { StyledTab as Tab };

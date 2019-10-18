@@ -1,36 +1,37 @@
 // @flow
 
-import variable from "./../variables/platform";
+import variable from './../variables/platform';
+import { PLATFORM } from './../variables/commonColor';
 
-export default (variables /*: * */ = variable) => {
+export default (variables /* : * */ = variable) => {
   const badgeTheme = {
-    ".primary": {
-      backgroundColor: variables.btnPrimaryBg
+    '.primary': {
+      backgroundColor: variables.buttonPrimaryBg
     },
-    ".warning": {
-      backgroundColor: variables.btnWarningBg
+    '.warning': {
+      backgroundColor: variables.buttonWarningBg
     },
-    ".info": {
-      backgroundColor: variables.btnInfoBg
+    '.info': {
+      backgroundColor: variables.buttonInfoBg
     },
-    ".success": {
-      backgroundColor: variables.btnSuccessBg
+    '.success': {
+      backgroundColor: variables.buttonSuccessBg
     },
-    ".danger": {
-      backgroundColor: variables.btnDangerBg
+    '.danger': {
+      backgroundColor: variables.buttonDangerBg
     },
-    "NativeBase.Text": {
+    'NativeBase.Text': {
       color: variables.badgeColor,
       fontSize: variables.fontSizeBase,
       lineHeight: variables.lineHeight - 1,
-      textAlign: "center",
+      textAlign: 'center',
       paddingHorizontal: 3
     },
     backgroundColor: variables.badgeBg,
     padding: variables.badgePadding,
     paddingHorizontal: 6,
-    alignSelf: "flex-start",
-    justifyContent: variables.platform === "ios" ? "center" : undefined,
+    alignSelf: 'flex-start',
+    justifyContent: variables.platform === PLATFORM.IOS ? 'center' : undefined,
     borderRadius: 13.5,
     height: 27
   };

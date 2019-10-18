@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, ViewPropTypes } from "react-native";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
 
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../utils/mapPropsToStyleNames";
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class FooterTab extends Component {
   render() {
@@ -25,7 +25,7 @@ FooterTab.propTypes = {
 };
 
 const StyledFooterTab = connectStyle(
-  "NativeBase.FooterTab",
+  'NativeBase.FooterTab',
   {},
   mapPropsToStyleNames
 )(FooterTab);

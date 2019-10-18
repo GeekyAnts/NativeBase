@@ -1,12 +1,10 @@
 // @flow
 
-import variable from './../variables/platform';
-
-export default (variables /*: * */ = variable) => {
+export default () => {
   const leftTheme = {
     flex: 1,
     alignSelf: 'center',
-    alignItems: 'flex-start',
+    alignItems: 'flex-start'
   };
 
   return leftTheme;

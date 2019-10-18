@@ -132,6 +132,7 @@ captures/
 # VsCode
 
 .vscode/*
+.history/
 
 # Keystore files
 *.jks
