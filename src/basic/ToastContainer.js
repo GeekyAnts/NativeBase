@@ -1,7 +1,13 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Keyboard, Platform, Animated, ViewPropTypes } from 'react-native';
+import {
+  Keyboard,
+  Platform,
+  Animated,
+  ViewPropTypes,
+  PanResponder
+} from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
@@ -39,6 +45,20 @@ class ToastContainer extends Component {
 
     this.keyboardDidHide = this.keyboardDidHide.bind(this);
     this.keyboardDidShow = this.keyboardDidShow.bind(this);
+
+    this._panResponder = PanResponder.create({
+      onMoveShouldSetPanResponderCapture: () => true,
+      onPanResponderRelease: (evt, gestureState) => {
+        if (gestureState.moveX > gestureState.x0) {
+          console.log('RIGHT');
+          this.closeToast('user');
+        }
+        if (gestureState.moveX < gestureState.x0) {
+          console.log('LEFT');
+          this.closeToast('user');
+        }
+      }
+    });
   }
 
   componentDidMount() {
