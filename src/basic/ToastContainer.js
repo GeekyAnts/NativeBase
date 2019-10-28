@@ -168,11 +168,9 @@ class ToastContainer extends Component {
   render() {
     if (this.state.modalVisible) {
       return (
-        <Animated.View
-          style={this.getToastStyle()}
-          {...this._panResponder.panHandlers}
-        >
+        <Animated.View style={this.getToastStyle()}>
           <Toast
+            {...this._panResponder.panHandlers}
             style={this.state.style}
             danger={this.state.type === 'danger'}
             success={this.state.type === 'success'}
