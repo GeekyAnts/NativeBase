@@ -6,7 +6,8 @@ import {
   Platform,
   Animated,
   ViewPropTypes,
-  PanResponder
+  PanResponder,
+  Alert
 } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
@@ -63,7 +64,23 @@ class ToastContainer extends Component {
 
   componentDidMount() {
     console.log('Implementation test');
-
+    Alert.alert(
+      'Alert Title',
+      'My Alert Msg',
+      [
+        {
+          text: 'Ask me later',
+          onPress: () => console.log('Ask me later pressed')
+        },
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel'
+        },
+        { text: 'OK', onPress: () => console.log('OK Pressed') }
+      ],
+      { cancelable: false }
+    );
     Keyboard.addListener('keyboardDidShow', this.keyboardDidShow);
     Keyboard.addListener('keyboardDidHide', this.keyboardDidHide);
   }
