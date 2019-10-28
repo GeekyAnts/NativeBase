@@ -6,8 +6,7 @@ import {
   Platform,
   Animated,
   ViewPropTypes,
-  PanResponder,
-  Alert
+  PanResponder
 } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
@@ -39,6 +38,7 @@ class ToastContainer extends Component {
 
     this.state = {
       fadeAnim: new Animated.Value(0),
+      pan: new Animated.ValueXY({ x: 0, y: 0 }),
       keyboardHeight: 0,
       isKeyboardVisible: false,
       modalVisible: false
@@ -46,41 +46,20 @@ class ToastContainer extends Component {
 
     this.keyboardDidHide = this.keyboardDidHide.bind(this);
     this.keyboardDidShow = this.keyboardDidShow.bind(this);
-
     this._panResponder = PanResponder.create({
       onMoveShouldSetPanResponderCapture: () => true,
-      onPanResponderRelease: (evt, gestureState) => {
-        if (gestureState.moveX > gestureState.x0) {
-          console.log('RIGHT');
-          this.closeToast('user');
-        }
-        if (gestureState.moveX < gestureState.x0) {
-          console.log('LEFT');
-          this.closeToast('user');
+      onPanResponderRelease: (evt, { dx }) => {
+        if (dx !== 0) {
+          Animated.timing(this.state.pan, {
+            toValue: { x: dx, y: 0 },
+            duration: 100
+          }).start(() => this.closeToast('swipe'));
         }
       }
     });
   }
 
   componentDidMount() {
-    console.log('Implementation test');
-    Alert.alert(
-      'Alert Title',
-      'My Alert Msg',
-      [
-        {
-          text: 'Ask me later',
-          onPress: () => console.log('Ask me later pressed')
-        },
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel'
-        },
-        { text: 'OK', onPress: () => console.log('OK Pressed') }
-      ],
-      { cancelable: false }
-    );
     Keyboard.addListener('keyboardDidShow', this.keyboardDidShow);
     Keyboard.addListener('keyboardDidHide', this.keyboardDidHide);
   }
@@ -181,16 +160,25 @@ class ToastContainer extends Component {
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
       duration: 200
-    }).start(this.closeModal.bind(this, reason));
+    }).start(() => {
+      this.closeModal.bind(this, reason);
+      this.state.pan.setValue({ x: 0, y: 0 });
+    });
   }
 
   render() {
     if (this.state.modalVisible) {
+      const { x, y } = this.state.pan;
       return (
-        <Animated.View style={this.getToastStyle()}>
+        <Animated.View
+          {...this._panResponder.panHandlers}
+          style={[
+            this.getToastStyle(),
+            { transform: [{ translateX: x }, { translateY: y }] }
+          ]}
+        >
           <Toast
-            {...this._panResponder.panHandlers}
-            style={this.state.style}
+            style={[this.state.style]}
             danger={this.state.type === 'danger'}
             success={this.state.type === 'success'}
             warning={this.state.type === 'warning'}
