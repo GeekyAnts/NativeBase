@@ -32,7 +32,7 @@ class ListItem extends Component {
           onPress={this.props.onPress}
           onLongPress={this.props.onLongPress}
           ref={c => (this._root = c)}
-          underlayColor={this.props.underlayColor !== undefined ? this.props.underlayColor : variables.listBtnUnderlayColor}
+          underlayColor={variables.listBtnUnderlayColor}
           {...this.props}
           style={this.props.touchableHighlightStyle}
         >
