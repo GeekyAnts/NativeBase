@@ -366,6 +366,7 @@ declare module "native-base" {
              */
 			androidRippleColor?: string;
 			touchableHighlightStyle?: RnViewStyleProp;
+			underlayColor?: string;
 		}
 
 		interface Separator extends Testable {
