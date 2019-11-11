@@ -1,6 +1,5 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Keyboard, Platform, Animated, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
@@ -18,7 +17,6 @@ const POSITION = {
 };
 
 class ToastContainer extends Component {
-  static toastInstance;
   static show({ ...config }) {
     this.toastInstance._root.showToast({ config });
   }
@@ -81,6 +79,8 @@ class ToastContainer extends Component {
   getModalState() {
     return this.state.modalVisible;
   }
+
+  static toastInstance;
 
   keyboardDidHide() {
     this.setState({
@@ -175,12 +175,7 @@ class ToastContainer extends Component {
 }
 
 ToastContainer.propTypes = {
-  ...ViewPropTypes,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array
-  ])
+  ...ViewPropTypes
 };
 
 const StyledToastContainer = connectStyle(

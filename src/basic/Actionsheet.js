@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable radix */
-import PropTypes from 'prop-types';
+
 import React, { Component } from 'react';
 import {
   ActionSheetIOS,
@@ -25,7 +25,6 @@ import { Body } from './Body';
 import { ListItem } from './ListItem';
 
 class ActionSheetContainer extends Component {
-  static actionsheetInstance;
   static show(config, callback) {
     this.actionsheetInstance._root.showActionSheet(config, callback);
   }
@@ -43,9 +42,12 @@ class ActionSheetContainer extends Component {
 
   componentDidMount() {
     if (!this.props.autoHide && this.props.duration) {
+      // eslint-disable-next-line no-console
       console.warn(`It's not recommended to set autoHide false with duration`);
     }
   }
+
+  static actionsheetInstance;
 
   showActionSheet(config, callback) {
     if (Platform.OS === PLATFORM.IOS) {
@@ -156,12 +158,7 @@ class ActionSheetContainer extends Component {
 }
 
 ActionSheetContainer.propTypes = {
-  ...ViewPropTypes,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array
-  ])
+  ...ViewPropTypes
 };
 
 const styles = StyleSheet.create({

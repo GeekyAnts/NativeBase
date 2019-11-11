@@ -1,3 +1,5 @@
+/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prefer-es6-class */
 /* eslint-disable react/sort-comp */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -243,6 +245,7 @@ class PickerNB extends Component {
   }
 }
 
+// eslint-disable-next-line react/no-multi-comp
 PickerNB.Item = createReactClass({
   render() {
     return <Picker.Item {...this.props()} />;
