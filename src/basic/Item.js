@@ -41,6 +41,30 @@ class Item extends Component {
     }
   }
 
+  // Temporary fix to avoid the crash.
+  // To be refactored to getDerivedStateFromProps.
+
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    const childrenArray = React.Children.toArray(nextProps.children);
+
+    remove(childrenArray, item => {
+      if (item.type.displayName === 'Styled(Input)') {
+        this.inputProps = item.props;
+        return item;
+      }
+      return null;
+    });
+    if (this.props.floatingLabel) {
+      if (this.inputProps && this.inputProps.value) {
+        this.setState({ isFocused: true });
+        this.floatUp(-16);
+      }
+      if (this.inputProps && this.inputProps.getRef)
+        this.inputProps.getRef(this._inputRef);
+    }
+  }
+
   getInitialStyle() {
     return {
       roundedInputGroup: {
@@ -92,30 +116,6 @@ class Item extends Component {
     };
 
     return computeProps(this.props, defaultProps);
-  }
-
-  // Temporary fix to avoid the crash.
-  // To be refactored to getDerivedStateFromProps.
-
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    const childrenArray = React.Children.toArray(nextProps.children);
-
-    remove(childrenArray, item => {
-      if (item.type.displayName === 'Styled(Input)') {
-        this.inputProps = item.props;
-        return item;
-      }
-      return null;
-    });
-    if (this.props.floatingLabel) {
-      if (this.inputProps && this.inputProps.value) {
-        this.setState({ isFocused: true });
-        this.floatUp(-16);
-      }
-      if (this.inputProps && this.inputProps.getRef)
-        this.inputProps.getRef(this._inputRef);
-    }
   }
 
   renderChildren() {
@@ -301,9 +301,7 @@ class Item extends Component {
               }}
               onBlur={e => {
                 inputProps.value
-                  ? this.setState({
-                    isFocused: true
-                  })
+                  ? this.setState({ isFocused: true })
                   : !this.state.text.length &&
                     this.setState({ isFocused: false });
                 inputProps.onBlur && inputProps.onBlur(e);
@@ -358,9 +356,7 @@ class Item extends Component {
           }}
           onBlur={e => {
             inputProps.value
-              ? this.setState({
-                isFocused: true
-              })
+              ? this.setState({ isFocused: true })
               : !this.state.text.length && this.setState({ isFocused: false });
             inputProps.onBlur && inputProps.onBlur(e);
           }}
