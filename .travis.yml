@@ -12,8 +12,6 @@ branches:
     - next
     - patch
 install:
-  - yarn global add codecov
   - yarn
 script:
   - yarn lint
-  - yarn test:ci && codecov
