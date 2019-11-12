@@ -780,6 +780,7 @@ declare module "native-base" {
 			springTension?: number;
 			springFriction?: number;
 			onChangeTab?: Function;
+			onScroll?:Function;
 			page?: number;
 			locked?: boolean;
 			initialPage?: number;
