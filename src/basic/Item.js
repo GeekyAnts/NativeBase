@@ -25,7 +25,7 @@ class Item extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFocussed: true,
+      isFocused: false,
       text: '',
       topAnim: new Animated.Value(18),
       opacAnim: new Animated.Value(1)
@@ -34,6 +34,7 @@ class Item extends Component {
   componentDidMount() {
     if (this.props.floatingLabel) {
       if (this.inputProps && this.inputProps.value) {
+        this.setState({ isFocused: true });
         this.floatUp(-16);
       }
       if (this.inputProps && this.inputProps.getRef)
