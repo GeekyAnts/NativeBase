@@ -1,10 +1,12 @@
-import variable from "./../variables/platform";
+// @flow
 
-export default (variables = variable) => {
+import variable from './../variables/platform';
+
+export default (variables /* : * */ = variable) => {
   const h1Theme = {
     color: variables.textColor,
     fontSize: variables.fontSizeH1,
-    lineHeight: variables.lineHeightH1,
+    lineHeight: variables.lineHeightH1
   };
 
   return h1Theme;

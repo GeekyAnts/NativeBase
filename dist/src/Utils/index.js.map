@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../src/Utils/index.js"],"names":["ViewPropTypes"],"mappings":"yFAAA,yC;;AAESA,a","file":"index.js","sourcesContent":["import { ViewPropTypes } from \"react-native\";\n\nexport { ViewPropTypes };\n"]}

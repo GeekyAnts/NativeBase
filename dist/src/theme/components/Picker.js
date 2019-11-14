@@ -1,0 +1,2 @@
+Object.defineProperty(exports,"__esModule",{value:true});exports.default=function(){var pickerTheme={'.note':{color:'#8F8E95'},marginRight:-4,flexGrow:1};return pickerTheme;};
+//# sourceMappingURL=Picker.js.map

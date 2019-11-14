@@ -1,8 +1,10 @@
-import variable from "./../variables/platform";
+// @flow
 
-export default (variables = variable) => {
+import variable from './../variables/platform';
+
+export default (variables /* : * */ = variable) => {
   const viewTheme = {
-    ".padder": {
+    '.padder': {
       padding: variables.contentPadding
     }
   };

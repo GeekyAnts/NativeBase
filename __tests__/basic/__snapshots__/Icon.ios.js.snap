@@ -1,0 +1,697 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Icon and Icons with icon family 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  contentContainerStyle={
+    Array [
+      Object {
+        "padding": 10,
+      },
+      undefined,
+    ]
+  }
+  contentInset={
+    Object {
+      "bottom": 0,
+    }
+  }
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  getScrollResponder={[Function]}
+  handleOnScroll={[Function]}
+  keyboardDismissMode="interactive"
+  keyboardOpeningTime={250}
+  keyboardShouldPersistTaps="handled"
+  keyboardSpace={0}
+  onScroll={[Function]}
+  padder={true}
+  resetKeyboardSpace={[Function]}
+  resetScrollToCoords={
+    Object {
+      "x": 0,
+      "y": 0,
+    }
+  }
+  scrollEventThrottle={1}
+  scrollForExtraHeightOnAndroid={[Function]}
+  scrollToEnd={[Function]}
+  scrollToFocusedInput={[Function]}
+  scrollToPosition={[Function]}
+  showsVerticalScrollIndicator={true}
+  style={Object {}}
+  viewIsInsideTabBar={false}
+>
+  <View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "height": 45,
+                  "width": 45,
+                },
+              ],
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Ionicons
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="Ionicons"
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Entypo
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "Entypo",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="Entypo"
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Feather
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "Feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="Feather"
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          FontAwesome
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "FontAwesome",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="FontAwesome"
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Foundation
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "fontcustom",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="Foundation"
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Material Icons
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="MaterialIcons"
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Material Community Icons
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "Material Design Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="MaterialCommunityIcons"
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Octicons
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "Octicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="Octicons"
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Zocial
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "zocial",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="Zocial"
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Simple Line Icons
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "simple-line-icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="SimpleLineIcons"
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        style={Object {}}
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              Object {
+                "width": 220,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Evil Icons
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+                Object {
+                  "color": "#999",
+                },
+              ],
+              Object {
+                "fontFamily": "EvilIcons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          type="EvilIcons"
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

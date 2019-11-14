@@ -1,0 +1,1410 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Card Header and Footer 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <View
+        style={Object {}}
+      >
+        <View
+          header={true}
+          style={Object {}}
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            NativeBase
+          </Text>
+        </View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              NativeBase is a free and open source framework that enable developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6.
+            </Text>
+          </View>
+        </View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development.
+            </Text>
+          </View>
+        </View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              Get on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS and Android development.
+            </Text>
+          </View>
+        </View>
+        <View
+          footer={true}
+          style={Object {}}
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            GeekyAnts
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders Card Image 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <View
+        style={Object {}}
+      >
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../__tests__/assets/logo.png",
+                }
+              }
+              style={Object {}}
+            />
+            <View
+              style={Object {}}
+            >
+              <Text
+                style={Object {}}
+                uppercase={false}
+              >
+                NativeBase
+              </Text>
+              <Text
+                note={true}
+                style={Object {}}
+                uppercase={false}
+              >
+                GeekyAnts
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          cardBody={true}
+          style={Object {}}
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../__tests__/assets/drawer-cover.png",
+              }
+            }
+            style={
+              Object {
+                "flex": 1,
+                "height": 200,
+                "resizeMode": "cover",
+                "width": null,
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "paddingVertical": 0,
+              },
+            ]
+          }
+        >
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffbcbc",
+                    "borderColor": "red",
+                    "borderWidth": 1,
+                    "height": 100,
+                    "justifyContent": "center",
+                    "margin": 10,
+                    "width": 300,
+                  },
+                  Object {
+                    "borderRadius": 2,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#333333",
+                    "margin": 20,
+                  }
+                }
+              >
+                TouchableNativeFeedback is not supported on this platform!
+              </Text>
+            </View>
+          </View>
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffbcbc",
+                    "borderColor": "red",
+                    "borderWidth": 1,
+                    "height": 100,
+                    "justifyContent": "center",
+                    "margin": 10,
+                    "width": 300,
+                  },
+                  Object {
+                    "borderRadius": 2,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#333333",
+                    "margin": 20,
+                  }
+                }
+              >
+                TouchableNativeFeedback is not supported on this platform!
+              </Text>
+            </View>
+          </View>
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              11h ago
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders Card List 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <View
+        style={Object {}}
+      >
+        <View
+          bordered={true}
+          header={true}
+          style={Object {}}
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            Social Applications
+          </Text>
+        </View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              active={true}
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                    Object {
+                      "color": "#DD5044",
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              Google Plus
+            </Text>
+          </View>
+          <View
+            style={Object {}}
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              active={true}
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                    Object {
+                      "color": "#3B579D",
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              facebook
+            </Text>
+          </View>
+          <View
+            style={Object {}}
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              active={true}
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                    Object {
+                      "color": "#55ACEE",
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              Twitter
+            </Text>
+          </View>
+          <View
+            style={Object {}}
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              active={true}
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                    Object {
+                      "color": "#FF4500",
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              Reddit
+            </Text>
+          </View>
+          <View
+            style={Object {}}
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              active={true}
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                    Object {
+                      "color": "#007BB6",
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              LinkedIn
+            </Text>
+          </View>
+          <View
+            style={Object {}}
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              active={true}
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                    Object {
+                      "color": "#D62727",
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              YouTube
+            </Text>
+          </View>
+          <View
+            style={Object {}}
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {},
+                    Object {},
+                  ],
+                  Object {
+                    "fontFamily": "Ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders Card Showcase 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <View
+        style={Object {}}
+      >
+        <View
+          bordered={true}
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../__tests__/assets/logo.png",
+                }
+              }
+              style={Object {}}
+            />
+            <View
+              style={Object {}}
+            >
+              <Text
+                style={Object {}}
+                uppercase={false}
+              >
+                NativeBase
+              </Text>
+              <Text
+                note={true}
+                style={Object {}}
+                uppercase={false}
+              >
+                April 15, 2016
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../__tests__/assets/drawer-cover.png",
+                }
+              }
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "height": 150,
+                  "marginVertical": 5,
+                  "resizeMode": "cover",
+                  "width": 635.5932203389831,
+                }
+              }
+            />
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              NativeBase is a free and source framework that enable developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6. NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development.
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "paddingVertical": 0,
+              },
+            ]
+          }
+        >
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#ffbcbc",
+                    "borderColor": "red",
+                    "borderWidth": 1,
+                    "height": 100,
+                    "justifyContent": "center",
+                    "margin": 10,
+                    "width": 300,
+                  },
+                  Object {
+                    "borderRadius": 2,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#333333",
+                    "margin": 20,
+                  }
+                }
+              >
+                TouchableNativeFeedback is not supported on this platform!
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders basic Card 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <View
+        style={Object {}}
+      >
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              This is just a basic card with some text to boot.
+            </Text>
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              Like it? Keep Scrolling...
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders bordered CardItem 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <View
+        style={Object {}}
+      >
+        <View
+          bordered={true}
+          header={true}
+          style={Object {}}
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            NativeBase
+          </Text>
+        </View>
+        <View
+          bordered={true}
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              NativeBase is a free and open source framework that enable developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6.
+            </Text>
+          </View>
+        </View>
+        <View
+          bordered={true}
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development.
+            </Text>
+          </View>
+        </View>
+        <View
+          bordered={true}
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              Get on the mobile fast track with NativeBase, the fastest-growing platform and tool set for iOS and Android development.
+            </Text>
+          </View>
+        </View>
+        <View
+          bordered={true}
+          footer={true}
+          style={Object {}}
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            GeekyAnts
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders button CardItem 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            NativeBase
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              Click on any carditem
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            GeekyAnts
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders transparent Card 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    />
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    padder={true}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={Object {}}
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <View
+        style={Object {}}
+        transparent={true}
+      >
+        <View
+          style={Object {}}
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={Object {}}
+              uppercase={false}
+            >
+              This is just a transparent card with some text to boot.
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

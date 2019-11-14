@@ -1,6 +1,17 @@
 language: node_js
 node_js:
-  - "6"
-  - "6.1"
-  - "5.11"
-  - "5.1"
+  - 'stable'
+cache:
+  yarn: true
+  directories:
+    - node_modules
+    - website/node_modules
+branches:
+  only:
+    - master
+    - next
+    - patch
+install:
+  - yarn
+script:
+  - yarn lint

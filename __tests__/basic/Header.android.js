@@ -1,142 +1,289 @@
-import 'react-native';
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { Header } from './../../src/basic/Header';
-import { Button } from './../../src/basic/Button';
-import { Icon } from './../../src/basic/Icon';
-import { Title } from './../../src/basic/Title';
-import Subtitle from './../../src/backward/Widgets/Subtitle';
+import "react-native";
+import React from "react";
+import renderer from "react-test-renderer";
+import { Container } from "./../../src/basic/Container";
+import { Header } from "./../../src/basic/Header";
+import { Left } from "./../../src/basic/Left";
+import { Button } from "./../../src/basic/Button";
+import { Icon } from "./../../src/basic/Icon";
+import { Body } from "./../../src/basic/Body";
+import { Title } from "./../../src/basic/Title";
+import { Subtitle } from "./../../src/basic/Subtitle";
+import { Right } from "./../../src/basic/Right";
+import { Content } from "./../../src/basic/Content";
+import { Text } from "./../../src/basic/Text";
 
 // Note: test renderer must be required after react-native.
 
-jest.mock('Platform', () => {
-    const Platform = require.requireActual('Platform');
-    Platform.OS = 'android';
-    return Platform;
-});
-jest.mock('ScrollView', () => 'ScrollView');
-
-it('renders correctly', () => {
-    const tree = renderer.create(
-        <Header />
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+jest.mock("Platform", () => {
+  const Platform = require.requireActual("Platform");
+  Platform.OS = "android";
+  return Platform;
 });
 
-it('renders header with buttons', () => {
-    const tree = renderer.create(
+it("renders Header with only Title", () => {
+  const tree = renderer
+    .create(
+      <Container>
         <Header>
-            <Button transparent>
-                <Icon name='ios-arrow-back' />
-            </Button>
-
+          <Left />
+          <Body>
             <Title>Header</Title>
-
-            <Button transparent>
-                <Icon name='ios-menu' />
-            </Button>
+          </Body>
+          <Right />
         </Header>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
 
-it('renders header with a null button', () => {
-    const tree = renderer.create(
+it("renders Header with Icon Buttons", () => {
+  const tree = renderer
+    .create(
+      <Container>
         <Header>
-            {null}
-            <Title>Header</Title>
-        </Header>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
-});
-
-it('renders header with buttons and subtitle', () => {
-    const tree = renderer.create(
-        <Header>
+          <Left>
             <Button transparent>
-                <Icon name='ios-arrow-back' />
+              <Icon name="arrow-back" />
             </Button>
-
+          </Left>
+          <Body>
             <Title>Header</Title>
+          </Body>
+          <Right>
+            <Button transparent>
+              <Icon name="menu" />
+            </Button>
+          </Right>
+        </Header>
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders Header with Text Buttons", () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header>
+          <Left>
+            <Button hasText transparent>
+              <Text>Back</Text>
+            </Button>
+          </Left>
+          <Body>
+            <Title>Header</Title>
+          </Body>
+          <Right>
+            <Button hasText transparent>
+              <Text>Cancel</Text>
+            </Button>
+          </Right>
+        </Header>
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders Header with Icon Button & Text Button", () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Header</Title>
+          </Body>
+          <Right>
+            <Button hasText transparent>
+              <Text>Cancel</Text>
+            </Button>
+          </Right>
+        </Header>
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders Header with Icon & Text Button", () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent>
+              <Icon name="arrow-back" />
+              <Text>Back</Text>
+            </Button>
+          </Left>
+          <Body>
+            <Title>Header</Title>
+          </Body>
+          <Right>
+            <Button hasText transparent>
+              <Text>Cancel</Text>
+            </Button>
+          </Right>
+        </Header>
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders Header with multiple Icon Button", () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Header</Title>
+          </Body>
+          <Right>
+            <Button transparent>
+              <Icon name="search" />
+            </Button>
+            <Button transparent>
+              <Icon name="heart" />
+            </Button>
+            <Button transparent>
+              <Icon name="more" />
+            </Button>
+          </Right>
+        </Header>
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders Header with Title and Subtitle", () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header hasSubtitle>
+          <Left>
+            <Button transparent>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Title</Title>
             <Subtitle>Subtitle</Subtitle>
-
-            <Button transparent>
-                <Icon name='ios-menu' />
-            </Button>
+          </Body>
+          <Right />
         </Header>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
 
-it('renders header with just one button', () => {
-    const tree = renderer.create(
-        <Header>
+it("renders Header with Custom background color", () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header
+          style={{ backgroundColor: "#dc4239" }}
+          androidStatusBarColor="#dc2015"
+          iosBarStyle="light-content"
+        >
+          <Left>
             <Button transparent>
-                <Icon name='ios-arrow-back' />
+              <Icon name="arrow-back" style={{ color: "#FFF" }} />
             </Button>
+          </Left>
+          <Body>
+            <Title style={{ color: "#FFF" }}>Custom Header</Title>
+          </Body>
+          <Right />
+        </Header>
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
 
+it("renders Header span", () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header span>
+          <Left>
+            <Button transparent>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Header Span</Title>
+          </Body>
+          <Right />
+        </Header>
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders Header noShadow", () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header noShadow>
+          <Left>
+            <Button transparent>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Header No Shadow</Title>
+          </Body>
+          <Right>
+            <Button transparent>
+              <Icon name="menu" />
+            </Button>
+          </Right>
+        </Header>
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders Header noLeft", () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header noLeft>
+          <Left>
+            <Button hasText transparent>
+              <Text>Back</Text>
+            </Button>
+          </Left>
+          <Body>
             <Title>Header</Title>
-        </Header>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
-});
-
-it('renders header with just one button and subtitle', () => {
-    const tree = renderer.create(
-        <Header>
-            <Button transparent>
-                <Icon name='ios-arrow-back' />
+          </Body>
+          <Right>
+            <Button hasText transparent>
+              <Text>Cancel</Text>
             </Button>
-
-            <Title>Header</Title>
-            <Subtitle>Subtitle</Subtitle>
+          </Right>
         </Header>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
-
-it('renders header with just one button and iconRight', () => {
-    const tree = renderer.create(
-        <Header iconRight>
-            <Button transparent>
-                <Icon name='ios-arrow-back' />
-            </Button>
-
-            <Title>Header</Title>
-        </Header>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
-});
-
-it('renders header with just one button, iconRight and a subtitle', () => {
-    const tree = renderer.create(
-        <Header iconRight>
-            <Button transparent>
-                <Icon name='ios-arrow-back' />
-            </Button>
-
-            <Title>Header</Title>
-            <Subtitle>SubTitle</Subtitle>
-        </Header>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
-});
-
-// jest-react-native doesn't work yet with that and mocking didn't work either.
-/*
-it('renders header with searchbar', () => {
-    const tree = renderer.create(
-        <Header searchBar rounded>
-            <InputGroup>
-                <Icon name='ios-search' />
-                <Input placeholder='Search' />
-                <Icon name='ios-people' />
-            </InputGroup>
-            <Button transparent>
-                Search
-            </Button>
-        </Header>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
-});
-*/

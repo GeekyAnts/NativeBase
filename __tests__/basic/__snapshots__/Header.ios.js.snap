@@ -1,549 +1,958 @@
-exports[`test renders correctly 1`] = `
-<View
-  style={Object {}}
-  virtual={undefined} />
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test renders header with a null button 1`] = `
+exports[`renders Header noShadow 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={Object {}}
-    virtual={undefined}>
-    Header
-  </Text>
-</View>
-`;
-
-exports[`test renders header with buttons 1`] = `
-<View
-  style={Object {}}
-  virtual={undefined}>
+>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "borderRadius": 2,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}>
+    onLayout={[Function]}
+  >
     <View
-      style={
-        Object {
-          "alignSelf": "center",
-          "zIndex": 999,
-        }
-      } />
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Object {},
-          Object {
-            "fontFamily": "Ionicons",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-      virtual={undefined}>
-      
-    </Text>
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={Object {}}
-    virtual={undefined}>
-    Header
-  </Text>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "borderRadius": 2,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}>
-    <View
-      style={
-        Object {
-          "alignSelf": "center",
-          "zIndex": 999,
-        }
-      } />
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Object {},
-          Object {
-            "fontFamily": "Ionicons",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-      virtual={undefined}>
-      
-    </Text>
+      noShadow={true}
+      style={Object {}}
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={1}
+          style={Object {}}
+        >
+          Header No Shadow
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
   </View>
 </View>
 `;
 
-exports[`test renders header with buttons and subtitle 1`] = `
+exports[`renders Header span 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}>
+>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "borderRadius": 2,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}>
+    onLayout={[Function]}
+  >
     <View
-      style={
-        Object {
-          "alignSelf": "center",
-          "zIndex": 999,
-        }
-      } />
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Object {},
-          Object {
-            "fontFamily": "Ionicons",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-      virtual={undefined}>
-      
-    </Text>
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={Object {}}
-    virtual={undefined}>
-    Header
-  </Text>
-  <View>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "alignSelf": "center",
-          "color": "#8e8e93",
-          "fontSize": 12,
-        }
-      }>
-      Subtitle
-    </Text>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "borderRadius": 2,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}>
-    <View
-      style={
-        Object {
-          "alignSelf": "center",
-          "zIndex": 999,
-        }
-      } />
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Object {},
-          Object {
-            "fontFamily": "Ionicons",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-      virtual={undefined}>
-      
-    </Text>
+      span={true}
+      style={Object {}}
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={1}
+          style={Object {}}
+        >
+          Header Span
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+      />
+    </View>
   </View>
 </View>
 `;
 
-exports[`test renders header with just one button 1`] = `
+exports[`renders Header with Custom background color 1`] = `
 <View
   style={Object {}}
-  virtual={undefined}>
+>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "borderRadius": 2,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}>
+    onLayout={[Function]}
+  >
     <View
-      style={
-        Object {
-          "alignSelf": "center",
-          "zIndex": 999,
-        }
-      } />
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
+      androidStatusBarColor="#dc2015"
+      iosBarStyle="light-content"
       style={
         Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
           Object {},
           Object {
-            "fontFamily": "Ionicons",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
+            "backgroundColor": "#dc4239",
           },
         ]
       }
-      virtual={undefined}>
-      
-    </Text>
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={Object {}}
-    virtual={undefined}>
-    Header
-  </Text>
-</View>
-`;
-
-exports[`test renders header with just one button and iconRight 1`] = `
-<View
-  iconRight={true}
-  style={Object {}}
-  virtual={undefined}>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "borderRadius": 2,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}>
-    <View
-      style={
-        Object {
-          "alignSelf": "center",
-          "zIndex": 999,
-        }
-      } />
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Object {},
-          Object {
-            "fontFamily": "Ionicons",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-      virtual={undefined}>
-      
-    </Text>
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={Object {}}
-    virtual={undefined}>
-    Header
-  </Text>
-</View>
-`;
-
-exports[`test renders header with just one button and subtitle 1`] = `
-<View
-  style={Object {}}
-  virtual={undefined}>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "borderRadius": 2,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}>
-    <View
-      style={
-        Object {
-          "alignSelf": "center",
-          "zIndex": 999,
-        }
-      } />
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Object {},
-          Object {
-            "fontFamily": "Ionicons",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-      virtual={undefined}>
-      
-    </Text>
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={Object {}}
-    virtual={undefined}>
-    Header
-  </Text>
-  <View>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "alignSelf": "center",
-          "color": "#8e8e93",
-          "fontSize": 12,
-        }
-      }>
-      Subtitle
-    </Text>
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                  Object {
+                    "color": "#FFF",
+                  },
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {},
+              Object {
+                "color": "#FFF",
+              },
+            ]
+          }
+        >
+          Custom Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+      />
+    </View>
   </View>
 </View>
 `;
 
-exports[`test renders header with just one button, iconRight and a subtitle 1`] = `
+exports[`renders Header with Icon & Text Button 1`] = `
 <View
-  iconRight={true}
   style={Object {}}
-  virtual={undefined}>
+>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "borderRadius": 2,
-        "opacity": 1,
-      }
-    }
-    testID={undefined}>
+    onLayout={[Function]}
+  >
     <View
-      style={
-        Object {
-          "alignSelf": "center",
-          "zIndex": 999,
-        }
-      } />
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Object {},
-          Object {
-            "fontFamily": "Ionicons",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-      virtual={undefined}>
-      
-    </Text>
+      style={Object {}}
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            Back
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={1}
+          style={Object {}}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            Cancel
+          </Text>
+        </View>
+      </View>
+    </View>
   </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={Object {}}
-    virtual={undefined}>
-    Header
-  </Text>
-  <View>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "alignSelf": "center",
-          "color": "#8e8e93",
-          "fontSize": 12,
-        }
-      }>
-      SubTitle
-    </Text>
+</View>
+`;
+
+exports[`renders Header with Icon Button & Text Button 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={1}
+          style={Object {}}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            Cancel
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with Icon Buttons 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={1}
+          style={Object {}}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with Text Buttons 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            Back
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={1}
+          style={Object {}}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            Cancel
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with Title and Subtitle 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      hasSubtitle={true}
+      style={Object {}}
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={1}
+          style={Object {}}
+        >
+          Title
+        </Text>
+        <Text
+          style={Object {}}
+        >
+          Subtitle
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with multiple Icon Button 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={1}
+          style={Object {}}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders Header with only Title 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={Object {}}
+      />
+      <View
+        style={Object {}}
+      >
+        <Text
+          numberOfLines={1}
+          style={Object {}}
+        >
+          Header
+        </Text>
+      </View>
+      <View
+        style={Object {}}
+      />
+    </View>
   </View>
 </View>
 `;

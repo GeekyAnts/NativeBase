@@ -1,6 +1,6 @@
-import variable from "./../variables/platform";
+// @flow
 
-export default (variables = variable) => {
+export default () => {
   const pickerTheme = {};
 
   return pickerTheme;

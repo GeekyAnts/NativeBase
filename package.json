@@ -10,41 +10,44 @@
     "native-modules",
     "react-component",
     "navbar",
-    "packager",
-    "rnpm"
+    "packager"
   ],
   "scripts": {
-    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps",
+    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
+    "lint": "eslint \"src/**/*.{js, json}\"",
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
-    "test": "jest",
     "prepublish": "npm run transpile",
     "prepare": "npm run transpile",
-    "postinstall": "echo 'COMPILING' && npm run transpile && node addEjectScript.js",
+    "postinstall": "echo 'COMPILING' && npm run transpile && node addEjectScript.js && opencollective-postinstall",
     "flow": "flow"
   },
   "jest": {
     "preset": "react-native",
-    "rootDir": "src",
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element)"
+      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
     ]
   },
-  "version": "2.3.5",
+  "version": "2.13.8",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
-    "color": "~1.0.3",
+    "color": "~3.1.2",
+    "create-react-class": "^15.6.3",
+    "eslint-config-prettier": "^6.0.0",
     "fs-extra": "^2.0.0",
-    "lodash": "~4.11.1",
-    "native-base-shoutem-theme": "0.2.1",
+    "jest-react-native": "^18.0.0",
+    "lodash": "^4.17.14",
+    "native-base-shoutem-theme": "0.3.1",
+    "opencollective-postinstall": "^2.0.2",
     "print-message": "^2.1.0",
     "prop-types": "^15.5.10",
-    "react-native-drawer": "https://github.com/GeekyAnts/react-native-drawer",
-    "react-native-easy-grid": "0.1.15",
-    "react-native-keyboard-aware-scroll-view": "https://github.com/GeekyAnts/react-native-keyboard-aware-scroll-view",
-    "react-native-vector-icons": "~4.4.2",
+    "react-native-drawer": "2.5.1",
+    "react-native-easy-grid": "0.2.2",
+    "react-native-keyboard-aware-scroll-view": "0.9.1",
+    "react-native-vector-icons": "^6.6.0",
+    "react-timer-mixin": "^0.13.4",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1"
   },
@@ -57,14 +60,17 @@
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
-    "eslint-plugin-react": "^6.2.0",
+    "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-native": "^2.0.0",
-    "flow-bin": "0.40.0",
-    "jest": "17.0.0",
-    "react": "^16.0.0-alpha.3",
-    "react-native": "^0.46.0",
-    "react-native-vector-icons": "~4.4.2",
-    "react-test-renderer": "^15.3.2"
+    "eslint-watch": "^5.1.2",
+    "flow-bin": "0.47.0",
+    "husky": "^3.0.9",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "react": "16.4.1",
+    "react-native": "^0.60.4",
+    "react-test-renderer": "16.4.1"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
@@ -72,17 +78,21 @@
   "typings": "./index.d.ts",
   "optionalDependencies": {},
   "peerDependencies": {
-    "react": ">=16.0.0-alpha.3",
-    "react-native": ">=0.46.0"
+    "react": ">=16.4.1",
+    "react-native": ">=0.56.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && pretty-quick --staged --pattern \"src/**/*.{js, json}\""
+    }
   },
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GeekyAnts/NativeBase.git"
   },
-  "rnpm": {
-    "assets": [
-      "Fonts"
-    ]
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/NativeBase"
   }
 }

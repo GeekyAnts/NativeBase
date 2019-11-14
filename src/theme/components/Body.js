@@ -1,11 +1,11 @@
-import variable from './../variables/platform';
+// @flow
 
-export default (variables = variable) => {
-	const bodyTheme = {
-		flex: 1,
-		alignItems: 'center',
-		alignSelf: 'center',
-	};
+export default () => {
+  const bodyTheme = {
+    flex: 1,
+    alignItems: 'center',
+    alignSelf: 'center'
+  };
 
-	return bodyTheme;
+  return bodyTheme;
 };

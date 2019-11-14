@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders searchbar 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      rounded={true}
+      searchBar={true}
+      style={Object {}}
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          active={true}
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+              ],
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          editable={true}
+          placeholder="Search"
+          placeholderTextColor="#575757"
+          style={Object {}}
+          underlineColorAndroid="rgba(0,0,0,0)"
+        />
+        <Text
+          active={true}
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Object {},
+              ],
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffbcbc",
+              "borderColor": "red",
+              "borderWidth": 1,
+              "height": 100,
+              "justifyContent": "center",
+              "margin": 10,
+              "width": 300,
+            },
+            Object {
+              "borderRadius": 2,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#333333",
+              "margin": 20,
+            }
+          }
+        >
+          TouchableNativeFeedback is not supported on this platform!
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -1,10 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, StatusBar, ViewPropTypes } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
-import variable from "../theme/variables/platform";
-import _ from "lodash";
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-unneeded-ternary */
+import { connectStyle } from 'native-base-shoutem-theme';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { View, StatusBar, ViewPropTypes, SafeAreaView } from 'react-native';
+
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import getStyle from '../utils/getStyle';
+import variable from '../theme/variables/platform';
 
 class Header extends Component {
   static contextTypes = {
@@ -12,28 +15,44 @@ class Header extends Component {
   };
 
   render() {
+    const {
+      androidStatusBarColor,
+      iosBarStyle,
+      style,
+      transparent,
+      translucent
+    } = this.props;
+
     const variables = this.context.theme
-      ? this.context.theme["@@shoutem.theme/themeStyle"].variables
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
+
     const platformStyle = variables.platformStyle;
 
     return (
       <View>
         <StatusBar
           backgroundColor={
-            this.props.androidStatusBarColor
-              ? this.props.androidStatusBarColor
+            androidStatusBarColor
+              ? androidStatusBarColor
               : variables.statusBarColor
           }
           barStyle={
-            this.props.iosBarStyle
-              ? this.props.iosBarStyle
-              : platformStyle === "material"
-                ? "light-content"
-                : variables.iosStatusbar
+            iosBarStyle
+              ? iosBarStyle
+              : platformStyle === 'material'
+              ? 'light-content'
+              : variables.iosStatusbar
           }
+          translucent={transparent ? true : translucent}
         />
-        <View ref={c => (this._root = c)} {...this.props} />
+        <SafeAreaView
+          style={{
+            backgroundColor: getStyle(style).backgroundColor
+          }}
+        >
+          <View ref={c => (this._root = c)} {...this.props} />
+        </SafeAreaView>
       </View>
     );
   }
@@ -51,7 +70,7 @@ Header.propTypes = {
 };
 
 const StyledHeader = connectStyle(
-  "NativeBase.Header",
+  'NativeBase.Header',
   {},
   mapPropsToStyleNames
 )(Header);

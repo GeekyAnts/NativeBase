@@ -1,58 +1,108 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, Modal, Platform, Animated, ViewPropTypes } from "react-native";
-import { connectStyle } from "native-base-shoutem-theme";
-import { Text } from "./Text";
-import { Button } from "./Button";
-import { ViewNB } from "./View";
-import { Toast } from "./Toast";
-import mapPropsToStyleNames from "../Utils/mapPropsToStyleNames";
+/* eslint-disable class-methods-use-this */
+import React, { Component } from 'react';
+import { Keyboard, Platform, Animated, ViewPropTypes } from 'react-native';
+import { connectStyle } from 'native-base-shoutem-theme';
+
+import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import { PLATFORM } from '../theme/variables/commonColor';
+
+import { Text } from './Text';
+import { Button } from './Button';
+import { Toast } from './Toast';
+
+const POSITION = {
+  ABSOLUTE: 'absolute',
+  BOTTOM: 'bottom',
+  TOP: 'top'
+};
 
 class ToastContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalVisible: false,
-      fadeAnim: new Animated.Value(0)
-    };
-  }
-  static toastInstance;
   static show({ ...config }) {
     this.toastInstance._root.showToast({ config });
   }
-  getToastStyle() {
-    return {
-      position: "absolute",
-      opacity: this.state.fadeAnim,
-      width: "100%",
-      elevation: 9,
-      paddingHorizontal: Platform.OS === "ios" ? 20 : 0,
-      top: this.state.position === "top" ? this.getTop() : undefined,
-      bottom: this.state.position === "bottom" ? this.getTop() : undefined
-    };
-  }
-  getTop() {
-    if (Platform.OS === "ios") {
-      return 30;
-    } else {
-      return 0;
+  static hide() {
+    if (this.toastInstance._root.getModalState()) {
+      this.toastInstance._root.closeToast('functionCall');
     }
   }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      fadeAnim: new Animated.Value(0),
+      keyboardHeight: 0,
+      isKeyboardVisible: false,
+      modalVisible: false
+    };
+
+    this.keyboardDidHide = this.keyboardDidHide.bind(this);
+    this.keyboardDidShow = this.keyboardDidShow.bind(this);
+  }
+
+  componentDidMount() {
+    Keyboard.addListener('keyboardDidShow', this.keyboardDidShow);
+    Keyboard.addListener('keyboardDidHide', this.keyboardDidHide);
+  }
+
+  getToastStyle() {
+    return {
+      position: POSITION.ABSOLUTE,
+      opacity: this.state.fadeAnim,
+      width: '100%',
+      elevation: 9,
+      paddingHorizontal: Platform.OS === PLATFORM.IOS ? 20 : 0,
+      top: this.state.position === POSITION.TOP ? 30 : undefined,
+      bottom:
+        this.state.position === POSITION.BOTTOM ? this.getTop() : undefined
+    };
+  }
+
+  getTop() {
+    if (Platform.OS === PLATFORM.IOS) {
+      if (this.state.isKeyboardVisible) {
+        return this.state.keyboardHeight;
+      }
+      return 30;
+    }
+    return 0;
+  }
+
   getButtonText(buttonText) {
     if (buttonText) {
       if (buttonText.trim().length === 0) {
         return undefined;
-      } else return buttonText;
+      }
+      return buttonText;
     }
     return undefined;
   }
+  getModalState() {
+    return this.state.modalVisible;
+  }
+
+  static toastInstance;
+
+  keyboardDidHide() {
+    this.setState({
+      keyboardHeight: 0,
+      isKeyboardVisible: false
+    });
+  }
+
+  keyboardDidShow(e) {
+    this.setState({
+      keyboardHeight: e.endCoordinates.height,
+      isKeyboardVisible: true
+    });
+  }
+
   showToast({ config }) {
     this.setState({
       modalVisible: true,
       text: config.text,
       buttonText: this.getButtonText(config.buttonText),
       type: config.type,
-      position: config.position ? config.position : "bottom",
+      position: config.position ? config.position : POSITION.BOTTOM,
       supportedOrientations: config.supportedOrientations,
       style: config.style,
       buttonTextStyle: config.buttonTextStyle,
@@ -60,67 +110,56 @@ class ToastContainer extends Component {
       textStyle: config.textStyle,
       onClose: config.onClose
     });
-    if (config.duration > 0) {
-      setTimeout(() => {
-        Animated.timing(this.state.fadeAnim, {
-          toValue: 0,
-          duration: 200
-        }).start();
-        setTimeout(() => {
-          this.setState({
-            modalVisible: false
-          });
-        }, 500);
-      }, config.duration);
-    } else {
-      setTimeout(() => {
-        Animated.timing(this.state.fadeAnim, {
-          toValue: 0,
-          duration: 200
-        }).start();
-        setTimeout(() => {
-          this.setState({
-            modalVisible: false
-          });
-        }, 500);
-      }, 1500);
+    // If we have a toast already open, cut off its close timeout so that it won't affect *this* toast.
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout);
     }
+    // Set the toast to close after the duration.
+    if (config.duration !== 0) {
+      const duration = config.duration > 0 ? config.duration : 1500;
+      this.closeTimeout = setTimeout(
+        this.closeToast.bind(this, 'timeout'),
+        duration
+      );
+    }
+    // Fade the toast in now.
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 200
     }).start();
   }
-  closeToast() {
+  closeModal(reason) {
+    this.setState({
+      modalVisible: false
+    });
     const { onClose } = this.state;
-
-    if (onClose && typeof onClose === "function") {
-      onClose();
+    if (onClose && typeof onClose === 'function') {
+      onClose(reason);
     }
+  }
+  closeToast(reason) {
+    clearTimeout(this.closeTimeout);
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
       duration: 200
-    }).start();
-    setTimeout(() => {
-      this.setState({
-        modalVisible: false
-      });
-    }, 500);
+    }).start(this.closeModal.bind(this, reason));
   }
+
   render() {
     if (this.state.modalVisible) {
       return (
         <Animated.View style={this.getToastStyle()}>
           <Toast
             style={this.state.style}
-            danger={this.state.type == "danger" ? true : false}
-            success={this.state.type == "success" ? true : false}
-            warning={this.state.type == "warning" ? true : false}
+            danger={this.state.type === 'danger'}
+            success={this.state.type === 'success'}
+            warning={this.state.type === 'warning'}
           >
             <Text style={this.state.textStyle}>{this.state.text}</Text>
             {this.state.buttonText && (
               <Button
                 style={this.state.buttonStyle}
-                onPress={() => this.closeToast()}
+                onPress={() => this.closeToast('user')}
               >
                 <Text style={this.state.buttonTextStyle}>
                   {this.state.buttonText}
@@ -130,21 +169,17 @@ class ToastContainer extends Component {
           </Toast>
         </Animated.View>
       );
-    } else return null;
+    }
+    return null;
   }
 }
 
 ToastContainer.propTypes = {
-  ...ViewPropTypes,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array
-  ])
+  ...ViewPropTypes
 };
 
 const StyledToastContainer = connectStyle(
-  "NativeBase.ToastContainer",
+  'NativeBase.ToastContainer',
   {},
   mapPropsToStyleNames
 )(ToastContainer);
