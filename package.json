@@ -18,7 +18,7 @@
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "prepublish": "npm run transpile",
     "prepare": "npm run transpile",
-    "postinstall": "echo 'COMPILING' && npm run transpile && node addEjectScript.js && opencollective-postinstall",
+    "postinstall": "node addEjectScript.js && opencollective-postinstall",
     "flow": "flow"
   },
   "jest": {
