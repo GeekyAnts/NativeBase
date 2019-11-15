@@ -34,8 +34,11 @@ class Item extends Component {
   componentDidMount() {
     if (this.props.floatingLabel) {
       if (this.inputProps && this.inputProps.value) {
-        this.setState({ isFocused: true });
+        const effect = () => {
+          this.setState({ isFocused: true });
+        };
         this.floatUp(-16);
+        effect();
       }
       if (this.inputProps && this.inputProps.getRef)
         this.inputProps.getRef(this._inputRef);
