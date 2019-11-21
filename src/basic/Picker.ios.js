@@ -210,6 +210,7 @@ class PickerNB extends Component {
           <Container style={this.props.modalStyle}>
             {this.renderHeader()}
             <FlatList
+              testID={this.props.testID}
               data={this.state.dataSource}
               keyExtractor={(item, index) => String(index)}
               renderItem={({ item }) => (
