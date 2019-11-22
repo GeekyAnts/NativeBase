@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import { StyleSheet } from 'react-native';
 
-module.exports = function(incomingProps, defaultProps) {
+export default function(incomingProps, defaultProps) {
   // External props has a higher precedence
   let computedProps = {};
 
@@ -38,4 +38,4 @@ module.exports = function(incomingProps, defaultProps) {
     _.merge(computedProps.style, defaultProps.style, computedPropsStyle);
   }
   return computedProps;
-};
+}
