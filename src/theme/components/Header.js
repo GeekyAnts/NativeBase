@@ -272,6 +272,8 @@ export default (variables /* : * */ = variable) => {
       flex:
         platform === PLATFORM.IOS && platformStyle !== PLATFORM.MATERIAL
           ? 1
+          : platform === PLATFORM.WEB
+          ? 0.1
           : 0.4,
       alignSelf: 'center',
       alignItems: 'flex-start'
