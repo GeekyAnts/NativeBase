@@ -1071,7 +1071,7 @@ declare module "native-base" {
      * NativeBase.Thumbnail
      *
      * Thumbnail component works very similar to Image.
-     * It helps you to showcase an image with variuos dimensions and shapes.
+     * It helps you to showcase an image with various dimensions and shapes.
      * By default, Thumbnail renders an image in circular shape.
      */
 	export class Thumbnail extends React.Component<NativeBase.Thumbnail, any> { }
