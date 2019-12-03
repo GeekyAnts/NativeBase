@@ -8,7 +8,7 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Text extends Component {
   render() {
-    const { uppercase, children, ...rest } = this.props;
+    const { uppercase, children, rnTextProps } = this.props;
 
     let text;
     if (uppercase) {
@@ -23,7 +23,7 @@ class Text extends Component {
     }
 
     return (
-      <RNText ref={c => (this._root = c)} {...rest}>
+      <RNText ref={c => (this._root = c)} {...rnTextProps}>
         {text}
       </RNText>
     );

@@ -413,7 +413,7 @@ class Item extends Component {
           React.createElement(Label, {
             ...labelProps,
             key: 'newFLabel',
-            float: true,
+            float: true.toString(),
             style: labelStyle
           })
         );
