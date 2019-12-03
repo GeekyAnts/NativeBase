@@ -383,6 +383,8 @@ declare module "native-base" {
 			cardBody?: boolean;
 			button?: boolean;
 			bordered?: boolean;
+			first?: boolean;
+			last?: boolean;
 			onPress?: () => void;
 		}
 		/**
