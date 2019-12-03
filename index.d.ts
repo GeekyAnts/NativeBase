@@ -1167,7 +1167,12 @@ declare module "native-base" {
 	export class ActionSheet {
 		static show: (
 			configuration: {
-				options: string[] | Array<{ text: string, icon?: string, iconColor?: string }>;
+				options: string[] | Array<{ 
+					text: string, 
+					icon?: string, 
+					iconColor?: string, 
+					iconType?: "AntDesign" | "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "FontAwesome5" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial",
+				}>;
 				cancelButtonIndex?: number;
 				destructiveButtonIndex?: number;
 				title?: string;
