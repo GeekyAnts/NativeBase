@@ -6,27 +6,12 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 import variable from '../theme/variables/platform';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
+import getStyle from '../utils/getStyle';
 
 class Content extends Component {
   static contextTypes = {
     theme: PropTypes.object
   };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      orientation: 'portrait'
-    };
-  }
-
-  layoutChange(val) {
-    const maxComp = Math.max(variable.deviceWidth, variable.deviceHeight);
-
-    if (val.width >= maxComp) this.setState({ orientation: 'landscape' });
-    else {
-      this.setState({ orientation: 'portrait' });
-    }
-  }
 
   render() {
     const {
@@ -37,12 +22,17 @@ class Content extends Component {
       padder,
       style
     } = this.props;
-    const containerStyle = { flex: 1 };
+
+    const containerStyle = {
+      flex: 1,
+      backgroundColor: getStyle(style).backgroundColor
+    };
+
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
 
-    return variables.isIphoneX ? (
+    return (
       <SafeAreaView style={containerStyle}>
         <KeyboardAwareScrollView
           automaticallyAdjustContentInsets={false}
@@ -53,7 +43,6 @@ class Content extends Component {
             this._root = c;
           }}
           {...this.props}
-          style={style}
           contentContainerStyle={[
             { padding: padder ? variables.contentPadding : undefined },
             contentContainerStyle
@@ -62,23 +51,6 @@ class Content extends Component {
           {children}
         </KeyboardAwareScrollView>
       </SafeAreaView>
-    ) : (
-      <KeyboardAwareScrollView
-        automaticallyAdjustContentInsets={false}
-        resetScrollToCoords={disableKBDismissScroll ? null : { x: 0, y: 0 }}
-        keyboardShouldPersistTaps={keyboardShouldPersistTaps || 'handled'}
-        ref={c => {
-          this._scrollview = c;
-          this._root = c;
-        }}
-        {...this.props}
-        contentContainerStyle={[
-          { padding: padder ? variables.contentPadding : undefined },
-          contentContainerStyle
-        ]}
-      >
-        {children}
-      </KeyboardAwareScrollView>
     );
   }
 }

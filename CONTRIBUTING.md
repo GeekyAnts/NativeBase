@@ -33,10 +33,10 @@ NativeBase is an infant and growing rapidly, so we planned to stick to Git Flow.
 
 #### a. Reporting Bugs
 
-- Always update to the most recent `master` release; the bug may already be resolved.
+- Always update to the most recent `master` release, the bug may already be resolved.
 - Search for similar issues in the issues list for this repo. It may already be an identified problem.
 - If you want to contribute to an issue that is not part of this list, you are welcome to submit [new issue](https://github.com/GeekyAnts/NativeBase/issues/new) to our GitHub Repository.
-  - In that case, provide a short description of the visible symptoms. Include error messages, screen shots, and stack traces.
+  - In that case, provide a short description of the visible symptoms. Include error messages, screenshots, and stack traces.
   - If applicable, submit a step-by-step walkthrough of how to reproduce the issue.
 - In any case, a **closed issue** is not necessarily the end of the story! If more info becomes available after an issue is closed, it can be reopened for further consideration.
 
@@ -110,39 +110,39 @@ You are now ready to send PR to NativeBase!
 
 ### 3. Development Environment
 
-- Fork this repository
+- Fork this repository.
 
-- Move over to the TestBed App [here](https://github.com/GeekyAnts/native-base-testbed) and clone it.
+- Move over to the TestBed App [here](https://github.com/GeekyAnts/native-base-testbed) and clone it:
 
   ```bash
   cd native-base-testbed and npm install
   ```
 
-- Clone your fork of NativeBase
+- Clone your fork of NativeBase:
 
   ```git
   git clone git@github.com:${YOUR_USERNAME}/NativeBase.git
   ```
 
-- Navigate to NativeBase
+- Navigate to NativeBas:e
 
   ```
   cd NativeBase/
   ```
 
-- Add main repo remote
+- Add main repo remote:
 
   ```git
   git remote add nativebase git@github.com:GeekyAnts/NativeBase.git
   ```
 
-- Install dependencies
+- Install dependencies:
 
   ```bash
   npm install
   ```
 
-* Navigate to your app
+* Navigate to your app:
 
   ```
   cd ../

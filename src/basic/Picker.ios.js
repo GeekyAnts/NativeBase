@@ -1,9 +1,12 @@
+/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prefer-es6-class */
+/* eslint-disable react/sort-comp */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 import { FlatList, Modal, Picker, View, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
-import { find, flatten, get, isArray } from 'lodash';
+import { find, get } from 'lodash';
 
 import computeProps from '../utils/computeProps';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
@@ -20,42 +23,6 @@ import { Right } from './Right';
 import { Body } from './Body';
 
 class PickerNB extends Component {
-  static getDerivedStateFromProps(nextProps, prevState) {
-    let nextDS;
-
-    if (nextProps.children && !Array.isArray(nextProps.children)) {
-      nextDS = [].concat(nextProps.children);
-      // eslint-disable-next-line prefer-spread
-    } else nextDS = [].concat.apply([], nextProps.children);
-
-    let item;
-
-    if (isArray(nextProps.children)) {
-      item = find(
-        flatten(nextProps.children),
-        child => child.props.value === nextProps.selectedValue
-      );
-    } else {
-      item = nextProps.children;
-    }
-
-    const currentLabel = prevState.currentLabel;
-    const nextLabel = get(item, 'props.label');
-    const currentDS = prevState.dataSource;
-
-    if (currentLabel !== nextLabel) {
-      return {
-        currentLabel: nextLabel
-      };
-    }
-    if (currentDS !== nextDS) {
-      return {
-        dataSource: nextDS
-      };
-    }
-    return null;
-  }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -207,6 +174,25 @@ class PickerNB extends Component {
     );
   }
 
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    const currentLabel = this.state.currentLabel;
+    const nextLabel = this.getLabel(nextProps);
+    const currentDS = this.state.dataSource;
+    const nextDS = this.getChildren(nextProps.children);
+
+    if (currentLabel !== nextLabel) {
+      this.setState({
+        currentLabel: nextLabel
+      });
+    }
+    if (currentDS !== nextDS) {
+      this.setState({
+        dataSource: nextDS
+      });
+    }
+  }
+
   render() {
     return (
       <View ref={c => (this._root = c)}>
@@ -224,6 +210,7 @@ class PickerNB extends Component {
           <Container style={this.props.modalStyle}>
             {this.renderHeader()}
             <FlatList
+              testID={this.props.testID}
               data={this.state.dataSource}
               keyExtractor={(item, index) => String(index)}
               renderItem={({ item }) => (
@@ -259,6 +246,7 @@ class PickerNB extends Component {
   }
 }
 
+// eslint-disable-next-line react/no-multi-comp
 PickerNB.Item = createReactClass({
   render() {
     return <Picker.Item {...this.props()} />;
