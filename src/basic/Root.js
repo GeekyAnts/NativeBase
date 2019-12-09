@@ -10,9 +10,10 @@ import { ActionSheetContainer as ActionSheet } from './Actionsheet';
 
 class Root extends Component {
   render() {
+    const { style, children, ...viewProps } = this.props;
     return (
-      <View ref={c => (this._root = c)} {...this.props} style={{ flex: 1 }}>
-        {this.props.children}
+      <View ref={c => (this._root = c)} {...viewProps} style={[ { flex: 1 }, style ]}>
+        {children}
         <Toast
           ref={c => {
             if (c) Toast.toastInstance = c;
