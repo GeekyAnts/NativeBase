@@ -10,21 +10,23 @@ import { ActionSheetContainer as ActionSheet } from './Actionsheet';
 
 class Root extends Component {
 
-  static instances = [];
-
   static getActionSheetInstance = () => {
-    let c = Root.instances[Root.instances.length - 1];
+    const c = Root.instances[Root.instances.length - 1];
     if(c){
       return c.actionSheet;
     }
+    return null;
   }
 
   static getToastInstance = () => {
-    let c = Root.instances[Root.instances.length - 1];
+    const c = Root.instances[Root.instances.length - 1];
     if(c){
       return c.toast;
     }
+    return null;
   }
+
+  static instances = [];
 
   actionSheetRef = (c) => {
     this.actionSheet = c;
@@ -39,7 +41,7 @@ class Root extends Component {
   }
 
   componentWillUnmount(){
-    let idx = Root.instances.indexOf(this);
+    const idx = Root.instances.indexOf(this);
     if(idx !== -1){
       Root.instances.splice(idx, 1);
     }

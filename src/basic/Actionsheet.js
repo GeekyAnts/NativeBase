@@ -28,13 +28,13 @@ import { Root } from './Root';
 
 class ActionSheetContainer extends Component {
   static show(config, callback) {
-    let inst = Root.getActionSheetInstance();
+    const inst = Root.getActionSheetInstance();
     if(inst){
       inst._root.showActionSheet(config, callback);
     }
   }
   static hide() {
-    let inst = Root.getActionSheetInstance();
+    const inst = Root.getActionSheetInstance();
     if(inst){
       inst._root.hideActionSheet();
     }
