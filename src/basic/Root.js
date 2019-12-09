@@ -26,8 +26,6 @@ class Root extends Component {
     return null;
   }
 
-  static instances = [];
-
   actionSheetRef = (c) => {
     this.actionSheet = c;
   }
@@ -46,6 +44,8 @@ class Root extends Component {
       Root.instances.splice(idx, 1);
     }
   }
+
+  static instances = [];
 
   render() {
     return (
