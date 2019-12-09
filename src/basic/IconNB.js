@@ -29,15 +29,15 @@ class IconNB extends React.PureComponent {
     this.setIcon(props.type);
   }
 
-  setRoot(c){
-    this._root = c;
-  }
-
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillUpdate(nextProps) {
     if (nextProps.type && this.props.type !== nextProps.type) {
       this.setIcon(nextProps.type);
     }
+  }
+
+  setRoot(c){
+    this._root = c;
   }
 
   setIcon(iconType) {
