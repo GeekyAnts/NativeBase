@@ -23,13 +23,21 @@ import { Left } from './Left';
 import { Right } from './Right';
 import { Body } from './Body';
 import { ListItem } from './ListItem';
+import { Root } from './Root';
+
 
 class ActionSheetContainer extends Component {
   static show(config, callback) {
-    this.actionsheetInstance._root.showActionSheet(config, callback);
+    let inst = Root.getActionSheetInstance();
+    if(inst){
+      inst._root.showActionSheet(config, callback);
+    }
   }
   static hide() {
-    this.actionsheetInstance._root.hideActionSheet();
+    let inst = Root.getActionSheetInstance();
+    if(inst){
+      inst._root.hideActionSheet();
+    }
   }
 
   constructor(props) {
@@ -46,8 +54,6 @@ class ActionSheetContainer extends Component {
       console.warn(`It's not recommended to set autoHide false with duration`);
     }
   }
-
-  static actionsheetInstance;
 
   showActionSheet(config, callback) {
     if (Platform.OS === PLATFORM.IOS) {

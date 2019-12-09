@@ -9,19 +9,51 @@ import { ToastContainer as Toast } from './ToastContainer';
 import { ActionSheetContainer as ActionSheet } from './Actionsheet';
 
 class Root extends Component {
+
+  static instances = [];
+
+  static getActionSheetInstance = () => {
+    let c = Root.instances[Root.instances.length - 1];
+    if(c){
+      return c.actionSheet;
+    }
+  }
+
+  static getToastInstance = () => {
+    let c = Root.instances[Root.instances.length - 1];
+    if(c){
+      return c.toast;
+    }
+  }
+
+  actionSheetRef = (c) => {
+    this.actionSheet = c;
+  }
+
+  toastRef = (c) => {
+    this.toast = c;
+  }
+
+  componentDidMount(){
+    Root.instances.push(this);
+  }
+
+  componentWillUnmount(){
+    let idx = Root.instances.indexOf(this);
+    if(idx !== -1){
+      Root.instances.splice(idx, 1);
+    }
+  }
+
   render() {
     return (
       <View ref={c => (this._root = c)} {...this.props} style={{ flex: 1 }}>
         {this.props.children}
         <Toast
-          ref={c => {
-            if (c) Toast.toastInstance = c;
-          }}
+          ref={this.toastRef}
         />
         <ActionSheet
-          ref={c => {
-            if (c) ActionSheet.actionsheetInstance = c;
-          }}
+          ref={this.actionSheetRef}
         />
       </View>
     );

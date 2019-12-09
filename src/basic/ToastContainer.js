@@ -9,6 +9,8 @@ import { PLATFORM } from '../theme/variables/commonColor';
 import { Text } from './Text';
 import { Button } from './Button';
 import { Toast } from './Toast';
+import { Root } from './Root';
+
 
 const POSITION = {
   ABSOLUTE: 'absolute',
@@ -18,11 +20,15 @@ const POSITION = {
 
 class ToastContainer extends Component {
   static show({ ...config }) {
-    this.toastInstance._root.showToast({ config });
+    let inst = Root.getToastInstance();
+    if(inst){
+      inst._root.showToast({ config });
+    }
   }
   static hide() {
-    if (this.toastInstance._root.getModalState()) {
-      this.toastInstance._root.closeToast('functionCall');
+    let inst = Root.getToastInstance();
+    if (inst && inst._root.getModalState()) {
+      inst._root.closeToast('functionCall');
     }
   }
   constructor(props) {
@@ -79,8 +85,6 @@ class ToastContainer extends Component {
   getModalState() {
     return this.state.modalVisible;
   }
-
-  static toastInstance;
 
   keyboardDidHide() {
     this.setState({
