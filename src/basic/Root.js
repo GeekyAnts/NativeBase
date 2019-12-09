@@ -26,13 +26,7 @@ class Root extends Component {
     return null;
   }
 
-  actionSheetRef = (c) => {
-    this.actionSheet = c;
-  }
-
-  toastRef = (c) => {
-    this.toast = c;
-  }
+  static instances = [];
 
   componentDidMount(){
     Root.instances.push(this);
@@ -45,7 +39,15 @@ class Root extends Component {
     }
   }
 
-  static instances = [];
+  actionSheetRef = (c) => {
+    this.actionSheet = c;
+  }
+
+  toastRef = (c) => {
+    this.toast = c;
+  }
+
+
 
   render() {
     return (
