@@ -49,7 +49,9 @@ import variable from './../variables/platform';
 
 export default (variables /* : * */ = variable) => {
   const theme = {
-    variables,
+    variables: {
+      platformStyle: variables.platformStyle,
+    },
     'NativeBase.Left': {
       ...leftTheme(variables)
     },
