@@ -14,48 +14,62 @@ class Content extends Component {
   };
 
   render() {
+
+    const themeVars = this.context.theme
+      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
+      : variable;
+
+    if (this.props.cover) {
+      return this.renderScrollView(themeVars);
+    }
+
+    return (
+      <SafeAreaView style={{
+        flex: 1,
+        backgroundColor: getStyle(style).backgroundColor
+      }} >
+        { this.renderScrollView(themeVars) }
+      </SafeAreaView>
+    );
+
+  }
+
+  renderScrollView (themeVars) {
+
     const {
       children,
       contentContainerStyle,
+      cover,
       disableKBDismissScroll,
       keyboardShouldPersistTaps,
       padder,
       style
     } = this.props;
 
-    const containerStyle = {
-      flex: 1,
-      backgroundColor: getStyle(style).backgroundColor
-    };
-
-    const variables = this.context.theme
-      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
-      : variable;
-
     return (
-      <SafeAreaView style={containerStyle}>
-        <KeyboardAwareScrollView
-          automaticallyAdjustContentInsets={false}
-          resetScrollToCoords={disableKBDismissScroll ? null : { x: 0, y: 0 }}
-          keyboardShouldPersistTaps={keyboardShouldPersistTaps || 'handled'}
-          ref={c => {
-            this._scrollview = c;
-            this._root = c;
-          }}
-          {...this.props}
-          contentContainerStyle={[
-            { padding: padder ? variables.contentPadding : undefined },
-            contentContainerStyle
-          ]}
-        >
-          {children}
-        </KeyboardAwareScrollView>
-      </SafeAreaView>
+      <KeyboardAwareScrollView
+        automaticallyAdjustContentInsets={false}
+        resetScrollToCoords={disableKBDismissScroll ? null : { x: 0, y: 0 }}
+        keyboardShouldPersistTaps={keyboardShouldPersistTaps || 'handled'}
+        ref={c => {
+          this._scrollview = c;
+          this._root = c;
+        }}
+        {...this.props}
+        contentContainerStyle={[
+          { flex: 1, padding: padder ? themeVars.contentPadding : undefined },
+          contentContainerStyle
+        ]}
+      >
+        {children}
+      </KeyboardAwareScrollView>
     );
   }
+
 }
 
 Content.propTypes = {
+  cover: PropTypes.bool,
   disableKBDismissScroll: PropTypes.bool,
   keyboardShouldPersistTaps: PropTypes.string,
   padder: PropTypes.bool,
