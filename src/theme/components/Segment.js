@@ -1,11 +1,9 @@
 // @flow
 
 import variable from './../variables/platform';
-import { PLATFORM } from './../variables/common';
+import { isIos } from './../variables/common';
 
 export default (variables /* : * */ = variable) => {
-  const platform = variables.platform;
-
   const segmentTheme = {
     height: 45,
     borderColor: variables.segmentBorderColorMain,
@@ -33,13 +31,13 @@ export default (variables /* : * */ = variable) => {
         }
       },
       '.first': {
-        borderTopLeftRadius: platform === PLATFORM.IOS ? 5 : undefined,
-        borderBottomLeftRadius: platform === PLATFORM.IOS ? 5 : undefined,
+        borderTopLeftRadius: isIos ? 5 : undefined,
+        borderBottomLeftRadius: isIos ? 5 : undefined,
         borderLeftWidth: 1
       },
       '.last': {
-        borderTopRightRadius: platform === PLATFORM.IOS ? 5 : undefined,
-        borderBottomRightRadius: platform === PLATFORM.IOS ? 5 : undefined
+        borderTopRightRadius: isIos ? 5 : undefined,
+        borderBottomRightRadius: isIos ? 5 : undefined
       },
       'NativeBase.Text': {
         color: variables.segmentTextColor,

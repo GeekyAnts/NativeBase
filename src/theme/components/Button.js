@@ -1,11 +1,11 @@
 // @flow
 
 import variable from './../variables/platform';
-import { PLATFORM } from './../variables/common';
+import { PLATFORM, isIos } from './../variables/common';
 
 export default (variables /* : * */ = variable) => {
   const platformStyle = variables.platformStyle;
-  const platform = variables.platform;
+
   const darkCommon = {
     'NativeBase.Text': {
       color: variables.brandDark
@@ -322,13 +322,13 @@ export default (variables /* : * */ = variable) => {
       color: variables.inverseTextColor,
       fontSize: 24,
       marginHorizontal: 16,
-      paddingTop: platform === PLATFORM.IOS ? 2 : undefined
+      paddingTop: isIos ? 2 : undefined
     },
     'NativeBase.IconNB': {
       color: variables.inverseTextColor,
       fontSize: 24,
       marginHorizontal: 16,
-      paddingTop: platform === PLATFORM.IOS ? 2 : undefined
+      paddingTop: isIos ? 2 : undefined
     },
 
     '.iconLeft': {

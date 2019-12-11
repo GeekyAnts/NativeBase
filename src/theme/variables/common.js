@@ -10,8 +10,11 @@ export const PLATFORM = {
 export const deviceHeight = Dimensions.get('window').height;
 export const deviceWidth = Dimensions.get('window').width;
 
+export const isIos = Platform.OS === PLATFORM.IOS;
+export const isAndroid = Platform.OS === PLATFORM.ANDROID;
+
 export const isIphoneX =
-  Platform.OS === PLATFORM.IOS &&
+  isIos &&
   (deviceHeight === 812 ||
     deviceWidth === 812 ||
     deviceHeight === 896 ||

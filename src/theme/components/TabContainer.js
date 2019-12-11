@@ -1,9 +1,7 @@
 // @flow
 
-import { Platform } from 'react-native';
-
 import variable from './../variables/platform';
-import { PLATFORM } from './../variables/common';
+import { PLATFORM, isIos } from './../variables/common';
 
 export default (variables /* : * */ = variable) => {
   const platformStyle = variables.platformStyle;
@@ -18,7 +16,7 @@ export default (variables /* : * */ = variable) => {
     shadowOpacity: platformStyle === PLATFORM.MATERIAL ? 0.2 : undefined,
     shadowRadius: platformStyle === PLATFORM.MATERIAL ? 1.2 : undefined,
     justifyContent: 'space-around',
-    borderBottomWidth: Platform.OS === PLATFORM.IOS ? variables.borderWidth : 0,
+    borderBottomWidth: isIos ? variables.borderWidth : 0,
     borderColor: variables.topTabBarBorderColor
   };
 

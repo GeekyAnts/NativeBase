@@ -1,11 +1,9 @@
 // @flow
 
 import variable from './../variables/platform';
-import { PLATFORM } from './../variables/common';
+import { isIos, isAndroid } from './../variables/common';
 
 export default (variables /* : * */ = variable) => {
-  const platform = variables.platform;
-
   const tabHeadingTheme = {
     flexDirection: 'row',
     backgroundColor: variables.tabDefaultBg,
@@ -14,8 +12,8 @@ export default (variables /* : * */ = variable) => {
     justifyContent: 'center',
     '.scrollable': {
       paddingHorizontal: 20,
-      flex: platform === PLATFORM.ANDROID ? 0 : 1,
-      minWidth: platform === PLATFORM.ANDROID ? undefined : 60
+      flex: isAndroid ? 0 : 1,
+      minWidth: isAndroid ? undefined : 60
     },
     'NativeBase.Text': {
       color: variables.topTabBarTextColor,
@@ -23,7 +21,7 @@ export default (variables /* : * */ = variable) => {
     },
     'NativeBase.Icon': {
       color: variables.topTabBarTextColor,
-      fontSize: platform === PLATFORM.IOS ? 26 : undefined
+      fontSize: isIos ? 26 : undefined
     },
     '.active': {
       'NativeBase.Text': {

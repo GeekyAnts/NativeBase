@@ -3,7 +3,13 @@
 import color from 'color';
 import { Platform, PixelRatio } from 'react-native';
 
-import { PLATFORM, deviceHeight, deviceWidth, isIphoneX } from './common';
+import {
+  PLATFORM,
+  deviceHeight,
+  deviceWidth,
+  isIos,
+  isIphoneX
+} from './common';
 
 const platform = Platform.OS;
 const platformStyle = PLATFORM.MATERIAL;
@@ -100,7 +106,7 @@ export default {
   cardDefaultBg: '#fff',
   cardBorderColor: '#ccc',
   cardBorderRadius: 2,
-  cardItemPadding: platform === PLATFORM.IOS ? 10 : 12,
+  cardItemPadding: isIos ? 10 : 12,
 
   // CheckBox
   CheckboxRadius: 0,
@@ -166,8 +172,8 @@ export default {
   toolbarHeight: 56,
   toolbarSearchIconSize: 23,
   toolbarInputColor: '#fff',
-  searchBarHeight: platform === PLATFORM.IOS ? 30 : 40,
-  searchBarInputHeight: platform === PLATFORM.IOS ? 40 : 50,
+  searchBarHeight: isIos ? 30 : 40,
+  searchBarInputHeight: isIos ? 40 : 50,
   toolbarBtnTextColor: '#fff',
   toolbarDefaultBorder: '#3F51B5',
   iosStatusbar: 'light-content',

@@ -1,11 +1,10 @@
 // @flow
 
 import variable from './../variables/platform';
-import { PLATFORM } from './../variables/common';
+import { PLATFORM, isIos } from './../variables/common';
 
 export default (variables /* : * */ = variable) => {
   const platformStyle = variables.platformStyle;
-  const platform = variables.platform;
 
   const iconCommon = {
     'NativeBase.Icon': {
@@ -102,13 +101,11 @@ export default (variables /* : * */ = variable) => {
     flexDirection: 'row',
     justifyContent: 'center',
     borderTopWidth:
-      platform === PLATFORM.IOS && platformStyle !== PLATFORM.MATERIAL
+      isIos && platformStyle !== PLATFORM.MATERIAL
         ? variables.borderWidth
         : undefined,
     borderColor:
-      platform === PLATFORM.IOS && platformStyle !== PLATFORM.MATERIAL
-        ? '#cbcbcb'
-        : undefined,
+      isIos && platformStyle !== PLATFORM.MATERIAL ? '#cbcbcb' : undefined,
     height: variables.footerHeight,
     paddingBottom: variables.footerPaddingBottom,
     elevation: 3,
