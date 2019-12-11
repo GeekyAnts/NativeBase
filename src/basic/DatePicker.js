@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import variable from '../theme/variables/platform';
-import { PLATFORM } from '../theme/variables/commonColor';
+import { PLATFORM } from '../theme/variables/common';
 
 import { Text } from './Text';
 

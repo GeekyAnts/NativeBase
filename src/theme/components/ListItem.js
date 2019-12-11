@@ -4,7 +4,7 @@ import { Platform, PixelRatio } from 'react-native';
 
 import pickerTheme from './Picker';
 import variable from './../variables/platform';
-import { PLATFORM } from './../variables/commonColor';
+import { PLATFORM } from './../variables/common';
 
 export default (variables /* : * */ = variable) => {
   const platform = variables.platform;
@@ -100,7 +100,9 @@ export default (variables /* : * */ = variable) => {
       paddingTop:
         platform === PLATFORM.IOS ? variables.listItemPadding + 25 : undefined,
       paddingBottom:
-        platform === PLATFORM.ANDROID ? variables.listItemPadding + 20 : undefined,
+        platform === PLATFORM.ANDROID
+          ? variables.listItemPadding + 20
+          : undefined,
       flexDirection: 'row',
       borderColor: variables.listBorderColor,
       'NativeBase.Text': {

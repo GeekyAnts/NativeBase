@@ -1,7 +1,7 @@
 // @flow
 
 import variable from './../variables/platform';
-import { PLATFORM } from './../variables/commonColor';
+import { PLATFORM } from './../variables/common';
 
 export default (variables /* : * */ = variable) => {
   const platformStyle = variables.platformStyle;
@@ -243,25 +243,25 @@ export default (variables /* : * */ = variable) => {
       shadowOpacity: null,
       ...primaryCommon,
       '.dark': {
-        ...darkCommon,
+        ...darkCommon
       },
       '.danger': {
-        ...dangerCommon,
+        ...dangerCommon
       },
       '.warning': {
-        ...warningCommon,
+        ...warningCommon
       },
       '.info': {
-        ...infoCommon,
+        ...infoCommon
       },
       '.primary': {
-        ...primaryCommon,
+        ...primaryCommon
       },
       '.success': {
-        ...successCommon,
+        ...successCommon
       },
       '.light': {
-        ...lightCommon,
+        ...lightCommon
       },
       '.disabled': {
         backgroundColor: 'transparent',

@@ -3,7 +3,7 @@
 import { Platform } from 'react-native';
 
 import variable from './../variables/platform';
-import { PLATFORM } from './../variables/commonColor';
+import { PLATFORM } from './../variables/common';
 
 export default (variables /* : * */ = variable) => {
   const titleTheme = {
