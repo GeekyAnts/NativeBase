@@ -120,7 +120,7 @@ export default (variables /* : * */ = variable) => {
     },
     '.underline': {
       'NativeBase.Input': {
-        paddingLeft: 15
+        paddingLeft: 2
       },
       '.success': {
         borderColor: variables.inputSuccessBorderColor
@@ -227,10 +227,7 @@ export default (variables /* : * */ = variable) => {
       marginLeft: 0
     },
 
-    borderWidth: variables.borderWidth * 2,
-    borderTopWidth: 0,
-    borderRightWidth: 0,
-    borderLeftWidth: 0,
+    borderWidth: 0,
     borderColor: variables.inputBorderColor,
     backgroundColor: 'transparent',
     flexDirection: 'row',

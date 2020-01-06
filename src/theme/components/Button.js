@@ -341,7 +341,7 @@ export default (variables /* : * */ = variable) => {
         marginLeft: 16
       },
       'NativeBase.Icon': {
-        marginRight: 0,
+        marginRight: 5,
         marginLeft: 16
       }
     },
