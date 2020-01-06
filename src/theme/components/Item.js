@@ -44,8 +44,8 @@ export default (variables /* : * */ = variable) => {
       },
       'NativeBase.Input': {
         flex: 2,
-        fontSize: variables.inputFontSize
-      }
+        fontSize: variables.inputFontSize,
+      },
     },
     '.stackedLabel': {
       'NativeBase.Label': {
@@ -116,11 +116,11 @@ export default (variables /* : * */ = variable) => {
       color: variables.inputColor,
       flex: 1,
       top: Platform.OS === PLATFORM.IOS ? 1.5 : undefined,
-      fontSize: variables.inputFontSize
+      fontSize: variables.inputFontSize,
     },
     '.underline': {
       'NativeBase.Input': {
-        paddingLeft: 2
+        paddingLeft: Platform.OS === PLATFORM.WEB ? 2 : 15
       },
       '.success': {
         borderColor: variables.inputSuccessBorderColor
@@ -227,8 +227,8 @@ export default (variables /* : * */ = variable) => {
       marginLeft: 0
     },
 
-    borderWidth: 0,
-    borderColor: variables.inputBorderColor,
+    borderWidth: variables.borderWidth * 2,
+    borderColor: 'transparent',
     backgroundColor: 'transparent',
     flexDirection: 'row',
     alignItems: 'center',
