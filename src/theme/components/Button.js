@@ -241,6 +241,7 @@ export default (variables /* : * */ = variable) => {
       shadowOffset: null,
       shadowRadius: null,
       shadowOpacity: null,
+      paddingHorizontal: 6,
       ...primaryCommon,
       '.dark': {
         ...darkCommon,
@@ -365,7 +366,8 @@ export default (variables /* : * */ = variable) => {
         }
       }
     },
-    paddingVertical: variables.buttonPadding,
+    paddingVertical: variables.buttonPaddingVertical,
+    paddingHorizontal: variables.buttonPaddingHorizontal,
     backgroundColor: variables.buttonPrimaryBg,
     borderRadius: variables.borderRadiusBase,
     borderColor: variables.buttonPrimaryBg,
