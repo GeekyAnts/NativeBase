@@ -120,7 +120,7 @@ export default (variables /* : * */ = variable) => {
     },
     '.underline': {
       'NativeBase.Input': {
-        paddingLeft: Platform.OS === PLATFORM.WEB ? 2 : 15
+        paddingLeft: Platform.OS === PLATFORM.WEB ? 2 : 18
       },
       '.success': {
         borderColor: variables.inputSuccessBorderColor
