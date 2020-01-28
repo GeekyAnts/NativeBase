@@ -884,12 +884,13 @@ declare module "native-base" {
 			contentStyle?: RnViewStyleProp;
 			renderHeader?: (item: any, expanded: boolean) => React.ReactElement<any>;
 			renderContent?: (item: any) => React.ReactElement<any>;
-			expanded?: number;
+			expanded?: number | number[];
 			icon?: string;
 			expandedIcon?: string;
 			iconStyle?: RnTextStyleProp;
 			expandedIconStyle?: RnTextStyleProp;
 			style?: RnViewStyleProp;
+			expandMultiple?: boolean;
 		}
 
 		interface DatePicker extends Testable {

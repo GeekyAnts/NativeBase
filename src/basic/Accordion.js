@@ -165,15 +165,29 @@ export class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: props.expanded
+      selected: []
     };
   }
 
   setSelected(index) {
-    if (this.state.selected === index) {
-      this.setState({ selected: undefined });
+    const { expandMultiple } = this.props;
+    const selected = this.state.selected.slice();
+
+    if (selected.indexOf(index) !== -1) {
+      selected.splice(selected.indexOf(index), 1);
+      this.setState({ selected });
     } else {
-      this.setState({ selected: index });
+      selected.push(index);
+      this.setState({ selected: expandMultiple ? selected : [index] });
+    }
+  }
+
+  componentDidMount() {
+    const { expanded, expandMultiple } = this.props;
+    if (expanded !== undefined && expanded !== null) {
+      let selected = Array.isArray(expanded) ? expanded : [expanded];
+      selected = expandMultiple ? selected : selected.slice(0, 1);
+      this.setState({ selected });
     }
   }
 
@@ -212,14 +226,14 @@ export class Accordion extends React.Component {
           <AccordionItem
             key={String(index)}
             contentStyle={contentStyle}
-            expanded={this.state.selected === index}
             expandedIcon={expandedIcon}
             expandedIconStyle={expandedIconStyle}
             headerStyle={headerStyle}
             icon={icon}
             iconStyle={iconStyle}
-            index={index}
             item={item}
+            expanded={this.state.selected.indexOf(index) !== -1}
+            index={index}
             renderContent={renderContent}
             renderHeader={renderHeader}
             onAccordionOpen={onAccordionOpen}

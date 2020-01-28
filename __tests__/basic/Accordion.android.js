@@ -85,3 +85,31 @@ it('renders Header and Content Style Accordion', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('renders Accordion with multiple items open', () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header />
+        <Content padder>
+          <Accordion dataArray={dataArray} expanded={[0, 1]} expandMultiple />
+        </Content>
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it('renders Accordion with only one item open without expandMultiple flag', () => {
+  const tree = renderer
+    .create(
+      <Container>
+        <Header />
+        <Content padder>
+          <Accordion dataArray={dataArray} expanded={[0, 1]} />
+        </Content>
+      </Container>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
