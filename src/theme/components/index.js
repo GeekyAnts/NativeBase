@@ -51,13 +51,13 @@ export default (variables /* : * */ = variable) => {
   const theme = {
     variables,
     'NativeBase.Left': {
-      ...leftTheme(variables)
+      ...leftTheme()
     },
     'NativeBase.Right': {
-      ...rightTheme(variables)
+      ...rightTheme()
     },
     'NativeBase.Body': {
-      ...bodyTheme(variables)
+      ...bodyTheme()
     },
 
     'NativeBase.Header': {
@@ -117,14 +117,14 @@ export default (variables /* : * */ = variable) => {
       ...h3Theme(variables)
     },
     'NativeBase.Form': {
-      ...formTheme(variables)
+      ...formTheme()
     },
 
     'NativeBase.Container': {
       ...containerTheme(variables)
     },
     'NativeBase.Content': {
-      ...contentTheme(variables)
+      ...contentTheme()
     },
 
     'NativeBase.Footer': {
@@ -157,11 +157,11 @@ export default (variables /* : * */ = variable) => {
       ...textTheme(variables)
     },
     'NativeBase.Spinner': {
-      ...spinnerTheme(variables)
+      ...spinnerTheme()
     },
 
     'NativeBase.Fab': {
-      ...fabTheme(variables)
+      ...fabTheme()
     },
 
     'NativeBase.Item': {
@@ -169,7 +169,7 @@ export default (variables /* : * */ = variable) => {
     },
 
     'NativeBase.Label': {
-      ...labelTheme(variables)
+      ...labelTheme()
     },
 
     'NativeBase.Textarea': {
@@ -177,14 +177,14 @@ export default (variables /* : * */ = variable) => {
     },
 
     'NativeBase.PickerNB': {
-      ...pickerTheme(variables),
+      ...pickerTheme(),
       'NativeBase.Button': {
         'NativeBase.Text': {}
       }
     },
 
     'NativeBase.Tab': {
-      ...tabTheme(variables)
+      ...tabTheme()
     },
 
     'NativeBase.Segment': {
@@ -204,16 +204,16 @@ export default (variables /* : * */ = variable) => {
       ...tabContainerTheme(variables)
     },
     'NativeBase.Switch': {
-      ...switchTheme(variables)
+      ...switchTheme()
     },
     'NativeBase.Separator': {
       ...separatorTheme(variables)
     },
     'NativeBase.SwipeRow': {
-      ...swipeRowTheme(variables)
+      ...swipeRowTheme()
     },
     'NativeBase.Thumbnail': {
-      ...thumbnailTheme(variables)
+      ...thumbnailTheme()
     }
   };
 
