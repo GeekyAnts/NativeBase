@@ -77,10 +77,12 @@ const ScrollableTabView = createReactClass({
     InteractionManager.runAfterInteractions(scrollFn);
     // because of contentOffset is not working on Android
     setTimeout(() => {
-      this.scrollView.scrollTo({
-        x: this.props.initialPage * this.state.containerWidth,
-        animated: false,
-      });
+      if (this.scrollView) {
+        this.scrollView.scrollTo({
+          x: this.props.initialPage * this.state.containerWidth,
+          animated: false,
+        });
+      }
     });
   },
 
