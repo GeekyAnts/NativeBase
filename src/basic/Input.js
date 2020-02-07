@@ -9,10 +9,22 @@ import variable from '../theme/variables/platform';
 import NativeBaseComponent from './Base/NativeBaseComponent';
 
 class Input extends NativeBaseComponent {
+
   render() {
+
+    const { renderInput, ...textInputProps } = this.props;
+
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
+
+    if (renderInput) {
+      const inputComp = renderInput(this.props);
+      if (inputComp) {
+        return inputComp;
+      }
+    }
+
     return (
       <TextInput
         ref={c => {
@@ -26,7 +38,7 @@ class Input extends NativeBaseComponent {
             ? this.props.placeholderTextColor
             : variables.inputColorPlaceholder
         }
-        {...this.props}
+        {...textInputProps}
       />
     );
   }
@@ -38,7 +50,8 @@ Input.propTypes = {
     PropTypes.object,
     PropTypes.number,
     PropTypes.array
-  ])
+  ]),
+  renderInput: PropTypes.func
 };
 
 const StyledInput = connectStyle('NativeBase.Input', {}, mapPropsToStyleNames)(

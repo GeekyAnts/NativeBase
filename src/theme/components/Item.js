@@ -112,7 +112,8 @@ export default (variables /* : * */ = variable) => {
       '.multiline': {
         height: null
       },
-      height: variables.inputHeightBase,
+      paddingTop: variables.inputVerticalPadding,
+      paddingBottom: variables.inputVerticalPadding,
       color: variables.inputColor,
       flex: 1,
       top: Platform.OS === PLATFORM.IOS ? 1.5 : undefined,
@@ -232,7 +233,9 @@ export default (variables /* : * */ = variable) => {
     backgroundColor: 'transparent',
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: 2
+    marginLeft: 2,
+    paddingTop: 4,
+    paddingBottom: 4,
   };
 
   return itemTheme;

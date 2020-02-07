@@ -7,10 +7,11 @@ export default (variables /* : * */ = variable) => {
     '.multiline': {
       height: null
     },
-    height: variables.inputHeightBase,
     color: variables.inputColor,
     paddingLeft: 5,
     paddingRight: 5,
+    paddingTop: variables.inputVerticalPadding,
+    paddingBottom: variables.inputVerticalPadding,
     flex: 1,
     fontSize: variables.inputFontSize
   };
