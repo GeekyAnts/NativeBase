@@ -80,7 +80,7 @@ const ScrollableTabView = createReactClass({
       if (this.scrollView) {
         this.scrollView.scrollTo({
           x: this.props.initialPage * this.state.containerWidth,
-          animated: false
+          animated: false,
         });
       }
     });
