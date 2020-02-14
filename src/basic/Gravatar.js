@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
-import _ from 'lodash';
+import {
+  merge as _merge
+} from 'lodash';
 import md5 from 'blueimp-md5';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
@@ -37,7 +39,7 @@ class Gravatar extends NativeBaseComponent {
     }
 
     const defaultProps = {
-      style: _.merge(this.getInitialStyle().gravatar, gravatarStyle)
+      style: _merge(this.getInitialStyle().gravatar, gravatarStyle)
     };
 
     return computeProps(this.props, defaultProps);

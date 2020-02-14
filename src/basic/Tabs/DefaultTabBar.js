@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
-import _ from 'lodash';
+import {
+  random as _random
+} from 'lodash';
 import { connectStyle, StyleProvider } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../../utils/mapPropsToStyleNames';
 import variable from './../../theme/variables/platform';
@@ -112,7 +114,7 @@ const DefaultTabBar = createReactClass({
       <Button
         style={{ flex: 1 }}
         disabled={isDisabled}
-        key={_.random(1.2, 5.2)}
+        key={_random(1.2, 5.2)}
         accessible={accessible}
         accessibilityRole='tab'
         accessibilityLabel={accessibilityLabel}

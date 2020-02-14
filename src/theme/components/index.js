@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 // @flow
 
-import _ from 'lodash';
+import { forEach as _forEach } from 'lodash';
 
 import bodyTheme from './Body';
 import leftTheme from './Left';
@@ -218,7 +218,7 @@ export default (variables /* : * */ = variable) => {
   };
 
   const cssifyTheme = (grandparent, parent, parentKey) => {
-    _.forEach(parent, (style, styleName) => {
+    _forEach(parent, (style, styleName) => {
       if (
         styleName.indexOf('.') === 0 &&
         parentKey &&

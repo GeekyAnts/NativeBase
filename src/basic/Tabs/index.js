@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
-import _ from 'lodash';
+import {
+  get as _get
+} from 'lodash';
 import { InteractionManager, ViewPropTypes } from '../../utils';
 const React = require('react');
 const { Component } = React;
@@ -300,7 +302,7 @@ const ScrollableTabView = createReactClass({
         child => child.props.activeTextStyle
       ),
       tabHeaderStyle: this._children().map(child =>
-        _.get(child.props.heading.props, 'style', undefined)
+        _get(child.props.heading.props, 'style', undefined)
       ),
       disabled: this._children().map(child => child.props.disabled),
       accessible: this._children().map(child => child.props.accessible==false ? false : true || true ),
