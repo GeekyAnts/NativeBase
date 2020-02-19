@@ -13,7 +13,7 @@ export default (variables /* : * */ = variable) => {
     fontWeight: Platform.OS === PLATFORM.IOS ? '700' : undefined,
     textAlign:  Platform.OS === PLATFORM.IOS ? 'center' : 'left',
     paddingLeft: Platform.OS === PLATFORM.IOS ? 4 : 0,
-    marginLeft: Platform.OS === PLATFORM.IOS ? undefined : -3,
+    marginLeft: Platform.OS === PLATFORM.ANDROID ? -3 : 0,
     paddingTop: 1
   };
 
