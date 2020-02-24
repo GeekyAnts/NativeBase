@@ -215,7 +215,7 @@ class PickerNB extends Component {
               keyExtractor={(item, index) => String(index)}
               renderItem={({ item }) => (
                 <ListItem
-                  accessibe={Platform.OS==="ios"?false:true)
+                  accessibe={Platform.OS==="ios"?false:true}
                   selected={item.props.value === this.props.selectedValue}
                   button
                   style={this.props.itemStyle}
