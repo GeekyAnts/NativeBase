@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
-import { FlatList, Modal, Picker, View, ViewPropTypes } from 'react-native';
+import { Platform,FlatList, Modal, Picker, View, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { find, get } from 'lodash';
 
@@ -215,6 +215,7 @@ class PickerNB extends Component {
               keyExtractor={(item, index) => String(index)}
               renderItem={({ item }) => (
                 <ListItem
+                  accessibe={Platform.OS==="ios"?false:true)
                   selected={item.props.value === this.props.selectedValue}
                   button
                   style={this.props.itemStyle}
@@ -225,7 +226,8 @@ class PickerNB extends Component {
                   }}
                 >
                   <Left>
-                    <Text style={this.props.itemTextStyle}>
+                    <Text style={this.props.itemTextStyle}
+                    testID={this.props.textTestID}>
                       {item.props.label}
                     </Text>
                   </Left>
