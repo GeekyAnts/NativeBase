@@ -166,7 +166,7 @@ class PickerNB extends Component {
         </Left>
         <Body>
           <Title style={this.props.headerTitleStyle}>
-            {this.props.iosHeader || 'Select One'}
+            {this.props.iosHeader || 'SelectOne'}
           </Title>
         </Body>
         <Right />
