@@ -208,9 +208,9 @@ class PickerNB extends Component {
           }}
         >
           <Container style={this.props.modalStyle}>
-            {this.renderHeader()}
+            {/* {this.renderHeader()} */}
             <FlatList
-              testID={this.props.testID}
+              testID={"pickerListID"}
               data={this.state.dataSource}
               keyExtractor={(item, index) => String(index)}
               renderItem={({ item }) => (
@@ -228,7 +228,7 @@ class PickerNB extends Component {
                 >
                   <Left>
                     <Text style={this.props.itemTextStyle}
-                    testID={pickerTextID}>
+                    testID={"pickerTextID"}>
                       {item.props.label}
                     </Text>
                   </Left>
