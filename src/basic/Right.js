@@ -7,7 +7,7 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Right extends Component {
   render() {
-    return <View ref={c => (this._root = c)} {...this.props} />;
+    return <View testID="rightViewID" ref={c => (this._root = c)} {...this.props} />;
   }
 }
 
