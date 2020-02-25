@@ -208,15 +208,15 @@ class PickerNB extends Component {
           }}
         >
           <Container style={this.props.modalStyle}>
-            {/* {this.renderHeader()} */}
+            {this.renderHeader()}
             <FlatList
-              testID={"pickerListID"}
+              testID={this.props.pickerListID}
               data={this.state.dataSource}
               keyExtractor={(item, index) => String(index)}
               renderItem={({ item }) => (
                 <ListItem
-                  accessible={Platform.OS==="ios"?false:true}
-                  testID="pickerItemID"
+                  accessible={this.props.pickerAccessible}
+                  testID={this.props.pickerItemID}
                   selected={item.props.value === this.props.selectedValue}
                   button
                   style={this.props.itemStyle}
@@ -228,7 +228,7 @@ class PickerNB extends Component {
                 >
                   <Left>
                     <Text style={this.props.itemTextStyle}
-                    testID={"pickerTextID"}>
+                    testID={this.props.pickerTextID}>
                       {item.props.label}
                     </Text>
                   </Left>
