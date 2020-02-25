@@ -28,6 +28,11 @@ declare module "native-base" {
 			supportedOrientations?: "portrait" | "landscape"
 			iosHeader?: string;
 			inlineLabel?: boolean;
+			pickerAccessible?:boolean;
+			pickerItemID?: string;
+			pickerTextID?:string;
+			pickerListID?:string;
+			pickerViewID?:string;
 			headerBackButtonText?: string;
 			placeholder?: string;
 			placeholderStyle?: RnTextStyleProp;
