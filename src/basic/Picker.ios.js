@@ -216,6 +216,7 @@ class PickerNB extends Component {
               renderItem={({ item }) => (
                 <ListItem
                   accessible={Platform.OS==="ios"?false:true}
+                  testID="pickerItemID"
                   selected={item.props.value === this.props.selectedValue}
                   button
                   style={this.props.itemStyle}
@@ -227,7 +228,7 @@ class PickerNB extends Component {
                 >
                   <Left>
                     <Text style={this.props.itemTextStyle}
-                    testID={this.props.textTestID}>
+                    testID={pickerTextID}>
                       {item.props.label}
                     </Text>
                   </Left>
