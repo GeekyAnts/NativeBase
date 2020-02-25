@@ -6,7 +6,7 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Item extends Component {
   render() {
-    return <Picker.Item ref={c => (this._root = c)} {...this.props} />;
+    return <Picker.Item testID="pickerSelect" ref={c => (this._root = c)} {...this.props} />;
   }
 }
 
