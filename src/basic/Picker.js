@@ -10,7 +10,7 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 export default class PickerNB extends Component {
   render() {
     return (
-      <Picker ref={c => (this._root = c)} {...this.props}>
+      <Picker testID="pickerSelect" ref={c => (this._root = c)} {...this.props}>
         {this.props.children}
       </Picker>
     );
@@ -20,7 +20,7 @@ export default class PickerNB extends Component {
 // eslint-disable-next-line react/no-multi-comp
 PickerNB.Item = createReactClass({
   render() {
-    return <Picker.Item {...this.props} />;
+    return <Picker.Item testID="pickerSelectItem" {...this.props} />;
   }
 });
 
