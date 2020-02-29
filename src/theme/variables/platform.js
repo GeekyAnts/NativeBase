@@ -174,7 +174,7 @@ export default {
   // Font
   DefaultFontSize: 16,
   fontFamily: platform === PLATFORM.IOS ? 'System' : 'Roboto',
-  fontSizeBase: 15,
+  fontSizeBase: platform === PLATFORM.WEB ? 12 : 15,
   get fontSizeH1() {
     return this.fontSizeBase * 1.8;
   },
@@ -304,7 +304,7 @@ export default {
   titleFontfamily: platform === PLATFORM.IOS ? 'System' : 'Roboto_medium',
   titleFontSize: platform === PLATFORM.IOS ? 17 : 19,
   subTitleFontSize: platform === PLATFORM.IOS ? 11 : 14,
-  subtitleColor: platform === PLATFORM.IOS ? '#8e8e93' : '#FFF',
+  subtitleColor: (platform !== PLATFORM.ANDROID) ? '#8e8e93' : '#FFF',
   titleFontColor:
     platform === PLATFORM.IOS || platform === PLATFORM.WEB ? '#000' : '#FFF',
 

@@ -7,6 +7,7 @@ import bodyTheme from './Body';
 import leftTheme from './Left';
 import rightTheme from './Right';
 import headerTheme from './Header';
+import panelHeaderTheme from './PanelHeader';
 import switchTheme from './Switch';
 import thumbnailTheme from './Thumbnail';
 import containerTheme from './Container';
@@ -62,6 +63,10 @@ export default (variables /* : * */ = variable) => {
 
     'NativeBase.Header': {
       ...headerTheme(variables)
+    },
+
+    'NativeBase.PanelHeader': {
+      ...panelHeaderTheme(variables)
     },
 
     'NativeBase.Button': {

@@ -45,6 +45,7 @@ import { ActionSheetContainer } from './basic/Actionsheet';
 import { PickerNB } from './basic/Picker';
 import { List } from './basic/List';
 import { ListItem } from './basic/ListItem';
+import { PanelHeader } from './basic/PanelHeader';
 import { Separator } from './basic/Separator';
 import { DeckSwiper } from './basic/DeckSwiper';
 import { Item } from './basic/Item';
@@ -100,6 +101,7 @@ export {
   PickerNB as Picker,
   List,
   ListItem,
+  PanelHeader,
   Separator,
   DeckSwiper,
   Item,
