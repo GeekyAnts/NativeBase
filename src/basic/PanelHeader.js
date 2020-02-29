@@ -39,7 +39,7 @@ class PanelHeader extends Component {
 
     return (
       <View onLayout={e => this.layoutChange(e.nativeEvent.layout)}>
-        <View ref={c => (this._root = c)} {...this.props} />
+        <View ref={c => (this._root = c)} style={style} {...this.props} />
       </View>
     );
   }
