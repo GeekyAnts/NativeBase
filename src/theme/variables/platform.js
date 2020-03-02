@@ -220,6 +220,9 @@ export default {
       .hex();
   },
 
+  // Panel
+  panelHeaderBg: 'transparent',
+
   // Icon
   iconFamily: 'Ionicons',
   iconFontSize: platform === PLATFORM.IOS ? 30 : 28,

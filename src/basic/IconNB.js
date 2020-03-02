@@ -5,6 +5,7 @@ import { get } from 'lodash';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
+import FioriIcons from 'react-native-vector-icons/FioriIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Fontisto from 'react-native-vector-icons/Fontisto';
@@ -50,6 +51,9 @@ class IconNB extends Component {
       break;
     case 'Feather':
       this.Icon = Feather;
+      break;
+    case 'FioriIcons':
+      this.Icon = FioriIcons;
       break;
     case 'FontAwesome':
       this.Icon = FontAwesome;
@@ -100,6 +104,7 @@ IconNB.propTypes = {
     'AntDesign',
     'Entypo',
     'Feather',
+    'FioriIcons',
     'FontAwesome',
     'FontAwesome5',
     'Foundation',

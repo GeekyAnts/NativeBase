@@ -382,7 +382,7 @@ export default (variables /* : * */ = variable) => {
       flexDirection: 'row',
       justifyContent: 'flex-end'
     },
-    backgroundColor: variables.toolbarDefaultBg,
+    backgroundColor: variables.panelHeaderBg,
     flexDirection: 'row',
     // paddingHorizontal: 10,
     paddingLeft:
