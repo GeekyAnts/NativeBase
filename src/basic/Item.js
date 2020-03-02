@@ -142,7 +142,7 @@ class Item extends Component {
 
     let inputProps = {};
     remove(childrenArray, item => {
-      if (item.type === Input) {
+      if (item.type === Input || item.type.name === 'Input') {
         inputProps = item.props;
         this.inputProps = item.props;
         return item;
