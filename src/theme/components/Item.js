@@ -112,8 +112,7 @@ export default (variables /* : * */ = variable) => {
       '.multiline': {
         height: null
       },
-      paddingTop: variables.inputVerticalPadding,
-      paddingBottom: variables.inputVerticalPadding,
+      height: variables.inputHeightBase,
       color: variables.inputColor,
       flex: 1,
       top: Platform.OS === PLATFORM.IOS ? 1.5 : undefined,

@@ -10,7 +10,7 @@ export default (variables /* : * */ = variable) => {
     color: variables.inputColor,
     paddingLeft: 5,
     paddingRight: 5,
-    paddingTop: variables.inputVerticalPadding,
+    paddingTop: variables.inputVerticalPadding-4,
     paddingBottom: variables.inputVerticalPadding,
     flex: 1,
     fontSize: variables.inputFontSize
