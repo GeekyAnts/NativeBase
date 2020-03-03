@@ -7,6 +7,24 @@ import { PLATFORM } from './../variables/commonColor';
 
 export default (variables /* : * */ = variable) => {
   const titleTheme = {
+    '.h1': {
+      fontSize: variables.fontSizeH1
+    },
+    '.h2': {
+      fontSize: variables.fontSizeH2
+    },
+    '.h3': {
+      fontSize: variables.fontSizeH3
+    },
+    '.h4': {
+      fontSize: variables.fontSizeH4
+    },
+    '.h5': {
+      fontSize: variables.fontSizeH5
+    },
+    '.h6': {
+      fontSize: variables.fontSizeH6
+    },
     fontSize: variables.titleFontSize,
     fontFamily: variables.titleFontfamily,
     color: variables.titleFontColor,

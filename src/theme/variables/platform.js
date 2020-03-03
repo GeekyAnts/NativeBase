@@ -172,9 +172,9 @@ export default {
   fabWidth: 56,
 
   // Font
-  DefaultFontSize: 16,
+  defaultFontSize: 16,
   fontFamily: platform === PLATFORM.IOS ? 'System' : 'Roboto',
-  fontSizeBase: platform === PLATFORM.WEB ? 12 : 15,
+  fontSizeBase: 16,
   get fontSizeH1() {
     return this.fontSizeBase * 1.8;
   },
@@ -183,6 +183,15 @@ export default {
   },
   get fontSizeH3() {
     return this.fontSizeBase * 1.4;
+  },
+  get fontSizeH4() {
+    return this.fontSizeBase * 1.2;
+  },
+  get fontSizeH5() {
+    return this.fontSizeBase * 1.0;
+  },
+  get fontSizeH6() {
+    return this.fontSizeBase * 0.8;
   },
 
   // Footer
@@ -199,7 +208,7 @@ export default {
   tabActiveBgColor: platform === PLATFORM.IOS ? '#cde1f9' : '#3F51B5',
 
   // Header
-  toolbarBtnColor: platform === PLATFORM.IOS ? '#007aff' : '#fff',
+  toolbarBtnColor: '#404040',
   toolbarDefaultBg: platform === PLATFORM.IOS ? '#F8F8F8' : '#3F51B5',
   toolbarHeight: platform === PLATFORM.IOS ? 64 : 56,
   toolbarSearchIconSize: platform === PLATFORM.IOS ? 20 : 23,
@@ -226,7 +235,7 @@ export default {
   // Icon
   iconFamily: 'Ionicons',
   iconFontSize: platform === PLATFORM.IOS ? 30 : 28,
-  iconHeaderSize: platform === PLATFORM.IOS ? 33 : 24,
+  iconHeaderSize: 28,
 
   // InputGroup
   inputFontSize: 17,
@@ -306,10 +315,9 @@ export default {
   // Title
   titleFontfamily: platform === PLATFORM.IOS ? 'System' : 'Roboto_medium',
   titleFontSize: platform === PLATFORM.IOS ? 17 : 19,
-  subTitleFontSize: platform === PLATFORM.IOS ? 11 : 14,
-  subtitleColor: (platform !== PLATFORM.ANDROID) ? '#8e8e93' : '#FFF',
-  titleFontColor:
-    platform === PLATFORM.IOS || platform === PLATFORM.WEB ? '#000' : '#FFF',
+  subTitleFontSize: 14,
+  subtitleColor: '#8e8e93',
+  titleFontColor: '#000',
 
   // Other
   borderRadiusBase: platform === PLATFORM.IOS ? 5 : 2,

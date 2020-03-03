@@ -95,16 +95,22 @@ export default (variables /* : * */ = variable) => {
     },
     '.noLeft': {
       'NativeBase.Left': {
-        width: platform === PLATFORM.IOS ? undefined : 0,
-        flex: platform === PLATFORM.IOS ? 1 : 0
+        width: 0,
+        flex: 0
       },
       'NativeBase.Body': {
+        flex: 1,
+        alignItems: 'flex-start',
         'NativeBase.Title': {
-          paddingLeft: platform === PLATFORM.IOS ? undefined : 10
+          paddingLeft:0 
         },
         'NativeBase.Subtitle': {
-          paddingLeft: platform === PLATFORM.IOS ? undefined : 10
+          paddingLeft: 0,
+          textAlign: 'left'
         }
+      },
+      'NativeBase.Right': {
+        flex: null
       }
     },
     'NativeBase.Button': {
