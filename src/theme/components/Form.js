@@ -16,16 +16,11 @@ export default () => {
         marginLeft: 15
       },
       '.placeholderLabel': {
-        'NativeBase.Input': {}
       },
       '.stackedLabel': {
         'NativeBase.Label': {
           top: 5,
           paddingLeft: null
-        },
-        'NativeBase.Input': {
-          paddingLeft: null,
-          marginLeft: null
         },
         'NativeBase.Icon': {
           marginTop: 36
@@ -33,11 +28,6 @@ export default () => {
         marginLeft: 15
       },
       '.floatingLabel': {
-        'NativeBase.Input': {
-          paddingLeft: null,
-          top: 10,
-          marginLeft: null
-        },
         'NativeBase.Label': {
           left: 0,
           top: 6
@@ -65,9 +55,6 @@ export default () => {
           left: 0,
           top: 0,
           position: 'relative'
-        },
-        'NativeBase.Input': {
-          left: -15
         },
         marginLeft: 15
       },

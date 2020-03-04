@@ -9,10 +9,6 @@ export default (variables /* : * */ = variable) => {
   const itemTheme = {
     '.floatingLabel': {
       'NativeBase.Input': {
-        height: 50,
-        top: 8,
-        paddingTop: 3,
-        paddingBottom: 7,
         '.multiline': {
           minHeight: variables.inputHeightBase,
           paddingTop: Platform.OS === PLATFORM.IOS ? 10 : 3,
@@ -109,19 +105,8 @@ export default (variables /* : * */ = variable) => {
       paddingRight: 8
     },
     'NativeBase.Input': {
-      '.multiline': {
-        height: null
-      },
-      height: variables.inputHeightBase,
-      color: variables.inputColor,
-      flex: 1,
-      top: Platform.OS === PLATFORM.IOS ? 1.5 : undefined,
-      fontSize: variables.inputFontSize,
     },
     '.underline': {
-      'NativeBase.Input': {
-        paddingLeft: Platform.OS === PLATFORM.WEB ? 2 : 18
-      },
       '.success': {
         borderColor: variables.inputSuccessBorderColor
       },

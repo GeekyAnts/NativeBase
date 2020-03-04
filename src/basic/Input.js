@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextInput } from 'react-native';
+import { StyleSheet, TextInput } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 
 import NativeBaseComponent from './Base/NativeBaseComponent';
+
+import { defaultStyles } from '../theme/components/Input';
 
 class Input extends NativeBaseComponent {
 
@@ -16,6 +18,13 @@ class Input extends NativeBaseComponent {
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
 
+
+    let style = this.props.style;
+    let flattenedStyles = StyleSheet.flatten(this.props.style);
+    style = StyleSheet.compose(
+      defaultStyles(variables),
+      flattenedStyles
+    );
 
     return (
       <TextInput
@@ -31,6 +40,7 @@ class Input extends NativeBaseComponent {
             : variables.inputColorPlaceholder
         }
         {...this.props}
+        style={style}
       />
     );
   }

@@ -7,14 +7,20 @@ export default (variables /* : * */ = variable) => {
     '.multiline': {
       height: null
     },
-    color: variables.inputColor,
-    paddingLeft: 5,
-    paddingRight: 5,
-    paddingTop: variables.inputVerticalPadding-4,
-    paddingBottom: variables.inputVerticalPadding,
-    flex: 1,
-    fontSize: variables.inputFontSize
+    ...defaultStyles(variables),
   };
 
   return inputTheme;
 };
+
+export function defaultStyles (variables = variable) {
+  return {
+    width: '100%',
+    height: variables.inputHeightBase,
+    color: variables.inputColor,
+    paddingLeft: 0,
+    paddingRight: 5,
+    fontSize: variables.inputFontSize
+  };
+};
+
