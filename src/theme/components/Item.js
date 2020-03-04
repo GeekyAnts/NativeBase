@@ -218,8 +218,8 @@ export default (variables /* : * */ = variable) => {
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 2,
-    paddingTop: 4,
-    paddingBottom: 4,
+    paddingTop: 8,
+    paddingBottom: 0,
   };
 
   return itemTheme;

@@ -242,7 +242,7 @@ export default {
   inputBorderColor: '#D9D5DC',
   inputSuccessBorderColor: '#2b8339',
   inputErrorBorderColor: '#ed2f2f',
-  inputHeightBase: Platform.OS == 'web' ? 40 : 40,
+  inputHeightBase: 40,
   get inputColor() {
     return this.textColor;
   },
