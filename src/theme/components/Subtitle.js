@@ -12,7 +12,7 @@ export default (variables /* : * */ = variable) => {
     color: variables.subtitleColor,
     textAlign:  Platform.OS === PLATFORM.IOS ? 'center' : 'left',
     paddingLeft: Platform.OS === PLATFORM.IOS ? 4 : 0,
-    marginLeft: Platform.OS === PLATFORM.IOS ? undefined : -3
+    marginLeft: Platform.OS === PLATFORM.ANDROID ? -3 : undefined
   };
 
   return subtitleTheme;
