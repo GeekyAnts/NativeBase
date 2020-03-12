@@ -8,6 +8,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import Foundation from 'react-native-vector-icons/Foundation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -59,6 +60,9 @@ class IconNB extends Component {
         break;
       case 'FontAwesome5':
         this.Icon = FontAwesome5;
+        break;
+      case 'Fontisto':
+        this.Icon = Fontisto;
         break;
       case 'Foundation':
         this.Icon = Foundation;
