@@ -305,7 +305,7 @@ declare module "native-base" {
 			disableLeftSwipe?: boolean;
 			disableRightSwipe?: boolean;
       rightOpenValue?: number;
-      keyExtractor?: (item, index: number) => string;
+      keyExtractor?: (item: any, index: number) => string;
 			leftOpenValue?: number;
 			renderRightHiddenRow?: (
 				rowData: any,
