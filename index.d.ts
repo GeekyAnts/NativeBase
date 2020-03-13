@@ -157,7 +157,7 @@ declare module "native-base" {
          * see Widget Subtitle/index.js
          */
 		interface Subtitle extends Testable {
-			style?: RnViewStyleProp | Array<RnViewStyleProp>;
+			style?: RnTextStyleProp;
 		}
 		/**
          * see Widget Container.js
