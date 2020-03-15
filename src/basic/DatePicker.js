@@ -14,18 +14,29 @@ import { Text } from './Text';
 
 export class DatePicker extends React.Component {
   static defaultProps = {
-    disabled: false
+    disabled: false,
+    defaultDate: new Date()
   };
+  
   constructor(props) {
     super(props);
     this.state = {
       modalVisible: false,
-      defaultDate: props.defaultDate ? props.defaultDate : new Date(),
+      defaultDate: props.defaultDate,
       chosenDate:
         !props.placeHolderText && props.defaultDate
           ? props.defaultDate
           : undefined
     };
+  }
+
+  componentDidUpdate({defaultDate}){
+    if(defaultDate !== this.props.defaultDate){
+      this.setState({ defaultDate });
+      if(this.this.state.chosenDate){
+        this.setState({ chosenDate: defaultDate });
+      }
+    }
   }
 
   setDate(date) {
