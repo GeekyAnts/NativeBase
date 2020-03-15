@@ -17,7 +17,7 @@ export class DatePicker extends React.Component {
     disabled: false,
     defaultDate: new Date()
   };
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +33,7 @@ export class DatePicker extends React.Component {
   componentDidUpdate({defaultDate}){
     if(defaultDate !== this.props.defaultDate){
       this.setState({ defaultDate });
-      if(this.this.state.chosenDate){
+      if(this.state.chosenDate){
         this.setState({ chosenDate: defaultDate });
       }
     }
