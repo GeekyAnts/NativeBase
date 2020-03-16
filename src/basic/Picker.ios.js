@@ -14,6 +14,7 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import { Text } from './Text';
 import { Radio } from './Radio';
 import { Container } from './Container';
+import { Content } from './Content';
 import { ListItem } from './ListItem';
 import { Button } from './Button';
 import { Header } from './Header';
@@ -125,15 +126,15 @@ class PickerNB extends Component {
             {this.state.currentLabel}
           </Text>
         ) : (
-          <Text
-            style={[this.props.textStyle, this.props.placeholderStyle]}
-            note={this.props.note !== false}
-            numberOfLines={1}
-            ellipsizeMode="tail"
-          >
-            {this.props.placeholder}
-          </Text>
-        )}
+            <Text
+              style={[this.props.textStyle, this.props.placeholderStyle]}
+              note={this.props.note !== false}
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            >
+              {this.props.placeholder}
+            </Text>
+          )}
         {this.props.iosIcon === undefined ? null : this.renderIcon()}
       </Button>
     );
@@ -143,35 +144,35 @@ class PickerNB extends Component {
     return this.props.renderHeader ? (
       this.props.renderHeader(() => this._setModalVisible(false))
     ) : (
-      <Header style={this.props.headerStyle}>
-        <Left>
-          <Button
-            style={{
-              shadowOffset: null,
-              shadowColor: null,
-              shadowRadius: null,
-              shadowOpacity: null,
-              marginLeft: 3,
-              ...this.props.headerBackButtonStyle
-            }}
-            transparent
-            onPress={() => {
-              this._setModalVisible(false);
-            }}
-          >
-            <Text style={this.props.headerBackButtonTextStyle}>
-              {this.props.headerBackButtonText || 'Back'}
-            </Text>
-          </Button>
-        </Left>
-        <Body>
-          <Title style={this.props.headerTitleStyle}>
-            {this.props.iosHeader || 'Select One'}
-          </Title>
-        </Body>
-        <Right />
-      </Header>
-    );
+        <Header style={this.props.headerStyle}>
+          <Left>
+            <Button
+              style={{
+                shadowOffset: null,
+                shadowColor: null,
+                shadowRadius: null,
+                shadowOpacity: null,
+                marginLeft: 3,
+                ...this.props.headerBackButtonStyle
+              }}
+              transparent
+              onPress={() => {
+                this._setModalVisible(false);
+              }}
+            >
+              <Text style={this.props.headerBackButtonTextStyle}>
+                {this.props.headerBackButtonText || 'Back'}
+              </Text>
+            </Button>
+          </Left>
+          <Body>
+            <Title style={this.props.headerTitleStyle}>
+              {this.props.iosHeader || 'Select One'}
+            </Title>
+          </Body>
+          <Right />
+        </Header>
+      );
   }
 
   // eslint-disable-next-line camelcase
@@ -209,36 +210,38 @@ class PickerNB extends Component {
         >
           <Container style={this.props.modalStyle}>
             {this.renderHeader()}
-            <FlatList
-              testID={this.props.testID}
-              data={this.state.dataSource}
-              keyExtractor={(item, index) => String(index)}
-              renderItem={({ item }) => (
-                <ListItem
-                  selected={item.props.value === this.props.selectedValue}
-                  button
-                  style={this.props.itemStyle}
-                  onPress={() => {
-                    this._setModalVisible(false);
-                    this.props.onValueChange(item.props.value);
-                    this.setState({ current: item.props.label });
-                  }}
-                >
-                  <Left>
-                    <Text style={this.props.itemTextStyle}>
-                      {item.props.label}
-                    </Text>
-                  </Left>
-                  <Right>
-                    {item.props.value === this.props.selectedValue ? (
-                      <Radio selected />
-                    ) : (
-                      <Radio selected={false} />
-                    )}
-                  </Right>
-                </ListItem>
-              )}
-            />
+            <Content>
+              <FlatList
+                testID={this.props.testID}
+                data={this.state.dataSource}
+                keyExtractor={(item, index) => String(index)}
+                renderItem={({ item }) => (
+                  <ListItem
+                    selected={item.props.value === this.props.selectedValue}
+                    button
+                    style={this.props.itemStyle}
+                    onPress={() => {
+                      this._setModalVisible(false);
+                      this.props.onValueChange(item.props.value);
+                      this.setState({ current: item.props.label });
+                    }}
+                  >
+                    <Left>
+                      <Text style={this.props.itemTextStyle}>
+                        {item.props.label}
+                      </Text>
+                    </Left>
+                    <Right>
+                      {item.props.value === this.props.selectedValue ? (
+                        <Radio selected />
+                      ) : (
+                          <Radio selected={false} />
+                        )}
+                    </Right>
+                  </ListItem>
+                )}
+              />
+            </Content>
           </Container>
         </Modal>
       </View>
