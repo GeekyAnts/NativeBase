@@ -14,6 +14,7 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import { Text } from './Text';
 import { Radio } from './Radio';
 import { Container } from './Container';
+import { Content } from './Content';
 import { ListItem } from './ListItem';
 import { Button } from './Button';
 import { Header } from './Header';
@@ -209,6 +210,7 @@ class PickerNB extends Component {
         >
           <Container style={this.props.modalStyle}>
             {this.renderHeader()}
+            <Content>
             <FlatList
               testID={this.props.testID}
               data={this.state.dataSource}
@@ -239,6 +241,7 @@ class PickerNB extends Component {
                 </ListItem>
               )}
             />
+            </Content>
           </Container>
         </Modal>
       </View>
