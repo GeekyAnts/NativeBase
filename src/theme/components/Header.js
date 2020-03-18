@@ -237,7 +237,7 @@ export default (variables /* : * */ = variable) => {
           },
           'NativeBase.Text': {
             color: variables.toolbarBtnTextColor,
-            fontSize: platform === PLATFORM.IOS ? 17 : 0,
+            fontSize: platform === PLATFORM.IOS ? 17 : 14,
             top: platform === PLATFORM.IOS ? 1 : -1.5,
             paddingLeft:
               platform === PLATFORM.IOS && platformStyle !== PLATFORM.MATERIAL
