@@ -6,8 +6,23 @@ import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Label extends Component {
+
   render() {
-    return <Text ref={c => (this._root = c)} {...this.props} />;
+    let {
+      required,
+      children,
+      ...restProps
+    } = this.props;
+
+    if (required) {
+      children += " *";
+    }
+
+    return (
+      <Text ref={c => (this._root = c)} {...restProps} >
+        {children}
+      </Text>
+    );
   }
 }
 
@@ -19,6 +34,7 @@ Label.propTypes = {
     PropTypes.array
   ]),
   floatBack: PropTypes.number,
+  required: PropTypes.bool,
 };
 
 const StyledLabel = connectStyle('NativeBase.Label', {}, mapPropsToStyleNames)(
