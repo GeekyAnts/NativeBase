@@ -30,13 +30,13 @@ export default (variables /* : * */ = variable) => {
   };
   const primaryCommon = {
     'NativeBase.Text': {
-      color: variables.buttonPrimaryBg
+      color: variables.textColor
     },
     'NativeBase.Icon': {
-      color: variables.buttonPrimaryBg
+      color: variables.textColor
     },
     'NativeBase.IconNB': {
-      color: variables.buttonPrimaryBg
+      color: variables.textColor
     }
   };
   const successCommon = {
@@ -295,7 +295,7 @@ export default (variables /* : * */ = variable) => {
     },
 
     '.large': {
-      height: 60,
+      height: 50,
       'NativeBase.Text': {
         fontSize: 22
       }
@@ -312,7 +312,7 @@ export default (variables /* : * */ = variable) => {
       fontFamily: variables.buttonFontFamily,
       marginLeft: 0,
       marginRight: 0,
-      color: variables.inverseTextColor,
+      color: variables.textColor,
       fontSize: variables.buttonTextSize,
       paddingHorizontal: 16,
       backgroundColor: 'transparent'

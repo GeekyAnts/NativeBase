@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text as RNText } from 'react-native';
+import {
+  StyleSheet,
+  Text as RNText
+} from 'react-native';
 import {
   isString as _isString,
   toUpper  as _toUpper
@@ -10,8 +13,14 @@ import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Text extends Component {
+
   render() {
-    const { uppercase, children, rnTextProps } = this.props;
+
+    const {
+      uppercase,
+      children,
+      ...rnTextProps
+    } = this.props;
 
     let text;
     if (uppercase) {
@@ -25,8 +34,12 @@ class Text extends Component {
       text = children;
     }
 
+    //console.debug(StyleSheet.flatten(rnTextProps.style));
+
     return (
-      <RNText ref={c => (this._root = c)} {...rnTextProps}>
+      <RNText ref={c => (this._root = c)}
+        {...rnTextProps}
+      >
         {text}
       </RNText>
     );
