@@ -280,9 +280,15 @@ export default (variables /* : * */ = variable) => {
       }
     },
 
+    '.compact': {
+      'NativeBase.Text': {
+        paddingHorizontal: 0
+      },
+    },
+
     '.small': {
       'NativeBase.Text': {
-        fontSize: 14
+        fontSize: variables.buttonTextSize * 0.8
       },
       'NativeBase.Icon': {
         fontSize: 16,
@@ -297,7 +303,7 @@ export default (variables /* : * */ = variable) => {
     '.large': {
       height: 50,
       'NativeBase.Text': {
-        fontSize: 22
+        fontSize: variables.buttonTextSize * 1.4
       }
     },
 

@@ -17,6 +17,7 @@ class Text extends Component {
   render() {
 
     const {
+      note,
       uppercase,
       children,
       ...rnTextProps

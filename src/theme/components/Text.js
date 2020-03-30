@@ -9,7 +9,7 @@ export default (variables /* : * */ = variable) => {
     color: variables.textColor,
     fontWeight: 'normal',
     '.note': {
-      color: '#a7a7a7',
+      color: '#444444',
       fontSize: variables.noteFontSize
     }
   };
