@@ -393,7 +393,7 @@ export default (variables /* : * */ = variable) => {
         : 10,
     paddingRight: 10,
     justifyContent: 'center',
-    paddingTop: platform === PLATFORM.IOS ? 18 : 0,
+    // paddingTop: platform === PLATFORM.IOS ? 18 : 0,
     borderBottomWidth:
       platform === PLATFORM.IOS
         ? 1 / PixelRatio.getPixelSizeForLayoutSize(1)
