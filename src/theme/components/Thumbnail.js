@@ -3,7 +3,7 @@
 export default () => {
   const thumbnailTheme = {
     '.square': {
-      borderRadius: 0,
+      borderRadius: 4,
       '.small': {
         width: 36,
         height: 36,
