@@ -8,7 +8,6 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Fontisto from 'react-native-vector-icons/Fontisto';
 import Foundation from 'react-native-vector-icons/Foundation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -21,7 +20,7 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class IconNB extends Component {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
 
   constructor(props) {
@@ -61,9 +60,6 @@ class IconNB extends Component {
       case 'FontAwesome5':
         this.Icon = FontAwesome5;
         break;
-      case 'Fontisto':
-        this.Icon = Fontisto;
-        break;
       case 'Foundation':
         this.Icon = Foundation;
         break;
@@ -91,7 +87,7 @@ class IconNB extends Component {
   }
 
   render() {
-    return <this.Icon ref={c => (this._root = c)} {...this.props} />;
+    return <this.Icon ref={(c) => (this._root = c)} {...this.props} />;
   }
 }
 
@@ -109,8 +105,8 @@ IconNB.propTypes = {
     'MaterialIcons',
     'Octicons',
     'SimpleLineIcons',
-    'Zocial'
-  ])
+    'Zocial',
+  ]),
 };
 
 const StyledIconNB = connectStyle(
