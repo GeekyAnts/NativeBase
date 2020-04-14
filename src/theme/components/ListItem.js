@@ -235,7 +235,7 @@ export default (variables /* : * */ = variable) => {
     },
     '.avatar': {
       'NativeBase.Left': {
-        flex: 0,
+        flex: Platform.OS !== PLATFORM.WEB ? 0 : null,
         alignSelf: 'flex-start',
         paddingTop: 14
       },
@@ -276,7 +276,7 @@ export default (variables /* : * */ = variable) => {
     },
     '.thumbnail': {
       'NativeBase.Left': {
-        flex: 0
+        flex: Platform.OS !== PLATFORM.WEB ? 0 : null,
       },
       'NativeBase.Body': {
         'NativeBase.Text': {
