@@ -1,2 +1,0 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.default=function(){var contentTheme={flex:1,backgroundColor:'transparent','NativeBase.Segment':{borderWidth:0,backgroundColor:'transparent'}};return contentTheme;};
-//# sourceMappingURL=Content.js.map

@@ -3,3 +3,5 @@ Components/Styles/
 dist/
 src/basic/Tabs/
 src/basic/SwipeRow.js
+src/__tests__
+index.d.ts

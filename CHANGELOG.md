@@ -1,3 +1,8 @@
+
+n.n.n / 2020-02-15
+==================
+
+  * WIP converting to typescript with basic babel support
 # Version [2.12.1](https://github.com/GeekyAnts/NativeBase/releases/tag/v2.12.1)
 
 

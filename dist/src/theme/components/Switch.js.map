@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../src/theme/components/Switch.js"],"names":["switchTheme","marginVertical"],"mappings":"yEAEe,UAAM,CACnB,GAAMA,aAAc,CAClBC,eAAgB,CAAC,CADC,CAApB,CAIA,MAAOD,YAAP,CACD,C","file":"Switch.js","sourcesContent":["// @flow\n\nexport default () => {\n  const switchTheme = {\n    marginVertical: -5\n  };\n\n  return switchTheme;\n};\n"]}

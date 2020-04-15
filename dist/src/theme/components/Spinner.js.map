@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../src/theme/components/Spinner.js"],"names":["spinnerTheme","height"],"mappings":"yEAEe,UAAM,CACnB,GAAMA,cAAe,CACnBC,OAAQ,EADW,CAArB,CAIA,MAAOD,aAAP,CACD,C","file":"Spinner.js","sourcesContent":["// @flow\n\nexport default () => {\n  const spinnerTheme = {\n    height: 80\n  };\n\n  return spinnerTheme;\n};\n"]}

@@ -1,0 +1,28 @@
+import * as React from 'react';
+import { NavigationInjectedProps } from 'react-navigation';
+import { StyleSheet } from 'react-native';
+import { Container, Content, Text, Button } from 'native-base';
+
+export class {{pascalCase name}}Screen extends React.Component<NavigationInjectedProps<{}>> {
+    static navigationOptions = {
+        title: '{{titleCase name}}',
+    };
+    render() {
+        const { navigate } = this.props.navigation;
+        return (
+            <Container>
+                <Content padder centerContent contentContainerStyle={styles.content}>
+                    <Button onPress={() => navigate('Home')}>
+                        <Text>Go Home</Text>
+                    </Button>
+                </Content>
+            </Container>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    content: {
+        alignItems: 'center',
+    },
+});
