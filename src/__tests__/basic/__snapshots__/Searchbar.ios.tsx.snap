@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders searchbar 1`] = `
+<View
+  style={Object {}}
+>
+  <View>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
+    >
+      <View
+        rounded={true}
+        searchBar={true}
+        style={Object {}}
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": undefined,
+              "borderWidth": undefined,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            active={true}
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            editable={true}
+            placeholder="Search"
+            placeholderTextColor="#575757"
+            rejectResponderTermination={true}
+            style={Object {}}
+            underlineColorAndroid="rgba(0,0,0,0)"
+          />
+          <Text
+            active={true}
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {},
+                  Object {},
+                ],
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "borderRadius": 2,
+              "borderWidth": undefined,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={Object {}}
+            uppercase={false}
+          >
+            Search
+          </Text>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+</View>
+`;

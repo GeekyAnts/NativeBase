@@ -1,0 +1,17 @@
+const create{{pascalCase name}} = () => {
+    let examplePrivateVariable = 0;
+
+    return {
+        getExamplePrivateVariable: () => {
+            return examplePrivateVariable;
+        },
+        setExamplePrivateVariable: (n: any) => {
+            examplePrivateVariable = n;
+        },
+    };
+};
+
+const singleton = create{{pascalCase name}}();
+Object.freeze(singleton);
+
+export { singleton as {{pascalCase name}} };
