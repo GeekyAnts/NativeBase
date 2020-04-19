@@ -222,7 +222,7 @@ class PickerNB extends Component {
                   style={this.props.itemStyle}
                   onPress={() => {
                     this._setModalVisible(false);
-                    this.props.onValueChange(item.props.value);
+                    this.props.onValueChange(item.props.value, item.key);
                     this.setState({ current: item.props.label });
                   }}
                 >
