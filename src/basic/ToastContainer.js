@@ -125,7 +125,8 @@ class ToastContainer extends Component {
     // Fade the toast in now.
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
-      duration: 200
+      duration: 200,
+      useNativeDriver: false
     }).start();
   }
   closeModal(reason) {
@@ -141,7 +142,8 @@ class ToastContainer extends Component {
     clearTimeout(this.closeTimeout);
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
-      duration: 200
+      duration: 200,
+      useNativeDriver: false
     }).start(this.closeModal.bind(this, reason));
   }
 
