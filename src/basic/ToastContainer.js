@@ -24,7 +24,6 @@ const POSITION = {
 };
 
 class ToastContainer extends Component {
-  static toastInstance;
   static show({ ...config }) {
     this.toastInstance._root.showToast({ config });
   }
@@ -99,6 +98,8 @@ class ToastContainer extends Component {
   getModalState() {
     return this.state.modalVisible;
   }
+
+  static toastInstance;
 
   keyboardDidHide() {
     this.setState({
@@ -203,12 +204,7 @@ class ToastContainer extends Component {
 }
 
 ToastContainer.propTypes = {
-  ...ViewPropTypes,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array
-  ])
+  ...ViewPropTypes
 };
 
 const StyledToastContainer = connectStyle(

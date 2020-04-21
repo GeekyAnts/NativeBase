@@ -43,7 +43,11 @@ class ListItem extends Component {
       );
     }
     return (
-      <TouchableNativeFeedback ref={c => (this._root = c)} {...this.props}>
+      <TouchableNativeFeedback
+        ref={c => (this._root = c)}
+        useForeground
+        {...this.props}
+      >
         <View style={{ marginLeft: -17, paddingLeft: 17 }}>
           <View {...this.props} testID={undefined}>
             {this.props.children}

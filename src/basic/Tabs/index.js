@@ -13,14 +13,12 @@ const {
   StyleSheet,
   Platform
 } = ReactNative;
-const TimerMixin = require('react-timer-mixin');
 
 const SceneComponent = require('./SceneComponent');
 const { DefaultTabBar } = require('./DefaultTabBar');
 const { ScrollableTabBar } = require('./ScrollableTabBar');
 
 const ScrollableTabView = createReactClass({
-  mixins: [TimerMixin],
   statics: {
     DefaultTabBar,
     ScrollableTabBar
@@ -76,12 +74,20 @@ const ScrollableTabView = createReactClass({
     };
     InteractionManager.runAfterInteractions(scrollFn);
     // because of contentOffset is not working on Android
-    setTimeout(() => {
-      this.scrollView.scrollTo({
-        x: this.props.initialPage * this.state.containerWidth,
-        animated: false,
-      });
+    this.scrollToTimer = setTimeout(() => {
+      if (this.scrollView) {
+        this.scrollView.scrollTo({
+          x: this.props.initialPage * this.state.containerWidth,
+          animated: false
+        });
+      }
     });
+  },
+
+  componentWillUnmount() {
+    if (this.scrollToTimer) {
+      clearTimeout(this.scrollToTimer);
+    }
   },
 
   UNSAFE_componentWillReceiveProps(props) {

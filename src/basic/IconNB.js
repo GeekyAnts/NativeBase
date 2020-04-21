@@ -8,6 +8,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import Foundation from 'react-native-vector-icons/Foundation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -28,6 +29,13 @@ class IconNB extends Component {
     this.setIcon(props.type);
   }
 
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillUpdate(nextProps) {
+    if (nextProps.type && this.props.type !== nextProps.type) {
+      this.setIcon(nextProps.type);
+    }
+  }
+
   setIcon(iconType) {
     if (iconType === undefined && get(this, 'context.theme')) {
       // eslint-disable-next-line
@@ -35,54 +43,50 @@ class IconNB extends Component {
         .iconFamily;
     }
     switch (iconType) {
-    case 'AntDesign':
-      this.Icon = AntDesign;
-      break;
-    case 'Entypo':
-      this.Icon = Entypo;
-      break;
-    case 'EvilIcons':
-      this.Icon = EvilIcons;
-      break;
-    case 'Feather':
-      this.Icon = Feather;
-      break;
-    case 'FontAwesome':
-      this.Icon = FontAwesome;
-      break;
-    case 'FontAwesome5':
-      this.Icon = FontAwesome5;
-      break;
-    case 'Foundation':
-      this.Icon = Foundation;
-      break;
-    case 'Ionicons':
-      this.Icon = Ionicons;
-      break;
-    case 'MaterialCommunityIcons':
-      this.Icon = MaterialCommunityIcons;
-      break;
-    case 'MaterialIcons':
-      this.Icon = MaterialIcons;
-      break;
-    case 'Octicons':
-      this.Icon = Octicons;
-      break;
-    case 'SimpleLineIcons':
-      this.Icon = SimpleLineIcons;
-      break;
-    case 'Zocial':
-      this.Icon = Zocial;
-      break;
-    default:
-      this.Icon = Ionicons;
-    }
-  }
-
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillUpdate(nextProps) {
-    if (nextProps.type && this.props.type !== nextProps.type) {
-      this.setIcon(nextProps.type);
+      case 'AntDesign':
+        this.Icon = AntDesign;
+        break;
+      case 'Entypo':
+        this.Icon = Entypo;
+        break;
+      case 'EvilIcons':
+        this.Icon = EvilIcons;
+        break;
+      case 'Feather':
+        this.Icon = Feather;
+        break;
+      case 'FontAwesome':
+        this.Icon = FontAwesome;
+        break;
+      case 'FontAwesome5':
+        this.Icon = FontAwesome5;
+        break;
+      case 'Fontisto':
+        this.Icon = Fontisto;
+        break;
+      case 'Foundation':
+        this.Icon = Foundation;
+        break;
+      case 'Ionicons':
+        this.Icon = Ionicons;
+        break;
+      case 'MaterialCommunityIcons':
+        this.Icon = MaterialCommunityIcons;
+        break;
+      case 'MaterialIcons':
+        this.Icon = MaterialIcons;
+        break;
+      case 'Octicons':
+        this.Icon = Octicons;
+        break;
+      case 'SimpleLineIcons':
+        this.Icon = SimpleLineIcons;
+        break;
+      case 'Zocial':
+        this.Icon = Zocial;
+        break;
+      default:
+        this.Icon = Ionicons;
     }
   }
 
