@@ -113,10 +113,10 @@ const DefaultTabBar = createReactClass({
         style={{ flex: 1 }}
         disabled={isDisabled}
         key={_.random(1.2, 5.2)}
-        accessibilityRole='tab'
-        accessibilityState={accessibilityState}
-        accessibilityLabel={accessibilityLabel}
         accessible={isAccessible}
+        accessibilityRole='tab'
+        accessibilityLabel={accessibilityLabel}
+        accessibilityState={accessibilityState}
         onPress={() => onPressHandler(page)}
       >
         <TabHeading style={tabHeaderStyle} active={isTabActive}>
