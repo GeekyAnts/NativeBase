@@ -27,7 +27,7 @@ const DefaultTabBar = createReactClass({
     renderTab: PropTypes.func,
     underlineStyle: ViewPropTypes.style,
     tabContainerStyle: ViewPropTypes.style,
-    isAccessible: PropTypes.array,
+    accessible: PropTypes.array,
     accessibilityLabel: PropTypes.array
   },
   contextTypes: {
@@ -59,7 +59,7 @@ const DefaultTabBar = createReactClass({
     tabFontSize,
     disabled,
     disabledTextColor,
-    isAccessible,
+    accessible,
     accessibilityLabel
   ) {
     const headerContent =
@@ -85,7 +85,7 @@ const DefaultTabBar = createReactClass({
           style={{ flex: 1 }}
           disabled={isDisabled}
           key={name}
-          accessible={isAccessible}
+          accessible={accessible}
           accessibilityRole='tab'
           accessibilityLabel={accessibilityLabel}
           accessibilityState={accessibilityState}
@@ -113,7 +113,7 @@ const DefaultTabBar = createReactClass({
         style={{ flex: 1 }}
         disabled={isDisabled}
         key={_.random(1.2, 5.2)}
-        accessible={isAccessible}
+        accessible={accessible}
         accessibilityRole='tab'
         accessibilityLabel={accessibilityLabel}
         accessibilityState={accessibilityState}
