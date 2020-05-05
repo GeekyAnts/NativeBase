@@ -100,24 +100,24 @@ class Item extends Component<ItemProps, ItemState> {
     Animated.timing(this.state.topAnim, {
       toValue: e || 18,
       duration: 150,
-      useNativeDriver: false
+      useNativeDriver: false,
     }).start();
     Animated.timing(this.state.opacAnim, {
       toValue: 1,
       duration: 150,
-      useNativeDriver: false
+      useNativeDriver: false,
     }).start();
   }
   floatUp(e) {
     Animated.timing(this.state.topAnim, {
       toValue: e || -22,
       duration: 150,
-      useNativeDriver: false
+      useNativeDriver: false,
     }).start();
     Animated.timing(this.state.opacAnim, {
       toValue: 0.7,
       duration: 150,
-      useNativeDriver: false
+      useNativeDriver: false,
     }).start();
   }
   prepareRootProps() {

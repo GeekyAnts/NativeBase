@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {
   Keyboard,
   Platform,
   Animated,
-  ViewPropTypes,
   PanResponder
 } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
@@ -150,7 +148,7 @@ class ToastContainer extends Component<{}, ToastContainerState> {
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 200,
-      useNativeDriver: false
+      useNativeDriver: false,
     }).start();
   }
   closeModal(reason: any) {

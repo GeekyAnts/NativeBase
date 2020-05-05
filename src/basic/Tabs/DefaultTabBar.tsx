@@ -24,8 +24,6 @@ interface ComponentProps {
   tabContainerStyle: StyleProp<ViewStyle>;
   containerWidth: number;
   scrollValue: number;
-  accessible: string[],
-  accessibilityLabel: string[],
 }
 class DefaultTabBar extends React.Component<ComponentProps, {}, {}> {
   static contextTypes: {
@@ -55,9 +53,7 @@ class DefaultTabBar extends React.Component<ComponentProps, {}, {}> {
     tabHeaderStyle,
     tabFontSize,
     disabled,
-    disabledTextColor,
-    accessible,
-    accessibilityLabel
+    disabledTextColor
   ) {
     const headerContent = typeof name !== 'string' ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor } = this.props;
@@ -71,17 +67,9 @@ class DefaultTabBar extends React.Component<ComponentProps, {}, {}> {
     } else {
       textColor = textStyle ? textStyle.color : inactiveTextColor; // inactiveTextColor: default color for inactive Tab
     }
-    const accessibilityState = {
-      disabled: isDisabled ? true : false,
-      selected: isTabActive ? true : false,
-    };
     if (typeof name === 'string') {
       return (
-        <Button style={{ flex: 1 }} disabled={isDisabled} key={name}accessible={accessible}
-          accessibilityRole='tab'
-          accessibilityLabel={accessibilityLabel}
-          accessibilityState={accessibilityState}
-          onPress={() => onPressHandler(page)}>
+        <Button style={{ flex: 1 }} disabled={isDisabled} key={name} onPress={() => onPressHandler(page)}>
           <TabHeading style={isTabActive ? activeTabStyle : tabStyle} active={isTabActive}>
             <Text style={[{ fontSize: tabFontSize }, isTabActive ? activeTextStyle : textStyle, { color: textColor }]}>
               {name}
@@ -92,10 +80,7 @@ class DefaultTabBar extends React.Component<ComponentProps, {}, {}> {
     }
 
     return (
-      <Button style={{ flex: 1 }} disabled={isDisabled} key={_.random(1.2, 5.2)}accessible={accessible}
-        accessibilityRole='tab'
-        accessibilityLabel={accessibilityLabel}
-        accessibilityState={accessibilityState} onPress={() => onPressHandler(page)}>
+      <Button style={{ flex: 1 }} disabled={isDisabled} key={_.random(1.2, 5.2)} onPress={() => onPressHandler(page)}>
         <TabHeading style={tabHeaderStyle} active={isTabActive}>
           {headerContent}
         </TabHeading>
@@ -142,9 +127,7 @@ class DefaultTabBar extends React.Component<ComponentProps, {}, {}> {
             this.props.tabHeaderStyle[page],
             variables.tabFontSize,
             this.props.disabled[page],
-            this.props.disabledTextColor,
-            this.props.accessible[page],
-            this.props.accessibilityLabel[page]
+            this.props.disabledTextColor
           );
         })}
         <Animated.View style={[tabUnderlineStyle, { left }, this.props.underlineStyle]} />
