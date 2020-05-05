@@ -12800,7 +12800,24 @@ declare module 'native-base/basic/ToastContainer' {
 
 }
 declare module 'native-base/basic/Actionsheet' {
-	 const StyledActionSheetContainer: any;
+	import { Component } from 'native-base/react'; type ActionSheetContainerState = {
+	    title: any;
+	    message: any;
+	    destructiveButtonIndex: any;
+	    cancelButtonIndex: any;
+	    modalVisible: boolean;
+	    callback: any;
+	    items: undefined[];
+	};
+	export class ActionSheetContainerComponent extends Component<{}, ActionSheetContainerState> {
+	    static show(config: any, callback: any): void;
+	    static hide(): void;
+	    constructor(props: any);
+	    componentDidMount(): void;
+	    showActionSheet(config: any, callback: any): void;
+	    hideActionSheet(): void;
+	    render(): JSX.Element;
+	} const StyledActionSheetContainer: any;
 	export { StyledActionSheetContainer as ActionSheetContainer };
 
 }
@@ -12933,24 +12950,56 @@ declare module 'native-base/basic/Tabs/DefaultTabBar' {
 }
 declare module 'native-base/basic/Tabs/index' {
 	import * as React from 'native-base/react';
-	import ReactNative, { StyleProp, ViewStyle } from 'react-native';
+	import ReactNative, { StyleProp, ViewStyle, TextStyle } from 'react-native';
 	interface ComponentProps {
 	    tabBarPosition: 'top' | 'bottom' | 'overlayTop' | 'overlayBottom';
 	    initialPage: number;
 	    page: number;
-	    onChangeTab: () => void;
-	    onScroll: () => void;
+	    onChangeTab: (params: {
+	        i: number;
+	        ref?: React.RefObject<React.ReactNode>;
+	        from: number;
+	    }) => void;
+	    onScroll: (value: number) => void;
 	    renderTabBar: any;
 	    style: StyleProp<ViewStyle>;
 	    contentProps: object;
 	    scrollWithoutAnimation: boolean;
 	    locked: boolean;
-	    prerenderingSiblingsNumber: number;
+	    prerenderingSiblingsNumber?: number;
+	    tabBarBackgroundColor?: ViewStyle['backgroundColor'];
+	    tabBarActiveTextColor?: TextStyle['color'];
+	    tabBarInactiveTextColor?: TextStyle['color'];
+	    tabBarUnderlineStyle?: StyleProp<ViewStyle>;
+	    tabContainerStyle?: StyleProp<ViewStyle>;
+	    tabBarTextStyle?: any[];
+	    heading?: React.ReactNode;
+	}
+	interface TabBarProps {
+	    goToPage: (pageNumber: number) => void;
+	    tabs?: any[];
+	    tabStyle?: any[];
+	    activeTabStyle?: any[];
+	    textStyle?: any[];
+	    activeTextStyle?: any[];
+	    tabHeaderStyle?: any[];
+	    disabled?: any[];
+	    activeTab?: ComponentState['currentPage'];
+	    scrollValue?: ComponentState['scrollValue'];
+	    containerWidth?: ComponentState['containerWidth'];
+	    backgroundColor?: string;
+	    activeTextColor?: string;
+	    inactiveTextColor?: string;
+	    tabBarTextStyle?: {};
+	    underlineStyle?: {};
+	    tabContainerStyle?: {};
+	    style?: {};
 	}
 	interface ComponentState {
 	    currentPage: number;
 	    sceneKeys: string[];
 	    containerWidth: number;
+	    scrollValue: ReactNative.Animated.Value;
 	} class ScrollableTabView extends React.Component<ComponentProps, ComponentState> {
 	    scrollView: ReactNative.ScrollView | null;
 	    static defaultProps: {
@@ -12968,32 +13017,32 @@ declare module 'native-base/basic/Tabs/index' {
 	        currentPage: number;
 	        scrollValue: ReactNative.Animated.Value;
 	        containerWidth: number;
-	        sceneKeys: any[];
+	        sceneKeys: string[];
 	    };
 	    componentDidMount(): void;
-	    UNSAFE_componentWillReceiveProps(props: ComponentProps): void;
+	    UNSAFE_componentWillReceiveProps(props: React.PropsWithChildren<ComponentProps>): void;
 	    goToPage(pageNumber: number): void;
-	    renderTabBar(props: any): JSX.Element | null;
+	    renderTabBar(props: TabBarProps): JSX.Element | null;
 	    updateSceneKeys({ page, children, callback }: {
-	        page: any;
+	        page?: number | undefined;
 	        children?: React.ReactNode;
 	        callback?: (() => void) | undefined;
 	    }): void;
 	    newSceneKeys({ previousKeys, currentPage, children }: {
-	        previousKeys?: never[] | undefined;
-	        currentPage?: number | undefined;
+	        previousKeys?: string[];
+	        currentPage?: number;
 	        children?: React.ReactNode;
-	    }): any[];
+	    }): string[];
 	    _shouldRenderSceneKey(idx: number, currentPageKey: number): boolean;
-	    _keyExists(sceneKeys: any, key: any): any;
-	    _makeSceneKey(child: any, idx: any): string;
+	    _keyExists(sceneKeys: string[], key: string): string | undefined;
+	    _makeSceneKey(child: React.ReactNode, idx: string | number): string;
 	    renderScrollableContent(): JSX.Element;
 	    _composeScenes(): JSX.Element[];
 	    _onMomentumScrollBeginAndEnd(e: any): void;
-	    _updateSelectedPage(nextPage: any): void;
-	    _onChangeTab(prevPage: any, currentPage: any): void;
-	    _updateScrollValue(value: any): void;
-	    _handleLayout(e: any): void;
+	    _updateSelectedPage(nextPage: number): void;
+	    _onChangeTab(prevPage: number, currentPage: number): void;
+	    _updateScrollValue(value: number): void;
+	    _handleLayout(e: ReactNative.LayoutChangeEvent): void;
 	    private children;
 	    render(): JSX.Element;
 	}
@@ -13071,23 +13120,24 @@ declare module 'native-base/basic/Subtitle' {
 }
 declare module 'native-base/basic/Accordion' {
 	import React from 'native-base/react';
+	import { ViewStyle } from 'react-native';
 	import { IconName } from 'native-base/basic/Icon'; type AccordionState = {
 	    selected: undefined | any;
 	};
 	interface AccordionProps {
-	    expanded: boolean;
-	    contentStyle: any;
+	    expanded?: boolean;
+	    contentStyle?: ViewStyle;
 	    dataArray: any;
-	    expandedIcon: IconName;
-	    expandedIconStyle: any;
-	    headerStyle: any;
-	    icon: IconName;
-	    iconStyle: any;
-	    onAccordionClose: any;
-	    onAccordionOpen: any;
-	    renderContent: any;
-	    renderHeader: any;
-	    style: any;
+	    expandedIcon?: IconName;
+	    expandedIconStyle?: any;
+	    headerStyle?: any;
+	    icon?: IconName;
+	    iconStyle?: any;
+	    onAccordionClose?: any;
+	    onAccordionOpen?: any;
+	    renderContent?: any;
+	    renderHeader?: any;
+	    style?: ViewStyle;
 	}
 	export class Accordion extends React.Component<AccordionProps, AccordionState> {
 	    constructor(props: Readonly<AccordionProps>);
@@ -13162,7 +13212,7 @@ declare module 'native-base/index' {
 	import { Subtitle } from 'native-base/basic/Subtitle';
 	import { Accordion } from 'native-base/basic/Accordion';
 	import VueNativeBase from 'native-base/vue-native.js';
-	export { getTheme, variables, StyleProvider, connectStyle, Drawer, Button, DatePicker, IconNB, Icon, Header, Form, InputGroup, Input, Title, Fab, Left, Right, Body, Badge, CheckBox, Radio, Thumbnail, Card, CardItem, H1, H2, H3, Spinner, Switch, Container, Content, Footer, Tab, ScrollableTabView as Tabs, FooterTab, PickerNB as Picker, List, ListItem, Separator, DeckSwiper, Item, Subtitle, Label, Textarea, Col, Row, Grid, Text, Content as TabContent, View, ToastContainer as Toast, ScrollableTab, ActionSheetContainer as ActionSheet, TabHeading, TabContainer, DefaultTabBar, Segment, Root, SwipeRow, VueNativeBase, Accordion }; const mapPropsToStyleNames: (_styleNames: any, props: any) => string[];
+	export { getTheme, variables, StyleProvider, connectStyle, Drawer, Button, DatePicker, IconNB, Icon, Header, Form, InputGroup, Input, Title, Fab, Left, Right, Body, Badge, CheckBox, Radio, Thumbnail, Card, CardItem, H1, H2, H3, Spinner, Switch, Container, Content, Footer, Tab, ScrollableTabView as Tabs, FooterTab, PickerNB as Picker, List, ListItem, Separator, DeckSwiper, Item, Subtitle, Label, Textarea, Col, Row, Grid, Text, Content as TabContent, View, ToastContainer as Toast, ScrollableTab, ActionSheetContainer as ActionSheet, TabHeading, TabContainer, DefaultTabBar, Segment, Root, SwipeRow, VueNativeBase, Accordion, }; const mapPropsToStyleNames: (_styleNames: any, props: any) => string[];
 	export { mapPropsToStyleNames };
 
 }
