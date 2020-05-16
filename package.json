@@ -24,7 +24,7 @@
       "<rootDir>/lib/"
     ]
   },
-  "version": "2.13.12",
+  "version": "3.0.0-0",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
@@ -43,13 +43,13 @@
     "react-native-drawer": "2.5.1",
     "react-native-easy-grid": "0.2.2",
     "react-native-keyboard-aware-scroll-view": "0.9.1",
-    "react-native-vector-icons": "^6.6.0",
-    "react-tween-state": "^0.1.5",
-    "tween-functions": "^1.0.1",
     "react-native-material-ripple": "^0.9.1",
+    "react-native-vector-icons": "^6.6.0",
     "react-native-web": "~0.11.7",
+    "react-tween-state": "^0.1.5",
     "styled-components": "^5.1.0",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "tween-functions": "^1.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
