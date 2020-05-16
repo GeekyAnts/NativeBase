@@ -1,3 +1,15 @@
 {
-  "presets": ["react-native"]
+  "presets": ["react-native"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./lib"],
+        "alias": {
+          "primitives": "./lib/typescript/components/primitives/",
+          "components": "./lib/typescript/components/components/"
+        }
+      }
+    ]
+  ]
 }
