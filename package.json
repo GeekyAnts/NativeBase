@@ -18,12 +18,16 @@
     "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js && opencollective-postinstall",
-    "flow": "flow"
+    "flow": "flow",
+    "prepare": "bob build"
   },
   "jest": {
     "preset": "react-native",
     "transformIgnorePatterns": [
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib/"
     ]
   },
   "version": "2.13.12",
@@ -72,7 +76,7 @@
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-  "main": "dist/src/index.js",
+  "main": "src/index.ts",
   "typings": "./index.d.ts",
   "optionalDependencies": {},
   "peerDependencies": {
@@ -92,5 +96,22 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/NativeBase"
-  }
+  },
+  "react-native": "src/index.ts",
+  "types": "lib/typescript/src/index.d.ts",
+  "files": [
+    "src",
+    "lib"
+  ],
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "typescript"
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ]
 }
