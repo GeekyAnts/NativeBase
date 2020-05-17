@@ -24,10 +24,12 @@
       "<rootDir>/lib/"
     ]
   },
-  "version": "3.0.0-beta.0",
+  "version": "3.0.0-alpha.0",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
+    "@types/styled-components": "^5.0.1",
+    "@types/styled-system": "^5.1.9",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~3.1.2",
@@ -52,6 +54,7 @@
     "tween-functions": "^1.0.1"
   },
   "devDependencies": {
+    "@react-native-community/bob": "^0.14.2",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^24.8.0",
@@ -71,7 +74,8 @@
     "pretty-quick": "^1.11.1",
     "react": "16.4.1",
     "react-native": "^0.60.4",
-    "react-test-renderer": "16.4.1"
+    "react-test-renderer": "16.4.1",
+    "typescript": "^3.9.2"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
   "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
