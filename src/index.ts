@@ -1,5 +1,6 @@
-export { ThemeProvider } from 'styled-components/native';
-export { AppBar, Button, IconButton, Variants } from './components/composites';
+import ThemeProvider from "./components/themeprovider";
+
+export { AppBar, Button, IconButton, Variants } from "./components/composites";
 export {
   View,
   Text,
@@ -13,5 +14,6 @@ export {
   Icon,
   IconProps,
   Input,
-  Image
-} from './components/primitives';
+  Image,
+} from "./components/primitives";
+export { ThemeProvider };
