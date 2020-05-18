@@ -24,7 +24,6 @@ export default (variables /* : * */ = variable) => {
       marginTop: variables.CheckboxIconMarginTop,
       fontSize: variables.CheckboxFontSize
     },
-    borderRadius: variables.CheckboxRadius,
     overflow: 'hidden',
     width: variables.checkboxSize,
     height: variables.checkboxSize,
