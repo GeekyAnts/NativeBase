@@ -15,9 +15,10 @@ class CheckBox extends Component {
   };
 
   getInitialStyle(variables) {
-    const { color, checked } = this.props;
+    const { color, checked, checkboxType } = this.props;
     return {
       checkStyle: {
+        borderRadius : this.getBorderRadius(checkboxType),
         borderColor: color || variables.checkboxBgColor,
         backgroundColor:
           checked === true
@@ -25,6 +26,17 @@ class CheckBox extends Component {
             : variables.checkboxDefaultColor
       }
     };
+  }
+
+  getBorderRadius(checkboxType)
+  {
+      if(checkboxType == "rounded"){
+        return 13;
+      }
+      if(checkboxType == "square"){
+        return 0;
+      }
+      return variables.CheckboxRadius;
   }
 
   prepareRootProps(variables) {
