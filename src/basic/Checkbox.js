@@ -18,9 +18,9 @@ class CheckBox extends Component {
     const { color, checked, checkboxType, borderColor } = this.props;
     return {
       checkStyle: {
-        borderRadius : this.getBorderRadius(checkboxType, variables),
-        borderColor: this.getBorderColor(borderColor,color,variables), 
-        backgroundColor: 
+        borderRadius: this.getBorderRadius(checkboxType, variables),
+        borderColor: borderColor || color || variables.checkboxBgColor,
+        backgroundColor:
           checked === true
             ? color || variables.checkboxBgColor
             : variables.checkboxDefaultColor
@@ -28,23 +28,15 @@ class CheckBox extends Component {
     };
   }
 
-  getBorderColor(borderColor, color, variables)
-  {
-    if(!!borderColor){
-      return borderColor;
-    }
-    return color || variables.checkboxBgColor;
-  }
 
-  getBorderRadius(checkboxType, variables)
-  {
-      if(checkboxType == "rounded"){
-        return 13;
-      }
-      if(checkboxType == "square"){
-        return 0;
-      }
-      return variables.CheckboxRadius;
+  getBorderRadius(checkboxType, variables) {
+    if (checkboxType == "rounded") {
+      return 13;
+    }
+    if (checkboxType == "square") {
+      return 0;
+    }
+    return variables.CheckboxRadius;
   }
 
   prepareRootProps(variables) {
@@ -55,7 +47,7 @@ class CheckBox extends Component {
     return computeProps(this.props, defaultProps);
   }
   render() {
-    const { checked } = this.props;
+    const { checked, tickColor } = this.props;
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
@@ -70,7 +62,7 @@ class CheckBox extends Component {
           style={{
             color:
               checked === true
-                ? variables.checkboxTickColor
+                ? tickColor || variables.checkboxTickColor
                 : variables.checkboxDefaultColor,
             fontSize: variables.CheckboxFontSize,
             lineHeight: variables.CheckboxIconSize,
