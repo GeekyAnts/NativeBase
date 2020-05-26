@@ -57,7 +57,7 @@ class Content extends Component {
         }}
         {...this.props}
         contentContainerStyle={[
-          { flex: 1, padding: padder ? themeVars.contentPadding : undefined },
+          { padding: padder ? themeVars.contentPadding : undefined },
           contentContainerStyle
         ]}
       >
