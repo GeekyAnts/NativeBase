@@ -26,7 +26,7 @@ class Content extends Component {
     return (
       <SafeAreaView style={{
         flex: 1,
-        backgroundColor: getStyle(style).backgroundColor
+        backgroundColor: getStyle(this.props.style).backgroundColor
       }} >
         { this.renderScrollView(themeVars) }
       </SafeAreaView>

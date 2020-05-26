@@ -1,12 +1,15 @@
-import _ from 'lodash';
+import {
+  isArray as _isArray,
+  reduce  as _reduce
+} from 'lodash';
 
-module.exports = function(style) {
+export default function (style) {
   // style: PropTypes.object | PropTypes.array | PropTypes.number
 
   // If style is an array, merge the objects in the array
   // to get the final style
-  if (_.isArray(style)) {
-    return _.reduce(
+  if (_isArray(style)) {
+    return _reduce(
       style,
       (merged, nextStyle) => ({ ...merged, ...nextStyle }),
       {}
@@ -15,3 +18,4 @@ module.exports = function(style) {
 
   return style;
 };
+
