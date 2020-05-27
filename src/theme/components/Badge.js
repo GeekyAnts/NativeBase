@@ -1,7 +1,6 @@
 // @flow
 
 import variable from './../variables/platform';
-import { PLATFORM } from './../variables/commonColor';
 
 export default (variables /* : * */ = variable) => {
   const badgeTheme = {

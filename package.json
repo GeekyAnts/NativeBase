@@ -30,6 +30,7 @@
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
+    "@react-native-community/picker": "^1.6.1",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~3.1.2",
