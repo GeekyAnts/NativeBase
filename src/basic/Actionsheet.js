@@ -15,7 +15,7 @@ import {
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
-import commonColor, { PLATFORM } from '../theme/variables/commonColor';
+import commonThemeVars, { PLATFORM } from '../theme/variables/common';
 
 import { Text } from './Text';
 import { Icon } from './Icon';
@@ -105,7 +105,7 @@ class ActionSheetContainer extends Component {
             <FlatList
               style={[
                 styles.flatList,
-                { marginTop: this.state.title ? commonColor.marginTop : 0 }
+                { marginTop: this.state.title ? commonThemeVars.marginTop : 0 }
               ]}
               data={this.state.items}
               keyExtractor={(item, index) => String(index)}
@@ -129,7 +129,7 @@ class ActionSheetContainer extends Component {
                     style={[
                       styles.listItem,
                       {
-                        height: commonColor.listItemHeight
+                        height: commonThemeVars.listItemHeight
                       }
                     ]}
                     icon
@@ -164,30 +164,30 @@ ActionSheetContainer.propTypes = {
 
 const styles = StyleSheet.create({
   containerTouchable: {
-    backgroundColor: commonColor.containerTouchableBackgroundColor,
+    backgroundColor: commonThemeVars.containerTouchableBackgroundColor,
     flex: 1,
     justifyContent: 'flex-end'
   },
   flatList: {
-    marginHorizontal: commonColor.marginHorizontal
+    marginHorizontal: commonThemeVars.marginHorizontal
   },
   innerTouchable: {
-    backgroundColor: commonColor.innerTouchableBackgroundColor,
-    minHeight: commonColor.minHeight,
+    backgroundColor: commonThemeVars.innerTouchableBackgroundColor,
+    minHeight: commonThemeVars.minHeight,
     maxHeight: Dimensions.get('window').height / 2,
-    padding: commonColor.padding,
-    elevation: commonColor.elevation
+    padding: commonThemeVars.padding,
+    elevation: commonThemeVars.elevation
   },
   listItem: {
-    borderColor: commonColor.listItemBorderColor,
-    marginLeft: commonColor.marginLeft
+    borderColor: commonThemeVars.listItemBorderColor,
+    marginLeft: commonThemeVars.marginLeft
   },
   listItemBody: {
-    borderColor: commonColor.listItemBorderColor,
-    paddingLeft: commonColor.marginLeft / 2
+    borderColor: commonThemeVars.listItemBorderColor,
+    paddingLeft: commonThemeVars.marginLeft / 2
   },
   touchableText: {
-    color: commonColor.touchableTextColor
+    color: commonThemeVars.touchableTextColor
   }
 });
 

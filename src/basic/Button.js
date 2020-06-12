@@ -11,7 +11,7 @@ import {
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import variable from '../theme/variables/platform';
-import { PLATFORM } from '../theme/variables/commonColor';
+import { PLATFORM } from '../theme/variables/common';
 import computeProps from '../utils/computeProps';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 

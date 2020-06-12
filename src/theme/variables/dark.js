@@ -1,9 +1,29 @@
 
-import platformVars from './platform';
+import color from 'color';
+import {
+  Platform,
+  Dimensions,
+  PixelRatio
+} from 'react-native';
 
-export default {
-  ...platformVars,
+import {
+  PLATFORM,
+  defineThemeVars as common_defineThemeVars
+} from './common';
+import {
+  extendThemeVars
+} from '../utils';
 
-  containerBgColor: '#000'
-};
+export function defineThemeVars () {
+  return extendThemeVars(
+    common_defineThemeVars(),
+    {
+      containerBgColor: '#000'
+    }
+  );
+}
+
+const themeVars = defineThemeVars();
+
+export default themeVars;
 

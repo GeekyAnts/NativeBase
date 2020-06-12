@@ -4,7 +4,7 @@ import { Platform, PixelRatio } from 'react-native';
 
 import pickerTheme from './Picker';
 import variable from './../variables/platform';
-import { PLATFORM } from './../variables/commonColor';
+import { PLATFORM } from './../variables/common';
 
 export default (variables /* : * */ = variable) => {
   const platform = variables.platform;
