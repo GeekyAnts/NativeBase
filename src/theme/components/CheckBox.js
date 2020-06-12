@@ -14,23 +14,23 @@ export default (variables /* : * */ = variable) => {
     },
     'NativeBase.Icon': {
       color: 'transparent',
-      lineHeight: variables.CheckboxIconSize,
-      marginTop: variables.CheckboxIconMarginTop,
-      fontSize: variables.CheckboxFontSize
+      lineHeight: variables.checkboxIconSize,
+      marginTop: variables.checkboxIconMarginTop,
+      fontSize: variables.checkboxFontSize
     },
     'NativeBase.IconNB': {
       color: 'transparent',
-      lineHeight: variables.CheckboxIconSize,
-      marginTop: variables.CheckboxIconMarginTop,
-      fontSize: variables.CheckboxFontSize
+      lineHeight: variables.checkboxIconSize,
+      marginTop: variables.checkboxIconMarginTop,
+      fontSize: variables.checkboxFontSize
     },
-    borderRadius: variables.CheckboxRadius,
+    borderRadius: variables.checkboxRadius,
     overflow: 'hidden',
     width: variables.checkboxSize,
     height: variables.checkboxSize,
-    borderWidth: variables.CheckboxBorderWidth,
-    paddingLeft: variables.CheckboxPaddingLeft - 1,
-    paddingBottom: variables.CheckboxPaddingBottom,
+    borderWidth: variables.checkboxBorderWidth,
+    paddingLeft: variables.checkboxPaddingLeft - 1,
+    paddingBottom: variables.checkboxPaddingBottom,
     left: 10
   };
 

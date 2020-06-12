@@ -52,9 +52,9 @@ class CheckBox extends Component {
               checked === true
                 ? variables.checkboxTickColor
                 : variables.checkboxDefaultColor,
-            fontSize: variables.CheckboxFontSize,
-            lineHeight: variables.CheckboxIconSize,
-            marginTop: variables.CheckboxIconMarginTop,
+            fontSize: variables.checkboxFontSize,
+            lineHeight: variables.checkboxIconSize,
+            marginTop: variables.checkboxIconMarginTop,
             textShadowRadius: variables.checkboxTextShadowRadius
           }}
           name={
