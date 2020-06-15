@@ -56,6 +56,10 @@ npm install native-base --save
 The peer dependencies included from any npm packages does not automatically get installed. Your application will not depend on it explicitly.
 
 ```js
+npm install @react-native-community/picker --save
+```
+
+```js
 react-native link
 ```
 Note: If you are using react-native version 0.60 or higher you don't need to link any package.
@@ -71,6 +75,10 @@ Refer this link for additional information on [Expo](https://docs.expo.io/)
 *Install NativeBase:*
 ```js
 npm install native-base --save
+```
+*Install peerDependencies:*
+```js
+npm install @react-native-community/picker --save
 ```
 
 <br />

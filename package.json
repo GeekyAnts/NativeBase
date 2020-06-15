@@ -30,7 +30,6 @@
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
-    "@react-native-community/picker": "^1.6.1",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~3.1.2",
@@ -51,6 +50,7 @@
     "tween-functions": "^1.0.1"
   },
   "devDependencies": {
+    "@react-native-community/picker": "^1.6.3",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^24.8.0",
@@ -77,6 +77,7 @@
   "typings": "./index.d.ts",
   "optionalDependencies": {},
   "peerDependencies": {
+    "@react-native-community/picker": ">=1.6.3",
     "react": ">=16.4.1",
     "react-native": ">=0.56.0"
   },

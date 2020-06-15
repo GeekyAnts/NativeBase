@@ -927,10 +927,10 @@
     shell-quote "1.6.1"
     ws "^1.1.0"
 
-"@react-native-community/picker@^1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/picker/-/picker-1.6.1.tgz#f893bf4982e549c954696d08a47e1d8e72762310"
-  integrity sha512-JuCOtim1tZhB3KoJhbuPj3pFweUnj4XgukktJk0MyUOB8wA3uCEHW+xsGYu8ZDYiyR0M6qXctz7Fz2qYFuTUSQ==
+"@react-native-community/picker@^1.6.3":
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/@react-native-community/picker/-/picker-1.6.3.tgz#4aed45449476b18f43008f3a790537c4a959ee34"
+  integrity sha512-8oPcwimsz14BDu0a8smuqw52uuaXgWrUKAVhv1mXMFvZq3Spt23UVH8Q0Zogi4t7WNlwx4dNXB08iUUP8ltKzg==
 
 "@types/babel__core@^7.1.0":
   version "7.1.2"
