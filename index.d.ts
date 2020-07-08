@@ -1214,4 +1214,15 @@ declare module "native-base" {
 	export class Accordion extends React.Component<NativeBase.Accordion, any>{ }
 
 	export class DatePicker extends React.Component<NativeBase.DatePicker, any> { }
+
+	/**
+	 * vendor native-base-shoutem-theme
+	 */
+	export function connectStyle<T extends NativeBase.StyleProvider> (
+		componentStyleName: string,
+		componentStyle?: RnViewStyleProp | RnTextStyleProp | RnStatusBarStyleProp,
+		mapPropsToStyleNames?: (props: T) => string[],
+		options?: { virtual?: boolean, withRef?: boolean }
+	): (Component: React.ComponentType<T>) => React.ComponentType<T>;
+
 }
