@@ -11,7 +11,6 @@ import { Button } from './Button';
 import { Toast } from './Toast';
 import { Root } from './Root';
 
-
 const POSITION = {
   ABSOLUTE: 'absolute',
   BOTTOM: 'bottom',
@@ -21,7 +20,7 @@ const POSITION = {
 class ToastContainer extends Component {
   static show({ ...config }) {
     const inst = Root.getToastInstance();
-    if(inst){
+    if (inst) {
       inst._root.showToast({ config });
     }
   }
@@ -46,8 +45,19 @@ class ToastContainer extends Component {
   }
 
   componentDidMount() {
-    Keyboard.addListener('keyboardDidShow', this.keyboardDidShow);
-    Keyboard.addListener('keyboardDidHide', this.keyboardDidHide);
+    this._kbShow = Keyboard.addListener(
+      'keyboardDidShow',
+      this.keyboardDidShow
+    );
+    this._kbHide = Keyboard.addListener(
+      'keyboardDidHide',
+      this.keyboardDidHide
+    );
+  }
+
+  componentWillUnmount() {
+    if (this._kbShow) this._kbShow.remove();
+    if (this._kbHide) this._kbHide.remove();
   }
 
   getToastStyle() {
