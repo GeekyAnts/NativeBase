@@ -353,7 +353,8 @@ class Fab extends Component {
         active: false
       });
       Animated.spring(this.containerHeight, {
-        toValue: variables.fabWidth
+        toValue: variables.fabWidth,
+        useNativeDriver: false
       }).start();
       Animated.spring(this.buttonScale, {
         toValue: 0,
