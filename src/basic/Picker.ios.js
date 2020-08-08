@@ -211,36 +211,36 @@ class PickerNB extends Component {
           <Container style={this.props.modalStyle}>
             {this.renderHeader()}
             <Content>
-            <FlatList
-              testID={this.props.testID}
-              data={this.state.dataSource}
-              keyExtractor={(item, index) => String(index)}
-              renderItem={({ item }) => (
-                <ListItem
-                  selected={item.props.value === this.props.selectedValue}
-                  button
-                  style={this.props.itemStyle}
-                  onPress={() => {
-                    this._setModalVisible(false);
-                    this.props.onValueChange(item.props.value, item.key);
-                    this.setState({ current: item.props.label });
-                  }}
-                >
-                  <Left>
-                    <Text style={this.props.itemTextStyle}>
-                      {item.props.label}
-                    </Text>
-                  </Left>
-                  <Right>
-                    {item.props.value === this.props.selectedValue ? (
-                      <Radio selected />
-                    ) : (
-                      <Radio selected={false} />
-                    )}
-                  </Right>
-                </ListItem>
-              )}
-            />
+              <FlatList
+                testID={this.props.testID}
+                data={this.state.dataSource}
+                keyExtractor={(item, index) => String(index)}
+                renderItem={({ item }) => (
+                  <ListItem
+                    selected={item.props.value === this.props.selectedValue}
+                    button
+                    style={this.props.itemStyle}
+                    onPress={() => {
+                      this._setModalVisible(false);
+                      this.props.onValueChange(item.props.value, item.key);
+                      this.setState({ current: item.props.label });
+                    }}
+                  >
+                    <Left>
+                      <Text style={this.props.itemTextStyle}>
+                        {item.props.label}
+                      </Text>
+                    </Left>
+                    <Right>
+                      {item.props.value === this.props.selectedValue ? (
+                        <Radio selected />
+                      ) : (
+                        <Radio selected={false} />
+                      )}
+                    </Right>
+                  </ListItem>
+                )}
+              />
             </Content>
           </Container>
         </Modal>

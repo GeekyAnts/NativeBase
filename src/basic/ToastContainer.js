@@ -1,6 +1,5 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {
   Keyboard,
   Platform,
@@ -148,7 +147,7 @@ class ToastContainer extends Component {
       useNativeDriver: false
     }).start();
   }
-  closeModal(reason) {
+  closeModal = (reason) => {
     this.setState({
       modalVisible: false
     });
@@ -164,7 +163,7 @@ class ToastContainer extends Component {
       duration: 200,
       useNativeDriver: false
     }).start(() => {
-      this.closeModal.bind(this, reason);
+      this.closeModal(reason);
       this.state.pan.setValue({ x: 0, y: 0 });
     });
   }

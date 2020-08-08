@@ -648,6 +648,7 @@ declare module "native-base" {
 
 		interface Label extends Testable {
 			style?: RnTextStyleProp;
+			floatBack?: number;
 		}
 		/**
          * see Widget Icon.js
