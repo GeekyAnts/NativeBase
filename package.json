@@ -46,6 +46,7 @@
     "react-native-drawer": "2.5.1",
     "react-native-easy-grid": "0.2.2",
     "react-native-vector-icons": "^7.0.0",
+    "@react-native-community/picker": "^1.6.6",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1"
   },
