@@ -39,7 +39,10 @@ class DefaultHeader extends React.Component {
           headerStyle || { backgroundColor: variables.headerStyle },
         ]}
       >
-        <Text style={{ color: disable ? 'grey' : null }}> {title}</Text>
+        <Text style={{ color: disable ? variable.disableRow : null }}>
+          {' '}
+          {title}
+        </Text>
         <Icon
           style={[
             { fontSize: variables.accordionIconFontSize },
@@ -49,7 +52,7 @@ class DefaultHeader extends React.Component {
                 : { color: variables.expandedIconStyle }
               : icon && iconStyle
               ? iconStyle
-              : { color: disable ? 'grey' : variables.iconStyle },
+              : { color: disable ? variable.disableRow : variables.iconStyle },
           ]}
           name={
             expanded ? expandedIcon || 'ios-arrow-up' : icon || 'ios-arrow-down'
