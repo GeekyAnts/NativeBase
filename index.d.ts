@@ -157,7 +157,7 @@ declare module "native-base" {
          * see Widget Subtitle/index.js
          */
 		interface Subtitle extends Testable {
-			style?: RnViewStyleProp | Array<RnViewStyleProp>;
+			style?: RnTextStyleProp;
 		}
 		/**
          * see Widget Container.js
@@ -290,10 +290,10 @@ declare module "native-base" {
 			/**
              * Array of data chunks to render iteratively.
              */
-			dataArray?: Array<any>;
-			renderItem?: (
-				rowData: any,
-				rowID: string | number,
+      dataArray?: Array<any>;
+      renderItem?: (	
+				item: any,	
+				index: string | number,	
 			) => React.ReactElement<any>;
 			renderRow?: (
 				rowData: any,
@@ -304,7 +304,8 @@ declare module "native-base" {
 			dataSource?: ReactNative.ListViewDataSource;
 			disableLeftSwipe?: boolean;
 			disableRightSwipe?: boolean;
-			rightOpenValue?: number;
+      rightOpenValue?: number;
+      keyExtractor?: (item: any, index: number) => string;
 			leftOpenValue?: number;
 			renderRightHiddenRow?: (
 				rowData: any,
@@ -365,6 +366,7 @@ declare module "native-base" {
              */
 			androidRippleColor?: string;
 			touchableHighlightStyle?: RnViewStyleProp;
+			underlayColor?: string;
 		}
 
 		interface Separator extends Testable {
@@ -381,6 +383,8 @@ declare module "native-base" {
 			cardBody?: boolean;
 			button?: boolean;
 			bordered?: boolean;
+			first?: boolean;
+			last?: boolean;
 			onPress?: () => void;
 		}
 		/**
@@ -644,12 +648,13 @@ declare module "native-base" {
 
 		interface Label extends Testable {
 			style?: RnTextStyleProp;
+			floatBack?: number;
 		}
 		/**
          * see Widget Icon.js
          */
 		interface Icon extends Testable {
-			name: string;
+			name?: string;
 			type?: "AntDesign" | "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "FontAwesome5" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial";
 			// TODO position attribute of ReactNative.FlexStyle hasn't another position values without "absolute" and "relative"
 			style?: any;
@@ -778,6 +783,7 @@ declare module "native-base" {
 			springTension?: number;
 			springFriction?: number;
 			onChangeTab?: Function;
+			onScroll?:Function;
 			page?: number;
 			locked?: boolean;
 			initialPage?: number;
@@ -842,7 +848,7 @@ declare module "native-base" {
 			style?: RnViewStyleProp;
 		}
 
-		interface Image extends ReactNative.TextProps, Testable { }
+		interface Image extends ReactNative.ImageProps, Testable { }
 
 		interface Segment extends ReactNative.TextProps, Testable { }
 
@@ -1068,7 +1074,7 @@ declare module "native-base" {
      * NativeBase.Thumbnail
      *
      * Thumbnail component works very similar to Image.
-     * It helps you to showcase an image with variuos dimensions and shapes.
+     * It helps you to showcase an image with various dimensions and shapes.
      * By default, Thumbnail renders an image in circular shape.
      */
 	export class Thumbnail extends React.Component<NativeBase.Thumbnail, any> { }
@@ -1164,7 +1170,12 @@ declare module "native-base" {
 	export class ActionSheet {
 		static show: (
 			configuration: {
-				options: string[] | Array<{ text: string, icon?: string, iconColor?: string }>;
+				options: string[] | Array<{ 
+					text: string, 
+					icon?: string, 
+					iconColor?: string, 
+					iconType?: "AntDesign" | "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "FontAwesome5" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial",
+				}>;
 				cancelButtonIndex?: number;
 				destructiveButtonIndex?: number;
 				title?: string;

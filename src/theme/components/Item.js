@@ -61,13 +61,14 @@ export default (variables /* : * */ = variable) => {
         marginTop: 36
       },
       'NativeBase.Input': {
-        alignSelf: Platform.OS === PLATFORM.IOS ? 'stretch' : 'flex-start',
+        // alignSelf: Platform.OS === PLATFORM.IOS ? 'stretch' : 'flex-start',
+        alignSelf: 'stretch',
         flex: 1,
-        width: Platform.OS === PLATFORM.IOS ? null : variables.deviceWidth - 25,
+        // width: Platform.OS === PLATFORM.IOS ? null : variables.deviceWidth - 25,
         fontSize: variables.inputFontSize,
         lineHeight: variables.inputLineHeight - 6,
         '.secureTextEntry': {
-          fontSize: variables.inputFontSize - 4
+          fontSize: variables.inputFontSize
         },
         '.multiline': {
           paddingTop: Platform.OS === PLATFORM.IOS ? 9 : undefined,

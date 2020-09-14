@@ -1,6 +1,8 @@
+/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prefer-es6-class */
 import React, { Component } from 'react';
 import createReactClass from 'create-react-class';
-import { Picker } from 'react-native';
+import { Picker } from '@react-native-community/picker';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
@@ -15,6 +17,7 @@ export default class PickerNB extends Component {
   }
 }
 
+// eslint-disable-next-line react/no-multi-comp
 PickerNB.Item = createReactClass({
   render() {
     return <Picker.Item {...this.props} />;
