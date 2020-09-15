@@ -21,11 +21,11 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class IconNB extends Component {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.setIcon(props.type);
   }
 
@@ -91,7 +91,7 @@ class IconNB extends Component {
   }
 
   render() {
-    return <this.Icon ref={c => (this._root = c)} {...this.props} />;
+    return <this.Icon ref={(c) => (this._root = c)} {...this.props} />;
   }
 }
 
@@ -109,8 +109,8 @@ IconNB.propTypes = {
     'MaterialIcons',
     'Octicons',
     'SimpleLineIcons',
-    'Zocial'
-  ])
+    'Zocial',
+  ]),
 };
 
 const StyledIconNB = connectStyle(
