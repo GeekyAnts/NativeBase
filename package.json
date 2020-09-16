@@ -30,7 +30,7 @@
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
-    "@codler/react-native-keyboard-aware-scroll-view": "1.0.0",
+    "@codler/react-native-keyboard-aware-scroll-view": "1.0.1",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~3.1.2",
