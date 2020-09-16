@@ -6,7 +6,7 @@ import {
   Platform,
   View,
   TouchableNativeFeedback,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
@@ -19,7 +19,7 @@ import { Text } from './Text';
 
 class Button extends Component {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
 
   getInitialStyle() {
@@ -31,14 +31,14 @@ class Button extends Component {
         borderRadius:
           this.props.rounded && this.props.bordered
             ? variable.borderRadiusLarge
-            : variable.buttonDefaultBorderRadius
-      }
+            : variable.buttonDefaultBorderRadius,
+      },
     };
   }
 
   prepareRootProps() {
     const defaultProps = {
-      style: this.getInitialStyle().borderedBtn
+      style: this.getInitialStyle().borderedBtn,
     };
 
     if (Array.isArray(this.props.style)) {
@@ -61,13 +61,15 @@ class Button extends Component {
     const children =
       Platform.OS === PLATFORM.IOS
         ? this.props.children
-        : React.Children.map(this.props.children, child =>
+        : React.Children.map(this.props.children, (child) =>
             child && child.type === Text
               ? React.cloneElement(child, {
-                uppercase: this.props.buttonUppercaseAndroidText === false
-                ? false : variables.buttonUppercaseAndroidText,
-                ...child.props
-              })
+                  uppercase:
+                    this.props.buttonUppercaseAndroidText === false
+                      ? false
+                      : variables.buttonUppercaseAndroidText,
+                  ...child.props,
+                })
               : child
           );
     if (
@@ -79,7 +81,7 @@ class Button extends Component {
       return (
         <TouchableOpacity
           {...this.prepareRootProps()}
-          ref={c => (this._root = c)}
+          ref={(c) => (this._root = c)}
           activeOpacity={
             this.props.activeOpacity > 0
               ? this.props.activeOpacity
@@ -101,11 +103,11 @@ class Button extends Component {
           style={[
             { maxHeight: buttonStyle.height },
             buttonStyle,
-            { paddingTop: undefined, paddingBottom: undefined }
+            { paddingTop: undefined, paddingBottom: undefined },
           ]}
         >
           <TouchableNativeFeedback
-            ref={c => (this._root = c)}
+            ref={(c) => (this._root = c)}
             background={TouchableNativeFeedback.Ripple(
               this.props.androidRippleColor || variables.androidRippleColor,
               true
@@ -120,8 +122,8 @@ class Button extends Component {
                   paddingTop: buttonStyle.paddingTop,
                   paddingBottom: buttonStyle.paddingBottom,
                   height: buttonStyle.height,
-                  flexGrow: buttonFlex
-                }
+                  flexGrow: buttonFlex,
+                },
               ]}
             >
               {children}
@@ -132,16 +134,12 @@ class Button extends Component {
     }
     return (
       <TouchableNativeFeedback
-        ref={c => (this._root = c)}
+        ref={(c) => (this._root = c)}
         onPress={this.props.onPress}
-        background={
-          this.props.transparent
-            ? TouchableNativeFeedback.Ripple('transparent')
-            : TouchableNativeFeedback.Ripple(
-                variables.androidRippleColor,
-                false
-              )
-        }
+        background={TouchableNativeFeedback.Ripple(
+          variables.androidRippleColor,
+          false
+        )}
         {...this.prepareRootProps()}
       >
         <View {...this.prepareRootProps()}>{children}</View>
@@ -155,7 +153,7 @@ Button.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
+    PropTypes.array,
   ]),
   block: PropTypes.bool,
   primary: PropTypes.bool,
@@ -169,7 +167,7 @@ Button.propTypes = {
   rounded: PropTypes.bool,
   large: PropTypes.bool,
   small: PropTypes.bool,
-  active: PropTypes.bool
+  active: PropTypes.bool,
 };
 
 const styles = StyleSheet.create({
@@ -177,8 +175,8 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 const StyledButton = connectStyle(
