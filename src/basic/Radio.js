@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity, Platform } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
@@ -45,7 +46,7 @@ class Radio extends Component {
             />
           )
         ) : (
-          <Icon
+          <Fontisto
             style={{
               color:
                 Platform.OS === 'ios'
@@ -64,17 +65,9 @@ class Radio extends Component {
                   ? this.props.color
                   : undefined,
               lineHeight: variables.radioBtnLineHeight,
-              fontSize: variables.radioBtnSize
+              fontSize: variables.radioBtnSize - 4
             }}
-            name={
-              Platform.OS === 'ios'
-                ? this.props.selected
-                  ? 'ios-radio-button-on'
-                  : 'ios-radio-button-off'
-                : this.props.selected
-                ? 'md-radio-button-on'
-                : 'md-radio-button-off'
-            }
+            name={this.props.selected ? 'radio-btn-active' : 'radio-btn-passive'}
           />
         )}
       </TouchableOpacity>
