@@ -128,7 +128,10 @@ class ToastContainer extends Component {
       buttonStyle: config.buttonStyle,
       textStyle: config.textStyle,
       onClose: config.onClose,
-      swipeDisabled: config.swipeDisabled || false
+      swipeDisabled: config.swipeDisabled || false,
+      testID: config.testID,
+      textTestID: config.textTestID,
+      buttonTestID: config.buttonTestID
     });
     // If we have a toast already open, cut off its close timeout so that it won't affect *this* toast.
     if (this.closeTimeout) {
@@ -186,12 +189,19 @@ class ToastContainer extends Component {
             danger={this.state.type === 'danger'}
             success={this.state.type === 'success'}
             warning={this.state.type === 'warning'}
+            testID={this.state.testID}
           >
-            <Text style={this.state.textStyle}>{this.state.text}</Text>
+            <Text 
+              style={this.state.textStyle} 
+              testID={this.state.textTestID}
+            >
+              {this.state.text}
+            </Text>
             {this.state.buttonText && (
               <Button
                 style={this.state.buttonStyle}
                 onPress={() => this.closeToast('user')}
+                testID={this.state.buttonTestID}
               >
                 <Text style={this.state.buttonTextStyle}>
                   {this.state.buttonText}
