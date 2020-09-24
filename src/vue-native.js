@@ -38,7 +38,6 @@ import { FooterTab } from './basic/FooterTab';
 import { Form } from './basic/Form';
 import { ToastContainer } from './basic/ToastContainer';
 import { ActionSheetContainer } from './basic/Actionsheet';
-import { PickerNB } from './basic/Picker';
 import { List } from './basic/List';
 import { ListItem } from './basic/ListItem';
 import { Separator } from './basic/Separator';
@@ -100,7 +99,6 @@ const VueNativeBasePlugin = {
     Vue.component('nb-form', Form);
     Vue.component('nb-toast', ToastContainer);
     Vue.component('nb-action-sheet', ActionSheetContainer);
-    Vue.component('nb-picker', PickerNB);
     Vue.component('nb-list', List);
     Vue.component('nb-list-item', ListItem);
     Vue.component('nb-separator', Separator);

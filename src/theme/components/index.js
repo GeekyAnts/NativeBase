@@ -44,7 +44,6 @@ import cardItemTheme from './CardItem';
 import listItemTheme from './ListItem';
 import formTheme from './Form';
 import separatorTheme from './Separator';
-import pickerTheme from './Picker';
 import variable from './../variables/platform';
 
 export default (variables /* : * */ = variable) => {
@@ -174,13 +173,6 @@ export default (variables /* : * */ = variable) => {
 
     'NativeBase.Textarea': {
       ...textAreaTheme(variables)
-    },
-
-    'NativeBase.PickerNB': {
-      ...pickerTheme(variables),
-      'NativeBase.Button': {
-        'NativeBase.Text': {}
-      }
     },
 
     'NativeBase.Tab': {

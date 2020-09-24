@@ -42,7 +42,6 @@ import { FooterTab } from './basic/FooterTab';
 import { Form } from './basic/Form';
 import { ToastContainer } from './basic/ToastContainer';
 import { ActionSheetContainer } from './basic/Actionsheet';
-import { PickerNB } from './basic/Picker';
 import { List } from './basic/List';
 import { ListItem } from './basic/ListItem';
 import { Separator } from './basic/Separator';
@@ -97,7 +96,6 @@ export {
   Tab,
   ScrollableTabView as Tabs,
   FooterTab,
-  PickerNB as Picker,
   List,
   ListItem,
   Separator,
