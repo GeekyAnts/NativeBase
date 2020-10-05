@@ -80,11 +80,6 @@
     "react": ">=16.4.1",
     "react-native": ">=0.56.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && pretty-quick --staged --pattern \"src/**/*.{js, json}\""
-    }
-  },
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
