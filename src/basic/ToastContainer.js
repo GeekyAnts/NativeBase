@@ -50,7 +50,8 @@ class ToastContainer extends Component {
         if (dx !== 0) {
           Animated.timing(this.state.pan, {
             toValue: { x: dx, y: 0 },
-            duration: 100
+            duration: 100,
+            useNativeDriver: false
           }).start(() => this.closeToast('swipe'));
         }
       }
