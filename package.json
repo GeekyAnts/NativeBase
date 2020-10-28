@@ -26,10 +26,11 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
     ]
   },
-  "version": "2.13.8",
+  "version": "2.13.14",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
+    "@codler/react-native-keyboard-aware-scroll-view": "1.0.0",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~3.1.2",
@@ -44,9 +45,8 @@
     "prop-types": "^15.5.10",
     "react-native-drawer": "2.5.1",
     "react-native-easy-grid": "0.2.2",
-    "react-native-keyboard-aware-scroll-view": "0.9.1",
-    "react-native-vector-icons": "^6.6.0",
-    "react-timer-mixin": "^0.13.4",
+    "react-native-vector-icons": "^7.0.0",
+    "@react-native-community/picker": "^1.6.6",
     "react-tween-state": "^0.1.5",
     "tween-functions": "^1.0.1"
   },

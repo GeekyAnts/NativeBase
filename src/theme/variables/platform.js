@@ -139,7 +139,7 @@ export default {
   brandDanger: '#d9534f',
   brandWarning: '#f0ad4e',
   brandDark: '#000',
-  brandLight: '#f4f4f4',
+  brandLight: '#a9a9a9',
 
   // Container
   containerBgColor: '#fff',
@@ -241,7 +241,7 @@ export default {
   buttonLineHeight: 19,
   lineHeightH1: 32,
   lineHeightH2: 27,
-  lineHeightH3: 22,
+  lineHeightH3: 25,
   lineHeight: platform === PLATFORM.IOS ? 20 : 24,
   listItemSelected: platform === PLATFORM.IOS ? '#007aff' : '#3F51B5',
 

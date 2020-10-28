@@ -157,7 +157,7 @@ declare module "native-base" {
          * see Widget Subtitle/index.js
          */
 		interface Subtitle extends Testable {
-			style?: RnViewStyleProp | Array<RnViewStyleProp>;
+			style?: RnTextStyleProp;
 		}
 		/**
          * see Widget Container.js
@@ -305,7 +305,7 @@ declare module "native-base" {
 			disableLeftSwipe?: boolean;
 			disableRightSwipe?: boolean;
       rightOpenValue?: number;
-      keyExtractor?: (item, index: number) => string;
+      keyExtractor?: (item: any, index: number) => string;
 			leftOpenValue?: number;
 			renderRightHiddenRow?: (
 				rowData: any,
@@ -637,9 +637,9 @@ declare module "native-base" {
          * see Widget Textarea.js
          */
 		interface Textarea extends ReactNative.TextInputProps, Testable {
-			rowSpan: number;
-			bordered: boolean;
-			underline: boolean;
+			rowSpan?: number;
+			bordered?: boolean;
+			underline?: boolean;
 			/**
              * Disables inputting data.
              */
@@ -648,12 +648,13 @@ declare module "native-base" {
 
 		interface Label extends Testable {
 			style?: RnTextStyleProp;
+			floatBack?: number;
 		}
 		/**
          * see Widget Icon.js
          */
 		interface Icon extends Testable {
-			name: string;
+			name?: string;
 			type?: "AntDesign" | "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "FontAwesome5" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial";
 			// TODO position attribute of ReactNative.FlexStyle hasn't another position values without "absolute" and "relative"
 			style?: any;
@@ -882,8 +883,8 @@ declare module "native-base" {
 			dataArray: Array<any>;
 			headerStyle?: RnViewStyleProp;
 			contentStyle?: RnViewStyleProp;
-			renderHeader?: (item: any, expanded: boolean) => React.ReactElement<any>;
-			renderContent?: (item: any) => React.ReactElement<any>;
+			renderHeader?: (item: any, expanded: boolean, index: number) => React.ReactElement<any>;
+			renderContent?: (item: any, index: number) => React.ReactElement<any>;
 			expanded?: number;
 			icon?: string;
 			expandedIcon?: string;
@@ -1203,6 +1204,7 @@ declare module "native-base" {
 			textStyle?: RnTextStyleProp;
 			buttonTextStyle?: RnTextStyleProp;
 			buttonStyle?: RnViewStyleProp;
+			swipeDisabled?: boolean;
 		}): void;
 
 		/**

@@ -13,7 +13,7 @@ class Text extends React.PureComponent {
   }
 
   render() {
-    const { uppercase, children } = this.props;
+    const { uppercase, children, ...rest } = this.props;
 
     let text;
     if (uppercase) {

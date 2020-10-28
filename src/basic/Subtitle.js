@@ -7,7 +7,7 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Subtitle extends Component {
   render() {
-    return <Text ref={c => (this._root = c)} {...this.props} />;
+    return <Text ref={c => (this._root = c)} numberOfLines={1} {...this.props} />;
   }
 }
 

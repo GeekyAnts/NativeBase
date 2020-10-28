@@ -62,7 +62,8 @@ class Button extends React.PureComponent {
         : React.Children.map(this.props.children, child =>
             child && child.type === Text
               ? React.cloneElement(child, {
-                uppercase: true,
+                uppercase: this.props.buttonUppercaseAndroidText === false
+                ? false : variables.buttonUppercaseAndroidText,
                 ...child.props
               })
               : child
