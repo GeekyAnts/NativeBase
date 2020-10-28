@@ -637,9 +637,9 @@ declare module "native-base" {
          * see Widget Textarea.js
          */
 		interface Textarea extends ReactNative.TextInputProps, Testable {
-			rowSpan: number;
-			bordered: boolean;
-			underline: boolean;
+			rowSpan?: number;
+			bordered?: boolean;
+			underline?: boolean;
 			/**
              * Disables inputting data.
              */
