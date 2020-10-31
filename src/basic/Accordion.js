@@ -116,46 +116,55 @@ class AccordionItem extends React.Component {
       onAccordionOpen,
       renderContent,
       renderHeader,
-      setSelected
+      setSelected,
+      showContentOnTop
     } = this.props;
 
-    return (
+    const headerComponent = (
+      <TouchableWithoutFeedback
+        onPress={() => {
+          onAccordionOpen && !expanded && onAccordionOpen(item, index);
+          onAccordionClose && expanded && onAccordionClose(item, index);
+          setSelected(index);
+        }}
+      >
+        <View>
+          {renderHeader ? (
+            renderHeader(item, expanded)
+          ) : (
+            <DefaultHeader
+              expanded={expanded}
+              expandedIcon={expandedIcon}
+              expandedIconStyle={expandedIconStyle}
+              headerStyle={headerStyle}
+              icon={icon}
+              iconStyle={iconStyle}
+              title={item.title}
+            />
+          )}
+        </View>
+      </TouchableWithoutFeedback>
+    );
+
+    const contentComponent = expanded ? (
+      <AccordionSubItem>
+        {renderContent ? (
+          renderContent(item)
+        ) : (
+          <DefaultContent content={item.content} contentStyle={contentStyle} />
+        )}
+      </AccordionSubItem>
+    ) : null;
+
+    return showContentOnTop ? (
       <View>
-        <TouchableWithoutFeedback
-          onPress={() => {
-            onAccordionOpen && !expanded && onAccordionOpen(item, index);
-            onAccordionClose && expanded && onAccordionClose(item, index);
-            setSelected(index);
-          }}
-        >
-          <View>
-            {renderHeader ? (
-              renderHeader(item, expanded, index)
-            ) : (
-              <DefaultHeader
-                expanded={expanded}
-                expandedIcon={expandedIcon}
-                expandedIconStyle={expandedIconStyle}
-                headerStyle={headerStyle}
-                icon={icon}
-                iconStyle={iconStyle}
-                title={item.title}
-              />
-            )}
-          </View>
-        </TouchableWithoutFeedback>
-        {expanded ? (
-          <AccordionSubItem>
-            {renderContent ? (
-              renderContent(item, index)
-            ) : (
-              <DefaultContent
-                content={item.content}
-                contentStyle={contentStyle}
-              />
-            )}
-          </AccordionSubItem>
-        ) : null}
+        {contentComponent}
+        {headerComponent}
+      </View>
+    ) : (
+      <View>
+        {headerComponent}
+        {contentComponent}
       </View>
     );
   }
@@ -190,6 +199,7 @@ export class Accordion extends React.Component {
       onAccordionOpen,
       renderContent,
       renderHeader,
+      showContentOnTop,
       style
     } = this.props;
 
@@ -225,6 +235,7 @@ export class Accordion extends React.Component {
             onAccordionOpen={onAccordionOpen}
             onAccordionClose={onAccordionClose}
             setSelected={i => this.setSelected(i)}
+            showContentOnTop={showContentOnTop}
           />
         )}
         {...this.props}
