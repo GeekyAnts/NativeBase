@@ -50,7 +50,8 @@ class ToastContainer extends Component {
         if (dx !== 0) {
           Animated.timing(this.state.pan, {
             toValue: { x: dx, y: 0 },
-            duration: 100
+            duration: 100,
+            useNativeDriver: false
           }).start(() => this.closeToast('swipe'));
         }
       }
@@ -126,7 +127,8 @@ class ToastContainer extends Component {
       buttonTextStyle: config.buttonTextStyle,
       buttonStyle: config.buttonStyle,
       textStyle: config.textStyle,
-      onClose: config.onClose
+      onClose: config.onClose,
+      swipeDisabled: config.swipeDisabled || false
     });
     // If we have a toast already open, cut off its close timeout so that it won't affect *this* toast.
     if (this.closeTimeout) {
@@ -173,7 +175,7 @@ class ToastContainer extends Component {
       const { x, y } = this.state.pan;
       return (
         <Animated.View
-          {...this._panResponder.panHandlers}
+          {...this.state.swipeDisabled ? {} : this._panResponder.panHandlers}
           style={[
             this.getToastStyle(),
             { transform: [{ translateX: x }, { translateY: y }] }

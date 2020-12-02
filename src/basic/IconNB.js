@@ -103,6 +103,7 @@ IconNB.propTypes = {
     'Feather',
     'FontAwesome',
     'FontAwesome5',
+    'Fontisto',
     'Foundation',
     'Ionicons',
     'MaterialCommunityIcons',

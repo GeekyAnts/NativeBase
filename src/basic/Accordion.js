@@ -130,7 +130,7 @@ class AccordionItem extends React.Component {
         >
           <View>
             {renderHeader ? (
-              renderHeader(item, expanded)
+              renderHeader(item, expanded, index)
             ) : (
               <DefaultHeader
                 expanded={expanded}
@@ -147,7 +147,7 @@ class AccordionItem extends React.Component {
         {expanded ? (
           <AccordionSubItem>
             {renderContent ? (
-              renderContent(item)
+              renderContent(item, index)
             ) : (
               <DefaultContent
                 content={item.content}
