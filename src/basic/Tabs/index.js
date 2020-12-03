@@ -277,9 +277,12 @@ const ScrollableTabView = createReactClass({
       return;
     }
     this.setState({ containerWidth: width });
-    requestAnimationFrame(() => {
-      this.goToPage(this.state.currentPage);
-    });
+    const requestAnimationFunc =
+      this.requestAnimationFrame || requestAnimationFrame;
+    requestAnimationFunc &&
+      requestAnimationFunc(() => {
+        this.goToPage(this.state.currentPage);
+      });
   },
 
   _children(children = this.props.children) {
