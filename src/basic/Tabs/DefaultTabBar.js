@@ -66,7 +66,7 @@ const DefaultTabBar = createReactClass({
       typeof name !== 'string' ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor } = this.props;
     const fontWeight = isTabActive ? 'bold' : 'normal';
-    const isDisabled = disabled !== undefined;
+    const isDisabled = !!disabled;
     let textColor;
     if (isDisabled) {
       textColor = disabledTextColor;
