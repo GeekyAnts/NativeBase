@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { get } from 'lodash';
@@ -19,7 +19,8 @@ import Zocial from 'react-native-vector-icons/Zocial';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
-class IconNB extends Component {
+
+class IconNB extends React.PureComponent {
   static contextTypes = {
     theme: PropTypes.object
   };
@@ -34,6 +35,10 @@ class IconNB extends Component {
     if (nextProps.type && this.props.type !== nextProps.type) {
       this.setIcon(nextProps.type);
     }
+  }
+
+  setRoot(c){
+    this._root = c;
   }
 
   setIcon(iconType) {
@@ -91,7 +96,7 @@ class IconNB extends Component {
   }
 
   render() {
-    return <this.Icon ref={c => (this._root = c)} {...this.props} />;
+    return <this.Icon ref={this.setRoot} {...this.props} />;
   }
 }
 
