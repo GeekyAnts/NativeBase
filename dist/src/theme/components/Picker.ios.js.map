@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../src/theme/components/Picker.ios.js"],"names":["pickerTheme"],"mappings":"yEAEe,UAAM,CACnB,GAAMA,aAAc,EAApB,CAEA,MAAOA,YAAP,CACD,C","file":"Picker.ios.js","sourcesContent":["// @flow\n\nexport default () => {\n  const pickerTheme = {};\n\n  return pickerTheme;\n};\n"]}

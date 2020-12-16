@@ -13,79 +13,141 @@
     "packager"
   ],
   "scripts": {
-    "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
-    "lint": "eslint \"src/**/*.{js, json}\"",
-    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
-    "prepublish": "npm run transpile",
-    "postinstall": "node addEjectScript.js && opencollective-postinstall",
-    "flow": "flow"
-  },
-  "jest": {
-    "preset": "react-native",
-    "transformIgnorePatterns": [
-      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
-    ]
+    "test": "jest",
+    "typescript": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prepare": "bob build",
+    "release": "release-it",
+    "example": "yarn --cwd example",
+    "pods": "cd example && pod-install --quiet",
+    "bootstrap": "yarn example && yarn && yarn pods",
+    "build:web": "rollup --config"
   },
   "version": "2.13.15",
   "license": "Apache-2.0",
   "private": false,
-  "dependencies": {
-    "@codler/react-native-keyboard-aware-scroll-view": "1.0.0",
-    "@react-native-community/datetimepicker": "^3.0.2",
-    "@react-native-community/picker": "^1.6.6",
-    "blueimp-md5": "^2.5.0",
-    "clamp": "^1.0.1",
-    "color": "~3.1.2",
-    "create-react-class": "^15.6.3",
-    "eslint-config-prettier": "^6.0.0",
-    "fs-extra": "^2.0.0",
-    "jest-react-native": "^18.0.0",
-    "lodash": "^4.17.14",
-    "native-base-shoutem-theme": "0.3.1",
-    "opencollective-postinstall": "^2.0.2",
-    "print-message": "^2.1.0",
-    "prop-types": "^15.5.10",
-    "react-native-drawer": "2.5.1",
-    "react-native-easy-grid": "0.2.2",
-    "react-native-vector-icons": "^7.0.0",
-    "react-tween-state": "^0.1.5",
-    "tween-functions": "^1.0.1"
-  },
+  "main": "lib/commonjs/index",
+  "module": "dist/bundle.web.js",
+  "types": "lib/typescript/src/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-eslint": "^7.2.3",
-    "babel-jest": "^24.8.0",
-    "babel-preset-react-native": "4.0.0",
-    "eslint": "^3.5.0",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.14.0",
-    "eslint-plugin-jsx-a11y": "^2.2.1",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-native": "^2.0.0",
-    "eslint-watch": "^5.1.2",
-    "flow-bin": "0.47.0",
-    "husky": "^3.0.9",
-    "jest": "^24.8.0",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1",
-    "react": "16.4.1",
-    "react-native": "^0.60.4",
-    "react-test-renderer": "16.4.1"
+    "@commitlint/config-conventional": "^8.3.4",
+    "@expo/vector-icons": "^12.0.2",
+    "@react-native-community/bob": "^0.16.2",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@release-it/conventional-changelog": "^1.1.4",
+    "@types/jest": "^26.0.0",
+    "@types/lodash": "^4.14.162",
+    "@types/react": "^16.9.19",
+    "@types/react-native": "0.62.13",
+    "@types/react-native-vector-icons": "^6.4.6",
+    "@types/styled-system": "^5.1.9",
+    "commitlint": "^8.3.5",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "pod-install": "^0.1.0",
+    "prettier": "^2.0.5",
+    "react": "16.11.0",
+    "react-native": "0.62.2",
+    "react-native-svg": "^12.1.0",
+    "react-native-vector-icons": "^7.1.0",
+    "release-it": "^13.5.8",
+    "rollup": "^2.34.1",
+    "rollup-plugin-flow": "^1.1.1",
+    "typescript": "^3.8.3"
   },
-  "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
-  "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
-  "main": "dist/src/index.js",
-  "typings": "./index.d.ts",
-  "optionalDependencies": {},
   "peerDependencies": {
-    "react": ">=16.4.1",
-    "react-native": ">=0.56.0"
+    "@expo/vector-icons": "^12.0.2",
+    "react": "16.11.0",
+    "react-native": "0.62.2",
+    "react-native-svg": "^12.1.0",
+    "react-native-vector-icons": "^7.1.0",
+    "styled-components": "^5.2.1",
+    "styled-system": "*"
+  },
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/node_modules",
+      "<rootDir>/lib/"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && pretty-quick --staged --pattern \"src/**/*.{js, json}\""
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn lint && yarn typescript"
     }
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular"
+      }
+    }
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/",
+    "example/webpack.config.js",
+    "example/babel.config.js",
+    "example/metro.config.js"
+  ],
+  "prettier": {
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  },
+  "dependencies": {
+    "@types/styled-components": "^5.0.1",
+    "@types/tinycolor2": "^1.4.2",
+    "babel-eslint": "^10.1.0",
+    "deepmerge": "^4.2.2",
+    "expo-constants": "^9.3.5",
+    "expo-font": "^8.3.0",
+    "hoist-non-react-statics": "^3.3.2",
+    "lodash": "^4.17.20",
+    "react-native-material-ripple": "^0.9.1",
+    "react-native-unimodules": "~0.10.1",
+    "styled-system": "^5.1.5",
+    "tinycolor2": "^1.4.2"
+  },
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
+  "homepage": "https://github.com/GeekyAnts/NativeBase#readme",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",

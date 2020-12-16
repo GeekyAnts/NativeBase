@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`renders regular badge 1`] = `
-<View
-  style={Object {}}
->
-  2
-</View>
-`;
