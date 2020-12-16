@@ -7,9 +7,7 @@ import { RadioContext } from './RadioGroup';
 import type { IRadioProps } from './props';
 import { useRadio } from './useRadio';
 
-const Radio = (props: IRadioProps, ref: any) => {
-  const { children, icon } = props;
-
+const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
   const contextState = React.useContext(RadioContext);
 
   const {
