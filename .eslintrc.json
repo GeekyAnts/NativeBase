@@ -4,7 +4,8 @@
   "rules": {
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "react/require-extension": "off",
-    "import/order": ["error", { "newlines-between": "always" }],
+    "no-undef": "off",
+    "import/order": "off",
     "func-names": "off",
     "import/prefer-default-export": "off",
     "no-prototype-builtins": "off",
