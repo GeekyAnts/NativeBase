@@ -1,12 +1,9 @@
 import React from 'react';
-import { Box, IBoxProps } from '../components/primitives';
 import OverlayProvider from './Overlay/OverlayProvider';
 import { useColorModeValue } from '../color-mode';
 import { SafeAreaView, StyleSheet } from 'react-native';
-
-type INativeBaseWrapperProps = IBoxProps & {
-  disableSafeArea?: boolean;
-};
+import { View } from 'react-native';
+type INativeBaseWrapperProps = { children?: any; disableSafeArea?: boolean };
 
 const NativeBaseWrapper = ({
   children,
@@ -20,17 +17,15 @@ const NativeBaseWrapper = ({
   });
 
   const defaultView = (
-    <Box
-      flex={1}
-      height="100%"
-      width="100%"
-      justifyContent="center"
-      alignItems="center"
+    <View
       {...props}
-      bg={useColorModeValue(`gray.50`, `gray.800`)}
+      style={{
+        backgroundColor: useColorModeValue(`gray.50`, `gray.800`),
+        flex: 1,
+      }}
     >
       <OverlayProvider>{children}</OverlayProvider>
-    </Box>
+    </View>
   );
 
   return disableSafeArea ? (
