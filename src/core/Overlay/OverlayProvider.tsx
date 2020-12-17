@@ -31,7 +31,7 @@ const Overlay = ({
       bottom: 0,
       right: 0,
       left: 0,
-      zIndex: 99999,
+      zIndex: 999,
       alignItems: 'center',
       opacity: 0.5,
 
@@ -67,7 +67,7 @@ const Overlay = ({
         style={[providerStyle.provider, { opacity: fadeValue }]}
         pointerEvents={pointerEventsSetter()}
       >
-        <Box style={{ zIndex: 999999 }} w="100%">
+        <Box w="100%" h="100%" zIndex={999999}>
           {overlayItem}
         </Box>
         <Box

@@ -1,10 +1,25 @@
 import React from 'react';
-import { Box } from '../components/primitives';
+import { Box, IBoxProps } from '../components/primitives';
 import OverlayProvider from './Overlay/OverlayProvider';
 import { useColorModeValue } from '../color-mode';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
-const NativeBaseWrapper = ({ children, ...props }: any) => {
-  return (
+type INativeBaseWrapperProps = IBoxProps & {
+  disableSafeArea?: boolean;
+};
+
+const NativeBaseWrapper = ({
+  children,
+  disableSafeArea,
+  ...props
+}: INativeBaseWrapperProps) => {
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+    },
+  });
+
+  const defaultView = (
     <Box
       flex={1}
       height="100%"
@@ -16,6 +31,12 @@ const NativeBaseWrapper = ({ children, ...props }: any) => {
     >
       <OverlayProvider>{children}</OverlayProvider>
     </Box>
+  );
+
+  return disableSafeArea ? (
+    defaultView
+  ) : (
+    <SafeAreaView style={styles.container}>{defaultView}</SafeAreaView>
   );
 };
 
