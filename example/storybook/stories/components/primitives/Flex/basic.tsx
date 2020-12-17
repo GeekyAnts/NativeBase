@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Center, Box } from 'native-base';
+import { Flex, Text, Center } from 'native-base';
 
 export default function () {
   return (
