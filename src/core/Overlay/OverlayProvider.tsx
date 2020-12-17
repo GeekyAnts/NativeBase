@@ -1,9 +1,9 @@
 import React from 'react';
 import { Animated, StyleSheet, TouchableOpacity } from 'react-native';
-import { useFadeAnimation } from '../../components/composites/Transitions';
+import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
 import type { IOverlayProps } from './props';
 import { OverlayContext } from './Context';
-import Box from '../../components/primitives/Box';
+import View from '../../components/primitives/View';
 
 const Overlay = ({
   children,
@@ -23,7 +23,7 @@ const Overlay = ({
     onClose: (_a: any) => {},
   });
 
-  const { fadeValue, fadeIn, fadeOut } = useFadeAnimation(animationDuration);
+  const { fadeValue, fadeIn, fadeOut } = useFadeTransition(animationDuration);
   let providerStyle = StyleSheet.create({
     provider: {
       position: 'absolute',
@@ -34,7 +34,6 @@ const Overlay = ({
       zIndex: 999,
       alignItems: 'center',
       opacity: 0.5,
-
       // backgroundColor: config.disableOverlay
       //   ? 'transparent'
       //   : config.backgroundColor,
@@ -67,10 +66,10 @@ const Overlay = ({
         style={[providerStyle.provider, { opacity: fadeValue }]}
         pointerEvents={pointerEventsSetter()}
       >
-        <Box w="100%" h="100%" zIndex={999999}>
+        <View w="100%" h="100%" zIndex={999999}>
           {overlayItem}
-        </Box>
-        <Box
+        </View>
+        <View
           bg={
             config.disableOverlay
               ? 'transparent'

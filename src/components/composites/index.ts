@@ -128,7 +128,7 @@ export type { IPinInputProps, IPinInputFieldProps } from './PinInput';
 
 export {
   Fade,
-  useFadeAnimation,
+  useFadeTransition,
   ScaleFade,
   Slide,
   SlideFade,

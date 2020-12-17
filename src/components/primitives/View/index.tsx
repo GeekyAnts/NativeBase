@@ -5,29 +5,65 @@ import {
   FlexboxProps,
   LayoutProps,
   SpaceProps,
+  PositionProps,
   border,
   color,
   flexbox,
   layout,
   space,
 } from 'styled-system';
+import { View as RNView, ViewProps } from 'react-native';
+import {
+  customBorder,
+  customBackground,
+  customOutline,
+  customLayout,
+  customExtra,
+  customShadow,
+  customTypography,
+} from '../../../utils/customProps';
+import type {
+  customBorderProps,
+  customBackgroundProps,
+  customOutlineProps,
+  customLayoutProps,
+  customExtraProps,
+  customShadowProps,
+  customTypographyProps,
+  customTransformProps,
+  customFlexboxProps,
+} from '../../../utils/customProps';
 
-import Box, { IBoxProps } from '../Box';
+export type IViewProps = ViewProps &
+  ColorProps &
+  SpaceProps &
+  LayoutProps &
+  FlexboxProps &
+  PositionProps &
+  customBorderProps &
+  customExtraProps &
+  customOutlineProps &
+  customShadowProps &
+  customLayoutProps &
+  customTypographyProps &
+  customBackgroundProps &
+  customTransformProps &
+  customFlexboxProps &
+  BorderProps;
 
-export type IViewProps =
-  | ColorProps
-  | SpaceProps
-  | LayoutProps
-  | FlexboxProps
-  | BorderProps
-  | IBoxProps;
-
-const View: any = styled(Box)<IViewProps>(
+const View: any = styled(RNView)<IViewProps>(
   color,
   space,
   layout,
   flexbox,
-  border
+  border,
+  customBorder,
+  customBackground,
+  customOutline,
+  customShadow,
+  customExtra,
+  customTypography,
+  customLayout
 );
 
 export default View;
