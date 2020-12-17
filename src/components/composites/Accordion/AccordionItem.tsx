@@ -1,9 +1,7 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { AccordionContext } from './Context';
+import { AccordionContext, AccordionItemContext } from './Context';
 import type { IAccordionItemProps, IAccordionContextProps } from './props';
-
-export const AccordionItemContext = React.createContext({});
 
 const AccordionItem = ({
   children,
