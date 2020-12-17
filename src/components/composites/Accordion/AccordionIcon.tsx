@@ -3,11 +3,10 @@ import Icon from '../../primitives/Icon';
 import type { IAccordionIconProps, IAccordionItemContextProps } from './props';
 import { AccordionItemContext } from './Context';
 
-const AccordionButton = ({ ...props }: IAccordionIconProps) => {
+const AccordionIcon = ({ ...props }: IAccordionIconProps) => {
   const { isOpen }: IAccordionItemContextProps = React.useContext(
     AccordionItemContext
   );
-
   return (
     <Icon
       name={isOpen ? 'chevron-small-up' : 'chevron-small-down'}
@@ -17,4 +16,4 @@ const AccordionButton = ({ ...props }: IAccordionIconProps) => {
   );
 };
 
-export default AccordionButton;
+export default AccordionIcon;
