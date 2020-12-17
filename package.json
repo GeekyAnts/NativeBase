@@ -23,7 +23,7 @@
     "bootstrap": "yarn example && yarn && yarn pods",
     "build:web": "rollup --config"
   },
-  "version": "2.13.15",
+  "version": "3.0.0-1",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
