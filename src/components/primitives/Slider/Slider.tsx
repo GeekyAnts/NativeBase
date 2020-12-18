@@ -1,5 +1,5 @@
 import React from 'react';
-import { PanResponder, View } from 'react-native';
+import { PanResponder, View, Platform } from 'react-native';
 import {
   FormControlContext,
   IFormControlContext,
@@ -175,7 +175,9 @@ class NBSlider extends React.Component<
             justifyContent="center"
             alignItems="center"
             minHeight={3}
-            minWidth="100%"
+            minWidth={
+              Platform.OS === 'web' ? `${this.props.sliderSizeOnWeb}px` : '100%'
+            }
             {...this.props}
             onLayout={this.onBarLayout}
           >
