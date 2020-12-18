@@ -1,5 +1,5 @@
-import { get, isNil, mergeWith, cloneDeep } from 'lodash';
-import { useWindowDimensions } from 'react-native';
+import { get, isNil, mergeWith, cloneDeep, isEmpty } from 'lodash';
+import { useWindowDimensions, Platform } from 'react-native';
 import { useNativeBase } from './useNativeBase';
 import { themePropertyMap } from './../theme/base';
 import {
@@ -31,6 +31,7 @@ export function usePropsConfig(component: string, propsReceived: any) {
     newProps = extractProps(
       filterDefaultProps(props, componentTheme.defaultProps),
       theme,
+      colorModeProps,
       componentTheme,
       currentBreakpoint
     );
@@ -91,6 +92,7 @@ export function usePropsConfig(component: string, propsReceived: any) {
   let extractedProps = extractProps(
     props,
     theme,
+    colorModeProps,
     componentTheme,
     currentBreakpoint
   );
@@ -102,8 +104,11 @@ export function usePropsConfig(component: string, propsReceived: any) {
       delete newProps[key];
     }
   });
+  if (Platform.OS === 'web') {
+    newProps = passShadowPropsToStyleForWeb(newProps, ignoredProps);
+  }
   newProps = omitUndefined(newProps);
-  return { ...newProps, ...ignoredProps };
+  return newProps;
 }
 
 /*
@@ -112,6 +117,7 @@ export function usePropsConfig(component: string, propsReceived: any) {
 function extractProps(
   props: any,
   theme: any,
+  colorModeProps: any,
   componentTheme: any,
   currentBreakpoint: number
 ) {
@@ -136,10 +142,9 @@ function extractProps(
           );
         }
       } else if (property === 'shadow') {
-        let shadowProps = get(
-          theme,
-          `${themePropertyMap[property]}.${props[property]}`
-        );
+        let shadowProps = theme[themePropertyMap[property]](colorModeProps)[
+          props[property]
+        ];
         if (!isNil(shadowProps)) {
           newProps = { ...newProps, ...shadowProps };
         }
@@ -216,4 +221,18 @@ const resolveValueWithBreakpoint = (
   } else {
     return values;
   }
+};
+
+const passShadowPropsToStyleForWeb = (props: any, ignoredProps: any) => {
+  let style = ignoredProps.style ?? {};
+  let [shadowProps, remainingProps] = extractInObject(props, [
+    'shadowColor',
+    'shadowOffset',
+    'shadowOpacity',
+    'shadowRadius',
+  ]);
+  if (!isEmpty(shadowProps)) {
+    style = { ...style, ...shadowProps };
+  }
+  return { ...remainingProps, ...ignoredProps, style };
 };

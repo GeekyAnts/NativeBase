@@ -12,7 +12,7 @@ import { TouchableOpacity } from 'react-native';
 
 export default function Examples() {
   return (
-    <VStack space={10}>
+    <VStack space={10} width="100%">
       <Material />
       <IOSLike />
       <Customized />
