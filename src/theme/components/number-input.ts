@@ -20,10 +20,10 @@ export default {
 const stepperbaseStyle = (props: Record<string, any>) => {
   return {
     bg: 'transparent',
-    iconColor: mode('gray.400', 'muted.100')(props),
+    iconColor: mode('gray.600', 'gray.200')(props),
     _active: {},
     _disabled: {
-      iconColor: mode('gray.100', 'muted.200')(props),
+      iconColor: mode('gray.500', 'gray.300')(props),
       bg: mode('blackAlpha.200', 'whiteAlpha.300')(props),
     },
   };

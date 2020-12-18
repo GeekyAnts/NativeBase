@@ -13,9 +13,8 @@ const baseStyle = (props: Record<string, any>) => {
       colors.whiteAlpha[600]
     )(props),
     _isDisabledProps: {
-      color: mode('blgray.300', 'muted.100')(props),
-      bg: mode('gray.100', 'transparent')(props),
-      borderColor: mode('gray.300', 'muted.100')(props),
+      bg: mode('blackAlpha.200', 'whiteAlpha.300')(props),
+      borderColor: mode('gray.500', 'gray.300')(props),
     },
   };
 };
@@ -24,13 +23,13 @@ function roundedStyle(props: Record<string, any>) {
   return {
     borderRadius: '50',
     borderWidth: 1,
-    borderColor: mode('gray.400', 'gray.500')(props),
+    borderColor: mode('gray.600', 'gray.400')(props),
   };
 }
 function defaultStyle(props: Record<string, any>) {
   return {
     borderWidth: 1,
-    borderColor: mode('gray.400', 'gray.500')(props),
+    borderColor: mode('gray.600', 'gray.400')(props),
   };
 }
 function filledStyle(props: Record<string, any>) {
@@ -47,7 +46,7 @@ function underlinedStyle(props: Record<string, any>) {
   return {
     borderRadius: 0,
     borderWidth: 0,
-    borderColor: mode('gray.400', 'gray.500')(props),
+    borderColor: mode('gray.600', 'gray.400')(props),
     borderBottomWidth: 1,
   };
 }

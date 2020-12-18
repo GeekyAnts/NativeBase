@@ -27,7 +27,7 @@ export const SizeInput = () => {
       <Input w="90%" size="md" placeholder="md Input" />
       <Input w="90%" size="lg" placeholder="lg Input" />
       <Input w="90%" size="xl" placeholder="xl Input" />
-      <Input w="90%" size="2xl" placeholder="2xl Input" />
+      <Input w="90%" size="2xl" placeholder="2xl Input" isDisabled={true} />
     </Stack>
   );
 };
@@ -61,10 +61,10 @@ export const InputElements = () => {
     <Input
       w="90%"
       InputLeftElement={
-        <Icon name="phone" fontSize="xl" type="MaterialIcons" />
+        <Icon name="phone" fontSize="xl" type="MaterialIcons" m={2} />
       }
       InputRightElement={
-        <Icon name="person" fontSize="xl" type="MaterialIcons" />
+        <Icon name="person" fontSize="xl" type="MaterialIcons" m={2} />
       }
       placeholder="Left and Right InputElement"
     />
