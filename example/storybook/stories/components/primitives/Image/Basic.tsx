@@ -5,7 +5,7 @@ export default function () {
     <Box size={200}>
       <Image
         source={{
-          uri: 'https://nativebase.io/assets/img/front-page-icon.png',
+          uri: 'https://nativebase.github.io/img/native-base-icon.png',
         }}
         alt="NativeBase logo"
       />

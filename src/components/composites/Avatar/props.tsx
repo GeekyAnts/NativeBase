@@ -1,13 +1,36 @@
 import type {
-  LayoutProps,
   BorderProps,
-  SpaceProps,
+  ColorProps,
   FlexboxProps,
+  LayoutProps,
+  SpaceProps,
+  PositionProps,
 } from 'styled-system';
+import type {
+  customBorderProps,
+  customBackgroundProps,
+  customOutlineProps,
+  customLayoutProps,
+  customExtraProps,
+  customShadowProps,
+  customTransformProps,
+  customFlexboxProps,
+} from '../../../utils/customProps';
 import type { ImageSourcePropType } from 'react-native';
-import type { customBorderProps } from '../../../utils/customProps';
 
-export type IAvatarProps = LayoutProps &
+export type IAvatarProps = ColorProps &
+  SpaceProps &
+  LayoutProps &
+  PositionProps &
+  customBorderProps &
+  customExtraProps &
+  customOutlineProps &
+  customShadowProps &
+  customLayoutProps &
+  customBackgroundProps &
+  customTransformProps &
+  customFlexboxProps &
+  BorderProps &
   SpaceProps &
   customBorderProps &
   BorderProps &

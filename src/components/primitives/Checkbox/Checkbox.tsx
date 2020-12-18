@@ -38,19 +38,18 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
   const isChecked = inputProps.checked;
   const isDisabled = inputProps.disabled;
 
-  // only calling below function when icon exist.
-  const sizedIcon = () =>
-    React.cloneElement(
-      // @ts-ignore
-      icon,
-      {
-        size,
-        // @ts-ignore
-        color: icon.props.color ? icon.props.color : iconColor,
-      },
-      // @ts-ignore
-      icon.props.children
-    );
+  const sizedIcon = icon
+    ? () =>
+        React.cloneElement(
+          icon,
+          {
+            size,
+            color: icon.props.color ? icon.props.color : iconColor,
+          },
+          icon.props.children
+        )
+    : null;
+
   return (
     <TouchableOpacity activeOpacity={1} ref={ref} {...inputProps}>
       <Box flexDirection="row" alignItems="center" {...newProps}>
@@ -68,7 +67,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
           borderWidth={2}
           borderRadius={5}
         >
-          {icon && isChecked ? (
+          {icon && sizedIcon && isChecked ? (
             sizedIcon()
           ) : (
             <Icon
