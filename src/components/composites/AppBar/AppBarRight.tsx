@@ -1,7 +1,7 @@
 import React from 'react';
-import { HStack, StackProps } from '../../primitives';
+import { HStack, IStackProps } from '../../primitives';
 
-const AppBarRight = ({ ...props }: StackProps) => {
+const AppBarRight = ({ ...props }: IStackProps) => {
   return <HStack alignItems="center" justifyContent="flex-end" {...props} />;
 };
 

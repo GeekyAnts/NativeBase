@@ -33,7 +33,7 @@ export { Slider, SliderThumb, SliderTrack, SliderFilledTrack } from './Slider';
 export type { ISliderProps, ISliderContextProps } from './Slider';
 
 export { default as Stack, VStack, HStack } from './Stack';
-export type { IStackProps, StackProps } from './Stack';
+export type { IStackProps } from './Stack';
 
 export { default as ZStack } from './ZStack';
 

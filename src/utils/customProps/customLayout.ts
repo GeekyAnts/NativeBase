@@ -52,7 +52,7 @@ export interface customLayoutProps {
   /**
    * The CSS `width` and `height` property
    */
-  boxSize?: ResponsiveValue<CSS.Property.Width>;
+  boxSize?: ResponsiveValue<CSS.Property.Width | number>;
   /**
    * The CSS `max-width` property
    */
