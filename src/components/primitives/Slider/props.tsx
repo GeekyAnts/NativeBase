@@ -28,6 +28,7 @@ export type ISliderProps = IBoxProps & {
 
   // Steps when using volume up/down gestures or Swipe up/down gestures on iOS.
   accessibilityDecrementSteps?: number;
+  style?: any;
 };
 export type ISliderContextProps = {
   trackColor?: string;

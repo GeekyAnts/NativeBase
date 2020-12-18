@@ -12,7 +12,7 @@ const SliderTrack = ({ children, ...props }: ISliderProps) => {
     <Box
       position="absolute"
       backgroundColor={trackColor}
-      height={sliderSize}
+      height={`${sliderSize}px`}
       borderRadius={999}
       width="100%"
       {...props}

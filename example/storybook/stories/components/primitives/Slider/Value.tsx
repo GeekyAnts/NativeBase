@@ -12,7 +12,7 @@ export default function () {
   const [onChangeValue, setOnChangeValue] = React.useState(70);
   const [onChangeEndValue, setOnChangeEndValue] = React.useState(70);
   return (
-    <Stack mx={5} space={4} alignItems="center">
+    <Stack mx={5} space={4} alignItems="center" width="80%">
       <Text>onChangeValue - {onChangeValue}</Text>
       <Text>onChangeEndValue - {onChangeEndValue}</Text>
       <Slider
