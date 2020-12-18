@@ -1,14 +1,12 @@
 import React from 'react';
 import {
   Modal,
-  View,
-  Platform,
-  DatePickerIOS,
-  DatePickerAndroid
+  View
 } from 'react-native';
 
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 import variable from '../theme/variables/platform';
-import { PLATFORM } from '../theme/variables/commonColor';
 
 import { Text } from './Text';
 
@@ -36,33 +34,8 @@ export class DatePicker extends React.Component {
   }
 
   showDatePicker = () => {
-    if (Platform.OS === PLATFORM.ANDROID) {
-      this.openAndroidDatePicker();
-    } else {
-      this.setState({ modalVisible: true });
-    }
+    this.setState({ modalVisible: true });
   };
-
-  async openAndroidDatePicker() {
-    try {
-      const newDate = await DatePickerAndroid.open({
-        date: this.state.chosenDate
-          ? this.state.chosenDate
-          : this.state.defaultDate,
-        minDate: this.props.minimumDate,
-        maxDate: this.props.maximumDate,
-        mode: this.props.androidMode
-      });
-      const { action, year, month, day } = newDate;
-      if (action === 'dateSetAction') {
-        const selectedDate = new Date(year, month, day);
-        this.setState({ chosenDate: selectedDate });
-        this.props.onDateChange(selectedDate);
-      }
-    } catch ({ code, message }) {
-      console.warn('Cannot open date picker', message);
-    }
-  }
 
   formatChosenDate(date) {
     if (this.props.formatChosenDate) {
@@ -121,7 +94,7 @@ export class DatePicker extends React.Component {
                   flex: variables.datePickerFlex
                 }}
               />
-              <DatePickerIOS
+              <DateTimePicker
                 date={
                   this.state.chosenDate
                     ? this.state.chosenDate
