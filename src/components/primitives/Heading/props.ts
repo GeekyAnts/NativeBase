@@ -4,6 +4,7 @@ import type {
   ColorProps,
   FlexboxProps,
   LayoutProps,
+  PositionProps,
   SpaceProps,
   TypographyProps,
 } from 'styled-system';
@@ -15,6 +16,7 @@ import type {
   customExtraProps,
   customShadowProps,
   customTypographyProps,
+  customPositionProps,
 } from '../../../utils/customProps';
 
 export type IHeadingProps = ColorProps &
@@ -22,6 +24,8 @@ export type IHeadingProps = ColorProps &
   LayoutProps &
   FlexboxProps &
   TypographyProps &
+  PositionProps &
+  customPositionProps &
   customBorderProps &
   customExtraProps &
   customOutlineProps &

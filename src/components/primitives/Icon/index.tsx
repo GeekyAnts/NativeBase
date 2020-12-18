@@ -1,6 +1,24 @@
 import React from 'react';
 import { StyleSheet, TextStyle } from 'react-native';
-import { color, space, typography } from 'styled-system';
+import {
+  border,
+  color,
+  flexbox,
+  layout,
+  space,
+  typography,
+  position,
+} from 'styled-system';
+import {
+  customBorder,
+  customBackground,
+  customOutline,
+  customLayout,
+  customExtra,
+  customShadow,
+  customTypography,
+  customPosition,
+} from '../../../utils/customProps';
 import { usePropsConfig } from '../../../hooks';
 import styled from 'styled-components/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -70,7 +88,23 @@ const Icon = (iconProps: IIconProps) => {
   }
 };
 
-const styledIcon = styled(Icon)<IIconProps>(color, space, typography);
+const styledIcon = styled(Icon)<IIconProps>(
+  color,
+  space,
+  layout,
+  flexbox,
+  border,
+  typography,
+  position,
+  customPosition,
+  customBorder,
+  customBackground,
+  customOutline,
+  customShadow,
+  customExtra,
+  customLayout,
+  customTypography
+);
 
 export default styledIcon;
 export { Path };

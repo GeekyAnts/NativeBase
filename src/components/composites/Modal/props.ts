@@ -5,6 +5,7 @@ import type {
   FlexboxProps,
   LayoutProps,
   SpaceProps,
+  PositionProps,
 } from 'styled-system';
 import type {
   customBorderProps,
@@ -20,6 +21,7 @@ export type IModalSemiProps = ModalProps &
   SpaceProps &
   LayoutProps &
   FlexboxProps &
+  PositionProps &
   customBorderProps &
   customExtraProps &
   customOutlineProps &

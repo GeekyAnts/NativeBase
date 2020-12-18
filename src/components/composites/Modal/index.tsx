@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import type { Modal as ModalType } from 'react-native';
 import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space } from 'styled-system';
+import { border, color, flexbox, layout, space, position } from 'styled-system';
 import {
   customBorder,
   customBackground,
@@ -15,6 +15,7 @@ import {
   customLayout,
   customExtra,
   customShadow,
+  customPosition,
 } from '../../../utils/customProps';
 
 import type { IModalProps, IModalSemiProps } from './props';
@@ -33,6 +34,8 @@ const StyledModal = styled(RNModal)<IModalSemiProps>(
   layout,
   flexbox,
   border,
+  position,
+  customPosition,
   customBorder,
   customBackground,
   customOutline,

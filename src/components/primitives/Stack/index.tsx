@@ -1,46 +1,20 @@
 import React from 'react';
-import { ViewProps, View } from 'react-native';
 import styled from 'styled-components/native';
-import {
-  BorderProps,
-  ColorProps,
-  FlexboxProps,
-  LayoutProps,
-  SpaceProps,
-  border,
-  color,
-  flexbox,
-  layout,
-  space as spacing,
-} from 'styled-system';
-
+import { IViewProps, default as View } from '../View';
 import { getSpacedChildren } from '../../../utils';
 
-export type IStackProps =
-  | ColorProps
-  | SpaceProps
-  | LayoutProps
-  | FlexboxProps
-  | BorderProps;
-
-const StyledStack = styled(View)<IStackProps>(
-  color,
-  spacing,
-  layout,
-  flexbox,
-  border
-);
 type SpaceType = 'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
-export type StackProps = IStackProps &
-  ViewProps & {
-    children: JSX.Element[] | JSX.Element;
-    divider?: JSX.Element;
-    space?: number | SpaceType;
-    reversed?: boolean;
-  };
+const StyledStack = styled(View)<IStackProps>({});
 
-const Stack = (props: StackProps & { direction?: 'column' | 'row' }) => {
+export type IStackProps = IViewProps & {
+  children: JSX.Element[] | JSX.Element;
+  divider?: JSX.Element;
+  space?: number | SpaceType;
+  reversed?: boolean;
+};
+
+const Stack = (props: IStackProps & { direction?: 'column' | 'row' }) => {
   const {
     space,
     children,
@@ -62,10 +36,10 @@ const Stack = (props: StackProps & { direction?: 'column' | 'row' }) => {
   );
 };
 
-export const VStack = (props: StackProps) => {
+export const VStack = (props: IStackProps) => {
   return Stack(props);
 };
-export const HStack = (props: StackProps) => {
+export const HStack = (props: IStackProps) => {
   return Stack({ ...props, direction: 'row' });
 };
 export default Stack;

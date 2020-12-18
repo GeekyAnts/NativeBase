@@ -1,36 +1,14 @@
 import React from 'react';
-import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import View from './../View';
 import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space } from 'styled-system';
-import {
-  customBorder,
-  customBackground,
-  customOutline,
-  customLayout,
-  customExtra,
-  customShadow,
-  customTypography,
-} from '../../../utils/customProps';
 import { addTextAndPropsToStrings } from '../../../utils';
 import type { ILinkProps } from './props';
 import Box from '../Box';
 import { usePropsConfig } from '../../../hooks';
 import { useLink } from './useLink';
 
-const StyledLink = styled(View)<ILinkProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout,
-  customTypography
-);
+const StyledLink = styled(View)<ILinkProps>({});
 
 const addStyleAndPropsToChild = (
   props: any,

@@ -19,6 +19,7 @@ import {
   customExtra,
   customShadow,
   customTypography,
+  customPosition,
 } from '../../../utils/customProps';
 import type { ITextProps } from './props';
 
@@ -30,6 +31,8 @@ const StyledText = styled(NativeText)<ITextProps>(
   flexbox,
   border,
   typography,
+  position,
+  customPosition,
   customBorder,
   customBackground,
   customOutline,

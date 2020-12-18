@@ -3,35 +3,21 @@ import {
   AppBar,
   IconButton,
   Icon,
-  Box,
   Text,
   HStack,
   VStack,
   Button,
 } from 'native-base';
-import { ScrollView, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 export default function Examples() {
   return (
-    <ScrollView style={{ width: '100%' }}>
-      <VStack space={10}>
-        <Box>
-          <Material />
-        </Box>
-
-        <Box>
-          <IOSLike />
-        </Box>
-
-        <Box>
-          <Customized />
-        </Box>
-
-        <Box>
-          <CustomizedWithBorder />
-        </Box>
-      </VStack>
-    </ScrollView>
+    <VStack space={10}>
+      <Material />
+      <IOSLike />
+      <Customized />
+      <CustomizedWithBorder />
+    </VStack>
   );
 }
 
@@ -54,15 +40,9 @@ function Material() {
       </AppBar.Content>
 
       <AppBar.Right space={2}>
-        <Box>
-          <HeartIcon />
-        </Box>
-        <Box>
-          <SearchIcon />
-        </Box>
-        <Box>
-          <MoreIcon />
-        </Box>
+        <HeartIcon />
+        <SearchIcon />
+        <MoreIcon />
       </AppBar.Right>
     </AppBar>
   );
@@ -139,7 +119,7 @@ function CustomizedWithBorder() {
   return (
     <AppBar bg="white" shadow={3} px={4} space={3}>
       <AppBar.Left>
-        <IconButton icon={<Icon name="menu" type="MaterialIcons" size={6} />} />
+        <IconButton icon={<Icon name="menu" size={6} />} />
       </AppBar.Left>
       <AppBar.Content>
         <Text isTruncated fontWeight="bold" fontSize={20}>
@@ -175,28 +155,11 @@ const LeftArrowIconButton = () => {
 };
 
 const HeartIcon = () => {
-  return (
-    <IconButton
-      icon={
-        <Icon name="heart-outline" type="Ionicons" size={6} color="white" />
-      }
-    />
-  );
+  return <IconButton icon={<Icon name="heart" size={6} color="white" />} />;
 };
 const SearchIcon = () => {
   return <IconButton icon={<Icon name="search" size={6} color="white" />} />;
 };
 const MoreIcon = () => {
-  return (
-    <IconButton
-      icon={
-        <Icon
-          name="dots-vertical"
-          type="MaterialCommunityIcons"
-          size={6}
-          color="white"
-        />
-      }
-    />
-  );
+  return <IconButton icon={<Icon name="more-vert" size={6} color="white" />} />;
 };

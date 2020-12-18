@@ -15,7 +15,9 @@ function MyWrapper({ children }: any) {
       <Switch
         onToggle={toggleColorMode}
         isChecked={colorMode === 'dark'}
-        style={{ position: 'absolute', top: 10, right: 10 }}
+        position="absolute"
+        top={10}
+        right={10}
       />
     </View>
   );

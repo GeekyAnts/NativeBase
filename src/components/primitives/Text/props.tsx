@@ -13,13 +13,16 @@ import type {
   customExtraProps,
   customShadowProps,
   customTypographyProps,
+  customPositionProps,
 } from '../../../utils/customProps';
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'];
 
 export type ITextProps = ColorProps &
   SpaceProps &
   PositionProps &
+  PositionProps &
   TypographyProps &
+  customPositionProps &
   customBorderProps &
   customExtraProps &
   customOutlineProps &

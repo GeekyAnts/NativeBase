@@ -11,6 +11,7 @@ import {
   flexbox,
   layout,
   space,
+  position,
 } from 'styled-system';
 import { View as RNView, ViewProps } from 'react-native';
 import {
@@ -21,6 +22,7 @@ import {
   customExtra,
   customShadow,
   customTypography,
+  customPosition,
 } from '../../../utils/customProps';
 import type {
   customBorderProps,
@@ -32,6 +34,7 @@ import type {
   customTypographyProps,
   customTransformProps,
   customFlexboxProps,
+  customPositionProps,
 } from '../../../utils/customProps';
 
 export type IViewProps = ViewProps &
@@ -49,6 +52,7 @@ export type IViewProps = ViewProps &
   customBackgroundProps &
   customTransformProps &
   customFlexboxProps &
+  customPositionProps &
   BorderProps;
 
 const View: any = styled(RNView)<IViewProps>(
@@ -57,6 +61,8 @@ const View: any = styled(RNView)<IViewProps>(
   layout,
   flexbox,
   border,
+  position,
+  customPosition,
   customBorder,
   customBackground,
   customOutline,

@@ -5,6 +5,7 @@ import type {
   ColorProps,
   FlexboxProps,
   LayoutProps,
+  PositionProps,
   SpaceProps,
 } from 'styled-system';
 
@@ -16,6 +17,7 @@ import type {
   customExtraProps,
   customShadowProps,
   customFlexboxProps,
+  customPositionProps,
 } from '../../../utils/customProps';
 
 export type IWrapProps = ViewProps &
@@ -23,6 +25,7 @@ export type IWrapProps = ViewProps &
   SpaceProps &
   LayoutProps &
   FlexboxProps &
+  PositionProps &
   customBorderProps &
   customExtraProps &
   customOutlineProps &
@@ -30,6 +33,7 @@ export type IWrapProps = ViewProps &
   customLayoutProps &
   customBackgroundProps &
   customFlexboxProps &
+  customPositionProps &
   BorderProps & {
     style?: ViewStyle;
     children?: JSX.Element | JSX.Element[];

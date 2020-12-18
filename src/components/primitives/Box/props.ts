@@ -18,6 +18,7 @@ import type {
   customTypographyProps,
   customTransformProps,
   customFlexboxProps,
+  customPositionProps,
 } from '../../../utils/customProps';
 
 export type IBoxProps = ViewProps &
@@ -28,6 +29,7 @@ export type IBoxProps = ViewProps &
   TypographyProps &
   PositionProps &
   customBorderProps &
+  customPositionProps &
   customExtraProps &
   customOutlineProps &
   customShadowProps &

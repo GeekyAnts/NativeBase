@@ -5,6 +5,7 @@ import type {
   FlexboxProps,
   LayoutProps,
   SpaceProps,
+  PositionProps,
 } from 'styled-system';
 
 import type {
@@ -14,6 +15,7 @@ import type {
   customLayoutProps,
   customExtraProps,
   customShadowProps,
+  customPositionProps,
 } from '../../../utils/customProps';
 
 export type ISwitchProps = SwitchProps &
@@ -21,6 +23,8 @@ export type ISwitchProps = SwitchProps &
   SpaceProps &
   LayoutProps &
   FlexboxProps &
+  PositionProps &
+  customPositionProps &
   customBorderProps &
   customExtraProps &
   customOutlineProps &

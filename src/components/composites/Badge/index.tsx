@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import Box from '../../primitives/Box';
-import { space } from 'styled-system';
 import type { IBadgeProps } from './props';
 import { usePropsConfig } from '../../../hooks';
 
-const StyledBadge = styled(Box)<IBadgeProps>(space);
+const StyledBadge = styled(Box)<IBadgeProps>({});
 
 const Badge = ({ children, style, ...props }: IBadgeProps) => {
   let newProps = usePropsConfig('Badge', props);

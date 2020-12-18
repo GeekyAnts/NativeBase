@@ -15,6 +15,7 @@ import type {
   customShadowProps,
   customTransformProps,
   customFlexboxProps,
+  customPositionProps,
 } from '../../../utils/customProps';
 import type { ImageSourcePropType } from 'react-native';
 
@@ -22,6 +23,7 @@ export type IAvatarProps = ColorProps &
   SpaceProps &
   LayoutProps &
   PositionProps &
+  customPositionProps &
   customBorderProps &
   customExtraProps &
   customOutlineProps &

@@ -3,7 +3,7 @@ import { StyleSheet, ViewStyle, Switch as RNSwitch } from 'react-native';
 import styled from 'styled-components/native';
 import isNil from 'lodash/isNil';
 import { useToken, usePropsConfig } from '../../../hooks';
-import { border, color, flexbox, layout, space } from 'styled-system';
+import { border, color, flexbox, layout, space, position } from 'styled-system';
 import {
   customBorder,
   customBackground,
@@ -11,6 +11,7 @@ import {
   customLayout,
   customExtra,
   customShadow,
+  customPosition,
 } from '../../../utils/customProps';
 import type { ISwitchProps } from './props';
 
@@ -20,6 +21,8 @@ const StyledNBSwitch = styled(RNSwitch)<ISwitchProps>(
   layout,
   flexbox,
   border,
+  position,
+  customPosition,
   customBorder,
   customBackground,
   customOutline,

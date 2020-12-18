@@ -8,6 +8,7 @@ import {
   layout,
   space,
   typography,
+  position,
 } from 'styled-system';
 import {
   customBorder,
@@ -17,6 +18,7 @@ import {
   customExtra,
   customShadow,
   customTypography,
+  customPosition,
 } from '../../../utils/customProps';
 import { usePropsConfig } from '../../../hooks';
 import type { IHeadingProps } from './props';
@@ -28,6 +30,8 @@ const StyledHeading = styled(Text)<IHeadingProps>(
   flexbox,
   border,
   typography,
+  position,
+  customPosition,
   customBorder,
   customBackground,
   customOutline,
