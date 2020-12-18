@@ -104,11 +104,8 @@ export function usePropsConfig(component: string, propsReceived: any) {
       delete newProps[key];
     }
   });
-  if (Platform.OS === 'web') {
-    newProps = passShadowPropsToStyleForWeb(newProps, ignoredProps);
-  }
-  newProps = omitUndefined(newProps);
-  return newProps;
+  let mergedProps = passShadowPropsToStyleForWeb(newProps, ignoredProps);
+  return omitUndefined(mergedProps);
 }
 
 /*
@@ -224,6 +221,9 @@ const resolveValueWithBreakpoint = (
 };
 
 const passShadowPropsToStyleForWeb = (props: any, ignoredProps: any) => {
+  if (Platform.OS === 'web') {
+    return { ...ignoredProps, ...props };
+  }
   let style = ignoredProps.style ?? {};
   let [shadowProps, remainingProps] = extractInObject(props, [
     'shadowColor',
