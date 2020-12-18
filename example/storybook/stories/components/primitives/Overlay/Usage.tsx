@@ -6,7 +6,7 @@ import {
   Alert,
   AlertIcon,
   AlertDescription,
-  AlertCloseButton,
+  CloseButton,
 } from 'native-base';
 
 export default function () {
@@ -20,7 +20,11 @@ export default function () {
             <Alert status="warning">
               <AlertIcon />
               <AlertDescription> Sample Warning message</AlertDescription>
-              <AlertCloseButton onPress={closeOverlay} />
+              <CloseButton
+                onPress={closeOverlay}
+                position="absolute"
+                right="8px"
+              />
             </Alert>,
             {
               position: 'top',

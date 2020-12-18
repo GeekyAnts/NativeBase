@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space } from 'styled-system';
+import { border, color, flexbox, layout, space, position } from 'styled-system';
 import {
   customBorder,
   customBackground,
@@ -9,6 +9,7 @@ import {
   customLayout,
   customExtra,
   customShadow,
+  customPosition,
 } from '../../../utils/customProps';
 import Text from '../../primitives/Text';
 import { usePropsConfig } from '../../../hooks';
@@ -27,6 +28,8 @@ const StyledButton = styled(TouchableOpacity)<
   layout,
   flexbox,
   border,
+  position,
+  customPosition,
   customBorder,
   customBackground,
   customOutline,
@@ -74,6 +77,11 @@ const Button = (
     'marginX',
     'my',
     'marginY',
+    'left',
+    'top',
+    'bottom',
+    'right',
+    'position',
   ]);
 
   let [

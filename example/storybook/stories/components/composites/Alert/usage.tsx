@@ -4,7 +4,7 @@ import {
   AlertDescription,
   AlertTitle,
   AlertIcon,
-  AlertCloseButton,
+  CloseButton,
   Box,
 } from 'native-base';
 export default function () {
@@ -14,7 +14,7 @@ export default function () {
         <AlertIcon />
         <AlertTitle>Error Alert</AlertTitle>
         <AlertDescription>description goes here</AlertDescription>
-        <AlertCloseButton />
+        <CloseButton />
       </Alert>
     </Box>
   );
