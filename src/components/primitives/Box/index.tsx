@@ -12,6 +12,7 @@ import {
   layout,
   space,
   typography,
+  position,
 } from 'styled-system';
 import {
   customBorder,
@@ -20,6 +21,7 @@ import {
   customLayout,
   customExtra,
   customShadow,
+  customPosition,
   customTypography,
 } from '../../../utils/customProps';
 import type { IBoxProps } from './props';
@@ -30,7 +32,9 @@ const StyledBox = styled(View)<IBoxProps>(
   layout,
   flexbox,
   border,
+  position,
   typography,
+  customPosition,
   customBorder,
   customBackground,
   customOutline,

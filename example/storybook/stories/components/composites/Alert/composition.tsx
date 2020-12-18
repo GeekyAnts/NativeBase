@@ -4,7 +4,7 @@ import {
   AlertDescription,
   AlertTitle,
   AlertIcon,
-  AlertCloseButton,
+  CloseButton,
   Box,
   VStack,
 } from 'native-base';
@@ -29,8 +29,7 @@ export default function () {
           Thanks for submitting your application. Our team will get back to you
           soon.
         </AlertDescription>
-
-        <AlertCloseButton />
+        {/* <CloseButton /> */}
       </Alert>
 
       <Alert status="success">
@@ -42,7 +41,7 @@ export default function () {
             and respond within the next 48 hours.
           </AlertDescription>
         </Box>
-        <AlertCloseButton />
+        <CloseButton position="absolute" right="8px" />
       </Alert>
     </VStack>
   );

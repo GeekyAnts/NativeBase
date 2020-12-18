@@ -4,7 +4,7 @@ import {
   AlertDescription,
   AlertTitle,
   AlertIcon,
-  AlertCloseButton,
+  CloseButton,
 } from 'native-base';
 import { select } from '@storybook/addon-knobs';
 
@@ -41,7 +41,7 @@ export default function () {
       <AlertIcon />
       <AlertTitle>Error Alert</AlertTitle>
       <AlertDescription>description goes here </AlertDescription>
-      <AlertCloseButton />
+      <CloseButton position="absolute" right="8px" />
     </Alert>
   );
 }

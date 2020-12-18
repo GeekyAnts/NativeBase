@@ -9,13 +9,7 @@ export type { IBadgeProps } from './Badge';
 export { default as IconButton } from './IconButton';
 export type { IIconButtonProps } from './IconButton';
 
-export {
-  Alert,
-  AlertTitle,
-  AlertDescription,
-  AlertIcon,
-  AlertCloseButton,
-} from './Alert';
+export { Alert, AlertTitle, AlertDescription, AlertIcon } from './Alert';
 export type { IAlertProps } from './Alert';
 
 export { Avatar, AvatarBadge, AvatarGroup } from './Avatar';

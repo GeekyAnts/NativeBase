@@ -11,6 +11,7 @@ import type {
   ColorProps,
   FlexboxProps,
   LayoutProps,
+  PositionProps,
   SpaceProps,
 } from 'styled-system';
 import type { AccessibilityRole, AccessibilityState } from 'react-native';
@@ -28,12 +29,13 @@ export type IButtonProps = ViewProps &
   SpaceProps &
   LayoutProps &
   FlexboxProps &
+  BorderProps &
+  PositionProps &
   customBorderProps &
   customExtraProps &
   customOutlineProps &
   customShadowProps &
   customLayoutProps &
-  BorderProps &
   IButtonAccessibilityProps & {
     style?: ViewStyle;
     children?: any;
