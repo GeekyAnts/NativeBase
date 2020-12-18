@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Animated } from 'react-native';
+import { StyleSheet, Animated, Platform } from 'react-native';
 import { SliderContext } from './Context';
 import Box from '../Box';
 import Icon from '../Icon';
@@ -19,9 +19,11 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
     SliderThumb: {
       position: 'absolute',
       display: 'flex',
-      left: sliderOffset,
+      left: sliderOffset && thumbSize ? sliderOffset - 2 - thumbSize / 2 : 0,
       justifyContent: 'center',
       alignItems: 'center',
+      borderRadius: 999,
+      padding: 4, // increased touch area for better touch detection.
     },
   });
 
@@ -29,7 +31,7 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
     React.cloneElement(
       children,
       {
-        size: thumbSize,
+        size: `${thumbSize}px`,
         color: children.props.color ? children.props.color : colorScheme,
       },
       children.props.children
@@ -41,13 +43,15 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
       {...panResponder.panHandlers}
     >
       <Box
+        cursor={Platform.OS === 'web' ? 'pointer' : null}
         position="relative"
-        borderRadius={999}
+        borderRadius="full"
         backgroundColor="light.50"
         p={1}
         display="flex"
         justifyContent="center"
         alignItems="center"
+        userSelect={Platform.OS === 'web' ? 'none' : null}
         {...newProps}
       >
         {children ? (
@@ -57,7 +61,7 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
             name="circle-medium"
             type="MaterialCommunityIcons"
             color={colorScheme}
-            size={thumbSize}
+            size={`${thumbSize}px`}
             opacity={0}
           />
         )}

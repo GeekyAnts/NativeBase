@@ -13,7 +13,7 @@ import {
 
 export default function () {
   return (
-    <VStack space={4} mx={10}>
+    <VStack space={4} mx={10} width="80%">
       <FormControl isRequired isInvalid isDisabled>
         <FormLabel>Just Slide</FormLabel>
         <Slider defaultValue={50}>
