@@ -664,6 +664,8 @@ declare module "native-base" {
 			android?: string;
 			color?: string;
 			fontSize?: number;
+			solid?: boolean;
+			light?: boolean;
 		}
 		/**
          * see Widget Icon.js
