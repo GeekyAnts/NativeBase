@@ -28,7 +28,6 @@ export type ISliderProps = IBoxProps & {
 
   // Steps when using volume up/down gestures or Swipe up/down gestures on iOS.
   accessibilityDecrementSteps?: number;
-  sliderSizeOnWeb?: number;
   style?: any;
 };
 export type ISliderContextProps = {

@@ -19,8 +19,7 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
     SliderThumb: {
       position: 'absolute',
       display: 'flex',
-      // @ts-ignore - cheking for undefined in the context itself.
-      left: sliderOffset - 2 - thumbSize / 2,
+      left: sliderOffset && thumbSize ? sliderOffset - 2 - thumbSize / 2 : 0,
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 999,

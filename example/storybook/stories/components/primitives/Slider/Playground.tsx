@@ -10,7 +10,7 @@ import { number, text } from '@storybook/addon-knobs';
 
 export default function () {
   return (
-    <Box mx={5}>
+    <Box mx={5} width="80%">
       <Slider
         defaultValue={number('defaultValue', 50, {
           range: true,
