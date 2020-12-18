@@ -30,6 +30,7 @@ export const NBStepper = ({ children, ...props }: any) => {
         {...newProps}
         {..._active}
         {...(disablitityCheck || isDisabled ? _disabled : {})}
+        borderColor="transparent"
         style={style}
       >
         {children || isIncrement ? (

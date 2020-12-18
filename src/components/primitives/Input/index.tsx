@@ -132,7 +132,7 @@ const Input = (
         style={style}
       >
         {InputLeftElement ? (
-          <Flex justify="center" align="center" p={2} left={0}>
+          <Flex justify="center" align="center" left={0}>
             {InputLeftElement}
           </Flex>
         ) : null}
@@ -159,7 +159,7 @@ const Input = (
           ref={ref}
         />
         {InputRightElement ? (
-          <Flex justify="center" align="center" p={2} right={0}>
+          <Flex justify="center" align="center" right={0}>
             {InputRightElement}
           </Flex>
         ) : null}
