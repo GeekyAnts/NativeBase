@@ -1,7 +1,7 @@
 declare module "native-base" {
 	import * as React from "react";
 	import * as ReactNative from "react-native";
-	import { KeyboardAwareScrollViewProps } from "react-native-keyboard-aware-scroll-view";
+	import { KeyboardAwareScrollViewProps } from "@codler/react-native-keyboard-aware-scroll-view";
 
 	type RnViewStyleProp = ReactNative.StyleProp<ReactNative.ViewStyle>;
 	type RnTextStyleProp = ReactNative.StyleProp<ReactNative.TextStyle>;
@@ -637,9 +637,9 @@ declare module "native-base" {
          * see Widget Textarea.js
          */
 		interface Textarea extends ReactNative.TextInputProps, Testable {
-			rowSpan: number;
-			bordered: boolean;
-			underline: boolean;
+			rowSpan?: number;
+			bordered?: boolean;
+			underline?: boolean;
 			/**
              * Disables inputting data.
              */
@@ -664,6 +664,8 @@ declare module "native-base" {
 			android?: string;
 			color?: string;
 			fontSize?: number;
+			solid?: boolean;
+			light?: boolean;
 		}
 		/**
          * see Widget Icon.js
@@ -883,8 +885,8 @@ declare module "native-base" {
 			dataArray: Array<any>;
 			headerStyle?: RnViewStyleProp;
 			contentStyle?: RnViewStyleProp;
-			renderHeader?: (item: any, expanded: boolean) => React.ReactElement<any>;
-			renderContent?: (item: any) => React.ReactElement<any>;
+			renderHeader?: (item: any, expanded: boolean, index: number) => React.ReactElement<any>;
+			renderContent?: (item: any, index: number) => React.ReactElement<any>;
 			expanded?: number;
 			icon?: string;
 			expandedIcon?: string;
@@ -1204,6 +1206,7 @@ declare module "native-base" {
 			textStyle?: RnTextStyleProp;
 			buttonTextStyle?: RnTextStyleProp;
 			buttonStyle?: RnViewStyleProp;
+			swipeDisabled?: boolean;
 		}): void;
 
 		/**
