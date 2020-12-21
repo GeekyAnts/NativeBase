@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, NativeBaseProvider, Switch, useColorMode } from 'native-base';
+import {
+  View,
+  NativeBaseProvider,
+  useColorMode,
+  IconButton,
+  Icon,
+} from 'native-base';
 
 function MyWrapper({ children }: any) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -12,12 +18,18 @@ function MyWrapper({ children }: any) {
       alignItems="center"
     >
       {children}
-      <Switch
-        onToggle={toggleColorMode}
-        isChecked={colorMode === 'dark'}
+      <IconButton
         position="absolute"
-        top={10}
-        right={10}
+        top={5}
+        right={5}
+        onPress={toggleColorMode}
+        icon={
+          <Icon
+            name={colorMode === 'dark' ? 'light-up' : 'md-moon'}
+            type={colorMode === 'dark' ? 'Entypo' : 'Ionicons'}
+            size={6}
+          />
+        }
       />
     </View>
   );
