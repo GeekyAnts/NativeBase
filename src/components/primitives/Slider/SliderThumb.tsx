@@ -9,21 +9,29 @@ import type { ISliderProps, ISliderContextProps } from './props';
 const SliderThumb = ({ children, ...props }: ISliderProps) => {
   const { ...newProps } = usePropsConfig('SliderThumb', props);
   const {
-    sliderOffset,
+    sliderOffset = 0,
     panResponder,
     colorScheme,
-    thumbSize,
+    thumbSize = 0,
+    orientation,
   }: ISliderContextProps = React.useContext(SliderContext);
+
+  const sliderThumbPosition = sliderOffset - 8 - thumbSize / 2;
 
   const customStyle = StyleSheet.create({
     SliderThumb: {
       position: 'absolute',
       display: 'flex',
-      left: sliderOffset && thumbSize ? sliderOffset - 2 - thumbSize / 2 : 0,
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 999,
       padding: 4, // increased touch area for better touch detection.
+    },
+    verticalStyle: {
+      bottom: sliderThumbPosition,
+    },
+    horizontalStyle: {
+      left: sliderThumbPosition,
     },
   });
 
@@ -39,7 +47,12 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
 
   return (
     <Animated.View
-      style={customStyle.SliderThumb}
+      style={[
+        customStyle.SliderThumb,
+        orientation === 'vertical'
+          ? customStyle.verticalStyle
+          : customStyle.horizontalStyle,
+      ]}
       {...panResponder.panHandlers}
     >
       <Box

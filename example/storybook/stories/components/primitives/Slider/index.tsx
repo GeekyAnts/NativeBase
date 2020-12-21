@@ -4,6 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
 import Usage from './usage';
 import Size from './Size';
+import Vertical from './Vertical';
 import Color from './color';
 import Value from './Value';
 import FormControlled from './FormControlled';
@@ -17,6 +18,7 @@ storiesOf('Slider', module)
   .add('Usage', () => <Usage />)
   .add('Size', () => <Size />)
   .add('Color', () => <Color />)
+  .add('Vertical', () => <Vertical />)
   .add('Value', () => <Value />)
   .add('Customized', () => <Customized />)
   .add('Form Controlled', () => <FormControlled />);

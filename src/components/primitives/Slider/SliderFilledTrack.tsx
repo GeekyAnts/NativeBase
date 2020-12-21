@@ -10,25 +10,37 @@ const SliderFilledTrack = ({ style, ...props }: ISliderProps) => {
     colorScheme,
     barSize = 0,
     sliderOffset = 0,
+    orientation,
   }: ISliderContextProps = React.useContext(SliderContext);
 
-  const leftPosition = isReversed ? sliderOffset : sliderOffset - barSize;
-  // Fix for Web
+  const sliderTrackPosition = isReversed
+    ? sliderOffset
+    : sliderOffset - barSize;
+  // NOTE: Required for WEB compatibility
   const customStyle = StyleSheet.create({
-    SliderFilledTrack: {
-      left: leftPosition,
+    verticalStyle: {
+      top: -sliderTrackPosition,
+    },
+    horizontalStyle: {
+      left: sliderTrackPosition,
     },
   });
 
   return (
     <Box
       position="absolute"
-      left={leftPosition}
+      left={orientation === 'vertical' ? 0 : sliderTrackPosition}
+      top={orientation === 'vertical' ? -sliderTrackPosition : 0}
       backgroundColor={colorScheme}
       height="100%"
       width="100%"
       {...props}
-      style={[style, customStyle.SliderFilledTrack]}
+      style={[
+        style,
+        orientation === 'vertical'
+          ? customStyle.verticalStyle
+          : customStyle.horizontalStyle,
+      ]}
     />
   );
 };
