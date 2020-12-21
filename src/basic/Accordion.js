@@ -1,14 +1,24 @@
-import React, { Component } from 'react';
+/* eslint-disable react/prefer-stateless-function */
+import React from 'react';
 import {
   Animated,
   TouchableWithoutFeedback,
   FlatList,
   StyleSheet,
-  View,
+  View
 } from 'react-native';
 import { Text } from './Text';
 import { Icon } from './Icon';
 import variable from '../theme/variables/platform';
+
+const styles = StyleSheet.create({
+  defaultHeader: {
+    flexDirection: 'row',
+    padding: variable.accordionContentPadding,
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  }
+});
 
 class DefaultHeader extends React.Component {
   render() {
@@ -19,7 +29,7 @@ class DefaultHeader extends React.Component {
       headerStyle,
       icon,
       iconStyle,
-      title,
+      title
     } = this.props;
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
@@ -28,7 +38,7 @@ class DefaultHeader extends React.Component {
       <View
         style={[
           styles.defaultHeader,
-          headerStyle || { backgroundColor: variables.headerStyle },
+          headerStyle || { backgroundColor: variables.headerStyle }
         ]}
       >
         <Text> {title}</Text>
@@ -41,7 +51,7 @@ class DefaultHeader extends React.Component {
                 : { color: variables.expandedIconStyle }
               : icon && iconStyle
               ? iconStyle
-              : { color: variables.iconStyle },
+              : { color: variables.iconStyle }
           ]}
           name={
             expanded ? expandedIcon || 'ios-arrow-up' : icon || 'ios-arrow-down'
@@ -62,7 +72,7 @@ class DefaultContent extends React.Component {
       <Text
         style={[
           { padding: variable.accordionContentPadding },
-          contentStyle || { backgroundColor: variables.contentStyle },
+          contentStyle || { backgroundColor: variables.contentStyle }
         ]}
       >
         {content}
@@ -73,13 +83,13 @@ class DefaultContent extends React.Component {
 
 class AccordionSubItem extends React.Component {
   state = {
-    fadeAnim: new Animated.Value(0.3),
+    fadeAnim: new Animated.Value(0.3)
   };
   componentDidMount() {
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 500,
-      useNativeDriver: true,
+      useNativeDriver: true
     }).start();
   }
   render() {
@@ -109,7 +119,7 @@ class AccordionItem extends React.Component {
       onAccordionOpen,
       renderContent,
       renderHeader,
-      setSelected,
+      setSelected
     } = this.props;
     return (
       <View>
@@ -164,7 +174,7 @@ export class Accordion extends React.Component {
       selected = expandMultiple ? selected : selected.slice(0, 1);
     }
     this.state = {
-      selected: selected,
+      selected
     };
   }
 
@@ -193,7 +203,7 @@ export class Accordion extends React.Component {
       onAccordionOpen,
       renderContent,
       renderHeader,
-      style,
+      style
     } = this.props;
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
@@ -205,9 +215,9 @@ export class Accordion extends React.Component {
         style={[
           {
             borderColor: variables.accordionBorderColor,
-            borderWidth: variables.borderWidth,
+            borderWidth: variables.borderWidth
           },
-          style,
+          style
         ]}
         keyExtractor={(item, index) => String(index)}
         renderItem={({ item, index }) => (
@@ -216,7 +226,7 @@ export class Accordion extends React.Component {
             item={item}
             expanded={this.state.selected.indexOf(index) !== -1}
             index={index}
-            setSelected={(i) => this.setSelected(i)}
+            setSelected={i => this.setSelected(i)}
             headerStyle={headerStyle}
             contentStyle={contentStyle}
             renderHeader={renderHeader}
@@ -234,12 +244,3 @@ export class Accordion extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  defaultHeader: {
-    flexDirection: 'row',
-    padding: variable.accordionContentPadding,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-});
