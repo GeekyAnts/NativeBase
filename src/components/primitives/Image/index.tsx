@@ -2,18 +2,34 @@ import React, { useState } from 'react';
 import { Image as RNImage } from 'react-native';
 import type { Image as ImageType } from 'react-native';
 import styled from 'styled-components/native';
-import { border, flex, layout, space } from 'styled-system';
-import { customBorder } from '../../../utils/customProps';
+import { border, color, flexbox, layout, space, position } from 'styled-system';
+import {
+  customBorder,
+  customBackground,
+  customOutline,
+  customLayout,
+  customExtra,
+  customShadow,
+  customPosition,
+} from '../../../utils/customProps';
 import Text from '../Text';
 import { usePropsConfig } from '../../../hooks';
 import type { IImageProps } from './props';
 
 const StyledImage = styled(RNImage)<IImageProps>(
-  layout,
+  color,
   space,
+  layout,
+  flexbox,
   border,
-  flex,
-  customBorder
+  position,
+  customPosition,
+  customBorder,
+  customBackground,
+  customOutline,
+  customShadow,
+  customExtra,
+  customLayout
 );
 
 const Image = (
@@ -53,14 +69,15 @@ const Image = (
   }
   return (
     <StyledImage
-      style={style}
+      style={[style, { width: 'auto', height: '100%' }]}
       source={renderedSource}
       maxWidth="100%"
-      height="100%"
-      width="auto"
+      // height={"100%"}
+      // width="auto"
       accessibilityLabel={alt}
       accessibilityRole="image"
       accessible
+      alt={alt}
       {...newProps}
       onError={props.onError ? props.onError : onImageLoadError}
       ref={ref}

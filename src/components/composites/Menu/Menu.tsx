@@ -190,19 +190,21 @@ class MenuClass extends React.Component<IMenuProps, any> {
       onClose && onClose();
       this.hide();
     };
-    let triggerElement: any = trigger(
-      {
-        onPress: () => {
-          if (this.state.open) {
-            closeMenu();
-          } else {
-            this.show();
-            onOpen && onOpen();
-          }
-        },
-      },
-      { open: this.state.open }
-    );
+    let triggerElement: any = trigger
+      ? trigger(
+          {
+            onPress: () => {
+              if (this.state.open) {
+                closeMenu();
+              } else {
+                this.show();
+                onOpen && onOpen();
+              }
+            },
+          },
+          { open: this.state.open }
+        )
+      : null;
     const [shadowContainerProps] = extractInObject(this.props, [
       'borderRadius',
       'bg',

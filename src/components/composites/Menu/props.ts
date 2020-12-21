@@ -21,6 +21,7 @@ import type {
   customExtraProps,
   customShadowProps,
   customTypographyProps,
+  customPositionProps,
 } from '../../../utils/customProps';
 
 export type IMenuProps = BorderProps &
@@ -37,9 +38,10 @@ export type IMenuProps = BorderProps &
   customBackgroundProps &
   TypographyProps &
   PositionProps &
+  customPositionProps &
   BorderProps & {
-    trigger: (_props: any, state: { open: boolean }) => JSX.Element;
-    children: JSX.Element | Array<JSX.Element>;
+    trigger?: (_props: any, state: { open: boolean }) => JSX.Element;
+    children?: JSX.Element | Array<JSX.Element>;
     onOpen?: () => void;
     onClose?: () => void;
     offsetSpace?: number;

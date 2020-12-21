@@ -16,6 +16,7 @@ import type {
   customExtraProps,
   customShadowProps,
   customBorderProps,
+  customPositionProps,
 } from '../../../utils/customProps';
 
 export type IImageProps = RNImageProps &
@@ -25,6 +26,8 @@ export type IImageProps = RNImageProps &
   FlexboxProps &
   SpaceProps &
   LayoutProps &
+  PositionProps &
+  customPositionProps &
   FlexboxProps &
   BorderProps &
   customExtraProps &
