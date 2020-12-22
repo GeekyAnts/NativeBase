@@ -36,9 +36,8 @@ const Stack = (props: IStackProps & { direction?: 'column' | 'row' }) => {
   );
 };
 
-export const VStack = (props: IStackProps) => {
-  return Stack(props);
-};
+export const VStack = Stack;
+
 export const HStack = (props: IStackProps) => {
   return Stack({ ...props, direction: 'row' });
 };

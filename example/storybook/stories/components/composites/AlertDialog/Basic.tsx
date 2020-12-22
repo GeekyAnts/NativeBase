@@ -35,9 +35,7 @@ export default function () {
             Are you sure? You can't undo this action afterwards.
           </AlertDialogBody>
           <AlertDialogFooter>
-            <Button ref={cancelRef} onPress={onClose}>
-              Cancel
-            </Button>
+            <Button onPress={onClose}>Cancel</Button>
             <Button colorScheme="red" onPress={onClose} ml={3}>
               Delete
             </Button>

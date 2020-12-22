@@ -11,7 +11,6 @@ export default function () {
       <Heading size="md">(md) In love with React Native</Heading>
       <Heading size="sm">(sm) In love with React Native</Heading>
       <Heading size="xs">(xs) In love with React Native</Heading>
-      <Heading size="12">(12) In love with React Native</Heading>
     </VStack>
   );
 }

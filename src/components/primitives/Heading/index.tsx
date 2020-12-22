@@ -41,14 +41,10 @@ const StyledHeading = styled(Text)<IHeadingProps>(
   customTypography
 );
 
-const Heading = ({ isTruncated, style, ...props }: IHeadingProps) => {
+const Heading = ({ isTruncated, ...props }: IHeadingProps) => {
   const newProps = usePropsConfig('Heading', props);
   return (
-    <StyledHeading
-      numberOfLines={isTruncated ? 1 : 999999}
-      {...newProps}
-      style={style}
-    />
+    <StyledHeading numberOfLines={isTruncated ? 1 : 999999} {...newProps} />
   );
 };
 

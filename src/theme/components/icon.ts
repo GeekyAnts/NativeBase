@@ -1,5 +1,6 @@
 import baseSizes from './../base/sizes';
 import typography from './../base/typography';
+import { mode } from './../tools';
 
 function getSizes() {
   let spaceValues: any = {};
@@ -22,7 +23,10 @@ function getSizes() {
 }
 
 const sizes = getSizes();
-const baseStyle = {
-  size: 20,
+const baseStyle = (props: Record<string, any>) => {
+  return {
+    color: mode(undefined, 'white')(props),
+    size: 20,
+  };
 };
 export default { sizes, baseStyle };
