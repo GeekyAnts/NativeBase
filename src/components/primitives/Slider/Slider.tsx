@@ -41,26 +41,34 @@ class NBSlider extends React.Component<
 
   onMove(gestureState: any) {
     const { barSize } = this.state;
-    const newDeltaValue = this.getValueFromBottomOffset(
-      gestureState.dx,
+    const { min = 0, max = 100 } = this.props;
+    const newDeltaValue = this.getValueFromStartOffset(
+      this.props.orientation === 'vertical'
+        ? -gestureState.dy
+        : gestureState.dx,
       barSize,
       this.props.min || 0,
       this.props.max || 100
     );
     this.props.onChange &&
-      this.props.onChange(this.state.value + newDeltaValue);
+      this.props.onChange(
+        this.capValueWithinRange(this.state.value + newDeltaValue, [min, max])
+      );
     this.setState({
       deltaValue: newDeltaValue,
     });
   }
   onEndMove() {
     const { value, deltaValue } = this.state;
-    this.props.onChangeEnd && this.props.onChangeEnd(value + deltaValue);
-    this.setState({ value: value + deltaValue, deltaValue: 0 });
+    const { min = 0, max = 100 } = this.props;
+    const cappedVal = this.capValueWithinRange(value + deltaValue, [min, max]);
+    this.props.onChangeEnd && this.props.onChangeEnd(cappedVal);
+    this.setState({ value: cappedVal, deltaValue: 0 });
   }
 
   onBarLayout = (event: any) => {
-    const { width: barSize } = event.nativeEvent.layout;
+    const { width, height } = event.nativeEvent.layout;
+    const barSize = this.props.orientation === 'vertical' ? height : width;
     this.setState({ barSize });
   };
 
@@ -70,7 +78,7 @@ class NBSlider extends React.Component<
     return value;
   };
 
-  getValueFromBottomOffset = (
+  getValueFromStartOffset = (
     offset: number,
     barSize: number | null,
     rangeMin: number,
@@ -165,6 +173,7 @@ class NBSlider extends React.Component<
             isReversed: this.props.isReversed,
             thumbSize: this.props.thumbSize,
             sliderSize: this.props.sliderSize,
+            orientation: this.props.orientation,
             value: this.state.value,
           }}
         >
@@ -179,7 +188,7 @@ class NBSlider extends React.Component<
             {...this.props}
             onLayout={this.onBarLayout}
           >
-            {this.state.barSize && this.state.value && this.props.children}
+            {this.state.barSize && this.props.children}
           </Box>
         </SliderContext.Provider>
       </View>

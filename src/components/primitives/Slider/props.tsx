@@ -14,8 +14,8 @@ export type ISliderProps = IBoxProps & {
   // onFocus?: () => void;
   // onBlur?: () => void;
   // onMouse?: () => void;
-  // orientation?: string;
   // getAriaValueText?: (value?: number) => string;
+  orientation?: 'vertical' | 'horizontal';
   size?: 'sm' | 'md' | 'lg';
   colorScheme?: string;
   name?: string;
@@ -40,4 +40,5 @@ export type ISliderContextProps = {
   thumbSize?: number;
   panResponder?: any;
   isReversed?: boolean;
+  orientation?: 'vertical' | 'horizontal';
 };

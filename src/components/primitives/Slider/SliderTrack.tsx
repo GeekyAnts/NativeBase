@@ -4,17 +4,19 @@ import { SliderContext } from './Context';
 import type { ISliderProps, ISliderContextProps } from './props';
 
 const SliderTrack = ({ children, ...props }: ISliderProps) => {
-  const { sliderSize, trackColor }: ISliderContextProps = React.useContext(
-    SliderContext
-  );
+  const {
+    sliderSize,
+    trackColor,
+    orientation,
+  }: ISliderContextProps = React.useContext(SliderContext);
 
   return (
     <Box
       position="absolute"
       backgroundColor={trackColor}
-      height={`${sliderSize}px`}
+      height={orientation === 'vertical' ? '100%' : `${sliderSize}px`}
       borderRadius={999}
-      width="100%"
+      width={orientation === 'vertical' ? `${sliderSize}px` : '100%'}
       {...props}
       overflow="hidden"
     >
