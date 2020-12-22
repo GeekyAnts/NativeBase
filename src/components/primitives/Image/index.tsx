@@ -69,11 +69,12 @@ const Image = (
   }
   return (
     <StyledImage
-      style={[style, { width: 'auto', height: '100%' }]}
+      style={style}
       source={renderedSource}
       maxWidth="100%"
-      // height={"100%"}
+      // height='100%'
       // width="auto"
+      size={'100%'}
       accessibilityLabel={alt}
       accessibilityRole="image"
       accessible
