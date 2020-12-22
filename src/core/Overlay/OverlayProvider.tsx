@@ -15,10 +15,10 @@ const Overlay = ({
 }: IOverlayProps) => {
   const [overlayItem, setOverlayItem] = React.useState(null);
   const [config, setConfig] = React.useState({
-    disableOverlay: disableOverlay,
-    position: position || 'center',
-    backgroundColor: defaultBackgroundColor || '#161616cc',
-    animationDuration: animationDuration || 500,
+    disableOverlay,
+    position: position ?? 'center',
+    backgroundColor: defaultBackgroundColor ?? '#161616',
+    animationDuration: animationDuration ?? 500,
     closeOnPress: !closeOnPress ? false : true,
     onClose: (_a: any) => {},
   });
@@ -53,7 +53,6 @@ const Overlay = ({
       return 'none';
     }
   };
-
   overlayItem ? fadeIn() : fadeOut();
   return (
     // Need to use React native view to apply pointerEvents none

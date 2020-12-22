@@ -26,7 +26,7 @@ import {
 
 import { useOverlay } from '../../../core/Overlay';
 import { usePropsConfig } from '../../../hooks';
-import { Box, View, IBoxProps, VisuallyHidden, Text } from '../../primitives';
+import { Box, View, IBoxProps } from '../../primitives';
 
 const StyledModal = styled(RNModal)<IModalSemiProps>(
   color,
@@ -104,11 +104,6 @@ const Modal = (
     >
       {closeOnOverlayClick === false ? <Box /> : <ModalOverlay />}
       {children}
-      <VisuallyHidden>
-        <TouchableOpacity onPress={() => onClose(false)}>
-          <Text textAlign="center">Close dialog</Text>
-        </TouchableOpacity>
-      </VisuallyHidden>
     </Box>
   );
   React.useEffect(
@@ -121,7 +116,7 @@ const Modal = (
               </Box>
             </ModalContext.Provider>,
             {
-              onClose: onClose,
+              onClose,
               closeOnPress: closeOnOverlayClick === false ? false : true,
               backgroundColor: overlayColor ? overlayColor : undefined,
               disableOverlay: overlayVisible === false ? true : false,
