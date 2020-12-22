@@ -78,7 +78,6 @@ const Modal = (
     avoidKeyboard,
     overlayColor,
     overlayVisible,
-    closeOnOverlayClick,
     ...props
   }: IModalProps,
   ref: any
@@ -100,14 +99,14 @@ const Modal = (
             </ModalContext.Provider>,
             {
               onClose: onClose,
-              closeOnPress: closeOnOverlayClick === false ? false : true,
+              closeOnPress: props.closeOnOverlayClick === false ? false : true,
               backgroundColor: overlayColor ? overlayColor : undefined,
               disableOverlay: overlayVisible === false ? true : false,
             }
           )
         : setOverlay(<Box />, {
             onClose: closeOverlayInMobile,
-            closeOnPress: closeOnOverlayClick === false ? false : true,
+            closeOnPress: props.closeOnOverlayClick === false ? false : true,
             backgroundColor: overlayColor ? overlayColor : undefined,
             disableOverlay: overlayVisible === false ? true : false,
           });
@@ -131,7 +130,7 @@ const Modal = (
       justifyContent={isCentered ? 'center' : justifyContent}
       alignItems={isCentered ? 'center' : alignItems}
     >
-      {closeOnOverlayClick === false ? <Box /> : <ModalOverlay />}
+      {props.closeOnOverlayClick === false ? <Box /> : <ModalOverlay />}
       {children}
       <VisuallyHidden>
         <TouchableOpacity onPress={() => onClose(false)}>
