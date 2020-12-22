@@ -1,5 +1,5 @@
-import { get, isNil, mergeWith, cloneDeep, isEmpty } from 'lodash';
-import { useWindowDimensions, Platform } from 'react-native';
+import { get, isNil, mergeWith, cloneDeep } from 'lodash';
+import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from './useNativeBase';
 import { themePropertyMap } from './../theme/base';
 import {
@@ -9,7 +9,7 @@ import {
   hasValidBreakpointFormat,
   extractInObject,
 } from './../theme/tools/';
-
+import { filterShadowProps } from './../utils/filterShadowProps';
 export function usePropsConfig(component: string, propsReceived: any) {
   const { theme, ...colorModeProps } = useNativeBase();
   let windowWidth = useWindowDimensions()?.width;
@@ -104,7 +104,7 @@ export function usePropsConfig(component: string, propsReceived: any) {
       delete newProps[key];
     }
   });
-  let mergedProps = passShadowPropsToStyleForWeb(newProps, ignoredProps);
+  let mergedProps = filterShadowProps(newProps, ignoredProps);
   return omitUndefined(mergedProps);
 }
 
@@ -218,21 +218,4 @@ const resolveValueWithBreakpoint = (
   } else {
     return values;
   }
-};
-
-const passShadowPropsToStyleForWeb = (props: any, ignoredProps: any) => {
-  if (Platform.OS === 'web') {
-    return { ...ignoredProps, ...props };
-  }
-  let style = ignoredProps.style ?? {};
-  let [shadowProps, remainingProps] = extractInObject(props, [
-    'shadowColor',
-    'shadowOffset',
-    'shadowOpacity',
-    'shadowRadius',
-  ]);
-  if (!isEmpty(shadowProps)) {
-    style = { ...style, ...shadowProps };
-  }
-  return { ...remainingProps, ...ignoredProps, style };
 };
