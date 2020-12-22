@@ -15,7 +15,13 @@ export interface IAlertDialogProps
 }
 const AlertDialog = (props: IAlertDialogProps) => {
   const { leastDestructiveRef, ...rest } = props;
-  return <Modal {...rest} initialFocusRef={leastDestructiveRef} />;
+  return (
+    <Modal
+      {...rest}
+      initialFocusRef={leastDestructiveRef}
+      closeOnOverlayClick={false}
+    />
+  );
 };
 const AlertDialogContent = React.forwardRef(function AlertDialogContent(
   props: any,

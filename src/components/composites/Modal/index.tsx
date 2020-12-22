@@ -26,7 +26,7 @@ import {
 
 import { useOverlay } from '../../../core/Overlay';
 import { usePropsConfig } from '../../../hooks';
-import { Box, View, IBoxProps, VisuallyHidden, Text } from '../../primitives';
+import { Box, View, IBoxProps } from '../../primitives';
 
 const StyledModal = styled(RNModal)<IModalSemiProps>(
   color,
@@ -88,6 +88,23 @@ const Modal = (
     setIsVisible(false);
     onClose(false);
   };
+  const newProps = usePropsConfig('Modal', props);
+  const value: any = {
+    visible: isVisible,
+    toggleVisible: setIsVisible,
+    toggleOnClose: onClose,
+    newProps: newProps,
+  };
+  const modalChildren = (
+    <Box
+      {...newProps.modalProps}
+      justifyContent={isCentered ? 'center' : justifyContent}
+      alignItems={isCentered ? 'center' : alignItems}
+    >
+      {props.closeOnOverlayClick === false ? <Box /> : <ModalOverlay />}
+      {children}
+    </Box>
+  );
   React.useEffect(
     () => {
       isOpen && Platform.OS === 'web'
@@ -117,28 +134,6 @@ const Modal = (
     /*eslint-disable */
     [isOpen]
   );
-  const newProps = usePropsConfig('Modal', props);
-  const value: any = {
-    visible: isVisible,
-    toggleVisible: setIsVisible,
-    toggleOnClose: onClose,
-    newProps: newProps,
-  };
-  const modalChildren = (
-    <Box
-      {...newProps.modalProps}
-      justifyContent={isCentered ? 'center' : justifyContent}
-      alignItems={isCentered ? 'center' : alignItems}
-    >
-      {props.closeOnOverlayClick === false ? <Box /> : <ModalOverlay />}
-      {children}
-      <VisuallyHidden>
-        <TouchableOpacity onPress={() => onClose(false)}>
-          <Text textAlign="center">Close dialog</Text>
-        </TouchableOpacity>
-      </VisuallyHidden>
-    </Box>
-  );
   return Platform.OS !== 'web' ? (
     <ModalContext.Provider value={value}>
       <View nativeID={id}>
@@ -149,10 +144,12 @@ const Modal = (
             value.toggleOnClose(false);
           }}
           onShow={() => {
-            initialFocusRef?.current?.focus();
+            !['ios', 'android'].includes(Platform.OS) &&
+              initialFocusRef?.current?.focus();
           }}
           onDismiss={() => {
-            finalFocusRef?.current?.focus();
+            !['ios', 'android'].includes(Platform.OS) &&
+              finalFocusRef?.current?.focus();
           }}
           animationType={motionPreset || 'slide'}
           transparent
