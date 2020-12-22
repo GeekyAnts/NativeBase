@@ -38,7 +38,7 @@ const baseStyle = (props: Record<string, any>) => {
       zIndex: 1,
     },
     modalCloseButtonProps: {
-      size: 'lg',
+      size: 6,
     },
     modalProps: {
       width: '100%',

@@ -125,7 +125,6 @@ const Button = (
   );
 
   const { buttonProps } = useButton(additionalButtonProps, ref);
-
   return (
     <StyledButton
       activeOpacity={highlight ? highlight : 0.8}

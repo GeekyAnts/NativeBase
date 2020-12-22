@@ -125,7 +125,6 @@ const Modal = (
     toggleOnClose: onClose,
     newProps: newProps,
   };
-
   const modalChildren = (
     <Box
       {...newProps.modalProps}
@@ -141,7 +140,6 @@ const Modal = (
       </VisuallyHidden>
     </Box>
   );
-
   return Platform.OS !== 'web' ? (
     <ModalContext.Provider value={value}>
       <View nativeID={id}>
@@ -174,9 +172,7 @@ const Modal = (
         </StyledModal>
       </View>
     </ModalContext.Provider>
-  ) : (
-    <Box />
-  );
+  ) : null;
 };
 
 export const ModalHeader = (props: IBoxProps) => {
