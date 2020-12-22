@@ -18,17 +18,21 @@ export const Avatar = (
     children?: JSX.Element[] | JSX.Element | any | undefined;
   }
 ) => {
-  const { size, name, style, source, children, ...remainingProps } = props;
-  const { color, fontSize, fontWeight, ...newProps } = usePropsConfig(
-    'Avatar',
-    { ...remainingProps, name, size }
-  );
+  const { name, style, source, children, ...remainingProps } = props;
+  const {
+    size,
+    color,
+    fontSize,
+    fontWeight,
+    ...newProps
+  } = usePropsConfig('Avatar', { ...remainingProps, name });
   const textProps = { color, fontSize, fontWeight };
   const imageFitStyle = { height: '100%', width: '100%' };
   return (
     <StyledAvatar {...newProps} style={style}>
       {source ? (
         <Image
+          size={size}
           borderRadius={newProps.borderRadius}
           source={source}
           alt={name ? initials(name) : '--'}

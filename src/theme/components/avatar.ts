@@ -22,6 +22,7 @@ function getSize(size: any, fontSize: string) {
     width: size,
     height: size,
     fontSize: fontSize,
+    size,
   };
 }
 
