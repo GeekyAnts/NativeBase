@@ -21,6 +21,7 @@ const Overlay = ({
     animationDuration: animationDuration ?? 500,
     closeOnPress: !closeOnPress ? false : true,
     onClose: (_a: any) => {},
+    onOpen: (_a: any) => {},
   });
 
   const { fadeValue, fadeIn, fadeOut } = useFadeTransition(animationDuration);

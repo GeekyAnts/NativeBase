@@ -67,6 +67,7 @@ const Modal = (
   {
     children,
     isOpen,
+    onOpen,
     onClose,
     isCentered,
     initialFocusRef,
@@ -107,26 +108,31 @@ const Modal = (
   );
   React.useEffect(
     () => {
-      isOpen && Platform.OS === 'web'
-        ? setOverlay(
-            <ModalContext.Provider value={value}>
-              <Box ref={ref} nativeID={id} h="100%">
-                {modalChildren}
-              </Box>
-            </ModalContext.Provider>,
-            {
-              onClose: onClose,
-              closeOnPress: props.closeOnOverlayClick === false ? false : true,
-              backgroundColor: overlayColor ? overlayColor : undefined,
-              disableOverlay: overlayVisible === false ? true : false,
-            }
-          )
-        : setOverlay(<Box />, {
-            onClose: closeOverlayInMobile,
+      if (isOpen && Platform.OS === 'web') {
+        setOverlay(
+          <ModalContext.Provider value={value}>
+            <Box ref={ref} nativeID={id} h="100%">
+              {modalChildren}
+            </Box>
+          </ModalContext.Provider>,
+          {
+            onClose: onClose,
             closeOnPress: props.closeOnOverlayClick === false ? false : true,
             backgroundColor: overlayColor ? overlayColor : undefined,
             disableOverlay: overlayVisible === false ? true : false,
-          });
+          }
+        );
+        console.log('opening');
+
+        onOpen && onOpen();
+      } else {
+        setOverlay(<Box />, {
+          onClose: closeOverlayInMobile,
+          closeOnPress: props.closeOnOverlayClick === false ? false : true,
+          backgroundColor: overlayColor ? overlayColor : undefined,
+          disableOverlay: overlayVisible === false ? true : false,
+        });
+      }
 
       !isOpen && closeOverlay();
       setIsVisible(isOpen);
@@ -134,6 +140,7 @@ const Modal = (
     /*eslint-disable */
     [isOpen]
   );
+
   return Platform.OS !== 'web' ? (
     <ModalContext.Provider value={value}>
       <View nativeID={id}>
@@ -146,6 +153,9 @@ const Modal = (
           onShow={() => {
             !['ios', 'android'].includes(Platform.OS) &&
               initialFocusRef?.current?.focus();
+            console.log('soemthind');
+
+            onOpen && onOpen();
           }}
           onDismiss={() => {
             !['ios', 'android'].includes(Platform.OS) &&

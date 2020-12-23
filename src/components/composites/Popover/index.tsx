@@ -146,10 +146,13 @@ export const PopoverContent = ({
       ref={PopoverRef}
       onOpen={() => {
         onOpen ? onOpen() : '';
+        console.log('openig = ', PopoverRef);
+
         initialFocusRef?.current.focus();
       }}
       onClose={() => {
         onClose ? onClose() : '';
+        console.log('clsoeign');
         finalFocusRef?.current.focus();
       }}
       closeOnBlur={closeOnBlur === false ? false : true}

@@ -1,9 +1,15 @@
 import * as React from 'react';
-import { TouchableOpacity, Modal, I18nManager } from 'react-native';
+import {
+  TouchableOpacity,
+  I18nManager,
+  Platform,
+  StyleSheet,
+} from 'react-native';
 import Triangle from './Triangle';
 import { ScreenWidth, ScreenHeight, isIOS } from './helpers';
 import getTooltipCoordinate from './getTooltipCoordinate';
-import { View } from '../../primitives';
+import { View, Box } from '../../primitives';
+import { Modal } from '../../composites';
 type State = {
   isVisible: boolean;
   yOffset: number;
@@ -168,6 +174,24 @@ class Tooltip extends React.Component<Props, State> {
 
     const { yOffset, xOffset, elementWidth, elementHeight } = this.state;
     const tooltipStyle = this.getTooltipStyle();
+    const { left, top, ...temp } = tooltipStyle;
+    // const customStyle = StyleSheet.create({
+    //   left: `${tooltipStyle.left}px`,
+    //   top: `${tooltipStyle.top}px`,
+    //   position: 'absolute',
+    //   width: tooltipStyle.width,
+    //   alignItems: 'center',
+    //   // borderRadius: '10px',
+    //   // display: 'flex',
+    //   flex: 1,
+    //   height: 'auto',
+    //   justifyContent: 'center',
+    //   // paddingBottom: '10px',
+    //   // paddingTop: '10px',
+    //   // right: null
+
+    //   backgroundColor: 'red',
+    // });
     const styling: any = {
       position: 'absolute',
       top: yOffset,
@@ -178,6 +202,8 @@ class Tooltip extends React.Component<Props, State> {
       width: elementWidth,
       height: elementHeight,
     };
+    console.log('tooltipStyle, ', tooltipStyle);
+    console.log('styling, ', styling);
     return (
       <View>
         <View style={styling}>{this.props.children}</View>
@@ -186,7 +212,19 @@ class Tooltip extends React.Component<Props, State> {
           bg={this.props.backgroundColor}
           borderColor={this.props.borderColor}
           borderWidth={this.props.borderWidth}
-          style={tooltipStyle}
+          // style={Platform.OS === 'web' ? null : tooltipStyle}
+          style={[
+            temp,
+            {
+              left: left,
+              top: top,
+            },
+          ]}
+          // style={[Platform.OS === 'web' ? customStyle : tooltipStyle]}
+          // left={`${tooltipStyle.left}px`}
+          // top={`${tooltipStyle.top}px`}
+          // position="absolute"
+          // {Platform.OS === 'web' ?  : null}
         >
           {popover}
         </View>
@@ -204,6 +242,8 @@ class Tooltip extends React.Component<Props, State> {
   }
 
   getElementPosition = () => {
+    console.log('running after component mounted');
+
     this.renderedElement &&
       this.renderedElement.measureInWindow(
         (pageOffsetX: any, pageOffsetY: any, width: any, height: any) => {
@@ -218,7 +258,7 @@ class Tooltip extends React.Component<Props, State> {
   };
 
   render() {
-    const { isVisible } = this.state;
+    let { isVisible } = this.state;
     const { onClose, withOverlay, onOpen, overlayColor } = this.props;
 
     return (
@@ -226,11 +266,11 @@ class Tooltip extends React.Component<Props, State> {
         {this.renderContent(false)}
         <Modal
           animationType="fade"
-          visible={isVisible}
-          transparent
-          onDismiss={onClose}
-          onShow={onOpen}
-          onRequestClose={onClose}
+          isOpen={isVisible}
+          overlayVisible={false}
+          onClose={onClose}
+          onOpen={onOpen}
+          // onRequestClose={onClose}
         >
           {this.props.closeOnBlur ? (
             <TouchableOpacity
@@ -252,7 +292,7 @@ class Tooltip extends React.Component<Props, State> {
             <TouchableOpacity
               style={styles.container(withOverlay, overlayColor)}
               onPress={this.toggleTooltip}
-              activeOpacity={1}
+              activeOpacity={0}
             >
               <View>{this.renderContent(true)}</View>
             </TouchableOpacity>

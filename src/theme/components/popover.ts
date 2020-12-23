@@ -30,7 +30,7 @@ const baseStyle = (props: Record<string, any>) => {
       zIndex: 1,
     },
     popoverCloseButtonProps: {
-      size: 'md',
+      // size: 'md',
       p: 0,
     },
     popoverProps: {
