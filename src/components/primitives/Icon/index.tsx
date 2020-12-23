@@ -19,7 +19,7 @@ import {
   customTypography,
   customPosition,
 } from '../../../utils/customProps';
-import { usePropsConfig } from '../../../hooks';
+import { usePropsConfig, useToken } from '../../../hooks';
 import styled from 'styled-components/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -39,8 +39,9 @@ import { SVGIcon } from './SVGIcon';
 import { Path } from 'react-native-svg';
 
 const Icon = (iconProps: IIconProps) => {
-  const { name, type, size, style, ...props } = iconProps;
-  const newProps = usePropsConfig('Icon', { size });
+  const { name, type, size, style, color, ...props } = iconProps;
+  const newProps = usePropsConfig('Icon', { size, color });
+  const rawColor = useToken('colors', newProps.color);
   if (!name) {
     return <SVGIcon {...iconProps} />;
   }
@@ -50,40 +51,121 @@ const Icon = (iconProps: IIconProps) => {
   ]);
   switch (type) {
     case 'AntDesign':
-      return <AntDesign name={name} style={flattenedIconStyle} {...props} />;
+      return (
+        <AntDesign
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
+      );
     case 'Entypo':
-      return <Entypo name={name} style={flattenedIconStyle} {...props} />;
+      return (
+        <Entypo
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
+      );
     case 'EvilIcons':
-      return <EvilIcons name={name} style={flattenedIconStyle} {...props} />;
+      return (
+        <EvilIcons
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
+      );
     case 'Feather':
-      return <Feather name={name} style={flattenedIconStyle} {...props} />;
+      return (
+        <Feather
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
+      );
     case 'FontAwesome':
-      return <FontAwesome name={name} style={flattenedIconStyle} {...props} />;
+      return (
+        <FontAwesome
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
+      );
     case 'FontAwesome5':
-      return <FontAwesome5 name={name} style={flattenedIconStyle} {...props} />;
+      return (
+        <FontAwesome5
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
+      );
     case 'Foundation':
-      return <Foundation name={name} style={flattenedIconStyle} {...props} />;
+      return (
+        <Foundation
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
+      );
     case 'Ionicons':
-      return <Ionicons name={name} style={flattenedIconStyle} {...props} />;
+      return (
+        <Ionicons
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
+      );
     case 'MaterialCommunityIcons':
       return (
         <MaterialCommunityIcons
           name={name}
           style={flattenedIconStyle}
           {...props}
+          color={rawColor}
         />
       );
     case 'Octicons':
-      return <Octicons name={name} style={flattenedIconStyle} {...props} />;
+      return (
+        <Octicons
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
+      );
     case 'SimpleLineIcons':
       return (
-        <SimpleLineIcons name={name} style={flattenedIconStyle} {...props} />
+        <SimpleLineIcons
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
       );
     case 'Zocial':
-      return <Zocial name={name} style={flattenedIconStyle} {...props} />;
+      return (
+        <Zocial
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
+      );
     default:
       return (
-        <MaterialIcons name={name} style={flattenedIconStyle} {...props} />
+        <MaterialIcons
+          name={name}
+          style={flattenedIconStyle}
+          {...props}
+          color={rawColor}
+        />
       );
   }
 };
