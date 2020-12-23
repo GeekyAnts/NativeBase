@@ -214,3 +214,4 @@ export type {
 export { Snackbar, useSnackbar } from './Snackbar';
 export type { ISnackbarProps, IuseSnackbarProps } from './Snackbar';
 export { AppBar } from './AppBar';
+export { default as Typeahead } from './Typeahead';
