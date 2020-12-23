@@ -20,6 +20,7 @@ export * from './components/primitives/Column';
 export * from './components/composites/Container';
 export * from './theme/Custom';
 export * from './components/composites/Divider';
+export * from './components/composites/Fab';
 export * from './components/primitives/Flex';
 export * from './components/composites/FormControl';
 export * from './components/primitives/Heading';

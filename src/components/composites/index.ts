@@ -214,3 +214,12 @@ export type {
 export { Snackbar, useSnackbar } from './Snackbar';
 export type { ISnackbarProps, IuseSnackbarProps } from './Snackbar';
 export { AppBar } from './AppBar';
+
+export {
+  Fab,
+  FabList,
+  FabItem,
+  IFabProps,
+  IFabListProps,
+  IFabItemProps,
+} from './Fab';

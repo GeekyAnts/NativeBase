@@ -167,6 +167,12 @@ import {
   useSnackbar,
   ISnackbarProps,
   IuseSnackbarProps,
+  Fab,
+  FabList,
+  FabItem,
+  IFabProps,
+  IFabListProps,
+  IFabItemProps,
 } from './components/composites';
 
 import {
@@ -380,6 +386,9 @@ export {
   ActionsheetItem,
   Snackbar,
   useSnackbar,
+  Fab,
+  FabList,
+  FabItem,
 };
 export type {
   IAlertProps,
@@ -461,4 +470,7 @@ export type {
   IActionsheetItemProps,
   ISnackbarProps,
   IuseSnackbarProps,
+  IFabProps,
+  IFabListProps,
+  IFabItemProps,
 };
