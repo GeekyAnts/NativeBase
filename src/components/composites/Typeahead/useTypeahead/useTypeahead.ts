@@ -84,7 +84,7 @@ export function useTypeahead(props: IUseTypeaheadProps) {
     return {
       onChangeText: propInputVal ? propOnchangeText : onChangeText,
       value: propInputVal ? propInputVal : inputValue,
-      accessibilityRole: 'typeahead' as AccessibilityRole,
+      accessibilityRole: 'combobox' as AccessibilityRole,
       accessibilityLabel: 'Typeahead input',
       accessibilityState: {
         expanded: isOpen,
