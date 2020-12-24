@@ -168,6 +168,7 @@ import {
   ISnackbarProps,
   IuseSnackbarProps,
   Typeahead,
+  useTypeahead,
 } from './components/composites';
 
 import {
@@ -382,6 +383,7 @@ export {
   Snackbar,
   useSnackbar,
   Typeahead,
+  useTypeahead,
 };
 export type {
   IAlertProps,

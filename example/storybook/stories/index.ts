@@ -60,7 +60,6 @@ export * from './hooks/useBreakpointValue';
 export * from './hooks/useClipboard';
 export * from './hooks/useDisclose';
 export * from './hooks/useMediaQuery';
-export * from './hooks/useTypeahead';
 export * from './components/primitives/VStack';
 export * from './components/composites/Wrap';
 export * from './components/primitives/ZStack';

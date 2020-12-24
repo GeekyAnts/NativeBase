@@ -1,26 +1,9 @@
 import React, { useState, useCallback, forwardRef } from 'react';
 import { ScrollView } from 'react-native';
-import {
-  Box,
-  Input,
-  Button,
-  IInputProps,
-  IBoxProps,
-  Link,
-} from '../../primitives';
-import { useTypeahead } from '../../../hooks';
-export type ITypeaheadProps = IBoxProps &
-  IInputProps & {
-    data: any[];
-    renderItem: any;
-    onChange?: Function;
-    toggleIcon: any;
-    dropdownHeight?: number | string;
-    numberOfItems?: number;
-    inputValue?: string;
-    onSelectedItemChange?: any;
-  };
-
+import { Box, Input, Button, Link } from '../../primitives';
+import { useTypeahead } from './useTypeahead';
+import { extractInObject } from '../../../theme/tools';
+import { ITypeaheadProps, layoutPropsList } from './props';
 const Typeahead = (
   {
     data,
@@ -31,17 +14,13 @@ const Typeahead = (
     numberOfItems,
     onSelectedItemChange,
     inputValue,
-    m,
-    mt,
-    mb,
-    ml,
-    mr,
     ...props
   }: ITypeaheadProps,
   ref: any
 ) => {
   const [inputItems, setInputItems] = React.useState(data);
-  const marginalProps = { m, mt, mb, ml, mr };
+  const [layoutProps, newProps] = extractInObject(props, layoutPropsList);
+
   const {
     isOpen,
     getInputProps,
@@ -62,9 +41,18 @@ const Typeahead = (
     onSelectedItemChange,
   });
   const toggleIconSetter = () => {
-    if (typeof toggleIcon === 'function') return toggleIcon({ isOpen });
+    if (typeof toggleIcon === 'function')
+      return toggleIcon({
+        isOpen: isOpen && getInputProps(inputValue, onChangeText).value !== '',
+      });
     return toggleIcon;
   };
+
+  React.useEffect(() => {
+    if (getInputProps(inputValue, onChangeText).value === '') {
+      getToggleButtonProps().onPress();
+    }
+  }, [getInputProps(inputValue, onChangeText).value]);
 
   const [dropdownTop, setDropDownTop]: any = useState(55);
 
@@ -73,15 +61,10 @@ const Typeahead = (
     setDropDownTop(height % 2 === 0 ? height + 1 : height); //not to use theme values
   }, []);
   return (
-    <Box
-      width="100%"
-      flexDirection="row"
-      onLayout={onLayout}
-      {...marginalProps}
-    >
+    <Box width="100%" flexDirection="row" onLayout={onLayout} {...layoutProps}>
       <Box flex={1}>
         <Input
-          {...props}
+          {...newProps}
           {...getInputProps(inputValue, onChangeText)}
           InputRightElement={
             <Button variant="unstyled" m={0} p={0} {...getToggleButtonProps()}>
@@ -100,6 +83,7 @@ const Typeahead = (
       >
         <ScrollView>
           {isOpen &&
+            getInputProps(inputValue, onChangeText).value !== '' &&
             (numberOfItems && numberOfItems < inputItems.length
               ? inputItems.slice(0, numberOfItems)
               : inputItems
@@ -119,3 +103,4 @@ const Typeahead = (
 };
 
 export default forwardRef<any, ITypeaheadProps>(Typeahead);
+export { useTypeahead };
