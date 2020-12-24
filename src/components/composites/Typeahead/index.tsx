@@ -52,7 +52,7 @@ const Typeahead = (
     if (getInputProps(inputValue, onChangeText).value === '') {
       getToggleButtonProps().onPress();
     }
-  }, [getInputProps(inputValue, onChangeText).value]);
+  }, [inputValue, onChangeText, getInputProps, getToggleButtonProps]);
 
   const [dropdownTop, setDropDownTop]: any = useState(55);
 

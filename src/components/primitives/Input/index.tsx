@@ -61,7 +61,6 @@ const Input = (
     errorMessageColor,
     ariaLabel,
     accessibilityLabel,
-    accessibilityRole,
     InputLeftElement,
     InputRightElement,
     type,
