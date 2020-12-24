@@ -1,5 +1,6 @@
 import { Linking } from 'react-native';
 import type { IUseLinkProp } from './props';
+import type { AccessibilityRole } from 'react-native';
 
 const linkToHREF = (URL: string) => {
   Linking.openURL(URL).catch((err) => console.error('An error occurred', err));
@@ -21,7 +22,7 @@ export function useLink(props: IUseLinkProp) {
       onPress: () => {
         addOnPressFunctionality(href, isExternal, onClick);
       },
-      accessibilityRole: 'link',
+      accessibilityRole: 'link' as AccessibilityRole,
       accessible: true,
     },
   };
