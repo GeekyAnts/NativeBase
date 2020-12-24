@@ -55,6 +55,7 @@ export * from './components/primitives/Text';
 export * from './components/primitives/TextArea';
 export * from './components/composites/Toast';
 export * from './components/composites/Transitions';
+export * from './components/composites/Typeahead';
 export * from './hooks/useBreakpointValue';
 export * from './hooks/useClipboard';
 export * from './hooks/useDisclose';

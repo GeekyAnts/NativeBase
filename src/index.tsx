@@ -167,6 +167,8 @@ import {
   useSnackbar,
   ISnackbarProps,
   IuseSnackbarProps,
+  Typeahead,
+  useTypeahead,
 } from './components/composites';
 
 import {
@@ -380,6 +382,8 @@ export {
   ActionsheetItem,
   Snackbar,
   useSnackbar,
+  Typeahead,
+  useTypeahead,
 };
 export type {
   IAlertProps,
