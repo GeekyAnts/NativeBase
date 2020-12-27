@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import {
@@ -8,11 +7,18 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-
-import variable from '../theme/variables/platform';
-
 import { Text } from './Text';
 import { Icon } from './Icon';
+import variable from '../theme/variables/platform';
+
+const styles = StyleSheet.create({
+  defaultHeader: {
+    flexDirection: 'row',
+    padding: variable.accordionContentPadding,
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  }
+});
 
 class DefaultHeader extends React.Component {
   render() {
@@ -25,15 +31,12 @@ class DefaultHeader extends React.Component {
       iconStyle,
       title
     } = this.props;
-
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
-
     return (
       <View
         style={[
-          // eslint-disable-next-line no-use-before-define
           styles.defaultHeader,
           headerStyle || { backgroundColor: variables.headerStyle }
         ]}
@@ -118,7 +121,6 @@ class AccordionItem extends React.Component {
       renderHeader,
       setSelected
     } = this.props;
-
     return (
       <View>
         <TouchableWithoutFeedback
@@ -130,16 +132,16 @@ class AccordionItem extends React.Component {
         >
           <View>
             {renderHeader ? (
-              renderHeader(item, expanded)
+              renderHeader(item, expanded, index)
             ) : (
               <DefaultHeader
+                title={item.title}
                 expanded={expanded}
-                expandedIcon={expandedIcon}
-                expandedIconStyle={expandedIconStyle}
                 headerStyle={headerStyle}
                 icon={icon}
                 iconStyle={iconStyle}
-                title={item.title}
+                expandedIcon={expandedIcon}
+                expandedIconStyle={expandedIconStyle}
               />
             )}
           </View>
@@ -147,7 +149,7 @@ class AccordionItem extends React.Component {
         {expanded ? (
           <AccordionSubItem>
             {renderContent ? (
-              renderContent(item)
+              renderContent(item, index)
             ) : (
               <DefaultContent
                 content={item.content}
@@ -164,16 +166,27 @@ class AccordionItem extends React.Component {
 export class Accordion extends React.Component {
   constructor(props) {
     super(props);
+
+    const { expanded, expandMultiple } = this.props;
+    let selected;
+    if (expanded !== undefined && expanded !== null) {
+      selected = Array.isArray(expanded) ? expanded : [expanded];
+      selected = expandMultiple ? selected : selected.slice(0, 1);
+    }
     this.state = {
-      selected: props.expanded
+      selected
     };
   }
 
   setSelected(index) {
-    if (this.state.selected === index) {
-      this.setState({ selected: undefined });
+    const { expandMultiple } = this.props;
+    const selected = this.state.selected.slice();
+    if (selected.indexOf(index) !== -1) {
+      selected.splice(selected.indexOf(index), 1);
+      this.setState({ selected });
     } else {
-      this.setState({ selected: index });
+      selected.push(index);
+      this.setState({ selected: expandMultiple ? selected : [index] });
     }
   }
 
@@ -192,7 +205,6 @@ export class Accordion extends React.Component {
       renderHeader,
       style
     } = this.props;
-
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
@@ -211,20 +223,20 @@ export class Accordion extends React.Component {
         renderItem={({ item, index }) => (
           <AccordionItem
             key={String(index)}
-            contentStyle={contentStyle}
-            expanded={this.state.selected === index}
-            expandedIcon={expandedIcon}
-            expandedIconStyle={expandedIconStyle}
+            item={item}
+            expanded={this.state.selected.indexOf(index) !== -1}
+            index={index}
+            setSelected={i => this.setSelected(i)}
             headerStyle={headerStyle}
+            contentStyle={contentStyle}
+            renderHeader={renderHeader}
+            renderContent={renderContent}
             icon={icon}
             iconStyle={iconStyle}
-            index={index}
-            item={item}
-            renderContent={renderContent}
-            renderHeader={renderHeader}
+            expandedIcon={expandedIcon}
+            expandedIconStyle={expandedIconStyle}
             onAccordionOpen={onAccordionOpen}
             onAccordionClose={onAccordionClose}
-            setSelected={i => this.setSelected(i)}
           />
         )}
         {...this.props}
@@ -232,12 +244,3 @@ export class Accordion extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  defaultHeader: {
-    flexDirection: 'row',
-    padding: variable.accordionContentPadding,
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  }
-});

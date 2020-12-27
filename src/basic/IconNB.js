@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { get } from 'lodash';
@@ -16,10 +16,14 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Zocial from 'react-native-vector-icons/Zocial';
+import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
 
+import icoMoonConfig from '../basic/Icon/selection.json';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
-class IconNB extends Component {
+const Icomoon = createIconSetFromIcoMoon(icoMoonConfig);
+
+class IconNB extends React.PureComponent {
   static contextTypes = {
     theme: PropTypes.object
   };
@@ -34,6 +38,10 @@ class IconNB extends Component {
     if (nextProps.type && this.props.type !== nextProps.type) {
       this.setIcon(nextProps.type);
     }
+  }
+
+  setRoot(c) {
+    this._root = c;
   }
 
   setIcon(iconType) {
@@ -67,6 +75,9 @@ class IconNB extends Component {
       case 'Foundation':
         this.Icon = Foundation;
         break;
+      case 'Icomoon':
+        this.Icon = Icomoon;
+        break;
       case 'Ionicons':
         this.Icon = Ionicons;
         break;
@@ -91,7 +102,7 @@ class IconNB extends Component {
   }
 
   render() {
-    return <this.Icon ref={c => (this._root = c)} {...this.props} />;
+    return <this.Icon ref={this.setRoot} {...this.props} />;
   }
 }
 
@@ -103,7 +114,9 @@ IconNB.propTypes = {
     'Feather',
     'FontAwesome',
     'FontAwesome5',
+    'Fontisto',
     'Foundation',
+    'Icomoon',
     'Ionicons',
     'MaterialCommunityIcons',
     'MaterialIcons',

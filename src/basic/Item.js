@@ -33,7 +33,10 @@ class Item extends Component {
   }
   componentDidMount() {
     if (this.props.floatingLabel) {
-      if (this.inputProps && this.inputProps.value) {
+      if (
+        (this.inputProps && this.inputProps.value) ||
+        this.inputProps.defaultValue
+      ) {
         const effect = () => {
           this.setState({ isFocused: true });
         };
@@ -178,9 +181,7 @@ class Item extends Component {
           this.props.children[i].type.displayName !== 'Styled(Input)'
         ) {
           isIcon = true;
-          newChildren.push(
-            <Icon key={[i]} {...this.props.children[i].props} />
-          );
+          newChildren.push(<Icon key={i} {...this.props.children[i].props} />);
         }
 
         if (
@@ -354,7 +355,7 @@ class Item extends Component {
       newChildren.push(
         <Input
           ref={c => (this._inputRef = c)}
-          value={this.state.text}
+          // value={this.state.text}
           key="l2"
           {...inputProps}
           placeholder={this.getPlacholderValue(inputProps)}
@@ -461,8 +462,10 @@ Item.propTypes = {
   error: PropTypes.bool
 };
 
-const StyledItem = connectStyle('NativeBase.Item', {}, mapPropsToStyleNames)(
-  Item
-);
+const StyledItem = connectStyle(
+  'NativeBase.Item',
+  {},
+  mapPropsToStyleNames
+)(Item);
 
 export { StyledItem as Item };

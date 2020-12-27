@@ -15,10 +15,11 @@ class CheckBox extends Component {
   };
 
   getInitialStyle(variables) {
-    const { color, checked } = this.props;
+    const { color, checked, checkboxType, borderColor } = this.props;
     return {
       checkStyle: {
-        borderColor: color || variables.checkboxBgColor,
+        borderRadius: this.getBorderRadius(checkboxType, variables),
+        borderColor: borderColor || color || variables.checkboxBgColor,
         backgroundColor:
           checked === true
             ? color || variables.checkboxBgColor
@@ -26,6 +27,16 @@ class CheckBox extends Component {
       }
     };
   }
+
+  getBorderRadius = (checkboxType, variables) => {
+    if (checkboxType === 'rounded') {
+      return 13;
+    }
+    if (checkboxType === 'square') {
+      return 0;
+    }
+    return variables.CheckboxRadius;
+  };
 
   prepareRootProps(variables) {
     const defaultProps = {
@@ -35,7 +46,7 @@ class CheckBox extends Component {
     return computeProps(this.props, defaultProps);
   }
   render() {
-    const { checked } = this.props;
+    const { checked, tickColor } = this.props;
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
@@ -50,7 +61,7 @@ class CheckBox extends Component {
           style={{
             color:
               checked === true
-                ? variables.checkboxTickColor
+                ? tickColor || variables.checkboxTickColor
                 : variables.checkboxDefaultColor,
             fontSize: variables.CheckboxFontSize,
             lineHeight: variables.CheckboxIconSize,

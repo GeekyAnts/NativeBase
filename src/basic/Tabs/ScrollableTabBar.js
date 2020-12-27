@@ -31,17 +31,17 @@ const ScrollableTabBar = createReactClass({
     inactiveTextColor: PropTypes.string,
     scrollOffset: PropTypes.number,
     style: PropTypes.shape({
-      style: PropTypes.any,
+      style: PropTypes.any
     }),
     tabStyle: PropTypes.shape({
-      style: PropTypes.any,
+      style: PropTypes.any
     }),
     tabsContainerStyle: PropTypes.shape({
-      style: PropTypes.any,
+      style: PropTypes.any
     }),
     renderTab: PropTypes.func,
     underlineStyle: PropTypes.shape({
-      style: PropTypes.any,
+      style: PropTypes.any
     }),
     onScroll: PropTypes.func
   },
@@ -211,7 +211,6 @@ const ScrollableTabBar = createReactClass({
         </TabHeading>
       </Button>
     );
-
   },
 
   measureTab(page, event) {
@@ -281,7 +280,7 @@ const ScrollableTabBar = createReactClass({
                 this.props.textStyle[page],
                 this.props.activeTextStyle[page],
                 this.props.tabHeaderStyle[page],
-                variables.tabFontSize
+                this.props.tabFontSize[page]
               );
             })}
             <Animated.View

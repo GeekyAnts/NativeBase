@@ -23,14 +23,14 @@ const DefaultTabBar = createReactClass({
     inactiveTextColor: PropTypes.string,
     disabledTextColor: PropTypes.string,
     tabStyle: PropTypes.shape({
-      style: PropTypes.any,
+      style: PropTypes.any
     }),
     renderTab: PropTypes.func,
     underlineStyle: PropTypes.shape({
-      style: PropTypes.any,
+      style: PropTypes.any
     }),
     tabContainerStyle: PropTypes.shape({
-      style: PropTypes.any,
+      style: PropTypes.any
     }),
     accessible: PropTypes.array,
     accessibilityLabel: PropTypes.array
@@ -49,7 +49,7 @@ const DefaultTabBar = createReactClass({
     };
   },
 
-  renderTabOption(name, page) { },
+  renderTabOption(name, page) {},
 
   renderTab(
     name,
@@ -71,7 +71,7 @@ const DefaultTabBar = createReactClass({
       typeof name !== 'string' ? name.props.children : undefined;
     const { activeTextColor, inactiveTextColor } = this.props;
     const fontWeight = isTabActive ? 'bold' : 'normal';
-    const isDisabled = disabled !== undefined;
+    const isDisabled = !!disabled;
     let textColor;
     if (isDisabled) {
       textColor = disabledTextColor;
@@ -82,7 +82,7 @@ const DefaultTabBar = createReactClass({
     }
     const accessibilityState = {
       disabled: isDisabled ? true : false,
-      selected: isTabActive ? true : false,
+      selected: isTabActive ? true : false
     };
     if (typeof name === 'string') {
       return (
@@ -91,7 +91,7 @@ const DefaultTabBar = createReactClass({
           disabled={isDisabled}
           key={name}
           accessible={accessible}
-          accessibilityRole='tab'
+          accessibilityRole="tab"
           accessibilityLabel={accessibilityLabel}
           accessibilityState={accessibilityState}
           onPress={() => onPressHandler(page)}
@@ -119,7 +119,7 @@ const DefaultTabBar = createReactClass({
         disabled={isDisabled}
         key={_.random(1.2, 5.2)}
         accessible={accessible}
-        accessibilityRole='tab'
+        accessibilityRole="tab"
         accessibilityLabel={accessibilityLabel}
         accessibilityState={accessibilityState}
         onPress={() => onPressHandler(page)}

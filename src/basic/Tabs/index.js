@@ -37,7 +37,7 @@ const ScrollableTabView = createReactClass({
     onScroll: PropTypes.func,
     renderTabBar: PropTypes.any,
     style: PropTypes.shape({
-      style: PropTypes.any,
+      style: PropTypes.any
     }),
     contentProps: PropTypes.object,
     scrollWithoutAnimation: PropTypes.bool,
@@ -50,8 +50,8 @@ const ScrollableTabView = createReactClass({
       tabBarPosition: 'top',
       initialPage: 0,
       page: -1,
-      onChangeTab: () => { },
-      onScroll: () => { },
+      onChangeTab: () => {},
+      onScroll: () => {},
       contentProps: {},
       scrollWithoutAnimation: false,
       locked: false,
@@ -134,7 +134,7 @@ const ScrollableTabView = createReactClass({
   updateSceneKeys({
     page,
     children = this.props.children,
-    callback = () => { }
+    callback = () => {}
   }) {
     const newKeys = this.newSceneKeys({
       previousKeys: this.state.sceneKeys,
@@ -227,8 +227,8 @@ const ScrollableTabView = createReactClass({
           {this._keyExists(this.state.sceneKeys, key) ? (
             child
           ) : (
-              <View heading={child.props.heading} />
-            )}
+            <View heading={child.props.heading} />
+          )}
         </SceneComponent>
       );
     });
@@ -279,9 +279,10 @@ const ScrollableTabView = createReactClass({
       return;
     }
     this.setState({ containerWidth: width });
-    this.requestAnimationFrame(() => {
-      this.goToPage(this.state.currentPage);
-    });
+    this.requestAnimationFrame &&
+      this.requestAnimationFrame(() => {
+        this.goToPage(this.state.currentPage);
+      });
   },
 
   _children(children = this.props.children) {
@@ -305,8 +306,12 @@ const ScrollableTabView = createReactClass({
         _.get(child.props.heading.props, 'style', undefined)
       ),
       disabled: this._children().map(child => child.props.disabled),
-      accessible: this._children().map(child => child.props.accessible == false ? false : true || true),
-      accessibilityLabel: this._children().map(child => child.props.accessibilityLabel),
+      accessible: this._children().map(child =>
+        child.props.accessible == false ? false : true || true
+      ),
+      accessibilityLabel: this._children().map(
+        child => child.props.accessibilityLabel
+      ),
       activeTab: this.state.currentPage,
       scrollValue: this.state.scrollValue,
       containerWidth: this.state.containerWidth

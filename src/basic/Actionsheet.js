@@ -70,7 +70,9 @@ class ActionSheetContainer extends Component {
         destructiveButtonIndex: config.destructiveButtonIndex,
         cancelButtonIndex: config.cancelButtonIndex,
         modalVisible: true,
-        callback
+        callback,
+        style: config.style,
+        fontStyle: config.fontStyle
       });
     }
   }
@@ -98,7 +100,10 @@ class ActionSheetContainer extends Component {
           }}
           style={styles.containerTouchable}
         >
-          <TouchableOpacity activeOpacity={1} style={styles.innerTouchable}>
+          <TouchableOpacity
+            activeOpacity={1}
+            style={[styles.innerTouchable, this.state.style]}
+          >
             {this.state.title ? (
               <Text style={styles.touchableText}>{this.state.title}</Text>
             ) : null}
@@ -118,7 +123,7 @@ class ActionSheetContainer extends Component {
                     }}
                     style={styles.listItem}
                   >
-                    <Text>{item}</Text>
+                    <Text style={this.state.fontStyle}>{item}</Text>
                   </ListItem>
                 ) : (
                   <ListItem
@@ -144,7 +149,7 @@ class ActionSheetContainer extends Component {
                       />
                     </Left>
                     <Body style={styles.listItemBody}>
-                      <Text>{item.text}</Text>
+                      <Text style={this.state.fontStyle}>{item.text}</Text>
                     </Body>
                     <Right />
                   </ListItem>
