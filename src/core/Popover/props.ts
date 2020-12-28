@@ -4,6 +4,7 @@ export type IPopoverContextProps = {
   setPopoverItem?: any;
   defaultConfig?: any;
   setConfig?: any;
+  parentComponentConfig?: any;
 };
 
 export type IPopoverConfig = {
@@ -11,6 +12,7 @@ export type IPopoverConfig = {
   onClose?: any;
   placeOverTriggerElement?: boolean;
   animationDuration?: number;
+  parentComponentConfig?: any;
 };
 
 export type IPopoverProps = ViewProps &

@@ -40,7 +40,7 @@ export type IMenuProps = BorderProps &
   PositionProps &
   customPositionProps &
   BorderProps & {
-    trigger?: (_props: any, state: { open: boolean }) => JSX.Element;
+    trigger: (_props: any, state: { open: boolean }) => JSX.Element;
     children?: JSX.Element | Array<JSX.Element>;
     onOpen?: () => void;
     onClose?: () => void;
@@ -75,8 +75,8 @@ export type IMenuGroupProps = {
 };
 
 export type IMenuContextProps = {
-  closeMenu: () => void;
-  open: boolean;
+  closeMenu?: () => void;
+  open?: boolean;
   closeOnSelect?: boolean;
 };
 

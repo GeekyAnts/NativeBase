@@ -71,7 +71,12 @@ const PopoverProvider = ({ children }: { children: any }) => {
   popoverItem ? fadeIn() : fadeOut();
   return (
     <PopoverContext.Provider
-      value={{ setPopoverItem, defaultConfig: config, setConfig }}
+      value={{
+        setPopoverItem,
+        defaultConfig: config,
+        setConfig,
+        parentComponentConfig: config.parentComponentConfig,
+      }}
     >
       {children}
       <Animated.View
@@ -82,6 +87,7 @@ const PopoverProvider = ({ children }: { children: any }) => {
         <TouchableWithoutFeedback
           onPress={() => {
             setPopoverItem(null);
+            config.onClose && config.onClose();
           }}
         >
           <View style={providerStyle.wrapper} />
