@@ -1,7 +1,7 @@
 import React from 'react';
 import Tooltip from './Tooltip';
 import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space } from 'styled-system';
+import { border, color, flexbox, layout, space, position } from 'styled-system';
 import {
   customBorder,
   customBackground,
@@ -9,6 +9,7 @@ import {
   customLayout,
   customExtra,
   customShadow,
+  customPosition,
 } from '../../../utils/customProps';
 
 import type { IPopoverProps } from './props';
@@ -22,6 +23,8 @@ const StyledPopover = styled(Tooltip)<IPopoverProps>(
   layout,
   flexbox,
   border,
+  position,
+  customPosition,
   customBorder,
   customBackground,
   customOutline,
