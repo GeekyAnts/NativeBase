@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  Alert,
-  AlertIcon,
-  AlertDescription,
-  CloseButton,
-  usePopover,
-  useOverlay,
-  Box,
-} from 'native-base';
+import { Button, usePopover, Box } from 'native-base';
 
 export default function () {
   const { setPopover } = usePopover();
