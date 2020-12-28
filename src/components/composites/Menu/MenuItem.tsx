@@ -1,7 +1,7 @@
 import React from 'react';
 import type { IMenuContextProps } from './props';
 import { MenuContext } from './Menu';
-import { Text } from '../../primitives';
+import Text from '../../primitives/Text';
 import { usePropsConfig } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import { TouchableItem } from './TouchableItem';
@@ -22,7 +22,6 @@ export const MenuItem = ({
     ...newProps,
     ...(newProps.isDisabled ? newProps._disabled : {}),
   };
-
   const [textProps, touchProps] = themeTools.extractInObject(allProps, [
     'color',
     'fontWeight',

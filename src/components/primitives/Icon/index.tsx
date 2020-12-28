@@ -46,8 +46,7 @@ const Icon = (iconProps: IIconProps) => {
     return <SVGIcon {...iconProps} />;
   }
   const flattenedIconStyle: TextStyle = StyleSheet.flatten([
-    { fontSize: parseInt(newProps.dimension || newProps.size, 10) },
-    style,
+    { fontSize: parseInt(newProps.dimension ?? newProps.size, 10) },
   ]);
   switch (type) {
     case 'AntDesign':

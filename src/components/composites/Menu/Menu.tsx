@@ -162,7 +162,7 @@ class MenuClass extends React.Component<IMenuProps, any> {
       buttonHeight,
       opacityAnimation,
     } = this.state;
-    let { menuSize, menuContainerStyle } = getContainerStyles(
+    let { menuContainerStyle } = getContainerStyles(
       this.state.top,
       this.state.left,
       menuSizeAnimation,
@@ -172,7 +172,6 @@ class MenuClass extends React.Component<IMenuProps, any> {
       buttonHeight,
       opacityAnimation
     );
-
     const { menuState } = this.state;
     const animationStarted = menuState === STATES.ANIMATING;
     const modalVisible = menuState === STATES.SHOWN || animationStarted;
@@ -249,9 +248,7 @@ class MenuClass extends React.Component<IMenuProps, any> {
                   {...shadowContainerProps}
                   style={[menuContainerStyle, style]}
                 >
-                  <StyleAnimatedView style={[animationStarted ? menuSize : {}]}>
-                    {children}
-                  </StyleAnimatedView>
+                  <StyleAnimatedView>{children}</StyleAnimatedView>
                 </StyleAnimatedView>
               </View>
             </TouchableWithoutFeedback>
