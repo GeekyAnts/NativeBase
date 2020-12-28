@@ -173,6 +173,8 @@ import {
   IFabProps,
   IFabListProps,
   IFabItemProps,
+  Typeahead,
+  useTypeahead,
 } from './components/composites';
 
 import {
@@ -389,6 +391,8 @@ export {
   Fab,
   FabList,
   FabItem,
+  Typeahead,
+  useTypeahead,
 };
 export type {
   IAlertProps,

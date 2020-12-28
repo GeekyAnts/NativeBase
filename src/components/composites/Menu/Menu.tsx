@@ -6,11 +6,11 @@ import {
   Platform,
   StyleSheet,
   TouchableWithoutFeedback,
-  View,
 } from 'react-native';
 import { getContainerStyles } from './utils/getContainerStyles';
 import type { IMenuProps, IMenuContextProps } from './props';
 import type { IBoxProps } from '../../primitives';
+import View from '../../primitives/View';
 import { usePropsConfig } from '../../../hooks';
 import { extractInObject } from '../../../theme/tools/utils';
 import styled from 'styled-components/native';
@@ -162,7 +162,6 @@ class MenuClass extends React.Component<IMenuProps, any> {
       buttonHeight,
       opacityAnimation,
     } = this.state;
-
     let { menuSize, menuContainerStyle } = getContainerStyles(
       this.state.top,
       this.state.left,
@@ -205,8 +204,9 @@ class MenuClass extends React.Component<IMenuProps, any> {
           { open: this.state.open }
         )
       : null;
-    const [shadowContainerProps] = extractInObject(this.props, [
+    const [shadowContainerProps, remainingProps] = extractInObject(this.props, [
       'borderRadius',
+      'borderWidth',
       'bg',
       'backgroundColor',
       'shadowOffset',
@@ -225,6 +225,7 @@ class MenuClass extends React.Component<IMenuProps, any> {
           }}
           collapsable={false}
           testID={testID}
+          {...remainingProps}
         >
           {triggerElement}
           <Modal
@@ -248,7 +249,7 @@ class MenuClass extends React.Component<IMenuProps, any> {
                   {...shadowContainerProps}
                   style={[menuContainerStyle, style]}
                 >
-                  <StyleAnimatedView style={[animationStarted && menuSize]}>
+                  <StyleAnimatedView style={[animationStarted ? menuSize : {}]}>
                     {children}
                   </StyleAnimatedView>
                 </StyleAnimatedView>

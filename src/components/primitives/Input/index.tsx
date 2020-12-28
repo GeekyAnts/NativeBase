@@ -60,6 +60,7 @@ const Input = (
     errorBorderColor,
     errorMessageColor,
     ariaLabel,
+    accessibilityLabel,
     InputLeftElement,
     InputRightElement,
     type,
@@ -142,7 +143,7 @@ const Input = (
           flex={1}
           secureTextEntry={type === 'password'}
           accessible
-          accessibilityLabel={ariaLabel}
+          accessibilityLabel={ariaLabel || accessibilityLabel}
           onKeyPress={(e: any) => {
             e.persist();
           }}

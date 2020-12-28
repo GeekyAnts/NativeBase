@@ -223,3 +223,4 @@ export {
   IFabListProps,
   IFabItemProps,
 } from './Fab';
+export { default as Typeahead, useTypeahead } from './Typeahead';
