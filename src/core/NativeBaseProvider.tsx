@@ -12,11 +12,14 @@ import {
   useColorModeValue,
 } from './../color-mode';
 import OverlayProvider from './Overlay/OverlayProvider';
+import PopoverProvider from './Popover/PopoverProvider';
 import View from '../components/primitives/View';
 
 const ColoredBackground = ({ children, ...props }: any) => (
   <View {...props} bg={useColorModeValue(`gray.50`, `gray.800`)} flex={1}>
-    <OverlayProvider>{children}</OverlayProvider>
+    <OverlayProvider>
+      <PopoverProvider>{children}</PopoverProvider>
+    </OverlayProvider>
   </View>
 );
 
