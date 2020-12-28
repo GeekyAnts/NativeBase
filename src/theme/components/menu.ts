@@ -3,8 +3,6 @@ import { mode } from './../tools';
 function baseStyle(props: Record<string, any>) {
   return {
     bg: mode(`#fff`, `gray.700`)(props), // change this to match theme
-    py: 2,
-    zIndex: 1,
     borderRadius: 'md',
     borderWidth: '1px',
   };

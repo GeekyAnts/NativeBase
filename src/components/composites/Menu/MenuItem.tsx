@@ -1,11 +1,10 @@
 import React from 'react';
-import type { IMenuContextProps } from './props';
-import { MenuContext } from './Menu';
-import { Text } from '../../primitives';
+import Text from '../../primitives/Text';
 import { usePropsConfig } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import { TouchableItem } from './TouchableItem';
 import type { IMenuItemProps } from './props';
+import { usePopover } from '../../../core';
 
 export const MenuItem = ({
   children,
@@ -14,15 +13,15 @@ export const MenuItem = ({
   textStyle,
   ...props
 }: IMenuItemProps) => {
-  const { closeMenu, closeOnSelect }: IMenuContextProps = React.useContext(
-    MenuContext
-  );
+  const {
+    parentComponentConfig: { closeMenu, closeOnSelect },
+  } = usePopover();
+
   const newProps = usePropsConfig('MenuItem', props);
   let allProps = {
     ...newProps,
     ...(newProps.isDisabled ? newProps._disabled : {}),
   };
-
   const [textProps, touchProps] = themeTools.extractInObject(allProps, [
     'color',
     'fontWeight',
@@ -42,7 +41,7 @@ export const MenuItem = ({
         if (!props.isDisabled) {
           onPress && onPress(e);
           if (closeOnSelect) {
-            closeMenu();
+            closeMenu && closeMenu();
           }
         }
       }}
