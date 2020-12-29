@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Box } from '../../primitives';
-import { FabContext } from './Fab';
+import { FabContext } from './context';
 import type { IFabItemProps } from './props';
 import { Animated } from 'react-native';
 import { omitUndefined } from '../../../theme/tools/utils';

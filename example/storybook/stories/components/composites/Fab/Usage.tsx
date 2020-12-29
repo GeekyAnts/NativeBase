@@ -4,7 +4,6 @@ import { Box, FabList, FabItem, Fab, Icon } from 'native-base';
 export default function () {
   return (
     <Box flex={1} width="100%">
-      <Box m={3}>Rest of the components.</Box>
       <Fab placement="bottom-right" slide="up" bottom={20} right={10}>
         <FabList>
           <FabItem bg="teal.200">

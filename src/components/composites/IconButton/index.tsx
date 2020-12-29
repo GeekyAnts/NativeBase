@@ -1,17 +1,25 @@
 import React, { forwardRef } from 'react';
-import { Button, IButtonProps } from '../../primitives';
+import { Button, IButtonProps, HStack } from '../../primitives';
 import { usePropsConfig } from '../../../hooks';
 import type { TouchableHighlight, TouchableOpacity } from 'react-native';
 
 export type IIconButtonProps = IButtonProps & {
   icon?: JSX.Element;
+  label?: JSX.Element;
 };
 
-const IconButton = ({ icon, ...props }: IIconButtonProps, ref: any) => {
+const IconButton = ({ icon, label, ...props }: IIconButtonProps, ref: any) => {
   const newProps = usePropsConfig('IconButton', props);
   return (
     <Button ref={ref} {...newProps}>
-      {icon}
+      {icon && label ? (
+        <HStack space={1} justifyContent="center" alignItems="center">
+          {icon}
+          {label}
+        </HStack>
+      ) : (
+        icon ?? label
+      )}
     </Button>
   );
 };

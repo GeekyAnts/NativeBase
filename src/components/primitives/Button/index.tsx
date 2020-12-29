@@ -83,7 +83,6 @@ const Button = (
     'right',
     'position',
   ]);
-
   let [
     additionalButtonProps,
     innerButtonProps,
@@ -99,7 +98,6 @@ const Button = (
 
   additionalButtonProps.isDisabled =
     additionalButtonProps.isDisabled || isLoading;
-
   const innerButton = (
     <Box {...innerButtonProps} opacity={isLoading ? 0.5 : 1} style={style}>
       {leftIcon ? (
@@ -110,6 +108,8 @@ const Button = (
           {spinner ? spinner : <Spinner color={textProps.color} size="sm" />}
           <Text {...textProps}>{isLoadingText ? ' ' + isLoadingText : ''}</Text>
         </Flex>
+      ) : React.Children.count(children) > 1 ? (
+        children
       ) : (
         <Text
           {...textProps}

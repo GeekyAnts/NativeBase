@@ -1,37 +1,52 @@
 import React from 'react';
-import { Box } from '../../primitives';
+import { Button, HStack } from '../../primitives';
 import type { IFabProps } from './props';
-
+import { FabContext } from './context';
 import { omitUndefined } from '../../../theme/tools/utils';
 
-export const FabContext = React.createContext({});
-
-const Fab = ({ children, ...props }: IFabProps) => {
+const Fab = ({ children, icon, label, ...props }: IFabProps) => {
   const {
-    placement = 'bottom-right',
-    slide = 'up',
+    position = 'bottomRight',
+    direction = 'up',
     ...newProps
   } = omitUndefined(props);
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const positioningStyle: any = {
-    'top-right': { top: 0, right: 0 },
-    'top-left': { top: 0, left: 0 },
-    'bottom-right': { bottom: 0, right: 0 },
-    'bottom-left': { bottom: 0, right: 0 },
+  const positioningProps: any = {
+    topRight: { top: 4, right: 4 },
+    topLeft: { top: 4, left: 4 },
+    bottomRight: { bottom: 4, right: 4 },
+    bottomLeft: { bottom: 4, left: 4 },
   };
 
   return (
     <FabContext.Provider
       value={{
         isOpen,
-        slide,
+        direction,
         onToggle: () => setIsOpen(!isOpen),
       }}
     >
-      <Box position="absolute" {...positioningStyle[placement]} {...newProps}>
-        {children}
-      </Box>
+      <Button
+        variant="unstyled"
+        bg="default.200"
+        borderRadius="full"
+        {...newProps}
+        // onPress={pressHandler}
+        p={2}
+        position="absolute"
+        {...positioningProps[position]}
+        {...newProps}
+      >
+        {icon && label ? (
+          <HStack space={1} justifyContent="center" alignItems="center">
+            {icon}
+            {label}
+          </HStack>
+        ) : (
+          icon ?? label
+        )}
+      </Button>
     </FabContext.Provider>
   );
 };
