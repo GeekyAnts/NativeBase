@@ -168,11 +168,7 @@ import {
   ISnackbarProps,
   IuseSnackbarProps,
   Fab,
-  FabList,
-  FabItem,
   IFabProps,
-  IFabListProps,
-  IFabItemProps,
   Typeahead,
   useTypeahead,
 } from './components/composites';
@@ -389,8 +385,6 @@ export {
   Snackbar,
   useSnackbar,
   Fab,
-  FabList,
-  FabItem,
   Typeahead,
   useTypeahead,
 };
@@ -475,6 +469,4 @@ export type {
   ISnackbarProps,
   IuseSnackbarProps,
   IFabProps,
-  IFabListProps,
-  IFabItemProps,
 };

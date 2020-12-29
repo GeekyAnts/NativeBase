@@ -215,12 +215,6 @@ export { Snackbar, useSnackbar } from './Snackbar';
 export type { ISnackbarProps, IuseSnackbarProps } from './Snackbar';
 export { AppBar } from './AppBar';
 
-export {
-  Fab,
-  FabList,
-  FabItem,
-  IFabProps,
-  IFabListProps,
-  IFabItemProps,
-} from './Fab';
+export { Fab } from './Fab';
+export type { IFabProps } from './Fab';
 export { default as Typeahead, useTypeahead } from './Typeahead';

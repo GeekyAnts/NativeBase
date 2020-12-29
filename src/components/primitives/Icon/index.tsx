@@ -39,8 +39,8 @@ import { SVGIcon } from './SVGIcon';
 import { Path } from 'react-native-svg';
 
 const Icon = (iconProps: IIconProps) => {
-  const { name, type, size, style, color, ...props } = iconProps;
-  const newProps = usePropsConfig('Icon', { size, color });
+  const { name, type, size, color: colorProp, ...props } = iconProps;
+  const newProps = usePropsConfig('Icon', { size, color: colorProp });
   const rawColor = useToken('colors', newProps.color);
   if (!name) {
     return <SVGIcon {...iconProps} />;
@@ -53,8 +53,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <AntDesign
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -62,8 +62,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <Entypo
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -71,8 +71,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <EvilIcons
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -80,8 +80,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <Feather
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -89,8 +89,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <FontAwesome
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -98,8 +98,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <FontAwesome5
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -107,8 +107,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <Foundation
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -116,8 +116,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <Ionicons
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -125,8 +125,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <MaterialCommunityIcons
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -134,8 +134,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <Octicons
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -143,8 +143,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <SimpleLineIcons
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -152,8 +152,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <Zocial
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
@@ -161,8 +161,8 @@ const Icon = (iconProps: IIconProps) => {
       return (
         <MaterialIcons
           name={name}
-          style={flattenedIconStyle}
           {...props}
+          style={flattenedIconStyle}
           color={rawColor}
         />
       );
