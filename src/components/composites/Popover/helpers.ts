@@ -1,4 +1,4 @@
-import { Platform, Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 
 const Screen = Dimensions.get('window');
 export const ScreenWidth: number = Screen.width;

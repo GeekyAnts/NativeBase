@@ -1,5 +1,5 @@
-import { useControllableProp } from '../../../hooks';
 import React from 'react';
+import { useControllableProp } from '../../../hooks';
 import type {
   ICheckboxGroupProps,
   ICheckboxValue,

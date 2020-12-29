@@ -1,15 +1,15 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import Box from '../Box';
-import Icon from '../Icon';
-import { Center } from '../../composites/Center';
 import { usePropsConfig } from '../../../hooks';
+import { Center } from '../../composites/Center';
 import {
   FormControlContext,
   IFormControlContext,
 } from '../../composites/FormControl';
+import Box from '../Box';
+import Icon from '../Icon';
 import { CheckboxContext } from './CheckboxGroup';
-import type { ICheckboxProps, ICheckboxContext } from './props';
+import type { ICheckboxContext, ICheckboxProps } from './props';
 import { useCheckbox } from './useCheckbox';
 
 const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {

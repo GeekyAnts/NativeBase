@@ -1,5 +1,4 @@
 import type { ViewStyle } from 'react-native';
-import type { Props as tooltipProps } from './Tooltip';
 import type {
   BorderProps,
   ColorProps,
@@ -8,13 +7,14 @@ import type {
   SpaceProps,
 } from 'styled-system';
 import type {
-  customBorderProps,
   customBackgroundProps,
-  customOutlineProps,
-  customLayoutProps,
+  customBorderProps,
   customExtraProps,
+  customLayoutProps,
+  customOutlineProps,
   customShadowProps,
 } from '../../../utils/customProps';
+import type { Props as tooltipProps } from './Tooltip';
 type SpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 export type IPopoverProps = ColorProps &
   SpaceProps &

@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { TouchableOpacity, Modal, I18nManager } from 'react-native';
-import Triangle from './Triangle';
-import { ScreenWidth, ScreenHeight, isIOS } from './helpers';
-import getTooltipCoordinate from './getTooltipCoordinate';
+import { I18nManager, Modal, TouchableOpacity } from 'react-native';
 import { View } from '../../primitives';
+import getTooltipCoordinate from './getTooltipCoordinate';
+import { isIOS, ScreenHeight, ScreenWidth } from './helpers';
+import Triangle from './Triangle';
+
 type State = {
   isVisible: boolean;
   yOffset: number;
@@ -69,36 +70,26 @@ class Tooltip extends React.Component<Props, State> {
       if (prevState.isVisible && !isIOS) {
         onClose && onClose();
       }
-
       return { isVisible: !prevState.isVisible };
     });
   };
 
   wrapWithAction = (actionType: any, children: {} | null | undefined) => {
-    switch (actionType) {
-      case 'press':
-        return (
-          <TouchableOpacity
-            onPress={this.toggleTooltip}
-            activeOpacity={1}
-            {...this.props.toggleWrapperProps}
-          >
-            {children}
-          </TouchableOpacity>
-        );
-      case 'longPress':
-        return (
-          <TouchableOpacity
-            onLongPress={this.toggleTooltip}
-            activeOpacity={1}
-            {...this.props.toggleWrapperProps}
-          >
-            {children}
-          </TouchableOpacity>
-        );
-      default:
-        return children;
+    if (actionType === 'press' || actionType === 'longPress') {
+      return (
+        <TouchableOpacity
+          onPress={actionType === 'press' ? this.toggleTooltip : undefined}
+          onLongPress={
+            actionType === 'longPress' ? this.toggleTooltip : undefined
+          }
+          activeOpacity={1}
+          {...this.props.toggleWrapperProps}
+        >
+          {children}
+        </TouchableOpacity>
+      );
     }
+    return children;
   };
 
   getTooltipStyle = () => {
@@ -244,9 +235,7 @@ class Tooltip extends React.Component<Props, State> {
               }}
               onPress={this.toggleTooltip}
             />
-          ) : (
-            <></>
-          )}
+          ) : null}
 
           {this.props.closeOnPopoverPress ? (
             <TouchableOpacity

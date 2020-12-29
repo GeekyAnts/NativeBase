@@ -1,21 +1,21 @@
 import React from 'react';
-import Tooltip from './Tooltip';
 import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space, position } from 'styled-system';
-import {
-  customBorder,
-  customBackground,
-  customOutline,
-  customLayout,
-  customExtra,
-  customShadow,
-  customPosition,
-} from '../../../utils/customProps';
-
-import type { IPopoverProps } from './props';
-import { Box, View, IBoxProps } from '../../primitives';
-import CloseButton from '../CloseButton';
+import { border, color, flexbox, layout, position, space } from 'styled-system';
 import { usePropsConfig } from '../../../hooks';
+import {
+  customBackground,
+  customBorder,
+  customExtra,
+  customLayout,
+  customOutline,
+  customPosition,
+  customShadow,
+} from '../../../utils/customProps';
+import { default as Box, IBoxProps } from '../../primitives/Box';
+import View from '../../primitives/View';
+import CloseButton from '../CloseButton';
+import type { IPopoverProps } from './props';
+import Tooltip from './Tooltip';
 
 const StyledPopover = styled(Tooltip)<IPopoverProps>(
   color,
@@ -48,7 +48,6 @@ const PopoverContext = React.createContext({
   onClose: () => {},
   closeOnBlur: true,
   newProps: {
-    popoverCloseButtonStyle: {},
     popoverCloseButtonProps: {},
     popoverFooterProps: {},
     popoverBodyProps: {},
@@ -71,7 +70,7 @@ const Popover = ({
   borderColor,
   ...props
 }: IPopoverProps) => {
-  const [trigger, setTrigger] = React.useState(<></>);
+  const [trigger, setTrigger] = React.useState();
   const [isVisible, setIsVisible] = React.useState(false);
   const popOverRef: any = React.useRef(null);
   const newProps = usePropsConfig('Popover', props);
@@ -118,8 +117,10 @@ export const PopoverTrigger = ({ children }: any) => {
 };
 
 export const PopoverHeader = (props: IBoxProps) => {
-  const { newProps } = React.useContext(PopoverContext);
-  return <Box {...newProps.popoverHeaderProps} {...props} />;
+  const {
+    newProps: { popoverHeaderProps },
+  } = React.useContext(PopoverContext);
+  return <Box {...popoverHeaderProps} {...props} />;
 };
 
 export const PopoverContent = ({
@@ -148,14 +149,14 @@ export const PopoverContent = ({
       borderWidth={borderWidth}
       ref={PopoverRef}
       onOpen={() => {
-        onOpen ? onOpen() : '';
+        onOpen && onOpen();
         initialFocusRef?.current.focus();
       }}
       onClose={() => {
-        onClose ? onClose() : '';
+        onClose && onClose();
         finalFocusRef?.current.focus();
       }}
-      closeOnBlur={closeOnBlur === false ? false : true}
+      closeOnBlur={closeOnBlur ?? true}
       popover={
         <Box width="100%">
           <Box>{children}</Box>
@@ -169,12 +170,14 @@ export const PopoverContent = ({
 };
 
 export const PopoverBody = (props: any) => {
-  const { newProps, borderColor, borderWidth } = React.useContext(
-    PopoverContext
-  );
+  const {
+    newProps: { popoverBodyProps },
+    borderColor,
+    borderWidth,
+  } = React.useContext(PopoverContext);
   return (
     <Box
-      {...newProps.popoverBodyProps}
+      {...popoverBodyProps}
       borderTopColor={borderColor}
       borderTopWidth={borderWidth}
       {...props}
@@ -183,12 +186,14 @@ export const PopoverBody = (props: any) => {
 };
 
 export const PopoverFooter = (props: any) => {
-  const { newProps, borderColor, borderWidth } = React.useContext(
-    PopoverContext
-  );
+  const {
+    newProps: { popoverFooterProps },
+    borderColor,
+    borderWidth,
+  } = React.useContext(PopoverContext);
   return (
     <Box
-      {...newProps.popoverFooterProps}
+      {...popoverFooterProps}
       borderTopColor={borderColor}
       borderTopWidth={borderWidth}
       {...props}
@@ -197,16 +202,17 @@ export const PopoverFooter = (props: any) => {
 };
 
 export const PopoverCloseButton = (props: any) => {
-  const { PopoverRef, newProps }: any = React.useContext(PopoverContext);
+  const {
+    PopoverRef,
+    newProps: { popoverCloseButtonProps },
+  }: any = React.useContext(PopoverContext);
 
   return (
-    <View style={newProps.popoverCloseButtonStyle}>
+    <View position="absolute" right={0} top={0} zIndex={1}>
       <CloseButton
-        {...newProps.popoverCloseButtonProps}
+        {...popoverCloseButtonProps}
         {...props}
-        onPress={() => {
-          PopoverRef?.current.toggleTooltip();
-        }}
+        onPress={() => PopoverRef?.current.toggleTooltip()}
       />
     </View>
   );

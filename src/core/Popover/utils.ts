@@ -1,4 +1,4 @@
-import { I18nManager, Dimensions, StatusBar } from 'react-native';
+import { Dimensions, I18nManager, StatusBar } from 'react-native';
 
 export function getCoordinates(
   elementTop: any,

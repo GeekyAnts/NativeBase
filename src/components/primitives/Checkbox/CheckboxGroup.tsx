@@ -1,9 +1,9 @@
 import React from 'react';
-import Box from '../Box';
 import {
   FormControlContext,
   IFormControlContext,
 } from '../../composites/FormControl';
+import Box from '../Box';
 import type { ICheckboxGroupProps } from './props';
 import { useCheckboxGroup } from './useCheckboxGroup';
 
