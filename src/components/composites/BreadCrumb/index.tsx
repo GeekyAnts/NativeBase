@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flex, Link as BreadCrumbLink } from '../../primitives';
 import type { IBreadCrumbProps } from './props';
+import { extractInObject } from '../../../theme/tools';
 import { BreadCrumbSeparator } from './BreadCrumbSeparator';
 import { usePropsConfig } from '../../../hooks';
 export { BreadCrumbItem } from './BreadCrumbItem';
@@ -10,46 +11,30 @@ const BreadCrumb = ({
   style,
   children,
   separator,
-  fontSize,
-  color,
-  textDecoration,
-  txtDecor,
-  wordBreak,
-  textOverflow,
-  textTransform,
-  whiteSpace,
-  overflowWrap,
-  fontFamily,
-  fontWeight,
-  bold,
-  italic,
-  underline,
-  strikeThrough,
-  isTruncated,
-  noOfLines,
   spacing,
   ...props
 }: IBreadCrumbProps) => {
-  const textProps = {
-    fontWeight,
-    fontFamily,
-    fontSize,
-    color,
-    textDecoration,
-    txtDecor,
-    wordBreak,
-    textOverflow,
-    textTransform,
-    whiteSpace,
-    overflowWrap,
-    bold,
-    italic,
-    underline,
-    strikeThrough,
-    isTruncated,
-    noOfLines,
-  };
-  let newProps = usePropsConfig('BreadCrumb', props);
+  const [textProps, remainingProps] = extractInObject(props, [
+    'fontWeight',
+    'fontFamily',
+    'fontSize',
+    'color',
+    'textDecoration',
+    'txtDecor',
+    'wordBreak',
+    'textOverflow',
+    'textTransform',
+    'whiteSpace',
+    'overflowWrap',
+    'bold',
+    'italic',
+    'underline',
+    'strikeThrough',
+    'isTruncated',
+    'noOfLines',
+  ]);
+
+  let newProps = usePropsConfig('BreadCrumb', remainingProps);
   return (
     <Flex {...newProps} style={style}>
       {children && !children.length

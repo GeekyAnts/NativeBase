@@ -1,6 +1,6 @@
-import type { IBoxProps } from '../Box';
-import type { IFormControlContext } from '../../composites/FormControl';
 import type { TouchableOpacityProps } from 'react-native';
+import type { IFormControlContext } from '../../composites/FormControl';
+import type { IBoxProps } from '../Box';
 
 export type ICheckboxValue = string | number;
 

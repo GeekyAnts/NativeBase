@@ -1,11 +1,9 @@
-import type { ViewProps, ViewStyle } from 'react-native';
 import type {
-  customBorderProps,
-  customOutlineProps,
-  customLayoutProps,
-  customExtraProps,
-  customShadowProps,
-} from '../../../utils/customProps';
+  AccessibilityRole,
+  AccessibilityState,
+  ViewProps,
+  ViewStyle,
+} from 'react-native';
 import type {
   BorderProps,
   ColorProps,
@@ -14,7 +12,13 @@ import type {
   PositionProps,
   SpaceProps,
 } from 'styled-system';
-import type { AccessibilityRole, AccessibilityState } from 'react-native';
+import type {
+  customBorderProps,
+  customExtraProps,
+  customLayoutProps,
+  customOutlineProps,
+  customShadowProps,
+} from '../../../utils/customProps';
 
 export type IButtonAccessibilityProps = {
   accessible?: boolean;

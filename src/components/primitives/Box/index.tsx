@@ -1,27 +1,27 @@
 import React, { forwardRef } from 'react';
-import { View } from 'react-native';
 import type { View as ViewType } from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
-import { usePropsConfig } from '../../../hooks/usePropsConfig';
-import { themeTools } from '../../../theme';
-import { addTextAndPropsToStrings } from '../../../utils';
 import {
   border,
   color,
   flexbox,
   layout,
+  position,
   space,
   typography,
-  position,
 } from 'styled-system';
+import { usePropsConfig } from '../../../hooks/usePropsConfig';
+import { themeTools } from '../../../theme';
+import { addTextAndPropsToStrings } from '../../../utils';
 import {
-  customBorder,
   customBackground,
-  customOutline,
-  customLayout,
+  customBorder,
   customExtra,
-  customShadow,
+  customLayout,
+  customOutline,
   customPosition,
+  customShadow,
   customTypography,
 } from '../../../utils/customProps';
 import type { IBoxProps } from './props';

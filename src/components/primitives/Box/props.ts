@@ -4,21 +4,21 @@ import type {
   ColorProps,
   FlexboxProps,
   LayoutProps,
+  PositionProps,
   SpaceProps,
   TypographyProps,
-  PositionProps,
 } from 'styled-system';
 import type {
-  customBorderProps,
   customBackgroundProps,
-  customOutlineProps,
-  customLayoutProps,
+  customBorderProps,
   customExtraProps,
-  customShadowProps,
-  customTypographyProps,
-  customTransformProps,
   customFlexboxProps,
+  customLayoutProps,
+  customOutlineProps,
   customPositionProps,
+  customShadowProps,
+  customTransformProps,
+  customTypographyProps,
 } from '../../../utils/customProps';
 
 export type IBoxProps = ViewProps &

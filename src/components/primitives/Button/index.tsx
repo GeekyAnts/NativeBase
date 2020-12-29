@@ -1,23 +1,23 @@
 import React, { forwardRef } from 'react';
 import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space, position } from 'styled-system';
-import {
-  customBorder,
-  customBackground,
-  customOutline,
-  customLayout,
-  customExtra,
-  customShadow,
-  customPosition,
-} from '../../../utils/customProps';
-import Text from '../../primitives/Text';
+import { border, color, flexbox, layout, position, space } from 'styled-system';
 import { usePropsConfig } from '../../../hooks';
 import { themeTools } from '../../../theme';
-import Spinner from '../Spinner';
+import {
+  customBackground,
+  customBorder,
+  customExtra,
+  customLayout,
+  customOutline,
+  customPosition,
+  customShadow,
+} from '../../../utils/customProps';
+import Text from '../../primitives/Text';
 import { default as Box, IBoxProps } from '../Box';
 import Flex from '../Flex';
-import type { IButtonProps, IButtonGroupProps } from './props';
+import Spinner from '../Spinner';
+import type { IButtonGroupProps, IButtonProps } from './props';
 import { useButton } from './useButton';
 
 const StyledButton = styled(TouchableOpacity)<
@@ -137,6 +137,6 @@ const Button = (
   );
 };
 
-export type { IButtonProps, IButtonGroupProps };
 export { ButtonGroup } from './ButtonGroup';
+export type { IButtonProps, IButtonGroupProps };
 export default forwardRef<any, IButtonProps & IBoxProps>(Button);

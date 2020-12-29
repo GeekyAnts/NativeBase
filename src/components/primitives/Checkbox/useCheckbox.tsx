@@ -1,10 +1,10 @@
-import type {
-  ICheckboxProps,
-  ICheckboxContext,
-  IUseCheckboxReturnType,
-} from './props';
 import React from 'react';
 import { useControllableProp } from '../../../hooks';
+import type {
+  ICheckboxContext,
+  ICheckboxProps,
+  IUseCheckboxReturnType,
+} from './props';
 
 export function useCheckbox(
   props: ICheckboxProps,

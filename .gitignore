@@ -5,10 +5,6 @@
 # XDE
 .expo/
 
-# VSCode
-.vscode/
-jsconfig.json
-
 # Xcode
 #
 build/

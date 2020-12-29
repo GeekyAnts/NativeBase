@@ -1,6 +1,6 @@
 import React from 'react';
 import { PopoverContext } from './Context';
-import type { IPopoverContextProps, IPopoverConfig } from './props';
+import type { IPopoverConfig, IPopoverContextProps } from './props';
 
 export const usePopover = () => {
   const {

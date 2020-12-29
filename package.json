@@ -21,7 +21,8 @@
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
-    "build:web": "rollup --config"
+    "build:web": "rollup --config",
+    "bundle:analysis": "visualize-bundle"
   },
   "version": "3.0.0-next.4",
   "license": "Apache-2.0",
@@ -59,7 +60,8 @@
     "release-it": "^13.5.8",
     "rollup": "^2.34.1",
     "rollup-plugin-flow": "^1.1.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
     "@expo/vector-icons": "^12.0.2",
