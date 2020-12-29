@@ -2,17 +2,10 @@
 
 A complete component library for React Native Ecosystem
 
-### Accessible
-Maximise app usage with our accessible design.
-
-### Responsive
-Create responsive apps with ease from the get-go.
-
-### Themeable
-Customise your app theme and component styles.
-
-### Consistent
-Make accurate predictions for web, Android & iOS.
+- **Accessible** : Maximise app usage with our accessible design.
+- **Responsive** : Create responsive apps with ease from the get-go.
+- **Themeable** : Customise your app theme and component styles.
+- **Consistent** : Make accurate predictions for web, Android & iOS.
 
 ## Documentation
 You can find the complete documentation [here](https://nativebase.github.io/).
