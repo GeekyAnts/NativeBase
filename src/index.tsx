@@ -167,6 +167,8 @@ import {
   useSnackbar,
   ISnackbarProps,
   IuseSnackbarProps,
+  Fab,
+  IFabProps,
   Typeahead,
   useTypeahead,
 } from './components/composites';
@@ -382,6 +384,7 @@ export {
   ActionsheetItem,
   Snackbar,
   useSnackbar,
+  Fab,
   Typeahead,
   useTypeahead,
 };
@@ -465,4 +468,5 @@ export type {
   IActionsheetItemProps,
   ISnackbarProps,
   IuseSnackbarProps,
+  IFabProps,
 };

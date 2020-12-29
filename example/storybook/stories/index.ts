@@ -15,6 +15,7 @@ export * from './components/composites/Code';
 export * from './components/composites/Collapse';
 export * from './components/composites/Container';
 export * from './components/composites/Divider';
+export * from './components/composites/Fab';
 export * from './components/composites/FormControl';
 export * from './components/composites/IconButton';
 export * from './components/composites/Kbd';
