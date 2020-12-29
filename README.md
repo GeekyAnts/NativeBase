@@ -1,7 +1,20 @@
-# NativeBase 3.0 [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
+# <img width="25px" src="https://github.com/nativebase/nativebase.github.io/blob/master/img/native-base-icon.png" alt="Nativebase Logo"> NativeBase 3.0 [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
 
 A complete component library for React Native Ecosystem
 
+### Accessible
+Maximise app usage with our accessible design.
+
+### Responsive
+Create responsive apps with ease from the get-go.
+
+### Themeable
+Customise your app theme and component styles.
+
+### Consistent
+Make accurate predictions for web, Android & iOS.
+
+## Documentation
 You can find the complete documentation [here](https://nativebase.github.io/).
 
 # Table of Content
@@ -20,7 +33,7 @@ You can find the complete documentation [here](https://nativebase.github.io/).
 12. [About the creators](#12-about-the-creators)
 
 ## 1. What is NativeBase 3.0?
-[NativeBase](https://nativebase.io/) is a universal Design System for Mobile & Web built for React Native and React with the same API. Ships a bunch of components for most of the use-cases that includes Button, AppBar, Dialog, Modal and what not.
+[NativeBase](https://nativebase.github.io/) is a universal Design System for Mobile & Web built for React Native and React with the same API. Ships a bunch of components for most of the use-cases that includes Button, AppBar, Dialog, Modal and what not.
 
 ## 2. Why NativeBase 3.0?
 We want to build and ship apps fast with the highest quality. We want to focus on the business logic and to solve real problems.<br />
