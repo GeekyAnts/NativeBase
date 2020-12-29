@@ -6,8 +6,8 @@ You can find the complete documentation [here](https://nativebase.github.io/).
 
 # Table of Content
 
-1. [What is NativeBase 3.0?](#1-what-is-nativebase-3-0)
-2. [Why NativeBase 3.0?](#2-why-nativebase)
+1. [What is NativeBase 3.0?](#1-what-is-nativebase-30)
+2. [Why NativeBase 3.0?](#2-why-nativebase-30)
 3. [KitchenSink App](https://github.com/GeekyAnts/NativeBase-KitchenSink)
 4. [Compairing available options](#4-compairing-the-available-options)
 5. [Inspirations](#5-inspirations)
