@@ -10,7 +10,7 @@ A complete component library for React Native Ecosystem
 ## Documentation
 You can find the complete documentation [here](https://nativebase.github.io/).
 
-# Table of Content
+## Table of Content
 
 1. [What is NativeBase 3.0?](#1-what-is-nativebase-30)
 2. [Why NativeBase 3.0?](#2-why-nativebase-30)
