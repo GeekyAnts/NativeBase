@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Modal,
-  View
-} from 'react-native';
+import { Modal, View } from 'react-native';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -106,6 +103,7 @@ export class DatePicker extends React.Component {
                 mode="date"
                 locale={locale}
                 timeZoneOffsetInMinutes={timeZoneOffsetInMinutes}
+                {...this.props}
               />
             </Modal>
           </View>

@@ -28,12 +28,12 @@ class CheckBox extends Component {
     };
   }
 
-
+  // eslint-disable-next-line class-methods-use-this
   getBorderRadius(checkboxType, variables) {
-    if (checkboxType == "rounded") {
+    if (checkboxType === 'rounded') {
       return 13;
     }
-    if (checkboxType == "square") {
+    if (checkboxType === 'square') {
       return 0;
     }
     return variables.CheckboxRadius;
