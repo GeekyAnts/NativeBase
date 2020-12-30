@@ -50,6 +50,7 @@ export * from './components/primitives/List';
 export * from './components/primitives/Overlay';
 export * from './components/primitives/Radio';
 export * from './components/primitives/Row';
+export * from './components/primitives/Select';
 export * from './components/primitives/Slider';
 export * from './components/primitives/Spinner';
 export * from './components/primitives/Stack';
