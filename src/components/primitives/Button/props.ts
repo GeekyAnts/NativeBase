@@ -13,11 +13,14 @@ import type {
   SpaceProps,
 } from 'styled-system';
 import type {
+  customBackgroundProps,
   customBorderProps,
   customExtraProps,
   customLayoutProps,
   customOutlineProps,
   customShadowProps,
+  customFlexboxProps,
+  customPositionProps,
 } from '../../../utils/customProps';
 
 export type IButtonAccessibilityProps = {
@@ -39,7 +42,10 @@ export type IButtonProps = ViewProps &
   customExtraProps &
   customOutlineProps &
   customShadowProps &
+  customFlexboxProps &
+  customPositionProps &
   customLayoutProps &
+  customBackgroundProps &
   IButtonAccessibilityProps & {
     style?: ViewStyle;
     children?: any;

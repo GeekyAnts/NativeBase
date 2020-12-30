@@ -17,8 +17,6 @@ function Select({
   dropdownOpenIcon,
   dropdownCloseIcon,
   width,
-  bg,
-  backgroundColor,
   ...props
 }: ISelectProps) {
   let triggerRef = React.useRef();

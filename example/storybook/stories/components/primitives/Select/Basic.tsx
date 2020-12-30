@@ -5,13 +5,10 @@ export default function () {
   let [language, setLanguage] = React.useState<string>('');
   return (
     <Select
-      label="Pick language"
       placeholder="Pick language"
       selectedValue={language}
       width={150}
-      onValueChange={(itemValue: string, itemIndex?: number) =>
-        setLanguage(itemValue)
-      }
+      onValueChange={(itemValue: string) => setLanguage(itemValue)}
       // itemStyle={{ fontSize: 'lg' }}
       selectedItemBg={'teal.400'}
       // isDisabled
