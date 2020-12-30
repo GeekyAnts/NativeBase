@@ -175,7 +175,7 @@ export class Accordion extends React.Component {
     super(props);
 
     const { expanded, expandMultiple } = this.props;
-    let selected;
+    let selected = null;
     if (expanded !== undefined && expanded !== null) {
       selected = Array.isArray(expanded) ? expanded : [expanded];
       selected = expandMultiple ? selected : selected.slice(0, 1);
@@ -230,7 +230,7 @@ export class Accordion extends React.Component {
         keyExtractor={(item, index) => String(index)}
         renderItem={({ item, index }) => (
           <AccordionItem
-            disable={disable == index ? true : false}
+            disable={disable === index}
             key={String(index)}
             item={item}
             expanded={this.state.selected.indexOf(index) !== -1}

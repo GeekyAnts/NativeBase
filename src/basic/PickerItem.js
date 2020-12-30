@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connectStyle } from 'native-base-shoutem-theme';
 
-import { Picker } from '@react-native-community/picker';
+import { Picker } from '@react-native-picker/picker';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
