@@ -22,7 +22,7 @@ import {
   customTypography,
 } from '../../../utils/customProps';
 
-export const TouchableItem = styled(
+const TouchableItem = styled(
   Platform.OS === 'android' && Platform.Version >= 21
     ? TouchableNativeFeedback
     : TouchableHighlight
@@ -41,3 +41,5 @@ export const TouchableItem = styled(
   customTypography,
   customLayout
 );
+
+export default TouchableItem;

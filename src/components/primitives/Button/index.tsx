@@ -82,6 +82,20 @@ const Button = (
     'bottom',
     'right',
     'position',
+    'minH',
+    'minHeight',
+    'minWidth',
+    'minW',
+    'height',
+    'width',
+  ]);
+  const [commonProps] = themeTools.extractInObject(layoutProps, [
+    'minH',
+    'minHeight',
+    'minWidth',
+    'minW',
+    'height',
+    'width',
   ]);
   let [
     additionalButtonProps,
@@ -99,7 +113,12 @@ const Button = (
   additionalButtonProps.isDisabled =
     additionalButtonProps.isDisabled || isLoading;
   const innerButton = (
-    <Box {...innerButtonProps} opacity={isLoading ? 0.5 : 1} style={style}>
+    <Box
+      {...innerButtonProps}
+      {...commonProps}
+      opacity={isLoading ? 0.5 : 1}
+      style={style}
+    >
       {leftIcon ? (
         <Box mr={innerButtonProps.px / 2 || 2}>{leftIcon}</Box>
       ) : null}

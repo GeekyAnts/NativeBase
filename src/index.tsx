@@ -233,6 +233,9 @@ import {
   Ul,
   IListProps,
   IListItemProps,
+  Select,
+  ISelectProps,
+  ISelectItemProps,
 } from './components/primitives';
 
 export * from './theme';
@@ -387,6 +390,7 @@ export {
   Fab,
   Typeahead,
   useTypeahead,
+  Select,
 };
 export type {
   IAlertProps,
@@ -469,4 +473,6 @@ export type {
   ISnackbarProps,
   IuseSnackbarProps,
   IFabProps,
+  ISelectProps,
+  ISelectItemProps,
 };

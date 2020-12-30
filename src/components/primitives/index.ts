@@ -35,10 +35,11 @@ export type { ISliderProps, ISliderContextProps } from './Slider';
 export { default as Stack, VStack, HStack } from './Stack';
 export type { IStackProps } from './Stack';
 
-export { default as ZStack } from './ZStack';
-
 export { default as Image } from './Image';
 export type { IImageProps } from './Image';
+
+export { default as Select } from './Select';
+export type { ISelectProps, ISelectItemProps } from './Select';
 
 export { default as Spinner } from './Spinner';
 export type { ISpinnerProps } from './Spinner';
@@ -61,3 +62,5 @@ export { default as List, Ol, Ul, ListItem, ListIcon } from './List';
 export type { IListProps, IListItemProps } from './List';
 
 export { VisuallyHidden } from './VisuallyHidden';
+
+export { default as ZStack } from './ZStack';

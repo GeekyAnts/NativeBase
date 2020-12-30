@@ -2,7 +2,7 @@ import React from 'react';
 import Text from '../../primitives/Text';
 import { usePropsConfig } from '../../../hooks';
 import { themeTools } from '../../../theme';
-import { TouchableItem } from './TouchableItem';
+import TouchableItem from '../../primitives/TouchableItem';
 import type { IMenuItemProps } from './props';
 import { usePopover } from '../../../core';
 
