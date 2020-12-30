@@ -48,11 +48,12 @@ const Typeahead = (
     return toggleIcon;
   };
 
-  React.useEffect(() => {
-    if (getInputProps(inputValue, onChangeText).value === '') {
-      getToggleButtonProps().onPress();
-    }
-  }, [inputValue, onChangeText, getInputProps, getToggleButtonProps]);
+  // Causing App to crash , commenting this might have caused future bugs , might need a revisit
+  // React.useEffect(() => {
+  //   if (getInputProps(inputValue, onChangeText).value === '') {
+  //     // getToggleButtonProps().onPress();
+  //   }
+  // }, [inputValue, onChangeText, getInputProps, getToggleButtonProps]);
 
   const [dropdownTop, setDropDownTop]: any = useState(55);
 
