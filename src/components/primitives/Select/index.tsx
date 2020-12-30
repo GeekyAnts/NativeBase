@@ -1,11 +1,11 @@
 import React from 'react';
-import View from '../View';
 import Text from '../Text';
+import Icon from '../Icon';
 import SelectItem from './Item';
 import type { ISelectProps, ISelectItemProps } from './props';
 import { usePopover } from '../../../core';
-import { TouchableOpacity } from 'react-native';
-
+import Button from '../Button';
+import { ScrollView } from 'react-native';
 function Select({
   onValueChange,
   children,
@@ -16,6 +16,11 @@ function Select({
   selectedItemBg,
   isDisabled,
   dropdownIcon,
+  dropdownOpenIcon,
+  dropdownCloseIcon,
+  width,
+  bg,
+  backgroundColor,
   ...props
 }: ISelectProps) {
   let triggerRef = React.useRef();
@@ -33,7 +38,7 @@ function Select({
   };
   const openMenu = () => {
     if (!isDisabled) {
-      setPopover(<View>{children}</View>, {
+      setPopover(<ScrollView>{children}</ScrollView>, {
         triggerRef,
         animationDuration: 200,
         onClose: closeMenu,
@@ -46,6 +51,8 @@ function Select({
           selectedItemBg,
           onValueChange,
           itemsList,
+          itemStyle,
+          width,
         },
       });
       toggle(true);
@@ -56,12 +63,28 @@ function Select({
   );
   const selectedItem =
     selectedItemArray && selectedItemArray.length ? selectedItemArray[0] : null;
+  let icon =
+    !dropdownOpenIcon && !dropdownCloseIcon && dropdownIcon
+      ? dropdownIcon
+      : isOpen
+      ? dropdownOpenIcon
+        ? dropdownOpenIcon
+        : null
+      : dropdownCloseIcon
+      ? dropdownCloseIcon
+      : null;
   return (
-    <View ref={triggerRef} bg="red.200" {...props}>
-      <TouchableOpacity onPress={openMenu}>
-        {selectedItem ? <Text>{selectedItem.label}</Text> : null}
-      </TouchableOpacity>
-    </View>
+    <Button
+      onPress={openMenu}
+      px={1}
+      width={width}
+      ref={triggerRef}
+      {...props}
+      justifyContent="space-between"
+    >
+      <Text>{selectedItem ? selectedItem.label : ''}</Text>
+      {icon}
+    </Button>
   );
 }
 

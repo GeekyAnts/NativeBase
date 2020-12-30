@@ -8,14 +8,19 @@ export default function () {
       label="Pick language"
       placeholder="Pick language"
       selectedValue={language}
-      width={200}
+      width={150}
       onValueChange={(itemValue: string, itemIndex?: number) =>
         setLanguage(itemValue)
       }
-      itemStyle={{ fontSize: 'lg' }} // Text styles
-      selectedItemBg={'red.200'}
+      // itemStyle={{ fontSize: 'lg' }}
+      selectedItemBg={'teal.400'}
       // isDisabled
-      dropdownIcon={<Icon name="menu" />}
+      dropdownOpenIcon={
+        <Icon name="arrow-drop-up" type="MaterialIcons" size={6} />
+      }
+      dropdownCloseIcon={
+        <Icon name="arrow-drop-down" type="MaterialIcons" size={6} />
+      }
     >
       <Select.Item label="JavaScript" value="js" />
       <Select.Item label="TypeScript" value="ts" />
@@ -25,6 +30,5 @@ export default function () {
         value="java"
       />
     </Select>
-    // Selected item should have different bg
   );
 }

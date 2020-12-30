@@ -1,7 +1,7 @@
-import type { IBoxProps } from '../Box';
+import type { IButtonProps } from '../Button';
 import type { ITextProps } from '../Text';
 
-export type ISelectProps = IBoxProps & {
+export type ISelectProps = IButtonProps & {
   label?: string;
   placeholder?: string;
   selectedValue?: string;
@@ -10,6 +10,8 @@ export type ISelectProps = IBoxProps & {
   selectedItemBg?: string;
   isDisabled?: boolean;
   dropdownIcon?: JSX.Element;
+  dropdownOpenIcon?: JSX.Element;
+  dropdownCloseIcon?: JSX.Element;
 };
 
 export type ISelectItemProps = ITextProps & {
