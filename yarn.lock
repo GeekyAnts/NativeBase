@@ -678,10 +678,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@codler/react-native-keyboard-aware-scroll-view@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@codler/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-1.0.0.tgz#7ca45d9a06aa118e7acfbddc33dd5e2fb9c9bb4b"
-  integrity sha512-syLIolsZEe9quJ9RUF+PaswA+TLXCHkbIJVe54E4fuVu3mrL+9B1fjcX0Grq0hbu/s5EE+mVPIXvFY/3cADpqg==
+"@codler/react-native-keyboard-aware-scroll-view@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@codler/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-1.0.1.tgz#e823cedfd064d7dc849ec71fa3f8d9f4b0558bb6"
+  integrity sha512-ACGSY+VPJ1KwdNQi/oKt74ld2PtGW+o09hJNsllHyBWcrnke0aOxXdtaS87nRLvVXwWadRawnSrYR/PDxr5QEg==
   dependencies:
     react-native-iphone-x-helper "^1.0.3"
 
@@ -942,6 +942,11 @@
   integrity sha512-NLcV3HLrjtvyYM4CU4O+nWJ+LsjB4XnkUiXjK52PgnlRrg5i3hJQHcp/GsrHQbB62UC+Zn96+Hy+jiw4K5Rw/w==
   dependencies:
     invariant "^2.2.4"
+
+"@react-native-community/picker@^1.6.6":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/picker/-/picker-1.8.1.tgz#94f14f0aad98fa7592967b941be97deec95c3805"
+  integrity sha512-Sj9DzX1CSnmYiuEQ5fQhExoo4XjSKoZkqLPAAybycq6RHtCuWppf+eJXRMCOJki25BlKSSt+qVqg0fIe//ujNQ==
 
 "@types/babel__core@^7.1.0":
   version "7.1.9"

@@ -1,7 +1,7 @@
 declare module "native-base" {
 	import * as React from "react";
 	import * as ReactNative from "react-native";
-	import { KeyboardAwareScrollViewProps } from "react-native-keyboard-aware-scroll-view";
+	import { KeyboardAwareScrollViewProps } from "@codler/react-native-keyboard-aware-scroll-view";
 
 	type RnViewStyleProp = ReactNative.StyleProp<ReactNative.ViewStyle>;
 	type RnTextStyleProp = ReactNative.StyleProp<ReactNative.TextStyle>;
@@ -664,6 +664,8 @@ declare module "native-base" {
 			android?: string;
 			color?: string;
 			fontSize?: number;
+			solid?: boolean;
+			light?: boolean;
 		}
 		/**
          * see Widget Icon.js

@@ -274,7 +274,7 @@ const ScrollableTabBar = createReactClass({
                 this.props.textStyle[page],
                 this.props.activeTextStyle[page],
                 this.props.tabHeaderStyle[page],
-                variables.tabFontSize
+                this.props.tabFontSize[page]
               );
             })}
             <Animated.View
