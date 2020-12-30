@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon, Select } from 'native-base';
 
 export default function () {
-  let [language, setLanguage] = React.useState('ts');
+  let [language, setLanguage] = React.useState<string>('');
   return (
     <Select
       label="Pick language"

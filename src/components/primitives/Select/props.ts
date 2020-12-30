@@ -2,7 +2,6 @@ import type { IButtonProps } from '../Button';
 import type { ITextProps } from '../Text';
 
 export type ISelectProps = IButtonProps & {
-  label?: string;
   placeholder?: string;
   selectedValue?: string;
   onValueChange: (itemValue: string, itemIndex?: number) => void;

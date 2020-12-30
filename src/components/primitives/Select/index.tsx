@@ -1,6 +1,5 @@
 import React from 'react';
 import Text from '../Text';
-import Icon from '../Icon';
 import SelectItem from './Item';
 import type { ISelectProps, ISelectItemProps } from './props';
 import { usePopover } from '../../../core';
@@ -11,7 +10,6 @@ function Select({
   children,
   itemStyle,
   selectedValue,
-  label,
   placeholder,
   selectedItemBg,
   isDisabled,
@@ -76,13 +74,16 @@ function Select({
   return (
     <Button
       onPress={openMenu}
-      px={1}
+      pl={2}
+      pr={0}
       width={width}
       ref={triggerRef}
       {...props}
       justifyContent="space-between"
     >
-      <Text>{selectedItem ? selectedItem.label : ''}</Text>
+      <Text opacity={selectedItem ? undefined : 0.5}>
+        {selectedItem ? selectedItem.label : placeholder}
+      </Text>
       {icon}
     </Button>
   );
