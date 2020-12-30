@@ -8,7 +8,6 @@ A complete component library for React Native Ecosystem
 - **Consistent** : Make accurate predictions for web, Android & iOS.
 
 ## Documentation
-
 You can find the complete documentation [here](https://nativebase.github.io/).
 
 ## Table of Content
@@ -27,34 +26,29 @@ You can find the complete documentation [here](https://nativebase.github.io/).
 12. [About the creators](#12-about-the-creators)
 
 ## 1. What is NativeBase 3.0?
-
 [NativeBase](https://nativebase.github.io/) is a universal Design System for Mobile & Web built for React Native and React with the same API. Ships a bunch of components for most of the use-cases that includes Button, AppBar, Dialog, Modal and what not.
 
 ## 2. Why NativeBase 3.0?
-
 We want to build and ship apps fast with the highest quality. We want to focus on the business logic and to solve real problems.<br />
 
 ## 4. Compairing the available options
 
-1. [What is NativeBase?](#1-what-is-nativebase)
-2. [Why NativeBase?](#2-why-nativebase)
-3. [KitchenSink App](https://github.com/GeekyAnts/NativeBase-KitchenSink)
-4. [Getting Started](#4-getting-started)
-5. [Components](#5-components)
-6. [NativeBase for Web](#6-nativebase-for-web)
-7. [Compatibility Versions](#7-compatibility-versions)
-8. [React Native Seed](#8-react-native-seed)
-9. [NativeBase Market](#9-nativebase-market)
-10. [Documentation](#10-documentation)
-11. [Website](#11-website)
-12. [Quick Links to NativeBase](#12-quick-links-to-nativebase)
-13. [About the creators](#13-about-the-creators)
+| Name                | Web | Mobile  | Design System | Customizable | Components               | Language   | Docs      | Popularity |
+| ------------------- | --- | ------- | ------------- | ------------ | ------------------------ | ---------- | --------- | ---------- |
+| Ant Design          | Yes | Partial | Yes           | Low          | Many                     | JavaScript | Very good |            |
+| Braid Design System | Yes | No      | Yes           | Medium       | Many                     | JavaScript | Good      |            |
+| Bootstrap           | Yes | No      | Yes           | Medium       | Limited                  | CSS        | Very good |            |
+| TailwindCSS         | Yes | Partial | Yes           | High         | Rich \(with TailwindUI\) | CSS        | Very good |            |
+| Flutter Material    | Yes | Yes     | Yes           | High         | Many                     | Dart       | Average   |            |
+| NativeBase 3\.0     | Yes | Yes     | Yes           | High         | Rich                     | JavaScript | Very good |            |
 
 ## 5. Inspirations
 
 Ant Design, Braid Design System, Bootstrap, TailwindCSS, Flutter Material
 
 ## 6. API
+
+Declarative and Imperative. Declarative for components and Imperative for all the actions
 
 ## 7. Getting Started
 
@@ -67,7 +61,7 @@ react-native init AwesomeNativeBase
 cd AwesomeNativeBase
 ```
 
-\*Install **NativeBase\***
+*Install **NativeBase***
 
 ```bash
 # using yarn
@@ -79,7 +73,7 @@ yarn add native-base@next
 npm i native-base@next
 ```
 
-\*Install **Peer Dependencies\***
+*Install **Peer Dependencies***
 
 The peer dependencies included from any npm packages does not automatically get installed. Your application will not depend on it explicitly.
 
@@ -93,7 +87,7 @@ You've successfully setup [NativeBase](https://nativebase.io/) with your [Rea
 
 Expo helps you make React Native apps with no build configuration. It works on macOS, Windows, and Linux. Refer this link for additional information on [Expo](https://docs.expo.io/) and setting up an Expo starter app.
 
-\*Install **NativeBase\***
+*Install **NativeBase***
 
 ```bash
 # using yarn
@@ -107,7 +101,7 @@ npm i native-base@next
 
 **We will also have to install these peer dependencies**
 
-\*Install **react-native-svg\***
+*Install **react-native-svg***
 
 ```bash
 # using yarn
@@ -119,7 +113,7 @@ yarn add react-native-svg
 npm i react-native-svg
 ```
 
-\*Install **react-native-vector-icons\***
+*Install **react-native-vector-icons***
 
 ```bash
 # using yarn
@@ -131,7 +125,7 @@ yarn add react-native-vector-icons
 npm i react-native-vector-icons
 ```
 
-\*Install **styled-components\***
+*Install **styled-components***
 
 ```bash
 # using yarn
@@ -143,7 +137,7 @@ yarn add styled-components
 npm i styled-components
 ```
 
-\*Install **styled-system\***
+*Install **styled-system***
 
 ```bash
 # using yarn
@@ -159,19 +153,27 @@ npm i styled-system
 
 [NativeBase 3.0](https://nativebase.github.io/) is made from two types of components — Primitives and Composite.
 
+- **Primitive components** are the building blocks.
+- **Composite components** are made up of primitive components.
+
+
 ## 9. Documentation
 
 Go through [NativeBase Docs](https://nativebase.github.io/) to play with [NativeBase](https://nativebase.github.io/).
 
-## 10. Website
 
+
+## 10. Website
 [https://nativebase.github.io/](https://nativebase.github.io/)
+
+
 
 ## 11. Quick Links to NativeBase
 
-- [NativeBase Documentation](https://nativebase.github.io/docs/nativebase)
-- [NativeBase on Twitter](https://twitter.com/NativeBaseIO)
-- [NativeBase on FaceBook](https://www.facebook.com/nativebaseio/)
+*	[NativeBase Documentation](https://nativebase.github.io/docs/nativebase)
+*	[NativeBase on Twitter](https://twitter.com/NativeBaseIO)
+*	[NativeBase on FaceBook](https://www.facebook.com/nativebaseio/)
+
 
 ## 12. About the creators
 
