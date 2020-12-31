@@ -28,6 +28,7 @@ export default {
   expandedIconStyle: '#000',
   headerStyle: '#edebed',
   iconStyle: '#000',
+  disableRow: '#a9a9a9',
 
   // ActionSheet
   elevation: 4,

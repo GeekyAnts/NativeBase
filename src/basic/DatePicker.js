@@ -103,6 +103,7 @@ export class DatePicker extends React.Component {
                 mode="date"
                 locale={locale}
                 timeZoneOffsetInMinutes={timeZoneOffsetInMinutes}
+                {...this.props}
               />
             </Modal>
           </View>
