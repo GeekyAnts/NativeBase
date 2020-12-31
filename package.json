@@ -15,7 +15,7 @@
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
     "lint": "eslint \"src/**/*.{js, json}\"",
-    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
+    "transpile": "npm run compile && cp src/basic/Icon/selection.json dist/src/basic/Icon/selection.json && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js && opencollective-postinstall",
     "flow": "flow"
