@@ -1,10 +1,14 @@
+/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prefer-es6-class */
 /* eslint-disable react/sort-comp */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
-import { FlatList, Modal, Picker, View, ViewPropTypes } from 'react-native';
+import { FlatList, Modal, View, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { find, get } from 'lodash';
+
+import { Picker } from '@react-native-community/picker';
 
 import computeProps from '../utils/computeProps';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
@@ -12,6 +16,7 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import { Text } from './Text';
 import { Radio } from './Radio';
 import { Container } from './Container';
+import { Content } from './Content';
 import { ListItem } from './ListItem';
 import { Button } from './Button';
 import { Header } from './Header';
@@ -207,35 +212,38 @@ class PickerNB extends Component {
         >
           <Container style={this.props.modalStyle}>
             {this.renderHeader()}
-            <FlatList
-              data={this.state.dataSource}
-              keyExtractor={(item, index) => String(index)}
-              renderItem={({ item }) => (
-                <ListItem
-                  selected={item.props.value === this.props.selectedValue}
-                  button
-                  style={this.props.itemStyle}
-                  onPress={() => {
-                    this._setModalVisible(false);
-                    this.props.onValueChange(item.props.value);
-                    this.setState({ current: item.props.label });
-                  }}
-                >
-                  <Left>
-                    <Text style={this.props.itemTextStyle}>
-                      {item.props.label}
-                    </Text>
-                  </Left>
-                  <Right>
-                    {item.props.value === this.props.selectedValue ? (
-                      <Radio selected />
-                    ) : (
-                      <Radio selected={false} />
-                    )}
-                  </Right>
-                </ListItem>
-              )}
-            />
+            <Content>
+              <FlatList
+                testID={this.props.testID}
+                data={this.state.dataSource}
+                keyExtractor={(item, index) => String(index)}
+                renderItem={({ item }) => (
+                  <ListItem
+                    selected={item.props.value === this.props.selectedValue}
+                    button
+                    style={this.props.itemStyle}
+                    onPress={() => {
+                      this._setModalVisible(false);
+                      this.props.onValueChange(item.props.value, item.key);
+                      this.setState({ current: item.props.label });
+                    }}
+                  >
+                    <Left>
+                      <Text style={this.props.itemTextStyle}>
+                        {item.props.label}
+                      </Text>
+                    </Left>
+                    <Right>
+                      {item.props.value === this.props.selectedValue ? (
+                        <Radio selected />
+                      ) : (
+                        <Radio selected={false} />
+                      )}
+                    </Right>
+                  </ListItem>
+                )}
+              />
+            </Content>
           </Container>
         </Modal>
       </View>
@@ -243,6 +251,7 @@ class PickerNB extends Component {
   }
 }
 
+// eslint-disable-next-line react/no-multi-comp
 PickerNB.Item = createReactClass({
   render() {
     return <Picker.Item {...this.props()} />;

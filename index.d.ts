@@ -1,7 +1,7 @@
 declare module "native-base" {
 	import * as React from "react";
 	import * as ReactNative from "react-native";
-	import { KeyboardAwareScrollViewProps } from "react-native-keyboard-aware-scroll-view";
+	import { KeyboardAwareScrollViewProps } from "@codler/react-native-keyboard-aware-scroll-view";
 
 	type RnViewStyleProp = ReactNative.StyleProp<ReactNative.ViewStyle>;
 	type RnTextStyleProp = ReactNative.StyleProp<ReactNative.TextStyle>;
@@ -157,7 +157,7 @@ declare module "native-base" {
          * see Widget Subtitle/index.js
          */
 		interface Subtitle extends Testable {
-			style?: RnViewStyleProp | Array<RnViewStyleProp>;
+			style?: RnTextStyleProp;
 		}
 		/**
          * see Widget Container.js
@@ -305,7 +305,7 @@ declare module "native-base" {
 			disableLeftSwipe?: boolean;
 			disableRightSwipe?: boolean;
       rightOpenValue?: number;
-      keyExtractor?: (item, index: number) => string;
+      keyExtractor?: (item: any, index: number) => string;
 			leftOpenValue?: number;
 			renderRightHiddenRow?: (
 				rowData: any,
@@ -366,6 +366,7 @@ declare module "native-base" {
              */
 			androidRippleColor?: string;
 			touchableHighlightStyle?: RnViewStyleProp;
+			underlayColor?: string;
 		}
 
 		interface Separator extends Testable {
@@ -382,6 +383,8 @@ declare module "native-base" {
 			cardBody?: boolean;
 			button?: boolean;
 			bordered?: boolean;
+			first?: boolean;
+			last?: boolean;
 			onPress?: () => void;
 		}
 		/**
@@ -634,9 +637,9 @@ declare module "native-base" {
          * see Widget Textarea.js
          */
 		interface Textarea extends ReactNative.TextInputProps, Testable {
-			rowSpan: number;
-			bordered: boolean;
-			underline: boolean;
+			rowSpan?: number;
+			bordered?: boolean;
+			underline?: boolean;
 			/**
              * Disables inputting data.
              */
@@ -645,12 +648,13 @@ declare module "native-base" {
 
 		interface Label extends Testable {
 			style?: RnTextStyleProp;
+			floatBack?: number;
 		}
 		/**
          * see Widget Icon.js
          */
 		interface Icon extends Testable {
-			name: string;
+			name?: string;
 			type?: "AntDesign" | "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "FontAwesome5" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial";
 			// TODO position attribute of ReactNative.FlexStyle hasn't another position values without "absolute" and "relative"
 			style?: any;
@@ -660,6 +664,8 @@ declare module "native-base" {
 			android?: string;
 			color?: string;
 			fontSize?: number;
+			solid?: boolean;
+			light?: boolean;
 		}
 		/**
          * see Widget Icon.js
@@ -779,6 +785,7 @@ declare module "native-base" {
 			springTension?: number;
 			springFriction?: number;
 			onChangeTab?: Function;
+			onScroll?:Function;
 			page?: number;
 			locked?: boolean;
 			initialPage?: number;
@@ -878,8 +885,8 @@ declare module "native-base" {
 			dataArray: Array<any>;
 			headerStyle?: RnViewStyleProp;
 			contentStyle?: RnViewStyleProp;
-			renderHeader?: (item: any, expanded: boolean) => React.ReactElement<any>;
-			renderContent?: (item: any) => React.ReactElement<any>;
+			renderHeader?: (item: any, expanded: boolean, index: number) => React.ReactElement<any>;
+			renderContent?: (item: any, index: number) => React.ReactElement<any>;
 			expanded?: number;
 			icon?: string;
 			expandedIcon?: string;
@@ -1069,7 +1076,7 @@ declare module "native-base" {
      * NativeBase.Thumbnail
      *
      * Thumbnail component works very similar to Image.
-     * It helps you to showcase an image with variuos dimensions and shapes.
+     * It helps you to showcase an image with various dimensions and shapes.
      * By default, Thumbnail renders an image in circular shape.
      */
 	export class Thumbnail extends React.Component<NativeBase.Thumbnail, any> { }
@@ -1165,7 +1172,12 @@ declare module "native-base" {
 	export class ActionSheet {
 		static show: (
 			configuration: {
-				options: string[] | Array<{ text: string, icon?: string, iconColor?: string }>;
+				options: string[] | Array<{ 
+					text: string, 
+					icon?: string, 
+					iconColor?: string, 
+					iconType?: "AntDesign" | "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "FontAwesome5" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial",
+				}>;
 				cancelButtonIndex?: number;
 				destructiveButtonIndex?: number;
 				title?: string;
@@ -1194,6 +1206,7 @@ declare module "native-base" {
 			textStyle?: RnTextStyleProp;
 			buttonTextStyle?: RnTextStyleProp;
 			buttonStyle?: RnViewStyleProp;
+			swipeDisabled?: boolean;
 		}): void;
 
 		/**

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Text as RNText } from 'react-native';
 import _ from 'lodash';
@@ -6,7 +6,11 @@ import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
-class Text extends Component {
+class Text extends React.PureComponent {
+  setRoot(c) {
+    this._root = c;
+  }
+
   render() {
     const { uppercase, children } = this.props;
 
@@ -23,7 +27,7 @@ class Text extends Component {
     }
 
     return (
-      <RNText ref={c => (this._root = c)} {...this.props}>
+      <RNText ref={this.setRoot} {...this.props}>
         {text}
       </RNText>
     );
@@ -44,8 +48,10 @@ Text.defaultProps = {
   uppercase: false
 };
 
-const StyledText = connectStyle('NativeBase.Text', {}, mapPropsToStyleNames)(
-  Text
-);
+const StyledText = connectStyle(
+  'NativeBase.Text',
+  {},
+  mapPropsToStyleNames
+)(Text);
 
 export { StyledText as Text };

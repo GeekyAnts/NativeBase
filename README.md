@@ -58,6 +58,7 @@ The peer dependencies included from any npm packages does not automatically get 
 ```js
 react-native link
 ```
+Note: If you are using react-native version 0.60 or higher you don't need to link any package.
 
 You've successfully setup [NativeBase](https://nativebase.io/) with your [React Native](https://facebook.github.io/react-native/) app. Your React Native app is now all set to run on iOS and Android simulator.
 
