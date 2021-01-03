@@ -464,6 +464,7 @@ class Fab extends Component {
       <Animated.View style={this.getContainerStyle()}>
         {this.renderButtons()}
         {Platform.OS !== PLATFORM.ANDROID ||
+        Platform.OS !== PLATFORM.WEB ||
         variables.androidRipple === false ||
         Platform.Version <= 21 ? (
           <TouchableOpacity
