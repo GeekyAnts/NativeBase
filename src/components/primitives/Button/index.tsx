@@ -1,5 +1,9 @@
 import React, { forwardRef } from 'react';
-import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import {
+  TouchableOpacity,
+  TouchableOpacityProps,
+  Platform,
+} from 'react-native';
 import styled from 'styled-components/native';
 import { border, color, flexbox, layout, position, space } from 'styled-system';
 import { usePropsConfig } from '../../../hooks';
@@ -150,6 +154,13 @@ const Button = (
       ref={ref}
       {...layoutProps}
       {...buttonProps}
+      opacity={additionalButtonProps.isDisabled ? 0.4 : 1}
+      {...(Platform.OS === 'web'
+        ? {
+            disabled: additionalButtonProps.isDisabled,
+            cursor: additionalButtonProps.isDisabled ? 'not-allowed' : 'auto',
+          }
+        : {})}
     >
       {innerButton}
     </StyledButton>

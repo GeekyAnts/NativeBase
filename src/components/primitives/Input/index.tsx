@@ -158,7 +158,10 @@ const Input = (
           // borderRadius={50} //Remove variant props from StyledInput
           borderWidth={undefined}
           {...(Platform.OS === 'web'
-            ? { disabled: isDisabled, cursor: 'not-allowed' }
+            ? {
+                disabled: isDisabled,
+                cursor: isDisabled ? 'not-allowed' : 'auto',
+              }
             : {})}
           ref={ref}
         />

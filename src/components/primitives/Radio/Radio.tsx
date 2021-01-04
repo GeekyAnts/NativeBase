@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Platform } from 'react-native';
 import Icon from '../Icon';
 import Box from '../Box';
 import { usePropsConfig } from '../../../hooks';
@@ -41,6 +41,13 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
         justifyContent="center"
         alignItems="center"
         {...newProps}
+        opacity={isDisabled ? 0.4 : 1}
+        {...(Platform.OS === 'web'
+          ? {
+              disabled: isDisabled,
+              cursor: isDisabled ? 'not-allowed' : 'auto',
+            }
+          : {})}
       >
         <Box
           backgroundColor={

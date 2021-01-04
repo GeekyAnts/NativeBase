@@ -40,5 +40,6 @@ export type ISliderContextProps = {
   thumbSize?: number;
   panResponder?: any;
   isReversed?: boolean;
+  isDisabled?: boolean;
   orientation?: 'vertical' | 'horizontal';
 };
