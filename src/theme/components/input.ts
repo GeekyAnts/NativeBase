@@ -13,7 +13,7 @@ const baseStyle = (props: Record<string, any>) => {
       colors.whiteAlpha[600]
     )(props),
     _isDisabledProps: {
-      opacity: 0.2,
+      opacity: 0.4,
     },
   };
 };
