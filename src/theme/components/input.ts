@@ -13,8 +13,7 @@ const baseStyle = (props: Record<string, any>) => {
       colors.whiteAlpha[600]
     )(props),
     _isDisabledProps: {
-      bg: mode('blackAlpha.200', 'whiteAlpha.300')(props),
-      borderColor: mode('gray.500', 'gray.300')(props),
+      opacity: 0.2,
     },
   };
 };

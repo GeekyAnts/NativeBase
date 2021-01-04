@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from 'react';
-import { TextInput } from 'react-native';
+import { TextInput, Platform } from 'react-native';
 import styled from 'styled-components/native';
 import {
   border,
@@ -157,6 +157,9 @@ const Input = (
           editable={isDisabled || isReadOnly ? false : true}
           // borderRadius={50} //Remove variant props from StyledInput
           borderWidth={undefined}
+          {...(Platform.OS === 'web'
+            ? { disabled: isDisabled, cursor: 'not-allowed' }
+            : {})}
           ref={ref}
         />
         {InputRightElement ? (
