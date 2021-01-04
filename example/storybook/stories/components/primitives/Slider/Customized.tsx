@@ -11,12 +11,12 @@ import {
 export default function () {
   return (
     <Box mx={5} width="80%">
-      <Slider defaultValue={70} colorScheme="purple">
+      <Slider defaultValue={70} colorScheme="orange">
         <SliderTrack bg="orange.100">
-          <SliderFilledTrack bg="orange.400" />
+          <SliderFilledTrack bg="green.400" />
         </SliderTrack>
         <SliderThumb>
-          <Icon name="circle" type="MaterialIcons" />
+          <Icon name="park" type="MaterialIcons" color="green.500" />
         </SliderThumb>
       </Slider>
     </Box>
