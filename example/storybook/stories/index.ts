@@ -59,6 +59,7 @@ export * from './components/primitives/Text';
 export * from './components/primitives/TextArea';
 export * from './components/primitives/VStack';
 export * from './components/primitives/ZStack';
+export * from './components/composites/factory';
 export * from './hooks/useBreakpointValue';
 export * from './hooks/useClipboard';
 export * from './hooks/useDisclose';
