@@ -1,5 +1,5 @@
 import React from 'react';
-import { PanResponder, View } from 'react-native';
+import { PanResponder, View, Platform } from 'react-native';
 import {
   FormControlContext,
   IFormControlContext,
@@ -174,6 +174,7 @@ class NBSlider extends React.Component<
             thumbSize: this.props.thumbSize,
             sliderSize: this.props.sliderSize,
             orientation: this.props.orientation,
+            isDisabled: this.props.isDisabled,
             value: this.state.value,
           }}
         >
@@ -187,6 +188,13 @@ class NBSlider extends React.Component<
             minWidth="100%"
             {...this.props}
             onLayout={this.onBarLayout}
+            opacity={this.props.isDisabled ? 0.4 : 1}
+            {...(Platform.OS === 'web' && this.props.isDisabled
+              ? {
+                  disabled: this.props.isDisabled,
+                  cursor: this.props.isDisabled ? 'not-allowed' : 'auto',
+                }
+              : {})}
           >
             {this.state.barSize && this.props.children}
           </Box>

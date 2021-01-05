@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Platform } from 'react-native';
 import { VStack, Box, Icon } from '../../primitives';
 import Divider from '../Divider';
 import { usePropsConfig } from '../../../hooks';
@@ -32,6 +32,13 @@ export const NBStepper = ({ children, ...props }: any) => {
         {...(disablitityCheck || isDisabled ? _disabled : {})}
         borderColor="transparent"
         style={style}
+        opacity={disablitityCheck || isDisabled ? 0.4 : 1}
+        {...(Platform.OS === 'web'
+          ? {
+              disabled: disablitityCheck || isDisabled,
+              cursor: disablitityCheck || isDisabled ? 'not-allowed' : 'auto',
+            }
+          : {})}
       >
         {children || isIncrement ? (
           <Icon name="arrow-drop-up" type="MaterialIcons" color={iconColor} />

@@ -80,6 +80,7 @@ const Switch = (
       accessibilityLabel={ariaLabel}
       accessibilityRole="switch"
       ref={ref}
+      opacity={isDisabled ? 0.4 : 1}
     />
   );
 };
