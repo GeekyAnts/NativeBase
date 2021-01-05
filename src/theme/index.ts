@@ -6,6 +6,12 @@ export interface ColorModeOptions {
   initialColorMode?: 'light' | 'dark';
   useSystemColorMode?: boolean;
 }
+export interface ComponentTheme {
+  baseStyle?: Record<string, any>;
+  sizes?: Record<string, any>;
+  variants?: Record<string, any>;
+  defaultProps?: Record<string, any>;
+}
 const config: ColorModeOptions = {
   useSystemColorMode: false,
   initialColorMode: 'light',

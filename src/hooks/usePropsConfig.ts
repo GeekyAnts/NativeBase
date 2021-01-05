@@ -1,4 +1,4 @@
-import { get, isNil, mergeWith, cloneDeep } from 'lodash';
+import { get, isNil, mergeWith, cloneDeep, omit } from 'lodash';
 import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from './useNativeBase';
 import { themePropertyMap } from './../theme/base';
@@ -10,8 +10,13 @@ import {
   extractInObject,
 } from './../theme/tools/';
 import { filterShadowProps } from './../utils/filterShadowProps';
-export function usePropsConfig(component: string, propsReceived: any) {
-  const { theme, ...colorModeProps } = useNativeBase();
+
+function calculateProps(
+  theme: any,
+  colorModeProps: any,
+  componentTheme: any,
+  propsReceived: any
+) {
   let windowWidth = useWindowDimensions()?.width;
   let currentBreakpoint = getClosestBreakpoint(theme.breakpoints, windowWidth);
   if (!propsReceived) {
@@ -23,7 +28,6 @@ export function usePropsConfig(component: string, propsReceived: any) {
     'children',
     'style',
   ]);
-  const componentTheme = get(theme, `components.${component}`);
   props = omitUndefined(props);
   let newProps: any;
   if (componentTheme) {
@@ -96,7 +100,6 @@ export function usePropsConfig(component: string, propsReceived: any) {
     componentTheme,
     currentBreakpoint
   );
-
   // added this to handle order of props
   // @ts-ignore
   newProps = mergeWith(newProps, extractedProps, (objValue, srcValue, key) => {
@@ -106,6 +109,30 @@ export function usePropsConfig(component: string, propsReceived: any) {
   });
   let mergedProps = filterShadowProps(newProps, ignoredProps);
   return omitUndefined(mergedProps);
+}
+
+export function getPropsWithComponentTheme(
+  localTheme: any,
+  propsReceived: any
+) {
+  const { theme, ...colorModeProps } = useNativeBase();
+  return calculateProps(
+    omit(theme, ['component']),
+    colorModeProps,
+    localTheme,
+    propsReceived
+  );
+}
+
+export function usePropsConfig(component: string, propsReceived: any) {
+  const { theme, ...colorModeProps } = useNativeBase();
+  const componentTheme = get(theme, `components.${component}`);
+  return calculateProps(
+    omit(theme, ['component']),
+    colorModeProps,
+    componentTheme,
+    propsReceived
+  );
 }
 
 /*
