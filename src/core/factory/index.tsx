@@ -31,7 +31,7 @@ export function NBFactory<P>(
   Component: React.ComponentType<P>,
   componentTheme?: ComponentTheme
 ) {
-  return function WithFactory(props: P & FactoryComponentProps) {
+  return React.forwardRef((props: P & FactoryComponentProps, ref: any) => {
     const StyledComponent = styled(Component as AnyStyledComponent)(
       color,
       background,
@@ -53,8 +53,8 @@ export function NBFactory<P>(
       customLayout
     );
     const calculatedProps = usePropsWithComponentTheme(componentTheme, props);
-    return <StyledComponent {...(calculatedProps as P)} />;
-  };
+    return <StyledComponent {...(calculatedProps as P)} ref={ref} />;
+  });
 }
 
 export type { FactoryComponentProps };

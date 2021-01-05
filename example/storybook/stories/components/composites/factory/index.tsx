@@ -5,10 +5,12 @@ import Wrapper from './../../Wrapper';
 import Usage from './usage';
 import Theme from './theme';
 import Modes from './modes';
+import Ref from './ref';
 
 storiesOf('Factory', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Usage', () => <Usage />)
   .add('Theme', () => <Theme />)
-  .add('Modes', () => <Modes />);
+  .add('Modes', () => <Modes />)
+  .add('Ref', () => <Ref />);
