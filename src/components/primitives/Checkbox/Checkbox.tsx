@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Platform } from 'react-native';
 import { usePropsConfig } from '../../../hooks';
 import { Center } from '../../composites/Center';
 import {
@@ -52,7 +52,18 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
 
   return (
     <TouchableOpacity activeOpacity={1} ref={ref} {...inputProps}>
-      <Box flexDirection="row" alignItems="center" {...newProps}>
+      <Box
+        flexDirection="row"
+        alignItems="center"
+        {...newProps}
+        opacity={isDisabled ? 0.4 : 1}
+        {...(Platform.OS === 'web'
+          ? {
+              disabled: isDisabled,
+              cursor: isDisabled ? 'not-allowed' : 'auto',
+            }
+          : {})}
+      >
         <Center
           backgroundColor={
             isChecked ? (isDisabled ? borderColor : activeColor) : 'transparent'

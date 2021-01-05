@@ -14,6 +14,7 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
     colorScheme,
     thumbSize = 0,
     orientation,
+    isDisabled,
   }: ISliderContextProps = React.useContext(SliderContext);
 
   const sliderThumbPosition = sliderOffset - 8 - thumbSize / 2;
@@ -56,7 +57,13 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
       {...panResponder.panHandlers}
     >
       <Box
-        cursor={Platform.OS === 'web' ? 'pointer' : null}
+        cursor={
+          Platform.OS === 'web'
+            ? isDisabled
+              ? 'not-allowed'
+              : 'pointer'
+            : null
+        }
         position="relative"
         borderRadius="full"
         backgroundColor="light.50"

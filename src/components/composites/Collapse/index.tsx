@@ -73,7 +73,7 @@ const Collapse = ({
   }
   return (
     <Box style={animatedStyle} overflow="hidden">
-      <Box {...props} />
+      <Box overflow="scroll" {...props} />
     </Box>
   );
 };
