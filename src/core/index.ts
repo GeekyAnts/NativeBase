@@ -13,3 +13,6 @@ export type {
   IPopoverProps,
   IPopoverContextProps, // IusePopoverProps,
 } from './Popover';
+
+export { NBFactory } from './factory';
+export type { FactoryComponentProps } from './factory';
