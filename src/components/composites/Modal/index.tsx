@@ -143,14 +143,8 @@ const Modal = (
             value.toggleVisible(false);
             value.toggleOnClose(false);
           }}
-          onShow={() => {
-            !['ios', 'android'].includes(Platform.OS) &&
-              initialFocusRef?.current?.focus();
-          }}
-          onDismiss={() => {
-            !['ios', 'android'].includes(Platform.OS) &&
-              finalFocusRef?.current?.focus();
-          }}
+          onShow={() => initialFocusRef?.current?.focus()}
+          onDismiss={() => finalFocusRef?.current?.focus()}
           animationType={motionPreset || 'slide'}
           transparent
           {...props}
