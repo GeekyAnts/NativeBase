@@ -11,7 +11,7 @@ import {
 } from './../theme/tools/';
 import { filterShadowProps } from './../utils/filterShadowProps';
 
-function calculateProps(
+function useCalculateProps(
   theme: any,
   colorModeProps: any,
   componentTheme: any,
@@ -111,12 +111,12 @@ function calculateProps(
   return omitUndefined(mergedProps);
 }
 
-export function getPropsWithComponentTheme(
+export function usePropsWithComponentTheme(
   localTheme: any,
   propsReceived: any
 ) {
   const { theme, ...colorModeProps } = useNativeBase();
-  return calculateProps(
+  return useCalculateProps(
     omit(theme, ['component']),
     colorModeProps,
     localTheme,
@@ -127,7 +127,7 @@ export function getPropsWithComponentTheme(
 export function usePropsConfig(component: string, propsReceived: any) {
   const { theme, ...colorModeProps } = useNativeBase();
   const componentTheme = get(theme, `components.${component}`);
-  return calculateProps(
+  return useCalculateProps(
     omit(theme, ['component']),
     colorModeProps,
     componentTheme,

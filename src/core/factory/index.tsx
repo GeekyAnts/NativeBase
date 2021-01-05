@@ -1,7 +1,7 @@
 import React from 'react';
 import type { AnyStyledComponent } from 'styled-components';
 import styled from 'styled-components/native';
-import { getPropsWithComponentTheme } from './../../hooks/usePropsConfig';
+import { usePropsWithComponentTheme } from './../../hooks/usePropsConfig';
 import type { ComponentTheme } from './../../theme';
 import {
   background,
@@ -31,7 +31,7 @@ export function NBFactory<P>(
   Component: React.ComponentType<P>,
   componentTheme?: ComponentTheme
 ) {
-  return (props: P & FactoryComponentProps) => {
+  return function WithFactory(props: P & FactoryComponentProps) {
     const StyledComponent = styled(Component as AnyStyledComponent)(
       color,
       background,
@@ -52,9 +52,7 @@ export function NBFactory<P>(
       customTypography,
       customLayout
     );
-    const calculatedProps = componentTheme
-      ? getPropsWithComponentTheme(componentTheme, props)
-      : props;
+    const calculatedProps = usePropsWithComponentTheme(componentTheme, props);
     return <StyledComponent {...(calculatedProps as P)} />;
   };
 }
