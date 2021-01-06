@@ -182,7 +182,7 @@ class Item extends Component {
         ) {
           isIcon = true;
           newChildren.push(
-            <Icon key={[i]} {...this.props.children[i].props} />
+            <Icon key={i} {...this.props.children[i].props} />
           );
         }
 

@@ -15,7 +15,7 @@
   "scripts": {
     "compile": "rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist --source-maps ",
     "lint": "eslint \"src/**/*.{js, json}\"",
-    "transpile": "npm run compile && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
+    "transpile": "npm run compile && cp src/basic/Icon/selection.json dist/src/basic/Icon/selection.json && cp src/basic/Icon/NBIcons.json dist/src/basic/Icon",
     "prepublish": "npm run transpile",
     "postinstall": "node addEjectScript.js && opencollective-postinstall",
     "flow": "flow"
@@ -26,7 +26,7 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
     ]
   },
-  "version": "2.13.15",
+  "version": "2.15.0",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {

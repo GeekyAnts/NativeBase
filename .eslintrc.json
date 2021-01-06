@@ -8,12 +8,14 @@
     "import/order": "off",
     "func-names": "off",
     "import/prefer-default-export": "off",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
     "no-prototype-builtins": "off",
-    "no-nested-ternary": "warn",
+    "no-nested-ternary": "off",
     "no-underscore-dangle": "off",
     "no-unused-expressions": "off",
     "react/jsx-filename-extension": "off",
     "react/no-did-update-set-state": "off",
+    "react/no-multi-comp": "off",
     "react/prop-types": "off"
   },
   "plugins": ["react", "jsx-a11y", "import", "react-native"]
