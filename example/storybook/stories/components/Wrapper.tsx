@@ -5,7 +5,10 @@ import {
   useColorMode,
   IconButton,
   Icon,
+  StorageManager,
+  ColorMode,
 } from 'native-base';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function MyWrapper({ children }: any) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -36,8 +39,26 @@ function MyWrapper({ children }: any) {
 }
 
 export default ({ children, theme }: any) => {
+  const colorModeManager: StorageManager = {
+    get: async () => {
+      try {
+        let val = await AsyncStorage.getItem('@example-wrapper-mode');
+        return val === 'dark' ? 'dark' : 'light';
+      } catch (e) {
+        console.log(e);
+        return 'light';
+      }
+    },
+    set: async (value: ColorMode) => {
+      try {
+        await AsyncStorage.setItem('@example-wrapper-mode', value);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  };
   return (
-    <NativeBaseProvider theme={theme}>
+    <NativeBaseProvider theme={theme} colorModeManager={colorModeManager}>
       <MyWrapper>{children}</MyWrapper>
     </NativeBaseProvider>
   );

@@ -27,7 +27,7 @@ import {
 } from '../../utils/customProps';
 import type { FactoryComponentProps } from './types';
 
-export function NBFactory<P>(
+export default function <P>(
   Component: React.ComponentType<P>,
   componentTheme?: ComponentTheme
 ) {

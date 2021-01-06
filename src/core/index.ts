@@ -14,5 +14,5 @@ export type {
   IPopoverContextProps, // IusePopoverProps,
 } from './Popover';
 
-export { NBFactory } from './factory';
+export { default as NBFactory } from './factory';
 export type { FactoryComponentProps } from './factory';
