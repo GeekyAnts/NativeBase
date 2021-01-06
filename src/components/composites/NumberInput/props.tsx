@@ -18,7 +18,7 @@ export type INumberInputProps = IInputProps &
     children?: JSX.Element[] | JSX.Element;
   };
 
-export type INumberInputFieldProps = INumberInputProps & {};
+export type INumberInputFieldProps = IInputProps & {};
 export type INumberInputSteppersProps = IStackProps & {
   children: JSX.Element[] | JSX.Element;
 };
