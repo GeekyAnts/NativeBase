@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import { View, StyleSheet } from 'react-native';
-import { extendTheme, themeTools } from 'native-base';
 import Basic from './Basic';
 import DefaultMode from './DefaultMode';
 
