@@ -11,7 +11,7 @@ import Switch from './Switch';
 import Slider from './Slider';
 import Usage from './Usage';
 
-storiesOf('ReactHookForm', module)
+storiesOf('React Hook Form', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Usage', () => <Usage />)

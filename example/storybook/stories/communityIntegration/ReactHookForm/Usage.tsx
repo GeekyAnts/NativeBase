@@ -30,7 +30,7 @@ export default function () {
             <Input
               onBlur={onBlur}
               placeholder="John"
-              onChangeText={(value) => onChange(value)}
+              onChangeText={(val) => onChange(val)}
               value={value}
             />
           )}
@@ -48,7 +48,7 @@ export default function () {
             <Input
               onBlur={onBlur}
               placeholder="Doe"
-              onChangeText={(value) => onChange(value)}
+              onChangeText={(val) => onChange(val)}
               value={value}
             />
           )}
@@ -65,7 +65,7 @@ export default function () {
             <Input
               onBlur={onBlur}
               placeholder="24"
-              onChangeText={(value) => onChange(value)}
+              onChangeText={(val) => onChange(val)}
               value={value}
             />
           )}

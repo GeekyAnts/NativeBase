@@ -26,7 +26,7 @@ export default function () {
         <Controller
           control={control}
           render={({ onChange, value }) => (
-            <PinInput onChange={(value: any) => onChange(value)} value={value}>
+            <PinInput onChange={(val: any) => onChange(val)} value={value}>
               <PinInputField />
               <PinInputField />
               <PinInputField />

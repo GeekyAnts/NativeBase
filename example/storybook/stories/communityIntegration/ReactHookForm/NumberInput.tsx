@@ -30,7 +30,7 @@ export default function () {
           control={control}
           render={({ onChange, value }) => (
             <NumberInput
-              onChange={(value: any) => onChange(value)}
+              onChange={(val: any) => onChange(val)}
               defaultValue={value}
             >
               <NumberInputField />
