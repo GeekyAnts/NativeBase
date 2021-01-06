@@ -83,7 +83,7 @@ export default function () {
             <RadioGroup
               name="gender"
               flexDirection="row"
-              onChange={(value) => onChange(value)}
+              onChange={(val) => onChange(val)}
             >
               <Radio value="male" colorScheme="blue">
                 <Text mx={2}>Male</Text>

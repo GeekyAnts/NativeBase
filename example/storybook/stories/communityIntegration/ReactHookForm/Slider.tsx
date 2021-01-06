@@ -28,7 +28,7 @@ export default function () {
         <Controller
           control={control}
           render={({ onChange, value }) => (
-            <Slider onChange={(value) => onChange(value)} defaultValue={value}>
+            <Slider onChange={(val) => onChange(val)} defaultValue={value}>
               <SliderTrack>
                 <SliderFilledTrack />
               </SliderTrack>
