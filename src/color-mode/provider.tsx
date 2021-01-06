@@ -26,22 +26,22 @@ function useModeManager(
 ) {
   const [colorMode, setRawMode] = useState<ColorMode | undefined>();
 
-  async function getModeNow() {
-    if (colorModeManager) {
-      let value = await colorModeManager.get(initialColorMode);
-      setRawMode(value);
-    } else {
-      setRawMode(initialColorMode);
-    }
-  }
   async function setColorMode(val: ColorMode) {
     if (colorModeManager) {
       await colorModeManager.set(val);
     }
     setRawMode(val);
   }
+  // For initial setting initial color mode from storage
   useEffect(() => {
-    getModeNow();
+    if (colorModeManager) {
+      (async function getMode() {
+        let value = await colorModeManager.get(initialColorMode);
+        setRawMode(value);
+      })();
+    } else {
+      setRawMode(initialColorMode);
+    }
   }, []);
 
   return { colorMode, setColorMode };
