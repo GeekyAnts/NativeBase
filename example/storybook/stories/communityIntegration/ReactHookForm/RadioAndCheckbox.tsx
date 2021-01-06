@@ -1,6 +1,5 @@
 import {
   VStack,
-  Input,
   Button,
   FormControl,
   FormLabel,
@@ -16,7 +15,6 @@ import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
 interface IFormInput {
-  name: string;
   hobbies: string;
   gender: number;
 }
@@ -28,24 +26,6 @@ export default function () {
   };
   return (
     <VStack width="80%" space={4}>
-      <FormControl isRequired isInvalid={'name' in errors}>
-        <FormLabel>Name</FormLabel>
-        <Controller
-          control={control}
-          render={({ onChange, onBlur, value }) => (
-            <Input
-              onBlur={onBlur}
-              placeholder="John"
-              onChangeText={(value) => onChange(value)}
-              value={value}
-            />
-          )}
-          name="name"
-          rules={{ required: 'Field is required', minLength: 3 }}
-          defaultValue=""
-        />
-        <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
-      </FormControl>
       <FormControl isRequired isInvalid={'hobbies' in errors}>
         <FormLabel>Hobbies</FormLabel>
         <Controller
@@ -103,11 +83,7 @@ export default function () {
             <RadioGroup
               name="gender"
               flexDirection="row"
-              onChange={(value) => {
-                console.log('gender = ', value);
-
-                onChange(value);
-              }}
+              onChange={(value) => onChange(value)}
             >
               <Radio value="male" colorScheme="blue">
                 <Text mx={2}>Male</Text>

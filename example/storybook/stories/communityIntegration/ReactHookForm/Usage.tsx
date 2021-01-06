@@ -35,7 +35,7 @@ export default function () {
             />
           )}
           name="firstName"
-          rules={{ required: 'Field is required' }}
+          rules={{ required: 'Field is required', minLength: 3 }}
           defaultValue=""
         />
         <FormErrorMessage>{errors.firstName?.message}</FormErrorMessage>
