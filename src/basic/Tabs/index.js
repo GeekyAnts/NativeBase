@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 import _ from 'lodash';
-import { InteractionManager, ViewPropTypes } from '../../utils';
+import { InteractionManager } from '../../utils';
 const React = require('react');
 const { Component } = React;
 const ReactNative = require('react-native');
@@ -36,7 +36,9 @@ const ScrollableTabView = createReactClass({
     onChangeTab: PropTypes.func,
     onScroll: PropTypes.func,
     renderTabBar: PropTypes.any,
-    style: ViewPropTypes.style,
+    style: PropTypes.shape({
+      style: PropTypes.any,
+    }),
     contentProps: PropTypes.object,
     scrollWithoutAnimation: PropTypes.bool,
     locked: PropTypes.bool,
