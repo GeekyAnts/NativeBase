@@ -1,6 +1,7 @@
 import type { IInputProps } from '../../primitives';
 
 export type IPinInputProps = IInputProps & {
+  onChange?: (value: string) => void;
   children?: JSX.Element[] | JSX.Element;
   manageFocus?: boolean;
 };

@@ -17,6 +17,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
     defaultValue,
     value,
     space,
+    onChange,
     ...newProps
   } = usePropsConfig('PinInput', props);
   const formControlContext: IFormControlContext = React.useContext(
@@ -33,6 +34,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
     let temp = (pinInputValue && [...pinInputValue]) || [];
     temp[fieldIndex] = newValue;
     setPinInputValue(temp.join(''));
+    onChange && onChange(temp.join(''));
     if (!isNil(newValue) && manageFocus && fieldIndex + 1 < RefList.length)
       RefList[fieldIndex + 1].current.focus();
     if (isNil(newValue) && manageFocus && fieldIndex - 1 > -1)
@@ -47,6 +49,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
       splicedValue.splice(pinFieldLength);
       RefList[pinFieldLength - 1].current.focus();
       setPinInputValue(splicedValue.join(''));
+      onChange && onChange(splicedValue.join(''));
     }
     if (Platform.OS === 'android' && newValue) {
       const temp = pinInputValue ? [...pinInputValue] : [];
@@ -55,6 +58,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
         RefList[fieldIndex + 1].current.focus();
       // Backward focus is handled by handle change function.
       setPinInputValue(temp.join(''));
+      onChange && onChange(temp.join(''));
     }
   };
 

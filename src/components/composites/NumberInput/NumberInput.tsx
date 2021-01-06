@@ -11,6 +11,7 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
     value,
     min,
     max,
+    onChange,
     ...newProps
   } = usePropsConfig('NumberInput', props);
   const formControlContext: IFormControlContext = React.useContext(
@@ -26,6 +27,8 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
       if (newValue < min) setNumberInputValue(min);
       else if (newValue > max) setNumberInputValue(max);
     }
+    //NOTE: only calling onChange on stepper click or blur event of input.
+    onChange && onChange(temp);
   };
   const handleChangeWithoutCheck = (newValue: number) => {
     const temp = newValue;
