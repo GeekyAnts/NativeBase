@@ -1,0 +1,24 @@
+import React from 'react';
+import { storiesOf } from '@storybook/react-native';
+import { withKnobs } from '@storybook/addon-knobs';
+import Wrapper from './../../components/Wrapper';
+import RadioAndCheckbox from './RadioAndCheckbox';
+import PinInput from './PinInput';
+import Textarea from './Textarea';
+import Select from './Select';
+import NumberInput from './NumberInput';
+import Switch from './Switch';
+import Slider from './Slider';
+import Usage from './Usage';
+
+storiesOf('ReactHookForm', module)
+  .addDecorator(withKnobs)
+  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .add('Usage', () => <Usage />)
+  .add('Radio And Checkbox', () => <RadioAndCheckbox />)
+  .add('Select', () => <Select />)
+  .add('Slider', () => <Slider />)
+  .add('Textarea', () => <Textarea />)
+  .add('Switch', () => <Switch />)
+  .add('NumberInput', () => <NumberInput />)
+  .add('PinInput', () => <PinInput />);
