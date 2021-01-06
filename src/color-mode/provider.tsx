@@ -42,7 +42,7 @@ function useModeManager(
     } else {
       setRawMode(initialColorMode);
     }
-  }, []);
+  }, [initialColorMode, colorModeManager]);
 
   return { colorMode, setColorMode };
 }
