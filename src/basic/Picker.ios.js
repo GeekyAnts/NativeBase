@@ -5,10 +5,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 import { FlatList, Modal, View, ViewPropTypes } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { find, get } from 'lodash';
-
-import { Picker } from '@react-native-community/picker';
 
 import computeProps from '../utils/computeProps';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
