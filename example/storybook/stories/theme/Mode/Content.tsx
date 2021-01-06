@@ -18,7 +18,7 @@ export const Content = () => {
       width="100%"
       bg={useColorModeValue('gray.200', 'gray.800')}
     >
-      <Heading> I'm a Heading</Heading>
+      <Heading>I'm a Heading</Heading>
       <Button
         colorScheme={colorMode === 'light' ? 'blue' : 'red'}
         onPress={() => {
