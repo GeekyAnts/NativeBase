@@ -27,7 +27,7 @@ export default function () {
           render={({ onChange, value }) => (
             <TextArea
               placeholder="TextArea"
-              onChangeText={(value) => onChange(value)}
+              onChangeText={(val) => onChange(val)}
               defaultValue={value}
             />
           )}

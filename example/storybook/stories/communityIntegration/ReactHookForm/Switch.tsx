@@ -26,7 +26,7 @@ export default function () {
           control={control}
           render={({ onChange, value }) => (
             <Switch
-              onToggle={(value: boolean) => onChange(value)}
+              onToggle={(val: boolean) => onChange(val)}
               isChecked={value}
             />
           )}
