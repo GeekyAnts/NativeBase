@@ -23,7 +23,7 @@ export default function Examples() {
 
 function Material() {
   return (
-    <AppBar shadow={1} bg="gray.900" height={80}>
+    <AppBar shadow={1} colorScheme="lightBlue">
       <AppBar.Left>
         <LeftArrowIconButton />
       </AppBar.Left>
@@ -86,29 +86,20 @@ function IOSLike() {
 
 function Customized() {
   return (
-    <AppBar bg="blue.900" shadow={1}>
+    <AppBar colorScheme="dark" shadow={1}>
       <AppBar.Left>
         <IconButton
-          icon={
-            <Icon
-              name="angle-left"
-              type="FontAwesome"
-              size={10}
-              color="white"
-            />
-          }
+          icon={<Icon name="angle-left" type="FontAwesome" size={10} />}
         />
       </AppBar.Left>
       <AppBar.Content>
-        <Text isTruncated color="white" fontWeight="bold" fontSize={22}>
+        <Text isTruncated fontWeight="bold" fontSize={22}>
           Library
         </Text>
       </AppBar.Content>
       <AppBar.Right>
         <IconButton
-          icon={
-            <Icon name="folder-music" type="Entypo" size={8} color="white" />
-          }
+          icon={<Icon name="folder-music" type="Entypo" size={8} />}
         />
       </AppBar.Right>
     </AppBar>
@@ -117,7 +108,7 @@ function Customized() {
 
 function CustomizedWithBorder() {
   return (
-    <AppBar bg="white" shadow={3} px={4} space={3}>
+    <AppBar colorScheme="teal" shadow={3} px={4} space={3}>
       <AppBar.Left>
         <IconButton icon={<Icon name="menu" size={6} />} />
       </AppBar.Left>

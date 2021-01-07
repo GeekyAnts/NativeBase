@@ -35,6 +35,7 @@ import CircularProgress from './circular-progress';
 import Modal from './modal';
 import Popover from './popover';
 import Text from './text';
+import AppBar from './app-bar';
 
 export default {
   Alert,
@@ -83,4 +84,5 @@ export default {
   Modal,
   Popover,
   Text,
+  AppBar,
 };
