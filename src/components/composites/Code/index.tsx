@@ -1,11 +1,11 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import styled from 'styled-components/native';
-import { Text } from '../../primitives';
+import Box from '../../primitives/Box';
 import type { ICodeProps } from './props';
 import { usePropsConfig } from '../../../hooks';
 
-const StyledCode = styled(Text)<ICodeProps>({});
+const StyledCode = styled(Box)<ICodeProps>({});
 
 const Code = ({ style, ...props }: ICodeProps) => {
   let newProps = usePropsConfig('Code', props);
