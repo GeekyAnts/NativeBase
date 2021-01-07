@@ -29,7 +29,7 @@ export default function () {
       <Button
         onPress={() => {
           setToast({
-            title: 'Toast Bottom Hey heyere ',
+            title: 'Toast Bottom',
           });
         }}
       >
