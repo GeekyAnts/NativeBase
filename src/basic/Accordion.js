@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
 class DefaultHeader extends React.Component {
   render() {
     const {
-      disable,
       expanded,
       expandedIcon,
       expandedIconStyle,
@@ -42,10 +41,7 @@ class DefaultHeader extends React.Component {
           headerStyle || { backgroundColor: variables.headerStyle }
         ]}
       >
-        <Text style={{ color: disable ? variable.disableRow : null }}>
-          {' '}
-          {title}
-        </Text>
+        <Text> {title}</Text>
         <Icon
           style={[
             { fontSize: variables.accordionIconFontSize },
@@ -55,8 +51,7 @@ class DefaultHeader extends React.Component {
                 : { color: variables.expandedIconStyle }
               : icon && iconStyle
               ? iconStyle
-              : { color: disable ? variable.disableRow : variables.iconStyle },
-
+              : { color: variables.iconStyle }
           ]}
           name={
             expanded ? expandedIcon || 'ios-arrow-up' : icon || 'ios-arrow-down'
@@ -112,7 +107,6 @@ class AccordionItem extends React.Component {
   render() {
     const {
       contentStyle,
-      disable,
       expanded,
       expandedIcon,
       expandedIconStyle,
@@ -130,7 +124,6 @@ class AccordionItem extends React.Component {
     return (
       <View>
         <TouchableWithoutFeedback
-          disabled={disable}
           onPress={() => {
             onAccordionOpen && !expanded && onAccordionOpen(item, index);
             onAccordionClose && expanded && onAccordionClose(item, index);
@@ -142,7 +135,7 @@ class AccordionItem extends React.Component {
               renderHeader(item, expanded, index)
             ) : (
               <DefaultHeader
-                disable={disable}
+                title={item.title}
                 expanded={expanded}
                 headerStyle={headerStyle}
                 icon={icon}
@@ -181,7 +174,7 @@ export class Accordion extends React.Component {
       selected = expandMultiple ? selected : selected.slice(0, 1);
     }
     this.state = {
-      selected: props.expanded,
+      selected
     };
   }
 
@@ -201,7 +194,6 @@ export class Accordion extends React.Component {
     const {
       contentStyle,
       dataArray,
-      disable,
       expandedIcon,
       expandedIconStyle,
       headerStyle,
@@ -230,7 +222,6 @@ export class Accordion extends React.Component {
         keyExtractor={(item, index) => String(index)}
         renderItem={({ item, index }) => (
           <AccordionItem
-            disable={disable == index ? true : false}
             key={String(index)}
             item={item}
             expanded={this.state.selected.indexOf(index) !== -1}
@@ -246,7 +237,6 @@ export class Accordion extends React.Component {
             expandedIconStyle={expandedIconStyle}
             onAccordionOpen={onAccordionOpen}
             onAccordionClose={onAccordionClose}
-            setSelected={(i) => this.setSelected(i)}
           />
         )}
         {...this.props}
