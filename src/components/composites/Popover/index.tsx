@@ -15,23 +15,8 @@ import { default as Box, IBoxProps } from '../../primitives/Box';
 import View from '../../primitives/View';
 import CloseButton from '../CloseButton';
 import type { IPopoverProps } from './props';
-import Tooltip from './Tooltip';
-
-const StyledPopover = styled(Tooltip)<IPopoverProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout
-);
+import { usePopover } from '../../../core';
+import { Button } from 'native-base';
 
 const PopoverContext = React.createContext({
   PopoverTrigger: null,
@@ -57,47 +42,102 @@ const PopoverContext = React.createContext({
 });
 
 const Popover = ({
+  trigger,
+  closeOnSelect = true,
   children,
-  initialFocusRef,
-  finalFocusRef,
   onOpen,
   onClose,
-  closeOnBlur,
-  id,
-  backgroundColor,
-  bg,
-  borderWidth,
-  borderColor,
   ...props
 }: IPopoverProps) => {
-  const [trigger, setTrigger] = React.useState();
-  const [isVisible, setIsVisible] = React.useState(false);
-  const popOverRef: any = React.useRef(null);
-  const newProps = usePropsConfig('Popover', props);
-  const value: any = {
-    PopoverTrigger: trigger,
-    setPopoverTrigger: setTrigger,
-    PopoverRef: popOverRef,
-    initialFocusRef: initialFocusRef,
-    finalFocusRef: finalFocusRef,
-    isVisible: isVisible,
-    setIsVisible: setIsVisible,
-    onOpen: onOpen,
-    onClose: onClose,
-    newProps: newProps,
-    closeOnBlur: closeOnBlur,
-    backgroundColor:
-      bg || backgroundColor || { ...newProps.popoverProps }.backgroundColor,
-    borderColor: borderColor || { ...newProps.popoverProps }.borderColor,
-    borderWidth: borderWidth || { ...newProps.popoverProps }.borderWidth,
+  let triggerRef = React.useRef();
+  const newProps = usePropsConfig('Menu', props);
+  let [isOpen, toggle] = React.useState<boolean>(false);
+  const { setPopover, closePopover } = usePopover();
+
+  const closeMenu = () => {
+    closePopover();
+    toggle(false);
+    onClose && onClose();
+  };
+  const openMenu = () => {
+    setPopover(<View {...newProps}>{children}</View>, {
+      triggerRef,
+      animationDuration: 200,
+      onClose: closeMenu,
+      parentComponentConfig: { open: isOpen, closeMenu, closeOnSelect },
+    });
+    toggle(true);
+    onOpen && onOpen();
   };
 
   return (
-    <PopoverContext.Provider value={value}>
-      <View nativeID={id}>{children}</View>
-    </PopoverContext.Provider>
+    <View flex={1} ref={triggerRef}>
+      {trigger(
+        {
+          onPress: openMenu,
+        },
+        { open: isOpen }
+      )}
+    </View>
   );
 };
+
+// const Popover = ({
+//   children,
+//   initialFocusRef,
+//   finalFocusRef,
+//   onOpen,
+//   onClose,
+//   closeOnBlur,
+//   id,
+//   backgroundColor,
+//   bg,
+//   borderWidth,
+//   borderColor,
+//   ...props
+// }: IPopoverProps) => {
+//   // const popoverClose = () => {
+//   //   closePopover();
+//   //   toggle(false);
+//   //   onClose && onClose();
+//   // };
+//   // const popoverOpen = () => {
+//   //   setPopover(<View {...newProps}>{children}</View>, {
+//   //     triggerRef: popOverRef,
+//   //     animationDuration: 200,
+//   //     onClose: popoverClose,
+//   //     parentComponentConfig: { open: isOpen, popoverClose, closeOnSelect },
+//   //   });
+//   //   toggle(true);
+//   //   onOpen && onOpen();
+//   // };
+
+//   const [trigger, setTrigger] = React.useState();
+//   const [isVisible, setIsVisible] = React.useState(false);
+//   const popOverRef: any = React.useRef(null);
+//   const newProps = usePropsConfig('Popover', props);
+//   const value: any = {
+//     PopoverTrigger: trigger,
+//     setPopoverTrigger: setTrigger,
+//     PopoverRef: popOverRef,
+//     initialFocusRef: initialFocusRef,
+//     finalFocusRef: finalFocusRef,
+//     isVisible: isVisible,
+//     setIsVisible: setIsVisible,
+//     newProps: newProps,
+//     closeOnBlur: closeOnBlur,
+//     backgroundColor:
+//       bg || backgroundColor || { ...newProps.popoverProps }.backgroundColor,
+//     borderColor: borderColor || { ...newProps.popoverProps }.borderColor,
+//     borderWidth: borderWidth || { ...newProps.popoverProps }.borderWidth,
+//   };
+
+//   return (
+//     <PopoverContext.Provider value={value}>
+//       <View nativeID={id} flex={1}>{children}</View>
+//     </PopoverContext.Provider>
+//   );
+// };
 
 export const PopoverTrigger = ({ children }: any) => {
   const { setPopoverTrigger } = React.useContext(PopoverContext);
@@ -128,44 +168,55 @@ export const PopoverContent = ({
   ...props
 }: IPopoverProps & { ref?: any }) => {
   const {
-    PopoverRef,
-    PopoverTrigger,
-    onOpen,
-    initialFocusRef,
-    onClose,
-    finalFocusRef,
-    closeOnBlur,
-    newProps,
-    backgroundColor,
-    borderColor,
-    borderWidth,
-  }: any = React.useContext(PopoverContext);
-  return (
-    <StyledPopover
-      {...newProps.popoverContentProps}
-      width={newProps._width || newProps.size || '45%'}
-      backgroundColor={backgroundColor}
-      borderColor={borderColor}
-      borderWidth={borderWidth}
-      ref={PopoverRef}
-      onOpen={() => {
-        onOpen && onOpen();
-        initialFocusRef?.current.focus();
-      }}
-      onClose={() => {
-        onClose && onClose();
-        finalFocusRef?.current.focus();
-      }}
-      closeOnBlur={closeOnBlur ?? true}
-      popover={
-        <Box width="100%">
-          <Box>{children}</Box>
-        </Box>
+    // PopoverRef,
+    // PopoverTrigger,
+    // onOpen,
+    // initialFocusRef,
+    // onClose,
+    // finalFocusRef,
+    // closeOnBlur,
+    newProps: { popoverContentProps },
+  }: // backgroundColor,
+  // borderColor,
+  // borderWidth,
+  any = React.useContext(PopoverContext);
+
+  let [isOpen, toggle] = React.useState<boolean>(false);
+  const { setPopover, closePopover } = usePopover();
+  let triggerRef = React.useRef();
+
+  const closeMenu = () => {
+    closePopover();
+    toggle(false);
+    // onClose && onClose();
+  };
+  const openMenu = () => {
+    setPopover(
+      <Box {...popoverContentProps} {...props}>
+        {children}
+      </Box>,
+      {
+        triggerRef,
+        animationDuration: 200,
+        onClose: closeMenu,
+        parentComponentConfig: {
+          open: isOpen,
+          closeMenu,
+        },
       }
-      {...props}
-    >
-      {PopoverTrigger}
-    </StyledPopover>
+    );
+    toggle(true);
+    // onOpen && onOpen();
+  };
+  // const PopoverTriggerElem = React.cloneElement(
+  //   PopoverTrigger ? PopoverTrigger : <Box />,
+  //   { onPress: openMenu },
+  //   null
+  // );
+  return (
+    <View ref={triggerRef} flex={1}>
+      <Button onPress={openMenu}>{'PopoverTrigger'}</Button>
+    </View>
   );
 };
 

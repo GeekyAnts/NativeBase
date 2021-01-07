@@ -36,5 +36,7 @@ export type IPopoverProps = ColorProps &
     onClose?: Function;
     closeOnBlur?: boolean;
     id?: any;
+    closeOnSelect?: boolean;
+    trigger: (_props: any, state: { open: boolean }) => JSX.Element;
     size?: SpaceType | string | number;
   };

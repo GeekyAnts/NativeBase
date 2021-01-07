@@ -40,6 +40,8 @@ const PopoverProvider = ({ children }: { children: any }) => {
     if (config.triggerRef && config.triggerRef.current) {
       config.triggerRef.current.measure(
         (x: any, y: any, width: any, height: any) => {
+          console.log({ x, y, height, width });
+
           setTriggerElementDims({ x, y, width, height });
         }
       );
@@ -54,6 +56,8 @@ const PopoverProvider = ({ children }: { children: any }) => {
     triggerElementDims.height,
     config.placeOverTriggerElement
   );
+  console.log(triggerElementDims);
+
   const { fadeValue, fadeIn, fadeOut } = useFadeTransition(
     config.animationDuration
   );

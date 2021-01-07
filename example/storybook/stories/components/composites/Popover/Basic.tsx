@@ -7,19 +7,30 @@ import {
   PopoverHeader,
   PopoverTrigger,
   Button,
+  Box,
 } from 'native-base';
 
 export default function () {
   return (
-    <Popover>
-      <PopoverTrigger>
-        <Button>Trigger</Button>
-      </PopoverTrigger>
-      <PopoverContent>
+    <Box>
+      <Popover
+        trigger={(triggerProps: any) => {
+          return (
+            <Button {...triggerProps} bg="teal.200">
+              Trigger
+            </Button>
+          );
+        }}
+      >
+        {/* <PopoverTrigger>
+          <Button>Trigger</Button>
+        </PopoverTrigger> */}
+        {/* <PopoverContent> */}
         <PopoverCloseButton />
         <PopoverHeader>Confirmation!</PopoverHeader>
         <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
-      </PopoverContent>
-    </Popover>
+        {/* </PopoverContent> */}
+      </Popover>
+    </Box>
   );
 }
