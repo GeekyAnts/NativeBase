@@ -6,9 +6,7 @@ const baseStyle = (props: Record<string, any>) => {
     bg: mode(`${colorScheme}.500`, `${colorScheme}.300`)(props),
     color: mode('gray.800', 'gray.50')(props),
     px: 2,
-    statusBarHeight: 2,
     height: '56px',
-    space: 2,
   };
 };
 const defaultProps = {};
