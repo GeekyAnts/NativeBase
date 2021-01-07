@@ -15,6 +15,8 @@
    },
    "dependencies": {
       "@expo/vector-icons": "^12.0.2",
+      "@syncstate/core": "^0.6.3",
+      "@syncstate/react": "^0.6.0",
       "expo": "~40.0.0",
       "expo-splash-screen": "^0.8.1",
       "expo-status-bar": "~1.0.3",

@@ -76,6 +76,7 @@ export * from './theme/Responsive';
 // Community integrations
 export * from './communityIntegration/Formik';
 export * from './communityIntegration/ReactHookForm';
+export * from './communityIntegration/SyncState';
 
 // Examples
 export * from './examples';
