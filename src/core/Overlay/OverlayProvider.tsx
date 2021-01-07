@@ -65,7 +65,7 @@ const Overlay = ({
         style={[providerStyle.provider, { opacity: fadeValue }]}
         pointerEvents={pointerEventsSetter()}
       >
-        <View w="100%" h="100%" zIndex={999999}>
+        <View top={0} left={0} right={0} bottom={0} zIndex={999999}>
           {overlayItem}
         </View>
         <View
