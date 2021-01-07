@@ -32,6 +32,7 @@ import Switch from './switch';
 import Tabs from './tabs';
 import Tag from './tag';
 import Text from './text';
+import AppBar from './app-bar';
 import TextArea from './textarea';
 import Toast from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
@@ -82,6 +83,7 @@ export default {
   Tabs,
   Tag,
   Text,
+  AppBar,
   TextArea,
   Toast,
   Wrap,
