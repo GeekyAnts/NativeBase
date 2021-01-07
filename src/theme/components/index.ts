@@ -1,88 +1,90 @@
-import Heading from './heading';
-import Code from './code';
-import Badge from './badge';
-import Tag from './tag';
+import { Alert, AlertDescription, AlertTitle } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
-import { Alert, AlertTitle, AlertDescription } from './alert';
-import Center from './center';
-import Switch from './switch';
-import Button from './button';
-import Wrap from './wrap';
-import Icon from './icon';
-import Divider from './divider';
+import Badge from './badge';
 import BreadCrumb from './breadcrumb';
-import PinInput from './pin-input';
-import { default as NumberInput, NumberInputStepper } from './number-input';
-import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
-import { default as Menu, MenuItem, MenuGroup } from './menu';
-import Link from './link';
+import Button from './button';
+import Center from './center';
 import Checkbox from './checkbox';
-import Radio from './radio';
-import Kbd from './kbd';
-import Progress from './progress';
+import CircularProgress from './circular-progress';
+import Code from './code';
 import Container from './container';
+import Divider from './divider';
+import Heading from './heading';
+import Icon from './icon';
+import IconButton from './icon-button';
+import Input from './input';
+import Kbd from './kbd';
+import Link from './link';
+import { default as Menu, MenuGroup, MenuItem } from './menu';
+import Modal from './modal';
+import { default as NumberInput, NumberInputStepper } from './number-input';
+import PinInput from './pin-input';
+import Popover from './popover';
+import Progress from './progress';
+import Radio from './radio';
 import Skeleton from './skeleton';
 import SkeletonText from './skeletonText';
 import { default as Slider, SliderThumb } from './slider';
-import IconButton from './icon-button';
-import TextArea from './textarea';
-import Tabs from './tabs';
-import Input from './input';
-import Stat from './stat';
 import Spinner from './spinner';
-import CircularProgress from './circular-progress';
-import Modal from './modal';
-import Popover from './popover';
+import Stat from './stat';
+import Switch from './switch';
+import Tabs from './tabs';
+import Tag from './tag';
 import Text from './text';
 import AppBar from './app-bar';
+import TextArea from './textarea';
+import Toast from './toast';
+import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
+import Wrap from './wrap';
 
 export default {
   Alert,
-  AlertTitle,
   AlertDescription,
-  Heading,
-  Code,
-  Badge,
-  Tag,
-  Center,
+  AlertTitle,
   Avatar,
   AvatarBadge,
-  Switch,
-  Wrap,
-  Divider,
-  Link,
-  Checkbox,
-  Radio,
-  Icon,
+  Badge,
   BreadCrumb,
-  PinInput,
+  Button,
+  Center,
+  Checkbox,
+  CircularProgress,
+  Code,
+  Container,
+  Divider,
+  Fade,
+  Heading,
+  Icon,
+  IconButton,
+  Input,
+  Kbd,
+  Link,
+  Menu,
+  MenuGroup,
+  MenuItem,
+  Modal,
   NumberInput,
   NumberInputStepper,
-  Fade,
-  ScaleFade,
-  Slide,
-  SlideFade,
-  Kbd,
-  TextArea,
-  Tabs,
-  Input,
-  Stat,
+  PinInput,
+  Popover,
   Progress,
-  Container,
+  Radio,
+  ScaleFade,
   Skeleton,
   SkeletonText,
+  Slide,
+  SlideFade,
   Slider,
   SliderThumb,
-  Button,
-  IconButton,
-  Menu,
-  MenuItem,
-  MenuGroup,
   Spinner,
-  CircularProgress,
-  Modal,
-  Popover,
+  Stat,
+  Switch,
+  Tabs,
+  Tag,
   Text,
   AppBar,
+  TextArea,
+  Toast,
+  Wrap,
 };

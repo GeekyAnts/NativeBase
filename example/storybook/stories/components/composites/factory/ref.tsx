@@ -7,7 +7,13 @@ export default function () {
   const inputRef = React.useRef(null);
   return (
     <>
-      <NBInput ref={inputRef} height={10} border={1} borderColor="cyan.400" />
+      <NBInput
+        ref={inputRef}
+        height={10}
+        width={100}
+        border={1}
+        borderColor="cyan.400"
+      />
       <Button
         onPress={() => {
           // @ts-ignore

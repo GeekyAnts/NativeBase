@@ -67,7 +67,11 @@ export default function () {
       />
       <VStack>
         {list.map((item, itemI) => (
-          <HStack w="100%" justifyContent="space-between">
+          <HStack
+            w="100%"
+            justifyContent="space-between"
+            key={item.title + itemI.toString()}
+          >
             <Checkbox
               colorScheme="emerald"
               isChecked={item.isCompleted}
