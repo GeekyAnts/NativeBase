@@ -5,6 +5,7 @@ export default function () {
     <HStack space={4}>
       {['outline', 'solid', 'ghost'].map((variant: any) => (
         <IconButton
+          key={variant}
           variant={variant}
           colorScheme="teal"
           icon={<Icon name={'menu'} size={'lg'} />}
