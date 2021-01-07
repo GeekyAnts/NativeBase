@@ -31,7 +31,6 @@ export default {
   contentStyle: '#f5f4f5',
   expandedIconStyle: '#000',
   accordionBorderColor: '#d3d3d3',
-  disableRow: '#a9a9a9',
 
   // ActionSheet
   elevation: 4,
