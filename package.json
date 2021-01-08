@@ -44,7 +44,9 @@
     "@types/react": "^16.9.19",
     "@types/react-native": "0.62.13",
     "@types/react-native-vector-icons": "^6.4.6",
+    "@types/styled-components-react-native": "^5.1.0",
     "@types/styled-system": "^5.1.9",
+    "@types/tinycolor2": "^1.4.2",
     "commitlint": "^8.3.5",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.11.0",
@@ -64,6 +66,7 @@
     "rollup": "^2.34.1",
     "rollup-plugin-flow": "^1.1.1",
     "styled-components": "^5.2.1",
+    "styled-system": "^5.1.5",
     "typescript": "^3.8.3",
     "visualize-bundle": "^1.4.0"
   },
@@ -74,7 +77,7 @@
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^7.1.0",
     "styled-components": "^5.2.1",
-    "styled-system": "*"
+    "styled-system": "^5.1.5"
   },
   "jest": {
     "preset": "jest-expo",
@@ -141,8 +144,6 @@
     ]
   },
   "dependencies": {
-    "@types/styled-components": "^5.0.1",
-    "@types/tinycolor2": "^1.4.2",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
     "expo-constants": "^9.3.5",
@@ -151,7 +152,6 @@
     "lodash": "^4.17.20",
     "react-native-material-ripple": "^0.9.1",
     "react-native-unimodules": "~0.10.1",
-    "styled-system": "^5.1.5",
     "tinycolor2": "^1.4.2"
   },
   "directories": {
