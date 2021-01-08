@@ -1,4 +1,8 @@
-import { get, isNil, mergeWith, cloneDeep, omit } from 'lodash';
+import get from 'lodash/get';
+import isNil from 'lodash/isNil';
+import mergeWith from 'lodash/mergeWith';
+import cloneDeep from 'lodash/cloneDeep';
+import omit from 'lodash/omit';
 import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from './useNativeBase';
 import { themePropertyMap } from './../theme/base';
