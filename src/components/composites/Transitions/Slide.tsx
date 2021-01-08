@@ -3,8 +3,10 @@ import Box from '../../primitives/Box';
 import { usePropsConfig } from '../../../hooks/usePropsConfig';
 import { Animated, Platform } from 'react-native';
 import type { ISlideProps } from './props';
+import { canUseDom } from '../../../utils';
 
 const Slide = ({ children, ...props }: ISlideProps) => {
+  const isDomUsable = canUseDom();
   // TODO: Slide from right and left needs implmentation.
   const {
     in: animationState,
@@ -25,20 +27,24 @@ const Slide = ({ children, ...props }: ISlideProps) => {
   };
   const slideAnim = React.useRef(new Animated.Value(size)).current;
   const slideIn = () => {
-    Animated.timing(slideAnim, {
-      delay,
-      toValue: 0,
-      duration: duration,
-      useNativeDriver: Platform.OS !== 'web',
-    }).start();
+    if (isDomUsable) {
+      Animated.timing(slideAnim, {
+        delay,
+        toValue: 0,
+        duration: duration,
+        useNativeDriver: Platform.OS !== 'web',
+      }).start();
+    }
   };
 
   const slideOut = () => {
-    Animated.timing(slideAnim, {
-      toValue: placement === 'top' ? -size : size,
-      duration: duration,
-      useNativeDriver: Platform.OS !== 'web',
-    }).start();
+    if (isDomUsable) {
+      Animated.timing(slideAnim, {
+        toValue: placement === 'top' ? -size : size,
+        duration: duration,
+        useNativeDriver: Platform.OS !== 'web',
+      }).start();
+    }
   };
 
   const holderStyle: any = {
