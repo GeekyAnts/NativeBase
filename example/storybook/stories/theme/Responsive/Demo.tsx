@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text, Image, Link } from 'native-base';
 export default () => {
   return (
-    <Box flexDir={{ base: 'column', sm: 'column', md: 'row' }}>
+    <Box flexDirection={{ base: 'column', sm: 'column', md: 'row' }}>
       <Box flexShrink={0}>
         <Image
           rounded={10}
@@ -26,8 +26,10 @@ export default () => {
           Finding customers for your new business
         </Link>
         <Text mt={2} color="gray.500">
-          Getting a new business off the ground is a lot of hard work. Here are
-          five ideas you can use to find your first customers.
+          Getting a new business off the ground is a lot of hard work.
+        </Text>
+        <Text mt={2} color="gray.500">
+          Here are five ideas you can use to find your first customers.
         </Text>
       </Box>
     </Box>
