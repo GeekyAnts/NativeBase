@@ -11,7 +11,7 @@ import {
 } from './../theme/tools/';
 import { filterShadowProps } from './../utils/filterShadowProps';
 
-function useCalculateProps(
+export function useCalculateProps(
   theme: any,
   colorModeProps: any,
   componentTheme: any,
@@ -117,7 +117,7 @@ export function usePropsWithComponentTheme(
 ) {
   const { theme, ...colorModeProps } = useNativeBase();
   return useCalculateProps(
-    omit(theme, ['component']),
+    omit(theme, ['components']),
     colorModeProps,
     localTheme,
     propsReceived
@@ -128,7 +128,7 @@ export function usePropsConfig(component: string, propsReceived: any) {
   const { theme, ...colorModeProps } = useNativeBase();
   const componentTheme = get(theme, `components.${component}`);
   return useCalculateProps(
-    omit(theme, ['component']),
+    omit(theme, ['components']),
     colorModeProps,
     componentTheme,
     propsReceived
