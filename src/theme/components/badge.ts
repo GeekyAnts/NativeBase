@@ -2,7 +2,7 @@ import { mode, getColorScheme } from '../tools';
 
 const baseStyle = {
   px: 1,
-  py: '2px',
+  py: 1,
   textTransform: 'uppercase',
   fontSize: 'xs',
   borderRadius: 'sm',
