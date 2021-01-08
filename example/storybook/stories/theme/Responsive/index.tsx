@@ -4,6 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../components/Wrapper';
 import Basic from './Basic';
 import FontSize from './FontSize';
+import Direction from './Direction';
 import More from './More';
 import Demo from './Demo';
 
@@ -13,4 +14,5 @@ storiesOf('Responsive', module)
   .add('Basic', () => <Basic />)
   .add('FontSize', () => <FontSize />)
   .add('More', () => <More />)
+  .add('Direction', () => <Direction />)
   .add('Demo', () => <Demo />);
