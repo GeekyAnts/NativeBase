@@ -55,8 +55,7 @@ class DefaultHeader extends React.Component {
                 : { color: variables.expandedIconStyle }
               : icon && iconStyle
               ? iconStyle
-              : { color: disable ? variable.disableRow : variables.iconStyle },
-
+              : { color: disable ? variable.disableRow : variables.iconStyle }
           ]}
           name={
             expanded ? expandedIcon || 'ios-arrow-up' : icon || 'ios-arrow-down'
@@ -175,13 +174,14 @@ export class Accordion extends React.Component {
     super(props);
 
     const { expanded, expandMultiple } = this.props;
+    // eslint-disable-next-line no-unused-vars
     let selected;
     if (expanded !== undefined && expanded !== null) {
       selected = Array.isArray(expanded) ? expanded : [expanded];
       selected = expandMultiple ? selected : selected.slice(0, 1);
     }
     this.state = {
-      selected: props.expanded,
+      selected: props.expanded
     };
   }
 
@@ -230,7 +230,7 @@ export class Accordion extends React.Component {
         keyExtractor={(item, index) => String(index)}
         renderItem={({ item, index }) => (
           <AccordionItem
-            disable={disable == index ? true : false}
+            disable={disable === index}
             key={String(index)}
             item={item}
             expanded={this.state.selected.indexOf(index) !== -1}
@@ -246,7 +246,6 @@ export class Accordion extends React.Component {
             expandedIconStyle={expandedIconStyle}
             onAccordionOpen={onAccordionOpen}
             onAccordionClose={onAccordionClose}
-            setSelected={(i) => this.setSelected(i)}
           />
         )}
         {...this.props}
