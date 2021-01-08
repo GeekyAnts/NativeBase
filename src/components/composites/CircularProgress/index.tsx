@@ -5,6 +5,8 @@ import { Box, IBoxProps, ITextProps, Text } from '../../primitives';
 import styled from 'styled-components/native';
 import { color, border } from 'styled-system';
 import { usePropsConfig } from '../../../hooks';
+import { canUseDom } from '../../../utils';
+
 type sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
 
 export type ICircularProgressProps = IBoxProps & {
@@ -33,6 +35,7 @@ const CircularProgress = ({
   min,
   ...props
 }: ICircularProgressProps) => {
+  const isDomUsable = canUseDom();
   if (min) {
     value = value - min;
   }
@@ -56,14 +59,16 @@ const CircularProgress = ({
   }
   const degree: any = new Animated.Value(0);
   if (isIndeterminate) {
-    Animated.loop(
-      Animated.timing(degree, {
-        toValue: 1,
-        duration: 600,
-        easing: Easing.linear,
-        useNativeDriver: false,
-      })
-    ).start();
+    if (isDomUsable) {
+      Animated.loop(
+        Animated.timing(degree, {
+          toValue: 1,
+          duration: 600,
+          easing: Easing.linear,
+          useNativeDriver: false,
+        })
+      ).start();
+    }
   }
   const [viewHeight, setViewHeight] = React.useState(0);
   const layout = (e: any) => {
