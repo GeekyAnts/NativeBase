@@ -147,6 +147,16 @@ You are now ready to send PR to NativeBase!
   ```
   cd ../
   ```
+- Install dependencies:
+
+  ```bash
+  npm install
+  ```
+- Run Project :
+
+  ```bash
+  react-native run-android
+  ```
 
   and start making the changes.
 
