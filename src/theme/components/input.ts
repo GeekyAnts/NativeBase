@@ -7,7 +7,6 @@ const baseStyle = (props: Record<string, any>) => {
     w: '100%',
     p: Platform.OS === 'android' ? 2 : 3, // Android's input have default padding.
     color: mode('black', 'white')(props),
-    borderRadius: 'sm',
     placeholderTextColor: mode(
       colors.blackAlpha[600],
       colors.whiteAlpha[600]
@@ -71,7 +70,7 @@ const sizes = {
 const defaultProps = {
   size: 'md',
   variant: 'default',
-  borderRadius: 'sm',
+  borderRadius: 'md',
 };
 
 export default {
