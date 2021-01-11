@@ -1,23 +1,4 @@
-export const baseSizes = {
-  '0': '0',
-  '1': '4px',
-  '2': '8px',
-  '3': '12px',
-  '4': '16px',
-  '5': '20px',
-  '6': '24px',
-  '8': '32px',
-  '10': '40px',
-  '12': '48px',
-  '16': '64px',
-  '20': '80px',
-  '24': '96px',
-  '32': '128px',
-  '40': '160px',
-  '48': '192px',
-  '56': '224px',
-  '64': '256px',
-};
+import { spacing } from './space';
 
 const container = {
   sm: '640px',
@@ -27,11 +8,20 @@ const container = {
 };
 
 const sizes = {
-  ...baseSizes,
+  ...spacing,
+  ...{
+    '3xs': '224px',
+    '2xs': '256px',
+    'xs': '320px',
+    'sm': '384px',
+    'md': '448px',
+    'lg': '512px',
+    'xl': '576px',
+    '2xl': '672px',
+  },
   container,
 };
 
-export type BaseSizes = typeof baseSizes;
-export type Sizes = typeof baseSizes & { container: typeof container };
+export type Sizes = typeof sizes;
 
 export default sizes;
