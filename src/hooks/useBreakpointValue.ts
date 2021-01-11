@@ -9,7 +9,6 @@ import { useTheme } from './../hooks/useTheme';
 export function useBreakpointValue(values: any) {
   let windowWidth = useWindowDimensions()?.width;
   const theme = useTheme();
-  // console.log('*** 🔥 windowWidth', windowWidth);
   if (hasValidBreakpointFormat(values)) {
     let currentBreakpoint = getClosestBreakpoint(
       theme.breakpoints,
