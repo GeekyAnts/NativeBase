@@ -1,4 +1,7 @@
-import { omitBy, isNil, pick, omit } from 'lodash';
+import omitBy from 'lodash/omitBy';
+import isNil from 'lodash/isNil';
+import pick from 'lodash/pick';
+import omit from 'lodash/omit';
 
 export type Dict = Record<string, any>;
 

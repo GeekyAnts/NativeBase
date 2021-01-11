@@ -13,7 +13,7 @@
     "packager"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "node_modules/.bin/jest",
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
@@ -24,7 +24,7 @@
     "build:web": "rollup --config",
     "bundle:analysis": "visualize-bundle"
   },
-  "version": "3.0.0-next.5",
+  "version": "3.0.0-next.6",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -38,18 +38,22 @@
     "@react-native-community/bob": "^0.16.2",
     "@react-native-community/eslint-config": "^2.0.0",
     "@release-it/conventional-changelog": "^1.1.4",
+    "@testing-library/react-hooks": "^4.0.0",
     "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.162",
     "@types/react": "^16.9.19",
     "@types/react-native": "0.62.13",
     "@types/react-native-vector-icons": "^6.4.6",
+    "@types/styled-components-react-native": "^5.1.0",
     "@types/styled-system": "^5.1.9",
+    "@types/tinycolor2": "^1.4.2",
     "commitlint": "^8.3.5",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
+    "jest-expo": "^40.0.1",
     "metro-react-native-babel-preset": "^0.64.0",
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
@@ -57,9 +61,12 @@
     "react-native": "0.62.2",
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^7.1.0",
+    "react-test-renderer": "^16.9.0",
     "release-it": "^13.5.8",
     "rollup": "^2.34.1",
     "rollup-plugin-flow": "^1.1.1",
+    "styled-components": "^5.2.1",
+    "styled-system": "^5.1.5",
     "typescript": "^3.8.3",
     "visualize-bundle": "^1.4.0"
   },
@@ -70,13 +77,19 @@
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^7.1.0",
     "styled-components": "^5.2.1",
-    "styled-system": "*"
+    "styled-system": "^5.1.5"
   },
   "jest": {
-    "preset": "react-native",
+    "preset": "jest-expo",
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-native|styled-components|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons)/)"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/jest/mock.ts"
     ]
   },
   "husky": {
@@ -131,8 +144,6 @@
     ]
   },
   "dependencies": {
-    "@types/styled-components": "^5.0.1",
-    "@types/tinycolor2": "^1.4.2",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
     "expo-constants": "^9.3.5",
@@ -141,7 +152,6 @@
     "lodash": "^4.17.20",
     "react-native-material-ripple": "^0.9.1",
     "react-native-unimodules": "~0.10.1",
-    "styled-system": "^5.1.5",
     "tinycolor2": "^1.4.2"
   },
   "directories": {

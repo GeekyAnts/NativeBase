@@ -1,4 +1,8 @@
-import { get, isNil, mergeWith, cloneDeep, omit } from 'lodash';
+import get from 'lodash/get';
+import isNil from 'lodash/isNil';
+import mergeWith from 'lodash/mergeWith';
+import cloneDeep from 'lodash/cloneDeep';
+import omit from 'lodash/omit';
 import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from './useNativeBase';
 import { themePropertyMap } from './../theme/base';
@@ -11,7 +15,7 @@ import {
 } from './../theme/tools/';
 import { filterShadowProps } from './../utils/filterShadowProps';
 
-function useCalculateProps(
+export function useCalculateProps(
   theme: any,
   colorModeProps: any,
   componentTheme: any,
@@ -117,7 +121,7 @@ export function usePropsWithComponentTheme(
 ) {
   const { theme, ...colorModeProps } = useNativeBase();
   return useCalculateProps(
-    omit(theme, ['component']),
+    omit(theme, ['components']),
     colorModeProps,
     localTheme,
     propsReceived
@@ -128,7 +132,7 @@ export function usePropsConfig(component: string, propsReceived: any) {
   const { theme, ...colorModeProps } = useNativeBase();
   const componentTheme = get(theme, `components.${component}`);
   return useCalculateProps(
-    omit(theme, ['component']),
+    omit(theme, ['components']),
     colorModeProps,
     componentTheme,
     propsReceived
