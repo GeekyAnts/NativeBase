@@ -1,6 +1,6 @@
+import React from 'react';
 import { useCalculateProps } from './../../hooks/usePropsConfig';
 import { NativeBaseProvider, theme } from 'native-base';
-import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 
 describe('useCalculateProps', () => {
@@ -9,11 +9,11 @@ describe('useCalculateProps', () => {
     toggleColorMode: () => {},
     setColorMode: () => {},
   };
+  const wrapper = ({ children }: any) => (
+    <NativeBaseProvider>{children}</NativeBaseProvider>
+  );
 
   test('No component theme + no props', () => {
-    const wrapper = ({ children }: any) => (
-      <NativeBaseProvider>{children}</NativeBaseProvider>
-    );
     const { result } = renderHook(
       () => useCalculateProps(theme, colorModeProps, {}, {}),
       { wrapper }
@@ -22,10 +22,7 @@ describe('useCalculateProps', () => {
   });
 
   test('Only component theme(Badge) + no props', () => {
-    const wrapper = ({ children }: any) => (
-      <NativeBaseProvider>{children}</NativeBaseProvider>
-    );
-    const componentTheme = (theme as any)['components']['Badge'];
+    const componentTheme = (theme as any).components.Badge;
     const { result } = renderHook(
       () => useCalculateProps(theme, colorModeProps, componentTheme, {}),
       { wrapper }
@@ -46,10 +43,7 @@ describe('useCalculateProps', () => {
   });
 
   test('Component theme(Badge) + some props', () => {
-    const wrapper = ({ children }: any) => (
-      <NativeBaseProvider>{children}</NativeBaseProvider>
-    );
-    const componentTheme = (theme as any)['components']['Badge'];
+    const componentTheme = (theme as any).components.Badge;
     const { result } = renderHook(
       () => useCalculateProps(theme, colorModeProps, componentTheme, { py: 3 }),
       { wrapper }

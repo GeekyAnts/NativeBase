@@ -1,21 +1,18 @@
+import React from 'react';
 import { usePropsConfig } from './../../hooks/usePropsConfig';
 import { NativeBaseProvider } from 'native-base';
-import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 
 describe('usePropsConfig', () => {
+  const wrapper = ({ children }: any) => (
+    <NativeBaseProvider>{children}</NativeBaseProvider>
+  );
   test('Box component + no props', () => {
-    const wrapper = ({ children }: any) => (
-      <NativeBaseProvider>{children}</NativeBaseProvider>
-    );
     const { result } = renderHook(() => usePropsConfig('Box', {}), { wrapper });
     expect(result.current).toEqual({ style: {} });
   });
 
   test('Badge Component + no props', () => {
-    const wrapper = ({ children }: any) => (
-      <NativeBaseProvider>{children}</NativeBaseProvider>
-    );
     const { result } = renderHook(() => usePropsConfig('Badge', {}), {
       wrapper,
     });
@@ -35,9 +32,6 @@ describe('usePropsConfig', () => {
   });
 
   test('Badge + some props', () => {
-    const wrapper = ({ children }: any) => (
-      <NativeBaseProvider>{children}</NativeBaseProvider>
-    );
     const { result } = renderHook(() => usePropsConfig('Badge', { py: 3 }), {
       wrapper,
     });

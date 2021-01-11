@@ -47,7 +47,7 @@ export function hasValidBreakpointFormat(breaks: any, property?: string) {
   if (property && inValidBreakpointProps.indexOf(property) !== -1) {
     return false;
   } else if (Array.isArray(breaks)) {
-    return true;
+    return breaks.length ? true : false;
   } else if (typeof breaks === 'object') {
     const keys = Object.keys(breaks);
     for (let i = 0; i < keys.length; i++) {
