@@ -3,7 +3,8 @@ import breakpoints from './breakpoints';
 import colors from './colors';
 import radii from './radius';
 import shadows from './shadows';
-import sizes, { baseSizes } from './sizes';
+import sizes from './sizes';
+import { spacing } from './space';
 import typography from './typography';
 
 const theme = {
@@ -13,7 +14,7 @@ const theme = {
   radii,
   ...typography,
   sizes,
-  space: baseSizes,
+  space: spacing,
   shadows,
 };
 
