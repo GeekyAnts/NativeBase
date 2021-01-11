@@ -8,7 +8,6 @@ import variable from './../../theme/variables/platform';
 import { TabHeading } from '../TabHeading';
 import { Text } from '../Text';
 import { TabContainer } from '../TabContainer';
-import { ViewPropTypes } from '../../utils';
 const ReactNative = require('react-native');
 
 const { StyleSheet, View, Animated, Platform } = ReactNative;
@@ -23,10 +22,16 @@ const DefaultTabBar = createReactClass({
     activeTextColor: PropTypes.string,
     inactiveTextColor: PropTypes.string,
     disabledTextColor: PropTypes.string,
-    tabStyle: ViewPropTypes.style,
+    tabStyle: PropTypes.shape({
+      style: PropTypes.any,
+    }),
     renderTab: PropTypes.func,
-    underlineStyle: ViewPropTypes.style,
-    tabContainerStyle: ViewPropTypes.style,
+    underlineStyle: PropTypes.shape({
+      style: PropTypes.any,
+    }),
+    tabContainerStyle: PropTypes.shape({
+      style: PropTypes.any,
+    }),
     accessible: PropTypes.array,
     accessibilityLabel: PropTypes.array
   },

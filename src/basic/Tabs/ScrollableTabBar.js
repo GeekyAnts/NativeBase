@@ -8,7 +8,6 @@ import variable from './../../theme/variables/platform';
 import { TabHeading } from '../TabHeading';
 import { Text } from '../Text';
 import { TabContainer } from '../TabContainer';
-import { ViewPropTypes } from '../../utils';
 const Button = require('./Button');
 const ReactNative = require('react-native');
 const {
@@ -31,11 +30,19 @@ const ScrollableTabBar = createReactClass({
     activeTextColor: PropTypes.string,
     inactiveTextColor: PropTypes.string,
     scrollOffset: PropTypes.number,
-    style: ViewPropTypes.style,
-    tabStyle: ViewPropTypes.style,
-    tabsContainerStyle: ViewPropTypes.style,
+    style: PropTypes.shape({
+      style: PropTypes.any,
+    }),
+    tabStyle: PropTypes.shape({
+      style: PropTypes.any,
+    }),
+    tabsContainerStyle: PropTypes.shape({
+      style: PropTypes.any,
+    }),
     renderTab: PropTypes.func,
-    underlineStyle: ViewPropTypes.style,
+    underlineStyle: PropTypes.shape({
+      style: PropTypes.any,
+    }),
     onScroll: PropTypes.func
   },
   contextTypes: {
@@ -204,7 +211,7 @@ const ScrollableTabBar = createReactClass({
         </TabHeading>
       </Button>
     );
-    
+
   },
 
   measureTab(page, event) {
@@ -274,7 +281,7 @@ const ScrollableTabBar = createReactClass({
                 this.props.textStyle[page],
                 this.props.activeTextStyle[page],
                 this.props.tabHeaderStyle[page],
-                variables.tabFontSize
+                this.props.tabFontSize[page]
               );
             })}
             <Animated.View

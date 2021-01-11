@@ -28,6 +28,7 @@ export default {
   expandedIconStyle: '#000',
   headerStyle: '#edebed',
   iconStyle: '#000',
+  disableRow: '#a9a9a9',
 
   // ActionSheet
   elevation: 4,
@@ -123,9 +124,9 @@ export default {
   CheckboxBorderWidth: platform === PLATFORM.IOS ? 1 : 2,
   CheckboxPaddingLeft: platform === PLATFORM.IOS ? 4 : 2,
   CheckboxPaddingBottom: platform === PLATFORM.IOS ? 0 : 5,
-  CheckboxIconSize: platform === PLATFORM.IOS ? 21 : 16,
+  CheckboxIconSize: platform === PLATFORM.IOS ? 19 : 16,
   CheckboxIconMarginTop: platform === PLATFORM.IOS ? undefined : 1,
-  CheckboxFontSize: platform === PLATFORM.IOS ? 23 / 0.9 : 17,
+  CheckboxFontSize: platform === PLATFORM.IOS ? 12 / 0.9 : 17,
   checkboxBgColor: '#039BE5',
   checkboxSize: 20,
   checkboxTickColor: '#fff',
@@ -209,14 +210,10 @@ export default {
   toolbarDefaultBorder: platform === PLATFORM.IOS ? '#a7a6ab' : '#3F51B5',
   iosStatusbar: platform === PLATFORM.IOS ? 'dark-content' : 'light-content',
   get statusBarColor() {
-    return color(this.toolbarDefaultBg)
-      .darken(0.2)
-      .hex();
+    return color(this.toolbarDefaultBg).darken(0.2).hex();
   },
   get darkenHeader() {
-    return color(this.tabBgColor)
-      .darken(0.03)
-      .hex();
+    return color(this.tabBgColor).darken(0.03).hex();
   },
 
   // Icon
@@ -322,13 +319,13 @@ export default {
       topInset: 24,
       leftInset: 0,
       rightInset: 0,
-      bottomInset: 34
+      bottomInset: 34,
     },
     landscape: {
       topInset: 0,
       leftInset: 44,
       rightInset: 44,
-      bottomInset: 21
-    }
-  }
+      bottomInset: 21,
+    },
+  },
 };

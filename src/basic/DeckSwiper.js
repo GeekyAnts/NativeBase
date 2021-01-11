@@ -150,7 +150,8 @@ class DeckSwiper extends Component {
 
           Animated.decay(this.state.pan, {
             velocity: { x: velocity, y: vy },
-            deceleration: 0.98
+            deceleration: 0.98,
+            useNativeDriver: false
           }).start(this._resetState.bind(this));
         } else {
           Animated.spring(this.state.pan, {
@@ -182,7 +183,8 @@ class DeckSwiper extends Component {
       this.selectNext();
       Animated.decay(this.state.pan, {
         velocity: { x: 8, y: 1 },
-        deceleration: 0.98
+        deceleration: 0.98,
+        useNativeDriver: false
       }).start(this._resetState.bind(this));
     }, 300);
   }
@@ -195,7 +197,8 @@ class DeckSwiper extends Component {
       this.selectNext();
       Animated.decay(this.state.pan, {
         velocity: { x: -8, y: 1 },
-        deceleration: 0.98
+        deceleration: 0.98,
+        userNativeDriver: false
       }).start(this._resetState.bind(this));
     }, 300);
   }
