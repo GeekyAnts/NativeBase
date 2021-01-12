@@ -1,5 +1,3 @@
-export { Variants } from '../../@types/enums';
-
 export { default as AspectRatio } from './AspectRatio';
 export type { IAspectRatioProps } from './AspectRatio';
 

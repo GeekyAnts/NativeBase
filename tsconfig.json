@@ -1,4 +1,5 @@
 {
+  "exclude": ["node_modules", "public", "example"],
   "compilerOptions": {
     "baseUrl": ".",
     "declaration": true,
