@@ -24,7 +24,7 @@
     "build:web": "rollup --config",
     "bundle:analysis": "visualize-bundle"
   },
-  "version": "3.0.0-next.7",
+  "version": "3.0.0-next.9",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -32,6 +32,7 @@
   "types": "lib/typescript/src/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
+  "typings": "lib/typescript/index.d.ts",
   "devDependencies": {
     "@commitlint/config-conventional": "^8.3.4",
     "@expo/vector-icons": "^12.0.2",
