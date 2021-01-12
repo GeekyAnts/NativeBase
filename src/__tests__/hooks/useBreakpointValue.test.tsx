@@ -10,7 +10,7 @@ describe('useBreakpointValue', () => {
     const { result } = renderHook(() => useBreakpointValue([]), {
       wrapper,
     });
-    expect(result.current).toEqual(undefined);
+    expect(result.current).toEqual([]);
   });
   test('Empty object', () => {
     const { result } = renderHook(() => useBreakpointValue({}), {
