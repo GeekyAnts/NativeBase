@@ -33,14 +33,11 @@ export const Menu = ({
     onOpen && onOpen();
   };
 
-  return (
-    <View flex={1} ref={triggerRef}>
-      {trigger(
-        {
-          onPress: openMenu,
-        },
-        { open: isOpen }
-      )}
-    </View>
+  return trigger(
+    {
+      onPress: openMenu,
+      ref: triggerRef,
+    },
+    { open: isOpen }
   );
 };
