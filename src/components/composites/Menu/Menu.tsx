@@ -32,11 +32,15 @@ export const Menu = ({
     toggle(true);
     onOpen && onOpen();
   };
-  return trigger(
-    {
-      onPress: openMenu,
-      ref: triggerRef,
-    },
-    { open: isOpen }
+
+  return (
+    <View flex={1} ref={triggerRef}>
+      {trigger(
+        {
+          onPress: openMenu,
+        },
+        { open: isOpen }
+      )}
+    </View>
   );
 };
