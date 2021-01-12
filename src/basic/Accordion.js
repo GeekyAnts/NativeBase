@@ -142,6 +142,7 @@ class AccordionItem extends React.Component {
               renderHeader(item, expanded, index)
             ) : (
               <DefaultHeader
+                title={item.title}
                 disable={disable}
                 expanded={expanded}
                 headerStyle={headerStyle}
