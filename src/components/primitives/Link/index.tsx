@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import type { View as ViewType } from 'react-native';
 import View from './../View';
 import styled from 'styled-components/native';
 import { addTextAndPropsToStrings } from '../../../utils';
@@ -29,29 +30,32 @@ const addStyleAndPropsToChild = (
   });
 };
 
-const Link = ({
-  style,
-  href,
-  isUnderlined = true,
-  onClick,
-  isExternal,
-  children,
-  m,
-  mt,
-  mr,
-  ml,
-  mb,
-  p,
-  pt,
-  pl,
-  pr,
-  pb,
-  w,
-  width,
-  h,
-  height,
-  ...props
-}: ILinkProps) => {
+const Link = (
+  {
+    style,
+    href,
+    isUnderlined = true,
+    onClick,
+    isExternal,
+    children,
+    m,
+    mt,
+    mr,
+    ml,
+    mb,
+    p,
+    pt,
+    pl,
+    pr,
+    pb,
+    w,
+    width,
+    h,
+    height,
+    ...props
+  }: ILinkProps,
+  ref: any
+) => {
   const layoutProps = {
     m,
     mt,
@@ -74,7 +78,7 @@ const Link = ({
 
   return (
     <Box {...layoutProps}>
-      <TouchableWithoutFeedback {...linkProps} {...newProps}>
+      <TouchableWithoutFeedback {...linkProps} {...newProps} ref={ref}>
         <StyledLink
           {...newProps}
           textDecorationLine={isUnderlined ? 'underline' : 'none'}
@@ -91,5 +95,5 @@ const Link = ({
   );
 };
 
-export default Link;
+export default React.forwardRef<ViewType, ILinkProps>(Link);
 export type { ILinkProps };

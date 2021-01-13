@@ -1,5 +1,6 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
+import type { ActivityIndicator as ActivityIndicatorType } from 'react-native';
 import styled from 'styled-components/native';
 import { color, space, position } from 'styled-system';
 import { useToken, usePropsConfig } from '../../../hooks';
@@ -11,13 +12,20 @@ const StyledSpinner = styled(ActivityIndicator)<ISpinnerProps>(
   space,
   position
 );
-const Spinner = (props: ISpinnerProps) => {
+const Spinner = (props: ISpinnerProps, ref: any) => {
   const newProps = usePropsConfig('Spinner', props);
   const spinnerColor = useToken('colors', newProps.color);
   const { spinnerProps } = useSpinner(props);
 
-  return <StyledSpinner {...spinnerProps} {...newProps} color={spinnerColor} />;
+  return (
+    <StyledSpinner
+      {...spinnerProps}
+      {...newProps}
+      color={spinnerColor}
+      ref={ref}
+    />
+  );
 };
 
-export default Spinner;
+export default React.forwardRef<ActivityIndicatorType, ISpinnerProps>(Spinner);
 export type { ISpinnerProps };
