@@ -7,6 +7,7 @@ import {
   Icon,
   StorageManager,
   ColorMode,
+  useColorModeValue,
 } from 'native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -15,10 +16,9 @@ function MyWrapper({ children }: any) {
   return (
     <View
       flex={1}
-      height="100%"
-      width="100%"
       justifyContent="center"
       alignItems="center"
+      bg={useColorModeValue(`gray.50`, `gray.800`)}
     >
       {children}
       <IconButton

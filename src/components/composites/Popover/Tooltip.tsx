@@ -36,7 +36,7 @@ export type Props = {
   borderWidth?: number;
 };
 
-class Tooltip extends React.Component<Props, State> {
+class Tooltip extends React.PureComponent<Props, State> {
   state = {
     isVisible: false,
     yOffset: 0,

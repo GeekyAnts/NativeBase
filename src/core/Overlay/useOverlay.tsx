@@ -1,13 +1,12 @@
 import React from 'react';
-import type { IOverlayContextProps, IuseOverlayProps } from './props';
-import { OverlayContext } from './Context';
+import type { IuseOverlayProps } from './props';
+import { HybridContext } from './../HybridOverlay/Context';
+import type { IHybridContextProps } from './../HybridOverlay/props';
 
 export const useOverlay: IuseOverlayProps = () => {
   const {
-    setOverlayItem,
-    defaultConfig,
-    setConfig,
-  }: IOverlayContextProps = React.useContext(OverlayContext);
+    overlay: { setOverlayItem, defaultConfig, setConfig },
+  }: IHybridContextProps = React.useContext(HybridContext);
   const closeOverlay = () => {
     setOverlayItem(null);
   };

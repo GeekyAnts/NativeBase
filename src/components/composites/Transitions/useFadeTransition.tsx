@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated, Platform } from 'react-native';
-import { canUseDom } from '../../../utils';
+import { canUseDom } from '../../../utils/canUseDom';
 
 export const useFadeTransition = (
   duration = 500,

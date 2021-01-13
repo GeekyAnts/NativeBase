@@ -1,7 +1,8 @@
 import type { ViewProps } from 'react-native';
+import type { ReactNode } from 'react';
 
 export type IOverlayProps = ViewProps & {
-  children?: React.ReactNode;
+  children?: ReactNode;
   disableOverlay?: boolean;
   position?: string;
   animationDuration?: number;
@@ -16,7 +17,7 @@ export type IOverlayContextProps = {
   setConfig?: any;
 };
 
-type configtype = {
+export type IOverlayConfig = {
   disableOverlay?: boolean;
   position?: string;
   backgroundColor?: string;
@@ -24,8 +25,8 @@ type configtype = {
   onClose?: Function;
   closeOnPress?: boolean;
 };
-type IuseOverlayPropsReturn = {
+
+export type IuseOverlayProps = () => {
   closeOverlay: () => void;
-  setOverlay: (component: React.ReactNode, config?: configtype) => void;
+  setOverlay: (component: ReactNode, config?: IOverlayConfig) => void;
 };
-export type IuseOverlayProps = () => IuseOverlayPropsReturn;
