@@ -4,7 +4,6 @@ import {
   ThemeContext,
   ThemeProvider,
 } from 'styled-components/native';
-import { SafeAreaView, StyleSheet } from 'react-native';
 import { theme as defaultTheme, ITheme } from './../theme';
 import {
   IColorModeProviderProps,
@@ -14,14 +13,7 @@ import {
 import OverlayProvider from './Overlay/OverlayProvider';
 import PopoverProvider from './Popover/PopoverProvider';
 import View from '../components/primitives/View';
-
-const ColoredBackground = ({ children, ...props }: any) => (
-  <View {...props} bg={useColorModeValue(`gray.50`, `gray.800`)} flex={1}>
-    <OverlayProvider>
-      <PopoverProvider>{children}</PopoverProvider>
-    </OverlayProvider>
-  </View>
-);
+import SafeAreaView from '../components/primitives/SafeAreaView';
 
 export interface NativeBaseProviderProps {
   theme?: ITheme;
@@ -35,28 +27,21 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     colorModeManager,
     theme = defaultTheme,
     disableSafeArea,
-    ...rest
+    children,
   } = props;
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-  });
-
+  const Wrapper = disableSafeArea ? View : SafeAreaView;
   return (
     <ThemeProvider theme={theme}>
       <ColorModeProvider
         colorModeManager={colorModeManager}
         options={theme.config}
       >
-        {disableSafeArea ? (
-          <ColoredBackground {...rest} />
-        ) : (
-          <SafeAreaView style={styles.container}>
-            <ColoredBackground {...rest} />
-          </SafeAreaView>
-        )}
+        <Wrapper bg={useColorModeValue(`gray.50`, `gray.800`)} flex={1}>
+          <OverlayProvider>
+            <PopoverProvider>{children}</PopoverProvider>
+          </OverlayProvider>
+        </Wrapper>
       </ColorModeProvider>
     </ThemeProvider>
   );

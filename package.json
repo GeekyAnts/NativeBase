@@ -48,6 +48,7 @@
     "@types/styled-components-react-native": "^5.1.0",
     "@types/styled-system": "^5.1.9",
     "@types/tinycolor2": "^1.4.2",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "commitlint": "^8.3.5",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.11.0",
