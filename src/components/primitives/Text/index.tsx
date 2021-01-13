@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text as NativeText } from 'react-native';
+import type { Text as TextType } from 'react-native';
 import styled from 'styled-components/native';
 import {
   color,
@@ -42,19 +43,22 @@ const StyledText = styled(NativeText)<ITextProps>(
   customTypography
 );
 
-const Text = ({
-  children,
-  style,
-  isTruncated,
-  noOfLines,
-  bold,
-  italic,
-  sub,
-  highlight,
-  underline,
-  strikeThrough,
-  ...props
-}: ITextProps) => {
+const Text = (
+  {
+    children,
+    style,
+    isTruncated,
+    noOfLines,
+    bold,
+    italic,
+    sub,
+    highlight,
+    underline,
+    strikeThrough,
+    ...props
+  }: ITextProps,
+  ref: any
+) => {
   const newProps = usePropsConfig('Text', props);
   return (
     <StyledText
@@ -68,11 +72,12 @@ const Text = ({
       {...newProps}
       fontSize={sub ? 10 : newProps.fontSize}
       style={style}
+      ref={ref}
     >
       {children}
     </StyledText>
   );
 };
 
-export default Text;
+export default React.forwardRef<TextType, ITextProps>(Text);
 export type { ITextProps };
