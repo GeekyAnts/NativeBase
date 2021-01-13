@@ -23,6 +23,7 @@ const Stack = (props: IStackProps & { direction?: 'column' | 'row' }) => {
     direction,
     ...remainingProps
   } = props;
+
   return (
     <StyledStack flexDirection={direction} {...remainingProps}>
       {getSpacedChildren(
