@@ -10,8 +10,7 @@ import {
   ColorModeProvider,
   useColorModeValue,
 } from './../color-mode';
-import OverlayProvider from './Overlay/OverlayProvider';
-import PopoverProvider from './Popover/PopoverProvider';
+import HybridProvider from './HybridOverlay/HybridProvider';
 import View from '../components/primitives/View';
 import SafeAreaView from '../components/primitives/SafeAreaView';
 
@@ -38,9 +37,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
         options={theme.config}
       >
         <Wrapper bg={useColorModeValue(`gray.50`, `gray.800`)} flex={1}>
-          <OverlayProvider>
-            <PopoverProvider>{children}</PopoverProvider>
-          </OverlayProvider>
+          <HybridProvider>{children}</HybridProvider>
         </Wrapper>
       </ColorModeProvider>
     </ThemeProvider>

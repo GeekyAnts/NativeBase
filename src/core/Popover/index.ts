@@ -1,4 +1,3 @@
-export { PopoverContext } from './Context';
-export { default as Popover } from './PopoverProvider';
 export { usePopover } from './usePopover';
+export { Wrapper } from './Wrapper';
 export type { IPopoverProps, IPopoverContextProps } from './props';

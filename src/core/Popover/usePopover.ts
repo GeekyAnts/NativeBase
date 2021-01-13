@@ -1,14 +1,17 @@
 import React from 'react';
-import { PopoverContext } from './Context';
-import type { IPopoverConfig, IPopoverContextProps } from './props';
+import type { IPopoverConfig } from './props';
+import { HybridContext } from './../HybridOverlay/Context';
+import type { IHybridContextProps } from './../HybridOverlay/props';
 
 export const usePopover = () => {
   const {
-    setPopoverItem,
-    defaultConfig,
-    setConfig,
-    parentComponentConfig,
-  }: IPopoverContextProps = React.useContext(PopoverContext);
+    popover: {
+      setPopoverItem,
+      defaultConfig,
+      setConfig,
+      parentComponentConfig,
+    },
+  }: IHybridContextProps = React.useContext(HybridContext);
 
   const closePopover = () => {
     setPopoverItem(null);
