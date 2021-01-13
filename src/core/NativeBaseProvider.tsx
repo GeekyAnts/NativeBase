@@ -18,7 +18,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
   const {
     colorModeManager,
     theme = defaultTheme,
-    disableSafeArea,
+    // disableSafeArea,
     children,
   } = props;
   // const Wrapper = disableSafeArea ? View : SafeAreaView;
