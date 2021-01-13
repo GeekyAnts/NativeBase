@@ -15,7 +15,7 @@ type StateType = {
   value: number;
 };
 
-class NBSlider extends React.Component<
+class NBSlider extends React.PureComponent<
   ISliderProps & {
     thumbSize?: number;
     sliderSize?: number;

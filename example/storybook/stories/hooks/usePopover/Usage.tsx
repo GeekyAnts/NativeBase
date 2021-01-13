@@ -30,7 +30,7 @@ export default function () {
               })
             }
           >
-            Show Overlay
+            Show Popover
           </Button>
         );
       })}

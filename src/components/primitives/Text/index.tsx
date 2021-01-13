@@ -11,7 +11,7 @@ import {
   flexbox,
   border,
 } from 'styled-system';
-import { usePropsConfig } from '../../../hooks';
+import { usePropsConfig } from '../../../hooks/usePropsConfig';
 import {
   customBorder,
   customBackground,
