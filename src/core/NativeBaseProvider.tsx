@@ -5,15 +5,8 @@ import {
   ThemeProvider,
 } from 'styled-components/native';
 import { theme as defaultTheme, ITheme } from './../theme';
-import {
-  IColorModeProviderProps,
-  ColorModeProvider,
-  useColorModeValue,
-} from './../color-mode';
+import { IColorModeProviderProps, ColorModeProvider } from './../color-mode';
 import HybridProvider from './HybridOverlay/HybridProvider';
-import View from '../components/primitives/View';
-import SafeAreaView from '../components/primitives/SafeAreaView';
-
 export interface NativeBaseProviderProps {
   theme?: ITheme;
   colorModeManager?: IColorModeProviderProps['colorModeManager'];
@@ -28,17 +21,14 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     disableSafeArea,
     children,
   } = props;
-
-  const Wrapper = disableSafeArea ? View : SafeAreaView;
+  // const Wrapper = disableSafeArea ? View : SafeAreaView;
   return (
     <ThemeProvider theme={theme}>
       <ColorModeProvider
         colorModeManager={colorModeManager}
         options={theme.config}
       >
-        <Wrapper bg={useColorModeValue(`gray.50`, `gray.800`)} flex={1}>
-          <HybridProvider>{children}</HybridProvider>
-        </Wrapper>
+        <HybridProvider>{children}</HybridProvider>
       </ColorModeProvider>
     </ThemeProvider>
   );
