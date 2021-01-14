@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import type { IHybridContextProps } from './props';
+import type { IHybridContextProps } from './types';
 
 export const HybridContext = createContext<IHybridContextProps>({
   overlay: {},

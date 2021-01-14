@@ -1,8 +1,9 @@
 export { useColorMode, useColorModeValue } from './hooks';
 
 export type {
+  StorageManager,
   ColorMode,
   ColorModeOptions,
   IColorModeProviderProps,
-  ColorModeContextType,
+  IColorModeContextProps,
 } from './types';

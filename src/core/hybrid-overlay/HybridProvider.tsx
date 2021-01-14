@@ -1,6 +1,6 @@
 import React from 'react';
-import type { IPopoverConfig } from './../Popover/props';
-import type { IOverlayConfig } from './../Overlay/props';
+import type { IPopoverConfig } from './../Popover/types';
+import type { IOverlayConfig } from './../Overlay/types';
 import { HybridContext } from './Context';
 import { Wrapper as OverlayWrapper } from '../Overlay/Wrapper';
 import { Wrapper as PopoverWrapper } from '../Popover/Wrapper';

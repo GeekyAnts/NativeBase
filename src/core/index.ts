@@ -17,8 +17,9 @@ export type {
 export { useColorMode, useColorModeValue } from './color-mode';
 
 export type {
+  StorageManager,
   ColorMode,
   ColorModeOptions,
   IColorModeProviderProps,
-  ColorModeContextType,
+  IColorModeContextProps,
 } from './color-mode';

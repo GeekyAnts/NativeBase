@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { ColorMode, StorageManager } from './types';
 import { HybridContext } from './../hybrid-overlay/Context';
-import type { IHybridContextProps } from './../hybrid-overlay/props';
+import type { IHybridContextProps } from './../hybrid-overlay/types';
 
 export const useColorMode = () => {
   const { colorMode: context } = React.useContext<IHybridContextProps>(

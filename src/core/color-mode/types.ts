@@ -16,8 +16,8 @@ export type IColorModeProviderProps = {
   colorModeManager?: StorageManager;
 };
 
-export interface ColorModeContextType {
-  colorMode: ColorMode;
-  toggleColorMode: () => void;
-  setColorMode: (value: any) => void;
+export interface IColorModeContextProps {
+  colorMode?: ColorMode;
+  toggleColorMode?: () => void;
+  setColorMode?: (value: any) => void;
 }
