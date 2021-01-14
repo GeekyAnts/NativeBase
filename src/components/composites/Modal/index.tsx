@@ -92,7 +92,7 @@ const Modal = (
   const value: any = {
     visible: isVisible,
     toggleVisible: setIsVisible,
-    toggleOnClose: onClose,
+    toggleOnClose: onClose ? onClose : () => {},
     newProps: newProps,
   };
   const modalChildren = (
