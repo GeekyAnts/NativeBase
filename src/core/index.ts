@@ -14,5 +14,12 @@ export type {
   IPopoverContextProps, // IusePopoverProps,
 } from './Popover';
 
-export { default as NBFactory } from './factory';
-export type { FactoryComponentProps } from './factory';
+export { useColorMode, useColorModeValue } from './color-mode';
+
+export type {
+  StorageManager,
+  ColorMode,
+  ColorModeOptions,
+  IColorModeProviderProps,
+  IColorModeContextProps,
+} from './color-mode';

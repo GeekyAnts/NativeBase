@@ -5,31 +5,25 @@ import {
   ThemeProvider,
 } from 'styled-components/native';
 import { theme as defaultTheme, ITheme } from './../theme';
-import { IColorModeProviderProps, ColorModeProvider } from './../color-mode';
-import HybridProvider from './HybridOverlay/HybridProvider';
+import type { IColorModeProviderProps } from './color-mode';
+import HybridProvider from './hybrid-overlay/HybridProvider';
+
 export interface NativeBaseProviderProps {
   theme?: ITheme;
   colorModeManager?: IColorModeProviderProps['colorModeManager'];
   children?: React.ReactNode;
-  disableSafeArea?: boolean;
 }
 
 const NativeBaseProvider = (props: NativeBaseProviderProps) => {
-  const {
-    colorModeManager,
-    theme = defaultTheme,
-    // disableSafeArea,
-    children,
-  } = props;
-  // const Wrapper = disableSafeArea ? View : SafeAreaView;
+  const { colorModeManager, theme = defaultTheme, children } = props;
   return (
     <ThemeProvider theme={theme}>
-      <ColorModeProvider
+      <HybridProvider
         colorModeManager={colorModeManager}
         options={theme.config}
       >
-        <HybridProvider>{children}</HybridProvider>
-      </ColorModeProvider>
+        {children}
+      </HybridProvider>
     </ThemeProvider>
   );
 };

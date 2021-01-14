@@ -1,7 +1,7 @@
 import React from 'react';
-import type { IPopoverConfig } from './props';
-import { HybridContext } from './../HybridOverlay/Context';
-import type { IHybridContextProps } from './../HybridOverlay/props';
+import type { IPopoverConfig } from './types';
+import { HybridContext } from './../hybrid-overlay/Context';
+import type { IHybridContextProps } from './../hybrid-overlay/types';
 
 export const usePopover = () => {
   const {

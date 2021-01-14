@@ -1,11 +1,18 @@
 import React from 'react';
-import type { IPopoverConfig } from './../Popover/props';
-import type { IOverlayConfig } from './../Overlay/props';
+import type { IPopoverConfig } from './../Popover/types';
+import type { IOverlayConfig } from './../Overlay/types';
 import { HybridContext } from './Context';
 import { Wrapper as OverlayWrapper } from '../Overlay/Wrapper';
 import { Wrapper as PopoverWrapper } from '../Popover/Wrapper';
+import { useModeManager } from './../color-mode/hooks';
+import type { IColorModeProviderProps } from './../color-mode';
 
-const HybridProvider = ({ children }: { children: any }) => {
+const HybridProvider = ({
+  children,
+  options: { initialColorMode = 'light' },
+  colorModeManager,
+}: IColorModeProviderProps) => {
+  // Popover content
   const [popoverItem, setPopoverItem] = React.useState(null);
   const [popoverConfig, setPopoverConfig] = React.useState<IPopoverConfig>({
     triggerRef: null,
@@ -14,6 +21,7 @@ const HybridProvider = ({ children }: { children: any }) => {
     animationDuration: 200,
   });
 
+  // Overlay content
   const [overlayItem, setOverlayItem] = React.useState(null);
   const [overlayConfig, setOverlayConfig] = React.useState<IOverlayConfig>({
     disableOverlay: undefined,
@@ -23,6 +31,16 @@ const HybridProvider = ({ children }: { children: any }) => {
     closeOnPress: false,
     onClose: (_a: any) => {},
   });
+
+  // Color-mode content
+  const { colorMode, setColorMode } = useModeManager(
+    initialColorMode,
+    colorModeManager
+  );
+  const toggleColorMode = React.useCallback(() => {
+    setColorMode(colorMode === 'light' ? 'dark' : 'light');
+  }, [colorMode, setColorMode]);
+
   return (
     <HybridContext.Provider
       value={{
@@ -36,6 +54,11 @@ const HybridProvider = ({ children }: { children: any }) => {
           setOverlayItem,
           defaultConfig: overlayConfig,
           setConfig: setOverlayConfig,
+        },
+        colorMode: {
+          colorMode,
+          toggleColorMode,
+          setColorMode,
         },
       }}
     >

@@ -5,10 +5,10 @@ import {
   useColorMode,
   IconButton,
   Icon,
-  StorageManager,
   ColorMode,
   useColorModeValue,
 } from 'native-base';
+import type { StorageManager } from 'native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function MyWrapper({ children }: any) {
