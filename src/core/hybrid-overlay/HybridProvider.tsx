@@ -5,20 +5,13 @@ import { HybridContext } from './Context';
 import { Wrapper as OverlayWrapper } from '../Overlay/Wrapper';
 import { Wrapper as PopoverWrapper } from '../Popover/Wrapper';
 import { useModeManager } from './../color-mode/hooks';
-import type { ColorMode } from './../color-mode/types';
+import type { IColorModeProviderProps } from './../color-mode';
 
-// TODO: add types
 const HybridProvider = ({
   children,
-  options: { initialColorMode },
+  options: { initialColorMode = 'light' },
   colorModeManager,
-  value,
-}: {
-  children: any;
-  options: any;
-  colorModeManager: any;
-  value?: any;
-}) => {
+}: IColorModeProviderProps) => {
   // Popover content
   const [popoverItem, setPopoverItem] = React.useState(null);
   const [popoverConfig, setPopoverConfig] = React.useState<IPopoverConfig>({
@@ -63,9 +56,9 @@ const HybridProvider = ({
           setConfig: setOverlayConfig,
         },
         colorMode: {
-          colorMode: (value ?? colorMode) as ColorMode,
-          toggleColorMode: value ? () => {} : toggleColorMode,
-          setColorMode: value ? () => {} : setColorMode,
+          colorMode,
+          toggleColorMode,
+          setColorMode,
         },
       }}
     >

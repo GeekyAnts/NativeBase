@@ -10,7 +10,6 @@ export interface ColorModeOptions {
 }
 
 export type IColorModeProviderProps = {
-  value?: ColorMode;
   children?: React.ReactNode;
   options: ColorModeOptions;
   colorModeManager?: StorageManager;
