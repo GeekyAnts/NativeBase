@@ -1,8 +1,8 @@
 import React from 'react';
 import type { AnyStyledComponent } from 'styled-components';
 import styled from 'styled-components/native';
-import { usePropsWithComponentTheme } from './../../hooks/usePropsConfig/usePropsWithComponentTheme';
-import type { ComponentTheme } from './../../theme';
+import { usePropsWithComponentTheme } from './../hooks/usePropsConfig/usePropsWithComponentTheme';
+import type { ComponentTheme } from './../theme';
 import {
   background,
   border,
@@ -24,7 +24,7 @@ import {
   customPosition,
   customShadow,
   customTypography,
-} from '../../utils/customProps';
+} from '../utils/customProps';
 import type { FactoryComponentProps } from './types';
 
 export default function <P>(

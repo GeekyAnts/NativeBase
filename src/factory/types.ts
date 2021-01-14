@@ -22,7 +22,7 @@ import type {
   customFlexboxProps,
   customPositionProps,
   customTransitionProps,
-} from '../../utils/customProps';
+} from '../utils/customProps';
 
 export type FactoryComponentProps = ColorProps &
   SpaceProps &
