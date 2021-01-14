@@ -13,7 +13,7 @@ import {
 } from 'styled-system';
 import { usePropsConfig } from '../../../hooks/usePropsConfig';
 import { themeTools } from '../../../theme';
-import { addTextAndPropsToStrings } from '../../../utils';
+import { addTextAndPropsToStrings } from '../../../utils/addTextAndPropsToStrings';
 import {
   customBackground,
   customBorder,
