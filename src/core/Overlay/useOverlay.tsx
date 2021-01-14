@@ -1,7 +1,7 @@
 import React from 'react';
-import type { IuseOverlayProps } from './props';
+import type { IuseOverlayProps } from './types';
 import { HybridContext } from './../hybrid-overlay/Context';
-import type { IHybridContextProps } from './../hybrid-overlay/props';
+import type { IHybridContextProps } from './../hybrid-overlay/types';
 
 export const useOverlay: IuseOverlayProps = () => {
   const {

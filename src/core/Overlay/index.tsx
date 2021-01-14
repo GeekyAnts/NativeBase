@@ -4,4 +4,4 @@ export type {
   IOverlayProps,
   IOverlayContextProps,
   IuseOverlayProps,
-} from './props';
+} from './types';
