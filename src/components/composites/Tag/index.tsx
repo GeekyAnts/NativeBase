@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Box, IIconProps, Icon, Text, ITextProps } from '../../primitives';
 import CloseButton from '../CloseButton';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 
 export { CloseButton as TagCloseButton };
 import type { ITagProps } from './props';
@@ -20,7 +20,7 @@ export const TagRightIcon = (props: IIconProps) => {
 };
 
 const Tag = ({ style, ...props }: ITagProps) => {
-  let newProps = usePropsConfig('Tag', props);
+  let newProps = useThemeProps('Tag', props);
   return <StyledTag style={style} {...newProps} />;
 };
 

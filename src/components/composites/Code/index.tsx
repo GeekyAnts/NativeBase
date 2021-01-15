@@ -3,12 +3,12 @@ import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 import Box from '../../primitives/Box';
 import type { ICodeProps } from './props';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 
 const StyledCode = styled(Box)<ICodeProps>({});
 
 const Code = ({ style, ...props }: ICodeProps) => {
-  let newProps = usePropsConfig('Code', props);
+  let newProps = useThemeProps('Code', props);
   return (
     <StyledCode
       {...newProps}

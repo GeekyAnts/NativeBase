@@ -1,6 +1,6 @@
 import React from 'react';
 import { HStack } from '../../primitives/Stack';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type {
   IPinInputProps,
   IPinInputFieldProps,
@@ -19,7 +19,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
     space,
     onChange,
     ...newProps
-  } = usePropsConfig('PinInput', props);
+  } = useThemeProps('PinInput', props);
   const formControlContext: IFormControlContext = React.useContext(
     FormControlContext
   );

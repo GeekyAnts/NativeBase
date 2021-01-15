@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '../../primitives/Box';
 import type { ITabsProps } from './props';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { TabsContext } from './Context';
 
 const Tabs = ({ children, ...props }: ITabsProps) => {
@@ -13,7 +13,7 @@ const Tabs = ({ children, ...props }: ITabsProps) => {
     isFitted,
     align,
     ...newProps
-  } = usePropsConfig('Tabs', props);
+  } = useThemeProps('Tabs', props);
   const [index, setIndex] = React.useState(
     props.index || props.defaultIndex || 0
   );

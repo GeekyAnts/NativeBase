@@ -3,7 +3,7 @@ import { ActivityIndicator } from 'react-native';
 import type { ActivityIndicator as ActivityIndicatorType } from 'react-native';
 import styled from 'styled-components/native';
 import { color, space, position } from 'styled-system';
-import { useToken, usePropsConfig } from '../../../hooks';
+import { useToken, useThemeProps } from '../../../hooks';
 import type { ISpinnerProps } from './props';
 import { useSpinner } from './useSpinner';
 
@@ -13,7 +13,7 @@ const StyledSpinner = styled(ActivityIndicator)<ISpinnerProps>(
   position
 );
 const Spinner = (props: ISpinnerProps, ref: any) => {
-  const newProps = usePropsConfig('Spinner', props);
+  const newProps = useThemeProps('Spinner', props);
   const spinnerColor = useToken('colors', newProps.color);
   const { spinnerProps } = useSpinner(props);
 

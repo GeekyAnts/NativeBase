@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, IBoxProps } from '../../primitives';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 
 export type IAppBarContentProps = IBoxProps;
 
 const AppBarContent = (props: IAppBarContentProps) => {
-  const { color } = usePropsConfig('AppBar', props);
+  const { color } = useThemeProps('AppBar', props);
   return (
     <Box
       flex={1}

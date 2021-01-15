@@ -25,7 +25,7 @@ import {
 } from '../../composites/CloseButton';
 
 import { useOverlay } from '../../../core/Overlay';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { Box, View, IBoxProps } from '../../primitives';
 
 const StyledModal = styled(RNModal)<IModalSemiProps>(
@@ -88,7 +88,7 @@ const Modal = (
     setIsVisible(false);
     onClose(false);
   };
-  const newProps = usePropsConfig('Modal', props);
+  const newProps = useThemeProps('Modal', props);
   const value: any = {
     visible: isVisible,
     toggleVisible: setIsVisible,

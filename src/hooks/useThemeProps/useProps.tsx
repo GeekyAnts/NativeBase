@@ -33,7 +33,7 @@ const filterAndCalculateProps = (
   return omitUndefined(mergedProps);
 };
 
-export function usePropsConfig(component: string, propsReceived: any) {
+export function useThemeProps(component: string, propsReceived: any) {
   const { theme, ...colorModeProps } = useNativeBase();
   const componentTheme = get(theme, `components.${component}`);
   let windowWidth = useWindowDimensions()?.width;

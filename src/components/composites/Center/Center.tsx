@@ -1,11 +1,11 @@
 import React from 'react';
 import Box from '../../primitives/Box';
 import type { ICenterProps } from './props';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type { View } from 'react-native';
 
 const Center = (props: ICenterProps, ref: any) => {
-  let newProps = usePropsConfig('Center', props);
+  let newProps = useThemeProps('Center', props);
   return (
     <Box
       ref={ref}

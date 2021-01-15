@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { Animated, Platform } from 'react-native';
 import type { ISkeletonProps } from './props';
 import { canUseDom } from '../../../utils';
@@ -8,7 +8,7 @@ import { canUseDom } from '../../../utils';
 const Bones = (allProps: ISkeletonProps & { circle?: boolean }) => {
   const isDomUsable = canUseDom();
   const { circle, children, ...props } = allProps;
-  const newProps = usePropsConfig('Skeleton', props);
+  const newProps = useThemeProps('Skeleton', props);
   const { style, skeletonColor, baseColor } = newProps;
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
 

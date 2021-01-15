@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Icon } from '../../primitives';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { MenuItem } from './MenuItem';
 import type { IMenuItemProps, IMenuOptionContextProps } from './props';
 import { MenuOptionContext } from './MenuOptionGroup';
@@ -29,7 +29,7 @@ export const MenuItemOption = ({
       : values.includes(value)
       ? 'radio-button-checked'
       : 'radio-button-unchecked';
-  const newProps = usePropsConfig('MenuItem', props);
+  const newProps = useThemeProps('MenuItem', props);
   return (
     <MenuItem {...props} onPress={modifiedOnPress}>
       <Flex direction="row" px={newProps.px} py={newProps.py}>

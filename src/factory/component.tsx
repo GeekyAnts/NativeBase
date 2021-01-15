@@ -1,8 +1,8 @@
 import React from 'react';
 import type { AnyStyledComponent } from 'styled-components';
 import styled from 'styled-components/native';
-import { usePropsWithComponentTheme } from './../hooks/usePropsConfig/usePropsWithComponentTheme';
-import type { ComponentTheme } from './../theme';
+import { usePropsWithComponentTheme } from '../hooks/useThemeProps/usePropsWithComponentTheme';
+import type { ComponentTheme } from '../theme';
 import {
   background,
   border,

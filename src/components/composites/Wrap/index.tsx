@@ -13,7 +13,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import type { IWrapProps } from './props';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import Box from '../../primitives/Box';
 
 const StyledWrap = styled(Box)<IWrapProps>(
@@ -43,7 +43,7 @@ const Wrap = ({
   basis,
   ...props
 }: IWrapProps) => {
-  let newProps = usePropsConfig('Wrap', props);
+  let newProps = useThemeProps('Wrap', props);
   return (
     <StyledWrap
       {...newProps}

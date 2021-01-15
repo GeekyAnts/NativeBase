@@ -1,10 +1,10 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type { IAvatarBadgeProps } from './props';
 
 export const AvatarBadge = (props: IAvatarBadgeProps) => {
-  const { boxSize, ...newProps } = usePropsConfig('AvatarBadge', props);
+  const { boxSize, ...newProps } = useThemeProps('AvatarBadge', props);
   return (
     <Box
       position="absolute"

@@ -11,7 +11,7 @@ import {
   flexbox,
   border,
 } from 'styled-system';
-import { usePropsConfig } from '../../../hooks/usePropsConfig';
+import { useThemeProps } from '../../../hooks/useThemeProps';
 import {
   customBorder,
   customBackground,
@@ -59,7 +59,7 @@ const Text = (
   }: ITextProps,
   ref: any
 ) => {
-  const newProps = usePropsConfig('Text', props);
+  const newProps = useThemeProps('Text', props);
   return (
     <StyledText
       numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : 999}

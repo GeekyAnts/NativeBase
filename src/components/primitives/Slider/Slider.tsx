@@ -5,7 +5,7 @@ import {
   IFormControlContext,
 } from '../../composites/FormControl';
 import Box from '../Box';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type { ISliderProps } from './props';
 import { SliderContext } from './Context';
 
@@ -208,7 +208,7 @@ const Slider = ({ ...props }: ISliderProps) => {
   const formControlContext: IFormControlContext = React.useContext(
     FormControlContext
   );
-  const newProps = usePropsConfig('Slider', {
+  const newProps = useThemeProps('Slider', {
     ...formControlContext,
     ...props,
   });

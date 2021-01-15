@@ -26,7 +26,7 @@ const Snackbar = ({
       }
     }
   }, [accessibilityAnnouncement, isOpen]);
-  // const newProps = usePropsConfig('Snackbar', props);
+  // const newProps = useThemeProps('Snackbar', props);
   return (
     <Slide in={isOpen} {...props}>
       {children}

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { IMenuProps } from './props';
 import View from '../../primitives/View';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { usePopover } from '../../../core';
 
 export const Menu = ({
@@ -13,7 +13,7 @@ export const Menu = ({
   ...props
 }: IMenuProps) => {
   let triggerRef = React.useRef();
-  const newProps = usePropsConfig('Menu', props);
+  const newProps = useThemeProps('Menu', props);
   let [isOpen, toggle] = React.useState<boolean>(false);
   const { setPopover, closePopover } = usePopover();
 

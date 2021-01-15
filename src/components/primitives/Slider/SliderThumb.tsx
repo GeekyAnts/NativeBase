@@ -3,11 +3,11 @@ import { StyleSheet, Animated, Platform } from 'react-native';
 import { SliderContext } from './Context';
 import Box from '../Box';
 import Icon from '../Icon';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type { ISliderProps, ISliderContextProps } from './props';
 
 const SliderThumb = ({ children, ...props }: ISliderProps) => {
-  const { ...newProps } = usePropsConfig('SliderThumb', props);
+  const { ...newProps } = useThemeProps('SliderThumb', props);
   const {
     sliderOffset = 0,
     panResponder,

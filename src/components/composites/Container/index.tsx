@@ -1,10 +1,10 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type { IContainerProps } from './props';
 
 const Container = ({ children, centerContent, ...props }: IContainerProps) => {
-  const newProps = usePropsConfig('Container', props);
+  const newProps = useThemeProps('Container', props);
   return (
     <Box
       alignItems={centerContent ? 'center' : 'flex-start'}

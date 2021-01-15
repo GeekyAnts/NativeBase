@@ -1,2 +1,2 @@
-export { usePropsConfig } from './useProps';
+export { useThemeProps } from './useProps';
 export { usePropsWithComponentTheme } from './usePropsWithComponentTheme';

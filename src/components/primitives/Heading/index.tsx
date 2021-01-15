@@ -21,7 +21,7 @@ import {
   customTypography,
   customPosition,
 } from '../../../utils/customProps';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type { IHeadingProps } from './props';
 
 const StyledHeading = styled(Text)<IHeadingProps>(
@@ -43,7 +43,7 @@ const StyledHeading = styled(Text)<IHeadingProps>(
 );
 
 const Heading = ({ isTruncated, ...props }: IHeadingProps, ref: any) => {
-  const newProps = usePropsConfig('Heading', props);
+  const newProps = useThemeProps('Heading', props);
   return (
     <StyledHeading
       numberOfLines={isTruncated ? 1 : 999999}
