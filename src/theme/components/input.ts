@@ -33,9 +33,13 @@ function defaultStyle() {
   };
 }
 function filledStyle(props: Record<string, any>) {
+  const { isInvalid } = props;
   return {
     bg: props.bg || mode('gray.200', 'gray.600')(props),
     borderWidth: 1,
+    borderColor: isInvalid
+      ? mode(`danger.600`, `danger.200`)(props)
+      : 'transparent',
   };
 }
 function unstyledStyle() {
