@@ -1,11 +1,11 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type { IAlertProps } from './props';
 import { AlertContext } from './Context';
 
 const Alert = ({ children, ...props }: IAlertProps) => {
-  const { status, variant, iconColor, textColor, ...newProps } = usePropsConfig(
+  const { status, variant, iconColor, textColor, ...newProps } = useThemeProps(
     'Alert',
     props
   );

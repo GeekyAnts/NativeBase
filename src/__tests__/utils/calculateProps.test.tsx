@@ -1,4 +1,4 @@
-import { calculateProps } from './../../hooks/usePropsConfig/utils';
+import { calculateProps } from './../../hooks/useThemeProps/utils';
 import { theme } from 'native-base';
 
 describe('useCalculateProps', () => {

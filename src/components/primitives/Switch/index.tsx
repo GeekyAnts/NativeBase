@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, ViewStyle, Switch as RNSwitch } from 'react-native';
 import styled from 'styled-components/native';
 import isNil from 'lodash/isNil';
-import { useToken, usePropsConfig } from '../../../hooks';
+import { useToken, useThemeProps } from '../../../hooks';
 import { border, color, flexbox, layout, space, position } from 'styled-system';
 import {
   customBorder,
@@ -52,7 +52,7 @@ const Switch = (
   );
   const borderColorInvalid = useToken('colors', 'danger.600');
   const checked = !isNil(isChecked) ? isChecked : isActive;
-  const newProps = usePropsConfig('Switch', {
+  const newProps = useThemeProps('Switch', {
     ...props,
     checked,
     onColor,

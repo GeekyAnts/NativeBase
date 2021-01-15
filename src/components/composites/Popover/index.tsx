@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { border, color, flexbox, layout, position, space } from 'styled-system';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import {
   customBackground,
   customBorder,
@@ -73,7 +73,7 @@ const Popover = ({
   const [trigger, setTrigger] = React.useState();
   const [isVisible, setIsVisible] = React.useState(false);
   const popOverRef: any = React.useRef(null);
-  const newProps = usePropsConfig('Popover', props);
+  const newProps = useThemeProps('Popover', props);
   const value: any = {
     PopoverTrigger: trigger,
     setPopoverTrigger: setTrigger,

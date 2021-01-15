@@ -1,19 +1,19 @@
 import React from 'react';
-import { usePropsConfig } from './../../hooks/usePropsConfig';
+import { useThemeProps } from './../../hooks/useThemeProps';
 import { NativeBaseProvider } from 'native-base';
 import { renderHook } from '@testing-library/react-hooks';
 
-describe('usePropsConfig', () => {
+describe('useThemeProps', () => {
   const wrapper = ({ children }: any) => (
     <NativeBaseProvider>{children}</NativeBaseProvider>
   );
   test('Box component + no props', () => {
-    const { result } = renderHook(() => usePropsConfig('Box', {}), { wrapper });
+    const { result } = renderHook(() => useThemeProps('Box', {}), { wrapper });
     expect(result.current).toEqual({ style: {} });
   });
 
   test('Badge Component + no props', () => {
-    const { result } = renderHook(() => usePropsConfig('Badge', {}), {
+    const { result } = renderHook(() => useThemeProps('Badge', {}), {
       wrapper,
     });
     expect(result.current).toEqual({
@@ -32,7 +32,7 @@ describe('usePropsConfig', () => {
   });
 
   test('Badge + some props', () => {
-    const { result } = renderHook(() => usePropsConfig('Badge', { py: 3 }), {
+    const { result } = renderHook(() => useThemeProps('Badge', { py: 3 }), {
       wrapper,
     });
     expect(result.current).toEqual({

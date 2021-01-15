@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, IBoxProps, Text, ITextProps, Icon } from '../../primitives';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 
 export const StatLabel = ({ style, ...props }: ITextProps) => {
   return (
@@ -11,7 +11,7 @@ export const StatLabel = ({ style, ...props }: ITextProps) => {
 };
 
 export const StatNumber = ({ style, ...props }: ITextProps) => {
-  let newProps = usePropsConfig('Stat', props);
+  let newProps = useThemeProps('Stat', props);
   return (
     <Text {...newProps._statNumber} {...newProps} style={style}>
       {props.children}
@@ -20,7 +20,7 @@ export const StatNumber = ({ style, ...props }: ITextProps) => {
 };
 
 export const StatHelpText = ({ style, ...props }: IBoxProps) => {
-  let newProps = usePropsConfig('Stat', props);
+  let newProps = useThemeProps('Stat', props);
   return (
     <Box {...newProps._statHelpText} {...newProps} style={style}>
       {props.children}
@@ -46,7 +46,7 @@ export const StatArrow = ({
 };
 
 export const StatGroup = ({ style, ...props }: IBoxProps) => {
-  let newProps = usePropsConfig('Stat', props);
+  let newProps = useThemeProps('Stat', props);
   return <Box {...newProps._statGroup} {...newProps} style={style} />;
 };
 

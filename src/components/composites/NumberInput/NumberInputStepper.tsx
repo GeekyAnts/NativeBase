@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import { VStack, Box, Icon } from '../../primitives';
 import Divider from '../Divider';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type { INumberInputSteppersProps } from './props';
 
 export const NBStepper = ({ children, ...props }: any) => {
@@ -17,7 +17,7 @@ export const NBStepper = ({ children, ...props }: any) => {
     pressHandler,
     iconColor,
     ...newProps
-  } = usePropsConfig('NumberInputStepper', props);
+  } = useThemeProps('NumberInputStepper', props);
   return (
     <TouchableOpacity
       activeOpacity={1}
@@ -54,7 +54,7 @@ const NumberInputStepper = ({
   children,
   ...props
 }: INumberInputSteppersProps) => {
-  const { iconColor } = usePropsConfig('NumberInputStepper', props);
+  const { iconColor } = useThemeProps('NumberInputStepper', props);
   return (
     <VStack
       border={1}

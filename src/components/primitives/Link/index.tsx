@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 import { addTextAndPropsToStrings } from '../../../utils';
 import type { ILinkProps } from './props';
 import Box from '../Box';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { useLink } from './useLink';
 
 const StyledLink = styled(View)<ILinkProps>({});
@@ -72,7 +72,7 @@ const Link = (
     h,
     height,
   };
-  let newProps = usePropsConfig('Link', props);
+  let newProps = useThemeProps('Link', props);
 
   const { linkProps } = useLink({ href, onClick, isExternal });
 

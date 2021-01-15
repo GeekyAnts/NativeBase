@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import Icon from '../Icon';
 import Box from '../Box';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { RadioContext } from './RadioGroup';
 import type { IRadioProps } from './props';
 import { useRadio } from './useRadio';
@@ -17,7 +17,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
     size,
     isInvalid,
     ...newProps
-  } = usePropsConfig('Radio', {
+  } = useThemeProps('Radio', {
     ...contextState,
     ...props,
   });

@@ -3,10 +3,10 @@ import Box from '../../primitives/Box';
 import Text from '../../primitives/Text';
 import type { IToastProps } from './props';
 import { themeTools } from '../../../theme';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 
 const ToastItem = ({ title, offset, ...props }: IToastProps) => {
-  let newProps = usePropsConfig('Toast', props);
+  let newProps = useThemeProps('Toast', props);
   const [textProps, wrapperProp] = themeTools.extractInObject(newProps, [
     'color',
     'fontWeight',

@@ -1,6 +1,6 @@
 import React from 'react';
 import Text from '../../primitives/Text';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import TouchableItem from '../../primitives/TouchableItem';
 import type { IMenuItemProps } from './props';
@@ -17,7 +17,7 @@ export const MenuItem = ({
     parentComponentConfig: { closeMenu, closeOnSelect },
   } = usePopover();
 
-  const newProps = usePropsConfig('MenuItem', props);
+  const newProps = useThemeProps('MenuItem', props);
   let allProps = {
     ...newProps,
     ...(newProps.isDisabled ? newProps._disabled : {}),

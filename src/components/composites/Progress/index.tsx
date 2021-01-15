@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ViewStyle } from 'react-native';
 import { Box, IBoxProps } from '../../primitives';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 
 type SpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
@@ -26,7 +26,7 @@ const Progress = ({ value, isIndeterminate, ...props }: IProgressProps) => {
   //   ).start();
   // });
 
-  let newProps = usePropsConfig('Progress', props);
+  let newProps = useThemeProps('Progress', props);
   const { innerBg } = newProps;
   const innerProps = {
     bg: innerBg,
