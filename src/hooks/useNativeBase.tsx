@@ -1,4 +1,4 @@
-import { useColorMode } from './../color-mode';
+import { useColorMode } from './../core/color-mode';
 import { useTheme } from './useTheme';
 
 export function useNativeBase() {

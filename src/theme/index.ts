@@ -1,11 +1,7 @@
-import darkTheme from './darkTheme';
 import base from './base';
 import components from './components';
 import * as tools from './tools';
-export interface ColorModeOptions {
-  initialColorMode?: 'light' | 'dark';
-  useSystemColorMode?: boolean;
-}
+import type { ColorModeOptions } from './../core/color-mode/types';
 export interface ComponentTheme {
   baseStyle?: Record<string, any>;
   sizes?: Record<string, any>;
@@ -23,4 +19,4 @@ const theme = {
 };
 
 export type ITheme = typeof theme;
-export { theme, darkTheme, tools as themeTools };
+export { theme, tools as themeTools };

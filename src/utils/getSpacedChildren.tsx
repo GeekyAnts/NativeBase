@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from 'native-base';
+import { default as Box } from '../components/primitives/Box';
 
 type SpaceType =
   | 'gutter'
