@@ -1,7 +1,11 @@
 import React from 'react';
-import { Animated, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import {
+  Animated,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
-import View from '../../components/primitives/View';
 import isEqual from 'lodash/isEqual';
 
 type OverlayWrapperType = {
@@ -30,6 +34,9 @@ function Wrapper({
   const { fadeValue, fadeIn, fadeOut } = useFadeTransition(
     overlayConfig.animationDuration
   );
+  const backgroundColor = overlayConfig.disableOverlay
+    ? 'transparent'
+    : overlayConfig.backgroundColor ?? '#161616cc';
   const overlayStyle = StyleSheet.create({
     wrapper: {
       position: 'absolute',
@@ -46,6 +53,17 @@ function Wrapper({
           ? 'flex-end'
           : 'center',
     },
+    background: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: 999,
+      opacity: 0.5,
+      backgroundColor,
+    },
+    itemBackground: { zIndex: 99999, flex: 1 },
   });
 
   overlayItem ? fadeIn() : fadeOut();
@@ -69,24 +87,9 @@ function Wrapper({
           }
         }}
       >
-        <View
-          position="absolute"
-          top={0}
-          left={0}
-          right={0}
-          bottom={0}
-          zIndex={999}
-          opacity={0.5}
-          bg={
-            overlayConfig.disableOverlay
-              ? 'transparent'
-              : overlayConfig.backgroundColor ?? '#161616cc'
-          }
-        />
+        <View style={overlayStyle.background} />
       </TouchableWithoutFeedback>
-      <View zIndex={99999} flex={1}>
-        {overlayItem}
-      </View>
+      <View style={overlayStyle.itemBackground}>{overlayItem}</View>
     </Animated.View>
   );
 }
