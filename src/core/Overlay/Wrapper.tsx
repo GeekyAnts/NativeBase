@@ -2,16 +2,31 @@ import React from 'react';
 import { Animated, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
 import View from '../../components/primitives/View';
+import isEqual from 'lodash/isEqual';
 
-export function Wrapper({
-  overlayItem,
-  overlayConfig,
-  setOverlayItem,
-}: {
+type OverlayWrapperType = {
   overlayItem: any;
   overlayConfig: any;
   setOverlayItem: any;
-}) {
+};
+
+function areEqual(
+  prevProps: OverlayWrapperType,
+  nextProps: OverlayWrapperType
+) {
+  if (
+    isEqual(prevProps.overlayItem, nextProps.overlayItem) &&
+    isEqual(prevProps.overlayConfig, nextProps.overlayConfig)
+  )
+    return true;
+  return false;
+}
+
+function Wrapper({
+  overlayItem,
+  overlayConfig,
+  setOverlayItem,
+}: OverlayWrapperType) {
   const { fadeValue, fadeIn, fadeOut } = useFadeTransition(
     overlayConfig.animationDuration
   );
@@ -75,3 +90,5 @@ export function Wrapper({
     </Animated.View>
   );
 }
+
+export default React.memo(Wrapper, areEqual);

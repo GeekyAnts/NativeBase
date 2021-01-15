@@ -2,8 +2,8 @@ import React from 'react';
 import type { IPopoverConfig } from './../Popover/types';
 import type { IOverlayConfig } from './../Overlay/types';
 import { HybridContext } from './Context';
-import { Wrapper as OverlayWrapper } from '../Overlay/Wrapper';
-import { Wrapper as PopoverWrapper } from '../Popover/Wrapper';
+import OverlayWrapper from '../Overlay/Wrapper';
+import PopoverWrapper from '../Popover/Wrapper';
 import { useModeManager } from './../color-mode/hooks';
 import type { IColorModeProviderProps } from './../color-mode';
 
@@ -69,8 +69,8 @@ const HybridProvider = ({
         setOverlayItem={setOverlayItem}
       />
       <PopoverWrapper
-        popoverConfig={popoverConfig}
         popoverItem={popoverItem}
+        popoverConfig={popoverConfig}
         setPopoverItem={setPopoverItem}
       />
     </HybridContext.Provider>

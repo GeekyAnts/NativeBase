@@ -3,16 +3,31 @@ import { Animated, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import View from '../../components/primitives/View';
 import { getCoordinates } from './../Popover/utils';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
+import isEqual from 'lodash/isEqual';
 
-export function Wrapper({
-  popoverItem,
-  popoverConfig,
-  setPopoverItem,
-}: {
+type PopoverWrapperType = {
   popoverItem: any;
   popoverConfig: any;
   setPopoverItem: any;
-}) {
+};
+
+function areEqual(
+  prevProps: PopoverWrapperType,
+  nextProps: PopoverWrapperType
+) {
+  if (
+    isEqual(prevProps.popoverItem, nextProps.popoverItem) &&
+    isEqual(prevProps.popoverConfig, nextProps.popoverConfig)
+  )
+    return true;
+  return false;
+}
+
+function Wrapper({
+  popoverItem,
+  popoverConfig,
+  setPopoverItem,
+}: PopoverWrapperType) {
   const [state, setState] = React.useState<any>({
     elementWidth: 0,
     elementHeight: 0,
@@ -89,3 +104,5 @@ const providerStyle = StyleSheet.create({
     zIndex: 999,
   },
 });
+
+export default React.memo(Wrapper, areEqual);
