@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Platform } from 'react-native';
 import Box from '../../primitives/Box';
 import { useToken } from '../../../hooks';
 import type {
@@ -41,6 +41,13 @@ const AccordionButton = (
         alignItems="center"
         {...props}
         style={[style, isOpen && _expanded, isDisabled && _disabled]}
+        opacity={isDisabled ? 0.4 : 1}
+        {...(Platform.OS === 'web'
+          ? {
+              disabled: isDisabled,
+              cursor: isDisabled ? 'not-allowed' : 'auto',
+            }
+          : {})}
       >
         {children}
       </Box>
