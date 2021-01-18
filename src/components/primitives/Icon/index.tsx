@@ -35,10 +35,10 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Zocial from 'react-native-vector-icons/Zocial';
 import type { IIconProps, IconType } from './props';
-import { SVGIcon } from './SVGIcon';
+import SVGIcon from './SVGIcon';
 import { Path } from 'react-native-svg';
 
-const Icon = (iconProps: IIconProps) => {
+const Icon = (iconProps: IIconProps, ref: any) => {
   const { name, type, size, color: colorProp, ...props } = iconProps;
   const newProps = usePropsConfig('Icon', { size, color: colorProp });
   const rawColor = useToken('colors', newProps.color);
@@ -56,6 +56,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'Entypo':
@@ -65,6 +66,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'EvilIcons':
@@ -74,6 +76,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'Feather':
@@ -83,6 +86,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'FontAwesome':
@@ -92,6 +96,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'FontAwesome5':
@@ -101,6 +106,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'Foundation':
@@ -110,6 +116,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'Ionicons':
@@ -119,6 +126,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'MaterialCommunityIcons':
@@ -128,6 +136,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'Octicons':
@@ -137,6 +146,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'SimpleLineIcons':
@@ -146,6 +156,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     case 'Zocial':
@@ -155,6 +166,7 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
     default:
@@ -164,12 +176,13 @@ const Icon = (iconProps: IIconProps) => {
           {...props}
           style={flattenedIconStyle}
           color={rawColor}
+          ref={ref}
         />
       );
   }
 };
 
-const styledIcon = styled(Icon)<IIconProps>(
+const styledIcon: any = styled(React.forwardRef(Icon))<IIconProps>(
   color,
   space,
   layout,

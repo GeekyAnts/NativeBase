@@ -7,16 +7,19 @@ import Svg, { G, Path, Circle } from 'react-native-svg';
 import type { IIconProps } from './props';
 
 const SVG = styled(Svg)<IIconProps>(color, space, typography);
-const SVGIcon = ({
-  viewBox,
-  color: colorProp,
-  stroke,
-  strokeWidth,
-  children,
-  focusable,
-  size,
-  style,
-}: IIconProps) => {
+const SVGIcon = (
+  {
+    viewBox,
+    color: colorProp,
+    stroke,
+    strokeWidth,
+    children,
+    focusable,
+    size,
+    style,
+  }: IIconProps,
+  ref: any
+) => {
   const newProps = usePropsConfig('Icon', { size });
   let strokeColor = useToken('colors', stroke || '');
   colorProp = useToken('colors', colorProp || '');
@@ -31,6 +34,7 @@ const SVGIcon = ({
       focusable={focusable}
       accessibilityRole={'image'}
       style={style}
+      ref={ref}
     >
       {React.Children.count(children) > 0 ? (
         <G>
@@ -39,7 +43,7 @@ const SVGIcon = ({
           )}
         </G>
       ) : (
-        getDefaultIcon()
+        getDefaultIcon(ref)
       )}
     </SVG>
   );
@@ -55,9 +59,9 @@ const ChildPath = ({ fill, stroke: pathStroke, ...remainingProps }: any) => {
     />
   );
 };
-const getDefaultIcon = () => {
+const getDefaultIcon = (ref: any) => {
   return (
-    <G strokeWidth={1.5} stroke="currentColor">
+    <G strokeWidth={1.5} stroke="currentColor" ref={ref}>
       <Path
         d={'M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25'}
         fill="none"
@@ -70,4 +74,4 @@ const getDefaultIcon = () => {
     </G>
   );
 };
-export { SVGIcon };
+export default React.forwardRef(SVGIcon);
