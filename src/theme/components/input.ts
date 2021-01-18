@@ -2,6 +2,7 @@ import { Platform } from 'react-native';
 import { mode } from '../tools';
 
 const baseStyle = (props: Record<string, any>) => {
+  const { isInvalid } = props;
   const { colors } = props.theme;
   return {
     w: '100%',
@@ -14,25 +15,31 @@ const baseStyle = (props: Record<string, any>) => {
     _isDisabledProps: {
       opacity: 0.4,
     },
+    borderColor: isInvalid
+      ? mode(`danger.600`, `danger.200`)(props)
+      : mode('gray.600', 'gray.400')(props),
   };
 };
 
-function roundedStyle(props: Record<string, any>) {
+function roundedStyle() {
   return {
     borderRadius: '50',
     borderWidth: 1,
-    borderColor: mode('gray.600', 'gray.400')(props),
   };
 }
-function defaultStyle(props: Record<string, any>) {
+function defaultStyle() {
   return {
     borderWidth: 1,
-    borderColor: mode('gray.600', 'gray.400')(props),
   };
 }
 function filledStyle(props: Record<string, any>) {
+  const { isInvalid } = props;
   return {
     bg: props.bg || mode('gray.200', 'gray.600')(props),
+    borderWidth: 1,
+    borderColor: isInvalid
+      ? mode(`danger.600`, `danger.200`)(props)
+      : 'transparent',
   };
 }
 function unstyledStyle() {
@@ -40,11 +47,10 @@ function unstyledStyle() {
     borderWidth: 0,
   };
 }
-function underlinedStyle(props: Record<string, any>) {
+function underlinedStyle() {
   return {
     borderRadius: 0,
     borderWidth: 0,
-    borderColor: mode('gray.600', 'gray.400')(props),
     borderBottomWidth: 1,
   };
 }
