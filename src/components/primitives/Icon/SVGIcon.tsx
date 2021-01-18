@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { useToken } from '../../../hooks';
 import styled from 'styled-components/native';
 import { color, space, typography } from 'styled-system';
@@ -20,7 +20,7 @@ const SVGIcon = (
   }: IIconProps,
   ref: any
 ) => {
-  const newProps = usePropsConfig('Icon', { size });
+  const newProps = useThemeProps('Icon', { size });
   let strokeColor = useToken('colors', stroke || '');
   colorProp = useToken('colors', colorProp || '');
   return (

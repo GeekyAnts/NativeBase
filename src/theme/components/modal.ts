@@ -46,10 +46,10 @@ const baseStyle = (props: Record<string, any>) => {
     },
     modalBodyProps: {
       mb: 3,
-      px: 4,
     },
     modalContentProps: {
       bg: mode('gray.100', 'gray.700')(props),
+      p: 4,
     },
     // NOTE: Now using custom overlay.
     // modalOverlayProps: {
@@ -57,11 +57,8 @@ const baseStyle = (props: Record<string, any>) => {
     // },
     modalHeaderProps: {
       pb: 3,
-      px: 3,
     },
     modalFooterProps: {
-      px: 4,
-      pb: 4,
       flexDirection: 'row',
       justifyContent: 'flex-end',
       flexWrap: 'wrap',

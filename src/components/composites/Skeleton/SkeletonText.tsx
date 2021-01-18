@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Stack } from '../../primitives';
 import { Skeleton } from './Skeleton';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type { ISkeletonTextProps } from './props';
 
 const NBSkeletonText = ({ ...props }: ISkeletonTextProps) => {
-  const newProps = usePropsConfig('SkeletonText', props);
+  const newProps = useThemeProps('SkeletonText', props);
   const { skeletonColor, lineSize, baseColor, noOfLines } = newProps;
   const para = [];
   for (let i = 0; i < noOfLines; i++) {

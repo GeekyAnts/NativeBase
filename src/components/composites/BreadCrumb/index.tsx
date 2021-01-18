@@ -3,7 +3,7 @@ import { Flex, Link as BreadCrumbLink } from '../../primitives';
 import type { IBreadCrumbProps } from './props';
 import { extractInObject } from '../../../theme/tools';
 import { BreadCrumbSeparator } from './BreadCrumbSeparator';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 export { BreadCrumbItem } from './BreadCrumbItem';
 export { BreadCrumbLink };
 
@@ -34,7 +34,7 @@ const BreadCrumb = ({
     'noOfLines',
   ]);
 
-  let newProps = usePropsConfig('BreadCrumb', remainingProps);
+  let newProps = useThemeProps('BreadCrumb', remainingProps);
   return (
     <Flex {...newProps} style={style}>
       {children && !children.length

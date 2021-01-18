@@ -24,7 +24,7 @@ import Text from '../Text';
 import Flex from '../Flex';
 import type { IInputProps } from './IInputProps';
 import { InputRightAddon, InputGroup, InputLeftAddon } from './InputGroup';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { themeTools } from '../../../theme';
 
 const StyledInput = styled(TextInput)<IInputProps>(
@@ -105,7 +105,7 @@ const Input = (
       }
     : {};
 
-  const newProps = usePropsConfig('Input', props);
+  const newProps = useThemeProps('Input', props);
 
   const computedProps = {
     display: 'flex',

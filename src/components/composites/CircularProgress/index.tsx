@@ -4,7 +4,7 @@ import { ViewStyle, StyleSheet, Animated, Easing } from 'react-native';
 import { Box, IBoxProps, ITextProps, Text } from '../../primitives';
 import styled from 'styled-components/native';
 import { color, border } from 'styled-system';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 
 type sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
@@ -43,7 +43,7 @@ const CircularProgress = ({
     size = 'md';
   }
   let sizeProps;
-  let newProps = usePropsConfig('CircularProgress', { size: size });
+  let newProps = useThemeProps('CircularProgress', { size: size });
   if (typeof size === 'string') {
     sizeProps = {
       height: newProps.height,

@@ -1,7 +1,7 @@
 export { useOverlay } from './useOverlay';
-export { Wrapper } from './Wrapper';
+export { default as OverlayWrapper } from './Wrapper';
 export type {
   IOverlayProps,
   IOverlayContextProps,
   IuseOverlayProps,
-} from './props';
+} from './types';

@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { usePropsConfig } from '../../../hooks/usePropsConfig';
+import { useThemeProps } from '../../../hooks/useThemeProps';
 import { Animated, Platform } from 'react-native';
 import type { ISlideProps } from './props';
 import { canUseDom } from '../../../utils';
@@ -13,7 +13,7 @@ const Slide = ({ children, ...props }: ISlideProps) => {
     delay,
     placement: pPlacement,
     duration,
-  } = usePropsConfig('Slide', props);
+  } = useThemeProps('Slide', props);
   let placement = pPlacement === 'top' ? 'top' : 'bottom';
   const [containerOpacity, setContainerOpacity] = React.useState(1);
   const [size, setSize] = React.useState(placement === 'top' ? -1000 : 1000);

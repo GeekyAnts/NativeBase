@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import type { TouchableHighlight, TouchableOpacity } from 'react-native';
 import { Platform } from 'react-native';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { Button, HStack, IButtonProps } from '../../primitives';
 
 export type IIconButtonProps = IButtonProps & {
@@ -10,7 +10,7 @@ export type IIconButtonProps = IButtonProps & {
 };
 
 const IconButton = ({ icon, label, ...props }: IIconButtonProps, ref: any) => {
-  const newProps = usePropsConfig('IconButton', props);
+  const newProps = useThemeProps('IconButton', props);
   return (
     <Button ref={ref} {...newProps}>
       {icon && label ? (

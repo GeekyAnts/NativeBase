@@ -11,9 +11,9 @@ import {
   space,
   typography,
 } from 'styled-system';
-import { usePropsConfig } from '../../../hooks/usePropsConfig';
+import { useThemeProps } from '../../../hooks/useThemeProps';
 import { themeTools } from '../../../theme';
-import { addTextAndPropsToStrings } from '../../../utils';
+import { addTextAndPropsToStrings } from '../../../utils/addTextAndPropsToStrings';
 import {
   customBackground,
   customBorder,
@@ -59,7 +59,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
     'whiteSpace',
     'overflowWrap',
   ]);
-  const boxProps = usePropsConfig('Box', remainingProps);
+  const boxProps = useThemeProps('Box', remainingProps);
   return (
     <StyledBox ref={ref} {...boxProps}>
       {addTextAndPropsToStrings(children, textProps)}

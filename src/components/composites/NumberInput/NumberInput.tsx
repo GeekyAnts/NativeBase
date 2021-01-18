@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { FormControlContext, IFormControlContext } from '../FormControl';
 import type { INumberInputProps } from './props';
 import { NumberInputContext } from './Context';
@@ -13,7 +13,7 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
     max,
     onChange,
     ...newProps
-  } = usePropsConfig('NumberInput', props);
+  } = useThemeProps('NumberInput', props);
   const formControlContext: IFormControlContext = React.useContext(
     FormControlContext
   );

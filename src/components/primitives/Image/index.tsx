@@ -13,7 +13,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import Text from '../Text';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import type { IImageProps } from './props';
 
 const StyledImage = styled(RNImage)<IImageProps>(
@@ -58,7 +58,7 @@ const Image = (
       setAlternate(true);
     }
   };
-  const newProps = usePropsConfig('Image', props);
+  const newProps = useThemeProps('Image', props);
 
   if (!alt) {
     console.warn('Please pass alt prop to Image component');

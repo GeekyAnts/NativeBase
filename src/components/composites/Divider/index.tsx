@@ -12,7 +12,7 @@ import {
 } from '../../../utils/customProps';
 
 import type { IDividerProps } from './props';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 
 const StyledDivider = styled(View)<IDividerProps>(
   color,
@@ -38,7 +38,7 @@ const Divider = ({ style, orientation, ...props }: IDividerProps) => {
           width: '100%',
           height: 0,
         };
-  let newProps = usePropsConfig('Divider', props);
+  let newProps = useThemeProps('Divider', props);
 
   return <StyledDivider {...orientationProps} {...newProps} style={style} />;
 };

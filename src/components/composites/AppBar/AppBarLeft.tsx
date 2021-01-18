@@ -1,9 +1,9 @@
 import React from 'react';
 import { HStack, IStackProps } from '../../primitives';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 
 const AppBarLeft = ({ ...props }: IStackProps) => {
-  const { color } = usePropsConfig('AppBar', props);
+  const { color } = useThemeProps('AppBar', props);
   return <HStack alignItems="center" color={color} {...props} />;
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import AppBarLeft from './AppBarLeft';
 import AppBarRight from './AppBarRight';
 import AppBarContent from './AppBarContent';
@@ -16,7 +16,7 @@ const AppBar = ({ children, ...props }: IAppBarProps) => {
   const {
     statusBarHeight = APPROX_STATUSBAR_HEIGHT,
     ...newProps
-  } = usePropsConfig('AppBar', props);
+  } = useThemeProps('AppBar', props);
   return (
     <HStack mt={statusBarHeight} {...newProps}>
       {children}

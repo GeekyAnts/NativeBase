@@ -1,18 +1,48 @@
 import React from 'react';
-import { Animated, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import View from '../../components/primitives/View';
+import {
+  Animated,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import { getCoordinates } from './../Popover/utils';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
+import isEqual from 'lodash/isEqual';
 
-export function Wrapper({
-  popoverItem,
-  popoverConfig,
-  setPopoverItem,
-}: {
+type PopoverWrapperType = {
   popoverItem: any;
   popoverConfig: any;
   setPopoverItem: any;
-}) {
+};
+
+function areEqual(
+  prevProps: PopoverWrapperType,
+  nextProps: PopoverWrapperType
+) {
+  if (
+    isEqual(prevProps.popoverItem, nextProps.popoverItem) &&
+    isEqual(prevProps.popoverConfig, nextProps.popoverConfig)
+  )
+    return true;
+  return false;
+}
+
+const providerStyle = StyleSheet.create({
+  wrapper: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    zIndex: 999,
+  },
+});
+
+function Wrapper({
+  popoverItem,
+  popoverConfig,
+  setPopoverItem,
+}: PopoverWrapperType) {
   const [state, setState] = React.useState<any>({
     elementWidth: 0,
     elementHeight: 0,
@@ -69,23 +99,17 @@ export function Wrapper({
         <View style={providerStyle.wrapper} />
       </TouchableWithoutFeedback>
       <View
-        zIndex={99999}
+        style={{
+          position: 'absolute',
+          zIndex: 99999,
+          ...positions,
+        }}
         onLayout={getElementDims}
-        position="absolute"
-        style={positions}
       >
         {popoverItem}
       </View>
     </Animated.View>
   );
 }
-const providerStyle = StyleSheet.create({
-  wrapper: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    zIndex: 999,
-  },
-});
+
+export default React.memo(Wrapper, areEqual);

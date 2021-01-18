@@ -19,7 +19,7 @@ import {
   customTypography,
   customPosition,
 } from '../../../utils/customProps';
-import { usePropsConfig, useToken } from '../../../hooks';
+import { useThemeProps, useToken } from '../../../hooks';
 import styled from 'styled-components/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -40,7 +40,7 @@ import { Path } from 'react-native-svg';
 
 const Icon = (iconProps: IIconProps, ref: any) => {
   const { name, type, size, color: colorProp, ...props } = iconProps;
-  const newProps = usePropsConfig('Icon', { size, color: colorProp });
+  const newProps = useThemeProps('Icon', { size, color: colorProp });
   const rawColor = useToken('colors', newProps.color);
   if (!name) {
     return <SVGIcon {...iconProps} />;

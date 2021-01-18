@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native';
 import { border, color, flexbox, layout, position, space } from 'styled-system';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import {
   customBackground,
@@ -56,7 +56,7 @@ const Button = (
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  const newProps = usePropsConfig('Button', {
+  const newProps = useThemeProps('Button', {
     ...props,
     size,
   });

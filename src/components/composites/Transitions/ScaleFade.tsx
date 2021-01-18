@@ -1,13 +1,13 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { usePropsConfig } from '../../../hooks/usePropsConfig';
+import { useThemeProps } from '../../../hooks/useThemeProps';
 import { Animated, Platform } from 'react-native';
 import type { IScaleFadeProps } from './props';
 import { canUseDom } from '../../../utils';
 
 const ScaleFade = ({ children, ...props }: IScaleFadeProps) => {
   const isDomUsable = canUseDom();
-  const { in: animationState, duration, initialScale } = usePropsConfig(
+  const { in: animationState, duration, initialScale } = useThemeProps(
     'ScaleFade',
     props
   );

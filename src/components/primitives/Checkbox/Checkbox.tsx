@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
-import { usePropsConfig } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import { Center } from '../../composites/Center';
 import {
   FormControlContext,
@@ -27,7 +27,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     isInvalid,
     size,
     ...newProps
-  } = usePropsConfig('Checkbox', {
+  } = useThemeProps('Checkbox', {
     ...checkboxGroupContext,
     ...formControlContext,
     ...props,
