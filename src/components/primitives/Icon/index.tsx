@@ -45,7 +45,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
   if (!name) {
     return <SVGIcon {...iconProps} />;
   }
-  const flattenedIconStyle: TextStyle = StyleSheet.flatten([
+  const flattenedIconStyle = StyleSheet.flatten([
     { fontSize: parseInt(newProps.size, 10) },
   ]);
   switch (type) {

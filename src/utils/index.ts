@@ -10,3 +10,5 @@ export {
   addTextAndPropsToStrings,
   canUseDom,
 };
+
+export type { IAccessibilityProps } from './accessibilityTypes';
