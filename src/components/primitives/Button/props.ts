@@ -1,9 +1,5 @@
-import type {
-  AccessibilityRole,
-  AccessibilityState,
-  ViewProps,
-  ViewStyle,
-} from 'react-native';
+import type { ViewProps, ViewStyle } from 'react-native';
+import type { IAccessibilityProps } from '../../../utils/accessibilityTypes';
 import type {
   BorderProps,
   ColorProps,
@@ -23,14 +19,6 @@ import type {
   customPositionProps,
 } from '../../../utils/customProps';
 
-export type IButtonAccessibilityProps = {
-  accessible?: boolean;
-  accessibilityRole?: AccessibilityRole;
-  accessibilityState?: AccessibilityState;
-  accessibilityLabel?: string;
-  accessibilityHint?: string;
-};
-
 export type IButtonProps = ViewProps &
   ColorProps &
   SpaceProps &
@@ -46,7 +34,7 @@ export type IButtonProps = ViewProps &
   customPositionProps &
   customLayoutProps &
   customBackgroundProps &
-  IButtonAccessibilityProps & {
+  IAccessibilityProps & {
     style?: ViewStyle;
     children?: any;
     highlight?: number | 0 | 1 | 0.5 | 0.25 | 0.75;

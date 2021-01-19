@@ -8,9 +8,9 @@ export default function () {
       size="sm"
       colorScheme="teal"
       variant={'solid'}
-      onPress={() => Alert.alert('hello world')}
+      onPress={() => console.log('hello world')}
     >
-      Button Variants
+      Press me
     </Button>
   );
 }

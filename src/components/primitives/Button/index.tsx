@@ -102,7 +102,7 @@ const Button = (
     'width',
   ]);
   let [
-    additionalButtonProps,
+    accessibilityProps,
     innerButtonProps,
   ] = themeTools.extractInObject(viewProps, [
     'accessible',
@@ -114,8 +114,7 @@ const Button = (
     'onPress',
   ]);
 
-  additionalButtonProps.isDisabled =
-    additionalButtonProps.isDisabled || isLoading;
+  accessibilityProps.isDisabled = accessibilityProps.isDisabled || isLoading;
   const innerButton = (
     <Box
       {...innerButtonProps}
@@ -147,18 +146,26 @@ const Button = (
     </Box>
   );
 
-  const { buttonProps } = useButton(additionalButtonProps, ref);
+  const { buttonProps } = useButton(
+    {
+      ...accessibilityProps,
+      children,
+      'aria-label': accessibilityProps.accessibilityLabel,
+      'aria-describedby': accessibilityProps.accessibilityHint,
+    },
+    ref
+  );
   return (
     <StyledButton
       activeOpacity={highlight ? highlight : 0.8}
       ref={ref}
       {...layoutProps}
       {...buttonProps}
-      opacity={additionalButtonProps.isDisabled ? 0.4 : 1}
+      opacity={accessibilityProps.isDisabled ? 0.4 : 1}
       {...(Platform.OS === 'web'
         ? {
-            disabled: additionalButtonProps.isDisabled,
-            cursor: additionalButtonProps.isDisabled ? 'not-allowed' : 'auto',
+            disabled: accessibilityProps.isDisabled,
+            cursor: accessibilityProps.isDisabled ? 'not-allowed' : 'auto',
           }
         : {})}
     >

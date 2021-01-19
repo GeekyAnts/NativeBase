@@ -17,6 +17,7 @@ import type {
   customShadowProps,
   customPositionProps,
 } from '../../../utils/customProps';
+import type { IAccessibilityProps } from '../../../utils/accessibilityTypes';
 
 export type ISwitchProps = SwitchProps &
   ColorProps &
@@ -31,6 +32,7 @@ export type ISwitchProps = SwitchProps &
   customShadowProps &
   customLayoutProps &
   customBackgroundProps &
+  IAccessibilityProps &
   BorderProps & {
     style?: ViewStyle;
     size?: 'lg' | 'md' | 'sm';
@@ -44,7 +46,5 @@ export type ISwitchProps = SwitchProps &
     isChecked?: boolean;
     defaultIsChecked?: boolean;
     isInvalid?: boolean;
-    accessibilityLabel?: string;
-    accessibilityHint?: string;
     offTrackColor?: string;
   };
