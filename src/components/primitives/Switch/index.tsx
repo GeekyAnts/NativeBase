@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useToggleState } from '@react-stately/toggle';
 import { StyleSheet, ViewStyle, Switch as RNSwitch } from 'react-native';
 import styled from 'styled-components/native';
 import isNil from 'lodash/isNil';
@@ -14,6 +15,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import type { ISwitchProps } from './props';
+import { useSwitch, AriaInputWrapper } from 'react-native-aria';
 
 const StyledNBSwitch = styled(RNSwitch)<ISwitchProps>(
   color,
@@ -40,18 +42,20 @@ const Switch = (
     iosBgColor,
     isChecked,
     defaultIsChecked,
-    ariaLabel,
+    accessibilityLabel,
+    accessibilityHint,
     onColor,
     offColor,
     ...props
   }: ISwitchProps,
   ref: any
 ) => {
-  const [isActive, setIsActive] = useState(
-    !isNil(defaultIsChecked) ? defaultIsChecked : false
-  );
+  const state = useToggleState({
+    defaultSelected: !isNil(defaultIsChecked) ? defaultIsChecked : false,
+  });
+
   const borderColorInvalid = useToken('colors', 'danger.600');
-  const checked = !isNil(isChecked) ? isChecked : isActive;
+  const checked = !isNil(isChecked) ? isChecked : state.isSelected;
   const newProps = useThemeProps('Switch', {
     ...props,
     checked,
@@ -69,19 +73,30 @@ const Switch = (
     { transform: newProps.transform ?? undefined },
     isInvalid ? inValidPropFactors : {},
   ]);
+
+  const inputRef = React.useRef(null);
+  let { inputProps } = useSwitch(
+    {
+      'aria-label': accessibilityLabel,
+      'aria-describedby': accessibilityHint,
+      isDisabled,
+    },
+    state,
+    inputRef
+  );
   return (
-    <StyledNBSwitch
-      {...newProps}
-      disabled={isDisabled}
-      ios_backgroundColor={iosBgColor}
-      onValueChange={onToggle ? onToggle : () => setIsActive(!isActive)}
-      value={checked}
-      style={computedStyle}
-      accessibilityLabel={ariaLabel}
-      accessibilityRole="switch"
-      ref={ref}
-      opacity={isDisabled ? 0.4 : 1}
-    />
+    <AriaInputWrapper {...inputProps} ref={inputRef}>
+      <StyledNBSwitch
+        {...newProps}
+        disabled={isDisabled}
+        ios_backgroundColor={iosBgColor}
+        onValueChange={onToggle ? onToggle : state.toggle}
+        value={checked}
+        style={computedStyle}
+        ref={ref}
+        opacity={isDisabled ? 0.4 : 1}
+      />
+    </AriaInputWrapper>
   );
 };
 
