@@ -5,10 +5,12 @@ import Wrapper from './../../Wrapper';
 import Basic from './Basic';
 import Sizes from './Sizes';
 import SwitchBgColor from './SwitchBgColor';
+import Accessibility from './Accessibility';
 
 storiesOf('Switch', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Sizes', () => <Sizes />)
-  .add('Switch bgColor', () => <SwitchBgColor />);
+  .add('Switch bgColor', () => <SwitchBgColor />)
+  .add('Accessibility', () => <Accessibility />);

@@ -44,6 +44,7 @@ export type ISwitchProps = SwitchProps &
     isChecked?: boolean;
     defaultIsChecked?: boolean;
     isInvalid?: boolean;
-    ariaLabel?: string;
+    accessibilityLabel?: string;
+    accessibilityHint?: string;
     offTrackColor?: string;
   };
