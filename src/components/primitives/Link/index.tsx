@@ -95,5 +95,5 @@ const Link = (
   );
 };
 
-export default React.forwardRef<ViewType, ILinkProps>(Link);
+export default React.memo(React.forwardRef<ViewType, ILinkProps>(Link));
 export type { ILinkProps };

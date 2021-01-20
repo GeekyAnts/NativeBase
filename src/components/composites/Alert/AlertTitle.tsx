@@ -13,4 +13,4 @@ const AlertTitle = ({ children, ...props }: any) => {
     </Text>
   );
 };
-export default AlertTitle;
+export default React.memo(AlertTitle);

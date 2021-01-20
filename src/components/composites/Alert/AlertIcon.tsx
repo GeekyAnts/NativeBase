@@ -35,4 +35,4 @@ const AlertIcon = ({ children, ...props }: any) => {
     </Box>
   );
 };
-export default AlertIcon;
+export default React.memo(AlertIcon);

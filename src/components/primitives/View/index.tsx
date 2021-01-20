@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components/native';
 import {
   BorderProps,
@@ -72,4 +73,4 @@ const View: any = styled(RNView)<IViewProps>(
   customLayout
 );
 
-export default View;
+export default React.memo(View);

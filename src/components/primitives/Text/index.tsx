@@ -79,5 +79,5 @@ const Text = (
   );
 };
 
-export default React.forwardRef<TextType, ITextProps>(Text);
+export default React.memo(React.forwardRef<TextType, ITextProps>(Text));
 export type { ITextProps };

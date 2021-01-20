@@ -7,4 +7,4 @@ const AppBarLeft = ({ ...props }: IStackProps) => {
   return <HStack alignItems="center" color={color} {...props} />;
 };
 
-export default AppBarLeft;
+export default React.memo(AppBarLeft);

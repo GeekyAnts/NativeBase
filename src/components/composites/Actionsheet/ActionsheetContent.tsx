@@ -13,4 +13,4 @@ const ActionsheetContent = ({
   );
 };
 
-export default ActionsheetContent;
+export default React.memo(ActionsheetContent);

@@ -9,6 +9,7 @@ import {
   useColorModeValue,
 } from 'native-base';
 import type { StorageManager } from 'native-base';
+import { Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function MyWrapper({ children }: any) {
@@ -39,6 +40,14 @@ function MyWrapper({ children }: any) {
   );
 }
 
+export function RenderTestButton() {
+  const [state, setState] = React.useState(1);
+  return (
+    <View style={{ position: 'absolute', top: 10, left: 20 }}>
+      <Button title={state.toString()} onPress={() => setState(state + 1)} />
+    </View>
+  );
+}
 export default ({ children, theme }: any) => {
   const colorModeManager: StorageManager = {
     get: async () => {

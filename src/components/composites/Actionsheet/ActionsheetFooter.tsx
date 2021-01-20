@@ -10,4 +10,4 @@ const ActionsheetFooter = ({ children, ...props }: IActionsheetFooterProps) => {
   );
 };
 
-export default ActionsheetFooter;
+export default React.memo(ActionsheetFooter);

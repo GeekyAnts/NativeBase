@@ -4,7 +4,7 @@ import { useThemeProps } from '../../../hooks';
 import TouchableItem from '../../primitives/TouchableItem';
 import type { IMenuGroupProps } from './props';
 
-export const MenuGroup = ({ title, children }: IMenuGroupProps) => {
+export const MenuGroup = React.memo(({ title, children }: IMenuGroupProps) => {
   const newProps = useThemeProps('MenuGroup', {});
   return (
     <>
@@ -14,4 +14,4 @@ export const MenuGroup = ({ title, children }: IMenuGroupProps) => {
       {children}
     </>
   );
-};
+});

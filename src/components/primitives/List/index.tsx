@@ -57,7 +57,7 @@ export const Ul = ({ style, children, spacing, ...props }: IListProps) => {
   );
 };
 
-export const ListItem = (props: IListItemProps) => {
+export const ListItem = React.memo((props: IListItemProps) => {
   const { children, unordered, ul, ordered, ol, ...remainingProps } = props;
   const startNum = remainingProps.start ? remainingProps.start : 1; // Ordered list starting number
   return (
@@ -88,10 +88,10 @@ export const ListItem = (props: IListItemProps) => {
       </Box>
     </Box>
   );
-};
-export const ListIcon = (props: IIconProps) => {
+});
+export const ListIcon = React.memo((props: IIconProps) => {
   return <Icon mr={2} {...props} />;
-};
+});
 
 export type { IListProps, IListItemProps };
-export default List;
+export default React.memo(List);

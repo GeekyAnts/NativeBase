@@ -29,4 +29,4 @@ const FormHelperText = ({
   );
 };
 
-export default FormHelperText;
+export default React.memo(FormHelperText);

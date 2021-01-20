@@ -18,4 +18,4 @@ const ZStack = ({ children, reversed, ...props }: IZStackProps) => {
   );
 };
 
-export default ZStack;
+export default React.memo(ZStack);

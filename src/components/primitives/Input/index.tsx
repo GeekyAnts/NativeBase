@@ -187,4 +187,4 @@ const Input = (
 //-------------------------------- InputGroup and other Child components -------------------------------
 export { InputRightAddon, InputGroup, InputLeftAddon };
 export type { IInputProps };
-export default forwardRef<any, IInputProps>(Input);
+export default React.memo(forwardRef<any, IInputProps>(Input));

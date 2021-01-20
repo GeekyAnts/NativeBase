@@ -35,4 +35,4 @@ const Alert = ({ children, ...props }: IAlertProps) => {
   );
 };
 
-export default Alert;
+export default React.memo(Alert);

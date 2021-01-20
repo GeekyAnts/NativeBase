@@ -15,5 +15,5 @@ const Badge = ({ children, style, ...props }: IBadgeProps) => {
   );
 };
 
-export default Badge;
+export default React.memo(Badge);
 export type { IBadgeProps };

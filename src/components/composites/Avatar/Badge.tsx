@@ -3,7 +3,7 @@ import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
 import type { IAvatarBadgeProps } from './props';
 
-export const AvatarBadge = (props: IAvatarBadgeProps) => {
+const AvatarBadge = (props: IAvatarBadgeProps) => {
   const { boxSize, ...newProps } = useThemeProps('AvatarBadge', props);
   return (
     <Box
@@ -16,3 +16,4 @@ export const AvatarBadge = (props: IAvatarBadgeProps) => {
     />
   );
 };
+export default React.memo(AvatarBadge);

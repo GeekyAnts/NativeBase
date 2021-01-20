@@ -17,4 +17,4 @@ const Center = (props: ICenterProps, ref: any) => {
   );
 };
 
-export default React.forwardRef<View, ICenterProps>(Center);
+export default React.memo(React.forwardRef<View, ICenterProps>(Center));

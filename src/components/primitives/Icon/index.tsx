@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TextStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
 import {
   border,
   color,
@@ -200,7 +200,7 @@ const styledIcon: any = styled(React.forwardRef(Icon))<IIconProps>(
   customTypography
 );
 
-export default styledIcon;
+export default React.memo(styledIcon);
 export { Path };
 export type { IIconProps, IconType };
 export { createIcon } from './createIcon';

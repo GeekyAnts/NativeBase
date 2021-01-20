@@ -19,4 +19,4 @@ const Code = ({ style, ...props }: ICodeProps) => {
 };
 
 export type { ICodeProps };
-export default Code;
+export default React.memo(Code);

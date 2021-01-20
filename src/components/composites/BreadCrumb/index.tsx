@@ -4,7 +4,7 @@ import type { IBreadCrumbProps } from './props';
 import { extractInObject } from '../../../theme/tools';
 import { BreadCrumbSeparator } from './BreadCrumbSeparator';
 import { useThemeProps } from '../../../hooks';
-export { BreadCrumbItem } from './BreadCrumbItem';
+export { default as BreadCrumbItem } from './BreadCrumbItem';
 export { BreadCrumbLink };
 
 const BreadCrumb = ({
@@ -44,5 +44,5 @@ const BreadCrumb = ({
   );
 };
 
-export default BreadCrumb;
+export default React.memo(BreadCrumb);
 export type { IBreadCrumbProps };

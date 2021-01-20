@@ -17,4 +17,4 @@ const AppBarContent = (props: IAppBarContentProps) => {
   );
 };
 
-export default AppBarContent;
+export default React.memo(AppBarContent);

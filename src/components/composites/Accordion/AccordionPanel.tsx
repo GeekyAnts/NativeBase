@@ -19,4 +19,4 @@ const AccordionPanel = ({ children, ...props }: IAccordionPanelProps) => {
   );
 };
 
-export default AccordionPanel;
+export default React.memo(AccordionPanel);

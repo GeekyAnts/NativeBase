@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components/native';
 import {
   Platform,
@@ -42,4 +43,4 @@ const TouchableItem = styled(
   customLayout
 );
 
-export default TouchableItem;
+export default React.memo(TouchableItem);

@@ -192,8 +192,8 @@ const CircularProgress = ({
   );
 };
 
-export const CircularProgressLabel = (props: ITextProps) => {
+export const CircularProgressLabel = React.memo((props: ITextProps) => {
   return <Text {...props} />;
-};
+});
 
-export default CircularProgress;
+export default React.memo(CircularProgress);

@@ -86,5 +86,5 @@ const Image = (
   );
 };
 
-export default React.forwardRef<ImageType, IImageProps>(Image);
+export default React.memo(React.forwardRef<ImageType, IImageProps>(Image));
 export type { IImageProps };
