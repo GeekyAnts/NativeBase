@@ -14,32 +14,34 @@ export type IStackProps = IViewProps & {
   reversed?: boolean;
 };
 
-const Stack = (props: IStackProps & { direction?: 'column' | 'row' }) => {
-  const {
-    space,
-    children,
-    divider,
-    reversed,
-    direction,
-    ...remainingProps
-  } = props;
+const Stack = React.memo(
+  (props: IStackProps & { direction?: 'column' | 'row' }) => {
+    const {
+      space,
+      children,
+      divider,
+      reversed,
+      direction,
+      ...remainingProps
+    } = props;
 
-  return (
-    <StyledStack flexDirection={direction} {...remainingProps}>
-      {getSpacedChildren(
-        children,
-        space,
-        direction === 'row' ? 'X' : 'Y',
-        reversed ? 'reverse' : 'normal',
-        divider
-      )}
-    </StyledStack>
-  );
-};
+    return (
+      <StyledStack flexDirection={direction} {...remainingProps}>
+        {getSpacedChildren(
+          children,
+          space,
+          direction === 'row' ? 'X' : 'Y',
+          reversed ? 'reverse' : 'normal',
+          divider
+        )}
+      </StyledStack>
+    );
+  }
+);
 
 export const VStack = Stack;
 
-export const HStack = (props: IStackProps) => {
+export const HStack = React.memo((props: IStackProps) => {
   return Stack({ ...props, direction: 'row' });
-};
-export default Stack;
+});
+export default React.memo(Stack);

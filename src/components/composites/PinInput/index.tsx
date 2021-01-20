@@ -99,6 +99,6 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
   );
 };
 
-export default PinInput;
+export default React.memo(PinInput);
 export { default as PinInputField } from './PinInputField';
 export type { IPinInputProps, IPinInputFieldProps, IPinInputContext };

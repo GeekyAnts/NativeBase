@@ -68,4 +68,4 @@ const ScaleFade = ({ children, ...props }: IScaleFadeProps) => {
   );
 };
 
-export default ScaleFade;
+export default React.memo(ScaleFade);

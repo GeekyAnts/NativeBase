@@ -9,20 +9,20 @@ import type { ITagProps } from './props';
 
 const StyledTag = styled(Box)<ITagProps>({});
 
-export const TagLabel = (props: ITextProps) => {
+export const TagLabel = React.memo((props: ITextProps) => {
   return <Text {...props} />;
-};
-export const TagLeftIcon = (props: IIconProps) => {
+});
+export const TagLeftIcon = React.memo((props: IIconProps) => {
   return <Icon mr={2} {...props} />;
-};
-export const TagRightIcon = (props: IIconProps) => {
+});
+export const TagRightIcon = React.memo((props: IIconProps) => {
   return <Icon ml={2} {...props} />;
-};
+});
 
 const Tag = ({ style, ...props }: ITagProps) => {
   let newProps = useThemeProps('Tag', props);
   return <StyledTag style={style} {...newProps} />;
 };
 
-export default Tag;
+export default React.memo(Tag);
 export type { ITagProps };

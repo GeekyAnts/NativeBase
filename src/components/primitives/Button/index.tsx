@@ -177,4 +177,4 @@ const Button = (
 
 export { ButtonGroup } from './ButtonGroup';
 export type { IButtonProps, IButtonGroupProps };
-export default forwardRef<any, IButtonProps & IBoxProps>(Button);
+export default React.memo(forwardRef<any, IButtonProps & IBoxProps>(Button));

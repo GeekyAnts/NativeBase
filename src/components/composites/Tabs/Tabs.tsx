@@ -53,4 +53,4 @@ const Tabs = ({ children, ...props }: ITabsProps) => {
   );
 };
 
-export default Tabs;
+export default React.memo(Tabs);

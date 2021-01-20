@@ -67,5 +67,5 @@ const Wrap = ({
   );
 };
 
-export default Wrap;
+export default React.memo(Wrap);
 export type { IWrapProps };

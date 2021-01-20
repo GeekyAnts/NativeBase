@@ -53,5 +53,5 @@ const Heading = ({ isTruncated, ...props }: IHeadingProps, ref: any) => {
   );
 };
 
-export default React.forwardRef<TextType, IHeadingProps>(Heading);
+export default React.memo(React.forwardRef<TextType, IHeadingProps>(Heading));
 export type { IHeadingProps };

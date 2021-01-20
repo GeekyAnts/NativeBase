@@ -68,4 +68,4 @@ const NumberInputStepper = ({
   );
 };
 
-export default NumberInputStepper;
+export default React.memo(NumberInputStepper);

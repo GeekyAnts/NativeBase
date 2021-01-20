@@ -62,4 +62,4 @@ const Progress = ({ value, isIndeterminate, ...props }: IProgressProps) => {
   );
 };
 
-export default Progress;
+export default React.memo(Progress);

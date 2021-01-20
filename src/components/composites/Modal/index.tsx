@@ -233,6 +233,6 @@ export const ModalOverlay = ({ children, ...props }: any) => {
     </Box>
   );
 };
-export default React.forwardRef<ModalType, IModalProps>(Modal);
+export default React.memo(React.forwardRef<ModalType, IModalProps>(Modal));
 
 export type { IModalProps };

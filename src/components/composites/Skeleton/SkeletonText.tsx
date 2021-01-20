@@ -31,4 +31,4 @@ const SkeletonText = ({ children, isLoaded, ...props }: ISkeletonTextProps) => {
   return <NBSkeletonText {...props} />;
 };
 
-export default SkeletonText;
+export default React.memo(SkeletonText);

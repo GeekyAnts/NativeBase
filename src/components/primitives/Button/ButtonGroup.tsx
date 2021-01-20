@@ -12,19 +12,17 @@ const StyledButtonGroup = styled.View<IButtonGroupProps>(
   { flexDirection: 'row', flexWrap: 'wrap' }
 );
 
-export const ButtonGroup = ({
-  children,
-  spacing,
-  ...props
-}: IButtonGroupProps) => {
-  return (
-    <StyledButtonGroup>
-      {React.Children.map(children, (child: JSX.Element, index: number) => {
-        return React.cloneElement(child, {
-          ml: index !== 0 ? spacing : undefined,
-          ...props,
-        });
-      })}
-    </StyledButtonGroup>
-  );
-};
+export const ButtonGroup = React.memo(
+  ({ children, spacing, ...props }: IButtonGroupProps) => {
+    return (
+      <StyledButtonGroup>
+        {React.Children.map(children, (child: JSX.Element, index: number) => {
+          return React.cloneElement(child, {
+            ml: index !== 0 ? spacing : undefined,
+            ...props,
+          });
+        })}
+      </StyledButtonGroup>
+    );
+  }
+);

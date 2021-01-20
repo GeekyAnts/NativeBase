@@ -33,4 +33,4 @@ const NumberDecrementStepper = ({
   );
 };
 
-export default NumberDecrementStepper;
+export default React.memo(NumberDecrementStepper);
