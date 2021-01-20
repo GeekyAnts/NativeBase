@@ -22,7 +22,7 @@ import { default as Box, IBoxProps } from '../Box';
 import Flex from '../Flex';
 import Spinner from '../Spinner';
 import type { IButtonGroupProps, IButtonProps } from './props';
-import { useButton } from './useButton';
+import { useButton } from 'react-native-aria';
 
 const StyledButton = styled(TouchableOpacity)<
   IButtonProps & TouchableOpacityProps
@@ -146,7 +146,7 @@ const Button = (
     </Box>
   );
 
-  const { buttonProps } = useButton(
+  const ariaProps = useButton(
     {
       ...accessibilityProps,
       children,
@@ -159,8 +159,9 @@ const Button = (
     <StyledButton
       activeOpacity={highlight ? highlight : 0.8}
       ref={ref}
+      {...accessibilityProps}
+      {...ariaProps}
       {...layoutProps}
-      {...buttonProps}
       opacity={accessibilityProps.isDisabled ? 0.4 : 1}
       {...(Platform.OS === 'web'
         ? {

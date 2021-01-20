@@ -2117,13 +2117,6 @@
     "@react-aria/utils" "^3.3.0"
     clsx "^1.1.1"
 
-"@react-native-async-storage/async-storage@^1.13.2":
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.13.2.tgz#649f78527f16cd5a87071a888219ef7a35ef5c79"
-  integrity sha512-isTDvUApRJPVWFxV15yrQSOGqarX7cIedq/y4N5yWSnotf68D9qvDEv1I7rCXhkBDi0u4OJt6GA9dksUT0D3wg==
-  dependencies:
-    deep-assign "^3.0.0"
-
 "@react-native-community/bob@^0.16.2":
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/@react-native-community/bob/-/bob-0.16.2.tgz#9102b0160e70084fa1b75403a80dec332647c950"
@@ -10070,10 +10063,10 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
-react-native-aria@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/react-native-aria/-/react-native-aria-0.1.5.tgz#c4d0c993e4d97a533e86f9d81d7a433f590c0fd2"
-  integrity sha512-lrNPKF/OYRC+bm344Mwa/Oe+6/3i/kzcwilUnAGL/opBiC1YctiVdGfnjRpIm5bXjCAEAhFcXMDXBw3IfCI41Q==
+react-native-aria@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/react-native-aria/-/react-native-aria-0.1.8.tgz#39a0bd45417e4134529acfeee6e2cbf0716860be"
+  integrity sha512-yCKIM6OtE/JFxfEAnN4xPf8Aymffe96/x+W/QJKdy/dPDnfdrRexEvtVbx1/vTf0zUdlqdtlYgEGdCfFs8MQ5A==
   dependencies:
     "@react-aria/button" "^3.3.0"
     "@react-aria/checkbox" "^3.2.1"
@@ -10089,14 +10082,12 @@ react-native-aria@^0.1.5:
     "@react-aria/switch" "^3.1.1"
     "@react-aria/toggle" "^3.1.1"
     "@react-aria/visually-hidden" "^3.2.1"
-    "@react-native-async-storage/async-storage" "^1.13.2"
     "@react-stately/checkbox" "^3.0.1"
     "@react-stately/collections" "^3.3.0"
     "@react-stately/radio" "^3.2.1"
     "@react-stately/select" "^3.1.1"
     "@react-stately/toggle" "^3.2.1"
     react-dom "^17.0.1"
-    react-native-svg "^12.1.0"
     react-native-web "^0.14.10"
 
 react-native-material-ripple@^0.9.1:
