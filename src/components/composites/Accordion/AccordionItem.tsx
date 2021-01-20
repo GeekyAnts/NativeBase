@@ -41,4 +41,4 @@ const AccordionItem = ({
   );
 };
 
-export default AccordionItem;
+export default React.memo(AccordionItem);

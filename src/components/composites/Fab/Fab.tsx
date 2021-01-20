@@ -25,4 +25,4 @@ const Fab = (props: IFabProps) => {
   );
 };
 
-export default Fab;
+export default React.memo(Fab);

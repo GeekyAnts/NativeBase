@@ -37,7 +37,6 @@ const Accordion = ({
     }
     onChange && onChange(indexCopy);
   };
-
   return (
     <AccordionContext.Provider value={{ index: index, changeHandler }}>
       <Box style={style} {...props}>
@@ -47,4 +46,4 @@ const Accordion = ({
   );
 };
 
-export default Accordion;
+export default React.memo(Accordion);

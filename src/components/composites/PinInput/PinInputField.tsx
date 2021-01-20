@@ -50,4 +50,4 @@ const PinInputFiled = ({
   );
 };
 
-export default PinInputFiled;
+export default React.memo(PinInputFiled);

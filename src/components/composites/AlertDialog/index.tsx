@@ -13,7 +13,7 @@ export interface IAlertDialogProps
   extends Omit<IModalProps, 'initialFocusRef'> {
   leastDestructiveRef: IModalProps['initialFocusRef'];
 }
-const AlertDialog = (props: IAlertDialogProps) => {
+const AlertDialogInternal = (props: IAlertDialogProps) => {
   const { leastDestructiveRef, ...rest } = props;
   return (
     <Modal
@@ -29,6 +29,8 @@ const AlertDialogContent = React.forwardRef(function AlertDialogContent(
 ) {
   return <ModalContent ref={ref} accessibilityRole="alert" {...props} />;
 });
+
+const AlertDialog = React.memo(AlertDialogInternal);
 
 export {
   AlertDialog,

@@ -34,4 +34,4 @@ const FormLabel = ({
     </Box>
   );
 };
-export default FormLabel;
+export default React.memo(FormLabel);

@@ -13,7 +13,7 @@ const initials = (name: string) => {
 
 const StyledAvatar = styled(Box)<IAvatarProps>({});
 
-export const Avatar = (
+const Avatar = (
   props: IAvatarProps & {
     children?: JSX.Element[] | JSX.Element | any | undefined;
   }
@@ -47,3 +47,5 @@ export const Avatar = (
     </StyledAvatar>
   );
 };
+
+export default React.memo(Avatar);

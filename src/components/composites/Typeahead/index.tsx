@@ -103,5 +103,5 @@ const Typeahead = (
   );
 };
 
-export default forwardRef<any, ITypeaheadProps>(Typeahead);
+export default React.memo(forwardRef<any, ITypeaheadProps>(Typeahead));
 export { useTypeahead };

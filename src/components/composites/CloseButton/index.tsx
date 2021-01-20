@@ -13,4 +13,4 @@ const CloseButton = (props: ICloseButtonProps) => {
   );
 };
 
-export default CloseButton;
+export default React.memo(CloseButton);

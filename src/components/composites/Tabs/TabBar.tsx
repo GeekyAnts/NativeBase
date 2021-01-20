@@ -21,4 +21,4 @@ const TabBar = ({ children, ...props }: ITabBarProps) => {
   );
 };
 
-export default TabBar;
+export default React.memo(TabBar);

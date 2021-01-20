@@ -15,4 +15,4 @@ const TabView = ({ index, children, ...props }: ITabViewProps) => {
   return tabViewTemplate();
 };
 
-export default TabView;
+export default React.memo(TabView);

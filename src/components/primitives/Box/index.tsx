@@ -69,4 +69,4 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 
 export type { IBoxProps } from './props';
 
-export default forwardRef<ViewType, IBoxProps>(Box);
+export default React.memo(forwardRef<ViewType, IBoxProps>(Box));

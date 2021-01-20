@@ -39,4 +39,4 @@ export const Spacer = (props: any) => {
 };
 
 export type { IFlexProps };
-export default React.forwardRef(Flex);
+export default React.memo(React.forwardRef(Flex));

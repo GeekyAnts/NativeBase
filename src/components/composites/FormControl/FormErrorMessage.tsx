@@ -15,4 +15,4 @@ const FormErrorMessage = ({ children, ...props }: IFormErrorMessageProps) => {
   ) : null;
 };
 
-export default FormErrorMessage;
+export default React.memo(FormErrorMessage);

@@ -32,4 +32,4 @@ const NumberIncrementStepper = ({
     </NBStepper>
   );
 };
-export default NumberIncrementStepper;
+export default React.memo(NumberIncrementStepper);

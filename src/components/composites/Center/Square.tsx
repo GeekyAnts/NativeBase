@@ -14,4 +14,4 @@ const Square = ({ style, size, ...props }: ISquareProps) => {
   );
 };
 
-export default Square;
+export default React.memo(Square);

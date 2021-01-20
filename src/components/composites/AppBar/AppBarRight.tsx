@@ -14,4 +14,4 @@ const AppBarRight = ({ ...props }: IStackProps) => {
   );
 };
 
-export default AppBarRight;
+export default React.memo(AppBarRight);

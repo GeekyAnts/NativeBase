@@ -18,4 +18,4 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps) => {
   );
 };
 
-export default Actionsheet;
+export default React.memo(Actionsheet);

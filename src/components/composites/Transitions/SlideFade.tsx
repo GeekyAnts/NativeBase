@@ -72,4 +72,4 @@ const SlideFade = ({ children, ...props }: ISlideFadeProps) => {
   );
 };
 
-export default SlideFade;
+export default React.memo(SlideFade);

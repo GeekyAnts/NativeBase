@@ -16,4 +16,4 @@ const AccordionIcon = ({ ...props }: IAccordionIconProps) => {
   );
 };
 
-export default AccordionIcon;
+export default React.memo(AccordionIcon);

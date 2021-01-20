@@ -27,5 +27,7 @@ const Spinner = (props: ISpinnerProps, ref: any) => {
   );
 };
 
-export default React.forwardRef<ActivityIndicatorType, ISpinnerProps>(Spinner);
+export default React.memo(
+  React.forwardRef<ActivityIndicatorType, ISpinnerProps>(Spinner)
+);
 export type { ISpinnerProps };

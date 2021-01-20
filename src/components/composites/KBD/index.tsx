@@ -27,5 +27,5 @@ const Kbd = ({ style, textStyle, children, ...props }: IKbdProps) => {
   );
 };
 
-export default Kbd;
+export default React.memo(Kbd);
 export type { IKbdProps };

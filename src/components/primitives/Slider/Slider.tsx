@@ -216,4 +216,4 @@ const Slider = ({ ...props }: ISliderProps) => {
   return <NBSlider {...newProps} />;
 };
 
-export default Slider;
+export default React.memo(Slider);

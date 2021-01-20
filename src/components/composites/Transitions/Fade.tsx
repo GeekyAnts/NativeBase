@@ -17,4 +17,4 @@ const Fade = ({ children, ...props }: IFadeProps) => {
   );
 };
 
-export default Fade;
+export default React.memo(Fade);

@@ -2,7 +2,7 @@ import React from 'react';
 import Flex from '../../primitives/Flex';
 import type { IBreadCrumbProps } from './props';
 
-export const BreadCrumbItem = (
+const BreadCrumbItem = (
   props: IBreadCrumbProps & { isCurrentPage?: boolean }
 ) => {
   const { children, isCurrentPage, ...remainingProps } = props;
@@ -18,3 +18,5 @@ export const BreadCrumbItem = (
     </Flex>
   );
 };
+
+export default React.memo(BreadCrumbItem);

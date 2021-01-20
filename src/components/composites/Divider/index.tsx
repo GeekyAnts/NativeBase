@@ -43,5 +43,5 @@ const Divider = ({ style, orientation, ...props }: IDividerProps) => {
   return <StyledDivider {...orientationProps} {...newProps} style={style} />;
 };
 
-export default Divider;
+export default React.memo(Divider);
 export type { IDividerProps };

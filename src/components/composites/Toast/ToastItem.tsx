@@ -22,4 +22,4 @@ const ToastItem = ({ title, offset, ...props }: IToastProps) => {
   );
 };
 
-export default ToastItem;
+export default React.memo(ToastItem);

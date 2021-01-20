@@ -37,4 +37,4 @@ const RadioGroup = ({ size, colorScheme, ...props }: IRadioGroupProps) => {
   );
 };
 
-export default RadioGroup;
+export default React.memo(RadioGroup);

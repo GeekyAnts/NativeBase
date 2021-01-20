@@ -218,5 +218,5 @@ export const PopoverCloseButton = (props: any) => {
   );
 };
 
-export default Popover;
+export default React.memo(Popover);
 export type { IPopoverProps };

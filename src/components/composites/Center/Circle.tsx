@@ -15,4 +15,4 @@ const Circle = ({ style, size, ...props }: ICircleProps) => {
   );
 };
 
-export default Circle;
+export default React.memo(Circle);

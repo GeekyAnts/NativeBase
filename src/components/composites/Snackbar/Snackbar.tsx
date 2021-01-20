@@ -34,4 +34,4 @@ const Snackbar = ({
   );
 };
 
-export default Snackbar;
+export default React.memo(Snackbar);

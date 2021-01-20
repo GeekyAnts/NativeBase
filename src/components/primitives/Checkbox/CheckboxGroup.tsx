@@ -39,4 +39,4 @@ const CheckboxGroup = ({
   );
 };
 
-export default CheckboxGroup;
+export default React.memo(CheckboxGroup);

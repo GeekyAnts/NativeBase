@@ -2,9 +2,9 @@ import React from 'react';
 import { Flex, Link as BreadCrumbLink } from '../../primitives';
 import type { IBreadCrumbProps } from './props';
 import { extractInObject } from '../../../theme/tools';
-import { BreadCrumbSeparator } from './BreadCrumbSeparator';
+import { getBreadCrumbSeparator } from './BreadCrumbSeparator';
 import { useThemeProps } from '../../../hooks';
-export { BreadCrumbItem } from './BreadCrumbItem';
+export { default as BreadCrumbItem } from './BreadCrumbItem';
 export { BreadCrumbLink };
 
 const BreadCrumb = ({
@@ -39,10 +39,10 @@ const BreadCrumb = ({
     <Flex {...newProps} style={style}>
       {children && !children.length
         ? children
-        : BreadCrumbSeparator(children, separator, textProps, spacing)}
+        : getBreadCrumbSeparator(children, separator, textProps, spacing)}
     </Flex>
   );
 };
 
-export default BreadCrumb;
+export default React.memo(BreadCrumb);
 export type { IBreadCrumbProps };

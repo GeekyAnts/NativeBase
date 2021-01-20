@@ -18,4 +18,4 @@ const ActionsheetHeader = ({ children, ...props }: IActionsheetHeaderProps) => {
   );
 };
 
-export default ActionsheetHeader;
+export default React.memo(ActionsheetHeader);

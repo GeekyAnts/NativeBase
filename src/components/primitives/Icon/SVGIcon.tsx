@@ -74,4 +74,4 @@ const getDefaultIcon = (ref: any) => {
     </G>
   );
 };
-export default React.forwardRef(SVGIcon);
+export default React.memo(React.forwardRef(SVGIcon));

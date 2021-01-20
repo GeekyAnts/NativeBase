@@ -31,7 +31,8 @@ const IconButton = ({ icon, label, ...props }: IIconButtonProps, ref: any) => {
   );
 };
 
-export default forwardRef<
-  TouchableOpacity | TouchableHighlight,
-  IIconButtonProps
->(IconButton);
+export default React.memo(
+  forwardRef<TouchableOpacity | TouchableHighlight, IIconButtonProps>(
+    IconButton
+  )
+);

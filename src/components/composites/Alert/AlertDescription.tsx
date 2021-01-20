@@ -13,4 +13,4 @@ const AlertDescription = ({ children, ...props }: any) => {
     </Text>
   );
 };
-export default AlertDescription;
+export default React.memo(AlertDescription);

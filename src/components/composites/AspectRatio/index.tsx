@@ -66,4 +66,4 @@ const AspectRatio = ({
   }
 };
 
-export default AspectRatio;
+export default React.memo(AspectRatio);

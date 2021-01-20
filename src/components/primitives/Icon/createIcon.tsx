@@ -13,5 +13,5 @@ export function createIcon({ path, d, ...initialProps }: ICreateIconProps) {
       <SVGIcon children={children} {...initialProps} {...props} ref={ref} />
     );
   };
-  return React.forwardRef(createdIcon);
+  return React.memo(React.forwardRef(createdIcon));
 }

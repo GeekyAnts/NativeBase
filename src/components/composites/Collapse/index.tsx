@@ -78,4 +78,4 @@ const Collapse = ({
   );
 };
 
-export default Collapse;
+export default React.memo(Collapse);

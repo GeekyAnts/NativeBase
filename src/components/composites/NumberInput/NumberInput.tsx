@@ -66,4 +66,4 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
   );
 };
 
-export default NumberInput;
+export default React.memo(NumberInput);

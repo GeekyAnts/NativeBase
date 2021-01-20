@@ -16,5 +16,5 @@ const Container = ({ children, centerContent, ...props }: IContainerProps) => {
   );
 };
 
-export default Container;
+export default React.memo(Container);
 export type { IContainerProps };

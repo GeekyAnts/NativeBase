@@ -7,4 +7,4 @@ const TabViews = ({ children, ...props }: ITabViewsProps) => {
   return <Box {...props}>{getIndexedChildren(children, 'TabView')}</Box>;
 };
 
-export default TabViews;
+export default React.memo(TabViews);

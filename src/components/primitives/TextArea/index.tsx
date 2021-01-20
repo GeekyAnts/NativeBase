@@ -11,4 +11,6 @@ const TextArea = ({ totalLines, ...props }: ITextAreaProps, ref: any) => {
   return <Input {...newProps} numberOfLines={totalLines} ref={ref} />;
 };
 
-export default React.forwardRef<TextInput, ITextAreaProps>(TextArea);
+export default React.memo(
+  React.forwardRef<TextInput, ITextAreaProps>(TextArea)
+);

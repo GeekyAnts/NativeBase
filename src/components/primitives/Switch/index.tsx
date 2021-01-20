@@ -100,5 +100,5 @@ const Switch = (
   );
 };
 
-export default React.forwardRef<RNSwitch, ISwitchProps>(Switch);
+export default React.memo(React.forwardRef<RNSwitch, ISwitchProps>(Switch));
 export type { ISwitchProps };

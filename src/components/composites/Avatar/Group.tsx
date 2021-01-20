@@ -3,7 +3,7 @@ import Flex from '../../primitives/Flex';
 import { useThemeProps } from '../../../hooks';
 import isNil from 'lodash/isNil';
 import type { IAvatarProps } from './props';
-import { Avatar } from './Avatar';
+import { default as Avatar } from './Avatar';
 
 const getAvatarGroupChildren = (
   children?: JSX.Element[] | JSX.Element,
@@ -53,7 +53,7 @@ const getAvatarGroupChildren = (
   ];
 };
 
-export const AvatarGroup = (
+const AvatarGroup = (
   allProps: IAvatarProps & {
     children?: JSX.Element[] | JSX.Element;
     spacing?: number;
@@ -72,3 +72,5 @@ export const AvatarGroup = (
     </Flex>
   );
 };
+
+export default React.memo(AvatarGroup);

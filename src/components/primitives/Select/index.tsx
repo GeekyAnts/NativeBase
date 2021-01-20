@@ -1,6 +1,6 @@
 import React from 'react';
 import Text from '../Text';
-import SelectItem from './Item';
+import { Item as SelectItem } from './Item';
 import type { ISelectProps, ISelectItemProps } from './props';
 import { usePopover } from '../../../core';
 import Button from '../Button';
@@ -89,5 +89,5 @@ function Select({
 
 Select.Item = SelectItem;
 
-export default Select;
+export default React.memo(Select);
 export type { ISelectProps, ISelectItemProps };

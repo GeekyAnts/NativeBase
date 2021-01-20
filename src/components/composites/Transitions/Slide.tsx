@@ -93,4 +93,4 @@ const Slide = ({ children, ...props }: ISlideProps) => {
   );
 };
 
-export default Slide;
+export default React.memo(Slide);

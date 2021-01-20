@@ -64,4 +64,4 @@ const Bones = (allProps: ISkeletonProps & { circle?: boolean }) => {
   );
 };
 
-export default Bones;
+export default React.memo(Bones);

@@ -10,7 +10,7 @@ const addonsDefaultStyle = {
   borderWidth: 1,
 };
 
-export const InputLeftAddon = (props: IBoxProps & IInputProps) => {
+export const InputLeftAddon = React.memo((props: IBoxProps & IInputProps) => {
   return (
     <Box
       {...addonsDefaultStyle}
@@ -22,8 +22,8 @@ export const InputLeftAddon = (props: IBoxProps & IInputProps) => {
       <Box m="auto">{props.children}</Box>
     </Box>
   );
-};
-export const InputRightAddon = (props: IBoxProps & IInputProps) => {
+});
+export const InputRightAddon = React.memo((props: IBoxProps & IInputProps) => {
   return (
     <Box
       {...addonsDefaultStyle}
@@ -35,7 +35,7 @@ export const InputRightAddon = (props: IBoxProps & IInputProps) => {
       <Box m="auto">{props.children}</Box>
     </Box>
   );
-};
+});
 
 type InputGroupProps = {
   children: JSX.Element | JSX.Element[];
@@ -49,10 +49,12 @@ const supplyPropsToChildren = (children: any, props: any) => {
   });
 };
 
-export const InputGroup = ({ children, ...props }: InputGroupProps) => {
-  return (
-    <Flex direction="row">
-      {supplyPropsToChildren(getAttachedChildren(children), props)}
-    </Flex>
-  );
-};
+export const InputGroup = React.memo(
+  ({ children, ...props }: InputGroupProps) => {
+    return (
+      <Flex direction="row">
+        {supplyPropsToChildren(getAttachedChildren(children), props)}
+      </Flex>
+    );
+  }
+);
