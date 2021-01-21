@@ -63,9 +63,10 @@ function Wrapper({
       opacity: 0.5,
       backgroundColor,
     },
-    itemBackground: { zIndex: 99999, flex: 1 },
+    itemBackground: {
+      zIndex: 9999,
+    },
   });
-
   overlayItem ? fadeIn() : fadeOut();
   return (
     <Animated.View

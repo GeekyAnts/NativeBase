@@ -2,39 +2,18 @@ import React from 'react';
 import { Button, useToast } from 'native-base';
 
 export default function () {
-  const { setToast } = useToast();
+  const toast = useToast();
 
   return (
-    <>
-      <Button
-        onPress={() => {
-          setToast({
-            position: 'top',
-            title: 'Toast Top',
-          });
-        }}
-      >
-        Buttom
-      </Button>
-      <Button
-        onPress={() => {
-          setToast({
-            position: 'center',
-            title: 'Toast Center',
-          });
-        }}
-      >
-        Buttom
-      </Button>
-      <Button
-        onPress={() => {
-          setToast({
-            title: 'Toast Bottom',
-          });
-        }}
-      >
-        Buttom
-      </Button>
-    </>
+    <Button
+      onPress={() => {
+        toast({
+          position: 'top',
+          title: 'Toast Top',
+        });
+      }}
+    >
+      Button
+    </Button>
   );
 }
