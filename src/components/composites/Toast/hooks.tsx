@@ -20,6 +20,5 @@ export const useToast = () => {
       disableOverlay: true,
     });
   };
-  // const [, updateToast] = useToastManager();
-  return { setToast };
+  return setToast;
 };

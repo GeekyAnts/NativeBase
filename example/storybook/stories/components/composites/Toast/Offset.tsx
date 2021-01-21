@@ -2,13 +2,13 @@ import React from 'react';
 import { Button, useToast } from 'native-base';
 
 export default function () {
-  const { setToast } = useToast();
+  const toast = useToast();
 
   return (
     <>
       <Button
         onPress={() => {
-          setToast({
+          toast({
             position: 'center',
             duration: 1000,
             title: 'Toast Center',
