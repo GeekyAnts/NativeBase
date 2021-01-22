@@ -21,7 +21,7 @@ function MyWrapper({ children }: any) {
       alignItems="center"
       bg={useColorModeValue(`gray.50`, `gray.800`)}
     >
-      <IconButton
+      {/* <IconButton
         position="absolute"
         top={5}
         right={5}
@@ -34,7 +34,7 @@ function MyWrapper({ children }: any) {
             size={6}
           />
         }
-      />
+      /> */}
       {children}
     </View>
   );

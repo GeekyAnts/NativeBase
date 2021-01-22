@@ -3,13 +3,13 @@ import { HStack, IconButton, Icon } from 'native-base';
 export default function () {
   return (
     <HStack space={4}>
-      {['sm', 'md', 'lg'].map((size: any) => (
+      {[8, 10, 12].map((size: any) => (
         <IconButton
           key={size}
           size={size}
           variant="solid"
           colorScheme="blue"
-          icon={<Icon name={'menu'} size={'lg'} />}
+          icon={<Icon name={'menu'} />}
         />
       ))}
     </HStack>

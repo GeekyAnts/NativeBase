@@ -23,7 +23,7 @@
       "react": "16.13.1",
       "react-dom": "16.13.1",
       "react-hook-form": "^6.14.0",
-      "react-native": "^0.63.4",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
       "react-native-svg": "^12.1.0",
       "react-native-web": "^0.14.10",
       "styled-components": "^5.2.1",

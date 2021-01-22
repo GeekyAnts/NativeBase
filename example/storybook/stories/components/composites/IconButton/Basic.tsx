@@ -5,7 +5,7 @@ export default function () {
     <IconButton
       colorScheme="blue"
       variant="outline"
-      icon={<Icon name={'search'} size={'lg'} />}
+      icon={<Icon name={'search'} />}
     />
   );
 }

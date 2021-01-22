@@ -21,19 +21,22 @@ import {
 } from '../../../utils/customProps';
 import { useThemeProps, useToken } from '../../../hooks';
 import styled from 'styled-components/native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Entypo from 'react-native-vector-icons/Entypo';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import Feather from 'react-native-vector-icons/Feather';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Foundation from 'react-native-vector-icons/Foundation';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Octicons from 'react-native-vector-icons/Octicons';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import Zocial from 'react-native-vector-icons/Zocial';
+import {
+  AntDesign,
+  Entypo,
+  EvilIcons,
+  Feather,
+  FontAwesome,
+  FontAwesome5,
+  Foundation,
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Octicons,
+  SimpleLineIcons,
+  Zocial,
+} from '@expo/vector-icons';
+
 import type { IIconProps, IconType } from './props';
 import SVGIcon from './SVGIcon';
 import { Path } from 'react-native-svg';
@@ -52,6 +55,8 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'AntDesign':
       return (
         <AntDesign
+          // TODO: remove this
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -62,6 +67,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'Entypo':
       return (
         <Entypo
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -72,6 +78,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'EvilIcons':
       return (
         <EvilIcons
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -82,6 +89,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'Feather':
       return (
         <Feather
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -92,6 +100,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'FontAwesome':
       return (
         <FontAwesome
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -102,6 +111,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'FontAwesome5':
       return (
         <FontAwesome5
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -112,6 +122,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'Foundation':
       return (
         <Foundation
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -122,6 +133,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'Ionicons':
       return (
         <Ionicons
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -132,6 +144,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'MaterialCommunityIcons':
       return (
         <MaterialCommunityIcons
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -142,6 +155,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'Octicons':
       return (
         <Octicons
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -152,6 +166,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'SimpleLineIcons':
       return (
         <SimpleLineIcons
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -162,6 +177,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     case 'Zocial':
       return (
         <Zocial
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
@@ -172,6 +188,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
     default:
       return (
         <MaterialIcons
+          // @ts-ignore
           name={name}
           {...props}
           style={flattenedIconStyle}
