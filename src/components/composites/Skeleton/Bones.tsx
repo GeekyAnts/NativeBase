@@ -30,7 +30,7 @@ const Bones = (allProps: ISkeletonProps & { circle?: boolean }) => {
     }
   }, [blinkAnim, isDomUsable]);
 
-  const skeletonStyle = {
+  const skeletonStyle: any = {
     skeleton: {
       position: 'absolute',
       top: 0,
