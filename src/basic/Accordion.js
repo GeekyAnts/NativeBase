@@ -175,14 +175,16 @@ export class Accordion extends React.Component {
     super(props);
 
     const { expanded, expandMultiple } = this.props;
-    // eslint-disable-next-line no-unused-vars
+
     let selected;
     if (expanded !== undefined && expanded !== null) {
       selected = Array.isArray(expanded) ? expanded : [expanded];
       selected = expandMultiple ? selected : selected.slice(0, 1);
+    } else {
+      selected = [];
     }
     this.state = {
-      selected: props.expanded
+      selected
     };
   }
 
