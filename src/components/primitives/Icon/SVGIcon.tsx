@@ -86,9 +86,7 @@ const SVGIcon = (
         <G>
           {React.Children.map(children, ({ props: childProps, type }: any) =>
             type.name &&
-            Object.keys(VALID_SVG_COMPONENTS).includes(
-              type.name.replace('Svg', '')
-            ) ? (
+            Object.keys(VALID_SVG_COMPONENTS).includes(type.name) ? (
               <ChildPath {...childProps} type={type.name} />
             ) : null
           )}
@@ -106,11 +104,12 @@ const ChildPath = ({
   ...remainingProps
 }: any) => {
   const Component = VALID_SVG_COMPONENTS[type];
+  const pathStrokeColor = useToken('colors', pathStroke || '');
+  const fillColor = useToken('colors', fill || '');
+
   if (!Component) {
     return null;
   }
-  const pathStrokeColor = useToken('colors', pathStroke || '');
-  const fillColor = useToken('colors', fill || '');
   return (
     <Component
       {...remainingProps}

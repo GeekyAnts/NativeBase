@@ -20,31 +20,7 @@ export type { ICheckboxProps, ICheckboxGroupProps } from './Checkbox';
 export { Radio, RadioGroup } from './Radio';
 export type { IRadioProps, IRadioGroupProps, IRadioValue } from './Radio';
 
-export {
-  default as Icon,
-  createIcon,
-  SvgG,
-  SvgPath,
-  SvgCircle,
-  SvgEllipse,
-  SvgText,
-  SvgTSpan,
-  SvgTextPath,
-  SvgPolygon,
-  SvgPolyline,
-  SvgLine,
-  SvgRect,
-  SvgUse,
-  SvgImage,
-  SvgSymbol,
-  SvgDefs,
-  SvgLinearGradient,
-  SvgRadialGradient,
-  SvgStop,
-  SvgClipPath,
-  SvgPattern,
-  SvgMask,
-} from './Icon';
+export { default as Icon, createIcon } from './Icon';
 export type { IIconProps, IconType } from './Icon';
 
 export { Column } from './Column';

@@ -39,39 +39,13 @@ import {
 
 import type { IIconProps, IconType } from './props';
 import SVGIcon from './SVGIcon';
-import {
-  Path,
-  G,
-  Circle,
-  Ellipse,
-  Text,
-  TSpan,
-  TextPath,
-  Polygon,
-  Polyline,
-  Line,
-  Rect,
-  Use,
-  Image,
-  Symbol,
-  Defs,
-  LinearGradient,
-  RadialGradient,
-  Stop,
-  ClipPath,
-  Pattern,
-  Mask,
-} from 'react-native-svg';
 
 const Icon = (iconProps: IIconProps, ref: any) => {
   const { name, type, size, color: colorProp, ...props } = iconProps;
   const newProps = useThemeProps('Icon', { size, color: colorProp, ...props });
   const rawColor = useToken('colors', newProps.color);
-  // TODO: temporary code, remove and replace with something generic
-  const marginRight =
-    newProps.marginRight || newProps.mr
-      ? useToken('space', newProps.marginRight || newProps.mr)
-      : undefined;
+  // FIXME: temporary code, remove and replace with something generic
+  const marginRight = useToken('space', newProps.marginRight || newProps.mr);
   if (!name) {
     return <SVGIcon {...iconProps} />;
   }
@@ -248,28 +222,5 @@ const styledIcon: any = styled(React.forwardRef(Icon))<IIconProps>(
 );
 
 export default React.memo(styledIcon);
-export {
-  G as SvgG,
-  Path as SvgPath,
-  Circle as SvgCircle,
-  Ellipse as SvgEllipse,
-  Text as SvgText,
-  TSpan as SvgTSpan,
-  TextPath as SvgTextPath,
-  Polygon as SvgPolygon,
-  Polyline as SvgPolyline,
-  Line as SvgLine,
-  Rect as SvgRect,
-  Use as SvgUse,
-  Image as SvgImage,
-  Symbol as SvgSymbol,
-  Defs as SvgDefs,
-  LinearGradient as SvgLinearGradient,
-  RadialGradient as SvgRadialGradient,
-  Stop as SvgStop,
-  ClipPath as SvgClipPath,
-  Pattern as SvgPattern,
-  Mask as SvgMask,
-};
 export type { IIconProps, IconType };
 export { createIcon } from './createIcon';

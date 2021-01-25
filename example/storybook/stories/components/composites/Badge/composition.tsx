@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, HStack, Button, IconButton, Icon } from 'native-base';
+import { Badge, HStack, Button } from 'native-base';
 
 export default function () {
   return (
