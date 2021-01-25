@@ -11,8 +11,8 @@ import Composition from './composition';
 storiesOf('Badge', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
-  // .add('Playground', () => <Playground />)
-  // .add('Usage', () => <Usage />)
-  // .add('Color', () => <Color />)
-  // .add('Variants', () => <Variants />)
+  .add('Playground', () => <Playground />)
+  .add('Usage', () => <Usage />)
+  .add('Color', () => <Color />)
+  .add('Variants', () => <Variants />)
   .add('Composition', () => <Composition />);
