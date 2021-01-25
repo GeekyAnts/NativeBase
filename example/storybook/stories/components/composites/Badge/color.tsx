@@ -10,8 +10,8 @@ export default function () {
       <Badge m={2} colorScheme="danger">
         DANGER
       </Badge>
-      <Badge m={2} colorScheme="gray">
-        GRAY
+      <Badge m={2} colorScheme="info">
+        INFO
       </Badge>
       <Badge m={2} colorScheme="dark">
         DARK

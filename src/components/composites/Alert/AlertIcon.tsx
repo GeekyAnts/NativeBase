@@ -7,16 +7,16 @@ import { omitUndefined } from '../../../theme/tools/utils';
 const AlertIcon = ({ children, ...props }: any) => {
   const newProps = omitUndefined(props);
   const { status, iconColor }: IAlertContext = React.useContext(AlertContext);
-  const iconNameSetter = () => {
+  const getIconName = () => {
     switch (status) {
       case 'error':
-        return 'close';
+        return 'error';
       case 'warning':
-        return 'exclamation-thick';
+        return 'warning';
       case 'success':
-        return 'check';
+        return 'check-circle';
       default:
-        return 'information-variant';
+        return 'info';
     }
   };
 
@@ -24,10 +24,10 @@ const AlertIcon = ({ children, ...props }: any) => {
     <Box alignSelf="center">
       {children || (
         <Icon
-          name={iconNameSetter()}
-          type="MaterialCommunityIcons"
+          name={getIconName()}
+          type="MaterialIcons"
           size={8}
-          mr={2}
+          mr={4}
           color={iconColor}
           {...newProps}
         />
