@@ -43,13 +43,21 @@ import { Path } from 'react-native-svg';
 
 const Icon = (iconProps: IIconProps, ref: any) => {
   const { name, type, size, color: colorProp, ...props } = iconProps;
-  const newProps = useThemeProps('Icon', { size, color: colorProp });
+  const newProps = useThemeProps('Icon', { size, color: colorProp, ...props });
   const rawColor = useToken('colors', newProps.color);
+  // TODO: temporary code, remove and replace with something generic
+  const marginRight =
+    newProps.marginRight || newProps.mr
+      ? useToken('space', newProps.marginRight || newProps.mr)
+      : undefined;
   if (!name) {
     return <SVGIcon {...iconProps} />;
   }
   const flattenedIconStyle = StyleSheet.flatten([
-    { fontSize: parseInt(newProps.size, 10) },
+    {
+      fontSize: parseInt(newProps.size, 10),
+      marginRight,
+    },
   ]);
   switch (type) {
     case 'AntDesign':
