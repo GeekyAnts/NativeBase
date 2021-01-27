@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
+import { Hoverable } from './../../../utils';
 import { useThemeProps } from '../../../hooks';
 import { Center } from '../../composites/Center';
 import {
@@ -24,7 +25,6 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     activeColor,
     borderColor,
     iconColor,
-    isInvalid,
     size,
     ...newProps
   } = useThemeProps('Checkbox', {
@@ -52,46 +52,59 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
 
   return (
     <TouchableOpacity activeOpacity={1} ref={ref} {...inputProps}>
-      <Box
-        flexDirection="row"
-        alignItems="center"
-        {...newProps}
-        opacity={isDisabled ? 0.4 : 1}
-        {...(Platform.OS === 'web'
-          ? {
-              disabled: isDisabled,
-              cursor: isDisabled ? 'not-allowed' : 'auto',
-            }
-          : {})}
-      >
-        <Center
-          backgroundColor={
-            isChecked ? (isDisabled ? borderColor : activeColor) : 'transparent'
-          }
-          borderColor={
-            isChecked
-              ? isDisabled || isInvalid
+      <Hoverable>
+        {(isHovered: boolean) => {
+          const outlineColor =
+            isHovered && !isDisabled
+              ? activeColor
+              : isChecked
+              ? isDisabled
                 ? borderColor
                 : activeColor
-              : borderColor
-          }
-          borderWidth={2}
-          borderRadius={5}
-        >
-          {icon && sizedIcon && isChecked ? (
-            sizedIcon()
-          ) : (
-            <Icon
-              name="check-bold"
-              type="MaterialCommunityIcons"
-              size={size}
-              color={iconColor}
-              opacity={isChecked ? 1 : 0}
-            />
-          )}
-        </Center>
-        {props.children}
-      </Box>
+              : borderColor;
+          return (
+            <Box
+              flexDirection="row"
+              alignItems="center"
+              {...newProps}
+              opacity={isDisabled ? 0.4 : 1}
+              {...(Platform.OS === 'web'
+                ? {
+                    disabled: isDisabled,
+                    cursor: isDisabled ? 'not-allowed' : 'auto',
+                  }
+                : {})}
+            >
+              <Center
+                backgroundColor={
+                  isChecked
+                    ? isDisabled
+                      ? borderColor
+                      : activeColor
+                    : 'transparent'
+                }
+                borderColor={outlineColor}
+                borderWidth={1}
+                borderRadius={4}
+                p={1}
+              >
+                {icon && sizedIcon && isChecked ? (
+                  sizedIcon()
+                ) : (
+                  <Icon
+                    name="check-bold"
+                    type="MaterialCommunityIcons"
+                    size={size}
+                    color={iconColor}
+                    opacity={isChecked ? 1 : 0}
+                  />
+                )}
+              </Center>
+              {props.children}
+            </Box>
+          );
+        }}
+      </Hoverable>
     </TouchableOpacity>
   );
 };
