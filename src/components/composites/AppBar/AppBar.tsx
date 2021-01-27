@@ -18,7 +18,12 @@ const AppBarInternal = ({ children, ...props }: IAppBarProps) => {
     ...newProps
   } = useThemeProps('AppBar', props);
   return (
-    <HStack mt={statusBarHeight} {...newProps}>
+    <HStack
+      mt={statusBarHeight}
+      justifyContent="space-between"
+      alignItems="center"
+      {...newProps}
+    >
       {children}
     </HStack>
   );
