@@ -6,7 +6,7 @@ export default function () {
     <HStack space={2}>
       <Button
         leftIcon={<Icon name="menu" size={6} type="MaterialIcons" />}
-        colorScheme="indigo"
+        colorScheme="blue"
       >
         Menu
       </Button>

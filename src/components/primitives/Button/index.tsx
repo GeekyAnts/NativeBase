@@ -123,7 +123,7 @@ const Button = (
       style={style}
     >
       {leftIcon ? (
-        <Box mr={innerButtonProps.px / 2 || 2}>{leftIcon}</Box>
+        <Box mr={Math.floor(innerButtonProps.px / 2) || 2}>{leftIcon}</Box>
       ) : null}
       {isLoading ? (
         <Flex direction="row">
@@ -141,7 +141,7 @@ const Button = (
         </Text>
       )}
       {rightIcon ? (
-        <Box ml={innerButtonProps.px / 2 || 2}>{rightIcon}</Box>
+        <Box ml={Math.floor(innerButtonProps.px / 2) || 2}>{rightIcon}</Box>
       ) : null}
     </Box>
   );
@@ -162,7 +162,7 @@ const Button = (
       {...accessibilityProps}
       {...ariaProps}
       {...layoutProps}
-      opacity={accessibilityProps.isDisabled ? 0.4 : 1}
+      opacity={accessibilityProps.isDisabled ? 0.5 : 1}
       {...(Platform.OS === 'web'
         ? {
             disabled: accessibilityProps.isDisabled,

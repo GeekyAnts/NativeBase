@@ -1,7 +1,7 @@
 import { Dict, mode } from './../tools';
 
 const baseStyle = {
-  borderRadius: 'md',
+  borderRadius: 'lg',
   fontWeight: 'semibold',
   display: 'flex',
   flexDirection: 'row',
@@ -56,9 +56,9 @@ function variantSolid(props: Dict) {
     return {
       bg: mode(`gray.100`, `whiteAlpha.200`)(props),
     };
-  const { bg = `${c}.400`, color = 'white' } = accessibleColorMap[c] || {};
+  const { bg = `${c}.700`, color = 'white' } = accessibleColorMap[c] || {};
   return {
-    bg: mode(bg, `${c}.200`)(props),
+    bg: mode(bg, `${c}.700`)(props),
     color: mode(color, `gray.800`)(props),
   };
 }
@@ -95,18 +95,21 @@ const sizes = {
     minW: 12,
     fontSize: 'lg',
     px: 6,
+    py: 4,
   },
   md: {
     minH: 10,
     minW: 10,
     fontSize: 'md',
-    px: 4,
+    px: 5,
+    py: 3,
   },
   sm: {
     minH: 8,
     minW: 8,
     fontSize: 'sm',
-    px: 3,
+    px: 4,
+    py: 2,
   },
   xs: {
     minH: 6,
