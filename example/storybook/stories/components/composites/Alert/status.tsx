@@ -1,27 +1,24 @@
 import React from 'react';
-import { Stack, AlertDescription, Alert, AlertIcon } from 'native-base';
+import { Stack, AlertTitle, Alert, AlertIcon } from 'native-base';
 
 export default function () {
   return (
     <Stack space={3} mx={3}>
       <Alert status="error">
         <AlertIcon />
-        <AlertDescription>There was an error.</AlertDescription>
+        <AlertTitle>This is an error alert</AlertTitle>
       </Alert>
-
-      <Alert status="success">
-        <AlertIcon />
-        <AlertDescription>Data uploaded to the server.</AlertDescription>
-      </Alert>
-
       <Alert status="warning">
         <AlertIcon />
-        <AlertDescription>Your account is about expire</AlertDescription>
+        <AlertTitle>This is a warning alert</AlertTitle>
       </Alert>
-
-      <Alert status="default">
+      <Alert status="info">
         <AlertIcon />
-        <AlertDescription>NativeBase is going live soon.</AlertDescription>
+        <AlertTitle>This is an info alert</AlertTitle>
+      </Alert>
+      <Alert status="success">
+        <AlertIcon />
+        <AlertTitle>This is a success alert</AlertTitle>
       </Alert>
     </Stack>
   );

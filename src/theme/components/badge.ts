@@ -5,7 +5,7 @@ const baseStyle = {
   py: 1,
   textTransform: 'uppercase',
   fontSize: 'xs',
-  borderRadius: 'sm',
+  borderRadius: 'lg',
   fontWeight: 'bold',
 };
 

@@ -39,17 +39,21 @@ import {
 
 import type { IIconProps, IconType } from './props';
 import SVGIcon from './SVGIcon';
-import { Path } from 'react-native-svg';
 
 const Icon = (iconProps: IIconProps, ref: any) => {
   const { name, type, size, color: colorProp, ...props } = iconProps;
-  const newProps = useThemeProps('Icon', { size, color: colorProp });
+  const newProps = useThemeProps('Icon', { size, color: colorProp, ...props });
   const rawColor = useToken('colors', newProps.color);
+  // FIXME: temporary code, remove and replace with something generic
+  const marginRight = useToken('space', newProps.marginRight || newProps.mr);
   if (!name) {
     return <SVGIcon {...iconProps} />;
   }
   const flattenedIconStyle = StyleSheet.flatten([
-    { fontSize: parseInt(newProps.size, 10) },
+    {
+      fontSize: parseInt(newProps.size, 10),
+      marginRight,
+    },
   ]);
   switch (type) {
     case 'AntDesign':
@@ -218,6 +222,5 @@ const styledIcon: any = styled(React.forwardRef(Icon))<IIconProps>(
 );
 
 export default React.memo(styledIcon);
-export { Path };
 export type { IIconProps, IconType };
 export { createIcon } from './createIcon';

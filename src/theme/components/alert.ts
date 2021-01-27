@@ -8,27 +8,44 @@ function getBg(props: Record<string, any>) {
     variant === 'solid'
       ? getColor(theme, `${status}.400`, status)
       : getColor(theme, `${status}.100`, status);
-  // const darkBg = getColor(theme, `${status}.800`, status);
   const darkBg =
     variant === 'solid'
       ? transparentize(`${status}.300`, 0.8)(theme)
       : transparentize(`${status}.300`, 0.2)(theme);
-
   return mode(lightBg, darkBg)(props);
 }
 
 const variantSubtle = (props: Record<string, any>) => {
-  let { status } = props;
+  let { status, theme } = props;
   status = getColorScheme(props, status);
-  let a = {
-    borderWidth: 6,
-    borderColor: 'transparent',
+  return {
     bg: getBg(props),
-    iconColor: mode(`${status}.700`, `${status}.200`)(props),
-    textColor: mode('gray', 'white')(props),
+    iconColor: mode(`${status}.500`, `${status}.200`)(props),
+    textColor: getColor(theme, `${status}.900`, status),
   };
-  return a;
 };
+
+const variantOutline = (props: Record<string, any>) => {
+  let { status, theme } = props;
+  status = getColorScheme(props, status);
+  return {
+    borderWidth: 1,
+    borderColor: mode(`${status}.600`, `${status}.200`)(props),
+    iconColor: mode(`${status}.500`, `${status}.200`)(props),
+    textColor: getColor(theme, `${status}.900`, status),
+  };
+};
+const variantOutlineLight = (props: Record<string, any>) => {
+  let { status, theme } = props;
+  status = getColorScheme(props, status);
+  return {
+    borderWidth: 1,
+    borderColor: transparentize(`${status}.600`, 0.2)(theme),
+    iconColor: mode(`${status}.500`, `${status}.200`)(props),
+    textColor: getColor(theme, `${status}.900`, status),
+  };
+};
+
 const variantSolid = (props: Record<string, any>) => {
   let { status } = props;
   status = getColorScheme(props, status);
@@ -70,35 +87,33 @@ const variants = {
   'solid': variantSolid,
   'left-accent': variantLeftAccent,
   'top-accent': variantTopAccent,
-};
-
-const defaultAlertProps = {
-  status: 'default',
-  variant: 'subtle',
-  p: 3,
-  borderRadius: 'md',
+  'outline': variantOutline,
+  'outline-light': variantOutlineLight,
 };
 
 export const Alert = {
-  defaultProps: defaultAlertProps,
+  defaultProps: {
+    status: 'default',
+    variant: 'subtle',
+    p: 4,
+    borderRadius: 'lg',
+  },
   variants,
 };
 
 // AlertTitle
-const defaultAlertTitleProps = {
-  fontSize: 'lg',
-  fontWeight: 'bold',
-};
 
 export const AlertTitle = {
-  defaultProps: defaultAlertTitleProps,
+  defaultProps: {
+    fontSize: 'md',
+    fontWeight: 'semibold',
+  },
 };
 
 // AlertDescription
-const defaultAlertDescriptionProps = {
-  fontSize: 'lg',
-};
-
 export const AlertDescription = {
-  defaultProps: defaultAlertDescriptionProps,
+  defaultProps: {
+    fontSize: 'sm',
+    fontWeight: 'medium',
+  },
 };

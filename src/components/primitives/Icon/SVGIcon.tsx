@@ -3,10 +3,56 @@ import { useThemeProps } from '../../../hooks';
 import { useToken } from '../../../hooks';
 import styled from 'styled-components/native';
 import { color, space, typography } from 'styled-system';
-import Svg, { G, Path, Circle } from 'react-native-svg';
+import Svg, {
+  Path,
+  G,
+  Circle,
+  Ellipse,
+  Text,
+  TSpan,
+  TextPath,
+  Polygon,
+  Polyline,
+  Line,
+  Rect,
+  Use,
+  Image,
+  Symbol,
+  Defs,
+  LinearGradient,
+  RadialGradient,
+  Stop,
+  ClipPath,
+  Pattern,
+  Mask,
+} from 'react-native-svg';
 import type { IIconProps } from './props';
 
+const VALID_SVG_COMPONENTS: any = {
+  G: G,
+  Path: Path,
+  Circle: Circle,
+  Ellipse: Ellipse,
+  Text: Text,
+  TSpan: TSpan,
+  TextPath: TextPath,
+  Polygon: Polygon,
+  Polyline: Polyline,
+  Line: Line,
+  Rect: Rect,
+  Use: Use,
+  Image: Image,
+  Symbol: Symbol,
+  Defs: Defs,
+  LinearGradient: LinearGradient,
+  RadialGradient: RadialGradient,
+  Stop: Stop,
+  ClipPath: ClipPath,
+  Pattern: Pattern,
+  Mask: Mask,
+};
 const SVG = styled(Svg)<IIconProps>(color, space, typography);
+
 const SVGIcon = (
   {
     viewBox,
@@ -25,8 +71,8 @@ const SVGIcon = (
   colorProp = useToken('colors', colorProp || '');
   return (
     <SVG
-      height={parseInt(newProps.dimension || newProps.size, 10)}
-      width={parseInt(newProps.dimension || newProps.size, 10)}
+      height={parseInt(newProps.size, 10)}
+      width={parseInt(newProps.size, 10)}
       viewBox={viewBox}
       color={colorProp}
       stroke={strokeColor}
@@ -39,7 +85,10 @@ const SVGIcon = (
       {React.Children.count(children) > 0 ? (
         <G>
           {React.Children.map(children, ({ props: childProps, type }: any) =>
-            type.name === 'Path' ? <ChildPath {...childProps} /> : null
+            type.name &&
+            Object.keys(VALID_SVG_COMPONENTS).includes(type.name) ? (
+              <ChildPath {...childProps} type={type.name} />
+            ) : null
           )}
         </G>
       ) : (
@@ -48,11 +97,21 @@ const SVGIcon = (
     </SVG>
   );
 };
-const ChildPath = ({ fill, stroke: pathStroke, ...remainingProps }: any) => {
-  let pathStrokeColor = useToken('colors', pathStroke || '');
-  let fillColor = useToken('colors', fill || '');
+const ChildPath = ({
+  type,
+  fill,
+  stroke: pathStroke,
+  ...remainingProps
+}: any) => {
+  const Component = VALID_SVG_COMPONENTS[type];
+  const pathStrokeColor = useToken('colors', pathStroke || '');
+  const fillColor = useToken('colors', fill || '');
+
+  if (!Component) {
+    return null;
+  }
   return (
-    <Path
+    <Component
       {...remainingProps}
       fill={fillColor ? fillColor : 'currentColor'}
       stroke={pathStrokeColor}

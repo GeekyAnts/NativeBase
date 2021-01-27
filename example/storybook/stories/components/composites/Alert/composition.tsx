@@ -11,10 +11,31 @@ import {
 
 export default function () {
   return (
-    <VStack mx={3} space={3}>
+    <VStack mx={2} space={3}>
       <Alert
         status="success"
-        variant="subtle"
+        display="flex"
+        variant="outline"
+        borderColor="gray.200"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        height="200px"
+      >
+        <AlertIcon boxSize="40px" mr={0} />
+        <AlertTitle mt={4} mb={2}>
+          This is a success alert
+        </AlertTitle>
+        <AlertDescription>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </AlertDescription>
+      </Alert>
+
+      <Alert
+        status="success"
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -22,26 +43,29 @@ export default function () {
         height="200px"
       >
         <AlertIcon boxSize="40px" mr={0} />
-        <AlertTitle mt={4} mb={1}>
-          Application submitted!
+        <AlertTitle mt={4} mb={2}>
+          This is a success alert
         </AlertTitle>
         <AlertDescription>
-          Thanks for submitting your application. Our team will get back to you
-          soon.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </AlertDescription>
-        {/* <CloseButton /> */}
       </Alert>
 
       <Alert status="success">
         <AlertIcon />
         <Box flex={1}>
-          <AlertTitle>Success!</AlertTitle>
+          <AlertTitle>This is a success alert</AlertTitle>
           <AlertDescription>
-            Your application has been received. We will review your application
-            and respond within the next 48 hours.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
           </AlertDescription>
         </Box>
-        <CloseButton position="absolute" right="8px" />
+        <CloseButton position="absolute" top={2} right={2} />
       </Alert>
     </VStack>
   );

@@ -5,10 +5,12 @@ import Wrapper from './../../Wrapper';
 import Basic from './Basic';
 import Sizes from './Sizes';
 import Variant from './Variant';
+import SVGIcon from './SVGIcon';
 
 storiesOf('IconButton', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Sizes', () => <Sizes />)
-  .add('Variant', () => <Variant />);
+  .add('Variant', () => <Variant />)
+  .add('SVGIcon', () => <SVGIcon />);

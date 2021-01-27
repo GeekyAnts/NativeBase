@@ -16,9 +16,17 @@ export default function () {
         <AlertIcon />
         <AlertTitle>Alert Top Accent Variant</AlertTitle>
       </Alert>
-      <Alert status="warning">
+      <Alert status="warning" variant="subtle">
         <AlertIcon />
         <AlertTitle>Alert Default/Subtle Variant</AlertTitle>
+      </Alert>
+      <Alert status="info" variant="outline">
+        <AlertIcon />
+        <AlertTitle>Alert Outline Variant</AlertTitle>
+      </Alert>
+      <Alert status="info" variant="outline-light">
+        <AlertIcon />
+        <AlertTitle>Alert Outline Light Variant</AlertTitle>
       </Alert>
     </Stack>
   );
