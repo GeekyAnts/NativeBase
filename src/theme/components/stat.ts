@@ -1,11 +1,15 @@
 const defaultProps = {
+  _statLabel: {
+    fontSize: '2xl',
+  },
   _statNumber: {
-    fontSize: '3xl',
-    fontWeight: 700,
+    fontSize: '5xl',
+    fontWeight: 'bold',
     my: 2,
   },
   _statHelpText: {
-    opacity: 0.7,
+    color: 'gray.500',
+    fontSize: '2xl',
     flexDirection: 'row',
     alignItems: 'center',
   },

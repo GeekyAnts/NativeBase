@@ -14,21 +14,21 @@ export default function () {
   return (
     <Box>
       <Heading>Stat with Indicator</Heading>
-      <StatGroup mt={6} color="indigo.500">
+      <StatGroup mt={6}>
         <Stat>
           <StatLabel>Sent</StatLabel>
-          <StatNumber>3,670</StatNumber>
+          <StatNumber>$360</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
-            23.36%
+            56.67%
           </StatHelpText>
         </Stat>
         <Stat>
-          <StatLabel>Clicked</StatLabel>
-          <StatNumber>45</StatNumber>
+          <StatLabel>Received</StatLabel>
+          <StatNumber>$45</StatNumber>
           <StatHelpText>
-            <StatArrow type="increase" />
-            9.05%
+            <StatArrow type="decrease" />
+            99.56
           </StatHelpText>
         </Stat>
       </StatGroup>
