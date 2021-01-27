@@ -9,6 +9,8 @@
   "editor.formatOnSave": true,
   "flow.useNPMPackagedFlow": true,
   "editor.formatOnPaste": false,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
 
   // A list of languages IDs to disable this extension on
   "prettier.disableLanguages": ["vue"],
