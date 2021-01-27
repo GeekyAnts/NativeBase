@@ -162,7 +162,7 @@ const Button = (
       {...accessibilityProps}
       {...ariaProps}
       {...layoutProps}
-      opacity={accessibilityProps.isDisabled ? 0.4 : 1}
+      opacity={accessibilityProps.isDisabled ? 0.5 : 1}
       {...(Platform.OS === 'web'
         ? {
             disabled: accessibilityProps.isDisabled,

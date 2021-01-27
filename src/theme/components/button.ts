@@ -1,7 +1,7 @@
 import { Dict, mode } from './../tools';
 
 const baseStyle = {
-  borderRadius: 'md',
+  borderRadius: 'lg',
   fontWeight: 'semibold',
   display: 'flex',
   flexDirection: 'row',
