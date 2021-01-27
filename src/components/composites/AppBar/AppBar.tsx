@@ -28,10 +28,11 @@ const AppBarInternal = ({ children, ...props }: IAppBarProps) => {
     </HStack>
   );
 };
+
 AppBarInternal.Left = React.memo(AppBarLeft);
 AppBarInternal.Right = React.memo(AppBarRight);
 AppBarInternal.Content = React.memo(AppBarContent);
 
-const AppBar = React.memo(AppBarInternal);
+const AppBar = AppBarInternal;
 
 export default AppBar;

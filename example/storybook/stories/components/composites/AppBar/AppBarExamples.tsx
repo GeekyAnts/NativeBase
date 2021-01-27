@@ -118,7 +118,7 @@ function CustomizedWithBorder() {
         </Text>
       </AppBar.Content>
       <AppBar.Right space={4}>
-        <IconButton icon={<Icon name="search" size={6} />} />
+        <IconButton icon={<Icon name="search1" type="AntDesign" size={6} />} />
         <IconButton
           icon={<Icon name="shopping-bag" type="Entypo" size={6} />}
         />
@@ -146,10 +146,25 @@ const LeftArrowIconButton = () => {
 };
 
 const HeartIcon = () => {
-  return <IconButton icon={<Icon name="heart" size={6} color="white" />} />;
+  return (
+    <IconButton
+      icon={
+        <Icon
+          name="heart"
+          type="MaterialCommunityIcons"
+          size={6}
+          color="white"
+        />
+      }
+    />
+  );
 };
 const SearchIcon = () => {
-  return <IconButton icon={<Icon name="search" size={6} color="white" />} />;
+  return (
+    <IconButton
+      icon={<Icon name="search1" type="AntDesign" size={6} color="white" />}
+    />
+  );
 };
 const MoreIcon = () => {
   return <IconButton icon={<Icon name="more-vert" size={6} color="white" />} />;
