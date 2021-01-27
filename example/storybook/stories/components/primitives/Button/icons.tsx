@@ -5,8 +5,10 @@ export default function () {
   return (
     <HStack space={2}>
       <Button
-        leftIcon={<Icon name="menu" size={6} type="MaterialIcons" />}
-        colorScheme="indigo"
+        leftIcon={
+          <Icon name="menu" color="white" size={6} type="MaterialIcons" />
+        }
+        colorScheme="blue"
       >
         Menu
       </Button>
