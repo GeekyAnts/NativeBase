@@ -1,7 +1,7 @@
 const sizes = {
   'xs': {
-    height: 19,
-    width: 19,
+    height: 20,
+    width: 20,
   },
   'sm': {
     height: 33,
