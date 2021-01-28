@@ -14,9 +14,8 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
   const {
     activeColor,
     borderColor,
-    iconColor,
     size,
-    isInvalid,
+    // isInvalid,
     ...newProps
   } = useThemeProps('Radio', {
     ...contextState,
