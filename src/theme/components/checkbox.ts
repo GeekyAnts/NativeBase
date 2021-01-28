@@ -4,14 +4,14 @@ const baseStyle = (props: Record<string, any>) => {
   const { isInvalid } = props;
   const simplifiedColorScheme = getColorScheme(props);
   const activeColor = mode(
-    `${simplifiedColorScheme}.500`,
+    `${simplifiedColorScheme}.600`,
     `${simplifiedColorScheme}.200`
   )(props);
   return {
     activeColor,
     borderColor: isInvalid
       ? mode(`danger.600`, `danger.200`)(props)
-      : mode(`muted.200`, `muted.600`)(props),
+      : mode(`muted.300`, `muted.600`)(props),
     iconColor: mode(`gray.50`, `gray.800`)(props), //matching background color.
   };
 };
