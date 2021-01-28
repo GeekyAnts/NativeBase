@@ -2,9 +2,9 @@ import React from 'react';
 import { Flex, Link as BreadcrumbLink } from '../../primitives';
 import type { IBreadcrumbProps } from './props';
 import { extractInObject } from '../../../theme/tools';
-import { getBreadcrumbSeparator } from './Bread-crumbSeparator';
+import { getBreadcrumbSeparator } from './BreadcrumbSeparator';
 import { useThemeProps } from '../../../hooks';
-export { default as BreadcrumbItem } from './Bread-crumbItem';
+export { default as BreadcrumbItem } from './BreadcrumbItem';
 export { BreadcrumbLink };
 
 const Breadcrumb = ({
