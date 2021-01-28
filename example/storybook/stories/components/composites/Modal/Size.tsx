@@ -34,9 +34,7 @@ export default function () {
           </ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quasi
-            cupiditate expedita, ipsa corporis officia totam similique delectus!
-            Debitis esse, ea blanditiis iste enim iure at odit fugiat autem.
-            Accusamus?
+            cupiditate expedita, ipsa delectus!
             <Input mt={4} placeholder="Lorem ipsum dolor sit" />
           </ModalBody>
           <ModalFooter>
@@ -44,7 +42,7 @@ export default function () {
               Save
             </Button>
             <Button
-              colorScheme="red"
+              colorScheme="secondary"
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}

@@ -40,6 +40,7 @@ export default function () {
               Save
             </Button>
             <Button
+              colorScheme="secondary"
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}
