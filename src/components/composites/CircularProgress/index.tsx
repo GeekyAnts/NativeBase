@@ -7,7 +7,7 @@ import { useThemeProps, useTheme } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 import get from 'lodash/get';
 
-type sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
+type sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 export type ICircularProgressProps = IBoxProps & {
   style?: ViewStyle;
@@ -42,7 +42,7 @@ const CircularProgress = ({
     value = value - min;
   }
   if (!size) {
-    size = 'xs';
+    size = 'lg';
   }
   let sizeProps;
   let newProps = useThemeProps('CircularProgress', { size: size });
@@ -55,12 +55,19 @@ const CircularProgress = ({
     sizeProps = { height: size, width: size };
   }
   // fetching size from theme for passing into style prop
+  const themeHeight = get(theme, 'space.' + sizeProps.height);
+  const themeWidth = get(theme, 'space.' + sizeProps.width);
+
   const styleSize = {
-    height:
-      get(theme, 'space.' + newProps.height).toString() || newProps.height,
-    width: get(theme, 'space.' + newProps.width).toString() || newProps.width,
+    height: themeHeight
+      ? parseInt(themeHeight.slice(themeHeight.Length, -2))
+      : sizeProps.height,
+    width: themeWidth
+      ? parseInt(themeWidth.slice(themeWidth.Length, -2))
+      : sizeProps.width,
   };
-  let defaultThickness = 4;
+
+  let defaultThickness = 8;
   if (thickness) {
     defaultThickness = thickness;
   }
@@ -153,8 +160,8 @@ const CircularProgress = ({
     } else {
       return (
         <Box
-          borderTopColor={trackColor ? trackColor : 'gray.200'}
-          borderRightColor={trackColor ? trackColor : 'gray.200'}
+          borderTopColor={trackColor ? trackColor : 'blueGray.200'}
+          borderRightColor={trackColor ? trackColor : 'blueGray.200'}
           style={styles.offsetLayer}
         />
       );
@@ -170,7 +177,7 @@ const CircularProgress = ({
   return (
     <Box
       {...sizeProps}
-      rounded={100}
+      rounded={viewHeight / 2}
       borderWidth={defaultThickness}
       borderColor={trackColor ? trackColor : 'blueGray.200'}
       justifyContent="center"
