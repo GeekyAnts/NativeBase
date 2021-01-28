@@ -1,21 +1,21 @@
 const defaultProps = {
   _statLabel: {
-    fontSize: '2xl',
+    fontSize: 'xl',
   },
   _statNumber: {
-    fontSize: '5xl',
+    fontSize: '4xl',
     fontWeight: 'bold',
     my: 2,
   },
   _statHelpText: {
     color: 'gray.500',
-    fontSize: '2xl',
+    fontSize: 'xl',
     flexDirection: 'row',
     alignItems: 'center',
   },
   _statGroup: {
     flexWrap: 'wrap',
-    flexDirection: 'row',
+    space: 4,
     justifyContent: 'space-between',
   },
 };

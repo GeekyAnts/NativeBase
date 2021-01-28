@@ -17,7 +17,7 @@ export default function () {
       <StatGroup mt={6}>
         <Stat>
           <StatLabel>Sent</StatLabel>
-          <StatNumber>$360</StatNumber>
+          <StatNumber>$3600</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
             56.67%
@@ -25,10 +25,10 @@ export default function () {
         </Stat>
         <Stat>
           <StatLabel>Received</StatLabel>
-          <StatNumber>$45</StatNumber>
+          <StatNumber>$454</StatNumber>
           <StatHelpText>
             <StatArrow type="decrease" />
-            99.56
+            99.56%
           </StatHelpText>
         </Stat>
       </StatGroup>
