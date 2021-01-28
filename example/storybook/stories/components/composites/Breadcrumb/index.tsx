@@ -9,8 +9,8 @@ import Composition from './Composition';
 
 storiesOf('Breadcrumb', module)
   .addDecorator(withKnobs)
-  .add('Composition', () => <Composition />)
+  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Separators', () => <Separators />)
   .add('ComponentSeparator', () => <ComponentSeparator />)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>);
+  .add('Composition', () => <Composition />);

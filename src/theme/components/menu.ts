@@ -17,14 +17,14 @@ export default {
 
 export const MenuGroup = {
   baseStyle: {
-    fontSize: 'sm',
+    fontSize: 14,
     fontWeight: 'semibold',
     p: 2,
   },
 };
 export const MenuItem = {
   baseStyle: {
-    fontSize: 'sm',
+    fontSize: 14,
     fontWeight: 'normal',
     textAlign: 'left',
     maxWidth: 64,
