@@ -4,21 +4,18 @@ const baseStyle = {
 
 const sizes = {
   lg: {
-    minW: 10,
-    minH: 10,
-    px: 'auto',
+    py: 0,
+    px: 0,
     fontSize: '3xl',
   },
   md: {
-    minW: 8,
-    minH: 8,
-    px: 'auto',
+    py: 0,
+    px: 0,
     fontSize: '2xl',
   },
   sm: {
-    minW: 6,
-    minH: 6,
-    px: 'auto',
+    py: 0,
+    px: 0,
     fontSize: 'xl',
   },
 };

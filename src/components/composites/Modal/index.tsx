@@ -199,7 +199,7 @@ export const ModalCloseButton = (props: ICloseButtonProps) => {
       <CloseButton
         {...newProps.modalCloseButtonProps}
         {...props}
-        accessibilityLabel="Close dialog"
+        // accessibilityLabel="Close dialog"
         onPress={() => {
           toggleVisible(false);
           toggleOnClose(false);

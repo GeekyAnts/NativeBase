@@ -1,10 +1,18 @@
 import React from 'react';
-import { Box, IBoxProps, Text, ITextProps, Icon } from '../../primitives';
+import {
+  Box,
+  IBoxProps,
+  Text,
+  ITextProps,
+  Icon,
+  HStack,
+} from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 
 export const StatLabel = React.memo(({ style, ...props }: ITextProps) => {
+  let newProps = useThemeProps('Stat', props);
   return (
-    <Text style={style} {...props}>
+    <Text {...newProps._statLabel} {...newProps} style={style} {...props}>
       {props.children}
     </Text>
   );
@@ -37,6 +45,7 @@ export const StatArrow = React.memo(
         name={type === 'increase' ? 'triangle-up' : 'triangle-down'}
         {...props}
         color={type === 'increase' ? 'green.500' : 'red.500'}
+        size={8}
       />
     );
   }
@@ -44,7 +53,7 @@ export const StatArrow = React.memo(
 
 export const StatGroup = React.memo(({ style, ...props }: IBoxProps) => {
   let newProps = useThemeProps('Stat', props);
-  return <Box {...newProps._statGroup} {...newProps} style={style} />;
+  return <HStack {...newProps._statGroup} {...newProps} style={style} />;
 });
 
 const Stat = ({ style, ...props }: IBoxProps) => {
