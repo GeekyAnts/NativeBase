@@ -1,6 +1,6 @@
 import React from 'react';
 import { Checkbox, CheckboxGroup, Text } from 'native-base';
-import type { ICheckboxValue } from '/src/components/primitives/Checkbox/props';
+import type { ICheckboxValue } from 'src/components/primitives/Checkbox/props';
 
 export default function ControlledCheckbox() {
   const [groupValues, setGroupValues] = React.useState<Array<ICheckboxValue>>(
