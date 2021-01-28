@@ -11,13 +11,16 @@ import { Hoverable } from './../../../utils';
 const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
   const contextState = React.useContext(RadioContext);
 
-  const { activeColor, borderColor, size, ...newProps } = useThemeProps(
-    'Radio',
-    {
-      ...contextState,
-      ...props,
-    }
-  );
+  const {
+    activeColor,
+    borderColor,
+    size,
+    // isInvalid,
+    ...newProps
+  } = useThemeProps('Radio', {
+    ...contextState,
+    ...props,
+  });
 
   // only calling below function when icon exist.
   const sizedIcon = () =>

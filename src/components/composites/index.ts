@@ -13,11 +13,11 @@ export type { IAlertProps } from './Alert';
 export { Avatar, AvatarBadge, AvatarGroup } from './Avatar';
 
 export {
-  default as BreadCrumb,
-  BreadCrumbItem,
-  BreadCrumbLink,
-} from './BreadCrumb';
-export type { IBreadCrumbProps } from './BreadCrumb';
+  default as Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+} from './Breadcrumb';
+export type { IBreadcrumbProps } from './Breadcrumb';
 
 export { default as CloseButton } from './CloseButton';
 export type { ICloseButtonProps } from './CloseButton';
