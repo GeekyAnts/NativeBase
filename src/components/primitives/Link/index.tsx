@@ -75,12 +75,12 @@ const Link = (
   let newProps = useThemeProps('Link', props);
 
   const { linkProps } = useLink({ href, onClick, isExternal });
-
   return (
     <Box {...layoutProps}>
       <TouchableWithoutFeedback {...linkProps} {...newProps} ref={ref}>
         <StyledLink
           {...newProps}
+          flexDirection="row"
           textDecorationLine={isUnderlined ? 'underline' : 'none'}
           style={style}
         >

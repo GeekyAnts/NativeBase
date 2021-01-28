@@ -1,19 +1,19 @@
 import React from 'react';
-import { Flex, Link as BreadCrumbLink } from '../../primitives';
-import type { IBreadCrumbProps } from './props';
+import { Flex, Link as BreadcrumbLink } from '../../primitives';
+import type { IBreadcrumbProps } from './props';
 import { extractInObject } from '../../../theme/tools';
-import { getBreadCrumbSeparator } from './BreadCrumbSeparator';
+import { getBreadcrumbSeparator } from './BreadcrumbSeparator';
 import { useThemeProps } from '../../../hooks';
-export { default as BreadCrumbItem } from './BreadCrumbItem';
-export { BreadCrumbLink };
+export { default as BreadcrumbItem } from './BreadcrumbItem';
+export { BreadcrumbLink };
 
-const BreadCrumb = ({
+const Breadcrumb = ({
   style,
   children,
   separator,
   spacing,
   ...props
-}: IBreadCrumbProps) => {
+}: IBreadcrumbProps) => {
   const [textProps, remainingProps] = extractInObject(props, [
     'fontWeight',
     'fontFamily',
@@ -34,15 +34,15 @@ const BreadCrumb = ({
     'noOfLines',
   ]);
 
-  let newProps = useThemeProps('BreadCrumb', remainingProps);
+  let newProps = useThemeProps('Breadcrumb', remainingProps);
   return (
     <Flex {...newProps} style={style}>
       {children && !children.length
         ? children
-        : getBreadCrumbSeparator(children, separator, textProps, spacing)}
+        : getBreadcrumbSeparator(children, separator, textProps, spacing)}
     </Flex>
   );
 };
 
-export default React.memo(BreadCrumb);
-export type { IBreadCrumbProps };
+export default React.memo(Breadcrumb);
+export type { IBreadcrumbProps };
