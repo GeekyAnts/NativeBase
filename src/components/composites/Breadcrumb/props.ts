@@ -1,8 +1,7 @@
 import type { ViewStyle } from 'react-native';
-
 import type { IBoxProps, ITextProps, IFlexProps } from '../../primitives';
 
-export type IBreadCrumbProps = IBoxProps &
+export type IBreadcrumbProps = IBoxProps &
   IFlexProps &
   ITextProps & {
     style?: ViewStyle;

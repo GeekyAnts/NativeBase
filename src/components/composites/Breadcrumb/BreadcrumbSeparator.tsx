@@ -2,7 +2,7 @@ import React from 'react';
 import isNil from 'lodash/isNil';
 import Text from '../../primitives/Text';
 
-export const getBreadCrumbSeparator = (
+export const getBreadcrumbSeparator = (
   children: JSX.Element[] | JSX.Element | any,
   separator: string | JSX.Element | JSX.Element[] | any,
   props: any,

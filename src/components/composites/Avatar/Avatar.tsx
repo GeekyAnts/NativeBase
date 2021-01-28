@@ -33,6 +33,7 @@ const Avatar = (
           borderRadius={newProps.borderRadius}
           source={source}
           alt={name ? initials(name) : '--'}
+          // FIXME: Review needed
           textProps={{
             color,
             fontSize,
