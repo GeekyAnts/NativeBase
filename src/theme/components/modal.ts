@@ -33,8 +33,8 @@ const baseStyle = (props: Record<string, any>) => {
     },
     modalCloseButtonStyle: {
       position: 'absolute',
-      right: 2.5,
-      top: 0,
+      right: 8,
+      top: 8,
       zIndex: 1,
     },
     modalCloseButtonProps: {
@@ -46,10 +46,12 @@ const baseStyle = (props: Record<string, any>) => {
     },
     modalBodyProps: {
       mb: 3,
+      fontSize: '2xl',
     },
     modalContentProps: {
       bg: mode('gray.100', 'gray.700')(props),
-      p: 4,
+      p: 8,
+      rounded: 6,
     },
     // NOTE: Now using custom overlay.
     // modalOverlayProps: {
@@ -60,7 +62,7 @@ const baseStyle = (props: Record<string, any>) => {
     },
     modalFooterProps: {
       flexDirection: 'row',
-      justifyContent: 'flex-end',
+      justifyContent: 'flex-start',
       flexWrap: 'wrap',
     },
   };

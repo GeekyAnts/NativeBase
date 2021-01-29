@@ -68,7 +68,6 @@ const Modal = (
     children,
     isOpen,
     onClose,
-    isCentered,
     initialFocusRef,
     finalFocusRef,
     justifyContent,
@@ -98,8 +97,8 @@ const Modal = (
   const modalChildren = (
     <Box
       {...newProps.modalProps}
-      justifyContent={isCentered ? 'center' : justifyContent}
-      alignItems={isCentered ? 'center' : alignItems}
+      justifyContent={justifyContent ? justifyContent : 'center'}
+      alignItems={alignItems ? alignItems : 'center'}
     >
       {props.closeOnOverlayClick === false ? <Box /> : <ModalOverlay />}
       {children}
@@ -175,7 +174,7 @@ export const ModalContent = (props: IBoxProps) => {
   return (
     <Box
       {...newProps.modalContentProps}
-      width={newProps._width || newProps.size}
+      width={newProps._width || newProps.size || '75%'}
       {...props}
     />
   );
