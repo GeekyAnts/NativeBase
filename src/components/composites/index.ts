@@ -92,13 +92,7 @@ export type {
   INumberInputContext,
 } from './NumberInput';
 
-export {
-  default as Tag,
-  TagCloseButton,
-  TagLabel,
-  TagLeftIcon,
-  TagRightIcon,
-} from './Tag';
+export { default as Tag, TagLabel, TagLeftIcon, TagRightIcon } from './Tag';
 export type { ITagProps } from './Tag';
 
 export { default as Kbd } from './KBD';
