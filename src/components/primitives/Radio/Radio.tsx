@@ -5,10 +5,10 @@ import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
 import { RadioContext } from './RadioGroup';
 import type { IRadioProps } from './props';
-import { useRadio } from './useRadio';
+import { useRadio, AriaInputWrapper } from 'react-native-aria';
 import { Hoverable } from './../../../utils';
 
-const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
+const Radio = ({ icon, ...props }: IRadioProps, ref: any) => {
   const contextState = React.useContext(RadioContext);
 
   const {
@@ -21,6 +21,9 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
     ...contextState,
     ...props,
   });
+
+  const { inputProps } = useRadio(props, contextState.state, ref);
+  const { checked, disabled: isDisabled } = inputProps;
 
   // only calling below function when icon exist.
   const sizedIcon = () =>
@@ -36,10 +39,8 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
           : borderColor,
     });
 
-  const { inputProps } = useRadio(props, contextState, null);
-  const { checked, disabled: isDisabled } = inputProps;
   return (
-    <TouchableOpacity activeOpacity={1} ref={ref} {...inputProps}>
+    <AriaInputWrapper activeOpacity={1} ref={ref} {...inputProps}>
       <Hoverable>
         {(isHovered: boolean) => {
           const outlineColor =
@@ -92,12 +93,12 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
                   />
                 )}
               </Box>
-              {children}
+              {props.children}
             </Box>
           );
         }}
       </Hoverable>
-    </TouchableOpacity>
+    </AriaInputWrapper>
   );
 };
 

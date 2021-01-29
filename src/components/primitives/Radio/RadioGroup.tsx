@@ -4,33 +4,37 @@ import {
   FormControlContext,
   IFormControlContext,
 } from '../../composites/FormControl';
-import type { IRadioContext, IRadioGroupProps, IRadioValue } from './props';
-import { useRadioGroup } from './useRadioGroup';
+import type { IRadioContext, IRadioGroupProps } from './props';
+import { RadioGroupState, useRadioGroupState } from '@react-stately/radio';
 
 export const RadioContext = React.createContext<IRadioContext>({
-  onChange: (_value: IRadioValue) => {},
   name: '',
+  state: {} as RadioGroupState,
 });
 
-const RadioGroup = ({ size, colorScheme, ...props }: IRadioGroupProps) => {
+const RadioGroup = ({
+  size,
+  colorScheme,
+  name,
+  ...props
+}: IRadioGroupProps) => {
   const formControlContext: IFormControlContext = React.useContext(
     FormControlContext
   );
-  const { radioGroupProps } = useRadioGroup(props, null);
-  const { onChange, value, name, ...restRadioGroupProps } = radioGroupProps;
+
+  let state = useRadioGroupState(props);
 
   return (
     <RadioContext.Provider
       value={{
         ...formControlContext,
-        onChange,
         size,
         colorScheme,
-        value,
+        state,
         name,
       }}
     >
-      <Box alignItems="flex-start" {...restRadioGroupProps} {...props}>
+      <Box accessibilityRole="radiogroup" alignItems="flex-start" {...props}>
         {props.children}
       </Box>
     </RadioContext.Provider>

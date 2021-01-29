@@ -1,8 +1,9 @@
 import type { IBoxProps } from '../../primitives';
 import type { IFormControlContext } from '../../composites';
 import type { AccessibilityRole } from 'react-native';
+import type { RadioGroupState } from '@react-stately/radio';
 
-export type IRadioValue = string | number;
+export type IRadioValue = string;
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
 
@@ -29,12 +30,11 @@ export type IRadioGroupProps = IBoxProps & {
 };
 export type IRadioContext = IFormControlContext & {
   name: string;
-  value?: IRadioValue;
   colorScheme?: string;
   size?: 'sm' | 'md' | 'lg';
-  onChange: IRadioGroupOnChangeHandler;
   // Custom props
   style?: any;
+  state: RadioGroupState;
 };
 
 export type IUseRadioGroupReturnType = {
