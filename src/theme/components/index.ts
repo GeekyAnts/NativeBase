@@ -2,7 +2,7 @@ import { Alert, AlertDescription, AlertTitle } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
 import Badge from './badge';
-import BreadCrumb from './breadcrumb';
+import Breadcrumb from './breadcrumb';
 import Button from './button';
 import Center from './center';
 import Checkbox from './checkbox';
@@ -45,7 +45,7 @@ export default {
   Avatar,
   AvatarBadge,
   Badge,
-  BreadCrumb,
+  Breadcrumb,
   Button,
   Center,
   Checkbox,
