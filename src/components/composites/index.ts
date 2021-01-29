@@ -16,8 +16,8 @@ export {
   default as Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-} from './Bread-crumb';
-export type { IBreadcrumbProps } from './Bread-crumb';
+} from './Breadcrumb';
+export type { IBreadcrumbProps } from './Breadcrumb';
 
 export { default as CloseButton } from './CloseButton';
 export type { ICloseButtonProps } from './CloseButton';

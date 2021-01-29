@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import omit from 'lodash/omit';
-import { useWindowDimensions } from 'react-native';
+import { useWindowDimensions, Platform } from 'react-native';
 import { useNativeBase } from './../useNativeBase';
 import { omitUndefined, extractInObject } from './../../theme/tools/';
 import { filterShadowProps } from './../../utils/filterShadowProps';
@@ -29,7 +29,7 @@ const filterAndCalculateProps = (
     props,
     windowWidth
   );
-  let mergedProps = filterShadowProps(newProps, ignoredProps);
+  let mergedProps = filterShadowProps(newProps, ignoredProps, Platform.OS);
   return omitUndefined(mergedProps);
 };
 
