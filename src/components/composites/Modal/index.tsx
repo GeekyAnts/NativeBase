@@ -97,8 +97,8 @@ const Modal = (
   const modalChildren = (
     <Box
       {...newProps.modalProps}
-      justifyContent={justifyContent ? justifyContent : 'center'}
-      alignItems={alignItems ? alignItems : 'center'}
+      justifyContent={justifyContent ?? 'center'}
+      alignItems={alignItems ?? 'center'}
     >
       {props.closeOnOverlayClick === false ? <Box /> : <ModalOverlay />}
       {children}
