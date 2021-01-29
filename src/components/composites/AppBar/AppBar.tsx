@@ -12,7 +12,7 @@ export type IAppBarProps = IBoxProps & {
   space?: number;
 };
 
-const AppBarInternal = ({ children, ...props }: IAppBarProps) => {
+const AppBar = React.memo(({ children, ...props }: IAppBarProps) => {
   const {
     statusBarHeight = APPROX_STATUSBAR_HEIGHT,
     ...newProps
@@ -27,12 +27,10 @@ const AppBarInternal = ({ children, ...props }: IAppBarProps) => {
       {children}
     </HStack>
   );
-};
+});
 
-AppBarInternal.Left = React.memo(AppBarLeft);
-AppBarInternal.Right = React.memo(AppBarRight);
-AppBarInternal.Content = React.memo(AppBarContent);
-
-const AppBar = AppBarInternal;
+(AppBar as any).Left = React.memo(AppBarLeft);
+(AppBar as any).Right = React.memo(AppBarRight);
+(AppBar as any).Content = React.memo(AppBarContent);
 
 export default AppBar;
