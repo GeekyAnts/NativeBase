@@ -85,6 +85,7 @@ const SVGIcon = (
       {React.Children.count(children) > 0 ? (
         <G>
           {React.Children.map(children, ({ props: childProps, type }: any) =>
+            type &&
             type.name &&
             Object.keys(VALID_SVG_COMPONENTS).includes(type.name) ? (
               <ChildPath {...childProps} type={type.name} />
