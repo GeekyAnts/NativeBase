@@ -4,7 +4,7 @@ export default function () {
   return (
     <Center>
       <Heading>Default CircularProgress</Heading>
-      <CircularProgress mt={6} value={80} />
+      <CircularProgress mt={6} value={75} />
     </Center>
   );
 }

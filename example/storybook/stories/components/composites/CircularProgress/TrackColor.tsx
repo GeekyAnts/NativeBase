@@ -8,7 +8,6 @@ export default function () {
       <CircularProgress
         mt={6}
         size={80}
-        thickness={10}
         value={20}
         trackColor={text('Track Color', 'blue.100')}
       />
