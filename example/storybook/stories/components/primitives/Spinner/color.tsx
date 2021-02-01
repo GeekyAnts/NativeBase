@@ -8,7 +8,6 @@ export default function () {
       <Spinner color="blue.500" variant="stroked" size="lg" />
       <Spinner color="gray.900" variant="multiColorDotted" />
       <Spinner color="yellow.500" variant="squareDotted" />
-      <Spinner color="pink.500" variant="undefined" />
       <Spinner
         variant="custom"
         renderProp={<Icon name="search" color="warning.500" />}

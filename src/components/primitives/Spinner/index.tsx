@@ -22,7 +22,7 @@ const StyledSpinner = styled(ActivityIndicator)<ISpinnerProps>(
   space,
   position
 );
-const Spinner: any = (props: ISpinnerProps, ref: any) => {
+const Spinner: any = ({ renderProp, ...props }: ISpinnerProps, ref: any) => {
   const newProps = useThemeProps('Spinner', props);
   const spinnerColor = useToken('colors', newProps.color);
   const { spinnerProps } = useSpinner(props);
@@ -32,7 +32,7 @@ const Spinner: any = (props: ISpinnerProps, ref: any) => {
   Animated.loop(
     Animated.timing(degree, {
       toValue: 1,
-      duration: 5000,
+      duration: 900,
       easing: Easing.linear,
       useNativeDriver: false,
     })
@@ -60,10 +60,10 @@ const Spinner: any = (props: ISpinnerProps, ref: any) => {
       />
     );
   } else {
-    if (newProps.variant == 'custom' && newProps.renderProp) {
+    if (newProps.variant === 'custom' && renderProp) {
       return (
         <StyleAnimatedView style={styles.animateStyle}>
-          {newProps.renderProp}
+          {renderProp}
         </StyleAnimatedView>
       );
     } else {
