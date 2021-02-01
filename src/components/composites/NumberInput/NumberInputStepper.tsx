@@ -1,7 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import { VStack, Box, Icon } from '../../primitives';
-import Divider from '../Divider';
 import { useThemeProps } from '../../../hooks';
 import type { INumberInputSteppersProps } from './props';
 
@@ -54,18 +53,7 @@ const NumberInputStepper = ({
   children,
   ...props
 }: INumberInputSteppersProps) => {
-  const { iconColor } = useThemeProps('NumberInputStepper', props);
-  return (
-    <VStack
-      border={1}
-      borderColor="transparent"
-      borderLeftColor={iconColor}
-      divider={<Divider borderColor={iconColor} />}
-      {...props}
-    >
-      {children}
-    </VStack>
-  );
+  return <VStack {...props}>{children}</VStack>;
 };
 
 export default React.memo(NumberInputStepper);
