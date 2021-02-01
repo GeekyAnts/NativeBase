@@ -36,7 +36,6 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Zocial from 'react-native-vector-icons/Zocial';
 import type { IIconProps, IconType } from './props';
 import { SVGIcon } from './SVGIcon';
-import { Path } from 'react-native-svg';
 
 const Icon = (iconProps: IIconProps) => {
   const { name, type, size, color: colorProp, ...props } = iconProps;
@@ -188,6 +187,5 @@ const styledIcon = styled(Icon)<IIconProps>(
 );
 
 export default styledIcon;
-export { Path };
 export type { IIconProps, IconType };
 export { createIcon } from './createIcon';
