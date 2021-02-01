@@ -32,7 +32,7 @@ const Spinner: any = (props: ISpinnerProps, ref: any) => {
   Animated.loop(
     Animated.timing(degree, {
       toValue: 1,
-      duration: 900,
+      duration: 5000,
       easing: Easing.linear,
       useNativeDriver: false,
     })
@@ -67,10 +67,10 @@ const Spinner: any = (props: ISpinnerProps, ref: any) => {
         </StyleAnimatedView>
       );
     } else {
-      let spinnerVariant = null;
+      let SpinnerVariant = null;
       switch (newProps.variant) {
         case 'dotted':
-          spinnerVariant = (
+          SpinnerVariant = (
             <Dotted
               color={spinnerColor}
               size={props.size ? iconSize[props.size] : 12}
@@ -78,7 +78,7 @@ const Spinner: any = (props: ISpinnerProps, ref: any) => {
           );
           break;
         case 'multiColorDotted':
-          spinnerVariant = (
+          SpinnerVariant = (
             <MultiColorDotted
               color={spinnerColor}
               size={props.size ? iconSize[props.size] : 12}
@@ -86,7 +86,7 @@ const Spinner: any = (props: ISpinnerProps, ref: any) => {
           );
           break;
         case 'stroked':
-          spinnerVariant = (
+          SpinnerVariant = (
             <Stroked
               color={spinnerColor}
               size={props.size ? iconSize[props.size] : 12}
@@ -94,7 +94,7 @@ const Spinner: any = (props: ISpinnerProps, ref: any) => {
           );
           break;
         case 'squareDotted':
-          spinnerVariant = (
+          SpinnerVariant = (
             <SquareDotted
               color={spinnerColor}
               size={props.size ? iconSize[props.size] : 12}
@@ -102,17 +102,16 @@ const Spinner: any = (props: ISpinnerProps, ref: any) => {
           );
           break;
         default:
-          spinnerVariant = (
+          SpinnerVariant = (
             <Default
               color={spinnerColor}
-              size={props.size ? iconSize[props.size] : 8}
+              size={props.size ? iconSize[props.size] : 12}
             />
           );
-          break;
       }
       return (
         <StyleAnimatedView style={styles.animateStyle}>
-          {spinnerVariant}
+          {SpinnerVariant}
         </StyleAnimatedView>
       );
     }
