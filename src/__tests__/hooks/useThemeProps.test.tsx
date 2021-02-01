@@ -9,7 +9,7 @@ describe('useThemeProps', () => {
   );
   test('Box component + no props', () => {
     const { result } = renderHook(() => useThemeProps('Box', {}), { wrapper });
-    expect(result.current).toEqual({ style: {} });
+    expect(result.current).toEqual({});
   });
 
   test('Badge Component + no props', () => {
@@ -27,7 +27,6 @@ describe('useThemeProps', () => {
       color: 'gray.700',
       borderWidth: 1,
       borderColor: 'transparent',
-      style: {},
     });
   });
 
@@ -46,7 +45,6 @@ describe('useThemeProps', () => {
       color: 'gray.700',
       borderWidth: 1,
       borderColor: 'transparent',
-      style: {},
     });
   });
 });

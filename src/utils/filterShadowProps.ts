@@ -1,9 +1,12 @@
-import { Platform } from 'react-native';
 import { extractInObject } from './../theme/tools/';
 import isEmpty from 'lodash/isEmpty';
 
-export const filterShadowProps = (props: any, ignoredProps: any) => {
-  if (Platform.OS === 'web') {
+export const filterShadowProps = (
+  props: any,
+  ignoredProps: any,
+  OS: string
+) => {
+  if (OS !== 'web') {
     return { ...ignoredProps, ...props };
   }
   let style = ignoredProps.style ?? {};

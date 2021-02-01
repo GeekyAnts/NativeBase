@@ -1,13 +1,13 @@
 import React from 'react';
 import { ViewStyle, StyleSheet, Animated, Easing } from 'react-native';
-
 import { Box, IBoxProps, ITextProps, Text } from '../../primitives';
 import styled from 'styled-components/native';
 import { color, border } from 'styled-system';
-import { useThemeProps } from '../../../hooks';
+import { useThemeProps, useTheme } from '../../../hooks';
 import { canUseDom } from '../../../utils';
+import get from 'lodash/get';
 
-type sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
+type sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 export type ICircularProgressProps = IBoxProps & {
   style?: ViewStyle;
@@ -35,12 +35,14 @@ const CircularProgress = ({
   min,
   ...props
 }: ICircularProgressProps) => {
+  const theme = useTheme();
+
   const isDomUsable = canUseDom();
   if (min) {
     value = value - min;
   }
   if (!size) {
-    size = 'md';
+    size = 'lg';
   }
   let sizeProps;
   let newProps = useThemeProps('CircularProgress', { size: size });
@@ -52,8 +54,20 @@ const CircularProgress = ({
   } else {
     sizeProps = { height: size, width: size };
   }
+  // fetching size from theme for passing into style prop
+  const themeHeight = get(theme, 'space.' + sizeProps.height);
+  const themeWidth = get(theme, 'space.' + sizeProps.width);
 
-  let defaultThickness = 4;
+  const styleSize = {
+    height: themeHeight
+      ? parseInt(themeHeight.slice(themeHeight.Length, -2))
+      : sizeProps.height,
+    width: themeWidth
+      ? parseInt(themeWidth.slice(themeWidth.Length, -2))
+      : sizeProps.width,
+  };
+
+  let defaultThickness = 8;
   if (thickness) {
     defaultThickness = thickness;
   }
@@ -75,6 +89,7 @@ const CircularProgress = ({
     let height = e.nativeEvent.layout.height;
     setViewHeight(height);
   };
+
   const defaultStyling: any = {
     borderBottomLeftRadius: viewHeight / 2,
     borderBottomRightRadius: viewHeight / 2,
@@ -85,7 +100,7 @@ const CircularProgress = ({
     position: 'absolute',
     borderLeftColor: 'transparent',
     borderBottomColor: 'transparent',
-    ...sizeProps,
+    ...styleSize,
   };
   const styles = StyleSheet.create({
     firstProgressLayer: {
@@ -134,8 +149,8 @@ const CircularProgress = ({
     if (percent > halfSide) {
       return (
         <Box
-          borderTopColor={colorProp ? colorProp : 'green.400'}
-          borderRightColor={colorProp ? colorProp : 'green.400'}
+          borderTopColor={colorProp ? colorProp : 'blue.700'}
+          borderRightColor={colorProp ? colorProp : 'blue.700'}
           style={[
             styles.secondProgressLayer,
             propStyle(percent - halfSide, 45),
@@ -145,8 +160,8 @@ const CircularProgress = ({
     } else {
       return (
         <Box
-          borderTopColor={trackColor ? trackColor : 'gray.200'}
-          borderRightColor={trackColor ? trackColor : 'gray.200'}
+          borderTopColor={trackColor ? trackColor : 'blueGray.200'}
+          borderRightColor={trackColor ? trackColor : 'blueGray.200'}
           style={styles.offsetLayer}
         />
       );
@@ -162,9 +177,9 @@ const CircularProgress = ({
   return (
     <Box
       {...sizeProps}
-      rounded={100}
+      rounded={viewHeight / 2}
       borderWidth={defaultThickness}
-      borderColor={trackColor ? trackColor : 'gray.200'}
+      borderColor={trackColor ? trackColor : 'blueGray.200'}
       justifyContent="center"
       alignItems="center"
       {...props}
@@ -173,8 +188,8 @@ const CircularProgress = ({
         <>
           <Box
             onLayout={layout}
-            borderTopColor={colorProp ? colorProp : 'green.400'}
-            borderRightColor={colorProp ? colorProp : 'green.400'}
+            borderTopColor={colorProp ? colorProp : 'blue.700'}
+            borderRightColor={colorProp ? colorProp : 'blue.700'}
             style={[styles.firstProgressLayer, firstProgressLayerStyle]}
           />
           {renderThirdLayer(value)}
@@ -183,8 +198,8 @@ const CircularProgress = ({
       ) : (
         <StyleAnimatedView
           onLayout={layout}
-          borderTopColor={colorProp ? colorProp : 'green.400'}
-          borderRightColor={colorProp ? colorProp : 'green.400'}
+          borderTopColor={colorProp ? colorProp : 'blue.700'}
+          borderRightColor={colorProp ? colorProp : 'blue.700'}
           style={styles.animateStyle}
         />
       )}

@@ -1,7 +1,7 @@
 import { filterShadowProps } from './../../utils/filterShadowProps';
 describe('filterShadowProps', () => {
   test('empty', () => {
-    expect(filterShadowProps({}, {})).toEqual({ style: {} });
+    expect(filterShadowProps({}, {}, 'web')).toEqual({ style: {} });
   });
   test('basic', () => {
     expect(
@@ -16,7 +16,8 @@ describe('filterShadowProps', () => {
           shadowOpacity: 0.18,
           shadowRadius: 1.0,
         },
-        {}
+        {},
+        'web'
       )
     ).toEqual({
       top: 10,

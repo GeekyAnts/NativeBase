@@ -7,7 +7,6 @@ import Size from './Size';
 import LeftIcon from './LeftIcon';
 import RightIcon from './RightIcon';
 import Custom from './Custom';
-import CloseBtn from './CloseButton';
 
 storiesOf('Tag', module)
   .addDecorator(withKnobs)
@@ -16,5 +15,4 @@ storiesOf('Tag', module)
   .add('Sizes', () => <Size />)
   .add('TagLeftIcon', () => <LeftIcon />)
   .add('TagRightIcon', () => <RightIcon />)
-  .add('TagCloseButton', () => <CloseBtn />)
   .add('Custom Tag', () => <Custom />);
