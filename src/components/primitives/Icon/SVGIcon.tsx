@@ -26,7 +26,7 @@ import Svg, {
   Pattern,
   Mask,
 } from 'react-native-svg';
-import type { IIconProps } from './props';
+import type { IIconProps } from './types';
 
 const VALID_SVG_COMPONENTS: any = {
   G: G,
