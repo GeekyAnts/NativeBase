@@ -8,10 +8,19 @@ import type {
 } from './props';
 import { FormControlContext, IFormControlContext } from '../FormControl';
 import { Platform } from 'react-native';
-import isNil from 'lodash/isNil';
 import { PinInputContext } from './Context';
+import { themeTools } from '../../../theme';
 
 const PinInput = ({ children, ...props }: IPinInputProps) => {
+  let [padding, remProps] = themeTools.extractInObject(props, [
+    'p',
+    'px',
+    'py',
+    'pt',
+    'pb',
+    'pl',
+    'pr',
+  ]);
   const {
     manageFocus,
     defaultValue,
@@ -19,7 +28,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
     space,
     onChange,
     ...newProps
-  } = useThemeProps('PinInput', props);
+  } = useThemeProps('PinInput', remProps);
   const formControlContext: IFormControlContext = React.useContext(
     FormControlContext
   );
@@ -35,10 +44,10 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
     temp[fieldIndex] = newValue;
     setPinInputValue(temp.join(''));
     onChange && onChange(temp.join(''));
-    if (!isNil(newValue) && manageFocus && fieldIndex + 1 < RefList.length)
-      RefList[fieldIndex + 1].current.focus();
-    if (isNil(newValue) && manageFocus && fieldIndex - 1 > -1)
+    if (newValue === '' && manageFocus && fieldIndex - 1 > -1)
       RefList[fieldIndex - 1].current.focus();
+    else if (newValue && manageFocus && fieldIndex + 1 < RefList.length)
+      RefList[fieldIndex + 1].current.focus();
     return temp.join('');
   };
   const handleMultiValueChange = (newValue: string, fieldIndex: number) => {
@@ -65,7 +74,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
   const indexSetter = (allChildren: JSX.Element | JSX.Element[]) => {
     let pinInputFiledCounter = -1;
     return React.Children.map(allChildren, (child: JSX.Element) => {
-      if (child.type.name !== 'PinInputFiled') return child;
+      if (child.type.type.name !== 'PinInputFiled') return child;
       else {
         pinInputFiledCounter++;
         return React.cloneElement(
@@ -91,7 +100,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
       }}
     >
       {children && (
-        <HStack flexDirection="row" space={space}>
+        <HStack flexDirection="row" space={space} {...padding}>
           {indexSetter(children)}
         </HStack>
       )}

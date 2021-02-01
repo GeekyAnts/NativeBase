@@ -50,4 +50,5 @@ export type IInputProps = ColorProps &
     InputLeftElement?: JSX.Element | JSX.Element[];
     InputRightElement?: JSX.Element | JSX.Element[];
     type?: 'text' | 'password' | string;
+    label?: string;
   };
