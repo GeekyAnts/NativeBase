@@ -6,5 +6,7 @@ export type ISpinnerProps = ColorProps &
     color?: string | undefined;
     style?: any | undefined;
     size?: 'sm' | 'lg' | 'small' | 'large';
+    variant?: string;
     accessibilityLabel?: string;
+    renderProp?: JSX.Element | JSX.Element[];
   };
