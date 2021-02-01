@@ -1,13 +1,13 @@
 const defaultProps = {
   placeholder: '○',
-  size: 'md',
+  fontSize: 'md',
   manageFocus: true,
   space: 1,
 };
 
 const sizes = {
   '2xl': {
-    size: '2xl',
+    fontSize: '2xl',
     p: 3,
     width: '52px',
     height: '52px',
@@ -15,7 +15,7 @@ const sizes = {
     borderRadius: 'lg',
   },
   'xl': {
-    size: 'xl',
+    fontSize: 'xl',
     p: 3,
     width: '48px',
     height: '48px',
@@ -23,7 +23,7 @@ const sizes = {
     borderRadius: 'lg',
   },
   'lg': {
-    size: 'lg',
+    fontSize: 'lg',
     p: 2,
     width: '38px',
     height: '38px',
@@ -31,7 +31,7 @@ const sizes = {
     borderRadius: 'md',
   },
   'md': {
-    size: 'md',
+    fontSize: 'md',
     p: 2,
     width: '36px',
     height: '36px',
@@ -39,7 +39,7 @@ const sizes = {
     borderRadius: 'md',
   },
   'sm': {
-    size: 'sm',
+    fontSize: 'sm',
     p: 1,
     width: '26px',
     height: '26px',
@@ -47,7 +47,7 @@ const sizes = {
     borderRadius: 'md',
   },
   'xs': {
-    size: 'xs',
+    fontSize: 'xs',
     p: 1,
     width: '24px',
     height: '24px',
