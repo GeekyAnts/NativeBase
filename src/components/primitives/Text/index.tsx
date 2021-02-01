@@ -62,14 +62,18 @@ const Text = (
   const newProps = useThemeProps('Text', props);
   return (
     <StyledText
-      numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : 999}
-      fontWeight={bold ? 'bold' : undefined}
-      fontStyle={italic ? 'italic' : undefined}
-      bg={highlight ? 'yellow.200' : undefined}
-      textDecorationLine={
-        underline ? 'underline' : strikeThrough ? 'line-through' : undefined
-      }
       {...newProps}
+      numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : 999}
+      fontWeight={bold ? 'bold' : newProps.fontWeight}
+      fontStyle={italic ? 'italic' : newProps.fontStyle}
+      bg={highlight ? 'yellow.200' : newProps.bg}
+      textDecorationLine={
+        underline
+          ? 'underline'
+          : strikeThrough
+          ? 'line-through'
+          : newProps.textDecorationLine
+      }
       fontSize={sub ? 10 : newProps.fontSize}
       style={style}
       ref={ref}

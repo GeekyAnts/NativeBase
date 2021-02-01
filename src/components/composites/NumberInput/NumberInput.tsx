@@ -38,7 +38,7 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
 
   const separatingNumberInputStepper = (allChildren: any) => {
     return React.Children.map(allChildren, (child: JSX.Element) => {
-      if (child.type.name === 'NumberInputStepper') {
+      if (child.type.type.name === 'NumberInputStepper') {
         numberInputStepper = child;
         return null;
       } else {
