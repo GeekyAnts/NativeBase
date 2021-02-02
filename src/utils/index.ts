@@ -10,7 +10,7 @@ export {
   getAttachedChildren,
   addTextAndPropsToStrings,
   canUseDom,
-  mergeRefs
+  mergeRefs,
 };
 
 export type { IAccessibilityProps } from './accessibilityTypes';

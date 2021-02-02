@@ -11,8 +11,12 @@ import Box from '../Box';
 import Icon from '../Icon';
 import { CheckboxContext } from './CheckboxGroup';
 import type { ICheckboxProps } from './props';
-import { AriaInputWrapper, useFocusRing } from 'react-native-aria';
-import { useCheckbox, useCheckboxGroupItem } from '@react-aria/checkbox';
+import {
+  AriaInputWrapper,
+  useFocusRing,
+  useCheckbox,
+  useCheckboxGroupItem,
+} from 'react-native-aria';
 import { useToggleState } from '@react-stately/toggle';
 import mergeRefs from '../../../utils/mergeRefs';
 
@@ -21,7 +25,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     FormControlContext
   );
 
-  const checkboxGroupContext: any = React.useContext(CheckboxContext);
+  const checkboxGroupContext = React.useContext(CheckboxContext);
   const {
     activeColor,
     borderColor,
@@ -37,8 +41,13 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
 
   let state = useToggleState(props);
   let groupState = useContext(checkboxGroupContext);
+
+  // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.
+  // This is a bit unorthodox. Typically, hooks cannot be called in a conditional,
+  // but since the checkbox won't move in and out of a group, it should be safe.
   let { inputProps } = groupState
-    ? useCheckboxGroupItem(
+    ? // eslint-disable-next-line react-hooks/rules-of-hooks
+      useCheckboxGroupItem(
         {
           ...props,
           value: props.value,
@@ -46,7 +55,8 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         groupState,
         mergeRefs([ref, ref1])
       )
-    : useCheckbox(props, state, mergeRefs([ref, ref1]));
+    : // eslint-disable-next-line react-hooks/rules-of-hooks
+      useCheckbox(props, state, mergeRefs([ref, ref1]));
   let { isFocusVisible, focusProps } = useFocusRing();
   const isChecked = inputProps.checked;
   const isDisabled = inputProps.disabled;

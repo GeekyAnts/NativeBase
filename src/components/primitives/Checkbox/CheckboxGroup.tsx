@@ -7,7 +7,7 @@ import Box from '../Box';
 import type { ICheckboxGroupProps } from './props';
 import { useCheckboxGroupState } from '@react-stately/checkbox';
 // import type { ICheckboxContext } from './props';
-import { useCheckboxGroup } from '@react-aria/checkbox';
+import { useCheckboxGroup } from 'react-native-aria';
 // import { useCheckboxGroup } from './useCheckboxGroup';
 
 export const CheckboxContext = React.createContext<any>(null);
@@ -26,21 +26,20 @@ const CheckboxGroup = ({
   let { groupProps } = useCheckboxGroup(props, state);
 
   return (
-    <div {...groupProps}>
+    <Box {...groupProps}>
       <CheckboxContext.Provider
         value={{
           ...formControlContext,
           size,
           colorScheme,
           state,
-          name,
         }}
       >
         <Box alignItems="flex-start" accessibilityRole="checkbox" {...props}>
           {children}
         </Box>
       </CheckboxContext.Provider>
-    </div>
+    </Box>
   );
 };
 
