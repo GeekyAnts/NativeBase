@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '../../primitives/Box';
 import Text from '../../primitives/Text';
-import type { IToastProps } from './props';
+import type { IToastProps } from './types';
 import { themeTools } from '../../../theme';
 import { useThemeProps } from '../../../hooks';
 

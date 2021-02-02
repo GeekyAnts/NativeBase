@@ -1,7 +1,7 @@
 import React from 'react';
 import Text from '../Text';
 import { Item as SelectItem } from './Item';
-import type { ISelectProps, ISelectItemProps } from './props';
+import type { ISelectProps, ISelectItemProps } from './types';
 import { usePopover } from '../../../core';
 import Button from '../Button';
 import { ScrollView } from 'react-native';

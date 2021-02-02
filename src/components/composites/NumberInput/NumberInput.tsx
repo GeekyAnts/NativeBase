@@ -1,7 +1,7 @@
 import React from 'react';
 import { useThemeProps } from '../../../hooks';
 import { FormControlContext, IFormControlContext } from '../FormControl';
-import type { INumberInputProps } from './props';
+import type { INumberInputProps } from './types';
 import { NumberInputContext } from './Context';
 
 const NumberInput = ({ children, ...props }: INumberInputProps) => {
