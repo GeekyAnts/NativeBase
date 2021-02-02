@@ -6,6 +6,8 @@ import Usage from './usage';
 import Color from './color';
 import Size from './size';
 import Playground from './withKnob';
+import Variant from './variant';
+import Duration from './duration';
 
 storiesOf('Spinner', module)
   .addDecorator(withKnobs)
@@ -13,4 +15,6 @@ storiesOf('Spinner', module)
   .add('Playground', () => <Playground />)
   .add('Usage', () => <Usage />)
   .add('Color', () => <Color />)
-  .add('Size', () => <Size />);
+  .add('Size', () => <Size />)
+  .add('Variant', () => <Variant />)
+  .add('Duration', () => <Duration />);
