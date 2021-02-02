@@ -186,7 +186,7 @@ const Input = (
                           position="absolute"
                           right="-10%"
                           bottom={`${1 + Math.floor(fontSize / 2)}px`}
-                        ></Box>
+                        />
                         {label}
                       </Box>
                     </Flex>

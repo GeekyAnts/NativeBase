@@ -22,7 +22,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import { useThemeProps } from '../../../hooks';
-import type { IHeadingProps } from './props';
+import type { IHeadingProps } from './types';
 
 // Can remove all this and extend it from normal Text
 const StyledHeading = styled(Text)<IHeadingProps>(

@@ -24,7 +24,7 @@ import {
   customShadow,
   customTypography,
 } from '../../../utils/customProps';
-import type { IBoxProps } from './props';
+import type { IBoxProps } from './types';
 
 const StyledBox = styled(View)<IBoxProps>(
   color,
@@ -67,6 +67,6 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   );
 };
 
-export type { IBoxProps } from './props';
+export type { IBoxProps };
 
 export default React.memo(forwardRef<ViewType, IBoxProps>(Box));

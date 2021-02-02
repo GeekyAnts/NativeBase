@@ -2,7 +2,7 @@ import React from 'react';
 import { SliderContext } from './Context';
 import { StyleSheet } from 'react-native';
 import Box from '../Box';
-import type { ISliderProps, ISliderContextProps } from './props';
+import type { ISliderProps, ISliderContextProps } from './types';
 
 const SliderFilledTrack = ({ style, ...props }: ISliderProps) => {
   const {

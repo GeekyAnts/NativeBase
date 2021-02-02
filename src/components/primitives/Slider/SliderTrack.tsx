@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '../Box';
 import { SliderContext } from './Context';
-import type { ISliderProps, ISliderContextProps } from './props';
+import type { ISliderProps, ISliderContextProps } from './types';
 
 const SliderTrack = ({ children, ...props }: ISliderProps) => {
   const {

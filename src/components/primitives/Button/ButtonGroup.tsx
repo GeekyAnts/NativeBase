@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { border, color, flexbox, layout, space } from 'styled-system';
-import type { IButtonGroupProps } from './props';
+import type { IButtonGroupProps } from './types';
 
 const StyledButtonGroup = styled.View<IButtonGroupProps>(
   color,
