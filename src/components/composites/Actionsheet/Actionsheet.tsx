@@ -11,6 +11,7 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps) => {
       onClose={onClose}
       justifyContent="flex-end"
       {...newProps}
+      size="xl"
     >
       {disableOverlay ? null : <ModalOverlay />}
       {children}
