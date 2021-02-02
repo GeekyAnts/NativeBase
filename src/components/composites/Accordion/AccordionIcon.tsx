@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '../../primitives/Icon';
-import type { IAccordionIconProps, IAccordionItemContextProps } from './props';
+import type { IAccordionIconProps, IAccordionItemContextProps } from './types';
 import { AccordionItemContext } from './Context';
 
 const AccordionIcon = ({ ...props }: IAccordionIconProps) => {

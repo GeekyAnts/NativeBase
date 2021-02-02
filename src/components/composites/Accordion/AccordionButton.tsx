@@ -5,7 +5,7 @@ import { useToken } from '../../../hooks';
 import type {
   IAccordionButtonProps,
   IAccordionItemContextProps,
-} from './props';
+} from './types';
 import { AccordionItemContext } from './Context';
 
 const AccordionButton = (
@@ -27,7 +27,7 @@ const AccordionButton = (
     <TouchableOpacity
       activeOpacity={1}
       disabled={isDisabled}
-      onPress={() => pressHandler()}
+      onPress={pressHandler}
       accessible
       accessibilityRole="checkbox"
       ref={ref}
