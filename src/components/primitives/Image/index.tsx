@@ -14,7 +14,7 @@ import {
 } from '../../../utils/customProps';
 import Text from '../Text';
 import { useThemeProps } from '../../../hooks';
-import type { IImageProps } from './props';
+import type { IImageProps } from './types';
 
 const StyledImage = styled(RNImage)<IImageProps>(
   color,

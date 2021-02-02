@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Icon, IconNameType } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import { MenuItem } from './MenuItem';
-import type { IMenuItemProps, IMenuOptionContextProps } from './props';
+import type { IMenuItemProps, IMenuOptionContextProps } from './types';
 import { MenuOptionContext } from './MenuOptionGroup';
 export type IMenuItemOptionProps = IMenuItemProps & {
   value: string | number;

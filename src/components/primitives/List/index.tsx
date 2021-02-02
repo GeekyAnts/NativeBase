@@ -3,7 +3,7 @@ import { VStack } from '../Stack';
 import Box from '../Box';
 import Text from '../Text';
 import { IIconProps, default as Icon } from '../Icon';
-import type { IListProps, IListItemProps } from './props';
+import type { IListProps, IListItemProps } from './types';
 
 const List = ({ style, children, spacing, ...props }: IListProps) => {
   // add props to children

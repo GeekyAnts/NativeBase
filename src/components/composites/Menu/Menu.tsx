@@ -1,5 +1,5 @@
 import React from 'react';
-import type { IMenuProps } from './props';
+import type { IMenuProps } from './types';
 import View from '../../primitives/View';
 import { useThemeProps } from '../../../hooks';
 import { usePopover } from '../../../core';
