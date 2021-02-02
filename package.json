@@ -22,7 +22,8 @@
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
     "build:web": "rollup --config",
-    "bundle:analysis": "visualize-bundle"
+    "bundle:analysis": "visualize-bundle",
+    "postinstall": "patch-package"
   },
   "version": "3.0.0-next.19",
   "license": "Apache-2.0",
