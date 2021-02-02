@@ -10,7 +10,8 @@ export default function () {
       width={150}
       onValueChange={(itemValue: string) => setLanguage(itemValue)}
       // itemStyle={{ fontSize: 'lg' }}
-      selectedItemBg={'teal.400'}
+      selectedItemBg={'blue.500'}
+      selectedItemColor={'white'}
       // isDisabled
       dropdownOpenIcon={
         <Icon name="arrow-drop-up" type="MaterialIcons" size={6} />

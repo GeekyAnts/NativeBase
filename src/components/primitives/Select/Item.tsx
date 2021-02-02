@@ -12,6 +12,7 @@ export const Item = React.memo(
         selectedValue,
         closeMenu,
         selectedItemBg,
+        selectedItemColor,
         onValueChange,
         itemsList,
         itemStyle,
@@ -56,7 +57,12 @@ export const Item = React.memo(
           }
         }}
       >
-        <Text fontSize="sm" {...textProps} key={`select-item-${value}`}>
+        <Text
+          fontSize="sm"
+          {...textProps}
+          key={`select-item-${value}`}
+          color={selectedValue === value ? selectedItemColor : undefined}
+        >
           {label}
         </Text>
       </Button>
