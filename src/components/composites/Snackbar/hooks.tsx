@@ -1,7 +1,7 @@
 import React from 'react';
 import { useOverlay } from '../../../core/Overlay';
 import Snackbar from './Snackbar';
-import type { IsetSnackbar, IuseSnackbarProps } from './props';
+import type { IsetSnackbar, IuseSnackbarProps } from './types';
 
 export const useSnackbar: IuseSnackbarProps = () => {
   const { closeOverlay, setOverlay } = useOverlay();

@@ -8,4 +8,4 @@ export type {
   IScaleFadeProps,
   ISlideProps,
   ISlideFadeProps,
-} from './props';
+} from './types';

@@ -1,5 +1,4 @@
 import type { TextStyle } from 'react-native';
-
 import type {
   BorderProps,
   ColorProps,
@@ -7,17 +6,16 @@ import type {
   LayoutProps,
   SpaceProps,
 } from 'styled-system';
-
 import type {
-  customBorderProps,
   customBackgroundProps,
-  customOutlineProps,
-  customLayoutProps,
+  customBorderProps,
   customExtraProps,
+  customLayoutProps,
+  customOutlineProps,
   customShadowProps,
 } from '../../../utils/customProps';
-
 import type { ITextProps } from '../../primitives';
+
 export type ICodeProps = ITextProps &
   ColorProps &
   SpaceProps &

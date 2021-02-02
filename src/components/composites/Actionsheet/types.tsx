@@ -6,7 +6,7 @@ export type IActionsheetProps = IBoxProps & {
   onClose?: any;
   disableOverlay?: boolean;
 };
-export type IActionsheetContentProps = IBoxProps & {};
-export type IActionsheetFooterProps = IBoxProps & {};
-export type IActionsheetHeaderProps = IBoxProps & {};
-export type IActionsheetItemProps = IButtonProps & {};
+export type IActionsheetContentProps = IBoxProps;
+export type IActionsheetFooterProps = IBoxProps;
+export type IActionsheetHeaderProps = IBoxProps;
+export type IActionsheetItemProps = IButtonProps;

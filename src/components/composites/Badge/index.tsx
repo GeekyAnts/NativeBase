@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import Box from '../../primitives/Box';
-import type { IBadgeProps } from './props';
+import type { IBadgeProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
 const StyledBadge = styled(Box)<IBadgeProps>({});

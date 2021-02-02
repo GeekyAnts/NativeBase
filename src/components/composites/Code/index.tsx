@@ -1,9 +1,9 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import styled from 'styled-components/native';
-import Box from '../../primitives/Box';
-import type { ICodeProps } from './props';
 import { useThemeProps } from '../../../hooks';
+import Box from '../../primitives/Box';
+import type { ICodeProps } from './types';
 
 const StyledCode = styled(Box)<ICodeProps>({});
 
