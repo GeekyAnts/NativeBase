@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ISelectItemProps } from './props';
+import type { ISelectItemProps } from './types';
 import { usePopover } from '../../../core';
 import { themeTools } from '../../../theme';
 import Button from '../Button';

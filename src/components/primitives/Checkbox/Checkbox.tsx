@@ -10,7 +10,7 @@ import {
 import Box from '../Box';
 import Icon from '../Icon';
 import { CheckboxContext } from './CheckboxGroup';
-import type { ICheckboxContext, ICheckboxProps } from './props';
+import type { ICheckboxContext, ICheckboxProps } from './types';
 import { useCheckbox } from './useCheckbox';
 
 const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {

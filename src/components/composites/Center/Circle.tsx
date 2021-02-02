@@ -1,6 +1,6 @@
 import React from 'react';
 import Center from './Center';
-import type { ICircleProps } from './props';
+import type { ICircleProps } from './types';
 
 const Circle = ({ style, size, ...props }: ICircleProps) => {
   return (

@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { Box, IIconProps, Icon, Text, ITextProps } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 
-import type { ITagProps } from './props';
+import type { ITagProps } from './types';
 
 const StyledTag = styled(Box)<ITagProps>({});
 

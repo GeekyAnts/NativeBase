@@ -1,10 +1,10 @@
 import React from 'react';
-import type {
-  ISkeletonProps,
-  ISkeletonCircleProps,
-  ISkeletonTextProps,
-} from './props';
 import { Skeleton } from './Skeleton';
+import type {
+  ISkeletonCircleProps,
+  ISkeletonProps,
+  ISkeletonTextProps,
+} from './types';
 
 // Adding circle prop in normal Skeleton which gives it borderRadius
 const SkeletonCircle = React.memo((props: ISkeletonCircleProps) => {
@@ -12,6 +12,6 @@ const SkeletonCircle = React.memo((props: ISkeletonCircleProps) => {
 });
 
 export default Skeleton;
-export { SkeletonCircle };
 export { default as SkeletonText } from './SkeletonText';
+export { SkeletonCircle };
 export type { ISkeletonProps, ISkeletonCircleProps, ISkeletonTextProps };

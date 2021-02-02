@@ -1,4 +1,4 @@
-import type { IRadioContext, IRadioProps } from './props';
+import type { IRadioContext, IRadioProps } from './types';
 
 export function useRadio(
   props: IRadioProps,

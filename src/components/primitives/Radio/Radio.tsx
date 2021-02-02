@@ -4,7 +4,7 @@ import Icon from '../Icon';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
 import { RadioContext } from './RadioGroup';
-import type { IRadioProps } from './props';
+import type { IRadioProps } from './types';
 import { useRadio } from './useRadio';
 import { Hoverable } from './../../../utils';
 

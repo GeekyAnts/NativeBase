@@ -1,32 +1,30 @@
 import React from 'react';
+import type { Modal as ModalType } from 'react-native';
 import {
   KeyboardAvoidingView,
   Modal as RNModal,
-  TouchableOpacity,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
-import type { Modal as ModalType } from 'react-native';
 import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space, position } from 'styled-system';
+import { border, color, flexbox, layout, position, space } from 'styled-system';
+import { useOverlay } from '../../../core/Overlay';
+import { useThemeProps } from '../../../hooks';
 import {
-  customBorder,
   customBackground,
-  customOutline,
-  customLayout,
+  customBorder,
   customExtra,
-  customShadow,
+  customLayout,
+  customOutline,
   customPosition,
+  customShadow,
 } from '../../../utils/customProps';
-
-import type { IModalProps, IModalSemiProps } from './props';
 import {
   default as CloseButton,
   ICloseButtonProps,
 } from '../../composites/CloseButton';
-
-import { useOverlay } from '../../../core/Overlay';
-import { useThemeProps } from '../../../hooks';
-import { Box, View, IBoxProps } from '../../primitives';
+import { Box, IBoxProps, View } from '../../primitives';
+import type { IModalProps, IModalSemiProps } from './types';
 
 const StyledModal = styled(RNModal)<IModalSemiProps>(
   color,

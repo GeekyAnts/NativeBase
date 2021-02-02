@@ -1,7 +1,7 @@
 import React from 'react';
 import remove from 'lodash/remove';
 import Box from '../../primitives/Box';
-import type { IAccordionProps } from './props';
+import type { IAccordionProps } from './types';
 import getIndexedChildren from '../../../utils/getIndexedChildren';
 
 import { AccordionContext } from './Context';

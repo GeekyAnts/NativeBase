@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '../../primitives/Box';
 import { FormControlContext } from './FormControl';
-import type { IFormErrorMessageProps, IFormControlContext } from './props';
+import type { IFormErrorMessageProps, IFormControlContext } from './types';
 
 const FormErrorMessage = ({ children, ...props }: IFormErrorMessageProps) => {
   const { isInvalid }: IFormControlContext = React.useContext(

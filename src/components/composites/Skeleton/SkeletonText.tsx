@@ -1,8 +1,8 @@
 import React from 'react';
+import { useThemeProps } from '../../../hooks';
 import { Box, Stack } from '../../primitives';
 import { Skeleton } from './Skeleton';
-import { useThemeProps } from '../../../hooks';
-import type { ISkeletonTextProps } from './props';
+import type { ISkeletonTextProps } from './types';
 
 const NBSkeletonText = ({ ...props }: ISkeletonTextProps) => {
   const newProps = useThemeProps('SkeletonText', props);

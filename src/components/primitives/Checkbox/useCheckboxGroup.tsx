@@ -4,7 +4,7 @@ import type {
   ICheckboxGroupProps,
   ICheckboxValue,
   IUseCheckboxGroupReturnType,
-} from './props';
+} from './types';
 
 export function useCheckboxGroup(
   props: ICheckboxGroupProps,

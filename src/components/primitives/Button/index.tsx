@@ -21,7 +21,7 @@ import Text from '../../primitives/Text';
 import { default as Box, IBoxProps } from '../Box';
 import Flex from '../Flex';
 import Spinner from '../Spinner';
-import type { IButtonGroupProps, IButtonProps } from './props';
+import type { IButtonGroupProps, IButtonProps } from './types';
 import { useButton } from 'react-native-aria';
 
 const StyledButton = styled(TouchableOpacity)<

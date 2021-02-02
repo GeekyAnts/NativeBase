@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import { Box, Input, Button, Link } from '../../primitives';
 import { useTypeahead } from './useTypeahead';
 import { extractInObject } from '../../../theme/tools';
-import { ITypeaheadProps, layoutPropsList } from './props';
+import { ITypeaheadProps, layoutPropsList } from './types';
 const Typeahead = (
   {
     data,

@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import type { ISkeletonProps } from './props';
 import Bones from './Bones';
+import type { ISkeletonProps } from './types';
 
 export const Skeleton = React.memo(
   ({ children, isLoaded, ...props }: ISkeletonProps & { circle?: boolean }) => {

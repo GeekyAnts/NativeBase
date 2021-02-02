@@ -22,7 +22,7 @@ import {
   customTypography,
   customPosition,
 } from '../../../utils/customProps';
-import type { ITextProps } from './props';
+import type { ITextProps } from './types';
 
 const StyledText = styled(NativeText)<ITextProps>(
   color,

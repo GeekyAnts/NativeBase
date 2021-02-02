@@ -23,7 +23,7 @@ import {
 import Box from '../Box';
 import Text from '../Text';
 import Flex from '../Flex';
-import type { IInputProps } from './IInputProps';
+import type { IInputProps } from './types';
 import { InputRightAddon, InputGroup, InputLeftAddon } from './InputGroup';
 import { useThemeProps } from '../../../hooks';
 import { themeTools } from '../../../theme';
@@ -186,7 +186,7 @@ const Input = (
                           position="absolute"
                           right="-10%"
                           bottom={`${1 + Math.floor(fontSize / 2)}px`}
-                        ></Box>
+                        />
                         {label}
                       </Box>
                     </Flex>

@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks/useThemeProps';
 import { Animated, Platform } from 'react-native';
-import type { ISlideFadeProps } from './props';
+import type { ISlideFadeProps } from './types';
 import { canUseDom } from '../../../utils';
 
 const SlideFade = ({ children, ...props }: ISlideFadeProps) => {

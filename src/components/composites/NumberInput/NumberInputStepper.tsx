@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import { VStack, Box, Icon } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
-import type { INumberInputSteppersProps } from './props';
+import type { INumberInputSteppersProps } from './types';
 
 export const NBStepper = ({ children, ...props }: any) => {
   const {

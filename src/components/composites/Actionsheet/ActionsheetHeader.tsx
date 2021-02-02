@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import type { IActionsheetHeaderProps } from './props';
+import type { IActionsheetHeaderProps } from './types';
 import { omitUndefined } from '../../../theme/tools/utils';
 
 const ActionsheetHeader = ({ children, ...props }: IActionsheetHeaderProps) => {

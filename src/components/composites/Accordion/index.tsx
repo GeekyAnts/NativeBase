@@ -12,4 +12,4 @@ export type {
   IAccordionIconProps,
   IAccordionContextProps,
   IAccordionItemContextProps,
-} from './props';
+} from './types';
