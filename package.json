@@ -148,6 +148,10 @@
     ]
   },
   "dependencies": {
+    "@react-aria/checkbox": "^3.2.1",
+    "@react-aria/focus": "^3.2.3",
+    "@react-stately/checkbox": "^3.0.1",
+    "@react-stately/toggle": "^3.2.1",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
     "expo-constants": "^9.3.5",

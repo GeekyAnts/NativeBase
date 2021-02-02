@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import { Hoverable } from './../../../utils';
 import { useThemeProps } from '../../../hooks';
@@ -10,17 +10,18 @@ import {
 import Box from '../Box';
 import Icon from '../Icon';
 import { CheckboxContext } from './CheckboxGroup';
-import type { ICheckboxContext, ICheckboxProps } from './props';
-import { useCheckbox } from './useCheckbox';
+import type { ICheckboxProps } from './props';
+import { AriaInputWrapper, useFocusRing } from 'react-native-aria';
+import { useCheckbox, useCheckboxGroupItem } from '@react-aria/checkbox';
+import { useToggleState } from '@react-stately/toggle';
+import mergeRefs from '../../../utils/mergeRefs';
 
 const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext: IFormControlContext = React.useContext(
     FormControlContext
   );
 
-  const checkboxGroupContext: ICheckboxContext = React.useContext(
-    CheckboxContext
-  );
+  const checkboxGroupContext: any = React.useContext(CheckboxContext);
   const {
     activeColor,
     borderColor,
@@ -32,12 +33,23 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     ...formControlContext,
     ...props,
   });
+  let ref1 = React.useRef();
 
-  const { inputProps } = useCheckbox(props, checkboxGroupContext, null);
-
+  let state = useToggleState(props);
+  let groupState = useContext(checkboxGroupContext);
+  let { inputProps } = groupState
+    ? useCheckboxGroupItem(
+        {
+          ...props,
+          value: props.value,
+        },
+        groupState,
+        mergeRefs([ref, ref1])
+      )
+    : useCheckbox(props, state, mergeRefs([ref, ref1]));
+  let { isFocusVisible, focusProps } = useFocusRing();
   const isChecked = inputProps.checked;
   const isDisabled = inputProps.disabled;
-
   const sizedIcon = icon
     ? () =>
         React.cloneElement(
@@ -51,7 +63,12 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     : null;
 
   return (
-    <TouchableOpacity activeOpacity={1} ref={ref} {...inputProps}>
+    <AriaInputWrapper
+      {...inputProps}
+      activeOpacity={1}
+      ref={mergeRefs([ref, ref1])}
+      {...focusProps}
+    >
       <Hoverable>
         {(isHovered: boolean) => {
           const outlineColor =
@@ -64,6 +81,9 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
               : borderColor;
           return (
             <Box
+              borderWidth={isFocusVisible ? 1 : 0}
+              borderColor="blue.500"
+              borderRadius={4}
               flexDirection="row"
               alignItems="center"
               {...newProps}
@@ -105,7 +125,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
           );
         }}
       </Hoverable>
-    </TouchableOpacity>
+    </AriaInputWrapper>
   );
 };
 
