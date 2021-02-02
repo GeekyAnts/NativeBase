@@ -32,7 +32,7 @@ const Spinner: any = ({ renderProp, ...props }: ISpinnerProps, ref: any) => {
   Animated.loop(
     Animated.timing(degree, {
       toValue: 1,
-      duration: 900,
+      duration: newProps.duration ?? 1900,
       easing: Easing.linear,
       useNativeDriver: false,
     })
