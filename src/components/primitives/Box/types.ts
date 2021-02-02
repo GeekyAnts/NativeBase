@@ -8,6 +8,7 @@ import type {
   SpaceProps,
   TypographyProps,
 } from 'styled-system';
+import type { ITextProps } from './../Text/types';
 import type {
   customBackgroundProps,
   customBorderProps,
@@ -42,4 +43,5 @@ export type IBoxProps = ViewProps &
     style?: ViewStyle;
     children?: JSX.Element | JSX.Element[] | string | any;
     shadow?: number;
+    _text?: ITextProps;
   };
