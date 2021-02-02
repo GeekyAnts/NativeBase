@@ -10,6 +10,7 @@ import { FormControlContext, IFormControlContext } from '../FormControl';
 import { Platform } from 'react-native';
 import { PinInputContext } from './Context';
 import { themeTools } from '../../../theme';
+import { remove } from 'lodash';
 
 const PinInput = ({ children, ...props }: IPinInputProps) => {
   let [padding, remProps] = themeTools.extractInObject(props, [
@@ -60,12 +61,19 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
       setPinInputValue(splicedValue.join(''));
       onChange && onChange(splicedValue.join(''));
     }
-    if (Platform.OS === 'android' && newValue) {
+    if (Platform.OS !== 'ios') {
       const temp = pinInputValue ? [...pinInputValue] : [];
-      temp[fieldIndex] = JSON.stringify(parseInt(newValue, 10) % 10);
-      if (newValue && manageFocus && fieldIndex + 1 < RefList.length)
-        RefList[fieldIndex + 1].current.focus();
-      // Backward focus is handled by handle change function.
+      if (newValue === '') {
+        // Handling Backward focus.
+        temp[fieldIndex];
+        remove(temp, (_n, i) => i === fieldIndex);
+        if (manageFocus && fieldIndex - 1 > -1)
+          RefList[fieldIndex - 1].current.focus();
+      } else {
+        temp[fieldIndex] = JSON.stringify(parseInt(newValue, 10) % 10);
+        if (manageFocus && fieldIndex + 1 < RefList.length)
+          RefList[fieldIndex + 1].current.focus();
+      }
       setPinInputValue(temp.join(''));
       onChange && onChange(temp.join(''));
     }

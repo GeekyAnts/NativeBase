@@ -166,7 +166,7 @@ const Input = (
                   {InputLeftElement}
                 </Flex>
               ) : null}
-              {isFocused && (
+              {isFocused && label && (
                 <Flex position="absolute">
                   <Animated.View
                     style={{
@@ -179,15 +179,20 @@ const Input = (
                         color={updatedBorderColor}
                         fontSize={fontSize}
                       >
+                        {label}
                         <Box
                           w="120%"
-                          p="2px"
+                          p="1px"
                           bg="gray.50"
+                          // bg="red.500"
                           position="absolute"
                           right="-10%"
-                          bottom={`${1 + Math.floor(fontSize / 2)}px`}
-                        ></Box>
-                        {label}
+                          bottom={`${
+                            Math.floor(fontSize / 2) +
+                            (Platform.OS === 'ios' ? 1 : 0)
+                          }px`}
+                          zIndex={-1}
+                        />
                       </Box>
                     </Flex>
                   </Animated.View>

@@ -45,7 +45,6 @@ const PinInputFiled = ({
       keyboardType="numeric"
       defaultValue={pDefaultValue || cDefaultValue}
       value={cValue}
-      style={[context.style, props.style]}
     />
   );
 };
