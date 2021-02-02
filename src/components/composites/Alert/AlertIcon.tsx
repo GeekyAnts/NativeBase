@@ -20,6 +20,7 @@ const AlertIcon = ({ children, ...props }: any) => {
     }
   };
 
+  // TODO: Refactor this and move alignSelf to Icon component.
   return (
     <Box alignSelf="center">
       {children || (

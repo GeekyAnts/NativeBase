@@ -24,6 +24,7 @@ import {
 import { useThemeProps } from '../../../hooks';
 import type { IHeadingProps } from './props';
 
+// Can remove all this and extend it from normal Text
 const StyledHeading = styled(Text)<IHeadingProps>(
   color,
   space,
