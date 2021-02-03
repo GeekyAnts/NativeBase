@@ -25,6 +25,7 @@ export type IAccordionContextProps = {
   changeHandler?: (isOpening: boolean, id: number) => void;
 };
 export type IAccordionItemContextProps = {
+  index?: number;
   isOpen?: boolean;
   isDisabled?: boolean;
   onClose?: () => void;
