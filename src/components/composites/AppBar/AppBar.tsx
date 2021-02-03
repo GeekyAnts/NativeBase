@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks';
+import { useThemeProps } from '../../../hooks/useThemeProps';
 import AppBarLeft from './AppBarLeft';
 import AppBarRight from './AppBarRight';
 import AppBarContent from './AppBarContent';
