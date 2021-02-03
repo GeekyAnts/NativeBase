@@ -12,12 +12,12 @@ function variantGhost(props: Dict) {
   const { colorScheme: c } = props;
   if (c === 'gray') {
     return {
-      color: mode(`gray.600`, `whiteAlpha.900`)(props),
+      color: mode(`gray.500`, `whiteAlpha.900`)(props),
     };
   }
 
   return {
-    color: mode(`${c}.600`, `${c}.200`)(props),
+    color: mode(`${c}.500`, `${c}.200`)(props),
     bg: 'transparent',
   };
 }
@@ -28,7 +28,7 @@ function variantOutline(props: Dict) {
   return {
     border: '1px solid',
     borderColor:
-      c === 'gray' ? borderColor : mode(`${c}.600`, `${c}.200`)(props),
+      c === 'gray' ? borderColor : mode(`${c}.500`, `${c}.200`)(props),
     ...variantGhost(props),
   };
 }
@@ -56,9 +56,9 @@ function variantSolid(props: Dict) {
     return {
       bg: mode(`gray.100`, `whiteAlpha.200`)(props),
     };
-  const { bg = `${c}.700`, color = 'white' } = accessibleColorMap[c] || {};
+  const { bg = `${c}.500`, color = 'white' } = accessibleColorMap[c] || {};
   return {
-    bg: mode(bg, `${c}.700`)(props),
+    bg: mode(bg, `${c}.400`)(props),
     color: mode(color, `gray.800`)(props),
   };
 }
