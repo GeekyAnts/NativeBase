@@ -40,7 +40,8 @@ const Radio = ({ icon, ...props }: IRadioProps, ref: any) => {
     });
 
   return (
-    <AriaInputWrapper activeOpacity={1} ref={ref} {...inputProps}>
+    //@ts-ignore
+    <TouchableOpacity activeOpacity={1} ref={ref} {...inputProps}>
       <Hoverable>
         {(isHovered: boolean) => {
           const outlineColor =
@@ -98,7 +99,7 @@ const Radio = ({ icon, ...props }: IRadioProps, ref: any) => {
           );
         }}
       </Hoverable>
-    </AriaInputWrapper>
+    </TouchableOpacity>
   );
 };
 

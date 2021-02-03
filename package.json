@@ -90,7 +90,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|styled-components|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons)/)"
+      "node_modules/(?!(react-native|styled-components|expo-constants|expo-asset|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons)/)"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
@@ -152,6 +152,10 @@
     "@react-aria/focus": "^3.2.3",
     "@react-stately/checkbox": "^3.0.1",
     "@react-stately/toggle": "^3.2.1",
+    "@release-it/conventional-changelog": "^1.1.4",
+    "@testing-library/react-hooks": "^4.0.0",
+    "@testing-library/react-native": "^7.1.0",
+    "@types/jest": "^26.0.20",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
     "expo-constants": "^9.3.5",
