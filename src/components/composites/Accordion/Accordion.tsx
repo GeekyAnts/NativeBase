@@ -2,6 +2,7 @@ import React from 'react';
 import remove from 'lodash/remove';
 import Box from '../../primitives/Box';
 import type { IAccordionProps } from './types';
+import { useThemeProps } from '../../../hooks';
 import getIndexedChildren from '../../../utils/getIndexedChildren';
 
 import { AccordionContext } from './Context';
@@ -11,14 +12,15 @@ const Accordion = ({
   allowMultiple,
   allowToggle,
   onChange,
-  style,
   ...props
 }: IAccordionProps) => {
-  const [index, setIndex] = React.useState(
-    props.index || props.defaultIndex || []
+  const { index: pIndex, defaultIndex, ...newProps } = useThemeProps(
+    'Accordion',
+    props
   );
+  const [index, setIndex] = React.useState(pIndex || defaultIndex || []);
   const changeHandler = (isOpening: boolean, activeIndex: number) => {
-    let indexCopy = index.map((i) => i);
+    let indexCopy = index.map((i: number) => i);
     if (allowToggle) {
       if (isOpening) {
         indexCopy.push(activeIndex);
@@ -39,9 +41,7 @@ const Accordion = ({
   };
   return (
     <AccordionContext.Provider value={{ index: index, changeHandler }}>
-      <Box style={style} {...props}>
-        {getIndexedChildren(children, 'AccordionItem')}
-      </Box>
+      <Box {...newProps}>{getIndexedChildren(children, 'AccordionItem')}</Box>
     </AccordionContext.Provider>
   );
 };

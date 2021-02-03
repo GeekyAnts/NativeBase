@@ -1,3 +1,10 @@
+import {
+  Accordion,
+  AccordionItem,
+  AccordionIcon,
+  AccordionButton,
+  AccordionPanel,
+} from './accordion';
 import { Alert, AlertDescription, AlertTitle } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
@@ -39,6 +46,11 @@ import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import Wrap from './wrap';
 
 export default {
+  Accordion,
+  AccordionItem,
+  AccordionIcon,
+  AccordionButton,
+  AccordionPanel,
   Alert,
   AlertDescription,
   AlertTitle,
