@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks';
+import { useThemeProps } from '../../../hooks/useThemeProps';
 import AppBarLeft from './AppBarLeft';
 import AppBarRight from './AppBarRight';
 import AppBarContent from './AppBarContent';
@@ -12,7 +12,7 @@ export type IAppBarProps = IBoxProps & {
   space?: number;
 };
 
-const AppBar = React.memo(({ children, ...props }: IAppBarProps) => {
+const AppBar = ({ children, ...props }: IAppBarProps) => {
   const {
     statusBarHeight = APPROX_STATUSBAR_HEIGHT,
     ...newProps
@@ -27,10 +27,10 @@ const AppBar = React.memo(({ children, ...props }: IAppBarProps) => {
       {children}
     </HStack>
   );
-});
+};
 
-(AppBar as any).Left = React.memo(AppBarLeft);
-(AppBar as any).Right = React.memo(AppBarRight);
-(AppBar as any).Content = React.memo(AppBarContent);
+AppBar.Left = React.memo(AppBarLeft);
+AppBar.Right = React.memo(AppBarRight);
+AppBar.Content = React.memo(AppBarContent);
 
 export default AppBar;
