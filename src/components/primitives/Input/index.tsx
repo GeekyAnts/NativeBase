@@ -145,9 +145,9 @@ const Input = (
           if (isHovered) updatedBorderColor = hoverBorderColor;
           else if (isFocused) updatedBorderColor = focusBorderColor;
           else if (isInvalid) updatedBorderColor = errorBorderColor;
-          const hoverStyle = {
+          const focusStyle = {
             shadow: 3,
-            shadowColor: 'blue',
+            shadowColor: '#2563EB',
           };
 
           return (
@@ -156,9 +156,9 @@ const Input = (
               borderWidth={borderWidth}
               borderBottomWidth={borderBottomWidth}
               {...rem}
-              {...(isDisabled ? newProps._isDisabledProps : {})}
+              {...(isDisabled && newProps._isDisabledProps)}
               {...computedProps}
-              {...(isHovered ? hoverStyle : {})}
+              {...(isFocused && Platform.OS === 'web' && focusStyle)}
               style={style}
             >
               {InputLeftElement ? (
