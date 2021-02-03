@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import { AccordionContext, AccordionItemContext } from './Context';
 import type { IAccordionItemProps, IAccordionContextProps } from './types';
+import { useThemeProps } from '../../../hooks';
 
 const AccordionItem = ({
   children,
@@ -13,6 +14,8 @@ const AccordionItem = ({
     index: cIndex,
     changeHandler,
   }: IAccordionContextProps = React.useContext(AccordionContext);
+  const { ...newProps } = useThemeProps('AccordionItem', props);
+
   const isOpen = cIndex?.includes(pIndex);
   const onClose = (cb?: () => void) => {
     changeHandler && changeHandler(false, pIndex);
@@ -36,7 +39,7 @@ const AccordionItem = ({
         onOpen,
       }}
     >
-      <Box {...props}>{childSetter()}</Box>
+      <Box {...newProps}>{childSetter()}</Box>
     </AccordionItemContext.Provider>
   );
 };
