@@ -10,7 +10,7 @@ import { FormControlContext, IFormControlContext } from '../FormControl';
 import { Platform } from 'react-native';
 import { PinInputContext } from './Context';
 import { themeTools } from '../../../theme';
-import { remove } from 'lodash';
+import remove from 'lodash/remove';
 
 const PinInput = ({ children, ...props }: IPinInputProps) => {
   let [padding, remProps] = themeTools.extractInObject(props, [
