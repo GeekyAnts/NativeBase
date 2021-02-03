@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '../../../primitives';
+import Icon from '../../../primitives/Icon';
 import { Path } from 'react-native-svg';
 
 export function Dotted(props: any) {
