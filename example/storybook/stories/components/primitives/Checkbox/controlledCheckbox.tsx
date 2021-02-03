@@ -9,7 +9,11 @@ export default function ControlledCheckbox() {
       <Checkbox value="one">
         <Text>One</Text>
       </Checkbox>
-      <Checkbox value="two">
+      <Checkbox
+        value="two"
+        isIndeterminate
+        onChange={() => setGroupValues([...groupValues, 'two'])}
+      >
         <Text>Two</Text>
       </Checkbox>
     </CheckboxGroup>
