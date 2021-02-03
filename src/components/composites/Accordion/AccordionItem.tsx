@@ -33,6 +33,7 @@ const AccordionItem = ({
   return (
     <AccordionItemContext.Provider
       value={{
+        index: pIndex,
         isOpen,
         isDisabled,
         onClose,
