@@ -28,7 +28,7 @@ export default function () {
       </MenuGroup>
       <Divider />
       <MenuGroup title="Help">
-        <MenuItem disabled>Menu item 3</MenuItem>
+        <MenuItem isDisabled>Menu item 3</MenuItem>
         <MenuItem>Menu item 4</MenuItem>
       </MenuGroup>
     </Menu>

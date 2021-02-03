@@ -28,6 +28,7 @@ export const MenuItem = React.memo(
       'py',
       'textAlign',
     ]);
+
     return (
       <TouchableItem
         {...touchProps}
