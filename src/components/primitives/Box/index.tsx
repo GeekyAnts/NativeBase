@@ -12,6 +12,8 @@ import {
   typography,
 } from 'styled-system';
 import { useThemeProps } from '../../../hooks/useThemeProps';
+import { themeTools } from '../../../theme';
+import { addTextAndPropsToStrings } from '../../../utils/addTextAndPropsToStrings';
 import {
   customBackground,
   customBorder,
@@ -23,7 +25,6 @@ import {
   customTypography,
 } from '../../../utils/customProps';
 import type { IBoxProps } from './types';
-import Text from './../Text';
 
 const StyledBox = styled(View)<IBoxProps>(
   color,
@@ -43,13 +44,25 @@ const StyledBox = styled(View)<IBoxProps>(
   customLayout
 );
 
-const Box = ({ children, _text, ...props }: IBoxProps, ref: any) => {
-  const boxProps = useThemeProps('Box', props);
+const Box = ({ children, ...props }: IBoxProps, ref: any) => {
+  // TextProps that contain all the props related to text and gets added to child text components using addTextAndPropsToStrings() method
+  let [textProps, remainingProps] = themeTools.extractInObject(props, [
+    'fontWeight',
+    'fontFamily',
+    'fontSize',
+    'color',
+    'textDecoration',
+    'txtDecor',
+    'wordBreak',
+    'textOverflow',
+    'textTransform',
+    'whiteSpace',
+    'overflowWrap',
+  ]);
+  const boxProps = useThemeProps('Box', remainingProps);
   return (
     <StyledBox ref={ref} {...boxProps}>
-      {React.Children.map(children, (child) =>
-        typeof child === 'string' ? <Text {..._text}>{child}</Text> : child
-      )}
+      {addTextAndPropsToStrings(children, textProps)}
     </StyledBox>
   );
 };

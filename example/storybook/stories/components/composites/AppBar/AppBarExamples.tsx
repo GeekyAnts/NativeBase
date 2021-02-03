@@ -38,6 +38,7 @@ function Material() {
           </Text>
         </VStack>
       </AppBar.Content>
+
       <AppBar.Right space={2}>
         <HeartIcon />
         <SearchIcon />
