@@ -4,7 +4,7 @@ import type { ActivityIndicator as ActivityIndicatorType } from 'react-native';
 import styled from 'styled-components/native';
 import { color, space, position, border } from 'styled-system';
 import { useToken, useThemeProps } from '../../../hooks';
-import type { ISpinnerProps } from './props';
+import type { ISpinnerProps } from './types';
 import { useSpinner } from './useSpinner';
 import type { IBoxProps } from '../Box';
 import {

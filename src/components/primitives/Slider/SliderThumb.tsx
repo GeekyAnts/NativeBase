@@ -4,7 +4,7 @@ import { SliderContext } from './Context';
 import Box from '../Box';
 import Icon from '../Icon';
 import { useThemeProps } from '../../../hooks';
-import type { ISliderProps, ISliderContextProps } from './props';
+import type { ISliderProps, ISliderContextProps } from './types';
 
 const SliderThumb = ({ children, ...props }: ISliderProps) => {
   const { ...newProps } = useThemeProps('SliderThumb', props);

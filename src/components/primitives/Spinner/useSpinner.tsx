@@ -1,4 +1,4 @@
-import type { ISpinnerProps } from './props';
+import type { ISpinnerProps } from './types';
 
 export function useSpinner(props: ISpinnerProps) {
   return {

@@ -22,6 +22,7 @@ export function UsingComponent() {
     <Box>
       <Heading>Typeahead</Heading>
       <Typeahead
+        flex={1}
         mt={4}
         size="2xl"
         numberOfItems={6}

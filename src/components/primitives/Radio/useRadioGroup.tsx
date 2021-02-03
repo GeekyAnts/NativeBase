@@ -1,7 +1,10 @@
-import type { IRadioValue, IRadioGroupProps } from './props';
 import React from 'react';
 import { useControllableProp } from '../../../hooks';
-import type { IUseRadioGroupReturnType } from './props';
+import type {
+  IRadioValue,
+  IRadioGroupProps,
+  IUseRadioGroupReturnType,
+} from './types';
 
 export function useRadioGroup(
   props: IRadioGroupProps,

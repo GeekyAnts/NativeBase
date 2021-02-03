@@ -1,9 +1,9 @@
 import React from 'react';
-import Icon from '../../primitives/Icon';
 import {
   default as IconButton,
   IIconButtonProps,
 } from '../../composites/IconButton';
+import Icon from '../../primitives/Icon';
 
 export type ICloseButtonProps = IIconButtonProps;
 

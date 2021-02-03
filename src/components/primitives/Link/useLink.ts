@@ -1,5 +1,5 @@
 import { Linking } from 'react-native';
-import type { IUseLinkProp } from './props';
+import type { IUseLinkProp } from './types';
 import type { AccessibilityRole } from 'react-native';
 
 const linkToHREF = (URL: string) => {

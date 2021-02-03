@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Box, Image, Text } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
-import type { IAvatarProps } from './props';
+import type { IAvatarProps } from './types';
 
 const initials = (name: string) => {
   const [firstName, lastName] = name.split(' ');

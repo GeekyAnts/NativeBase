@@ -1,6 +1,6 @@
 import React from 'react';
 import { Slide } from '../Transitions';
-import type { ISnackbarProps } from './props';
+import type { ISnackbarProps } from './types';
 import { AccessibilityInfo, Platform } from 'react-native';
 
 const Snackbar = ({

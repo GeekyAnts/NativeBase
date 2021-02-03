@@ -1,11 +1,11 @@
-import React from 'react';
-import { ViewStyle, StyleSheet, Animated, Easing } from 'react-native';
-import { Box, IBoxProps, ITextProps, Text } from '../../primitives';
-import styled from 'styled-components/native';
-import { color, border } from 'styled-system';
-import { useThemeProps, useTheme } from '../../../hooks';
-import { canUseDom } from '../../../utils';
 import get from 'lodash/get';
+import React from 'react';
+import { Animated, Easing, StyleSheet, ViewStyle } from 'react-native';
+import styled from 'styled-components/native';
+import { border, color } from 'styled-system';
+import { useTheme, useThemeProps } from '../../../hooks';
+import { canUseDom } from '../../../utils';
+import { Box, IBoxProps, ITextProps, Text } from '../../primitives';
 
 type sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 

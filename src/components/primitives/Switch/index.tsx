@@ -14,7 +14,7 @@ import {
   customShadow,
   customPosition,
 } from '../../../utils/customProps';
-import type { ISwitchProps } from './props';
+import type { ISwitchProps } from './types';
 import { useSwitch, AriaInputWrapper } from 'react-native-aria';
 
 const StyledNBSwitch = styled(RNSwitch)<ISwitchProps>(

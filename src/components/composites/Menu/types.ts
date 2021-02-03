@@ -46,7 +46,6 @@ export type IMenuProps = BorderProps &
     onClose?: () => void;
     offsetSpace?: number;
     closeOnSelect?: boolean;
-    testID?: string;
     style?: ViewStyle;
     shadowOffset?: any;
     shadowOpacity?: number;

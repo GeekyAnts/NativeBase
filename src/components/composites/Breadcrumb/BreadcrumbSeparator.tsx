@@ -1,5 +1,4 @@
 import React from 'react';
-import isNil from 'lodash/isNil';
 import Text from '../../primitives/Text';
 
 export const getBreadcrumbSeparator = (
@@ -14,14 +13,14 @@ export const getBreadcrumbSeparator = (
     }
     const separatorElement = separator ? (
       typeof separator === 'string' ? (
-        <Text mx={!isNil(spacing) ? spacing : 2}>{separator}</Text>
+        <Text mx={spacing ?? 2}>{separator}</Text>
       ) : (
         React.cloneElement(separator, {
-          mx: !isNil(spacing) ? spacing : 2,
+          mx: spacing ?? 2,
         })
       )
     ) : (
-      <Text mx={!isNil(spacing) ? spacing : 2}>{'/'}</Text>
+      <Text mx={spacing ?? 2}>{'/'}</Text>
     );
     let result: any = [];
     if (children && children.length > 1) {

@@ -4,7 +4,7 @@ import type {
   ICheckboxContext,
   ICheckboxProps,
   IUseCheckboxReturnType,
-} from './props';
+} from './types';
 
 export function useCheckbox(
   props: ICheckboxProps,

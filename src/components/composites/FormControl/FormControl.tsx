@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import type { IFormControlProps } from './props';
+import type { IFormControlProps } from './types';
 
 export const FormControlContext = React.createContext({});
 

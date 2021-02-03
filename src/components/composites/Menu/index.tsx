@@ -9,4 +9,4 @@ export type {
   IMenuItemOptionProps,
   IMenuGroupProps,
   IMenuOptionGroupProps,
-} from './props';
+} from './types';

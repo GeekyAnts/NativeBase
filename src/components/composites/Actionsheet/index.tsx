@@ -9,4 +9,4 @@ export type {
   IActionsheetFooterProps,
   IActionsheetHeaderProps,
   IActionsheetItemProps,
-} from './props';
+} from './types';

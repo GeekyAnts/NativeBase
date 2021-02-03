@@ -4,7 +4,7 @@ import {
   FormControlContext,
   IFormControlContext,
 } from '../../composites/FormControl';
-import type { IRadioContext, IRadioGroupProps, IRadioValue } from './props';
+import type { IRadioContext, IRadioGroupProps, IRadioValue } from './types';
 import { useRadioGroup } from './useRadioGroup';
 
 export const RadioContext = React.createContext<IRadioContext>({

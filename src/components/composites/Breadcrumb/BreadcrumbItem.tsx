@@ -1,6 +1,6 @@
 import React from 'react';
 import Flex from '../../primitives/Flex';
-import type { IBreadcrumbProps } from './props';
+import type { IBreadcrumbProps } from './types';
 
 const BreadcrumbItem = (
   props: IBreadcrumbProps & { isCurrentPage?: boolean }

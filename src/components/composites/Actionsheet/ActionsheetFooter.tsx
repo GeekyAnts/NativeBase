@@ -1,6 +1,6 @@
 import React from 'react';
 import { ModalContent } from '../Modal';
-import type { IActionsheetFooterProps } from './props';
+import type { IActionsheetFooterProps } from './types';
 
 const ActionsheetFooter = ({ children, ...props }: IActionsheetFooterProps) => {
   return (

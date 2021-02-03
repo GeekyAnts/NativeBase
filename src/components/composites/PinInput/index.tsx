@@ -5,7 +5,7 @@ import type {
   IPinInputProps,
   IPinInputFieldProps,
   IPinInputContext,
-} from './props';
+} from './types';
 import { FormControlContext, IFormControlContext } from '../FormControl';
 import { Platform } from 'react-native';
 import { PinInputContext } from './Context';

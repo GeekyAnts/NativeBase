@@ -1,6 +1,6 @@
 import React from 'react';
 import Center from './Center';
-import type { ISquareProps } from './props';
+import type { ISquareProps } from './types';
 
 const Square = ({ style, size, ...props }: ISquareProps) => {
   return (

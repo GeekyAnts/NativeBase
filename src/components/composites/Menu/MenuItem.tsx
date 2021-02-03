@@ -3,7 +3,7 @@ import Text from '../../primitives/Text';
 import { useThemeProps } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import TouchableItem from '../../primitives/TouchableItem';
-import type { IMenuItemProps } from './props';
+import type { IMenuItemProps } from './types';
 import { usePopover } from '../../../core';
 
 export const MenuItem = React.memo(

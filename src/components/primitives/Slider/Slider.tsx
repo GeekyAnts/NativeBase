@@ -6,7 +6,7 @@ import {
 } from '../../composites/FormControl';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
-import type { ISliderProps } from './props';
+import type { ISliderProps } from './types';
 import { SliderContext } from './Context';
 
 type StateType = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MenuGroup } from './MenuGroup';
-import type { IMenuOptionGroupProps, IMenuOptionContextProps } from './props';
+import type { IMenuOptionGroupProps, IMenuOptionContextProps } from './types';
 
 export const MenuOptionContext = React.createContext<IMenuOptionContextProps>({
   values: [],

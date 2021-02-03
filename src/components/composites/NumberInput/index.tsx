@@ -1,13 +1,13 @@
-export { default as NumberInput } from './NumberInput';
 export { NumberInputContext } from './Context';
-export { default as NumberInputField } from './NumberInputField';
-export { default as NumberInputStepper, NBStepper } from './NumberInputStepper';
-export { default as NumberIncrementStepper } from './NumberIncrementStepper';
 export { default as NumberDecrementStepper } from './NumberDecrementStepper';
+export { default as NumberIncrementStepper } from './NumberIncrementStepper';
+export { default as NumberInput } from './NumberInput';
+export { default as NumberInputField } from './NumberInputField';
+export { default as NumberInputStepper } from './NumberInputStepper';
 export type {
-  INumberInputProps,
-  INumberInputFieldProps,
   INumberInputContext,
-  INumberInputSteppersProps,
+  INumberInputFieldProps,
+  INumberInputProps,
   INumberInputStepperProps,
-} from './props';
+  INumberInputSteppersProps,
+} from './types';
