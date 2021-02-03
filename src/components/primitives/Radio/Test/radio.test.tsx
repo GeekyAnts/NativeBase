@@ -28,15 +28,12 @@ function RadiosGroup() {
   );
 }
 describe('RadioGroup', () => {
-  it('handles defaults', () => {
-    jest.useFakeTimers();
+  it('onChange and default on RadioGroup', () => {
     let { getAllByRole, getByText } = render(
       <NativeBaseProvider>
         <RadiosGroup />
       </NativeBaseProvider>
     );
-    let radioGroup = getAllByRole('radiogroup');
-    console.log(radioGroup);
     let radios = getAllByRole('radio');
     expect(radios.length).toBe(3);
     expect(radios[0].props.accessibilityState.checked).toBe(true);
@@ -46,25 +43,7 @@ describe('RadioGroup', () => {
     fireEvent.press(second);
     expect(radios[0].props.accessibilityState.checked).toBe(false);
   });
-  it('can have a default value', () => {
-    let { getByText } = render(
-      <NativeBaseProvider>
-        <RadioGroup defaultValue="1" name="myRadioGroup">
-          <Radio value="1">
-            <Text mx={2}>First</Text>
-          </Radio>
-          <Radio value="2" defaultIsChecked={true}>
-            <Text mx={2}>Second</Text>
-          </Radio>
-          <Radio value="3">
-            <Text mx={2}>Third</Text>
-          </Radio>
-        </RadioGroup>
-      </NativeBaseProvider>
-    );
-    console.log(getByText('Second'), 'secccondd');
-    // expect(getByText('Second').props.accessibilityState.checked).toBe(true);
-  });
+
   it('can be disabled', () => {
     let { getAllByRole } = render(
       <NativeBaseProvider>
