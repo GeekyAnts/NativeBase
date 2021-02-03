@@ -45,7 +45,8 @@ describe('RadioGroup', () => {
     expect(radios[0].props.accessibilityState.checked).toBe(false);
   });
   it('can have a default value', () => {
-    // eslint-disable-next-line
+    // TODO: fix defaultIsChecked
+
     let { getAllByRole } = render(
       <NativeBaseProvider>
         <RadioGroup name="myRadioGroup">
