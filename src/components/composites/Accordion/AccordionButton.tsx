@@ -28,7 +28,6 @@ const AccordionButton = (
   const pressHandler = () => {
     isOpen ? onClose && onClose() : onOpen && onOpen();
   };
-  console.log(_expanded);
 
   return (
     <TouchableOpacity
