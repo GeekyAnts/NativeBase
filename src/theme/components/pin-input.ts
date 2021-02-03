@@ -1,6 +1,6 @@
 const defaultProps = {
   placeholder: '○',
-  fontSize: 'md',
+  size: 'md',
   manageFocus: true,
   space: 1,
 };
