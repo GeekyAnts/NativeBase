@@ -2,9 +2,9 @@ import React from 'react';
 import {
   View,
   NativeBaseProvider,
-  // useColorMode,
-  // IconButton,
-  // Icon,
+  useColorMode,
+  IconButton,
+  Icon,
   ColorMode,
   useColorModeValue,
 } from 'native-base';
@@ -13,7 +13,7 @@ import { Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function MyWrapper({ children }: any) {
-  // const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <View
       flex={1}
@@ -21,12 +21,12 @@ function MyWrapper({ children }: any) {
       alignItems="center"
       bg={useColorModeValue(`gray.50`, `gray.800`)}
     >
-      {/* <IconButton
+      <IconButton
         position="absolute"
         top={5}
         right={5}
         onPress={toggleColorMode}
-        accessibilityLabel="change-color-mode"
+        // accessibilityLabel="change-color-mode"
         icon={
           <Icon
             name={colorMode === 'dark' ? 'light-up' : 'md-moon'}
@@ -34,7 +34,7 @@ function MyWrapper({ children }: any) {
             size={6}
           />
         }
-      /> */}
+      />
       {children}
     </View>
   );
