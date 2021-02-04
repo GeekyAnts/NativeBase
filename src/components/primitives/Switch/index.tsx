@@ -39,13 +39,10 @@ const Switch = (
     onToggle,
     isDisabled,
     isInvalid,
-    iosBgColor,
     isChecked,
     defaultIsChecked,
     accessibilityLabel,
     accessibilityHint,
-    onColor,
-    offColor,
     ...props
   }: ISwitchProps,
   ref: any
@@ -53,15 +50,19 @@ const Switch = (
   const state = useToggleState({
     defaultSelected: !isNil(defaultIsChecked) ? defaultIsChecked : false,
   });
-
+  const {
+    onTrackColor: _onTrackColor,
+    offTrackColor: _offTrackColor,
+    onThumbColor: _onThumbColor,
+    offThumbColor: _offThumbColor,
+    ...newProps
+  } = useThemeProps('Switch', props);
   const borderColorInvalid = useToken('colors', 'danger.600');
   const checked = !isNil(isChecked) ? isChecked : state.isSelected;
-  const newProps = useThemeProps('Switch', {
-    ...props,
-    checked,
-    onColor,
-    offColor,
-  });
+  const onTrackColor = useToken('colors', _onTrackColor);
+  const offTrackColor = useToken('colors', _offTrackColor);
+  const onThumbColor = useToken('colors', _onThumbColor);
+  const offThumbColor = useToken('colors', _offThumbColor);
   const inValidPropFactors = {
     borderWidth: 1,
     borderRadius: 16,
@@ -84,12 +85,15 @@ const Switch = (
     state,
     inputRef
   );
+
   return (
     <AriaInputWrapper {...inputProps} ref={inputRef}>
       <StyledNBSwitch
+        trackColor={{ false: offTrackColor, true: onTrackColor }}
+        thumbColor={checked ? onThumbColor : offThumbColor}
+        ios_backgroundColor={offTrackColor}
         {...newProps}
         disabled={isDisabled}
-        ios_backgroundColor={iosBgColor}
         onValueChange={onToggle ? onToggle : state.toggle}
         value={checked}
         style={computedStyle}

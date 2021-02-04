@@ -1,38 +1,15 @@
-import get from 'lodash/get';
-import { mode, getColorScheme } from '../tools';
+import { mode } from '../tools';
 
-function baseStyleTrack(props: Record<string, any>) {
-  const { colorScheme, theme, offTrackColor } = props;
-  const simplifiedColorScheme = getColorScheme(props);
-  return colorScheme && colorScheme !== 'default'
-    ? {
-        false: offTrackColor
-          ? mode(
-              theme.colors[offTrackColor][400],
-              theme.colors[offTrackColor][100]
-            )(props)
-          : mode(theme.colors.light[100], theme.colors.dark[50])(props),
-        true: mode(
-          theme.colors[simplifiedColorScheme][500],
-          theme.colors[simplifiedColorScheme][200]
-        )(props),
-      }
-    : undefined;
-}
-function baseStyleThumb(props: Record<string, any>) {
-  return props.checked
-    ? props.onColor
-      ? get(props.theme.colors, props.onColor)
-      : undefined
-    : props.offColor
-    ? get(props.theme.colors, props.offColor)
-    : undefined;
-}
+const baseStyle = (props: Record<string, any>) => {
+  let { onTrackColor, offTrackColor, onThumbColor, offThumbColor } = props;
 
-const baseStyle = (props: Record<string, any>) => ({
-  trackColor: baseStyleTrack(props),
-  thumbColor: baseStyleThumb(props),
-});
+  return {
+    offTrackColor: offTrackColor ?? mode('gray.100', 'gray.900')(props),
+    onTrackColor: onTrackColor ?? mode('green.300', 'green.700')(props),
+    onThumbColor: onThumbColor ?? mode('white', 'black')(props),
+    offThumbColor: offThumbColor ?? mode('white', 'black')(props),
+  };
+};
 
 const sizes = {
   sm: {
@@ -47,7 +24,6 @@ const sizes = {
 
 const defaultProps = {
   size: 'md',
-  colorScheme: 'default',
 };
 
 export default {
