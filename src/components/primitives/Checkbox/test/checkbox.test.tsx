@@ -10,7 +10,6 @@ function CheckBoxGroup() {
     <CheckboxGroup
       colorScheme="green"
       defaultValue={groupValue}
-      //@ts-ignore
       onChange={(values) => {
         setGroupValue(values || []);
       }}

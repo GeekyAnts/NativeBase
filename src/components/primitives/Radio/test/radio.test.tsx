@@ -5,8 +5,7 @@ import RadioGroup from '../RadioGroup';
 import { Radio } from '..';
 import { Text } from '../..';
 function RadiosGroup() {
-  //@ts-ignore
-  const [value, setValue] = React.useState<any>('one');
+  const [, setValue] = React.useState<any>('one');
   return (
     <RadioGroup
       defaultValue="1"
