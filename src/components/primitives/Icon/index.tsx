@@ -70,7 +70,7 @@ const Icon = (iconProps: IIconProps, ref: any) => {
   const flattenedIconStyle = StyleSheet.flatten([
     {
       fontSize: parseInt(newProps.size, 10),
-      marginRight,
+      marginRight: marginRight ? parseInt(marginRight, 10) : undefined,
     },
   ]);
 
