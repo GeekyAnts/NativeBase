@@ -22,11 +22,7 @@ export default function () {
     >
       <Select.Item label="JavaScript" value="js" />
       <Select.Item label="TypeScript" value="ts" />
-      <Select.Item
-        // isDisabled
-        label="Java"
-        value="java"
-      />
+      <Select.Item label="Java" value="java" />
     </Select>
   );
 }
