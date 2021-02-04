@@ -36,15 +36,14 @@ export type ISwitchProps = SwitchProps &
   BorderProps & {
     style?: ViewStyle;
     size?: 'lg' | 'md' | 'sm';
-    onColor?: string;
-    offColor?: string;
     isDisabled?: boolean;
     name?: string;
     onToggle?: any;
-    colorScheme?: string;
-    iosBgColor?: string;
     isChecked?: boolean;
     defaultIsChecked?: boolean;
     isInvalid?: boolean;
+    onTrackColor?: string;
     offTrackColor?: string;
+    onThumbColor?: string;
+    offThumbColor?: string;
   };
