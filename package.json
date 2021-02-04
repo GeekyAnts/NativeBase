@@ -35,6 +35,7 @@
   "source": "src/index",
   "typings": "lib/typescript/index.d.ts",
   "devDependencies": {
+    "@testing-library/react-native": "^7.1.0",
     "@babel/preset-react": "^7.12.10",
     "@commitlint/config-conventional": "^8.3.4",
     "@expo/vector-icons": "^12.0.2",
@@ -150,7 +151,6 @@
     ]
   },
   "dependencies": {
-    "@testing-library/react-native": "^7.1.0",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
     "expo-constants": "^9.3.5",
