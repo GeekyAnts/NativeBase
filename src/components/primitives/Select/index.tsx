@@ -4,7 +4,7 @@ import { Item as SelectItem } from './Item';
 import type { ISelectProps, ISelectItemProps } from './types';
 import { usePopover } from '../../../core';
 import Button from '../Button';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 
 const Select = ({
   onValueChange,
