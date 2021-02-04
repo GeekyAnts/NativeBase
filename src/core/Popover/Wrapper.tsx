@@ -86,7 +86,6 @@ function Wrapper({
   );
   return (
     <Animated.View
-      nativeID="popover-provider"
       style={[providerStyle.wrapper, { opacity: fadeValue }]}
       pointerEvents={popoverItem ? 'auto' : 'none'}
     >

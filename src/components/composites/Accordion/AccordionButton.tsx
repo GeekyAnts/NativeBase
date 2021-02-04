@@ -14,6 +14,7 @@ const AccordionButton = (
   ref: any
 ) => {
   const {
+    index,
     isOpen,
     isDisabled,
     onOpen,
@@ -27,6 +28,7 @@ const AccordionButton = (
   const pressHandler = () => {
     isOpen ? onClose && onClose() : onOpen && onOpen();
   };
+
   return (
     <TouchableOpacity
       activeOpacity={1}
@@ -48,6 +50,7 @@ const AccordionButton = (
               {...(isHovered && _hover)}
               {...(isOpen && _expanded)}
               {...(isDisabled && _disabled)}
+              {...(!index && { borderTopColor: 'transparent' })}
               {...(Platform.OS === 'web'
                 ? {
                     disabled: isDisabled,

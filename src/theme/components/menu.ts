@@ -5,6 +5,7 @@ function baseStyle(props: Record<string, any>) {
     bg: mode(`#fff`, `gray.700`)(props), // change this to match theme
     borderRadius: 'md',
     borderWidth: '1px',
+    borderColor: 'gray.300',
   };
 }
 const defaultProps = {
@@ -33,12 +34,13 @@ export const MenuItem = {
     px: 3,
   },
   defaultProps: {
-    disabled: false,
+    isDisabled: false,
     disabledTextColor: '#bdbdbd', // change this to match theme
-    underlayColor: 'gray',
+    underlayColor: '#E8EDFB',
     _disabled: {
       bg: 'gray.100',
       color: 'gray.500',
+      underlayColor: '#f4f4f5',
     },
   },
 };

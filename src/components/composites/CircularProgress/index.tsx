@@ -60,10 +60,10 @@ const CircularProgress = ({
 
   const styleSize = {
     height: themeHeight
-      ? parseInt(themeHeight.slice(themeHeight.Length, -2))
+      ? parseInt(themeHeight.slice(themeHeight.Length, -2), 10)
       : sizeProps.height,
     width: themeWidth
-      ? parseInt(themeWidth.slice(themeWidth.Length, -2))
+      ? parseInt(themeWidth.slice(themeWidth.Length, -2), 10)
       : sizeProps.width,
   };
 
