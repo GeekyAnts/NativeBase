@@ -35,7 +35,6 @@
   "source": "src/index",
   "typings": "lib/typescript/index.d.ts",
   "devDependencies": {
-    "@testing-library/react-native": "^7.1.0",
     "@babel/preset-react": "^7.12.10",
     "@commitlint/config-conventional": "^8.3.4",
     "@expo/vector-icons": "^12.0.2",
@@ -43,6 +42,7 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@release-it/conventional-changelog": "^1.1.4",
     "@testing-library/react-hooks": "^4.0.0",
+    "@testing-library/react-native": "^7.1.0",
     "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.162",
     "@types/react": "^16.9.19",
