@@ -42,6 +42,7 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@release-it/conventional-changelog": "^1.1.4",
     "@testing-library/react-hooks": "^4.0.0",
+    "@testing-library/react-native": "^7.1.0",
     "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.162",
     "@types/react": "^16.9.19",
@@ -92,7 +93,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|styled-components|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons)/)"
+      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons)/)"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
