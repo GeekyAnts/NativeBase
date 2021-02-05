@@ -5,7 +5,7 @@ export default function () {
   return (
     <Box height="50%">
       <Heading color="indigo.500">List with Icons</Heading>
-      <List mt={2} fontSize={32} spacing={4} color="red.200">
+      <List mt={2} fontSize={24} spacing={4}>
         <Li>
           <ListIcon
             name="check-circle-outline"
