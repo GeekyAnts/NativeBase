@@ -44,7 +44,6 @@ const NumberInputFiled = (
       onChangeText={(inputValue) => changeHandler(inputValue)}
       keyboardType="numeric"
       value={`${numberInputValue}`}
-      style={[context.style, props.style]}
       InputRightElement={numberInputStepper}
       ref={ref}
     />

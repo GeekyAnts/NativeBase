@@ -116,12 +116,7 @@ const Button = (
 
   accessibilityProps.isDisabled = accessibilityProps.isDisabled || isLoading;
   const innerButton = (
-    <Box
-      {...innerButtonProps}
-      {...commonProps}
-      opacity={isLoading ? 0.5 : 1}
-      style={style}
-    >
+    <Box {...innerButtonProps} {...commonProps} opacity={isLoading ? 0.5 : 1}>
       {leftIcon ? (
         <Box mr={Math.floor(innerButtonProps.px / 2) || 2}>{leftIcon}</Box>
       ) : null}
@@ -159,6 +154,7 @@ const Button = (
     <StyledButton
       activeOpacity={highlight ? highlight : 0.8}
       ref={ref}
+      style={style}
       {...accessibilityProps}
       {...ariaProps}
       {...layoutProps}

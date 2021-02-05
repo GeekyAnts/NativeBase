@@ -1,6 +1,11 @@
 import React from 'react';
 import { useToggleState } from '@react-stately/toggle';
-import { StyleSheet, ViewStyle, Switch as RNSwitch } from 'react-native';
+import {
+  StyleSheet,
+  ViewStyle,
+  Switch as RNSwitch,
+  TouchableOpacity,
+} from 'react-native';
 import styled from 'styled-components/native';
 import isNil from 'lodash/isNil';
 import { useToken, useThemeProps } from '../../../hooks';
@@ -15,7 +20,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import type { ISwitchProps } from './types';
-import { useSwitch, AriaInputWrapper } from 'react-native-aria';
+import { useSwitch } from 'react-native-aria';
 
 const StyledNBSwitch = styled(RNSwitch)<ISwitchProps>(
   color,
@@ -39,13 +44,10 @@ const Switch = (
     onToggle,
     isDisabled,
     isInvalid,
-    iosBgColor,
     isChecked,
     defaultIsChecked,
     accessibilityLabel,
     accessibilityHint,
-    onColor,
-    offColor,
     ...props
   }: ISwitchProps,
   ref: any
@@ -53,15 +55,19 @@ const Switch = (
   const state = useToggleState({
     defaultSelected: !isNil(defaultIsChecked) ? defaultIsChecked : false,
   });
-
+  const {
+    onTrackColor: _onTrackColor,
+    offTrackColor: _offTrackColor,
+    onThumbColor: _onThumbColor,
+    offThumbColor: _offThumbColor,
+    ...newProps
+  } = useThemeProps('Switch', props);
   const borderColorInvalid = useToken('colors', 'danger.600');
   const checked = !isNil(isChecked) ? isChecked : state.isSelected;
-  const newProps = useThemeProps('Switch', {
-    ...props,
-    checked,
-    onColor,
-    offColor,
-  });
+  const onTrackColor = useToken('colors', _onTrackColor);
+  const offTrackColor = useToken('colors', _offTrackColor);
+  const onThumbColor = useToken('colors', _onThumbColor);
+  const offThumbColor = useToken('colors', _offThumbColor);
   const inValidPropFactors = {
     borderWidth: 1,
     borderRadius: 16,
@@ -84,19 +90,23 @@ const Switch = (
     state,
     inputRef
   );
+
   return (
-    <AriaInputWrapper {...inputProps} ref={inputRef}>
+    //@ts-ignore
+    <TouchableOpacity {...inputProps} ref={inputRef}>
       <StyledNBSwitch
+        trackColor={{ false: offTrackColor, true: onTrackColor }}
+        thumbColor={checked ? onThumbColor : offThumbColor}
+        ios_backgroundColor={offTrackColor}
         {...newProps}
         disabled={isDisabled}
-        ios_backgroundColor={iosBgColor}
         onValueChange={onToggle ? onToggle : state.toggle}
         value={checked}
         style={computedStyle}
         ref={ref}
         opacity={isDisabled ? 0.4 : 1}
       />
-    </AriaInputWrapper>
+    </TouchableOpacity>
   );
 };
 

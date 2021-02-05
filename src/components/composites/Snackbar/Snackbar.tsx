@@ -18,15 +18,10 @@ const Snackbar = ({
   }, [isOpen, duration]);
 
   React.useEffect(() => {
-    if (accessibilityAnnouncement && isOpen) {
-      if (Platform.OS !== 'web') {
-        AccessibilityInfo.announceForAccessibility(accessibilityAnnouncement);
-      } else {
-        // Handle via web live regions
-      }
+    if (accessibilityAnnouncement && isOpen && Platform.OS !== 'web') {
+      AccessibilityInfo.announceForAccessibility(accessibilityAnnouncement);
     }
   }, [accessibilityAnnouncement, isOpen]);
-  // const newProps = useThemeProps('Snackbar', props);
   return (
     <Slide in={isOpen} {...props}>
       {children}
