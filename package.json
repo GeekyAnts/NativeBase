@@ -25,7 +25,7 @@
     "bundle:analysis": "visualize-bundle",
     "postinstall": "patch-package"
   },
-  "version": "3.0.0-next.19",
+  "version": "3.0.0-next.21",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
