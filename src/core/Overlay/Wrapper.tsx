@@ -62,7 +62,6 @@ function Wrapper({
       left: 0,
       right: 0,
       bottom: 0,
-      pointerEvents: 'none',
       alignItems: 'center',
       justifyContent:
         overlayConfig.position === 'top'
@@ -95,7 +94,9 @@ function Wrapper({
       >
         <View style={overlayStyle.background} />
       </TouchableWithoutFeedback>
-      <View style={overlayStyle.itemBackground}>{overlayItem}</View>
+      <View pointerEvents="none" style={overlayStyle.itemBackground}>
+        {overlayItem}
+      </View>
     </Animated.View>
   );
 }
