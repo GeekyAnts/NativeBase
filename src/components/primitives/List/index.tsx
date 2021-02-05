@@ -5,6 +5,8 @@ import Text from '../Text';
 import { IIconProps, default as Icon } from '../Icon';
 import type { IListProps, IListItemProps } from './types';
 import { themeTools } from '../../../theme';
+import { useThemeProps } from '../../../hooks';
+
 function findProps(props: any) {
   let [textProps, remaining] = themeTools.extractInObject(props, [
     'fontWeight',
@@ -23,6 +25,30 @@ function findProps(props: any) {
       'borderWidth',
       'borderRadius',
       'borderColor',
+      'borderRightColor',
+      'borderBottomWidth',
+      'borderLeftWidth',
+      'borderTopWidth',
+      'borderBotttomWidth',
+      'borderTopLeftRadius',
+      'borderBottomColor',
+      'borderBottomEndRadius',
+      'borderBottomLeftRadius',
+      'borderBottomRightRadius',
+      'borderBottomStartRadius',
+      'borderBottomWidth',
+      'borderEndColor',
+      'borderLeftColor',
+      'borderLeftWidth',
+      'borderRadius',
+      'borderRightWidth',
+      'borderStartColor',
+      'borderTopColor',
+      'borderTopEndRadius',
+      'borderTopLeftRadius',
+      'borderTopRightRadius',
+      'borderTopStartRadius',
+      'borderTopWidth',
     ]
   );
   let [
@@ -60,6 +86,7 @@ function findProps(props: any) {
 }
 
 const List = ({ style, children, spacing, ...props }: IListProps) => {
+  const themeProps = useThemeProps('List', props);
   // add props to children
   let childrenArray = React.Children.toArray(children);
   children = React.Children.map(children, (child: any, ind: number) => {
@@ -68,8 +95,7 @@ const List = ({ style, children, spacing, ...props }: IListProps) => {
         child,
         {
           index: ind,
-          borderColor: 'gray.300',
-          borderRadius: 6,
+          ...themeProps.lastListItemStyle,
           ...props,
           py: spacing,
         },
@@ -86,10 +112,7 @@ const List = ({ style, children, spacing, ...props }: IListProps) => {
   return (
     <Box
       style={style}
-      border={1}
-      borderColor="gray.300"
-      borderRadius="6px"
-      borderBottomWidth={0}
+      {...themeProps.listStyle}
       {...layoutProps}
       {...borderProps}
     >
@@ -100,15 +123,15 @@ const List = ({ style, children, spacing, ...props }: IListProps) => {
 export const Ol = ({ style, children, spacing, ...props }: IListProps) => {
   // add props to children
   let childrenArray = React.Children.toArray(children);
+  const themeProps = useThemeProps('List', props);
   children = React.Children.map(children, (child: any, ind: number) => {
     if (ind === childrenArray.length - 1) {
       return React.cloneElement(
         child,
         {
           index: ind,
-          borderColor: 'gray.300',
-          borderRadius: 6,
-
+          ...themeProps.lastListItemStyle,
+          ...child.props,
           ...props,
           ol: true,
           py: spacing,
@@ -118,7 +141,7 @@ export const Ol = ({ style, children, spacing, ...props }: IListProps) => {
     }
     return React.cloneElement(
       child,
-      { index: ind, ...props, ol: true, py: spacing },
+      { index: ind, ...child.props, ...props, ol: true, py: spacing },
       child.props.children
     );
   });
@@ -127,10 +150,7 @@ export const Ol = ({ style, children, spacing, ...props }: IListProps) => {
     <Box
       style={style}
       {...layoutProps}
-      border={1}
-      borderColor="gray.300"
-      borderRadius="6px"
-      borderBottomWidth={0}
+      {...themeProps.listStyle}
       {...borderProps}
     >
       <VStack {...remainingProps}>{children}</VStack>
@@ -139,6 +159,7 @@ export const Ol = ({ style, children, spacing, ...props }: IListProps) => {
 };
 export const Ul = ({ style, children, spacing, ...props }: IListProps) => {
   // add props to children
+  const themeProps = useThemeProps('List', props);
   let childrenArray = React.Children.toArray(children);
   children = React.Children.map(children, (child: any, ind: number) => {
     if (ind === childrenArray.length - 1) {
@@ -146,8 +167,7 @@ export const Ul = ({ style, children, spacing, ...props }: IListProps) => {
         child,
         {
           index: ind,
-          borderColor: 'gray.300',
-          borderRadius: 6,
+          ...themeProps.lastListItemStyle,
           ...props,
           ul: true,
           py: spacing,
@@ -167,10 +187,7 @@ export const Ul = ({ style, children, spacing, ...props }: IListProps) => {
   return (
     <Box
       style={style}
-      border={1}
-      borderColor="gray.300"
-      borderRadius={6}
-      borderBottomWidth={0}
+      {...themeProps.listStyle}
       {...layoutProps}
       {...borderProps}
     >
@@ -180,21 +197,20 @@ export const Ul = ({ style, children, spacing, ...props }: IListProps) => {
 };
 
 export const ListItem = React.memo(({ children, ...props }: IListItemProps) => {
+  const themeProps = useThemeProps('List', props);
   let [textProps, remainingProps, , borderProps] = findProps(props);
   const startNum = remainingProps.start ? remainingProps.start : 1; // Ordered list starting number
   return (
     <Box
       flexDirection="row"
       alignItems="center"
-      borderBottomWidth={1}
-      borderColor="gray.300"
+      {...themeProps.listItemStyle}
       {...borderProps}
     >
       <Box flexDirection="row" alignItems="center" {...remainingProps} pl={2}>
         {remainingProps.unordered || remainingProps.ul ? ( //Adding disc in front of ListItem
           <Text
-            mr={2}
-            fontWeight="bold"
+            {...themeProps.listItemNumberingStyle}
             {...textProps}
             style={{ transform: [{ scale: 1.5 }] }}
           >
@@ -210,11 +226,9 @@ export const ListItem = React.memo(({ children, ...props }: IListItemProps) => {
       <Box
         flexDirection="row"
         alignItems="center"
-        fontWeight="bold"
+        {...themeProps.listItemTextStyle}
         {...remainingProps}
         {...textProps}
-        flex={1}
-        pr={2}
       >
         {children}
       </Box>
