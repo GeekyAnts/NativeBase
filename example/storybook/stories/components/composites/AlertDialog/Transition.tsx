@@ -26,7 +26,6 @@ export default function () {
         isCentered
       >
         <AlertDialogOverlay />
-
         <AlertDialogContent>
           <AlertDialogCloseButton />
           <AlertDialogHeader>Discard Changes?</AlertDialogHeader>

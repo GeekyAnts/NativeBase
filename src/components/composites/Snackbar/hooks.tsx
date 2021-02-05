@@ -27,7 +27,7 @@ export const useSnackbar: IuseSnackbarProps = () => {
     );
     setTimeout(() => {
       closeOverlay();
-    }, duration + 500);
+    }, duration);
   };
   return { setSnackbar };
 };

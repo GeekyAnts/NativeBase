@@ -45,13 +45,6 @@ function Wrapper({
       right: 0,
       left: 0,
       zIndex: 999,
-      alignItems: 'center',
-      justifyContent:
-        overlayConfig.position === 'top'
-          ? 'flex-start'
-          : overlayConfig.position === 'bottom'
-          ? 'flex-end'
-          : 'center',
     },
     background: {
       position: 'absolute',
@@ -64,6 +57,19 @@ function Wrapper({
       backgroundColor,
     },
     itemBackground: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      pointerEvents: 'none',
+      alignItems: 'center',
+      justifyContent:
+        overlayConfig.position === 'top'
+          ? 'flex-start'
+          : overlayConfig.position === 'bottom'
+          ? 'flex-end'
+          : 'center',
       zIndex: 9999,
     },
   });
@@ -78,7 +84,6 @@ function Wrapper({
             : 'auto'
           : 'none'
       }
-      nativeID="overlay-provider"
     >
       <TouchableWithoutFeedback
         onPress={() => {
