@@ -3,6 +3,8 @@ import styled from 'styled-components/native';
 import { Box, Image, Text } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import type { IAvatarProps } from './types';
+import AvatarBadge from './Badge';
+import AvatarGroup from './Group';
 
 const initials = (name: string) => {
   const [firstName, lastName] = name.split(' ');
@@ -48,5 +50,6 @@ const Avatar = (
     </StyledAvatar>
   );
 };
-
-export default React.memo(Avatar);
+Avatar.Badge = React.memo(AvatarBadge);
+Avatar.Group = React.memo(AvatarGroup);
+export default Avatar;
