@@ -151,6 +151,7 @@
     ]
   },
   "dependencies": {
+    "@react-native-aria/interactions": "0.2.1",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
     "expo-constants": "^9.3.5",

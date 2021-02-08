@@ -1,6 +1,5 @@
 import React, { forwardRef, useState } from 'react';
 import { TextInput, Animated, Platform } from 'react-native';
-import { Hoverable } from './../../../utils';
 import styled from 'styled-components/native';
 import {
   border,
@@ -27,6 +26,7 @@ import type { IInputProps } from './types';
 import { InputRightAddon, InputGroup, InputLeftAddon } from './InputGroup';
 import { useThemeProps } from '../../../hooks';
 import { themeTools } from '../../../theme';
+import { useHover } from '@react-native-aria/interactions';
 
 const StyledInput = styled(TextInput)<IInputProps>(
   flex,
@@ -137,113 +137,110 @@ const Input = (
     }).start();
   };
 
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+
+  let updatedBorderColor = borderColorFromProps;
+  if (isHovered) updatedBorderColor = hoverBorderColor;
+  else if (isFocused) updatedBorderColor = focusBorderColor;
+  else if (isInvalid) updatedBorderColor = errorBorderColor;
+  const focusStyle = {
+    shadow: 3,
+    shadowColor: '#2563EB',
+  };
+
   return (
     <Box w={isFullWidth ? '100%' : 'auto'} {...layoutProps}>
-      <Hoverable>
-        {(isHovered: boolean) => {
-          let updatedBorderColor = borderColorFromProps;
-          if (isHovered) updatedBorderColor = hoverBorderColor;
-          else if (isFocused) updatedBorderColor = focusBorderColor;
-          else if (isInvalid) updatedBorderColor = errorBorderColor;
-          const focusStyle = {
-            shadow: 3,
-            shadowColor: '#2563EB',
-          };
-
-          return (
-            <Box
-              borderColor={updatedBorderColor}
-              borderWidth={borderWidth}
-              borderBottomWidth={borderBottomWidth}
-              {...rem}
-              {...(isDisabled && newProps._isDisabledProps)}
-              {...computedProps}
-              {...(isFocused && Platform.OS === 'web' && focusStyle)}
-              style={style}
+      <Box
+        ref={_ref}
+        borderColor={updatedBorderColor}
+        borderWidth={borderWidth}
+        borderBottomWidth={borderBottomWidth}
+        {...rem}
+        {...(isDisabled && newProps._isDisabledProps)}
+        {...computedProps}
+        {...(isFocused && Platform.OS === 'web' && focusStyle)}
+        style={style}
+      >
+        {InputLeftElement ? (
+          <Flex justify="center" align="center" left={0}>
+            {InputLeftElement}
+          </Flex>
+        ) : null}
+        {isFocused && label && (
+          <Flex position="absolute">
+            <Animated.View
+              style={{
+                transform: [{ translateY: slideAnim, translateX: 4 }],
+              }}
             >
-              {InputLeftElement ? (
-                <Flex justify="center" align="center" left={0}>
-                  {InputLeftElement}
-                </Flex>
-              ) : null}
-              {isFocused && label && (
-                <Flex position="absolute">
-                  <Animated.View
-                    style={{
-                      transform: [{ translateY: slideAnim, translateX: 4 }],
-                    }}
-                  >
-                    <Flex {...newProps} bg="transparent">
-                      <Box
-                        bg="transparent"
-                        color={updatedBorderColor}
-                        fontSize={fontSize}
-                      >
-                        {label}
-                        <Box
-                          w="120%"
-                          p="1px"
-                          bg="gray.50"
-                          position="absolute"
-                          right="-10%"
-                          bottom={`${
-                            Math.floor(fontSize / 2) +
-                            (Platform.OS === 'ios' ? 1 : 0)
-                          }px`}
-                          zIndex={-1}
-                        />
-                      </Box>
-                    </Flex>
-                  </Animated.View>
-                </Flex>
-              )}
-              <StyledInput
-                {...newProps}
-                fontSize={fontSize}
-                backgroundColor="transparent"
-                flex={1}
-                secureTextEntry={type === 'password'}
-                accessible
-                accessibilityLabel={ariaLabel || accessibilityLabel}
-                onKeyPress={(e: any) => {
-                  e.persist();
-                }}
-                onFocus={() => {
-                  slideOut();
-                  handleFocus(true, onFocus ? onFocus : () => {});
-                }}
-                onBlur={(e) => {
-                  // TODO: animation not happening because of component rerender
-                  e.nativeEvent.text && slideIn();
-                  handleFocus(false, onBlur ? onBlur : () => {});
-                }}
-                placeholder={isFocused && label ? '' : placeholder}
-                editable={isDisabled || isReadOnly ? false : true}
-                // borderRadius={50} //Remove variant props from StyledInput
-                borderWidth={undefined}
-                {...(Platform.OS === 'web'
-                  ? {
-                      disabled: isDisabled,
-                      cursor: isDisabled ? 'not-allowed' : 'auto',
-                    }
-                  : {})}
-                style={[
-                  Platform.OS === 'web' && {
-                    // @ts-ignore
-                    outline: 'none',
-                  },
-                ]}
-                ref={ref}
-              />
-              {InputRightElement ? (
-                <Flex justify="center" align="center" right={0}>
-                  {InputRightElement}
-                </Flex>
-              ) : null}
-            </Box>
-          );
-        }}
-      </Hoverable>
+              <Flex {...newProps} bg="transparent">
+                <Box
+                  bg="transparent"
+                  color={updatedBorderColor}
+                  fontSize={fontSize}
+                >
+                  {label}
+                  <Box
+                    w="120%"
+                    p="1px"
+                    bg="gray.50"
+                    position="absolute"
+                    right="-10%"
+                    bottom={`${
+                      Math.floor(fontSize / 2) + (Platform.OS === 'ios' ? 1 : 0)
+                    }px`}
+                    zIndex={-1}
+                  />
+                </Box>
+              </Flex>
+            </Animated.View>
+          </Flex>
+        )}
+        <StyledInput
+          {...newProps}
+          fontSize={fontSize}
+          backgroundColor="transparent"
+          flex={1}
+          secureTextEntry={type === 'password'}
+          accessible
+          accessibilityLabel={ariaLabel || accessibilityLabel}
+          onKeyPress={(e: any) => {
+            e.persist();
+          }}
+          onFocus={() => {
+            slideOut();
+            handleFocus(true, onFocus ? onFocus : () => {});
+          }}
+          onBlur={(e) => {
+            // TODO: animation not happening because of component rerender
+            e.nativeEvent.text && slideIn();
+            handleFocus(false, onBlur ? onBlur : () => {});
+          }}
+          placeholder={isFocused && label ? '' : placeholder}
+          editable={isDisabled || isReadOnly ? false : true}
+          // borderRadius={50} //Remove variant props from StyledInput
+          borderWidth={undefined}
+          {...(Platform.OS === 'web'
+            ? {
+                disabled: isDisabled,
+                cursor: isDisabled ? 'not-allowed' : 'auto',
+              }
+            : {})}
+          style={[
+            Platform.OS === 'web' && {
+              // @ts-ignore
+              outline: 'none',
+            },
+          ]}
+          ref={ref}
+        />
+        {InputRightElement ? (
+          <Flex justify="center" align="center" right={0}>
+            {InputRightElement}
+          </Flex>
+        ) : null}
+      </Box>
 
       {isInvalid && errorMessage ? (
         <Text

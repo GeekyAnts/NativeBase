@@ -7,7 +7,8 @@ import type {
 } from './types';
 import { AccordionItemContext } from './Context';
 import { useThemeProps } from '../../../hooks';
-import { Hoverable } from './../../../utils';
+import { mergeRefs } from './../../../utils';
+import { useHover } from '@react-native-aria/interactions';
 
 const AccordionButton = (
   { children, ...props }: IAccordionButtonProps,
@@ -29,6 +30,9 @@ const AccordionButton = (
     isOpen ? onClose && onClose() : onOpen && onOpen();
   };
 
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+
   return (
     <TouchableOpacity
       activeOpacity={1}
@@ -36,33 +40,27 @@ const AccordionButton = (
       onPress={pressHandler}
       accessible
       accessibilityRole="checkbox"
-      ref={ref}
+      ref={mergeRefs([ref, _ref])}
     >
-      <Hoverable>
-        {(isHovered: boolean) => {
-          return (
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="space-between"
-              alignItems="center"
-              {...newProps}
-              {...(isHovered && _hover)}
-              {...(isOpen && _expanded)}
-              {...(isDisabled && _disabled)}
-              {...(!index && { borderTopColor: 'transparent' })}
-              {...(Platform.OS === 'web'
-                ? {
-                    disabled: isDisabled,
-                    cursor: isDisabled ? 'not-allowed' : 'auto',
-                  }
-                : {})}
-            >
-              {children}
-            </Box>
-          );
-        }}
-      </Hoverable>
+      <Box
+        display="flex"
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+        {...newProps}
+        {...(isHovered && _hover)}
+        {...(isOpen && _expanded)}
+        {...(isDisabled && _disabled)}
+        {...(!index && { borderTopColor: 'transparent' })}
+        {...(Platform.OS === 'web'
+          ? {
+              disabled: isDisabled,
+              cursor: isDisabled ? 'not-allowed' : 'auto',
+            }
+          : {})}
+      >
+        {children}
+      </Box>
     </TouchableOpacity>
   );
 };
