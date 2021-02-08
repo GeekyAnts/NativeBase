@@ -91,7 +91,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons)/)"
+      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/interactions)/)"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
