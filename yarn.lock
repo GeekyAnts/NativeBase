@@ -2097,7 +2097,7 @@
     "@react-types/shared" "^3.2.1"
     "@react-types/switch" "^3.1.1"
 
-"@react-aria/utils@^3.3.0", "@react-aria/utils@^3.4.0", "@react-aria/utils@^3.4.1":
+"@react-aria/utils@^3.3.0", "@react-aria/utils@^3.4.0", "@react-aria/utils@^3.4.1", "@react-aria/utils@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@react-aria/utils/-/utils-3.5.0.tgz#b377461591f5c8e2157b1635e28ed03cd58e2a22"
   integrity sha512-HjeqT4//N2Jz2WNg3qAg1MpxAjcP+aPR1fq8yXm812za2/bA5rUSZqN0EXHZ9/+NdQhnZoRPNyXN/BJMZJe+Ig==
@@ -2116,6 +2116,40 @@
     "@react-aria/interactions" "^3.2.1"
     "@react-aria/utils" "^3.3.0"
     clsx "^1.1.1"
+
+"@react-native-aria-test/checkbox@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@react-native-aria-test/checkbox/-/checkbox-0.0.2.tgz#ce3d576322f0f7835edfccaf664a4f8d3da93d17"
+  integrity sha512-unHpsCBGFHxRjMDvTL1/RhMZVo4bUgyPE/P+HFod4St92Qy6AFd8MixEM8xVGmvWwCxBKoRTWzyRbVD4PIlJ2g==
+  dependencies:
+    "@react-aria/checkbox" "^3.2.1"
+    "@react-aria/utils" "^3.5.0"
+    "@react-native-aria-test/toggle" "^0.0.2"
+    "@react-native-aria-test/utils" "^0.0.2"
+    "@react-stately/toggle" "^3.2.1"
+
+"@react-native-aria-test/focus@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@react-native-aria-test/focus/-/focus-0.0.2.tgz#b6b03d3f53681da78a9c123a830e554f5219ae4b"
+  integrity sha512-Vo7FcmECKIAm25nNrpY1UOxCaaQ89welmdFVCkAR/AcV+4Ep2W3VdMciRWKkA3/5UsFJiYv8ZFtKksMxLd5Uuw==
+  dependencies:
+    "@react-aria/focus" "^3.2.3"
+
+"@react-native-aria-test/toggle@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@react-native-aria-test/toggle/-/toggle-0.0.2.tgz#11d912944737e315c920c207a2df29b5877120a5"
+  integrity sha512-3WQ1EuDjRcquZJN921UpPePkrCuoG3PFrcM4hHdGPtObgeSWL2mYoC0yDsSOmU+NeQ1U2LQxNHvTy+CzeFCT+g==
+  dependencies:
+    "@react-aria/focus" "^3.2.3"
+    "@react-aria/utils" "^3.5.0"
+    "@react-native-aria-test/utils" "^0.0.2"
+    "@react-stately/toggle" "^3.2.1"
+    "@react-types/checkbox" "^3.2.1"
+
+"@react-native-aria-test/utils@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@react-native-aria-test/utils/-/utils-0.0.2.tgz#d71a0863f4d5f62409e285738495059be587eca9"
+  integrity sha512-G1svr+5/UVCeKPvGZLJttpwZUVN8YCgiIX54YIboVa0pCA3I8nVBqrlp2Ed+czs/s+nPag/Zv6VV1Cf4httMvA==
 
 "@react-native-community/bob@^0.16.2":
   version "0.16.2"

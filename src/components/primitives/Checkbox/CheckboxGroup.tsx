@@ -1,46 +1,28 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import {
-  FormControlContext,
-  IFormControlContext,
-} from '../../composites/FormControl';
-import Box from '../Box';
-import type { ICheckboxGroupProps } from './props';
-import { useCheckboxGroupState } from '@react-stately/checkbox';
-// import type { ICheckboxContext } from './props';
-import { useCheckboxGroup } from 'react-native-aria';
-// import { useCheckboxGroup } from './useCheckboxGroup';
+  CheckboxGroupState,
+  useCheckboxGroupState,
+} from '@react-stately/checkbox';
+import { useCheckboxGroup } from '@react-native-aria-test/checkbox';
+import { Text, View } from 'react-native';
 
-export const CheckboxContext = React.createContext<any>(null);
+export let CheckboxGroupContext = createContext<CheckboxGroupState | null>(
+  null
+);
 
-const CheckboxGroup = ({
-  size,
-  children,
-  colorScheme,
-  ...props
-}: ICheckboxGroupProps) => {
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
-
+export function CheckboxGroup(props: any) {
+  let { children, label } = props;
   let state = useCheckboxGroupState(props);
-  let { groupProps } = useCheckboxGroup(props, state);
+  let { groupProps, labelProps } = useCheckboxGroup(props, state);
 
   return (
-    <Box {...groupProps}>
-      <CheckboxContext.Provider
-        value={{
-          ...formControlContext,
-          size,
-          colorScheme,
-          state,
-        }}
-      >
-        <Box alignItems="flex-start" accessibilityRole="checkbox" {...props}>
-          {children}
-        </Box>
-      </CheckboxContext.Provider>
-    </Box>
+    <View {...groupProps}>
+      {label && <Text {...labelProps}>{label}</Text>}
+      <CheckboxGroupContext.Provider value={state}>
+        {children}
+      </CheckboxGroupContext.Provider>
+    </View>
   );
-};
+}
 
 export default React.memo(CheckboxGroup);
