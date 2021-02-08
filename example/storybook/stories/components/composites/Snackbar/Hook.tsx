@@ -21,6 +21,7 @@ export default function () {
         onPress={() =>
           setSnackbar(template, {
             accessibilityAnnouncement: 'Well done, we are proud of you.',
+            autoHideDuration: 1000,
           })
         }
       >

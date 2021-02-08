@@ -7,7 +7,7 @@ export const useSnackbar: IuseSnackbarProps = () => {
   const { closeOverlay, setOverlay } = useOverlay();
   const defaultConfig = {
     enableOverlay: false,
-    duration: 5000,
+    autoHideDuration: 5000,
     accessibilityAnnouncement: '',
   };
 
@@ -16,9 +16,9 @@ export const useSnackbar: IuseSnackbarProps = () => {
       ...defaultConfig,
       ...config,
     };
-    const { duration = 5000, enableOverlay, ...rest } = config;
+    const { autoHideDuration = 5000, enableOverlay, ...rest } = config;
     setOverlay(
-      <Snackbar duration={duration} {...rest}>
+      <Snackbar autoHideDuration={autoHideDuration} {...rest}>
         {component}
       </Snackbar>,
       {
@@ -27,7 +27,7 @@ export const useSnackbar: IuseSnackbarProps = () => {
     );
     setTimeout(() => {
       closeOverlay();
-    }, duration);
+    }, autoHideDuration);
   };
   return { setSnackbar };
 };

@@ -5,7 +5,7 @@ import { AccessibilityInfo, Platform } from 'react-native';
 
 const Snackbar = ({
   children,
-  duration = 5000,
+  autoHideDuration = 5000,
   accessibilityAnnouncement,
   ...props
 }: ISnackbarProps) => {
@@ -14,8 +14,8 @@ const Snackbar = ({
     isOpen &&
       setTimeout(() => {
         setIsOpen(false);
-      }, duration);
-  }, [isOpen, duration]);
+      }, autoHideDuration);
+  }, [isOpen, autoHideDuration]);
 
   React.useEffect(() => {
     if (accessibilityAnnouncement && isOpen && Platform.OS !== 'web') {
