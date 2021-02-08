@@ -1,7 +1,7 @@
 import type { ISlideProps } from '../Transitions';
 
 export type ISnackbarProps = ISlideProps & {
-  accessibilityAnnouncement: string;
+  accessibilityAnnouncement?: string;
   autoHideDuration?: number;
 };
 
