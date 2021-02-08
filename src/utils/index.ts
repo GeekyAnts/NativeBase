@@ -13,5 +13,4 @@ export {
 
 export type { IAccessibilityProps } from './accessibilityTypes';
 
-export { default as Hoverable } from './Hoverable';
-export type { HoverableProps } from './Hoverable';
+export { mergeRefs } from './mergeRefs';
