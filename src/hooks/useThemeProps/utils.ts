@@ -196,7 +196,6 @@ export function calculateProps(
       delete newProps.colorScheme;
     }
   }
-
   // Extracting props from normal props
   let extractedProps = extractProps(
     props,
@@ -212,5 +211,13 @@ export function calculateProps(
       delete newProps[key];
     }
   });
+
+  // Merging _ props
+  Object.keys(props)
+    .filter((propName) => propName.startsWith('_'))
+    .forEach((propName: string) => {
+      newProps[propName] = { ...newProps[propName], ...props[propName] };
+    });
+
   return newProps;
 }

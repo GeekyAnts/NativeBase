@@ -8,6 +8,7 @@ export default function () {
       colorScheme="teal"
       variant={'solid'}
       onPress={() => console.log('hello world')}
+      _text={{ fontWeight: 700 }}
     >
       Press me
     </Button>

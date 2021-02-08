@@ -18,6 +18,7 @@ import type {
   customFlexboxProps,
   customPositionProps,
 } from '../../../utils/customProps';
+import type { ITextProps } from './../Text/types';
 
 export type IButtonProps = ViewProps &
   ColorProps &
@@ -49,6 +50,7 @@ export type IButtonProps = ViewProps &
     isLoadingText?: string;
     spinner?: JSX.Element;
     isDisabled?: boolean;
+    _text?: ITextProps;
   };
 
 export type IButtonGroupProps = {
