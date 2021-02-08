@@ -18,7 +18,7 @@ export default function () {
           max: 100,
           step: 1,
         })}
-        colorScheme={text('colorScheme', 'purple')}
+        colorScheme={'green'}
       >
         <SliderTrack>
           <SliderFilledTrack />

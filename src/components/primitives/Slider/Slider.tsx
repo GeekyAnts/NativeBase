@@ -8,6 +8,9 @@ import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
 import type { ISliderProps } from './types';
 import { SliderContext } from './Context';
+import { useSliderState } from '@react-stately/slider';
+import { useNumberFormatter } from '@react-aria/i18n';
+import { useSlider, useSliderThumb } from '@react-aria/slider';
 
 type StateType = {
   barSize: number | null;
@@ -125,6 +128,17 @@ class NBSlider extends React.PureComponent<
   };
 
   render() {
+    let props = this.props;
+    console.log(this.props, 'thissssss');
+    let trackRef = React.useRef(null);
+    let numberFormatter = useNumberFormatter();
+    let state = useSliderState({ numberFormatter });
+    let { groupProps, trackProps, labelProps, outputProps } = useSlider(
+      props,
+      state,
+      trackRef
+    );
+    console.log(groupProps, trackProps, labelProps, outputProps);
     const { value, deltaValue, barSize } = this.state;
     const min = this.props.min ?? 0;
     const max = this.props.max ?? 100;
@@ -212,7 +226,7 @@ const Slider = ({ ...props }: ISliderProps) => {
     ...formControlContext,
     ...props,
   });
-
+  // const inputProps = useSlider(newProps);
   return <NBSlider {...newProps} />;
 };
 

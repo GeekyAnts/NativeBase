@@ -1944,7 +1944,7 @@
     "@react-types/shared" "^3.3.0"
     clsx "^1.1.1"
 
-"@react-aria/i18n@^3.1.2", "@react-aria/i18n@^3.2.0":
+"@react-aria/i18n@^3.1.2", "@react-aria/i18n@^3.1.3", "@react-aria/i18n@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@react-aria/i18n/-/i18n-3.2.0.tgz#d49f4990fe3f125545686121edc129007bcd9233"
   integrity sha512-D6Ent8R6iFMz04kQAuJ6uAV/3Q9YCvPB06/jJfXvDbtvtsRkxvVi2MEDbNXeCacbsRFaoStH9XOmOYD5mZWyzQ==
@@ -2066,6 +2066,22 @@
     "@react-stately/selection" "^3.3.0"
     "@react-types/shared" "^3.3.0"
 
+"@react-aria/slider@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/slider/-/slider-3.0.0.tgz#c3172f84517f6a88de5008ed2bc00cc1f2dcd3da"
+  integrity sha512-IyAzlkgplD1NCxSF9TDL7WxasAOGB2HhosWg1W7WUI9BvzHLeHWsJdpCbTeqHYIlyjZbAdgI2G48NntZU77CyA==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.2.3"
+    "@react-aria/i18n" "^3.1.3"
+    "@react-aria/interactions" "^3.3.0"
+    "@react-aria/label" "^3.1.1"
+    "@react-aria/utils" "^3.5.0"
+    "@react-stately/radio" "^3.2.1"
+    "@react-stately/slider" "^3.0.0"
+    "@react-types/radio" "^3.1.1"
+    "@react-types/slider" "^3.0.0"
+
 "@react-aria/ssr@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.0.1.tgz#5f7c111f9ecd184b8f6140139703c1ee552dca30"
@@ -2097,7 +2113,7 @@
     "@react-types/shared" "^3.2.1"
     "@react-types/switch" "^3.1.1"
 
-"@react-aria/utils@^3.3.0", "@react-aria/utils@^3.4.0", "@react-aria/utils@^3.4.1":
+"@react-aria/utils@^3.3.0", "@react-aria/utils@^3.4.0", "@react-aria/utils@^3.4.1", "@react-aria/utils@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@react-aria/utils/-/utils-3.5.0.tgz#b377461591f5c8e2157b1635e28ed03cd58e2a22"
   integrity sha512-HjeqT4//N2Jz2WNg3qAg1MpxAjcP+aPR1fq8yXm812za2/bA5rUSZqN0EXHZ9/+NdQhnZoRPNyXN/BJMZJe+Ig==
@@ -2373,6 +2389,17 @@
     "@react-stately/utils" "^3.1.1"
     "@react-types/shared" "^3.3.0"
 
+"@react-stately/slider@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/slider/-/slider-3.0.0.tgz#f0dd7b6df931828b42d93e693bc4da75852bb440"
+  integrity sha512-KAzAhDOF+diyC2k3SPebK9VUKvuXT6wR3BLaAKJYvWMP4EWxoDhRCyc7tHJRKeoCqKiT2qbYd6D1lQDA01foew==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.1.3"
+    "@react-aria/utils" "^3.5.0"
+    "@react-stately/utils" "^3.1.1"
+    "@react-types/slider" "^3.0.0"
+
 "@react-stately/toggle@^3.2.1":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@react-stately/toggle/-/toggle-3.2.1.tgz#8b10b5eb99c3c4df2c36d17a5f23b77773ed7722"
@@ -2470,6 +2497,13 @@
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.3.0.tgz#4f959df32f3ae94fcc910546088489144fc8d753"
   integrity sha512-i/OJplVPIHVok0Bu2Hn9pmz6eyULq2ao6pG/Is8YoDzp33SzumOtXxumgYcaXMJ7wBd2RgPd532m3+RnOY0ndg==
+
+"@react-types/slider@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@react-types/slider/-/slider-3.0.0.tgz#b26550b973fbe8e02b69cd9c650abe546159a81e"
+  integrity sha512-BjSnzPcxw8y+PiNQm81X7dSyJwU86UK8ig0YWA2T2m7XhTvy26AjLmUwRDxhhVXAqRQtvRDLd+uowrb9FnWMcQ==
+  dependencies:
+    "@react-types/shared" "^3.3.0"
 
 "@react-types/switch@^3.1.1":
   version "3.1.1"
