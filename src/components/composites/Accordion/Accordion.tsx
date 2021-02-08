@@ -5,6 +5,11 @@ import type { IAccordionProps } from './types';
 import { useThemeProps } from '../../../hooks';
 import getIndexedChildren from '../../../utils/getIndexedChildren';
 
+import { default as AccordionItem } from './AccordionItem';
+import { default as AccordionSummary } from './AccordionSummary';
+import { default as AccordionDetails } from './AccordionDetails';
+import { default as AccordionIcon } from './AccordionIcon';
+
 import { AccordionContext } from './Context';
 
 const Accordion = ({
@@ -46,4 +51,9 @@ const Accordion = ({
   );
 };
 
-export default React.memo(Accordion);
+Accordion.AccordionItem = AccordionItem;
+Accordion.AccordionSummary = AccordionSummary;
+Accordion.AccordionDetails = AccordionDetails;
+Accordion.AccordionIcon = AccordionIcon;
+
+export default Accordion;

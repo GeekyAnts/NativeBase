@@ -2,8 +2,8 @@ import {
   Accordion,
   AccordionItem,
   AccordionIcon,
-  AccordionButton,
-  AccordionPanel,
+  AccordionSummary,
+  AccordionDetails,
 } from './accordion';
 import { Alert, AlertDescription, AlertTitle } from './alert';
 import Avatar from './avatar';
@@ -50,8 +50,8 @@ export default {
   Accordion,
   AccordionItem,
   AccordionIcon,
-  AccordionButton,
-  AccordionPanel,
+  AccordionSummary,
+  AccordionDetails,
   Alert,
   AlertDescription,
   AlertTitle,

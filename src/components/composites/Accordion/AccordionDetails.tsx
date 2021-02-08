@@ -2,11 +2,14 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import { AccordionItemContext } from './Context';
 import Collapse from '../Collapse';
-import type { IAccordionPanelProps, IAccordionItemContextProps } from './types';
+import type {
+  IAccordionDetailsProps,
+  IAccordionItemContextProps,
+} from './types';
 import { useThemeProps } from '../../../hooks';
 
-const AccordionPanel = ({ children, ...props }: IAccordionPanelProps) => {
-  const { ...newProps } = useThemeProps('AccordionPanel', props);
+const AccordionDetails = ({ children, ...props }: IAccordionDetailsProps) => {
+  const { ...newProps } = useThemeProps('AccordionDetails', props);
   const { isOpen }: IAccordionItemContextProps = React.useContext(
     AccordionItemContext
   );
@@ -17,4 +20,4 @@ const AccordionPanel = ({ children, ...props }: IAccordionPanelProps) => {
   );
 };
 
-export default React.memo(AccordionPanel);
+export default React.memo(AccordionDetails);

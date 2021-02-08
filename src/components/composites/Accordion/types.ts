@@ -1,4 +1,5 @@
 import type { IBoxProps, IIconProps } from '../../primitives';
+import type { ITextProps } from '../../primitives/Text/types';
 
 export type IAccordionProps = IBoxProps & {
   allowMultiple?: boolean;
@@ -6,23 +7,27 @@ export type IAccordionProps = IBoxProps & {
   index?: number[];
   defaultIndex?: number[];
   onChange?: (index?: number[]) => void;
+  _text?: ITextProps;
 };
 export type IAccordionItemProps = IBoxProps & {
   index?: number;
   defaultIsOpen?: boolean;
   isDisabled?: boolean;
   id?: number;
+  _text?: ITextProps;
 };
-export type IAccordionButtonProps = IBoxProps & {
+export type IAccordionSummaryProps = IBoxProps & {
   style?: any;
   _expanded?: any;
   _disabled?: any;
   _hover?: any;
+  _text?: ITextProps;
 };
-export type IAccordionPanelProps = IBoxProps & {};
+export type IAccordionDetailsProps = IBoxProps & {};
 export type IAccordionContextProps = {
   index?: number[];
   changeHandler?: (isOpening: boolean, id: number) => void;
+  _text?: ITextProps;
 };
 export type IAccordionItemContextProps = {
   index?: number;
@@ -30,7 +35,9 @@ export type IAccordionItemContextProps = {
   isDisabled?: boolean;
   onClose?: () => void;
   onOpen?: () => void;
+  _text?: ITextProps;
 };
 export type IAccordionIconProps = IIconProps & {
   style?: any;
+  _text?: ITextProps;
 };

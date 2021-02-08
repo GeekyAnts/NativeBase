@@ -1,50 +1,42 @@
 import React from 'react';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  Box,
-  Icon,
-} from 'native-base';
+import { Accordion, Box, Icon } from 'native-base';
 export default function () {
   return (
     <Box m={3}>
       <Accordion allowMultiple defaultIndex={[1]}>
-        <AccordionItem>
-          <AccordionButton>
+        <Accordion.AccordionItem>
+          <Accordion.AccordionSummary>
             <Box textAlign="left">Section 1 title</Box>
-            <AccordionIcon />
-          </AccordionButton>
-          <AccordionPanel>
+            <Accordion.AccordionIcon />
+          </Accordion.AccordionSummary>
+          <Accordion.AccordionDetails>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
+          </Accordion.AccordionDetails>
+        </Accordion.AccordionItem>
 
-        <AccordionItem>
+        <Accordion.AccordionItem>
           {({ isExpanded }: any) => (
             <>
-              <AccordionButton>
+              <Accordion.AccordionSummary>
                 <Box textAlign="left">{isExpanded ? 'Fire' : 'Snow'}</Box>
                 {isExpanded ? (
                   <Icon name="fire" type="MaterialCommunityIcons" />
                 ) : (
                   <Icon name="snowflake" type="MaterialCommunityIcons" />
                 )}
-              </AccordionButton>
-              <AccordionPanel>
+              </Accordion.AccordionSummary>
+              <Accordion.AccordionDetails>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
-              </AccordionPanel>
+              </Accordion.AccordionDetails>
             </>
           )}
-        </AccordionItem>
+        </Accordion.AccordionItem>
       </Accordion>
     </Box>
   );
