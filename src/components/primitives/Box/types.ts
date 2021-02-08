@@ -20,6 +20,7 @@ import type {
   customTransformProps,
   customTypographyProps,
 } from '../../../utils/customProps';
+import type { ITextProps } from './../Text/types';
 
 export type IBoxProps = ViewProps &
   ColorProps &
@@ -42,4 +43,5 @@ export type IBoxProps = ViewProps &
     style?: ViewStyle;
     children?: JSX.Element | JSX.Element[] | string | any;
     shadow?: number;
+    _text?: ITextProps;
   };
