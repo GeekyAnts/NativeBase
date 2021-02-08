@@ -3,7 +3,7 @@ import {
   CheckboxGroupState,
   useCheckboxGroupState,
 } from '@react-stately/checkbox';
-import { useCheckboxGroup } from '@react-native-aria-test/checkbox';
+import { useCheckboxGroup } from '@react-native-aria/checkbox';
 import { Text, View } from 'react-native';
 
 export let CheckboxGroupContext = createContext<CheckboxGroupState | null>(

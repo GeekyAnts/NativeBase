@@ -12,11 +12,8 @@ import Icon from '../Icon';
 import type { ICheckboxProps } from './props';
 import { useToggleState } from '@react-stately/toggle';
 import mergeRefs from '../../../utils/mergeRefs';
-import {
-  useCheckbox,
-  useCheckboxGroupItem,
-} from '@react-native-aria-test/checkbox';
-import { useFocusRing } from '@react-native-aria-test/focus';
+import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
+import { useFocusRing } from '@react-native-aria/focus';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { CheckboxGroupContext } from './CheckboxGroup';
 

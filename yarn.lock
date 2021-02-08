@@ -2117,39 +2117,49 @@
     "@react-aria/utils" "^3.3.0"
     clsx "^1.1.1"
 
-"@react-native-aria-test/checkbox@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@react-native-aria-test/checkbox/-/checkbox-0.0.2.tgz#ce3d576322f0f7835edfccaf664a4f8d3da93d17"
-  integrity sha512-unHpsCBGFHxRjMDvTL1/RhMZVo4bUgyPE/P+HFod4St92Qy6AFd8MixEM8xVGmvWwCxBKoRTWzyRbVD4PIlJ2g==
+"@react-native-aria/checkbox@^0.0.2":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/checkbox/-/checkbox-0.2.1.tgz#319f68c7c5d0f0b1807b2ce4702779047864dbcc"
+  integrity sha512-sl7Ki7+UrPKCQjYTWddNGSiVR7ZJ0FCSTiqKXzCgPeDFWcz+LQQwyku0NQcCU6Z7/HPxq6kL117M9F9QFSSamQ==
   dependencies:
     "@react-aria/checkbox" "^3.2.1"
     "@react-aria/utils" "^3.5.0"
-    "@react-native-aria-test/toggle" "^0.0.2"
-    "@react-native-aria-test/utils" "^0.0.2"
+    "@react-native-aria/toggle" "^0.2.1"
+    "@react-native-aria/utils" "^0.2.1"
     "@react-stately/toggle" "^3.2.1"
 
-"@react-native-aria-test/focus@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@react-native-aria-test/focus/-/focus-0.0.2.tgz#b6b03d3f53681da78a9c123a830e554f5219ae4b"
-  integrity sha512-Vo7FcmECKIAm25nNrpY1UOxCaaQ89welmdFVCkAR/AcV+4Ep2W3VdMciRWKkA3/5UsFJiYv8ZFtKksMxLd5Uuw==
+"@react-native-aria/focus@^0.0.2":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/focus/-/focus-0.2.1.tgz#0532762e56b5d966c6247e4b0b0c55902b2a87b4"
+  integrity sha512-rHSa3OlA9y6oLukVZV4aYmzroA+OfF5nWzg0fmBYs9toujzADihlvPW9O15x00GCzRVgAAD+Cw+LsM7JXQUFUw==
   dependencies:
     "@react-aria/focus" "^3.2.3"
 
-"@react-native-aria-test/toggle@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@react-native-aria-test/toggle/-/toggle-0.0.2.tgz#11d912944737e315c920c207a2df29b5877120a5"
-  integrity sha512-3WQ1EuDjRcquZJN921UpPePkrCuoG3PFrcM4hHdGPtObgeSWL2mYoC0yDsSOmU+NeQ1U2LQxNHvTy+CzeFCT+g==
+"@react-native-aria/interactions@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/interactions/-/interactions-0.2.1.tgz#6984809f6fc5f666e9028b3961f958ad87ac161b"
+  integrity sha512-zWa8hz7t5H7aLtXKOpbmjS+1hIH31jAq1qb3+M3aNhUzgnTFmJ/9OuHgyiZBwkr/4nQreQ9RBH24QMGNtEN8kg==
+  dependencies:
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/utils" "^3.5.0"
+    "@react-native-aria/utils" "^0.2.1"
+
+"@react-native-aria/toggle@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/toggle/-/toggle-0.2.1.tgz#3bdad70b59691d17ec0f7e8adc8a6e88833c9e9b"
+  integrity sha512-Rr2c0maXKuj5+JO9h6VMfGg8hTUHsyVEof+zMt2gLcZ46xsZ4PopEWKY3dBOJ8fRTxU8jBFK5qRhD47gbKI+9A==
   dependencies:
     "@react-aria/focus" "^3.2.3"
     "@react-aria/utils" "^3.5.0"
-    "@react-native-aria-test/utils" "^0.0.2"
+    "@react-native-aria/interactions" "^0.2.1"
+    "@react-native-aria/utils" "^0.2.1"
     "@react-stately/toggle" "^3.2.1"
     "@react-types/checkbox" "^3.2.1"
 
-"@react-native-aria-test/utils@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@react-native-aria-test/utils/-/utils-0.0.2.tgz#d71a0863f4d5f62409e285738495059be587eca9"
-  integrity sha512-G1svr+5/UVCeKPvGZLJttpwZUVN8YCgiIX54YIboVa0pCA3I8nVBqrlp2Ed+czs/s+nPag/Zv6VV1Cf4httMvA==
+"@react-native-aria/utils@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.1.tgz#b12f2981ef937e738a311feb94823534fbdedbf3"
+  integrity sha512-qidrRPA5cQXIH3fJXw3EJiQ1JsyyxK+dzM55jsgAoRq7XbIL8WH9cN1wkkZEm+mINazG/VQ21Nx/hjkPDEzkuA==
 
 "@react-native-community/bob@^0.16.2":
   version "0.16.2"
