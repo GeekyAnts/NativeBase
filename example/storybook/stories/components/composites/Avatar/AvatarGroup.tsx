@@ -1,9 +1,9 @@
 import React from 'react';
-import { Avatar, AvatarGroup } from 'native-base';
+import { Avatar } from 'native-base';
 
 export default function () {
   return (
-    <AvatarGroup size="lg" max={4}>
+    <Avatar.Group size="lg" max={4}>
       <Avatar
         name="Sanket Sahu"
         source={{
@@ -43,6 +43,6 @@ export default function () {
             'https://pbs.twimg.com/profile_images/1177303899243343872/B0sUJIH0_400x400.jpg',
         }}
       />
-    </AvatarGroup>
+    </Avatar.Group>
   );
 }
