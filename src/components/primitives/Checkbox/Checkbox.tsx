@@ -61,7 +61,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         //@ts-ignore
         mergeRefs([ref, ref1])
       );
-  let { isFocusVisible, focusProps } = useFocusRing();
+  let { focusProps } = useFocusRing();
   const isChecked = inputProps.checked;
   const isDisabled = inputProps.disabled;
   const sizedIcon = icon
@@ -89,9 +89,6 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
             : borderColor;
         return (
           <Box
-            borderWidth={isFocusVisible ? 1 : 0}
-            borderColor={activeColor}
-            borderRadius={4}
             flexDirection="row"
             alignItems="center"
             {...newProps}

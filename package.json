@@ -150,7 +150,7 @@
   "dependencies": {
     "@react-aria/checkbox": "^3.2.1",
     "@react-aria/focus": "^3.2.3",
-    "@react-native-aria/checkbox": "^0.0.2",
+    "@react-native-aria/checkbox": "^0.2.1",
     "@react-native-aria/focus": "^0.0.2",
     "@react-stately/checkbox": "^3.0.1",
     "@react-stately/toggle": "^3.2.1",

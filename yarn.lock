@@ -2117,7 +2117,7 @@
     "@react-aria/utils" "^3.3.0"
     clsx "^1.1.1"
 
-"@react-native-aria/checkbox@^0.0.2":
+"@react-native-aria/checkbox@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@react-native-aria/checkbox/-/checkbox-0.2.1.tgz#319f68c7c5d0f0b1807b2ce4702779047864dbcc"
   integrity sha512-sl7Ki7+UrPKCQjYTWddNGSiVR7ZJ0FCSTiqKXzCgPeDFWcz+LQQwyku0NQcCU6Z7/HPxq6kL117M9F9QFSSamQ==
