@@ -13,7 +13,7 @@ export default function () {
     <>
       <Text>Snackbar will stay for 10 secs, default is 5 sec.</Text>
       <Snackbar
-        duration={10000}
+        autoHideDuration={10000}
         accessibilityAnnouncement="Sample warning message"
       >
         <VStack mx={4} space={4}>

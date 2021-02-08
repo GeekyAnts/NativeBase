@@ -1,12 +1,12 @@
 import type { ISlideProps } from '../Transitions';
 
 export type ISnackbarProps = ISlideProps & {
-  accessibilityAnnouncement: string;
+  accessibilityAnnouncement?: string;
+  autoHideDuration?: number;
 };
 
 export type ISnackbarConfig = {
   enableOverlay?: boolean;
-  duration?: number;
   position?: 'top' | 'bottom' | 'center';
 };
 export type IsetSnackbar = (
