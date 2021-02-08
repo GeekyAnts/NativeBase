@@ -56,17 +56,11 @@ const Button = (
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  const newProps = useThemeProps('Button', {
+  const { _text, ...newProps } = useThemeProps('Button', {
     ...props,
     size,
   });
-  let [textProps, remainingProps] = themeTools.extractInObject(newProps, [
-    'fontWeight',
-    'fontSize',
-    'textDecorationLine',
-    'color',
-  ]);
-  let [layoutProps, viewProps] = themeTools.extractInObject(remainingProps, [
+  let [layoutProps, viewProps] = themeTools.extractInObject(newProps, [
     'm',
     'margin',
     'mt',
@@ -116,21 +110,21 @@ const Button = (
 
   accessibilityProps.isDisabled = accessibilityProps.isDisabled || isLoading;
   const innerButton = (
-    <Box {...innerButtonProps} {...commonProps} opacity={isLoading ? 0.5 : 1}>
+    <Box {...innerButtonProps} {...commonProps}>
       {leftIcon ? (
         <Box mr={Math.floor(innerButtonProps.px / 2) || 2}>{leftIcon}</Box>
       ) : null}
       {isLoading ? (
         <Flex direction="row">
-          {spinner ? spinner : <Spinner color={textProps.color} size="sm" />}
-          <Text {...textProps}>{isLoadingText ? ' ' + isLoadingText : ''}</Text>
+          {spinner ? spinner : <Spinner color={_text?.color} size="sm" />}
+          <Text {..._text}>{isLoadingText ? ' ' + isLoadingText : ''}</Text>
         </Flex>
       ) : React.Children.count(children) > 1 ? (
         children
       ) : (
         <Text
-          {...textProps}
-          style={{ textDecorationLine: textProps.textDecorationLine }}
+          {..._text}
+          style={{ textDecorationLine: _text?.textDecorationLine }}
         >
           {children}
         </Text>
@@ -158,7 +152,7 @@ const Button = (
       {...accessibilityProps}
       {...ariaProps}
       {...layoutProps}
-      opacity={accessibilityProps.isDisabled ? 0.5 : 1}
+      opacity={isLoading ? 0.8 : accessibilityProps.isDisabled ? 0.5 : 1}
       {...(Platform.OS === 'web'
         ? {
             disabled: accessibilityProps.isDisabled,
