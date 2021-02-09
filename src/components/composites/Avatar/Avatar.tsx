@@ -13,7 +13,7 @@ const initials = (name: string) => {
 
 const StyledAvatar = styled(Box)<IAvatarProps>({});
 
-const Avatar = (
+const AvatarMain: any = (
   props: IAvatarProps & {
     children?: JSX.Element[] | JSX.Element | any | undefined;
   }
@@ -49,4 +49,4 @@ const Avatar = (
   );
 };
 
-export default Avatar;
+export default AvatarMain;
