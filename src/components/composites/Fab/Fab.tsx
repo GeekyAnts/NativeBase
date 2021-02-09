@@ -1,10 +1,11 @@
 import React from 'react';
 import { omitUndefined } from '../../../theme/tools/utils';
-import IconButton from '../IconButton';
+import Button from '../../primitives/Button';
+import { HStack } from '../../primitives/Stack';
 import type { IFabProps } from './types';
 
 const Fab = (props: IFabProps) => {
-  const { placement, ...newProps } = omitUndefined(props);
+  const { label, icon, placement, ...newProps } = omitUndefined(props);
 
   const placementProps: any = {
     topRight: { top: 4, right: 4, position: 'absolute' },
@@ -13,7 +14,7 @@ const Fab = (props: IFabProps) => {
     bottomLeft: { bottom: 4, left: 4, position: 'absolute' },
   };
   return (
-    <IconButton
+    <Button
       variant="unstyled"
       bg="default.200"
       rounded="full"
@@ -21,7 +22,16 @@ const Fab = (props: IFabProps) => {
       p={2}
       {...placementProps[placement]}
       {...newProps}
-    />
+    >
+      {icon && label ? (
+        <HStack space={1} justifyContent="center" alignItems="center">
+          {icon}
+          {label}
+        </HStack>
+      ) : (
+        icon ?? label
+      )}
+    </Button>
   );
 };
 

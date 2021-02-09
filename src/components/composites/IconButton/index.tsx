@@ -1,32 +1,17 @@
 import React, { forwardRef } from 'react';
 import type { TouchableHighlight, TouchableOpacity } from 'react-native';
-import { Platform } from 'react-native';
 import { useThemeProps } from '../../../hooks';
-import { Button, HStack, IButtonProps } from '../../primitives';
+import Button, { IButtonProps } from '../../primitives/Button';
 
-export type IIconButtonProps = IButtonProps & {
-  icon?: JSX.Element;
-  label?: JSX.Element;
+export type IIconButtonProps = Omit<IButtonProps, '_text'> & {
+  icon: JSX.Element;
 };
 
-const IconButton = ({ icon, label, ...props }: IIconButtonProps, ref: any) => {
+const IconButton = ({ icon, ...props }: IIconButtonProps, ref: any) => {
   const newProps = useThemeProps('IconButton', props);
   return (
     <Button ref={ref} {...newProps}>
-      {icon && label ? (
-        <HStack
-          // NOTE: Don't know why but it works
-          pt={Platform.OS === 'ios' ? 2 : undefined}
-          space={1}
-          justifyContent="center"
-          alignItems="center"
-        >
-          {icon}
-          {label}
-        </HStack>
-      ) : (
-        icon ?? label
-      )}
+      {icon}
     </Button>
   );
 };
