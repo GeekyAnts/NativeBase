@@ -5,7 +5,6 @@ import {
   FormErrorMessage,
   FormHelperText,
   Checkbox,
-  CheckboxGroup,
   VStack,
   Text,
   Container,
@@ -17,7 +16,7 @@ export default function () {
     <Container>
       <FormControl isRequired isInvalid>
         <FormLabel>Select Item</FormLabel>
-        <CheckboxGroup
+        <Checkbox.Group
           colorScheme="green"
           defaultValue={groupValue}
           onChange={(values) => {
@@ -41,7 +40,7 @@ export default function () {
           >
             <Text mx={2}>Indeterminate Item</Text>
           </Checkbox>
-        </CheckboxGroup>
+        </Checkbox.Group>
         <FormHelperText>We'll keep this between us.</FormHelperText>
         <FormErrorMessage>Something is wrong.</FormErrorMessage>
       </FormControl>

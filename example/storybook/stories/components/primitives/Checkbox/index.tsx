@@ -4,7 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
 import Playground from './playground';
 import Disabled from './disabled';
-import Usage from './usage';
+import Basic from './basic';
 import CustomColor from './customColor';
 import Size from './size';
 import CustomIcon from './customIcon';
@@ -21,7 +21,7 @@ storiesOf('Checkbox', module)
   .add('Controlled checkbox', () => <ControlledCheckbox />)
   .add('Uncontrolled checkbox', () => <UnControlledCheckbox />)
   .add('Playgroud', () => <Playground />)
-  .add('Usage', () => <Usage />)
+  .add('Basic', () => <Basic />)
   .add('Disabled', () => <Disabled />)
   .add('Invalid', () => <Invalid />)
   .add('Size', () => <Size />)

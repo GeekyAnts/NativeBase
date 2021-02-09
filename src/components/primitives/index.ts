@@ -14,7 +14,7 @@ export type { IInputProps } from './Input';
 
 export { default as View } from './View';
 
-export { Checkbox, CheckboxGroup } from './Checkbox';
+export { Checkbox } from './Checkbox';
 export type { ICheckboxProps, ICheckboxGroupProps } from './Checkbox';
 
 export { Radio, RadioGroup } from './Radio';
