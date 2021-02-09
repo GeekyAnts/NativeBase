@@ -1,13 +1,13 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import { NativeBaseProvider } from 'native-base';
-import { Checkbox, CheckboxGroup } from '..';
+import { Checkbox } from '..';
 import { Text } from '../..';
 
 function CheckBoxGroup() {
   const [groupValue, setGroupValue] = React.useState(['Item 1 ', 'Item 3 ']);
   return (
-    <CheckboxGroup
+    <Checkbox.Group
       colorScheme="green"
       defaultValue={groupValue}
       onChange={(values) => {
@@ -26,14 +26,14 @@ function CheckBoxGroup() {
       <Checkbox colorScheme="orange" value="Indeterminate Item ">
         <Text mx={2}>Indeterminate Item</Text>
       </Checkbox>
-    </CheckboxGroup>
+    </Checkbox.Group>
   );
 }
 
 function CheckBox(group: any) {
   const [groupValues, setGroupValues] = React.useState<Array<any>>([]);
   return group ? (
-    <CheckboxGroup onChange={setGroupValues} value={groupValues}>
+    <Checkbox.Group onChange={setGroupValues} value={groupValues}>
       <Checkbox value="one">
         <Text>One</Text>
       </Checkbox>
@@ -44,7 +44,7 @@ function CheckBox(group: any) {
       >
         <Text>Two</Text>
       </Checkbox>
-    </CheckboxGroup>
+    </Checkbox.Group>
   ) : (
     <>
       <Checkbox
