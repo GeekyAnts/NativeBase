@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from '../../composites';
+import { Modal } from '../../composites/Modal';
 import type { IActionsheetContentProps } from './types';
 
 const ActionsheetContent = ({

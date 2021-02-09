@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from '..';
+import { Modal } from '../Modal';
 
 const AlertDialogContent = React.forwardRef(function AlertDialogContent(
   props: any,

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Modal, IModalProps, ICloseButtonProps } from '..';
-import type { IBoxProps } from '../../primitives';
+import { Modal, IModalProps } from '../Modal';
+import type { IBoxProps } from '../../primitives/Box';
+import type { ICloseButtonProps } from '../CloseButton';
 
 export interface IAlertDialogProps
   extends Omit<IModalProps, 'initialFocusRef'> {
