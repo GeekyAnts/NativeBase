@@ -7,9 +7,11 @@ function baseStyle(props: Record<string, any>) {
     borderWidth: 2,
     borderBottomWidth: 4,
     borderRadius: 'md',
-    fontSize: 'sm',
-    fontWeight: 'bold',
     px: 2,
+    _text: {
+      fontSize: 'sm',
+      fontWeight: 'bold',
+    },
   };
 }
 

@@ -45,4 +45,4 @@ const Avatar = (props: IAvatarProps) => {
   );
 };
 
-export default Avatar;
+export default React.memo(Avatar);
