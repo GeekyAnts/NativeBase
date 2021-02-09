@@ -49,8 +49,8 @@ const Button = (
     isLoading,
     isLoadingText,
     size,
-    leftIcon,
-    rightIcon,
+    startIcon,
+    endIcon,
     spinner,
     ...props
   }: IButtonProps & IBoxProps,
@@ -111,8 +111,8 @@ const Button = (
   accessibilityProps.isDisabled = accessibilityProps.isDisabled || isLoading;
   const innerButton = (
     <Box {...innerButtonProps} {...commonProps}>
-      {leftIcon ? (
-        <Box mr={Math.floor(innerButtonProps.px / 2) || 2}>{leftIcon}</Box>
+      {startIcon ? (
+        <Box mr={Math.floor(innerButtonProps.px / 2) || 2}>{startIcon}</Box>
       ) : null}
       {isLoading ? (
         <Flex direction="row">
@@ -129,8 +129,8 @@ const Button = (
           {children}
         </Text>
       )}
-      {rightIcon ? (
-        <Box ml={Math.floor(innerButtonProps.px / 2) || 2}>{rightIcon}</Box>
+      {endIcon ? (
+        <Box ml={Math.floor(innerButtonProps.px / 2) || 2}>{endIcon}</Box>
       ) : null}
     </Box>
   );
