@@ -4,8 +4,11 @@ import { useRadioGroup } from '@react-native-aria/radio';
 import type { IFormControlContext } from 'native-base';
 import { FormControlContext } from '../../composites/FormControl/FormControl';
 import { Box } from '..';
+import type { IRadioContext } from './types';
 
-export let RadioContext = React.createContext({});
+export let RadioContext = React.createContext<IRadioContext>(
+  {} as IRadioContext
+);
 
 const RadioGroup = ({ size, colorScheme, ...props }: any) => {
   const formControlContext: IFormControlContext = React.useContext(
@@ -18,11 +21,11 @@ const RadioGroup = ({ size, colorScheme, ...props }: any) => {
     <RadioContext.Provider
       value={{
         ...formControlContext,
-
         size,
         colorScheme,
-
-        name,
+        state,
+        isDisabled: props.isDisabled,
+        isReadOnly: props.isReadOnly,
       }}
     >
       <Box alignItems="flex-start" {...radioGroupProps} {...props}>

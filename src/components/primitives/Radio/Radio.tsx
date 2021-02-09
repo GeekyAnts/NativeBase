@@ -3,9 +3,7 @@ import { TouchableOpacity, Platform } from 'react-native';
 import Icon from '../Icon';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
-// import { RadioContext } from './RadioGroup';
 import type { IRadioProps } from './types';
-// import { useRadio } from './useRadio';
 import { mergeRefs } from './../../../utils';
 import { useHover } from '@react-native-aria/interactions';
 import { useRadio } from '@react-native-aria/radio';
@@ -13,8 +11,7 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { RadioContext } from './RadioGroup';
 
 const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
-  const contextState = React.useContext(RadioContext);
-
+  let contextState = React.useContext(RadioContext);
   const {
     activeColor,
     borderColor,
@@ -33,32 +30,34 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
       size,
       color:
         //@ts-ignore
-        icon.props.color ?? checked
-          ? isDisabled
+        icon.props.color ?? isSelected
+          ? contextState.isDisabled
             ? borderColor
             : activeColor
           : borderColor,
     });
 
-  let { state, isReadOnly, isDisabled } = React.useContext(RadioContext);
   const inputRef = React.useRef(null);
   let { inputProps } = useRadio(
-    { isReadOnly, isDisabled, ...props },
-    state,
+    {
+      isReadOnly: contextState.isReadOnly,
+      isDisabled: contextState.isDisabled,
+      ...props,
+    },
+    contextState.state,
     inputRef
   );
 
-  let isSelected = state.selectedValue === props.value;
-  const { checked, disabled: isDisabled } = inputProps;
+  let isSelected = contextState.state.selectedValue === props.value;
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
 
   const outlineColor =
-    isHovered && !isDisabled
+    isHovered && !contextState.isDisabled
       ? activeColor
-      : checked
-      ? isDisabled
+      : isSelected
+      ? contextState.isDisabled
         ? borderColor
         : activeColor
       : borderColor;
@@ -68,17 +67,17 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
       justifyContent="center"
       alignItems="center"
       {...newProps}
-      opacity={isDisabled ? 0.4 : 1}
+      opacity={contextState.isDisabled ? 0.4 : 1}
       {...(Platform.OS === 'web'
         ? {
-            disabled: isDisabled,
-            cursor: isDisabled ? 'not-allowed' : 'auto',
+            disabled: contextState.isDisabled,
+            cursor: contextState.isDisabled ? 'not-allowed' : 'auto',
           }
         : {})}
     >
       <Box
         borderColor={outlineColor}
-        backgroundColor={isDisabled ? 'muted.200' : 'transparent'}
+        backgroundColor={contextState.isDisabled ? 'muted.200' : 'transparent'}
         borderWidth={1}
         display="flex"
         justifyContent="center"
@@ -86,7 +85,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
         borderRadius={999}
         p={'2px'}
       >
-        {icon && checked ? (
+        {icon && isSelected ? (
           sizedIcon()
         ) : (
           <Icon
@@ -94,9 +93,13 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
             type="MaterialCommunityIcons"
             size={size}
             color={
-              checked ? (isDisabled ? borderColor : activeColor) : 'transparent'
+              isSelected
+                ? contextState.isDisabled
+                  ? borderColor
+                  : activeColor
+                : 'transparent'
             }
-            opacity={checked ? 1 : 0}
+            opacity={isSelected ? 1 : 0}
           />
         )}
       </Box>
@@ -114,10 +117,10 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
           {component}
         </label>
       ) : (
+        //@ts-ignore
         <TouchableOpacity
           activeOpacity={1}
           ref={mergeRefs([ref, _ref])}
-          {...inputProps}
           {...inputProps}
         >
           {component}
