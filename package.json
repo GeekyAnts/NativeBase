@@ -149,7 +149,9 @@
     ]
   },
   "dependencies": {
+    "@react-native-aria/button": "^0.2.1",
     "@react-native-aria/interactions": "^0.2.1",
+    "@react-native-aria/switch": "^0.2.1",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
     "expo-constants": "^9.3.5",
@@ -157,7 +159,6 @@
     "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.20",
     "patch-package": "^6.2.2",
-    "react-native-aria": "^0.1.8",
     "react-native-material-ripple": "^0.9.1",
     "react-native-unimodules": "~0.10.1",
     "tinycolor2": "^1.4.2"
