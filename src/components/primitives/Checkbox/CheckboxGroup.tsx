@@ -7,6 +7,7 @@ import {
   IFormControlContext,
 } from '../../composites/FormControl';
 import type { ICheckboxGroupProps, ICheckboxContext } from './types';
+import { Box } from '..';
 
 export let CheckboxGroupContext = createContext<ICheckboxContext | null>(null);
 
@@ -22,7 +23,7 @@ export function CheckboxGroup({
     FormControlContext
   );
   return (
-    <View {...groupProps}>
+    <Box {...groupProps}>
       <CheckboxGroupContext.Provider
         value={{
           size,
@@ -33,7 +34,7 @@ export function CheckboxGroup({
       >
         {children}
       </CheckboxGroupContext.Provider>
-    </View>
+    </Box>
   );
 }
 

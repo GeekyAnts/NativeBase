@@ -6,9 +6,6 @@ export default function ControlledCheckbox() {
 
   return (
     <>
-      <Checkbox value="three" isChecked>
-        <Text>One</Text>
-      </Checkbox>
       <CheckboxGroup onChange={setGroupValues} value={groupValues}>
         <Checkbox value="one">
           <Text>One</Text>

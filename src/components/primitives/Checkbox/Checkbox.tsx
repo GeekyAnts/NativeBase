@@ -34,7 +34,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     ...props,
   });
   let ref1 = React.useRef();
-
+  const ref2 = mergeRefs([ref, ref1]);
   let state = useToggleState({ ...props, isSelected: props.isChecked });
   let groupState = useContext(CheckboxGroupContext);
   const { isHovered } = useHover({}, ref1);
@@ -51,14 +51,14 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         },
         groupState.state,
         //@ts-ignore
-        mergeRefs([ref, ref1])
+        ref2
       )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckbox(
         props,
         state,
         //@ts-ignore
-        mergeRefs([ref, ref1])
+        ref2
       );
 
   const isChecked = inputProps.checked;
@@ -123,16 +123,16 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
   return (
     <>
       {Platform.OS === 'web' ? (
-        <label ref={mergeRefs([ref, ref1])}>
+        <label ref={ref2}>
           <VisuallyHidden>
-            <input {...inputProps} ref={mergeRefs([ref1, ref])}></input>
+            <input {...inputProps} ref={ref2}></input>
           </VisuallyHidden>
 
           {component}
         </label>
       ) : (
         //@ts-ignore
-        <TouchableOpacity {...inputProps} ref={mergeRefs([ref, ref1])}>
+        <TouchableOpacity {...inputProps} ref={ref2}>
           {component}
         </TouchableOpacity>
       )}
