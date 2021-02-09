@@ -1976,21 +1976,21 @@
     "@react-aria/utils" "^3.5.0"
     "@react-native-aria/utils" "^0.2.1"
 
-"@react-native-aria/switch@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/switch/-/switch-0.2.1.tgz#2c00c0bb4055e25dfe8abe64941d9d50b5879f24"
-  integrity sha512-GhE3X7B2q9wr0pyi+LloKi8k2g5bQnJeMdSpbmoXvd40QP1lwY4Ytm8ZwVFDLR8638N014rkffHMaZjs6/awCQ==
+"@react-native-aria/switch@^0.2.2":
+  version "0.2.2-alpha.1"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/switch/-/switch-0.2.2-alpha.1.tgz#6f8061bfd9ad4c3d53e481d6731e3f92b06c0ce8"
+  integrity sha512-AbGP4JAjaSLSo1Xuts+kmHxoxy/+coc//IAkWjnshmYTCwtJAmMEi46hrRZS0XIrijfi8uhttM6Cy5a3pQvFdw==
   dependencies:
     "@react-aria/switch" "^3.1.1"
     "@react-aria/utils" "^3.5.0"
-    "@react-native-aria/toggle" "^0.2.1"
+    "@react-native-aria/toggle" "^0.2.2-alpha.0"
     "@react-stately/toggle" "^3.2.1"
     "@react-types/switch" "^3.1.1"
 
-"@react-native-aria/toggle@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/toggle/-/toggle-0.2.1.tgz#3bdad70b59691d17ec0f7e8adc8a6e88833c9e9b"
-  integrity sha512-Rr2c0maXKuj5+JO9h6VMfGg8hTUHsyVEof+zMt2gLcZ46xsZ4PopEWKY3dBOJ8fRTxU8jBFK5qRhD47gbKI+9A==
+"@react-native-aria/toggle@^0.2.2-alpha.0":
+  version "0.2.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/toggle/-/toggle-0.2.2-alpha.0.tgz#b50e285c7403fe4475b320297f02904cba73ae4d"
+  integrity sha512-c9SD7hJtzVOOqaj5MDUFHdn/TmYdgXQzdDfJMx2QZtQk8XWcQ7gB/hDuK0BtyjlGXpINvjJycQ0xgX4lz/1JpA==
   dependencies:
     "@react-aria/focus" "^3.2.3"
     "@react-aria/utils" "^3.5.0"

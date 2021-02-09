@@ -83,8 +83,8 @@ const Switch = (
   const inputRef = React.useRef(null);
   let { inputProps } = useSwitch(
     {
-      'aria-label': accessibilityLabel,
-      'aria-describedby': accessibilityHint,
+      accessibilityLabel,
+      accessibilityHint,
       isDisabled,
     },
     state,

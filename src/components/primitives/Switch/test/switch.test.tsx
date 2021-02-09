@@ -8,7 +8,7 @@ describe('Switch', () => {
   it('onToggle on Switch', () => {
     let { getAllByRole } = render(
       <NativeBaseProvider>
-        <Switch />
+        <Switch accessibilityLabel="Test switch" />
       </NativeBaseProvider>
     );
     let switches = getAllByRole('switch');
@@ -20,7 +20,7 @@ describe('Switch', () => {
   it('can be default checked', () => {
     let { getAllByRole } = render(
       <NativeBaseProvider>
-        <Switch defaultIsChecked />
+        <Switch accessibilityLabel="Test switch" defaultIsChecked />
       </NativeBaseProvider>
     );
     let switches = getAllByRole('switch');
@@ -30,7 +30,7 @@ describe('Switch', () => {
   it('can be disabled', () => {
     let { getAllByRole } = render(
       <NativeBaseProvider>
-        <Switch isDisabled />
+        <Switch accessibilityLabel="Test switch" isDisabled />
       </NativeBaseProvider>
     );
     let switches = getAllByRole('switch');
