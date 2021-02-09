@@ -1,7 +1,7 @@
 import React from 'react';
 import View from '../../primitives/View';
 import CloseButton, { ICloseButtonProps } from '../../composites/CloseButton';
-import { ModalContext } from './Modal';
+import { ModalContext } from './Context';
 const ModalCloseButton = (props: ICloseButtonProps) => {
   const { toggleVisible, toggleOnClose, newProps } = React.useContext(
     ModalContext

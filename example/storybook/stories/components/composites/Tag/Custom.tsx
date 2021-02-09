@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag, TagLabel, Avatar, AvatarBadge } from 'native-base';
+import { Tag, TagLabel, Avatar } from 'native-base';
 
 export default function () {
   return (
@@ -12,7 +12,7 @@ export default function () {
         height={10}
         my={1}
       >
-        <AvatarBadge bg={'blue.100'} boxSize={2} />
+        <Avatar.Badge bg={'blue.100'} boxSize={2} />
       </Avatar>
       <TagLabel>Custom Tag</TagLabel>
     </Tag>
