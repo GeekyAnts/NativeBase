@@ -31,7 +31,6 @@ import Popover from './popover';
 import Progress from './progress';
 import Radio from './radio';
 import Skeleton from './skeleton';
-import SkeletonText from './skeletonText';
 import { default as Slider, SliderThumb } from './slider';
 import Spinner from './spinner';
 import Stat from './stat';
@@ -86,7 +85,6 @@ export default {
   Radio,
   ScaleFade,
   Skeleton,
-  SkeletonText,
   Slide,
   SlideFade,
   Slider,

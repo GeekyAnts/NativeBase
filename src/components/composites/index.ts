@@ -39,12 +39,8 @@ export {
   StatGroup,
 } from './Stat';
 
-export { default as Skeleton, SkeletonCircle, SkeletonText } from './Skeleton';
-export type {
-  ISkeletonProps,
-  ISkeletonCircleProps,
-  ISkeletonTextProps,
-} from './Skeleton';
+export { Skeleton } from './Skeleton';
+export type { ISkeletonProps } from './Skeleton';
 
 export { Accordion } from './Accordion';
 export type {
