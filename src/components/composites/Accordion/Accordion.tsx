@@ -4,12 +4,10 @@ import Box from '../../primitives/Box';
 import type { IAccordionProps } from './types';
 import { useThemeProps } from '../../../hooks';
 import getIndexedChildren from '../../../utils/getIndexedChildren';
-
 import { default as AccordionItem } from './AccordionItem';
 import { default as AccordionSummary } from './AccordionSummary';
 import { default as AccordionDetails } from './AccordionDetails';
 import { default as AccordionIcon } from './AccordionIcon';
-
 import { AccordionContext } from './Context';
 
 const Accordion = ({
@@ -51,9 +49,9 @@ const Accordion = ({
   );
 };
 
-Accordion.AccordionItem = AccordionItem;
-Accordion.AccordionSummary = AccordionSummary;
-Accordion.AccordionDetails = AccordionDetails;
-Accordion.AccordionIcon = AccordionIcon;
+Accordion.Item = AccordionItem;
+Accordion.Summary = AccordionSummary;
+Accordion.Details = AccordionDetails;
+Accordion.Icon = AccordionIcon;
 
 export default Accordion;
