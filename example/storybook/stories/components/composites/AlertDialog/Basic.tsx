@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogOverlay,
-  Button,
-  Center,
-} from 'native-base';
+import { AlertDialog, Button, Center } from 'native-base';
 import type { TouchableOpacity } from 'react-native';
 
 export default function () {
@@ -26,21 +17,21 @@ export default function () {
         onClose={onClose}
         motionPreset={'slide'}
       >
-        <AlertDialogOverlay />
-        <AlertDialogContent>
-          <AlertDialogHeader fontSize="lg" fontWeight="bold">
+        <AlertDialog.Overlay />
+        <AlertDialog.Content>
+          <AlertDialog.Header _text={{ fontSize: 'lg', fontWeight: 'bold' }}>
             Delete Customer
-          </AlertDialogHeader>
-          <AlertDialogBody>
+          </AlertDialog.Header>
+          <AlertDialog.Body>
             Are you sure? You can't undo this action afterwards.
-          </AlertDialogBody>
-          <AlertDialogFooter>
+          </AlertDialog.Body>
+          <AlertDialog.Footer>
             <Button onPress={onClose}>Cancel</Button>
             <Button colorScheme="red" onPress={onClose} ml={3}>
               Delete
             </Button>
-          </AlertDialogFooter>
-        </AlertDialogContent>
+          </AlertDialog.Footer>
+        </AlertDialog.Content>
       </AlertDialog>
     </Center>
   );

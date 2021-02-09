@@ -121,15 +121,9 @@ export {
   default as CircularProgress,
   CircularProgressLabel,
 } from './CircularProgress';
-export {
-  default as Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-} from './Modal';
+export { Modal } from './Modal';
+export type { IModalProps } from './Modal';
+
 export {
   default as Popover,
   PopoverBody,
@@ -140,15 +134,7 @@ export {
   PopoverTrigger,
 } from './Popover';
 
-export {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogBody,
-  AlertDialogCloseButton,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogOverlay,
-} from './AlertDialog';
+export { AlertDialog } from './AlertDialog';
 
 export {
   Menu,

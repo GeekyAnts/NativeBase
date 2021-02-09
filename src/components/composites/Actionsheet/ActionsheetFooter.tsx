@@ -1,12 +1,12 @@
 import React from 'react';
-import { ModalContent } from '../Modal';
+import { Modal } from '../../composites';
 import type { IActionsheetFooterProps } from './types';
 
 const ActionsheetFooter = ({ children, ...props }: IActionsheetFooterProps) => {
   return (
-    <ModalContent m={3} p={2} mb={6} borderRadius="lg" {...props}>
+    <Modal.Content m={3} p={2} mb={6} borderRadius="lg" {...props}>
       {children}
-    </ModalContent>
+    </Modal.Content>
   );
 };
 
