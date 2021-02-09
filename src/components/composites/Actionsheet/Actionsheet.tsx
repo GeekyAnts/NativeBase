@@ -1,5 +1,5 @@
 import React from 'react';
-import { default as Modal, ModalOverlay } from '../Modal';
+import { Modal } from '../../composites';
 import type { IActionsheetProps } from './types';
 import { omitUndefined } from '../../../theme/tools/utils';
 
@@ -13,7 +13,7 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps) => {
       {...newProps}
       size="xl"
     >
-      {disableOverlay ? null : <ModalOverlay />}
+      {disableOverlay ? null : <Modal.Overlay />}
       {children}
     </Modal>
   );

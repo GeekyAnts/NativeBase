@@ -15,6 +15,8 @@ import type {
   customExtraProps,
   customShadowProps,
 } from '../../../utils/customProps';
+import type { IBoxProps } from '../../primitives';
+import type { ICloseButtonProps } from '..';
 type SpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 export type IModalSemiProps = ModalProps &
   ColorProps &
@@ -42,5 +44,14 @@ export type IModalSemiProps = ModalProps &
     overlayVisible?: boolean;
     overlayColor?: string;
   };
-
+export type IModalComponentType = ((props: IModalProps) => JSX.Element) & {
+  Body: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  CloseButton: React.MemoExoticComponent<
+    (props: ICloseButtonProps) => JSX.Element
+  >;
+  Content: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  Footer: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  Header: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  Overlay: React.MemoExoticComponent<(props: any) => JSX.Element>;
+};
 export type IModalProps = IModalSemiProps & { isOpen: boolean; onClose: any };

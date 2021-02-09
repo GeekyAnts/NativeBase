@@ -94,7 +94,8 @@ function Wrapper({
       >
         <View style={overlayStyle.background} />
       </TouchableWithoutFeedback>
-      <View pointerEvents="none" style={overlayStyle.itemBackground}>
+      {/* Added box-none instead of none to fix Web modal not able to get clicked inside Modal.Body */}
+      <View pointerEvents="box-none" style={overlayStyle.itemBackground}>
         {overlayItem}
       </View>
     </Animated.View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalContent } from '../Modal';
+import { Modal } from '../../composites';
 import type { IActionsheetContentProps } from './types';
 
 const ActionsheetContent = ({
@@ -7,9 +7,9 @@ const ActionsheetContent = ({
   ...props
 }: IActionsheetContentProps) => {
   return (
-    <ModalContent m={3} p={2} mb={1} borderRadius="lg" {...props}>
+    <Modal.Content m={3} p={2} mb={1} borderRadius="lg" {...props}>
       {children}
-    </ModalContent>
+    </Modal.Content>
   );
 };
 
