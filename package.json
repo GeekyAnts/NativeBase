@@ -22,9 +22,10 @@
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
     "build:web": "rollup --config",
-    "bundle:analysis": "visualize-bundle"
+    "bundle:analysis": "visualize-bundle",
+    "postinstall": "patch-package"
   },
-  "version": "3.0.0-next.16",
+  "version": "3.0.0-next.22",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -34,7 +35,6 @@
   "source": "src/index",
   "typings": "lib/typescript/index.d.ts",
   "devDependencies": {
-    "@babel/preset-react": "^7.12.10",
     "@commitlint/config-conventional": "^8.3.4",
     "@expo/vector-icons": "^12.0.2",
     "@react-native-community/bob": "^0.16.2",
@@ -42,6 +42,7 @@
     "@react-stately/radio": "^3.2.1",
     "@release-it/conventional-changelog": "^1.1.4",
     "@testing-library/react-hooks": "^4.0.0",
+    "@testing-library/react-native": "^7.1.0",
     "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.162",
     "@types/react": "^16.9.19",
@@ -59,6 +60,7 @@
     "jest-expo": "^40.0.1",
     "metro-react-native-babel-preset": "^0.64.0",
     "pod-install": "^0.1.0",
+    "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.0.5",
     "react": "16.11.0",
     "react-native": "0.62.2",
@@ -90,7 +92,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|styled-components|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons)/)"
+      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch)/)"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
@@ -148,19 +150,16 @@
     ]
   },
   "dependencies": {
-    "@react-aria/checkbox": "^3.2.1",
-    "@react-aria/focus": "^3.2.3",
-    "@react-native-aria/checkbox": "^0.2.1",
-    "@react-native-aria/focus": "^0.0.2",
-    "@react-stately/checkbox": "^3.0.1",
-    "@react-stately/toggle": "^3.2.1",
+    "@react-native-aria/button": "^0.2.1",
+    "@react-native-aria/interactions": "^0.2.1",
+    "@react-native-aria/switch": "^0.2.1",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
     "expo-constants": "^9.3.5",
     "expo-font": "^8.3.0",
     "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.20",
-    "react-native-aria": "^0.1.8",
+    "patch-package": "^6.2.2",
     "react-native-material-ripple": "^0.9.1",
     "react-native-unimodules": "~0.10.1",
     "tinycolor2": "^1.4.2"

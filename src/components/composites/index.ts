@@ -10,7 +10,7 @@ export type { IIconButtonProps } from './IconButton';
 export { Alert, AlertTitle, AlertDescription, AlertIcon } from './Alert';
 export type { IAlertProps } from './Alert';
 
-export { Avatar, AvatarBadge, AvatarGroup } from './Avatar';
+export { Avatar } from './Avatar';
 
 export {
   default as Breadcrumb,
@@ -92,13 +92,7 @@ export type {
   INumberInputContext,
 } from './NumberInput';
 
-export {
-  default as Tag,
-  TagCloseButton,
-  TagLabel,
-  TagLeftIcon,
-  TagRightIcon,
-} from './Tag';
+export { default as Tag, TagLabel, TagLeftIcon, TagRightIcon } from './Tag';
 export type { ITagProps } from './Tag';
 
 export { default as Kbd } from './KBD';

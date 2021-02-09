@@ -1,7 +1,7 @@
 import React from 'react';
 import { Animated } from 'react-native';
 import { useThemeProps } from '../../../hooks/useThemeProps';
-import type { IFadeProps } from './props';
+import type { IFadeProps } from './types';
 import { useFadeTransition } from './useFadeTransition';
 import Box from '../../primitives/Box';
 

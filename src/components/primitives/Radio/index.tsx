@@ -5,4 +5,4 @@ export type {
   IRadioGroupProps,
   IRadioContext,
   IRadioValue,
-} from './props';
+} from './types';

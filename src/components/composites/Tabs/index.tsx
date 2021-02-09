@@ -11,4 +11,4 @@ export type {
   ITabViewsProps,
   ITabViewProps,
   ITabsContextProps,
-} from './props';
+} from './types';

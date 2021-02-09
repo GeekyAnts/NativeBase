@@ -7,7 +7,7 @@ export default (
 ) => {
   let counter = startingIndex ?? -1;
   const indexedChildren = React.Children.map(children, (child: any) => {
-    if (child.type.name === indexComponent) {
+    if (child.type.type.name === indexComponent) {
       counter++;
       return React.cloneElement(
         child,

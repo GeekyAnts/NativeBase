@@ -5,13 +5,23 @@ import type {
   IPinInputProps,
   IPinInputFieldProps,
   IPinInputContext,
-} from './props';
+} from './types';
 import { FormControlContext, IFormControlContext } from '../FormControl';
 import { Platform } from 'react-native';
-import isNil from 'lodash/isNil';
 import { PinInputContext } from './Context';
+import { themeTools } from '../../../theme';
+import remove from 'lodash/remove';
 
 const PinInput = ({ children, ...props }: IPinInputProps) => {
+  let [padding, remProps] = themeTools.extractInObject(props, [
+    'p',
+    'px',
+    'py',
+    'pt',
+    'pb',
+    'pl',
+    'pr',
+  ]);
   const {
     manageFocus,
     defaultValue,
@@ -19,7 +29,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
     space,
     onChange,
     ...newProps
-  } = useThemeProps('PinInput', props);
+  } = useThemeProps('PinInput', remProps);
   const formControlContext: IFormControlContext = React.useContext(
     FormControlContext
   );
@@ -35,10 +45,10 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
     temp[fieldIndex] = newValue;
     setPinInputValue(temp.join(''));
     onChange && onChange(temp.join(''));
-    if (!isNil(newValue) && manageFocus && fieldIndex + 1 < RefList.length)
-      RefList[fieldIndex + 1].current.focus();
-    if (isNil(newValue) && manageFocus && fieldIndex - 1 > -1)
+    if (newValue === '' && manageFocus && fieldIndex - 1 > -1)
       RefList[fieldIndex - 1].current.focus();
+    else if (newValue && manageFocus && fieldIndex + 1 < RefList.length)
+      RefList[fieldIndex + 1].current.focus();
     return temp.join('');
   };
   const handleMultiValueChange = (newValue: string, fieldIndex: number) => {
@@ -51,12 +61,19 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
       setPinInputValue(splicedValue.join(''));
       onChange && onChange(splicedValue.join(''));
     }
-    if (Platform.OS === 'android' && newValue) {
+    if (Platform.OS !== 'ios') {
       const temp = pinInputValue ? [...pinInputValue] : [];
-      temp[fieldIndex] = JSON.stringify(parseInt(newValue, 10) % 10);
-      if (newValue && manageFocus && fieldIndex + 1 < RefList.length)
-        RefList[fieldIndex + 1].current.focus();
-      // Backward focus is handled by handle change function.
+      if (newValue === '') {
+        // Handling Backward focus.
+        temp[fieldIndex];
+        remove(temp, (_n, i) => i === fieldIndex);
+        if (manageFocus && fieldIndex - 1 > -1)
+          RefList[fieldIndex - 1].current.focus();
+      } else {
+        temp[fieldIndex] = JSON.stringify(parseInt(newValue, 10) % 10);
+        if (manageFocus && fieldIndex + 1 < RefList.length)
+          RefList[fieldIndex + 1].current.focus();
+      }
       setPinInputValue(temp.join(''));
       onChange && onChange(temp.join(''));
     }
@@ -65,7 +82,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
   const indexSetter = (allChildren: JSX.Element | JSX.Element[]) => {
     let pinInputFiledCounter = -1;
     return React.Children.map(allChildren, (child: JSX.Element) => {
-      if (child.type.name !== 'PinInputFiled') return child;
+      if (child.type.type.name !== 'PinInputFiled') return child;
       else {
         pinInputFiledCounter++;
         return React.cloneElement(
@@ -91,7 +108,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
       }}
     >
       {children && (
-        <HStack flexDirection="row" space={space}>
+        <HStack flexDirection="row" space={space} {...padding}>
           {indexSetter(children)}
         </HStack>
       )}

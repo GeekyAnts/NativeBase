@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from '../../primitives/Input';
-import type { INumberInputContext, INumberInputFieldProps } from './props';
+import type { INumberInputContext, INumberInputFieldProps } from './types';
 import { NumberInputContext } from './Context';
 import type { TextInput } from 'react-native';
 
@@ -44,7 +44,6 @@ const NumberInputFiled = (
       onChangeText={(inputValue) => changeHandler(inputValue)}
       keyboardType="numeric"
       value={`${numberInputValue}`}
-      style={[context.style, props.style]}
       InputRightElement={numberInputStepper}
       ref={ref}
     />

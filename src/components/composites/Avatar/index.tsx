@@ -1,4 +1,9 @@
-export { default as Avatar } from './Avatar';
-export { default as AvatarBadge } from './Badge';
-export { default as AvatarGroup } from './Group';
-export type { IAvatarProps, IAvatarBadgeProps } from './props';
+import Avatar from './Avatar';
+import AvatarBadge from './Badge';
+import AvatarGroup from './Group';
+export type { IAvatarProps, IAvatarBadgeProps } from './types';
+
+Avatar.Badge = AvatarBadge;
+Avatar.Group = AvatarGroup;
+
+export { Avatar };

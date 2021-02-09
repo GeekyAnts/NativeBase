@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, HStack, VStack } from '../../primitives';
-import type { ISimpleGridProps } from './props';
+import type { ISimpleGridProps } from './types';
 // const isDebug = process.env.NODE_ENV !== 'production';
 
 const DEBUG_STYLES = false

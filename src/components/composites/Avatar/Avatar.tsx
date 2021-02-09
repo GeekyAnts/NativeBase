@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Box, Image, Text } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
-import type { IAvatarProps } from './props';
+import type { IAvatarProps } from './types';
 
 const initials = (name: string) => {
   const [firstName, lastName] = name.split(' ');
@@ -13,7 +13,7 @@ const initials = (name: string) => {
 
 const StyledAvatar = styled(Box)<IAvatarProps>({});
 
-const Avatar = (
+const AvatarMain: any = (
   props: IAvatarProps & {
     children?: JSX.Element[] | JSX.Element | any | undefined;
   }
@@ -49,4 +49,4 @@ const Avatar = (
   );
 };
 
-export default React.memo(Avatar);
+export default AvatarMain;

@@ -5,7 +5,7 @@ import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
 import { RadioContext } from './RadioGroup';
 import type { IRadioProps } from './props';
-import { useRadio, AriaInputWrapper } from 'react-native-aria';
+import { useRadio, AriaInputWrapper } from '@react-native-aria/radio';
 import { Hoverable } from './../../../utils';
 
 const Radio = ({ icon, ...props }: IRadioProps, ref: any) => {

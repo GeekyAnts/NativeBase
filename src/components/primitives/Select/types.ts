@@ -7,6 +7,7 @@ export type ISelectProps = IButtonProps & {
   onValueChange: (itemValue: string, itemIndex?: number) => void;
   itemStyle?: ITextProps;
   selectedItemBg?: string;
+  selectedItemColor?: string;
   isDisabled?: boolean;
   dropdownIcon?: JSX.Element;
   dropdownOpenIcon?: JSX.Element;

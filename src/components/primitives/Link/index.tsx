@@ -4,7 +4,7 @@ import type { View as ViewType } from 'react-native';
 import View from './../View';
 import styled from 'styled-components/native';
 import { addTextAndPropsToStrings } from '../../../utils';
-import type { ILinkProps } from './props';
+import type { ILinkProps } from './types';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
 import { useLink } from './useLink';

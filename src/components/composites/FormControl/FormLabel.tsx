@@ -3,7 +3,7 @@ import Box from '../../primitives/Box';
 import Text from '../../primitives/Text';
 import { useToken } from '../../../hooks';
 import { FormControlContext } from './FormControl';
-import type { IFormLabelProps, IFormControlContext } from './props';
+import type { IFormLabelProps, IFormControlContext } from './types';
 
 const FormLabel = ({
   children,

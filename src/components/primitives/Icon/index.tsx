@@ -20,6 +20,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import { useThemeProps, useToken } from '../../../hooks';
+
 import styled from 'styled-components/native';
 import {
   AntDesign,
@@ -28,6 +29,7 @@ import {
   Feather,
   FontAwesome,
   FontAwesome5,
+  Fontisto,
   Foundation,
   Ionicons,
   MaterialCommunityIcons,
@@ -36,9 +38,25 @@ import {
   SimpleLineIcons,
   Zocial,
 } from '@expo/vector-icons';
-
-import type { IIconProps, IconType } from './props';
+import type { IIconProps, IconType, IconNameType } from './types';
 import SVGIcon from './SVGIcon';
+
+const componentMap = {
+  AntDesign,
+  Entypo,
+  EvilIcons,
+  Feather,
+  FontAwesome,
+  FontAwesome5,
+  Fontisto,
+  Foundation,
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Octicons,
+  SimpleLineIcons,
+  Zocial,
+};
 
 const Icon = (iconProps: IIconProps, ref: any) => {
   const { name, type, size, color: colorProp, ...props } = iconProps;
@@ -52,158 +70,23 @@ const Icon = (iconProps: IIconProps, ref: any) => {
   const flattenedIconStyle = StyleSheet.flatten([
     {
       fontSize: parseInt(newProps.size, 10),
-      marginRight,
+      marginRight: marginRight ? parseInt(marginRight, 10) : undefined,
     },
   ]);
-  switch (type) {
-    case 'AntDesign':
-      return (
-        <AntDesign
-          // TODO: remove this
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'Entypo':
-      return (
-        <Entypo
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'EvilIcons':
-      return (
-        <EvilIcons
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'Feather':
-      return (
-        <Feather
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'FontAwesome':
-      return (
-        <FontAwesome
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'FontAwesome5':
-      return (
-        <FontAwesome5
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'Foundation':
-      return (
-        <Foundation
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'Ionicons':
-      return (
-        <Ionicons
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'MaterialCommunityIcons':
-      return (
-        <MaterialCommunityIcons
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'Octicons':
-      return (
-        <Octicons
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'SimpleLineIcons':
-      return (
-        <SimpleLineIcons
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    case 'Zocial':
-      return (
-        <Zocial
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-    default:
-      return (
-        <MaterialIcons
-          // @ts-ignore
-          name={name}
-          {...props}
-          style={flattenedIconStyle}
-          color={rawColor}
-          ref={ref}
-        />
-      );
-  }
+
+  const Component = type ? componentMap[type] : MaterialIcons;
+  return (
+    <Component
+      name={name}
+      {...props}
+      style={flattenedIconStyle}
+      color={rawColor}
+      ref={ref}
+    />
+  );
 };
 
-const styledIcon: any = styled(React.forwardRef(Icon))<IIconProps>(
+export default styled(React.memo(React.forwardRef(Icon)))<IIconProps>(
   color,
   space,
   layout,
@@ -220,7 +103,5 @@ const styledIcon: any = styled(React.forwardRef(Icon))<IIconProps>(
   customLayout,
   customTypography
 );
-
-export default React.memo(styledIcon);
-export type { IIconProps, IconType };
+export type { IIconProps, IconType, IconNameType };
 export { createIcon } from './createIcon';

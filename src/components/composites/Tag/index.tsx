@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { Box, IIconProps, Icon, Text, ITextProps } from '../../primitives';
-import CloseButton from '../CloseButton';
 import { useThemeProps } from '../../../hooks';
 
-export { CloseButton as TagCloseButton };
-import type { ITagProps } from './props';
+import type { ITagProps } from './types';
 
 const StyledTag = styled(Box)<ITagProps>({});
 
@@ -13,10 +11,18 @@ export const TagLabel = React.memo((props: ITextProps) => {
   return <Text {...props} />;
 });
 export const TagLeftIcon = React.memo((props: IIconProps) => {
-  return <Icon mr={2} {...props} />;
+  return (
+    <Box mr={1}>
+      <Icon {...props} />
+    </Box>
+  );
 });
 export const TagRightIcon = React.memo((props: IIconProps) => {
-  return <Icon ml={2} {...props} />;
+  return (
+    <Box ml={1}>
+      <Icon {...props} />
+    </Box>
+  );
 });
 
 const Tag = ({ style, ...props }: ITagProps) => {

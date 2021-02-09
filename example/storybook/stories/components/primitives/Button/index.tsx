@@ -4,7 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import ButtonGroup from './ButtonGroup';
 import WithRef from './WithRef';
 import Sizes from './sizes';
-import Usage from './usage';
+import Basic from './basic';
 import Variants from './variants';
 import Loading from './loading';
 import Icons from './icons';
@@ -14,7 +14,7 @@ import Wrapper from './../../Wrapper';
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
-  .add('Usage', () => <Usage />)
+  .add('Basic', () => <Basic />)
   .add('Sizes', () => <Sizes />)
   .add('Variants', () => <Variants />)
   .add('Loading', () => <Loading />)

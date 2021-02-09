@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
-import { Hoverable } from './../../../utils';
+import { mergeRefs } from './../../../utils';
 import { useThemeProps } from '../../../hooks';
 import { Center } from '../../composites/Center';
 import {
@@ -13,7 +13,6 @@ import type { ICheckboxProps } from './props';
 import { useToggleState } from '@react-stately/toggle';
 import mergeRefs from '../../../utils/mergeRefs';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
-import { useFocusRing } from '@react-native-aria/focus';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { CheckboxGroupContext } from './CheckboxGroup';
 
@@ -61,7 +60,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         //@ts-ignore
         mergeRefs([ref, ref1])
       );
-  let { focusProps } = useFocusRing();
+
   const isChecked = inputProps.checked;
   const isDisabled = inputProps.disabled;
   const sizedIcon = icon
@@ -137,20 +136,14 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
       {Platform.OS === 'web' ? (
         <label>
           <VisuallyHidden>
-            <input
-              {...inputProps}
-              {...focusProps}
-              ref={mergeRefs([ref1, ref])}
-            ></input>
+            <input {...inputProps} ref={mergeRefs([ref1, ref])}></input>
           </VisuallyHidden>
 
           {component}
         </label>
       ) : (
         //@ts-ignore
-        <TouchableOpacity {...inputProps} {...focusProps}>
-          {component}
-        </TouchableOpacity>
+        <TouchableOpacity {...inputProps}>{component}</TouchableOpacity>
       )}
     </>
   );

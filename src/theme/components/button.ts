@@ -2,7 +2,6 @@ import { Dict, mode } from './../tools';
 
 const baseStyle = {
   borderRadius: 'lg',
-  fontWeight: 'semibold',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'center',
@@ -12,12 +11,16 @@ function variantGhost(props: Dict) {
   const { colorScheme: c } = props;
   if (c === 'gray') {
     return {
-      color: mode(`gray.600`, `whiteAlpha.900`)(props),
+      _text: {
+        color: mode(`gray.500`, `whiteAlpha.900`)(props),
+      },
     };
   }
 
   return {
-    color: mode(`${c}.600`, `${c}.200`)(props),
+    _text: {
+      color: mode(`${c}.500`, `${c}.200`)(props),
+    },
     bg: 'transparent',
   };
 }
@@ -28,7 +31,7 @@ function variantOutline(props: Dict) {
   return {
     border: '1px solid',
     borderColor:
-      c === 'gray' ? borderColor : mode(`${c}.600`, `${c}.200`)(props),
+      c === 'gray' ? borderColor : mode(`${c}.500`, `${c}.200`)(props),
     ...variantGhost(props),
   };
 }
@@ -56,10 +59,12 @@ function variantSolid(props: Dict) {
     return {
       bg: mode(`gray.100`, `whiteAlpha.200`)(props),
     };
-  const { bg = `${c}.700`, color = 'white' } = accessibleColorMap[c] || {};
+  const { bg = `${c}.500`, color = 'white' } = accessibleColorMap[c] || {};
   return {
-    bg: mode(bg, `${c}.700`)(props),
-    color: mode(color, `gray.800`)(props),
+    bg: mode(bg, `${c}.400`)(props),
+    _text: {
+      color: mode(color, `gray.800`)(props),
+    },
   };
 }
 
@@ -69,8 +74,10 @@ function variantLink(props: Dict) {
     padding: 0,
     height: 'auto',
     // lineHeight: 'normal',
-    color: mode(`${c}.500`, `${c}.200`)(props),
-    textDecorationLine: 'underline',
+    _text: {
+      color: mode(`${c}.500`, `${c}.200`)(props),
+      textDecorationLine: 'underline',
+    },
   };
 }
 
@@ -93,28 +100,36 @@ const sizes = {
   lg: {
     minH: 12,
     minW: 12,
-    fontSize: 'lg',
+    _text: {
+      fontSize: 'lg',
+    },
     px: 6,
     py: 4,
   },
   md: {
     minH: 10,
     minW: 10,
-    fontSize: 'md',
+    _text: {
+      fontSize: 'md',
+    },
     px: 5,
     py: 3,
   },
   sm: {
     minH: 8,
     minW: 8,
-    fontSize: 'sm',
+    _text: {
+      fontSize: 'sm',
+    },
     px: 4,
     py: 2,
   },
   xs: {
     minH: 6,
     minW: 6,
-    fontSize: 'xs',
+    _text: {
+      fontSize: 'xs',
+    },
     px: 2,
   },
 };
@@ -123,6 +138,9 @@ const defaultProps = {
   variant: 'solid',
   size: 'md',
   colorScheme: 'gray',
+  _text: {
+    fontWeight: 'semibold',
+  },
 };
 
 export default {

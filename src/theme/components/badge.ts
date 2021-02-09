@@ -12,8 +12,8 @@ const baseStyle = {
 function variantSolid(props: Record<string, any>) {
   let colorScheme = getColorScheme(props);
   return {
-    bg: mode(`${colorScheme}.700`, `${colorScheme}.100`)(props),
-    color: mode(`${colorScheme}.100`, `${colorScheme}.700`)(props),
+    bg: mode(`${colorScheme}.500`, `${colorScheme}.100`)(props),
+    color: mode(`${colorScheme}.100`, `${colorScheme}.500`)(props),
     borderWidth: 1,
     borderColor: 'transparent',
   };
@@ -22,7 +22,7 @@ function variantSolid(props: Record<string, any>) {
 function variantSubtle(props: Record<string, any>) {
   let colorScheme = getColorScheme(props);
   return {
-    bg: mode(`${colorScheme}.100`, `${colorScheme}.700`)(props),
+    bg: mode(`${colorScheme}.100`, `${colorScheme}.500`)(props),
     color: mode(`${colorScheme}.700`, `${colorScheme}.100`)(props),
     borderWidth: 1,
     borderColor: 'transparent',
@@ -32,8 +32,8 @@ function variantSubtle(props: Record<string, any>) {
 function variantOutline(props: Record<string, any>) {
   let colorScheme = getColorScheme(props);
   return {
-    borderColor: mode(`${colorScheme}.700`, `${colorScheme}.100`)(props),
-    color: mode(`${colorScheme}.700`, `${colorScheme}.100`)(props),
+    borderColor: mode(`${colorScheme}.500`, `${colorScheme}.100`)(props),
+    color: mode(`${colorScheme}.500`, `${colorScheme}.100`)(props),
     borderWidth: 1,
   };
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
-import type { IContainerProps } from './props';
+import Box from '../../primitives/Box';
+import type { IContainerProps } from './types';
 
 const Container = ({ children, centerContent, ...props }: IContainerProps) => {
   const newProps = useThemeProps('Container', props);

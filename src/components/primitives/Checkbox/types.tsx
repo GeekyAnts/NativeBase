@@ -42,8 +42,6 @@ export type ICheckboxContext = IFormControlContext & {
   size?: 'sm' | 'md' | 'lg';
   style?: any;
   state: CheckboxGroupState;
-  value: any;
-  onChange: any;
 };
 
 export type IUseCheckboxReturnType = {

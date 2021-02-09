@@ -8,4 +8,4 @@ export type {
   IFormErrorMessageProps,
   IFormHelperTextProps,
   IFormControlContext,
-} from './props';
+} from './types';

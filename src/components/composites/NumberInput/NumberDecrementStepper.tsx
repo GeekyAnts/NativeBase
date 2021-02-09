@@ -1,5 +1,5 @@
 import React from 'react';
-import type { INumberInputContext, INumberInputStepperProps } from './props';
+import type { INumberInputContext, INumberInputStepperProps } from './types';
 import { NBStepper } from './NumberInputStepper';
 import { NumberInputContext } from './Context';
 

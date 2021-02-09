@@ -10,7 +10,8 @@ export default function () {
       width={150}
       onValueChange={(itemValue: string) => setLanguage(itemValue)}
       // itemStyle={{ fontSize: 'lg' }}
-      selectedItemBg={'teal.400'}
+      selectedItemBg={'blue.500'}
+      selectedItemColor={'white'}
       // isDisabled
       dropdownOpenIcon={
         <Icon name="arrow-drop-up" type="MaterialIcons" size={6} />
@@ -21,11 +22,7 @@ export default function () {
     >
       <Select.Item label="JavaScript" value="js" />
       <Select.Item label="TypeScript" value="ts" />
-      <Select.Item
-        // isDisabled
-        label="Java"
-        value="java"
-      />
+      <Select.Item label="Java" value="java" />
     </Select>
   );
 }

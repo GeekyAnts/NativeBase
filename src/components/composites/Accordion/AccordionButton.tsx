@@ -1,47 +1,57 @@
 import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import Box from '../../primitives/Box';
-import { useToken } from '../../../hooks';
 import type {
   IAccordionButtonProps,
   IAccordionItemContextProps,
-} from './props';
+} from './types';
 import { AccordionItemContext } from './Context';
+import { useThemeProps } from '../../../hooks';
+import { mergeRefs } from './../../../utils';
+import { useHover } from '@react-native-aria/interactions';
 
 const AccordionButton = (
-  { children, style, _expanded, _disabled, ...props }: IAccordionButtonProps,
+  { children, ...props }: IAccordionButtonProps,
   ref: any
 ) => {
   const {
+    index,
     isOpen,
     isDisabled,
     onOpen,
     onClose,
   }: IAccordionItemContextProps = React.useContext(AccordionItemContext);
 
+  const { _hover, _expanded, _disabled, ...newProps } = useThemeProps(
+    'AccordionButton',
+    props
+  );
   const pressHandler = () => {
     isOpen ? onClose && onClose() : onOpen && onOpen();
   };
-  const borderColor = useToken('colors', 'muted.200');
+
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+
   return (
     <TouchableOpacity
       activeOpacity={1}
       disabled={isDisabled}
-      onPress={() => pressHandler()}
+      onPress={pressHandler}
       accessible
       accessibilityRole="checkbox"
-      ref={ref}
+      ref={mergeRefs([ref, _ref])}
     >
       <Box
-        p={3}
-        borderColor={borderColor}
         display="flex"
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
-        {...props}
-        style={[style, isOpen && _expanded, isDisabled && _disabled]}
-        opacity={isDisabled ? 0.4 : 1}
+        {...newProps}
+        {...(isHovered && _hover)}
+        {...(isOpen && _expanded)}
+        {...(isDisabled && _disabled)}
+        {...(!index && { borderTopColor: 'transparent' })}
         {...(Platform.OS === 'web'
           ? {
               disabled: isDisabled,

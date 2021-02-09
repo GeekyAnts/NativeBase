@@ -8,10 +8,10 @@ function getBg(props: Record<string, any>) {
     variant === 'solid'
       ? getColor(theme, `${status}.400`, status)
       : getColor(theme, `${status}.100`, status);
-  const darkBg =
-    variant === 'solid'
-      ? transparentize(`${status}.300`, 0.8)(theme)
-      : transparentize(`${status}.300`, 0.2)(theme);
+  const darkBg = transparentize(
+    `${status}.500`,
+    variant === 'solid' ? 0.8 : 0.5
+  )(theme);
   return mode(lightBg, darkBg)(props);
 }
 
@@ -21,7 +21,10 @@ const variantSubtle = (props: Record<string, any>) => {
   return {
     bg: getBg(props),
     iconColor: mode(`${status}.500`, `${status}.200`)(props),
-    textColor: getColor(theme, `${status}.900`, status),
+    textColor: mode(
+      getColor(theme, `${status}.600`, status),
+      getColor(theme, `${status}.300`, status)
+    )(props),
   };
 };
 
@@ -30,9 +33,9 @@ const variantOutline = (props: Record<string, any>) => {
   status = getColorScheme(props, status);
   return {
     borderWidth: 1,
-    borderColor: mode(`${status}.600`, `${status}.200`)(props),
-    iconColor: mode(`${status}.500`, `${status}.200`)(props),
-    textColor: getColor(theme, `${status}.900`, status),
+    borderColor: mode(`${status}.600`, `${status}.500`)(props),
+    iconColor: mode(`${status}.500`, `${status}.500`)(props),
+    textColor: getColor(theme, `${status}.700`, status),
   };
 };
 const variantOutlineLight = (props: Record<string, any>) => {
@@ -53,32 +56,32 @@ const variantSolid = (props: Record<string, any>) => {
     borderWidth: 6,
     borderColor: 'transparent',
     bg: getBg(props),
-    iconColor: mode(`white`, `${status}.700`)(props),
-    textColor: mode('white', 'gray')(props),
+    iconColor: mode(`white`, `${status}.300`)(props),
+    textColor: mode('white', `${status}.200`)(props),
   };
 };
 const variantLeftAccent = (props: Record<string, any>) => {
-  let { status, theme } = props;
+  let { status } = props;
   status = getColorScheme(props, status);
   return {
     borderWidth: 4,
     bg: getBg(props),
-    iconColor: mode(`${status}.700`, `${status}.200`)(props),
-    textColor: mode('gray', 'white')(props),
+    iconColor: mode(`${status}.500`, `${status}.200`)(props),
+    textColor: mode(`${status}.600`, `${status}.300`)(props),
     borderColor: 'transparent',
-    borderLeftColor: theme.colors[status][300],
+    borderLeftColor: mode(`${status}.600`, `${status}.300`)(props),
   };
 };
 const variantTopAccent = (props: Record<string, any>) => {
-  let { status, theme } = props;
+  let { status } = props;
   status = getColorScheme(props, status);
   return {
     borderWidth: 4,
     borderColor: 'transparent',
-    borderTopColor: theme.colors[status][300],
+    borderTopColor: mode(`${status}.600`, `${status}.300`)(props),
     bg: getBg(props),
-    iconColor: mode(`${status}.700`, `${status}.200`)(props),
-    textColor: mode('gray', 'white')(props),
+    iconColor: mode(`${status}.500`, `${status}.200`)(props),
+    textColor: mode(`${status}.600`, `${status}.300`)(props),
   };
 };
 

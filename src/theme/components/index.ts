@@ -1,8 +1,15 @@
+import {
+  Accordion,
+  AccordionItem,
+  AccordionIcon,
+  AccordionButton,
+  AccordionPanel,
+} from './accordion';
 import { Alert, AlertDescription, AlertTitle } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
 import Badge from './badge';
-import BreadCrumb from './breadcrumb';
+import Breadcrumb from './breadcrumb';
 import Button from './button';
 import Center from './center';
 import Checkbox from './checkbox';
@@ -37,15 +44,21 @@ import TextArea from './textarea';
 import Toast from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import Wrap from './wrap';
+import List from './list';
 
 export default {
+  Accordion,
+  AccordionItem,
+  AccordionIcon,
+  AccordionButton,
+  AccordionPanel,
   Alert,
   AlertDescription,
   AlertTitle,
   Avatar,
   AvatarBadge,
   Badge,
-  BreadCrumb,
+  Breadcrumb,
   Button,
   Center,
   Checkbox,
@@ -60,6 +73,7 @@ export default {
   Input,
   Kbd,
   Link,
+  List,
   Menu,
   MenuGroup,
   MenuItem,

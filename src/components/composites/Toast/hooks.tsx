@@ -1,7 +1,7 @@
 import React from 'react';
 import { useOverlay } from '../../../core/Overlay';
 import ToastItem from './ToastItem';
-import type { IsetToastProps } from './props';
+import type { IsetToastProps } from './types';
 
 export const useToast = () => {
   const { closeOverlay, setOverlay } = useOverlay();

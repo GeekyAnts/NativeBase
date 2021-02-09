@@ -1,7 +1,16 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space } from 'styled-system';
-import type { IButtonGroupProps } from './props';
+import { border, color, flexbox, layout, position, space } from 'styled-system';
+import {
+  customBackground,
+  customBorder,
+  customExtra,
+  customLayout,
+  customOutline,
+  customPosition,
+  customShadow,
+} from '../../../utils/customProps';
+import type { IButtonGroupProps } from './types';
 
 const StyledButtonGroup = styled.View<IButtonGroupProps>(
   color,
@@ -9,6 +18,14 @@ const StyledButtonGroup = styled.View<IButtonGroupProps>(
   layout,
   flexbox,
   border,
+  position,
+  customPosition,
+  customBorder,
+  customBackground,
+  customOutline,
+  customShadow,
+  customExtra,
+  customLayout,
   { flexDirection: 'row', flexWrap: 'wrap' }
 );
 

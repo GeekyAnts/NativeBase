@@ -1,7 +1,7 @@
 import React from 'react';
 import { useThemeProps } from '../../../hooks';
 import { FormControlContext, IFormControlContext } from '../FormControl';
-import type { INumberInputProps } from './props';
+import type { INumberInputProps } from './types';
 import { NumberInputContext } from './Context';
 
 const NumberInput = ({ children, ...props }: INumberInputProps) => {
@@ -38,7 +38,7 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
 
   const separatingNumberInputStepper = (allChildren: any) => {
     return React.Children.map(allChildren, (child: JSX.Element) => {
-      if (child.type.name === 'NumberInputStepper') {
+      if (child.type.type.name === 'NumberInputStepper') {
         numberInputStepper = child;
         return null;
       } else {

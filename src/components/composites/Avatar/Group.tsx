@@ -2,7 +2,7 @@ import React from 'react';
 import Flex from '../../primitives/Flex';
 import { useThemeProps } from '../../../hooks';
 import isNil from 'lodash/isNil';
-import type { IAvatarProps } from './props';
+import type { IAvatarProps } from './types';
 import { default as Avatar } from './Avatar';
 
 const getAvatarGroupChildren = (

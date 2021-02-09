@@ -1,6 +1,6 @@
 import React from 'react';
 import { ModalContent } from '../Modal';
-import type { IActionsheetContentProps } from './props';
+import type { IActionsheetContentProps } from './types';
 
 const ActionsheetContent = ({
   children,

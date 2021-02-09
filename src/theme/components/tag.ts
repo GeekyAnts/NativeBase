@@ -14,7 +14,7 @@ const sizes = {
     minH: 5,
     minW: 5,
     fontSize: 'xs',
-    px: 1,
+    p: 1,
     borderRadius: 'sm',
   },
   md: {
@@ -22,14 +22,14 @@ const sizes = {
     minW: 6,
     fontSize: 'sm',
     borderRadius: 'md',
-    px: 2,
+    p: 2,
   },
   lg: {
     minH: 8,
     minW: 8,
     fontSize: 'md',
     borderRadius: 'md',
-    px: 3,
+    p: 3,
   },
 };
 

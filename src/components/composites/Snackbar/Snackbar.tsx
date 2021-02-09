@@ -1,11 +1,11 @@
 import React from 'react';
 import { Slide } from '../Transitions';
-import type { ISnackbarProps } from './props';
+import type { ISnackbarProps } from './types';
 import { AccessibilityInfo, Platform } from 'react-native';
 
 const Snackbar = ({
   children,
-  duration = 5000,
+  autoHideDuration = 5000,
   accessibilityAnnouncement,
   ...props
 }: ISnackbarProps) => {
@@ -14,19 +14,14 @@ const Snackbar = ({
     isOpen &&
       setTimeout(() => {
         setIsOpen(false);
-      }, duration);
-  }, [isOpen, duration]);
+      }, autoHideDuration);
+  }, [isOpen, autoHideDuration]);
 
   React.useEffect(() => {
-    if (accessibilityAnnouncement && isOpen) {
-      if (Platform.OS !== 'web') {
-        AccessibilityInfo.announceForAccessibility(accessibilityAnnouncement);
-      } else {
-        // Handle via web live regions
-      }
+    if (accessibilityAnnouncement && isOpen && Platform.OS !== 'web') {
+      AccessibilityInfo.announceForAccessibility(accessibilityAnnouncement);
     }
   }, [accessibilityAnnouncement, isOpen]);
-  // const newProps = useThemeProps('Snackbar', props);
   return (
     <Slide in={isOpen} {...props}>
       {children}

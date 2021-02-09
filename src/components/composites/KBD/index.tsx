@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { Box, Text } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
-import type { IKbdProps } from './props';
+import type { IKbdProps } from './types';
 
 const Kbd = ({ style, textStyle, children, ...props }: IKbdProps) => {
   let newProps = useThemeProps('Kbd', props);

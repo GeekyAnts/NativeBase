@@ -1,11 +1,9 @@
 import React from 'react';
-import { Flex, Link as BreadcrumbLink } from '../../primitives';
-import type { IBreadcrumbProps } from './props';
-import { extractInObject } from '../../../theme/tools';
-import { getBreadcrumbSeparator } from './BreadcrumbSeparator';
 import { useThemeProps } from '../../../hooks';
-export { default as BreadcrumbItem } from './BreadcrumbItem';
-export { BreadcrumbLink };
+import { extractInObject } from '../../../theme/tools';
+import { Flex, Link as BreadcrumbLink } from '../../primitives';
+import { getBreadcrumbSeparator } from './BreadcrumbSeparator';
+import type { IBreadcrumbProps } from './types';
 
 const Breadcrumb = ({
   style,
@@ -45,4 +43,6 @@ const Breadcrumb = ({
 };
 
 export default React.memo(Breadcrumb);
+export { default as BreadcrumbItem } from './BreadcrumbItem';
+export { BreadcrumbLink };
 export type { IBreadcrumbProps };

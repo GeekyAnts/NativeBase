@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '../Box';
-import type { IFlexProps } from './props';
+import type { IFlexProps } from './types';
 
 const Flex = (
   {

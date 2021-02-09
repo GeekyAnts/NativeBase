@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
-import type { IAvatarBadgeProps } from './props';
+import type { IAvatarBadgeProps } from './types';
 
 const AvatarBadge = (props: IAvatarBadgeProps) => {
   const { boxSize, ...newProps } = useThemeProps('AvatarBadge', props);

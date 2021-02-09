@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import { useToken } from '../../../hooks';
 import { FormControlContext } from './FormControl';
-import type { IFormHelperTextProps, IFormControlContext } from './props';
+import type { IFormHelperTextProps, IFormControlContext } from './types';
 
 const FormHelperText = ({
   children,

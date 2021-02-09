@@ -1,9 +1,9 @@
 import React from 'react';
-import Box from '../../primitives/Box';
-import { useThemeProps } from '../../../hooks';
 import { Animated, Platform } from 'react-native';
-import type { ISkeletonProps } from './props';
+import { useThemeProps } from '../../../hooks';
 import { canUseDom } from '../../../utils';
+import Box from '../../primitives/Box';
+import type { ISkeletonProps } from './types';
 
 const Bones = (allProps: ISkeletonProps & { circle?: boolean }) => {
   const isDomUsable = canUseDom();

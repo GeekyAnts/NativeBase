@@ -16,8 +16,11 @@ const baseStyle = (props: Record<string, any>) => {
       opacity: 0.4,
     },
     borderColor: isInvalid
-      ? mode(`danger.600`, `danger.200`)(props)
+      ? mode('danger.600', 'danger.200')(props)
       : mode('gray.600', 'gray.400')(props),
+    hoverBorderColor: 'default.500',
+    focusBorderColor: mode('default.600', 'default.400')(props),
+    errorBorderColor: mode('danger.600', 'danger.200')(props),
   };
 };
 
@@ -38,7 +41,7 @@ function filledStyle(props: Record<string, any>) {
     bg: props.bg || mode('gray.200', 'gray.600')(props),
     borderWidth: 1,
     borderColor: isInvalid
-      ? mode(`danger.600`, `danger.200`)(props)
+      ? mode('danger.600', 'danger.200')(props)
       : 'transparent',
   };
 }

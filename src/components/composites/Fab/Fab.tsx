@@ -1,7 +1,7 @@
 import React from 'react';
 import { omitUndefined } from '../../../theme/tools/utils';
 import IconButton from '../IconButton';
-import type { IFabProps } from './props';
+import type { IFabProps } from './types';
 
 const Fab = (props: IFabProps) => {
   const { placement, ...newProps } = omitUndefined(props);

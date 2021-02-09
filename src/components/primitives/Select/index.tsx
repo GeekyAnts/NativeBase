@@ -1,24 +1,27 @@
 import React from 'react';
 import Text from '../Text';
 import { Item as SelectItem } from './Item';
-import type { ISelectProps, ISelectItemProps } from './props';
+import type { ISelectProps, ISelectItemProps } from './types';
 import { usePopover } from '../../../core';
 import Button from '../Button';
 import { ScrollView } from 'react-native';
-function Select({
+
+const Select = ({
   onValueChange,
   children,
   itemStyle,
   selectedValue,
   placeholder,
   selectedItemBg,
+  selectedItemColor,
   isDisabled,
   dropdownIcon,
   dropdownOpenIcon,
   dropdownCloseIcon,
   width,
+  style,
   ...props
-}: ISelectProps) {
+}: ISelectProps) => {
   let triggerRef = React.useRef();
   let [isOpen, toggle] = React.useState<boolean>(false);
   let itemsList: Array<{ label: string; value: string }> = React.Children.map(
@@ -45,6 +48,7 @@ function Select({
           closeOnSelect: true,
           selectedValue,
           selectedItemBg,
+          selectedItemColor,
           onValueChange,
           itemsList,
           itemStyle,
@@ -78,6 +82,7 @@ function Select({
       ref={triggerRef}
       {...props}
       justifyContent="space-between"
+      style={style}
     >
       <Text opacity={selectedItem ? undefined : 0.5}>
         {selectedItem ? selectedItem.label : placeholder}
@@ -85,9 +90,9 @@ function Select({
       {icon}
     </Button>
   );
-}
+};
 
 Select.Item = SelectItem;
 
-export default React.memo(Select);
+export default Select;
 export type { ISelectProps, ISelectItemProps };
