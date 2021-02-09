@@ -2,7 +2,7 @@ import React from 'react';
 import Flex from '../../primitives/Flex';
 import { useThemeProps } from '../../../hooks';
 import isNil from 'lodash/isNil';
-import type { IAvatarProps } from './types';
+import type { IAvatarGroupProps } from './types';
 import { default as Avatar } from './Avatar';
 
 const getAvatarGroupChildren = (
@@ -53,13 +53,7 @@ const getAvatarGroupChildren = (
   ];
 };
 
-const AvatarGroup = (
-  allProps: IAvatarProps & {
-    children?: JSX.Element[] | JSX.Element;
-    spacing?: number;
-    max?: number;
-  }
-) => {
+const AvatarGroup = (allProps: IAvatarGroupProps) => {
   const { children, spacing, max, ...props } = allProps;
   const { borderColor, borderWidth, bg } = useThemeProps('AvatarBadge', props);
   return (

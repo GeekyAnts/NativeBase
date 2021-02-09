@@ -20,7 +20,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import type { ISwitchProps } from './types';
-import { useSwitch } from 'react-native-aria';
+import { useSwitch } from '@react-native-aria/switch';
 
 const StyledNBSwitch = styled(RNSwitch)<ISwitchProps>(
   color,
@@ -92,7 +92,6 @@ const Switch = (
   );
 
   return (
-    //@ts-ignore
     <TouchableOpacity {...inputProps} ref={inputRef}>
       <StyledNBSwitch
         trackColor={{ false: offTrackColor, true: onTrackColor }}
