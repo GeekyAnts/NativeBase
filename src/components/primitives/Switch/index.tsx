@@ -20,7 +20,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import type { ISwitchProps } from './types';
-import { useSwitch } from 'react-native-aria';
+import { useSwitch } from '@react-native-aria/switch';
 
 const StyledNBSwitch = styled(RNSwitch)<ISwitchProps>(
   color,
