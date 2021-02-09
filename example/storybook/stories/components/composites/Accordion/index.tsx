@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Usage from './Usage';
+import Usage from './Basic';
 import Playground from './Playground';
 import Multiple from './Multiple';
 import AccessingInternalState from './AccessingInternalState';
