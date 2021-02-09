@@ -35,7 +35,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
   });
   let ref1 = React.useRef();
 
-  let state = useToggleState(props);
+  let state = useToggleState({ ...props, isSelected: props.isChecked });
   let groupState = useContext(CheckboxGroupContext);
   const { isHovered } = useHover({}, ref1);
 
@@ -60,6 +60,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         //@ts-ignore
         mergeRefs([ref, ref1])
       );
+
   const isChecked = inputProps.checked;
   const isDisabled = inputProps.disabled;
   const sizedIcon = icon

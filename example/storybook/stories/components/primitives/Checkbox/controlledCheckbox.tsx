@@ -5,13 +5,18 @@ export default function ControlledCheckbox() {
   const [groupValues, setGroupValues] = React.useState<Array<string>>([]);
 
   return (
-    <CheckboxGroup onChange={setGroupValues} value={groupValues}>
-      <Checkbox value="one">
+    <>
+      <Checkbox value="three" isChecked>
         <Text>One</Text>
       </Checkbox>
-      <Checkbox value="two">
-        <Text>Two</Text>
-      </Checkbox>
-    </CheckboxGroup>
+      <CheckboxGroup onChange={setGroupValues} value={groupValues}>
+        <Checkbox value="one">
+          <Text>One</Text>
+        </Checkbox>
+        <Checkbox value="two">
+          <Text>Two</Text>
+        </Checkbox>
+      </CheckboxGroup>
+    </>
   );
 }
