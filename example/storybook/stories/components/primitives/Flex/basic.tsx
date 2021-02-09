@@ -5,10 +5,10 @@ export default function () {
   return (
     <Flex height="500px" width="100px">
       <Center w="100px" h="100px" bg="green.500">
-        <Text>Box 1</Text>
+        Box 1
       </Center>
       <Center bg="blue.300" h="100px" w="100px">
-        <Text>Box 2</Text>
+        Box 2
       </Center>
       <Center flex={1} bg="tomato">
         Box 3
