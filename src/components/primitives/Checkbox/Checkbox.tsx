@@ -9,12 +9,12 @@ import {
 } from '../../composites/FormControl';
 import Box from '../Box';
 import Icon from '../Icon';
-import type { ICheckboxProps } from './props';
+import type { ICheckboxProps } from './types';
 import { useToggleState } from '@react-stately/toggle';
-import mergeRefs from '../../../utils/mergeRefs';
-import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { CheckboxGroupContext } from './CheckboxGroup';
+import { useHover } from '@react-native-aria/interactions';
+import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 
 const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext: IFormControlContext = React.useContext(
@@ -37,6 +37,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
 
   let state = useToggleState(props);
   let groupState = useContext(CheckboxGroupContext);
+  const { isHovered } = useHover({}, ref1);
 
   // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.
   // This is a bit unorthodox. Typically, hooks cannot be called in a conditional,
@@ -48,8 +49,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
           ...props,
           value: props.value,
         },
-        //@ts-ignore
-        groupState,
+        groupState.state,
         //@ts-ignore
         mergeRefs([ref, ref1])
       )
@@ -60,7 +60,6 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         //@ts-ignore
         mergeRefs([ref, ref1])
       );
-
   const isChecked = inputProps.checked;
   const isDisabled = inputProps.disabled;
   const sizedIcon = icon
@@ -74,67 +73,56 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
           icon.props.children
         )
     : null;
-
+  const outlineColor =
+    isHovered && !isDisabled
+      ? activeColor
+      : isChecked
+      ? isDisabled
+        ? borderColor
+        : activeColor
+      : borderColor;
   const component = (
-    <Hoverable>
-      {(isHovered: boolean) => {
-        const outlineColor =
-          isHovered && !isDisabled
-            ? activeColor
-            : isChecked
-            ? isDisabled
-              ? borderColor
-              : activeColor
-            : borderColor;
-        return (
-          <Box
-            flexDirection="row"
-            alignItems="center"
-            {...newProps}
-            opacity={isDisabled ? 0.4 : 1}
-            {...(Platform.OS === 'web'
-              ? {
-                  disabled: isDisabled,
-                  cursor: isDisabled ? 'not-allowed' : 'auto',
-                }
-              : {})}
-          >
-            <Center
-              backgroundColor={
-                isChecked
-                  ? isDisabled
-                    ? borderColor
-                    : activeColor
-                  : 'transparent'
-              }
-              borderColor={outlineColor}
-              borderWidth={1}
-              borderRadius={4}
-              p={1}
-            >
-              {icon && sizedIcon && isChecked ? (
-                sizedIcon()
-              ) : (
-                <Icon
-                  name="check-bold"
-                  type="MaterialCommunityIcons"
-                  size={size}
-                  color={iconColor}
-                  opacity={isChecked ? 1 : 0}
-                />
-              )}
-            </Center>
-            {props.children}
-          </Box>
-        );
-      }}
-    </Hoverable>
+    <Box
+      flexDirection="row"
+      alignItems="center"
+      {...newProps}
+      opacity={isDisabled ? 0.4 : 1}
+      {...(Platform.OS === 'web'
+        ? {
+            disabled: isDisabled,
+            cursor: isDisabled ? 'not-allowed' : 'auto',
+          }
+        : {})}
+    >
+      <Center
+        backgroundColor={
+          isChecked ? (isDisabled ? borderColor : activeColor) : 'transparent'
+        }
+        borderColor={outlineColor}
+        borderWidth={1}
+        borderRadius={4}
+        p={1}
+      >
+        {icon && sizedIcon && isChecked ? (
+          sizedIcon()
+        ) : (
+          <Icon
+            name="check-bold"
+            type="MaterialCommunityIcons"
+            size={size}
+            color={iconColor}
+            opacity={isChecked ? 1 : 0}
+          />
+        )}
+      </Center>
+      {props.children}
+    </Box>
   );
 
   return (
     <>
       {Platform.OS === 'web' ? (
-        <label>
+        <label ref={mergeRefs([ref, ref1])}>
           <VisuallyHidden>
             <input {...inputProps} ref={mergeRefs([ref1, ref])}></input>
           </VisuallyHidden>
@@ -143,7 +131,9 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         </label>
       ) : (
         //@ts-ignore
-        <TouchableOpacity {...inputProps}>{component}</TouchableOpacity>
+        <TouchableOpacity {...inputProps} ref={mergeRefs([ref, ref1])}>
+          {component}
+        </TouchableOpacity>
       )}
     </>
   );

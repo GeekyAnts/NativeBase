@@ -6,8 +6,7 @@ import {
   FormControlContext,
   IFormControlContext,
 } from '../../composites/FormControl';
-import type { ICheckboxGroupProps } from './props';
-import type { ICheckboxContext } from 'lib/typescript/components/primitives/Checkbox/props';
+import type { ICheckboxGroupProps, ICheckboxContext } from './types';
 
 export let CheckboxGroupContext = createContext<ICheckboxContext | null>(null);
 

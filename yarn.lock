@@ -1896,6 +1896,19 @@
     "@octokit/openapi-types" "^2.0.0"
     "@types/node" ">= 8"
 
+"@react-aria/checkbox@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/checkbox/-/checkbox-3.2.1.tgz#493d9d584b4db474645a4565c4f899ee3a579f07"
+  integrity sha512-XnypnlVIfhB3CD7eSjSds8hNkzHgnhu0t48I1D0jYdL1O6tQC4UytPdIqlemRYBVHDloZkWerbjenpHnxhv8iA==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/label" "^3.1.1"
+    "@react-aria/toggle" "^3.1.1"
+    "@react-aria/utils" "^3.3.0"
+    "@react-stately/checkbox" "^3.0.1"
+    "@react-stately/toggle" "^3.2.1"
+    "@react-types/checkbox" "^3.2.1"
+
 "@react-aria/focus@^3.2.2", "@react-aria/focus@^3.2.3":
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.2.3.tgz#3e4137498a7fb5235d056c30fd94ab4a82e73aea"
@@ -1907,6 +1920,16 @@
     "@react-types/shared" "^3.3.0"
     clsx "^1.1.1"
 
+"@react-aria/i18n@^3.1.2":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/i18n/-/i18n-3.2.0.tgz#d49f4990fe3f125545686121edc129007bcd9233"
+  integrity sha512-D6Ent8R6iFMz04kQAuJ6uAV/3Q9YCvPB06/jJfXvDbtvtsRkxvVi2MEDbNXeCacbsRFaoStH9XOmOYD5mZWyzQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/ssr" "^3.0.1"
+    "@react-types/shared" "^3.3.0"
+    intl-messageformat "^2.2.0"
+
 "@react-aria/interactions@^3.2.1", "@react-aria/interactions@^3.3.0", "@react-aria/interactions@^3.3.2":
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/@react-aria/interactions/-/interactions-3.3.2.tgz#2ac1950a73152563b298f1b88d0a946f7e42933f"
@@ -1915,6 +1938,30 @@
     "@babel/runtime" "^7.6.2"
     "@react-aria/utils" "^3.4.1"
     "@react-types/shared" "^3.3.0"
+
+"@react-aria/label@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/label/-/label-3.1.1.tgz#03dc5c4813cd1f51760ba48783c186c2eeda1189"
+  integrity sha512-9kZKJonYSXeY6hZULZrsujAb6uXDGEy8qPq0tjTVoTA3+gx26LOmLCLgvHFtxUK1e4s99rHmaSPdOtq5qu3EVQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/utils" "^3.3.0"
+    "@react-types/label" "^3.2.1"
+    "@react-types/shared" "^3.2.1"
+
+"@react-aria/radio@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@react-aria/radio/-/radio-3.1.2.tgz#b5ae516b04d6cb400381850947c7a4e704575134"
+  integrity sha512-3wjXsRp+EGqwrgFKa77CECyFy5jCwM5hthHfSiAnAyluoUpvMTkniQkutNkHYnYm1GBd4MHzGrrNgpATNpx2Yg==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.2.2"
+    "@react-aria/i18n" "^3.1.2"
+    "@react-aria/interactions" "^3.2.1"
+    "@react-aria/label" "^3.1.1"
+    "@react-aria/utils" "^3.3.0"
+    "@react-stately/radio" "^3.2.1"
+    "@react-types/radio" "^3.1.1"
 
 "@react-aria/ssr@^3.0.1":
   version "3.0.1"
@@ -1957,6 +2004,16 @@
     "@react-types/shared" "^3.3.0"
     clsx "^1.1.1"
 
+"@react-aria/visually-hidden@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.2.1.tgz#c022c562346140a473242448045add59269a74fd"
+  integrity sha512-ba7bQD09MuzUghtPyrQoXHgQnRRfOu039roVKPz2em9gHD0Wy4ap2UPwlzx35KzNq6FdCzMDZeSZHSnUWlzKnw==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/interactions" "^3.2.1"
+    "@react-aria/utils" "^3.3.0"
+    clsx "^1.1.1"
+
 "@react-native-aria/button@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@react-native-aria/button/-/button-0.2.1.tgz#6efa4a58889e0c4eb833cab4bb73c12d21acf5a3"
@@ -1967,6 +2024,17 @@
     "@react-stately/toggle" "^3.2.1"
     "@react-types/checkbox" "^3.2.1"
 
+"@react-native-aria/checkbox@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/checkbox/-/checkbox-0.2.1.tgz#319f68c7c5d0f0b1807b2ce4702779047864dbcc"
+  integrity sha512-sl7Ki7+UrPKCQjYTWddNGSiVR7ZJ0FCSTiqKXzCgPeDFWcz+LQQwyku0NQcCU6Z7/HPxq6kL117M9F9QFSSamQ==
+  dependencies:
+    "@react-aria/checkbox" "^3.2.1"
+    "@react-aria/utils" "^3.5.0"
+    "@react-native-aria/toggle" "^0.2.1"
+    "@react-native-aria/utils" "^0.2.1"
+    "@react-stately/toggle" "^3.2.1"
+
 "@react-native-aria/interactions@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@react-native-aria/interactions/-/interactions-0.2.1.tgz#6984809f6fc5f666e9028b3961f958ad87ac161b"
@@ -1975,6 +2043,18 @@
     "@react-aria/interactions" "^3.3.2"
     "@react-aria/utils" "^3.5.0"
     "@react-native-aria/utils" "^0.2.1"
+
+"@react-native-aria/radio@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/radio/-/radio-0.2.1.tgz#aece6fb80e4bcd4e00634c4b8bdd69e884ca48b1"
+  integrity sha512-TkL/cIv6sxpnWir11vsx9RtbqF++VerILf0X8fQQiGIvIHoRCVNu/qbOz0EUfByYfezm9XwF/Yt04QPQM5zN3g==
+  dependencies:
+    "@react-aria/radio" "^3.1.2"
+    "@react-aria/utils" "^3.5.0"
+    "@react-native-aria/interactions" "^0.2.1"
+    "@react-native-aria/utils" "^0.2.1"
+    "@react-stately/radio" "^3.2.1"
+    "@react-types/radio" "^3.1.1"
 
 "@react-native-aria/switch@^0.2.1":
   version "0.2.1"
@@ -2178,6 +2258,16 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz#e42b1bef12d2415411519fd528e64b593b1363dc"
   integrity sha512-W/J0fNYVO01tioHjvYWQ9m6RgndVtbElzYozBq1ZPrHO/iCzlqoySHl4gO/fpCl9QEFjvJfjPgtPMTMlsoq5DQ==
 
+"@react-stately/checkbox@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@react-stately/checkbox/-/checkbox-3.0.1.tgz#2e48a2085f1559549df62c1eda78299127acaf80"
+  integrity sha512-5rUx31X2NX78+vu/Ig4F9u0GnCeLAKD9N+BeGZXzJ/pTBIxoS/iAd9hegic4HKeulSrdYgNEpy3MMUPxhM9BkQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/toggle" "^3.2.1"
+    "@react-stately/utils" "^3.1.1"
+    "@react-types/checkbox" "^3.2.1"
+
 "@react-stately/radio@^3.2.1":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@react-stately/radio/-/radio-3.2.1.tgz#d3fb0b28c2e7accdee47912c9802ab4a886a3092"
@@ -2208,6 +2298,13 @@
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@react-types/checkbox/-/checkbox-3.2.1.tgz#971dfd8428e43ce34b063388d1c742bbba0a8dc6"
   integrity sha512-nm/j8JQWAayFEvs5Hicf9/DBrdnc/CwbXQtN3dC+ehERFu9BtxP6Bt6p7qmhvAJtuUnTh85+zY148BITiyQYtQ==
+  dependencies:
+    "@react-types/shared" "^3.2.1"
+
+"@react-types/label@^3.2.1":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@react-types/label/-/label-3.3.0.tgz#ead771eeae330136c78c97a017d827f09ad3ef8b"
+  integrity sha512-cvdUmTxLv165M7ld6YKpU6/VLK2PgUET8uAQuJZZqildr6G7Iw4TUEEw2FB73gUJDb78cCmIoi1VvT/50uLZPw==
   dependencies:
     "@react-types/shared" "^3.2.1"
 
@@ -6367,6 +6464,18 @@ interpret@^1.0.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
+
+intl-messageformat-parser@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-1.4.0.tgz#b43d45a97468cadbe44331d74bb1e8dea44fc075"
+  integrity sha1-tD1FqXRoytvkQzHXS7Ho3qRPwHU=
+
+intl-messageformat@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-2.2.0.tgz#345bcd46de630b7683330c2e52177ff5eab484fc"
+  integrity sha1-NFvNRt5jC3aDMwwuUhd/9eq0hPw=
+  dependencies:
+    intl-messageformat-parser "1.4.0"
 
 invariant@^2.2.4:
   version "2.2.4"

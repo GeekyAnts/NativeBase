@@ -37,7 +37,6 @@ export type ICheckboxGroupProps = IBoxProps & {
   style?: any;
 };
 export type ICheckboxContext = IFormControlContext & {
-  name: string;
   colorScheme?: string;
   size?: 'sm' | 'md' | 'lg';
   style?: any;
