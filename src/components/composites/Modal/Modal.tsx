@@ -17,6 +17,7 @@ import {
 import { Box, View } from '../../primitives';
 import type { IModalProps, IModalSemiProps } from './types';
 import { default as ModalOverlay } from './ModalOverlay';
+import { ModalContext } from './Context';
 
 const StyledModal = styled(RNModal)<IModalSemiProps>(
   color,
@@ -33,25 +34,6 @@ const StyledModal = styled(RNModal)<IModalSemiProps>(
   customExtra,
   customLayout
 );
-
-export const ModalContext = React.createContext({
-  visible: false,
-  toggleVisible: (_bool: boolean) => {},
-  toggleOnClose: (_bool: boolean) => {},
-  newProps: {
-    _width: '60%',
-    size: 'md',
-    modalOverlayStyle: {},
-    closeOnOverlayClick: true,
-    modalCloseButtonStyle: {},
-    modalCloseButtonProps: {},
-    modalFooterProps: {},
-    modalBodyProps: {},
-    modalContentProps: {},
-    modalHeaderProps: {},
-    modalOverlayProps: {},
-  },
-});
 
 const Modal = (
   {

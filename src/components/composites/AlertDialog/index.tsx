@@ -1,7 +1,7 @@
 import AlertDialogMain, { IAlertDialogComponentType } from './AlertDialog';
 import AlertDialogContent from './AlertDialogContent';
 export type { IAlertDialogProps } from './AlertDialog';
-import { Modal } from '../../composites';
+import { Modal } from '../../composites/Modal';
 
 let AlertDialogTemp: any = AlertDialogMain;
 AlertDialogTemp.Content = AlertDialogContent;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { Box } from '../../primitives';
-import { ModalContext } from './Modal';
+import Box from '../../primitives/Box';
+import { ModalContext } from './Context';
 const ModalOverlay = ({ children, ...props }: any) => {
   const { toggleVisible, toggleOnClose, newProps } = React.useContext(
     ModalContext
