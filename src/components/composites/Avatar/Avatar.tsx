@@ -13,11 +13,7 @@ const initials = (name: string) => {
 
 const StyledAvatar = styled(Box)<IAvatarProps>({});
 
-const AvatarMain: any = (
-  props: IAvatarProps & {
-    children?: JSX.Element[] | JSX.Element | any | undefined;
-  }
-) => {
+const Avatar = (props: IAvatarProps) => {
   const { size, name, style, source, children, ...remainingProps } = props;
   const { color, fontSize, fontWeight, ...newProps } = useThemeProps('Avatar', {
     ...remainingProps,
@@ -49,4 +45,4 @@ const AvatarMain: any = (
   );
 };
 
-export default AvatarMain;
+export default Avatar;

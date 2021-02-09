@@ -92,7 +92,6 @@ const Switch = (
   );
 
   return (
-    //@ts-ignore
     <TouchableOpacity {...inputProps} ref={inputRef}>
       <StyledNBSwitch
         trackColor={{ false: offTrackColor, true: onTrackColor }}

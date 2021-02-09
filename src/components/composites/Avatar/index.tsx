@@ -1,9 +1,13 @@
-import Avatar from './Avatar';
+import AvatarMain from './Avatar';
 import AvatarBadge from './Badge';
 import AvatarGroup from './Group';
 export type { IAvatarProps, IAvatarBadgeProps } from './types';
+import type { IAvatarComponentType } from './types';
 
-Avatar.Badge = AvatarBadge;
-Avatar.Group = AvatarGroup;
+let AvatarTemp: any = AvatarMain;
+AvatarTemp.Badge = AvatarBadge;
+AvatarTemp.Group = AvatarGroup;
 
+// To add typings
+const Avatar = AvatarTemp as IAvatarComponentType;
 export { Avatar };
