@@ -22,7 +22,7 @@ import { default as Box, IBoxProps } from '../Box';
 import Flex from '../Flex';
 import Spinner from '../Spinner';
 import type { IButtonGroupProps, IButtonProps } from './types';
-import { useButton } from 'react-native-aria';
+import { useButton } from '@react-native-aria/button';
 
 const StyledButton = styled(TouchableOpacity)<
   IButtonProps & TouchableOpacityProps
@@ -139,8 +139,6 @@ const Button = (
     {
       ...accessibilityProps,
       children,
-      'aria-label': accessibilityProps.accessibilityLabel,
-      'aria-describedby': accessibilityProps.accessibilityHint,
     },
     ref
   );

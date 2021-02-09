@@ -4,22 +4,21 @@ import { Box, Text } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import type { IKbdProps } from './types';
 
-const Kbd = ({ style, textStyle, children, ...props }: IKbdProps) => {
-  let newProps = useThemeProps('Kbd', props);
-  let { fontWeight, fontSize, lineHeight, ...viewProps } = newProps;
-  const textProps = { fontWeight, fontSize, lineHeight };
+const Kbd = ({ children, ...props }: IKbdProps) => {
+  let { _text, ...newProps } = useThemeProps('Kbd', props);
+  console.log('newProps =', newProps);
+
   return (
-    <Box {...viewProps} style={style}>
+    <Box {...newProps}>
       <Text
-        {...textProps}
+        {..._text}
         fontFamily={
-          newProps.fontFamily
-            ? newProps.fontFamily
+          _text?.fontFamily
+            ? _text?.fontFamily
             : Platform.OS === 'ios'
             ? 'Courier'
             : 'monospace'
         }
-        style={textStyle}
       >
         {children}
       </Text>

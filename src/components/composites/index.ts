@@ -46,17 +46,11 @@ export type {
   ISkeletonTextProps,
 } from './Skeleton';
 
-export {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-} from './Accordion';
+export { Accordion } from './Accordion';
 export type {
   IAccordionProps,
-  IAccordionPanelProps,
-  IAccordionButtonProps,
+  IAccordionDetailsProps,
+  IAccordionSummaryProps,
   IAccordionItemProps,
   IAccordionIconProps,
   IAccordionContextProps,

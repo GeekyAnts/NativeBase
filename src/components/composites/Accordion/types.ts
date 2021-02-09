@@ -13,13 +13,13 @@ export type IAccordionItemProps = IBoxProps & {
   isDisabled?: boolean;
   id?: number;
 };
-export type IAccordionButtonProps = IBoxProps & {
+export type IAccordionSummaryProps = IBoxProps & {
   style?: any;
   _expanded?: any;
   _disabled?: any;
   _hover?: any;
 };
-export type IAccordionPanelProps = IBoxProps & {};
+export type IAccordionDetailsProps = IBoxProps & {};
 export type IAccordionContextProps = {
   index?: number[];
   changeHandler?: (isOpening: boolean, id: number) => void;
