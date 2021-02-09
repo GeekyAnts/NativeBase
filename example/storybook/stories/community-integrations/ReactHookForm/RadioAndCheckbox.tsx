@@ -6,7 +6,6 @@ import {
   FormErrorMessage,
   RadioGroup,
   Radio,
-  CheckboxGroup,
   Checkbox,
   Text,
   Icon,
@@ -31,7 +30,7 @@ export default function () {
         <Controller
           control={control}
           render={({ onChange }) => (
-            <CheckboxGroup
+            <Checkbox.Group
               onChange={(values) => {
                 onChange(values);
               }}
@@ -67,7 +66,7 @@ export default function () {
               >
                 <Text mx={2}>Chess</Text>
               </Checkbox>
-            </CheckboxGroup>
+            </Checkbox.Group>
           )}
           rules={{ required: 'Atleast 1 hobbie needed' }}
           name="hobbies"
