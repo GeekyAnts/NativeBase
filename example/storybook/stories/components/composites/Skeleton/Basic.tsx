@@ -1,5 +1,5 @@
 import React from 'react';
-import { Skeleton, Stack, Text } from 'native-base';
+import { Skeleton, Stack } from 'native-base';
 export default function () {
   return (
     <Stack width="90%">
