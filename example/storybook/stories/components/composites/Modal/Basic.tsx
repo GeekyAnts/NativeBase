@@ -19,6 +19,9 @@ export default function () {
         isOpen={modalVisible}
         onClose={setModalVisible}
         overlayVisible={true}
+        onShow={() => {
+          console.log('Modal Opened');
+        }}
       >
         <ModalContent>
           <ModalCloseButton />

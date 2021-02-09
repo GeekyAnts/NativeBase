@@ -94,7 +94,7 @@ function Wrapper({
       >
         <View style={overlayStyle.background} />
       </TouchableWithoutFeedback>
-      <View pointerEvents="none" style={overlayStyle.itemBackground}>
+      <View pointerEvents="box-none" style={overlayStyle.itemBackground}>
         {overlayItem}
       </View>
     </Animated.View>

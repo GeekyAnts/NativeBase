@@ -66,6 +66,7 @@ const Modal = (
     children,
     isOpen,
     onClose,
+    onShow,
     initialFocusRef,
     finalFocusRef,
     justifyContent,
@@ -104,11 +105,19 @@ const Modal = (
   );
   React.useEffect(
     () => {
-      isOpen && Platform.OS === 'web'
+      isOpen
         ? setOverlay(
             <ModalContext.Provider value={value}>
               <Box ref={ref} nativeID={id} h="100%">
-                {modalChildren}
+                {avoidKeyboard && Platform.OS != 'web' ? (
+                  <KeyboardAvoidingView
+                    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                  >
+                    {modalChildren}
+                  </KeyboardAvoidingView>
+                ) : (
+                  modalChildren
+                )}
               </Box>
             </ModalContext.Provider>,
             {
@@ -116,14 +125,12 @@ const Modal = (
               closeOnPress: props.closeOnOverlayClick === false ? false : true,
               backgroundColor: overlayColor ? overlayColor : undefined,
               disableOverlay: overlayVisible === false ? true : false,
+            },
+            () => {
+              onShow ? onShow() : null;
             }
           )
-        : setOverlay(<Box />, {
-            onClose: closeOverlayInMobile,
-            closeOnPress: props.closeOnOverlayClick === false ? false : true,
-            backgroundColor: overlayColor ? overlayColor : undefined,
-            disableOverlay: overlayVisible === false ? true : false,
-          });
+        : null;
 
       !isOpen && closeOverlay();
       setIsVisible(isOpen);
@@ -131,35 +138,37 @@ const Modal = (
     /*eslint-disable */
     [isOpen]
   );
-  return Platform.OS !== 'web' ? (
-    <ModalContext.Provider value={value}>
-      <View nativeID={id}>
-        <StyledModal
-          visible={isVisible}
-          onRequestClose={() => {
-            value.toggleVisible(false);
-            value.toggleOnClose(false);
-          }}
-          onShow={() => initialFocusRef?.current?.focus()}
-          onDismiss={() => finalFocusRef?.current?.focus()}
-          animationType={motionPreset || 'slide'}
-          transparent
-          {...props}
-          ref={ref}
-        >
-          {avoidKeyboard ? (
-            <KeyboardAvoidingView
-              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            >
-              {modalChildren}
-            </KeyboardAvoidingView>
-          ) : (
-            modalChildren
-          )}
-        </StyledModal>
-      </View>
-    </ModalContext.Provider>
-  ) : null;
+  // statusBarTranslucent pending(setoverlay feature)
+  // return Platform.OS !== 'web' ? (
+  //   <ModalContext.Provider value={value}>
+  //     <View nativeID={id}>
+  //       <StyledModal
+  //         visible={isVisible} </
+  //         onRequestClose={() => {
+  //           value.toggleVisible(false);
+  //           value.toggleOnClose(false);
+  //         }} pending(setoverlay feature)
+  //         onShow={() => initialFocusRef?.current?.focus()} </
+  //         onDismiss={() => finalFocusRef?.current?.focus()} </
+  //         animationType={motionPreset || 'slide'} pending(setoverlay feature)
+  //         transparent
+  //         {...props}
+  //         ref={ref}
+  //       >
+  //         {avoidKeyboard ? (
+  //           <KeyboardAvoidingView
+  //             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+  //           >
+  //             {modalChildren}
+  //           </KeyboardAvoidingView>
+  //         ) : (
+  //           modalChildren
+  //         )}
+  //       </StyledModal>
+  //     </View>
+  //   </ModalContext.Provider>
+  // ) : null;
+  return null;
 };
 
 export const ModalHeader = (props: IBoxProps) => {

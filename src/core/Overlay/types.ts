@@ -28,5 +28,9 @@ export type IOverlayConfig = {
 
 export type IuseOverlayProps = () => {
   closeOverlay: () => void;
-  setOverlay: (component: ReactNode, config?: IOverlayConfig) => void;
+  setOverlay: (
+    component: ReactNode,
+    config?: IOverlayConfig,
+    onOverlaySet?: any
+  ) => void;
 };

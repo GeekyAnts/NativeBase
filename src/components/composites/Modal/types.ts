@@ -43,4 +43,8 @@ export type IModalSemiProps = ModalProps &
     overlayColor?: string;
   };
 
-export type IModalProps = IModalSemiProps & { isOpen: boolean; onClose: any };
+export type IModalProps = IModalSemiProps & {
+  isOpen: boolean;
+  onClose: any;
+  onShow: any;
+};
