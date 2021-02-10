@@ -1,5 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, Platform } from 'react-native';
+import {
+  TouchableOpacity,
+  Platform,
+  TouchableOpacityProps,
+} from 'react-native';
 import Icon from '../Icon';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
@@ -23,6 +27,9 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
     ...props,
   });
 
+  const inputRef = React.useRef(null);
+  let { inputProps } = useRadio(props, contextState.state, inputRef);
+
   // only calling below function when icon exist.
   const sizedIcon = () =>
     //@ts-ignore
@@ -31,53 +38,44 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
       color:
         //@ts-ignore
         icon.props.color ?? isSelected
-          ? contextState.isDisabled
+          ? inputProps.disabled
             ? borderColor
             : activeColor
           : borderColor,
     });
 
-  const inputRef = React.useRef(null);
-  let { inputProps } = useRadio(
-    {
-      isReadOnly: contextState.isReadOnly,
-      isDisabled: contextState.isDisabled,
-      ...props,
-    },
-    contextState.state,
-    inputRef
-  );
-
   let isSelected = contextState.state.selectedValue === props.value;
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
+  const mergedRefs = mergeRefs([_ref, ref]);
 
   const outlineColor =
-    isHovered && !contextState.isDisabled
+    isHovered && !inputProps.disabled
       ? activeColor
       : isSelected
-      ? contextState.isDisabled
+      ? inputProps.disabled
         ? borderColor
         : activeColor
       : borderColor;
+
   let component = (
     <Box
       flexDirection="row"
       justifyContent="center"
       alignItems="center"
       {...newProps}
-      opacity={contextState.isDisabled ? 0.4 : 1}
+      opacity={inputProps.disabled ? 0.4 : 1}
       {...(Platform.OS === 'web'
         ? {
-            disabled: contextState.isDisabled,
-            cursor: contextState.isDisabled ? 'not-allowed' : 'auto',
+            disabled: inputProps.disabled,
+            cursor: inputProps.disabled ? 'not-allowed' : 'auto',
           }
         : {})}
     >
       <Box
         borderColor={outlineColor}
-        backgroundColor={contextState.isDisabled ? 'muted.200' : 'transparent'}
+        backgroundColor={inputProps.disabled ? 'muted.200' : 'transparent'}
         borderWidth={1}
         display="flex"
         justifyContent="center"
@@ -94,7 +92,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
             size={size}
             color={
               isSelected
-                ? contextState.isDisabled
+                ? inputProps.disabled
                   ? borderColor
                   : activeColor
                 : 'transparent'
@@ -106,10 +104,11 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
       {children}
     </Box>
   );
+
   return (
     <>
       {Platform.OS === 'web' ? (
-        <label>
+        <label ref={_ref}>
           <VisuallyHidden>
             <input {...inputProps} ref={ref}></input>
           </VisuallyHidden>
@@ -117,11 +116,10 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
           {component}
         </label>
       ) : (
-        //@ts-ignore
         <TouchableOpacity
           activeOpacity={1}
-          ref={mergeRefs([ref, _ref])}
-          {...inputProps}
+          ref={mergedRefs}
+          {...(inputProps as TouchableOpacityProps)}
         >
           {component}
         </TouchableOpacity>

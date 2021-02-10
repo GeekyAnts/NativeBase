@@ -34,8 +34,6 @@ export type IRadioContext = IFormControlContext & {
   // Custom props
   style?: any;
   state: RadioGroupState;
-  isDisabled: boolean;
-  isReadOnly: boolean;
 };
 
 export type IUseRadioGroupReturnType = {
