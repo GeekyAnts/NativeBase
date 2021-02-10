@@ -2,8 +2,10 @@ import Badge from './badge';
 
 const { variants } = Badge;
 const baseStyle = {
-  fontWeight: 'medium',
-  lineHeight: 1.2,
+  _text: {
+    fontWeight: 'medium',
+    // lineHeight: 1.2,
+  },
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'row',
@@ -13,21 +15,27 @@ const sizes = {
   sm: {
     minH: 5,
     minW: 5,
-    fontSize: 'xs',
+    _text: {
+      fontSize: 'xs',
+    },
     p: 1,
     borderRadius: 'sm',
   },
   md: {
     minH: 6,
     minW: 6,
-    fontSize: 'sm',
+    _text: {
+      fontSize: 'sm',
+    },
     borderRadius: 'md',
     p: 2,
   },
   lg: {
     minH: 8,
     minW: 8,
-    fontSize: 'md',
+    _text: {
+      fontSize: 'md',
+    },
     borderRadius: 'md',
     p: 3,
   },
