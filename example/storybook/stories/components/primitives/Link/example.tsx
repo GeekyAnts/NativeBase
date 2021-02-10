@@ -15,7 +15,12 @@ export const ExternalLink = () => {
   return (
     <View>
       <Heading>External Link</Heading>
-      <Link href="https://nativebase.io" isExternal mt={4}>
+      <Link
+        _text={{ color: 'blue.700' }}
+        href="https://nativebase.io"
+        isExternal
+        mt={4}
+      >
         https://nativebase.io
       </Link>
     </View>
@@ -56,7 +61,7 @@ export const CompositeLink = () => {
             Box
           </Text>
         </Box>
-        <Text>Clicking anywhere will trigger the link</Text>
+        Clicking anywhere will trigger the link
         <Box my={3} p={8} bg="blue.300">
           <Text color="white" fontSize={16}>
             Box
