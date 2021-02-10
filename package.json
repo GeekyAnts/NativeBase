@@ -149,6 +149,10 @@
     ]
   },
   "dependencies": {
+    "@react-aria/button": "^3.3.0",
+    "@react-aria/dialog": "^3.1.2",
+    "@react-aria/focus": "^3.2.3",
+    "@react-aria/overlays": "^3.6.0",
     "@react-native-aria/button": "^0.2.1",
     "@react-native-aria/interactions": "^0.2.1",
     "babel-eslint": "^10.1.0",
@@ -158,6 +162,7 @@
     "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.20",
     "patch-package": "^6.2.2",
+    "react-dom": "^17.0.1",
     "react-native-material-ripple": "^0.9.1",
     "react-native-unimodules": "~0.10.1",
     "tinycolor2": "^1.4.2"

@@ -1,14 +1,18 @@
 import React from 'react';
 import type { Modal as ModalType } from 'react-native';
+import { View } from 'react-native';
 import {
   KeyboardAvoidingView,
   Modal as RNModal,
   Platform,
   TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
 import styled from 'styled-components/native';
 import { border, color, flexbox, layout, position, space } from 'styled-system';
-import { useOverlay } from '../../../core/Overlay';
+import { usePreventScroll, useModal } from '@react-aria/overlays';
+import { useDialog } from '@react-aria/dialog';
+import { FocusScope } from '@react-aria/focus';
 import { useThemeProps } from '../../../hooks';
 import {
   customBackground,
@@ -23,8 +27,9 @@ import {
   default as CloseButton,
   ICloseButtonProps,
 } from '../../composites/CloseButton';
-import { Box, IBoxProps, View } from '../../primitives';
+import { Box, Heading, IBoxProps } from '../../primitives';
 import type { IModalProps, IModalSemiProps } from './types';
+import { useOverlay } from './useOverlay';
 
 const StyledModal = styled(RNModal)<IModalSemiProps>(
   color,
@@ -63,7 +68,6 @@ const ModalContext = React.createContext({
 
 const Modal = (
   {
-    children,
     isOpen,
     onClose,
     initialFocusRef,
@@ -79,12 +83,28 @@ const Modal = (
   }: IModalProps,
   ref: any
 ) => {
-  const { closeOverlay, setOverlay } = useOverlay();
+  let __ref = React.useRef(null);
+  console.log(useOverlay, 'overlay');
+  let data = useOverlay();
+  // const { closeOverlay, setOverlay } = useOverlay();
+  if (Platform.OS === 'web') {
+    let { modalProps } = useModal();
+    let { dialogProps, titleProps } = useDialog({}, __ref);
+  }
+  // let { modalProps } = useModal();
+  // let { dialogProps, titleProps } = useDialog({}, __ref);
   const [isVisible, setIsVisible] = React.useState(true);
   const closeOverlayInMobile = () => {
     setIsVisible(false);
     onClose(false);
   };
+
+  // useButton ensures that focus management is handled correctly,
+  // across all browsers. Focus is restored to the button once the
+  // dialog closes.
+
+  //@ts-ignore
+  let { title, children } = props;
   const newProps = useThemeProps('Modal', props);
   const value: any = {
     visible: isVisible,
@@ -105,27 +125,18 @@ const Modal = (
   React.useEffect(
     () => {
       isOpen && Platform.OS === 'web'
-        ? setOverlay(
-            <ModalContext.Provider value={value}>
-              <Box ref={ref} nativeID={id} h="100%">
-                {modalChildren}
-              </Box>
-            </ModalContext.Provider>,
-            {
-              onClose: onClose,
-              closeOnPress: props.closeOnOverlayClick === false ? false : true,
-              backgroundColor: overlayColor ? overlayColor : undefined,
-              disableOverlay: overlayVisible === false ? true : false,
-            }
-          )
-        : setOverlay(<Box />, {
+        ? null
+        : data.setOverlay &&
+          data.setOverlay(<Box />, {
             onClose: closeOverlayInMobile,
             closeOnPress: props.closeOnOverlayClick === false ? false : true,
             backgroundColor: overlayColor ? overlayColor : undefined,
             disableOverlay: overlayVisible === false ? true : false,
           });
 
-      !isOpen && closeOverlay();
+      if (data.closeOverlay) {
+        !isOpen && data.closeOverlay();
+      }
       setIsVisible(isOpen);
     },
     /*eslint-disable */
@@ -159,7 +170,39 @@ const Modal = (
         </StyledModal>
       </View>
     </ModalContext.Provider>
-  ) : null;
+  ) : (
+    <ModalContext.Provider value={value}>
+      <View
+        style={{
+          ...StyleSheet.absoluteFillObject,
+          zIndex: 100,
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          backgroundColor: 'rgba(0, 0, 0,0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <FocusScope contain restoreFocus autoFocus>
+          <View
+            {...data}
+            {...dialogProps}
+            {...modalProps}
+            ref={ref}
+            style={{
+              backgroundColor: 'white',
+              padding: 30,
+            }}
+          >
+            {children}
+          </View>
+        </FocusScope>
+      </View>
+    </ModalContext.Provider>
+  );
 };
 
 export const ModalHeader = (props: IBoxProps) => {
