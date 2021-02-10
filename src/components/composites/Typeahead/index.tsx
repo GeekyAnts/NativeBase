@@ -1,12 +1,17 @@
 import React, { useState, useCallback, forwardRef } from 'react';
 import { ScrollView } from 'react-native';
-import { Box, Input, Button, Link } from '../../primitives';
+import Box from '../../primitives/Box';
+import Input from '../../primitives/Input';
+import Button from '../../primitives/Button';
+import Link from '../../primitives/Link';
+import Text from '../../primitives/Text';
+import { useColorMode } from './../../..';
 import { useTypeahead } from './useTypeahead';
 import { extractInObject } from '../../../theme/tools';
 import { ITypeaheadProps, layoutPropsList } from './types';
 const Typeahead = (
   {
-    data,
+    options,
     renderItem,
     onChangeText,
     toggleIcon,
@@ -14,12 +19,21 @@ const Typeahead = (
     numberOfItems,
     onSelectedItemChange,
     inputValue,
+    getOptionLabel,
     ...props
   }: ITypeaheadProps,
   ref: any
 ) => {
-  const [inputItems, setInputItems] = React.useState(data);
+  const [inputItems, setInputItems] = React.useState(options);
   const [layoutProps, newProps] = extractInObject(props, layoutPropsList);
+  const { colorMode } = useColorMode();
+  let tempOptions: any[] = [];
+  if (getOptionLabel) {
+    options.map((value: any, _ind: number) => {
+      tempOptions.push(getOptionLabel(value));
+    });
+    options = tempOptions;
+  }
 
   const {
     isOpen,
@@ -33,7 +47,7 @@ const Typeahead = (
     onInputValueChange: ({ inputValue }) => {
       onChangeText && onChangeText(inputValue);
       setInputItems(
-        data.filter((item) =>
+        options.filter((item) =>
           item.toLowerCase().includes(inputValue.toLowerCase())
         )
       );
@@ -94,7 +108,17 @@ const Typeahead = (
                 key={`${item}${index}`}
                 {...getMenuItemProps(item, index)}
               >
-                {renderItem(item)}
+                {renderItem ? (
+                  renderItem(item)
+                ) : (
+                  <Box
+                    flex={1}
+                    bg={colorMode === 'light' ? 'gray.100' : 'gray.600'}
+                    p={4}
+                  >
+                    <Text>{item}</Text>
+                  </Box>
+                )}
               </Link>
             ))}
         </ScrollView>

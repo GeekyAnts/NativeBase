@@ -2,14 +2,15 @@ import type { IBoxProps, IInputProps } from 'native-base';
 
 export type ITypeaheadProps = IBoxProps &
   IInputProps & {
-    data: any[];
-    renderItem: any;
+    options: any[];
+    renderItem?: any;
     onChange?: Function;
     toggleIcon: any;
     dropdownHeight?: number | string;
     numberOfItems?: number;
     inputValue?: string;
     onSelectedItemChange?: any;
+    getOptionLabel?: Function;
   };
 export const layoutPropsList = [
   'm',
