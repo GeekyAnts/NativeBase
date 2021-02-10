@@ -1,19 +1,15 @@
 import React from 'react';
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  FormErrorMessage,
-  FormHelperText,
-} from 'native-base';
+import { FormControl, Input } from 'native-base';
 
 export default function () {
   return (
     <FormControl isRequired isInvalid>
-      <FormLabel>Favorite framework</FormLabel>
+      <FormControl.Label>Favorite framework</FormControl.Label>
       <Input p={2} placeholder="Is it react?" />
-      <FormHelperText>We'll keep this between us.</FormHelperText>
-      <FormErrorMessage>Something is wrong.</FormErrorMessage>
+      <FormControl.HelperText>
+        We'll keep this between us.
+      </FormControl.HelperText>
+      <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>
     </FormControl>
   );
 }

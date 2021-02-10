@@ -1,20 +1,11 @@
 import React from 'react';
-import {
-  Radio,
-  RadioGroup,
-  Text,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Container,
-} from 'native-base';
+import { Container, FormControl, Radio, RadioGroup, Text } from 'native-base';
 
 export default function () {
   return (
     <Container>
       <FormControl isRequired isInvalid>
-        <FormLabel>Select One</FormLabel>
+        <FormControl.Label>Select One</FormControl.Label>
         <RadioGroup defaultValue="1" name="exampleGroup">
           <Radio value="1">
             <Text mx={2}>First</Text>
@@ -26,8 +17,10 @@ export default function () {
             <Text mx={2}>Third</Text>
           </Radio>
         </RadioGroup>
-        <FormHelperText>We'll keep this between us.</FormHelperText>
-        <FormErrorMessage>Something is wrong.</FormErrorMessage>
+        <FormControl.HelperText>
+          We'll keep this between us.
+        </FormControl.HelperText>
+        <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>
       </FormControl>
     </Container>
   );

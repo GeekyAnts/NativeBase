@@ -1,11 +1,4 @@
-import {
-  VStack,
-  Input,
-  Button,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-} from 'native-base';
+import { VStack, Input, Button, FormControl } from 'native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
@@ -23,7 +16,7 @@ export default function () {
   return (
     <VStack width="80%" space={4}>
       <FormControl isRequired isInvalid={'firstName' in errors}>
-        <FormLabel>First Name</FormLabel>
+        <FormControl.Label>First Name</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange, onBlur, value }) => (
@@ -38,10 +31,12 @@ export default function () {
           rules={{ required: 'Field is required', minLength: 3 }}
           defaultValue=""
         />
-        <FormErrorMessage>{errors.firstName?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.firstName?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <FormControl isInvalid={'lastName' in errors}>
-        <FormLabel>Last Name</FormLabel>
+        <FormControl.Label>Last Name</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange, onBlur, value }) => (
@@ -55,10 +50,12 @@ export default function () {
           name="lastName"
           defaultValue=""
         />
-        <FormErrorMessage>{errors.lastName?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.lastName?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <FormControl isRequired isInvalid={'age' in errors}>
-        <FormLabel>Age</FormLabel>
+        <FormControl.Label>Age</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange, onBlur, value }) => (
@@ -73,11 +70,11 @@ export default function () {
           rules={{ min: 18, required: 'Age is required' }}
           defaultValue=""
         />
-        <FormErrorMessage>
+        <FormControl.ErrorMessage>
           {errors.age?.type === 'required'
             ? errors.age?.message
             : errors.age?.type === 'min' ?? 'Under age'}
-        </FormErrorMessage>
+        </FormControl.ErrorMessage>
       </FormControl>
       <Button onPress={handleSubmit(onSubmit)} colorScheme="pink">
         Submit
