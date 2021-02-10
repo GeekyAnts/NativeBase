@@ -49,17 +49,12 @@ export type {
   IAccordionItemContextProps,
 } from './Accordion';
 
-export {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-} from './FormControl';
+export { FormControl } from './FormControl';
 export type {
   IFormControlProps,
-  IFormLabelProps,
-  IFormErrorMessageProps,
-  IFormHelperTextProps,
+  IFormControlLabelProps,
+  IFormControlErrorMessageProps,
+  IFormControlHelperTextProps,
   IFormControlContext,
 } from './FormControl';
 

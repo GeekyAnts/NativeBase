@@ -1,12 +1,4 @@
-import {
-  VStack,
-  Button,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  Select,
-  Icon,
-} from 'native-base';
+import { VStack, Button, FormControl, Select, Icon } from 'native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
@@ -22,7 +14,7 @@ export default function () {
   return (
     <VStack width="80%" space={4}>
       <FormControl isRequired isInvalid={'language' in errors}>
-        <FormLabel>Fav language:</FormLabel>
+        <FormControl.Label>Fav language:</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange, value }) => (
@@ -50,7 +42,9 @@ export default function () {
           rules={{ required: 'Field is required' }}
           defaultValue="js"
         />
-        <FormErrorMessage>{errors.language?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.language?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <Button onPress={handleSubmit(onSubmit)} colorScheme="pink">
         Submit

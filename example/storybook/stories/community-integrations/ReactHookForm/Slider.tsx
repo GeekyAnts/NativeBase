@@ -2,8 +2,6 @@ import {
   VStack,
   Button,
   FormControl,
-  FormLabel,
-  FormErrorMessage,
   Slider,
   SliderTrack,
   SliderFilledTrack,
@@ -24,7 +22,7 @@ export default function () {
   return (
     <VStack width="80%" space={4}>
       <FormControl isRequired isInvalid={'like' in errors}>
-        <FormLabel>Amount you like NativeBase</FormLabel>
+        <FormControl.Label>Amount you like NativeBase</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange, value }) => (
@@ -39,7 +37,9 @@ export default function () {
           rules={{ required: 'Field is required', minLength: 3 }}
           defaultValue={100}
         />
-        <FormErrorMessage>{errors.like?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.like?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <Button onPress={handleSubmit(onSubmit)} colorScheme="pink">
         Submit

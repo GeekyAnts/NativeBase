@@ -2,8 +2,6 @@ import {
   VStack,
   Button,
   FormControl,
-  FormLabel,
-  FormErrorMessage,
   PinInput,
   PinInputField,
 } from 'native-base';
@@ -22,7 +20,7 @@ export default function () {
   return (
     <VStack width="80%" space={4}>
       <FormControl isRequired isInvalid={'otp' in errors}>
-        <FormLabel>OTP:</FormLabel>
+        <FormControl.Label>OTP:</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange, value }) => (
@@ -36,7 +34,9 @@ export default function () {
           name="otp"
           rules={{ required: 'Field is required', minLength: 4, maxLength: 4 }}
         />
-        <FormErrorMessage>{errors.otp?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.otp?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <Button onPress={handleSubmit(onSubmit)} colorScheme="pink">
         Submit

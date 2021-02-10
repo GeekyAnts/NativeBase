@@ -2,8 +2,6 @@ import {
   VStack,
   Button,
   FormControl,
-  FormLabel,
-  FormErrorMessage,
   RadioGroup,
   Radio,
   Checkbox,
@@ -26,7 +24,7 @@ export default function () {
   return (
     <VStack width="80%" space={4}>
       <FormControl isRequired isInvalid={'hobbies' in errors}>
-        <FormLabel>Hobbies</FormLabel>
+        <FormControl.Label>Hobbies</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange }) => (
@@ -72,10 +70,12 @@ export default function () {
           name="hobbies"
           defaultValue=""
         />
-        <FormErrorMessage>{errors.hobbies?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.hobbies?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <FormControl isRequired isInvalid={'gender' in errors}>
-        <FormLabel>Gender</FormLabel>
+        <FormControl.Label>Gender</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange }) => (
@@ -95,7 +95,9 @@ export default function () {
           name="gender"
           rules={{ required: 'Gender is required' }}
         />
-        <FormErrorMessage>{errors.gender?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.gender?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <Button onPress={handleSubmit(onSubmit)} colorScheme="pink">
         Submit

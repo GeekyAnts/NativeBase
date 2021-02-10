@@ -1,10 +1,4 @@
-import {
-  Input,
-  Button,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-} from 'native-base';
+import { Input, Button, FormControl } from 'native-base';
 import React from 'react';
 import { useFormik, FormikErrors } from 'formik';
 
@@ -53,17 +47,17 @@ export default function () {
   return (
     <>
       <FormControl isRequired isInvalid={'firstName' in errors}>
-        <FormLabel>First Name</FormLabel>
+        <FormControl.Label>First Name</FormControl.Label>
         <Input
           p={2}
           placeholder="John"
           onChangeText={handleChange('firstName')}
         />
-        <FormErrorMessage>{errors.firstName}</FormErrorMessage>
+        <FormControl.ErrorMessage>{errors.firstName}</FormControl.ErrorMessage>
       </FormControl>
 
       <FormControl>
-        <FormLabel>Last Name</FormLabel>
+        <FormControl.Label>Last Name</FormControl.Label>
         <Input
           p={2}
           placeholder="Doe"
@@ -72,13 +66,13 @@ export default function () {
       </FormControl>
 
       <FormControl isRequired isInvalid={'email' in errors}>
-        <FormLabel>Email</FormLabel>
+        <FormControl.Label>Email</FormControl.Label>
         <Input
           p={2}
           placeholder="jon.doe@abc.com"
           onChangeText={handleChange('email')}
         />
-        <FormErrorMessage>{errors.email}</FormErrorMessage>
+        <FormControl.ErrorMessage>{errors.email}</FormControl.ErrorMessage>
       </FormControl>
 
       <Button onPress={handleSubmit}>Submit</Button>

@@ -1,29 +1,21 @@
 import React from 'react';
-import {
-  PinInput,
-  PinInputField,
-  Center,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-} from 'native-base';
+import { PinInput, PinInputField, Center, FormControl } from 'native-base';
 
 export default function () {
   return (
     <Center>
       <FormControl isRequired isInvalid>
-        <FormLabel>OTP</FormLabel>
+        <FormControl.Label>OTP</FormControl.Label>
         <PinInput>
           <PinInputField />
           <PinInputField />
           <PinInputField />
           <PinInputField />
         </PinInput>
-        <FormHelperText>
+        <FormControl.HelperText>
           An otp is send to number ending with +91-XXXXX-XX007.
-        </FormHelperText>
-        <FormErrorMessage>Please Retry.</FormErrorMessage>
+        </FormControl.HelperText>
+        <FormControl.ErrorMessage>Please Retry.</FormControl.ErrorMessage>
       </FormControl>
     </Center>
   );

@@ -3,7 +3,7 @@ import Box from '../../primitives/Box';
 import Text from '../../primitives/Text';
 import { useToken } from '../../../hooks';
 import { FormControlContext } from './FormControl';
-import type { IFormLabelProps, IFormControlContext } from './types';
+import type { IFormControlLabelProps, IFormControlContext } from './types';
 
 const FormLabel = ({
   children,
@@ -12,7 +12,7 @@ const FormLabel = ({
   _focus,
   _invalid,
   ...props
-}: IFormLabelProps) => {
+}: IFormControlLabelProps) => {
   const {
     isInvalid,
     isRequired,
@@ -26,7 +26,7 @@ const FormLabel = ({
       flexDirection="row"
       justifyContent="flex-start"
       {...props}
-      fontSize="md"
+      _text={{ fontSize: 'md' }}
       style={[style, isInvalid && _invalid, isDisabled && _disabled]}
     >
       {children}
