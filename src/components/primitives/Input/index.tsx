@@ -51,7 +51,9 @@ const Input = (
     isInvalid,
     isDisabled,
     placeholder,
+    _placeholder,
     errorMessage,
+    _errorMessage,
     // isRequired,
     isReadOnly,
     isFullWidth,
@@ -72,6 +74,7 @@ const Input = (
     mt,
     mb,
     label,
+    _label,
     ...props
   }: IInputProps,
   ref: any
@@ -97,7 +100,6 @@ const Input = (
     borderWidth,
     focusBorderColor,
     errorBorderColor,
-    errorMessageColor,
     hoverBorderColor,
     borderBottomWidth,
     ...newProps
@@ -179,6 +181,7 @@ const Input = (
                   bg="transparent"
                   color={updatedBorderColor}
                   fontSize={fontSize}
+                  _text={_label}
                 >
                   {label}
                   <Box
@@ -218,6 +221,7 @@ const Input = (
             handleFocus(false, onBlur ? onBlur : () => {});
           }}
           placeholder={isFocused && label ? '' : placeholder}
+          {..._placeholder}
           editable={isDisabled || isReadOnly ? false : true}
           // borderRadius={50} //Remove variant props from StyledInput
           borderWidth={undefined}
@@ -243,10 +247,7 @@ const Input = (
       </Box>
 
       {isInvalid && errorMessage ? (
-        <Text
-          ml={2}
-          color={errorMessageColor ? errorMessageColor : 'danger.600'}
-        >
+        <Text ml={2} color="danger.600" {..._errorMessage}>
           {errorMessage}
         </Text>
       ) : null}
