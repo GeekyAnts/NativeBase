@@ -12,11 +12,7 @@ export type { IAlertProps } from './Alert';
 
 export { Avatar } from './Avatar';
 
-export {
-  default as Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-} from './Breadcrumb';
+export { Breadcrumb } from './Breadcrumb';
 export type { IBreadcrumbProps } from './Breadcrumb';
 
 export { default as CloseButton } from './CloseButton';

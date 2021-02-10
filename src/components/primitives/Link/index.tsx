@@ -1,35 +1,13 @@
 import React from 'react';
-import { TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native';
 import type { View as ViewType } from 'react-native';
-import View from './../View';
 import styled from 'styled-components/native';
-import { addTextAndPropsToStrings } from '../../../utils';
 import type { ILinkProps } from './types';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
 import { useLink } from './useLink';
 
-const StyledLink = styled(View)<ILinkProps>({});
-
-const addStyleAndPropsToChild = (
-  props: any,
-  children: JSX.Element[] | JSX.Element,
-  IsUnderlined: boolean
-) => {
-  return React.Children.map(children, (child: any) => {
-    let computedStyle: any = child.props.style;
-    computedStyle = StyleSheet.flatten([
-      child.props.style,
-      { textDecorationLine: IsUnderlined ? 'underline' : 'none' },
-    ]);
-    return React.cloneElement(
-      child,
-      { ...props, ...child.props, style: computedStyle },
-      child.props.children
-    );
-  });
-};
-
+const StyledLink = styled(Box)<ILinkProps>({});
 const Link = (
   {
     style,
@@ -52,6 +30,7 @@ const Link = (
     width,
     h,
     height,
+    _text,
     ...props
   }: ILinkProps,
   ref: any
@@ -73,22 +52,21 @@ const Link = (
     height,
   };
   let newProps = useThemeProps('Link', props);
-
+  const linkTextProps = {
+    textDecorationLine: isUnderlined ? 'underline' : 'none',
+    ..._text,
+  };
   const { linkProps } = useLink({ href, onClick, isExternal });
   return (
     <Box {...layoutProps}>
       <TouchableWithoutFeedback {...linkProps} {...newProps} ref={ref}>
         <StyledLink
+          _text={linkTextProps}
           {...newProps}
           flexDirection="row"
-          textDecorationLine={isUnderlined ? 'underline' : 'none'}
           style={style}
         >
-          {addStyleAndPropsToChild(
-            newProps,
-            addTextAndPropsToStrings(children, newProps),
-            isUnderlined
-          )}
+          {children}
         </StyledLink>
       </TouchableWithoutFeedback>
     </Box>
