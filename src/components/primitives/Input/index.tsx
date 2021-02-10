@@ -24,7 +24,7 @@ import Text from '../Text';
 import Flex from '../Flex';
 import type { IInputProps } from './types';
 import { InputRightAddon, InputGroup, InputLeftAddon } from './InputGroup';
-import { useThemeProps } from '../../../hooks';
+import { useThemeProps, useToken } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import { useHover } from '@react-native-aria/interactions';
 
@@ -51,7 +51,7 @@ const Input = (
     isInvalid,
     isDisabled,
     placeholder,
-    _placeholder,
+
     errorMessage,
     _errorMessage,
     // isRequired,
@@ -75,6 +75,7 @@ const Input = (
     mb,
     label,
     _label,
+    placeholderTextColor,
     ...props
   }: IInputProps,
   ref: any
@@ -94,6 +95,11 @@ const Input = (
     callback();
   };
 
+  let placeholderColor = useToken('colors', placeholderTextColor ?? 'gray.400');
+
+  if (typeof placeholderColor !== 'string') {
+    placeholderColor = placeholderTextColor;
+  }
   const {
     borderColor: borderColorFromProps,
     fontSize,
@@ -221,7 +227,7 @@ const Input = (
             handleFocus(false, onBlur ? onBlur : () => {});
           }}
           placeholder={isFocused && label ? '' : placeholder}
-          {..._placeholder}
+          placeholderTextColor={placeholderColor}
           editable={isDisabled || isReadOnly ? false : true}
           // borderRadius={50} //Remove variant props from StyledInput
           borderWidth={undefined}

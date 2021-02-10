@@ -35,7 +35,6 @@ export type IInputProps = ColorProps &
     style?: TextStyle;
     children?: string | JSX.Element[] | JSX.Element;
     placeholder?: string;
-    _placeholder?: { placeholderTextColor?: string };
     isInvalid?: boolean;
     variant?: string;
     isDisabled?: boolean;
