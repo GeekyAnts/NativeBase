@@ -14,7 +14,7 @@ import type {
   customExtraProps,
   customShadowProps,
 } from '../../../utils/customProps';
-import type { IBoxProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives/Box';
 
 export type ITagProps = IBoxProps &
   ColorProps &
@@ -29,11 +29,8 @@ export type ITagProps = IBoxProps &
   customBackgroundProps &
   BorderProps & {
     style?: TextStyle;
-    ratio?: number;
-    variant?: string | undefined;
-    colorScheme?: string | undefined;
-    children?: JSX.Element | JSX.Element[] | string;
-    fontSize?: number | undefined;
-    tagSize?: string | undefined;
-    size?: string | number | undefined;
+    variant?: 'solid' | 'subtle' | 'outline';
+    colorScheme?: string;
+    children?: JSX.Element | JSX.Element[] | string | (string | JSX.Element)[];
+    size?: string | number;
   };
