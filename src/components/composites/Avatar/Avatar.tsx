@@ -15,12 +15,11 @@ const StyledAvatar = styled(Box)<IAvatarProps>({});
 
 const Avatar = (props: IAvatarProps) => {
   const { size, name, style, source, children, ...remainingProps } = props;
-  const { color, fontSize, fontWeight, ...newProps } = useThemeProps('Avatar', {
+  const { _name, ...newProps } = useThemeProps('Avatar', {
     ...remainingProps,
     name,
     size,
   });
-  const textProps = { color, fontSize, fontWeight };
   const imageFitStyle = { height: '100%', width: '100%' };
   return (
     <StyledAvatar {...newProps} style={style}>
@@ -29,16 +28,11 @@ const Avatar = (props: IAvatarProps) => {
           borderRadius={newProps.borderRadius}
           source={source}
           alt={name ? initials(name) : '--'}
-          // FIXME: Review needed
-          textProps={{
-            color,
-            fontSize,
-            fontWeight,
-          }}
+          _alt={_name}
           style={[style, imageFitStyle]}
         />
       ) : (
-        <Text {...textProps}>{name ? initials(name) : '--'}</Text>
+        <Text {..._name}>{name ? initials(name) : '--'}</Text>
       )}
       {children}
     </StyledAvatar>

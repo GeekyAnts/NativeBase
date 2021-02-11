@@ -1,10 +1,4 @@
-import {
-  VStack,
-  Button,
-  FormControl,
-  PinInput,
-  PinInputField,
-} from 'native-base';
+import { VStack, Button, FormControl, PinInput } from 'native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
@@ -25,10 +19,10 @@ export default function () {
           control={control}
           render={({ onChange, value }) => (
             <PinInput onChange={(val: any) => onChange(val)} value={value}>
-              <PinInputField />
-              <PinInputField />
-              <PinInputField />
-              <PinInputField />
+              <PinInput.Field />
+              <PinInput.Field />
+              <PinInput.Field />
+              <PinInput.Field />
             </PinInput>
           )}
           name="otp"

@@ -8,8 +8,10 @@ const defaultProps = {
     my: 2,
   },
   _statHelpText: {
-    color: 'gray.500',
-    fontSize: 'xl',
+    _text: {
+      color: 'gray.500',
+      fontSize: 'xl',
+    },
     flexDirection: 'row',
     alignItems: 'center',
   },

@@ -17,6 +17,7 @@ import type {
   customFlexboxProps,
   customPositionProps,
 } from '../../../utils/customProps';
+import type { ITextProps } from '../../primitives/Text';
 import type { ImageSourcePropType } from 'react-native';
 
 export type IAvatarProps = ColorProps &
@@ -38,6 +39,7 @@ export type IAvatarProps = ColorProps &
   BorderProps &
   FlexboxProps & {
     name?: string | undefined;
+    _name?: ITextProps;
     style?: any;
     size?: string | undefined;
     source?: ImageSourcePropType;
