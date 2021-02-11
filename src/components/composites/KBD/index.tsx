@@ -6,8 +6,6 @@ import type { IKbdProps } from './types';
 
 const Kbd = ({ children, ...props }: IKbdProps) => {
   let { _text, ...newProps } = useThemeProps('Kbd', props);
-  console.log('newProps =', newProps);
-
   return (
     <Box {...newProps}>
       <Text
