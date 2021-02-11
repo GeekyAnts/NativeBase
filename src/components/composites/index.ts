@@ -120,13 +120,7 @@ export {
 
 export { AlertDialog } from './AlertDialog';
 
-export {
-  Menu,
-  MenuItem,
-  MenuGroup,
-  MenuItemOption,
-  MenuOptionGroup,
-} from './Menu';
+export { Menu } from './Menu';
 export type {
   IMenuProps,
   IMenuItemProps,

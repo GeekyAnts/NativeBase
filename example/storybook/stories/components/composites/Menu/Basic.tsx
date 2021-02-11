@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, MenuItem, Divider, IconButton, Icon } from 'native-base';
+import { Menu, Divider, IconButton, Icon } from 'native-base';
 
 export default function () {
   return (
@@ -8,11 +8,11 @@ export default function () {
         return <IconButton icon={<Icon name="menu" />} {...triggerProps} />;
       }}
     >
-      <MenuItem isDisabled>Menu item 1</MenuItem>
-      <MenuItem>Menu item 2</MenuItem>
-      <MenuItem isDisabled>Menu item 3</MenuItem>
+      <Menu.Item isDisabled>Menu item 1</Menu.Item>
+      <Menu.Item>Menu item 2</Menu.Item>
+      <Menu.Item isDisabled>Menu item 3</Menu.Item>
       <Divider />
-      <MenuItem>Menu item 4</MenuItem>
+      <Menu.Item>Menu item 4</Menu.Item>
     </Menu>
   );
 }

@@ -5,20 +5,14 @@ import {
   TouchableHighlight,
   TouchableNativeFeedback,
 } from 'react-native';
-import {
-  border,
-  color,
-  flexbox,
-  layout,
-  space,
-  typography,
-} from 'styled-system';
+import { border, color, flexbox, layout, space, position } from 'styled-system';
 import {
   customBorder,
   customBackground,
   customOutline,
   customLayout,
   customExtra,
+  customPosition,
   customShadow,
   customTypography,
 } from '../../../utils/customProps';
@@ -33,7 +27,8 @@ const TouchableItem = styled(
   layout,
   flexbox,
   border,
-  typography,
+  position,
+  customPosition,
   customBorder,
   customBackground,
   customOutline,
