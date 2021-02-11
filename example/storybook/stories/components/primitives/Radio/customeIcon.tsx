@@ -1,30 +1,33 @@
 import React from 'react';
-import { Radio, RadioGroup, Text, Icon } from 'native-base';
+import { Radio, Icon } from 'native-base';
 
 export default function () {
   return (
-    <RadioGroup defaultValue="1" size="lg" name="exampleGroup">
+    <Radio.Group defaultValue="1" size="lg" name="exampleGroup">
       <Radio
+        _text={{ mx: 2 }}
         colorScheme="green"
         value="1"
         icon={<Icon name="alien" type="MaterialCommunityIcons" />}
       >
-        <Text mx={2}>Alien</Text>
+        Alien
       </Radio>
       <Radio
+        _text={{ mx: 2 }}
         colorScheme="red"
         value="2"
         icon={<Icon name="fire" type="MaterialCommunityIcons" />}
       >
-        <Text mx={2}>Fire</Text>
+        Fire
       </Radio>
       <Radio
         colorScheme="warning"
+        _text={{ mx: 2 }}
         value="3"
         icon={<Icon name="exclamation" type="MaterialCommunityIcons" />}
       >
-        <Text mx={2}>Warning</Text>
+        Warning
       </Radio>
-    </RadioGroup>
+    </Radio.Group>
   );
 }

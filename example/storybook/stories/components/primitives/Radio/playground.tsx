@@ -1,5 +1,5 @@
 import React from 'react';
-import { IRadioValue, Radio, RadioGroup, Text, View } from 'native-base';
+import { IRadioValue, Radio, Text, View } from 'native-base';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { useState } from 'react';
 
@@ -8,7 +8,7 @@ export default function () {
 
   return (
     <View display="flex" justifyContent="space-between" alignItems="center">
-      <RadioGroup value={value} onChange={setValue} name="exampleGroup">
+      <Radio.Group value={value} onChange={setValue} name="exampleGroup">
         <Radio
           colorScheme={text('colorScheme', 'default')}
           size={select('size', ['sm', 'md', 'lg'], 'md')}
@@ -27,7 +27,7 @@ export default function () {
         >
           <Text mx={2}>Are you Cool?</Text>
         </Radio>
-      </RadioGroup>
+      </Radio.Group>
       <Text>{'Yes, you are ' + value}</Text>
     </View>
   );
