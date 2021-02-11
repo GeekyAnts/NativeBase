@@ -96,27 +96,45 @@ function randomColorFromString(str: string) {
   return color;
 }
 
-export function useContrastText(bg: string) {
-  let [contrastThreshold, darkText, trueBg] = useToken('colors', [
+export function useContrastText(bg: string, color?: string) {
+  let [
+    contrastThreshold,
+    trueDarkText,
+    trueLightText,
+    trueBg,
+    trueColor,
+  ] = useToken('colors', [
     'contrastThreshold',
     'darkText',
+    'lightText',
     bg,
+    color ?? '',
   ]);
 
   if (typeof trueBg !== 'string') {
     trueBg = bg;
   }
-  const contrastColor =
-    getContrastRatio(trueBg, darkText) >= contrastThreshold
+  const trueContrastColor =
+    getContrastRatio(trueBg, trueDarkText) >= contrastThreshold
+      ? trueDarkText
+      : trueLightText;
+
+  const contrastColorToken =
+    getContrastRatio(trueBg, trueDarkText) >= contrastThreshold
       ? 'darkText'
       : 'lightText';
 
   if (process.env.NODE_ENV !== 'production') {
-    const contrast = getContrastRatio(bg, contrastColor);
+    const contrast = getContrastRatio(
+      trueBg,
+      trueColor ? trueColor : trueContrastColor
+    );
     if (contrast < 3) {
       console.warn(
         [
-          `NativeBase: The contrast ratio of ${contrast}:1 for ${contrastColor} on ${bg}`,
+          `NativeBase: The contrast ratio of ${contrast}:1 for ${
+            color ? color : contrastColorToken
+          } on ${bg}`,
           'falls below the WCAG recommended absolute minimum contrast ratio of 3:1.',
           'https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast',
         ].join('\n')
@@ -124,7 +142,7 @@ export function useContrastText(bg: string) {
     }
   }
 
-  return contrastColor;
+  return contrastColorToken;
 }
 
 function getContrastRatio(foreground: string, background: string) {

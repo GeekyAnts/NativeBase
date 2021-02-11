@@ -118,7 +118,9 @@ function mergeUnderscoreProps(newProps: any, props: any) {
   _props.forEach((propName: string) => {
     // Adding color based on bg contrast if no color is given
     const bg = newProps.bg ?? newProps.backgroundColor;
-    const textColor = bg ? { color: useContrastText(bg) } : {};
+    const textColor = bg
+      ? { color: useContrastText(bg, newProps[propName].color) }
+      : {};
     // Overriding calculated props with user added props
     newProps[propName] = {
       ...textColor,
