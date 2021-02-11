@@ -29,7 +29,7 @@ export { Row } from './Row';
 export { default as Button, ButtonGroup } from './Button';
 export type { IButtonProps } from './Button';
 
-export { Slider, SliderThumb, SliderTrack, SliderFilledTrack } from './Slider';
+export { Slider } from './Slider';
 export type { ISliderProps, ISliderContextProps } from './Slider';
 
 export { default as Stack, VStack, HStack } from './Stack';

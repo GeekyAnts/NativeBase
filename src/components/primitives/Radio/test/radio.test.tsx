@@ -1,15 +1,15 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
-import { NativeBaseProvider } from 'native-base';
 import { Radio } from '..';
 import { Text } from '../..';
+import { NativeBaseProvider } from '../../../../core/NativeBaseProvider';
 function RadiosGroup() {
   const [, setValue] = React.useState<any>('one');
   return (
     <Radio.Group
       defaultValue="1"
       name="myRadioGroup"
-      onChange={(nextValue) => {
+      onChange={(nextValue: any) => {
         setValue(nextValue);
       }}
     >

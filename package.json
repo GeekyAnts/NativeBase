@@ -91,7 +91,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils)/)"
+      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/radio)/)"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
@@ -149,8 +149,12 @@
     ]
   },
   "dependencies": {
+    "@react-aria/visually-hidden": "^3.2.1",
     "@react-native-aria/button": "^0.2.1",
     "@react-native-aria/interactions": "^0.2.1",
+    "@react-native-aria/radio": "^0.2.1",
+    "@react-native-aria/switch": "^0.2.1",
+    "@react-stately/radio": "^3.2.1",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
     "expo-constants": "^9.3.5",
