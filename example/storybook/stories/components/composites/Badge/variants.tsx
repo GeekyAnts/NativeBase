@@ -5,7 +5,7 @@ export default function () {
   return (
     <VStack>
       {['solid', 'outline', 'subtle'].map((key: any) => (
-        <HStack>
+        <HStack key={key}>
           <Badge m={2}>Default</Badge>
           <Badge m={2} colorScheme="success" variant={key}>
             SUCCESS
