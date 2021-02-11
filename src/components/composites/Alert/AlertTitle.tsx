@@ -4,11 +4,11 @@ import { useThemeProps } from '../../../hooks';
 import type { IAlertContext } from './index';
 import { AlertContext } from './Context';
 
-const AlertTitle = ({ children, ...props }: any) => {
+const AlertTitle = ({ children, _text, ...props }: { _text?: any } & any) => {
   const newProps = useThemeProps('AlertTitle', props);
   const { textColor }: IAlertContext = React.useContext(AlertContext);
   return (
-    <Text mr={2} color={textColor} {...newProps}>
+    <Text mr={2} color={textColor} {...newProps} {..._text}>
       {children}
     </Text>
   );

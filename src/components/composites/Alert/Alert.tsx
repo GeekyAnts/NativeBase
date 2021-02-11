@@ -4,7 +4,7 @@ import { useThemeProps } from '../../../hooks';
 import type { IAlertProps } from './types';
 import { AlertContext } from './Context';
 
-const Alert = ({ children, ...props }: IAlertProps) => {
+const Alert = ({ children, _text, ...props }: IAlertProps) => {
   const { status, variant, iconColor, textColor, ...newProps } = useThemeProps(
     'Alert',
     props
@@ -27,6 +27,7 @@ const Alert = ({ children, ...props }: IAlertProps) => {
         alignItems="center"
         justifyContent="flex-start"
         flexWrap="wrap"
+        _text={_text}
         {...newProps}
       >
         {children}
