@@ -1,4 +1,4 @@
-import { mode } from '../tools';
+import { mode } from '../tools/colors';
 
 // Accordion
 const accordionBaseStyle = (props: Record<string, any>) => {

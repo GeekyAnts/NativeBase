@@ -5,10 +5,11 @@ import Input from '../../primitives/Input';
 import Button from '../../primitives/Button';
 import Link from '../../primitives/Link';
 import Text from '../../primitives/Text';
-import { useColorMode } from './../../..';
+import { useColorMode } from './../../../core';
 import { useTypeahead } from './useTypeahead';
 import { extractInObject } from '../../../theme/tools';
 import { ITypeaheadProps, layoutPropsList } from './types';
+
 const Typeahead = (
   {
     options,

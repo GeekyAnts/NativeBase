@@ -8,8 +8,8 @@ import {
   findLastValidBreakpoint,
   hasValidBreakpointFormat,
   extractInObject,
-  useContrastText,
-} from './../../theme/tools/';
+} from './../../theme/tools';
+import { useContrastText } from './../../theme/hooks';
 
 /*
  Extract props from theme props and omit those from props
