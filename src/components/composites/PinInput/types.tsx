@@ -10,7 +10,11 @@ export type IPinInputFieldProps = IInputProps & {
   fieldIndex?: number;
   inputSize?: any;
 };
-
+export type IPinInputComponentType = ((
+  props: IPinInputProps
+) => JSX.Element) & {
+  Field: React.MemoExoticComponent<(props: IPinInputFieldProps) => JSX.Element>;
+};
 export type IPinInputContext = IPinInputProps & {
   handleChange?: (value: string, index: number) => void;
   handleMultiValueChange?: (value: string, index: number) => void;

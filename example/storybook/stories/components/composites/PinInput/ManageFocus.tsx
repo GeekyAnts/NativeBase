@@ -1,13 +1,13 @@
 import React from 'react';
-import { PinInput, PinInputField } from 'native-base';
+import { PinInput } from 'native-base';
 
 export default function () {
   return (
     <PinInput manageFocus={false}>
-      <PinInputField />
-      <PinInputField />
-      <PinInputField />
-      <PinInputField />
+      <PinInput.Field />
+      <PinInput.Field />
+      <PinInput.Field />
+      <PinInput.Field />
     </PinInput>
   );
 }

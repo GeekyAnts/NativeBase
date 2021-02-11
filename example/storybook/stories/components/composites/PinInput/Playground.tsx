@@ -1,5 +1,5 @@
 import React from 'react';
-import { PinInput, PinInputField } from 'native-base';
+import { PinInput } from 'native-base';
 import { select, text } from '@storybook/addon-knobs';
 
 export default function () {
@@ -14,9 +14,9 @@ export default function () {
       )}
       defaultValue={text('defaultValue', '96')}
     >
-      <PinInputField />
-      <PinInputField />
-      <PinInputField />
+      <PinInput.Field />
+      <PinInput.Field />
+      <PinInput.Field />
     </PinInput>
   );
 }

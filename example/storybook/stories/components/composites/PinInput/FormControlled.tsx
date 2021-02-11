@@ -1,5 +1,5 @@
 import React from 'react';
-import { PinInput, PinInputField, Center, FormControl } from 'native-base';
+import { PinInput, Center, FormControl } from 'native-base';
 
 export default function () {
   return (
@@ -7,10 +7,10 @@ export default function () {
       <FormControl isRequired isInvalid>
         <FormControl.Label>OTP</FormControl.Label>
         <PinInput>
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
+          <PinInput.Field />
+          <PinInput.Field />
+          <PinInput.Field />
+          <PinInput.Field />
         </PinInput>
         <FormControl.HelperText>
           An otp is send to number ending with +91-XXXXX-XX007.
