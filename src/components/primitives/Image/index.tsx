@@ -39,7 +39,7 @@ const Image = (
     fallbackSource,
     source,
     ignoreFallback,
-    textProps,
+    _alt,
     ...props
   }: IImageProps,
   ref: any
@@ -65,7 +65,7 @@ const Image = (
   }
 
   if (alternate) {
-    return <Text {...textProps}>{alt}</Text>;
+    return <Text {..._alt}>{alt}</Text>;
   }
   return (
     <StyledImage
