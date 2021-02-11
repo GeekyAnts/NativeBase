@@ -90,7 +90,7 @@ export type { IWrapProps } from './Wrap';
 export { useToast } from './Toast';
 export type { IToastProps } from './Toast';
 
-export { default as PinInput, PinInputField } from './PinInput';
+export { PinInput } from './PinInput';
 export type { IPinInputProps, IPinInputFieldProps } from './PinInput';
 
 export {
