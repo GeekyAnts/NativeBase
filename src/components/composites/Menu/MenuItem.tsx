@@ -1,13 +1,12 @@
 import React from 'react';
 import Text from '../../primitives/Text';
 import { useThemeProps } from '../../../hooks';
-import { themeTools } from '../../../theme';
 import TouchableItem from '../../primitives/TouchableItem';
 import type { IMenuItemProps } from './types';
 import { usePopover } from '../../../core';
 
 export const MenuItem = React.memo(
-  ({ children, onPress, style, textStyle, ...props }: IMenuItemProps) => {
+  ({ children, onPress, style, ...props }: IMenuItemProps) => {
     const {
       parentComponentConfig: { closeMenu, closeOnSelect },
     } = usePopover();
@@ -17,18 +16,7 @@ export const MenuItem = React.memo(
       ...newProps,
       ...(newProps.isDisabled ? newProps._disabled : {}),
     };
-    const [textProps, touchProps] = themeTools.extractInObject(allProps, [
-      'color',
-      'fontWeight',
-      'fontStyle',
-      'fontFamily',
-      'fontSize',
-      'padding',
-      'px',
-      'py',
-      'textAlign',
-    ]);
-
+    const { _text, ...touchProps } = allProps;
     return (
       <TouchableItem
         {...touchProps}
@@ -46,11 +34,7 @@ export const MenuItem = React.memo(
           {React.Children.map(children, (child, index: any) => {
             if (typeof child === 'string') {
               return (
-                <Text
-                  {...textProps}
-                  key={`menu-item-${index}`}
-                  style={textStyle}
-                >
+                <Text {..._text} key={`menu-item-${index}`}>
                   {child}
                 </Text>
               );

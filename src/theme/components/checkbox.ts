@@ -12,7 +12,7 @@ const baseStyle = (props: Record<string, any>) => {
     borderColor: isInvalid
       ? mode(`danger.600`, `danger.200`)(props)
       : mode(`muted.300`, `muted.600`)(props),
-    iconColor: mode(`gray.50`, `gray.800`)(props), //matching background color.
+    iconColor: mode(`gray.50`, `gray.800`)(props), // matching background color.
   };
 };
 

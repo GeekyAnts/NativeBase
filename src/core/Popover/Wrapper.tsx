@@ -68,7 +68,7 @@ function Wrapper({
   };
   React.useEffect(() => {
     if (popoverConfig.triggerRef && popoverConfig.triggerRef.current) {
-      popoverConfig.triggerRef.current.measure(
+      popoverConfig.triggerRef.current.measureInWindow(
         (x: any, y: any, width: any, height: any) => {
           setTriggerElementDims({ x, y, width, height });
         }
