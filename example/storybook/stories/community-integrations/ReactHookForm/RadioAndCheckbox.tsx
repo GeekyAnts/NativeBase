@@ -2,7 +2,6 @@ import {
   VStack,
   Button,
   FormControl,
-  RadioGroup,
   Radio,
   Checkbox,
   Text,
@@ -79,7 +78,7 @@ export default function () {
         <Controller
           control={control}
           render={({ onChange }) => (
-            <RadioGroup
+            <Radio.Group
               name="gender"
               flexDirection="row"
               onChange={(val) => onChange(val)}
@@ -90,7 +89,7 @@ export default function () {
               <Radio value="female" colorScheme="pink">
                 <Text mx={2}>Female</Text>
               </Radio>
-            </RadioGroup>
+            </Radio.Group>
           )}
           name="gender"
           rules={{ required: 'Gender is required' }}

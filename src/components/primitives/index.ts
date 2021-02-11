@@ -17,7 +17,7 @@ export { default as View } from './View';
 export { Checkbox } from './Checkbox';
 export type { ICheckboxProps, ICheckboxGroupProps } from './Checkbox';
 
-export { Radio, RadioGroup } from './Radio';
+export { Radio } from './Radio';
 export type { IRadioProps, IRadioGroupProps, IRadioValue } from './Radio';
 
 export { default as Icon, createIcon } from './Icon';
