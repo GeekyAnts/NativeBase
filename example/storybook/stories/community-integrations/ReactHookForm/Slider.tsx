@@ -1,12 +1,4 @@
-import {
-  VStack,
-  Button,
-  FormControl,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-} from 'native-base';
+import { VStack, Button, FormControl, Slider } from 'native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
@@ -27,10 +19,10 @@ export default function () {
           control={control}
           render={({ onChange, value }) => (
             <Slider onChange={(val) => onChange(val)} defaultValue={value}>
-              <SliderTrack>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderThumb />
+              <Slider.Track>
+                <Slider.FilledTrack />
+              </Slider.Track>
+              <Slider.Thumb />
             </Slider>
           )}
           name="like"
