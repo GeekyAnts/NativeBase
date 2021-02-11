@@ -6,9 +6,6 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
   Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
 } from 'native-base';
 export default function () {
   const [value, setValue] = React.useState(20);
@@ -34,10 +31,10 @@ export default function () {
           setValue(Math.floor(v));
         }}
       >
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb />
+        <Slider.Track>
+          <Slider.FilledTrack />
+        </Slider.Track>
+        <Slider.Thumb />
       </Slider>
     </>
   );

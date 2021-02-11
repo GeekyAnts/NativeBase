@@ -5,7 +5,7 @@ import {
 } from '../../composites/IconButton';
 import Icon from '../../primitives/Icon';
 
-export type ICloseButtonProps = IIconButtonProps;
+export type ICloseButtonProps = Omit<IIconButtonProps, 'icon'>;
 
 const CloseButton = (props: ICloseButtonProps) => {
   const iconSize: any = { xs: 6, sm: 8, md: 10, lg: 12 };

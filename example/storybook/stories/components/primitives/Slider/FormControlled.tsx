@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  FormControl,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  VStack,
-} from 'native-base';
+import { FormControl, Slider, VStack } from 'native-base';
 
 export default function () {
   return (
@@ -14,10 +7,10 @@ export default function () {
       <FormControl isRequired isInvalid isDisabled>
         <FormControl.Label>Just Slide</FormControl.Label>
         <Slider defaultValue={50}>
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
+          <Slider.Track>
+            <Slider.FilledTrack />
+          </Slider.Track>
+          <Slider.Thumb />
         </Slider>
         <FormControl.HelperText>
           We'll keep this between us.

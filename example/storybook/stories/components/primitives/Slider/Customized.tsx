@@ -1,23 +1,16 @@
 import React from 'react';
-import {
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  Icon,
-  Box,
-} from 'native-base';
+import { Slider, Icon, Box } from 'native-base';
 
 export default function () {
   return (
     <Box mx={5} width="80%">
       <Slider defaultValue={70} colorScheme="orange">
-        <SliderTrack bg="orange.100">
-          <SliderFilledTrack bg="green.400" />
-        </SliderTrack>
-        <SliderThumb>
+        <Slider.Track bg="orange.100">
+          <Slider.FilledTrack bg="green.400" />
+        </Slider.Track>
+        <Slider.Thumb>
           <Icon name="park" type="MaterialIcons" color="green.500" />
-        </SliderThumb>
+        </Slider.Thumb>
       </Slider>
     </Box>
   );

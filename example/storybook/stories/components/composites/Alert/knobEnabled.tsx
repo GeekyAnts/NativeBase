@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-  AlertIcon,
-  CloseButton,
-} from 'native-base';
+import { Alert, CloseButton } from 'native-base';
 import { select } from '@storybook/addon-knobs';
 
 export default function () {
@@ -38,9 +32,9 @@ export default function () {
         'subtle'
       )}
     >
-      <AlertIcon />
-      <AlertTitle>Error Alert</AlertTitle>
-      <AlertDescription>description goes here </AlertDescription>
+      <Alert.Icon />
+      <Alert.Title>Error Alert</Alert.Title>
+      <Alert.Description>description goes here </Alert.Description>
       <CloseButton position="absolute" right="8px" />
     </Alert>
   );
