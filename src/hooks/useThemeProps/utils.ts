@@ -8,6 +8,7 @@ import {
   findLastValidBreakpoint,
   hasValidBreakpointFormat,
   extractInObject,
+  useContrastText,
 } from './../../theme/tools/';
 
 /*
@@ -106,6 +107,27 @@ const extractPropertyFromFunction = (
   }
   return propValues;
 };
+
+/*
+Merge _props and apply contrastText color if not passed by theme or user
+*/
+function mergeUnderscoreProps(newProps: any, props: any) {
+  const _props = Object.keys(newProps).filter((propName) =>
+    propName.startsWith('_')
+  );
+  _props.forEach((propName: string) => {
+    // Adding color based on bg contrast if no color is given
+    const bg = newProps.bg ?? newProps.backgroundColor;
+    const textColor = bg ? { color: useContrastText(bg) } : {};
+    // Overriding calculated props with user added props
+    newProps[propName] = {
+      ...textColor,
+      ...newProps[propName],
+      ...props[propName],
+    };
+  });
+  return newProps;
+}
 
 /*
 Checks the property and resolves it if it has breakpoints
@@ -212,12 +234,6 @@ export function calculateProps(
     }
   });
 
-  // Merging _ props
-  Object.keys(props)
-    .filter((propName) => propName.startsWith('_'))
-    .forEach((propName: string) => {
-      newProps[propName] = { ...newProps[propName], ...props[propName] };
-    });
-
+  newProps = mergeUnderscoreProps(newProps, props);
   return newProps;
 }
