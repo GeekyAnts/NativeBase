@@ -1,37 +1,28 @@
 import React from 'react';
-import {
-  Stat,
-  StatLabel,
-  StatNumber,
-  StatHelpText,
-  StatArrow,
-  StatGroup,
-  Heading,
-  Box,
-} from 'native-base';
+import { Stat, Heading, Box } from 'native-base';
 
 export default function () {
   return (
     <Box>
       <Heading>Stat with Indicator</Heading>
-      <StatGroup mt={6}>
+      <Stat.Group mt={6}>
         <Stat>
-          <StatLabel>Sent</StatLabel>
-          <StatNumber>$3600</StatNumber>
-          <StatHelpText>
-            <StatArrow type="increase" />
+          <Stat.Label>Sent</Stat.Label>
+          <Stat.Number>$3600</Stat.Number>
+          <Stat.HelpText>
+            <Stat.Arrow type="increase" />
             56.67%
-          </StatHelpText>
+          </Stat.HelpText>
         </Stat>
         <Stat>
-          <StatLabel>Received</StatLabel>
-          <StatNumber>$454</StatNumber>
-          <StatHelpText>
-            <StatArrow type="decrease" />
+          <Stat.Label>Received</Stat.Label>
+          <Stat.Number>$454</Stat.Number>
+          <Stat.HelpText>
+            <Stat.Arrow type="decrease" />
             99.56%
-          </StatHelpText>
+          </Stat.HelpText>
         </Stat>
-      </StatGroup>
+      </Stat.Group>
     </Box>
   );
 }

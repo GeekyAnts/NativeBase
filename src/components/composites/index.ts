@@ -26,14 +26,7 @@ export type { IDividerProps } from './Divider';
 
 export { default as Progress } from './Progress';
 
-export {
-  default as Stat,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
-  StatArrow,
-  StatGroup,
-} from './Stat';
+export { default as Stat } from './Stat';
 
 export { Skeleton } from './Skeleton';
 export type { ISkeletonProps } from './Skeleton';
