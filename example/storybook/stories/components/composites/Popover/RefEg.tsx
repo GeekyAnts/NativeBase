@@ -1,30 +1,20 @@
 import React from 'react';
-import {
-  Popover,
-  PopoverBody,
-  PopoverCloseButton,
-  PopoverContent,
-  PopoverFooter,
-  PopoverHeader,
-  PopoverTrigger,
-  Button,
-  Input,
-} from 'native-base';
+import { Popover, Button, Input } from 'native-base';
 import type { TextInput } from 'react-native';
 
 export default function () {
   const initialFocusRef = React.useRef<TextInput>(null);
   return (
     <Popover initialFocusRef={initialFocusRef} closeOnBlur={false}>
-      <PopoverTrigger>
+      <Popover.Trigger>
         <Button>Trigger</Button>
-      </PopoverTrigger>
-      <PopoverContent width={250}>
-        <PopoverCloseButton />
-        <PopoverHeader fontSize={20} fontWeight={700}>
+      </Popover.Trigger>
+      <Popover.Content width={250}>
+        <Popover.CloseButton />
+        <Popover.Header fontSize={20} fontWeight={700}>
           Header
-        </PopoverHeader>
-        <PopoverBody>
+        </Popover.Header>
+        <Popover.Body>
           <Input
             mb={3}
             backgroundColor="white"
@@ -32,9 +22,9 @@ export default function () {
             placeholder="I will get focused on Popover opening"
           />
           This Popover won't close on clicking outside the popover area.
-        </PopoverBody>
-        <PopoverFooter>This is the footer</PopoverFooter>
-      </PopoverContent>
+        </Popover.Body>
+        <Popover.Footer>This is the footer</Popover.Footer>
+      </Popover.Content>
     </Popover>
   );
 }

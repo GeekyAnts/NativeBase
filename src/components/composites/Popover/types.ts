@@ -15,6 +15,8 @@ import type {
   customShadowProps,
 } from '../../../utils/customProps';
 import type { Props as tooltipProps } from './Tooltip';
+import type { IBoxProps } from '../../primitives/Box';
+import type { ICloseButtonProps } from '../CloseButton';
 type SpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 export type IPopoverProps = ColorProps &
   SpaceProps &
@@ -38,3 +40,13 @@ export type IPopoverProps = ColorProps &
     id?: any;
     size?: SpaceType | string | number;
   };
+export type IPopoverComponentType = ((props: IPopoverProps) => JSX.Element) & {
+  Body: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  CloseButton: React.MemoExoticComponent<
+    (props: ICloseButtonProps) => JSX.Element
+  >;
+  Content: React.MemoExoticComponent<(props: IPopoverProps) => JSX.Element>;
+  Footer: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  Header: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  Trigger: React.MemoExoticComponent<(props: any) => JSX.Element>;
+};
