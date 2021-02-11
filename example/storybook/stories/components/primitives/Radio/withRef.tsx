@@ -1,11 +1,11 @@
 import React from 'react';
-import { RadioGroup, Radio, Icon } from 'native-base';
+import { Radio, Icon } from 'native-base';
 
 export default function () {
   const myRef: any = React.useRef({});
 
   return (
-    <RadioGroup
+    <Radio.Group
       name="exampleGroup"
       colorScheme="success"
       onChange={(value) => {
@@ -36,6 +36,6 @@ export default function () {
       >
         Correct
       </Radio>
-    </RadioGroup>
+    </Radio.Group>
   );
 }

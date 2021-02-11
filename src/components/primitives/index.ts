@@ -17,7 +17,7 @@ export { default as View } from './View';
 export { Checkbox } from './Checkbox';
 export type { ICheckboxProps, ICheckboxGroupProps } from './Checkbox';
 
-export { Radio, RadioGroup } from './Radio';
+export { Radio } from './Radio';
 export type { IRadioProps, IRadioGroupProps, IRadioValue } from './Radio';
 
 export { default as Icon, createIcon } from './Icon';
@@ -29,7 +29,7 @@ export { Row } from './Row';
 export { default as Button, ButtonGroup } from './Button';
 export type { IButtonProps } from './Button';
 
-export { Slider, SliderThumb, SliderTrack, SliderFilledTrack } from './Slider';
+export { Slider } from './Slider';
 export type { ISliderProps, ISliderContextProps } from './Slider';
 
 export { default as Stack, VStack, HStack } from './Stack';

@@ -1,17 +1,21 @@
 import React from 'react';
-import { TouchableOpacity, Platform } from 'react-native';
+import {
+  TouchableOpacity,
+  Platform,
+  TouchableOpacityProps,
+} from 'react-native';
 import Icon from '../Icon';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
-import { RadioContext } from './RadioGroup';
 import type { IRadioProps } from './types';
-import { useRadio } from './useRadio';
 import { mergeRefs } from './../../../utils';
 import { useHover } from '@react-native-aria/interactions';
+import { useRadio } from '@react-native-aria/radio';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
+import { RadioContext } from './RadioGroup';
 
 const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
-  const contextState = React.useContext(RadioContext);
-
+  let contextState = React.useContext(RadioContext);
   const {
     activeColor,
     borderColor,
@@ -23,6 +27,9 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
     ...props,
   });
 
+  const inputRef = React.useRef(null);
+  let { inputProps } = useRadio(props, contextState.state, inputRef);
+
   // only calling below function when icon exist.
   const sizedIcon = () =>
     //@ts-ignore
@@ -30,78 +37,94 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
       size,
       color:
         //@ts-ignore
-        icon.props.color ?? checked
-          ? isDisabled
+        icon.props.color ?? isSelected
+          ? inputProps.disabled
             ? borderColor
             : activeColor
           : borderColor,
     });
 
-  const { inputProps } = useRadio(props, contextState, null);
-  const { checked, disabled: isDisabled } = inputProps;
+  let isSelected = contextState.state.selectedValue === props.value;
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
+  const mergedRefs = mergeRefs([_ref, ref]);
 
   const outlineColor =
-    isHovered && !isDisabled
+    isHovered && !inputProps.disabled
       ? activeColor
-      : checked
-      ? isDisabled
+      : isSelected
+      ? inputProps.disabled
         ? borderColor
         : activeColor
       : borderColor;
 
-  return (
-    <TouchableOpacity
-      activeOpacity={1}
-      ref={mergeRefs([ref, _ref])}
-      {...inputProps}
+  let component = (
+    <Box
+      flexDirection="row"
+      justifyContent="center"
+      alignItems="center"
+      {...newProps}
+      opacity={inputProps.disabled ? 0.4 : 1}
+      {...(Platform.OS === 'web'
+        ? {
+            disabled: inputProps.disabled,
+            cursor: inputProps.disabled ? 'not-allowed' : 'auto',
+          }
+        : {})}
     >
       <Box
-        flexDirection="row"
+        borderColor={outlineColor}
+        backgroundColor={inputProps.disabled ? 'muted.200' : 'transparent'}
+        borderWidth={1}
+        display="flex"
         justifyContent="center"
         alignItems="center"
-        {...newProps}
-        opacity={isDisabled ? 0.4 : 1}
-        {...(Platform.OS === 'web'
-          ? {
-              disabled: isDisabled,
-              cursor: isDisabled ? 'not-allowed' : 'auto',
-            }
-          : {})}
+        borderRadius={999}
+        p={'2px'}
       >
-        <Box
-          borderColor={outlineColor}
-          backgroundColor={isDisabled ? 'muted.200' : 'transparent'}
-          borderWidth={1}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          borderRadius={999}
-          p={'2px'}
-        >
-          {icon && checked ? (
-            sizedIcon()
-          ) : (
-            <Icon
-              name="circle"
-              type="MaterialCommunityIcons"
-              size={size}
-              color={
-                checked
-                  ? isDisabled
-                    ? borderColor
-                    : activeColor
-                  : 'transparent'
-              }
-              opacity={checked ? 1 : 0}
-            />
-          )}
-        </Box>
-        {children}
+        {icon && isSelected ? (
+          sizedIcon()
+        ) : (
+          <Icon
+            name="circle"
+            type="MaterialCommunityIcons"
+            size={size}
+            color={
+              isSelected
+                ? inputProps.disabled
+                  ? borderColor
+                  : activeColor
+                : 'transparent'
+            }
+            opacity={isSelected ? 1 : 0}
+          />
+        )}
       </Box>
-    </TouchableOpacity>
+      {children}
+    </Box>
+  );
+
+  return (
+    <>
+      {Platform.OS === 'web' ? (
+        <label ref={_ref}>
+          <VisuallyHidden>
+            <input {...inputProps} ref={ref}></input>
+          </VisuallyHidden>
+
+          {component}
+        </label>
+      ) : (
+        <TouchableOpacity
+          activeOpacity={1}
+          ref={mergedRefs}
+          {...(inputProps as TouchableOpacityProps)}
+        >
+          {component}
+        </TouchableOpacity>
+      )}
+    </>
   );
 };
 
