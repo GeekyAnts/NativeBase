@@ -1,6 +1,15 @@
-export { default as Alert } from './Alert';
-export { AlertContext } from './Context';
-export { default as AlertDescription } from './AlertDescription';
-export { default as AlertIcon } from './AlertIcon';
-export { default as AlertTitle } from './AlertTitle';
+import AlertDescription from './AlertDescription';
+import AlertIcon from './AlertIcon';
+import AlertTitle from './AlertTitle';
+import AlertMain from './Alert';
+
 export type { IAlertProps, IAlertContext } from './types';
+import type { IAlertComponentType } from './types';
+
+let AlertTemp: any = AlertMain;
+AlertTemp.Description = AlertDescription;
+AlertTemp.Icon = AlertIcon;
+AlertTemp.Title = AlertTitle;
+// To add typings
+const Alert = AlertTemp as IAlertComponentType;
+export { Alert };

@@ -1,32 +1,32 @@
 import React from 'react';
-import { Alert, Stack, AlertTitle, AlertIcon } from 'native-base';
+import { Alert, Stack } from 'native-base';
 
 export default function () {
   return (
     <Stack space={4} mx={3}>
       <Alert variant="solid" status="teal">
-        <AlertIcon />
-        <AlertTitle>Alert Solid Variant</AlertTitle>
+        <Alert.Icon />
+        <Alert.Title>Alert Solid Variant</Alert.Title>
       </Alert>
       <Alert variant="left-accent" status="success">
-        <AlertIcon />
-        <AlertTitle>Alert Left Accent Variant</AlertTitle>
+        <Alert.Icon />
+        <Alert.Title>Alert Left Accent Variant</Alert.Title>
       </Alert>
       <Alert variant="top-accent" status="error">
-        <AlertIcon />
-        <AlertTitle>Alert Top Accent Variant</AlertTitle>
+        <Alert.Icon />
+        <Alert.Title>Alert Top Accent Variant</Alert.Title>
       </Alert>
       <Alert status="warning" variant="subtle">
-        <AlertIcon />
-        <AlertTitle>Alert Default/Subtle Variant</AlertTitle>
+        <Alert.Icon />
+        <Alert.Title>Alert Default/Subtle Variant</Alert.Title>
       </Alert>
       <Alert status="info" variant="outline">
-        <AlertIcon />
-        <AlertTitle>Alert Outline Variant</AlertTitle>
+        <Alert.Icon />
+        <Alert.Title>Alert Outline Variant</Alert.Title>
       </Alert>
       <Alert status="info" variant="outline-light">
-        <AlertIcon />
-        <AlertTitle>Alert Outline Light Variant</AlertTitle>
+        <Alert.Icon />
+        <Alert.Title>Alert Outline Light Variant</Alert.Title>
       </Alert>
     </Stack>
   );

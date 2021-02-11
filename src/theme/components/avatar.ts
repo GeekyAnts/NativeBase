@@ -1,7 +1,7 @@
 import { randomColor, mode } from './../tools';
 
 const baseStyle = (props: Record<string, any>) => {
-  const { name, theme, ...colorModeProps } = props;
+  const { name, ...colorModeProps } = props;
   const bg = name ? randomColor({ string: name }) : 'gray.400';
   const borderColor = mode('gray.800', 'white')(colorModeProps);
   return {
