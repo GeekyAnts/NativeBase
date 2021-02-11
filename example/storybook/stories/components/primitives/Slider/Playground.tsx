@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  Box,
-} from 'native-base';
+import { Slider, Box } from 'native-base';
 import { number, text } from '@storybook/addon-knobs';
 
 export default function () {
@@ -20,10 +14,10 @@ export default function () {
         })}
         colorScheme={text('colorScheme', 'purple')}
       >
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb />
+        <Slider.Track>
+          <Slider.FilledTrack />
+        </Slider.Track>
+        <Slider.Thumb />
       </Slider>
     </Box>
   );
