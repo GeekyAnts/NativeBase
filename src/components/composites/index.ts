@@ -108,15 +108,8 @@ export {
 export { Modal } from './Modal';
 export type { IModalProps } from './Modal';
 
-export {
-  default as Popover,
-  PopoverBody,
-  PopoverCloseButton,
-  PopoverContent,
-  PopoverFooter,
-  PopoverHeader,
-  PopoverTrigger,
-} from './Popover';
+export { Popover } from './Popover';
+export type { IPopoverProps } from './Popover';
 
 export { AlertDialog } from './AlertDialog';
 
