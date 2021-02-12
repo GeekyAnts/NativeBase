@@ -133,8 +133,7 @@ describe('CheckBoxGroup', () => {
     );
     let checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(2);
-    fireEvent.press(checkbox[1]);
-    expect(checkbox[1].props.accessibilityState.checked).toBe(false);
+    expect(checkbox[1].props.accessibilityState.checked).toBe('mixed');
   });
 
   it('inDeterminant on checkBox', () => {
@@ -146,7 +145,7 @@ describe('CheckBoxGroup', () => {
     let checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(2);
     fireEvent.press(checkbox[1]);
-    expect(checkbox[1].props.accessibilityState.checked).toBe(false);
+    expect(checkbox[1].props.accessibilityState.checked).toBe('mixed');
   });
 
   it('onChange on checkBox', () => {

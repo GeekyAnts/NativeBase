@@ -1,8 +1,9 @@
+import type { CheckboxGroupState } from '@react-stately/checkbox';
 import type { TouchableOpacityProps } from 'react-native';
 import type { IFormControlContext } from '../../composites/FormControl';
 import type { IBoxProps } from '../Box';
 
-export type ICheckboxValue = string | number;
+export type ICheckboxValue = string;
 
 export type ICheckboxProps = IBoxProps & {
   Group?: ICheckboxGroupProps;
@@ -18,7 +19,7 @@ export type ICheckboxProps = IBoxProps & {
   isInvalid?: boolean;
   size?: 'sm' | 'md' | 'lg';
   icon?: JSX.Element;
-  onChange?: (value: ICheckboxValue, currentState: boolean) => void;
+  onChange?: (isSelected: boolean) => void;
   // onBlur?: (event: any) => void;
   // onFocus?: (event: any) => void;
   // ariaLabelledby?: string;
@@ -37,10 +38,10 @@ export type ICheckboxGroupProps = IBoxProps & {
   style?: any;
 };
 export type ICheckboxContext = IFormControlContext & {
-  value?: Array<any>;
   colorScheme?: string;
   size?: 'sm' | 'md' | 'lg';
-  onChange?: (value: ICheckboxValue, currentState: boolean) => void;
+  style?: any;
+  state: CheckboxGroupState;
 };
 
 export type IUseCheckboxReturnType = {
