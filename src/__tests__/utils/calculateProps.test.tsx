@@ -1,29 +1,43 @@
+import React from 'react';
 import { calculateProps } from './../../hooks/useThemeProps/utils';
 import { theme } from 'native-base';
+import { renderHook } from '@testing-library/react-hooks';
+import { NativeBaseProvider } from 'native-base';
 
 describe('useCalculateProps', () => {
+  const wrapper = ({ children }: any) => (
+    <NativeBaseProvider>{children}</NativeBaseProvider>
+  );
   const colorModeProps = {
     colorMode: 'light',
     toggleColorMode: () => {},
     setColorMode: () => {},
   };
   test('No component theme + no props', () => {
-    expect(calculateProps(theme, colorModeProps, {}, {}, 750)).toEqual({});
+    const { result } = renderHook(
+      () => calculateProps(theme, colorModeProps, {}, {}, 750),
+      { wrapper }
+    );
+    expect(result.current).toEqual({});
   });
 
   test('Only component theme(Badge) + no props', () => {
     const componentTheme = (theme as any).components.Badge;
-    expect(
-      calculateProps(theme, colorModeProps, componentTheme, {}, 750)
-    ).toEqual({
+    const { result } = renderHook(
+      () => calculateProps(theme, colorModeProps, componentTheme, {}, 750),
+      { wrapper }
+    );
+    expect(result.current).toEqual({
+      _text: {
+        color: 'gray.700',
+        fontSize: 'xs',
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+      },
       px: 1,
       py: 1,
-      textTransform: 'uppercase',
-      fontSize: 'xs',
       borderRadius: 'lg',
-      fontWeight: 'bold',
       bg: 'gray.100',
-      color: 'gray.700',
       borderWidth: 1,
       borderColor: 'transparent',
     });
@@ -31,17 +45,22 @@ describe('useCalculateProps', () => {
 
   test('Component theme(Badge) + some props', () => {
     const componentTheme = (theme as any).components.Badge;
-    expect(
-      calculateProps(theme, colorModeProps, componentTheme, { py: 3 }, 750)
-    ).toEqual({
+    const { result } = renderHook(
+      () =>
+        calculateProps(theme, colorModeProps, componentTheme, { py: 3 }, 750),
+      { wrapper }
+    );
+    expect(result.current).toEqual({
+      _text: {
+        color: 'gray.700',
+        fontSize: 'xs',
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+      },
       px: 1,
       py: 3,
-      textTransform: 'uppercase',
-      fontSize: 'xs',
       borderRadius: 'lg',
-      fontWeight: 'bold',
       bg: 'gray.100',
-      color: 'gray.700',
       borderWidth: 1,
       borderColor: 'transparent',
     });
