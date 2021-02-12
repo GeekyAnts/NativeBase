@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { RefObject, useEffect, ReactNode } from 'react';
 import type { Modal as ModalType } from 'react-native';
 import { KeyboardAvoidingView, Modal as RNModal, Platform } from 'react-native';
 import styled from 'styled-components/native';
 import { border, color, flexbox, layout, position, space } from 'styled-system';
 import { useOverlay } from '../../../core/Overlay';
 import { useThemeProps } from '../../../hooks';
+import { FocusScope } from '@react-aria/focus';
 import {
   customBackground,
   customBorder,
@@ -18,6 +19,25 @@ import { Box, View } from '../../primitives';
 import type { IModalProps, IModalSemiProps } from './types';
 import { default as ModalOverlay } from './ModalOverlay';
 import { ModalContext } from './Context';
+
+const ModalWeb = ({
+  initialFocusRef,
+  finalFocusRef,
+  children,
+}: {
+  initialFocusRef?: RefObject<any>;
+  finalFocusRef?: RefObject<any>;
+  children: ReactNode;
+}): any => {
+  useEffect(() => {
+    initialFocusRef?.current?.focus();
+    const finalRef = finalFocusRef?.current;
+    return () => {
+      finalRef?.focus();
+    };
+  }, [initialFocusRef, finalFocusRef]);
+  return children;
+};
 
 const StyledModal = styled(RNModal)<IModalSemiProps>(
   color,
@@ -81,9 +101,20 @@ const Modal = (
       isOpen && Platform.OS === 'web'
         ? setOverlay(
             <ModalContext.Provider value={value}>
-              <Box ref={ref} nativeID={id} h="100%">
-                {modalChildren}
-              </Box>
+              <FocusScope
+                contain
+                restoreFocus={!(finalFocusRef && finalFocusRef.current)}
+                autoFocus={!(initialFocusRef && initialFocusRef.current)}
+              >
+                <Box ref={ref} nativeID={id} h="100%">
+                  <ModalWeb
+                    initialFocusRef={initialFocusRef}
+                    finalFocusRef={finalFocusRef}
+                  >
+                    {modalChildren}
+                  </ModalWeb>
+                </Box>
+              </FocusScope>
             </ModalContext.Provider>,
             {
               onClose: onClose,
