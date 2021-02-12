@@ -5,7 +5,8 @@ import styled from 'styled-components/native';
 import { border, color, flexbox, layout, position, space } from 'styled-system';
 import { useOverlay } from '../../../core/Overlay';
 import { useThemeProps } from '../../../hooks';
-import { FocusScope } from '@react-aria/focus';
+//@ts-ignore - Todo - fix types to typings in rn-aria in next version
+import { FocusScope } from '@react-native-aria/focus';
 import {
   customBackground,
   customBorder,
