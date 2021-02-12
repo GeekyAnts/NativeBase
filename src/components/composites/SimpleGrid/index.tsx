@@ -1,2 +1,2 @@
-export { SimpleGrid } from './SimpleGrid';
+export { default as SimpleGrid } from './SimpleGrid';
 export type { ISimpleGridProps } from './types';

@@ -32,7 +32,7 @@ export type { IButtonProps } from './Button';
 export { Slider } from './Slider';
 export type { ISliderProps, ISliderContextProps } from './Slider';
 
-export { default as Stack, VStack, HStack } from './Stack';
+export { Stack, VStack, HStack } from './Stack';
 export type { IStackProps } from './Stack';
 
 export { default as Image } from './Image';

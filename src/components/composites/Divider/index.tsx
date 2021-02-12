@@ -26,7 +26,10 @@ const StyledDivider = styled(View)<IDividerProps>(
   customExtra,
   customLayout
 );
-const Divider = ({ style, orientation, ...props }: IDividerProps) => {
+const Divider = (
+  { style, orientation, ...props }: IDividerProps,
+  ref?: any
+) => {
   let orientationProps =
     orientation === 'vertical'
       ? {
@@ -39,8 +42,15 @@ const Divider = ({ style, orientation, ...props }: IDividerProps) => {
         };
   let newProps = useThemeProps('Divider', props);
 
-  return <StyledDivider {...orientationProps} {...newProps} style={style} />;
+  return (
+    <StyledDivider
+      {...orientationProps}
+      {...newProps}
+      style={style}
+      ref={ref}
+    />
+  );
 };
 
-export default React.memo(Divider);
+export default React.memo(React.forwardRef(Divider));
 export type { IDividerProps };

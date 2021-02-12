@@ -4,10 +4,10 @@ import { Box, Text } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import type { IKbdProps } from './types';
 
-const Kbd = ({ children, ...props }: IKbdProps) => {
+const Kbd = ({ children, ...props }: IKbdProps, ref?: any) => {
   let { _text, ...newProps } = useThemeProps('Kbd', props);
   return (
-    <Box {...newProps}>
+    <Box {...newProps} ref={ref}>
       <Text
         {..._text}
         fontFamily={
@@ -24,5 +24,5 @@ const Kbd = ({ children, ...props }: IKbdProps) => {
   );
 };
 
-export default React.memo(Kbd);
+export default React.memo(React.forwardRef(Kbd));
 export type { IKbdProps };
