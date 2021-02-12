@@ -46,6 +46,11 @@ const Image = (
 ) => {
   let [renderedSource, setSource] = useState(source);
   let [alternate, setAlternate] = useState(false);
+
+  React.useEffect(() => {
+    setSource(source);
+  }, [source]);
+
   let onImageLoadError = (event: any) => {
     console.warn(event.nativeEvent.error);
     if (
