@@ -5,25 +5,20 @@ import {
   IFormControlContext,
 } from '../../composites/FormControl';
 import type { IRadioContext, IRadioGroupProps } from './types';
-import { RadioGroupState, useRadioGroupState } from '@react-stately/radio';
+import { useRadioGroupState } from '@react-stately/radio';
+import { useRadioGroup } from '@react-native-aria/radio';
 
-export const RadioContext = React.createContext<IRadioContext>({
-  name: '',
-  state: {} as RadioGroupState,
-});
+export let RadioContext = React.createContext<IRadioContext>(
+  {} as IRadioContext
+);
 
-const RadioGroup = ({
-  size,
-  colorScheme,
-  name,
-  ...props
-}: IRadioGroupProps) => {
+const RadioGroup = ({ size, colorScheme, ...props }: IRadioGroupProps) => {
   const formControlContext: IFormControlContext = React.useContext(
     FormControlContext
   );
 
   let state = useRadioGroupState(props);
-
+  let { radioGroupProps } = useRadioGroup(props, state);
   return (
     <RadioContext.Provider
       value={{
@@ -31,10 +26,9 @@ const RadioGroup = ({
         size,
         colorScheme,
         state,
-        name,
       }}
     >
-      <Box accessibilityRole="radiogroup" alignItems="flex-start" {...props}>
+      <Box alignItems="flex-start" {...radioGroupProps} {...props}>
         {props.children}
       </Box>
     </RadioContext.Provider>

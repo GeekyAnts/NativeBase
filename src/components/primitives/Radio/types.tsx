@@ -29,7 +29,6 @@ export type IRadioGroupProps = IBoxProps & {
   style?: any;
 };
 export type IRadioContext = IFormControlContext & {
-  name: string;
   colorScheme?: string;
   size?: 'sm' | 'md' | 'lg';
   // Custom props

@@ -1,11 +1,6 @@
 import React from 'react';
 import { useToggleState } from '@react-stately/toggle';
-import {
-  StyleSheet,
-  ViewStyle,
-  Switch as RNSwitch,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, ViewStyle, Switch as RNSwitch } from 'react-native';
 import styled from 'styled-components/native';
 import isNil from 'lodash/isNil';
 import { useToken, useThemeProps } from '../../../hooks';
@@ -20,7 +15,6 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import type { ISwitchProps } from './types';
-import { useSwitch } from '@react-native-aria/switch';
 
 const StyledNBSwitch = styled(RNSwitch)<ISwitchProps>(
   color,
@@ -80,33 +74,21 @@ const Switch = (
     isInvalid ? inValidPropFactors : {},
   ]);
 
-  const inputRef = React.useRef(null);
-  let { inputProps } = useSwitch(
-    {
-      'aria-label': accessibilityLabel,
-      'aria-describedby': accessibilityHint,
-      isDisabled,
-    },
-    state,
-    inputRef
-  );
-
   return (
-    //@ts-ignore
-    <TouchableOpacity {...inputProps} ref={inputRef}>
-      <StyledNBSwitch
-        trackColor={{ false: offTrackColor, true: onTrackColor }}
-        thumbColor={checked ? onThumbColor : offThumbColor}
-        ios_backgroundColor={offTrackColor}
-        {...newProps}
-        disabled={isDisabled}
-        onValueChange={onToggle ? onToggle : state.toggle}
-        value={checked}
-        style={computedStyle}
-        ref={ref}
-        opacity={isDisabled ? 0.4 : 1}
-      />
-    </TouchableOpacity>
+    <StyledNBSwitch
+      accessibilityLabel={accessibilityLabel}
+      accessibilityHint={accessibilityHint}
+      trackColor={{ false: offTrackColor, true: onTrackColor }}
+      thumbColor={checked ? onThumbColor : offThumbColor}
+      ios_backgroundColor={offTrackColor}
+      {...newProps}
+      disabled={isDisabled}
+      onValueChange={onToggle ? onToggle : state.toggle}
+      value={checked}
+      style={computedStyle}
+      ref={ref}
+      opacity={isDisabled ? 0.4 : 1}
+    />
   );
 };
 

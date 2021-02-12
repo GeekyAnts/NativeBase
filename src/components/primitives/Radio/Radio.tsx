@@ -1,15 +1,21 @@
 import React from 'react';
-import { TouchableOpacity, Platform } from 'react-native';
+import {
+  TouchableOpacity,
+  Platform,
+  TouchableOpacityProps,
+} from 'react-native';
 import Icon from '../Icon';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
-import { RadioContext } from './RadioGroup';
 import type { IRadioProps } from './types';
+import { mergeRefs } from './../../../utils';
+import { useHover } from '@react-native-aria/interactions';
 import { useRadio } from '@react-native-aria/radio';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
+import { RadioContext } from './RadioGroup';
 
-const Radio = ({ icon, ...props }: IRadioProps, ref: any) => {
-  const contextState = React.useContext(RadioContext);
-
+const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
+  let contextState = React.useContext(RadioContext);
   const {
     activeColor,
     borderColor,
@@ -21,8 +27,8 @@ const Radio = ({ icon, ...props }: IRadioProps, ref: any) => {
     ...props,
   });
 
-  const { inputProps } = useRadio(props, contextState.state, ref);
-  const { checked, disabled: isDisabled } = inputProps;
+  const inputRef = React.useRef(null);
+  let { inputProps } = useRadio(props, contextState.state, inputRef);
 
   // only calling below function when icon exist.
   const sizedIcon = () =>
@@ -31,38 +37,45 @@ const Radio = ({ icon, ...props }: IRadioProps, ref: any) => {
       size,
       color:
         //@ts-ignore
-        icon.props.color ?? checked
-          ? isDisabled
+        icon.props.color ?? isSelected
+          ? inputProps.disabled
             ? borderColor
             : activeColor
           : borderColor,
     });
-  // const outlineColor =
-  // isHovered && !isDisabled
-  //   ? activeColor
-  //   : checked
-  //   ? isDisabled
-  //     ? borderColor
-  //     : activeColor
-  //   : borderColor;
-  return (
-    // <AriaInputWrapper activeOpacity={1} ref={ref} {...inputProps}>
+
+  let isSelected = contextState.state.selectedValue === props.value;
+
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+  const mergedRefs = mergeRefs([_ref, ref]);
+
+  const outlineColor =
+    isHovered && !inputProps.disabled
+      ? activeColor
+      : isSelected
+      ? inputProps.disabled
+        ? borderColor
+        : activeColor
+      : borderColor;
+
+  let component = (
     <Box
       flexDirection="row"
       justifyContent="center"
       alignItems="center"
       {...newProps}
-      opacity={isDisabled ? 0.4 : 1}
+      opacity={inputProps.disabled ? 0.4 : 1}
       {...(Platform.OS === 'web'
         ? {
-            disabled: isDisabled,
-            cursor: isDisabled ? 'not-allowed' : 'auto',
+            disabled: inputProps.disabled,
+            cursor: inputProps.disabled ? 'not-allowed' : 'auto',
           }
         : {})}
     >
       <Box
-        // borderColor={outlineColor}
-        backgroundColor={isDisabled ? 'muted.200' : 'transparent'}
+        borderColor={outlineColor}
+        backgroundColor={inputProps.disabled ? 'muted.200' : 'transparent'}
         borderWidth={1}
         display="flex"
         justifyContent="center"
@@ -70,7 +83,7 @@ const Radio = ({ icon, ...props }: IRadioProps, ref: any) => {
         borderRadius={999}
         p={'2px'}
       >
-        {icon && checked ? (
+        {icon && isSelected ? (
           sizedIcon()
         ) : (
           <Icon
@@ -78,15 +91,40 @@ const Radio = ({ icon, ...props }: IRadioProps, ref: any) => {
             type="MaterialCommunityIcons"
             size={size}
             color={
-              checked ? (isDisabled ? borderColor : activeColor) : 'transparent'
+              isSelected
+                ? inputProps.disabled
+                  ? borderColor
+                  : activeColor
+                : 'transparent'
             }
-            opacity={checked ? 1 : 0}
+            opacity={isSelected ? 1 : 0}
           />
         )}
       </Box>
-      {props.children}
+      {children}
     </Box>
-    // </AriaInputWrapper>
+  );
+
+  return (
+    <>
+      {Platform.OS === 'web' ? (
+        <label ref={_ref}>
+          <VisuallyHidden>
+            <input {...inputProps} ref={ref}></input>
+          </VisuallyHidden>
+
+          {component}
+        </label>
+      ) : (
+        <TouchableOpacity
+          activeOpacity={1}
+          ref={mergedRefs}
+          {...(inputProps as TouchableOpacityProps)}
+        >
+          {component}
+        </TouchableOpacity>
+      )}
+    </>
   );
 };
 

@@ -29,8 +29,8 @@ const AppBar = ({ children, ...props }: IAppBarProps) => {
   );
 };
 
-AppBar.Left = React.memo(AppBarLeft);
-AppBar.Right = React.memo(AppBarRight);
-AppBar.Content = React.memo(AppBarContent);
+AppBar.Left = AppBarLeft;
+AppBar.Right = AppBarRight;
+AppBar.Content = AppBarContent;
 
 export default AppBar;
