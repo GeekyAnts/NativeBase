@@ -9,7 +9,7 @@ export type IAspectRatioProps = IBoxProps & {
   children: JSX.Element;
 };
 
-function AspectView(props: any) {
+const AspectView = React.forwardRef((props: any, ref?: any) => {
   const [layout, setLayout] = React.useState();
   const inputStyle = [StyleSheet.flatten(props.style) || {}];
   if (layout) {
@@ -24,20 +24,19 @@ function AspectView(props: any) {
   return (
     <Box
       {...props}
+      ref={ref}
       style={inputStyle}
       onLayout={({ nativeEvent: { layout: inLayout } }: any) =>
         setLayout(inLayout)
       }
     />
   );
-}
+});
 
-const AspectRatio = ({
-  style,
-  ratio,
-  children,
-  ...props
-}: IAspectRatioProps) => {
+const AspectRatio = (
+  { style, ratio, children, ...props }: IAspectRatioProps,
+  ref?: any
+) => {
   let computedStyle: ViewStyle | undefined = style;
   let newChildWithProps = React.cloneElement(
     children,
@@ -52,18 +51,18 @@ const AspectRatio = ({
   // DOC:  It uses a aspectRatio property of React Native and manually calculate on Web
   if (Platform.OS === 'web') {
     return (
-      <AspectView {...props} aspectRatio={aspectRatio} style={style}>
+      <AspectView {...props} aspectRatio={aspectRatio} style={style} ref={ref}>
         {newChildWithProps}
       </AspectView>
     );
   } else {
     computedStyle = StyleSheet.flatten([style, { aspectRatio }]);
     return (
-      <Box {...props} style={computedStyle}>
+      <Box {...props} style={computedStyle} ref={ref}>
         {newChildWithProps}
       </Box>
     );
   }
 };
 
-export default React.memo(AspectRatio);
+export default React.memo(React.forwardRef(AspectRatio));
