@@ -1,16 +1,15 @@
 import React from 'react';
 import { Modal } from '../../composites/Modal';
 import type { IActionsheetContentProps } from './types';
+import { useThemeProps } from '../../../hooks';
 
 const ActionsheetContent = ({
   children,
   ...props
 }: IActionsheetContentProps) => {
-  return (
-    <Modal.Content m={3} p={2} mb={1} borderRadius="lg" {...props}>
-      {children}
-    </Modal.Content>
-  );
+  const newProps = useThemeProps('ActionsheetContent', props);
+
+  return <Modal.Content {...newProps}>{children}</Modal.Content>;
 };
 
 export default React.memo(ActionsheetContent);

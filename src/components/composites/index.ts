@@ -135,13 +135,7 @@ export type {
   ITabsContextProps,
 } from './Tabs';
 
-export {
-  Actionsheet,
-  ActionsheetContent,
-  ActionsheetFooter,
-  ActionsheetHeader,
-  ActionsheetItem,
-} from './Actionsheet';
+export { Actionsheet } from './Actionsheet';
 export type {
   IActionsheetProps,
   IActionsheetContentProps,
