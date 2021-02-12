@@ -10,11 +10,7 @@ import Box from '../Box';
 
 export let CheckboxGroupContext = createContext<ICheckboxContext | null>(null);
 
-export function CheckboxGroup({
-  size,
-  colorScheme,
-  ...props
-}: ICheckboxGroupProps) {
+function CheckboxGroup({ size, colorScheme, ...props }: ICheckboxGroupProps) {
   let { children } = props;
   let state = useCheckboxGroupState(props);
   let { groupProps } = useCheckboxGroup(props, state);
