@@ -1,23 +1,13 @@
 import React from 'react';
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Checkbox,
-  CheckboxGroup,
-  VStack,
-  Text,
-  Container,
-} from 'native-base';
+import { FormControl, Checkbox, VStack, Text, Container } from 'native-base';
 
 export default function () {
   const [groupValue, setGroupValue] = React.useState(['Item 1 ', 'Item 3 ']);
   return (
     <Container>
       <FormControl isRequired isInvalid>
-        <FormLabel>Select Item</FormLabel>
-        <CheckboxGroup
+        <FormControl.Label>Select Item</FormControl.Label>
+        <Checkbox.Group
           colorScheme="green"
           defaultValue={groupValue}
           onChange={(values) => {
@@ -41,9 +31,11 @@ export default function () {
           >
             <Text mx={2}>Indeterminate Item</Text>
           </Checkbox>
-        </CheckboxGroup>
-        <FormHelperText>We'll keep this between us.</FormHelperText>
-        <FormErrorMessage>Something is wrong.</FormErrorMessage>
+        </Checkbox.Group>
+        <FormControl.HelperText>
+          We'll keep this between us.
+        </FormControl.HelperText>
+        <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>
       </FormControl>
 
       <VStack mt={3} alignItems="baseline">

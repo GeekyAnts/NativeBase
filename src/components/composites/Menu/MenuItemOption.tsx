@@ -2,11 +2,8 @@ import React from 'react';
 import { Flex, Icon, IconNameType } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import { MenuItem } from './MenuItem';
-import type { IMenuItemProps, IMenuOptionContextProps } from './types';
+import type { IMenuItemOptionProps, IMenuOptionContextProps } from './types';
 import { MenuOptionContext } from './MenuOptionGroup';
-export type IMenuItemOptionProps = IMenuItemProps & {
-  value: string | number;
-};
 
 export const MenuItemOption = React.memo(
   ({ value, children, onPress, ...props }: IMenuItemOptionProps) => {
@@ -29,9 +26,13 @@ export const MenuItemOption = React.memo(
         : 'radio-button-unchecked';
     const newProps = useThemeProps('MenuItem', props);
     return (
-      <MenuItem {...props} onPress={modifiedOnPress}>
+      <MenuItem {...props} px={0} py={0} onPress={modifiedOnPress}>
         <Flex direction="row" px={newProps.px} py={newProps.py}>
-          <Icon name={iconName} pr={newProps.px} size={newProps.fontSize} />
+          <Icon
+            name={iconName}
+            pr={newProps.px}
+            size={newProps._text.fontSize}
+          />
           {children}
         </Flex>
       </MenuItem>

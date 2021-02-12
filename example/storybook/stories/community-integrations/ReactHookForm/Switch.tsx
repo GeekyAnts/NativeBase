@@ -1,11 +1,4 @@
-import {
-  VStack,
-  Button,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  Switch,
-} from 'native-base';
+import { VStack, Button, FormControl, Switch } from 'native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
@@ -21,7 +14,7 @@ export default function () {
   return (
     <VStack width="80%" space={4}>
       <FormControl isInvalid={'rememberMe' in errors}>
-        <FormLabel>Remenber me:</FormLabel>
+        <FormControl.Label>Remenber me:</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange, value }) => (
@@ -33,7 +26,9 @@ export default function () {
           name="rememberMe"
           defaultValue={true}
         />
-        <FormErrorMessage>{errors.rememberMe?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.rememberMe?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <Button onPress={handleSubmit(onSubmit)} colorScheme="pink">
         Submit

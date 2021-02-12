@@ -1,20 +1,17 @@
 import React from 'react';
-import { Tag, TagLabel, Avatar, AvatarBadge } from 'native-base';
+import { Tag, Avatar } from 'native-base';
 
 export default function () {
   return (
-    <Tag colorScheme="red" rounded={100} size="md">
+    <Tag colorScheme="emerald" size="sm" rounded={'full'}>
       <Avatar
-        mr={3}
+        mr={2}
         source={{ uri: 'https://nativebase.io/assets/img/front-page-icon.png' }}
-        name={'Native Base'}
-        width={10}
-        height={10}
-        my={1}
-      >
-        <AvatarBadge bg={'blue.100'} boxSize={2} />
-      </Avatar>
-      <TagLabel>Custom Tag</TagLabel>
+        name={'Nativebase'}
+        width={6}
+        height={6}
+      />
+      Nativebase
     </Tag>
   );
 }

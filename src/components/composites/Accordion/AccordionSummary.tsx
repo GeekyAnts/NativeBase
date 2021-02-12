@@ -2,16 +2,16 @@ import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import Box from '../../primitives/Box';
 import type {
-  IAccordionButtonProps,
+  IAccordionSummaryProps,
   IAccordionItemContextProps,
 } from './types';
 import { AccordionItemContext } from './Context';
 import { useThemeProps } from '../../../hooks';
-import { mergeRefs } from './../../../utils';
+import { mergeRefs } from '../../../utils';
 import { useHover } from '@react-native-aria/interactions';
 
-const AccordionButton = (
-  { children, ...props }: IAccordionButtonProps,
+const AccordionSummary = (
+  { children, ...props }: IAccordionSummaryProps,
   ref: any
 ) => {
   const {
@@ -23,7 +23,7 @@ const AccordionButton = (
   }: IAccordionItemContextProps = React.useContext(AccordionItemContext);
 
   const { _hover, _expanded, _disabled, ...newProps } = useThemeProps(
-    'AccordionButton',
+    'AccordionSummary',
     props
   );
   const pressHandler = () => {
@@ -66,5 +66,5 @@ const AccordionButton = (
 };
 
 export default React.memo(
-  React.forwardRef<TouchableOpacity, IAccordionButtonProps>(AccordionButton)
+  React.forwardRef<TouchableOpacity, IAccordionSummaryProps>(AccordionSummary)
 );

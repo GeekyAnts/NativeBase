@@ -16,6 +16,7 @@ import type {
   customBackgroundProps,
   customTypographyProps,
 } from '../../../utils/customProps';
+import type { ITextProps } from '../Text';
 
 export type IInputProps = ColorProps &
   TextInputProps &
@@ -45,10 +46,11 @@ export type IInputProps = ColorProps &
     isFullWidth?: boolean;
     focusBorderColor?: string;
     errorBorderColor?: string;
-    errorMessageColor?: string;
+    _errorMessage?: ITextProps;
     ariaLabel?: string;
     InputLeftElement?: JSX.Element | JSX.Element[];
     InputRightElement?: JSX.Element | JSX.Element[];
     type?: 'text' | 'password' | string;
     label?: string;
+    _label?: ITextProps;
   };

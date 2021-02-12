@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, AvatarBadge } from 'native-base';
+import { Avatar } from 'native-base';
 import { color, select, number, text } from '@storybook/addon-knobs';
 
 export default function () {
@@ -17,7 +17,7 @@ export default function () {
       size={select('size', ['sm', 'md', 'lg'], 'md')}
       name={text('name', 'NativeBase')}
     >
-      <AvatarBadge
+      <Avatar.Badge
         bg={color('bg', 'red.200')}
         boxSize={number('badgeSize', 5, {
           range: true,

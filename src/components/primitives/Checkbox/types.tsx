@@ -6,6 +6,7 @@ import type { IBoxProps } from '../Box';
 export type ICheckboxValue = string;
 
 export type ICheckboxProps = IBoxProps & {
+  Group?: ICheckboxGroupProps;
   id?: string;
   name?: string;
   value: ICheckboxValue;
@@ -54,4 +55,10 @@ export type IUseCheckboxGroupReturnType = {
     onChange: (checkboxValue: ICheckboxValue, isChecked: boolean) => any;
     values: Array<ICheckboxValue>;
   };
+};
+
+export type ICheckboxComponentType = ((
+  props: ICheckboxProps
+) => JSX.Element) & {
+  Group: React.MemoExoticComponent<(props: ICheckboxGroupProps) => JSX.Element>;
 };

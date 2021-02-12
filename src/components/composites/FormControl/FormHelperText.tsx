@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import { useToken } from '../../../hooks';
 import { FormControlContext } from './FormControl';
-import type { IFormHelperTextProps, IFormControlContext } from './types';
+import type { IFormControlHelperTextProps, IFormControlContext } from './types';
 
 const FormHelperText = ({
   children,
@@ -11,7 +11,7 @@ const FormHelperText = ({
   _focus,
   _invalid,
   ...props
-}: IFormHelperTextProps) => {
+}: IFormControlHelperTextProps) => {
   const { isInvalid, isDisabled }: IFormControlContext = React.useContext(
     FormControlContext
   );
@@ -20,8 +20,10 @@ const FormHelperText = ({
   return (
     <Box
       {...props}
-      fontSize="xs"
-      color={mutedColor}
+      _text={{
+        fontSize: 'xs',
+        color: mutedColor,
+      }}
       style={[style, isInvalid && _invalid, isDisabled && _disabled]}
     >
       {children}

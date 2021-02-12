@@ -45,11 +45,9 @@ type AccessibleColor = {
 const accessibleColorMap: { [key: string]: AccessibleColor } = {
   yellow: {
     bg: 'yellow.400',
-    color: 'black',
   },
   cyan: {
     bg: 'cyan.400',
-    color: 'black',
   },
 };
 
@@ -59,23 +57,17 @@ function variantSolid(props: Dict) {
     return {
       bg: mode(`gray.100`, `whiteAlpha.200`)(props),
     };
-  const { bg = `${c}.500`, color = 'white' } = accessibleColorMap[c] || {};
+  const { bg = `${c}.500` } = accessibleColorMap[c] || {};
   return {
     bg: mode(bg, `${c}.400`)(props),
-    _text: {
-      color: mode(color, `gray.800`)(props),
-    },
   };
 }
 
-function variantLink(props: Dict) {
-  const { colorScheme: c } = props;
+function variantLink() {
   return {
     padding: 0,
     height: 'auto',
-    // lineHeight: 'normal',
     _text: {
-      color: mode(`${c}.500`, `${c}.200`)(props),
       textDecorationLine: 'underline',
     },
   };

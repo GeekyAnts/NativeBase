@@ -1,19 +1,12 @@
 import React from 'react';
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-  AlertIcon,
-  CloseButton,
-  Box,
-} from 'native-base';
+import { Alert, CloseButton, Box } from 'native-base';
 export default function () {
   return (
     <Box mx={3}>
       <Alert status="error">
-        <AlertIcon />
-        <AlertTitle>Error Alert</AlertTitle>
-        <AlertDescription>description goes here</AlertDescription>
+        <Alert.Icon />
+        <Alert.Title>Error Alert</Alert.Title>
+        <Alert.Description>description goes here</Alert.Description>
         <CloseButton />
       </Alert>
     </Box>

@@ -11,11 +11,12 @@ export const useToast = () => {
     duration = 2000,
     position = 'bottom',
     offset,
+    _title,
   }: IsetToastProps) => {
     setTimeout(() => {
       closeOverlay();
     }, duration);
-    setOverlay(<ToastItem title={title} offset={offset} />, {
+    setOverlay(<ToastItem title={title} _title={_title} offset={offset} />, {
       position,
       disableOverlay: true,
     });

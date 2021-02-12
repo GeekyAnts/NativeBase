@@ -44,3 +44,7 @@ export type IUseRadioGroupReturnType = {
     name: string;
   };
 };
+
+export type IRadioComponentType = ((props: IRadioProps) => JSX.Element) & {
+  Group: React.MemoExoticComponent<(props: IRadioGroupProps) => JSX.Element>;
+};

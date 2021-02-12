@@ -1,12 +1,12 @@
 import React from 'react';
-import { Radio, RadioGroup, Text } from 'native-base';
+import { Radio, Text } from 'native-base';
 import type { IRadioValue } from 'native-base';
 
 export default function ControlledRadio() {
   const [value, setValue] = React.useState<IRadioValue>('one');
 
   return (
-    <RadioGroup
+    <Radio.Group
       name="myRadioGroup"
       value={value}
       onChange={(nextValue) => {
@@ -19,6 +19,6 @@ export default function ControlledRadio() {
       <Radio value="two">
         <Text>Two</Text>
       </Radio>
-    </RadioGroup>
+    </Radio.Group>
   );
 }

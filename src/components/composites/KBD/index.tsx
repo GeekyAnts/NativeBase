@@ -4,22 +4,19 @@ import { Box, Text } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import type { IKbdProps } from './types';
 
-const Kbd = ({ style, textStyle, children, ...props }: IKbdProps) => {
-  let newProps = useThemeProps('Kbd', props);
-  let { fontWeight, fontSize, lineHeight, ...viewProps } = newProps;
-  const textProps = { fontWeight, fontSize, lineHeight };
+const Kbd = ({ children, ...props }: IKbdProps, ref?: any) => {
+  let { _text, ...newProps } = useThemeProps('Kbd', props);
   return (
-    <Box {...viewProps} style={style}>
+    <Box {...newProps} ref={ref}>
       <Text
-        {...textProps}
+        {..._text}
         fontFamily={
-          newProps.fontFamily
-            ? newProps.fontFamily
+          _text?.fontFamily
+            ? _text?.fontFamily
             : Platform.OS === 'ios'
             ? 'Courier'
             : 'monospace'
         }
-        style={textStyle}
       >
         {children}
       </Text>
@@ -27,5 +24,5 @@ const Kbd = ({ style, textStyle, children, ...props }: IKbdProps) => {
   );
 };
 
-export default React.memo(Kbd);
+export default React.memo(React.forwardRef(Kbd));
 export type { IKbdProps };

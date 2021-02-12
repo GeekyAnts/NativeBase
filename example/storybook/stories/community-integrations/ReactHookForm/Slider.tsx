@@ -1,14 +1,4 @@
-import {
-  VStack,
-  Button,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-} from 'native-base';
+import { VStack, Button, FormControl, Slider } from 'native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
@@ -24,22 +14,24 @@ export default function () {
   return (
     <VStack width="80%" space={4}>
       <FormControl isRequired isInvalid={'like' in errors}>
-        <FormLabel>Amount you like NativeBase</FormLabel>
+        <FormControl.Label>Amount you like NativeBase</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange, value }) => (
             <Slider onChange={(val) => onChange(val)} defaultValue={value}>
-              <SliderTrack>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderThumb />
+              <Slider.Track>
+                <Slider.FilledTrack />
+              </Slider.Track>
+              <Slider.Thumb />
             </Slider>
           )}
           name="like"
           rules={{ required: 'Field is required', minLength: 3 }}
           defaultValue={100}
         />
-        <FormErrorMessage>{errors.like?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.like?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <Button onPress={handleSubmit(onSubmit)} colorScheme="pink">
         Submit

@@ -1,8 +1,21 @@
-export { default as Actionsheet } from './Actionsheet';
-export { default as ActionsheetContent } from './ActionsheetContent';
-export { default as ActionsheetFooter } from './ActionsheetFooter';
-export { default as ActionsheetHeader } from './ActionsheetHeader';
-export { default as ActionsheetItem } from './ActionsheetItem';
+import ActionsheetMain from './Actionsheet';
+import ActionsheetContent from './ActionsheetContent';
+import ActionsheetFooter from './ActionsheetFooter';
+import ActionsheetHeader from './ActionsheetHeader';
+import ActionsheetItem from './ActionsheetItem';
+import type { IActionsheetComponentType } from './types';
+
+const ActionsheetTemp: any = ActionsheetMain;
+ActionsheetTemp.Content = ActionsheetContent;
+ActionsheetTemp.Footer = ActionsheetFooter;
+ActionsheetTemp.Header = ActionsheetHeader;
+ActionsheetTemp.Item = ActionsheetItem;
+
+// To add typings
+const Actionsheet = ActionsheetTemp as IActionsheetComponentType;
+
+export { Actionsheet };
+
 export type {
   IActionsheetProps,
   IActionsheetContentProps,

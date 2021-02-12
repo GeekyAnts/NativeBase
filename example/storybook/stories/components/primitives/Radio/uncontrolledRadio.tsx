@@ -1,9 +1,9 @@
 import React from 'react';
-import { Radio, RadioGroup, Text } from 'native-base';
+import { Radio, Text } from 'native-base';
 
 export default function () {
   return (
-    <RadioGroup defaultValue="1" name="myRadioGroup">
+    <Radio.Group defaultValue="1" name="myRadioGroup">
       <Radio value="1">
         <Text mx={2}>First</Text>
       </Radio>
@@ -13,6 +13,6 @@ export default function () {
       <Radio value="3">
         <Text mx={2}>Third</Text>
       </Radio>
-    </RadioGroup>
+    </Radio.Group>
   );
 }

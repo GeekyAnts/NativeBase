@@ -1,29 +1,23 @@
 import React from 'react';
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  VStack,
-} from 'native-base';
+import { FormControl, Slider, VStack } from 'native-base';
 
 export default function () {
   return (
     <VStack space={4} mx={10} width="80%">
       <FormControl isRequired isInvalid isDisabled>
-        <FormLabel>Just Slide</FormLabel>
+        <FormControl.Label>Just Slide</FormControl.Label>
         <Slider defaultValue={50}>
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
+          <Slider.Track>
+            <Slider.FilledTrack />
+          </Slider.Track>
+          <Slider.Thumb />
         </Slider>
-        <FormHelperText>We'll keep this between us.</FormHelperText>
-        <FormErrorMessage>Don't worry, it's just an example.</FormErrorMessage>
+        <FormControl.HelperText>
+          We'll keep this between us.
+        </FormControl.HelperText>
+        <FormControl.ErrorMessage>
+          Don't worry, it's just an example.
+        </FormControl.ErrorMessage>
       </FormControl>
     </VStack>
   );

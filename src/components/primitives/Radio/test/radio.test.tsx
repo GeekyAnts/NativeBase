@@ -1,13 +1,12 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
-import RadioGroup from '../RadioGroup';
-import Radio from '../Radio';
+import { Radio } from '..';
 import { Text } from '../..';
 import { NativeBaseProvider } from '../../../../core/NativeBaseProvider';
 function RadiosGroup() {
   const [, setValue] = React.useState<any>('one');
   return (
-    <RadioGroup
+    <Radio.Group
       defaultValue="1"
       name="myRadioGroup"
       onChange={(nextValue: any) => {
@@ -23,7 +22,7 @@ function RadiosGroup() {
       <Radio value="3">
         <Text mx={2}>Third</Text>
       </Radio>
-    </RadioGroup>
+    </Radio.Group>
   );
 }
 describe('RadioGroup', () => {
@@ -46,7 +45,7 @@ describe('RadioGroup', () => {
   it('can be disabled', () => {
     let { getAllByRole } = render(
       <NativeBaseProvider>
-        <RadioGroup defaultValue="1" name="myRadioGroup">
+        <Radio.Group defaultValue="1" name="myRadioGroup">
           <Radio value="1">
             <Text mx={2}>First</Text>
           </Radio>
@@ -56,7 +55,7 @@ describe('RadioGroup', () => {
           <Radio value="3">
             <Text mx={2}>Third</Text>
           </Radio>
-        </RadioGroup>
+        </Radio.Group>
       </NativeBaseProvider>
     );
     let second = getAllByRole('radio');

@@ -5,11 +5,15 @@ import TouchableItem from '../../primitives/TouchableItem';
 import type { IMenuGroupProps } from './types';
 
 export const MenuGroup = React.memo(({ title, children }: IMenuGroupProps) => {
-  const newProps = useThemeProps('MenuGroup', {});
+  const { _title, ...newProps } = useThemeProps('MenuGroup', {});
   return (
     <>
-      <TouchableItem activeOpacity={1} underlayColor={'transparent'}>
-        <Text {...newProps}>{title}</Text>
+      <TouchableItem
+        activeOpacity={1}
+        underlayColor={'transparent'}
+        {...newProps}
+      >
+        <Text {..._title}>{title}</Text>
       </TouchableItem>
       {children}
     </>

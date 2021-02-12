@@ -45,8 +45,8 @@ export type IButtonProps = ViewProps &
     size?: 'xs' | 'sm' | 'md' | 'lg';
     onPress?: any;
     shadow?: number;
-    leftIcon?: JSX.Element | Array<JSX.Element>;
-    rightIcon?: JSX.Element | Array<JSX.Element>;
+    startIcon?: JSX.Element | Array<JSX.Element>;
+    endIcon?: JSX.Element | Array<JSX.Element>;
     isLoadingText?: string;
     spinner?: JSX.Element;
     isDisabled?: boolean;

@@ -5,14 +5,14 @@ export default function () {
   return (
     <HStack space={2}>
       <Button
-        leftIcon={<Icon name="menu" size={6} type="MaterialIcons" />}
+        startIcon={<Icon name="menu" size={6} type="MaterialIcons" />}
         colorScheme="blue"
       >
         Menu
       </Button>
       <Button
         isDisabled
-        rightIcon={<Icon name="menu" size={6} type="MaterialIcons" />}
+        endIcon={<Icon name="menu" size={6} type="MaterialIcons" />}
         colorScheme="cyan"
       >
         Menu

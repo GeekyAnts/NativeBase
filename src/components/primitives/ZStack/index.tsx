@@ -10,12 +10,12 @@ export type IZStackProps = IViewProps & {
 
 const StyledZStack = styled(View)<IZStackProps>({});
 
-const ZStack = ({ children, reversed, ...props }: IZStackProps) => {
+const ZStack = ({ children, reversed, ...props }: IZStackProps, ref?: any) => {
   return (
-    <StyledZStack {...props}>
+    <StyledZStack {...props} ref={ref}>
       {getAbsoluteChildren(children, reversed)}
     </StyledZStack>
   );
 };
 
-export default React.memo(ZStack);
+export default React.memo(React.forwardRef(ZStack));

@@ -32,6 +32,7 @@ export const getBreadcrumbSeparator = (
     result = result.slice(1, -1);
     return result.map((child: any, index: number) => {
       return React.cloneElement(child, {
+        _text: { ...props },
         ...props,
         key: `breadcrumb-separator-${index}`,
       });

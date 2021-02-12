@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  FormErrorMessage,
-  FormHelperText,
-} from 'native-base';
+import { FormControl, Input } from 'native-base';
 import { boolean } from '@storybook/addon-knobs';
 
 export default function () {
@@ -16,14 +10,14 @@ export default function () {
       isInvalid={boolean('isInvalid', false)}
       isReadOnly={boolean('isReadOnly', false)}
     >
-      <FormLabel _invalid={{ backgroundColor: '#FED7D7' }}>
+      <FormControl.Label _invalid={{ backgroundColor: '#FED7D7' }}>
         Favorite framework
-      </FormLabel>
+      </FormControl.Label>
       <Input p={2} placeholder="Is it react?" />
-      <FormHelperText _disabled={{ backgroundColor: '#eee' }}>
+      <FormControl.HelperText _disabled={{ backgroundColor: '#eee' }}>
         We'll keep this between us.
-      </FormHelperText>
-      <FormErrorMessage>Something is wrong.</FormErrorMessage>
+      </FormControl.HelperText>
+      <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>
     </FormControl>
   );
 }
