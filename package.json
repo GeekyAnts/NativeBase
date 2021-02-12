@@ -25,7 +25,7 @@
     "bundle:analysis": "visualize-bundle",
     "postinstall": "patch-package"
   },
-  "version": "3.0.0-next.23",
+  "version": "3.0.0-next.24",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -152,8 +152,8 @@
   "dependencies": {
     "@react-aria/visually-hidden": "^3.2.1",
     "@react-native-aria/button": "^0.2.1",
-    "@react-native-aria/focus": "^0.2.2",
     "@react-native-aria/checkbox": "^0.2.1",
+    "@react-native-aria/focus": "^0.2.2",
     "@react-native-aria/interactions": "^0.2.1",
     "@react-native-aria/radio": "^0.2.1",
     "@react-native-aria/switch": "^0.2.1",
