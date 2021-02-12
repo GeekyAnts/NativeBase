@@ -1,12 +1,13 @@
 import React from 'react';
 import Button from '../../primitives/Button';
 import type { IActionsheetItemProps } from './types';
-import { omitUndefined } from '../../../theme/tools/utils';
+import { useThemeProps } from '../../../hooks';
 
 const ActionsheetItem = ({ children, ...props }: IActionsheetItemProps) => {
-  const newProps = omitUndefined(props);
+  const newProps = useThemeProps('ActionsheetItem', props);
+
   return (
-    <Button bg="transparent" {...newProps} fontWeight="normal">
+    <Button variant="unstyled" {...newProps}>
       {children}
     </Button>
   );

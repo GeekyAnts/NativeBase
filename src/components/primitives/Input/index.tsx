@@ -24,7 +24,7 @@ import Text from '../Text';
 import Flex from '../Flex';
 import type { IInputProps } from './types';
 import { InputRightAddon, InputGroup, InputLeftAddon } from './InputGroup';
-import { useThemeProps } from '../../../hooks';
+import { useThemeProps, useToken } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import { useHover } from '@react-native-aria/interactions';
 
@@ -51,7 +51,9 @@ const Input = (
     isInvalid,
     isDisabled,
     placeholder,
+
     errorMessage,
+    _errorMessage,
     // isRequired,
     isReadOnly,
     isFullWidth,
@@ -72,6 +74,8 @@ const Input = (
     mt,
     mb,
     label,
+    _label,
+    placeholderTextColor,
     ...props
   }: IInputProps,
   ref: any
@@ -91,13 +95,17 @@ const Input = (
     callback();
   };
 
+  let placeholderColor = useToken('colors', placeholderTextColor ?? 'gray.400');
+
+  if (typeof placeholderColor !== 'string') {
+    placeholderColor = placeholderTextColor;
+  }
   const {
     borderColor: borderColorFromProps,
     fontSize,
     borderWidth,
     focusBorderColor,
     errorBorderColor,
-    errorMessageColor,
     hoverBorderColor,
     borderBottomWidth,
     ...newProps
@@ -179,6 +187,7 @@ const Input = (
                   bg="transparent"
                   color={updatedBorderColor}
                   fontSize={fontSize}
+                  _text={_label}
                 >
                   {label}
                   <Box
@@ -218,6 +227,7 @@ const Input = (
             handleFocus(false, onBlur ? onBlur : () => {});
           }}
           placeholder={isFocused && label ? '' : placeholder}
+          placeholderTextColor={placeholderColor}
           editable={isDisabled || isReadOnly ? false : true}
           // borderRadius={50} //Remove variant props from StyledInput
           borderWidth={undefined}
@@ -243,10 +253,7 @@ const Input = (
       </Box>
 
       {isInvalid && errorMessage ? (
-        <Text
-          ml={2}
-          color={errorMessageColor ? errorMessageColor : 'danger.600'}
-        >
+        <Text ml={2} color="danger.600" {..._errorMessage}>
           {errorMessage}
         </Text>
       ) : null}

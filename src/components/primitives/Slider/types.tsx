@@ -43,3 +43,9 @@ export type ISliderContextProps = {
   isDisabled?: boolean;
   orientation?: 'vertical' | 'horizontal';
 };
+
+export type ISliderComponentType = ((props: ISliderProps) => JSX.Element) & {
+  Thumb: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  Track: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  FilledTrack: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+};

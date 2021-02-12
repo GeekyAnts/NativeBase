@@ -32,17 +32,20 @@ const StyledWrap = styled(Box)<IWrapProps>(
   customLayout,
   customFlexBox
 );
-const Wrap = ({
-  style,
-  spacing,
-  children,
-  direction,
-  align,
-  justify,
-  grow,
-  basis,
-  ...props
-}: IWrapProps) => {
+const Wrap = (
+  {
+    style,
+    spacing,
+    children,
+    direction,
+    align,
+    justify,
+    grow,
+    basis,
+    ...props
+  }: IWrapProps,
+  ref?: any
+) => {
   let newProps = useThemeProps('Wrap', props);
   return (
     <StyledWrap
@@ -53,6 +56,7 @@ const Wrap = ({
       flexGrow={grow}
       flexBasis={basis}
       style={style}
+      ref={ref}
     >
       {isNil(spacing)
         ? children
@@ -67,5 +71,5 @@ const Wrap = ({
   );
 };
 
-export default React.memo(Wrap);
+export default React.memo(React.forwardRef(Wrap));
 export type { IWrapProps };

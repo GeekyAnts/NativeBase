@@ -1,14 +1,12 @@
 export { default as Accordion } from './Accordion';
+export { AccordionContext } from './Context';
 export { AccordionItemContext } from './Context';
-export { default as AccordionItem } from './AccordionItem';
-export { default as AccordionButton } from './AccordionButton';
-export { default as AccordionPanel } from './AccordionPanel';
-export { default as AccordionIcon } from './AccordionIcon';
+
 export type {
   IAccordionProps,
   IAccordionItemProps,
-  IAccordionButtonProps,
-  IAccordionPanelProps,
+  IAccordionSummaryProps,
+  IAccordionDetailsProps,
   IAccordionIconProps,
   IAccordionContextProps,
   IAccordionItemContextProps,

@@ -1,5 +1,9 @@
-import React from 'react';
-import { TouchableOpacity, Platform } from 'react-native';
+import React, { useContext } from 'react';
+import {
+  TouchableOpacity,
+  Platform,
+  TouchableOpacityProps,
+} from 'react-native';
 import { mergeRefs } from './../../../utils';
 import { useThemeProps } from '../../../hooks';
 import { Center } from '../../composites/Center';
@@ -9,19 +13,19 @@ import {
 } from '../../composites/FormControl';
 import Box from '../Box';
 import Icon from '../Icon';
-import { CheckboxContext } from './CheckboxGroup';
-import type { ICheckboxContext, ICheckboxProps } from './types';
-import { useCheckbox } from './useCheckbox';
+import type { ICheckboxProps } from './types';
+import { useToggleState } from '@react-stately/toggle';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
+import { CheckboxGroupContext } from './CheckboxGroup';
 import { useHover } from '@react-native-aria/interactions';
+import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 
 const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext: IFormControlContext = React.useContext(
     FormControlContext
   );
 
-  const checkboxGroupContext: ICheckboxContext = React.useContext(
-    CheckboxContext
-  );
+  const checkboxGroupContext = React.useContext(CheckboxGroupContext);
   const {
     activeColor,
     borderColor,
@@ -33,12 +37,36 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     ...formControlContext,
     ...props,
   });
+  let _ref = React.useRef();
+  const mergedRef = mergeRefs([ref, _ref]);
+  let state = useToggleState({ ...props, isSelected: props.isChecked });
+  let groupState = useContext(CheckboxGroupContext);
+  const { isHovered } = useHover({}, _ref);
 
-  const { inputProps } = useCheckbox(props, checkboxGroupContext, null);
+  // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.
+  // This is a bit unorthodox. Typically, hooks cannot be called in a conditional,
+  // but since the checkbox won't move in and out of a group, it should be safe.
+  let { inputProps } = groupState
+    ? // eslint-disable-next-line react-hooks/rules-of-hooks
+      useCheckboxGroupItem(
+        {
+          ...props,
+          value: props.value,
+        },
+        groupState.state,
+        //@ts-ignore
+        mergedRef
+      )
+    : // eslint-disable-next-line react-hooks/rules-of-hooks
+      useCheckbox(
+        props,
+        state,
+        //@ts-ignore
+        mergedRef
+      );
 
   const isChecked = inputProps.checked;
   const isDisabled = inputProps.disabled;
-
   const sizedIcon = icon
     ? () =>
         React.cloneElement(
@@ -50,10 +78,6 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
           icon.props.children
         )
     : null;
-
-  const _ref = React.useRef(null);
-  const { isHovered } = useHover({}, _ref);
-
   const outlineColor =
     isHovered && !isDisabled
       ? activeColor
@@ -62,49 +86,63 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         ? borderColor
         : activeColor
       : borderColor;
+  const component = (
+    <Box
+      flexDirection="row"
+      alignItems="center"
+      {...newProps}
+      opacity={isDisabled ? 0.4 : 1}
+      {...(Platform.OS === 'web'
+        ? {
+            disabled: isDisabled,
+            cursor: isDisabled ? 'not-allowed' : 'auto',
+          }
+        : {})}
+    >
+      <Center
+        backgroundColor={
+          isChecked ? (isDisabled ? borderColor : activeColor) : 'transparent'
+        }
+        borderColor={outlineColor}
+        borderWidth={1}
+        borderRadius={4}
+        p={1}
+      >
+        {icon && sizedIcon && isChecked ? (
+          sizedIcon()
+        ) : (
+          <Icon
+            name="check-bold"
+            type="MaterialCommunityIcons"
+            size={size}
+            color={iconColor}
+            opacity={isChecked ? 1 : 0}
+          />
+        )}
+      </Center>
+      {props.children}
+    </Box>
+  );
 
   return (
-    <TouchableOpacity
-      activeOpacity={1}
-      ref={mergeRefs([ref, _ref])}
-      {...inputProps}
-    >
-      <Box
-        flexDirection="row"
-        alignItems="center"
-        {...newProps}
-        opacity={isDisabled ? 0.4 : 1}
-        {...(Platform.OS === 'web'
-          ? {
-              disabled: isDisabled,
-              cursor: isDisabled ? 'not-allowed' : 'auto',
-            }
-          : {})}
-      >
-        <Center
-          backgroundColor={
-            isChecked ? (isDisabled ? borderColor : activeColor) : 'transparent'
-          }
-          borderColor={outlineColor}
-          borderWidth={1}
-          borderRadius={4}
-          p={1}
+    <>
+      {Platform.OS === 'web' ? (
+        <label ref={mergedRef}>
+          <VisuallyHidden>
+            <input {...inputProps} ref={mergedRef}></input>
+          </VisuallyHidden>
+
+          {component}
+        </label>
+      ) : (
+        <TouchableOpacity
+          {...(inputProps as TouchableOpacityProps)}
+          ref={mergedRef}
         >
-          {icon && sizedIcon && isChecked ? (
-            sizedIcon()
-          ) : (
-            <Icon
-              name="check-bold"
-              type="MaterialCommunityIcons"
-              size={size}
-              color={iconColor}
-              opacity={isChecked ? 1 : 0}
-            />
-          )}
-        </Center>
-        {props.children}
-      </Box>
-    </TouchableOpacity>
+          {component}
+        </TouchableOpacity>
+      )}
+    </>
   );
 };
 

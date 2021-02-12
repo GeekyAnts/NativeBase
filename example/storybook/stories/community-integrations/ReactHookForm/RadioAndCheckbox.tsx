@@ -2,11 +2,7 @@ import {
   VStack,
   Button,
   FormControl,
-  FormLabel,
-  FormErrorMessage,
-  RadioGroup,
   Radio,
-  CheckboxGroup,
   Checkbox,
   Text,
   Icon,
@@ -27,11 +23,11 @@ export default function () {
   return (
     <VStack width="80%" space={4}>
       <FormControl isRequired isInvalid={'hobbies' in errors}>
-        <FormLabel>Hobbies</FormLabel>
+        <FormControl.Label>Hobbies</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange }) => (
-            <CheckboxGroup
+            <Checkbox.Group
               onChange={(values) => {
                 onChange(values);
               }}
@@ -67,20 +63,22 @@ export default function () {
               >
                 <Text mx={2}>Chess</Text>
               </Checkbox>
-            </CheckboxGroup>
+            </Checkbox.Group>
           )}
           rules={{ required: 'Atleast 1 hobbie needed' }}
           name="hobbies"
           defaultValue=""
         />
-        <FormErrorMessage>{errors.hobbies?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.hobbies?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <FormControl isRequired isInvalid={'gender' in errors}>
-        <FormLabel>Gender</FormLabel>
+        <FormControl.Label>Gender</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange }) => (
-            <RadioGroup
+            <Radio.Group
               name="gender"
               flexDirection="row"
               onChange={(val) => onChange(val)}
@@ -91,12 +89,14 @@ export default function () {
               <Radio value="female" colorScheme="pink">
                 <Text mx={2}>Female</Text>
               </Radio>
-            </RadioGroup>
+            </Radio.Group>
           )}
           name="gender"
           rules={{ required: 'Gender is required' }}
         />
-        <FormErrorMessage>{errors.gender?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.gender?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <Button onPress={handleSubmit(onSubmit)} colorScheme="pink">
         Submit

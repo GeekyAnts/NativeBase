@@ -12,10 +12,12 @@ export interface IColorHues {
 }
 
 const colors = {
+  contrastThreshold: 3,
   // Singleton colors
   white: '#FFFFFF',
   black: '#000000',
-
+  lightText: '#FFF',
+  darkText: '#27272a',
   // Primary colors
   whiteAlpha: {
     50: 'rgba(255, 255, 255, 0.04)',

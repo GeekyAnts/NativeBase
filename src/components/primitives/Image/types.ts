@@ -38,5 +38,5 @@ export type IImageProps = RNImageProps &
     alt: string;
     fallbackSource?: ImageSourcePropType;
     ignoreFallback?: boolean;
-    textProps?: ITextProps;
+    _alt?: ITextProps;
   };

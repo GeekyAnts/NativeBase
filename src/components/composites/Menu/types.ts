@@ -1,6 +1,5 @@
 import type {
   ViewStyle,
-  TextStyle,
   TouchableNativeFeedbackProps,
   TouchableHighlightProps,
 } from 'react-native';
@@ -23,6 +22,8 @@ import type {
   customTypographyProps,
   customPositionProps,
 } from '../../../utils/customProps';
+import type { ITextProps } from '../../primitives/Text';
+import type { IBoxProps } from '../../primitives/Box';
 
 export type IMenuProps = BorderProps &
   ColorProps &
@@ -47,14 +48,10 @@ export type IMenuProps = BorderProps &
     offsetSpace?: number;
     closeOnSelect?: boolean;
     style?: ViewStyle;
-    shadowOffset?: any;
-    shadowOpacity?: number;
-    shadowColor?: string;
-    elevation?: number;
-    shadow?: number;
   };
 
-export type IMenuItemProps = BorderProps &
+export type IMenuItemProps = IBoxProps &
+  BorderProps &
   customBorderProps &
   customBackgroundProps &
   TouchableNativeFeedbackProps &
@@ -62,7 +59,7 @@ export type IMenuItemProps = BorderProps &
     children: string | JSX.Element | Array<JSX.Element>;
     isDisabled?: boolean;
     style?: ViewStyle;
-    textStyle?: TextStyle;
+    _text?: ITextProps;
   };
 
 export type IMenuItemOptionProps = IMenuItemProps & {
@@ -71,6 +68,7 @@ export type IMenuItemOptionProps = IMenuItemProps & {
 export type IMenuGroupProps = {
   title: string;
   children: JSX.Element | Array<JSX.Element>;
+  _title?: ITextProps;
 };
 
 export type IMenuContextProps = {
@@ -90,4 +88,15 @@ export type IMenuOptionContextProps = {
   values: Array<string | number>;
   onChange: (val: string | number) => void;
   type: 'radio' | 'checkbox';
+};
+
+export type IMenuComponent = ((props: IMenuProps) => JSX.Element) & {
+  Item: React.MemoExoticComponent<(props: IMenuItemProps) => JSX.Element>;
+  Group: React.MemoExoticComponent<(props: IMenuGroupProps) => JSX.Element>;
+  ItemOption: React.MemoExoticComponent<
+    (props: IMenuItemOptionProps) => JSX.Element
+  >;
+  OptionGroup: React.MemoExoticComponent<
+    (props: IMenuOptionGroupProps) => JSX.Element
+  >;
 };

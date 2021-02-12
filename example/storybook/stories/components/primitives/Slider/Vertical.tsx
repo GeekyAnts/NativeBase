@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  Box,
-} from 'native-base';
+import { Slider, Box } from 'native-base';
 
 export default function () {
   return (
@@ -16,10 +10,10 @@ export default function () {
         orientation="vertical"
         minH="400px"
       >
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb />
+        <Slider.Track>
+          <Slider.FilledTrack />
+        </Slider.Track>
+        <Slider.Thumb />
       </Slider>
     </Box>
   );

@@ -2,9 +2,16 @@ import {
   Accordion,
   AccordionItem,
   AccordionIcon,
-  AccordionButton,
-  AccordionPanel,
+  AccordionSummary,
+  AccordionDetails,
 } from './accordion';
+import {
+  Actionsheet,
+  ActionsheetContent,
+  ActionsheetHeader,
+  ActionsheetFooter,
+  ActionsheetItem,
+} from './actionsheet';
 import { Alert, AlertDescription, AlertTitle } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
@@ -31,7 +38,6 @@ import Popover from './popover';
 import Progress from './progress';
 import Radio from './radio';
 import Skeleton from './skeleton';
-import SkeletonText from './skeletonText';
 import { default as Slider, SliderThumb } from './slider';
 import Spinner from './spinner';
 import Stat from './stat';
@@ -50,8 +56,13 @@ export default {
   Accordion,
   AccordionItem,
   AccordionIcon,
-  AccordionButton,
-  AccordionPanel,
+  AccordionSummary,
+  AccordionDetails,
+  Actionsheet,
+  ActionsheetContent,
+  ActionsheetHeader,
+  ActionsheetFooter,
+  ActionsheetItem,
   Alert,
   AlertDescription,
   AlertTitle,
@@ -86,7 +97,6 @@ export default {
   Radio,
   ScaleFade,
   Skeleton,
-  SkeletonText,
   Slide,
   SlideFade,
   Slider,

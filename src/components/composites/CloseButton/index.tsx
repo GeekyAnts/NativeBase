@@ -5,13 +5,14 @@ import {
 } from '../../composites/IconButton';
 import Icon from '../../primitives/Icon';
 
-export type ICloseButtonProps = IIconButtonProps;
+export type ICloseButtonProps = Omit<IIconButtonProps, 'icon'>;
 
-const CloseButton = (props: ICloseButtonProps) => {
+const CloseButton = (props: ICloseButtonProps, ref?: any) => {
   const iconSize: any = { xs: 6, sm: 8, md: 10, lg: 12 };
   return (
     <IconButton
       {...props}
+      ref={ref}
       icon={
         <Icon name={'close'} size={props.size ? iconSize[props.size] : 8} />
       }
@@ -19,4 +20,4 @@ const CloseButton = (props: ICloseButtonProps) => {
   );
 };
 
-export default React.memo(CloseButton);
+export default React.memo(React.forwardRef(CloseButton));

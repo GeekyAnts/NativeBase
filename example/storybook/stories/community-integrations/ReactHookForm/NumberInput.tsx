@@ -2,8 +2,6 @@ import {
   VStack,
   Button,
   FormControl,
-  FormLabel,
-  FormErrorMessage,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -25,7 +23,7 @@ export default function () {
   return (
     <VStack width="80%" space={4}>
       <FormControl isRequired isInvalid={'version' in errors}>
-        <FormLabel>Current Native Base Version:</FormLabel>
+        <FormControl.Label>Current Native Base Version:</FormControl.Label>
         <Controller
           control={control}
           render={({ onChange, value }) => (
@@ -44,7 +42,9 @@ export default function () {
           rules={{ required: 'Field is required' }}
           defaultValue={3}
         />
-        <FormErrorMessage>{errors.version?.message}</FormErrorMessage>
+        <FormControl.ErrorMessage>
+          {errors.version?.message}
+        </FormControl.ErrorMessage>
       </FormControl>
       <Button onPress={handleSubmit(onSubmit)} colorScheme="pink">
         Submit

@@ -1,19 +1,22 @@
 import React from 'react';
-import { default as Modal, ModalOverlay } from '../Modal';
+import { Modal } from '../../composites/Modal';
 import type { IActionsheetProps } from './types';
-import { omitUndefined } from '../../../theme/tools/utils';
+import { useThemeProps } from '../../../hooks';
 
 const Actionsheet = ({ children, ...props }: IActionsheetProps) => {
-  const { isOpen, disableOverlay, onClose, ...newProps } = omitUndefined(props);
+  const { isOpen, disableOverlay, onClose, ...newProps } = useThemeProps(
+    'Actionsheet',
+    props
+  );
+
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
       justifyContent="flex-end"
       {...newProps}
-      size="xl"
     >
-      {disableOverlay ? null : <ModalOverlay />}
+      {disableOverlay ? null : <Modal.Overlay />}
       {children}
     </Modal>
   );

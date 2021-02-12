@@ -16,7 +16,7 @@ const baseStyle = (props: Record<string, any>) => {
 };
 
 const defaultProps = {
-  isLoaded: false,
+  variant: 'text',
 };
 
 export default {

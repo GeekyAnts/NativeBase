@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  Stack,
-  Text,
-  Box,
-} from 'native-base';
+import { Slider, Stack, Text, Box } from 'native-base';
 
 export default function () {
   const [onChangeValue, setOnChangeValue] = React.useState(70);
@@ -28,10 +20,10 @@ export default function () {
             v && setOnChangeEndValue(Math.floor(v));
           }}
         >
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
+          <Slider.Track>
+            <Slider.FilledTrack />
+          </Slider.Track>
+          <Slider.Thumb />
         </Slider>
       </Box>
     </Stack>

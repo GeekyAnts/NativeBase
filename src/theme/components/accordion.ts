@@ -1,4 +1,4 @@
-import { mode } from '../tools';
+import { mode } from '../tools/colors';
 
 // Accordion
 const accordionBaseStyle = (props: Record<string, any>) => {
@@ -18,7 +18,7 @@ export const AccordionItem = {};
 // AccordionIcon
 export const AccordionIcon = {};
 
-// AccordionButton
+// AccordionSummary
 const accordionButtonBaseStyle = (props: Record<string, any>) => {
   return {
     borderWidth: 1,
@@ -38,15 +38,15 @@ const accordionButtonBaseStyle = (props: Record<string, any>) => {
     },
   };
 };
-export const AccordionButton = {
+export const AccordionSummary = {
   baseStyle: accordionButtonBaseStyle,
 };
 
-// AccordionPanel
+// AccordionDetails
 const accordionPanelBaseStyle = {
   p: 3,
 };
 
-export const AccordionPanel = {
+export const AccordionDetails = {
   baseStyle: accordionPanelBaseStyle,
 };

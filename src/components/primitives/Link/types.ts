@@ -5,8 +5,10 @@ import type {
 } from 'react-native';
 import type { BorderProps, FlexboxProps, LayoutProps } from 'styled-system';
 import type { ITextProps } from '../Text';
+import type { IBoxProps } from '../Box';
 
-export type ILinkProps = ITextProps &
+export type ILinkProps = IBoxProps &
+  ITextProps &
   ViewProps &
   LayoutProps &
   FlexboxProps &

@@ -39,13 +39,18 @@ const Image = (
     fallbackSource,
     source,
     ignoreFallback,
-    textProps,
+    _alt,
     ...props
   }: IImageProps,
   ref: any
 ) => {
   let [renderedSource, setSource] = useState(source);
   let [alternate, setAlternate] = useState(false);
+
+  React.useEffect(() => {
+    setSource(source);
+  }, [source]);
+
   let onImageLoadError = (event: any) => {
     console.warn(event.nativeEvent.error);
     if (
@@ -65,7 +70,7 @@ const Image = (
   }
 
   if (alternate) {
-    return <Text {...textProps}>{alt}</Text>;
+    return <Text {..._alt}>{alt}</Text>;
   }
   return (
     <StyledImage

@@ -1,10 +1,11 @@
 import React from 'react';
 import Box from '../../primitives/Box';
 import type { IActionsheetHeaderProps } from './types';
-import { omitUndefined } from '../../../theme/tools/utils';
+import { useThemeProps } from '../../../hooks';
 
 const ActionsheetHeader = ({ children, ...props }: IActionsheetHeaderProps) => {
-  const newProps = omitUndefined(props);
+  const newProps = useThemeProps('ActionsheetHeader', props);
+
   return (
     <Box
       fontWeight="bold"

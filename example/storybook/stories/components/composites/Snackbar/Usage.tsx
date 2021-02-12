@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  Alert,
-  AlertIcon,
-  AlertDescription,
-  AlertTitle,
-  Snackbar,
-  VStack,
-} from 'native-base';
+import { Text, Alert, Snackbar, VStack } from 'native-base';
 export default function () {
   return (
     <>
@@ -18,17 +10,17 @@ export default function () {
       >
         <VStack mx={4} space={4}>
           <Alert>
-            <AlertIcon />
-            <AlertTitle> Hello World</AlertTitle>
+            <Alert.Icon />
+            <Alert.Title> Hello World</Alert.Title>
           </Alert>
           <Alert status="success">
-            <AlertIcon />
-            <AlertTitle>Account created</AlertTitle>
-            <AlertDescription mt={2} ml={12}>
+            <Alert.Icon />
+            <Alert.Title>Account created</Alert.Title>
+            <Alert.Description mt={2} ml={12}>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry’s standard dummy text
               ever since the 1500s.
-            </AlertDescription>
+            </Alert.Description>
           </Alert>
         </VStack>
       </Snackbar>

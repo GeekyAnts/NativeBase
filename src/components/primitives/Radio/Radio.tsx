@@ -110,7 +110,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
       {Platform.OS === 'web' ? (
         <label ref={_ref}>
           <VisuallyHidden>
-            <input {...inputProps} ref={ref}></input>
+            <input {...inputProps} ref={ref} />
           </VisuallyHidden>
 
           {component}

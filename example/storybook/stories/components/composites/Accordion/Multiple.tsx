@@ -1,52 +1,45 @@
 import React from 'react';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  Box,
-} from 'native-base';
+import { Accordion, Box } from 'native-base';
 export default function () {
   return (
     <Box m={3}>
       <Accordion allowMultiple>
-        <AccordionItem>
-          <AccordionButton>
+        <Accordion.Item>
+          <Accordion.Summary>
             <Box>Section 1 title</Box>
-            <AccordionIcon />
-          </AccordionButton>
-          <AccordionPanel>
+            <Accordion.Icon />
+          </Accordion.Summary>
+          <Accordion.Details>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-          <AccordionButton>
+          </Accordion.Details>
+        </Accordion.Item>
+        <Accordion.Item>
+          <Accordion.Summary>
             <Box>Section 2 title</Box>
-            <AccordionIcon />
-          </AccordionButton>
-          <AccordionPanel>
+            <Accordion.Icon />
+          </Accordion.Summary>
+          <Accordion.Details>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-          <AccordionButton>
+          </Accordion.Details>
+        </Accordion.Item>
+        <Accordion.Item>
+          <Accordion.Summary>
             <Box>Section 3 title</Box>
-            <AccordionIcon />
-          </AccordionButton>
-          <AccordionPanel>
+            <Accordion.Icon />
+          </Accordion.Summary>
+          <Accordion.Details>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
+          </Accordion.Details>
+        </Accordion.Item>
       </Accordion>
     </Box>
   );
