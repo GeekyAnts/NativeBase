@@ -5,6 +5,13 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from './accordion';
+import {
+  Actionsheet,
+  ActionsheetContent,
+  ActionsheetHeader,
+  ActionsheetFooter,
+  ActionsheetItem,
+} from './actionsheet';
 import { Alert, AlertDescription, AlertTitle } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
@@ -51,6 +58,11 @@ export default {
   AccordionIcon,
   AccordionSummary,
   AccordionDetails,
+  Actionsheet,
+  ActionsheetContent,
+  ActionsheetHeader,
+  ActionsheetFooter,
+  ActionsheetItem,
   Alert,
   AlertDescription,
   AlertTitle,

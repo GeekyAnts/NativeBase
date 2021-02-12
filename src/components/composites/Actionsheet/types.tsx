@@ -10,3 +10,20 @@ export type IActionsheetContentProps = IBoxProps;
 export type IActionsheetFooterProps = IBoxProps;
 export type IActionsheetHeaderProps = IBoxProps;
 export type IActionsheetItemProps = IButtonProps;
+
+export type IActionsheetComponentType = ((
+  props: IActionsheetProps
+) => JSX.Element) & {
+  Content: React.MemoExoticComponent<
+    (props: IActionsheetContentProps) => JSX.Element
+  >;
+  Footer: React.MemoExoticComponent<
+    (props: IActionsheetFooterProps) => JSX.Element
+  >;
+  Header: React.MemoExoticComponent<
+    (props: IActionsheetHeaderProps) => JSX.Element
+  >;
+  Item: React.MemoExoticComponent<
+    (props: IActionsheetItemProps) => JSX.Element
+  >;
+};

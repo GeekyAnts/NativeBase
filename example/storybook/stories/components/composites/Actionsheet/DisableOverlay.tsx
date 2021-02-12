@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  Actionsheet,
-  ActionsheetContent,
-  ActionsheetFooter,
-  ActionsheetHeader,
-  ActionsheetItem,
-  useDisclose,
-} from 'native-base';
+import { Button, Actionsheet, useDisclose } from 'native-base';
 
 export default function () {
   const { isOpen, onOpen, onClose } = useDisclose();
@@ -16,15 +8,15 @@ export default function () {
       <Button onPress={onOpen}>Actionsheet</Button>
 
       <Actionsheet isOpen={isOpen} onClose={onClose} disableOverlay>
-        <ActionsheetContent>
-          <ActionsheetHeader>Header</ActionsheetHeader>
-          <ActionsheetItem>Option 1</ActionsheetItem>
-          <ActionsheetItem>Option 2</ActionsheetItem>
-          <ActionsheetItem>Option 3</ActionsheetItem>
-        </ActionsheetContent>
-        <ActionsheetFooter>
-          <ActionsheetItem onPress={onClose}>Cancel</ActionsheetItem>
-        </ActionsheetFooter>
+        <Actionsheet.Content>
+          <Actionsheet.Header>Header</Actionsheet.Header>
+          <Actionsheet.Item>Option 1</Actionsheet.Item>
+          <Actionsheet.Item>Option 2</Actionsheet.Item>
+          <Actionsheet.Item>Option 3</Actionsheet.Item>
+        </Actionsheet.Content>
+        <Actionsheet.Footer>
+          <Actionsheet.Item onPress={onClose}>Cancel</Actionsheet.Item>
+        </Actionsheet.Footer>
       </Actionsheet>
     </>
   );
