@@ -13,5 +13,4 @@ export {
   mergeRefs,
 };
 
-export type { IAccessibilityProps } from
-  './accessibilityTypes';
+export type { IAccessibilityProps } from './accessibilityTypes';

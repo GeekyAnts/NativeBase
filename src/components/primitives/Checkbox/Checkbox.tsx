@@ -1,5 +1,9 @@
 import React, { useContext } from 'react';
-import { TouchableOpacity, Platform } from 'react-native';
+import {
+  TouchableOpacity,
+  Platform,
+  TouchableOpacityProps,
+} from 'react-native';
 import { mergeRefs } from './../../../utils';
 import { useThemeProps } from '../../../hooks';
 import { Center } from '../../composites/Center';
@@ -33,11 +37,11 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     ...formControlContext,
     ...props,
   });
-  let ref1 = React.useRef();
-  const ref2 = mergeRefs([ref, ref1]);
+  let _ref = React.useRef();
+  const mergedRef = mergeRefs([ref, _ref]);
   let state = useToggleState({ ...props, isSelected: props.isChecked });
   let groupState = useContext(CheckboxGroupContext);
-  const { isHovered } = useHover({}, ref1);
+  const { isHovered } = useHover({}, _ref);
 
   // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.
   // This is a bit unorthodox. Typically, hooks cannot be called in a conditional,
@@ -51,14 +55,14 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         },
         groupState.state,
         //@ts-ignore
-        ref2
+        mergedRef
       )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckbox(
         props,
         state,
         //@ts-ignore
-        ref2
+        mergedRef
       );
 
   const isChecked = inputProps.checked;
@@ -123,16 +127,18 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
   return (
     <>
       {Platform.OS === 'web' ? (
-        <label ref={ref2}>
+        <label ref={mergedRef}>
           <VisuallyHidden>
-            <input {...inputProps} ref={ref2}></input>
+            <input {...inputProps} ref={mergedRef}></input>
           </VisuallyHidden>
 
           {component}
         </label>
       ) : (
-        //@ts-ignore
-        <TouchableOpacity {...inputProps} ref={ref2}>
+        <TouchableOpacity
+          {...(inputProps as TouchableOpacityProps)}
+          ref={mergedRef}
+        >
           {component}
         </TouchableOpacity>
       )}
