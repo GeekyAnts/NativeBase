@@ -48,6 +48,7 @@ const Image = (
   let [alternate, setAlternate] = useState(false);
 
   React.useEffect(() => {
+    setAlternate(false);
     setSource(source);
   }, [source]);
 
