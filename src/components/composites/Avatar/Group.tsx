@@ -24,12 +24,9 @@ const getAvatarGroupChildren = (
   };
   return [
     plusAvatars > 0 ? (
-      <Avatar
-        bg={plusAvatarBg}
-        name={'+ ' + plusAvatars}
-        {...defaultProps}
-        {...props}
-      />
+      <Avatar bg={plusAvatarBg} {...defaultProps} {...props}>
+        {'+ ' + plusAvatars}
+      </Avatar>
     ) : null,
     React.Children.map(trailingChildren.reverse(), (child: any) => {
       return React.cloneElement(

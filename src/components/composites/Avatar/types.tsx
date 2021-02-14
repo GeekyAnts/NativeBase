@@ -38,12 +38,11 @@ export type IAvatarProps = ColorProps &
   customBorderProps &
   BorderProps &
   FlexboxProps & {
-    name?: string | undefined;
-    _name?: ITextProps;
+    _text?: ITextProps;
     style?: any;
     size?: string | undefined;
     source?: ImageSourcePropType;
-    children?: JSX.Element[] | JSX.Element | any | undefined;
+    children?: JSX.Element[] | JSX.Element | any | undefined | string;
   };
 
 export type IAvatarBadgeProps = IAvatarProps & {

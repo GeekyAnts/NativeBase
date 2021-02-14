@@ -5,15 +5,15 @@ export default function () {
   return (
     <HStack>
       <Avatar
-        source={{ uri: 'https://nativebase.io/assets/img/front-page-icon.png' }}
-        name={'Native Base'}
+        source={{ uri: 'https://alpha.nativebase.io/img/native-base-icon.png' }}
       >
+        NB
         <Avatar.Badge bg={'red.200'} />
       </Avatar>
       <Avatar
-        source={{ uri: 'https://nativebase.io/assets/img/front-page-icon.png' }}
-        name={'Native Base'}
+        source={{ uri: 'https://alpha.nativebase.io/img/native-base-icon.png' }}
       >
+        NB
         <Avatar.Badge borderColor="papayawhip" bg="tomato" />
       </Avatar>
     </HStack>

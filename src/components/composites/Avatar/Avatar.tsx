@@ -1,42 +1,66 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Box, Image, Text } from '../../primitives';
+import { Box, Image, Text, IBoxProps } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import type { IAvatarProps } from './types';
 
-const initials = (name: string) => {
-  const [firstName, lastName] = name.split(' ');
-  return firstName && lastName
-    ? `${firstName.charAt(0)}${lastName.charAt(0)}`
-    : firstName.charAt(0);
-};
-
 const StyledAvatar = styled(Box)<IAvatarProps>({});
 
-const Avatar = (props: IAvatarProps) => {
-  const { size, name, style, source, children, ...remainingProps } = props;
-  const { _name, ...newProps } = useThemeProps('Avatar', {
+const Avatar = (props: IAvatarProps, ref: any) => {
+  const [error, setError] = React.useState(false);
+  const { size, style, source, children, ...remainingProps } = props;
+
+  const { _text, ...newProps } = useThemeProps('Avatar', {
     ...remainingProps,
-    name,
+    name: 'avatar',
     size,
   });
+
+  let Badge = <></>;
+  let remainingChildren: JSX.Element[] = [];
+  //  Pop Badge from children
+  React.Children.map(children, (child, key) => {
+    if (
+      typeof child.type === 'object' &&
+      child.type.type?.name === 'AvatarBadge'
+    ) {
+      Badge = child;
+    } else {
+      remainingChildren.push(
+        typeof child === 'string' ? (
+          <Text key={'avatar-children-' + key} {..._text}>
+            {child}
+          </Text>
+        ) : (
+          child
+        )
+      );
+    }
+  });
+
   const imageFitStyle = { height: '100%', width: '100%' };
+
   return (
-    <StyledAvatar {...newProps} style={style}>
-      {source ? (
+    <StyledAvatar {...newProps} style={style} ref={ref}>
+      {source && !error ? (
         <Image
           borderRadius={newProps.borderRadius}
           source={source}
-          alt={name ? initials(name) : '--'}
-          _alt={_name}
+          alt={'--'}
+          _alt={_text}
           style={[style, imageFitStyle]}
+          onError={() => {
+            setError(true);
+          }}
         />
+      ) : remainingChildren.length === 0 ? (
+        <Text {..._text}>--</Text> // default alternate
       ) : (
-        <Text {..._name}>{name ? initials(name) : '--'}</Text>
+        remainingChildren
       )}
-      {children}
+      {Badge}
     </StyledAvatar>
   );
 };
 
-export default React.memo(Avatar);
+export default React.memo(React.forwardRef<IBoxProps, IAvatarProps>(Avatar));
