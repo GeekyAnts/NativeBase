@@ -15,6 +15,7 @@ import type {
   customExtraProps,
   customTypographyProps,
 } from '../../../utils/customProps';
+import type { IIconProps } from '../Icon/types';
 
 export type IListProps = ScrollViewProps &
   ColorProps &
@@ -46,4 +47,10 @@ export type IListItemProps = IBoxProps & {
   ol?: boolean;
   index?: any;
   start?: number;
+};
+export type IListComponentType = ((props: IListProps) => JSX.Element) & {
+  Item: React.MemoExoticComponent<(props: IListItemProps) => JSX.Element>;
+  Icon: React.MemoExoticComponent<(props: IIconProps) => JSX.Element>;
+  Ordered: React.MemoExoticComponent<(props: IListProps) => JSX.Element>;
+  Unordered: React.MemoExoticComponent<(props: IListProps) => JSX.Element>;
 };
