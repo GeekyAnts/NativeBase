@@ -46,7 +46,6 @@ export function useContrastText(bg: string, color?: string) {
       );
     }
   }
-
   return contrastColorToken;
 }
 
