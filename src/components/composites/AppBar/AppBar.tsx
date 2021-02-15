@@ -1,18 +1,10 @@
 import React from 'react';
 import { useThemeProps } from '../../../hooks';
-import AppBarLeft from './AppBarLeft';
-import AppBarRight from './AppBarRight';
-import AppBarContent from './AppBarContent';
-import { HStack, IBoxProps } from '../../primitives';
+import { HStack } from '../../primitives';
 import { APPROX_STATUSBAR_HEIGHT } from './utils';
+import type { IAppBarProps } from './types';
 
-export type IAppBarProps = IBoxProps & {
-  colorScheme?: string;
-  statusBarHeight?: number;
-  space?: number;
-};
-
-const AppBar = ({ children, ...props }: IAppBarProps) => {
+const AppBar = ({ children, ...props }: IAppBarProps, ref: any) => {
   const {
     statusBarHeight = APPROX_STATUSBAR_HEIGHT,
     ...newProps
@@ -23,14 +15,11 @@ const AppBar = ({ children, ...props }: IAppBarProps) => {
       justifyContent="space-between"
       alignItems="center"
       {...newProps}
+      ref={ref}
     >
       {children}
     </HStack>
   );
 };
 
-AppBar.Left = AppBarLeft;
-AppBar.Right = AppBarRight;
-AppBar.Content = AppBarContent;
-
-export default AppBar;
+export default React.memo(React.forwardRef<any, IAppBarProps>(AppBar));

@@ -50,11 +50,11 @@ const getAvatarGroupChildren = (
   ];
 };
 
-const AvatarGroup = (allProps: IAvatarGroupProps) => {
+const AvatarGroup = (allProps: IAvatarGroupProps, ref: any) => {
   const { children, spacing, max, ...props } = allProps;
   const { borderColor, borderWidth, bg } = useThemeProps('AvatarBadge', props);
   return (
-    <Flex direction="row-reverse">
+    <Flex direction="row-reverse" ref={ref}>
       {getAvatarGroupChildren(children, spacing, max, bg, {
         borderColor,
         borderWidth,
@@ -64,4 +64,6 @@ const AvatarGroup = (allProps: IAvatarGroupProps) => {
   );
 };
 
-export default React.memo(AvatarGroup);
+export default React.memo(
+  React.forwardRef<any, IAvatarGroupProps>(AvatarGroup)
+);

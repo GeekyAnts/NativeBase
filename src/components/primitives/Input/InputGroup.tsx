@@ -50,11 +50,13 @@ const supplyPropsToChildren = (children: any, props: any) => {
 };
 
 export const InputGroup = React.memo(
-  ({ children, ...props }: InputGroupProps) => {
-    return (
-      <Flex direction="row">
-        {supplyPropsToChildren(getAttachedChildren(children), props)}
-      </Flex>
-    );
-  }
+  React.forwardRef<any, InputGroupProps>(
+    ({ children, ...props }: InputGroupProps) => {
+      return (
+        <Flex direction="row">
+          {supplyPropsToChildren(getAttachedChildren(children), props)}
+        </Flex>
+      );
+    }
+  )
 );
