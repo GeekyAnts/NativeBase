@@ -19,7 +19,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import styled from 'styled-components/native';
-import { useThemeProps, useToken } from '../../../hooks';
+import { useThemeProps } from '../../../hooks';
 import {
   AntDesign,
   Entypo,
