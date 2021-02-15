@@ -19,7 +19,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import styled from 'styled-components/native';
-import { useThemeProps } from '../../../hooks';
+import { useThemeProps, useToken } from '../../../hooks';
 import {
   AntDesign,
   Entypo,
@@ -76,13 +76,20 @@ function getStyleIconComponent(type: IconType) {
   );
 }
 
-const Icon = ({ type, name, ...props }: IIconProps, ref?: any) => {
-  const newProps = useThemeProps('Icon', props);
+const Icon = ({ type, name, style, ...props }: IIconProps, ref?: any) => {
+  const { size, ...newProps } = useThemeProps('Icon', props);
   if (!name) {
     return <SVGIcon {...props} />;
   }
   const Component = getStyleIconComponent(type ?? 'MaterialIcons');
-  return <Component name={name} {...newProps} ref={ref} />;
+  return (
+    <Component
+      name={name}
+      {...newProps}
+      ref={ref}
+      style={[style, { fontSize: parseInt(size, 10) }]}
+    />
+  );
 };
 
 export type { IIconProps, IconType, IconNameType };

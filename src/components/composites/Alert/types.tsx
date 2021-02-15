@@ -12,6 +12,7 @@ export type IAlertProps = IBoxProps & {
     | 'outline'
     | 'outline-light';
   fontSize?: number;
+  action?: JSX.Element;
 };
 export type IAlertContext = {
   status?: string;

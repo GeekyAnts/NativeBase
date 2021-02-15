@@ -7,6 +7,7 @@ import Composition from './composition';
 import Usage from './usage';
 import Variant from './variant';
 import Status from './status';
+import Action from './action';
 
 storiesOf('Alert', module)
   .addDecorator(withKnobs)
@@ -15,4 +16,5 @@ storiesOf('Alert', module)
   .add('Usage', () => <Usage />)
   .add('Status', () => <Status />)
   .add('Variant', () => <Variant />)
-  .add('Composition', () => <Composition />);
+  .add('Composition', () => <Composition />)
+  .add('action', () => <Action />);
