@@ -5,7 +5,7 @@ import { Animated, Platform } from 'react-native';
 import type { ISlideProps } from './types';
 import { canUseDom } from '../../../utils';
 
-const Slide = ({ children, ...props }: ISlideProps) => {
+const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
   const isDomUsable = canUseDom();
   // TODO: Slide from right and left needs implmentation.
   const {
@@ -85,7 +85,11 @@ const Slide = ({ children, ...props }: ISlideProps) => {
       opacity={containerOpacity}
     >
       <Animated.View style={animatioStyle[placement]}>
-        <Box {...props} onLayout={(e) => provideSize(e.nativeEvent.layout)}>
+        <Box
+          {...props}
+          onLayout={(e) => provideSize(e.nativeEvent.layout)}
+          ref={ref}
+        >
           {children}
         </Box>
       </Animated.View>
@@ -93,4 +97,4 @@ const Slide = ({ children, ...props }: ISlideProps) => {
   );
 };
 
-export default React.memo(Slide);
+export default React.memo(React.forwardRef<any, ISlideProps>(Slide));

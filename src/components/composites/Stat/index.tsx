@@ -52,14 +52,27 @@ export const StatArrow = React.memo(({ type, ...props }: IStatArrowProps) => {
   );
 });
 
-export const StatGroup = React.memo(({ style, ...props }: IBoxProps) => {
-  let newProps = useThemeProps('Stat', props);
-  return <HStack {...newProps._statGroup} {...newProps} style={style} />;
-});
+export const StatGroup = React.memo(
+  React.forwardRef<any, IBoxProps>(
+    ({ style, ...props }: IBoxProps, ref: any) => {
+      let newProps = useThemeProps('Stat', props);
+      return (
+        <HStack
+          {...newProps._statGroup}
+          {...newProps}
+          ref={ref}
+          style={style}
+        />
+      );
+    }
+  )
+);
 
-const StatMain = ({ style, ...props }: IBoxProps) => {
-  return <Box {...props} style={style} />;
-};
+const StatMain = React.forwardRef<any, IBoxProps>(
+  ({ style, ...props }: IBoxProps, ref: any) => {
+    return <Box {...props} ref={ref} style={style} />;
+  }
+);
 
 type IStatComponentType = ((props: IBoxProps) => JSX.Element) & {
   Label: React.MemoExoticComponent<(props: ITextProps) => JSX.Element>;

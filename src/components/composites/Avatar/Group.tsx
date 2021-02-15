@@ -24,12 +24,9 @@ const getAvatarGroupChildren = (
   };
   return [
     plusAvatars > 0 ? (
-      <Avatar
-        bg={plusAvatarBg}
-        name={'+ ' + plusAvatars}
-        {...defaultProps}
-        {...props}
-      />
+      <Avatar bg={plusAvatarBg} {...defaultProps} {...props}>
+        {'+ ' + plusAvatars}
+      </Avatar>
     ) : null,
     React.Children.map(trailingChildren.reverse(), (child: any) => {
       return React.cloneElement(
@@ -53,11 +50,11 @@ const getAvatarGroupChildren = (
   ];
 };
 
-const AvatarGroup = (allProps: IAvatarGroupProps) => {
+const AvatarGroup = (allProps: IAvatarGroupProps, ref: any) => {
   const { children, spacing, max, ...props } = allProps;
   const { borderColor, borderWidth, bg } = useThemeProps('AvatarBadge', props);
   return (
-    <Flex direction="row-reverse">
+    <Flex direction="row-reverse" ref={ref}>
       {getAvatarGroupChildren(children, spacing, max, bg, {
         borderColor,
         borderWidth,
@@ -67,4 +64,6 @@ const AvatarGroup = (allProps: IAvatarGroupProps) => {
   );
 };
 
-export default React.memo(AvatarGroup);
+export default React.memo(
+  React.forwardRef<any, IAvatarGroupProps>(AvatarGroup)
+);

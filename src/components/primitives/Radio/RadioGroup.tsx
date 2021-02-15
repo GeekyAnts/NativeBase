@@ -12,7 +12,10 @@ export let RadioContext = React.createContext<IRadioContext>(
   {} as IRadioContext
 );
 
-const RadioGroup = ({ size, colorScheme, ...props }: IRadioGroupProps) => {
+const RadioGroup = (
+  { size, colorScheme, ...props }: IRadioGroupProps,
+  ref: any
+) => {
   const formControlContext: IFormControlContext = React.useContext(
     FormControlContext
   );
@@ -28,11 +31,11 @@ const RadioGroup = ({ size, colorScheme, ...props }: IRadioGroupProps) => {
         state,
       }}
     >
-      <Box alignItems="flex-start" {...radioGroupProps} {...props}>
+      <Box alignItems="flex-start" {...radioGroupProps} {...props} ref={ref}>
         {props.children}
       </Box>
     </RadioContext.Provider>
   );
 };
 
-export default React.memo(RadioGroup);
+export default React.memo(React.forwardRef<any, IRadioGroupProps>(RadioGroup));

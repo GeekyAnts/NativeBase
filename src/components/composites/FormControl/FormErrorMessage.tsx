@@ -6,19 +6,21 @@ import type {
   IFormControlContext,
 } from './types';
 
-const FormErrorMessage = ({
-  children,
-  ...props
-}: IFormControlErrorMessageProps) => {
+const FormErrorMessage = (
+  { children, ...props }: IFormControlErrorMessageProps,
+  ref: any
+) => {
   const { isInvalid }: IFormControlContext = React.useContext(
     FormControlContext
   );
 
   return isInvalid ? (
-    <Box {...props} _text={{ fontSize: 'xs', color: 'red.400' }}>
+    <Box {...props} _text={{ fontSize: 'xs', color: 'red.400' }} ref={ref}>
       {children}
     </Box>
   ) : null;
 };
 
-export default React.memo(FormErrorMessage);
+export default React.memo(
+  React.forwardRef<any, IFormControlErrorMessageProps>(FormErrorMessage)
+);
