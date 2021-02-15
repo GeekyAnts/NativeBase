@@ -5,7 +5,7 @@ import { canUseDom } from '../../../utils';
 import Box from '../../primitives/Box';
 import type { ISkeletonProps } from './types';
 
-const Skeleton = (allProps: ISkeletonProps) => {
+const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   const isDomUsable = canUseDom();
   const { variant, children, ...props } = allProps;
   const newProps = useThemeProps('Skeleton', props);
@@ -57,6 +57,7 @@ const Skeleton = (allProps: ISkeletonProps) => {
       borderRadius={variant === 'circle' ? 999 : 3}
       bg={baseColor}
       {...props}
+      ref={ref}
     >
       <Animated.View style={skeletonStyle.skeleton} />
       {children ? <View style={{ opacity: 0 }}>{children}</View> : null}
@@ -64,4 +65,4 @@ const Skeleton = (allProps: ISkeletonProps) => {
   );
 };
 
-export default React.memo(Skeleton);
+export default React.memo(React.forwardRef<any, ISkeletonProps>(Skeleton));

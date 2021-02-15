@@ -3,7 +3,7 @@ import { Modal } from '../../composites/Modal';
 import type { IActionsheetProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
-const Actionsheet = ({ children, ...props }: IActionsheetProps) => {
+const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
   const { isOpen, disableOverlay, onClose, ...newProps } = useThemeProps(
     'Actionsheet',
     props
@@ -15,11 +15,14 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps) => {
       onClose={onClose}
       justifyContent="flex-end"
       {...newProps}
+      ref={ref}
     >
-      {disableOverlay ? null : <Modal.Overlay />}
+      {disableOverlay ? <></> : <Modal.Overlay />}
       {children}
     </Modal>
   );
 };
 
-export default React.memo(Actionsheet);
+export default React.memo(
+  React.forwardRef<any, IActionsheetProps>(Actionsheet)
+);

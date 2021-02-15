@@ -24,17 +24,20 @@ export type ICircularProgressProps = IBoxProps & {
 
 const StyleAnimatedView = styled(Animated.View)<IBoxProps>(color, border);
 
-const CircularProgress = ({
-  value,
-  size,
-  isIndeterminate,
-  thickness,
-  color: colorProp,
-  trackColor,
-  max,
-  min,
-  ...props
-}: ICircularProgressProps) => {
+const CircularProgress = (
+  {
+    value,
+    size,
+    isIndeterminate,
+    thickness,
+    color: colorProp,
+    trackColor,
+    max,
+    min,
+    ...props
+  }: ICircularProgressProps,
+  ref: any
+) => {
   const theme = useTheme();
 
   const isDomUsable = canUseDom();
@@ -183,6 +186,7 @@ const CircularProgress = ({
       justifyContent="center"
       alignItems="center"
       {...props}
+      ref={ref}
     >
       {!isIndeterminate ? (
         <>
@@ -207,8 +211,12 @@ const CircularProgress = ({
   );
 };
 
-export const CircularProgressLabel = React.memo((props: ITextProps) => {
-  return <Text {...props} />;
-});
+export const CircularProgressLabel = React.memo(
+  React.forwardRef<any, ITextProps>((props: ITextProps, ref: any) => {
+    return <Text {...props} ref={ref} />;
+  })
+);
 
-export default React.memo(CircularProgress);
+export default React.memo(
+  React.forwardRef<any, ICircularProgressProps>(CircularProgress)
+);

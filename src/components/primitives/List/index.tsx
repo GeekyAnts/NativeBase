@@ -85,7 +85,7 @@ function findProps(props: any) {
   return [textProps, remainingProps, layoutProps, borderProps];
 }
 
-const List = ({ style, children, spacing, ...props }: IListProps) => {
+const List = ({ style, children, spacing, ...props }: IListProps, ref: any) => {
   const themeProps = useThemeProps('List', props);
   // add props to children
   let childrenArray = React.Children.toArray(children);
@@ -115,6 +115,7 @@ const List = ({ style, children, spacing, ...props }: IListProps) => {
       {...themeProps.listStyle}
       {...layoutProps}
       {...borderProps}
+      ref={ref}
     >
       <VStack {...remainingProps}>{children}</VStack>
     </Box>
@@ -240,4 +241,4 @@ export const ListIcon = React.memo((props: IIconProps) => {
 });
 
 export type { IListProps, IListItemProps };
-export default React.memo(List);
+export default React.memo(React.forwardRef<any, IListProps>(List));
