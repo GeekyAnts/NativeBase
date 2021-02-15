@@ -1,44 +1,34 @@
 import React from 'react';
 import type { ISelectItemProps } from './types';
 import { usePopover } from '../../../core';
-import { themeTools } from '../../../theme';
 import Button from '../Button';
 import Text from '../Text';
 
 export const Item = React.memo(
-  ({ isDisabled, label, value, style, ...props }: ISelectItemProps) => {
+  ({ isDisabled, label, value, _label, style, ...props }: ISelectItemProps) => {
     const {
       parentComponentConfig: {
         selectedValue,
         closeMenu,
         selectedItemBg,
-        selectedItemColor,
+        _selectedItem,
         onValueChange,
         itemsList,
-        itemStyle,
+        _item,
       },
     } = usePopover();
 
-    const [textProps, touchProps] = themeTools.extractInObject(
-      { ...props, ...itemStyle },
-      [
-        'color',
-        'fontWeight',
-        'fontStyle',
-        'fontFamily',
-        'fontSize',
-        'padding',
-        'px',
-        'py',
-        'textAlign',
-      ]
-    );
     let currentIndex = -1;
     itemsList.forEach((item: any, index: number) => {
       if (item.value === value) {
         currentIndex = index;
       }
     });
+    let textProps = { ..._item, ..._label };
+    if (selectedValue === value) {
+      textProps = { ..._selectedItem };
+    }
+
     return (
       <Button
         p={1}
@@ -46,7 +36,7 @@ export const Item = React.memo(
         rounded={0}
         minH={0}
         width={150}
-        {...touchProps}
+        {...props}
         bg={selectedValue === value ? selectedItemBg : undefined}
         justifyContent="flex-start"
         style={style}
@@ -57,12 +47,7 @@ export const Item = React.memo(
           }
         }}
       >
-        <Text
-          fontSize="sm"
-          {...textProps}
-          key={`select-item-${value}`}
-          color={selectedValue === value ? selectedItemColor : undefined}
-        >
+        <Text fontSize="sm" key={`select-item-${value}`} {...textProps}>
           {label}
         </Text>
       </Button>
