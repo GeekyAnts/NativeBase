@@ -1,8 +1,10 @@
-import { randomColor, mode } from './../tools';
+import { randomColor, getRandomString, mode } from './../tools';
 
 const baseStyle = (props: Record<string, any>) => {
   const { name, ...colorModeProps } = props;
-  const bg = name ? randomColor({ string: name }) : 'gray.400';
+  const bg = name
+    ? randomColor({ string: getRandomString(5) + name })
+    : 'gray.400';
   const borderColor = mode('gray.800', 'white')(colorModeProps);
   return {
     bg,
@@ -11,7 +13,7 @@ const baseStyle = (props: Record<string, any>) => {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 'full',
-    _name: {
+    _text: {
       fontWeight: 600,
     },
   };
