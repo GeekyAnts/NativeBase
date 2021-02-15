@@ -107,7 +107,6 @@ const Button = (
     'isDisabled',
     'onPress',
   ]);
-
   accessibilityProps.isDisabled = accessibilityProps.isDisabled || isLoading;
   const innerButton = (
     <Box {...innerButtonProps} {...commonProps}>
@@ -119,15 +118,10 @@ const Button = (
           {spinner ? spinner : <Spinner color={_text?.color} size="sm" />}
           <Text {..._text}>{isLoadingText ? ' ' + isLoadingText : ''}</Text>
         </Flex>
-      ) : React.Children.count(children) > 1 ? (
+      ) : React.Children.count(children) > 1 || typeof children !== 'string' ? (
         children
       ) : (
-        <Text
-          {..._text}
-          style={{ textDecorationLine: _text?.textDecorationLine }}
-        >
-          {children}
-        </Text>
+        <Text {..._text}>{children}</Text>
       )}
       {endIcon ? (
         <Box ml={Math.floor(innerButtonProps.px / 2) || 2}>{endIcon}</Box>
