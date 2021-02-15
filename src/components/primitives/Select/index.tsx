@@ -9,11 +9,12 @@ import { ScrollView } from 'react-native';
 const Select = ({
   onValueChange,
   children,
-  itemStyle,
+  _item,
+  _placeholder,
   selectedValue,
   placeholder,
   selectedItemBg,
-  selectedItemColor,
+  _selectedItem,
   isDisabled,
   dropdownIcon,
   dropdownOpenIcon,
@@ -48,10 +49,10 @@ const Select = ({
           closeOnSelect: true,
           selectedValue,
           selectedItemBg,
-          selectedItemColor,
+          _selectedItem,
           onValueChange,
           itemsList,
-          itemStyle,
+          _item,
           width,
         },
       });
@@ -73,6 +74,7 @@ const Select = ({
       : dropdownCloseIcon
       ? dropdownCloseIcon
       : null;
+  const placeholderProps = selectedItem ? {} : _placeholder;
   return (
     <Button
       onPress={openMenu}
@@ -84,7 +86,7 @@ const Select = ({
       justifyContent="space-between"
       style={style}
     >
-      <Text opacity={selectedItem ? undefined : 0.5}>
+      <Text opacity={selectedItem ? undefined : 0.5} {...placeholderProps}>
         {selectedItem ? selectedItem.label : placeholder}
       </Text>
       {icon}
