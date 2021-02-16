@@ -12,6 +12,7 @@ import {
   typography,
 } from 'styled-system';
 import { useThemeProps } from '../../../hooks/useThemeProps';
+import { useSafeArea } from '../../../hooks/useSafeArea';
 import Text from './../Text';
 import {
   customBackground,
@@ -45,8 +46,9 @@ const StyledBox = styled(View)<IBoxProps>(
 
 const Box = ({ children, _text, ...props }: IBoxProps, ref: any) => {
   const boxProps = useThemeProps('Box', props);
+  const safeProps = useSafeArea(boxProps);
   return (
-    <StyledBox ref={ref} {...boxProps}>
+    <StyledBox ref={ref} {...safeProps}>
       {React.Children.map(children, (child) =>
         typeof child === 'string' ? <Text {..._text}>{child}</Text> : child
       )}

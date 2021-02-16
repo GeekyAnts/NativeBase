@@ -18,6 +18,24 @@ export function getRandomString(length: number) {
   }
   return result;
 }
+
+// Inefficient way for pick, but retains order of props.
+function myPick(obj: any, values: any) {
+  let ret: any = {};
+  Object.keys(obj).forEach((key: string) => {
+    if (values.includes(key)) {
+      ret[key] = obj[key];
+    }
+  });
+  return ret;
+}
+
+export function sortedExtractInObject(parent: any, values: Array<string>) {
+  return [
+    omitUndefined(myPick(parent, values)),
+    omitUndefined(omit(parent, values)),
+  ];
+}
 export function extractInObject(parent: any, values: Array<string>) {
   return [
     omitUndefined(pick(parent, values)),

@@ -4,6 +4,10 @@ import {
   ThemeContext,
   ThemeProvider,
 } from 'styled-components/native';
+import {
+  SafeAreaProvider,
+  initialWindowMetrics,
+} from 'react-native-safe-area-context';
 import { theme as defaultTheme, ITheme } from './../theme';
 import type { IColorModeProviderProps } from './color-mode';
 import HybridProvider from './hybrid-overlay/HybridProvider';
@@ -18,12 +22,14 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
   const { colorModeManager, theme = defaultTheme, children } = props;
   return (
     <ThemeProvider theme={theme}>
-      <HybridProvider
-        colorModeManager={colorModeManager}
-        options={theme.config}
-      >
-        {children}
-      </HybridProvider>
+      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+        <HybridProvider
+          colorModeManager={colorModeManager}
+          options={theme.config}
+        >
+          {children}
+        </HybridProvider>
+      </SafeAreaProvider>
     </ThemeProvider>
   );
 };

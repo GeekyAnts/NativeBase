@@ -67,6 +67,7 @@ export * from './hooks/useClipboard';
 export * from './hooks/useDisclose';
 export * from './hooks/useMediaQuery';
 export * from './hooks/usePopover';
+export * from './hooks/useSafeArea';
 
 // Theme
 export * from './theme/Custom';
