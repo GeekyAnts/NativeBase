@@ -13,12 +13,12 @@ const getItemCount = (_data: any) => 500;
 
 const Item = ({ title }: any) => (
   <List.Item
-    bg="red.200"
-    h="70"
+    bg="emerald.200"
+    borderRadius="md"
     justifyContent="center"
-    _text={{ fontSize: 32 }}
-    p={5}
-    borderBottomWidth={0}
+    _text={{ fontSize: '2xl' }}
+    px={4}
+    py={2}
     my={2}
   >
     {title}
