@@ -1,49 +1,14 @@
-import type {
-  BorderProps,
-  ColorProps,
-  FlexboxProps,
-  LayoutProps,
-  SpaceProps,
-  PositionProps,
-} from 'styled-system';
-import type {
-  customBorderProps,
-  customBackgroundProps,
-  customOutlineProps,
-  customLayoutProps,
-  customExtraProps,
-  customShadowProps,
-  customTransformProps,
-  customFlexboxProps,
-  customPositionProps,
-} from '../../../utils/customProps';
 import type { ITextProps } from '../../primitives/Text';
+import type { IBoxProps } from '../../primitives/Box';
 import type { ImageSourcePropType } from 'react-native';
 
-export type IAvatarProps = ColorProps &
-  SpaceProps &
-  LayoutProps &
-  PositionProps &
-  customPositionProps &
-  customBorderProps &
-  customExtraProps &
-  customOutlineProps &
-  customShadowProps &
-  customLayoutProps &
-  customBackgroundProps &
-  customTransformProps &
-  customFlexboxProps &
-  BorderProps &
-  SpaceProps &
-  customBorderProps &
-  BorderProps &
-  FlexboxProps & {
-    _text?: ITextProps;
-    style?: any;
-    size?: string | undefined;
-    source?: ImageSourcePropType;
-    children?: JSX.Element[] | JSX.Element | any | undefined | string;
-  };
+export type IAvatarProps = IBoxProps & {
+  _text?: ITextProps;
+  style?: any;
+  size?: string | undefined;
+  source?: ImageSourcePropType;
+  children?: JSX.Element[] | JSX.Element | any | undefined | string;
+};
 
 export type IAvatarBadgeProps = IAvatarProps & {
   bg?: string;
