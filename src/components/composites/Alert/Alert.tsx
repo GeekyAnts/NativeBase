@@ -4,7 +4,10 @@ import { useThemeProps } from '../../../hooks';
 import type { IAlertProps } from './types';
 import { AlertContext } from './Context';
 
-const Alert = ({ children, _text, ...props }: IAlertProps) => {
+const Alert = (
+  { children, _text, action, ...props }: IAlertProps,
+  ref: any
+) => {
   const { status, variant, iconColor, textColor, ...newProps } = useThemeProps(
     'Alert',
     props
@@ -29,11 +32,13 @@ const Alert = ({ children, _text, ...props }: IAlertProps) => {
         flexWrap="wrap"
         _text={_text}
         {...newProps}
+        ref={ref}
       >
         {children}
+        {action ? <Box mr={0}>{action}</Box> : null}
       </Box>
     </AlertContext.Provider>
   );
 };
 
-export default React.memo(Alert);
+export default React.memo(React.forwardRef<any, IAlertProps>(Alert));

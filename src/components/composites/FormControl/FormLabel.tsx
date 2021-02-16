@@ -5,14 +5,17 @@ import { useToken } from '../../../hooks';
 import { FormControlContext } from './FormControl';
 import type { IFormControlLabelProps, IFormControlContext } from './types';
 
-const FormLabel = ({
-  children,
-  style,
-  _disabled,
-  _focus,
-  _invalid,
-  ...props
-}: IFormControlLabelProps) => {
+const FormLabel = (
+  {
+    children,
+    style,
+    _disabled,
+    _focus,
+    _invalid,
+    ...props
+  }: IFormControlLabelProps,
+  ref: any
+) => {
   const {
     isInvalid,
     isRequired,
@@ -26,6 +29,7 @@ const FormLabel = ({
       flexDirection="row"
       justifyContent="flex-start"
       {...props}
+      ref={ref}
       _text={{ fontSize: 'md' }}
       style={[style, isInvalid && _invalid, isDisabled && _disabled]}
     >
@@ -34,4 +38,6 @@ const FormLabel = ({
     </Box>
   );
 };
-export default React.memo(FormLabel);
+export default React.memo(
+  React.forwardRef<any, IFormControlLabelProps>(FormLabel)
+);

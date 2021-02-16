@@ -17,14 +17,16 @@ describe('useThemeProps', () => {
       wrapper,
     });
     expect(result.current).toEqual({
+      _text: {
+        color: 'gray.700',
+        fontSize: 'xs',
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+      },
       px: 1,
       py: 1,
-      textTransform: 'uppercase',
-      fontSize: 'xs',
       borderRadius: 'lg',
-      fontWeight: 'bold',
       bg: 'gray.100',
-      color: 'gray.700',
       borderWidth: 1,
       borderColor: 'transparent',
     });
@@ -35,14 +37,16 @@ describe('useThemeProps', () => {
       wrapper,
     });
     expect(result.current).toEqual({
+      _text: {
+        color: 'gray.700',
+        fontSize: 'xs',
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+      },
       px: 1,
       py: 3,
-      textTransform: 'uppercase',
-      fontSize: 'xs',
       borderRadius: 'lg',
-      fontWeight: 'bold',
       bg: 'gray.100',
-      color: 'gray.700',
       borderWidth: 1,
       borderColor: 'transparent',
     });

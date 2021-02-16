@@ -1,11 +1,9 @@
 import React from 'react';
 import { VStack } from '../Stack';
-import Box from '../Box';
 import type { IListProps, IListItemProps } from './types';
 import { useThemeProps } from '../../../hooks';
-import { findProps } from './utils';
 
-const List = ({ style, children, spacing, ...props }: IListProps) => {
+const List = ({ children, spacing, ...props }: IListProps, ref?: any) => {
   const themeProps = useThemeProps('List', props);
   // add props to children
   let childrenArray = React.Children.toArray(children);
@@ -16,7 +14,6 @@ const List = ({ style, children, spacing, ...props }: IListProps) => {
         {
           index: ind,
           ...themeProps.lastListItemStyle,
-          ...props,
           py: spacing,
         },
         child.props.children
@@ -24,23 +21,19 @@ const List = ({ style, children, spacing, ...props }: IListProps) => {
     }
     return React.cloneElement(
       child,
-      { index: ind, ...props, py: spacing },
+      {
+        index: ind,
+        py: spacing,
+      },
       child.props.children
     );
   });
-  let [, remainingProps, layoutProps, borderProps] = findProps(props);
-
   return (
-    <Box
-      style={style}
-      {...themeProps.listStyle}
-      {...layoutProps}
-      {...borderProps}
-    >
-      <VStack {...remainingProps}>{children}</VStack>
-    </Box>
+    <VStack ref={ref} {...themeProps.listStyle} {...props}>
+      {children}
+    </VStack>
   );
 };
 
 export type { IListProps, IListItemProps };
-export default React.memo(List);
+export default React.memo(React.forwardRef(List));

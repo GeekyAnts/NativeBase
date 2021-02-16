@@ -4,14 +4,17 @@ import type { IFormControlProps } from './types';
 
 export const FormControlContext = React.createContext({});
 
-const FormControl = ({
-  children,
-  isInvalid,
-  isRequired,
-  isDisabled,
-  isReadOnly,
-  ...props
-}: IFormControlProps) => {
+const FormControl = (
+  {
+    children,
+    isInvalid,
+    isRequired,
+    isDisabled,
+    isReadOnly,
+    ...props
+  }: IFormControlProps,
+  ref: any
+) => {
   return (
     <FormControlContext.Provider
       value={{
@@ -21,11 +24,13 @@ const FormControl = ({
         isReadOnly,
       }}
     >
-      <Box width="100%" {...props}>
+      <Box width="100%" {...props} ref={ref}>
         {children}
       </Box>
     </FormControlContext.Provider>
   );
 };
 
-export default React.memo(FormControl);
+export default React.memo(
+  React.forwardRef<any, IFormControlProps>(FormControl)
+);

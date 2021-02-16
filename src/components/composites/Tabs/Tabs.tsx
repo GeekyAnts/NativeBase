@@ -4,7 +4,7 @@ import type { ITabsProps } from './types';
 import { useThemeProps } from '../../../hooks';
 import { TabsContext } from './Context';
 
-const Tabs = ({ children, ...props }: ITabsProps) => {
+const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
   const {
     onChange,
     activeTabStyle,
@@ -46,11 +46,11 @@ const Tabs = ({ children, ...props }: ITabsProps) => {
         align: setAlign(),
       }}
     >
-      <Box width="100%" {...newProps}>
+      <Box width="100%" {...newProps} ref={ref}>
         {children}
       </Box>
     </TabsContext.Provider>
   );
 };
 
-export default React.memo(Tabs);
+export default React.memo(React.forwardRef<any, ITabsProps>(Tabs));

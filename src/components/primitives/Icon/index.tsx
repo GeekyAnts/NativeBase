@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import {
   border,
   color,
@@ -19,9 +18,8 @@ import {
   customTypography,
   customPosition,
 } from '../../../utils/customProps';
-import { useThemeProps, useToken } from '../../../hooks';
-
 import styled from 'styled-components/native';
+import { useThemeProps } from '../../../hooks';
 import {
   AntDesign,
   Entypo,
@@ -58,50 +56,42 @@ const componentMap = {
   Zocial,
 };
 
-const Icon = (iconProps: IIconProps, ref: any) => {
-  const { name, type, size, color: colorProp, ...props } = iconProps;
-  const newProps = useThemeProps('Icon', { size, color: colorProp, ...props });
-  const rawColor = useToken('colors', newProps.color);
-  // FIXME: temporary code, remove and replace with something generic
-  const marginRight = useToken('space', newProps.marginRight || newProps.mr);
-  if (!name) {
-    return <SVGIcon {...iconProps} />;
-  }
-  const flattenedIconStyle = StyleSheet.flatten([
-    {
-      fontSize: parseInt(newProps.size, 10),
-      marginRight: marginRight ? parseInt(marginRight, 10) : undefined,
-    },
-  ]);
+function getStyleIconComponent(type: IconType) {
+  return styled(componentMap[type])<IIconProps>(
+    color,
+    space,
+    layout,
+    flexbox,
+    border,
+    typography,
+    position,
+    customPosition,
+    customBorder,
+    customBackground,
+    customOutline,
+    customShadow,
+    customExtra,
+    customLayout,
+    customTypography
+  );
+}
 
-  const Component = type ? componentMap[type] : MaterialIcons;
+const Icon = ({ type, name, style, ...props }: IIconProps, ref?: any) => {
+  const { size, ...newProps } = useThemeProps('Icon', props);
+  if (!name) {
+    return <SVGIcon {...props} />;
+  }
+  const Component = getStyleIconComponent(type ?? 'MaterialIcons');
   return (
     <Component
       name={name}
-      {...props}
-      style={flattenedIconStyle}
-      color={rawColor}
+      {...newProps}
       ref={ref}
+      style={[style, { fontSize: parseInt(size, 10) }]}
     />
   );
 };
 
-export default styled(React.memo(React.forwardRef(Icon)))<IIconProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  typography,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout,
-  customTypography
-);
 export type { IIconProps, IconType, IconNameType };
 export { createIcon } from './createIcon';
+export default React.memo(React.forwardRef(Icon));

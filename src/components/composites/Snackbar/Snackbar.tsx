@@ -3,12 +3,15 @@ import { Slide } from '../Transitions';
 import type { ISnackbarProps } from './types';
 import { AccessibilityInfo, Platform } from 'react-native';
 
-const Snackbar = ({
-  children,
-  autoHideDuration = 5000,
-  accessibilityAnnouncement,
-  ...props
-}: ISnackbarProps) => {
+const Snackbar = (
+  {
+    children,
+    autoHideDuration = 5000,
+    accessibilityAnnouncement,
+    ...props
+  }: ISnackbarProps,
+  ref: any
+) => {
   const [isOpen, setIsOpen] = React.useState(true);
   React.useEffect(() => {
     isOpen &&
@@ -23,10 +26,10 @@ const Snackbar = ({
     }
   }, [accessibilityAnnouncement, isOpen]);
   return (
-    <Slide in={isOpen} {...props}>
+    <Slide in={isOpen} {...props} ref={ref}>
       {children}
     </Slide>
   );
 };
 
-export default React.memo(Snackbar);
+export default React.memo(React.forwardRef<any, ISnackbarProps>(Snackbar));

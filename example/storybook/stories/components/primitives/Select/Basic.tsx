@@ -6,12 +6,12 @@ export default function () {
   return (
     <Select
       placeholder="Pick language"
+      _placeholder={{ color: 'teal.500' }}
       selectedValue={language}
       width={150}
       onValueChange={(itemValue: string) => setLanguage(itemValue)}
-      // itemStyle={{ fontSize: 'lg' }}
       selectedItemBg={'blue.500'}
-      selectedItemColor={'white'}
+      _selectedItem={{ color: 'white' }}
       // isDisabled
       dropdownOpenIcon={
         <Icon name="arrow-drop-up" type="MaterialIcons" size={6} />
@@ -19,6 +19,7 @@ export default function () {
       dropdownCloseIcon={
         <Icon name="arrow-drop-down" type="MaterialIcons" size={6} />
       }
+      _item={{ color: 'red.500' }}
     >
       <Select.Item label="JavaScript" value="js" />
       <Select.Item label="TypeScript" value="ts" />

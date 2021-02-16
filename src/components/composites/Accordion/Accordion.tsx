@@ -4,19 +4,12 @@ import Box from '../../primitives/Box';
 import type { IAccordionProps } from './types';
 import { useThemeProps } from '../../../hooks';
 import getIndexedChildren from '../../../utils/getIndexedChildren';
-import { default as AccordionItem } from './AccordionItem';
-import { default as AccordionSummary } from './AccordionSummary';
-import { default as AccordionDetails } from './AccordionDetails';
-import { default as AccordionIcon } from './AccordionIcon';
 import { AccordionContext } from './Context';
 
-const Accordion = ({
-  children,
-  allowMultiple,
-  allowToggle,
-  onChange,
-  ...props
-}: IAccordionProps) => {
+const Accordion = (
+  { children, allowMultiple, allowToggle, onChange, ...props }: IAccordionProps,
+  ref: any
+) => {
   const { index: pIndex, defaultIndex, ...newProps } = useThemeProps(
     'Accordion',
     props
@@ -44,14 +37,11 @@ const Accordion = ({
   };
   return (
     <AccordionContext.Provider value={{ index: index, changeHandler }}>
-      <Box {...newProps}>{getIndexedChildren(children, 'AccordionItem')}</Box>
+      <Box {...newProps} ref={ref}>
+        {getIndexedChildren(children, 'AccordionItem')}
+      </Box>
     </AccordionContext.Provider>
   );
 };
 
-Accordion.Item = AccordionItem;
-Accordion.Summary = AccordionSummary;
-Accordion.Details = AccordionDetails;
-Accordion.Icon = AccordionIcon;
-
-export default Accordion;
+export default React.memo(React.forwardRef<any, IAccordionProps>(Accordion));
