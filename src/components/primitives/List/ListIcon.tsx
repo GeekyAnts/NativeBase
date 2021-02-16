@@ -1,8 +1,11 @@
 import React from 'react';
 import { IIconProps, default as Icon } from '../Icon';
+import { useThemeProps } from '../../../hooks';
 
 const ListIcon = React.memo((props: IIconProps) => {
-  return <Icon mr={2} {...props} />;
+  const newProps = useThemeProps('List', props);
+
+  return <Icon mr={2} {...newProps} />;
 });
 
 export default React.memo(ListIcon);
