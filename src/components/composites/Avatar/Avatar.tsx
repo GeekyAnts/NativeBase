@@ -1,10 +1,7 @@
 import React from 'react';
-import styled from 'styled-components/native';
 import { Box, Image, Text, IBoxProps } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import type { IAvatarProps } from './types';
-
-const StyledAvatar = styled(Box)<IAvatarProps>({});
 
 const Avatar = (props: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
@@ -41,7 +38,7 @@ const Avatar = (props: IAvatarProps, ref: any) => {
   const imageFitStyle = { height: '100%', width: '100%' };
 
   return (
-    <StyledAvatar {...newProps} style={style} ref={ref}>
+    <Box {...newProps} style={style} ref={ref}>
       {source && !error ? (
         <Image
           borderRadius={newProps.borderRadius}
@@ -59,7 +56,7 @@ const Avatar = (props: IAvatarProps, ref: any) => {
         remainingChildren
       )}
       {Badge}
-    </StyledAvatar>
+    </Box>
   );
 };
 
