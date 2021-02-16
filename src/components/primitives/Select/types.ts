@@ -20,3 +20,7 @@ export type ISelectItemProps = IButtonProps & {
   value: string;
   _label?: ITextProps;
 };
+
+export type ISelectComponentType = ((props: ISelectProps) => JSX.Element) & {
+  Item: React.MemoExoticComponent<(props: ISelectItemProps) => JSX.Element>;
+};
