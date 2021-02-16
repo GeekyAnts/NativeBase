@@ -19,3 +19,7 @@ export type ISelectItemProps = ITextProps & {
   value: string;
   isDisabled?: boolean;
 };
+
+export type ISelectComponentType = ((props: ISelectProps) => JSX.Element) & {
+  Item: React.MemoExoticComponent<(props: ISelectItemProps) => JSX.Element>;
+};
