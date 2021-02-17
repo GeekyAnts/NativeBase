@@ -1,5 +1,5 @@
 import React from 'react';
-import { calculateProps } from './../../hooks/useThemeProps/utils';
+import { calculateProps } from '../useThemeProps/utils';
 import { theme } from 'native-base';
 import { renderHook } from '@testing-library/react-hooks';
 import { NativeBaseProvider } from 'native-base';

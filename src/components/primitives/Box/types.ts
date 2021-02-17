@@ -19,7 +19,7 @@ import type {
   customShadowProps,
   customTransformProps,
   customTypographyProps,
-  safeAreaProps,
+  SafeAreaProps,
 } from '../../../utils/customProps';
 import type { ITextProps } from './../Text/types';
 
@@ -41,7 +41,7 @@ export type IBoxProps = ViewProps &
   customTransformProps &
   customFlexboxProps &
   BorderProps &
-  safeAreaProps & {
+  SafeAreaProps & {
     style?: ViewStyle;
     children?: JSX.Element | JSX.Element[] | string | any;
     shadow?: number;

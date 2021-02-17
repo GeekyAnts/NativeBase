@@ -154,7 +154,7 @@ export function getSortedProps(props: any) {
   let [
     paddingProps,
     sansPaddingProps,
-  ] = themeTools.sortedExtractInObject(sansSafeAreaProps, [
+  ] = themeTools.orderedExtractInObject(sansSafeAreaProps, [
     'p',
     'padding',
     'pt',

@@ -8,10 +8,8 @@ function MyComponent() {
         bg="teal.400"
         height={200}
         width={200}
-        position="absolute"
-        top={0}
-        right={0}
-        // safeAreaTop
+        // right={0}
+        safeAreaTop
         // safeAreaLeft
         // safeAreaX
         // pt={6}
