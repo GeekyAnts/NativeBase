@@ -10,7 +10,10 @@ import Box from '../Box';
 
 export let CheckboxGroupContext = createContext<ICheckboxContext | null>(null);
 
-function CheckboxGroup({ size, colorScheme, ...props }: ICheckboxGroupProps) {
+function CheckboxGroup(
+  { size, colorScheme, ...props }: ICheckboxGroupProps,
+  ref?: any
+) {
   let { children } = props;
   let state = useCheckboxGroupState(props);
   let { groupProps } = useCheckboxGroup(props, state);
@@ -26,11 +29,11 @@ function CheckboxGroup({ size, colorScheme, ...props }: ICheckboxGroupProps) {
         state,
       }}
     >
-      <Box alignItems="flex-start" {...groupProps} {...props}>
+      <Box alignItems="flex-start" {...groupProps} {...props} ref={ref}>
         {children}
       </Box>
     </CheckboxGroupContext.Provider>
   );
 }
 
-export default React.memo(CheckboxGroup);
+export default React.memo(React.forwardRef(CheckboxGroup));

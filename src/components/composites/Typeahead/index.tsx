@@ -48,7 +48,7 @@ const Typeahead = (
     onInputValueChange: ({ inputValue }) => {
       onChangeText && onChangeText(inputValue);
       setInputItems(
-        options.filter((item) =>
+        options.filter((item: any) =>
           item.toLowerCase().includes(inputValue.toLowerCase())
         )
       );
@@ -103,7 +103,7 @@ const Typeahead = (
             (numberOfItems && numberOfItems < inputItems.length
               ? inputItems.slice(0, numberOfItems)
               : inputItems
-            ).map((item, index) => (
+            ).map((item: any, index: number) => (
               <Link
                 isUnderlined={false}
                 key={`${item}${index}`}
