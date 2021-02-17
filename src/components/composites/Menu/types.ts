@@ -48,6 +48,7 @@ export type IMenuProps = BorderProps &
     offsetSpace?: number;
     closeOnSelect?: boolean;
     style?: ViewStyle;
+    ref?: any;
   };
 
 export type IMenuItemProps = IBoxProps &
