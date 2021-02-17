@@ -7,35 +7,11 @@ export function calculatePaddingProps(
   insets: any,
   sizes: any
 ) {
-  const paddingTop = calculatePaddingTop(
-    safeAreaProps,
-    paddingProps,
-    insets,
-    sizes
-  );
-  const paddingBottom = calculatePaddingBottom(
-    safeAreaProps,
-    paddingProps,
-    insets,
-    sizes
-  );
-  const paddingLeft = calculatePaddingLeft(
-    safeAreaProps,
-    paddingProps,
-    insets,
-    sizes
-  );
-  const paddingRight = calculatePaddingRight(
-    safeAreaProps,
-    paddingProps,
-    insets,
-    sizes
-  );
   return themeTools.omitUndefined({
-    pt: paddingTop,
-    pb: paddingBottom,
-    pr: paddingRight,
-    pl: paddingLeft,
+    pt: calculatePaddingTop(safeAreaProps, paddingProps, insets, sizes),
+    pb: calculatePaddingBottom(safeAreaProps, paddingProps, insets, sizes),
+    pl: calculatePaddingLeft(safeAreaProps, paddingProps, insets, sizes),
+    pr: calculatePaddingRight(safeAreaProps, paddingProps, insets, sizes),
   });
 }
 function getValueInPixels(
@@ -53,7 +29,7 @@ function getValueInPixels(
 }
 
 export function calculatePaddingTop(
-  safeAreaProps: any,
+  safeAreaProps: SafeAreaProps,
   paddingProps: any,
   insets: any,
   sizes: any
@@ -80,7 +56,7 @@ export function calculatePaddingTop(
   return getValueInPixels(paddingProps, propKeys, sizes, insets.top);
 }
 export function calculatePaddingBottom(
-  safeAreaProps: any,
+  safeAreaProps: SafeAreaProps,
   paddingProps: any,
   insets: any,
   sizes: any
@@ -107,7 +83,7 @@ export function calculatePaddingBottom(
   return getValueInPixels(paddingProps, propKeys, sizes, insets.bottom);
 }
 export function calculatePaddingLeft(
-  safeAreaProps: any,
+  safeAreaProps: SafeAreaProps,
   paddingProps: any,
   insets: any,
   sizes: any
@@ -135,7 +111,7 @@ export function calculatePaddingLeft(
   return getValueInPixels(paddingProps, propKeys, sizes, insets.left);
 }
 export function calculatePaddingRight(
-  safeAreaProps: any,
+  safeAreaProps: SafeAreaProps,
   paddingProps: any,
   insets: any,
   sizes: any
@@ -162,22 +138,6 @@ export function calculatePaddingRight(
   return getValueInPixels(paddingProps, propKeys, sizes, insets.right);
 }
 
-// const paddingBottomKeys = [
-//   'p',
-//   'padding',
-//   'pb',
-//   'paddingBottom',
-//   'py',
-//   'paddingY',
-// ];
-// const paddingRightKeys = [
-//   'p',
-//   'padding',
-//   'pr',
-//   'paddingRight',
-//   'px',
-//   'paddingX',
-// ];
 function getRelatedPaddingProps(props: any, relatedKeys: Array<any>) {
   return Object.keys(props).filter((key) => relatedKeys.includes(key));
 }
