@@ -54,7 +54,9 @@ export type IViewProps = ViewProps &
   customTransformProps &
   customFlexboxProps &
   customPositionProps &
-  BorderProps;
+  BorderProps & {
+    ref?: any;
+  };
 
 const View: any = styled(RNView)<IViewProps>(
   color,
