@@ -23,7 +23,7 @@ function MyWrapper({ children }: any) {
     >
       <IconButton
         position="absolute"
-        top={5}
+        top={10}
         right={5}
         onPress={toggleColorMode}
         // accessibilityLabel="change-color-mode"
