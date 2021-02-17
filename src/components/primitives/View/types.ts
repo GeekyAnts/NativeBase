@@ -1,36 +1,33 @@
-import type { ViewProps, ViewStyle } from 'react-native';
 import type {
   BorderProps,
   ColorProps,
   FlexboxProps,
   LayoutProps,
-  PositionProps,
   SpaceProps,
-  TypographyProps,
+  PositionProps,
 } from 'styled-system';
+import type { ViewProps } from 'react-native';
 import type {
-  customBackgroundProps,
   customBorderProps,
-  customExtraProps,
-  customFlexboxProps,
-  customLayoutProps,
+  customBackgroundProps,
   customOutlineProps,
-  customPositionProps,
+  customLayoutProps,
+  customExtraProps,
   customShadowProps,
-  customTransformProps,
   customTypographyProps,
+  customTransformProps,
+  customFlexboxProps,
+  customPositionProps,
+  SafeAreaProps,
 } from '../../../utils/customProps';
-import type { ITextProps } from './../Text/types';
 
-export type IBoxProps = ViewProps &
+export type IViewProps = ViewProps &
   ColorProps &
   SpaceProps &
   LayoutProps &
   FlexboxProps &
-  TypographyProps &
   PositionProps &
   customBorderProps &
-  customPositionProps &
   customExtraProps &
   customOutlineProps &
   customShadowProps &
@@ -39,10 +36,8 @@ export type IBoxProps = ViewProps &
   customBackgroundProps &
   customTransformProps &
   customFlexboxProps &
-  BorderProps & {
-    style?: ViewStyle;
-    children?: JSX.Element | JSX.Element[] | string | any;
-    shadow?: number;
-    _text?: ITextProps;
-    ref?: any;
+  customPositionProps &
+  BorderProps &
+  SafeAreaProps & {
+    children?: any;
   };

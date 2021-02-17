@@ -1,20 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {
-  BorderProps,
-  ColorProps,
-  FlexboxProps,
-  LayoutProps,
-  SpaceProps,
-  PositionProps,
-  border,
-  color,
-  flexbox,
-  layout,
-  space,
-  position,
-} from 'styled-system';
-import { View as RNView, ViewProps } from 'react-native';
+import { border, color, flexbox, layout, space, position } from 'styled-system';
+import { View as RNView } from 'react-native';
 import {
   customBorder,
   customBackground,
@@ -25,40 +12,11 @@ import {
   customTypography,
   customPosition,
 } from '../../../utils/customProps';
-import type {
-  customBorderProps,
-  customBackgroundProps,
-  customOutlineProps,
-  customLayoutProps,
-  customExtraProps,
-  customShadowProps,
-  customTypographyProps,
-  customTransformProps,
-  customFlexboxProps,
-  customPositionProps,
-} from '../../../utils/customProps';
 
-export type IViewProps = ViewProps &
-  ColorProps &
-  SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  PositionProps &
-  customBorderProps &
-  customExtraProps &
-  customOutlineProps &
-  customShadowProps &
-  customLayoutProps &
-  customTypographyProps &
-  customBackgroundProps &
-  customTransformProps &
-  customFlexboxProps &
-  customPositionProps &
-  BorderProps & {
-    ref?: any;
-  };
-
-const View: any = styled(RNView)<IViewProps>(
+import { useThemeProps } from '../../../hooks/useThemeProps';
+import { useSafeArea } from '../../../hooks/useSafeArea';
+import type { IViewProps } from './types';
+const StyledView: any = styled(RNView)<IViewProps>(
   color,
   space,
   layout,
@@ -75,4 +33,10 @@ const View: any = styled(RNView)<IViewProps>(
   customLayout
 );
 
-export default React.memo(View);
+const View = (props: IViewProps, ref: any) => {
+  const viewProps = useThemeProps('View', props);
+  const safeProps = useSafeArea(viewProps);
+  return <StyledView {...safeProps} ref={ref} />;
+};
+export default React.memo(React.forwardRef(View));
+export type { IViewProps };
