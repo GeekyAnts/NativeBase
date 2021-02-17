@@ -38,7 +38,7 @@ const Accordion = (
   return (
     <AccordionContext.Provider value={{ index: index, changeHandler }}>
       <Box {...newProps} ref={ref}>
-        {getIndexedChildren(children, 'AccordionItem')}
+        {getIndexedChildren(children)}
       </Box>
     </AccordionContext.Provider>
   );
