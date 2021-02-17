@@ -6,7 +6,7 @@ import {
 } from 'styled-components/native';
 import {
   SafeAreaProvider,
-  initialWindowMetrics,
+  initialWindowMetrics as defaultInitialWindowMetrics,
 } from 'react-native-safe-area-context';
 import { theme as defaultTheme, ITheme } from './../theme';
 import type { IColorModeProviderProps } from './color-mode';
@@ -16,13 +16,22 @@ export interface NativeBaseProviderProps {
   theme?: ITheme;
   colorModeManager?: IColorModeProviderProps['colorModeManager'];
   children?: React.ReactNode;
+  initialWindowMetrics?: any;
+  // Refer https://github.com/th3rdwave/react-native-safe-area-context#testing
 }
 
 const NativeBaseProvider = (props: NativeBaseProviderProps) => {
-  const { colorModeManager, theme = defaultTheme, children } = props;
+  const {
+    colorModeManager,
+    theme = defaultTheme,
+    children,
+    initialWindowMetrics,
+  } = props;
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+      <SafeAreaProvider
+        initialMetrics={initialWindowMetrics ?? defaultInitialWindowMetrics}
+      >
         <HybridProvider
           colorModeManager={colorModeManager}
           options={theme.config}

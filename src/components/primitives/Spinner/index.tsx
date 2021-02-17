@@ -7,6 +7,7 @@ import { useToken, useThemeProps } from '../../../hooks';
 import type { ISpinnerProps } from './types';
 import { useSpinner } from './useSpinner';
 import type { IBoxProps } from '../Box';
+import { customLayout, customPosition } from '../../../utils/customProps';
 import {
   Default,
   Dotted,
@@ -15,7 +16,13 @@ import {
   SquareDotted,
 } from './variants';
 
-const StyleAnimatedView = styled(Animated.View)<IBoxProps>(color, border);
+const StyleAnimatedView = styled(Animated.View)<IBoxProps>(
+  color,
+  border,
+  position,
+  customPosition,
+  customLayout
+);
 
 const StyledSpinner = styled(ActivityIndicator)<ISpinnerProps>(
   color,
