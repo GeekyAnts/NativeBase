@@ -1,6 +1,5 @@
 import React from 'react';
 import { HStack, NativeBaseProvider, Box } from 'native-base';
-
 function MyComponent() {
   return (
     <HStack bg="indigo.400" height={500} width={400}>
