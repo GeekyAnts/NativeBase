@@ -26,7 +26,6 @@ function MyWrapper({ children }: any) {
         top={10}
         right={5}
         onPress={toggleColorMode}
-        // accessibilityLabel="change-color-mode"
         icon={
           <Icon
             name={colorMode === 'dark' ? 'light-up' : 'md-moon'}
