@@ -12,7 +12,7 @@ function variantGhost(props: Dict) {
   if (c === 'gray') {
     return {
       _text: {
-        color: mode(`gray.500`, `whiteAlpha.900`)(props),
+        color: mode(`gray.500`, `white`)(props),
       },
     };
   }
@@ -27,7 +27,7 @@ function variantGhost(props: Dict) {
 
 function variantOutline(props: Dict) {
   const { colorScheme: c } = props;
-  const borderColor = mode(`gray.200`, `whiteAlpha.300`)(props);
+  const borderColor = mode(`gray.200`, `gray.500`)(props);
   return {
     border: '1px solid',
     borderColor:
@@ -55,7 +55,7 @@ function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
   if (c === 'gray')
     return {
-      bg: mode(`gray.100`, `whiteAlpha.200`)(props),
+      bg: mode(`gray.100`, `gray.800`)(props),
     };
   const { bg = `${c}.500` } = accessibleColorMap[c] || {};
   return {
