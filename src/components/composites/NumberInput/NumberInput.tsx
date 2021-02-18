@@ -20,6 +20,7 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
   const [numberInputValue, setNumberInputValue] = React.useState(
     parseInt(value || defaultValue, 10)
   );
+  const [numberInputStepper, setNumberInputStepper] = React.useState(null);
   const handleChange = (newValue: number) => {
     const temp = newValue;
     setNumberInputValue(temp);
@@ -34,20 +35,6 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
     const temp = newValue;
     setNumberInputValue(temp);
   };
-  let numberInputStepper: JSX.Element | null = null;
-
-  const separatingNumberInputStepper = (allChildren: any) => {
-    return React.Children.map(allChildren, (child: JSX.Element) => {
-      if (child.type.type.name === 'NumberInputStepper') {
-        numberInputStepper = child;
-        return null;
-      } else {
-        return child;
-      }
-    });
-  };
-  const updatedChildren = separatingNumberInputStepper(children);
-
   return (
     <NumberInputContext.Provider
       value={{
@@ -59,9 +46,10 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
         handleChangeWithoutCheck,
         numberInputValue,
         numberInputStepper,
+        setNumberInputStepper,
       }}
     >
-      {updatedChildren}
+      {children}
     </NumberInputContext.Provider>
   );
 };

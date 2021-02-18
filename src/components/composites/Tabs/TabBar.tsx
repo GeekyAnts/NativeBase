@@ -16,7 +16,7 @@ const TabBar = ({ children, ...props }: ITabBarProps) => {
       {...tabBarStyle}
       {...props}
     >
-      {getIndexedChildren(children, 'Tab')}
+      {getIndexedChildren(children)}
     </Box>
   );
 };
