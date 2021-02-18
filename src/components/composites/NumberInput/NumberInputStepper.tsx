@@ -54,13 +54,15 @@ const NumberInputStepper = ({
   children,
   ...props
 }: INumberInputSteppersProps) => {
-  const { setNumberInputStepper }: INumberInputContext = React.useContext(
-    NumberInputContext
-  );
-  React.useEffect(() => {
-    setNumberInputStepper(<VStack {...props}>{children}</VStack>);
-  }, [children]);
+  const {
+    numberInputStepper,
+    setNumberInputStepper,
+  }: INumberInputContext = React.useContext(NumberInputContext);
 
+  React.useEffect(() => {
+    !numberInputStepper &&
+      setNumberInputStepper(<VStack {...props}>{children}</VStack>);
+  }, [numberInputStepper, setNumberInputStepper, props, children]);
   return null;
 };
 
