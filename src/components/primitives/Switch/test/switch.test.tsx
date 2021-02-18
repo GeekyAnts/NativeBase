@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
-import { NativeBaseProvider } from 'native-base';
+import { NativeBaseProvider } from '../../../../core/NativeBaseProvider';
 
 import Switch from '../index';
 
@@ -8,7 +8,12 @@ jest.useFakeTimers();
 describe('Switch', () => {
   it('can be default checked', () => {
     let { getAllByRole } = render(
-      <NativeBaseProvider>
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
         <Switch defaultIsChecked />
       </NativeBaseProvider>
     );
@@ -18,7 +23,12 @@ describe('Switch', () => {
 
   it('can be disabled', () => {
     let { getAllByRole } = render(
-      <NativeBaseProvider>
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
         <Switch isDisabled />
       </NativeBaseProvider>
     );

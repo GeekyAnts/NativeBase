@@ -15,11 +15,12 @@ const SelectMain = React.forwardRef<any, ISelectProps>(
     {
       onValueChange,
       children,
-      itemStyle,
+      _item,
+      _placeholder,
       selectedValue,
       placeholder,
       selectedItemBg,
-      selectedItemColor,
+      _selectedItem,
       isDisabled,
       dropdownIcon,
       dropdownOpenIcon,
@@ -56,10 +57,10 @@ const SelectMain = React.forwardRef<any, ISelectProps>(
             closeOnSelect: true,
             selectedValue,
             selectedItemBg,
-            selectedItemColor,
+            _selectedItem,
             onValueChange,
             itemsList,
-            itemStyle,
+            _item,
             width,
           },
         });
@@ -83,6 +84,7 @@ const SelectMain = React.forwardRef<any, ISelectProps>(
         : dropdownCloseIcon
         ? dropdownCloseIcon
         : null;
+    const placeholderProps = selectedItem ? {} : _placeholder;
     return (
       <Button
         onPress={openMenu}
@@ -94,7 +96,7 @@ const SelectMain = React.forwardRef<any, ISelectProps>(
         justifyContent="space-between"
         style={style}
       >
-        <Text opacity={selectedItem ? undefined : 0.5}>
+        <Text opacity={selectedItem ? undefined : 0.5} {...placeholderProps}>
           {selectedItem ? selectedItem.label : placeholder}
         </Text>
         {icon}

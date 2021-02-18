@@ -3,6 +3,8 @@ import type { IMenuProps } from './types';
 import View from '../../primitives/View';
 import { useThemeProps } from '../../../hooks';
 import { usePopover } from '../../../core';
+//@ts-ignore - Todo - fix types to typings in rn-aria in next version
+import { FocusScope } from '@react-native-aria/focus';
 
 export const Menu = React.memo(
   React.forwardRef<any, IMenuProps>(
@@ -30,7 +32,9 @@ export const Menu = React.memo(
       const openMenu = () => {
         setPopover(
           <View {...newProps} ref={ref}>
-            {children}
+            <FocusScope restoreFocus autoFocus>
+              {children}
+            </FocusScope>
           </View>,
           {
             triggerRef,
@@ -42,7 +46,6 @@ export const Menu = React.memo(
         toggle(true);
         onOpen && onOpen();
       };
-
       return trigger(
         {
           onPress: openMenu,

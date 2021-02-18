@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
-import { NativeBaseProvider } from 'native-base';
+import { NativeBaseProvider } from '../../../../core/NativeBaseProvider';
 import { Checkbox } from '..';
 import { Text } from '../..';
 
@@ -69,7 +69,12 @@ function CheckBox(group: any) {
 describe('CheckBoxGroup', () => {
   it('handles defaults and onChange on checkBoxGroup', () => {
     let { getAllByRole } = render(
-      <NativeBaseProvider>
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
         <CheckBoxGroup />
       </NativeBaseProvider>
     );
@@ -84,7 +89,12 @@ describe('CheckBoxGroup', () => {
   });
   it('can be disabled on checkBox', () => {
     let { getAllByRole } = render(
-      <NativeBaseProvider>
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
         <Checkbox value="Item 1 ">
           <Text mx={2}>Item 1</Text>
         </Checkbox>
@@ -105,7 +115,12 @@ describe('CheckBoxGroup', () => {
   });
   it('is checked on checkBox', () => {
     let { getAllByRole } = render(
-      <NativeBaseProvider>
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
         <Checkbox value="Item 1 " isChecked>
           <Text mx={2}>Item 1</Text>
         </Checkbox>
@@ -127,7 +142,12 @@ describe('CheckBoxGroup', () => {
 
   it('inDeterminant on checkBoxGroup', () => {
     let { getAllByRole } = render(
-      <NativeBaseProvider>
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
         <CheckBox group={true} />
       </NativeBaseProvider>
     );
@@ -138,7 +158,12 @@ describe('CheckBoxGroup', () => {
 
   it('inDeterminant on checkBox', () => {
     let { getAllByRole } = render(
-      <NativeBaseProvider>
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
         <CheckBox group={false} />
       </NativeBaseProvider>
     );
@@ -150,7 +175,12 @@ describe('CheckBoxGroup', () => {
 
   it('onChange on checkBox', () => {
     let { getAllByRole } = render(
-      <NativeBaseProvider>
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
         <CheckBox />
       </NativeBaseProvider>
     );

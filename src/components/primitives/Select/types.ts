@@ -3,21 +3,22 @@ import type { ITextProps } from '../Text';
 
 export type ISelectProps = IButtonProps & {
   placeholder?: string;
+  _placeholder?: ITextProps;
   selectedValue?: string;
   onValueChange: (itemValue: string, itemIndex?: number) => void;
-  itemStyle?: ITextProps;
+  _item?: ITextProps;
   selectedItemBg?: string;
-  selectedItemColor?: string;
+  _selectedItem?: ITextProps;
   isDisabled?: boolean;
   dropdownIcon?: JSX.Element;
   dropdownOpenIcon?: JSX.Element;
   dropdownCloseIcon?: JSX.Element;
 };
 
-export type ISelectItemProps = ITextProps & {
+export type ISelectItemProps = IButtonProps & {
   label: string;
   value: string;
-  isDisabled?: boolean;
+  _label?: ITextProps;
 };
 
 export type ISelectComponentType = ((props: ISelectProps) => JSX.Element) & {
