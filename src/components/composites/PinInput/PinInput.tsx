@@ -78,17 +78,14 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
   const indexSetter = (allChildren: JSX.Element | JSX.Element[]) => {
     let pinInputFiledCounter = -1;
     return React.Children.map(allChildren, (child: JSX.Element) => {
-      if (child.type.type.name !== 'PinInputFiled') return child;
-      else {
-        pinInputFiledCounter++;
-        return React.cloneElement(
-          child,
-          {
-            fieldIndex: pinInputFiledCounter,
-          },
-          child.props.children
-        );
-      }
+      pinInputFiledCounter++;
+      return React.cloneElement(
+        child,
+        {
+          fieldIndex: pinInputFiledCounter,
+        },
+        child.props.children
+      );
     });
   };
 

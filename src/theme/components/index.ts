@@ -50,7 +50,6 @@ import AppBar from './app-bar';
 import TextArea from './textarea';
 import Toast from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
-import Wrap from './wrap';
 import List from './list';
 
 export default {
@@ -113,5 +112,4 @@ export default {
   AppBar,
   TextArea,
   Toast,
-  Wrap,
 };

@@ -1,63 +1,11 @@
 import isNil from 'lodash/isNil';
 import React from 'react';
-import styled from 'styled-components/native';
-import { border, color, flexbox, layout, position, space } from 'styled-system';
-import { useThemeProps } from '../../../hooks';
-import {
-  customBackground,
-  customBorder,
-  customExtra,
-  customFlexBox,
-  customLayout,
-  customOutline,
-  customPosition,
-  customShadow,
-} from '../../../utils/customProps';
-import Box from '../../primitives/Box';
+import Flex from '../../primitives/Flex';
 import type { IWrapProps } from './types';
 
-const StyledWrap = styled(Box)<IWrapProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout,
-  customFlexBox
-);
-const Wrap = (
-  {
-    style,
-    spacing,
-    children,
-    direction,
-    align,
-    justify,
-    grow,
-    basis,
-    ...props
-  }: IWrapProps,
-  ref?: any
-) => {
-  let newProps = useThemeProps('Wrap', props);
+const Wrap = ({ spacing, children, ...props }: IWrapProps, ref?: any) => {
   return (
-    <StyledWrap
-      {...newProps}
-      flexDirection={direction}
-      alignItems={align}
-      justifyContent={justify}
-      flexGrow={grow}
-      flexBasis={basis}
-      style={style}
-      ref={ref}
-    >
+    <Flex {...props} wrap="wrap" ref={ref}>
       {isNil(spacing)
         ? children
         : React.Children.map(children, (child: any) => {
@@ -67,7 +15,7 @@ const Wrap = (
               child.props.children
             );
           })}
-    </StyledWrap>
+    </Flex>
   );
 };
 
