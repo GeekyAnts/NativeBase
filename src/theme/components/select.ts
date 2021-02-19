@@ -1,8 +1,9 @@
 import { mode } from '../tools/colors';
 
-// Select
-export const styled = (props: Record<string, any>) => {
+// styled
+const styled = (props: Record<string, any>) => {
   return {
+    variant: 'styled',
     pl: 2,
     pr: 0,
     border: 1,
@@ -16,9 +17,10 @@ export const styled = (props: Record<string, any>) => {
   };
 };
 
-// Picker
-export const native = (props: Record<string, any>) => {
+// native
+const native = (props: Record<string, any>) => {
   return {
+    variant: 'native',
     _android: {
       p: 2,
       color: mode('gray.800', 'gray.50')(props),
@@ -42,14 +44,20 @@ const variants = {
   native: native,
 };
 
+// Select
 export const Select = {
   variants,
   defaultProps: {
     variant: 'native',
   },
 };
-// SelectItem
-export const SelectItem = {};
 
-// SelectIcon
-export const SelectIcon = {};
+// SelectIcon - only for styled variant
+export const SelectItem = {
+  baseStyle: {
+    p: 1,
+    px: 2,
+    borderRadius: 0,
+    minH: 0,
+  },
+};

@@ -4,10 +4,8 @@ import type { ISelectProps } from './types';
 import { usePopover } from '../../../core';
 import Button from '../Button';
 import { ScrollView } from 'react-native';
-import { SelectContext } from './Context';
 import { useThemeProps } from '../../../hooks';
 import { useHover } from '@react-native-aria/interactions';
-
 import { Picker as RNPicker } from '@react-native-picker/picker';
 import styled from 'styled-components/native';
 import {
@@ -80,12 +78,27 @@ const Select = (
   let triggerRef = React.useRef();
   const { isHovered } = useHover({}, ref ?? triggerRef);
   let [isOpen, toggle] = React.useState<boolean>(false);
+  const updatedChildren = React.Children.map(children, (child: any) => {
+    return React.cloneElement(
+      child,
+      {
+        variant: variant,
+      },
+      child.props.children
+    );
+  });
+
   let itemsList: Array<{ label: string; value: string }> = React.Children.map(
-    children,
+    updatedChildren,
     (child: any) => {
-      return { label: child.props.label, value: child.props.value };
+      return {
+        label: child.props.label,
+        value: child.props.value,
+        variant: child.props.variant,
+      };
     }
   );
+
   const { setPopover, closePopover } = usePopover();
   const closeMenu = () => {
     closePopover();
@@ -109,6 +122,7 @@ const Select = (
           itemsList,
           _item,
           width,
+          variant: 'styled',
         },
       });
       toggle(true);
@@ -130,9 +144,6 @@ const Select = (
       ? dropdownCloseIcon
       : null;
   const placeholderProps = selectedItem ? {} : _placeholder;
-
-  console.log('newProps = ', newProps);
-  console.log('varaiant = ', variant);
 
   const StyledSelect = (
     <Button
@@ -166,18 +177,10 @@ const Select = (
       {...(isInvalid && _isInvalid)}
       {...(isHovered && _hover)}
     >
-      {children}
+      {updatedChildren}
     </StyledNativePicker>
   );
-  return (
-    <SelectContext.Provider
-      value={{
-        variant: variant,
-      }}
-    >
-      {variant === 'styled' ? StyledSelect : NativeSelect}
-    </SelectContext.Provider>
-  );
+  return variant === 'styled' ? StyledSelect : NativeSelect;
 };
 
 export default React.forwardRef<any, ISelectProps>(Select);
