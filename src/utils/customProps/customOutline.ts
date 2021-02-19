@@ -1,5 +1,6 @@
 import type * as CSS from 'csstype';
 import { Config, system } from 'styled-system';
+import type { ResponsiveValue } from './responsiveValue';
 
 /**
  * The parser configuration for common outline properties
@@ -17,15 +18,15 @@ export interface customOutlineProps {
   /**
    * The CSS `outline` property
    */
-  outline?: CSS.Property.Outline;
+  outline?: ResponsiveValue<CSS.Property.Outline<string | number>>;
   /**
    * The CSS `outline-offset` property
    */
-  outlineOffset?: CSS.Property.OutlineOffset;
+  outlineOffset?: ResponsiveValue<CSS.Property.OutlineOffset<string | number>>;
   /**
    * The CSS `outline-color` property
    */
-  outlineColor?: CSS.Property.OutlineColor;
+  outlineColor?: ResponsiveValue<CSS.Property.OutlineColor>;
 }
 
 export const customOutline = system(config);
