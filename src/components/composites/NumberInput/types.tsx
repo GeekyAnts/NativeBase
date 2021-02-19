@@ -33,4 +33,5 @@ export type INumberInputContext = INumberInputProps & {
   handleChange?: (value: number) => void;
   handleChangeWithoutCheck?: (value: number) => void;
   numberInputStepper?: any;
+  setNumberInputStepper?: any;
 };
