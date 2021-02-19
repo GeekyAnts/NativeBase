@@ -5,7 +5,8 @@ export default function () {
   let [language, setLanguage] = React.useState<string>('');
   return (
     <VStack w="80%" space={4}>
-      <Select.Picker
+      <Select
+        // variant="styled"
         // placeholder="Pick language"
         selectedValue={language}
         width={150}
@@ -23,7 +24,7 @@ export default function () {
         <Select.Item label="C" value="c" />
         <Select.Item label="Python" value="py" />
         <Select.Item label="Java" value="java" />
-      </Select.Picker>
+      </Select>
       <Box>{language}</Box>
     </VStack>
   );

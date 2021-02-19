@@ -6,6 +6,7 @@ export default function () {
   return (
     <VStack w="80%" space={4}>
       <Select
+        variant="styled"
         placeholder="Pick language"
         _placeholder={{ color: 'teal.500' }}
         selectedValue={language}

@@ -8,22 +8,71 @@ import { SelectContext } from './Context';
 import { useThemeProps } from '../../../hooks';
 import { useHover } from '@react-native-aria/interactions';
 
+import { Picker as RNPicker } from '@react-native-picker/picker';
+import styled from 'styled-components/native';
+import {
+  border,
+  flex,
+  space,
+  color,
+  flexbox,
+  layout,
+  typography,
+} from 'styled-system';
+import {
+  customBorder,
+  customBackground,
+  customOutline,
+  customLayout,
+  customExtra,
+  customShadow,
+  customTypography,
+} from '../../../utils/customProps';
+import { Platform } from 'react-native';
+
+const StyledNativePicker = styled(RNPicker)<ISelectProps>(
+  flex,
+  color,
+  space,
+  layout,
+  flexbox,
+  border,
+  typography,
+  customBorder,
+  customBackground,
+  customOutline,
+  customShadow,
+  customExtra,
+  customTypography,
+  customLayout
+);
+
 const Select = (
-  { onValueChange, children, ...props }: ISelectProps,
+  {
+    onValueChange,
+    selectedValue,
+    children,
+    dropdownIcon,
+    dropdownOpenIcon,
+    dropdownCloseIcon,
+    ...props
+  }: ISelectProps,
   ref: any
 ) => {
   const {
+    variant,
     _item,
+    _ios,
+    _web,
+    _android,
     _placeholder,
-    selectedValue,
     placeholder,
     selectedItemBg,
     _selectedItem,
     _hover,
+    isInvalid,
+    _isInvalid,
     isDisabled,
-    dropdownIcon,
-    dropdownOpenIcon,
-    dropdownCloseIcon,
     width,
     style,
     ...newProps
@@ -81,27 +130,54 @@ const Select = (
       ? dropdownCloseIcon
       : null;
   const placeholderProps = selectedItem ? {} : _placeholder;
+
+  console.log('newProps = ', newProps);
+  console.log('varaiant = ', variant);
+
+  const StyledSelect = (
+    <Button
+      onPress={openMenu}
+      width={width}
+      ref={ref ?? triggerRef}
+      {...newProps}
+      justifyContent="space-between"
+      {...(isInvalid && _isInvalid)}
+      {...(isHovered && _hover)}
+      style={style}
+    >
+      <Text opacity={selectedItem ? undefined : 0.5} {...placeholderProps}>
+        {selectedItem ? selectedItem.label : placeholder}
+      </Text>
+      {icon}
+    </Button>
+  );
+  const NativeSelect = (
+    <StyledNativePicker
+      // Not getting ref on web
+      ref={ref ?? triggerRef}
+      enabled={!isDisabled}
+      itemStyle={_item}
+      {...newProps}
+      onValueChange={onValueChange}
+      selectedValue={selectedValue}
+      {...(Platform.OS === 'ios' && _ios)}
+      {...(Platform.OS === 'android' && _android)}
+      {...(Platform.OS === 'web' && _web)}
+      {...(isInvalid && _isInvalid)}
+      {...(isHovered && _hover)}
+    >
+      {children}
+    </StyledNativePicker>
+  );
   return (
     <SelectContext.Provider
       value={{
-        isPicker: false,
+        variant: variant,
       }}
     >
-      <Button
-        onPress={openMenu}
-        width={width}
-        ref={ref ?? triggerRef}
-        {...newProps}
-        justifyContent="space-between"
-        {...(isHovered && _hover)}
-        style={style}
-      >
-        <Text opacity={selectedItem ? undefined : 0.5} {...placeholderProps}>
-          {selectedItem ? selectedItem.label : placeholder}
-        </Text>
-        {icon}
-      </Button>
+      {variant === 'styled' ? StyledSelect : NativeSelect}
     </SelectContext.Provider>
   );
 };
+
 export default React.forwardRef<any, ISelectProps>(Select);

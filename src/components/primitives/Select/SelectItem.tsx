@@ -1,12 +1,12 @@
 import React from 'react';
-import type { ISelectItemProps } from './types';
+import type { ISelectItemProps, ISelectContextProps } from './types';
 import { usePopover } from '../../../core';
 import Button from '../Button';
 import Text from '../Text';
 import { Picker as RNPicker } from '@react-native-picker/picker';
 import { SelectContext } from './Context';
 
-export const SelectItem = ({
+export const Item = ({
   isDisabled,
   label,
   value,
@@ -14,6 +14,7 @@ export const SelectItem = ({
   style,
   ...props
 }: ISelectItemProps) => {
+  const { variant }: ISelectContextProps = React.useContext(SelectContext);
   const {
     parentComponentConfig: {
       selectedValue,
@@ -25,6 +26,7 @@ export const SelectItem = ({
       _item,
     },
   } = usePopover();
+  console.log(variant);
 
   let currentIndex = -1;
   itemsList.forEach((item: any, index: number) => {
@@ -37,7 +39,7 @@ export const SelectItem = ({
     textProps = { ..._selectedItem };
   }
 
-  return (
+  return variant === 'styled' ? (
     <Button
       p={1}
       px={2}
@@ -59,16 +61,9 @@ export const SelectItem = ({
         {label}
       </Text>
     </Button>
+  ) : (
+    <RNPicker.Item label={label} value={value} />
   );
-};
-const PickerItem = ({ ...props }) => {
-  return <RNPicker.Item {...props} />;
-};
-
-const Item = (props: any) => {
-  const { isPicker } = React.useContext(SelectContext);
-
-  return isPicker ? <PickerItem {...props} /> : <SelectItem {...props} />;
 };
 
 export default React.memo(Item);
