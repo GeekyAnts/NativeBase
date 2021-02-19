@@ -12,6 +12,7 @@ import {
   ActionsheetFooter,
   ActionsheetItem,
 } from './actionsheet';
+import { Select, Picker } from './select';
 import { Alert, AlertDescription, AlertTitle } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
@@ -96,6 +97,8 @@ export default {
   Progress,
   Radio,
   ScaleFade,
+  Select,
+  Picker,
   Skeleton,
   Slide,
   SlideFade,

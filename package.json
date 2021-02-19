@@ -159,6 +159,7 @@
     "@react-native-aria/interactions": "^0.2.1",
     "@react-native-aria/radio": "^0.2.1",
     "@react-native-aria/switch": "^0.2.1",
+    "@react-native-picker/picker": "^1.9.11",
     "@react-stately/radio": "^3.2.1",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",

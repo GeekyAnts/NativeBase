@@ -1,29 +1,30 @@
 import React from 'react';
-import { Icon, Select } from 'native-base';
+import { Box, Select, VStack } from 'native-base';
 
 export default function () {
   let [language, setLanguage] = React.useState<string>('');
   return (
-    <Select
-      placeholder="Pick language"
-      _placeholder={{ color: 'teal.500' }}
-      selectedValue={language}
-      width={150}
-      onValueChange={(itemValue: string) => setLanguage(itemValue)}
-      selectedItemBg={'blue.500'}
-      _selectedItem={{ color: 'white' }}
-      // isDisabled
-      dropdownOpenIcon={
-        <Icon name="arrow-drop-up" type="MaterialIcons" size={6} />
-      }
-      dropdownCloseIcon={
-        <Icon name="arrow-drop-down" type="MaterialIcons" size={6} />
-      }
-      _item={{ color: 'red.500' }}
-    >
-      <Select.Item label="JavaScript" value="js" />
-      <Select.Item label="TypeScript" value="ts" />
-      <Select.Item label="Java" value="java" />
-    </Select>
+    <VStack w="80%" space={4}>
+      <Select.Picker
+        // placeholder="Pick language"
+        selectedValue={language}
+        width={150}
+        onValueChange={(itemValue: string) => setLanguage(itemValue)}
+        // borderRadius="md"
+        // bg="transparent"
+        // color="teal.200"
+        // itemStyle={{
+        //   color: 'green',
+        // }}
+      >
+        <Select.Item label="Pick something" value="" />
+        <Select.Item label="JavaScript" value="js" />
+        <Select.Item label="TypeScript" value="ts" />
+        <Select.Item label="C" value="c" />
+        <Select.Item label="Python" value="py" />
+        <Select.Item label="Java" value="java" />
+      </Select.Picker>
+      <Box>{language}</Box>
+    </VStack>
   );
 }
