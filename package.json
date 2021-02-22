@@ -94,7 +94,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*)/)"
+      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*)/|@react-native-picker/picker)"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
@@ -158,6 +158,7 @@
     "@react-native-aria/focus": "^0.2.4",
     "@react-native-aria/interactions": "^0.2.2",
     "@react-native-aria/radio": "^0.2.2",
+    "@react-native-picker/picker": "^1.9.11",
     "@react-stately/radio": "^3.2.1",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
