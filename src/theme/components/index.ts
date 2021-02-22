@@ -50,7 +50,7 @@ import AppBar from './app-bar';
 import TextArea from './textarea';
 import Toast from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
-import List from './list';
+import { List, ListItem, ListIcon } from './list';
 
 export default {
   Accordion,
@@ -85,6 +85,8 @@ export default {
   Kbd,
   Link,
   List,
+  ListItem,
+  ListIcon,
   Menu,
   MenuGroup,
   MenuItem,

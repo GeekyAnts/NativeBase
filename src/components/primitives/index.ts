@@ -58,7 +58,7 @@ export { default as TextArea } from './TextArea';
 export { default as Link } from './Link';
 export type { ILinkProps } from './Link';
 
-export { default as List, Ol, Ul, ListItem, ListIcon } from './List';
+export { List } from './List';
 export type { IListProps, IListItemProps } from './List';
 
 export { VisuallyHidden } from './VisuallyHidden';

@@ -1,26 +1,22 @@
-const defaultProps = {
-  listStyle: {
+// List
+export const List = {
+  baseStyle: {
     borderWidth: 1,
     borderColor: 'gray.300',
-    borderRadius: 6,
-    borderBottomWidth: 0,
-  },
-  listItemStyle: {
-    borderBottomWidth: 1,
-    borderColor: 'gray.300',
-  },
-  lastListItemStyle: {
-    borderRadius: 6,
-  },
-  listItemNumberingStyle: {
-    mr: 2,
-    fontWeight: 'bold',
-  },
-  listItemTextStyle: {
-    fontWeight: 'bold',
-    flex: 1,
-    pr: 2,
+    borderRadius: 'lg',
   },
 };
 
-export default { defaultProps };
+// ListItem
+export const ListItem = {
+  baseStyle: {
+    borderTopWidth: 1,
+    borderColor: 'gray.300',
+  },
+  defaultProps: {
+    start: 1,
+  },
+};
+
+// ListIcon
+export const ListIcon = {};
