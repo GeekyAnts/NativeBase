@@ -1,5 +1,4 @@
-import React, { forwardRef } from 'react';
-import type { View as ViewType } from 'react-native';
+import React from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components/native';
 import {
@@ -56,4 +55,4 @@ const Box = ({ children, _text, ...props }: IBoxProps, ref: any) => {
 
 export type { IBoxProps };
 
-export default React.memo(forwardRef<ViewType, IBoxProps>(Box));
+export default React.memo(React.forwardRef(Box));

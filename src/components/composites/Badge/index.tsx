@@ -15,5 +15,5 @@ const Badge = ({ children, style, ...props }: IBadgeProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef<any, IBadgeProps>(Badge));
+export default React.memo(React.forwardRef(Badge));
 export type { IBadgeProps };

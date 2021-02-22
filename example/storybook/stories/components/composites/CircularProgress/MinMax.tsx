@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  CircularProgress,
-  Heading,
-  Center,
-  CircularProgressLabel,
-} from 'native-base';
+import { CircularProgress, Heading, Center } from 'native-base';
 import { text, number } from '@storybook/addon-knobs';
 export default function () {
   return (
@@ -18,7 +13,7 @@ export default function () {
         size={100}
         color={text('Color', 'red.200')}
       >
-        <CircularProgressLabel>550%</CircularProgressLabel>
+        <CircularProgress.Label>550%</CircularProgress.Label>
       </CircularProgress>
     </Center>
   );

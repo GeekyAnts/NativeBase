@@ -32,4 +32,4 @@ const Snackbar = (
   );
 };
 
-export default React.memo(React.forwardRef<any, ISnackbarProps>(Snackbar));
+export default React.memo(React.forwardRef(Snackbar));

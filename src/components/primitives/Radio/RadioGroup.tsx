@@ -38,4 +38,4 @@ const RadioGroup = (
   );
 };
 
-export default React.memo(React.forwardRef<any, IRadioGroupProps>(RadioGroup));
+export default React.memo(React.forwardRef(RadioGroup));

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text } from 'react-native';
-import type { Text as TextType } from 'react-native';
 import styled from 'styled-components/native';
 import {
   border,
@@ -54,5 +53,5 @@ const Heading = ({ isTruncated, ...props }: IHeadingProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef<TextType, IHeadingProps>(Heading));
+export default React.memo(React.forwardRef(Heading));
 export type { IHeadingProps };

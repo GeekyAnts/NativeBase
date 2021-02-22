@@ -53,22 +53,15 @@ export const StatArrow = React.memo(({ type, ...props }: IStatArrowProps) => {
 });
 
 export const StatGroup = React.memo(
-  React.forwardRef<any, IBoxProps>(
-    ({ style, ...props }: IBoxProps, ref: any) => {
-      let newProps = useThemeProps('Stat', props);
-      return (
-        <HStack
-          {...newProps._statGroup}
-          {...newProps}
-          ref={ref}
-          style={style}
-        />
-      );
-    }
-  )
+  React.forwardRef(({ style, ...props }: IBoxProps, ref: any) => {
+    let newProps = useThemeProps('Stat', props);
+    return (
+      <HStack {...newProps._statGroup} {...newProps} ref={ref} style={style} />
+    );
+  })
 );
 
-const StatMain = React.forwardRef<any, IBoxProps>(
+const StatMain = React.forwardRef(
   ({ style, ...props }: IBoxProps, ref: any) => {
     return <Box {...props} ref={ref} style={style} />;
   }

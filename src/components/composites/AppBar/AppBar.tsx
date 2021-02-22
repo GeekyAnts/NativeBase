@@ -22,4 +22,4 @@ const AppBar = ({ children, ...props }: IAppBarProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef<any, IAppBarProps>(AppBar));
+export default React.memo(React.forwardRef(AppBar));

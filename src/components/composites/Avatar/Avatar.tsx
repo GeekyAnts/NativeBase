@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Text, IBoxProps } from '../../primitives';
+import { Box, Image, Text } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import type { IAvatarProps } from './types';
 
@@ -60,4 +60,4 @@ const Avatar = (props: IAvatarProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef<IBoxProps, IAvatarProps>(Avatar));
+export default React.memo(React.forwardRef(Avatar));

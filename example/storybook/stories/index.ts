@@ -12,7 +12,7 @@
 // export * from './components/primitives/Button';
 // export * from './components/composites/Center';
 // export * from './components/primitives/Checkbox';
-// export * from './components/composites/CircularProgress';
+export * from './components/composites/CircularProgress';
 // export * from './components/composites/CloseButton';
 // export * from './components/composites/Code';
 // export * from './components/composites/Collapse';
@@ -50,7 +50,7 @@
 // export * from './components/primitives/Stack';
 // export * from './components/composites/Stat';
 // export * from './components/primitives/Switch';
-export * from './components/composites/Tabs';
+// export * from './components/composites/Tabs';
 // export * from './components/composites/Tag';
 // export * from './components/primitives/Text';
 // export * from './components/primitives/TextArea';

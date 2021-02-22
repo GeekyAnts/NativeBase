@@ -21,6 +21,4 @@ const FormErrorMessage = (
   ) : null;
 };
 
-export default React.memo(
-  React.forwardRef<any, IFormControlErrorMessageProps>(FormErrorMessage)
-);
+export default React.memo(React.forwardRef(FormErrorMessage));

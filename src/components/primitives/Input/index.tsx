@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React from 'react';
 import { TextInput, Animated, Platform } from 'react-native';
 import styled from 'styled-components/native';
 import {
@@ -89,7 +89,7 @@ const Input = (
     mt,
     mb,
   };
-  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused, setIsFocused] = React.useState(false);
   const handleFocus = (focusState: boolean, callback: any) => {
     setIsFocused(focusState);
     callback();
@@ -264,4 +264,4 @@ const Input = (
 //-------------------------------- InputGroup and other Child components -------------------------------
 export { InputRightAddon, InputGroup, InputLeftAddon };
 export type { IInputProps };
-export default React.memo(forwardRef<any, IInputProps>(Input));
+export default React.memo(React.forwardRef(Input));

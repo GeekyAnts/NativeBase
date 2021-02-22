@@ -31,6 +31,4 @@ const FormControl = (
   );
 };
 
-export default React.memo(
-  React.forwardRef<any, IFormControlProps>(FormControl)
-);
+export default React.memo(React.forwardRef(FormControl));

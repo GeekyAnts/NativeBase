@@ -65,4 +65,4 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef<any, ISkeletonProps>(Skeleton));
+export default React.memo(React.forwardRef(Skeleton));

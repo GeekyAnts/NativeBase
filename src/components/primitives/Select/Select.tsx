@@ -195,4 +195,4 @@ const Select = (
   return variant === 'styled' ? StyledSelect : NativeSelect;
 };
 
-export default React.forwardRef<any, ISelectProps>(Select);
+export default React.forwardRef(Select);

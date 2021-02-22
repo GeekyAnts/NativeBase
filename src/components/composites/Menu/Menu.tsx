@@ -7,7 +7,7 @@ import { usePopover } from '../../../core';
 import { FocusScope } from '@react-native-aria/focus';
 
 export const Menu = React.memo(
-  React.forwardRef<any, IMenuProps>(
+  React.forwardRef(
     (
       {
         trigger,

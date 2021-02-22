@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text as NativeText } from 'react-native';
-import type { Text as TextType } from 'react-native';
 import styled from 'styled-components/native';
 import {
   color,
@@ -83,5 +82,5 @@ const Text = (
   );
 };
 
-export default React.memo(React.forwardRef<TextType, ITextProps>(Text));
+export default React.memo(React.forwardRef(Text));
 export type { ITextProps };

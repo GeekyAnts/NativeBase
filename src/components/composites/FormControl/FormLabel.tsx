@@ -38,6 +38,4 @@ const FormLabel = (
     </Box>
   );
 };
-export default React.memo(
-  React.forwardRef<any, IFormControlLabelProps>(FormLabel)
-);
+export default React.memo(React.forwardRef(FormLabel));

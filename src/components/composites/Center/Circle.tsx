@@ -16,4 +16,4 @@ const Circle = ({ style, size, ...props }: ICircleProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef<any, ICircleProps>(Circle));
+export default React.memo(React.forwardRef(Circle));

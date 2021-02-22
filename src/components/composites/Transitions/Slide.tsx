@@ -97,4 +97,4 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef<any, ISlideProps>(Slide));
+export default React.memo(React.forwardRef(Slide));

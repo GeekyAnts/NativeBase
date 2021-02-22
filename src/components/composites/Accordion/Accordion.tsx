@@ -44,4 +44,4 @@ const Accordion = (
   );
 };
 
-export default React.memo(React.forwardRef<any, IAccordionProps>(Accordion));
+export default React.memo(React.forwardRef(Accordion));

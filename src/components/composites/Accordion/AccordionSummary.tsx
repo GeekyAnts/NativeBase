@@ -65,6 +65,4 @@ const AccordionSummary = (
   );
 };
 
-export default React.memo(
-  React.forwardRef<TouchableOpacity, IAccordionSummaryProps>(AccordionSummary)
-);
+export default React.memo(React.forwardRef(AccordionSummary));

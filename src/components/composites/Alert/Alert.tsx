@@ -41,4 +41,4 @@ const Alert = (
   );
 };
 
-export default React.memo(React.forwardRef<any, IAlertProps>(Alert));
+export default React.memo(React.forwardRef(Alert));

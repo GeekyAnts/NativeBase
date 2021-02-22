@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import {
   TouchableOpacity,
   TouchableOpacityProps,
@@ -159,4 +159,4 @@ const Button = (
 
 export { ButtonGroup } from './ButtonGroup';
 export type { IButtonProps, IButtonGroupProps };
-export default React.memo(forwardRef<any, IButtonProps & IBoxProps>(Button));
+export default React.memo(React.forwardRef(Button));

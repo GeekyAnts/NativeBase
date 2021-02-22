@@ -1,5 +1,4 @@
 import React from 'react';
-import type { View } from 'react-native';
 import { useThemeProps } from '../../../hooks';
 import Box from '../../primitives/Box';
 import type { ICenterProps } from './types';
@@ -17,4 +16,4 @@ const Center = (props: ICenterProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef<View, ICenterProps>(Center));
+export default React.memo(React.forwardRef(Center));

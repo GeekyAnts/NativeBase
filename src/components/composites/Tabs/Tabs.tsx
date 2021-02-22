@@ -53,4 +53,4 @@ const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef<any, ITabsProps>(Tabs));
+export default React.memo(React.forwardRef(Tabs));

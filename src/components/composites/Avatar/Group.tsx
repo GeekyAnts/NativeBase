@@ -64,6 +64,4 @@ const AvatarGroup = (allProps: IAvatarGroupProps, ref: any) => {
   );
 };
 
-export default React.memo(
-  React.forwardRef<any, IAvatarGroupProps>(AvatarGroup)
-);
+export default React.memo(React.forwardRef(AvatarGroup));

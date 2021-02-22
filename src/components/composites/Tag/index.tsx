@@ -11,5 +11,5 @@ const Tag = ({ style, ...props }: ITagProps, ref: any) => {
   return <StyledTag style={style} {...newProps} ref={ref} />;
 };
 
-export default React.memo(React.forwardRef<any, ITagProps>(Tag));
+export default React.memo(React.forwardRef(Tag));
 export type { ITagProps };

@@ -36,6 +36,4 @@ const FormHelperText = (
   );
 };
 
-export default React.memo(
-  React.forwardRef<any, IFormControlHelperTextProps>(FormHelperText)
-);
+export default React.memo(React.forwardRef(FormHelperText));

@@ -20,5 +20,5 @@ const Breadcrumb = (
   );
 };
 
-export default React.memo(React.forwardRef<any, IBreadcrumbProps>(Breadcrumb));
+export default React.memo(React.forwardRef(Breadcrumb));
 export type { IBreadcrumbProps };

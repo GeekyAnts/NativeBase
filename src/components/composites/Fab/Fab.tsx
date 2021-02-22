@@ -36,4 +36,4 @@ const Fab = (props: IFabProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef<any, IFabProps>(Fab));
+export default React.memo(React.forwardRef(Fab));

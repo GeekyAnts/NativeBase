@@ -168,6 +168,6 @@ const Modal = (
   ) : null;
 };
 
-export default React.memo(React.forwardRef<ModalType, IModalProps>(Modal));
+export default React.memo(React.forwardRef(Modal));
 
 export type { IModalProps };

@@ -1,5 +1,4 @@
 import React from 'react';
-import type { TextInput } from 'react-native';
 import { default as Input, IInputProps } from '../Input';
 import { useThemeProps } from '../../../hooks';
 export type ITextAreaProps = IInputProps & {
@@ -11,6 +10,4 @@ const TextArea = ({ totalLines, ...props }: ITextAreaProps, ref: any) => {
   return <Input {...newProps} numberOfLines={totalLines} ref={ref} />;
 };
 
-export default React.memo(
-  React.forwardRef<TextInput, ITextAreaProps>(TextArea)
-);
+export default React.memo(React.forwardRef(TextArea));

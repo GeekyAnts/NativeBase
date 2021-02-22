@@ -23,6 +23,4 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
   );
 };
 
-export default React.memo(
-  React.forwardRef<any, IActionsheetProps>(Actionsheet)
-);
+export default React.memo(React.forwardRef(Actionsheet));

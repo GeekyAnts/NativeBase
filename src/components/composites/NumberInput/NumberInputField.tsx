@@ -50,6 +50,4 @@ const NumberInputFiled = (
   );
 };
 
-export default React.memo(
-  React.forwardRef<TextInput, INumberInputFieldProps>(NumberInputFiled)
-);
+export default React.memo(React.forwardRef(NumberInputFiled));

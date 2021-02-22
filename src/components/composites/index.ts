@@ -101,10 +101,7 @@ export type {
 } from './Transitions';
 
 export { default as Collapse } from './Collapse';
-export {
-  default as CircularProgress,
-  CircularProgressLabel,
-} from './CircularProgress';
+export { default as CircularProgress } from './CircularProgress';
 export { Modal } from './Modal';
 export type { IModalProps } from './Modal';
 
