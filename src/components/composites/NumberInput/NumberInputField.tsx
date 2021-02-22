@@ -2,7 +2,6 @@ import React from 'react';
 import Input from '../../primitives/Input';
 import type { INumberInputContext, INumberInputFieldProps } from './types';
 import { NumberInputContext } from './Context';
-import type { TextInput } from 'react-native';
 
 const NumberInputFiled = (
   { isDisabled, ...props }: INumberInputFieldProps,

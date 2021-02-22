@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import type { TouchableHighlight, TouchableOpacity } from 'react-native';
 import { useThemeProps } from '../../../hooks';
 import Button, { IButtonProps } from '../../primitives/Button';
 

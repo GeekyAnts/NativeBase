@@ -1,5 +1,4 @@
 import React, { RefObject, useEffect, ReactNode } from 'react';
-import type { Modal as ModalType } from 'react-native';
 import { KeyboardAvoidingView, Modal as RNModal, Platform } from 'react-native';
 import styled from 'styled-components/native';
 import { border, color, flexbox, layout, position, space } from 'styled-system';

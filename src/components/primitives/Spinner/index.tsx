@@ -1,5 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, Animated, Easing, StyleSheet } from 'react-native';
+import type { ActivityIndicator as ActivityIndicatorType } from 'react-native';
 import styled from 'styled-components/native';
 import { color, space, position, border } from 'styled-system';
 import { useToken, useThemeProps } from '../../../hooks';
@@ -124,5 +125,7 @@ const Spinner: any = ({ renderProp, ...props }: ISpinnerProps, ref: any) => {
   }
 };
 
-export default React.memo(React.forwardRef(Spinner));
+export default React.memo(
+  React.forwardRef<ActivityIndicatorType, ISpinnerProps>(Spinner)
+);
 export type { ISpinnerProps };

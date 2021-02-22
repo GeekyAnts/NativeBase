@@ -1,6 +1,5 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
-import type { View as ViewType } from 'react-native';
 import styled from 'styled-components/native';
 import type { ILinkProps } from './types';
 import Box from '../Box';

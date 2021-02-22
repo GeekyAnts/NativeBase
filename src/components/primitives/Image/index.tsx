@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Image as RNImage } from 'react-native';
-import type { Image as ImageType } from 'react-native';
 import styled from 'styled-components/native';
 import { border, color, flexbox, layout, space, position } from 'styled-system';
 import {
