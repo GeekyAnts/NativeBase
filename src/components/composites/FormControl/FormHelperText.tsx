@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { useToken } from '../../../hooks';
+import { useColorModeValue } from '../../../core/color-mode/hooks';
 import { FormControlContext } from './FormControl';
 import type { IFormControlHelperTextProps, IFormControlContext } from './types';
 
@@ -11,6 +11,7 @@ const FormHelperText = (
     _disabled,
     _focus,
     _invalid,
+    color,
     ...props
   }: IFormControlHelperTextProps,
   ref: any
@@ -18,15 +19,15 @@ const FormHelperText = (
   const { isInvalid, isDisabled }: IFormControlContext = React.useContext(
     FormControlContext
   );
+  const mutedColor = useColorModeValue('gray.400', 'gray.500');
 
-  const mutedColor = useToken('colors', 'muted.200');
   return (
     <Box
       {...props}
       ref={ref}
       _text={{
         fontSize: 'xs',
-        color: mutedColor,
+        color: color ?? mutedColor,
       }}
       style={[style, isInvalid && _invalid, isDisabled && _disabled]}
     >
