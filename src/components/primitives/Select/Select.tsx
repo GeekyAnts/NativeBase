@@ -27,6 +27,7 @@ import {
   customTypography,
 } from '../../../utils/customProps';
 import { Platform } from 'react-native';
+import { useToken } from '../../../hooks/useToken';
 
 const StyledNativePicker = styled(RNPicker)<ISelectProps>(
   flex,
@@ -73,6 +74,10 @@ const Select = (
     isDisabled,
     width,
     style,
+    color,
+    androidMode,
+    androidIconColor,
+    androidPrompt,
     ...newProps
   } = useThemeProps('Select', props);
   let triggerRef = React.useRef();
@@ -94,7 +99,6 @@ const Select = (
       return {
         label: child.props.label,
         value: child.props.value,
-        variant: child.props.variant,
       };
     }
   );
@@ -162,15 +166,23 @@ const Select = (
       {icon}
     </Button>
   );
+
   const NativeSelect = (
     <StyledNativePicker
       // Not getting ref on web
       ref={ref ?? triggerRef}
       enabled={!isDisabled}
-      itemStyle={_item}
       {...newProps}
+      color={color}
       onValueChange={onValueChange}
       selectedValue={selectedValue}
+      mode={androidMode}
+      prompt={androidPrompt}
+      dropdownIconColor={useToken('colors', androidIconColor)}
+      itemStyle={{
+        color: useToken('colors', color),
+        ..._item,
+      }}
       {...(Platform.OS === 'ios' && _ios)}
       {...(Platform.OS === 'android' && _android)}
       {...(Platform.OS === 'web' && _web)}

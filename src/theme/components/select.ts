@@ -21,16 +21,16 @@ const styled = (props: Record<string, any>) => {
 const native = (props: Record<string, any>) => {
   return {
     variant: 'native',
+    androidIconColor: mode('darkText', 'lightText')(props),
+    color: mode('darkText', 'lightText')(props),
     _android: {
       p: 2,
-      color: mode('gray.800', 'gray.50')(props),
     },
     _ios: {},
     _web: {
       bg: 'transparent',
       borderRadius: 'md',
       borderColor: 'default.500',
-      color: mode('gray.800', 'gray.50')(props),
       p: 3,
     },
     _hover: {

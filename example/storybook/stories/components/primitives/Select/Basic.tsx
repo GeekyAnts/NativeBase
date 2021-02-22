@@ -9,7 +9,6 @@ export default function () {
       minWidth={200}
       onValueChange={(itemValue: string) => setLanguage(itemValue)}
     >
-      <Select.Item label="Pick something" value="" />
       <Select.Item label="JavaScript" value="js" />
       <Select.Item label="TypeScript" value="ts" />
       <Select.Item label="C" value="c" />
