@@ -13,6 +13,7 @@ import { useHover } from '@react-native-aria/interactions';
 import { useRadio } from '@react-native-aria/radio';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { RadioContext } from './RadioGroup';
+import { useFocusRing } from '@react-native-aria/focus';
 
 const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
   let contextState = React.useContext(RadioContext);
@@ -105,16 +106,25 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
     </Box>
   );
 
+  const { focusProps, isFocusVisible } = useFocusRing();
+
   return (
     <>
       {Platform.OS === 'web' ? (
-        <label ref={_ref}>
+        <Box
+          // @ts-ignore - RN web supports accessibilityRole="label"
+          accessibilityRole="label"
+          ref={_ref}
+          outlineWidth={isFocusVisible ? 1 : 0}
+          outlineColor={activeColor}
+          outlineStyle={'solid'}
+        >
           <VisuallyHidden>
-            <input {...inputProps} ref={ref} />
+            <input {...inputProps} ref={ref} {...focusProps} />
           </VisuallyHidden>
 
           {component}
-        </label>
+        </Box>
       ) : (
         <TouchableOpacity
           activeOpacity={1}
