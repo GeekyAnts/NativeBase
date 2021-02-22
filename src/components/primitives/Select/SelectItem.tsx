@@ -3,20 +3,30 @@ import type { ISelectItemProps } from './types';
 import { usePopover } from '../../../core';
 import Button from '../Button';
 import Text from '../Text';
+import { Picker as RNPicker } from '@react-native-picker/picker';
+import { useThemeProps } from '../../../hooks';
 
-export const Item = React.memo(
-  ({ isDisabled, label, value, _label, style, ...props }: ISelectItemProps) => {
+export const Item = ({
+  isDisabled,
+  label,
+  value,
+  _label,
+  style,
+  ...props
+}: ISelectItemProps) => {
+  const { parentComponentConfig } = usePopover();
+  const { ...newProps } = useThemeProps('SelectItem', props);
+  if (parentComponentConfig?.variant === 'styled') {
     const {
-      parentComponentConfig: {
-        selectedValue,
-        closeMenu,
-        selectedItemBg,
-        _selectedItem,
-        onValueChange,
-        itemsList,
-        _item,
-      },
-    } = usePopover();
+      selectedValue,
+      closeMenu,
+      selectedItemBg,
+      _selectedItem,
+      onValueChange,
+      itemsList,
+      _item,
+      width,
+    } = parentComponentConfig;
 
     let currentIndex = -1;
     itemsList.forEach((item: any, index: number) => {
@@ -28,15 +38,10 @@ export const Item = React.memo(
     if (selectedValue === value) {
       textProps = { ..._selectedItem };
     }
-
     return (
       <Button
-        p={1}
-        px={2}
-        rounded={0}
-        minH={0}
-        width={150}
-        {...props}
+        width={width ?? 150}
+        {...newProps}
         bg={selectedValue === value ? selectedItemBg : undefined}
         justifyContent="flex-start"
         style={style}
@@ -52,5 +57,9 @@ export const Item = React.memo(
         </Text>
       </Button>
     );
+  } else {
+    return <RNPicker.Item label={label} value={value} />;
   }
-);
+};
+
+export default React.memo(Item);
