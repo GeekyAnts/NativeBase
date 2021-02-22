@@ -19,6 +19,7 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { CheckboxGroupContext } from './CheckboxGroup';
 import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
+import { useFocusRing } from '@react-native-aria/focus';
 
 const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext: IFormControlContext = React.useContext(
@@ -124,12 +125,21 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     </Box>
   );
 
+  const { focusProps, isFocusVisible } = useFocusRing();
+
   return (
     <>
       {Platform.OS === 'web' ? (
-        <label ref={mergedRef}>
+        <label
+          ref={mergedRef}
+          style={
+            isFocusVisible // Chrome's default focus outline
+              ? { outline: `#4D90FE auto 1px` }
+              : {}
+          }
+        >
           <VisuallyHidden>
-            <input {...inputProps} ref={mergedRef}></input>
+            <input {...inputProps} {...focusProps} ref={mergedRef}></input>
           </VisuallyHidden>
 
           {component}
