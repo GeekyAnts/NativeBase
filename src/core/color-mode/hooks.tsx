@@ -22,8 +22,7 @@ export function useModeManager(
   initialColorMode: ColorMode,
   colorModeManager?: StorageManager
 ) {
-  const [colorMode, setRawMode] = useState<ColorMode | undefined>();
-
+  const [colorMode, setRawMode] = useState<ColorMode>(initialColorMode);
   async function setColorMode(val: ColorMode) {
     if (colorModeManager) {
       await colorModeManager.set(val);
@@ -35,12 +34,12 @@ export function useModeManager(
     if (colorModeManager) {
       (async function getMode() {
         let value = await colorModeManager.get(initialColorMode);
-        setRawMode(value);
+        if (value && value !== colorMode) {
+          setRawMode(value);
+        }
       })();
-    } else {
-      setRawMode(initialColorMode);
     }
-  }, [initialColorMode, colorModeManager]);
+  }, [colorMode, initialColorMode, colorModeManager]);
 
   return { colorMode, setColorMode };
 }

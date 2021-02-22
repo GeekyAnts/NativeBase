@@ -57,6 +57,7 @@ export * from './components/primitives/TextArea';
 export * from './components/composites/Toast';
 export * from './components/composites/Transitions';
 export * from './components/composites/Typeahead';
+export * from './components/primitives/View';
 export * from './components/primitives/VStack';
 export * from './components/composites/Wrap';
 export * from './components/primitives/ZStack';
@@ -67,6 +68,7 @@ export * from './hooks/useClipboard';
 export * from './hooks/useDisclose';
 export * from './hooks/useMediaQuery';
 export * from './hooks/usePopover';
+export * from './hooks/useSafeArea';
 
 // Theme
 export * from './theme/Custom';

@@ -27,15 +27,15 @@ export interface customPositionProps {
   /**
    * The CSS `left`, `right`, `top`, `bottom` property
    */
-  inset?: ResponsiveValue<CSS.Property.Left>;
+  inset?: ResponsiveValue<CSS.Property.Left<string | number>>;
   /**
    * The CSS `left`, and `right` property
    */
-  insetX?: ResponsiveValue<CSS.Property.Left>;
+  insetX?: ResponsiveValue<CSS.Property.Left<string | number>>;
   /**
    * The CSS `top`, and `bottom` property
    */
-  insetY?: ResponsiveValue<CSS.Property.Left>;
+  insetY?: ResponsiveValue<CSS.Property.Left<string | number>>;
   /**
    * The CSS `position` property
    */

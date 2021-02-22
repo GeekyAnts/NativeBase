@@ -2,7 +2,8 @@ import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import { VStack, Box, Icon } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
-import type { INumberInputSteppersProps } from './types';
+import type { INumberInputSteppersProps, INumberInputContext } from './types';
+import { NumberInputContext } from './Context';
 
 export const NBStepper = ({ children, ...props }: any) => {
   const {
@@ -53,7 +54,16 @@ const NumberInputStepper = ({
   children,
   ...props
 }: INumberInputSteppersProps) => {
-  return <VStack {...props}>{children}</VStack>;
+  const {
+    numberInputStepper,
+    setNumberInputStepper,
+  }: INumberInputContext = React.useContext(NumberInputContext);
+
+  React.useEffect(() => {
+    !numberInputStepper &&
+      setNumberInputStepper(<VStack {...props}>{children}</VStack>);
+  }, [numberInputStepper, setNumberInputStepper, props, children]);
+  return null;
 };
 
 export default React.memo(NumberInputStepper);

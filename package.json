@@ -25,7 +25,7 @@
     "bundle:analysis": "visualize-bundle",
     "postinstall": "patch-package"
   },
-  "version": "3.0.0-next.25",
+  "version": "3.0.0-next.27",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -41,7 +41,7 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@react-stately/radio": "^3.2.1",
     "@release-it/conventional-changelog": "^1.1.4",
-    "@testing-library/react-hooks": "^4.0.0",
+    "@testing-library/react-hooks": "^5.0.3",
     "@testing-library/react-native": "^7.1.0",
     "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.162",
@@ -64,6 +64,7 @@
     "prettier": "^2.0.5",
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
     "react-test-renderer": "^16.9.0",
     "release-it": "^13.5.8",
@@ -78,6 +79,7 @@
     "@expo/vector-icons": "^12.0.2",
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
     "styled-components": "^5.2.1",
     "styled-system": "^5.1.5"
@@ -92,7 +94,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*)/)"
+      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*)/|@react-native-picker/picker)"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
@@ -101,7 +103,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint && yarn typescript"
+      "pre-commit": "yarn lint && yarn test && yarn prepare"
     }
   },
   "commitlint": {
@@ -157,6 +159,7 @@
     "@react-native-aria/interactions": "^0.2.1",
     "@react-native-aria/radio": "^0.2.1",
     "@react-native-aria/switch": "^0.2.1",
+    "@react-native-picker/picker": "^1.9.11",
     "@react-stately/radio": "^3.2.1",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",

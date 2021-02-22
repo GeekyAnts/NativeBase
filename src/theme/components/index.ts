@@ -12,6 +12,7 @@ import {
   ActionsheetFooter,
   ActionsheetItem,
 } from './actionsheet';
+import { Select, SelectItem } from './select';
 import { Alert, AlertDescription, AlertTitle } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
@@ -49,7 +50,6 @@ import AppBar from './app-bar';
 import TextArea from './textarea';
 import Toast from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
-import Wrap from './wrap';
 import { List, ListItem, ListIcon } from './list';
 
 export default {
@@ -98,6 +98,8 @@ export default {
   Progress,
   Radio,
   ScaleFade,
+  Select,
+  SelectItem,
   Skeleton,
   Slide,
   SlideFade,
@@ -112,5 +114,4 @@ export default {
   AppBar,
   TextArea,
   Toast,
-  Wrap,
 };

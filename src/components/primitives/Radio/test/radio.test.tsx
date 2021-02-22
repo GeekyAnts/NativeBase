@@ -28,7 +28,12 @@ function RadiosGroup() {
 describe('RadioGroup', () => {
   it('onChange and default on RadioGroup', () => {
     let { getAllByRole, getByText } = render(
-      <NativeBaseProvider>
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
         <RadiosGroup />
       </NativeBaseProvider>
     );
@@ -44,7 +49,12 @@ describe('RadioGroup', () => {
 
   it('can be disabled', () => {
     let { getAllByRole } = render(
-      <NativeBaseProvider>
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
         <Radio.Group defaultValue="1" name="myRadioGroup">
           <Radio value="1">
             <Text mx={2}>First</Text>

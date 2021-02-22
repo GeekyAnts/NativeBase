@@ -1,11 +1,18 @@
 import React from 'react';
 import { useThemeProps } from './../../hooks/useThemeProps';
-import { NativeBaseProvider } from 'native-base';
+import { NativeBaseProvider } from '../../core/NativeBaseProvider';
 import { renderHook } from '@testing-library/react-hooks';
 
 describe('useThemeProps', () => {
   const wrapper = ({ children }: any) => (
-    <NativeBaseProvider>{children}</NativeBaseProvider>
+    <NativeBaseProvider
+      initialWindowMetrics={{
+        frame: { x: 0, y: 0, width: 0, height: 0 },
+        insets: { top: 0, left: 0, right: 0, bottom: 0 },
+      }}
+    >
+      {children}
+    </NativeBaseProvider>
   );
   test('Box component + no props', () => {
     const { result } = renderHook(() => useThemeProps('Box', {}), { wrapper });

@@ -48,31 +48,31 @@ export interface customLayoutProps {
   /**
    * The CSS `width` property
    */
-  w?: ResponsiveValue<CSS.Property.Width>;
+  w?: ResponsiveValue<CSS.Property.Width<string | number>>;
   /**
    * The CSS `width` and `height` property
    */
-  boxSize?: ResponsiveValue<CSS.Property.Width | number>;
+  boxSize?: ResponsiveValue<CSS.Property.Width<string | number>>;
   /**
    * The CSS `max-width` property
    */
-  maxW?: ResponsiveValue<CSS.Property.MaxWidth>;
+  maxW?: ResponsiveValue<CSS.Property.MaxWidth<string | number>>;
   /**
    * The CSS `min-width` property
    */
-  minW?: ResponsiveValue<CSS.Property.MinWidth>;
+  minW?: ResponsiveValue<CSS.Property.MinWidth<string | number>>;
   /**
    * The CSS `height` property
    */
-  h?: ResponsiveValue<CSS.Property.Height>;
+  h?: ResponsiveValue<CSS.Property.Height<string | number>>;
   /**
    * The CSS `max-height` property
    */
-  maxH?: ResponsiveValue<CSS.Property.MaxHeight>;
+  maxH?: ResponsiveValue<CSS.Property.MaxHeight<string | number>>;
   /**
    * The CSS `min-height` property
    */
-  minH?: ResponsiveValue<CSS.Property.MinHeight>;
+  minH?: ResponsiveValue<CSS.Property.MinHeight<string | number>>;
   /**
    * The CSS `box-sizing` property
    */
