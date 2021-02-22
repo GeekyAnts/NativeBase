@@ -130,20 +130,20 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
   return (
     <>
       {Platform.OS === 'web' ? (
-        <label
+        <Box
+          // @ts-ignore - RN web supports accessibilityRole="label"
+          accessibilityRole="label"
           ref={mergedRef}
-          style={
-            isFocusVisible // Chrome's default focus outline
-              ? { outline: `#4D90FE auto 1px` }
-              : {}
-          }
+          outlineWidth={isFocusVisible ? 1 : 0}
+          outlineColor={activeColor}
+          outlineStyle={'solid'}
         >
           <VisuallyHidden>
             <input {...inputProps} {...focusProps} ref={mergedRef}></input>
           </VisuallyHidden>
 
           {component}
-        </label>
+        </Box>
       ) : (
         <TouchableOpacity
           {...(inputProps as TouchableOpacityProps)}

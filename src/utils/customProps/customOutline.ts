@@ -8,6 +8,8 @@ import type { ResponsiveValue } from './responsiveValue';
 const config: Config = {
   outline: true,
   outlineOffset: true,
+  outlineWidth: true,
+  outlineStyle: true,
   outlineColor: {
     property: 'outlineColor',
     scale: 'colors',
@@ -27,6 +29,14 @@ export interface customOutlineProps {
    * The CSS `outline-color` property
    */
   outlineColor?: ResponsiveValue<CSS.Property.OutlineColor>;
+  /**
+   * The CSS `outline-width` property
+   */
+  outlineWidth?: ResponsiveValue<CSS.Property.OutlineWidth<string | number>>;
+  /**
+   * The CSS `outline-style` property
+   */
+  outlineStyle?: ResponsiveValue<CSS.Property.OutlineStyle>;
 }
 
 export const customOutline = system(config);

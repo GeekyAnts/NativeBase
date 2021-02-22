@@ -2011,17 +2011,17 @@
     "@react-aria/utils" "^3.3.0"
     clsx "^1.1.1"
 
-"@react-native-aria/button@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/button/-/button-0.2.1.tgz#6efa4a58889e0c4eb833cab4bb73c12d21acf5a3"
-  integrity sha512-PLV7p+9Uv2ETZpWVdWi26PPyDep2MR/hBjmrrQkLl/UE4WJlWkR17WYba25XzpDUw3DUW8Zd0qb3huBfdL0T7w==
+"@react-native-aria/button@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/button/-/button-0.2.2.tgz#28921492dc632e4336816351bb37411ef3f54206"
+  integrity sha512-Zos3qLhSbwRXoIVr1nMZYO0VbJDNXNu7W+Oh1eCYtJo7ceWGDDNO+MLVUzDJELITBVT+qMB4YRC2oJ9R22U9uQ==
   dependencies:
     "@react-aria/utils" "^3.5.0"
-    "@react-native-aria/interactions" "^0.2.1"
+    "@react-native-aria/interactions" "^0.2.2"
     "@react-stately/toggle" "^3.2.1"
     "@react-types/checkbox" "^3.2.1"
 
-"@react-native-aria/checkbox@0.2.2":
+"@react-native-aria/checkbox@^0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@react-native-aria/checkbox/-/checkbox-0.2.2.tgz#fc63537bee8eace82755c27d93249bfd9377aa83"
   integrity sha512-Jtl5A1TTbQbF9QrABm/3fJ2RtHtal/LSgnMoyrfW24UZk4PytMnLxhcPCKipSaivUV6CAxQPkaLUk7lDHzVt2g==
@@ -2048,15 +2048,24 @@
     "@react-aria/utils" "^3.5.0"
     "@react-native-aria/utils" "^0.2.1"
 
-"@react-native-aria/radio@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/radio/-/radio-0.2.1.tgz#aece6fb80e4bcd4e00634c4b8bdd69e884ca48b1"
-  integrity sha512-TkL/cIv6sxpnWir11vsx9RtbqF++VerILf0X8fQQiGIvIHoRCVNu/qbOz0EUfByYfezm9XwF/Yt04QPQM5zN3g==
+"@react-native-aria/interactions@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/interactions/-/interactions-0.2.2.tgz#93d27c7af348802978461b72eb92513f44fa05d2"
+  integrity sha512-aCiNpMBRPRaAUX5HrvvYMPdoq91SFU/8/WawRhYJmm0bPPGWYqV5cD66ky9DOADLmA+VWbZ1jXDa2i/o4eA83g==
+  dependencies:
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/utils" "^3.5.0"
+    "@react-native-aria/utils" "^0.2.2"
+
+"@react-native-aria/radio@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/radio/-/radio-0.2.2.tgz#4c5e818e7dc1a11672556528dc6b6fcf7c1c88ab"
+  integrity sha512-p3n6JNM25pvoQV2dtNO7BjiIWfZGa4Tp3hPIC7CUYVbxhB0BrdURep+3s3redhYTtO7RMnQOzezD69yRWIUqHg==
   dependencies:
     "@react-aria/radio" "^3.1.2"
     "@react-aria/utils" "^3.5.0"
-    "@react-native-aria/interactions" "^0.2.1"
-    "@react-native-aria/utils" "^0.2.1"
+    "@react-native-aria/interactions" "^0.2.2"
+    "@react-native-aria/utils" "^0.2.2"
     "@react-stately/radio" "^3.2.1"
     "@react-types/radio" "^3.1.1"
 
@@ -2072,10 +2081,15 @@
     "@react-stately/toggle" "^3.2.1"
     "@react-types/checkbox" "^3.2.1"
 
-"@react-native-aria/utils@^0.2.1", "@react-native-aria/utils@^0.2.2":
+"@react-native-aria/utils@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.1.tgz#b12f2981ef937e738a311feb94823534fbdedbf3"
   integrity sha512-qidrRPA5cQXIH3fJXw3EJiQ1JsyyxK+dzM55jsgAoRq7XbIL8WH9cN1wkkZEm+mINazG/VQ21Nx/hjkPDEzkuA==
+
+"@react-native-aria/utils@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.2.tgz#ecdc51a55f2e03a40257f0975e3897cc09bb0826"
+  integrity sha512-aHgHLcR+0DZmv00zUubrA2Ea2hw+zGEag4T1eaAQOjml8oAe+eQoY7Oz8wMrutFEG35VCjh3zj9VDcaTqh8rag==
 
 "@react-native-community/bob@^0.16.2":
   version "0.16.2"

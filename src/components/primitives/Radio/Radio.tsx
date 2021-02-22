@@ -111,24 +111,20 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
   return (
     <>
       {Platform.OS === 'web' ? (
-        <label
+        <Box
+          // @ts-ignore - RN web supports accessibilityRole="label"
+          accessibilityRole="label"
           ref={_ref}
-          style={
-            isFocusVisible
-              ? {
-                  outline:
-                    // Chrome's default focus outline
-                    `#4D90FE auto 1px`,
-                }
-              : {}
-          }
+          outlineWidth={isFocusVisible ? 1 : 0}
+          outlineColor={activeColor}
+          outlineStyle={'solid'}
         >
           <VisuallyHidden>
             <input {...inputProps} ref={ref} {...focusProps} />
           </VisuallyHidden>
 
           {component}
-        </label>
+        </Box>
       ) : (
         <TouchableOpacity
           activeOpacity={1}
