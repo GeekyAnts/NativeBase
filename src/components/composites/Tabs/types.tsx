@@ -31,7 +31,7 @@ export type ITabProps = IBoxProps & {
   _hover?: any;
 };
 
-export type ITabViewsProps = IBoxProps & {};
+export type ITabViewsProps = IBoxProps;
 export type ITabViewProps = IBoxProps & {
   index?: number;
 };
@@ -44,4 +44,11 @@ export type ITabsContextProps = {
   tabBarStyle?: any;
   isFitted?: boolean;
   align?: 'start' | 'center' | 'end';
+};
+
+export type ITabsComponentType = ((props: ITabsProps) => JSX.Element) & {
+  Bar: React.MemoExoticComponent<(props: ITabBarProps) => JSX.Element>;
+  Tab: React.MemoExoticComponent<(props: ITabProps) => JSX.Element>;
+  Views: React.MemoExoticComponent<(props: ITabViewsProps) => JSX.Element>;
+  View: React.MemoExoticComponent<(props: ITabViewProps) => JSX.Element>;
 };

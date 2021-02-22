@@ -125,7 +125,7 @@ export type {
 export { SimpleGrid } from './SimpleGrid';
 export type { ISimpleGridProps } from './SimpleGrid';
 
-export { Tabs, TabBar, Tab, TabViews, TabView } from './Tabs';
+export { Tabs } from './Tabs';
 export type {
   ITabsProps,
   ITabBarProps,
