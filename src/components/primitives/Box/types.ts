@@ -44,5 +44,4 @@ export type IBoxProps = ViewProps &
     children?: JSX.Element | JSX.Element[] | string | any;
     shadow?: number;
     _text?: ITextProps;
-    ref?: any;
   };

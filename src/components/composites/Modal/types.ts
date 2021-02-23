@@ -43,7 +43,7 @@ export type IModalSemiProps = ModalProps &
     closeOnOverlayClick?: boolean;
     overlayVisible?: boolean;
     overlayColor?: string;
-    ref: any;
+    ref?: React.Ref<any>;
   };
 export type IModalComponentType = ((props: IModalProps) => JSX.Element) & {
   Body: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;

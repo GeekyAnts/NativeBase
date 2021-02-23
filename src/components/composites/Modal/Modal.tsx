@@ -71,7 +71,7 @@ const Modal = (
     overlayVisible,
     ...props
   }: IModalProps,
-  ref: any
+  ref?: any
 ) => {
   const { closeOverlay, setOverlay } = useOverlay();
   const [isVisible, setIsVisible] = React.useState(true);

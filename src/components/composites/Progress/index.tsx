@@ -14,7 +14,10 @@ export type IProgressProps = IBoxProps & {
   isIndeterminate?: any;
 };
 
-const Progress = ({ value, isIndeterminate, ...props }: IProgressProps) => {
+const Progress = (
+  { value, isIndeterminate, ...props }: IProgressProps,
+  ref?: any
+) => {
   // const width = new Animated.Value(0);
   // useEffect(() => {
   //   Animated.loop(
@@ -40,7 +43,7 @@ const Progress = ({ value, isIndeterminate, ...props }: IProgressProps) => {
     color: 'white',
   };
   return (
-    <Box {...newProps} style={props.style}>
+    <Box {...newProps} style={props.style} ref={ref}>
       {isIndeterminate ? (
         // <Animated.View
         //   style={[
@@ -62,4 +65,4 @@ const Progress = ({ value, isIndeterminate, ...props }: IProgressProps) => {
   );
 };
 
-export default React.memo(Progress);
+export default React.memo(React.forwardRef(Progress));
