@@ -31,28 +31,34 @@ export default function <P>(
   Component: React.ComponentType<P>,
   componentTheme?: ComponentTheme
 ) {
-  return React.forwardRef((props: P & FactoryComponentProps, ref: any) => {
-    const StyledComponent = styled(Component as AnyStyledComponent)(
-      color,
-      background,
-      padding,
-      margin,
-      space,
-      layout,
-      flexbox,
-      border,
-      position,
-      typography,
-      customPosition,
-      customBorder,
-      customBackground,
-      customOutline,
-      customShadow,
-      customExtra,
-      customTypography,
-      customLayout
-    );
-    const calculatedProps = usePropsWithComponentTheme(componentTheme, props);
-    return <StyledComponent {...(calculatedProps as P)} ref={ref} />;
-  });
+  return React.forwardRef(
+    ({ children, ...props }: P & FactoryComponentProps, ref: any) => {
+      const StyledComponent = styled(Component as AnyStyledComponent)(
+        color,
+        background,
+        padding,
+        margin,
+        space,
+        layout,
+        flexbox,
+        border,
+        position,
+        typography,
+        customPosition,
+        customBorder,
+        customBackground,
+        customOutline,
+        customShadow,
+        customExtra,
+        customTypography,
+        customLayout
+      );
+      const calculatedProps = usePropsWithComponentTheme(componentTheme, props);
+      return (
+        <StyledComponent {...(calculatedProps as P)} ref={ref}>
+          {children}
+        </StyledComponent>
+      );
+    }
+  );
 }
