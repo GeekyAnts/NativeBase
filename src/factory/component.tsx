@@ -56,5 +56,3 @@ export default function <P>(
     return <StyledComponent {...(calculatedProps as P)} ref={ref} />;
   });
 }
-
-export type { FactoryComponentProps };

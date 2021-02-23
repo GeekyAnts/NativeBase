@@ -44,4 +44,6 @@ export type FactoryComponentProps = ColorProps &
   customShadowProps &
   customTransformProps &
   customTransitionProps &
-  customTypographyProps;
+  customTypographyProps & {
+    children?: string | JSX.Element | JSX.Element[];
+  };
