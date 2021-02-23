@@ -3,7 +3,7 @@ import { Checkbox, Text } from 'native-base';
 
 export default function UnControlledCheckbox() {
   return (
-    <Checkbox.Group onChange={console.log}>
+    <Checkbox.Group>
       <Checkbox value="one">
         <Text>Hello world</Text>
       </Checkbox>
