@@ -1,31 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
-import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space } from 'styled-system';
 import { useThemeProps } from '../../../hooks';
-import {
-  customBackground,
-  customBorder,
-  customExtra,
-  customLayout,
-  customOutline,
-  customShadow,
-} from '../../../utils/customProps';
+import { default as View } from './../../primitives/View';
 import type { IDividerProps } from './types';
 
-const StyledDivider = styled(View)<IDividerProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout
-);
 const Divider = (
   { style, orientation, ...props }: IDividerProps,
   ref?: any
@@ -43,8 +20,9 @@ const Divider = (
   let newProps = useThemeProps('Divider', props);
 
   return (
-    <StyledDivider
+    <View
       {...orientationProps}
+      borderColor={newProps.bg ?? newProps.backgroundColor}
       {...newProps}
       style={style}
       ref={ref}
