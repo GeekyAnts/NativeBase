@@ -71,9 +71,25 @@ const Collapse = ({
     animateView();
     wasOpen.updatePrevious(isOpen);
   }
+  const [size, setSize] = React.useState(startingHeight ?? 0);
+  const provideSize = (layoutSize: any) => {
+    setSize(layoutSize.height);
+  };
+  const _web = {
+    transition: `height ${duration ?? '400ms'}`,
+    height: isOpen ? endingHeight || size : startingHeight || 0,
+  };
+
   return (
-    <Box style={animatedStyle} overflow="hidden">
-      <Box overflow="scroll" {...props} />
+    <Box
+      style={{ ...animatedStyle, ...(Platform.OS === 'web' && _web) }}
+      overflow="hidden"
+    >
+      <Box
+        overflow="scroll"
+        onLayout={(e) => provideSize(e.nativeEvent.layout)}
+        {...props}
+      />
     </Box>
   );
 };
