@@ -121,6 +121,13 @@ const Modal = (
               closeOnPress: props.closeOnOverlayClick === false ? false : true,
               backgroundColor: overlayColor ? overlayColor : undefined,
               disableOverlay: overlayVisible === false ? true : false,
+              motionPreset: motionPreset ?? 'fade',
+              position:
+                justifyContent === 'flex-start'
+                  ? 'top'
+                  : justifyContent === 'flex-end'
+                  ? 'bottom'
+                  : 'center',
             }
           )
         : setOverlay(<Box />, {
@@ -147,7 +154,7 @@ const Modal = (
           }}
           onShow={() => initialFocusRef?.current?.focus()}
           onDismiss={() => finalFocusRef?.current?.focus()}
-          animationType={motionPreset || 'slide'}
+          animationType={motionPreset || 'fade'}
           transparent
           {...props}
           ref={ref}

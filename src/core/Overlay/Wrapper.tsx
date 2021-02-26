@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Animated,
   StyleSheet,
   TouchableWithoutFeedback,
   View,
+  Platform,
 } from 'react-native';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
+import Box from '../../components/primitives/Box';
 import isEqual from 'lodash/isEqual';
 
 type OverlayWrapperType = {
@@ -37,6 +39,7 @@ function Wrapper({
   const backgroundColor = overlayConfig.disableOverlay
     ? 'transparent'
     : overlayConfig.backgroundColor ?? '#161616cc';
+  const isSlideAnimation = overlayConfig.motionPreset === 'slide';
   const overlayStyle = StyleSheet.create({
     wrapper: {
       position: 'absolute',
@@ -72,6 +75,76 @@ function Wrapper({
       zIndex: 9999,
     },
   });
+
+  const [overlayItemHeight, setOverlayItemHeight] = React.useState(0);
+  const [overlayItemPosition, setOverlayItemposition] = React.useState(0);
+  const [windowSize, setWindowSize] = React.useState(0);
+  const [readyToAnimate, setReadyToAnimate] = React.useState(false);
+  const provideSize = (layoutSize: any) => {
+    setOverlayItemHeight(layoutSize.height);
+  };
+  const provideWindowSize = (layoutSize: any) => {
+    setWindowSize(layoutSize.height);
+  };
+
+  useEffect(() => {
+    if (isSlideAnimation) {
+      if (overlayItem && overlayItemHeight) {
+        setTimeout(() => {
+          setReadyToAnimate(true);
+        }, 100);
+      } else if (!overlayItem) {
+        setReadyToAnimate(false);
+      }
+    }
+  }, [isSlideAnimation, overlayItem, overlayItemHeight, setReadyToAnimate]);
+
+  useEffect(() => {
+    if (isSlideAnimation) {
+      switch (overlayConfig.position) {
+        case 'top':
+          setOverlayItemposition(windowSize);
+          break;
+        case 'bottom':
+          setOverlayItemposition(overlayItemHeight);
+          break;
+        default:
+          // as center is default position
+          setOverlayItemposition(windowSize / 2 - overlayItemHeight / 2);
+          break;
+      }
+    }
+  }, [
+    isSlideAnimation,
+    overlayConfig.position,
+    windowSize,
+    overlayItemHeight,
+    setOverlayItemposition,
+  ]);
+
+  const placeOverlayItem = () => {
+    if (readyToAnimate && overlayItem) {
+      const webStyle = {
+        transition: `top ${overlayConfig.animationDuration}ms`,
+        top: 0,
+      };
+      return (
+        <Box style={{ ...(Platform.OS === 'web' && webStyle) }}>
+          {overlayItem}
+        </Box>
+      );
+    } else {
+      return (
+        <Box
+          style={{ opacity: 0, top: overlayItemPosition }}
+          onLayout={(e) => provideSize(e.nativeEvent.layout)}
+        >
+          {overlayItem}
+        </Box>
+      );
+    }
+  };
+
   overlayItem ? fadeIn() : fadeOut();
   return (
     <Animated.View
@@ -95,8 +168,14 @@ function Wrapper({
         <View style={overlayStyle.background} />
       </TouchableWithoutFeedback>
       {/* Added box-none instead of none to fix Web modal not able to get clicked inside Modal.Body */}
-      <View pointerEvents="box-none" style={overlayStyle.itemBackground}>
-        {overlayItem}
+      <View
+        pointerEvents="box-none"
+        style={overlayStyle.itemBackground}
+        onLayout={(e) =>
+          isSlideAnimation && provideWindowSize(e.nativeEvent.layout)
+        }
+      >
+        {isSlideAnimation ? placeOverlayItem() : overlayItem}
       </View>
     </Animated.View>
   );
