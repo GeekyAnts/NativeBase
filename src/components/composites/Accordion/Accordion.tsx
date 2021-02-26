@@ -7,13 +7,19 @@ import getIndexedChildren from '../../../utils/getIndexedChildren';
 import { AccordionContext } from './Context';
 
 const Accordion = (
-  { children, allowMultiple, allowToggle, onChange, ...props }: IAccordionProps,
+  {
+    children,
+    index: pIndex,
+    defaultIndex,
+    allowMultiple,
+    allowToggle,
+    onChange,
+    ...props
+  }: IAccordionProps,
   ref: any
 ) => {
-  const { index: pIndex, defaultIndex, ...newProps } = useThemeProps(
-    'Accordion',
-    props
-  );
+  const newProps = useThemeProps('Accordion', props);
+
   const [index, setIndex] = React.useState(pIndex || defaultIndex || []);
   const changeHandler = (isOpening: boolean, activeIndex: number) => {
     let indexCopy = index.map((i: number) => i);
