@@ -28,7 +28,6 @@ export function useContrastText(bg: string, color?: string) {
     getContrastRatio(trueBg, trueDarkText) >= contrastThreshold
       ? 'darkText'
       : 'lightText';
-
   if (process.env.NODE_ENV !== 'production') {
     const contrast = getContrastRatio(
       trueBg,

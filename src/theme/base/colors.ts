@@ -12,7 +12,7 @@ export interface IColorHues {
 }
 
 const colors = {
-  contrastThreshold: 3,
+  contrastThreshold: 7,
   // Singleton colors
   white: '#FFFFFF',
   black: '#000000',

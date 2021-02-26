@@ -3,16 +3,16 @@ import { Wrap, Center } from 'native-base';
 export default function () {
   return (
     <Wrap direction="row">
-      <Center w="180px" h="80px" bg="red.200">
+      <Center size={20} bg="red.200">
         Box 1
       </Center>
-      <Center w="180px" h="80px" bg="green.200">
+      <Center size={20} bg="green.200">
         Box 2
       </Center>
-      <Center w="180px" h="80px" bg="tomato">
+      <Center size={20} bg="tomato">
         Box 3
       </Center>
-      <Center w="180px" h="80px" bg="blue.200">
+      <Center size={20} bg="blue.200">
         Box 4
       </Center>
     </Wrap>

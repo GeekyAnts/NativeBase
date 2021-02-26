@@ -5,13 +5,18 @@ import { HStack } from '../../primitives/Stack';
 import type { IFabProps } from './types';
 
 const Fab = (props: IFabProps, ref: any) => {
-  const { label, icon, placement, ...newProps } = omitUndefined(props);
+  const {
+    label,
+    icon,
+    placement = 'bottom-right',
+    ...newProps
+  } = omitUndefined(props);
 
   const placementProps: any = {
-    topRight: { top: 4, right: 4, position: 'absolute' },
-    topLeft: { top: 4, left: 4, position: 'absolute' },
-    bottomRight: { bottom: 4, right: 4, position: 'absolute' },
-    bottomLeft: { bottom: 4, left: 4, position: 'absolute' },
+    'top-right': { top: 4, right: 4, position: 'absolute' },
+    'top-left': { top: 4, left: 4, position: 'absolute' },
+    'bottom-right': { bottom: 4, right: 4, position: 'absolute' },
+    'bottom-left': { bottom: 4, left: 4, position: 'absolute' },
   };
   return (
     <Button

@@ -5,7 +5,7 @@ export default function () {
   return (
     <>
       <Fab
-        placement={'bottomRight'}
+        placement={'bottom-right'}
         bg="teal.200"
         icon={<Icon name="plus" type="AntDesign" />}
       />

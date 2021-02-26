@@ -1,6 +1,6 @@
 import type { IIconButtonProps } from '../IconButton';
 
 export type IFabProps = IIconButtonProps & {
-  placement?: 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft';
+  placement?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
   label?: JSX.Element | string;
 };
