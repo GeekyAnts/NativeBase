@@ -15,7 +15,7 @@ export default function () {
         leastDestructiveRef={cancelRef}
         isOpen={isOpen}
         onClose={onClose}
-        motionPreset={'slide'}
+        motionPreset="slide"
       >
         <AlertDialog.Overlay />
         <AlertDialog.Content>

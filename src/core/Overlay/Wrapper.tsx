@@ -171,9 +171,7 @@ function Wrapper({
       <View
         pointerEvents="box-none"
         style={overlayStyle.itemBackground}
-        onLayout={(e) =>
-          isSlideAnimation && provideWindowSize(e.nativeEvent.layout)
-        }
+        onLayout={(e) => provideWindowSize(e.nativeEvent.layout)}
       >
         {isSlideAnimation ? placeOverlayItem() : overlayItem}
       </View>
