@@ -1,5 +1,5 @@
 import React from 'react';
-import type { IuseOverlayProps } from './types';
+import type { IuseOverlayProps, IOverlayConfig } from './types';
 import { HybridContext } from './../hybrid-overlay/Context';
 import type { IHybridContextProps } from './../hybrid-overlay/types';
 
@@ -10,14 +10,8 @@ export const useOverlay: IuseOverlayProps = () => {
   const closeOverlay = () => {
     setOverlayItem(null);
   };
-  type configtype = {
-    disableOverlay?: boolean;
-    position?: string;
-    backgroundColor?: string;
-    onClose?: any;
-    closeOnPress?: boolean;
-  };
-  const setOverlay = (component: React.ReactNode, config?: configtype) => {
+
+  const setOverlay = (component: React.ReactNode, config?: IOverlayConfig) => {
     config && setConfig({ ...defaultConfig, ...config });
     setOverlayItem(component);
   };

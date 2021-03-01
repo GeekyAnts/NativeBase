@@ -14,6 +14,7 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
       isOpen={isOpen}
       onClose={onClose}
       justifyContent="flex-end"
+      motionPreset="slide"
       {...newProps}
       ref={ref}
     >

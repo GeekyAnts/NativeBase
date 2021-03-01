@@ -1,9 +1,11 @@
 import React from 'react';
 import { Box, IBoxProps } from '../../primitives';
-import { ModalContext } from './Context';
+import { useThemeProps } from '../../../hooks';
+
 const ModalBody = (props: IBoxProps) => {
-  const { newProps } = React.useContext(ModalContext);
-  return <Box {...newProps.modalBodyProps} {...props} />;
+  // const { newProps } = React.useContext(ModalContext);
+  const newProps = useThemeProps('ModalBody', props);
+  return <Box {...newProps} />;
 };
 
 export default React.memo(ModalBody);
