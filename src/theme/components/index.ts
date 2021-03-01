@@ -32,7 +32,15 @@ import Input from './input';
 import Kbd from './kbd';
 import Link from './link';
 import { default as Menu, MenuGroup, MenuItem } from './menu';
-import Modal from './modal';
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalOverlay,
+  ModalCloseButton,
+} from './modal';
 import { default as NumberInput, NumberInputStepper } from './number-input';
 import PinInput from './pin-input';
 import Popover from './popover';
@@ -91,6 +99,12 @@ export default {
   MenuGroup,
   MenuItem,
   Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalOverlay,
+  ModalCloseButton,
   NumberInput,
   NumberInputStepper,
   PinInput,

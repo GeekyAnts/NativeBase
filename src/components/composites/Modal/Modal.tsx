@@ -79,20 +79,21 @@ const Modal = (
     setIsVisible(false);
     onClose(false);
   };
-  const newProps = useThemeProps('Modal', props);
+  const { contentSize, ...newProps } = useThemeProps('Modal', props);
+
   const value: any = {
     visible: isVisible,
     toggleVisible: setIsVisible,
     toggleOnClose: onClose ? onClose : () => {},
-    newProps: newProps,
+    contentSize: contentSize,
   };
   const modalChildren = (
     <Box
-      {...newProps.modalProps}
+      {...newProps}
       justifyContent={justifyContent ?? 'center'}
       alignItems={alignItems ?? 'center'}
     >
-      {props.closeOnOverlayClick === false ? <Box /> : <ModalOverlay />}
+      {newProps.closeOnOverlayClick === false ? <Box /> : <ModalOverlay />}
       {children}
     </Box>
   );
@@ -118,14 +119,15 @@ const Modal = (
             </ModalContext.Provider>,
             {
               onClose: onClose,
-              closeOnPress: props.closeOnOverlayClick === false ? false : true,
+              closeOnPress:
+                newProps.closeOnOverlayClick === false ? false : true,
               backgroundColor: overlayColor ? overlayColor : undefined,
               disableOverlay: overlayVisible === false ? true : false,
             }
           )
         : setOverlay(<Box />, {
             onClose: closeOverlayInMobile,
-            closeOnPress: props.closeOnOverlayClick === false ? false : true,
+            closeOnPress: newProps.closeOnOverlayClick === false ? false : true,
             backgroundColor: overlayColor ? overlayColor : undefined,
             disableOverlay: overlayVisible === false ? true : false,
           });
@@ -149,7 +151,7 @@ const Modal = (
           onDismiss={() => finalFocusRef?.current?.focus()}
           animationType={motionPreset || 'slide'}
           transparent
-          {...props}
+          {...newProps}
           ref={ref}
         >
           {avoidKeyboard ? (
