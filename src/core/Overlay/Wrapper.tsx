@@ -129,7 +129,7 @@ function Wrapper({
         top: 0,
       };
       return (
-        <Box style={{ ...(Platform.OS === 'web' && webStyle) }}>
+        <Box width="100%" style={{ ...(Platform.OS === 'web' && webStyle) }}>
           {overlayItem}
         </Box>
       );
