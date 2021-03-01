@@ -1,5 +1,5 @@
 import React from 'react';
-import { PanResponder, View, Platform } from 'react-native';
+import { PanResponder, Platform } from 'react-native';
 import {
   FormControlContext,
   IFormControlContext,
@@ -141,65 +141,64 @@ class NBSlider extends React.PureComponent<
     );
 
     return (
-      <View
-        accessible
-        accessibilityRole="adjustable"
-        accessibilityLabel={this.props.accessibilityLabel ?? 'Slider'}
-        accessibilityValue={{
-          min,
-          max,
-          now: value,
+      <SliderContext.Provider
+        value={{
+          sliderOffset,
+          trackColor: this.props.trackColor,
+          colorScheme: this.props.activeColor,
+          barSize: this.state.barSize,
+          panResponder: this.panResponder,
+          isReversed: this.props.isReversed,
+          thumbSize: this.props.thumbSize,
+          sliderSize: this.props.sliderSize,
+          orientation: this.props.orientation,
+          isDisabled: this.props.isDisabled,
+          value: this.state.value,
         }}
-        accessibilityHint={this.props.accessibilityHint}
-        accessibilityActions={[
-          {
-            name: 'increment',
-            label: 'Increment',
-          },
-          {
-            name: 'decrement',
-            label: 'Decrement',
-          },
-        ]}
-        onAccessibilityAction={this.onAccessibilityAction}
       >
-        <SliderContext.Provider
-          value={{
-            sliderOffset,
-            trackColor: this.props.trackColor,
-            colorScheme: this.props.activeColor,
-            barSize: this.state.barSize,
-            panResponder: this.panResponder,
-            isReversed: this.props.isReversed,
-            thumbSize: this.props.thumbSize,
-            sliderSize: this.props.sliderSize,
-            orientation: this.props.orientation,
-            isDisabled: this.props.isDisabled,
-            value: this.state.value,
+        <Box
+          position="relative"
+          display="flex"
+          my={3}
+          justifyContent="center"
+          alignItems="center"
+          minHeight={3}
+          minWidth="100%"
+          {...this.props}
+          onLayout={this.onBarLayout}
+          opacity={this.props.isDisabled ? 0.4 : 1}
+          {...(Platform.OS === 'web' && this.props.isDisabled
+            ? {
+                disabled: this.props.isDisabled,
+                cursor: this.props.isDisabled ? 'not-allowed' : 'auto',
+              }
+            : {})}
+          //A11y props
+
+          accessible
+          accessibilityRole="adjustable"
+          accessibilityLabel={this.props.accessibilityLabel ?? 'Slider'}
+          accessibilityValue={{
+            min,
+            max,
+            now: value,
           }}
+          accessibilityHint={this.props.accessibilityHint}
+          accessibilityActions={[
+            {
+              name: 'increment',
+              label: 'Increment',
+            },
+            {
+              name: 'decrement',
+              label: 'Decrement',
+            },
+          ]}
+          onAccessibilityAction={this.onAccessibilityAction}
         >
-          <Box
-            position="relative"
-            display="flex"
-            my={3}
-            justifyContent="center"
-            alignItems="center"
-            minHeight={3}
-            minWidth="100%"
-            {...this.props}
-            onLayout={this.onBarLayout}
-            opacity={this.props.isDisabled ? 0.4 : 1}
-            {...(Platform.OS === 'web' && this.props.isDisabled
-              ? {
-                  disabled: this.props.isDisabled,
-                  cursor: this.props.isDisabled ? 'not-allowed' : 'auto',
-                }
-              : {})}
-          >
-            {this.state.barSize && this.props.children}
-          </Box>
-        </SliderContext.Provider>
-      </View>
+          {this.state.barSize && this.props.children}
+        </Box>
+      </SliderContext.Provider>
     );
   }
 }
