@@ -20,7 +20,11 @@ configure(() => {
 
 // Refer to https://github.com/storybookjs/storybook/tree/master/app/react-native#start-command-parameters
 // To find allowed options for getStorybookUI
-const StorybookUIRoot = getStorybookUI({ asyncStorage: null });
+const StorybookUIRoot = getStorybookUI({
+  // DOC: Uncomment this to get normal app view
+  // onDeviceUI: false,
+  asyncStorage: null,
+});
 
 // If you are using React Native vanilla and after installation you don't see your app name here, write it manually.
 // If you use Expo you should remove this line.

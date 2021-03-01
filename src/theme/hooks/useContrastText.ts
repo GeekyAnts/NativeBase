@@ -19,15 +19,22 @@ export function useContrastText(bg: string, color?: string) {
   if (typeof trueBg !== 'string') {
     trueBg = bg;
   }
-  const trueContrastColor =
-    getContrastRatio(trueBg, trueDarkText) >= contrastThreshold
-      ? trueDarkText
-      : trueLightText;
+  let trueContrastColor;
+  let contrastColorToken;
+  let darkTextConstrast = getContrastRatio(trueBg, trueDarkText);
+  let lightTextConstrast = getContrastRatio(trueBg, trueLightText);
 
-  const contrastColorToken =
-    getContrastRatio(trueBg, trueDarkText) >= contrastThreshold
-      ? 'darkText'
-      : 'lightText';
+  if (
+    darkTextConstrast >= contrastThreshold ||
+    darkTextConstrast > lightTextConstrast
+  ) {
+    trueContrastColor = trueDarkText;
+    contrastColorToken = 'darkText';
+  } else {
+    trueContrastColor = trueLightText;
+    contrastColorToken = 'lightText';
+  }
+
   if (process.env.NODE_ENV !== 'production') {
     const contrast = getContrastRatio(
       trueBg,

@@ -17,7 +17,7 @@ const colors = {
   white: '#FFFFFF',
   black: '#000000',
   lightText: '#FFFFFF',
-  darkText: '#27272a',
+  darkText: '#000000',
   // Primary colors
   rose: {
     50: '#fff1f2',
