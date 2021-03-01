@@ -22,6 +22,7 @@ export type IOverlayConfig = {
   position?: string;
   backgroundColor?: string;
   animationDuration?: number;
+  motionPreset?: 'slide' | 'fade' | 'none';
   onClose?: Function;
   closeOnPress?: boolean;
 };
