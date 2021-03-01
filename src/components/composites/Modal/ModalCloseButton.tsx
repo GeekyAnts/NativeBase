@@ -1,23 +1,20 @@
 import React from 'react';
-import View from '../../primitives/View';
 import CloseButton, { ICloseButtonProps } from '../../composites/CloseButton';
 import { ModalContext } from './Context';
+import { useThemeProps } from '../../../hooks';
+
 const ModalCloseButton = (props: ICloseButtonProps) => {
-  const { toggleVisible, toggleOnClose, newProps } = React.useContext(
-    ModalContext
-  );
+  const newProps = useThemeProps('ModalCloseButton', props);
+  const { toggleVisible, toggleOnClose } = React.useContext(ModalContext);
   return (
-    <View style={newProps.modalCloseButtonStyle}>
-      <CloseButton
-        {...newProps.modalCloseButtonProps}
-        {...props}
-        // accessibilityLabel="Close dialog"
-        onPress={() => {
-          toggleVisible(false);
-          toggleOnClose(false);
-        }}
-      />
-    </View>
+    <CloseButton
+      {...newProps}
+      // accessibilityLabel="Close dialog"
+      onPress={() => {
+        toggleVisible(false);
+        toggleOnClose(false);
+      }}
+    />
   );
 };
 

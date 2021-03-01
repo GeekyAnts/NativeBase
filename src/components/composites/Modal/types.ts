@@ -45,6 +45,12 @@ export type IModalSemiProps = ModalProps &
     overlayColor?: string;
     ref?: React.Ref<any>;
   };
+export type IModalContextType = {
+  visible?: boolean;
+  toggleVisible?: (_bool: boolean) => any;
+  toggleOnClose?: (_bool: boolean) => any;
+  contentSize?: any;
+};
 export type IModalComponentType = ((props: IModalProps) => JSX.Element) & {
   Body: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
   CloseButton: React.MemoExoticComponent<
@@ -55,4 +61,5 @@ export type IModalComponentType = ((props: IModalProps) => JSX.Element) & {
   Header: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
   Overlay: React.MemoExoticComponent<(props: any) => JSX.Element>;
 };
+
 export type IModalProps = IModalSemiProps & { isOpen: boolean; onClose: any };
