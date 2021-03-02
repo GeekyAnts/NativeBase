@@ -122,7 +122,7 @@ function mergeUnderscoreProps(newProps: any, props: any) {
       ? {
           color: useContrastText(
             bg,
-            newProps[propName].color ?? props[propName]?.color
+            newProps[propName]?.color ?? props[propName]?.color
           ),
         }
       : {};

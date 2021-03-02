@@ -7,12 +7,8 @@ function MyComponent() {
         bg="teal.400"
         height={200}
         width={200}
-        // right={0}
-        safeArea
-        // safeAreaX
-        // pt={6}
-        // pr={4}
-        // p={2}
+        safeArea={2}
+        safeAreaBottom={2}
       >
         <Text>Test Text</Text>
       </View>
