@@ -7,9 +7,7 @@ import type { IFormControlHelperTextProps, IFormControlContext } from './types';
 const FormHelperText = (
   {
     children,
-    style,
     _disabled,
-    _focus,
     _invalid,
     color,
     ...props
@@ -23,13 +21,14 @@ const FormHelperText = (
 
   return (
     <Box
-      {...props}
-      ref={ref}
       _text={{
         fontSize: 'xs',
         color: color ?? mutedColor,
       }}
-      style={[style, isInvalid && _invalid, isDisabled && _disabled]}
+      {...props}
+      ref={ref}
+      {...(isInvalid && _invalid)}
+      {...(isDisabled && _disabled)}
     >
       {children}
     </Box>

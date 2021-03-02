@@ -8,6 +8,9 @@ const styled = (props: Record<string, any>) => {
     pr: 0,
     border: 1,
     borderColor: mode('gray.600', 'gray.400')(props),
+    _isDisabled: {
+      opacity: 0.4,
+    },
     _isInvalid: {
       borderColor: mode('danger.600', 'danger.200')(props),
     },

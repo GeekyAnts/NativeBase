@@ -7,15 +7,20 @@ import type {
 } from './types';
 
 const FormErrorMessage = (
-  { children, ...props }: IFormControlErrorMessageProps,
+  { children, _disabled, ...props }: IFormControlErrorMessageProps,
   ref: any
 ) => {
-  const { isInvalid }: IFormControlContext = React.useContext(
+  const { isDisabled, isInvalid }: IFormControlContext = React.useContext(
     FormControlContext
   );
 
   return isInvalid ? (
-    <Box {...props} _text={{ fontSize: 'xs', color: 'red.400' }} ref={ref}>
+    <Box
+      _text={{ fontSize: 'xs', color: 'red.400' }}
+      {...props}
+      {...(isDisabled && _disabled)}
+      ref={ref}
+    >
       {children}
     </Box>
   ) : null;
