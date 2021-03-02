@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, Checkbox, Stack, Text } from 'native-base';
+import { FormControl, Input, Stack, Text } from 'native-base';
 
 export default function () {
   return (
@@ -7,9 +7,9 @@ export default function () {
       <Text bold underline>
         Default:
       </Text>
-      <FormControl isDisabled>
+      <FormControl>
         <FormControl.Label>Favorite framework</FormControl.Label>
-        <Checkbox p={2} value="1" />
+        <Input />
         <FormControl.HelperText>
           We'll keep this between us.
         </FormControl.HelperText>
@@ -29,10 +29,11 @@ export default function () {
         >
           Favorite framework
         </FormControl.Label>
-        <Checkbox p={2} value="1" />
+        <Input />
         <FormControl.HelperText
           _disabled={{
             borderLeftWidth: 1,
+            mt: 1,
             px: 1,
             pl: 2,
             borderColor: 'gray.400',
@@ -56,7 +57,7 @@ export default function () {
         >
           Favorite framework
         </FormControl.Label>
-        <Checkbox p={2} value="1" />
+        <Input />
         <FormControl.HelperText
           _invalid={{
             _text: {
