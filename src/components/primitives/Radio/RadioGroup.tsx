@@ -21,7 +21,10 @@ const RadioGroup = (
   );
 
   let state = useRadioGroupState(props);
-  let { radioGroupProps } = useRadioGroup(props, state);
+  let { radioGroupProps } = useRadioGroup(
+    { ...formControlContext, ...props },
+    state
+  );
   return (
     <RadioContext.Provider
       value={{

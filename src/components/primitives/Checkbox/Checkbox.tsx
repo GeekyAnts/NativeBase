@@ -55,8 +55,8 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckboxGroupItem(
         {
-          ...props,
-          value: props.value,
+          ...newProps,
+          value: newProps.value,
         },
         groupState.state,
         //@ts-ignore
@@ -64,7 +64,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
       )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckbox(
-        props,
+        newProps,
         state,
         //@ts-ignore
         mergedRef
