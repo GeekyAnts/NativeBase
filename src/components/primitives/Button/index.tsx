@@ -86,6 +86,7 @@ const Button = (
     'minW',
     'height',
     'width',
+    'opacity',
   ]);
   const [commonProps] = themeTools.extractInObject(layoutProps, [
     'minH',
@@ -141,10 +142,10 @@ const Button = (
       activeOpacity={highlight ? highlight : 0.8}
       ref={ref}
       style={style}
+      opacity={isLoading ? 0.8 : accessibilityProps.isDisabled ? 0.5 : 1}
       {...accessibilityProps}
       {...ariaProps}
       {...layoutProps}
-      opacity={isLoading ? 0.8 : accessibilityProps.isDisabled ? 0.5 : 1}
       {...(Platform.OS === 'web'
         ? {
             disabled: accessibilityProps.isDisabled,

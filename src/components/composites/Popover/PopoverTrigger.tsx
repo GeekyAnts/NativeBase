@@ -8,7 +8,12 @@ const PopoverTrigger = ({ children }: any) => {
       React.Children.map(children, (child) => {
         return React.cloneElement(
           child,
-          { isDisabled: true, disabled: true },
+          {
+            isDisabled: true,
+            disabled: true,
+            cursor: 'pointer',
+            opacity: 0.8,
+          },
           child.props.children
         );
       })
