@@ -15,14 +15,16 @@ export type IFormControlContext = {
 export type IFormControlLabelProps = IFormControlProps & {
   style?: any;
   _disabled?: any;
-  _focus?: any;
+  // _focus?: any;
   _invalid?: any;
 };
-export type IFormControlErrorMessageProps = IFormControlProps;
+export type IFormControlErrorMessageProps = IFormControlProps & {
+  _disabled?: any;
+};
 export type IFormControlHelperTextProps = IFormControlProps & {
   style?: any;
   _disabled?: any;
-  _focus?: any;
+  // _focus?: any;
   _invalid?: any;
 };
 

@@ -6,14 +6,7 @@ import { FormControlContext } from './FormControl';
 import type { IFormControlLabelProps, IFormControlContext } from './types';
 
 const FormLabel = (
-  {
-    children,
-    style,
-    _disabled,
-    _focus,
-    _invalid,
-    ...props
-  }: IFormControlLabelProps,
+  { children, _disabled, _invalid, ...props }: IFormControlLabelProps,
   ref: any
 ) => {
   const {
@@ -28,10 +21,11 @@ const FormLabel = (
     <Box
       flexDirection="row"
       justifyContent="flex-start"
+      _text={{ fontSize: 'md' }}
       {...props}
       ref={ref}
-      _text={{ fontSize: 'md' }}
-      style={[style, isInvalid && _invalid, isDisabled && _disabled]}
+      {...(isInvalid && _invalid)}
+      {...(isDisabled && _disabled)}
     >
       {children}
       {isRequired && requiredAsterisk()}
