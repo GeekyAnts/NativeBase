@@ -16,7 +16,7 @@ export type IColorModeProviderProps = {
 };
 
 export interface IColorModeContextProps {
-  colorMode?: ColorMode;
-  toggleColorMode?: () => void;
-  setColorMode?: (value: any) => void;
+  colorMode: ColorMode;
+  toggleColorMode: () => void;
+  setColorMode: (value: any) => void;
 }

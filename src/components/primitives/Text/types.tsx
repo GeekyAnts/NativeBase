@@ -3,6 +3,8 @@ import type {
   SpaceProps,
   TypographyProps,
   PositionProps,
+  LayoutProps,
+  FlexboxProps,
 } from 'styled-system';
 
 import type {
@@ -21,6 +23,8 @@ export type ITextProps = ColorProps &
   SpaceProps &
   PositionProps &
   PositionProps &
+  LayoutProps &
+  FlexboxProps &
   TypographyProps &
   customPositionProps &
   customBorderProps &

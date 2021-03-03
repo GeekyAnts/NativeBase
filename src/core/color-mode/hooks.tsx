@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import type { ColorMode, StorageManager } from './types';
+import type {
+  ColorMode,
+  StorageManager,
+  IColorModeContextProps,
+} from './types';
 import { HybridContext } from './../hybrid-overlay/Context';
 import type { IHybridContextProps } from './../hybrid-overlay/types';
 
-export const useColorMode = () => {
-  const { colorMode: context } = React.useContext<IHybridContextProps>(
-    HybridContext
-  );
-  if (context === undefined) {
+export const useColorMode = (): IColorModeContextProps => {
+  const {
+    colorMode: colorModeContext,
+  }: {
+    colorMode: IColorModeContextProps;
+  } = React.useContext<IHybridContextProps>(HybridContext);
+  if (colorModeContext === undefined) {
     throw new Error('useColorMode must be used within a NativeBaseProvider');
   }
-  return context;
+  return colorModeContext;
 };
 
 export function useColorModeValue(light: any, dark: any) {
