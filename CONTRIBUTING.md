@@ -112,19 +112,13 @@ You are now ready to send PR to NativeBase!
 
 - Fork this repository.
 
-- Move over to the TestBed App [here](https://github.com/GeekyAnts/native-base-testbed) and clone it:
-
-  ```bash
-  cd native-base-testbed and npm install
-  ```
-
 - Clone your fork of NativeBase:
 
   ```git
   git clone git@github.com:${YOUR_USERNAME}/NativeBase.git
   ```
 
-- Navigate to NativeBas:e
+- Navigate to NativeBase
 
   ```
   cd NativeBase/
@@ -139,15 +133,42 @@ You are now ready to send PR to NativeBase!
 - Install dependencies:
 
   ```bash
-  npm install
+  yarn
   ```
 
-* Navigate to your app:
+- Move over to the TestBed Example App :
 
-  ```
-  cd ../
+  ```bash
+  cd example
+  yarn
   ```
 
-  and start making the changes.
+- Navigate back to your app:
+
+  ```bash
+  cd ..
+  ```
+
+- Start the Example App:
+
+  ```bash
+  yarn example start
+  ```
+
+  - For Web
+    ```bash
+    yarn example web
+    ```
+  - For IOS
+    ```bash
+    yarn example ios
+    ```
+  - For Android
+    ```bash
+    yarn example android
+    ```
+
+
+and start making the changes.
 
 Happy hacking!
