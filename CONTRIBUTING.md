@@ -33,7 +33,7 @@ NativeBase is an infant and growing rapidly, so we planned to stick to Git Flow.
 
 #### a. Reporting Bugs
 
-- Always update to the most recent `v3-dev` release, the bug may already be resolved.
+- Always update to the most recent `master` release, the bug may already be resolved.
 - Search for similar issues in the issues list for this repo. It may already be an identified problem.
 - If you want to contribute to an issue that is not part of this list, you are welcome to submit [new issue](https://github.com/GeekyAnts/NativeBase/issues/new) to our GitHub Repository.
   - In that case, provide a short description of the visible symptoms. Include error messages, screenshots, and stack traces.
@@ -50,12 +50,12 @@ NativeBase is an infant and growing rapidly, so we planned to stick to Git Flow.
 
 - Before submitting a pull request, we appreciate if you create an issue first to discuss the change.
 - Fork the repo you are planning to work on.
-- Create a new branch from branch `v3-dev`.
+- Create a new branch from branch `master`.
   - Example: `my-new-feature`
-  - Note: Please have your branch named apart from `master`, `development` and `v3-dev`.
+  - Note: Please have your branch named apart from `master` and `development`.
 - Work on your branch until you are confident enough to create a pull request.
 - Conclude working on your branch and push to your forked repo.
-- Create a pull request of your branch to NativeBase repo `v3-dev` branch.
+- Create a pull request of your branch to NativeBase repo `master` branch.
 - Provide a short description of the necessity and functionality of your PR. Include a step-by-step walkthrough of it with an use case example. And add `v3` label to your pull request.
 - Link the issues that are related to your PR in the body.
 - If you have perfectly accompanied our contribution guide and that if your new feature / bug fixes sounds good to us, then we will merge the changes and you are free to delete your branch.
@@ -63,7 +63,7 @@ NativeBase is an infant and growing rapidly, so we planned to stick to Git Flow.
 
 Check the procedure to setup the Development Environment for NativeBase.
 
-**Note:** NativeBase changes a lot and is in constant mutation. We usually merge multiple PRs per day, so sometimes when we are done reviewing, your code might not work with the latest `v3-dev` branch anymore. To prevent this, before you make any changes after your code has been reviewed, you should always rebase the latest changes from the `v3-dev` branch.
+**Note:** NativeBase changes a lot and is in constant mutation. We usually merge multiple PRs per day, so sometimes when we are done reviewing, your code might not work with the latest `master` branch anymore. To prevent this, before you make any changes after your code has been reviewed, you should always rebase the latest changes from the `master` branch.
 
 ### Working with Git
 
@@ -80,19 +80,19 @@ There are [many](https://git-scm.com/docs/git-reset)
 to rewrite Git commit history, but we use
 [interactive rebasing](https://help.github.com/articles/using-git-rebase-on-the-command-line).
 
-First, ensure your local `v3-dev` branch contains the latest changes:
+First, ensure your local `master` branch contains the latest changes:
 
 ```git
-git checkout v3-dev
+git checkout master
 git fetch nativebase
-git merge nativebase/v3-dev
+git merge nativebase/master
 ```
 
 Next, invoke Git's rebase tool in interactive mode:
 
 ```git
 git checkout your_branch
-git rebase -i v3-dev
+git rebase -i master
 ```
 
 This will open a text editor with a listing of all commits performed in your
@@ -100,7 +100,7 @@ feature branch. You'll usually want to `reword` your feature branch's original
 commit and `fixup` subsequent ones.
 
 > You may need to resolve conflicts during the rebase operation. This can occur
-> if commits were pushed to `v3-dev` while you were working on your
+> if commits were pushed to `master` while you were working on your
 > contribution.
 
 Use `git log` to double-check that your contribution has been squashed into a
