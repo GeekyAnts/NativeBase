@@ -39,6 +39,7 @@
     "@expo/vector-icons": "^12.0.2",
     "@react-native-community/bob": "^0.16.2",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@react-native-picker/picker": "^1.9.11",
     "@react-stately/radio": "^3.2.1",
     "@release-it/conventional-changelog": "^1.1.4",
     "@testing-library/react-hooks": "^5.0.3",
@@ -77,6 +78,7 @@
   },
   "peerDependencies": {
     "@expo/vector-icons": "^12.0.2",
+    "@react-native-picker/picker": "^1.9.11",
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-safe-area-context": "^3.1.9",
@@ -158,7 +160,6 @@
     "@react-native-aria/focus": "^0.2.4",
     "@react-native-aria/interactions": "^0.2.2",
     "@react-native-aria/radio": "^0.2.2",
-    "@react-native-picker/picker": "^1.9.11",
     "@react-stately/radio": "^3.2.1",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
