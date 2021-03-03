@@ -1,106 +1,92 @@
 # Contributing to NativeBase
 
-Thank you for your interest in contributing to the [NativeBase](http://nativebase.io/) project!
+We'd love for you to contribute to our source code and to make NativeBase even better than it is
+today! Here are some guidelines we'd like you to follow:
 
-In favor of active development, we accept contributions from everyone. NativeBase team is constantly marking issues and features that the community can implement. You can contribute by submitting a bug, creating pull requests or even by improving documentation. Beneath is the manual to be accompanied strictly earlier than submitting your pull requests / issues.
+* [Code of Conduct](#coc)
+* [Ways to Contribute](#wtc)
+* [Questions and Problems](#question)
+* [Issues and Bugs](#issue)
+* [Feature Requests](#feature)
+* [Issue Submission Guidelines](#submit)
+* [Setting Up Development Environment ](#dev-env)
+* [Pull Request Submission Guidelines](#submit-pr)
+* [Improving Documentation](#docs)
 
-Take a look at [NativeBase on StackOverflow](http://stackoverflow.com/questions/tagged/native-base)
+## <a name="coc"></a> Code of Conduct
 
-## Manual
+Help us keep NativeBase open and inclusive. Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-1. [Coding Style](#1-coding-style)
-2. [Git Flow](#2-git-flow)
-   - [Reporting Bugs](#a-reporting-bugs)
-   - [Request for New Feature](#b-request-for-new-feature)
-   - [Code Fixes and Enhancements](#c-code-fixes-and-enhancements)
-3. [Development Environment](#3-development-environment)
+## <a name="wtc"></a> Ways to Contribute
 
-### 1. Coding Style
+If you are eager to start contributing code right away, you can go through [NativeBase Bugs](https://github.com/GeekyAnts/NativeBase/issues?q=is%3Aopen+is%3Aissue+label%3Abug) that contain bugs.
 
-To keep project away from disputes we make use of **ESLint**, which is really a handy linting tool that enforces strict coding styles and makes sure your files are free from dead code. Each module of NativeBase has bundled ESLint as a dev dependency.
+There are other ways you can contribute without writing a single line of code. Here are a few things you can do to help out:
 
-### 2. Git Flow
+1. **Replying and handling open issues.** We get a lot of issues every day, and some of them may lack necessary information. You can help out by guiding people through the process of filling out the issue template, asking for clarifying information, or pointing them to existing issues that match their description of the problem.
+2. **Reviewing pull requests for the docs.** Reviewing [documentation updates](https://github.com/nativebase/website/pulls) can be as simple as checking for spelling and grammar. If you encounter situations that can be explained better in the docs, click **Edit** at the bottom left of most docs pages to get started with your own contribution.
+3. **Help people write test plans.** Some pull requests sent to the main repository may lack a proper test plan. These help reviewers understand how the change was tested, and can speed up the time it takes for a contribution to be accepted.
 
-NativeBase is an infant and growing rapidly, so we planned to stick to Git Flow. Below are the rules you need to follow:
+Each of these tasks is highly impactful, and maintainers will greatly appreciate your help.
 
-#### a. Reporting Bugs
+## <a name="requests"></a> Questions, Bugs, Features
 
-- Always update to the most recent `master` release, the bug may already be resolved.
-- Search for similar issues in the issues list for this repo. It may already be an identified problem.
-- If you want to contribute to an issue that is not part of this list, you are welcome to submit [new issue](https://github.com/GeekyAnts/NativeBase/issues/new) to our GitHub Repository.
-  - In that case, provide a short description of the visible symptoms. Include error messages, screenshots, and stack traces.
-  - If applicable, submit a step-by-step walkthrough of how to reproduce the issue.
-- In any case, a **closed issue** is not necessarily the end of the story! If more info becomes available after an issue is closed, it can be reopened for further consideration.
+### <a name="question"></a> Got a Question or Problem?
 
-#### b. Request for New Feature
+Do not open issues for general support questions as we want to keep GitHub issues for bug reports
+and feature requests. You've got much better chances of getting your question answered on dedicated
+support platforms, the best being [Stack Overflow](http://stackoverflow.com/questions/tagged/native-base).
 
-- Use [Github Issues](https://github.com/GeekyAnts/NativeBase/issues) to submit feature requests.
-- Search for a similar request and extend it if applicable. This way it would be easier for the NativeBase community to track the features.
-- When a fresh new feature is requested, try to give as many details on your need as feasible. We prefer that you explain the need rather than explaining a technical solution for it. That might trigger a nice conversation on finding the best and broadest technical solution to a specific need.
+Stack Overflow is a much better place to ask questions since:
 
-#### c. Code Fixes and Enhancements
+- there are thousands of people willing to help on Stack Overflow
+- questions and answers stay available for public viewing so your question / answer might help
+  someone else
+- Stack Overflow's voting system assures that the best answers are prominently visible.
 
-- Before submitting a pull request, we appreciate if you create an issue first to discuss the change.
-- Fork the repo you are planning to work on.
-- Create a new branch from branch `master`.
-  - Example: `my-new-feature`
-  - Note: Please have your branch named apart from `master` and `development`.
-- Work on your branch until you are confident enough to create a pull request.
-- Conclude working on your branch and push to your forked repo.
-- Create a pull request of your branch to NativeBase repo `master` branch.
-- Provide a short description of the necessity and functionality of your PR. Include a step-by-step walkthrough of it with an use case example. And add `v3` label to your pull request.
-- Link the issues that are related to your PR in the body.
-- If you have perfectly accompanied our contribution guide and that if your new feature / bug fixes sounds good to us, then we will merge the changes and you are free to delete your branch.
-- After your contribution is merged, it’s not immediately available to all users. Your change will be shipped as part of the next release.
+To save your and our time, we will systematically close all issues that are requests for general
+support and redirect people to the section you are reading right now.
 
-Check the procedure to setup the Development Environment for NativeBase.
+### <a name="issue"></a> Found an Issue or Bug?
 
-**Note:** NativeBase changes a lot and is in constant mutation. We usually merge multiple PRs per day, so sometimes when we are done reviewing, your code might not work with the latest `master` branch anymore. To prevent this, before you make any changes after your code has been reviewed, you should always rebase the latest changes from the `master` branch.
+If you find a bug in the source code, you can help us by submitting an issue to our
+[GitHub Repository](https://github.com/GeekyAnts/NativeBase/issues). Even better, you can submit a Pull Request with a fix.
 
-### Working with Git
+**Please see the [Submission Guidelines](#submit) below.**
 
-We recommend having two remotes for your Nativebase project, `origin` which would be your fork and `nativebase` which is the main repo.
-(more details in development enviromnent below)
+### <a name="feature"></a> Missing a Feature?
 
-Once your work is done, it's time to clean up your feature branch's
-commit history. As a rule of thumb, each contribution should be squashed into
-_one_ commit with a
-[high-quality commit message](https://chris.beams.io/posts/git-commit).
+You can request a new feature by submitting an issue to our [GitHub Repository](https://github.com/GeekyAnts/NativeBase/issues).
 
-There are [many](https://git-scm.com/docs/git-reset)
-[mechanisms](https://stackoverflow.com/questions/3697178/git-merge-all-changes-from-another-branch-as-a-single-commit)
-to rewrite Git commit history, but we use
-[interactive rebasing](https://help.github.com/articles/using-git-rebase-on-the-command-line).
+If you would like to implement a new feature then consider what kind of change it is:
 
-First, ensure your local `master` branch contains the latest changes:
+* **Major Changes** that you wish to contribute to the project should be discussed first in an
+  [GitHub issue](https://github.com/GeekyAnts/NativeBase/issues) that clearly outlines the changes and benefits of the feature.
+* **Small Changes** can directly be crafted and submitted to the [GitHub Repository](https://github.com/GeekyAnts/NativeBase)
+  as a Pull Request. See the section about [Contributing Code](#submit-pr).
 
-```git
-git checkout master
-git fetch nativebase
-git merge nativebase/master
-```
+## <a name="submit"></a> Issue Submission Guidelines
+Before you submit your issue search the archive, maybe your question was already answered.
 
-Next, invoke Git's rebase tool in interactive mode:
+If your issue appears to be a bug, and hasn't been reported, open a new issue. Help us to maximize
+the effort we can spend fixing issues and adding new features, by not reporting duplicate issues.
 
-```git
-git checkout your_branch
-git rebase -i master
-```
+The "[new issue](https://github.com/GeekyAnts/NativeBase/issues/new)" form contains a number of prompts that you should fill out to
+make it easier to understand and categorize the issue.
 
-This will open a text editor with a listing of all commits performed in your
-feature branch. You'll usually want to `reword` your feature branch's original
-commit and `fixup` subsequent ones.
+In general, providing the following information will increase the chances of your issue being dealt
+with quickly:
 
-> You may need to resolve conflicts during the rebase operation. This can occur
-> if commits were pushed to `master` while you were working on your
-> contribution.
+* **Issue Description** - if an error is being thrown a non-minified stack trace helps
+* **Motivation for or Use Case** - explain why this is a bug for you
+* **NativeBase Version(s)** - is it a regression?
+* **Browsers and Operating System** - is this a problem with all browsers or only specific ones?
+* **Reproduce the Error** - provide a live example (using [expo snack](https://snack.expo.io/) or an unambiguous set of steps.
+* **Related Issues** - has a similar issue been reported before?
+* **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
+  causing the problem (line of code or commit)
 
-Use `git log` to double-check that your contribution has been squashed into a
-single commit.
-
-You are now ready to send PR to NativeBase!
-
-### 3. Development Environment
+## <a name="dev-env"></a> Setting Up your Development Environment
 
 - Fork this repository.
 
@@ -128,7 +114,7 @@ You are now ready to send PR to NativeBase!
   yarn
   ```
 
-- Move over to the TestBed Example App :
+- Move over to the TestBed Example App and install the dependencies :
 
   ```bash
   cd example
@@ -162,4 +148,25 @@ You are now ready to send PR to NativeBase!
 
 and start making the changes.
 
-Happy hacking!
+## <a name="submit-pr"></a> Contributing Code
+
+Code-level contributions to NativeBase come in the form of [pull requests](https://help.github.com/en/articles/about-pull-requests). These are done by forking the repo and making changes locally. Directly in the repo, there is the [`Storybook Testbed` app](/example) that you can run on your device (or simulators) and use to test the changes you're making to NativeBase source.
+
+The process of proposing a change to NativeBase can be summarized as follows:
+
+1. Fork the NativeBase repository and create your branch from `master`.
+2. Make the desired changes to NativeBase source. Use the `Storybook Testbed` app to test them out.
+3. If you've added code that should be tested, add tests.
+4. If you've changed APIs, update the documentation, which is available [here](https://github.com/nativebase/website/).
+5. Ensure the test suite passes, either locally or on CI once you opened a pull request.
+6. Make sure your code lints. To keep project away from disputes we make use of **ESLint**, which is really a handy linting tool that enforces strict coding styles and makes sure your files are free from dead code. Each module of NativeBase has bundled ESLint as a dev dependency and checks your code everytime you commit.
+7. Push the changes to your fork.
+8. Create a pull request to the NativeBase repository.
+9. Review and address comments on your pull request.
+
+If all goes well, your pull request will be merged. If it is not merged, maintainers will do their best to explain the reason why.
+
+## <a name="docs"></a> Helping with Documentation
+
+The NativeBase documentation is hosted as part of the NativeBase website repository at https://github.com/nativebase/website. The website itself is located at <https://alpha.nativebase.io/> and it is built using [Docusaurus](https://docusaurus.io/). If there's anything you'd like to change in the docs, you can get started by clicking on the "Edit" button located on the bottom left of most pages on the website.
+
