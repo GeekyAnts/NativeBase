@@ -19,14 +19,6 @@ Take a look at [NativeBase on StackOverflow](http://stackoverflow.com/questions/
 
 To keep project away from disputes we make use of **ESLint**, which is really a handy linting tool that enforces strict coding styles and makes sure your files are free from dead code. Each module of NativeBase has bundled ESLint as a dev dependency.
 
-In order to lint your code run following command.
-
-```bash
-cd AwesomeNativeBase
-
-yarn add eslint
-```
-
 ### 2. Git Flow
 
 NativeBase is an infant and growing rapidly, so we planned to stick to Git Flow. Below are the rules you need to follow:
