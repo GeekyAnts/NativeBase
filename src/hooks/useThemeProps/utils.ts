@@ -9,7 +9,7 @@ import {
   hasValidBreakpointFormat,
   extractInObject,
 } from './../../theme/tools';
-import { useContrastText } from './../../theme/hooks';
+import { useContrastText } from '../useContrastText';
 
 /*
  Extract props from theme props and omit those from props

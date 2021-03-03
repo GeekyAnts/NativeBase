@@ -1,5 +1,5 @@
 import Color from 'tinycolor2';
-import { useToken } from './../../hooks/useToken';
+import { useToken } from './useToken';
 
 export function useContrastText(bg: string, color?: string) {
   let [

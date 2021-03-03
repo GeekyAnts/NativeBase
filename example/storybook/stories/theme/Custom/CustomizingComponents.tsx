@@ -1,6 +1,5 @@
 import React from 'react';
-import { NativeBaseProvider, themeTools } from 'native-base';
-import { extendTheme } from 'native-base';
+import { NativeBaseProvider, themeTools, extendTheme } from 'native-base';
 import { Content } from './Content';
 
 export default function () {

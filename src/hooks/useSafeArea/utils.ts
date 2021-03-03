@@ -17,22 +17,24 @@ export function calculatePaddingProps(
 }
 function getValueInPixels(
   paddingProps: any,
-  propKeys: any,
+  paddingKeys: any,
   sizes: any,
   inset: any,
   manualInset: number | string
 ) {
   let appliedInset: any = 0;
-  let originalValue = propKeys.length
-    ? sizes[paddingProps[propKeys[propKeys.length - 1]]]
+  let originalValue = paddingKeys.length
+    ? sizes[paddingProps[paddingKeys[paddingKeys.length - 1]]]
     : 0;
 
   if (!isNil(manualInset) && typeof manualInset !== 'boolean') {
+    // DOC: Handles case of manually passed inset
     appliedInset =
       typeof manualInset === 'string' && manualInset.includes('px')
         ? parseInt(manualInset, 10)
         : sizes[manualInset];
   } else {
+    // DOC: Handles case of auto inset
     appliedInset = inset;
   }
   return originalValue
@@ -64,7 +66,7 @@ export function calculatePaddingTop(
   const manualInset = topSafeAreaArray.length
     ? topSafeAreaProps[topSafeAreaArray[topSafeAreaArray.length - 1]]
     : undefined;
-  if (!insets.top && (!manualInset || typeof manualInset === 'boolean')) {
+  if (!insets.top && (typeof manualInset === 'boolean' || !manualInset)) {
     return;
   }
   const propKeys = getRelatedPaddingProps(paddingProps, [
@@ -145,6 +147,7 @@ export function calculatePaddingLeft(
     'safeAreaX',
   ]);
   let leftSafeAreaArray = Object.keys(leftSafeAreaProps);
+  // DOC: Since last value takes precedence so, directly takes last value
   const manualInset = leftSafeAreaArray.length
     ? leftSafeAreaProps[leftSafeAreaArray[leftSafeAreaArray.length - 1]]
     : undefined;

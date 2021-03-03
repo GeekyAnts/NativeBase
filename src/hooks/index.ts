@@ -8,4 +8,5 @@ export { useThemeProps, usePropsWithComponentTheme } from './useThemeProps';
 export { useTheme } from './useTheme';
 export { useToken } from './useToken';
 export { useSafeArea } from './useSafeArea';
+export { useContrastText } from './useContrastText';
 export { useScreenReaderEnabled } from './useScreenReaderEnabled';
