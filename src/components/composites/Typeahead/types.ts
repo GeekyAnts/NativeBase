@@ -1,17 +1,25 @@
-import type { IBoxProps, IInputProps } from 'native-base';
+import type { IBoxProps } from 'native-base';
 
-export type ITypeaheadProps = IBoxProps &
-  IInputProps & {
-    options: any[];
-    renderItem?: any;
-    onChange?: Function;
-    toggleIcon: any;
-    dropdownHeight?: number | string;
-    numberOfItems?: number;
-    inputValue?: string;
-    onSelectedItemChange?: any;
-    getOptionLabel?: Function;
-  };
+export type IItem = {
+  key: any;
+  value: any;
+};
+
+export type ITypeaheadProps = IBoxProps & {
+  items: IItem[];
+  renderItem?: (item: any) => any;
+  onInputChange?: (value: string) => void;
+  toggleIcon?: any;
+  dropdownHeight?: number | string;
+  numberOfItems?: number;
+  inputValue?: string;
+  onSelectionChange?: (value: any) => void;
+  children: any;
+  disabledKeys?: Array<any>;
+  label?: string;
+  isLoading?: boolean;
+};
+
 export const layoutPropsList = [
   'm',
   'mt',

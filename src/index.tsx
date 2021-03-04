@@ -110,8 +110,6 @@ import {
   Fab,
   IFabProps,
   Typeahead,
-  useTypeahead,
-  ComboBox,
 } from './components/composites';
 
 import {
@@ -251,8 +249,6 @@ export {
   useSnackbar,
   Fab,
   Typeahead,
-  useTypeahead,
-  ComboBox,
   Select,
 };
 export type {

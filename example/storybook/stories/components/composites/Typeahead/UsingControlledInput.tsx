@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComboBox, Icon } from 'native-base';
+import { Typeahead, Icon } from 'native-base';
 
 const animals = [
   { key: 1, value: 'Aardvark' },
@@ -10,21 +10,22 @@ const animals = [
   { key: 6, value: 'Godzilla' },
 ];
 
-export function UsingComponent() {
+export function UsingControlledInput() {
   const [items] = React.useState(animals);
-  const [filterText, setFilterText] = React.useState('');
+  const [inputValue, setInputValue] = React.useState('');
 
   const filteredItems = React.useMemo(() => {
     return items.filter(
-      (item) => item.value.toLowerCase().indexOf(filterText.toLowerCase()) > -1
+      (item) => item.value.toLowerCase().indexOf(inputValue.toLowerCase()) > -1
     );
-  }, [items, filterText]);
+  }, [items, inputValue]);
 
   return (
-    <ComboBox
+    <Typeahead
       items={filteredItems}
-      onInputChange={setFilterText}
-      onSelectionChange={console.log}
+      onInputChange={setInputValue}
+      inputValue={inputValue}
+      onSelectionChange={(value) => console.log(value)}
       label="Select your favorite animal"
       toggleIcon={({ isOpen }: any) => {
         return isOpen ? (

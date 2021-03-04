@@ -1,1 +1,0 @@
-export { useTypeahead } from './useTypeahead';

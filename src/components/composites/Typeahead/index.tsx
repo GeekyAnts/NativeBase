@@ -1,132 +1,191 @@
-import React, { useState, useCallback, forwardRef } from 'react';
-import { ScrollView } from 'react-native';
+import React from 'react';
+import { useButton } from '@react-native-aria/button';
+import { ComboBoxState, useComboBoxState } from '@react-stately/combobox';
+import { useComboBox } from '@react-native-aria/combobox';
+import { useListBox, useOption } from '@react-native-aria/listbox';
+import { ScrollView, findNodeHandle, Platform } from 'react-native';
+import { Item } from '@react-stately/collections';
 import Box from '../../primitives/Box';
-import Input from '../../primitives/Input';
-import Button from '../../primitives/Button';
-import Link from '../../primitives/Link';
+import Pressable from '../../primitives/Pressable';
 import Text from '../../primitives/Text';
-import { useColorMode } from './../../../core';
-import { useTypeahead } from './useTypeahead';
 import { extractInObject } from '../../../theme/tools';
 import { ITypeaheadProps, layoutPropsList } from './types';
+import Input from '../../primitives/Input';
+import { useThemeProps } from '../../../hooks';
 
-const Typeahead = (
-  {
-    options,
-    renderItem,
-    onChangeText,
-    toggleIcon,
-    dropdownHeight,
-    numberOfItems,
-    onSelectedItemChange,
-    inputValue,
-    getOptionLabel,
-    ...props
-  }: ITypeaheadProps,
-  ref: any
-) => {
-  const [inputItems, setInputItems] = React.useState(options);
-  const [layoutProps, newProps] = extractInObject(props, layoutPropsList);
-  const { colorMode } = useColorMode();
-  let tempOptions: any[] = [];
-  if (getOptionLabel) {
-    options.map((value: any, _ind: number) => {
-      tempOptions.push(getOptionLabel(value));
-    });
-    options = tempOptions;
-  }
+export function Typeahead(props: Omit<ITypeaheadProps, 'children'>) {
+  return (
+    <CheckboxImplementation {...props}>
+      {(item: any) => {
+        return (
+          <Item textValue={item.value}>
+            {props.renderItem ? (
+              props.renderItem(item)
+            ) : (
+              <Box p={2} justifyContent="center">
+                <Text>{item.value}</Text>
+              </Box>
+            )}
+          </Item>
+        );
+      }}
+    </CheckboxImplementation>
+  );
+}
 
-  const {
-    isOpen,
-    getInputProps,
-    getMenuItemProps,
-    getMenuProps,
-    getToggleButtonProps,
-  } = useTypeahead({
-    items: inputItems,
-    itemToString: (item) => item.toString(),
-    onInputValueChange: ({ inputValue }) => {
-      onChangeText && onChangeText(inputValue);
-      setInputItems(
-        options.filter((item: any) =>
-          item.toLowerCase().includes(inputValue.toLowerCase())
-        )
-      );
+function CheckboxImplementation(props: ITypeaheadProps) {
+  const [layoutProps] = extractInObject(props, layoutPropsList);
+  let state = useComboBoxState(props);
+
+  let triggerRef = React.useRef(null);
+  let inputRef = React.useRef(null);
+  let listBoxRef = React.useRef(null);
+  let popoverRef = React.useRef(null);
+
+  let {
+    buttonProps: triggerProps,
+    inputProps,
+    listBoxProps,
+    labelProps,
+  } = useComboBox(
+    {
+      ...props,
+      inputRef,
+      buttonRef: triggerRef,
+      listBoxRef,
+      popoverRef,
+      menuTrigger: 'input',
     },
-    onSelectedItemChange,
-  });
+    state
+  );
+
   const toggleIconSetter = () => {
-    if (typeof toggleIcon === 'function')
-      return toggleIcon({
-        isOpen: isOpen && getInputProps(inputValue, onChangeText).value !== '',
+    if (typeof props.toggleIcon === 'function')
+      return props.toggleIcon({
+        isOpen: state.isOpen,
+        isLoading: props.isLoading,
       });
-    return toggleIcon;
+    return props.toggleIcon;
   };
 
-  // Causing App to crash , commenting this might have caused future bugs , might need a revisit
-  // React.useEffect(() => {
-  //   if (getInputProps(inputValue, onChangeText).value === '') {
-  //     // getToggleButtonProps().onPress();
-  //   }
-  // }, [inputValue, onChangeText, getInputProps, getToggleButtonProps]);
+  let { buttonProps } = useButton(triggerProps, triggerRef);
 
-  const [dropdownTop, setDropDownTop]: any = useState(55);
-
-  const onLayout = useCallback((event) => {
-    const { height } = event.nativeEvent.layout;
-    setDropDownTop(height % 2 === 0 ? height + 1 : height); //not to use theme values
-  }, []);
   return (
-    <Box width="100%" flexDirection="row" onLayout={onLayout} {...layoutProps}>
+    <Box flexDirection="row" {...layoutProps}>
       <Box flex={1}>
+        {props.label && (
+          <Text {...labelProps} pb={1}>
+            {props.label}
+          </Text>
+        )}
         <Input
-          {...newProps}
-          {...getInputProps(inputValue, onChangeText)}
+          {...inputProps}
+          ref={inputRef}
           InputRightElement={
-            <Button variant="unstyled" m={0} p={0} {...getToggleButtonProps()}>
+            // @ts-ignore - RN has hitSlop type inconsistent for View and Pressable!
+            <Pressable {...buttonProps} ref={triggerRef}>
               {toggleIconSetter()}
-            </Button>
+            </Pressable>
           }
-          ref={ref}
         />
+
+        {state.isOpen && (
+          <ListBoxPopup
+            {...listBoxProps}
+            listBoxRef={listBoxRef}
+            popoverRef={popoverRef}
+            state={state}
+            label={props.label}
+          />
+        )}
       </Box>
-      <Box
-        position="absolute"
-        top={dropdownTop}
-        width="100%"
-        height={dropdownHeight ? dropdownHeight : 200}
-        {...getMenuProps()}
-      >
-        <ScrollView>
-          {isOpen &&
-            getInputProps(inputValue, onChangeText).value !== '' &&
-            (numberOfItems && numberOfItems < inputItems.length
-              ? inputItems.slice(0, numberOfItems)
-              : inputItems
-            ).map((item: any, index: number) => (
-              <Link
-                isUnderlined={false}
-                key={`${item}${index}`}
-                {...getMenuItemProps(item, index)}
-              >
-                {renderItem ? (
-                  renderItem(item)
-                ) : (
-                  <Box
-                    flex={1}
-                    bg={colorMode === 'light' ? 'gray.100' : 'gray.600'}
-                    p={4}
-                  >
-                    <Text>{item}</Text>
-                  </Box>
-                )}
-              </Link>
-            ))}
+    </Box>
+  );
+}
+
+type IListBoxProps = {
+  popoverRef: any;
+  listBoxRef: any;
+  state: ComboBoxState<any>;
+  dropdownHeight: number;
+  label: string;
+};
+
+function ListBoxPopup(props: IListBoxProps) {
+  let { popoverRef, listBoxRef, state, dropdownHeight, label } = props;
+
+  let { listBoxProps } = useListBox(
+    {
+      label,
+      autoFocus: state.focusStrategy,
+      disallowEmptySelection: true,
+    },
+    state,
+    listBoxRef
+  );
+
+  return (
+    <Box ref={popoverRef}>
+      <Box position="absolute" width="100%" maxHeight={dropdownHeight ?? 200}>
+        <ScrollView
+          {...listBoxProps}
+          keyboardShouldPersistTaps="handled"
+          ref={(node) => {
+            if (Platform.OS === 'web') {
+              listBoxRef.current = findNodeHandle(node);
+            } else {
+              listBoxRef.current = node;
+            }
+          }}
+        >
+          {[...state.collection].map((item) => (
+            <Option key={item.key} item={item} state={state} />
+          ))}
         </ScrollView>
       </Box>
     </Box>
   );
-};
+}
 
-export default React.memo(forwardRef(Typeahead));
-export { useTypeahead };
+function Option({ item, state }: { item: any; state: ComboBoxState<any> }) {
+  const searchItemStyle = useThemeProps('TypeAheadSearchItem', {});
+
+  let ref = React.useRef(null);
+  let isDisabled = state.disabledKeys.has(item.key);
+  let isSelected = state.selectionManager.isSelected(item.key);
+  let isFocused = state.selectionManager.focusedKey === item.key;
+
+  let { optionProps } = useOption(
+    {
+      key: item.key,
+      isDisabled,
+      isSelected,
+      shouldFocusOnHover: true,
+      shouldUseVirtualFocus: true,
+    },
+    state,
+    ref
+  );
+
+  let backgroundColor = searchItemStyle.backgroundColor;
+  let opacity = 1;
+
+  if (isSelected) {
+    backgroundColor = searchItemStyle._focus.backgroundColor;
+  } else if (isFocused) {
+    backgroundColor = searchItemStyle._focus.backgroundColor;
+  } else if (isDisabled) {
+    opacity = 0.6;
+  }
+
+  return (
+    <Pressable
+      {...optionProps}
+      opacity={opacity}
+      backgroundColor={backgroundColor}
+      ref={ref}
+    >
+      {item.rendered}
+    </Pressable>
+  );
+}

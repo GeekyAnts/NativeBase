@@ -4,13 +4,13 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
 import { UsingComponent } from './UsingComponent';
 import { UsingComponentWithRenderItem } from './UsingComponentWithRenderItem';
-import { UsingHook } from './UsingHook';
+import { UsingControlledInput } from './UsingControlledInput';
+import { UsingWithAPI } from './UsingWithAPI';
 
 storiesOf('Typeahead', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
-  .add('Typeahead Component', () => <UsingComponent />)
-  .add('Typeahead Component with RenderItem', () => (
-    <UsingComponentWithRenderItem />
-  ))
-  .add('Custom Typeahead using useTypeahead hook', () => <UsingHook />);
+  .add('Basic', () => <UsingComponent />)
+  .add('Using render item', () => <UsingComponentWithRenderItem />)
+  .add('Using Controlled input', () => <UsingControlledInput />)
+  .add('Using with async API', () => <UsingWithAPI />);
