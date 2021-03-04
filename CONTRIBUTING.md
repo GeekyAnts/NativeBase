@@ -168,5 +168,5 @@ If all goes well, your pull request will be merged. If it is not merged, maintai
 
 ## <a name="docs"></a> Helping with Documentation
 
-The NativeBase documentation is hosted as part of the NativeBase website repository at https://github.com/nativebase/website. The website itself is located at <https://alpha.nativebase.io/> and it is built using [Docusaurus](https://docusaurus.io/). If there's anything you'd like to change in the docs, you can get started by clicking on the "Edit" button located on the bottom left of most pages on the website.
+The NativeBase documentation is hosted as part of the NativeBase website repository at https://github.com/nativebase/website. The website itself is located at <https://alpha.nativebase.io/> and it is built using [Docusaurus V2](https://v2.docusaurus.io/). If there's anything you'd like to change in the docs, you can get started by clicking on the "Edit" button located on the bottom left of most pages on the website.
 
