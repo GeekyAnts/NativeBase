@@ -95,7 +95,10 @@ const Input = (
     callback();
   };
 
-  let placeholderColor = useToken('colors', placeholderTextColor ?? 'gray.400');
+  let placeholderColor = useToken(
+    'colors',
+    (placeholderTextColor as string) ?? 'gray.400'
+  );
 
   if (typeof placeholderColor !== 'string') {
     placeholderColor = placeholderTextColor;
@@ -216,15 +219,16 @@ const Input = (
           accessibilityLabel={ariaLabel || accessibilityLabel}
           onKeyPress={(e: any) => {
             e.persist();
+            props.onKeyPress && props.onKeyPress(e);
           }}
-          onFocus={() => {
+          onFocus={(e) => {
             slideOut();
-            handleFocus(true, onFocus ? onFocus : () => {});
+            handleFocus(true, onFocus ? () => onFocus(e) : () => {});
           }}
           onBlur={(e) => {
             // TODO: animation not happening because of component rerender
             e.nativeEvent.text && slideIn();
-            handleFocus(false, onBlur ? onBlur : () => {});
+            handleFocus(false, onBlur ? () => onBlur(e) : () => {});
           }}
           placeholder={isFocused && label ? '' : placeholder}
           placeholderTextColor={placeholderColor}
