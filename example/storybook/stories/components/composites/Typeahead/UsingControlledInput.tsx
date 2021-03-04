@@ -2,12 +2,12 @@ import React from 'react';
 import { Typeahead, Icon } from 'native-base';
 
 const animals = [
-  { key: 1, value: 'Aardvark' },
-  { key: 2, value: 'Kangaroo' },
-  { key: 3, value: 'Snake' },
-  { key: 4, value: 'Pikachu' },
-  { key: 5, value: 'Tiger' },
-  { key: 6, value: 'Godzilla' },
+  { id: 1, value: 'Aardvark' },
+  { id: 2, value: 'Kangaroo' },
+  { id: 3, value: 'Snake' },
+  { id: 4, value: 'Pikachu' },
+  { id: 5, value: 'Tiger' },
+  { id: 6, value: 'Godzilla' },
 ];
 
 export function UsingControlledInput() {
@@ -22,10 +22,12 @@ export function UsingControlledInput() {
 
   return (
     <Typeahead
-      items={filteredItems}
-      onInputChange={setInputValue}
+      options={filteredItems}
+      getOptionLabel={(item) => item.value}
+      getOptionKey={(item) => item.key}
+      onChange={setInputValue}
       inputValue={inputValue}
-      onSelectionChange={(value) => console.log(value)}
+      onSelectedItemChange={console.log}
       label="Select your favorite animal"
       toggleIcon={({ isOpen }: any) => {
         return isOpen ? (

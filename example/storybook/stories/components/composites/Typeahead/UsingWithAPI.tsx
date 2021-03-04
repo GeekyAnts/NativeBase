@@ -2,12 +2,12 @@ import React from 'react';
 import { Typeahead, Icon, Spinner, Center } from 'native-base';
 
 const animals = [
-  { key: 1, value: 'Aardvark' },
-  { key: 2, value: 'Kangaroo' },
-  { key: 3, value: 'Snake' },
-  { key: 4, value: 'Pikachu' },
-  { key: 5, value: 'Tiger' },
-  { key: 6, value: 'Godzilla' },
+  { id: 1, value: 'Aardvark' },
+  { id: 2, value: 'Kangaroo' },
+  { id: 3, value: 'Snake' },
+  { id: 4, value: 'Pikachu' },
+  { id: 5, value: 'Tiger' },
+  { id: 6, value: 'Godzilla' },
 ];
 
 const getAnimalsByTerm = (term: string) => {
@@ -31,13 +31,13 @@ export function UsingWithAPI() {
 
   return (
     <Typeahead
-      items={items}
-      onInputChange={setInputValue}
-      isLoading={loading}
-      onSelectionChange={(value) => console.log(value)}
+      options={items}
+      getOptionLabel={(item) => item.value}
+      onChange={setInputValue}
+      onSelectedItemChange={console.log}
       label="Select your favorite animal"
-      toggleIcon={({ isOpen, isLoading }: any) => {
-        if (isLoading) {
+      toggleIcon={({ isOpen }: any) => {
+        if (loading) {
           return (
             <Center height={10} width={10}>
               <Spinner size="sm" />

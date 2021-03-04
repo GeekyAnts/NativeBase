@@ -2,21 +2,32 @@ import React from 'react';
 import { Typeahead, Icon, Box, Text } from 'native-base';
 
 const animals = [
-  { key: 1, value: 'Aardvark' },
-  { key: 2, value: 'Kangaroo' },
-  { key: 3, value: 'Snake' },
-  { key: 4, value: 'Pikachu' },
-  { key: 5, value: 'Tiger' },
-  { key: 6, value: 'Godzilla' },
+  { id: 1, value: 'Aardvark' },
+  { id: 2, value: 'Kangaroo' },
+  { id: 3, value: 'Snake' },
+  { id: 4, value: 'Pikachu' },
+  { id: 5, value: 'Tiger' },
+  { id: 6, value: 'Godzilla' },
 ];
 
 export function UsingComponentWithRenderItem() {
+  const [filterText, setFilterText] = React.useState('');
+
+  const filteredItems = React.useMemo(() => {
+    return animals.filter(
+      (item) => item.value.toLowerCase().indexOf(filterText.toLowerCase()) > -1
+    );
+  }, [filterText]);
+
   return (
     <Typeahead
-      items={animals}
+      options={filteredItems}
       disabledKeys={[1]}
       width={400}
-      onSelectionChange={console.log}
+      onChange={setFilterText}
+      getOptionLabel={(item) => item.value}
+      getOptionKey={(item) => item.key}
+      onSelectedItemChange={console.log}
       label="Select your favorite animal"
       renderItem={(item: any) => {
         return (

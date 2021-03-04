@@ -9,21 +9,49 @@ import Box from '../../primitives/Box';
 import Pressable from '../../primitives/Pressable';
 import Text from '../../primitives/Text';
 import { extractInObject } from '../../../theme/tools';
-import { ITypeaheadProps, layoutPropsList } from './types';
+import { ITypeaheadProps, IComboBoxProps, layoutPropsList } from './types';
 import Input from '../../primitives/Input';
 import { useThemeProps } from '../../../hooks';
 
-export function Typeahead(props: Omit<ITypeaheadProps, 'children'>) {
+export function Typeahead({
+  onSelectedItemChange,
+  options,
+  renderItem,
+  getOptionLabel,
+  getOptionKey,
+  onChange,
+  ...rest
+}: ITypeaheadProps) {
   return (
-    <CheckboxImplementation {...props}>
+    <CheckboxImplementation
+      {...rest}
+      onSelectionChange={onSelectedItemChange}
+      items={options}
+      onInputChange={onChange}
+    >
       {(item: any) => {
+        if (typeof item !== 'string' && getOptionLabel === undefined) {
+          throw new Error('Please use getOptionLabel prop');
+        }
+
+        if (item.id === undefined && getOptionKey === undefined) {
+          throw new Error('Please use getOptionKey prop');
+        }
+
+        const optionLabel = getOptionLabel ? getOptionLabel(item) : item;
+        const optionKey = getOptionKey
+          ? getOptionKey(item)
+          : item.id !== undefined
+          ? item.id
+          : optionLabel;
+
         return (
-          <Item textValue={item.value}>
-            {props.renderItem ? (
-              props.renderItem(item)
+          <Item textValue={optionLabel} key={optionKey}>
+            {renderItem ? (
+              renderItem(item)
             ) : (
               <Box p={2} justifyContent="center">
-                <Text>{item.value}</Text>
+                <Text>{optionLabel}</Text>
               </Box>
             )}
           </Item>
@@ -33,7 +61,7 @@ export function Typeahead(props: Omit<ITypeaheadProps, 'children'>) {
   );
 }
 
-function CheckboxImplementation(props: ITypeaheadProps) {
+function CheckboxImplementation(props: IComboBoxProps) {
   const [layoutProps] = extractInObject(props, layoutPropsList);
   let state = useComboBoxState(props);
 
@@ -63,7 +91,6 @@ function CheckboxImplementation(props: ITypeaheadProps) {
     if (typeof props.toggleIcon === 'function')
       return props.toggleIcon({
         isOpen: state.isOpen,
-        isLoading: props.isLoading,
       });
     return props.toggleIcon;
   };
