@@ -13,5 +13,5 @@ export default function () {
       <Circle cx="50" cy="50" r="50" fill="pink.200" />,
     ],
   });
-  return <CustomIcon color="red.200" size={12} />;
+  return <CustomIcon color="red.200" size={2} />;
 }

@@ -9,7 +9,7 @@ function isControlledProp(props: any, key: string) {
   return props[key] !== undefined;
 }
 
-import type { IUseTypeaheadProps } from './props';
+import type { IUseTypeaheadProps } from './types';
 
 export function useTypeahead(props: IUseTypeaheadProps) {
   let defaultValues = { ...dropdownDefaultStateValues };

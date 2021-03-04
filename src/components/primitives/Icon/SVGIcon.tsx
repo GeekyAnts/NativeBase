@@ -2,8 +2,27 @@ import React from 'react';
 import { useThemeProps } from '../../../hooks';
 import { useToken } from '../../../hooks';
 import styled from 'styled-components/native';
-import { color, space, typography } from 'styled-system';
-import Svg, {
+import {
+  border,
+  color,
+  flexbox,
+  layout,
+  space,
+  typography,
+  position,
+} from 'styled-system';
+import {
+  customBorder,
+  customBackground,
+  customOutline,
+  customLayout,
+  customExtra,
+  customShadow,
+  customTypography,
+  customPosition,
+} from '../../../utils/customProps';
+import {
+  Svg,
   Path,
   G,
   Circle,
@@ -29,29 +48,45 @@ import Svg, {
 import type { IIconProps } from './types';
 
 const VALID_SVG_COMPONENTS: any = {
-  G: G,
-  Path: Path,
-  Circle: Circle,
-  Ellipse: Ellipse,
-  Text: Text,
-  TSpan: TSpan,
-  TextPath: TextPath,
-  Polygon: Polygon,
-  Polyline: Polyline,
-  Line: Line,
-  Rect: Rect,
-  Use: Use,
-  Image: Image,
-  Symbol: Symbol,
-  Defs: Defs,
-  LinearGradient: LinearGradient,
-  RadialGradient: RadialGradient,
-  Stop: Stop,
-  ClipPath: ClipPath,
-  Pattern: Pattern,
-  Mask: Mask,
+  G,
+  Path,
+  Circle,
+  Ellipse,
+  Text,
+  TSpan,
+  TextPath,
+  Polygon,
+  Polyline,
+  Line,
+  Rect,
+  Use,
+  Image,
+  Symbol,
+  Defs,
+  LinearGradient,
+  RadialGradient,
+  Stop,
+  ClipPath,
+  Pattern,
+  Mask,
 };
-const SVG = styled(Svg)<IIconProps>(color, space, typography);
+const SVG = styled(Svg)<IIconProps>(
+  color,
+  space,
+  layout,
+  flexbox,
+  border,
+  typography,
+  position,
+  customPosition,
+  customBorder,
+  customBackground,
+  customOutline,
+  customShadow,
+  customExtra,
+  customLayout,
+  customTypography
+);
 
 const SVGIcon = (
   {
@@ -71,8 +106,16 @@ const SVGIcon = (
   colorProp = useToken('colors', colorProp || '');
   return (
     <SVG
-      height={parseInt(newProps.size, 10)}
-      width={parseInt(newProps.size, 10)}
+      height={
+        newProps.size
+          ? parseInt(newProps.size, 10)
+          : parseInt(newProps.height, 10)
+      }
+      width={
+        newProps.size
+          ? parseInt(newProps.size, 10)
+          : parseInt(newProps.width, 10)
+      }
       viewBox={viewBox}
       color={colorProp}
       stroke={strokeColor}

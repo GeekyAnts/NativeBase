@@ -56,7 +56,7 @@ const componentMap = {
   Zocial,
 };
 
-function getStyleIconComponent(type: IconType) {
+function getStyledIconComponent(type: IconType) {
   return styled(componentMap[type])<IIconProps>(
     color,
     space,
@@ -79,9 +79,9 @@ function getStyleIconComponent(type: IconType) {
 const Icon = ({ type, name, style, ...props }: IIconProps, ref?: any) => {
   const { size, ...newProps } = useThemeProps('Icon', props);
   if (!name) {
-    return <SVGIcon {...props} />;
+    return <SVGIcon {...props} style={style} />;
   }
-  const Component = getStyleIconComponent(type ?? 'MaterialIcons');
+  const Component = getStyledIconComponent(type ?? 'MaterialIcons');
   return (
     <Component
       name={name}
