@@ -7,7 +7,6 @@ import {
   Platform,
 } from 'react-native';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
-import Box from '../../components/primitives/Box';
 import isEqual from 'lodash/isEqual';
 
 type OverlayWrapperType = {
@@ -129,18 +128,18 @@ function Wrapper({
         top: 0,
       };
       return (
-        <Box width="100%" style={{ ...(Platform.OS === 'web' && webStyle) }}>
+        <View style={{ width: '100%', ...(Platform.OS === 'web' && webStyle) }}>
           {overlayItem}
-        </Box>
+        </View>
       );
     } else {
       return (
-        <Box
+        <View
           style={{ opacity: 0, top: overlayItemPosition }}
           onLayout={(e) => provideSize(e.nativeEvent.layout)}
         >
           {overlayItem}
-        </Box>
+        </View>
       );
     }
   };

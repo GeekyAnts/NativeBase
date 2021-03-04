@@ -27,6 +27,10 @@ import { InputRightAddon, InputGroup, InputLeftAddon } from './InputGroup';
 import { useThemeProps, useToken } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import { useHover } from '@react-native-aria/interactions';
+import {
+  FormControlContext,
+  IFormControlContext,
+} from '../../composites/FormControl';
 
 const StyledInput = styled(TextInput)<IInputProps>(
   flex,
@@ -48,14 +52,10 @@ const StyledInput = styled(TextInput)<IInputProps>(
 const Input = (
   {
     style,
-    isInvalid,
-    isDisabled,
     placeholder,
-
     errorMessage,
     _errorMessage,
     // isRequired,
-    isReadOnly,
     isFullWidth,
     onFocus,
     onBlur,
@@ -80,6 +80,9 @@ const Input = (
   }: IInputProps,
   ref: any
 ) => {
+  const formControlContext: IFormControlContext = React.useContext(
+    FormControlContext
+  );
   const layoutProps = {
     w,
     width,
@@ -104,6 +107,9 @@ const Input = (
     placeholderColor = placeholderTextColor;
   }
   const {
+    isInvalid,
+    isDisabled,
+    isReadOnly,
     borderColor: borderColorFromProps,
     fontSize,
     borderWidth,
@@ -112,7 +118,7 @@ const Input = (
     hoverBorderColor,
     borderBottomWidth,
     ...newProps
-  } = useThemeProps('Input', props);
+  } = useThemeProps('Input', { ...formControlContext, ...props });
 
   const computedProps = {
     display: 'flex',

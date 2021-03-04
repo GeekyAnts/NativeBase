@@ -3,7 +3,7 @@ import { Icon } from 'native-base';
 import { Rect, Path, Circle } from 'react-native-svg';
 export default function () {
   return (
-    <Icon viewBox="0 0 200 200" color="blue.300" size={12} strokeWidth="10">
+    <Icon viewBox="0 0 200 200" color="blue.300" size={2} strokeWidth="10">
       <Rect x="10" y="15" width="200" height="200" fill="yellow.200" />
       <Path
         fill="blue.300"

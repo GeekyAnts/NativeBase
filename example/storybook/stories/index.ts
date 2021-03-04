@@ -66,10 +66,13 @@ export * from './components/primitives/ZStack';
 // Hooks
 export * from './hooks/useBreakpointValue';
 export * from './hooks/useClipboard';
+export * from './hooks/useColorMode';
+export * from './hooks/useColorModeValue';
 export * from './hooks/useDisclose';
 export * from './hooks/useMediaQuery';
 export * from './hooks/usePopover';
 export * from './hooks/useSafeArea';
+export * from './hooks/useContrastText';
 
 // Theme
 export * from './theme/Custom';

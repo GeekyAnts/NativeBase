@@ -35,8 +35,8 @@ const StyledView: any = styled(RNView)<IViewProps>(
 
 const View = (props: IViewProps, ref: any) => {
   const viewProps = useThemeProps('View', props);
-  const safeProps = useSafeArea(viewProps);
-  return <StyledView {...safeProps} ref={ref} />;
+  const safeAreaProps = useSafeArea(viewProps);
+  return <StyledView {...safeAreaProps} ref={ref} />;
 };
 export default React.memo(React.forwardRef(View));
 export type { IViewProps };

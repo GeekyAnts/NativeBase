@@ -9,7 +9,7 @@ import {
   hasValidBreakpointFormat,
   extractInObject,
 } from './../../theme/tools';
-import { useContrastText } from './../../theme/hooks';
+import { useContrastText } from '../useContrastText';
 
 /*
  Extract props from theme props and omit those from props
@@ -122,7 +122,7 @@ function mergeUnderscoreProps(newProps: any, props: any) {
       ? {
           color: useContrastText(
             bg,
-            newProps[propName].color ?? props[propName]?.color
+            newProps[propName]?.color ?? props[propName]?.color
           ),
         }
       : {};

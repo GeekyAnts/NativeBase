@@ -7,7 +7,6 @@ import {
   Icon,
   ColorMode,
   useColorModeValue,
-  Center,
 } from 'native-base';
 import type { StorageManager } from 'native-base';
 import { Button } from 'react-native';
@@ -16,16 +15,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 function MyWrapper({ children }: any) {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Center
+    <View
       flex={1}
-      // justifyContent="center"
-      // alignItems="center"
+      justifyContent="center"
+      alignItems="center"
       bg={useColorModeValue(`gray.50`, `gray.800`)}
+      safeArea
     >
       <IconButton
         position="absolute"
-        top={10}
-        right={5}
+        top={8}
+        right={8}
         onPress={toggleColorMode}
         icon={
           <Icon
@@ -36,7 +36,7 @@ function MyWrapper({ children }: any) {
         }
       />
       {children}
-    </Center>
+    </View>
   );
 }
 

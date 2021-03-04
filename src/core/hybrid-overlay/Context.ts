@@ -4,5 +4,9 @@ import type { IHybridContextProps } from './types';
 export const HybridContext = createContext<IHybridContextProps>({
   overlay: {},
   popover: {},
-  colorMode: {},
+  colorMode: {
+    colorMode: 'light',
+    toggleColorMode: () => {},
+    setColorMode: () => {},
+  },
 });

@@ -28,6 +28,10 @@ import {
 } from '../../../utils/customProps';
 import { Platform } from 'react-native';
 import { useToken } from '../../../hooks/useToken';
+import {
+  FormControlContext,
+  IFormControlContext,
+} from '../../composites/FormControl';
 
 const StyledNativePicker = styled(RNPicker)<ISelectProps>(
   flex,
@@ -58,6 +62,9 @@ const Select = (
   }: ISelectProps,
   ref: any
 ) => {
+  const formControlContext: IFormControlContext = React.useContext(
+    FormControlContext
+  );
   const {
     variant,
     _item,
@@ -72,6 +79,7 @@ const Select = (
     isInvalid,
     _isInvalid,
     isDisabled,
+    _isDisabled,
     width,
     style,
     color,
@@ -79,7 +87,7 @@ const Select = (
     androidIconColor,
     androidPrompt,
     ...newProps
-  } = useThemeProps('Select', props);
+  } = useThemeProps('Select', { ...formControlContext, ...props });
   let triggerRef = React.useRef();
   const { isHovered } = useHover({}, ref ?? triggerRef);
   let [isOpen, toggle] = React.useState<boolean>(false);
@@ -156,8 +164,15 @@ const Select = (
       ref={ref ?? triggerRef}
       {...newProps}
       justifyContent="space-between"
+      {...(isDisabled && _isDisabled)}
       {...(isInvalid && _isInvalid)}
       {...(isHovered && _hover)}
+      {...(Platform.OS === 'web'
+        ? {
+            disabled: isDisabled,
+            cursor: isDisabled ? 'not-allowed' : 'auto',
+          }
+        : {})}
       style={style}
     >
       <Text opacity={selectedItem ? undefined : 0.5} {...placeholderProps}>
@@ -186,6 +201,7 @@ const Select = (
       {...(Platform.OS === 'ios' && _ios)}
       {...(Platform.OS === 'android' && _android)}
       {...(Platform.OS === 'web' && _web)}
+      {...(isDisabled && _isDisabled)}
       {...(isInvalid && _isInvalid)}
       {...(isHovered && _hover)}
     >
