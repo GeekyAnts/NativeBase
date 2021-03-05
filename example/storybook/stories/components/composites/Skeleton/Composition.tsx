@@ -1,12 +1,19 @@
 import React from 'react';
-import { Box, Skeleton, Stack, Text, Avatar, HStack, Image } from 'native-base';
+import {
+  Box,
+  Skeleton,
+  VStack,
+  Text,
+  Avatar,
+  HStack,
+  Image,
+} from 'native-base';
 function Composition({ loaded }: any) {
   return (
-    <Stack size={200}>
+    <VStack>
       <HStack alignItems="center">
         {loaded ? (
           <Avatar
-            name="Ankur Kedia"
             source={{
               uri: 'https://nativebase.github.io/img/native-base-icon.png',
             }}
@@ -15,7 +22,13 @@ function Composition({ loaded }: any) {
           <Skeleton variant="circle" size={12} />
         )}
         <Text fontWeight="bold" fontSize="lg" ml={2}>
-          {loaded ? 'Nativebase' : <Skeleton>Nativebase</Skeleton>}
+          {loaded ? (
+            'Nativebase'
+          ) : (
+            <Skeleton>
+              <Box>Nativebase</Box>
+            </Skeleton>
+          )}
         </Text>
       </HStack>
       <Box size={200} mt={1}>
@@ -30,15 +43,15 @@ function Composition({ loaded }: any) {
           <Skeleton variant="rect" height="100%" />
         )}
       </Box>
-    </Stack>
+    </VStack>
   );
 }
 
 export default function () {
   return (
-    <HStack space={10}>
+    <VStack space={4}>
       <Composition />
       <Composition loaded />
-    </HStack>
+    </VStack>
   );
 }

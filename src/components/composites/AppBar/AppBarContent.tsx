@@ -7,13 +7,7 @@ export type IAppBarContentProps = IBoxProps;
 const AppBarContent = (props: IAppBarContentProps) => {
   const { color } = useThemeProps('AppBar', props);
   return (
-    <Box
-      flex={1}
-      alignItems="center"
-      flexDirection="row"
-      color={color}
-      {...props}
-    />
+    <Box alignItems="center" flexDirection="row" color={color} {...props} />
   );
 };
 

@@ -62,7 +62,7 @@ const Text = (
   return (
     <StyledText
       {...newProps}
-      numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : 999}
+      numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : undefined}
       fontWeight={bold ? 'bold' : newProps.fontWeight}
       fontStyle={italic ? 'italic' : newProps.fontStyle}
       bg={highlight ? 'yellow.200' : newProps.bg}
