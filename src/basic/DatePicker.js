@@ -50,6 +50,9 @@ export class DatePicker extends React.Component {
         date={
           this.state.chosenDate ? this.state.chosenDate : this.state.defaultDate
         }
+        value={
+          this.state.chosenDate ? this.state.chosenDate : this.state.defaultDate
+        }
         onDateChange={date => this.setDate(date)}
         minimumDate={minimumDate}
         maximumDate={maximumDate}
