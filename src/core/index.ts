@@ -14,7 +14,11 @@ export type {
   IPopoverContextProps, // IusePopoverProps,
 } from './Popover';
 
-export { useColorMode, useColorModeValue } from './color-mode';
+export {
+  useColorMode,
+  useColorModeValue,
+  useAccessibleColors,
+} from './color-mode';
 
 export type {
   StorageManager,

@@ -1,4 +1,4 @@
-export { useColorMode, useColorModeValue } from './hooks';
+export { useColorMode, useColorModeValue, useAccessibleColors } from './hooks';
 
 export type {
   StorageManager,
