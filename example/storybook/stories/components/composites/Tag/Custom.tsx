@@ -7,7 +7,6 @@ export default function () {
       <Avatar
         mr={2}
         source={{ uri: 'https://nativebase.io/assets/img/front-page-icon.png' }}
-        name={'Nativebase'}
         width={6}
         height={6}
       />
