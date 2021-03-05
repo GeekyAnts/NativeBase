@@ -6,7 +6,7 @@ export default function () {
     <HStack>
       {['subtle', 'solid', 'outline'].map((key: any) => (
         <Stack space={3} mx={3}>
-          <Alert status="error" variant={key}>
+          <Alert status="error" variant={key} key={key}>
             <Alert.Icon />
             <Alert.Title>This is an error alert</Alert.Title>
           </Alert>
