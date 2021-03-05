@@ -21,14 +21,11 @@ export type ITabBarProps = IBoxProps & {
   size?: 'sm' | 'md' | 'lg';
 };
 export type ITabProps = IBoxProps & {
-  index?: number;
-  isSelected?: boolean;
   isDisabled?: boolean;
-  id?: string;
-  panelId?: string;
   _active?: any;
   _disabled?: any;
   _hover?: any;
+  item?: any;
 };
 
 export type ITabViewsProps = IBoxProps;
@@ -37,13 +34,13 @@ export type ITabViewProps = IBoxProps & {
 };
 
 export type ITabsContextProps = {
-  activeIndex?: number;
-  changeHandler?: (index?: number) => void;
   activeTabStyle?: any;
   inactiveTabStyle?: any;
   tabBarStyle?: any;
   isFitted?: boolean;
   align?: 'start' | 'center' | 'end';
+
+  state?: any;
 };
 
 export type ITabsComponentType = ((props: ITabsProps) => JSX.Element) & {

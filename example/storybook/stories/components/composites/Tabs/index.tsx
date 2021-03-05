@@ -14,11 +14,11 @@ import Variants from './Variants';
 storiesOf('Tabs', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .add('TabBarOnly', () => <TabBarOnly />)
   .add('Usage', () => <Usage />)
   .add('Composition', () => <Composition />)
   .add('Variants', () => <Variants />)
   .add('TabsAlignment', () => <TabsAlignment />)
   .add('Colors', () => <Colors />)
   .add('Size', () => <Size />)
-  .add('FittedTabs', () => <FittedTabs />)
-  .add('TabBarOnly', () => <TabBarOnly />);
+  .add('FittedTabs', () => <FittedTabs />);
