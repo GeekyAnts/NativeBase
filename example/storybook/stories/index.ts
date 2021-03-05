@@ -72,6 +72,7 @@ export * from './hooks/useMediaQuery';
 export * from './hooks/usePopover';
 export * from './hooks/useSafeArea';
 export * from './hooks/useContrastText';
+export * from './hooks/useAccessibleColors';
 
 // Theme
 export * from './theme/Custom';

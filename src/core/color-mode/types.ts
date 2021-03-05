@@ -7,6 +7,7 @@ export interface StorageManager {
 export interface ColorModeOptions {
   initialColorMode?: ColorMode;
   useSystemColorMode?: boolean;
+  accessibleColors?: boolean;
 }
 
 export type IColorModeProviderProps = {
@@ -19,4 +20,6 @@ export interface IColorModeContextProps {
   colorMode: ColorMode;
   toggleColorMode: () => void;
   setColorMode: (value: any) => void;
+  accessibleColors: boolean;
+  setAccessibleColors: (value: boolean) => void;
 }

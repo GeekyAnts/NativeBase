@@ -1,5 +1,6 @@
 import Color from 'tinycolor2';
 import { useToken } from './useToken';
+import { useAccessibleColors } from '../core/color-mode/hooks';
 
 export function useContrastText(bg: string, color?: string) {
   let [
@@ -15,7 +16,44 @@ export function useContrastText(bg: string, color?: string) {
     bg,
     color ?? '',
   ]);
+  let [accessibleColors] = useAccessibleColors();
+  const [bgThemeColorVariant, bgShade] = bg.split('.');
+  return !accessibleColors &&
+    bgThemeColorVariant &&
+    themeColorsThresholdShades[bgThemeColorVariant]
+    ? getContrastThemeColor(bgThemeColorVariant, bgShade)
+    : getAccessibleContrastColor(
+        contrastThreshold,
+        trueDarkText,
+        trueLightText,
+        trueBg,
+        trueColor,
+        bg,
+        color
+      );
+}
 
+function getContrastThemeColor(bgThemeColorVariant: string, bgShade: string) {
+  let shadeThreshold = themeColorsThresholdShades[bgThemeColorVariant];
+  if (
+    bgShade &&
+    shadeThreshold &&
+    ((bgShade >= shadeThreshold && bgThemeColorVariant !== 'dark') ||
+      (bgThemeColorVariant === 'dark' && bgShade < shadeThreshold))
+  ) {
+    return 'lightText';
+  }
+  return 'darkText';
+}
+function getAccessibleContrastColor(
+  contrastThreshold: number,
+  trueDarkText: string,
+  trueLightText: string,
+  trueBg: string,
+  trueColor: string,
+  bg: string,
+  color?: string
+) {
   if (typeof trueBg !== 'string') {
     trueBg = bg;
   }
@@ -54,9 +92,42 @@ export function useContrastText(bg: string, color?: string) {
   }
   return contrastColorToken;
 }
-
 function getContrastRatio(foreground: string, background: string) {
   const lumA = Color(foreground).getLuminance();
   const lumB = Color(background).getLuminance();
   return (Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05);
 }
+
+const themeColorsThresholdShades: any = {
+  rose: 900,
+  pink: 900,
+  fuchsia: 800,
+  purple: 700,
+  violet: 600,
+  indigo: 500,
+  blue: 400,
+  lightBlue: 400,
+  cyan: 300,
+  teal: 300,
+  green: 400,
+  lime: 600,
+  yellow: 800,
+  amber: 900,
+  orange: 900,
+  red: 900,
+  warmGray: 500,
+  trueGray: 500,
+  gray: 500,
+  coolGray: 500,
+  blueGray: 500,
+  dark: 500,
+  danger: 900,
+  error: 900,
+  success: 400,
+  warning: 900,
+  muted: 500,
+  default: 400,
+  info: 400,
+  secondary: 500,
+  light: 500,
+};
