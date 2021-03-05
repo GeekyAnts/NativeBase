@@ -49,3 +49,22 @@ export function useModeManager(
 
   return { colorMode, setColorMode };
 }
+
+export function useAccessibleColors(): [
+  boolean,
+  (val: boolean) => void,
+  () => void
+] {
+  const {
+    colorMode: colorModeContext,
+  }: {
+    colorMode: IColorModeContextProps;
+  } = React.useContext<IHybridContextProps>(HybridContext);
+  const toggleAccessibleColors = () =>
+    colorModeContext.setAccessibleColors(!colorModeContext.accessibleColors);
+  return [
+    colorModeContext.accessibleColors,
+    colorModeContext.setAccessibleColors,
+    toggleAccessibleColors,
+  ];
+}

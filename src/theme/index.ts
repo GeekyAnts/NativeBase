@@ -11,6 +11,7 @@ export interface ComponentTheme {
 const config: ColorModeOptions = {
   useSystemColorMode: false,
   initialColorMode: 'light',
+  accessibleColors: false,
 };
 const theme = {
   ...base,
