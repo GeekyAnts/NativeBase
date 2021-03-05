@@ -20,7 +20,7 @@ function MyWrapper({ children }: any) {
       justifyContent="center"
       alignItems="center"
       bg={useColorModeValue(`gray.50`, `gray.800`)}
-      safeArea
+      safeAreaY
     >
       <IconButton
         position="absolute"
