@@ -20,13 +20,16 @@ export function Typeahead({
   getOptionLabel,
   getOptionKey,
   onChange,
+  numberOfItems,
   ...rest
 }: ITypeaheadProps) {
   return (
-    <CheckboxImplementation
+    <ComboBoxImplementation
       {...rest}
       onSelectionChange={onSelectedItemChange}
-      items={options}
+      items={
+        numberOfItems !== undefined ? options.slice(0, numberOfItems) : options
+      }
       onInputChange={onChange}
     >
       {(item: any) => {
@@ -57,11 +60,11 @@ export function Typeahead({
           </Item>
         );
       }}
-    </CheckboxImplementation>
+    </ComboBoxImplementation>
   );
 }
 
-function CheckboxImplementation(props: IComboBoxProps) {
+function ComboBoxImplementation(props: IComboBoxProps) {
   const [layoutProps] = extractInObject(props, layoutPropsList);
   let state = useComboBoxState(props);
 

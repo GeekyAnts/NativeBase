@@ -8,6 +8,7 @@ export type ITypeaheadProps = IBoxProps & {
   dropdownHeight?: number | string;
   inputValue?: string;
   onSelectedItemChange?: (value: any) => void;
+  numberOfItems?: number;
   getOptionLabel?: (item: any) => string;
   getOptionKey?: (item: any) => any;
   disabledKeys?: Array<any>;

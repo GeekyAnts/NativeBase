@@ -110,6 +110,7 @@ import {
   Fab,
   IFabProps,
   Typeahead,
+  useTypeahead,
 } from './components/composites';
 
 import {
@@ -249,6 +250,7 @@ export {
   useSnackbar,
   Fab,
   Typeahead,
+  useTypeahead,
   Select,
 };
 export type {
