@@ -1,3 +1,5 @@
+import type { RefObject } from 'react';
+import type { ViewProps } from 'react-native';
 import type { IBoxProps } from '../../primitives';
 
 export type ITabsProps = IBoxProps & {
@@ -12,13 +14,15 @@ export type ITabsProps = IBoxProps & {
   orientation?: 'horizontal' | 'vertical';
   size?: 'sm' | 'md' | 'lg';
   variant?: string;
-  onChange?: (index?: number) => void;
+  onChange?: (index: number) => void;
 };
 
 export type ITabBarProps = IBoxProps & {
   align?: 'center' | 'end' | 'start';
   isFitted?: boolean;
   size?: 'sm' | 'md' | 'lg';
+  tablistRef?: RefObject<any>;
+  tabListProps?: ViewProps;
 };
 export type ITabProps = IBoxProps & {
   isDisabled?: boolean;

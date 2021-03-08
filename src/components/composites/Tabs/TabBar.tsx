@@ -1,9 +1,9 @@
 import React from 'react';
 import Box from '../../primitives/Box';
 import { TabsContext } from './Context';
-import type { ITabsContextProps } from './types';
+import type { ITabsContextProps, ITabBarProps } from './types';
 
-const TabBar = ({ tablistRef, tabListProps, ...props }: any) => {
+const TabBar = ({ tablistRef, tabListProps, ...props }: ITabBarProps) => {
   const {
     tabBarStyle,
     align,

@@ -35,8 +35,17 @@ const convertToCollectionItems = (children: any) => {
   const { views, bars } = getTabsAndBars(children);
 
   return bars.map((bar: any, index: number) => {
+    let textValue;
+    if (bar.props.accessibilityLabel) {
+      textValue = bar.props.accessibilityLabel;
+    } else if (typeof bar.props.children === 'string') {
+      textValue = bar.props.children;
+    } else if (__DEV__) {
+      console.warn('Please pass accessibilityLabel into Tabs.Tab component');
+    }
+
     return (
-      <Item key={index} title={bar}>
+      <Item key={index} title={bar} textValue={textValue}>
         {views[index]}
       </Item>
     );
