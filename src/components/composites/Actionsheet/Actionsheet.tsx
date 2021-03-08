@@ -16,9 +16,9 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
       justifyContent="flex-end"
       motionPreset="slide"
       {...newProps}
+      overlayVisible={disableOverlay ? false : true}
       ref={ref}
     >
-      {disableOverlay ? <></> : <Modal.Overlay />}
       {children}
     </Modal>
   );
