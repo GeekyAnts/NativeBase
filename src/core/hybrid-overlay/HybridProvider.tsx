@@ -9,7 +9,10 @@ import type { IColorModeProviderProps } from './../color-mode';
 
 const HybridProvider = ({
   children,
-  options: { initialColorMode = 'light' },
+  options: {
+    initialColorMode = 'light',
+    accessibleColors: isTextColorAccessible = false,
+  },
   colorModeManager,
 }: IColorModeProviderProps) => {
   // Popover content
@@ -41,6 +44,11 @@ const HybridProvider = ({
     setColorMode(colorMode === 'light' ? 'dark' : 'light');
   }, [colorMode, setColorMode]);
 
+  // Accessible color hook
+  const [accessibleColors, setAccessibleColors] = React.useState<boolean>(
+    isTextColorAccessible
+  );
+
   return (
     <HybridContext.Provider
       value={{
@@ -59,6 +67,8 @@ const HybridProvider = ({
           colorMode,
           toggleColorMode,
           setColorMode,
+          accessibleColors,
+          setAccessibleColors,
         },
       }}
     >

@@ -8,5 +8,7 @@ export const HybridContext = createContext<IHybridContextProps>({
     colorMode: 'light',
     toggleColorMode: () => {},
     setColorMode: () => {},
+    accessibleColors: false,
+    setAccessibleColors: () => {},
   },
 });
