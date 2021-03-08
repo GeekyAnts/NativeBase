@@ -9,7 +9,7 @@ import TabViews from './TabViews';
 import TabBar from './TabBar';
 import { useTabs } from '@react-native-aria/tabs';
 
-const getTabsAndBars = (children: any): any => {
+const getTabsAndBars = (children: any) => {
   let bars: any = [];
   let views: any = [];
   let items = React.Children.toArray(children);
@@ -54,18 +54,21 @@ const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
     ...newProps
   } = useThemeProps('Tabs', props);
 
-  const fakeChildren = convertToCollectionItems(children);
+  // useTabsState needs collection children.
+  const collectionChildren = convertToCollectionItems(children);
   const { tabBarProps, tabViewsProps } = getTabsAndBars(children);
 
   const mappedProps = {
-    children: fakeChildren,
-    defaultSelectedKey: props.defaultIndex
-      ? props.defaultIndex.toString()
-      : undefined,
-    selectedKey: props.index ? props.index.toString() : undefined,
+    children: collectionChildren,
+    defaultSelectedKey:
+      props.defaultIndex !== undefined
+        ? props.defaultIndex.toString()
+        : undefined,
+    selectedKey: props.index !== undefined ? props.index.toString() : undefined,
     onSelectionChange: (e: any) => onChange && onChange(parseInt(e)),
   };
 
+  // useTabsState needs collection children.
   let state = useTabsState(mappedProps);
 
   const setAlign = () => {
