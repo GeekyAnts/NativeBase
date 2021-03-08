@@ -1981,7 +1981,7 @@
     "@react-types/shared" "^3.3.0"
     intl-messageformat "^2.2.0"
 
-"@react-aria/i18n@^3.3.0":
+"@react-aria/i18n@^3.2.0", "@react-aria/i18n@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@react-aria/i18n/-/i18n-3.3.0.tgz#7f92ae81f6536b19b17b89c0991ddb6c10f2512a"
   integrity sha512-8KYk0tQiEf9Kd9xdF4cKliP1169WSIryKFnZgnm9dvZl96TyfDK1xJpZQy58XjRdbS/H45CKydFmMcZEElu3BQ==
@@ -2091,7 +2091,7 @@
     "@react-stately/radio" "^3.2.1"
     "@react-types/radio" "^3.1.1"
 
-"@react-aria/selection@^3.3.2":
+"@react-aria/selection@^3.3.1", "@react-aria/selection@^3.3.2":
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/@react-aria/selection/-/selection-3.3.2.tgz#35e46335d8882b1ee887d5f3c245117a29794d4e"
   integrity sha512-HhMJR8UN7MQg0XqNbFIhuH0YDf7tEAp+xa5KfyyXjAG7sjTkoYwB212NfxtevNChnXWb19gdoF0IEVHVKuoxkA==
@@ -2111,6 +2111,21 @@
   integrity sha512-rweMNcSkUO4YkcmgFIoZFvgPyHN2P9DOjq3VOHnZ8SG3Y4TTvSY6Iv90KgzeEfmWCUqqt65FYH4JgrpGNToEMw==
   dependencies:
     "@babel/runtime" "^7.6.2"
+
+"@react-aria/tabs@3.0.0-alpha.2":
+  version "3.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@react-aria/tabs/-/tabs-3.0.0-alpha.2.tgz#3b931d9c752c2dca4c2a1b975248b0ee751077a2"
+  integrity sha512-yHpz1HujxBcMq8e4jrHkkowzrJwuVyssCB+DuA91kt6LC0eIMZsDZY9tEhhOq+TyOhI3nbyXaDKJG6y1qB0A5A==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.2.0"
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/selection" "^3.3.1"
+    "@react-aria/utils" "^3.4.1"
+    "@react-stately/list" "^3.2.2"
+    "@react-stately/tabs" "3.0.0-alpha.0"
+    "@react-types/shared" "^3.2.1"
+    "@react-types/tabs" "3.0.0-alpha.2"
 
 "@react-aria/textfield@^3.2.2":
   version "3.2.2"
@@ -2227,6 +2242,15 @@
     "@react-aria/utils" "^3.5.0"
     "@react-native-aria/utils" "^0.2.2"
 
+"@react-native-aria/interactions@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/interactions/-/interactions-0.2.3.tgz#b1d5cdf784fbdf2cc2d93d4a4c215c68806ec683"
+  integrity sha512-kkqLDTpUg5lpG0BEKvtcHnqG6LUjRCMcdkOV2ul6pMu8J/YztOJJmCss46V6YApY8joH6yHJd5g/g3AZEzn78g==
+  dependencies:
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/utils" "^0.2.4"
+
 "@react-native-aria/listbox@^0.2.4-alpha.0":
   version "0.2.4-alpha.0"
   resolved "https://registry.yarnpkg.com/@react-native-aria/listbox/-/listbox-0.2.4-alpha.0.tgz#4e5ef8feeda9688cb488f5720fd95c0a0d5d7fcb"
@@ -2253,6 +2277,18 @@
     "@react-stately/radio" "^3.2.1"
     "@react-types/radio" "^3.1.1"
 
+"@react-native-aria/tabs@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/tabs/-/tabs-0.2.3.tgz#e84a566e3b94ab9abbfbdf6d76112972ccadd99c"
+  integrity sha512-GFSShjDFLJ9sFa5I799UOqELSNOBL4VwiYfDZNiUl2AnSTxuffLnaJNYUHEOSMNjKtc2paxBikN/OiXf3ukvFQ==
+  dependencies:
+    "@react-aria/i18n" "^3.3.0"
+    "@react-aria/tabs" "3.0.0-alpha.2"
+    "@react-native-aria/interactions" "^0.2.3"
+    "@react-native-aria/utils" "^0.2.3"
+    "@react-stately/tabs" "3.0.0-alpha.1"
+    "@react-types/tabs" "3.0.0-alpha.2"
+
 "@react-native-aria/toggle@^0.2.2-alpha.0":
   version "0.2.2-alpha.0"
   resolved "https://registry.yarnpkg.com/@react-native-aria/toggle/-/toggle-0.2.2-alpha.0.tgz#b50e285c7403fe4475b320297f02904cba73ae4d"
@@ -2275,7 +2311,7 @@
   resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.2.tgz#ecdc51a55f2e03a40257f0975e3897cc09bb0826"
   integrity sha512-aHgHLcR+0DZmv00zUubrA2Ea2hw+zGEag4T1eaAQOjml8oAe+eQoY7Oz8wMrutFEG35VCjh3zj9VDcaTqh8rag==
 
-"@react-native-aria/utils@^0.2.4":
+"@react-native-aria/utils@^0.2.3", "@react-native-aria/utils@^0.2.4":
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.4.tgz#7b2ad211b648f861085ea98c963d2e8ac97d40dc"
   integrity sha512-dBzPTytIfRVRUSoqT/6J75lTNwCgGv2TdpvwM2pmFQxyj1GiembJI2S8qNGR9RX2R/584JLKLwIDlNXsF+qqXg==
@@ -2565,6 +2601,26 @@
     "@react-stately/utils" "^3.1.1"
     "@react-types/shared" "^3.3.0"
 
+"@react-stately/tabs@3.0.0-alpha.0":
+  version "3.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/tabs/-/tabs-3.0.0-alpha.0.tgz#41451c7957ab2773fc4edb78ec02fcb94c6ab226"
+  integrity sha512-QJZ9N7DT89RkP18btvQhJvxWuv/JkSwtm14ftfk+5LBbzyxyLsD2KP6jDrNhXgmkRMmIyEaMt2w2VmI6fQ6UAA==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/list" "^3.2.2"
+    "@react-stately/utils" "^3.0.0-alpha.1"
+    "@react-types/tabs" "3.0.0-alpha.2"
+
+"@react-stately/tabs@3.0.0-alpha.1", "@react-stately/tabs@^3.0.0-alpha.1":
+  version "3.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@react-stately/tabs/-/tabs-3.0.0-alpha.1.tgz#b166ca9733ebebcc3bb2223116b8b070af104812"
+  integrity sha512-aEG5lVLqmfx7A/dS5gkPXmD2ERAo69RtC0aHPo/Dw1XjzalYyo6QbQ5WtiuQxsCVx/naWGEJCcMEAD5/vt+cUQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/list" "^3.2.2"
+    "@react-stately/utils" "^3.2.0"
+    "@react-types/tabs" "3.0.0-alpha.2"
+
 "@react-stately/toggle@^3.2.1":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@react-stately/toggle/-/toggle-3.2.1.tgz#8b10b5eb99c3c4df2c36d17a5f23b77773ed7722"
@@ -2586,17 +2642,17 @@
     "@react-stately/utils" "^3.1.1"
     "@react-types/shared" "^3.2.1"
 
+"@react-stately/utils@^3.0.0-alpha.1", "@react-stately/utils@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/utils/-/utils-3.2.0.tgz#0b90a70fee3236025ad8bed1f0e3555d5fc10296"
+  integrity sha512-vVBJvHVLnQySgqZ7OfP3ngDdwfGscJDsSD3WcN5ntHiT3JlZ5bksQReDkJEs20SFu2ST4w/0K7O4m97SbuMl2Q==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+
 "@react-stately/utils@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@react-stately/utils/-/utils-3.1.1.tgz#e2f2c3ef81cfc6850a3418cb0f050c33d123620a"
   integrity sha512-htG4TicI4SKxfD5sEKYGxlMeQ5/+TuWPtnhRMbRqdmqnfkVxO/PoaQeEF+xUMWM9VCZc69ZFH6Qen1eZ/JfFcQ==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-
-"@react-stately/utils@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/utils/-/utils-3.2.0.tgz#0b90a70fee3236025ad8bed1f0e3555d5fc10296"
-  integrity sha512-vVBJvHVLnQySgqZ7OfP3ngDdwfGscJDsSD3WcN5ntHiT3JlZ5bksQReDkJEs20SFu2ST4w/0K7O4m97SbuMl2Q==
   dependencies:
     "@babel/runtime" "^7.6.2"
 
@@ -2697,6 +2753,13 @@
   integrity sha512-7bApLg+3xgBEfjv9rUrUL3sjVLVh0M96DLUAEXUK5/zEogJSOOlk82lgafqINNPMjKbdNORegUTiyDIglUPV/Q==
   dependencies:
     "@react-types/shared" "^3.3.0"
+
+"@react-types/tabs@3.0.0-alpha.2":
+  version "3.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@react-types/tabs/-/tabs-3.0.0-alpha.2.tgz#f18c71f4843ae2117b41fdb012f89cc2dd43adf4"
+  integrity sha512-HQNS2plzuNhKPo88OGEW2Ja9aLeiWqgNqEemSxh0KAjkA8IsvDGaoQEpr9ZQIyBZ3PQIljvOpEJ/IwHU5LztrQ==
+  dependencies:
+    "@react-types/shared" "^3.2.1"
 
 "@react-types/textfield@^3.2.2":
   version "3.2.2"
