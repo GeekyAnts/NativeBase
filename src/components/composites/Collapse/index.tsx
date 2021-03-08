@@ -53,7 +53,7 @@ const Collapse = ({
     ? endingHeight
     : startingHeight
     ? startingHeight
-    : 0;
+    : 1;
   let animatedStyle = { height: defaultStartHeight };
   const animateView = () => {
     if (onAnimationStart) {
