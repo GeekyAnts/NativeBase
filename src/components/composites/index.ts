@@ -147,4 +147,4 @@ export { AppBar } from './AppBar';
 
 export { Fab } from './Fab';
 export type { IFabProps } from './Fab';
-export { default as Typeahead, useTypeahead } from './Typeahead';
+export { Typeahead, useTypeahead } from './Typeahead';

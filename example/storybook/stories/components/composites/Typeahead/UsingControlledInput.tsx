@@ -10,22 +10,24 @@ const animals = [
   { id: 6, value: 'Godzilla' },
 ];
 
-export function UsingComponent() {
-  const [filterText, setFilterText] = React.useState('');
+export function UsingControlledInput() {
+  const [items] = React.useState(animals);
+  const [inputValue, setInputValue] = React.useState('');
 
   const filteredItems = React.useMemo(() => {
-    return animals.filter(
-      (item) => item.value.toLowerCase().indexOf(filterText.toLowerCase()) > -1
+    return items.filter(
+      (item) => item.value.toLowerCase().indexOf(inputValue.toLowerCase()) > -1
     );
-  }, [filterText]);
+  }, [items, inputValue]);
 
   return (
     <Typeahead
       options={filteredItems}
-      onChange={setFilterText}
-      onSelectedItemChange={console.log}
-      getOptionKey={(item) => item.key}
       getOptionLabel={(item) => item.value}
+      getOptionKey={(item) => item.key}
+      onChange={setInputValue}
+      inputValue={inputValue}
+      onSelectedItemChange={console.log}
       label="Select your favorite animal"
       toggleIcon={({ isOpen }: any) => {
         return isOpen ? (
