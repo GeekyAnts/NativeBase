@@ -98,7 +98,10 @@ const Input = (
     callback();
   };
 
-  let placeholderColor = useToken('colors', placeholderTextColor ?? 'gray.400');
+  let placeholderColor = useToken(
+    'colors',
+    (placeholderTextColor as string) ?? 'gray.400'
+  );
 
   if (typeof placeholderColor !== 'string') {
     placeholderColor = placeholderTextColor;

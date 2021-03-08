@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from '../../Wrapper';
 import Usage from './Usage';
+import Controlled from './Controlled';
 import TabBarOnly from './TabBarOnly';
 import FittedTabs from './FittedTabs';
 import Size from './Size';
@@ -15,6 +16,7 @@ storiesOf('Tabs', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Usage', () => <Usage />)
+  .add('Controlled', () => <Controlled />)
   .add('Composition', () => <Composition />)
   .add('Variants', () => <Variants />)
   .add('TabsAlignment', () => <TabsAlignment />)
