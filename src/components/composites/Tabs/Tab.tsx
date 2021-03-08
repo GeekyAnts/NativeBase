@@ -1,47 +1,52 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { Pressable } from 'react-native';
 import Box from '../../primitives/Box';
 import { TabsContext } from './Context';
 import type { ITabProps, ITabsContextProps } from './types';
 import { omitUndefined } from '../../../theme/tools/utils';
+import { useTab } from '@react-native-aria/tabs';
 
 const Tab = ({
-  index,
   children,
   isDisabled,
   style,
   _active,
   _disabled,
+  item,
   ...props
 }: ITabProps) => {
   const newProps = omitUndefined(props);
   const {
-    activeIndex,
     inactiveTabStyle,
     activeTabStyle,
-    changeHandler,
+    state,
   }: ITabsContextProps = React.useContext(TabsContext);
-  const isOpen = activeIndex === index;
-  const tabStyle = isOpen ? activeTabStyle : inactiveTabStyle;
-  const pressHandler = () => {
-    changeHandler && changeHandler(index);
-  };
+  let ref = React.useRef<any>(null);
+
+  let isSelected = state.selectedKey === item.key;
+
+  let { tabProps } = useTab({ item, isDisabled }, state, ref);
+
+  React.useEffect(() => {
+    if (isDisabled) {
+      state.disabledKeys.add(item.key);
+    } else {
+      state.disabledKeys.delete(item.key);
+    }
+  }, [isDisabled, item.key, state.disabledKeys]);
+
+  const tabStyle = isSelected ? activeTabStyle : inactiveTabStyle;
+
   return (
-    <TouchableOpacity
-      activeOpacity={1}
-      disabled={isDisabled}
-      onPress={() => pressHandler()}
-      accessible={true}
-      accessibilityRole="radio"
-    >
+    <Pressable disabled={isDisabled} ref={ref} {...tabProps}>
       <Box
         {...tabStyle}
         {...newProps}
-        style={[style, isOpen && _active, isDisabled && _disabled]}
+        style={[style, isSelected && _active, isDisabled && _disabled]}
       >
         {children}
       </Box>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

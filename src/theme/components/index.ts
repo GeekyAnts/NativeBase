@@ -59,6 +59,7 @@ import TextArea from './textarea';
 import Toast from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import { List, ListItem, ListIcon } from './list';
+import { TypeAheadSearchItem } from './typeahead';
 
 export default {
   Accordion,
@@ -128,4 +129,5 @@ export default {
   AppBar,
   TextArea,
   Toast,
+  TypeAheadSearchItem,
 };
