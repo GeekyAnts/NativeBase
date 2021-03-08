@@ -17,6 +17,7 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
       motionPreset="slide"
       {...newProps}
       overlayVisible={disableOverlay ? false : true}
+      closeOnOverlayClick={disableOverlay ? false : true}
       ref={ref}
     >
       {children}
