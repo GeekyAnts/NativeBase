@@ -42,7 +42,14 @@ const Accordion = (
     onChange && onChange(indexCopy);
   };
   return (
-    <AccordionContext.Provider value={{ index: index, changeHandler }}>
+    <AccordionContext.Provider
+      value={{
+        index: index,
+        changeHandler,
+        TotalChildren: children.length,
+        AccordionProps: newProps,
+      }}
+    >
       <Box {...newProps} ref={ref}>
         {getIndexedChildren(children)}
       </Box>
