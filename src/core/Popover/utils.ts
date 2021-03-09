@@ -1,16 +1,27 @@
 import { Dimensions, I18nManager, StatusBar } from 'react-native';
 
+/**
+ *
+ * @param triggerTop : Top of the trigger element
+ * @param triggerLeft : Left of the trigger element
+ * @param triggerWidth : Height of the trigger element
+ * @param triggerHeight : Width of the trigger element
+ * @param elementWidth : Width of the actual element that is being mounted
+ * @param elementHeight : Height of the actual element that is being mounted
+ * @param placeOverTriggerElement: option to mount over trigger element
+ * @returns
+ */
 export function getCoordinates(
-  elementTop: any,
-  elementLeft: any,
-  elementWidth: any,
-  elementHeight: any,
+  triggerTop: any,
+  triggerLeft: any,
   triggerWidth: any,
   triggerHeight: any,
+  elementWidth: any,
+  elementHeight: any,
   placeOverTriggerElement: boolean = true
 ) {
-  let top = elementTop;
-  let left = elementLeft;
+  let top = triggerTop;
+  let left = triggerLeft;
   const { isRTL } = I18nManager;
   const dimensions = Dimensions.get('window');
   const { width: windowWidth } = dimensions;
