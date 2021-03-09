@@ -4,8 +4,9 @@ import Box from '../../primitives/Box';
 import type {
   IAccordionSummaryProps,
   IAccordionItemContextProps,
+  IAccordionContextProps,
 } from './types';
-import { AccordionItemContext } from './Context';
+import { AccordionContext, AccordionItemContext } from './Context';
 import { useThemeProps } from '../../../hooks';
 import { mergeRefs } from '../../../utils';
 import { useHover } from '@react-native-aria/interactions';
@@ -20,9 +21,11 @@ const AccordionSummary = (
     isDisabled,
     onOpen,
     onClose,
-    TotalChildren,
-    AccordionProps,
   }: IAccordionItemContextProps = React.useContext(AccordionItemContext);
+  const {
+    AccordionProps,
+    TotalChildren,
+  }: IAccordionContextProps = React.useContext(AccordionContext);
 
   const { _hover, _expanded, _disabled, ...newProps } = useThemeProps(
     'AccordionSummary',
