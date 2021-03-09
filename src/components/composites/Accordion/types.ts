@@ -23,6 +23,8 @@ export type IAccordionDetailsProps = IBoxProps & {};
 export type IAccordionContextProps = {
   index?: number[];
   changeHandler?: (isOpening: boolean, id: number) => void;
+  AccordionProps?: any;
+  TotalChildren?: number;
 };
 export type IAccordionItemContextProps = {
   index?: number;
@@ -30,6 +32,8 @@ export type IAccordionItemContextProps = {
   isDisabled?: boolean;
   onClose?: () => void;
   onOpen?: () => void;
+  TotalChildren?: number;
+  AccordionProps?: any;
 };
 export type IAccordionIconProps = IIconProps & {
   style?: any;
