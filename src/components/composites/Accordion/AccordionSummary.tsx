@@ -20,6 +20,8 @@ const AccordionSummary = (
     isDisabled,
     onOpen,
     onClose,
+    TotalChildren,
+    AccordionProps,
   }: IAccordionItemContextProps = React.useContext(AccordionItemContext);
 
   const { _hover, _expanded, _disabled, ...newProps } = useThemeProps(
@@ -30,6 +32,19 @@ const AccordionSummary = (
     isOpen ? onClose && onClose() : onOpen && onOpen();
   };
 
+  // Find the first and last Item and add borderRadius matching to the accordion over all borderRadius
+  const firstItem = index === 0 ? true : false;
+  const lastItem = TotalChildren
+    ? index === TotalChildren - 1
+      ? true
+      : false
+    : false;
+  const edgeItemsProps = {
+    borderTopLeftRadius: firstItem ? AccordionProps.borderRadius : 0,
+    borderTopRightRadius: firstItem ? AccordionProps.borderRadius : 0,
+    borderBottomLeftRadius: lastItem ? AccordionProps.borderRadius : 0,
+    borderBottomRightRadius: lastItem ? AccordionProps.borderRadius : 0,
+  };
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
 
@@ -47,6 +62,7 @@ const AccordionSummary = (
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
+        {...edgeItemsProps}
         {...newProps}
         {...(isHovered && _hover)}
         {...(isOpen && _expanded)}

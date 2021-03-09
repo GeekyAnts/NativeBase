@@ -36,8 +36,8 @@ export function UsingHook() {
     getToggleButtonProps,
   } = useTypeahead({
     items: inputItems,
-    itemToString: (item) => item.toString(),
-    onInputValueChange: ({ inputValue }) => {
+    itemToString: (item: any) => item.toString(),
+    onInputValueChange: ({ inputValue }: { inputValue: string }) => {
       setInputItems(
         countries.filter((item) =>
           item.toLowerCase().startsWith(inputValue.toLowerCase())
@@ -47,7 +47,7 @@ export function UsingHook() {
   });
 
   return (
-    <Box width="100%" flexDirection="row">
+    <Box width="60%" flexDirection="row">
       <Box flex={1}>
         <Input size="2xl" {...getInputProps()} />
       </Box>

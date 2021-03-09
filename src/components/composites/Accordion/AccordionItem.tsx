@@ -13,6 +13,8 @@ const AccordionItem = ({
   const {
     index: cIndex,
     changeHandler,
+    TotalChildren,
+    AccordionProps,
   }: IAccordionContextProps = React.useContext(AccordionContext);
   const { ...newProps } = useThemeProps('AccordionItem', props);
 
@@ -38,6 +40,8 @@ const AccordionItem = ({
         isDisabled,
         onClose,
         onOpen,
+        TotalChildren,
+        AccordionProps,
       }}
     >
       <Box {...newProps}>{childSetter()}</Box>
