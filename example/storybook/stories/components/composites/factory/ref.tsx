@@ -1,9 +1,9 @@
 import React from 'react';
-import { NBFactory, Button } from 'native-base';
+import { Factory, Button } from 'native-base';
 import { TextInput } from 'react-native';
 
 export default function () {
-  const NBInput = NBFactory(TextInput);
+  const NBInput = Factory(TextInput);
   const inputRef = React.useRef(null);
   return (
     <>
