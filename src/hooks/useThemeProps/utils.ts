@@ -14,6 +14,15 @@ import { useContrastText } from '../useContrastText';
 /*
  Extract props from theme props and omit those from props
 */
+/**
+ *
+ * @param props Props passed by the user
+ * @param theme Theme object
+ * @param colorModeProps `colorMode` object
+ * @param componentTheme Theme for specific components
+ * @param currentBreakpoint Current breakpoint values
+ * @returns Extracting props from defaultProps while overriding the props that are already present
+ */
 function extractProps(
   props: any,
   theme: any,
@@ -21,10 +30,12 @@ function extractProps(
   componentTheme: any,
   currentBreakpoint: number
 ) {
+  // TODO: This function needs a lot of comments
   let newProps: any = {};
   for (let property in props) {
     // If the property exists in theme map then get its value
     if (themePropertyMap[property]) {
+      // TODO: Need some documentation
       let propValues = extractPropertyFromFunction(
         property,
         props,
@@ -105,6 +116,7 @@ const extractPropertyFromFunction = (
       `${themePropertyMap[property]}.${props[property]}`
     );
   }
+  console.log('propValues &*&', propValues);
   return propValues;
 };
 
@@ -151,6 +163,16 @@ const resolveValueWithBreakpoint = (
   }
 };
 
+/**
+ * Takes all prop related data and returns the props that needs to be applied to the component
+ *
+ * @param theme Theme object
+ * @param colorModeProps Color mode information
+ * @param componentTheme Theme object for the specific component
+ * @param props Props passed by the user
+ * @param windowWidth Width of the current window
+ * @returns props to be applied
+ */
 export function calculateProps(
   theme: any,
   colorModeProps: any,

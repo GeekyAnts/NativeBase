@@ -14,6 +14,8 @@ const filterAndCalculateProps = (
   windowWidth: any
 ) => {
   // Extracting out children and style, as they do not contribute in props calculation
+  // This is done as these props are passed as it is later in the development
+  // Required as some of these will trigger cyclic computation which may lead to error
   let [ignoredProps, props] = extractInObject(propsReceived, [
     'children',
     'style',
@@ -37,6 +39,8 @@ export function useThemeProps(component: string, propsReceived: any) {
   const { theme, ...colorModeProps } = useNativeBase();
   const componentTheme = get(theme, `components.${component}`);
   let windowWidth = useWindowDimensions()?.width;
+
+  // To pass the component theme props and component props seperately
   return filterAndCalculateProps(
     omit(theme, ['components']),
     colorModeProps,
