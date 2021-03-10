@@ -3,7 +3,7 @@ import { Alert, CloseButton, Box, VStack } from 'native-base';
 
 export default function () {
   return (
-    <VStack mx={2} space={3}>
+    <VStack m={3} space={3}>
       <Alert
         status="success"
         display="flex"
@@ -12,7 +12,6 @@ export default function () {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        height="200px"
       >
         <Alert.Icon boxSize="40px" mr={0} />
         <Alert.Title mt={4} mb={2}>
@@ -32,7 +31,6 @@ export default function () {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        height="200px"
       >
         <Alert.Icon boxSize="40px" mr={0} />
         <Alert.Title mt={4} mb={2}>
