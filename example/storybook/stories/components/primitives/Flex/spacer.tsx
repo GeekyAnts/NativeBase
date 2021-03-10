@@ -4,11 +4,11 @@ import { Flex, Text, Spacer, Center } from 'native-base';
 export const SpacerExample = () => {
   return (
     <Flex direction="row">
-      <Center w="100px" bg="tomato">
+      <Center size={16} bg="emerald.500">
         <Text>Box 1</Text>
       </Center>
       <Spacer />
-      <Center bg="green.500" h="100px" w="100px">
+      <Center bg="lightBlue.500" size={16}>
         <Text>Box 2</Text>
       </Center>
     </Flex>
