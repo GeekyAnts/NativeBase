@@ -5,7 +5,7 @@ export default function () {
     <Center>
       <Heading>Indeterminate Progress</Heading>
       <CircularProgress mt={6} value={50} isIndeterminate color="red.200">
-        <CircularProgress.Label>50%</CircularProgress.Label>
+        50%
       </CircularProgress>
     </Center>
   );

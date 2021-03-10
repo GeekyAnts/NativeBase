@@ -5,7 +5,7 @@ export default function () {
     <Center>
       <Heading>Adding label</Heading>
       <CircularProgress mt={6} value={45} size={60} color="red.200">
-        <CircularProgress.Label>45%</CircularProgress.Label>
+        45%
       </CircularProgress>
     </Center>
   );
