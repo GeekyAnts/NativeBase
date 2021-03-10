@@ -20,6 +20,7 @@ const CircularProgress = (
     trackColor,
     max,
     min,
+    _text,
     ...props
   }: ICircularProgressProps,
   ref: any
@@ -183,7 +184,9 @@ const CircularProgress = (
             style={[styles.firstProgressLayer, firstProgressLayerStyle]}
           />
           {renderThirdLayer(value)}
-          <Box fontSize={sizeProps.height / 4}>{props.children}</Box>
+          <Box fontSize={sizeProps.height / 4} _text={_text}>
+            {props.children}
+          </Box>
         </>
       ) : (
         <StyleAnimatedView
