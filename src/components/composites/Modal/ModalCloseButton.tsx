@@ -8,8 +8,8 @@ const ModalCloseButton = (props: ICloseButtonProps) => {
   const { toggleVisible, toggleOnClose } = React.useContext(ModalContext);
   return (
     <CloseButton
+      accessibilityLabel="Close dialog"
       {...newProps}
-      // accessibilityLabel="Close dialog"
       onPress={() => {
         toggleVisible(false);
         toggleOnClose(false);

@@ -8,10 +8,11 @@ import {
 } from 'react-native';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
 import isEqual from 'lodash/isEqual';
+import type { IOverlayConfig } from './types';
 
 type OverlayWrapperType = {
   overlayItem: any;
-  overlayConfig: any;
+  overlayConfig: IOverlayConfig;
   setOverlayItem: any;
 };
 
@@ -86,6 +87,11 @@ function Wrapper({
     setWindowSize(layoutSize.height);
   };
 
+  const handleClose = () => {
+    setOverlayItem(null);
+    overlayConfig.onClose ? overlayConfig.onClose(false) : null;
+  };
+
   useEffect(() => {
     if (isSlideAnimation) {
       if (overlayItem && overlayItemHeight) {
@@ -121,6 +127,30 @@ function Wrapper({
     setOverlayItemposition,
   ]);
 
+  useEffect(
+    function closeOverlayOnEscapeEffectCallback() {
+      let escapeKeyListener: any = null;
+      if (Platform.OS === 'web') {
+        escapeKeyListener = (e: KeyboardEvent) => {
+          if (
+            e.key === 'Escape' &&
+            overlayConfig.isKeyboardDismissable &&
+            overlayItem
+          ) {
+            handleClose();
+          }
+        };
+        document.addEventListener('keydown', escapeKeyListener);
+      }
+      return () => {
+        if (Platform.OS === 'web') {
+          document.removeEventListener('keydown', escapeKeyListener);
+        }
+      };
+    },
+    [overlayConfig, overlayItem]
+  );
+
   const placeOverlayItem = () => {
     if (readyToAnimate && overlayItem) {
       const webStyle = {
@@ -145,8 +175,20 @@ function Wrapper({
   };
 
   overlayItem ? fadeIn() : fadeOut();
+  const isOverlayModal = overlayItem && overlayConfig.accessibilityViewIsModal;
+
   return (
     <Animated.View
+      // iOS
+      accessibilityViewIsModal={isOverlayModal}
+      // Web
+      aria-modal={isOverlayModal}
+      onAccessibilityEscape={handleClose}
+      // Web. aria-* will be deprecated in future versions
+      // @ts-ignore
+      accessibilityModal={isOverlayModal}
+      // @ts-ignore
+      accessibilityRole={isOverlayModal ? 'dialog' : undefined}
       style={[overlayStyle.wrapper, { opacity: fadeValue }]}
       pointerEvents={
         overlayItem
@@ -157,10 +199,10 @@ function Wrapper({
       }
     >
       <TouchableWithoutFeedback
+        accessibilityLabel="Close Overlay"
         onPress={() => {
           if (overlayConfig.closeOnPress) {
-            setOverlayItem(null);
-            overlayConfig.onClose ? overlayConfig.onClose(false) : null;
+            handleClose();
           }
         }}
       >

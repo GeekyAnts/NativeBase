@@ -119,6 +119,8 @@ const Modal = (
             </ModalContext.Provider>,
             {
               onClose: onClose,
+              isKeyboardDismissable: true,
+              accessibilityViewIsModal: true,
               closeOnPress:
                 newProps.closeOnOverlayClick === false ? false : true,
               backgroundColor: overlayColor ? overlayColor : undefined,
