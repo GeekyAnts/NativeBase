@@ -1,22 +1,25 @@
 import React from 'react';
-import { Button, HStack, Icon } from 'native-base';
+import { Button, VStack, Icon } from 'native-base';
 
 export default function () {
   return (
-    <HStack space={2}>
+    <VStack space={4}>
       <Button
-        startIcon={<Icon name="menu" size={6} type="MaterialIcons" />}
-        colorScheme="blue"
+        startIcon={
+          <Icon name="menu" size={6} type="MaterialIcons" color="white" />
+        }
+        colorScheme="indigo"
       >
         Menu
       </Button>
       <Button
-        isDisabled
-        endIcon={<Icon name="menu" size={6} type="MaterialIcons" />}
-        colorScheme="cyan"
+        endIcon={
+          <Icon name="menu" size={6} type="MaterialIcons" color="white" />
+        }
+        colorScheme="emerald"
       >
         Menu
       </Button>
-    </HStack>
+    </VStack>
   );
 }

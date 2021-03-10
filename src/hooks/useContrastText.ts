@@ -109,6 +109,7 @@ const themeColorsThresholdShades: any = {
   lightBlue: 400,
   cyan: 300,
   teal: 300,
+  emerald: 300,
   green: 400,
   lime: 600,
   yellow: 800,
