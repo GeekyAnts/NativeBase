@@ -1,9 +1,9 @@
 import React from 'react';
-import Box from '../../primitives/Box';
-import { AccordionItemContext } from './Context';
+import { AccordionContext, AccordionItemContext } from './Context';
 import Collapse from '../Collapse';
 import type {
   IAccordionDetailsProps,
+  IAccordionContextProps,
   IAccordionItemContextProps,
 } from './types';
 import { useThemeProps } from '../../../hooks';
@@ -13,9 +13,12 @@ const AccordionDetails = ({ children, ...props }: IAccordionDetailsProps) => {
   const { isOpen }: IAccordionItemContextProps = React.useContext(
     AccordionItemContext
   );
+  const { AnimationProps }: IAccordionContextProps = React.useContext(
+    AccordionContext
+  );
   return (
-    <Collapse isOpen={isOpen}>
-      <Box {...newProps}>{children}</Box>
+    <Collapse {...AnimationProps} {...newProps} isOpen={isOpen}>
+      {children}
     </Collapse>
   );
 };

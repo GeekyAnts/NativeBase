@@ -6,7 +6,7 @@ export function NBButtons() {
     <>
       {foo.map((val, index) => (
         <Button key={index} onPress={() => {}}>
-          {`NB Button ${index}`}
+          {`NativeBase Button ${index}`}
         </Button>
       ))}
     </>

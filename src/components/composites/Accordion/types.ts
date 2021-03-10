@@ -1,6 +1,7 @@
 import type { IBoxProps, IIconProps } from '../../primitives';
+import type { ICollapseProps } from '../../composites/Collapse';
 
-export type IAccordionProps = IBoxProps & {
+export type IAccordionProps = ICollapseProps & {
   allowMultiple?: boolean;
   allowToggle?: boolean;
   index?: number[];
@@ -19,12 +20,13 @@ export type IAccordionSummaryProps = IBoxProps & {
   _disabled?: any;
   _hover?: any;
 };
-export type IAccordionDetailsProps = IBoxProps & {};
+export type IAccordionDetailsProps = ICollapseProps & {};
 export type IAccordionContextProps = {
   index?: number[];
   changeHandler?: (isOpening: boolean, id: number) => void;
   AccordionProps?: any;
   TotalChildren?: number;
+  AnimationProps?: any;
 };
 export type IAccordionItemContextProps = {
   index?: number;
@@ -32,8 +34,6 @@ export type IAccordionItemContextProps = {
   isDisabled?: boolean;
   onClose?: () => void;
   onOpen?: () => void;
-  TotalChildren?: number;
-  AccordionProps?: any;
 };
 export type IAccordionIconProps = IIconProps & {
   style?: any;

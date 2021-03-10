@@ -93,7 +93,7 @@ const extractPropertyFromFunction = (
       ...props,
     });
     // Check if returned object from componentTheme is a nested object
-    let isNested = Object.keys(funcProps).some(function (key) {
+    let isNested: boolean = Object.keys(funcProps).some(function (key) {
       return funcProps[key] && typeof funcProps[key] === 'object';
     });
     propValues = isNested
