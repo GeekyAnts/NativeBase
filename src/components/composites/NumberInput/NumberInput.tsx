@@ -35,6 +35,11 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
     const temp = newValue;
     setNumberInputValue(temp);
   };
+
+  React.useEffect(() => {
+    if (value !== undefined && value != numberInputValue)
+      setNumberInputValue(value);
+  }, [value, numberInputValue, setNumberInputValue]);
   return (
     <NumberInputContext.Provider
       value={{
@@ -47,6 +52,7 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
         numberInputValue,
         numberInputStepper,
         setNumberInputStepper,
+        isControlled: value !== undefined,
       }}
     >
       {children}
