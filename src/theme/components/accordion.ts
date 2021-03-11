@@ -4,7 +4,7 @@ import { mode } from '../tools/colors';
 const accordionBaseStyle = (props: Record<string, any>) => {
   return {
     borderWidth: 1,
-    borderColor: mode('gray.800', 'gray.50')(props),
+    borderColor: mode('gray.300', 'gray.600')(props),
     borderRadius: 'lg',
   };
 };
@@ -23,15 +23,15 @@ const accordionButtonBaseStyle = (props: Record<string, any>) => {
   return {
     borderWidth: 1,
     borderColor: 'transparent',
-    borderTopColor: mode('gray.800', 'gray.50')(props),
+    borderTopColor: mode('gray.300', 'gray.600')(props),
     p: 3,
     _hover: {
       bg: mode('default.200', 'default.300')(props),
     },
     _expanded: {
       bg: 'default.600',
-      borderBottomColor: mode('gray.800', 'gray.50')(props),
-      color: 'white',
+      borderBottomColor: mode('gray.300', 'gray.600')(props),
+      _text: { color: 'white' },
     },
     _disabled: {
       bg: mode('gray.200', 'gray.700')(props),
