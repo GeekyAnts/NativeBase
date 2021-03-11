@@ -6,7 +6,7 @@ export default function () {
       <Accordion allowMultiple>
         <Accordion.Item>
           <Accordion.Summary _expanded={{ backgroundColor: 'orange.300' }}>
-            <Box>Click me to see a different style</Box>
+            Click me to see a different style
             <Accordion.Icon />
           </Accordion.Summary>
           <Accordion.Details>
@@ -17,8 +17,8 @@ export default function () {
           </Accordion.Details>
         </Accordion.Item>
         <Accordion.Item id={9} isDisabled>
-          <Accordion.Summary _disabled={{ backgroundColor: 'gray.300' }}>
-            <Box>I'm Disabled 😢</Box>
+          <Accordion.Summary>
+            I'm Disabled 😢
             <Accordion.Icon />
           </Accordion.Summary>
           <Accordion.Details>
