@@ -45,8 +45,16 @@ const AccordionSummary = (
   const edgeItemsProps = {
     borderTopLeftRadius: firstItem ? AccordionProps.borderRadius : 0,
     borderTopRightRadius: firstItem ? AccordionProps.borderRadius : 0,
-    borderBottomLeftRadius: lastItem ? AccordionProps.borderRadius : 0,
-    borderBottomRightRadius: lastItem ? AccordionProps.borderRadius : 0,
+    borderBottomLeftRadius: lastItem
+      ? !isOpen
+        ? AccordionProps.borderRadius
+        : 0
+      : 0,
+    borderBottomRightRadius: lastItem
+      ? !isOpen
+        ? AccordionProps.borderRadius
+        : 0
+      : 0,
   };
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);

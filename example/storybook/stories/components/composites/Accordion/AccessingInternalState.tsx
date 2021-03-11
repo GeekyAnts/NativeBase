@@ -6,7 +6,7 @@ export default function () {
       <Accordion allowMultiple defaultIndex={[1]}>
         <Accordion.Item>
           <Accordion.Summary>
-            <Box textAlign="left">Section 1 title</Box>
+            Section 1 title
             <Accordion.Icon />
           </Accordion.Summary>
           <Accordion.Details>
@@ -21,9 +21,13 @@ export default function () {
           {({ isExpanded }: any) => (
             <>
               <Accordion.Summary>
-                <Box textAlign="left">{isExpanded ? 'Fire' : 'Snow'}</Box>
+                {isExpanded ? 'Fire' : 'Snow'}
                 {isExpanded ? (
-                  <Icon name="fire" type="MaterialCommunityIcons" />
+                  <Icon
+                    name="fire"
+                    color="white"
+                    type="MaterialCommunityIcons"
+                  />
                 ) : (
                   <Icon name="snowflake" type="MaterialCommunityIcons" />
                 )}

@@ -73,6 +73,8 @@ const Input = (
     ml,
     mt,
     mb,
+    mx,
+    my,
     label,
     _label,
     placeholderTextColor,
@@ -91,6 +93,8 @@ const Input = (
     ml,
     mt,
     mb,
+    mx,
+    my,
   };
   const [isFocused, setIsFocused] = React.useState(false);
   const handleFocus = (focusState: boolean, callback: any) => {
@@ -117,6 +121,7 @@ const Input = (
     errorBorderColor,
     hoverBorderColor,
     borderBottomWidth,
+    _errorMessageBaseProps,
     ...newProps
   } = useThemeProps('Input', { ...formControlContext, ...props });
 
@@ -202,7 +207,7 @@ const Input = (
                   <Box
                     w="120%"
                     p="1px"
-                    bg="gray.50"
+                    // bg="gray.50" // Todo: Get Background color and set it here to hide input border
                     position="absolute"
                     right="-10%"
                     bottom={`${
@@ -263,7 +268,7 @@ const Input = (
       </Box>
 
       {isInvalid && errorMessage ? (
-        <Text ml={2} color="danger.600" {..._errorMessage}>
+        <Text ml={2} {..._errorMessageBaseProps} {..._errorMessage}>
           {errorMessage}
         </Text>
       ) : null}

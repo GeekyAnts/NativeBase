@@ -1,5 +1,13 @@
 import React from 'react';
-import { Checkbox, Heading, HStack, Text, View } from 'native-base';
+import {
+  Checkbox,
+  Heading,
+  HStack,
+  VStack,
+  Text,
+  View,
+  Box,
+} from 'native-base';
 
 export default function () {
   const [groupValue, setGroupValue] = React.useState(['Item 1 ', 'Item 3 ']);
@@ -32,12 +40,14 @@ export default function () {
           <Text mx={2}>Indeterminate Item</Text>
         </Checkbox>
       </Checkbox.Group>
-      <HStack mt={3} alignItems="baseline">
-        <Text fontSize="md">Selected Values: </Text>
-        <Text fontSize="md" bold>
-          {groupValue}
-        </Text>
-      </HStack>
+      <VStack mt={3}>
+        <Box>
+          <Text fontSize="md">Selected Values: </Text>
+          <Text fontSize="md" bold>
+            {groupValue}
+          </Text>
+        </Box>
+      </VStack>
     </View>
   );
 }
