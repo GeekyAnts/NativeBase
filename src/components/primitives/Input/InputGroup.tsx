@@ -4,6 +4,7 @@ import type { IInputProps } from '../Input';
 import { getAttachedChildren } from '../../../utils';
 import { useColorModeValue } from '../../../core/color-mode/hooks';
 import Flex from '../Flex';
+import { themeTools } from '../../../theme';
 
 export const InputLeftAddon = React.memo((props: IBoxProps & IInputProps) => {
   const addonsDefaultStyle = {
@@ -46,7 +47,7 @@ export const InputRightAddon = React.memo((props: IBoxProps & IInputProps) => {
   );
 });
 
-type InputGroupProps = {
+type InputGroupProps = IBoxProps & {
   children: JSX.Element | JSX.Element[];
   variant?: string;
   size?: string;
@@ -60,9 +61,21 @@ const supplyPropsToChildren = (children: any, props: any) => {
 
 export const InputGroup = React.memo(
   React.forwardRef(({ children, ...props }: InputGroupProps, ref: any) => {
+    let [layoutProps, remProps] = themeTools.extractInObject(props, [
+      'w',
+      'width',
+      'm',
+      'mr',
+      'ml',
+      'mt',
+      'mb',
+      'mx',
+      'my',
+    ]);
+
     return (
-      <Flex direction="row" ref={ref}>
-        {supplyPropsToChildren(getAttachedChildren(children), props)}
+      <Flex direction="row" {...layoutProps} ref={ref}>
+        {supplyPropsToChildren(getAttachedChildren(children), remProps)}
       </Flex>
     );
   })
