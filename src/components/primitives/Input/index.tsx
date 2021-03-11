@@ -207,7 +207,7 @@ const Input = (
                   <Box
                     w="120%"
                     p="1px"
-                    bg="gray.50"
+                    // bg="gray.50" // Todo: Get Background color and set it here to hide input border
                     position="absolute"
                     right="-10%"
                     bottom={`${
