@@ -2,37 +2,46 @@ import React from 'react';
 import { default as Box, IBoxProps } from '../Box';
 import type { IInputProps } from '../Input';
 import { getAttachedChildren } from '../../../utils';
+import { useColorModeValue } from '../../../core/color-mode/hooks';
 import Flex from '../Flex';
 
-const addonsDefaultStyle = {
-  p: 3,
-  borderColor: 'gray.300',
-  borderWidth: 1,
-};
-
 export const InputLeftAddon = React.memo((props: IBoxProps & IInputProps) => {
+  const addonsDefaultStyle = {
+    p: 3,
+    borderColor: useColorModeValue('gray.300', 'gray.600'),
+    borderWidth: 1,
+  };
   return (
     <Box
       {...addonsDefaultStyle}
       borderRightWidth={0}
       roundedLeft={4}
-      bg="gray.200"
+      bg={useColorModeValue('gray.50', 'gray.700')}
       {...props}
     >
-      <Box m="auto">{props.children}</Box>
+      <Box m="auto" _text={props._text || { fontWeight: 600 }}>
+        {props.children}
+      </Box>
     </Box>
   );
 });
 export const InputRightAddon = React.memo((props: IBoxProps & IInputProps) => {
+  const addonsDefaultStyle = {
+    p: 3,
+    borderColor: useColorModeValue('gray.300', 'gray.600'),
+    borderWidth: 1,
+  };
   return (
     <Box
       {...addonsDefaultStyle}
       borderLeftWidth={0}
       roundedRight={4}
-      bg="gray.200"
+      bg={useColorModeValue('gray.50', 'gray.700')}
       {...props}
     >
-      <Box m="auto">{props.children}</Box>
+      <Box m="auto" _text={props._text || { fontWeight: 600 }}>
+        {props.children}
+      </Box>
     </Box>
   );
 });

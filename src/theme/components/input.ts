@@ -10,14 +10,16 @@ const baseStyle = (props: Record<string, any>) => {
     color: mode('black', 'white')(props),
     placeholderTextColor: mode(colors.gray[600], colors.black)(props),
     _isDisabledProps: {
-      opacity: 0.4,
+      opacity: 0.8,
+      bg: mode('gray.100', 'gray.700')(props),
     },
     borderColor: isInvalid
       ? mode('danger.600', 'danger.200')(props)
-      : mode('gray.600', 'gray.400')(props),
+      : mode('gray.300', 'gray.600')(props),
     hoverBorderColor: 'default.500',
     focusBorderColor: mode('default.600', 'default.400')(props),
     errorBorderColor: mode('danger.600', 'danger.200')(props),
+    _errorMessageBaseProps: { color: mode('danger.600', 'danger.200')(props) },
   };
 };
 
