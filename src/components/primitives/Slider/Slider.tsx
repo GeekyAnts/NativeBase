@@ -20,7 +20,7 @@ class NBSlider extends React.PureComponent<
     thumbSize?: number;
     sliderSize?: number;
     activeColor?: string;
-  },
+  } & { isUncontrolled?: boolean },
   StateType
 > {
   static contextType = SliderContext;
@@ -29,6 +29,17 @@ class NBSlider extends React.PureComponent<
     deltaValue: 0,
     value: this.props.defaultValue || 0,
   };
+
+  static getDerivedStateFromProps(props: any) {
+    // Added this part to updated the component when props changes
+    // NOTE: This updateing the state once
+    if (!props.isUncontrolled) {
+      return {
+        value: props.value,
+      };
+    }
+    return null;
+  }
 
   panResponder = PanResponder.create({
     onMoveShouldSetPanResponderCapture: () => true,
@@ -50,6 +61,10 @@ class NBSlider extends React.PureComponent<
       this.props.min || 0,
       this.props.max || 100
     );
+
+    // TODO: Problem must be somewhere around here.
+    // NOTE: This updateing the state snecond time, which is why slider is moving faster than expected.
+
     this.props.onChange &&
       this.props.onChange(
         this.capValueWithinRange(this.state.value + newDeltaValue, [min, max])
@@ -59,11 +74,15 @@ class NBSlider extends React.PureComponent<
     });
   }
   onEndMove() {
-    const { value, deltaValue } = this.state;
+    const { deltaValue } = this.state;
+    const value = this.props.value ?? this.state.value;
     const { min = 0, max = 100 } = this.props;
     const cappedVal = this.capValueWithinRange(value + deltaValue, [min, max]);
     this.props.onChangeEnd && this.props.onChangeEnd(cappedVal);
-    this.setState({ value: cappedVal, deltaValue: 0 });
+
+    this.props.isUncontrolled
+      ? this.setState({ value: cappedVal, deltaValue: 0 })
+      : this.setState({ deltaValue: 0 });
   }
 
   onBarLayout = (event: any) => {
@@ -125,7 +144,8 @@ class NBSlider extends React.PureComponent<
   };
 
   render() {
-    const { value, deltaValue, barSize } = this.state;
+    const { deltaValue, barSize } = this.state;
+    const value = this.props.value ?? this.state.value;
     const min = this.props.min ?? 0;
     const max = this.props.max ?? 100;
     const cappedValue = this.capValueWithinRange(value + deltaValue, [
@@ -153,7 +173,9 @@ class NBSlider extends React.PureComponent<
           sliderSize: this.props.sliderSize,
           orientation: this.props.orientation,
           isDisabled: this.props.isDisabled,
-          value: this.state.value,
+          value: this.props.isUncontrolled
+            ? this.state.value
+            : this.props.value,
         }}
       >
         <Box
@@ -212,7 +234,9 @@ const Slider = ({ ...props }: ISliderProps) => {
     ...props,
   });
 
-  return <NBSlider {...newProps} />;
+  return (
+    <NBSlider isUncontrolled={newProps.value === undefined} {...newProps} />
+  );
 };
 
 export default React.memo(Slider);

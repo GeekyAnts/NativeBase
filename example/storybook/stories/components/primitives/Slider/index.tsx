@@ -9,6 +9,7 @@ import Color from './color';
 import Value from './Value';
 import FormControlled from './FormControlled';
 import Customized from './Customized';
+import Testing from './Testing';
 import Playground from './Playground';
 
 storiesOf('Slider', module)
@@ -20,5 +21,7 @@ storiesOf('Slider', module)
   .add('Color', () => <Color />)
   .add('Vertical', () => <Vertical />)
   .add('Value', () => <Value />)
+  // Testing example is added for only testing purpose only.
+  .add('Testing', () => <Testing />)
   .add('Customized', () => <Customized />)
   .add('Form Controlled', () => <FormControlled />);

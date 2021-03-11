@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider, Text, Box } from 'native-base';
+import { Slider, Text, Box, Button } from 'native-base';
 
 export default function () {
   const [onChangeValue, setOnChangeValue] = React.useState(70);
@@ -12,7 +12,8 @@ export default function () {
       <Box mx={5} width="80%" mt={4}>
         <Slider
           defaultValue={70}
-          colorScheme="cyan"
+          value={onChangeValue}
+          colorScheme="amber"
           onChange={(v: any) => {
             setOnChangeValue(Math.floor(v));
           }}
@@ -26,6 +27,14 @@ export default function () {
           <Slider.Thumb />
         </Slider>
       </Box>
+      <Button
+        onPress={() => {
+          setOnChangeValue(0);
+        }}
+        colorScheme="dark"
+      >
+        Reset
+      </Button>
     </Box>
   );
 }
