@@ -6,7 +6,6 @@ import {
   InputLeftAddon,
   InputRightAddon,
   Stack,
-  Text,
   Center,
   Heading,
   Button,
@@ -14,26 +13,26 @@ import {
 } from 'native-base';
 
 export const DefaultInput = () => {
-  return <Input placeholder="Default Input" />;
+  return <Input mx={3} placeholder="Default Input" />;
 };
 export const SizeInput = () => {
   return (
-    <Stack alignItems="center" space={4}>
+    <Stack space={4} w="80%">
       <Center>
-        <Heading>Size Input</Heading>
+        <Heading>Input Sizes</Heading>
       </Center>
-      <Input w="90%" size="xs" placeholder="xs Input" />
-      <Input w="90%" size="sm" placeholder="sm Input" />
-      <Input w="90%" size="md" placeholder="md Input" />
-      <Input w="90%" size="lg" placeholder="lg Input" />
-      <Input w="90%" size="xl" placeholder="xl Input" />
-      <Input w="90%" size="2xl" placeholder="2xl Input" isDisabled={true} />
+      <Input size="xs" placeholder="xs Input" />
+      <Input size="sm" placeholder="sm Input" />
+      <Input size="md" placeholder="md Input" />
+      <Input size="lg" placeholder="lg Input" />
+      <Input size="xl" placeholder="xl Input" />
+      <Input size="2xl" placeholder="2xl Input" isDisabled={true} />
     </Stack>
   );
 };
 export const VariantInput = () => {
   return (
-    <Stack space={4}>
+    <Stack space={4} w="80%">
       <Center>
         <Heading>Input Variants</Heading>
       </Center>
@@ -54,9 +53,9 @@ export const InputAddons = () => {
   return (
     <Stack space={4}>
       <InputGroup>
-        <InputLeftAddon children={<Text>https://</Text>} />
+        <InputLeftAddon children={'https://'} />
         <Input w="70%" placeholder="nativebase" />
-        <InputRightAddon children={<Text>.io</Text>} />
+        <InputRightAddon children={'.io'} />
       </InputGroup>
     </Stack>
   );
@@ -84,7 +83,13 @@ export const PasswordInput = () => {
       w="70%"
       type={show ? 'text' : 'password'}
       InputRightElement={
-        <Button ml={1} onPress={handleClick}>
+        <Button
+          ml={1}
+          roundedLeft={0}
+          roundedRight="md"
+          colorScheme="default"
+          onPress={handleClick}
+        >
           {show ? 'Hide' : 'Show'}
         </Button>
       }
@@ -97,6 +102,7 @@ export const ControlledInput = () => {
   const handleChange = (event: any) => setValue(event.target.value);
   return (
     <Input
+      mx={3}
       value={value}
       onChange={handleChange}
       placeholder="Value Controlled Input"
@@ -105,20 +111,20 @@ export const ControlledInput = () => {
 };
 export const FocusErrorBorderColor = () => {
   return (
-    <Stack space={4}>
+    <Stack space={4} w="80%">
       <Input
-        placeholder="Here is a sample placeholder"
-        focusBorderColor="green"
+        placeholder="focusBorderColor Example"
+        focusBorderColor="green.400"
       />
       <Input
-        placeholder="Here is a sample placeholder"
-        focusBorderColor="pink"
+        placeholder="focusBorderColor Example"
+        focusBorderColor="pink.400"
       />
-      <Input placeholder="Here is a sample placeholder" isInvalid />
+      <Input placeholder="Invalid Input Example" isInvalid />
       <Input
-        placeholder="Here is a sample placeholder"
+        placeholder="errorBorderColor Example"
         isInvalid
-        errorBorderColor="yellow"
+        errorBorderColor="yellow.400"
         errorMessage="This is an Error Message"
       />
     </Stack>
