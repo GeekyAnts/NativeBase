@@ -6,7 +6,9 @@ export default function () {
     <Tag colorScheme="emerald" size="sm" rounded={'full'}>
       <Avatar
         mr={2}
-        source={{ uri: 'https://nativebase.io/assets/img/front-page-icon.png' }}
+        source={{
+          uri: 'https://alpha.nativebase.io/img/nativebase-new-icon.png',
+        }}
         width={6}
         height={6}
       />

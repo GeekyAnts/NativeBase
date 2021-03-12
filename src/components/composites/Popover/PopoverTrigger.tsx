@@ -1,5 +1,6 @@
 import React from 'react';
 import { PopoverContext } from './popover';
+import { Platform } from 'react-native';
 
 const PopoverTrigger = ({ children }: any) => {
   const { setPopoverTrigger } = React.useContext(PopoverContext);
@@ -11,7 +12,7 @@ const PopoverTrigger = ({ children }: any) => {
           {
             isDisabled: true,
             disabled: true,
-            cursor: 'pointer',
+            cursor: Platform.OS === 'web' ? 'pointer' : null,
             opacity: 0.8,
           },
           child.props.children

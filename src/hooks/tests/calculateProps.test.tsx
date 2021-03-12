@@ -36,7 +36,7 @@ describe('useCalculateProps', () => {
     );
     expect(result.current).toEqual({
       _text: {
-        color: 'gray.700',
+        color: 'gray.900',
         fontSize: 'xs',
         fontWeight: 'bold',
         textTransform: 'uppercase',
@@ -59,7 +59,7 @@ describe('useCalculateProps', () => {
     );
     expect(result.current).toEqual({
       _text: {
-        color: 'gray.700',
+        color: 'gray.900',
         fontSize: 'xs',
         fontWeight: 'bold',
         textTransform: 'uppercase',

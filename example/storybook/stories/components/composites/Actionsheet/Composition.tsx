@@ -9,15 +9,20 @@ export default function () {
 
       <Actionsheet isOpen={isOpen} onClose={onClose}>
         <Actionsheet.Content>
-          <Actionsheet.Header>Header</Actionsheet.Header>
-          <Actionsheet.Item>Option 1</Actionsheet.Item>
-          <Divider />
-          <Actionsheet.Item>Option 2</Actionsheet.Item>
-          <Divider />
-          <Actionsheet.Item>Option 3</Actionsheet.Item>
+          <Actionsheet.Header my={3}>Header</Actionsheet.Header>
+          <Divider borderColor="gray.300" />
+          <Actionsheet.Item _text={{ color: 'blue.500' }}>
+            Save
+          </Actionsheet.Item>
+          <Divider borderColor="gray.300" />
+          <Actionsheet.Item _text={{ color: 'blue.500' }}>
+            Delete
+          </Actionsheet.Item>
         </Actionsheet.Content>
         <Actionsheet.Footer>
-          <Actionsheet.Item onPress={onClose}>Cancel</Actionsheet.Item>
+          <Actionsheet.Item _text={{ color: 'red.500' }} onPress={onClose}>
+            Cancel
+          </Actionsheet.Item>
         </Actionsheet.Footer>
       </Actionsheet>
     </>
