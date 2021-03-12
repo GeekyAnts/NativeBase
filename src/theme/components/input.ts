@@ -19,7 +19,6 @@ const baseStyle = (props: Record<string, any>) => {
     hoverBorderColor: 'default.500',
     focusBorderColor: mode('default.600', 'default.400')(props),
     errorBorderColor: mode('danger.600', 'danger.200')(props),
-    _errorMessageBaseProps: { color: mode('danger.600', 'danger.200')(props) },
   };
 };
 

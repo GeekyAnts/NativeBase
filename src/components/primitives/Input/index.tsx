@@ -20,7 +20,6 @@ import {
   customTypography,
 } from '../../../utils/customProps';
 import Box from '../Box';
-import Text from '../Text';
 import Flex from '../Flex';
 import type { IInputProps } from './types';
 import { InputRightAddon, InputGroup, InputLeftAddon } from './InputGroup';
@@ -53,8 +52,6 @@ const Input = (
   {
     style,
     placeholder,
-    errorMessage,
-    _errorMessage,
     // isRequired,
     isFullWidth,
     onFocus,
@@ -121,7 +118,6 @@ const Input = (
     errorBorderColor,
     hoverBorderColor,
     borderBottomWidth,
-    _errorMessageBaseProps,
     ...newProps
   } = useThemeProps('Input', { ...formControlContext, ...props });
 
@@ -266,12 +262,6 @@ const Input = (
           </Flex>
         ) : null}
       </Box>
-
-      {isInvalid && errorMessage ? (
-        <Text ml={2} {..._errorMessageBaseProps} {..._errorMessage}>
-          {errorMessage}
-        </Text>
-      ) : null}
     </Box>
   );
 };
