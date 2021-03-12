@@ -36,6 +36,13 @@ export function orderedExtractInObject(parent: any, values: Array<string>) {
     omitUndefined(omit(parent, values)),
   ];
 }
+
+/**
+ *
+ * @param parent The object from which data needs to extracted
+ * @param values Keys which needs to be extracted
+ * @returns [extractedProps, remainingProps]
+ */
 export function extractInObject(parent: any, values: Array<string>) {
   return [
     omitUndefined(pick(parent, values)),
