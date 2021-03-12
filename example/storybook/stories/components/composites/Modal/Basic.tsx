@@ -6,6 +6,7 @@ export default function () {
   return (
     <>
       <Modal
+        accessibilityLabel="this is a simple form"
         isOpen={modalVisible}
         onClose={setModalVisible}
         overlayVisible={true}
