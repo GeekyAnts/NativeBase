@@ -19,6 +19,7 @@ import { Box, View } from '../../primitives';
 import type { IModalProps, IModalSemiProps } from './types';
 import { default as ModalOverlay } from './ModalOverlay';
 import { ModalContext } from './Context';
+import { themeTools } from '../../../theme';
 
 const ModalWeb = ({
   initialFocusRef,
@@ -87,9 +88,15 @@ const Modal = (
     toggleOnClose: onClose ? onClose : () => {},
     contentSize: contentSize,
   };
+
+  // Accessibility label will be added to the overlay wrapper or else VoiceOver announces it twice
+  let [accessibilityProps, restProps] = themeTools.extractInObject(newProps, [
+    'accessibilityLabel',
+  ]);
+
   const modalChildren = (
     <Box
-      {...newProps}
+      {...restProps}
       justifyContent={justifyContent ?? 'center'}
       alignItems={alignItems ?? 'center'}
     >
@@ -119,8 +126,9 @@ const Modal = (
             </ModalContext.Provider>,
             {
               onClose: onClose,
-              isKeyboardDismissable: true,
+              isKeyboardDismissable: props.isKeyboardDismissable ?? true,
               accessibilityViewIsModal: true,
+              accessibilityLabel: accessibilityProps.accessibilityLabel,
               closeOnPress:
                 newProps.closeOnOverlayClick === false ? false : true,
               backgroundColor: overlayColor ? overlayColor : undefined,

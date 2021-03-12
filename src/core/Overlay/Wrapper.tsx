@@ -87,10 +87,10 @@ function Wrapper({
     setWindowSize(layoutSize.height);
   };
 
-  const handleClose = () => {
+  const handleClose = React.useCallback(() => {
     setOverlayItem(null);
     overlayConfig.onClose ? overlayConfig.onClose(false) : null;
-  };
+  }, [overlayConfig, setOverlayItem]);
 
   useEffect(() => {
     if (isSlideAnimation) {
@@ -148,7 +148,7 @@ function Wrapper({
         }
       };
     },
-    [overlayConfig, overlayItem]
+    [overlayConfig, overlayItem, handleClose]
   );
 
   const placeOverlayItem = () => {
@@ -175,20 +175,26 @@ function Wrapper({
   };
 
   overlayItem ? fadeIn() : fadeOut();
-  const isOverlayModal = overlayItem && overlayConfig.accessibilityViewIsModal;
+
+  const isOverlayOpen = !!overlayItem;
+  const isModal = isOverlayOpen && overlayConfig.accessibilityViewIsModal;
 
   return (
     <Animated.View
+      accessibilityLabel={
+        isOverlayOpen ? overlayConfig.accessibilityLabel : undefined
+      }
       // iOS
-      accessibilityViewIsModal={isOverlayModal}
+      accessibilityViewIsModal={isModal}
       // Web
-      aria-modal={isOverlayModal}
+      aria-modal={isModal}
+      // To support Z gesture escape on iOS
       onAccessibilityEscape={handleClose}
       // Web. aria-* will be deprecated in future versions
       // @ts-ignore
-      accessibilityModal={isOverlayModal}
+      accessibilityModal={isModal}
       // @ts-ignore
-      accessibilityRole={isOverlayModal ? 'dialog' : undefined}
+      accessibilityRole={isModal ? 'dialog' : undefined}
       style={[overlayStyle.wrapper, { opacity: fadeValue }]}
       pointerEvents={
         overlayItem

@@ -26,6 +26,7 @@ export type IOverlayConfig = {
   onClose?: Function;
   closeOnPress?: boolean;
   isKeyboardDismissable?: boolean;
+  accessibilityLabel?: string;
   accessibilityViewIsModal?: boolean;
 };
 
