@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Stack, Heading, Icon, Text, HStack, Avatar } from 'native-base';
 export const CompositionCard = () => {
   return (
-    <Box width={80} p={5} rounded="xl" border={1} borderColor="blueGray.400">
+    <Box width={80} p={5} rounded="xl" shadow={4}>
       <Stack space={6}>
         <Avatar
           size={'sm'}

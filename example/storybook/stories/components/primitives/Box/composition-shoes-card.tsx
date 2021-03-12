@@ -14,7 +14,7 @@ export const CompositionShoesCard = () => {
     <Flex
       w={64}
       rounded={12}
-      border={1}
+      shadow={4}
       borderColor="blueGray.400"
       overflow="hidden"
     >
