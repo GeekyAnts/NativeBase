@@ -30,12 +30,10 @@ function extractProps(
   componentTheme: any,
   currentBreakpoint: number
 ) {
-  // TODO: This function needs a lot of comments
   let newProps: any = {};
   for (let property in props) {
-    // If the property exists in theme map then get its value
+    // If the property exists in themePropertyMap then get its value
     if (themePropertyMap[property]) {
-      // TODO: Need some documentation
       let propValues = extractPropertyFromFunction(
         property,
         props,
@@ -85,9 +83,15 @@ function filterDefaultProps(props: any, defaultProps: any) {
   return resultProps;
 }
 
-/*
-If property is functional in componentTheme, get its returned object
-*/
+/**
+ * If property is functional in componentTheme, get its returned object
+ *
+ * @param property : name of the prop
+ * @param props : all props
+ * @param theme : provided theme without components
+ * @param componentTheme : component specific theme
+ * @returns
+ */
 const extractPropertyFromFunction = (
   property: string,
   props: any,
@@ -95,6 +99,7 @@ const extractPropertyFromFunction = (
   componentTheme: any
 ) => {
   let propValues;
+  // Check if the entry in the theme is a function then calling it with all theme and props as params
   if (
     componentTheme &&
     typeof componentTheme[themePropertyMap[property]] === 'function'
@@ -107,16 +112,17 @@ const extractPropertyFromFunction = (
     let isNested: boolean = Object.keys(funcProps).some(function (key) {
       return funcProps[key] && typeof funcProps[key] === 'object';
     });
+    // If the returned value is nested object then find the property value in it, otherwise return the whole object
     propValues = isNested
       ? { ...get(funcProps, `${props[property]}`) }
       : { ...funcProps };
   } else {
+    // If the entry is any value other than function then return the whole object or value
     propValues = get(
       componentTheme,
       `${themePropertyMap[property]}.${props[property]}`
     );
   }
-  console.log('propValues &*&', propValues);
   return propValues;
 };
 
@@ -148,15 +154,22 @@ function mergeUnderscoreProps(newProps: any, props: any) {
   return newProps;
 }
 
-/*
-Checks the property and resolves it if it has breakpoints
-*/
+/**
+ *
+ * Checks the property and resolves it if it has breakpoints
+ * @param values : value from props
+ * @param currentBreakpoint : current value for which breakpoint will be calculated
+ * @param property : property name
+ * @returns
+ */
 const resolveValueWithBreakpoint = (
   values: any,
   currentBreakpoint: number,
   property: any
 ) => {
   if (hasValidBreakpointFormat(values, property)) {
+    // Check the last valid breakpoint value from all values
+    // If current breakpoint is `md` and we have `base` then `lg`, then last value will be taken(`base` in this case)
     return findLastValidBreakpoint(values, currentBreakpoint);
   } else {
     return values;
