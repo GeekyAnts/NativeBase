@@ -1,2 +1,2 @@
-export { default as NBFactory } from './component';
+export { default as Factory } from './component';
 export type { FactoryComponentProps } from './types';

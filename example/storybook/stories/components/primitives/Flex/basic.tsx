@@ -3,14 +3,14 @@ import { Flex, Center } from 'native-base';
 
 export default function () {
   return (
-    <Flex h={500} w={100}>
-      <Center w={100} h={100} bg="green.500">
+    <Flex h={64} w={20} justify="space-between">
+      <Center size={16} bg="emerald.400" rounded="xl">
         Box 1
       </Center>
-      <Center bg="blue.300" h={100} w={100}>
+      <Center bg="lightBlue.400" size={16} rounded="xl">
         Box 2
       </Center>
-      <Center flex={1} bg="tomato">
+      <Center size={16} bg="violet.400" rounded="xl">
         Box 3
       </Center>
     </Flex>

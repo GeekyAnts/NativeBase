@@ -17,7 +17,6 @@ export type IAlertDialogComponentType = ((
   Content: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
   Footer: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
   Header: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
-  Overlay: React.MemoExoticComponent<(props: any) => JSX.Element>;
 };
 
 const AlertDialog = React.memo((props: IAlertDialogProps) => {

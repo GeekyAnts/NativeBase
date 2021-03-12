@@ -18,7 +18,15 @@ const Accordion = (
   }: IAccordionProps,
   ref: any
 ) => {
-  const newProps = useThemeProps('Accordion', props);
+  const {
+    endingHeight,
+    startingHeight,
+    duration,
+    isOpen,
+    onAnimationEnd,
+    onAnimationStart,
+    ...newProps
+  } = useThemeProps('Accordion', props);
 
   const [index, setIndex] = React.useState(pIndex || defaultIndex || []);
   const changeHandler = (isOpening: boolean, activeIndex: number) => {
@@ -42,7 +50,22 @@ const Accordion = (
     onChange && onChange(indexCopy);
   };
   return (
-    <AccordionContext.Provider value={{ index: index, changeHandler }}>
+    <AccordionContext.Provider
+      value={{
+        index: index,
+        changeHandler,
+        TotalChildren: children.length,
+        AccordionProps: newProps,
+        AnimationProps: {
+          endingHeight,
+          startingHeight,
+          duration,
+          isOpen,
+          onAnimationEnd,
+          onAnimationStart,
+        },
+      }}
+    >
       <Box {...newProps} ref={ref}>
         {getIndexedChildren(children)}
       </Box>

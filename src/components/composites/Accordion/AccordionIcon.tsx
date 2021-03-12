@@ -9,12 +9,10 @@ const AccordionIcon = ({ ...props }: IAccordionIconProps) => {
     AccordionItemContext
   );
   const { ...newProps } = useThemeProps('AccordionIcon', props);
-  return (
-    <Icon
-      name={isOpen ? 'chevron-small-up' : 'chevron-small-down'}
-      type="Entypo"
-      {...newProps}
-    />
+  return isOpen ? (
+    <Icon name={'chevron-small-up'} color="white" type="Entypo" {...newProps} />
+  ) : (
+    <Icon name={'chevron-small-down'} type="Entypo" {...newProps} />
   );
 };
 

@@ -59,7 +59,6 @@ export type IModalComponentType = ((props: IModalProps) => JSX.Element) & {
   Content: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
   Footer: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
   Header: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
-  Overlay: React.MemoExoticComponent<(props: any) => JSX.Element>;
 };
 
 export type IModalProps = IModalSemiProps & { isOpen: boolean; onClose: any };

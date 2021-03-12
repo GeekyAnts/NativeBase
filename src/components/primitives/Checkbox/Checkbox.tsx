@@ -100,7 +100,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
       {...(Platform.OS === 'web'
         ? {
             disabled: isDisabled,
-            cursor: isDisabled ? 'not-allowed' : 'auto',
+            cursor: isDisabled ? 'not-allowed' : 'pointer',
           }
         : {})}
     >

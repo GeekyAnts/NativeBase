@@ -5,7 +5,6 @@ import { Modal } from '../../composites/Modal';
 
 let AlertDialogTemp: any = AlertDialogMain;
 AlertDialogTemp.Content = AlertDialogContent;
-AlertDialogTemp.Overlay = Modal.Overlay;
 AlertDialogTemp.CloseButton = Modal.CloseButton;
 AlertDialogTemp.Header = Modal.Header;
 AlertDialogTemp.Footer = Modal.Footer;

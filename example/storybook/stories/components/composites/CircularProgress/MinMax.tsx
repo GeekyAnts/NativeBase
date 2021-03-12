@@ -13,7 +13,7 @@ export default function () {
         size={100}
         color={text('Color', 'red.200')}
       >
-        <CircularProgress.Label>550%</CircularProgress.Label>
+        550%
       </CircularProgress>
     </Center>
   );

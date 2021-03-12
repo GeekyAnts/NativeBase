@@ -37,7 +37,16 @@ const providerStyle = StyleSheet.create({
     zIndex: 999,
   },
 });
-
+/**
+ *
+ *
+ * @param {PopoverWrapperType} {
+ *   popoverItem,
+ *   popoverConfig,
+ *   setPopoverItem,
+ * }
+ * @returns
+ */
 function Wrapper({
   popoverItem,
   popoverConfig,
@@ -66,6 +75,8 @@ function Wrapper({
       });
     }
   };
+
+  // DOC: Using this to get dimensions of trigger once it has been mounted.
   React.useEffect(() => {
     if (popoverConfig.triggerRef && popoverConfig.triggerRef.current) {
       popoverConfig.triggerRef.current.measureInWindow(
@@ -78,10 +89,10 @@ function Wrapper({
   let positions = getCoordinates(
     triggerElementDims.y,
     triggerElementDims.x,
-    state.elementWidth,
-    state.elementHeight,
     triggerElementDims.width,
     triggerElementDims.height,
+    state.elementWidth,
+    state.elementHeight,
     popoverConfig.placeOverTriggerElement
   );
   return (

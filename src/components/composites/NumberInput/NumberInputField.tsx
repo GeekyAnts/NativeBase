@@ -12,6 +12,7 @@ const NumberInputFiled = (
     handleChangeWithoutCheck,
     numberInputStepper,
     numberInputValue,
+    isControlled,
     ...context
   }: INumberInputContext & {
     handleChange?: (value: string | number) => void;
@@ -24,7 +25,8 @@ const NumberInputFiled = (
       inputValue = '-' + inputValue;
     }
     const value = parseInt(inputValue, 10);
-    if (value) handleChangeWithoutCheck && handleChangeWithoutCheck(value);
+    if (isControlled) handleChange && handleChange(value);
+    else if (value) handleChangeWithoutCheck && handleChangeWithoutCheck(value);
     else handleChangeWithoutCheck && handleChangeWithoutCheck(0);
   };
   const blurHandler = () => {

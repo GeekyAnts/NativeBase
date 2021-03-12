@@ -70,7 +70,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
       {...(Platform.OS === 'web'
         ? {
             disabled: inputProps.disabled,
-            cursor: inputProps.disabled ? 'not-allowed' : 'auto',
+            cursor: inputProps.disabled ? 'not-allowed' : 'pointer',
           }
         : {})}
     >

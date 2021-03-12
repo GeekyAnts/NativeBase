@@ -9,7 +9,7 @@ export interface ComponentTheme {
   defaultProps?: Record<string, any>;
 }
 const config: ColorModeOptions = {
-  useSystemColorMode: false,
+  useSystemColorMode: false, // TODO: implement this
   initialColorMode: 'light',
   accessibleColors: false,
 };

@@ -1,19 +1,19 @@
 import React from 'react';
-import { NBFactory } from 'native-base';
+import { Factory } from 'native-base';
 import { Image, View, TouchableOpacity, Text } from 'react-native';
 
 export default function () {
-  const NBFactoryImage = NBFactory(Image);
-  const NBFactoryView = NBFactory(View);
-  const NBTouchable = NBFactory(TouchableOpacity);
-  const NBText = NBFactory(Text);
+  const FactoryImage = Factory(Image);
+  const FactoryView = Factory(View);
+  const NBTouchable = Factory(TouchableOpacity);
+  const NBText = Factory(Text);
   return (
     <>
       <NBTouchable>
-        <NBFactoryView bg="teal.200" height={50} width={50} />
+        <FactoryView bg="teal.200" height={50} width={50} />
         <NBText>Hey</NBText>
       </NBTouchable>
-      <NBFactoryImage
+      <FactoryImage
         p={10}
         height={50}
         width={50}
