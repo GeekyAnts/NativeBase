@@ -9,7 +9,7 @@ export default function () {
       <Text>onChangeValue - {onChangeValue}</Text>
       <Text>onChangeEndValue - {onChangeEndValue}</Text>
 
-      <Box mx={5} width="80%">
+      <Box mx={5} w="250">
         <Slider
           defaultValue={70}
           colorScheme="cyan"

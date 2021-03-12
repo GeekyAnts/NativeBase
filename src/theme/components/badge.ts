@@ -20,7 +20,7 @@ function variantSubtle(props: Record<string, any>) {
   let colorScheme = getColorScheme(props);
   return {
     bg: mode(`${colorScheme}.100`, `${colorScheme}.500`)(props),
-    _text: { color: mode(`${colorScheme}.700`, `${colorScheme}.100`)(props) },
+    _text: { color: mode(`${colorScheme}.900`, `${colorScheme}.100`)(props) },
     borderWidth: 1,
     borderColor: 'transparent',
   };
