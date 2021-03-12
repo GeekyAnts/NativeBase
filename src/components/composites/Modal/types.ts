@@ -41,6 +41,12 @@ export type IModalSemiProps = ModalProps &
     id?: any;
     motionPreset?: 'slide' | 'fade' | 'none';
     closeOnOverlayClick?: boolean;
+
+    /*
+    Specifies if a modal can be closed by pressing Escape
+    */
+    isKeyboardDismissable?: boolean;
+
     overlayVisible?: boolean;
     overlayColor?: string;
     ref?: React.Ref<any>;
