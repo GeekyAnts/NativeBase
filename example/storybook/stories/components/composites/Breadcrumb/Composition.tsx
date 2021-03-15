@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, Box, Heading, Icon } from 'native-base';
+import { Breadcrumb, Box, Heading, Icon, Text, HStack } from 'native-base';
 export default function () {
   return (
     <Box>
@@ -7,14 +7,18 @@ export default function () {
       <Breadcrumb spacing={2} fontSize="lg">
         <Breadcrumb.Item>
           <Breadcrumb.Link>
-            <Icon name="home" mr={1} />
-            Home
+            <HStack>
+              <Icon name="home" mr={1} />
+              <Text>Home</Text>
+            </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
         <Breadcrumb.Item>
           <Breadcrumb.Link href="https://alpha.nativebase.io/" isExternal>
-            <Icon name="file-document" type="MaterialCommunityIcons" mr={1} />
-            Docs
+            <HStack>
+              <Icon name="file-document" type="MaterialCommunityIcons" mr={1} />
+              <Text>Docs</Text>
+            </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
 
@@ -23,8 +27,10 @@ export default function () {
             href="https://github.com/GeekyAnts/nativebase"
             isExternal
           >
-            <Icon name="github" type="AntDesign" mr={1} />
-            Github (This is currently active)
+            <HStack>
+              <Icon name="github" type="AntDesign" mr={1} />
+              <Text>Github (This is currently active)</Text>
+            </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
       </Breadcrumb>
