@@ -17,6 +17,7 @@ const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
             isUnderlined: false,
           },
           ...remainingProps,
+          __isCurrentPage: isCurrentPage,
         })
       )}
     </Flex>
