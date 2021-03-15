@@ -66,7 +66,6 @@ const Link = (
           {...linkProps}
           {...newProps}
           ref={ref}
-          aria-current={props.__isCurrentPage ? 'page' : undefined}
           flexDirection="row"
           style={style}
         >
