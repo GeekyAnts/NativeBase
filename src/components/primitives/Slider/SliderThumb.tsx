@@ -64,6 +64,7 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
               : 'pointer'
             : null
         }
+        borderColor={colorScheme}
         position="relative"
         borderRadius="full"
         backgroundColor="light.50"

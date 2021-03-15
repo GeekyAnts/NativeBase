@@ -1,11 +1,14 @@
 import React from 'react';
-import { CircularProgress, Heading, Center } from 'native-base';
-import { number } from '@storybook/addon-knobs';
+import { CircularProgress, Heading, Center, VStack } from 'native-base';
 export default function () {
   return (
     <Center>
-      <Heading>Changing the size</Heading>
-      <CircularProgress mt={6} value={60} size={number('Size(in px)', 60)} />
+      <Heading>Changing the sizes</Heading>
+      <VStack alignItems="center">
+        <CircularProgress mt={6} value={60} size="xl" />
+        <CircularProgress mt={6} value={60} size="lg" />
+        <CircularProgress mt={6} value={60} size="md" />
+      </VStack>
     </Center>
   );
 }

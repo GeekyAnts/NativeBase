@@ -206,12 +206,16 @@ function Option({ item, state }: { item: any; state: ComboBoxState<any> }) {
     backgroundColor = searchItemStyle._focus.backgroundColor;
   } else if (isDisabled) {
     opacity = 0.6;
+    backgroundColor = searchItemStyle._disabled.backgroundColor;
   }
 
   return (
     <Pressable
       {...optionProps}
       opacity={opacity}
+      cursor={
+        isDisabled ? (Platform.OS === 'web' ? 'not-allowed' : null) : null
+      }
       backgroundColor={backgroundColor}
       ref={ref}
     >

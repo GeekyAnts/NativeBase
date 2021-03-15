@@ -25,6 +25,9 @@ export type IOverlayConfig = {
   motionPreset?: 'slide' | 'fade' | 'none';
   onClose?: Function;
   closeOnPress?: boolean;
+  isKeyboardDismissable?: boolean;
+  accessibilityLabel?: string;
+  accessibilityViewIsModal?: boolean;
 };
 
 export type IuseOverlayProps = () => {

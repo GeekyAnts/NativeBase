@@ -42,7 +42,7 @@ export const MenuItem = {
     disabledTextColor: '#bdbdbd', // change this to match theme
     underlayColor: '#E8EDFB',
     _disabled: {
-      bg: 'gray.100',
+      bg: 'gray.50',
       // color: 'gray.500',
       underlayColor: '#f4f4f5',
     },

@@ -8,7 +8,7 @@ export default function () {
         <Slider.Track bg="orange.100">
           <Slider.FilledTrack bg="green.400" />
         </Slider.Track>
-        <Slider.Thumb>
+        <Slider.Thumb borderWidth={0}>
           <Icon name="park" type="MaterialIcons" color="green.500" />
         </Slider.Thumb>
       </Slider>
