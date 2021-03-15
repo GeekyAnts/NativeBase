@@ -24,6 +24,7 @@ export function useLink(props: IUseLinkProp) {
     platformLinkProps = {
       href,
       target: isExternal ? '__blank' : undefined,
+      onClick,
     };
   } else {
     platformLinkProps = {
