@@ -7,20 +7,29 @@ export const getBreadcrumbSeparator = (
   props: any,
   spacing: number | undefined
 ) => {
+  let separatorProps = {
+    accessibilityRole: 'presentation',
+  };
+
   if (Array.isArray(children)) {
     if (children.length === 1) {
       return children;
     }
     const separatorElement = separator ? (
       typeof separator === 'string' ? (
-        <Text mx={spacing ?? 2}>{separator}</Text>
+        <Text {...separatorProps} mx={spacing ?? 2}>
+          {separator}
+        </Text>
       ) : (
         React.cloneElement(separator, {
           mx: spacing ?? 2,
+          ...separatorProps,
         })
       )
     ) : (
-      <Text mx={spacing ?? 2}>{'/'}</Text>
+      <Text mx={spacing ?? 2} {...separatorProps}>
+        {'/'}
+      </Text>
     );
     let result: any = [];
     if (children && children.length > 1) {
