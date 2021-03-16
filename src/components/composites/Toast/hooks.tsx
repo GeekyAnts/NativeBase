@@ -10,16 +10,28 @@ export const useToast = () => {
     title,
     duration = 2000,
     position = 'bottom',
+    accessibilityLiveRegion = 'polite',
+    accessibilityAnnouncement,
     offset,
     _title,
   }: IsetToastProps) => {
     setTimeout(() => {
       closeOverlay();
     }, duration);
-    setOverlay(<ToastItem title={title} _title={_title} offset={offset} />, {
-      position,
-      disableOverlay: true,
-    });
+
+    setOverlay(
+      <ToastItem
+        accessibilityLiveRegion={accessibilityLiveRegion}
+        accessibilityAnnouncement={accessibilityAnnouncement}
+        title={title}
+        _title={_title}
+        offset={offset}
+      />,
+      {
+        position,
+        disableOverlay: true,
+      }
+    );
   };
   return setToast;
 };

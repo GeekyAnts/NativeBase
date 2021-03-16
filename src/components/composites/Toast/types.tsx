@@ -7,4 +7,6 @@ export type IsetToastProps = {
   position?: 'top' | 'bottom' | 'center';
   offset?: { x: number; y: number };
   _title?: ITextProps;
+  accessibilityLiveRegion?: 'none' | 'polite' | 'assertive';
+  accessibilityAnnouncement?: string;
 };

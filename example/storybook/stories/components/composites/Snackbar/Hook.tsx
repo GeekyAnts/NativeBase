@@ -15,6 +15,7 @@ export default function () {
           setSnackbar(template, {
             accessibilityAnnouncement: 'Well done, we are proud of you.',
             autoHideDuration: 1000,
+            accessibilityLiveRegion: 'assertive',
           })
         }
       >
@@ -25,6 +26,7 @@ export default function () {
           setSnackbar(template, {
             placement: 'top',
             accessibilityAnnouncement: 'Well done, we are proud of you.',
+            accessibilityLiveRegion: 'polite',
           })
         }
       >
