@@ -5,7 +5,7 @@ import type { ICircleProps } from './types';
 const Circle = ({ style, size, ...props }: ICircleProps, ref: any) => {
   return (
     <Center
-      rounded="100"
+      rounded="full"
       size={size}
       {...props}
       ref={ref}
