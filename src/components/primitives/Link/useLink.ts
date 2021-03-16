@@ -23,7 +23,9 @@ export function useLink(props: IUseLinkProp) {
   if (Platform.OS === 'web') {
     platformLinkProps = {
       href,
-      target: isExternal ? '__blank' : undefined,
+      hrefAttrs: {
+        target: isExternal ? 'blank' : undefined,
+      },
       onClick,
     };
   } else {
