@@ -15,7 +15,7 @@ export type IProgressProps = IBoxProps & {
 };
 
 const Progress = (
-  { value, isIndeterminate, ...props }: IProgressProps,
+  { value = 0, isIndeterminate, ...props }: IProgressProps,
   ref?: any
 ) => {
   // const width = new Animated.Value(0);
@@ -36,7 +36,7 @@ const Progress = (
     shadow: 0,
     rounded: newProps.rounded,
     height: '100%',
-    w: value + '%',
+    w: (value % 100) + '%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
