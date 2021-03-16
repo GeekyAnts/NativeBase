@@ -10,8 +10,6 @@ export default function () {
       <Collapse
         duration={number('Duration in milliseconds', 700)}
         isOpen={show}
-        startingHeight={30}
-        endingHeight={70}
       >
         Candy canes macaroon croissant carrot cake soufflé toffee topping
         pastry. Brownie lollipop brownie sesame snaps. Pastry gingerbread
