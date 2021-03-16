@@ -8,6 +8,7 @@ const Snackbar = (
     children,
     autoHideDuration = 5000,
     accessibilityAnnouncement,
+    accessibilityLiveRegion = 'polite',
     ...props
   }: ISnackbarProps,
   ref: any
@@ -21,12 +22,17 @@ const Snackbar = (
   }, [isOpen, autoHideDuration]);
 
   React.useEffect(() => {
-    if (accessibilityAnnouncement && isOpen && Platform.OS !== 'web') {
+    if (accessibilityAnnouncement && isOpen && Platform.OS === 'ios') {
       AccessibilityInfo.announceForAccessibility(accessibilityAnnouncement);
     }
   }, [accessibilityAnnouncement, isOpen]);
   return (
-    <Slide in={isOpen} {...props} ref={ref}>
+    <Slide
+      in={isOpen}
+      {...props}
+      accessibilityLiveRegion={accessibilityLiveRegion}
+      ref={ref}
+    >
       {children}
     </Slide>
   );
