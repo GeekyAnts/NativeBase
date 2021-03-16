@@ -122,6 +122,7 @@ const Input = (
     hoverBorderColor,
     borderBottomWidth,
     _errorMessageBaseProps,
+    _webFocusStyle,
     ...newProps
   } = useThemeProps('Input', { ...formControlContext, ...props });
 
@@ -166,10 +167,6 @@ const Input = (
   if (isHovered) updatedBorderColor = hoverBorderColor;
   else if (isFocused) updatedBorderColor = focusBorderColor;
   else if (isInvalid) updatedBorderColor = errorBorderColor;
-  const focusStyle = {
-    shadow: 3,
-    shadowColor: '#2563EB',
-  };
 
   return (
     <Box w={isFullWidth ? '100%' : 'auto'} {...layoutProps}>
@@ -181,7 +178,7 @@ const Input = (
         {...rem}
         {...(isDisabled && newProps._isDisabledProps)}
         {...computedProps}
-        {...(isFocused && Platform.OS === 'web' && focusStyle)}
+        {...(isFocused && Platform.OS === 'web' && _webFocusStyle)}
         style={style}
       >
         {InputLeftElement ? (

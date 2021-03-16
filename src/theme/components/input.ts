@@ -27,11 +27,19 @@ function roundedStyle() {
   return {
     borderRadius: '50',
     borderWidth: 1,
+    _webFocusStyle: {
+      shadow: 3,
+      shadowColor: '#2563EB',
+    },
   };
 }
 function defaultStyle() {
   return {
     borderWidth: 1,
+    _webFocusStyle: {
+      shadow: 3,
+      shadowColor: '#2563EB',
+    },
   };
 }
 function filledStyle(props: Record<string, any>) {
@@ -42,11 +50,16 @@ function filledStyle(props: Record<string, any>) {
     borderColor: isInvalid
       ? mode('danger.600', 'danger.200')(props)
       : 'transparent',
+    _webFocusStyle: {
+      shadow: 3,
+      shadowColor: '#2563EB',
+    },
   };
 }
 function unstyledStyle() {
   return {
     borderWidth: 0,
+    _webFocusStyle: {},
   };
 }
 function underlinedStyle() {
@@ -54,6 +67,10 @@ function underlinedStyle() {
     borderRadius: 0,
     borderWidth: 0,
     borderBottomWidth: 1,
+    _webFocusStyle: {
+      shadow: 3,
+      shadowColor: '#2563EB',
+    },
   };
 }
 
