@@ -3,7 +3,6 @@ import { Platform, TouchableWithoutFeedback } from 'react-native';
 import styled from 'styled-components/native';
 import type { ILinkProps } from './types';
 import Box from '../Box';
-import Text from '../Text';
 import { useThemeProps } from '../../../hooks';
 import { useLink } from './useLink';
 
@@ -61,16 +60,16 @@ const Link = (
     <Box {...layoutProps}>
       {Platform.OS === 'web' ? (
         // Using <Text /> as currently rn - web only supports target="_blank" on Text element
-        <Text
-          {...linkTextProps}
+        <StyledLink
           {...linkProps}
           {...newProps}
+          _text={linkTextProps}
           ref={ref}
           flexDirection="row"
           style={style}
         >
           {children}
-        </Text>
+        </StyledLink>
       ) : (
         <TouchableWithoutFeedback {...linkProps} {...newProps} ref={ref}>
           <StyledLink
