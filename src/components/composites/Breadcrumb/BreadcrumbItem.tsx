@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import Flex from '../../primitives/Flex';
 import type { IBreadcrumbItemProps } from './types';
 
@@ -8,8 +9,8 @@ const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
     <Flex {...remainingProps}>
       {React.Children.map(children, (child: any, index: number) =>
         React.cloneElement(child, {
-          key: `breadcrumb-item-${index}`,
-          _text: {
+          'key': `breadcrumb-item-${index}`,
+          '_text': {
             ..._text, //taken out empty _text prop from props
             fontWeight: isCurrentPage ? 'bold' : undefined,
           },
@@ -17,7 +18,8 @@ const BreadcrumbItem = (props: IBreadcrumbItemProps) => {
             isUnderlined: false,
           },
           ...remainingProps,
-          __isCurrentPage: isCurrentPage,
+          'aria-current':
+            Platform.OS === 'web' && isCurrentPage ? 'page' : undefined,
         })
       )}
     </Flex>
