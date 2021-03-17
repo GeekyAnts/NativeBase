@@ -11,7 +11,7 @@ import variable from '../theme/variables/platform';
 
 class Header extends Component {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
 
   render() {
@@ -20,7 +20,8 @@ class Header extends Component {
       iosBarStyle,
       style,
       transparent,
-      translucent
+      translucent,
+      containerStyle,
     } = this.props;
 
     const variables = this.context.theme
@@ -28,7 +29,6 @@ class Header extends Component {
       : variable;
 
     const platformStyle = variables.platformStyle;
-
     return (
       <View>
         <StatusBar
@@ -46,12 +46,8 @@ class Header extends Component {
           }
           translucent={transparent ? true : translucent}
         />
-        <SafeAreaView
-          style={{
-            backgroundColor: getStyle(style).backgroundColor
-          }}
-        >
-          <View ref={c => (this._root = c)} {...this.props} />
+        <SafeAreaView style={containerStyle}>
+          <View ref={(c) => (this._root = c)} {...this.props} />
         </SafeAreaView>
       </View>
     );
@@ -63,10 +59,11 @@ Header.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
+    PropTypes.array,
   ]),
   searchBar: PropTypes.bool,
-  rounded: PropTypes.bool
+  rounded: PropTypes.bool,
+  containerStyle: PropTypes.object,
 };
 
 const StyledHeader = connectStyle(
