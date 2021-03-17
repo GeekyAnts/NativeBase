@@ -10,7 +10,7 @@ export default function () {
       onPress={() => console.log('hello world')}
       _text={{ fontWeight: 700 }}
     >
-      {true ? 'hey' : 'nay'}
+      Button
     </Button>
   );
 }
