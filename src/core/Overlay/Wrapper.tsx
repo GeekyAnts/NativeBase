@@ -196,24 +196,20 @@ function Wrapper({
       // @ts-ignore
       accessibilityRole={isModal ? 'dialog' : undefined}
       style={[overlayStyle.wrapper, { opacity: fadeValue }]}
-      pointerEvents={
-        overlayItem
-          ? overlayConfig.disableOverlay
-            ? 'box-none'
-            : 'auto'
-          : 'none'
-      }
+      pointerEvents={'box-none'}
     >
-      <TouchableWithoutFeedback
-        accessibilityLabel="Close Overlay"
-        onPress={() => {
-          if (overlayConfig.closeOnPress) {
-            handleClose();
-          }
-        }}
-      >
-        <View style={overlayStyle.background} />
-      </TouchableWithoutFeedback>
+      {isOverlayOpen && !overlayConfig.disableOverlay && (
+        <TouchableWithoutFeedback
+          accessibilityLabel="Close Overlay"
+          onPress={() => {
+            if (overlayConfig.closeOnPress) {
+              handleClose();
+            }
+          }}
+        >
+          <View style={overlayStyle.background} />
+        </TouchableWithoutFeedback>
+      )}
       {/* Added box-none instead of none to fix Web modal not able to get clicked inside Modal.Body */}
       <View
         pointerEvents="box-none"

@@ -98,16 +98,18 @@ function Wrapper({
   return (
     <Animated.View
       style={[providerStyle.wrapper, { opacity: fadeValue }]}
-      pointerEvents={popoverItem ? 'auto' : 'none'}
+      pointerEvents="box-none"
     >
-      <TouchableWithoutFeedback
-        onPress={() => {
-          setPopoverItem(null);
-          popoverConfig.onClose && popoverConfig.onClose();
-        }}
-      >
-        <View style={providerStyle.wrapper} />
-      </TouchableWithoutFeedback>
+      {popoverItem && (
+        <TouchableWithoutFeedback
+          onPress={() => {
+            setPopoverItem(null);
+            popoverConfig.onClose && popoverConfig.onClose();
+          }}
+        >
+          <View style={providerStyle.wrapper} />
+        </TouchableWithoutFeedback>
+      )}
       <View
         style={{
           position: 'absolute',
