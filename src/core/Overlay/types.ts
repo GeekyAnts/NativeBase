@@ -25,6 +25,10 @@ export type IOverlayConfig = {
   motionPreset?: 'slide' | 'fade' | 'none';
   onClose?: Function;
   closeOnPress?: boolean;
+  /*
+    Determines if a popover can be closed using Escape key on web
+    Default: true
+  */
   isKeyboardDismissable?: boolean;
   accessibilityLabel?: string;
   accessibilityViewIsModal?: boolean;

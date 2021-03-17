@@ -9,6 +9,7 @@ import {
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
 import isEqual from 'lodash/isEqual';
 import type { IOverlayConfig } from './types';
+import { useKeyboardDismissable } from '../../hooks';
 
 type OverlayWrapperType = {
   overlayItem: any;
@@ -127,29 +128,10 @@ function Wrapper({
     setOverlayItemposition,
   ]);
 
-  useEffect(
-    function closeOverlayOnEscapeEffectCallback() {
-      let escapeKeyListener: any = null;
-      if (Platform.OS === 'web') {
-        escapeKeyListener = (e: KeyboardEvent) => {
-          if (
-            e.key === 'Escape' &&
-            overlayConfig.isKeyboardDismissable &&
-            overlayItem
-          ) {
-            handleClose();
-          }
-        };
-        document.addEventListener('keydown', escapeKeyListener);
-      }
-      return () => {
-        if (Platform.OS === 'web') {
-          document.removeEventListener('keydown', escapeKeyListener);
-        }
-      };
-    },
-    [overlayConfig, overlayItem, handleClose]
-  );
+  useKeyboardDismissable({
+    enabled: !!overlayItem && overlayConfig.isKeyboardDismissable,
+    onClose: handleClose,
+  });
 
   const placeOverlayItem = () => {
     if (readyToAnimate && overlayItem) {
