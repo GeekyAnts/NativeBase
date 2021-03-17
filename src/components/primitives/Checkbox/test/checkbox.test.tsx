@@ -3,6 +3,7 @@ import { fireEvent, render } from '@testing-library/react-native';
 import { NativeBaseProvider } from '../../../../core/NativeBaseProvider';
 import { Checkbox } from '..';
 import { Text } from '../..';
+jest.useFakeTimers();
 
 function CheckBoxGroup() {
   const [groupValue, setGroupValue] = React.useState(['Item 1 ', 'Item 3 ']);

@@ -1,9 +1,5 @@
 import React, { useContext } from 'react';
-import {
-  TouchableOpacity,
-  Platform,
-  TouchableOpacityProps,
-} from 'react-native';
+import { Pressable, Platform, PressableProps } from 'react-native';
 import { mergeRefs } from './../../../utils';
 import { useThemeProps } from '../../../hooks';
 import { Center } from '../../composites/Center';
@@ -91,7 +87,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         ? borderColor
         : activeColor
       : borderColor;
-  const component = (
+  const component = (pressed: boolean) => (
     <Box
       flexDirection="row"
       alignItems="center"
@@ -111,6 +107,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         borderColor={outlineColor}
         borderWidth={1}
         borderRadius={4}
+        opacity={pressed ? 0.1 : 1}
         p={1}
       >
         {icon && sizedIcon && isChecked ? (
@@ -131,32 +128,25 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
 
   const { focusProps, isFocusVisible } = useFocusRing();
 
-  return (
-    <>
-      {Platform.OS === 'web' ? (
-        <Box
-          // @ts-ignore - RN web supports accessibilityRole="label"
-          accessibilityRole="label"
-          ref={mergedRef}
-          outlineWidth={isFocusVisible ? 1 : 0}
-          outlineColor={activeColor}
-          outlineStyle={'solid'}
-        >
-          <VisuallyHidden>
-            <input {...inputProps} {...focusProps} ref={mergedRef}></input>
-          </VisuallyHidden>
+  return Platform.OS === 'web' ? (
+    <Box
+      // @ts-ignore - RN web supports accessibilityRole="label"
+      accessibilityRole="label"
+      ref={mergedRef}
+      outlineWidth={isFocusVisible ? 1 : 0}
+      outlineColor={activeColor}
+      outlineStyle={'solid'}
+    >
+      <VisuallyHidden>
+        <input {...inputProps} {...focusProps} ref={mergedRef}></input>
+      </VisuallyHidden>
 
-          {component}
-        </Box>
-      ) : (
-        <TouchableOpacity
-          {...(inputProps as TouchableOpacityProps)}
-          ref={mergedRef}
-        >
-          {component}
-        </TouchableOpacity>
-      )}
-    </>
+      {component(false)}
+    </Box>
+  ) : (
+    <Pressable {...(inputProps as PressableProps)} ref={mergedRef}>
+      {({ pressed }) => component(pressed)}
+    </Pressable>
   );
 };
 

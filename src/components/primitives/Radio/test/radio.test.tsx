@@ -3,6 +3,8 @@ import { fireEvent, render } from '@testing-library/react-native';
 import { Radio } from '..';
 import { Text } from '../..';
 import { NativeBaseProvider } from '../../../../core/NativeBaseProvider';
+jest.useFakeTimers();
+
 function RadiosGroup() {
   const [, setValue] = React.useState<any>('one');
   return (
