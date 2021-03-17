@@ -99,6 +99,10 @@ const Modal = (
       {...restProps}
       justifyContent={justifyContent ?? 'center'}
       alignItems={alignItems ?? 'center'}
+      onAccessibilityEscape={() => {
+        value.toggleVisible(false);
+        value.toggleOnClose(false);
+      }}
     >
       {newProps.closeOnOverlayClick === false ? <Box /> : <ModalOverlay />}
       {children}
