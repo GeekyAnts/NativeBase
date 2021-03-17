@@ -22,6 +22,7 @@ const HybridProvider = ({
     placeOverTriggerElement: undefined,
     onClose: null,
     animationDuration: 200,
+    isKeyboardDismissable: true,
   });
 
   // Overlay content
@@ -33,6 +34,7 @@ const HybridProvider = ({
     animationDuration: 400,
     closeOnPress: false,
     onClose: (_a: any) => {},
+    isKeyboardDismissable: true,
   });
 
   // Color-mode content
