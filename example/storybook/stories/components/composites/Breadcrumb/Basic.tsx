@@ -3,7 +3,7 @@ import { Breadcrumb, Box, Heading } from 'native-base';
 export default function () {
   return (
     <Box>
-      <Heading mb={4}>This is a Default Breadcrumb</Heading>
+      <Heading mb={4}>Default Breadcrumb</Heading>
       <Breadcrumb>
         <Breadcrumb.Item isCurrentPage>
           <Breadcrumb.Link href="https://github.com/GeekyAnts/nativebase">
