@@ -4,8 +4,9 @@ import React from 'react';
 export default function () {
   return (
     <Fab
-      placement="bottom-right"
-      bg="teal.200"
+      bg="purple.200"
+      bottom={4}
+      right={24}
       icon={<Icon name="plus" type="AntDesign" />}
     />
   );

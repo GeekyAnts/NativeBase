@@ -1,16 +1,28 @@
 import React from 'react';
-import { Flex, Text, Spacer, Center } from 'native-base';
+import { Flex, Spacer, Center } from 'native-base';
 
 export const SpacerExample = () => {
   return (
-    <Flex direction="row">
-      <Center size={16} bg="emerald.500">
-        <Text>Box 1</Text>
-      </Center>
-      <Spacer />
-      <Center bg="lightBlue.500" size={16}>
-        <Text>Box 2</Text>
-      </Center>
-    </Flex>
+    <Center flex={1}>
+      <Flex h={56} w={20} justify="space-between">
+        <Center
+          size={16}
+          bg="emerald.400"
+          rounded="xl"
+          _text={{ color: 'white' }}
+        >
+          Box 1
+        </Center>
+        <Spacer />
+        <Center
+          size={16}
+          bg="lightBlue.400"
+          rounded="xl"
+          _text={{ color: 'white' }}
+        >
+          Box 2
+        </Center>
+      </Flex>
+    </Center>
   );
 };
