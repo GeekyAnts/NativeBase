@@ -3,7 +3,7 @@ import { FormControl, Input, Stack, Text } from 'native-base';
 
 export default function () {
   return (
-    <Stack width="90%" space={4}>
+    <Stack width="90%" space={4} px={4}>
       <Text bold underline>
         Default:
       </Text>

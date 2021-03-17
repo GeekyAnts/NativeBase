@@ -1,13 +1,13 @@
 import React from 'react';
-import { Collapse, Stack, Heading, Button, Text } from 'native-base';
-import { number } from '@storybook/addon-knobs';
+import { Collapse, Stack, Heading, Text, Button } from 'native-base';
+
 export default function () {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   return (
     <Stack space={4} mx={8}>
       <Heading>Collapse with duration</Heading>
-      <Collapse duration={number('Duration', 700)} isOpen={show}>
+      <Collapse duration={700} isOpen={show}>
         Candy canes macaroon croissant carrot cake soufflé toffee topping
         pastry. Brownie lollipop brownie sesame snaps. Pastry gingerbread
         biscuit sweet I love macaroon bear claw fruitcake oat cake. Jelly sweet

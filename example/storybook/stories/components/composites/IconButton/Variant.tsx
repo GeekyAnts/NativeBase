@@ -8,7 +8,12 @@ export default function () {
           key={variant}
           variant={variant}
           colorScheme="teal"
-          icon={<Icon name={'menu'} />}
+          icon={
+            <Icon
+              name={'menu'}
+              color={variant === 'solid' ? 'white' : undefined}
+            />
+          }
         />
       ))}
     </HStack>
