@@ -10,7 +10,7 @@ export default function () {
   return (
     <>
       <NBTouchable>
-        <FactoryView bg="teal.200" height={50} width={50} />
+        <FactoryView bg="emerald.400" borderRadius={4} size={16} />
         <NBText>Hey</NBText>
       </NBTouchable>
       <FactoryImage
