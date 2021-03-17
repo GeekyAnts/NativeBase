@@ -2,6 +2,7 @@ import React from 'react';
 import Input from '../../primitives/Input';
 import type { IPinInputFieldProps, IPinInputContext } from './types';
 import { PinInputContext } from './Context';
+import { Platform } from 'react-native';
 
 const PinInputFiled = ({
   fieldIndex = 0,
@@ -17,13 +18,16 @@ const PinInputFiled = ({
     ...context
   }: IPinInputContext = React.useContext(PinInputContext);
   cDefaultValue = cDefaultValue && cDefaultValue[fieldIndex];
-  cValue = cValue && cValue[fieldIndex];
+  let defaultValue = pDefaultValue || cDefaultValue;
+  let value = cValue && cValue[fieldIndex];
 
   const keyPressHandler = (event: any) => {
-    if (event.nativeEvent.key >= 0 && event.nativeEvent.key <= 9) {
-      handleChange && handleChange(event.nativeEvent.key, fieldIndex);
-    } else if (event.nativeEvent.key === 'Backspace') {
-      handleChange && handleChange('', fieldIndex);
+    if (Platform.OS !== 'web') {
+      if (event.nativeEvent.key >= 0 && event.nativeEvent.key <= 9) {
+        handleChange && handleChange(event.nativeEvent.key, fieldIndex);
+      } else if (event.nativeEvent.key === 'Backspace') {
+        handleChange && handleChange('', fieldIndex);
+      }
     }
   };
   const textChangeHandler = (value: any) => {
@@ -43,8 +47,8 @@ const PinInputFiled = ({
       onKeyPress={(event) => keyPressHandler(event)}
       onChangeText={(value) => textChangeHandler(value)}
       keyboardType="numeric"
-      defaultValue={pDefaultValue || cDefaultValue}
-      value={cValue}
+      defaultValue={defaultValue}
+      value={value}
     />
   );
 };

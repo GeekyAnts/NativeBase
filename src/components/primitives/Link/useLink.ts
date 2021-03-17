@@ -1,4 +1,4 @@
-import { Linking } from 'react-native';
+import { Linking, Platform } from 'react-native';
 import type { IUseLinkProp } from './types';
 import type { AccessibilityRole } from 'react-native';
 
@@ -17,11 +17,28 @@ const addOnPressFunctionality = (
 
 export function useLink(props: IUseLinkProp) {
   const { href, isExternal, onClick } = props;
-  return {
-    linkProps: {
+
+  let platformLinkProps = {};
+
+  if (Platform.OS === 'web') {
+    platformLinkProps = {
+      href,
+      hrefAttrs: {
+        target: isExternal ? 'blank' : undefined,
+      },
+      onClick,
+    };
+  } else {
+    platformLinkProps = {
       onPress: () => {
         addOnPressFunctionality(href, isExternal, onClick);
       },
+    };
+  }
+
+  return {
+    linkProps: {
+      ...platformLinkProps,
       accessibilityRole: 'link' as AccessibilityRole,
       accessible: true,
     },

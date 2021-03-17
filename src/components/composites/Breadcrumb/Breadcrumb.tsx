@@ -12,7 +12,14 @@ const Breadcrumb = (
 
   let newProps = useThemeProps('Breadcrumb', props);
   return (
-    <Flex {...newProps} ref={ref} style={style}>
+    <Flex
+      {...newProps}
+      ref={ref}
+      style={style}
+      // @ts-ignore - Web only prop
+      accessibilityRole="navigation"
+      accessibilityLabel="Breadcrumb"
+    >
       {children && !children.length
         ? children
         : getBreadcrumbSeparator(children, separator, textProps, spacing)}

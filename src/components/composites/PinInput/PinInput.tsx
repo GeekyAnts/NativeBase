@@ -39,7 +39,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
   const handleChange = (newValue: string, fieldIndex: number) => {
     let temp = (pinInputValue && [...pinInputValue]) || [];
     temp[fieldIndex] = newValue;
-    setPinInputValue(temp.join(''));
+    value === undefined && setPinInputValue(temp.join(''));
     onChange && onChange(temp.join(''));
     if (newValue === '' && manageFocus && fieldIndex - 1 > -1)
       RefList[fieldIndex - 1].current.focus();
@@ -57,11 +57,11 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
       setPinInputValue(splicedValue.join(''));
       onChange && onChange(splicedValue.join(''));
     }
+
     if (Platform.OS !== 'ios') {
       const temp = pinInputValue ? [...pinInputValue] : [];
       if (newValue === '') {
         // Handling Backward focus.
-        temp[fieldIndex];
         remove(temp, (_n, i) => i === fieldIndex);
         if (manageFocus && fieldIndex - 1 > -1)
           RefList[fieldIndex - 1].current.focus();
@@ -70,7 +70,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
         if (manageFocus && fieldIndex + 1 < RefList.length)
           RefList[fieldIndex + 1].current.focus();
       }
-      setPinInputValue(temp.join(''));
+      value === undefined && setPinInputValue(temp.join(''));
       onChange && onChange(temp.join(''));
     }
   };
@@ -88,6 +88,10 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
       );
     });
   };
+
+  React.useEffect(() => {
+    if (value !== undefined && value != pinInputValue) setPinInputValue(value);
+  }, [value, pinInputValue, setPinInputValue]);
 
   return (
     <PinInputContext.Provider

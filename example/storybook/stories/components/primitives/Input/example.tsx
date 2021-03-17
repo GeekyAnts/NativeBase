@@ -8,6 +8,7 @@ import {
   Stack,
   Center,
   Heading,
+  FormControl,
   Button,
   Icon,
 } from 'native-base';
@@ -125,8 +126,19 @@ export const FocusErrorBorderColor = () => {
         placeholder="errorBorderColor Example"
         isInvalid
         errorBorderColor="yellow.400"
-        errorMessage="This is an Error Message"
       />
     </Stack>
+  );
+};
+export const FormControlled = () => {
+  return (
+    <FormControl isRequired isInvalid p={2}>
+      <FormControl.Label>Form Controlled Input</FormControl.Label>
+      <Input placeholder="FormControl is providing me isInvalid prop" my={2} />
+      <FormControl.HelperText>I am a Helper text 😊</FormControl.HelperText>
+      <FormControl.ErrorMessage>
+        I'll only appear when FormControl have isInvalid props.
+      </FormControl.ErrorMessage>
+    </FormControl>
   );
 };
