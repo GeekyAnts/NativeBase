@@ -151,6 +151,7 @@ const Button = (
   );
 };
 
+// TODO: Move this to Button.Group
 export { ButtonGroup } from './ButtonGroup';
 export type { IButtonProps, IButtonGroupProps };
 export default React.memo(React.forwardRef(Button));
