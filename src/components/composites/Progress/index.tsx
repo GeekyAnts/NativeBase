@@ -43,7 +43,18 @@ const Progress = (
     color: 'white',
   };
   return (
-    <Box {...newProps} style={props.style} ref={ref}>
+    <Box
+      {...newProps}
+      style={props.style}
+      ref={ref}
+      accessible
+      accessibilityRole="progressbar"
+      accessibilityValue={{
+        min: 0,
+        max: 100,
+        now: value,
+      }}
+    >
       {isIndeterminate ? (
         // <Animated.View
         //   style={[
