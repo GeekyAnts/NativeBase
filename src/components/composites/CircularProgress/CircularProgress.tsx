@@ -174,6 +174,13 @@ const CircularProgress = (
       alignItems="center"
       {...props}
       ref={ref}
+      accessible
+      accessibilityRole="progressbar"
+      accessibilityValue={{
+        min,
+        max,
+        now: value,
+      }}
     >
       {!isIndeterminate ? (
         <>
