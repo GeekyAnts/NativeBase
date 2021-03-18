@@ -7,7 +7,6 @@ const config: Config = {
   appearance: true,
   visibility: true,
   userSelect: true,
-  pointerEvents: true,
   cursor: true,
   resize: true,
   objectFit: true,
