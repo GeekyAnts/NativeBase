@@ -176,7 +176,7 @@ function Wrapper({
       // @ts-ignore
       accessibilityModal={isModal}
       // @ts-ignore
-      accessibilityRole={isModal ? 'dialog' : undefined}
+      accessibilityRole={overlayConfig.accessibilityRole}
       style={[overlayStyle.wrapper, { opacity: fadeValue }]}
       pointerEvents={'box-none'}
     >
