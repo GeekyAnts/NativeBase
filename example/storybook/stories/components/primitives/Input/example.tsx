@@ -18,7 +18,7 @@ export const DefaultInput = () => {
 };
 export const SizeInput = () => {
   return (
-    <Stack space={4} w="80%">
+    <Stack space={4} w="90%">
       <Center>
         <Heading>Input Sizes</Heading>
       </Center>
@@ -27,7 +27,7 @@ export const SizeInput = () => {
       <Input size="md" placeholder="md Input" />
       <Input size="lg" placeholder="lg Input" />
       <Input size="xl" placeholder="xl Input" />
-      <Input size="2xl" placeholder="2xl Input" isDisabled={true} />
+      <Input size="2xl" placeholder="2xl Input" />
     </Stack>
   );
 };
