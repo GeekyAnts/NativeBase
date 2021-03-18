@@ -13,6 +13,11 @@ export type IPopoverConfig = {
   placeOverTriggerElement?: boolean;
   animationDuration?: number;
   parentComponentConfig?: any;
+  /*
+  Determines if a popover can be closed using Escape key on web
+  Default: true
+  */
+  isKeyboardDismissable?: boolean;
 };
 
 export type IPopoverProps = ViewProps &

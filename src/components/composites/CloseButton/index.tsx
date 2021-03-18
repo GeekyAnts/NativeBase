@@ -11,6 +11,7 @@ const CloseButton = ({ size, ...props }: ICloseButtonProps, ref?: any) => {
     <IconButton
       {...props}
       ref={ref}
+      accessibilityLabel={props.accessibilityLabel || 'Close'}
       icon={<Icon name={'close'} size={size ? iconSize[size] : 2} />}
     />
   );

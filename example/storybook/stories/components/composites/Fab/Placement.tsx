@@ -1,12 +1,13 @@
-import { Fab, Icon } from 'native-base';
+import { Fab, Icon, Text } from 'native-base';
 import React from 'react';
 
 export default function () {
   return (
     <Fab
-      placement="bottom-right"
-      bg="teal.200"
+      bg="lime.200"
+      placement="top-left"
       icon={<Icon name="plus" type="AntDesign" />}
+      label={<Text fontSize="sm">Click</Text>}
     />
   );
 }

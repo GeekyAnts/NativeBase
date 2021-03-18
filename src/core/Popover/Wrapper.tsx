@@ -8,6 +8,7 @@ import {
 import { getCoordinates } from './../Popover/utils';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
 import isEqual from 'lodash/isEqual';
+import { useKeyboardDismissable } from '../../hooks';
 
 type PopoverWrapperType = {
   popoverItem: any;
@@ -76,6 +77,16 @@ function Wrapper({
     }
   };
 
+  const handleClose = () => {
+    setPopoverItem(null);
+    popoverConfig.onClose && popoverConfig.onClose();
+  };
+
+  useKeyboardDismissable({
+    enabled: !!popoverItem && popoverConfig.isKeyboardDismissable,
+    onClose: handleClose,
+  });
+
   // DOC: Using this to get dimensions of trigger once it has been mounted.
   React.useEffect(() => {
     if (popoverConfig.triggerRef && popoverConfig.triggerRef.current) {
@@ -98,16 +109,14 @@ function Wrapper({
   return (
     <Animated.View
       style={[providerStyle.wrapper, { opacity: fadeValue }]}
-      pointerEvents={popoverItem ? 'auto' : 'none'}
+      pointerEvents="box-none"
+      onAccessibilityEscape={handleClose}
     >
-      <TouchableWithoutFeedback
-        onPress={() => {
-          setPopoverItem(null);
-          popoverConfig.onClose && popoverConfig.onClose();
-        }}
-      >
-        <View style={providerStyle.wrapper} />
-      </TouchableWithoutFeedback>
+      {popoverItem && (
+        <TouchableWithoutFeedback onPress={handleClose}>
+          <View style={providerStyle.wrapper} />
+        </TouchableWithoutFeedback>
+      )}
       <View
         style={{
           position: 'absolute',

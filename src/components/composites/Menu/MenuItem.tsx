@@ -21,6 +21,11 @@ export const MenuItem = React.memo(
       <TouchableItem
         {...touchProps}
         style={style}
+        disabled={props.isDisabled}
+        // TouchableHighlight doesn't announce disabled, even if disabled prop is set
+        accessibilityState={{
+          disabled: props.isDisabled,
+        }}
         onPress={(e: any) => {
           if (!props.isDisabled) {
             onPress && onPress(e);

@@ -26,6 +26,9 @@ const Divider = (
       {...newProps}
       style={style}
       ref={ref}
+      aria-orientation={orientation}
+      //@ts-ignore web only role
+      accessibilityRole="separator"
     />
   );
 };
