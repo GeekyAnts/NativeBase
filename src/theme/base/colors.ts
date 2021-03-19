@@ -296,15 +296,15 @@ const colors = {
     900: '#fafafa',
   },
   // Derived colors
-  // danger: {},
+  danger: {},
   // error: {},
   // success: {},
   // warning: {},
-  // muted: {},
-  // default: {},
+  muted: {},
+  default: {},
   // info: {},
-  // // secondary: {},
-  // light: {},
+  // secondary: {},
+  light: {},
 
   // Material UI colors
 
@@ -362,15 +362,15 @@ const colors = {
   },
 };
 
-// colors.danger = colors.rose;
+colors.danger = colors.rose;
 // // colors.error = colors.red;
 // colors.success = colors.green;
 // colors.warning = colors.orange;
-// colors.muted = colors.trueGray;
-// colors.default = colors.blue;
+colors.muted = colors.trueGray;
+colors.default = colors.blue;
 // colors.info = colors.lightBlue;
 // // colors.secondary = colors.coolGray;
-// colors.light = colors.warmGray;
+colors.light = colors.warmGray;
 
 export default colors;
 export type IColors = typeof colors;
