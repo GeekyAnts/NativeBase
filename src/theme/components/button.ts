@@ -1,4 +1,4 @@
-import { Dict, mode } from './../tools';
+import type { Dict } from './../tools';
 
 const baseStyle = {
   borderRadius: 'lg',

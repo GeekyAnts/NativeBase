@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button, VStack, Icon } from 'native-base';
-import { mode } from '../../../../../../src/theme/tools';
 
-export default function (props: any) {
+export default function () {
   return (
     <VStack space={4}>
       <Button
