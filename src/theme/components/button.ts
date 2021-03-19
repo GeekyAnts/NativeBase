@@ -100,7 +100,7 @@ function variantDefault(props: Dict) {
 
   if (c === 'default') {
     return {
-      bg: '#e0e0e0',
+      bg: 'transparent',
       _text: {
         color: 'rgba(0, 0, 0, 0.87)',
       },
