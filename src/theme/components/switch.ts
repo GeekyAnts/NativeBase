@@ -4,8 +4,8 @@ const baseStyle = (props: Record<string, any>) => {
   let { onTrackColor, offTrackColor, onThumbColor, offThumbColor } = props;
 
   return {
-    offTrackColor: offTrackColor ?? mode('gray.100', 'gray.900')(props),
-    onTrackColor: onTrackColor ?? mode('green.300', 'green.700')(props),
+    offTrackColor: offTrackColor ?? mode('gray.100', 'gray.100')(props),
+    onTrackColor: onTrackColor ?? mode('green.500', 'green.700')(props),
     onThumbColor: onThumbColor ?? mode('white', 'black')(props),
     offThumbColor: offThumbColor ?? mode('white', 'black')(props),
   };
