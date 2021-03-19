@@ -6,10 +6,8 @@ export default function () {
       {[8, 10, 12].map((size: any) => (
         <IconButton
           key={size}
-          size={size}
-          variant="solid"
-          colorScheme="blue"
-          icon={<Icon name={'menu'} />}
+          colorScheme="blue.200"
+          icon={<Icon name={'menu'} size={size} />}
         />
       ))}
     </HStack>
