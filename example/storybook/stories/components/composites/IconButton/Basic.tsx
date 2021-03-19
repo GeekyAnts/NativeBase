@@ -3,7 +3,7 @@ import { IconButton, Icon } from 'native-base';
 export default function () {
   return (
     <IconButton
-      colorScheme="blue"
+      colorScheme="emerald"
       variant="outline"
       icon={<Icon name={'search'} />}
     />

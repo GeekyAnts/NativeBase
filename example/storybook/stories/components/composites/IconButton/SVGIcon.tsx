@@ -5,7 +5,7 @@ import { Path, Circle } from 'react-native-svg';
 export default function () {
   return (
     <IconButton
-      colorScheme="blue"
+      colorScheme="emerald"
       variant="solid"
       onPress={() => console.log('IconButton pressed')}
       icon={

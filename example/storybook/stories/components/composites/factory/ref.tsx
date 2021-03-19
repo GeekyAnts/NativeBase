@@ -1,27 +1,28 @@
 import React from 'react';
-import { Factory, Button } from 'native-base';
+import { Stack, Factory, Button } from 'native-base';
 import { TextInput } from 'react-native';
 
 export default function () {
   const NBInput = Factory(TextInput);
-  const inputRef = React.useRef(null);
+  const inputRef: any = React.useRef(null);
   return (
-    <>
+    <Stack space={4}>
       <NBInput
+        placeholder="Click on the button"
         ref={inputRef}
-        height={10}
-        width={100}
+        p={2}
         border={1}
         borderColor="cyan.400"
+        borderRadius="md"
       />
       <Button
+        colorScheme="emerald"
         onPress={() => {
-          // @ts-ignore
           inputRef?.current?.focus();
         }}
       >
         Set Focus
       </Button>
-    </>
+    </Stack>
   );
 }

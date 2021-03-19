@@ -1,8 +1,8 @@
 import React from 'react';
-import { HStack, IconButton, Icon } from 'native-base';
+import { Stack, IconButton, Icon } from 'native-base';
 export default function () {
   return (
-    <HStack space={4}>
+    <Stack space={4}>
       {['outline', 'solid', 'ghost'].map((variant: any) => (
         <IconButton
           key={variant}
@@ -16,6 +16,6 @@ export default function () {
           }
         />
       ))}
-    </HStack>
+    </Stack>
   );
 }
