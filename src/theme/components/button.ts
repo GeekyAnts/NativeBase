@@ -80,63 +80,29 @@ const baseStyle = {
 function variantContained(props: Dict) {
   const { colorScheme: c } = props;
 
-  if (c === 'default') {
-    return {
-      bg: '#e0e0e0',
-      _text: {
-        color: 'rgba(0, 0, 0, 0.87)',
-      },
-    };
-  }
-
   return {
-    bg: mode(`${c}.main`, `${c}.dark`)(props),
-    _text: { color: `${c}.contrastText` },
+    bg: c ? c : 'default',
+    _text: { color: `white` },
   };
 }
 
 function variantDefault(props: Dict) {
   const { colorScheme: c } = props;
 
-  if (c === 'default') {
-    return {
-      bg: 'transparent',
-      _text: {
-        color: mode('rgba(0, 0, 0, 0.87)', '#fff')(props),
-      },
-    };
-  }
-
   return {
     bg: 'transparent',
-    _text: { color: mode(`${c}.light`, `${c}.dark`)(props) },
+    _text: { color: c ? c : 'default' },
   };
 }
 
 function variantOutline(props: Dict) {
   const { colorScheme: c } = props;
 
-  if (c === 'default') {
-    const color = mode(
-      `rgba(0, 0, 0, 0.23)`,
-      `rgba(255, 255, 255, 0.23)`
-    )(props);
-
-    return {
-      border: '1px solid',
-      borderColor: color,
-      bg: 'transparent',
-      _text: { color: mode('black', 'white')(props) },
-    };
-  }
-
-  const color = mode(`${c}.light`, `${c}.dark`)(props);
-
   return {
     border: '1px solid',
-    borderColor: color,
+    borderColor: c ? c : 'default',
     bg: 'transparent',
-    _text: { color },
+    _text: { color: c ? c : 'default' },
   };
 }
 

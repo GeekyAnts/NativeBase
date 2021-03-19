@@ -7,25 +7,14 @@ export default function (props: any) {
     <VStack space={4}>
       <Button
         startIcon={
-          <Icon
-            name="menu"
-            size={6}
-            type="MaterialIcons"
-            color={mode('primary.light', 'primary.dark')(props)}
-          />
+          <Icon name="menu" size={6} type="MaterialIcons" color={'default'} />
         }
-        colorScheme="primary"
       >
         Menu
       </Button>
       <Button
         endIcon={
-          <Icon
-            name="menu"
-            size={6}
-            type="MaterialIcons"
-            color={mode('secondary.light', 'secondary.dark')(props)}
-          />
+          <Icon name="menu" size={6} type="MaterialIcons" color={'secondary'} />
         }
         colorScheme="secondary"
       >

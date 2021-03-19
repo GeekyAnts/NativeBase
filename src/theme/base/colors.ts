@@ -420,15 +420,15 @@ const colors = {
   light: {},
 };
 
-colors.danger = colors.rose;
-colors.error = colors.red;
-colors.success = colors.green;
-colors.warning = colors.orange;
-colors.muted = colors.trueGray;
-colors.default = colors.blue;
-colors.info = colors.lightBlue;
-colors.secondary = colors.coolGray;
-colors.light = colors.warmGray;
+colors.danger = colors.rose[400];
+colors.error = colors.red[400];
+colors.success = colors.green[400];
+colors.warning = colors.orange[400];
+colors.muted = colors.trueGray[400];
+colors.default = colors.blue[500];
+colors.info = colors.lightBlue[400];
+colors.secondary = colors.pink['A400'];
+colors.light = colors.warmGray[400];
 
 export default colors;
 export type IColors = typeof colors;
