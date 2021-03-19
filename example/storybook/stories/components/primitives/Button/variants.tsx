@@ -4,8 +4,8 @@ import { Button, HStack } from 'native-base';
 export default function () {
   return (
     <HStack space={2}>
-      {['solid', 'outline', 'ghost', 'link', 'unstyled'].map((variant: any) => (
-        <Button variant={variant} colorScheme="teal" key={variant}>
+      {['default', 'outline', 'contained'].map((variant: any) => (
+        <Button variant={variant} colorScheme="primary" key={variant}>
           Button
         </Button>
       ))}

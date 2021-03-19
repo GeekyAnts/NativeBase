@@ -3,7 +3,10 @@ import { Button } from 'native-base';
 
 export default function () {
   return (
-    <Button onPress={() => console.log('Button Pressed!')} isDisabled>
+    <Button
+      colorScheme="primary"
+      onPress={() => console.log('Button Pressed!')}
+    >
       BUTTON
     </Button>
   );
