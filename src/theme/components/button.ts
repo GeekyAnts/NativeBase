@@ -102,7 +102,7 @@ function variantDefault(props: Dict) {
     return {
       bg: 'transparent',
       _text: {
-        color: 'rgba(0, 0, 0, 0.87)',
+        color: mode('rgba(0, 0, 0, 0.87)', '#fff')(props),
       },
     };
   }
