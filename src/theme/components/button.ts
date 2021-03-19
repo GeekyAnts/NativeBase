@@ -7,85 +7,143 @@ const baseStyle = {
   justifyContent: 'center',
   alignItems: 'center',
 };
-function variantGhost(props: Dict) {
+
+// function variantGhost(props: Dict) {
+//   const { colorScheme: c } = props;
+//   if (c === 'gray') {
+//     return {
+//       _text: {
+//         color: mode(`gray.500`, `white`)(props),
+//       },
+//     };
+//   }
+
+//   return {
+//     _text: {
+//       color: mode(`${c}.500`, `${c}.200`)(props),
+//     },
+//     bg: 'transparent',
+//   };
+// }
+
+// type AccessibleColor = {
+//   bg?: string;
+//   color?: string;
+// };
+
+/** Accessible color overrides for less accessible colors. */
+// const accessibleColorMap: { [key: string]: AccessibleColor } = {
+//   yellow: {
+//     bg: 'yellow.400',
+//   },
+//   cyan: {
+//     bg: 'cyan.400',
+//   },
+// };
+
+// function variantSolid(props: Dict) {
+//   const { colorScheme: c } = props;
+//   let test = mode(`${c}.light`, `${c}.dark`);
+//   console.log(test(props));
+
+//   return {
+//     bg: 'transparent',
+//     color: 'black',
+//   };
+//   // if (c === 'gray')
+//   //   return {
+//   //     bg: mode(`gray.100`, `gray.800`)(props),
+//   //   };
+//   // const { bg = `${c}.500` } = accessibleColorMap[c] || {};
+//   // return {
+//   //   bg: mode(bg, `${c}.400`)(props),
+//   // };
+// }
+
+// function variantLink() {
+//   return {
+//     padding: 0,
+//     height: 'auto',
+//     _text: {
+//       textDecorationLine: 'underline',
+//     },
+//   };
+// }
+
+// function variantUnstyled() {
+//   return {
+//     m: 0,
+//     p: 0,
+//   };
+// }
+
+function variantContained(props: Dict) {
   const { colorScheme: c } = props;
-  if (c === 'gray') {
+
+  if (c === 'default') {
     return {
+      bg: '#e0e0e0',
       _text: {
-        color: mode(`gray.500`, `white`)(props),
+        color: 'rgba(0, 0, 0, 0.87)',
       },
     };
   }
 
   return {
-    _text: {
-      color: mode(`${c}.500`, `${c}.200`)(props),
-    },
+    bg: mode(`${c}.main`, `${c}.dark`)(props),
+    _text: { color: `${c}.contrastText` },
+  };
+}
+
+function variantDefault(props: Dict) {
+  const { colorScheme: c } = props;
+
+  if (c === 'default') {
+    return {
+      bg: '#e0e0e0',
+      _text: {
+        color: 'rgba(0, 0, 0, 0.87)',
+      },
+    };
+  }
+
+  return {
     bg: 'transparent',
+    _text: { color: mode(`${c}.light`, `${c}.dark`)(props) },
   };
 }
 
 function variantOutline(props: Dict) {
   const { colorScheme: c } = props;
-  const borderColor = mode(`gray.200`, `gray.500`)(props);
+
+  if (c === 'default') {
+    const color = mode(
+      `rgba(0, 0, 0, 0.23)`,
+      `rgba(255, 255, 255, 0.23)`
+    )(props);
+
+    return {
+      border: '1px solid',
+      borderColor: color,
+      bg: 'transparent',
+      _text: { color: mode('black', 'white')(props) },
+    };
+  }
+
+  const color = mode(`${c}.light`, `${c}.dark`)(props);
+
   return {
     border: '1px solid',
-    borderColor:
-      c === 'gray' ? borderColor : mode(`${c}.500`, `${c}.200`)(props),
-    ...variantGhost(props),
-  };
-}
-
-type AccessibleColor = {
-  bg?: string;
-  color?: string;
-};
-
-/** Accessible color overrides for less accessible colors. */
-const accessibleColorMap: { [key: string]: AccessibleColor } = {
-  yellow: {
-    bg: 'yellow.400',
-  },
-  cyan: {
-    bg: 'cyan.400',
-  },
-};
-
-function variantSolid(props: Dict) {
-  const { colorScheme: c } = props;
-  if (c === 'gray')
-    return {
-      bg: mode(`gray.100`, `gray.800`)(props),
-    };
-  const { bg = `${c}.500` } = accessibleColorMap[c] || {};
-  return {
-    bg: mode(bg, `${c}.400`)(props),
-  };
-}
-
-function variantLink() {
-  return {
-    padding: 0,
-    height: 'auto',
-    _text: {
-      textDecorationLine: 'underline',
-    },
-  };
-}
-
-function variantUnstyled() {
-  return {
-    m: 0,
-    p: 0,
+    borderColor: color,
+    bg: 'transparent',
+    _text: { color },
   };
 }
 
 const variants = {
-  ghost: variantGhost,
+  contained: variantContained,
+  default: variantDefault,
   outline: variantOutline,
-  solid: variantSolid,
-  link: variantLink,
-  unstyled: variantUnstyled,
 };
 
 const sizes = {
@@ -127,9 +185,9 @@ const sizes = {
 };
 
 const defaultProps = {
-  variant: 'solid',
+  variant: 'default',
   size: 'md',
-  colorScheme: 'gray',
+  colorScheme: 'default',
   _text: {
     fontWeight: 'semibold',
   },

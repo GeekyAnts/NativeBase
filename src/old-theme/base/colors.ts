@@ -296,81 +296,26 @@ const colors = {
     900: '#fafafa',
   },
   // Derived colors
-  // danger: {},
-  // error: {},
-  // success: {},
-  // warning: {},
-  // muted: {},
-  // default: {},
-  // info: {},
-  // // secondary: {},
-  // light: {},
-
-  // Material UI colors
-
-  primary: {
-    light: '#7986cb',
-    main: '#3f51b5',
-    dark: '#303f9f',
-    contrastText: '#fff',
-  },
-  secondary: {
-    light: '#ff4081',
-    main: '#f50057',
-    dark: '#c51162',
-    contrastText: '#fff',
-  },
-  error: {
-    light: '#e57373',
-    main: '#f44336',
-    dark: '#d32f2f',
-    contrastText: '#fff',
-  },
-  warning: {
-    light: '#ffb74d',
-    main: '#ff9800',
-    dark: '#f57c00',
-    contrastText: '#fff',
-  },
-  info: {
-    light: '#64b5f6',
-    main: '#2196f3',
-    dark: '#1976d2',
-    contrastText: '#fff',
-  },
-  success: {
-    light: '#81c784',
-    main: '#4caf50',
-    dark: '#388e3c',
-    contrastText: '#fff',
-  },
-  grey: {
-    '50': '#fafafa',
-    '100': '#f5f5f5',
-    '200': '#eeeeee',
-    '300': '#e0e0e0',
-    '400': '#bdbdbd',
-    '500': '#9e9e9e',
-    '600': '#757575',
-    '700': '#616161',
-    '800': '#424242',
-    '900': '#212121',
-    'A100': '#d5d5d5',
-    'A200': '#aaaaaa',
-    'A400': '#303030',
-    'A700': '#616161',
-  },
+  danger: {},
+  error: {},
+  success: {},
+  warning: {},
+  muted: {},
+  default: {},
+  info: {},
+  secondary: {},
+  light: {},
 };
 
-// colors.danger = colors.rose;
-// // colors.error = colors.red;
-// colors.success = colors.green;
-// colors.warning = colors.orange;
-// colors.muted = colors.trueGray;
-// colors.default = colors.blue;
-// colors.info = colors.lightBlue;
-// // colors.secondary = colors.coolGray;
-// colors.light = colors.warmGray;
+colors.danger = colors.rose;
+colors.error = colors.red;
+colors.success = colors.green;
+colors.warning = colors.orange;
+colors.muted = colors.trueGray;
+colors.default = colors.blue;
+colors.info = colors.lightBlue;
+colors.secondary = colors.coolGray;
+colors.light = colors.warmGray;
 
 export default colors;
 export type IColors = typeof colors;
