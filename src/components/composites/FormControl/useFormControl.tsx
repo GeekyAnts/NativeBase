@@ -85,14 +85,14 @@ export function useFormControl(props: IFormControlProps) {
 
   return {
     ...cleanProps,
-    'nativeID': props.nativeID ?? field?.nativeID,
-    'disabled': props.isDisabled || field?.isDisabled,
-    'readOnly': props.isReadOnly || field?.isReadOnly,
-    'required': props.isRequired || field?.isRequired,
-    'aria-invalid': ariaAttr(props.isInvalid || field?.isInvalid),
-    'aria-required': ariaAttr(props.isRequired || field?.isRequired),
-    'aria-readonly': ariaAttr(props.isReadOnly || field?.isReadOnly),
-    'aria-describedby': ariaDescribedBy || undefined,
+    nativeID: props.nativeID ?? field?.nativeID,
+    disabled: props.isDisabled || field?.isDisabled,
+    readOnly: props.isReadOnly || field?.isReadOnly,
+    required: props.isRequired || field?.isRequired,
+    accessibilityInvalid: ariaAttr(props.isInvalid || field?.isInvalid),
+    accessibilityRequired: ariaAttr(props.isRequired || field?.isRequired),
+    accessibilityReadOnly: ariaAttr(props.isReadOnly || field?.isReadOnly),
+    accessibilityDescribedBy: ariaDescribedBy || undefined,
   };
 }
 

@@ -17,7 +17,7 @@ const FormLabel = (
     <Text
       //@ts-ignore web only role
       accessibilityRole="presentation"
-      aria-hidden
+      accessibilityHidden
       color={textColor}
     >
       *

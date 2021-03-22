@@ -165,7 +165,8 @@ const Input = (
   let updatedBorderColor = borderColorFromProps;
   if (isHovered) updatedBorderColor = hoverBorderColor;
   else if (isFocused) updatedBorderColor = focusBorderColor;
-  else if (inputProps['aria-invalid']) updatedBorderColor = errorBorderColor;
+  else if (inputProps.accessibilityInvalid)
+    updatedBorderColor = errorBorderColor;
   const focusStyle = {
     shadow: 3,
     shadowColor: '#2563EB',
