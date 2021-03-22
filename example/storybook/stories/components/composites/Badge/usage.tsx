@@ -1,6 +1,10 @@
 import React from 'react';
-import { Badge } from 'native-base';
+import { Badge, HStack } from 'native-base';
 
 export default function () {
-  return <Badge>DEFAULT BADGE</Badge>;
+  return (
+    <HStack space={2}>
+      <Badge>Basic</Badge>
+    </HStack>
+  );
 }

@@ -1,7 +1,7 @@
 import { mode, getColorScheme } from '../tools';
 
 const defaultProps = {
-  colorScheme: 'default',
+  colorScheme: 'primary',
   size: 'md',
   rounded: 50,
 };

@@ -13,6 +13,11 @@ export interface IColorHues {
 
 const colors = {
   contrastThreshold: 7,
+  // Default Shades
+  primaryLightShade: 500,
+  secondaryLightShade: 300,
+  primaryDarkShade: 700,
+  secondaryDarkShade: 600,
   // Singleton colors
   white: '#FFFFFF',
   black: '#000000',
@@ -414,7 +419,7 @@ const colors = {
   success: {},
   warning: {},
   muted: {},
-  default: {},
+  primary: {},
   info: {},
   secondary: {},
   light: {},
@@ -425,7 +430,7 @@ colors.error = colors.red;
 colors.success = colors.green;
 colors.warning = colors.orange;
 colors.muted = colors.trueGray;
-colors.default = colors.blue;
+colors.primary = colors.indigo;
 colors.info = colors.lightBlue;
 colors.secondary = colors.pink;
 colors.light = colors.warmGray;
