@@ -2316,6 +2316,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.4.tgz#7b2ad211b648f861085ea98c963d2e8ac97d40dc"
   integrity sha512-dBzPTytIfRVRUSoqT/6J75lTNwCgGv2TdpvwM2pmFQxyj1GiembJI2S8qNGR9RX2R/584JLKLwIDlNXsF+qqXg==
 
+"@react-native-aria/utils@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.5.tgz#db3979cf96b1ac09f990a0e6977bf1efda567db2"
+  integrity sha512-5YDAQa3j/85i3ZAHs0p4PMIGGSvjyKSLoUNtHAfVcuinvDyxiuirO2fhohOiSH5rGNN41a036yHayMfFh+t6wA==
+
 "@react-native-community/bob@^0.16.2":
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/@react-native-community/bob/-/bob-0.16.2.tgz#9102b0160e70084fa1b75403a80dec332647c950"
