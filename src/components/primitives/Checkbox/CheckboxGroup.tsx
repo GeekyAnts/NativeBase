@@ -1,10 +1,7 @@
 import React, { createContext } from 'react';
 import { useCheckboxGroupState } from '@react-stately/checkbox';
 import { useCheckboxGroup } from '@react-native-aria/checkbox';
-import {
-  FormControlContext,
-  IFormControlContext,
-} from '../../composites/FormControl';
+import { useFormControlContext } from '../../composites/FormControl';
 import type { ICheckboxGroupProps, ICheckboxContext } from './types';
 import Box from '../Box';
 
@@ -17,9 +14,7 @@ function CheckboxGroup(
   let { children } = props;
   let state = useCheckboxGroupState(props);
   let { groupProps } = useCheckboxGroup(props, state);
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
+  const formControlContext = useFormControlContext();
   return (
     <CheckboxGroupContext.Provider
       value={{

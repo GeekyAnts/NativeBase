@@ -45,7 +45,6 @@ export type IInputProps = ColorProps &
     isFullWidth?: boolean;
     focusBorderColor?: string;
     errorBorderColor?: string;
-    ariaLabel?: string;
     InputLeftElement?: JSX.Element | JSX.Element[];
     InputRightElement?: JSX.Element | JSX.Element[];
     type?: 'text' | 'password' | string;

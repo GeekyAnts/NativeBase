@@ -1,24 +1,27 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { FormControlContext } from './FormControl';
-import type {
-  IFormControlErrorMessageProps,
-  IFormControlContext,
-} from './types';
+import { useFormControlContext } from './useFormControl';
+import type { IFormControlErrorMessageProps } from './types';
 
 const FormErrorMessage = (
   { children, _disabled, ...props }: IFormControlErrorMessageProps,
   ref: any
 ) => {
-  const { isDisabled, isInvalid }: IFormControlContext = React.useContext(
-    FormControlContext
-  );
+  const formControlContext = useFormControlContext();
 
-  return isInvalid ? (
+  React.useEffect(() => {
+    formControlContext?.setHasFeedbackText(true);
+    return () => {
+      formControlContext?.setHasFeedbackText(false);
+    };
+  });
+
+  return formControlContext?.isInvalid ? (
     <Box
       _text={{ fontSize: 'xs', color: 'red.400' }}
+      nativeID={formControlContext?.helpTextId}
       {...props}
-      {...(isDisabled && _disabled)}
+      {...(formControlContext?.isDisabled && _disabled)}
       ref={ref}
     >
       {children}
