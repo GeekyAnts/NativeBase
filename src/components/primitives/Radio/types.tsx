@@ -9,7 +9,7 @@ export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
 
 export type IRadioProps = IBoxProps & {
   value: IRadioValue;
-  colorScheme?: string | 'primary.';
+  colorScheme?: string;
   isDisabled?: boolean;
   isInvalid?: boolean;
   size?: 'sm' | 'md' | 'lg';

@@ -10,7 +10,7 @@ export type ICheckboxProps = IBoxProps & {
   id?: string;
   name?: string;
   value: ICheckboxValue;
-  colorScheme?: string | 'primary.';
+  colorScheme?: string;
   defaultIsChecked?: boolean;
   isChecked?: boolean;
   isIndeterminate?: boolean;

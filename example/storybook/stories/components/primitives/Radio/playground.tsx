@@ -19,7 +19,7 @@ export default function () {
           <Text mx={2}>Are you Awesome?</Text>
         </Radio>
         <Radio
-          colorScheme={text('colorScheme', 'primary.')}
+          colorScheme={text('colorScheme', 'primary')}
           size={select('size', ['sm', 'md', 'lg'], 'md')}
           isDisabled={boolean('isDisabled', false)}
           isInvalid={boolean('isInvalid', false)}
