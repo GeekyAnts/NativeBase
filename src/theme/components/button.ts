@@ -81,7 +81,7 @@ function variantContained(props: Dict) {
   const { colorScheme: c } = props;
 
   return {
-    bg: c ? c : 'default',
+    bg: c ? c : 'primary',
     _text: { color: `white` },
   };
 }
@@ -91,7 +91,7 @@ function variantDefault(props: Dict) {
 
   return {
     bg: 'transparent',
-    _text: { color: c ? c : 'default' },
+    _text: { color: c ? c : 'primary' },
   };
 }
 
@@ -100,9 +100,9 @@ function variantOutline(props: Dict) {
 
   return {
     border: '1px solid',
-    borderColor: c ? c : 'default',
+    borderColor: c ? c : 'primary',
     bg: 'transparent',
-    _text: { color: c ? c : 'default' },
+    _text: { color: c ? c : 'primary' },
   };
 }
 
@@ -151,7 +151,7 @@ const sizes = {
 };
 
 const defaultProps = {
-  variant: 'default',
+  variant: 'primary',
   size: 'md',
   colorScheme: 'primary',
   _text: {

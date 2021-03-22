@@ -21,7 +21,7 @@ const Fab = (props: IFabProps, ref: any) => {
   return (
     <Button
       variant="unstyled"
-      bg="default.200"
+      bg="primary.200"
       rounded="full"
       zIndex={20}
       p={2}

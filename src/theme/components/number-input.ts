@@ -19,7 +19,7 @@ export default {
 //Steppers
 const stepperbaseStyle = (props: Record<string, any>) => {
   return {
-    bg: mode('default.600', 'default.200')(props),
+    bg: mode('primary.600', 'primary.200')(props),
     iconColor: mode('gray.50', 'gray.800')(props),
     _active: {},
     _disabled: {

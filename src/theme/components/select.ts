@@ -15,7 +15,7 @@ const styled = (props: Record<string, any>) => {
       borderColor: mode('danger.600', 'danger.200')(props),
     },
     _hover: {
-      borderColor: 'default.500',
+      borderColor: 'primary.500',
     },
   };
 };
@@ -33,11 +33,11 @@ const native = (props: Record<string, any>) => {
     _web: {
       bg: 'transparent',
       borderRadius: 'md',
-      borderColor: 'default.500',
+      borderColor: 'primary.500',
       p: 3,
     },
     _hover: {
-      borderColor: 'default.500',
+      borderColor: 'primary.500',
     },
   };
 };

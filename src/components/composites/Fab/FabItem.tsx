@@ -65,7 +65,7 @@
 //       >
 //         <Button
 //           variant="unstyled"
-//           bg="default.200"
+//           bg="primary.200"
 //           borderRadius="full"
 //           justifyContent="center"
 //           alignItems="center"

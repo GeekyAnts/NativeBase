@@ -10,7 +10,7 @@ export default function () {
     <View display="flex" justifyContent="space-between" alignItems="center">
       <Radio.Group value={value} onChange={setValue} name="exampleGroup">
         <Radio
-          colorScheme={text('colorScheme', 'default')}
+          colorScheme={text('colorScheme', 'primary')}
           size={select('size', ['sm', 'md', 'lg'], 'md')}
           isDisabled={boolean('isDisabled', false)}
           isInvalid={boolean('isInvalid', false)}
@@ -19,7 +19,7 @@ export default function () {
           <Text mx={2}>Are you Awesome?</Text>
         </Radio>
         <Radio
-          colorScheme={text('colorScheme', 'default')}
+          colorScheme={text('colorScheme', 'primary.')}
           size={select('size', ['sm', 'md', 'lg'], 'md')}
           isDisabled={boolean('isDisabled', false)}
           isInvalid={boolean('isInvalid', false)}
