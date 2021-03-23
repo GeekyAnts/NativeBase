@@ -108,7 +108,7 @@ const sizes = {
       fontSize: 'lg',
     },
     px: 6,
-    py: 4,
+    py: 3,
   },
   md: {
     minH: 10,
