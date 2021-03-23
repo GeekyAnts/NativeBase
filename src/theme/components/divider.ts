@@ -2,11 +2,14 @@ import { mode } from '../tools';
 
 function baseStyle(props: Record<string, any>) {
   return {
-    borderWidth: 1,
-    bg: mode('gray.600', 'gray.200')(props),
+    borderTopWidth: 1,
+    bg: mode('muted.600', 'muted.200')(props),
   };
 }
 
 export default {
   baseStyle,
+  defaultProps: {
+    orientation: 'horizontal',
+  },
 };
