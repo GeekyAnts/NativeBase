@@ -3,7 +3,7 @@ import Box from '../../primitives/Box';
 import { TabsContext } from './Context';
 import type { ITabsContextProps, ITabBarProps } from './types';
 
-const TabBar = ({ tablistRef, tabListProps, ...props }: ITabBarProps) => {
+const TabBarImpl = ({ tablistRef, tabListProps, ...props }: ITabBarProps) => {
   const {
     tabBarStyle,
     align,
@@ -29,5 +29,8 @@ const TabBar = ({ tablistRef, tabListProps, ...props }: ITabBarProps) => {
     </>
   );
 };
+const TabBar = React.memo(TabBarImpl);
 
-export default React.memo(TabBar);
+TabBar.displayName = 'TabBar';
+
+export default TabBar;
