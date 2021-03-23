@@ -1,9 +1,12 @@
 import { mode, getColor, getColorScheme, transparentize } from '../tools';
 
 function getBg(props: Record<string, any>) {
-  let { theme, colorScheme, variant } = props;
+  let { theme, colorScheme, status, variant } = props;
 
-  colorScheme = getColorScheme(props, colorScheme);
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   const lightBg =
     variant === 'solid'
       ? getColor(theme, `${colorScheme}.400`, colorScheme)
@@ -16,8 +19,11 @@ function getBg(props: Record<string, any>) {
 }
 
 const variantSubtle = (props: Record<string, any>) => {
-  let { colorScheme, theme } = props;
-  colorScheme = getColorScheme(props, colorScheme);
+  let { colorScheme, status, theme } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     bg: getBg(props),
     iconColor: mode(`${colorScheme}.500`, `${colorScheme}.200`)(props),
@@ -29,8 +35,11 @@ const variantSubtle = (props: Record<string, any>) => {
 };
 
 const variantOutline = (props: Record<string, any>) => {
-  let { colorScheme, theme } = props;
-  colorScheme = getColorScheme(props, colorScheme);
+  let { colorScheme, status, theme } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     borderWidth: 1,
     borderColor: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
@@ -39,8 +48,11 @@ const variantOutline = (props: Record<string, any>) => {
   };
 };
 const variantOutlineLight = (props: Record<string, any>) => {
-  let { colorScheme, theme } = props;
-  colorScheme = getColorScheme(props, colorScheme);
+  let { colorScheme, status, theme } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     borderWidth: 1,
     borderColor: transparentize(`${colorScheme}.600`, 0.2)(theme),
@@ -50,8 +62,11 @@ const variantOutlineLight = (props: Record<string, any>) => {
 };
 
 const variantSolid = (props: Record<string, any>) => {
-  let { colorScheme } = props;
-  colorScheme = getColorScheme(props, colorScheme);
+  let { colorScheme, status } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     borderWidth: 6,
     borderColor: 'transparent',
@@ -61,8 +76,11 @@ const variantSolid = (props: Record<string, any>) => {
   };
 };
 const variantLeftAccent = (props: Record<string, any>) => {
-  let { colorScheme } = props;
-  colorScheme = getColorScheme(props, colorScheme);
+  let { colorScheme, status } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     borderWidth: 4,
     bg: getBg(props),
@@ -73,8 +91,11 @@ const variantLeftAccent = (props: Record<string, any>) => {
   };
 };
 const variantTopAccent = (props: Record<string, any>) => {
-  let { colorScheme } = props;
-  colorScheme = getColorScheme(props, colorScheme);
+  let { colorScheme, status } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     borderWidth: 4,
     borderColor: 'transparent',
