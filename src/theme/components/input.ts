@@ -16,8 +16,8 @@ const baseStyle = (props: Record<string, any>) => {
     borderColor: isInvalid
       ? mode('danger.600', 'danger.200')(props)
       : mode('gray.300', 'gray.600')(props),
-    hoverBorderColor: 'default.500',
-    focusBorderColor: mode('default.600', 'default.400')(props),
+    hoverBorderColor: 'primary.500',
+    focusBorderColor: mode('primary.600', 'primary.400')(props),
     errorBorderColor: mode('danger.600', 'danger.200')(props),
   };
 };

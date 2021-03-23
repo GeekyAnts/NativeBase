@@ -24,7 +24,7 @@ const sizes = {
 const defaultProps = {
   defaultIsChecked: false,
   size: 'md',
-  colorScheme: 'default',
+  colorScheme: 'primary',
 };
 
 export default {

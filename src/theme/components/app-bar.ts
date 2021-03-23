@@ -7,7 +7,9 @@ const baseStyle = (props: Record<string, any>) => {
     px: 2,
   };
 };
-const defaultProps = {};
+const defaultProps = {
+  colorScheme: 'primary',
+};
 
 export default {
   baseStyle,

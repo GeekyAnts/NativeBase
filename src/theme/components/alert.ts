@@ -96,7 +96,7 @@ const variants = {
 
 export const Alert = {
   defaultProps: {
-    status: 'default',
+    status: 'primary',
     variant: 'subtle',
     p: 4,
     borderRadius: 'lg',
