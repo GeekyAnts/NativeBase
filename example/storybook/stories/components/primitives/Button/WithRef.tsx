@@ -11,7 +11,7 @@ export default function () {
     });
   }, [myRef]);
   return (
-    <Button size="sm" colorScheme="gray" variant={'solid'} ref={myRef}>
+    <Button size="sm" variant={'solid'} ref={myRef}>
       Button
     </Button>
   );

@@ -4,18 +4,11 @@ import { Button, HStack } from 'native-base';
 export default function () {
   return (
     <HStack space={2}>
-      <Button colorScheme="teal" isLoading>
+      <Button isLoading>Button</Button>
+      <Button isLoading isLoadingText="Submitting">
         Button
       </Button>
-      <Button colorScheme="teal" isLoading isLoadingText="Submitting">
-        Button
-      </Button>
-      <Button
-        colorScheme="teal"
-        isLoading
-        isLoadingText="Submitting"
-        variant="outline"
-      >
+      <Button isLoading isLoadingText="Submitting" variant="outline">
         Button
       </Button>
     </HStack>
