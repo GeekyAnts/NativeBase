@@ -5,6 +5,7 @@ import type {
   IFormControlErrorMessageProps,
   IFormControlContext,
 } from './types';
+import { useThemeProps } from '../../../hooks';
 
 const FormErrorMessage = (
   { children, _disabled, ...props }: IFormControlErrorMessageProps,
@@ -13,14 +14,10 @@ const FormErrorMessage = (
   const { isDisabled, isInvalid }: IFormControlContext = React.useContext(
     FormControlContext
   );
+  const newProps = useThemeProps('FormControlErrorMessage', props);
 
   return isInvalid ? (
-    <Box
-      _text={{ fontSize: 'xs', color: 'red.400' }}
-      {...props}
-      {...(isDisabled && _disabled)}
-      ref={ref}
-    >
+    <Box {...newProps} {...(isDisabled && _disabled)} ref={ref}>
       {children}
     </Box>
   ) : null;
