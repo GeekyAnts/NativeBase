@@ -4,7 +4,7 @@ import { Alert, Stack } from 'native-base';
 export default function () {
   return (
     <Stack space={4} mx={3}>
-      <Alert variant="solid" status="teal">
+      <Alert variant="solid" colorScheme="teal">
         <Alert.Icon />
         <Alert.Title>Alert Solid Variant</Alert.Title>
       </Alert>

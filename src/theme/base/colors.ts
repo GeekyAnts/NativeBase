@@ -312,9 +312,9 @@ colors.error = colors.red;
 colors.success = colors.green;
 colors.warning = colors.orange;
 colors.muted = colors.trueGray;
-colors.primary = colors.blue;
+colors.primary = colors.indigo;
 colors.info = colors.lightBlue;
-colors.secondary = colors.coolGray;
+colors.secondary = colors.pink;
 colors.light = colors.warmGray;
 
 export default colors;

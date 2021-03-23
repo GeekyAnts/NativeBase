@@ -7,6 +7,11 @@ export default function () {
     <Alert
       status={select(
         'status',
+        ['success', 'green', 'error', 'red', 'warning'],
+        'error'
+      )}
+      colorScheme={select(
+        'colorScheme',
         [
           'success',
           'green',
@@ -35,7 +40,7 @@ export default function () {
       <Alert.Icon />
       <Alert.Title>Error Alert</Alert.Title>
       <Alert.Description>description goes here </Alert.Description>
-      <CloseButton position="absolute" right="8px" />
+      <CloseButton position="absolute" right="8px" size="xs" />
     </Alert>
   );
 }
