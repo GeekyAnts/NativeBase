@@ -2,17 +2,17 @@ import React from 'react';
 import { Wrap, Center } from 'native-base';
 export default function () {
   return (
-    <Wrap direction="row" spacing={10}>
+    <Wrap direction="row" space={10}>
       <Center
         size={16}
-        bg="emerald.400"
+        bg="primary.400"
         rounded="xl"
         _text={{ color: 'white' }}
       >
         Box 1
       </Center>
       <Center
-        bg="lightBlue.400"
+        bg="secondary.400"
         size={16}
         rounded="xl"
         _text={{ color: 'white' }}

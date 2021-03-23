@@ -6,9 +6,9 @@ const data = Array(items).fill(0);
 
 export default function NumberOfColumnsSimpleGrid() {
   return (
-    <SimpleGrid columns={3} spacing={4}>
+    <SimpleGrid columns={3} space={4}>
       {data.map((_item, index) => {
-        return <Box key={index} bg="#d1d1d1" height={100} width={100} />;
+        return <Box key={index} bg="primary.400" height={100} width={100} />;
       })}
     </SimpleGrid>
   );

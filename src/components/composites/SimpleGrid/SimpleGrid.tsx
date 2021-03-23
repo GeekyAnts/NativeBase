@@ -20,7 +20,7 @@ const DEBUG_STYLES = false
 const SimpleGrid = (
   {
     columns,
-    spacing,
+    space,
     spacingX,
     spacingY,
     minChildWidth,
@@ -28,7 +28,7 @@ const SimpleGrid = (
   }: ISimpleGridProps,
   ref?: any
 ): JSX.Element => {
-  let cellSpacing = spacing ?? 0;
+  let cellSpacing = space ?? 0;
   let cellSpacingX = spacingX ?? cellSpacing;
   let cellSpacingY = spacingY ?? cellSpacing;
 
