@@ -32,6 +32,7 @@ function MyWrapper({ children }: any) {
             name={colorMode === 'dark' ? 'light-up' : 'md-moon'}
             type={colorMode === 'dark' ? 'Entypo' : 'Ionicons'}
             size={6}
+            color={colorMode === 'dark' ? 'white' : 'black'}
           />
         }
       />
