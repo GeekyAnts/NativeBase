@@ -20,7 +20,7 @@ export const NBStepper = ({ children, ...props }: any) => {
   } = useThemeProps('NumberInputStepper', props);
   return (
     <TouchableOpacity
-      activeOpacity={1}
+      activeOpacity={0.2}
       disabled={disablitityCheck || isDisabled}
       onPress={pressHandler}
       accessible

@@ -7,7 +7,7 @@ export const SpacerExample = () => {
       <Flex h={56} w={20} justify="space-between">
         <Center
           size={16}
-          bg="emerald.400"
+          bg="primary.400"
           rounded="xl"
           _text={{ color: 'white' }}
         >
@@ -16,7 +16,7 @@ export const SpacerExample = () => {
         <Spacer />
         <Center
           size={16}
-          bg="lightBlue.400"
+          bg="secondary.400"
           rounded="xl"
           _text={{ color: 'white' }}
         >

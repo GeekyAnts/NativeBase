@@ -8,10 +8,14 @@ const Alert = (
   { children, _text, action, ...props }: IAlertProps,
   ref: any
 ) => {
-  const { status, variant, iconColor, textColor, ...newProps } = useThemeProps(
-    'Alert',
-    props
-  );
+  const {
+    status,
+    variant,
+    iconColor,
+    textColor,
+    colorScheme,
+    ...newProps
+  } = useThemeProps('Alert', props);
 
   return (
     <AlertContext.Provider
@@ -20,20 +24,10 @@ const Alert = (
         variant,
         iconColor,
         textColor,
+        colorScheme,
       }}
     >
-      <Box
-        minW="100%"
-        maxW="100%"
-        position="relative"
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="flex-start"
-        flexWrap="wrap"
-        _text={_text}
-        {...newProps}
-        ref={ref}
-      >
+      <Box _text={_text} {...newProps} ref={ref}>
         {children}
         {action ? <Box mr={0}>{action}</Box> : null}
       </Box>

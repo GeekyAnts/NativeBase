@@ -1,11 +1,13 @@
 import React from 'react';
 import { Box, Icon } from '../../primitives';
 import type { IAlertContext } from './index';
+import { useThemeProps } from '../../../hooks';
 import { AlertContext } from './Context';
 import { omitUndefined } from '../../../theme/tools/utils';
 
 const AlertIcon = ({ children, ...props }: any) => {
-  const newProps = omitUndefined(props);
+  let newProps = useThemeProps('AlertIcon', props);
+  newProps = omitUndefined(newProps);
   const { status, iconColor }: IAlertContext = React.useContext(AlertContext);
   const getIconName = () => {
     switch (status) {
@@ -24,14 +26,7 @@ const AlertIcon = ({ children, ...props }: any) => {
   return (
     <Box alignSelf="center">
       {children || (
-        <Icon
-          name={getIconName()}
-          type="MaterialIcons"
-          size={8}
-          mr={4}
-          color={iconColor}
-          {...newProps}
-        />
+        <Icon name={getIconName()} color={iconColor} {...newProps} />
       )}
     </Box>
   );

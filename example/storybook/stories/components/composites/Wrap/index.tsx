@@ -11,6 +11,6 @@ storiesOf('Wrap', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
-  .add('Spacing', () => <Spacing />)
+  .add('Space', () => <Spacing />)
   .add('AlignmentAlign', () => <AlignmentAlign />)
   .add('AlignmentJustify', () => <AlignmentJustify />);

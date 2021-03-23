@@ -1,87 +1,108 @@
 import { mode, getColor, getColorScheme, transparentize } from '../tools';
 
 function getBg(props: Record<string, any>) {
-  let { theme, status, variant } = props;
+  let { theme, colorScheme, status, variant } = props;
 
-  status = getColorScheme(props, status);
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   const lightBg =
     variant === 'solid'
-      ? getColor(theme, `${status}.400`, status)
-      : getColor(theme, `${status}.100`, status);
+      ? getColor(theme, `${colorScheme}.400`, colorScheme)
+      : getColor(theme, `${colorScheme}.100`, colorScheme);
   const darkBg = transparentize(
-    `${status}.500`,
+    `${colorScheme}.500`,
     variant === 'solid' ? 0.8 : 0.5
   )(theme);
   return mode(lightBg, darkBg)(props);
 }
 
 const variantSubtle = (props: Record<string, any>) => {
-  let { status, theme } = props;
-  status = getColorScheme(props, status);
+  let { colorScheme, status, theme } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     bg: getBg(props),
-    iconColor: mode(`${status}.500`, `${status}.200`)(props),
+    iconColor: mode(`${colorScheme}.500`, `${colorScheme}.200`)(props),
     textColor: mode(
-      getColor(theme, `${status}.600`, status),
-      getColor(theme, `${status}.300`, status)
+      getColor(theme, `${colorScheme}.600`, colorScheme),
+      getColor(theme, `${colorScheme}.300`, colorScheme)
     )(props),
   };
 };
 
 const variantOutline = (props: Record<string, any>) => {
-  let { status, theme } = props;
-  status = getColorScheme(props, status);
+  let { colorScheme, status, theme } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     borderWidth: 1,
-    borderColor: mode(`${status}.600`, `${status}.500`)(props),
-    iconColor: mode(`${status}.500`, `${status}.500`)(props),
-    textColor: getColor(theme, `${status}.700`, status),
+    borderColor: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
+    iconColor: mode(`${colorScheme}.500`, `${colorScheme}.500`)(props),
+    textColor: getColor(theme, `${colorScheme}.700`, colorScheme),
   };
 };
 const variantOutlineLight = (props: Record<string, any>) => {
-  let { status, theme } = props;
-  status = getColorScheme(props, status);
+  let { colorScheme, status, theme } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     borderWidth: 1,
-    borderColor: transparentize(`${status}.600`, 0.2)(theme),
-    iconColor: mode(`${status}.500`, `${status}.200`)(props),
-    textColor: getColor(theme, `${status}.900`, status),
+    borderColor: transparentize(`${colorScheme}.600`, 0.2)(theme),
+    iconColor: mode(`${colorScheme}.500`, `${colorScheme}.200`)(props),
+    textColor: getColor(theme, `${colorScheme}.900`, colorScheme),
   };
 };
 
 const variantSolid = (props: Record<string, any>) => {
-  let { status } = props;
-  status = getColorScheme(props, status);
+  let { colorScheme, status } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     borderWidth: 6,
     borderColor: 'transparent',
     bg: getBg(props),
-    iconColor: mode(`white`, `${status}.300`)(props),
-    textColor: mode('white', `${status}.200`)(props),
+    iconColor: mode(`white`, `${colorScheme}.300`)(props),
+    textColor: mode('white', `${colorScheme}.200`)(props),
   };
 };
 const variantLeftAccent = (props: Record<string, any>) => {
-  let { status } = props;
-  status = getColorScheme(props, status);
+  let { colorScheme, status } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     borderWidth: 4,
     bg: getBg(props),
-    iconColor: mode(`${status}.500`, `${status}.200`)(props),
-    textColor: mode(`${status}.600`, `${status}.300`)(props),
+    iconColor: mode(`${colorScheme}.500`, `${colorScheme}.200`)(props),
+    textColor: mode(`${colorScheme}.600`, `${colorScheme}.300`)(props),
     borderColor: 'transparent',
-    borderLeftColor: mode(`${status}.600`, `${status}.300`)(props),
+    borderLeftColor: mode(`${colorScheme}.600`, `${colorScheme}.300`)(props),
   };
 };
 const variantTopAccent = (props: Record<string, any>) => {
-  let { status } = props;
-  status = getColorScheme(props, status);
+  let { colorScheme, status } = props;
+  colorScheme = getColorScheme(
+    props,
+    colorScheme != 'primary' ? colorScheme : status
+  );
   return {
     borderWidth: 4,
     borderColor: 'transparent',
-    borderTopColor: mode(`${status}.600`, `${status}.300`)(props),
+    borderTopColor: mode(`${colorScheme}.600`, `${colorScheme}.300`)(props),
     bg: getBg(props),
-    iconColor: mode(`${status}.500`, `${status}.200`)(props),
-    textColor: mode(`${status}.600`, `${status}.300`)(props),
+    iconColor: mode(`${colorScheme}.500`, `${colorScheme}.200`)(props),
+    textColor: mode(`${colorScheme}.600`, `${colorScheme}.300`)(props),
   };
 };
 
@@ -96,10 +117,19 @@ const variants = {
 
 export const Alert = {
   defaultProps: {
-    status: 'primary',
+    minW: '100%',
+    maxW: '100%',
+    position: 'relative',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    flexWrap: 'wrap',
+    colorScheme: 'primary',
     variant: 'subtle',
-    p: 4,
-    borderRadius: 'lg',
+    px: 4,
+    py: 3,
+    borderRadius: 'md',
+    shadow: 2,
   },
   variants,
 };
@@ -110,6 +140,17 @@ export const AlertTitle = {
   defaultProps: {
     fontSize: 'md',
     fontWeight: 'semibold',
+    mr: 2,
+  },
+};
+
+// AlertIcon
+
+export const AlertIcon = {
+  defaultProps: {
+    type: 'MaterialIcons',
+    size: 8,
+    mr: 2,
   },
 };
 

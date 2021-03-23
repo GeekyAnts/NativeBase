@@ -9,7 +9,7 @@ export const MenuGroup = React.memo(({ title, children }: IMenuGroupProps) => {
   return (
     <>
       <TouchableItem
-        activeOpacity={1}
+        activeOpacity={0.2}
         underlayColor={'transparent'}
         {...newProps}
       >

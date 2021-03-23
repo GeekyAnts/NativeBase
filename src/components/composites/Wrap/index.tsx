@@ -5,15 +5,15 @@ import type { IWrapProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
 const Wrap = ({ children, ...props }: IWrapProps, ref?: any) => {
-  const { spacing, ...newProps } = useThemeProps('Wrap', props);
+  const { space, ...newProps } = useThemeProps('Wrap', props);
   return (
     <Flex wrap="wrap" {...newProps} ref={ref}>
-      {isNil(spacing)
+      {isNil(space)
         ? children
         : React.Children.map(children, (child: any) => {
             return React.cloneElement(
               child,
-              { ...props, style: { margin: spacing } },
+              { ...props, style: { margin: space } },
               child.props.children
             );
           })}
