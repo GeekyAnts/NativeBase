@@ -7,7 +7,7 @@ export default function () {
     <Stack space={number('space', 3)} mb={number('mb', 3)}>
       <Box borderRadius={4} height={70} width={70} bg="primary.400" />
       <Box borderRadius={4} height={70} width={70} bg="secondary.400" />
-      <Box borderRadius={4} height={70} width={70} bg="violet.400" />
+      <Box borderRadius={4} height={70} width={70} bg="emerald.400" />
     </Stack>
   );
 }

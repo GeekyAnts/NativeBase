@@ -9,7 +9,7 @@ export default function () {
       <Center w="180px" h="80px" bg="secondary.400">
         Box 2
       </Center>
-      <Center w="180px" h="80px" bg="violet.400">
+      <Center w="180px" h="80px" bg="emerald.400">
         Box 3
       </Center>
       <Center w="180px" h="80px" bg="rose.400">

@@ -23,7 +23,7 @@ export default function () {
         </Center>
         <Center
           size={16}
-          bg="violet.400"
+          bg="emerald.400"
           rounded="xl"
           _text={{ color: 'white' }}
         >

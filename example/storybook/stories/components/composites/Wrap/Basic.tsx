@@ -19,7 +19,12 @@ export default function () {
       >
         Box 2
       </Center>
-      <Center size={16} bg="violet.400" rounded="xl" _text={{ color: 'white' }}>
+      <Center
+        size={16}
+        bg="emerald.400"
+        rounded="xl"
+        _text={{ color: 'white' }}
+      >
         Box 3
       </Center>
       <Center size={16} bg="rose.400" rounded="xl" _text={{ color: 'white' }}>

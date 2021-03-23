@@ -3,7 +3,7 @@ import { Circle, Square, Box, HStack, Icon } from 'native-base';
 export default function () {
   return (
     <HStack>
-      <Circle size={98} bg="danger.400">
+      <Circle size={98} bg="secondary.400">
         <Icon name="audiotrack" type="MaterialIcons" color="white" size={8} />
       </Circle>
       <Square size="lg" bg="primary.400">

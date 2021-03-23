@@ -7,11 +7,11 @@ export default function () {
         <Icon
           name="audiotrack"
           type="MaterialIcons"
-          color="danger.400"
+          color="secondary.400"
           size={6}
         />
       </Center>
-      <Center w="40px" h="40px" bg="danger.400">
+      <Center w="40px" h="40px" bg="secondary.400">
         <Box _text={{ fontWeight: 'bold', fontSize: 'lg', color: 'white' }}>
           20
         </Box>

@@ -9,7 +9,7 @@ export default function () {
       <Center size={16} bg="secondary.400">
         Box 2
       </Center>
-      <Center size={12} bg="violet.400">
+      <Center size={12} bg="emerald.400">
         Box 3
       </Center>
       <Center size={10} bg="rose.400">
