@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '../../primitives/Box';
 import type { IFormControlProps } from './types';
+import { useThemeProps } from '../../../hooks';
 
 export const FormControlContext = React.createContext({});
 
@@ -15,6 +16,8 @@ const FormControl = (
   }: IFormControlProps,
   ref: any
 ) => {
+  const newProps = useThemeProps('FormControl', props);
+
   return (
     <FormControlContext.Provider
       value={{
@@ -24,7 +27,7 @@ const FormControl = (
         isReadOnly,
       }}
     >
-      <Box width="100%" {...props} ref={ref}>
+      <Box width="100%" {...newProps} ref={ref}>
         {children}
       </Box>
     </FormControlContext.Provider>
