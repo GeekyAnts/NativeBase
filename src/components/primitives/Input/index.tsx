@@ -26,10 +26,7 @@ import { InputRightAddon, InputGroup, InputLeftAddon } from './InputGroup';
 import { useThemeProps, useToken } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import { useHover } from '@react-native-aria/interactions';
-import {
-  useFormControl,
-  useFormControlContext,
-} from '../../composites/FormControl';
+import { useFormControl } from '../../composites/FormControl';
 
 const StyledInput = styled(TextInput)<IInputProps>(
   flex,
@@ -78,8 +75,6 @@ const Input = (
   }: IInputProps,
   ref: any
 ) => {
-  const formControlContext = useFormControlContext();
-
   const inputProps = useFormControl({
     isDisabled: props.isDisabled,
     isInvalid: props.isInvalid,
@@ -113,6 +108,14 @@ const Input = (
   if (typeof placeholderColor !== 'string') {
     placeholderColor = placeholderTextColor;
   }
+
+  const inputThemeProps = {
+    isDisabled: inputProps.disabled,
+    isInvalid: inputProps.accessibilityInvalid,
+    isReadOnly: inputProps.accessibilityReadOnly,
+    isRequired: inputProps.required,
+  };
+
   const {
     borderColor: borderColorFromProps,
     fontSize,
@@ -122,7 +125,7 @@ const Input = (
     hoverBorderColor,
     borderBottomWidth,
     ...newProps
-  } = useThemeProps('Input', { ...formControlContext, ...props });
+  } = useThemeProps('Input', { ...props, ...inputThemeProps });
 
   const computedProps = {
     display: 'flex',
@@ -138,7 +141,6 @@ const Input = (
     'pb',
     'pl',
     'pr',
-    'nativeID',
   ]);
 
   const slideAnim = React.useRef(new Animated.Value(0)).current;
@@ -197,7 +199,7 @@ const Input = (
                 transform: [{ translateY: slideAnim, translateX: 4 }],
               }}
             >
-              <Flex {...newProps} nativeID={undefined} bg="transparent">
+              <Flex {...newProps} bg="transparent">
                 <Box
                   bg="transparent"
                   color={updatedBorderColor}
