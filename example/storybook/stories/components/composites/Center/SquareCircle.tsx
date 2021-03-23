@@ -3,11 +3,11 @@ import { Circle, Square, Box, HStack, Icon } from 'native-base';
 export default function () {
   return (
     <HStack>
-      <Circle size={98} bg="tomato">
+      <Circle size={98} bg="danger.400">
         <Icon name="audiotrack" type="MaterialIcons" color="white" size={8} />
       </Circle>
-      <Square size="lg" bg="blue.300">
-        <Box fontWeight="bold" fontSize="lg" color="white">
+      <Square size="lg" bg="primary.400">
+        <Box _text={{ fontWeight: 'bold', fontSize: 'lg', color: 'white' }}>
           20
         </Box>
       </Square>
