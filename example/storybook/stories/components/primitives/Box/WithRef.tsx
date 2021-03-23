@@ -11,7 +11,14 @@ export default function () {
     });
   }, [myRef]);
   return (
-    <Box width="100%" bg="orange.300" p={4} color="white" ref={myRef}>
+    <Box
+      width="90%"
+      bg="primary.400"
+      p={4}
+      shadow={2}
+      _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}
+      ref={myRef}
+    >
       This is a Box
     </Box>
   );
