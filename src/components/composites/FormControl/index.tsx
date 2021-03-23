@@ -13,11 +13,17 @@ FormControlTemp.HelperText = FormControlHelperText;
 const FormControl = FormControlTemp as FormControlComponentType;
 
 export { FormControl };
-export { FormControlContext } from './FormControl';
+export {
+  FormControlContext,
+  useFormControl,
+  useFormControlProvider,
+  useFormControlContext,
+  IFormControlContext,
+} from './useFormControl';
+
 export type {
   IFormControlProps,
   IFormControlLabelProps,
   IFormControlErrorMessageProps,
   IFormControlHelperTextProps,
-  IFormControlContext,
 } from './types';

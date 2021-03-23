@@ -26,10 +26,7 @@ import { InputRightAddon, InputGroup, InputLeftAddon } from './InputGroup';
 import { useThemeProps, useToken } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import { useHover } from '@react-native-aria/interactions';
-import {
-  FormControlContext,
-  IFormControlContext,
-} from '../../composites/FormControl';
+import { useFormControl } from '../../composites/FormControl';
 
 const StyledInput = styled(TextInput)<IInputProps>(
   flex,
@@ -56,7 +53,6 @@ const Input = (
     isFullWidth,
     onFocus,
     onBlur,
-    ariaLabel,
     accessibilityLabel,
     InputLeftElement,
     InputRightElement,
@@ -79,9 +75,14 @@ const Input = (
   }: IInputProps,
   ref: any
 ) => {
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
+  const inputProps = useFormControl({
+    isDisabled: props.isDisabled,
+    isInvalid: props.isInvalid,
+    isReadOnly: props.isReadOnly,
+    isRequired: props.isRequired,
+    nativeID: props.nativeID,
+  });
+
   const layoutProps = {
     w,
     width,
@@ -107,10 +108,15 @@ const Input = (
   if (typeof placeholderColor !== 'string') {
     placeholderColor = placeholderTextColor;
   }
+
+  const inputThemeProps = {
+    isDisabled: inputProps.disabled,
+    isInvalid: inputProps.accessibilityInvalid,
+    isReadOnly: inputProps.accessibilityReadOnly,
+    isRequired: inputProps.required,
+  };
+
   const {
-    isInvalid,
-    isDisabled,
-    isReadOnly,
     borderColor: borderColorFromProps,
     fontSize,
     borderWidth,
@@ -119,7 +125,7 @@ const Input = (
     hoverBorderColor,
     borderBottomWidth,
     ...newProps
-  } = useThemeProps('Input', { ...formControlContext, ...props });
+  } = useThemeProps('Input', { ...props, ...inputThemeProps });
 
   const computedProps = {
     display: 'flex',
@@ -156,12 +162,13 @@ const Input = (
   };
 
   const _ref = React.useRef(null);
-  const { isHovered } = useHover({}, _ref);
+  const { isHovered } = useHover({ isDisabled: inputProps.disabled }, _ref);
 
   let updatedBorderColor = borderColorFromProps;
   if (isHovered) updatedBorderColor = hoverBorderColor;
   else if (isFocused) updatedBorderColor = focusBorderColor;
-  else if (isInvalid) updatedBorderColor = errorBorderColor;
+  else if (inputProps.accessibilityInvalid)
+    updatedBorderColor = errorBorderColor;
   const focusStyle = {
     shadow: 3,
     shadowColor: '#2563EB',
@@ -175,7 +182,7 @@ const Input = (
         borderWidth={borderWidth}
         borderBottomWidth={borderBottomWidth}
         {...rem}
-        {...(isDisabled && newProps._isDisabledProps)}
+        {...(inputProps.disabled && newProps._isDisabledProps)}
         {...computedProps}
         {...(isFocused && Platform.OS === 'web' && focusStyle)}
         style={style}
@@ -217,13 +224,13 @@ const Input = (
           </Flex>
         )}
         <StyledInput
+          {...inputProps}
           {...newProps}
+          accessibilityLabel={accessibilityLabel}
           fontSize={fontSize}
           backgroundColor="transparent"
           flex={1}
           secureTextEntry={type === 'password'}
-          accessible
-          accessibilityLabel={ariaLabel || accessibilityLabel}
           onKeyPress={(e: any) => {
             e.persist();
             props.onKeyPress && props.onKeyPress(e);
@@ -239,13 +246,12 @@ const Input = (
           }}
           placeholder={isFocused && label ? '' : placeholder}
           placeholderTextColor={placeholderColor}
-          editable={isDisabled || isReadOnly ? false : true}
+          editable={inputProps.disabled || inputProps.readOnly ? false : true}
           // borderRadius={50} //Remove variant props from StyledInput
           borderWidth={undefined}
           {...(Platform.OS === 'web'
             ? {
-                disabled: isDisabled,
-                cursor: isDisabled ? 'not-allowed' : 'auto',
+                cursor: inputProps.disabled ? 'not-allowed' : 'auto',
               }
             : {})}
           style={[

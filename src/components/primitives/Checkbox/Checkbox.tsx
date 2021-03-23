@@ -7,10 +7,7 @@ import {
 import { mergeRefs } from './../../../utils';
 import { useThemeProps } from '../../../hooks';
 import { Center } from '../../composites/Center';
-import {
-  FormControlContext,
-  IFormControlContext,
-} from '../../composites/FormControl';
+import { useFormControlContext } from '../../composites/FormControl';
 import Box from '../Box';
 import Icon from '../Icon';
 import type { ICheckboxProps } from './types';
@@ -22,9 +19,7 @@ import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
 
 const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
+  const formControlContext = useFormControlContext();
 
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
   const {

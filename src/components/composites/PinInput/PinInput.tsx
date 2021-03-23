@@ -2,7 +2,7 @@ import React from 'react';
 import { HStack } from '../../primitives/Stack';
 import { useThemeProps } from '../../../hooks';
 import type { IPinInputProps } from './types';
-import { FormControlContext, IFormControlContext } from '../FormControl';
+import { useFormControlContext } from '../FormControl';
 import { Platform } from 'react-native';
 import { PinInputContext } from './Context';
 import { themeTools } from '../../../theme';
@@ -26,9 +26,8 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
     onChange,
     ...newProps
   } = useThemeProps('PinInput', remProps);
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
+  const formControlContext = useFormControlContext();
+
   const RefList: Array<any> = [];
   const setRefList = (ref: any, index: number) => {
     RefList[index] = ref;

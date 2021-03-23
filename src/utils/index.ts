@@ -12,5 +12,5 @@ export {
   canUseDom,
   mergeRefs,
 };
-
 export type { IAccessibilityProps } from './accessibilityTypes';
+export { ariaAttr } from './accessibilityUtils';

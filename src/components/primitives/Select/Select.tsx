@@ -28,10 +28,7 @@ import {
 } from '../../../utils/customProps';
 import { Platform } from 'react-native';
 import { useToken } from '../../../hooks/useToken';
-import {
-  FormControlContext,
-  IFormControlContext,
-} from '../../composites/FormControl';
+import { useFormControlContext } from '../../composites/FormControl';
 
 const StyledNativePicker = styled(RNPicker)<ISelectProps>(
   flex,
@@ -62,9 +59,8 @@ const Select = (
   }: ISelectProps,
   ref: any
 ) => {
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
+  const formControlContext = useFormControlContext();
+
   const {
     variant,
     _item,

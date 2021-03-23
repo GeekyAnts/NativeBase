@@ -13,7 +13,7 @@ export const NBStepper = ({ children, ...props }: any) => {
     _active,
     _disabled,
     isDisabled,
-    ariaLabel,
+    accessibilityLabel,
     pressHandler,
     iconColor,
     ...newProps
@@ -24,7 +24,7 @@ export const NBStepper = ({ children, ...props }: any) => {
       disabled={disablitityCheck || isDisabled}
       onPress={pressHandler}
       accessible
-      accessibilityLabel={ariaLabel}
+      accessibilityLabel={accessibilityLabel}
     >
       <Box
         {...newProps}
