@@ -33,6 +33,7 @@ const Alert = (
         _text={_text}
         {...newProps}
         ref={ref}
+        accessibilityRole="alert"
       >
         {children}
         {action ? <Box mr={0}>{action}</Box> : null}

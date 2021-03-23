@@ -32,6 +32,7 @@ export type IOverlayConfig = {
   isKeyboardDismissable?: boolean;
   accessibilityLabel?: string;
   accessibilityViewIsModal?: boolean;
+  accessibilityRole?: string;
 };
 
 export type IuseOverlayProps = () => {
