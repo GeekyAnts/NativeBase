@@ -132,7 +132,7 @@ const Button = (
 
   return (
     <StyledButton
-      activeOpacity={highlight ? highlight : 0.8}
+      activeOpacity={highlight ? highlight : 0.2}
       ref={ref}
       style={style}
       accessibilityRole="button"
