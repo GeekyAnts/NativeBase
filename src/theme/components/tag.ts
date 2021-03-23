@@ -44,7 +44,7 @@ const sizes = {
 const defaultProps = {
   size: 'md',
   variant: 'subtle',
-  colorScheme: 'gray',
+  colorScheme: 'primary',
 };
 
 export default {

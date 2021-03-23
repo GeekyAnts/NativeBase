@@ -43,7 +43,7 @@ const variants = {
 
 const defaultProps = {
   variant: 'subtle',
-  colorScheme: 'gray',
+  colorScheme: 'primary',
 };
 
 export default {

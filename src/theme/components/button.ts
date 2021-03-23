@@ -129,7 +129,7 @@ const sizes = {
 const defaultProps = {
   variant: 'solid',
   size: 'md',
-  colorScheme: 'gray',
+  colorScheme: 'primary',
   _text: {
     fontWeight: 'semibold',
   },

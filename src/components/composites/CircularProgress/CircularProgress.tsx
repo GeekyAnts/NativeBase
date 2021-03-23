@@ -139,8 +139,8 @@ const CircularProgress = (
     if (percent > halfSide) {
       return (
         <Box
-          borderTopColor={colorProp ? colorProp : 'blue.700'}
-          borderRightColor={colorProp ? colorProp : 'blue.700'}
+          borderTopColor={colorProp ? colorProp : 'primary.700'}
+          borderRightColor={colorProp ? colorProp : 'primary.700'}
           style={[
             styles.secondProgressLayer,
             propStyle(percent - halfSide, 45),
@@ -186,8 +186,8 @@ const CircularProgress = (
         <>
           <Box
             onLayout={layout}
-            borderTopColor={colorProp ? colorProp : 'blue.700'}
-            borderRightColor={colorProp ? colorProp : 'blue.700'}
+            borderTopColor={colorProp ? colorProp : 'primary.700'}
+            borderRightColor={colorProp ? colorProp : 'primary.700'}
             style={[styles.firstProgressLayer, firstProgressLayerStyle]}
           />
           {renderThirdLayer(value)}
@@ -198,8 +198,8 @@ const CircularProgress = (
       ) : (
         <StyleAnimatedView
           onLayout={layout}
-          borderTopColor={colorProp ? colorProp : 'blue.700'}
-          borderRightColor={colorProp ? colorProp : 'blue.700'}
+          borderTopColor={colorProp ? colorProp : 'primary.700'}
+          borderRightColor={colorProp ? colorProp : 'primary.700'}
           style={styles.animateStyle}
         />
       )}

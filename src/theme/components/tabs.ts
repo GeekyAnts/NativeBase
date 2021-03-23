@@ -146,7 +146,7 @@ const variants = {
 const defaultProps = {
   size: 'md',
   variant: 'line',
-  colorScheme: 'default',
+  colorScheme: 'primary',
 };
 
 export default {

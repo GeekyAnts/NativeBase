@@ -10,6 +10,7 @@ const baseStyle = {
   borderRadius: 'sm',
   px: 2,
   py: 1,
+  colorScheme: 'primary',
 };
 
 export default {

@@ -23,7 +23,7 @@ export default function Examples() {
 
 function Material() {
   return (
-    <AppBar shadow={1} colorScheme="lightBlue">
+    <AppBar shadow={1}>
       <AppBar.Left>
         <LeftArrowIconButton />
       </AppBar.Left>

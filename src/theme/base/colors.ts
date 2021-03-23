@@ -301,7 +301,7 @@ const colors = {
   success: {},
   warning: {},
   muted: {},
-  default: {},
+  primary: {},
   info: {},
   secondary: {},
   light: {},
@@ -312,7 +312,7 @@ colors.error = colors.red;
 colors.success = colors.green;
 colors.warning = colors.orange;
 colors.muted = colors.trueGray;
-colors.default = colors.blue;
+colors.primary = colors.blue;
 colors.info = colors.lightBlue;
 colors.secondary = colors.coolGray;
 colors.light = colors.warmGray;

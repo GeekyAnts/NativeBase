@@ -26,10 +26,10 @@ const accordionButtonBaseStyle = (props: Record<string, any>) => {
     borderTopColor: mode('gray.300', 'gray.600')(props),
     p: 3,
     _hover: {
-      bg: mode('default.200', 'default.300')(props),
+      bg: mode('primary.200', 'primary.300')(props),
     },
     _expanded: {
-      bg: 'default.600',
+      bg: 'primary.600',
       borderBottomColor: mode('gray.300', 'gray.600')(props),
       _text: { color: 'white' },
     },

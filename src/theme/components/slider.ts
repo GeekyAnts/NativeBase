@@ -19,7 +19,7 @@ const sizes = {
 };
 
 const defaultProps = {
-  colorScheme: 'default',
+  colorScheme: 'primary',
   size: 'md',
   min: 0,
   max: 100,

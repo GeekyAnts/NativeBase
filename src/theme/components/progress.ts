@@ -1,16 +1,15 @@
 import { mode, getColorScheme } from '../tools';
 
 const defaultProps = {
-  colorScheme: 'default',
-  size: 'md',
-  rounded: 50,
+  colorScheme: 'primary',
+  size: 'sm',
 };
 
 function baseStyle(props: Record<string, any>) {
   const colorScheme = getColorScheme(props);
   return {
     innerBg: mode(`${colorScheme}.700`, `${colorScheme}.500`)(props),
-    bg: mode('blueGray.200', 'blueGray.600')(props),
+    bg: mode(`${colorScheme}.200`, `${colorScheme}.700`)(props),
   };
 }
 
