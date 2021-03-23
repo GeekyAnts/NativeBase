@@ -42,10 +42,8 @@ const StyledText = styled(NativeText)<ITextProps>(
   customTypography
 );
 
-const Text = (
-  {
-    children,
-    style,
+const Text = ({ children, ...props }: ITextProps, ref: any) => {
+  const {
     isTruncated,
     noOfLines,
     bold,
@@ -54,18 +52,15 @@ const Text = (
     highlight,
     underline,
     strikeThrough,
-    ...props
-  }: ITextProps,
-  ref: any
-) => {
-  const newProps = useThemeProps('Text', props);
+    ...newProps
+  } = useThemeProps('Text', props);
   return (
     <StyledText
       {...newProps}
       numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : undefined}
       fontWeight={bold ? 'bold' : newProps.fontWeight}
       fontStyle={italic ? 'italic' : newProps.fontStyle}
-      bg={highlight ? 'yellow.200' : newProps.bg}
+      bg={highlight ? 'warning.200' : newProps.bg}
       textDecorationLine={
         underline
           ? 'underline'
@@ -74,7 +69,6 @@ const Text = (
           : newProps.textDecorationLine
       }
       fontSize={sub ? 10 : newProps.fontSize}
-      style={style}
       ref={ref}
     >
       {children}
