@@ -127,7 +127,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
         </Box>
       ) : (
         <TouchableOpacity
-          activeOpacity={1}
+          activeOpacity={0.2}
           ref={mergedRefs}
           {...(inputProps as TouchableOpacityProps)}
         >
