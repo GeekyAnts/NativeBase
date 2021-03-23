@@ -7,6 +7,7 @@ import Composition from './composition';
 import Usage from './usage';
 import Variant from './variant';
 import Status from './status';
+import ColorScheme from './colorScheme';
 import Action from './action';
 
 storiesOf('Alert', module)
@@ -15,6 +16,7 @@ storiesOf('Alert', module)
   .add('Playground', () => <Playground />)
   .add('Usage', () => <Usage />)
   .add('Status', () => <Status />)
+  .add('ColorScheme', () => <ColorScheme />)
   .add('Variant', () => <Variant />)
   .add('Composition', () => <Composition />)
   .add('action', () => <Action />);
