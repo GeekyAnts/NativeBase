@@ -21,10 +21,13 @@ import Breadcrumb from './breadcrumb';
 import Button from './button';
 import Center from './center';
 import Checkbox from './checkbox';
+import Box from './box';
 import CircularProgress from './circular-progress';
 import Code from './code';
 import Container from './container';
+import HStack from './hstack';
 import Divider from './divider';
+import SimpleGrid from './simple-grid';
 import {
   FormControl,
   FormControlLabel,
@@ -67,6 +70,10 @@ import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import { List, ListItem, ListIcon } from './list';
 import { TypeAheadSearchItem } from './typeahead';
 import { Wrap } from './wrap';
+import Flex from './flex';
+import Stack from './stack';
+import View from './view';
+import ZStack from './zstack';
 
 export default {
   Accordion,
@@ -86,6 +93,7 @@ export default {
   Avatar,
   AvatarBadge,
   Badge,
+  Box,
   Breadcrumb,
   Button,
   Center,
@@ -95,11 +103,13 @@ export default {
   Container,
   Divider,
   Fade,
+  Flex,
   FormControl,
   FormControlLabel,
   FormControlHelperText,
   FormControlErrorMessage,
   Heading,
+  HStack,
   Icon,
   IconButton,
   Input,
@@ -127,12 +137,14 @@ export default {
   ScaleFade,
   Select,
   SelectItem,
+  SimpleGrid,
   Skeleton,
   Slide,
   SlideFade,
   Slider,
   SliderThumb,
   Spinner,
+  Stack,
   Stat,
   Switch,
   Tabs,
@@ -142,5 +154,7 @@ export default {
   TextArea,
   Toast,
   TypeAheadSearchItem,
+  View,
   Wrap,
+  ZStack,
 };

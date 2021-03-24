@@ -1,26 +1,28 @@
 import React from 'react';
 import Box from '../Box';
 import type { IFlexProps } from './types';
-
+import { useThemeProps } from '../../../hooks';
 const Flex = (
   {
     style,
-    direction,
     align,
     justify,
     wrap,
     basis,
     grow,
     shrink,
+    direction,
     ...props
   }: IFlexProps,
   ref: any
 ) => {
+  const newProps = useThemeProps('Flex', props);
   return (
     <Box
       {...props}
+      {...newProps}
       display="flex"
-      flexDirection={direction || 'column'}
+      flexDirection={direction || newProps.flexDirection}
       alignItems={align}
       justifyContent={justify}
       flexGrow={grow}

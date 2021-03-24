@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { IViewProps, default as View } from '../View';
 import { getSpacedChildren } from '../../../utils';
+import { useThemeProps } from '../../../hooks';
 
 type SpaceType = 'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
@@ -24,8 +25,10 @@ const Stack = (
     direction,
     ...remainingProps
   } = props;
+  const newProps: any = useThemeProps('Stack', remainingProps);
+
   return (
-    <StyledStack flexDirection={direction} {...remainingProps} ref={ref}>
+    <StyledStack flexDirection={direction} {...newProps} ref={ref}>
       {getSpacedChildren(
         children,
         space,

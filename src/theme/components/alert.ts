@@ -5,7 +5,7 @@ function getBg(props: Record<string, any>) {
 
   colorScheme = getColorScheme(
     props,
-    colorScheme != 'primary' ? colorScheme : status
+    colorScheme !== 'primary' ? colorScheme : status
   );
   const lightBg =
     variant === 'solid'
@@ -22,7 +22,7 @@ const variantSubtle = (props: Record<string, any>) => {
   let { colorScheme, status, theme } = props;
   colorScheme = getColorScheme(
     props,
-    colorScheme != 'primary' ? colorScheme : status
+    colorScheme !== 'primary' ? colorScheme : status
   );
   return {
     bg: getBg(props),
@@ -38,7 +38,7 @@ const variantOutline = (props: Record<string, any>) => {
   let { colorScheme, status, theme } = props;
   colorScheme = getColorScheme(
     props,
-    colorScheme != 'primary' ? colorScheme : status
+    colorScheme !== 'primary' ? colorScheme : status
   );
   return {
     borderWidth: 1,
@@ -51,7 +51,7 @@ const variantOutlineLight = (props: Record<string, any>) => {
   let { colorScheme, status, theme } = props;
   colorScheme = getColorScheme(
     props,
-    colorScheme != 'primary' ? colorScheme : status
+    colorScheme !== 'primary' ? colorScheme : status
   );
   return {
     borderWidth: 1,
@@ -65,7 +65,7 @@ const variantSolid = (props: Record<string, any>) => {
   let { colorScheme, status } = props;
   colorScheme = getColorScheme(
     props,
-    colorScheme != 'primary' ? colorScheme : status
+    colorScheme !== 'primary' ? colorScheme : status
   );
   return {
     borderWidth: 6,
@@ -79,7 +79,7 @@ const variantLeftAccent = (props: Record<string, any>) => {
   let { colorScheme, status } = props;
   colorScheme = getColorScheme(
     props,
-    colorScheme != 'primary' ? colorScheme : status
+    colorScheme !== 'primary' ? colorScheme : status
   );
   return {
     borderWidth: 4,
@@ -94,7 +94,7 @@ const variantTopAccent = (props: Record<string, any>) => {
   let { colorScheme, status } = props;
   colorScheme = getColorScheme(
     props,
-    colorScheme != 'primary' ? colorScheme : status
+    colorScheme !== 'primary' ? colorScheme : status
   );
   return {
     borderWidth: 4,
