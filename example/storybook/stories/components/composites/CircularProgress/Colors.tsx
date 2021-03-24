@@ -4,8 +4,8 @@ import { text } from '@storybook/addon-knobs';
 export default function () {
   return (
     <Center>
-      <Heading>Changing the color</Heading>
-      <CircularProgress mt={6} value={50} color={text('Color', 'red.200')} />
+      <Heading mb={6}>Changing the color</Heading>
+      <CircularProgress value={60} color={text('Color', 'secondary.400')} />
     </Center>
   );
 }

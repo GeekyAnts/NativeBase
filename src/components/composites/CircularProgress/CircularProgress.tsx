@@ -7,22 +7,12 @@ import { useTheme, useThemeProps } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 import { default as Box, IBoxProps } from '../../primitives/Box';
 import type { ICircularProgressProps } from './types';
+import { themeTools } from '../../../theme';
 
 const StyleAnimatedView = styled(Animated.View)<IBoxProps>(color, border);
 
 const CircularProgress = (
-  {
-    value,
-    size,
-    isIndeterminate,
-    thickness,
-    color: colorProp,
-    trackColor,
-    max,
-    min,
-    _text,
-    ...props
-  }: ICircularProgressProps,
+  { value, isIndeterminate, max, min, ...props }: ICircularProgressProps,
   ref: any
 ) => {
   const theme = useTheme();
@@ -31,18 +21,18 @@ const CircularProgress = (
   if (min) {
     value = value - min;
   }
-  if (!size) {
-    size = 'lg';
-  }
+
   let sizeProps;
-  let newProps = useThemeProps('CircularProgress', { size: size });
-  if (typeof size === 'string') {
+  let newProps = useThemeProps('CircularProgress', props);
+  let [, remainingProps] = themeTools.extractInObject(props, ['size']); // removing size from props so that Box don't accept size passed for CircularProgress
+
+  if (!newProps.size) {
     sizeProps = {
       height: newProps.height,
       width: newProps.width,
     };
   } else {
-    sizeProps = { height: size, width: size };
+    sizeProps = { height: newProps.size, width: newProps.size };
   }
   // fetching size from theme for passing into style prop
   const themeHeight = get(theme, 'space.' + sizeProps.height);
@@ -57,10 +47,7 @@ const CircularProgress = (
       : sizeProps.width,
   };
 
-  let defaultThickness = 8;
-  if (thickness) {
-    defaultThickness = thickness;
-  }
+  const defaultThickness = newProps.thickness;
   const degree: any = new Animated.Value(0);
   if (isIndeterminate) {
     if (isDomUsable) {
@@ -139,8 +126,8 @@ const CircularProgress = (
     if (percent > halfSide) {
       return (
         <Box
-          borderTopColor={colorProp ? colorProp : 'primary.700'}
-          borderRightColor={colorProp ? colorProp : 'primary.700'}
+          borderTopColor={newProps.color}
+          borderRightColor={newProps.color}
           style={[
             styles.secondProgressLayer,
             propStyle(percent - halfSide, 45),
@@ -150,8 +137,8 @@ const CircularProgress = (
     } else {
       return (
         <Box
-          borderTopColor={trackColor ? trackColor : 'blueGray.200'}
-          borderRightColor={trackColor ? trackColor : 'blueGray.200'}
+          borderTopColor={newProps.trackColor}
+          borderRightColor={newProps.trackColor}
           style={styles.offsetLayer}
         />
       );
@@ -169,10 +156,10 @@ const CircularProgress = (
       {...sizeProps}
       rounded={viewHeight / 2}
       borderWidth={defaultThickness}
-      borderColor={trackColor ? trackColor : 'blueGray.200'}
+      borderColor={newProps.trackColor}
       justifyContent="center"
       alignItems="center"
-      {...props}
+      {...remainingProps}
       ref={ref}
       accessible
       accessibilityRole="progressbar"
@@ -186,20 +173,20 @@ const CircularProgress = (
         <>
           <Box
             onLayout={layout}
-            borderTopColor={colorProp ? colorProp : 'primary.700'}
-            borderRightColor={colorProp ? colorProp : 'primary.700'}
+            borderTopColor={newProps.color}
+            borderRightColor={newProps.color}
             style={[styles.firstProgressLayer, firstProgressLayerStyle]}
           />
           {renderThirdLayer(value)}
-          <Box fontSize={sizeProps.height / 4} _text={_text}>
-            {props.children}
+          <Box fontSize={sizeProps.height / 4} _text={newProps._text}>
+            {remainingProps.children}
           </Box>
         </>
       ) : (
         <StyleAnimatedView
           onLayout={layout}
-          borderTopColor={colorProp ? colorProp : 'primary.700'}
-          borderRightColor={colorProp ? colorProp : 'primary.700'}
+          borderTopColor={newProps.color}
+          borderRightColor={newProps.color}
           style={styles.animateStyle}
         />
       )}
