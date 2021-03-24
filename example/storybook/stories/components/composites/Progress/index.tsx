@@ -4,7 +4,8 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
 import Composition from './Composition';
 import Basic from './Basic';
-import Rounded from './Rounded';
+import Flat from './Flat';
+import Size from './Sizes';
 import CustomBgColor from './CustomBgColor';
 import ColorScheme from './ColorScheme';
 
@@ -13,6 +14,7 @@ storiesOf('Progress', module)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Default Progress Bar', () => <Basic />)
   .add('ColorSchemes', () => <ColorScheme />)
-  .add('Rounded', () => <Rounded />)
+  .add('Flat', () => <Flat />)
+  .add('Sizes', () => <Size />)
   .add('CustomBgColor', () => <CustomBgColor />)
   .add('Composition', () => <Composition />);

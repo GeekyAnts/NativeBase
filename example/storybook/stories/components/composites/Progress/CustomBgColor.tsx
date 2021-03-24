@@ -9,8 +9,8 @@ export default function () {
       </Center>
       <Progress
         size="lg"
-        colorScheme="warning"
-        bg="teal.200"
+        colorScheme="primary"
+        bg="secondary.200"
         mb={4}
         value={75}
       />
