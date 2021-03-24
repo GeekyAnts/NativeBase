@@ -3,13 +3,13 @@ import Text from '../../primitives/Text';
 import { useThemeProps } from '../../../hooks';
 import TouchableItem from '../../primitives/TouchableItem';
 import type { IMenuItemProps } from './types';
-import { usePopover } from '../../../core';
+import { MenuContext } from './Menu';
+import { PopoverContext } from '../Popover/popover';
 
 export const MenuItem = React.memo(
   ({ children, onPress, style, ...props }: IMenuItemProps) => {
-    const {
-      parentComponentConfig: { closeMenu, closeOnSelect },
-    } = usePopover();
+    const { closeOnSelect } = React.useContext(MenuContext);
+    const { onClose } = React.useContext(PopoverContext);
 
     const newProps = useThemeProps('MenuItem', props);
     let allProps = {
@@ -30,7 +30,7 @@ export const MenuItem = React.memo(
           if (!props.isDisabled) {
             onPress && onPress(e);
             if (closeOnSelect) {
-              closeMenu && closeMenu();
+              onClose && onClose();
             }
           }
         }}

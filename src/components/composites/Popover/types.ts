@@ -71,6 +71,8 @@ export type IArrowProps = {
 };
 
 export type IPopoverProps = {
+  defaultIsOpen?: boolean;
+  trapFocus?: boolean;
   isOpen?: boolean;
   shouldFlip?: boolean;
   triggerRef?: any;
@@ -94,6 +96,7 @@ export type IPopoverProps = {
     | 'left top'
     | 'left bottom';
   onClose?: () => void;
+  onOpen?: () => void;
 };
 
 export type IPopoverContentImpl = {

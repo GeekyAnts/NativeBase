@@ -12,7 +12,6 @@ export default function () {
           </Pressable>
         );
       }}
-      placement="bottom"
     >
       <Popover.Arrow></Popover.Arrow>
       <Popover.Content>
@@ -21,7 +20,7 @@ export default function () {
         <Popover.Body>
           Are you sure you want to have that milkshake?
         </Popover.Body>
-        {/* <Text>hello</Text> */}
+        <Popover.Footer>Footer</Popover.Footer>
       </Popover.Content>
     </Popover>
   );

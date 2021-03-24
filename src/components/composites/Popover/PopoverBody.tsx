@@ -5,7 +5,7 @@ import { default as Box, IBoxProps } from '../../primitives/Box';
 const PopoverBody = (props: IBoxProps) => {
   const style = useThemeProps('Popover', props);
 
-  return <Box {...props} {...style.popoverBodyProps} />;
+  return <Box {...style.popoverBodyProps} {...props} />;
 };
 
 export default React.memo(PopoverBody);

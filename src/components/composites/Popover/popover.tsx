@@ -11,11 +11,13 @@ import type {
   IArrowStyles,
 } from './types';
 import { Overlay } from '../../../core/Overlay/Overlay';
+import { useControllableState, useKeyboardDismissable } from '../../../hooks';
+import { FocusScope } from '@react-native-aria/focus';
 
 const defaultArrowHeight = 5;
 const defaultArrowAspectRatio = 1030 / 638;
 
-export const PopoverContext = React.createContext({});
+export const PopoverContext = React.createContext({ onClose: () => {} });
 
 const Popover = (props: IPopoverProps) => {
   const overlayRef = React.useRef(null);
@@ -38,10 +40,10 @@ const Popover = (props: IPopoverProps) => {
   let arrowHeight = 0;
   let arrowAspectRatio = 0;
 
-  // useKeyboardDismissable({
-  //   enabled: props.isKeyboardDismissable ?? true,
-  //   onClose: props.onClose ? props.onClose : () => {},
-  // });
+  useKeyboardDismissable({
+    enabled: props.isKeyboardDismissable ?? true,
+    onClose: props.onClose ? props.onClose : () => {},
+  });
 
   if (arrowElement) {
     arrowHeight = defaultArrowHeight;
@@ -99,6 +101,8 @@ const Popover = (props: IPopoverProps) => {
 export const PopoverArrow = ({ children }: IPopoverArrowProps) => {
   return <>{children}</>;
 };
+
+PopoverArrow.displayName = 'PopoverArrow';
 
 // This is an internal implmentation of PopoverContent
 const PopoverContentImpl = (props: IPopoverContentImpl) => {
@@ -224,7 +228,7 @@ export const useElementByType = (children: React.ReactNode, name: string) => {
   let element;
   React.Children.forEach(children, (child) => {
     //@ts-ignore
-    if (child.type.name === name) {
+    if (child.type.displayName === name) {
       element = child;
     }
   });
@@ -234,23 +238,35 @@ export const useElementByType = (children: React.ReactNode, name: string) => {
 // This component just uses original Popover by wrapping it with OverlayContainer, to make sure it gets rendered in OverlayProvider
 const PopoverWithOverlayContainer = (props: IPopoverProps) => {
   const triggerRef = React.useRef(null);
-  const [isOpen, setIsOpen] = React.useState(!!props.isOpen);
+
+  const [isOpen, setIsOpen] = useControllableState({
+    defaultValue: props.defaultIsOpen,
+    value: props.isOpen,
+    onChange: (val) => {
+      val ? props.onOpen : props.onClose;
+    },
+  });
 
   const triggerElem = props.trigger(
     { onPress: () => setIsOpen(true), ref: triggerRef },
     { open: isOpen }
   );
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  let Parent = ({ children }: any) =>
+    props.trapFocus ? <FocusScope> {children} </FocusScope> : children;
+
   return (
     <>
       {triggerElem}
-      <Overlay
-        isOpen={isOpen}
-        closeOnOutsidePress
-        onClose={() => setIsOpen(false)}
-      >
-        <PopoverContext.Provider value={{ onClose: () => setIsOpen(false) }}>
-          <Popover {...props} triggerRef={triggerRef} />
+      <Overlay isOpen={isOpen} closeOnOutsidePress onClose={handleClose}>
+        <PopoverContext.Provider value={{ onClose: handleClose }}>
+          <Parent>
+            <Popover {...props} onClose={handleClose} triggerRef={triggerRef} />
+          </Parent>
         </PopoverContext.Provider>
       </Overlay>
     </>
