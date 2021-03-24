@@ -1,20 +1,19 @@
 import React from 'react';
+import { useThemeProps } from '../../../hooks';
 import View from '../../primitives/View';
 import { default as CloseButton, ICloseButtonProps } from '../CloseButton';
 import { PopoverContext } from './popover';
 
 const PopoverCloseButton = (props: ICloseButtonProps) => {
-  const {
-    PopoverRef,
-    newProps: { popoverCloseButtonProps },
-  }: any = React.useContext(PopoverContext);
+  const { onClose }: any = React.useContext(PopoverContext);
+  const style = useThemeProps('Popover', props);
 
   return (
     <View position="absolute" right={0} top={0} zIndex={1}>
       <CloseButton
-        {...popoverCloseButtonProps}
+        {...style.popoverCloseButtonProps}
         {...props}
-        onPress={() => PopoverRef?.current.toggleTooltip()}
+        onPress={onClose}
       />
     </View>
   );

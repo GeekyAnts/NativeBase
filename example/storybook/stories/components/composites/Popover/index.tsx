@@ -9,6 +9,6 @@ import RefEg from './RefEg';
 storiesOf('Popover', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
-  .add('Basic', () => <Basic />)
-  .add('Size', () => <Size />)
-  .add('Focus on Open', () => <RefEg />);
+  .add('Basic', () => <Basic />);
+// .add('Size', () => <Size />)
+// .add('Focus on Open', () => <RefEg />);
