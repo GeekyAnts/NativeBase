@@ -6,6 +6,7 @@ import {
   FlatList,
   StyleSheet,
   View,
+  SafeAreaView
 } from 'react-native';
 import { Text } from './Text';
 import { Icon } from './Icon';
@@ -218,39 +219,41 @@ export class Accordion extends React.Component {
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
-      <FlatList
-        data={dataArray}
-        extraData={this.state}
-        style={[
-          {
-            borderColor: variables.accordionBorderColor,
-            borderWidth: variables.borderWidth,
-          },
-          style,
-        ]}
-        keyExtractor={(item, index) => String(index)}
-        renderItem={({ item, index }) => (
-          <AccordionItem
-            disable={disable === index}
-            key={String(index)}
-            item={item}
-            expanded={this.state.selected.indexOf(index) !== -1}
-            index={index}
-            setSelected={(i) => this.setSelected(i)}
-            headerStyle={headerStyle}
-            contentStyle={contentStyle}
-            renderHeader={renderHeader}
-            renderContent={renderContent}
-            icon={icon}
-            iconStyle={iconStyle}
-            expandedIcon={expandedIcon}
-            expandedIconStyle={expandedIconStyle}
-            onAccordionOpen={onAccordionOpen}
-            onAccordionClose={onAccordionClose}
-          />
-        )}
-        {...this.props}
-      />
+      <SafeAreaView>
+        <FlatList
+          data={dataArray}
+          extraData={this.state}
+          style={[
+            {
+              borderColor: variables.accordionBorderColor,
+              borderWidth: variables.borderWidth,
+            },
+            style,
+          ]}
+          keyExtractor={(item, index) => String(index)}
+          renderItem={({ item, index }) => (
+            <AccordionItem
+              disable={disable === index}
+              key={String(index)}
+              item={item}
+              expanded={this.state.selected.indexOf(index) !== -1}
+              index={index}
+              setSelected={(i) => this.setSelected(i)}
+              headerStyle={headerStyle}
+              contentStyle={contentStyle}
+              renderHeader={renderHeader}
+              renderContent={renderContent}
+              icon={icon}
+              iconStyle={iconStyle}
+              expandedIcon={expandedIcon}
+              expandedIconStyle={expandedIconStyle}
+              onAccordionOpen={onAccordionOpen}
+              onAccordionClose={onAccordionClose}
+            />
+          )}
+          {...this.props}
+        />
+      </SafeAreaView>
     );
   }
 }
