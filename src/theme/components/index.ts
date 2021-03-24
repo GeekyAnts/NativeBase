@@ -25,6 +25,12 @@ import CircularProgress from './circular-progress';
 import Code from './code';
 import Container from './container';
 import Divider from './divider';
+import {
+  FormControl,
+  FormControlLabel,
+  FormControlHelperText,
+  FormControlErrorMessage,
+} from './form-control';
 import Heading from './heading';
 import Icon from './icon';
 import IconButton from './icon-button';
@@ -60,6 +66,7 @@ import Toast from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import { List, ListItem, ListIcon } from './list';
 import { TypeAheadSearchItem } from './typeahead';
+import { Wrap } from './wrap';
 
 export default {
   Accordion,
@@ -88,6 +95,10 @@ export default {
   Container,
   Divider,
   Fade,
+  FormControl,
+  FormControlLabel,
+  FormControlHelperText,
+  FormControlErrorMessage,
   Heading,
   Icon,
   IconButton,
@@ -131,4 +142,5 @@ export default {
   TextArea,
   Toast,
   TypeAheadSearchItem,
+  Wrap,
 };

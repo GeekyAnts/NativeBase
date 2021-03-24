@@ -3,11 +3,9 @@ import { useThemeProps } from '../../../hooks';
 import { default as View } from './../../primitives/View';
 import type { IDividerProps } from './types';
 
-const Divider = (
-  { style, orientation, ...props }: IDividerProps,
-  ref?: any
-) => {
-  let orientationProps =
+const Divider = (props: IDividerProps, ref?: any) => {
+  const { orientation, ...newProps } = useThemeProps('Divider', props);
+  const orientationProps =
     orientation === 'vertical'
       ? {
           width: 0,
@@ -17,14 +15,11 @@ const Divider = (
           width: '100%',
           height: 0,
         };
-  let newProps = useThemeProps('Divider', props);
-
   return (
     <View
       {...orientationProps}
       borderColor={newProps.bg ?? newProps.backgroundColor}
       {...newProps}
-      style={style}
       ref={ref}
       aria-orientation={orientation}
       //@ts-ignore web only role
