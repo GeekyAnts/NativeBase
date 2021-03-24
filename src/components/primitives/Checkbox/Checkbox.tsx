@@ -109,8 +109,8 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
           isChecked ? (isDisabled ? borderColor : activeColor) : 'transparent'
         }
         borderColor={outlineColor}
-        borderWidth={1}
-        borderRadius={4}
+        borderWidth={2}
+        borderRadius="md"
         p={1}
       >
         {icon && sizedIcon && isChecked ? (

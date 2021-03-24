@@ -67,7 +67,7 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
         borderColor={colorScheme}
         position="relative"
         borderRadius="full"
-        backgroundColor="light.50"
+        backgroundColor={colorScheme}
         p={1}
         display="flex"
         justifyContent="center"
