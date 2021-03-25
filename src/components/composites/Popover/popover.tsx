@@ -11,18 +11,17 @@ import type {
   IPopoverImplProps,
 } from './types';
 import { Overlay } from '../../../core/Overlay/Overlay';
-import { useControllableState, useKeyboardDismissable } from '../../../hooks';
+import { useControllableState } from '../../../hooks';
 import { PopoverContent } from './PopoverContent';
 import PopoverBody from './PopoverBody';
 import PopoverCloseButton from './PopoverCloseButton';
 import PopoverFooter from './PopoverFooter';
 import PopoverHeader from './PopoverHeader';
 import Box from '../../primitives/Box';
+import { PopoverContext } from './PopoverContext';
 
 const defaultArrowHeight = 10;
 const defaultArrowWidth = 16;
-
-export const PopoverContext = React.createContext({ onClose: () => {} });
 
 const PopoverImpl = (props: IPopoverImplProps) => {
   const overlayRef = React.useRef(null);
@@ -60,11 +59,6 @@ const PopoverImpl = (props: IPopoverImplProps) => {
 
   let arrowHeight = 0;
   let arrowWidth = 0;
-
-  useKeyboardDismissable({
-    enabled: props.isKeyboardDismissable ?? true,
-    onClose: props.onClose ? props.onClose : () => {},
-  });
 
   if (arrowElement) {
     arrowHeight = defaultArrowHeight;

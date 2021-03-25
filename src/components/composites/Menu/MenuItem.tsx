@@ -4,7 +4,7 @@ import { useThemeProps } from '../../../hooks';
 import TouchableItem from '../../primitives/TouchableItem';
 import type { IMenuItemProps } from './types';
 import { MenuContext } from './Menu';
-import { PopoverContext } from '../Popover/popover';
+import { PopoverContext } from '../Popover/PopoverContext';
 
 export const MenuItem = React.memo(
   ({ children, onPress, style, ...props }: IMenuItemProps) => {

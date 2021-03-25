@@ -2,7 +2,7 @@ import React from 'react';
 import { useThemeProps } from '../../../hooks';
 import View from '../../primitives/View';
 import { default as CloseButton, ICloseButtonProps } from '../CloseButton';
-import { PopoverContext } from './popover';
+import { PopoverContext } from './PopoverContext';
 
 const PopoverCloseButton = (props: ICloseButtonProps) => {
   const { onClose }: any = React.useContext(PopoverContext);
