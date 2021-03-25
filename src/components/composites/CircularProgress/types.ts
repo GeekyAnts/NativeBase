@@ -8,6 +8,7 @@ export type ICircularProgressProps = IBoxProps & {
   value: number;
   size?: number | sizes;
   thickness?: number;
+  colorScheme?: string;
   color?: string;
   trackColor?: string;
   isIndeterminate?: any;

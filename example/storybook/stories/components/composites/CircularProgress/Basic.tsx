@@ -3,8 +3,8 @@ import { CircularProgress, Heading, Center } from 'native-base';
 export default function () {
   return (
     <Center>
-      <Heading>Default CircularProgress</Heading>
-      <CircularProgress mt={6} value={75} />
+      <Heading mb={6}>Default CircularProgress</Heading>
+      <CircularProgress value={60} />
     </Center>
   );
 }

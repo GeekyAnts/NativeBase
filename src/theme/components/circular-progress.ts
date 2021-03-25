@@ -1,7 +1,9 @@
+import { mode, getColorScheme } from '../tools';
+
 const sizes = {
   'xs': {
-    height: 4,
-    width: 4,
+    height: 6,
+    width: 6,
   },
   'sm': {
     height: 8,
@@ -24,5 +26,18 @@ const sizes = {
     width: 32,
   },
 };
+const defaultProps = {
+  thickness: 8,
+  colorScheme: 'primary',
+  size: 'lg',
+};
 
-export default { sizes };
+function baseStyle(props: Record<string, any>) {
+  const colorScheme = getColorScheme(props);
+  return {
+    color: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
+    trackColor: mode(`${colorScheme}.200`, `${colorScheme}.800`)(props),
+  };
+}
+
+export default { baseStyle, sizes, defaultProps };

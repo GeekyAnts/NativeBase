@@ -4,12 +4,10 @@ import { text } from '@storybook/addon-knobs';
 export default function () {
   return (
     <Center>
-      <Heading>Changing the TrackColor</Heading>
+      <Heading mb={6}>Changing the TrackColor</Heading>
       <CircularProgress
-        mt={6}
-        size={80}
-        value={20}
-        trackColor={text('Track Color', 'blue.100')}
+        value={60}
+        trackColor={text('Track Color', 'secondary.100')}
       />
     </Center>
   );
