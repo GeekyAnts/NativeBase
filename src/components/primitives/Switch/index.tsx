@@ -15,6 +15,8 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import type { ISwitchProps } from './types';
+import { mergeRefs } from '../../../utils';
+import { useHover } from '@react-native-aria/interactions';
 
 const StyledNBSwitch = styled(RNSwitch)<ISwitchProps>(
   color,
@@ -54,6 +56,7 @@ const Switch = (
     offTrackColor: _offTrackColor,
     onThumbColor: _onThumbColor,
     offThumbColor: _offThumbColor,
+    _hover,
     ...newProps
   } = useThemeProps('Switch', props);
   const borderColorInvalid = useToken('colors', 'danger.600');
@@ -74,19 +77,24 @@ const Switch = (
     isInvalid ? inValidPropFactors : {},
   ]);
 
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+
   return (
     <StyledNBSwitch
       accessibilityLabel={accessibilityLabel}
       accessibilityHint={accessibilityHint}
       trackColor={{ false: offTrackColor, true: onTrackColor }}
       thumbColor={checked ? onThumbColor : offThumbColor}
+      activeThumbColor={onThumbColor} // react-native-web prop for active thumbColor
       ios_backgroundColor={offTrackColor}
+      {...(isHovered && _hover)}
       {...newProps}
       disabled={isDisabled}
       onValueChange={onToggle ? onToggle : state.toggle}
       value={checked}
       style={computedStyle}
-      ref={ref}
+      ref={mergeRefs([ref, _ref])}
       opacity={isDisabled ? 0.4 : 1}
     />
   );

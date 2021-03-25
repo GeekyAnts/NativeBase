@@ -6,6 +6,7 @@ import Basic from './Basic';
 import Sizes from './Sizes';
 import SwitchBgColor from './SwitchBgColor';
 import Accessibility from './Accessibility';
+import ColorSchemes from './ColorSchemes';
 
 storiesOf('Switch', module)
   .addDecorator(withKnobs)
@@ -13,4 +14,5 @@ storiesOf('Switch', module)
   .add('Basic', () => <Basic />)
   .add('Sizes', () => <Sizes />)
   .add('Switch bgColor', () => <SwitchBgColor />)
+  .add('ColorSchemes', () => <ColorSchemes />)
   .add('Accessibility', () => <Accessibility />);
