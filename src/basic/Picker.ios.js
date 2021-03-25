@@ -116,6 +116,7 @@ class PickerNB extends Component {
         picker
         transparent
         onPress={onPress}
+        testID={this.props.testID}
       >
         {this.state.currentLabel ? (
           <Text
@@ -213,7 +214,6 @@ class PickerNB extends Component {
             {this.renderHeader()}
             <Content>
               <FlatList
-                testID={this.props.testID}
                 data={this.state.dataSource}
                 keyExtractor={(item, index) => String(index)}
                 renderItem={({ item }) => (
@@ -226,6 +226,7 @@ class PickerNB extends Component {
                       this.props.onValueChange(item.props.value, item.key);
                       this.setState({ current: item.props.label });
                     }}
+                    testID={item.props.testID}
                   >
                     <Left>
                       <Text style={this.props.itemTextStyle}>
