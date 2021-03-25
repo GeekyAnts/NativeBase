@@ -24,6 +24,7 @@ import type {
 } from '../../../utils/customProps';
 import type { ITextProps } from '../../primitives/Text';
 import type { IBoxProps } from '../../primitives/Box';
+import type { IPopoverProps } from '../Popover';
 
 export type IMenuProps = BorderProps &
   ColorProps &
@@ -48,7 +49,7 @@ export type IMenuProps = BorderProps &
     offsetSpace?: number;
     closeOnSelect?: boolean;
     style?: ViewStyle;
-  };
+  } & IPopoverProps;
 
 export type IMenuItemProps = IBoxProps &
   BorderProps &

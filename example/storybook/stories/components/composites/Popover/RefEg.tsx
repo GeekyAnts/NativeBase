@@ -5,10 +5,14 @@ import type { TextInput } from 'react-native';
 export default function () {
   const initialFocusRef = React.useRef<TextInput>(null);
   return (
-    <Popover initialFocusRef={initialFocusRef} closeOnBlur={false}>
-      <Popover.Trigger>
-        <Button>Trigger</Button>
-      </Popover.Trigger>
+    <Popover
+      initialFocusRef={initialFocusRef}
+      closeOnBlur={false}
+      trigger={(triggerProps) => {
+        return <Button {...triggerProps}>Trigger</Button>;
+      }}
+    >
+      <Popover.Arrow height={10} width={16} color="gray.200" />
       <Popover.Content width={250}>
         <Popover.CloseButton />
         <Popover.Header fontSize={20} fontWeight={700}>
