@@ -238,24 +238,38 @@ export const useElementByType = (children: React.ReactNode, name: string) => {
 };
 // This component just uses original Popover by wrapping it with OverlayContainer, to make sure it gets rendered in OverlayProvider
 const PopoverWithOverlayContainer = (props: IPopoverProps) => {
-  const triggerRef = React.useRef(null);
+  let triggerRef = React.useRef<any>(null);
 
   const [isOpen, setIsOpen] = useControllableState({
     defaultValue: props.defaultIsOpen,
     value: props.isOpen,
     onChange: (val) => {
-      val ? props.onOpen : props.onClose;
+      if (val) {
+        props.onOpen && props.onOpen();
+      } else {
+        props.onClose && props.onClose();
+      }
     },
   });
 
-  const triggerElem = props.trigger(
-    {
-      onPress: () => setIsOpen(true),
-      ref: triggerRef,
-      accessibilityRole: 'button',
-    },
-    { open: isOpen }
-  );
+  let triggerElem = null;
+
+  // Received a trigger ref
+  if (props.trigger.hasOwnProperty('current')) {
+    // @ts-ignore
+    triggerRef = props.trigger;
+  }
+  // Received a trigger function
+  else if (typeof props.trigger === 'function') {
+    triggerElem = props.trigger(
+      {
+        onPress: () => setIsOpen(true),
+        ref: triggerRef,
+        accessibilityRole: 'button',
+      },
+      { open: isOpen }
+    );
+  }
 
   const handleClose = () => {
     setIsOpen(false);
