@@ -8,6 +8,7 @@ import type {
   IPopoverContentImpl,
   IScrollContentStyle,
   IArrowStyles,
+  IPopoverImplProps,
 } from './types';
 import { Overlay } from '../../../core/Overlay/Overlay';
 import { useControllableState, useKeyboardDismissable } from '../../../hooks';
@@ -23,8 +24,24 @@ const defaultArrowWidth = 16;
 
 export const PopoverContext = React.createContext({ onClose: () => {} });
 
-const PopoverImpl = (props: IPopoverProps) => {
+const PopoverImpl = (props: IPopoverImplProps) => {
   const overlayRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (props.initialFocusRef && props.initialFocusRef.current) {
+      // Move focus in next tick so RN web modal can save the focus of current element
+      Promise.resolve().then(() => {
+        props.initialFocusRef.current.focus();
+      });
+    }
+
+    return () => {
+      if (props.finalFocusRef && props.finalFocusRef.current) {
+        props.finalFocusRef.current.focus();
+      }
+    };
+  }, [props.finalFocusRef, props.initialFocusRef]);
+
   const { overlayProps, rendered, arrowProps, placement } = useOverlayPosition({
     targetRef: props.triggerRef,
     overlayRef,
@@ -256,7 +273,11 @@ const PopoverWithOverlayContainer = (props: IPopoverProps) => {
   return (
     <>
       {triggerElem}
-      <Overlay isOpen={isOpen} closeOnOutsidePress onClose={handleClose}>
+      <Overlay
+        isOpen={isOpen}
+        closeOnBlur={props.closeOnBlur}
+        onClose={handleClose}
+      >
         <PopoverContext.Provider value={{ onClose: handleClose }}>
           {/* <Parent> */}
           <PopoverImpl

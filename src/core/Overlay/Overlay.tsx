@@ -6,15 +6,14 @@ type IOverlayProps = {
   children: any;
   onClose?: any;
   useCustomOverlay?: boolean;
-  closeOnOutsidePress?: boolean;
+  closeOnBlur?: boolean;
 };
 
 export function Overlay(props: IOverlayProps) {
-  const { isOpen, children } = props;
+  const { isOpen, children, closeOnBlur = true } = props;
 
   const handleClose = () => {
     props.onClose && props.onClose();
-    // Perform exit transition if any
   };
 
   let closeButton = (
@@ -23,11 +22,12 @@ export function Overlay(props: IOverlayProps) {
       focusable={false}
       style={StyleSheet.absoluteFill}
       onPress={handleClose}
+      disabled={!closeOnBlur}
     />
   );
 
   return (
-    <Modal visible={isOpen} animationType="fade" transparent>
+    <Modal visible={!!isOpen} animationType="fade" transparent>
       {closeButton}
       {children}
     </Modal>

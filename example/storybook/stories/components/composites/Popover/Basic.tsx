@@ -1,19 +1,14 @@
 import React from 'react';
-import { Pressable, Text } from 'react-native';
-import { Popover } from 'native-base';
+import { Popover, Button } from 'native-base';
 
 export default function () {
   return (
     <Popover
       trigger={(triggerProps: any) => {
-        return (
-          <Pressable {...triggerProps}>
-            <Text>Hello world</Text>
-          </Pressable>
-        );
+        return <Button {...triggerProps}>Trigger</Button>;
       }}
     >
-      <Popover.Arrow height={10} width={16} color="gray.200"></Popover.Arrow>
+      <Popover.Arrow height={10} width={16} color="gray.200" />
       <Popover.Content>
         <Popover.CloseButton />
         <Popover.Header>Confirmation!</Popover.Header>

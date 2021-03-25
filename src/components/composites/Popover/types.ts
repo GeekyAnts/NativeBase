@@ -21,9 +21,11 @@ export type IArrowProps = {
 export type IPopoverProps = {
   defaultIsOpen?: boolean;
   trapFocus?: boolean;
+  closeOnBlur?: boolean;
   isOpen?: boolean;
   shouldFlip?: boolean;
-  triggerRef?: any;
+  initialFocusRef?: any;
+  finalFocusRef?: any;
   trigger: (_props: any, state: { open: boolean }) => JSX.Element;
   crossOffset?: number;
   offset?: number;
@@ -53,6 +55,10 @@ export type IPopoverContentImpl = {
   placement?: string;
   arrowProps: IArrowProps;
   children: any;
+};
+
+export type IPopoverImplProps = IPopoverProps & {
+  triggerRef: any;
 };
 
 export type IArrowStyles = {
