@@ -41,7 +41,7 @@ export const Modal = {
   },
   sizes,
   defaultProps: {
-    size: 'md',
+    size: 'lg',
     closeOnOverlayClick: true,
   },
 };
@@ -49,9 +49,11 @@ export const Modal = {
 export const ModalContent = {
   baseStyle: (props: Record<string, any>) => {
     return {
-      bg: mode('gray.100', 'gray.700')(props),
-      p: 8,
-      rounded: 'lg',
+      bg: mode('gray.50', 'gray.700')(props),
+      px: 8,
+      py: 6,
+      shadow: 8,
+      rounded: 'md',
     };
   },
 };
@@ -74,13 +76,12 @@ export const ModalHeader = {
 export const ModalBody = {
   baseStyle: {
     mb: 3,
-    fontSize: '2xl',
   },
 };
 export const ModalFooter = {
   baseStyle: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
     flexWrap: 'wrap',
   },
 };
