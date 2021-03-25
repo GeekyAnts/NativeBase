@@ -7,7 +7,8 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Thumbnail extends Component {
   render() {
-    return <Image ref={c => (this._root = c)} {...this.props} />;
+    const { ImageComponent = Image } = this.props;
+    return <ImageComponent ref={c => (this._root = c)} {...this.props} />;
   }
 }
 
