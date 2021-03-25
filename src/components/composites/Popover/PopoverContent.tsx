@@ -1,14 +1,11 @@
 import { useThemeProps } from '../../../hooks';
 import React from 'react';
-import Box, { IBoxProps } from '../../primitives/Box';
+import Box from '../../primitives/Box';
+import type { IPopoverContentProps } from './types';
 
-type IPopoverContent = IBoxProps & {
-  isUnstyled?: boolean;
-};
-
-export const PopoverContent = (props: IPopoverContent) => {
+export const PopoverContent = (props: IPopoverContentProps) => {
   let defaultStyle = useThemeProps('Popover', props);
-  defaultStyle = props.isUnstyled ? {} : defaultStyle;
+  defaultStyle = props.isUnstyled ? {} : defaultStyle.popoverContentProps;
   return <Box {...defaultStyle} {...props} />;
 };
 

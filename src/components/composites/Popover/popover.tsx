@@ -1,7 +1,6 @@
 import React from 'react';
 import { useOverlayPosition } from '@react-native-aria/overlays';
-import { ScrollView, View } from 'react-native';
-import { Svg, Path } from 'react-native-svg';
+import { ScrollView, View, ViewStyle } from 'react-native';
 import type {
   IPopoverArrowImplProps,
   IPopoverArrowProps,
@@ -12,14 +11,19 @@ import type {
 } from './types';
 import { Overlay } from '../../../core/Overlay/Overlay';
 import { useControllableState, useKeyboardDismissable } from '../../../hooks';
-import { FocusScope } from '@react-native-aria/focus';
+import { PopoverContent } from './PopoverContent';
+import PopoverBody from './PopoverBody';
+import PopoverCloseButton from './PopoverCloseButton';
+import PopoverFooter from './PopoverFooter';
+import PopoverHeader from './PopoverHeader';
+import Box from '../../primitives/Box';
 
-const defaultArrowHeight = 5;
-const defaultArrowAspectRatio = 1030 / 638;
+const defaultArrowHeight = 10;
+const defaultArrowWidth = 16;
 
 export const PopoverContext = React.createContext({ onClose: () => {} });
 
-const Popover = (props: IPopoverProps) => {
+const PopoverImpl = (props: IPopoverProps) => {
   const overlayRef = React.useRef(null);
   const { overlayProps, rendered, arrowProps, placement } = useOverlayPosition({
     targetRef: props.triggerRef,
@@ -38,7 +42,7 @@ const Popover = (props: IPopoverProps) => {
   let contentElement: any = useElementByType(props.children, 'PopoverContent');
 
   let arrowHeight = 0;
-  let arrowAspectRatio = 0;
+  let arrowWidth = 0;
 
   useKeyboardDismissable({
     enabled: props.isKeyboardDismissable ?? true,
@@ -47,23 +51,17 @@ const Popover = (props: IPopoverProps) => {
 
   if (arrowElement) {
     arrowHeight = defaultArrowHeight;
-    arrowAspectRatio = defaultArrowAspectRatio;
+    arrowWidth = defaultArrowWidth;
     // No custom Arrow Icon passed
-    if (!arrowElement.props.children) {
+    if (!arrowElement) {
       arrowHeight = arrowElement.props.height ?? defaultArrowHeight;
-      arrowElement = (
-        <PopoverArrow
-          height={arrowHeight}
-          aspectRatio={defaultArrowAspectRatio}
-        >
-          <ArrowSVG color={arrowElement.props.color || '#000'} />
-        </PopoverArrow>
-      );
+      arrowWidth = arrowElement.props.width ?? defaultArrowWidth;
+      arrowElement = <PopoverArrow height={arrowHeight} width={arrowWidth} />;
     }
     // Custom Arrow
     else {
       arrowHeight = arrowElement.props.height;
-      arrowAspectRatio = arrowElement.props.aspectRatio;
+      arrowWidth = arrowElement.props.width;
     }
   }
 
@@ -80,16 +78,16 @@ const Popover = (props: IPopoverProps) => {
         <PopoverContentImpl
           children={contentElement}
           arrowHeight={arrowHeight}
-          arrowAspectRatio={arrowAspectRatio}
+          arrowWidth={arrowWidth}
           placement={placement}
           arrowProps={arrowProps}
         />
       )}
       {arrowElement && (
         <PopoverArrowImpl
-          children={arrowElement}
+          {...arrowElement.props}
           height={arrowHeight}
-          aspectRatio={arrowAspectRatio}
+          width={arrowWidth}
           arrowProps={arrowProps}
           placement={placement}
         />
@@ -98,16 +96,10 @@ const Popover = (props: IPopoverProps) => {
   );
 };
 
-export const PopoverArrow = ({ children }: IPopoverArrowProps) => {
-  return <>{children}</>;
-};
-
-PopoverArrow.displayName = 'PopoverArrow';
-
 // This is an internal implmentation of PopoverContent
 const PopoverContentImpl = (props: IPopoverContentImpl) => {
   const { placement } = props;
-  let arrowWidth = props.arrowAspectRatio * props.arrowHeight;
+  let arrowWidth = props.arrowWidth;
 
   const scrollContainerStyle = React.useMemo(
     () =>
@@ -128,22 +120,36 @@ const PopoverContentImpl = (props: IPopoverContentImpl) => {
 
 // This is an internal implementation of PopoverArrow
 const PopoverArrowImpl = ({
-  children,
   height,
-  aspectRatio,
+  width,
   arrowProps,
   placement,
+  ...rest
 }: IPopoverArrowImplProps) => {
-  let width = aspectRatio * height;
   const additionalStyles = React.useMemo(
     () => getArrowStyles({ placement, height, width }),
     [height, width, placement]
   );
 
+  let triangle: ViewStyle = {
+    position: 'absolute',
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderLeftWidth: width / 2,
+    borderRightWidth: width / 2,
+    borderBottomWidth: height,
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+  };
+
+  if (rest.color) {
+    rest.borderBottomColor = rest.color;
+  }
+
   return (
-    <View style={[arrowProps.style, additionalStyles]} collapsable={false}>
-      {children}
-    </View>
+    <Box style={[triangle, additionalStyles, arrowProps.style]} {...rest}></Box>
   );
 };
 
@@ -208,22 +214,6 @@ const getScrollContentStyle = ({
   return {};
 };
 
-const ArrowSVG = ({ color }: { color: string }) => {
-  return (
-    <Svg
-      viewBox="0 0 1030 638"
-      aria-labelledby="bfsi-ant-caret-up-title"
-      fill={color}
-      // SVGs are focusable in rn-svg!
-      // https://github.com/react-native-svg/react-native-svg/issues/1471
-      //@ts-ignore
-      tabIndex="-1"
-    >
-      <Path d="M1017 570L541 12Q530 0 515 0t-26 12L13 570q-16 19-7 43.5T39 638h952q24 0 33-24.5t-7-43.5z"></Path>
-    </Svg>
-  );
-};
-
 export const useElementByType = (children: React.ReactNode, name: string) => {
   let element;
   React.Children.forEach(children, (child) => {
@@ -248,7 +238,11 @@ const PopoverWithOverlayContainer = (props: IPopoverProps) => {
   });
 
   const triggerElem = props.trigger(
-    { onPress: () => setIsOpen(true), ref: triggerRef },
+    {
+      onPress: () => setIsOpen(true),
+      ref: triggerRef,
+      accessibilityRole: 'button',
+    },
     { open: isOpen }
   );
 
@@ -256,21 +250,38 @@ const PopoverWithOverlayContainer = (props: IPopoverProps) => {
     setIsOpen(false);
   };
 
-  let Parent = ({ children }: any) =>
-    props.trapFocus ? <FocusScope> {children} </FocusScope> : children;
+  // let Parent = ({ children }: any) =>
+  //   props.trapFocus ? <FocusScope> {children} </FocusScope> : children;
 
   return (
     <>
       {triggerElem}
       <Overlay isOpen={isOpen} closeOnOutsidePress onClose={handleClose}>
         <PopoverContext.Provider value={{ onClose: handleClose }}>
-          <Parent>
-            <Popover {...props} onClose={handleClose} triggerRef={triggerRef} />
-          </Parent>
+          {/* <Parent> */}
+          <PopoverImpl
+            {...props}
+            onClose={handleClose}
+            triggerRef={triggerRef}
+          />
+          {/* </Parent> */}
         </PopoverContext.Provider>
       </Overlay>
     </>
   );
 };
 
-export default PopoverWithOverlayContainer;
+export const PopoverArrow = (_props: IPopoverArrowProps) => {
+  return <></>;
+};
+
+PopoverArrow.displayName = 'PopoverArrow';
+
+PopoverWithOverlayContainer.Content = PopoverContent;
+PopoverWithOverlayContainer.Arrow = PopoverArrow;
+PopoverWithOverlayContainer.CloseButton = PopoverCloseButton;
+PopoverWithOverlayContainer.Header = PopoverHeader;
+PopoverWithOverlayContainer.Footer = PopoverFooter;
+PopoverWithOverlayContainer.Body = PopoverBody;
+
+export { PopoverWithOverlayContainer as Popover };

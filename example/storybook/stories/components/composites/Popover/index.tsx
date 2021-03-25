@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
 import Basic from './Basic';
-import Size from './Size';
-import RefEg from './RefEg';
+// import Size from './Size';
+// import RefEg from './RefEg';
 
 storiesOf('Popover', module)
   .addDecorator(withKnobs)

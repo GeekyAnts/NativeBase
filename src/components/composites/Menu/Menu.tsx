@@ -28,8 +28,7 @@ export const Menu = React.memo(
           onClose={onClose}
           onOpen={onOpen}
           trigger={trigger}
-          shouldOverlapWithTrigger
-          placement="bottom left"
+          placement={props.placement ?? 'bottom left'}
           trapFocus
         >
           <Popover.Content isUnstyled>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, Text } from 'react-native';
-import { Popover, Button } from 'native-base';
+import { Popover } from 'native-base';
 
 export default function () {
   return (
@@ -13,7 +13,7 @@ export default function () {
         );
       }}
     >
-      <Popover.Arrow></Popover.Arrow>
+      <Popover.Arrow height={10} width={16} color="gray.200"></Popover.Arrow>
       <Popover.Content>
         <Popover.CloseButton />
         <Popover.Header>Confirmation!</Popover.Header>

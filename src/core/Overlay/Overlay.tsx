@@ -1,5 +1,4 @@
 import React from 'react';
-import { OverlayContainer } from '@react-native-aria/overlays';
 import { Pressable, Modal, StyleSheet } from 'react-native';
 
 type IOverlayProps = {
@@ -11,36 +10,11 @@ type IOverlayProps = {
 };
 
 export function Overlay(props: IOverlayProps) {
-  const {
-    isOpen,
-    children,
-    useCustomOverlay,
-    closeOnOutsidePress = true,
-  } = props;
-  const [exited, setExited] = React.useState(!isOpen);
-
-  let handleEntered = React.useCallback(() => {
-    setExited(false);
-  }, []);
-
-  let handleExited = React.useCallback(() => {
-    setExited(true);
-  }, []);
-
-  let mountOverlay = isOpen || !exited;
-  if (!mountOverlay) {
-    // Don't bother showing anything if we don't have to.
-    return null;
-  }
+  const { isOpen, children } = props;
 
   const handleClose = () => {
     props.onClose && props.onClose();
     // Perform exit transition if any
-  };
-
-  const handleOpen = () => {
-    // Perform exit transition if any
-    setExited(false);
   };
 
   let closeButton = (
@@ -52,19 +26,10 @@ export function Overlay(props: IOverlayProps) {
     />
   );
 
-  // if (useCustomOverlay) {
-  //   return (
-  //     <OverlayContainer>
-  //       {closeButton}
-  //       {children}
-  //     </OverlayContainer>
-  //   );
-  // } else {
   return (
     <Modal visible={isOpen} animationType="fade" transparent>
       {closeButton}
       {children}
     </Modal>
   );
-  // }
 }

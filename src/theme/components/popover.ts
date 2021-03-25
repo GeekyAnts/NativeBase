@@ -36,7 +36,7 @@ const baseStyle = (props: Record<string, any>) => {
     popoverContentProps: {
       backgroundColor: mode('gray.100', 'gray.600')(props),
       // borderColor: 'gray.300',
-      borderColor: mode('gray.300', 'gray.700')(props),
+      borderColor: mode('gray.100', 'gray.700')(props),
       borderWidth: 1,
     },
     popoverHeaderProps: {
