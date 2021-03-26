@@ -1,4 +1,4 @@
-import { mode, getColorScheme } from '../tools';
+import { mode, getColorScheme, transparentize } from '../tools';
 
 const baseStyle = (props: Record<string, any>) => {
   const simplifiedColorScheme = getColorScheme(props);
@@ -7,7 +7,13 @@ const baseStyle = (props: Record<string, any>) => {
       `${simplifiedColorScheme}.500`,
       `${simplifiedColorScheme}.200`
     )(props),
-    trackColor: mode('gray.200', 'gray.700')(props),
+    trackColor: transparentize(
+      mode(
+        `${simplifiedColorScheme}.500`,
+        `${simplifiedColorScheme}.200`
+      )(props),
+      0.3
+    )(props.theme),
   };
 };
 
