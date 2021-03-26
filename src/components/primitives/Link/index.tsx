@@ -5,6 +5,8 @@ import type { ILinkProps } from './types';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
 import { useLink } from './useLink';
+import { mergeRefs } from '../../../utils';
+import { useHover } from '@react-native-aria/interactions';
 
 const StyledLink = styled(Box)<ILinkProps>({});
 const Link = (
@@ -20,11 +22,15 @@ const Link = (
     mr,
     ml,
     mb,
+    my,
+    mx,
     p,
     pt,
     pl,
     pr,
     pb,
+    px,
+    py,
     w,
     width,
     h,
@@ -40,21 +46,27 @@ const Link = (
     mr,
     ml,
     mb,
+    my,
+    mx,
     p,
     pt,
     pr,
     pl,
     pb,
+    py,
+    px,
     w,
     width,
     h,
     height,
   };
-  let newProps = useThemeProps('Link', props);
+  let { _hover, ...newProps } = useThemeProps('Link', props);
   const linkTextProps = {
     textDecorationLine: isUnderlined ? 'underline' : 'none',
     ..._text,
   };
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
   const { linkProps } = useLink({ href, onClick, isExternal });
   return (
     <Box {...layoutProps}>
@@ -64,7 +76,8 @@ const Link = (
           {...linkProps}
           {...newProps}
           _text={linkTextProps}
-          ref={ref}
+          {...(isHovered && _hover)}
+          ref={mergeRefs([ref, _ref])}
           flexDirection="row"
           style={style}
         >

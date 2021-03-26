@@ -21,6 +21,7 @@ export type ILinkProps = IBoxProps &
     isUnderlined?: boolean | undefined;
     onClick?: any;
     isExternal?: boolean;
+    _hover?: any;
   };
 
 export type IUseLinkProp = {

@@ -55,7 +55,12 @@ export const CompositeLink = () => {
   return (
     <View>
       <Heading>Composite Link Example</Heading>
-      <Link href="https://nativebase.io" isExternal mt={4}>
+      <Link
+        href="https://nativebase.io"
+        _hover={{ bg: 'primary.100' }}
+        isExternal
+        mt={4}
+      >
         <Box my={3} p={8} bg="seagreen">
           <Text color="white" fontSize={16}>
             Box
