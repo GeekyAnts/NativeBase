@@ -37,6 +37,7 @@ import {
 import Heading from './heading';
 import Icon from './icon';
 import IconButton from './icon-button';
+import { Image } from './image';
 import Input from './input';
 import Kbd from './kbd';
 import Link from './link';
@@ -114,6 +115,7 @@ export default {
   HStack,
   Icon,
   IconButton,
+  Image,
   Input,
   Kbd,
   Link,
