@@ -11,7 +11,7 @@ export default function () {
           icon={
             <Icon
               name={'menu'}
-              color={variant === 'solid' ? 'white' : undefined}
+              color={variant === 'solid' ? 'white' : 'teal.500'}
             />
           }
         />

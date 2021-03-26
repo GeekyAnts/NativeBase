@@ -8,7 +8,7 @@ export default function () {
           size={size}
           variant="solid"
           colorScheme="emerald"
-          icon={<Icon name={'menu'} color="white" />}
+          icon={<Icon name={'menu'} color="white" size={size} />}
         />
       ))}
     </Stack>

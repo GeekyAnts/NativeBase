@@ -56,19 +56,31 @@ function variantSolid(props: Dict) {
   if (c === 'gray')
     return {
       bg: mode(`gray.100`, `gray.800`)(props),
+      _text: {
+        color: mode(`gray.100`, `gray.800`)(props),
+      },
     };
   const { bg = `${c}.500` } = accessibleColorMap[c] || {};
   return {
     bg: mode(bg, `${c}.400`)(props),
+    _text: {
+      color: mode(`gray.100`, `gray.800`)(props),
+    },
   };
 }
 
-function variantLink() {
+function variantLink(props: Dict) {
+  const { colorScheme: c } = props;
+
   return {
     padding: 0,
     height: 'auto',
     _text: {
       textDecorationLine: 'underline',
+      color:
+        c === 'gray'
+          ? mode(`gray.800`, `${c}.200`)(props)
+          : mode(`${c}.500`, `${c}.200`)(props),
     },
   };
 }
@@ -96,7 +108,7 @@ const sizes = {
       fontSize: 'lg',
     },
     px: 6,
-    py: 4,
+    py: 3,
   },
   md: {
     minH: 10,
@@ -123,6 +135,7 @@ const sizes = {
       fontSize: 'xs',
     },
     px: 2,
+    py: 1,
   },
 };
 
