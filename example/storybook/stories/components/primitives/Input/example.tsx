@@ -84,13 +84,7 @@ export const PasswordInput = () => {
       w="70%"
       type={show ? 'text' : 'password'}
       InputRightElement={
-        <Button
-          ml={1}
-          roundedLeft={0}
-          roundedRight="md"
-          colorScheme="default"
-          onPress={handleClick}
-        >
+        <Button ml={1} roundedLeft={0} roundedRight="md" onPress={handleClick}>
           {show ? 'Hide' : 'Show'}
         </Button>
       }
