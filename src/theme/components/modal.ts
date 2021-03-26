@@ -61,7 +61,7 @@ export const ModalCloseButton = {
   baseStyle: {
     position: 'absolute',
     right: 8,
-    top: 8,
+    top: 6,
     zIndex: 1,
   },
   defaultProps: {
@@ -75,11 +75,12 @@ export const ModalHeader = {
 };
 export const ModalBody = {
   baseStyle: {
-    mb: 3,
+    pb: 3,
   },
 };
 export const ModalFooter = {
   baseStyle: {
+    pt: 2,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     flexWrap: 'wrap',
