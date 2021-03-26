@@ -15,7 +15,7 @@ const SliderTrack = ({ children, ...props }: ISliderProps) => {
       position="absolute"
       backgroundColor={trackColor}
       height={orientation === 'vertical' ? '100%' : `${sliderSize}px`}
-      borderRadius={999}
+      borderRadius="full"
       width={orientation === 'vertical' ? `${sliderSize}px` : '100%'}
       {...props}
       overflow="hidden"
