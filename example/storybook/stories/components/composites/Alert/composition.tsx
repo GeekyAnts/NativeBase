@@ -55,7 +55,7 @@ export default function () {
             aliquip ex ea commodo consequat.
           </Alert.Description>
         </Box>
-        <CloseButton position="absolute" top={2} right={2} />
+        <CloseButton size="xs" position="absolute" top={2} right={2} />
       </Alert>
     </VStack>
   );

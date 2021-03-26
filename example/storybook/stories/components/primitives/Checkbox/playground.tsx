@@ -8,7 +8,7 @@ export default function () {
   return (
     <View display="flex" justifyContent="space-between" alignItems="center">
       <Checkbox
-        colorScheme={text('colorScheme', 'default')}
+        colorScheme={text('colorScheme', 'primary')}
         size={select('size', ['sm', 'md', 'lg'], 'md')}
         defaultIsChecked={boolean('defaultIsChecked', true)}
         isChecked={boolean('isChecked', true)}

@@ -9,7 +9,11 @@ export default function () {
         <Alert
           status="error"
           action={
-            <CloseButton size={'xs'} onPress={() => handleToggle(false)} />
+            <CloseButton
+              size="xs"
+              // _text={{ color: 'red.400' }}
+              onPress={() => handleToggle(false)}
+            />
           }
         >
           <Alert.Icon />

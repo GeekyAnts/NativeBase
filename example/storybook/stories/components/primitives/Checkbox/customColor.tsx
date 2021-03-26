@@ -4,8 +4,8 @@ import { Checkbox, HStack, Text } from 'native-base';
 export default function () {
   return (
     <HStack>
-      <Checkbox value="critical" colorScheme="critical" defaultIsChecked>
-        <Text mx={2}>Critical</Text>
+      <Checkbox value="danger" colorScheme="danger" defaultIsChecked>
+        <Text mx={2}>Danger</Text>
       </Checkbox>
       <Checkbox value="info" colorScheme="info" defaultIsChecked>
         <Text mx={2}>Info</Text>
