@@ -31,27 +31,23 @@ const StyledImage = styled(RNImage)<IImageProps>(
   customLayout
 );
 
-const Image = (
-  {
-    style,
+const Image = ({ source, ...props }: IImageProps, ref: any) => {
+  const {
     alt,
     fallbackSource,
-    source,
     ignoreFallback,
     _alt,
-    ...props
-  }: IImageProps,
-  ref: any
-) => {
-  let [renderedSource, setSource] = useState(source);
-  let [alternate, setAlternate] = useState(false);
+    ...newProps
+  } = useThemeProps('Image', props);
+  const [renderedSource, setSource] = useState(source);
+  const [alternate, setAlternate] = useState(false);
 
   React.useEffect(() => {
     setAlternate(false);
     setSource(source);
   }, [source]);
 
-  let onImageLoadError = (event: any) => {
+  const onImageLoadError = (event: any) => {
     console.warn(event.nativeEvent.error);
     if (
       !ignoreFallback &&
@@ -63,7 +59,6 @@ const Image = (
       setAlternate(true);
     }
   };
-  const newProps = useThemeProps('Image', props);
 
   if (!alt) {
     console.warn('Please pass alt prop to Image component');
@@ -74,12 +69,7 @@ const Image = (
   }
   return (
     <StyledImage
-      style={style}
       source={renderedSource}
-      maxWidth="100%"
-      // height='100%'
-      // width="auto"
-      size={'100%'}
       accessibilityLabel={alt}
       accessibilityRole="image"
       accessible

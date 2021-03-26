@@ -61,7 +61,7 @@ const AccordionSummary = (
 
   return (
     <TouchableOpacity
-      activeOpacity={1}
+      activeOpacity={0.2}
       disabled={isDisabled}
       onPress={pressHandler}
       accessible

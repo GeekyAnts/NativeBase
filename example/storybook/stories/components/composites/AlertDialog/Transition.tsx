@@ -16,8 +16,9 @@ export default function () {
         isCentered
       >
         <AlertDialog.Content>
-          <AlertDialog.CloseButton />
-          <AlertDialog.Header>Discard Changes?</AlertDialog.Header>
+          <AlertDialog.Header _text={{ fontSize: 'lg', fontWeight: 'bold' }}>
+            Discard Changes?
+          </AlertDialog.Header>
           <AlertDialog.Body>
             Please type Confirm to discard your changes.
             <Input
@@ -28,9 +29,9 @@ export default function () {
             />
           </AlertDialog.Body>
           <AlertDialog.Footer>
-            <Button onPress={onClose}>No</Button>
-            <Button colorScheme="red" ml={3}>
-              Yes
+            <Button onPress={onClose}>Submit</Button>
+            <Button onPress={onClose} colorScheme="red" ml={3}>
+              Cancel
             </Button>
           </AlertDialog.Footer>
         </AlertDialog.Content>

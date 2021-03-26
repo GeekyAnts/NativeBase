@@ -7,13 +7,12 @@ export default function () {
     <VStack
       divider={<Divider borderColor="red.200" />}
       space={number('Space', 4)}
-      width="100%"
     >
       <Heading>VStack</Heading>
       <Text>Test Text</Text>
-      <Text>Testing this text with Stacks</Text>
-      <Text>Testing this text with Stacks</Text>
-      <Text>Testing this text with Stacks</Text>
+      <Text>Testing this text with VStack</Text>
+      <Text>Testing this text with VStack</Text>
+      <Text>Testing this text with VStack</Text>
     </VStack>
   );
 }

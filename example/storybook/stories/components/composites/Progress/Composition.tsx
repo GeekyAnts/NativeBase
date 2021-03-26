@@ -1,28 +1,25 @@
 import React from 'react';
-import { Box, Progress, Center, Heading, Text } from 'native-base';
+import { Box, Progress, Center, Heading, Text, Flex } from 'native-base';
 
 export default function () {
   return (
     <Box w="90%">
       <Center mb={8}>
-        <Heading>This is all the variantions of Progress Bar</Heading>
+        <Heading>Progress Composition</Heading>
       </Center>
-      <Text>Try different colorScheme using knobs </Text>
-      <Progress size="sm" mb={4} colorScheme="success" value={45} />
-      <Text>Try different sizes using knobs </Text>
-      <Progress rounded="50" size="lg" colorScheme="danger" mb={4} value={65} />
-      <Text>You can pass custom background color using bg </Text>
-      <Progress
-        size="xl"
-        colorScheme="warning"
-        bg="teal.200"
-        mb={4}
-        value={75}
-      />
-      {/* <Text>
-        You can add isIndeterminate for loading animation progress bar
-      </Text>
-      <Progress size="xl" colorScheme="warning" isIndeterminate value={85} /> */}
+      <Text mb={2}>Add Label inside Progress</Text>
+      <Progress size="xl" mb={4} value={45}>
+        <Text color="white" bold>
+          45%
+        </Text>
+      </Progress>
+      <Text mb={2}>Add Label outside Progress</Text>
+      <Flex direction="row">
+        <Progress size="xl" flex={1} mb={4} value={75} />
+        <Text bold ml={2}>
+          75%
+        </Text>
+      </Flex>
     </Box>
   );
 }

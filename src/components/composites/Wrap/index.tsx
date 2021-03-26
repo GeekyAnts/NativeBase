@@ -2,16 +2,18 @@ import isNil from 'lodash/isNil';
 import React from 'react';
 import Flex from '../../primitives/Flex';
 import type { IWrapProps } from './types';
+import { useThemeProps } from '../../../hooks';
 
-const Wrap = ({ spacing, children, ...props }: IWrapProps, ref?: any) => {
+const Wrap = ({ children, ...props }: IWrapProps, ref?: any) => {
+  const { space, ...newProps } = useThemeProps('Wrap', props);
   return (
-    <Flex {...props} wrap="wrap" ref={ref}>
-      {isNil(spacing)
+    <Flex wrap="wrap" {...newProps} ref={ref}>
+      {isNil(space)
         ? children
         : React.Children.map(children, (child: any) => {
             return React.cloneElement(
               child,
-              { ...props, style: { margin: spacing } },
+              { ...props, style: { margin: space } },
               child.props.children
             );
           })}

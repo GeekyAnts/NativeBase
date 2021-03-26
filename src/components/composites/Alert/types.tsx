@@ -3,6 +3,7 @@ import type { ITextProps, IBoxProps } from '../../primitives';
 export type IAlertProps = IBoxProps & {
   style?: any;
   status?: 'info' | 'warning' | 'success' | 'error' | string;
+  colorScheme?: string;
   children?: JSX.Element | JSX.Element[] | any;
   variant?:
     | 'subtle'

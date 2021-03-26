@@ -1,17 +1,14 @@
 import React from 'react';
-import styled from 'styled-components/native';
 import Box from '../../primitives/Box';
 import type { IBadgeProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
-const StyledBadge = styled(Box)<IBadgeProps>({});
-
-const Badge = ({ children, style, ...props }: IBadgeProps, ref: any) => {
+const Badge = ({ children, ...props }: IBadgeProps, ref: any) => {
   let newProps = useThemeProps('Badge', props);
   return (
-    <StyledBadge {...newProps} ref={ref} style={style}>
+    <Box {...newProps} ref={ref}>
       {children}
-    </StyledBadge>
+    </Box>
   );
 };
 

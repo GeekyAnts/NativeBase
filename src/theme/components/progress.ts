@@ -3,13 +3,14 @@ import { mode, getColorScheme } from '../tools';
 const defaultProps = {
   colorScheme: 'primary',
   size: 'sm',
+  rounded: 'full',
 };
 
 function baseStyle(props: Record<string, any>) {
   const colorScheme = getColorScheme(props);
   return {
-    innerBg: mode(`${colorScheme}.700`, `${colorScheme}.500`)(props),
-    bg: mode(`${colorScheme}.200`, `${colorScheme}.700`)(props),
+    innerBg: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
+    bg: mode(`${colorScheme}.200`, `${colorScheme}.800`)(props),
   };
 }
 

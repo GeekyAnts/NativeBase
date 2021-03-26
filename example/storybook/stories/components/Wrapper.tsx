@@ -24,7 +24,7 @@ function MyWrapper({ children }: any) {
     >
       <IconButton
         position="absolute"
-        top={8}
+        top={12}
         right={8}
         onPress={toggleColorMode}
         icon={

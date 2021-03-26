@@ -13,7 +13,7 @@ import {
   ActionsheetItem,
 } from './actionsheet';
 import { Select, SelectItem } from './select';
-import { Alert, AlertDescription, AlertTitle } from './alert';
+import { Alert, AlertDescription, AlertTitle, AlertIcon } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
 import Badge from './badge';
@@ -21,13 +21,23 @@ import Breadcrumb from './breadcrumb';
 import Button from './button';
 import Center from './center';
 import Checkbox from './checkbox';
+import Box from './box';
 import CircularProgress from './circular-progress';
 import Code from './code';
 import Container from './container';
+import HStack from './hstack';
 import Divider from './divider';
+import SimpleGrid from './simple-grid';
+import {
+  FormControl,
+  FormControlLabel,
+  FormControlHelperText,
+  FormControlErrorMessage,
+} from './form-control';
 import Heading from './heading';
 import Icon from './icon';
 import IconButton from './icon-button';
+import { Image } from './image';
 import Input from './input';
 import Kbd from './kbd';
 import Link from './link';
@@ -60,6 +70,12 @@ import Toast from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import { List, ListItem, ListIcon } from './list';
 import { TypeAheadSearchItem } from './typeahead';
+import { Wrap } from './wrap';
+import Flex from './flex';
+import Stack from './stack';
+import View from './view';
+import ZStack from './zstack';
+import FAB from './fab';
 
 export default {
   Accordion,
@@ -75,9 +91,11 @@ export default {
   Alert,
   AlertDescription,
   AlertTitle,
+  AlertIcon,
   Avatar,
   AvatarBadge,
   Badge,
+  Box,
   Breadcrumb,
   Button,
   Center,
@@ -87,9 +105,17 @@ export default {
   Container,
   Divider,
   Fade,
+  FAB,
+  Flex,
+  FormControl,
+  FormControlLabel,
+  FormControlHelperText,
+  FormControlErrorMessage,
   Heading,
+  HStack,
   Icon,
   IconButton,
+  Image,
   Input,
   Kbd,
   Link,
@@ -115,12 +141,14 @@ export default {
   ScaleFade,
   Select,
   SelectItem,
+  SimpleGrid,
   Skeleton,
   Slide,
   SlideFade,
   Slider,
   SliderThumb,
   Spinner,
+  Stack,
   Stat,
   Switch,
   Tabs,
@@ -130,4 +158,7 @@ export default {
   TextArea,
   Toast,
   TypeAheadSearchItem,
+  View,
+  Wrap,
+  ZStack,
 };

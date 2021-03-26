@@ -1,8 +1,8 @@
 import colors from './colors';
-export default (props: any) => {
+export default () => {
   return {
     0: {
-      shadowColor: props.colorMode === 'light' ? colors.black : colors.white,
+      shadowColor: colors.black,
       shadowOffset: {
         width: 0,
         height: 1,
@@ -12,7 +12,7 @@ export default (props: any) => {
       elevation: 1,
     },
     1: {
-      shadowColor: props.colorMode === 'light' ? colors.black : colors.white,
+      shadowColor: colors.black,
       shadowOffset: {
         width: 0,
         height: 1,
@@ -22,7 +22,7 @@ export default (props: any) => {
       elevation: 2,
     },
     2: {
-      shadowColor: props.colorMode === 'light' ? colors.black : colors.white,
+      shadowColor: colors.black,
       shadowOffset: {
         width: 0,
         height: 1,
@@ -32,7 +32,7 @@ export default (props: any) => {
       elevation: 3,
     },
     3: {
-      shadowColor: props.colorMode === 'light' ? colors.black : colors.white,
+      shadowColor: colors.black,
       shadowOffset: {
         width: 0,
         height: 2,
@@ -42,7 +42,7 @@ export default (props: any) => {
       elevation: 4,
     },
     4: {
-      shadowColor: props.colorMode === 'light' ? colors.black : colors.white,
+      shadowColor: colors.black,
       shadowOffset: {
         width: 0,
         height: 2,
@@ -52,7 +52,7 @@ export default (props: any) => {
       elevation: 5,
     },
     5: {
-      shadowColor: props.colorMode === 'light' ? colors.black : colors.white,
+      shadowColor: colors.black,
       shadowOffset: {
         width: 0,
         height: 3,
@@ -62,7 +62,7 @@ export default (props: any) => {
       elevation: 6,
     },
     6: {
-      shadowColor: props.colorMode === 'light' ? colors.black : colors.white,
+      shadowColor: colors.black,
       shadowOffset: {
         width: 0,
         height: 3,
@@ -72,7 +72,7 @@ export default (props: any) => {
       elevation: 7,
     },
     7: {
-      shadowColor: props.colorMode === 'light' ? colors.black : colors.white,
+      shadowColor: colors.black,
       shadowOffset: {
         width: 0,
         height: 4,
@@ -82,7 +82,7 @@ export default (props: any) => {
       elevation: 8,
     },
     8: {
-      shadowColor: props.colorMode === 'light' ? colors.black : colors.white,
+      shadowColor: colors.black,
       shadowOffset: {
         width: 0,
         height: 4,
@@ -92,7 +92,7 @@ export default (props: any) => {
       elevation: 9,
     },
     9: {
-      shadowColor: props.colorMode === 'light' ? colors.black : colors.white,
+      shadowColor: colors.black,
       shadowOffset: {
         width: 0,
         height: 5,

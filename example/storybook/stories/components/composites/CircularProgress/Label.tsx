@@ -3,10 +3,8 @@ import { CircularProgress, Heading, Center } from 'native-base';
 export default function () {
   return (
     <Center>
-      <Heading>Adding label</Heading>
-      <CircularProgress mt={6} value={45} size={60} color="red.200">
-        45%
-      </CircularProgress>
+      <Heading mb={6}>Adding label</Heading>
+      <CircularProgress value={60}>60%</CircularProgress>
     </Center>
   );
 }

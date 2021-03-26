@@ -77,12 +77,12 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
       <Box
         borderColor={outlineColor}
         backgroundColor={inputProps.disabled ? 'muted.200' : 'transparent'}
-        borderWidth={1}
+        borderWidth={2}
         display="flex"
         justifyContent="center"
         alignItems="center"
-        borderRadius={999}
-        p={'2px'}
+        borderRadius="full"
+        p="2px"
       >
         {icon && isSelected ? (
           sizedIcon()
@@ -127,7 +127,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
         </Box>
       ) : (
         <TouchableOpacity
-          activeOpacity={1}
+          activeOpacity={0.2}
           ref={mergedRefs}
           {...(inputProps as TouchableOpacityProps)}
         >

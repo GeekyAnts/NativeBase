@@ -46,4 +46,7 @@ export type ISwitchProps = SwitchProps &
     offTrackColor?: string;
     onThumbColor?: string;
     offThumbColor?: string;
+    activeThumbColor?: string;
+    colorScheme?: string;
+    _hover?: any;
   };

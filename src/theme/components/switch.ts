@@ -1,13 +1,35 @@
-import { mode } from '../tools';
+import { mode, getColorScheme } from '../tools';
+import { Platform } from 'react-native';
 
 const baseStyle = (props: Record<string, any>) => {
   let { onTrackColor, offTrackColor, onThumbColor, offThumbColor } = props;
+  let colorScheme = getColorScheme(props);
 
   return {
-    offTrackColor: offTrackColor ?? mode('gray.100', 'gray.900')(props),
-    onTrackColor: onTrackColor ?? mode('primary.300', 'primary.700')(props),
-    onThumbColor: onThumbColor ?? mode('white', 'black')(props),
-    offThumbColor: offThumbColor ?? mode('white', 'black')(props),
+    offTrackColor:
+      offTrackColor ??
+      mode(
+        Platform.OS !== 'ios' ? 'gray.400' : 'gray.200',
+        Platform.OS !== 'ios' ? 'gray.700' : 'gray.600'
+      )(props),
+    onTrackColor:
+      onTrackColor ??
+      mode(
+        Platform.OS !== 'ios' ? `${colorScheme}.300` : `${colorScheme}.500`,
+        Platform.OS !== 'ios' ? `${colorScheme}.800` : `${colorScheme}.600`
+      )(props),
+    onThumbColor:
+      onThumbColor ??
+      mode(
+        Platform.OS !== 'ios' ? `${colorScheme}.600` : 'white',
+        Platform.OS !== 'ios' ? `${colorScheme}.500` : 'white'
+      )(props),
+    offThumbColor:
+      offThumbColor ??
+      mode(
+        Platform.OS !== 'ios' ? 'gray.100' : 'white',
+        Platform.OS !== 'ios' ? 'gray.200' : 'white'
+      )(props),
   };
 };
 
@@ -24,6 +46,7 @@ const sizes = {
 
 const defaultProps = {
   size: 'md',
+  colorScheme: 'primary',
 };
 
 export default {

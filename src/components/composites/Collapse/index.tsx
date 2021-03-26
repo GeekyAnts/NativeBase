@@ -86,7 +86,7 @@ const Collapse = ({
       overflow="hidden"
     >
       <Box
-        overflow="scroll"
+        overflow={Platform.OS === 'web' ? 'auto' : 'scroll'}
         onLayout={(e) => provideSize(e.nativeEvent.layout)}
         {...props}
       />

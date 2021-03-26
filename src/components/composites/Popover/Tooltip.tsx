@@ -82,7 +82,7 @@ class Tooltip extends React.PureComponent<Props, State> {
           onLongPress={
             actionType === 'longPress' ? this.toggleTooltip : undefined
           }
-          activeOpacity={1}
+          activeOpacity={0.2}
           {...this.props.toggleWrapperProps}
         >
           {children}
@@ -241,7 +241,7 @@ class Tooltip extends React.PureComponent<Props, State> {
             <TouchableOpacity
               style={styles.container(withOverlay, overlayColor)}
               onPress={this.toggleTooltip}
-              activeOpacity={1}
+              activeOpacity={0.2}
             >
               <View>{this.renderContent(true)}</View>
             </TouchableOpacity>

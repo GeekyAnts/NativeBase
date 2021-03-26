@@ -10,15 +10,17 @@ import Thickness from './Thickness';
 import Indeterminate from './Indeterminate';
 import TrackColor from './TrackColor';
 import MinMax from './MinMax';
+import ColorScheme from './ColorScheme';
 
 storiesOf('CircularProgress', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
-  .add('Sizes', () => <Sizes />)
+  .add('ColorScheme', () => <ColorScheme />)
   .add('Colors', () => <Colors />)
-  .add('Thickness', () => <Thickness />)
   .add('TrackColor', () => <TrackColor />)
   .add('Label', () => <Label />)
+  .add('Sizes', () => <Sizes />)
+  .add('Thickness', () => <Thickness />)
   .add('Min and Max', () => <MinMax />)
   .add('Indeterminate', () => <Indeterminate />);

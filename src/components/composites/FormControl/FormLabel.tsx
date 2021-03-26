@@ -1,9 +1,9 @@
 import React from 'react';
 import Box from '../../primitives/Box';
 import Text from '../../primitives/Text';
-import { useToken } from '../../../hooks';
 import { FormControlContext } from './FormControl';
 import type { IFormControlLabelProps, IFormControlContext } from './types';
+import { useThemeProps } from '../../../hooks';
 
 const FormLabel = (
   { children, _disabled, _invalid, ...props }: IFormControlLabelProps,
@@ -14,15 +14,14 @@ const FormLabel = (
     isRequired,
     isDisabled,
   }: IFormControlContext = React.useContext(FormControlContext);
-  const textColor = useToken('colors', 'red.300');
-  const requiredAsterisk = () => <Text color={textColor}>*</Text>;
+  const { astrickColor, newProps } = useThemeProps('FormControlLabel', props);
+  const requiredAsterisk = () => <Text color={astrickColor}>*</Text>;
 
   return (
     <Box
       flexDirection="row"
       justifyContent="flex-start"
-      _text={{ fontSize: 'md' }}
-      {...props}
+      {...newProps}
       ref={ref}
       {...(isInvalid && _invalid)}
       {...(isDisabled && _disabled)}

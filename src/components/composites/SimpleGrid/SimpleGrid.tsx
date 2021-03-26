@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, HStack, VStack } from '../../primitives';
 import type { ISimpleGridProps } from './types';
 // const isDebug = process.env.NODE_ENV !== 'production';
+import { useThemeProps } from '../../../hooks/useThemeProps';
 
 const DEBUG_STYLES = false
   ? {
@@ -17,18 +18,17 @@ const DEBUG_STYLES = false
       cols: {},
     };
 
-const SimpleGrid = (
-  {
+const SimpleGrid = (props: ISimpleGridProps, ref?: any): JSX.Element => {
+  const {
     columns,
-    spacing,
+    space,
     spacingX,
     spacingY,
     minChildWidth,
     children,
-  }: ISimpleGridProps,
-  ref?: any
-): JSX.Element => {
-  let cellSpacing = spacing ?? 0;
+    ...remainingProps
+  } = useThemeProps('SimpleGrid', props);
+  let cellSpacing = space ?? 0;
   let cellSpacingX = spacingX ?? cellSpacing;
   let cellSpacingY = spacingY ?? cellSpacing;
 
@@ -40,7 +40,12 @@ const SimpleGrid = (
     }
 
     return (
-      <VStack {...DEBUG_STYLES.rows} space={cellSpacingY} ref={ref}>
+      <VStack
+        {...DEBUG_STYLES.rows}
+        space={cellSpacingY}
+        {...remainingProps}
+        ref={ref}
+      >
         {rowSlices.map((row, rowIndex) => {
           return (
             <HStack space={cellSpacingX} key={rowIndex}>
@@ -65,6 +70,7 @@ const SimpleGrid = (
         flexDirection="row"
         flexWrap="wrap"
         justifyContent="center"
+        {...remainingProps}
         ref={ref}
       >
         {childrenArray.map((col: any) => {
