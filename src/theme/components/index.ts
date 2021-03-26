@@ -74,6 +74,7 @@ import Flex from './flex';
 import Stack from './stack';
 import View from './view';
 import ZStack from './zstack';
+import FAB from './fab';
 
 export default {
   Accordion,
@@ -103,6 +104,7 @@ export default {
   Container,
   Divider,
   Fade,
+  FAB,
   Flex,
   FormControl,
   FormControlLabel,

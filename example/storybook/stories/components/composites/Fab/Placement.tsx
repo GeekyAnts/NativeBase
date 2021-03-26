@@ -4,10 +4,13 @@ import React from 'react';
 export default function () {
   return (
     <Fab
-      bg="lime.200"
       placement="top-left"
-      icon={<Icon name="plus" type="AntDesign" />}
-      label={<Text fontSize="sm">Click</Text>}
+      icon={<Icon name="plus" color="white" type="AntDesign" />}
+      label={
+        <Text color="white" fontSize="sm">
+          Click
+        </Text>
+      }
     />
   );
 }
