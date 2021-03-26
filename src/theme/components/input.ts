@@ -9,37 +9,56 @@ const baseStyle = (props: Record<string, any>) => {
     p: Platform.OS === 'android' ? 2 : 3, // Android's input have default padding.
     color: mode('black', 'white')(props),
     placeholderTextColor: mode(colors.gray[600], colors.black)(props),
+
     _isDisabledProps: {
       opacity: 0.8,
       bg: mode('gray.100', 'gray.700')(props),
     },
     borderColor: isInvalid
-      ? mode('danger.600', 'danger.200')(props)
+      ? mode('error.600', 'error.200')(props)
       : mode('gray.300', 'gray.600')(props),
     hoverBorderColor: 'primary.500',
     focusBorderColor: mode('primary.600', 'primary.400')(props),
-    errorBorderColor: mode('danger.600', 'danger.200')(props),
+    errorBorderColor: mode('error.600', 'error.200')(props),
   };
 };
 
 function roundedStyle() {
   return {
+    // HACK: focusStyle is temp. fix.
+    _focusStyle: {
+      shadow: 3,
+      //TODO: use color from theme instead
+      shadowColor: '#2563EB',
+    },
     borderRadius: '50',
     borderWidth: 1,
   };
 }
-function defaultStyle() {
+function outlineStyle() {
   return {
+    // HACK: focusStyle is temp. fix.
+    _focusStyle: {
+      shadow: 3,
+      //TODO: use color from theme instead
+      shadowColor: '#2563EB',
+    },
     borderWidth: 1,
   };
 }
 function filledStyle(props: Record<string, any>) {
   const { isInvalid } = props;
   return {
+    // HACK: focusStyle is temp. fix.
+    _focusStyle: {
+      shadow: 3,
+      //TODO: use color from theme instead
+      shadowColor: '#2563EB',
+    },
     bg: props.bg || mode('gray.200', 'gray.600')(props),
     borderWidth: 1,
     borderColor: isInvalid
-      ? mode('danger.600', 'danger.200')(props)
+      ? mode('error.600', 'error.200')(props)
       : 'transparent',
   };
 }
@@ -57,12 +76,11 @@ function underlinedStyle() {
 }
 
 const variants = {
-  outline: defaultStyle,
+  outline: outlineStyle,
   underlined: underlinedStyle,
   rounded: roundedStyle,
   filled: filledStyle,
   unstyled: unstyledStyle,
-  default: defaultStyle,
 };
 
 const sizes = {
@@ -76,7 +94,7 @@ const sizes = {
 
 const defaultProps = {
   size: 'md',
-  variant: 'default',
+  variant: 'underlined',
   borderRadius: 'md',
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, Animated, Platform } from 'react-native';
+import { TextInput, Platform } from 'react-native';
 import styled from 'styled-components/native';
 import {
   border,
@@ -48,6 +48,7 @@ const StyledInput = styled(TextInput)<IInputProps>(
   customLayout
 );
 
+// NOTE: Revisit comment code. Most of it represent label related logic.
 const Input = (
   {
     style,
@@ -72,8 +73,8 @@ const Input = (
     mb,
     mx,
     my,
-    label,
-    _label,
+    // label,
+    // _label,
     placeholderTextColor,
     ...props
   }: IInputProps,
@@ -118,6 +119,7 @@ const Input = (
     errorBorderColor,
     hoverBorderColor,
     borderBottomWidth,
+    _focusStyle,
     ...newProps
   } = useThemeProps('Input', { ...formControlContext, ...props });
 
@@ -137,23 +139,24 @@ const Input = (
     'pr',
   ]);
 
-  const slideAnim = React.useRef(new Animated.Value(0)).current;
-  const slideIn = () => {
-    Animated.timing(slideAnim, {
-      toValue: 0,
-      duration: 200,
-      useNativeDriver: Platform.OS !== 'web',
-    }).start();
-  };
+  // NOTE: Logic related with label
+  // const slideAnim = React.useRef(new Animated.Value(0)).current;
+  // const slideIn = () => {
+  //   Animated.timing(slideAnim, {
+  //     toValue: 0,
+  //     duration: 200,
+  //     useNativeDriver: Platform.OS !== 'web',
+  //   }).start();
+  // };
 
-  const slideOut = () => {
-    Animated.timing(slideAnim, {
-      // NOTE: Below 3 value are (padding + half of font + buffer)
-      toValue: -(12 + Math.floor(fontSize / 2) + 2),
-      duration: 200,
-      useNativeDriver: Platform.OS !== 'web',
-    }).start();
-  };
+  // const slideOut = () => {
+  //   Animated.timing(slideAnim, {
+  //     // NOTE: Below 3 value are (padding + half of font + buffer)
+  //     toValue: -(12 + Math.floor(fontSize / 2) + 2),
+  //     duration: 200,
+  //     useNativeDriver: Platform.OS !== 'web',
+  //   }).start();
+  // };
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
@@ -162,10 +165,6 @@ const Input = (
   if (isHovered) updatedBorderColor = hoverBorderColor;
   else if (isFocused) updatedBorderColor = focusBorderColor;
   else if (isInvalid) updatedBorderColor = errorBorderColor;
-  const focusStyle = {
-    shadow: 3,
-    shadowColor: '#2563EB',
-  };
 
   return (
     <Box w={isFullWidth ? '100%' : 'auto'} {...layoutProps}>
@@ -177,7 +176,7 @@ const Input = (
         {...rem}
         {...(isDisabled && newProps._isDisabledProps)}
         {...computedProps}
-        {...(isFocused && Platform.OS === 'web' && focusStyle)}
+        {...(isFocused && Platform.OS === 'web' && _focusStyle)}
         style={style}
       >
         {InputLeftElement ? (
@@ -185,7 +184,8 @@ const Input = (
             {InputLeftElement}
           </Flex>
         ) : null}
-        {isFocused && label && (
+        {/* NOTE: Currently removing label as it's not stable. */}
+        {/* {isFocused && label && (
           <Flex position="absolute">
             <Animated.View
               style={{
@@ -215,7 +215,7 @@ const Input = (
               </Flex>
             </Animated.View>
           </Flex>
-        )}
+        )} */}
         <StyledInput
           {...newProps}
           fontSize={fontSize}
@@ -229,15 +229,16 @@ const Input = (
             props.onKeyPress && props.onKeyPress(e);
           }}
           onFocus={(e) => {
-            slideOut();
+            // slideOut();
             handleFocus(true, onFocus ? () => onFocus(e) : () => {});
           }}
           onBlur={(e) => {
             // TODO: animation not happening because of component rerender
-            e.nativeEvent.text && slideIn();
+            // e.nativeEvent.text && slideIn();
             handleFocus(false, onBlur ? () => onBlur(e) : () => {});
           }}
-          placeholder={isFocused && label ? '' : placeholder}
+          // placeholder={isFocused && label ? '' : placeholder}
+          placeholder={placeholder}
           placeholderTextColor={placeholderColor}
           editable={isDisabled || isReadOnly ? false : true}
           // borderRadius={50} //Remove variant props from StyledInput

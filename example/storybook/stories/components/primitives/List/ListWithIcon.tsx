@@ -3,9 +3,9 @@ import { List, Heading, Box } from 'native-base';
 
 export default function () {
   return (
-    <Box height="50%">
+    <Box height="50%" width="80%">
       <Heading>List with Icons</Heading>
-      <List mt={2} fontSize={24} spacing={4} my={2}>
+      <List mt={2} spacing={4} my={2}>
         <List.Item>
           <List.Icon
             name="check-circle-outline"

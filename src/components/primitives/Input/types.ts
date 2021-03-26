@@ -16,7 +16,6 @@ import type {
   customBackgroundProps,
   customTypographyProps,
 } from '../../../utils/customProps';
-import type { ITextProps } from '../Text';
 
 export type IInputProps = ColorProps &
   TextInputProps &
@@ -49,6 +48,6 @@ export type IInputProps = ColorProps &
     InputLeftElement?: JSX.Element | JSX.Element[];
     InputRightElement?: JSX.Element | JSX.Element[];
     type?: 'text' | 'password' | string;
-    label?: string;
-    _label?: ITextProps;
+    // label?: string;
+    // _label?: ITextProps;
   };
