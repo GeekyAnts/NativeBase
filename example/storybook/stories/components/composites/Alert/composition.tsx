@@ -1,9 +1,9 @@
 import React from 'react';
-import { Alert, CloseButton, Box, VStack } from 'native-base';
+import { Alert, Box, VStack, Icon, IconButton } from 'native-base';
 
 export default function () {
   return (
-    <VStack m={3} space={3}>
+    <VStack m={3} space={5}>
       <Alert
         status="success"
         display="flex"
@@ -14,7 +14,7 @@ export default function () {
         justifyContent="center"
       >
         <Alert.Icon boxSize="40px" mr={0} />
-        <Alert.Title mt={4} mb={2}>
+        <Alert.Title mt={2} mb={2}>
           This is a success alert
         </Alert.Title>
         <Alert.Description>
@@ -33,7 +33,7 @@ export default function () {
         justifyContent="center"
       >
         <Alert.Icon boxSize="40px" mr={0} />
-        <Alert.Title mt={4} mb={2}>
+        <Alert.Title mt={2} mb={2}>
           This is a success alert
         </Alert.Title>
         <Alert.Description>
@@ -46,16 +46,21 @@ export default function () {
 
       <Alert status="success">
         <Alert.Icon />
-        <Box flex={1}>
+        <Box flex={1} ml={2}>
           <Alert.Title>This is a success alert</Alert.Title>
-          <Alert.Description>
+          <Alert.Description mt={2}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </Alert.Description>
         </Box>
-        <CloseButton size="xs" position="absolute" top={2} right={2} />
+        <IconButton
+          icon={<Icon name="close" color="success.500" size="xs" />}
+          position="absolute"
+          top={0.5}
+          right={1}
+        />
       </Alert>
     </VStack>
   );

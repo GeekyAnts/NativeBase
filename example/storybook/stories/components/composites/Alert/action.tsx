@@ -1,17 +1,16 @@
 import React from 'react';
-import { Alert, CloseButton, Collapse, Button } from 'native-base';
+import { Alert, Collapse, Button, IconButton, Icon, Box } from 'native-base';
 export default function () {
   const [show, setShow] = React.useState(true);
   const handleToggle = (val: boolean) => setShow(val);
   return (
-    <>
+    <Box w="90%">
       <Collapse isOpen={show}>
         <Alert
           status="error"
           action={
-            <CloseButton
-              size="xs"
-              // _text={{ color: 'red.400' }}
+            <IconButton
+              icon={<Icon name="close" color="red.400" size="xs" />}
               onPress={() => handleToggle(false)}
             />
           }
@@ -21,9 +20,9 @@ export default function () {
           <Alert.Description>description goes here</Alert.Description>
         </Alert>
       </Collapse>
-      <Button size={'sm'} onPress={() => handleToggle(true)}>
+      <Button size={'sm'} onPress={() => handleToggle(true)} my={1}>
         Re-Open
       </Button>
-    </>
+    </Box>
   );
 }

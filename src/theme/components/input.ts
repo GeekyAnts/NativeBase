@@ -94,7 +94,7 @@ const sizes = {
 
 const defaultProps = {
   size: 'md',
-  variant: 'underlined',
+  variant: 'outline',
   borderRadius: 'md',
 };
 
