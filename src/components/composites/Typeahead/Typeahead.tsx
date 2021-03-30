@@ -10,7 +10,7 @@ import Pressable from '../../primitives/Pressable';
 import Text from '../../primitives/Text';
 import { extractInObject } from '../../../theme/tools';
 import { ITypeaheadProps, IComboBoxProps, layoutPropsList } from './types';
-import Input from '../../primitives/Input';
+import { Input } from '../../primitives/Input';
 import { useThemeProps } from '../../../hooks';
 
 export function Typeahead({

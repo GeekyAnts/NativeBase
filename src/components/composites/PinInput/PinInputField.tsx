@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../../primitives/Input';
+import { Input } from '../../primitives/Input';
 import type { IPinInputFieldProps, IPinInputContext } from './types';
 import { PinInputContext } from './Context';
 import { Platform } from 'react-native';
