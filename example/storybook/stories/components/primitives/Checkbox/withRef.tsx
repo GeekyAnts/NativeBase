@@ -19,7 +19,7 @@ export default function () {
       }}
     >
       {' '}
-      label
+      Label
     </Checkbox>
   );
 }

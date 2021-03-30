@@ -6,11 +6,11 @@ export default function ControlledCheckbox() {
 
   return (
     <Checkbox.Group onChange={setGroupValues} value={groupValues}>
-      <Checkbox value="one">
-        <Text>One</Text>
+      <Checkbox value="one" my={1}>
+        <Text mx={1}>One</Text>
       </Checkbox>
       <Checkbox value="two">
-        <Text>Two</Text>
+        <Text mx={1}>Two</Text>
       </Checkbox>
     </Checkbox.Group>
   );

@@ -4,11 +4,11 @@ import { Checkbox, Text } from 'native-base';
 export default function UnControlledCheckbox() {
   return (
     <Checkbox.Group>
-      <Checkbox value="one">
-        <Text>Hello world</Text>
+      <Checkbox value="one" my={1}>
+        <Text mx={1}>Hello world</Text>
       </Checkbox>
       <Checkbox value="two">
-        <Text>Hello world</Text>
+        <Text mx={1}>Hello world</Text>
       </Checkbox>
     </Checkbox.Group>
   );

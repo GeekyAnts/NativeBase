@@ -8,7 +8,7 @@ export default function () {
         <Breadcrumb.Item>
           <Breadcrumb.Link>
             <HStack>
-              <Icon name="home" mr={1} />
+              <Icon name="home" mr={1} size="xs" />
               <Text>Home</Text>
             </HStack>
           </Breadcrumb.Link>
@@ -16,7 +16,12 @@ export default function () {
         <Breadcrumb.Item>
           <Breadcrumb.Link href="https://alpha.nativebase.io/" isExternal>
             <HStack>
-              <Icon name="file-document" type="MaterialCommunityIcons" mr={1} />
+              <Icon
+                name="file-document"
+                type="MaterialCommunityIcons"
+                mr={1}
+                size="xs"
+              />
               <Text>Docs</Text>
             </HStack>
           </Breadcrumb.Link>
@@ -28,7 +33,7 @@ export default function () {
             isExternal
           >
             <HStack>
-              <Icon name="github" type="AntDesign" mr={1} />
+              <Icon name="github" type="AntDesign" mr={1} size="xs" />
               <Text>Github (This is currently active)</Text>
             </HStack>
           </Breadcrumb.Link>

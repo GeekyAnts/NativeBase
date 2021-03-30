@@ -10,7 +10,17 @@ import {
 } from 'native-base';
 
 export default function () {
-  const [groupValue, setGroupValue] = React.useState(['Item 1 ', 'Item 3 ']);
+  const [groupValue, setGroupValue] = React.useState(['Item 1', 'Item 3']);
+
+  const getSelectedGroupValue = () => {
+    if (groupValue.length === 0) return '[]';
+
+    let arrayString = groupValue.reduce(
+      (accumulator, currentValue) => accumulator + ', ' + currentValue
+    );
+    return '[' + arrayString + ']';
+  };
+
   return (
     <View display="flex" justifyContent="space-between" alignItems="center">
       <HStack mb={2} alignItems="baseline">
@@ -23,19 +33,20 @@ export default function () {
           setGroupValue(values || []);
         }}
       >
-        <Checkbox value="Item 1 ">
+        <Checkbox value="Item 1" my={1}>
           <Text mx={2}>Item 1</Text>
         </Checkbox>
-        <Checkbox value="Item 2 ">
+        <Checkbox value="Item 2" my={1}>
           <Text mx={2}>Item 2</Text>
         </Checkbox>
-        <Checkbox value="Item 3 ">
+        <Checkbox value="Item 3" my={1}>
           <Text mx={2}>Item 3</Text>
         </Checkbox>
         <Checkbox
           colorScheme="orange"
           isIndeterminate
-          value="Indeterminate Item "
+          value="Indeterminate Item"
+          my={1}
         >
           <Text mx={2}>Indeterminate Item</Text>
         </Checkbox>
@@ -44,7 +55,7 @@ export default function () {
         <Box>
           <Text fontSize="md">Selected Values: </Text>
           <Text fontSize="md" bold>
-            {groupValue}
+            {getSelectedGroupValue()}
           </Text>
         </Box>
       </VStack>

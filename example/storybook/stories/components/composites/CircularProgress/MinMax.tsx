@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircularProgress, Heading, Center } from 'native-base';
+import { CircularProgress, Heading, Center, Box, Text } from 'native-base';
 import { number } from '@storybook/addon-knobs';
 export default function () {
   return (
@@ -11,8 +11,12 @@ export default function () {
         min={number('Min', 100)}
         size={100}
       >
-        550%
+        550 / 1000
       </CircularProgress>
+      <Box mt={5}>
+        <Text>Min: 100</Text>
+        <Text>Max: 1000</Text>
+      </Box>
     </Center>
   );
 }
