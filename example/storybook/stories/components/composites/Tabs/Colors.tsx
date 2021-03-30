@@ -4,7 +4,7 @@ import { VStack, Tabs } from 'native-base';
 export default function () {
   return (
     <VStack width="100%" p={3} space={7}>
-      <Tabs colorScheme="danger">
+      <Tabs colorScheme="primary">
         <Tabs.Bar>
           <Tabs.Tab>One</Tabs.Tab>
           <Tabs.Tab>Two</Tabs.Tab>
@@ -16,7 +16,7 @@ export default function () {
           <Tabs.View>Three</Tabs.View>
         </Tabs.Views>
       </Tabs>
-      <Tabs colorScheme="warning">
+      <Tabs colorScheme="secondary">
         <Tabs.Bar>
           <Tabs.Tab>One</Tabs.Tab>
           <Tabs.Tab>Two</Tabs.Tab>
@@ -28,7 +28,7 @@ export default function () {
           <Tabs.View>Three</Tabs.View>
         </Tabs.Views>
       </Tabs>
-      <Tabs colorScheme="teal">
+      <Tabs colorScheme="emerald">
         <Tabs.Bar>
           <Tabs.Tab>One</Tabs.Tab>
           <Tabs.Tab>Two</Tabs.Tab>
