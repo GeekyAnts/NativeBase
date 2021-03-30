@@ -21,10 +21,6 @@ export default function () {
       >
         <Text mx={2}>Are you Awesome?</Text>
       </Checkbox>
-      <Text>
-        {toggleCheckBox ? 'Yes, you are and also ' : 'No, But you are '}
-        {checkboxValue}
-      </Text>
     </View>
   );
 }

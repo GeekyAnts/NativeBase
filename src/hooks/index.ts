@@ -4,6 +4,7 @@ export { useNativeBase } from './useNativeBase';
 export { useMediaQuery } from './useMediaQuery';
 export { useBreakpointValue } from './useBreakpointValue';
 export { useControllableProp } from './useControllableProp';
+export { usePlatformProps } from './usePlatformProps';
 export { useThemeProps, usePropsWithComponentTheme } from './useThemeProps';
 export { useTheme } from './useTheme';
 export { useToken } from './useToken';
