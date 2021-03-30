@@ -48,6 +48,16 @@ export type IInputProps = ColorProps &
     InputLeftElement?: JSX.Element | JSX.Element[];
     InputRightElement?: JSX.Element | JSX.Element[];
     type?: 'text' | 'password' | string;
+    // Interaction Props
+    _hover?: any;
+    _focus?: any;
+    _disabled?: any;
+    _invalid?: any;
+    // Platform Specific Props
+    _ios?: any;
+    _web?: any;
+    _andriod?: any;
+    // These porps are currently on hold
     // label?: string;
     // _label?: ITextProps;
   };

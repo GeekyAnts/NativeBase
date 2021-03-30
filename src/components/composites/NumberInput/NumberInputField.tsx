@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../../primitives/Input';
+import { Input } from '../../primitives/Input';
 import type { INumberInputContext, INumberInputFieldProps } from './types';
 import { NumberInputContext } from './Context';
 
@@ -36,8 +36,6 @@ const NumberInputFiled = (
     <Input
       p={0}
       pl={2}
-      // TODO: shouldn't provide width like this.
-      width="70%"
       {...context}
       {...props}
       onBlur={() => blurHandler()}

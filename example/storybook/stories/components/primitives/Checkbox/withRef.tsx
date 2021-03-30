@@ -9,7 +9,7 @@ export default function () {
       colorScheme="success"
       icon={<Icon name="bullseye" type="MaterialCommunityIcons" opacity={1} />}
       ref={myRef}
-      onChange={(_, state) => {
+      onChange={(state) => {
         if (state)
           myRef?.current.setNativeProps({ backgroundColor: '#00de0050' });
         else

@@ -4,12 +4,7 @@ export type { IBoxProps } from './Box';
 export { default as Text } from './Text';
 export type { ITextProps } from './Text';
 
-export {
-  default as Input,
-  InputGroup,
-  InputLeftAddon,
-  InputRightAddon,
-} from './Input';
+export { Input, InputGroup, InputLeftAddon, InputRightAddon } from './Input';
 export type { IInputProps } from './Input';
 
 export { default as View } from './View';
