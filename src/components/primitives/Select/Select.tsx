@@ -31,6 +31,7 @@ const Select = (
     onValueChange,
     selectedValue,
     children,
+    variant,
     dropdownIcon,
     placeholder,
     accessibilityLabel,
@@ -67,10 +68,12 @@ const Select = (
   const commonInput = (
     <Input
       aria-hidden={true}
+      importantForAccessibility="no"
       defaultValue={selectedItem?.label}
       placeholder={placeholder}
       editable={false}
       focusable={false}
+      variant={variant}
       InputRightElement={
         dropdownIcon ? (
           dropdownIcon
@@ -78,7 +81,6 @@ const Select = (
           <Icon type="MaterialIcons" name="keyboard-arrow-down" />
         )
       }
-      importantForAccessibility="no"
       {...(isFocusVisible ? themeProps._focus : {})}
       {...(isHovered ? themeProps._hover : {})}
     />

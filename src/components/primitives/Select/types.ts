@@ -8,6 +8,7 @@ export type ISelectProps = IBoxProps & {
   onValueChange?: (itemValue: string) => void;
   isDisabled?: boolean; // on Native variant doesn't work on ios
   dropdownIcon?: JSX.Element;
+  variant?: string;
 };
 
 export type ISelectItemProps = IButtonProps & {
