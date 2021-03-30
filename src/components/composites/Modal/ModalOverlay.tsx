@@ -19,6 +19,12 @@ const ModalOverlay = ({ children, ...props }: any) => {
           bottom: 0,
         }}
         accessible={false}
+        // Using the below combination makes it work like a native popup menu on Android
+        importantForAccessibility="no"
+        onAccessibilityTap={() => {
+          toggleVisible(false);
+          toggleOnClose(false);
+        }}
         onPress={
           newProps.closeOnOverlayClick === false
             ? () => {}

@@ -33,6 +33,7 @@ const Select = (
     children,
     dropdownIcon,
     placeholder,
+    accessibilityLabel,
     ...props
   }: ISelectProps,
   ref: any
@@ -77,6 +78,7 @@ const Select = (
           <Icon type="MaterialIcons" name="keyboard-arrow-down" />
         )
       }
+      importantForAccessibility="no"
       {...(isFocusVisible ? themeProps._focus : {})}
       {...(isHovered ? themeProps._hover : {})}
     />
@@ -105,7 +107,11 @@ const Select = (
         </>
       ) : (
         <>
-          <Pressable onPress={() => setIsOpen(true)}>
+          <Pressable
+            onPress={() => setIsOpen(true)}
+            accessibilityLabel={accessibilityLabel}
+            accessibilityRole="button"
+          >
             <View pointerEvents="none">{commonInput}</View>
           </Pressable>
           <Actionsheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
