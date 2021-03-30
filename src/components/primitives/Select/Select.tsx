@@ -1,8 +1,15 @@
 import React from 'react';
 import type { ISelectProps } from './types';
-import { Platform } from 'react-native';
-import { Box, Icon, Input } from '..';
+import { Platform, View, Pressable } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
+import Icon from '../Icon';
+import Box from '../Box';
+import { Input } from '../Input';
+import { useFocusRing } from '@react-native-aria/focus';
+import { useThemeProps } from '../../../hooks';
+import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils';
+
 // import { FormControlContext } from '../../composites/FormControl';
 
 const unstyledSelecWebtStyles = {
@@ -33,7 +40,12 @@ const Select = (
   // const formControlContext: IFormControlContext = React.useContext(
   //   FormControlContext
   // );
+  const _ref = React.useRef(null);
+  const themeProps = useThemeProps('Input', props);
   let [isOpen, setIsOpen] = React.useState<boolean>(false);
+
+  const { focusProps, isFocusVisible } = useFocusRing();
+  const { hoverProps, isHovered } = useHover({}, _ref);
 
   let itemsList: Array<{ label: string; value: string }> = React.Children.map(
     children,
@@ -54,13 +66,10 @@ const Select = (
   const commonInput = (
     <Input
       aria-hidden={true}
-      value={selectedItem?.label}
+      defaultValue={selectedItem?.label}
       placeholder={placeholder}
       editable={false}
       focusable={false}
-      // @ts-ignore RN supports this Prop
-      // https://reactnative.dev/docs/textinput#onpressout
-      onPressOut={() => setIsOpen(true)}
       InputRightElement={
         dropdownIcon ? (
           dropdownIcon
@@ -68,16 +77,20 @@ const Select = (
           <Icon type="MaterialIcons" name="keyboard-arrow-down" />
         )
       }
+      {...(isFocusVisible ? themeProps._focus : {})}
+      {...(isHovered ? themeProps._hover : {})}
     />
   );
 
   return (
     <Box {...props}>
-      {Platform.OS !== 'web' ? (
+      {Platform.OS === 'web' ? (
         <>
           <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}>
             <select
-              ref={ref}
+              {...focusProps}
+              {...hoverProps}
+              ref={mergeRefs([ref, _ref])}
               //@ts-ignore
               style={unstyledSelecWebtStyles}
               onChange={(e) => {
@@ -92,7 +105,9 @@ const Select = (
         </>
       ) : (
         <>
-          {commonInput}
+          <Pressable onPress={() => setIsOpen(true)}>
+            <View pointerEvents="none">{commonInput}</View>
+          </Pressable>
           <Actionsheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
             <Actionsheet.Content>
               <Actionsheet.Header>{placeholder}</Actionsheet.Header>

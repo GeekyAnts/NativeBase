@@ -3,7 +3,9 @@ import type { ISelectItemProps } from './types';
 import { Platform } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
 import { SelectContext } from './Select';
-import { Icon } from '..';
+import Icon from '../Icon';
+import HStack from '../Stack/HStack';
+import Box from '../Box';
 
 export const Item = ({
   isDisabled,
@@ -11,7 +13,6 @@ export const Item = ({
   value,
   ...props
 }: ISelectItemProps) => {
-  // const { parentComponentConfig } = usePopover();
   const { onValueChange, selectedValue, closeMenu } = React.useContext(
     SelectContext
   );
@@ -27,12 +28,17 @@ export const Item = ({
             closeMenu && closeMenu();
           }
         }}
-        endIcon={
-          isSelected ? <Icon type="MaterialIcons" name="check" /> : <></>
-        }
+        // endIcon={
+        //   isSelected ? <Icon type="MaterialIcons" name="check" /> : <></>
+        // }
         accessibilityState={{ selected: isSelected }}
       >
-        {label}
+        <HStack space={4} alignItems="center">
+          <Box>{label}</Box>
+          <Box>
+            {isSelected ? <Icon type="MaterialIcons" name="check" /> : <></>}
+          </Box>
+        </HStack>
       </Actionsheet.Item>
     );
   } else {
