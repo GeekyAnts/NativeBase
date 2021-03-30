@@ -5,9 +5,10 @@ import ReactDOM from 'react-dom';
 import { FocusScope } from '@react-native-aria/focus';
 import { OverlayCloseButton } from './OverlayCloseButton';
 import type { IOverlayNewProps } from './types';
+import { OverlayTransition } from './OverlayTransition';
 
 export function Overlay(props: IOverlayNewProps): any {
-  const { isOpen, children, closeOnBlur = true } = props;
+  const { isOpen, children, closeOnBlur = true, animationDuration } = props;
 
   const handleClose = () => {
     props.onClose && props.onClose();
@@ -26,7 +27,9 @@ export function Overlay(props: IOverlayNewProps): any {
     <Animated.View style={[StyleSheet.absoluteFill]}>
       <OverlayCloseButton onPress={handleClose} disabled={!closeOnBlur} />
       <FocusScope contain autoFocus restoreFocus>
-        {children}
+        <OverlayTransition animationDuration={animationDuration}>
+          {children}
+        </OverlayTransition>
       </FocusScope>
     </Animated.View>
   );

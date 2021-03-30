@@ -285,6 +285,7 @@ const PopoverWithOverlayContainer = (props: IPopoverProps) => {
         isOpen={isOpen}
         closeOnBlur={props.closeOnBlur}
         onClose={handleClose}
+        animationDuration={props.animationDuration}
       >
         <PopoverContext.Provider value={{ onClose: handleClose }}>
           {/* <Parent> */}

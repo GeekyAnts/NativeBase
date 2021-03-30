@@ -12,6 +12,8 @@ export function OverlayCloseButton(props: IOverlayCloseButtonProps) {
     <Pressable
       accessible={false}
       focusable={false}
+      onAccessibilityTap={props.onPress}
+      importantForAccessibility="no"
       style={[StyleSheet.absoluteFill]}
       onPress={props.onPress}
       disabled={props.disabled}

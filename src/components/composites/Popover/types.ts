@@ -26,6 +26,7 @@ export type IPopoverProps = {
   shouldFlip?: boolean;
   initialFocusRef?: any;
   finalFocusRef?: any;
+  animationDuration?: number;
   trigger: (_props: any, state: { open: boolean }) => JSX.Element;
   crossOffset?: number;
   offset?: number;

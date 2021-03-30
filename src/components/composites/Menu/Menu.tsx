@@ -30,6 +30,7 @@ export const Menu = React.memo(
           trigger={trigger}
           placement={props.placement ?? 'bottom left'}
           trapFocus
+          animationDuration={250}
         >
           <Popover.Content isUnstyled>
             <MenuContext.Provider value={{ closeOnSelect }}>

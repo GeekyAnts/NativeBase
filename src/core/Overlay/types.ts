@@ -47,4 +47,5 @@ export type IOverlayNewProps = {
   useCustomOverlay?: boolean;
   closeOnBlur?: boolean;
   isKeyboardDismissable?: boolean;
+  animationDuration?: number;
 };
