@@ -14,7 +14,9 @@ export default function () {
           minWidth={200}
           accessibilityLabel="Select your favorite programming language"
           placeholder="Select your favorite programming language"
-          onValueChange={(itemValue: string) => setValue(itemValue)}
+          onValueChange={(itemValue: string) => {
+            setValue(itemValue);
+          }}
         >
           <Select.Item label="JavaScript" value="js" />
           <Select.Item label="TypeScript" value="ts" />
