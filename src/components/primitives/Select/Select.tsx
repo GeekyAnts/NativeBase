@@ -6,7 +6,7 @@ import Icon from '../Icon';
 import Box from '../Box';
 import { Input } from '../Input';
 import { useFocusRing } from '@react-native-aria/focus';
-import { useThemeProps } from '../../../hooks';
+import { useControllableState, useThemeProps } from '../../../hooks';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import { useFormControl } from '../../composites/FormControl';
@@ -22,7 +22,6 @@ const unstyledSelecWebtStyles = {
 export const SelectContext = React.createContext({
   onValueChange: (() => {}) as any,
   selectedValue: null as any,
-  closeMenu: () => {},
 });
 
 const Select = (
@@ -34,6 +33,7 @@ const Select = (
     dropdownIcon,
     placeholder,
     accessibilityLabel,
+    defaultValue,
     ...props
   }: ISelectProps,
   ref: any
@@ -52,6 +52,15 @@ const Select = (
   const { focusProps, isFocusVisible } = useFocusRing();
   const { hoverProps, isHovered } = useHover({ isDisabled }, _ref);
 
+  const [value, setValue] = useControllableState({
+    value: selectedValue,
+    defaultValue,
+    onChange: (newValue) => {
+      onValueChange && onValueChange(newValue);
+      setIsOpen(false);
+    },
+  });
+
   let itemsList: Array<{ label: string; value: string }> = React.Children.map(
     children,
     (child: any) => {
@@ -63,7 +72,7 @@ const Select = (
   );
 
   const selectedItemArray = itemsList.filter(
-    (item: any) => item.value === selectedValue
+    (item: any) => item.value === value
   );
   const selectedItem =
     selectedItemArray && selectedItemArray.length ? selectedItemArray[0] : null;
@@ -72,7 +81,7 @@ const Select = (
     <Input
       aria-hidden={true}
       importantForAccessibility="no"
-      defaultValue={selectedItem?.label}
+      value={selectedItem?.label}
       placeholder={placeholder}
       editable={false}
       focusable={false}
@@ -102,8 +111,9 @@ const Select = (
               //@ts-ignore
               style={unstyledSelecWebtStyles}
               onChange={(e) => {
-                onValueChange && onValueChange(e.target.value);
+                setValue(e.target.value);
               }}
+              value={value}
               aria-label={placeholder}
             >
               {children}
@@ -125,9 +135,8 @@ const Select = (
             <Actionsheet.Content>
               <SelectContext.Provider
                 value={{
-                  onValueChange,
-                  selectedValue,
-                  closeMenu: () => setIsOpen(false),
+                  onValueChange: setValue,
+                  selectedValue: value,
                 }}
               >
                 {children}

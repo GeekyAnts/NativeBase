@@ -13,9 +13,7 @@ export const Item = ({
   value,
   ...props
 }: ISelectItemProps) => {
-  const { onValueChange, selectedValue, closeMenu } = React.useContext(
-    SelectContext
-  );
+  const { onValueChange, selectedValue } = React.useContext(SelectContext);
   if (Platform.OS !== 'web') {
     const isSelected = selectedValue === value;
 
@@ -25,7 +23,6 @@ export const Item = ({
         onPress={() => {
           if (!isDisabled) {
             onValueChange(value);
-            closeMenu && closeMenu();
           }
         }}
         // endIcon={

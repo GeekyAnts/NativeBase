@@ -5,8 +5,9 @@ import type { ITextProps } from '../Text';
 export type ISelectProps = IBoxProps & {
   placeholder?: string;
   selectedValue?: string;
+  defaultValue?: string;
   onValueChange?: (itemValue: string) => void;
-  isDisabled?: boolean; // on Native variant doesn't work on ios
+  isDisabled?: boolean;
   dropdownIcon?: JSX.Element;
   variant?: string;
 };
