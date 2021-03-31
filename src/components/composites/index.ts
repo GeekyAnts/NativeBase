@@ -136,8 +136,6 @@ export { Actionsheet } from './Actionsheet';
 export type {
   IActionsheetProps,
   IActionsheetContentProps,
-  // IActionsheetFooterProps,
-  // IActionsheetHeaderProps,
   IActionsheetItemProps,
 } from './Actionsheet';
 

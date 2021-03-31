@@ -14,19 +14,6 @@ export const ActionsheetContent = {
   },
 };
 
-// ActionsheetHeader
-// export const ActionsheetHeader = {};
-
-// ActionsheetFooter
-// export const ActionsheetFooter = {
-//   baseStyle: {
-//     m: 2,
-//     p: 2,
-//     mb: 4,
-//     borderRadius: 'lg',
-//   },
-// };
-
 // ActionsheetItem
 export const ActionsheetItem = {
   baseStyle: {
