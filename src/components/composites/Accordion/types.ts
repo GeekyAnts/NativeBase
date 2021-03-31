@@ -24,8 +24,6 @@ export type IAccordionDetailsProps = ICollapseProps & {};
 export type IAccordionContextProps = {
   index?: number[];
   changeHandler?: (isOpening: boolean, id: number) => void;
-  AccordionProps?: any;
-  TotalChildren?: number;
   AnimationProps?: any;
 };
 export type IAccordionItemContextProps = {
