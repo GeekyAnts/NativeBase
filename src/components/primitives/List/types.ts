@@ -13,6 +13,7 @@ export type IListProps = IStackProps & {
   ol?: boolean;
   _hover?: any;
   start?: number;
+  _text?: any;
 };
 
 export type IListItemProps = IBoxProps & {
@@ -23,6 +24,7 @@ export type IListItemProps = IBoxProps & {
   ol?: boolean;
   index?: any;
   start?: number;
+  _text?: any;
 };
 export type IListComponentType = ((props: IListProps) => JSX.Element) & {
   Item: React.MemoExoticComponent<(props: IListItemProps) => JSX.Element>;
