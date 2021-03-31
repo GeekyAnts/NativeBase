@@ -15,6 +15,7 @@ export type ITabsProps = IBoxProps & {
   size?: 'sm' | 'md' | 'lg';
   variant?: 'outline' | 'filled' | 'filled-outline';
   onChange?: (index: number) => void;
+  keyboardActivation?: 'manual' | 'automatic';
 };
 
 export type ITabBarProps = IBoxProps & {

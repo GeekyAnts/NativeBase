@@ -132,6 +132,7 @@ const Modal = (
               onClose: onClose,
               isKeyboardDismissable: props.isKeyboardDismissable ?? true,
               accessibilityViewIsModal: true,
+              accessibilityRole: props.accessibilityRole ?? 'dialog',
               accessibilityLabel: accessibilityProps.accessibilityLabel,
               closeOnPress:
                 newProps.closeOnOverlayClick === false ? false : true,

@@ -1,35 +1,16 @@
 import React from 'react';
+import { useThemeProps } from '../../../hooks';
 import Box from '../../primitives/Box';
 import type { IFormControlProps } from './types';
-import { useThemeProps } from '../../../hooks';
+import { useFormControlProvider, FormControlContext } from './useFormControl';
 
-export const FormControlContext = React.createContext({});
-
-const FormControl = (
-  {
-    children,
-    isInvalid,
-    isRequired,
-    isDisabled,
-    isReadOnly,
-    ...props
-  }: IFormControlProps,
-  ref: any
-) => {
-  const newProps = useThemeProps('FormControl', props);
+const FormControl = (props: IFormControlProps, ref: any) => {
+  const { htmlProps, ...context } = useFormControlProvider(props);
+  const themedProps = useThemeProps('FormControl', props);
 
   return (
-    <FormControlContext.Provider
-      value={{
-        isInvalid,
-        isRequired,
-        isDisabled,
-        isReadOnly,
-      }}
-    >
-      <Box width="100%" {...newProps} ref={ref}>
-        {children}
-      </Box>
+    <FormControlContext.Provider value={context}>
+      <Box width="100%" {...themedProps} {...htmlProps} ref={ref} />
     </FormControlContext.Provider>
   );
 };

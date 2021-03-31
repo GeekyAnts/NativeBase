@@ -9,10 +9,7 @@ import { useFocusRing } from '@react-native-aria/focus';
 import { useThemeProps } from '../../../hooks';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
-import {
-  FormControlContext,
-  IFormControlContext,
-} from '../../composites/FormControl';
+import { useFormControl } from '../../composites/FormControl';
 
 const unstyledSelecWebtStyles = {
   width: '100%',
@@ -41,11 +38,12 @@ const Select = (
   }: ISelectProps,
   ref: any
 ) => {
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
+  const selectProps = useFormControl({
+    isDisabled: props.isDisabled,
+    nativeID: props.nativeID,
+  });
 
-  const isDisabled = props.isDisabled || formControlContext.isDisabled;
+  const isDisabled = selectProps.disabled;
 
   const _ref = React.useRef(null);
   const themeProps = useThemeProps('Input', props);
@@ -125,7 +123,6 @@ const Select = (
           </Pressable>
           <Actionsheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
             <Actionsheet.Content>
-              <Actionsheet.Header>{placeholder}</Actionsheet.Header>
               <SelectContext.Provider
                 value={{
                   onValueChange,

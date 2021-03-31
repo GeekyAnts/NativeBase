@@ -18,10 +18,10 @@ const getTabsAndBars = (children: any) => {
 
   items.forEach((item: any) => {
     if (item.type) {
-      if (item.type.type.name === 'TabBar') {
+      if (item.type.displayName === 'TabBar') {
         bars = bars.concat(item.props.children);
         tabBarProps = item.props;
-      } else if (item.type.type.name === 'TabViews') {
+      } else if (item.type.displayName === 'TabViews') {
         views = views.concat(item.props.children);
         tabViewsProps = item.props;
       }
@@ -77,6 +77,7 @@ const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
         : undefined,
     selectedKey: props.index !== undefined ? props.index.toString() : undefined,
     onSelectionChange: (e: any) => onChange && onChange(parseInt(e)),
+    keyboardActivation: props.keyboardActivation,
   };
 
   // useTabsState needs collection children.

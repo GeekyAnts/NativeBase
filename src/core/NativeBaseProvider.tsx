@@ -8,6 +8,7 @@ import {
   SafeAreaProvider,
   initialWindowMetrics as defaultInitialWindowMetrics,
 } from 'react-native-safe-area-context';
+import { SSRProvider } from '@react-native-aria/utils';
 import { theme as defaultTheme, ITheme } from './../theme';
 import type { IColorModeProviderProps } from './color-mode';
 import HybridProvider from './hybrid-overlay/HybridProvider';
@@ -49,7 +50,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
           colorModeManager={colorModeManager}
           options={theme.config}
         >
-          {children}
+          <SSRProvider>{children}</SSRProvider>
         </HybridProvider>
       </SafeAreaProvider>
     </ThemeProvider>
