@@ -84,7 +84,9 @@ const Button = (
     'minHeight',
     'minWidth',
     'minW',
+    'h',
     'height',
+    'w',
     'width',
     'opacity',
   ]);

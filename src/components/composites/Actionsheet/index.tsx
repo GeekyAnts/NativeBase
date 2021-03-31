@@ -1,14 +1,15 @@
 import ActionsheetMain from './Actionsheet';
-import ActionsheetContent from './ActionsheetContent';
-import ActionsheetFooter from './ActionsheetFooter';
-import ActionsheetHeader from './ActionsheetHeader';
 import ActionsheetItem from './ActionsheetItem';
+import ActionsheetContent from './ActionsheetContent';
 import type { IActionsheetComponentType } from './types';
+// Remove it as it's not required for MD design.
+// import ActionsheetFooter from './ActionsheetFooter';
+// import ActionsheetHeader from './ActionsheetHeader';
 
 const ActionsheetTemp: any = ActionsheetMain;
 ActionsheetTemp.Content = ActionsheetContent;
-ActionsheetTemp.Footer = ActionsheetFooter;
-ActionsheetTemp.Header = ActionsheetHeader;
+// ActionsheetTemp.Footer = ActionsheetFooter;
+// ActionsheetTemp.Header = ActionsheetHeader;
 ActionsheetTemp.Item = ActionsheetItem;
 
 // To add typings
@@ -19,7 +20,7 @@ export { Actionsheet };
 export type {
   IActionsheetProps,
   IActionsheetContentProps,
-  IActionsheetFooterProps,
-  IActionsheetHeaderProps,
+  // IActionsheetFooterProps,
+  // IActionsheetHeaderProps,
   IActionsheetItemProps,
 } from './types';

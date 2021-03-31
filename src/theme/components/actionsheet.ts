@@ -1,32 +1,40 @@
 // Actionsheet
 export const Actionsheet = {
   defaultProps: {
-    size: 'xl',
+    size: 'full',
   },
 };
 
 // ActionsheetContent
 export const ActionsheetContent = {
   baseStyle: {
-    m: 3,
+    alignItems: 'center',
     p: 2,
-    mb: 6,
-    borderRadius: 'lg',
+    borderRadius: 'none',
   },
 };
 
 // ActionsheetHeader
-export const ActionsheetHeader = {};
+// export const ActionsheetHeader = {};
 
 // ActionsheetFooter
-export const ActionsheetFooter = {
-  baseStyle: {
-    m: 3,
-    p: 2,
-    mb: 6,
-    borderRadius: 'lg',
-  },
-};
+// export const ActionsheetFooter = {
+//   baseStyle: {
+//     m: 2,
+//     p: 2,
+//     mb: 4,
+//     borderRadius: 'lg',
+//   },
+// };
 
 // ActionsheetItem
-export const ActionsheetItem = {};
+export const ActionsheetItem = {
+  baseStyle: {
+    width: '100%',
+    justifyContent: 'flex-start',
+    px: 5,
+  },
+  defaultProps: {
+    variant: 'unstyled',
+  },
+};
