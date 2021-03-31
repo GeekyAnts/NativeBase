@@ -108,7 +108,7 @@ const sizes = {
       fontSize: 'lg',
     },
     px: 6,
-    py: 3,
+    py: 5,
   },
   md: {
     minH: 10,
@@ -116,7 +116,7 @@ const sizes = {
     _text: {
       fontSize: 'md',
     },
-    px: 5,
+    px: 4,
     py: 3,
   },
   sm: {
@@ -125,7 +125,7 @@ const sizes = {
     _text: {
       fontSize: 'sm',
     },
-    px: 4,
+    px: 3,
     py: 2,
   },
   xs: {

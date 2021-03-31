@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { Pressable } from 'react-native';
 import Box from '../../primitives/Box';
 import { ModalContext } from './Context';
 import { useThemeProps } from '../../../hooks';
@@ -10,7 +10,7 @@ const ModalOverlay = ({ children, ...props }: any) => {
 
   return (
     <Box {...newProps}>
-      <TouchableOpacity
+      <Pressable
         style={{
           position: 'absolute',
           left: 0,
@@ -19,6 +19,13 @@ const ModalOverlay = ({ children, ...props }: any) => {
           bottom: 0,
         }}
         accessible={false}
+        focusable={false}
+        // Using the below combination makes it work like a native popup menu on Android
+        importantForAccessibility="no"
+        onAccessibilityTap={() => {
+          toggleVisible(false);
+          toggleOnClose(false);
+        }}
         onPress={
           newProps.closeOnOverlayClick === false
             ? () => {}
