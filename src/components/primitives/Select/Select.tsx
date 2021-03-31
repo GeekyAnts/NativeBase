@@ -9,8 +9,10 @@ import { useFocusRing } from '@react-native-aria/focus';
 import { useThemeProps } from '../../../hooks';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
-
-// import { FormControlContext } from '../../composites/FormControl';
+import {
+  FormControlContext,
+  IFormControlContext,
+} from '../../composites/FormControl';
 
 const unstyledSelecWebtStyles = {
   width: '100%',
@@ -39,15 +41,18 @@ const Select = (
   }: ISelectProps,
   ref: any
 ) => {
-  // const formControlContext: IFormControlContext = React.useContext(
-  //   FormControlContext
-  // );
+  const formControlContext: IFormControlContext = React.useContext(
+    FormControlContext
+  );
+
+  const isDisabled = props.isDisabled || formControlContext.isDisabled;
+
   const _ref = React.useRef(null);
   const themeProps = useThemeProps('Input', props);
   let [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const { focusProps, isFocusVisible } = useFocusRing();
-  const { hoverProps, isHovered } = useHover({}, _ref);
+  const { hoverProps, isHovered } = useHover({ isDisabled }, _ref);
 
   let itemsList: Array<{ label: string; value: string }> = React.Children.map(
     children,
@@ -92,6 +97,7 @@ const Select = (
         <>
           <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}>
             <select
+              disabled={isDisabled}
               {...focusProps}
               {...hoverProps}
               ref={mergeRefs([ref, _ref])}
@@ -111,6 +117,7 @@ const Select = (
         <>
           <Pressable
             onPress={() => setIsOpen(true)}
+            disabled={isDisabled}
             accessibilityLabel={accessibilityLabel}
             accessibilityRole="button"
           >
