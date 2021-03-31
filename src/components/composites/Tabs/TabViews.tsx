@@ -2,8 +2,11 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import type { ITabViewsProps } from './types';
 
-const TabViews = ({ children, ...props }: ITabViewsProps) => {
+const TabViewsImpl = ({ children, ...props }: ITabViewsProps) => {
   return <Box {...props}>{children}</Box>;
 };
 
-export default React.memo(TabViews);
+const TabViews = React.memo(TabViewsImpl);
+TabViews.displayName = 'TabViews';
+
+export default TabViews;

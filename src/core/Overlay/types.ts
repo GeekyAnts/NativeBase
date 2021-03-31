@@ -32,9 +32,19 @@ export type IOverlayConfig = {
   isKeyboardDismissable?: boolean;
   accessibilityLabel?: string;
   accessibilityViewIsModal?: boolean;
+  accessibilityRole?: string;
 };
 
 export type IuseOverlayProps = () => {
   closeOverlay: () => void;
   setOverlay: (component: ReactNode, config?: IOverlayConfig) => void;
+};
+
+export type IOverlayNewProps = {
+  isOpen?: boolean;
+  children: any;
+  onClose?: any;
+  useCustomOverlay?: boolean;
+  closeOnBlur?: boolean;
+  isKeyboardDismissable?: boolean;
 };

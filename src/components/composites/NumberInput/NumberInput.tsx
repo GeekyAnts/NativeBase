@@ -1,6 +1,6 @@
 import React from 'react';
 import { useThemeProps } from '../../../hooks';
-import { FormControlContext, IFormControlContext } from '../FormControl';
+import { useFormControlContext } from '../FormControl';
 import type { INumberInputProps } from './types';
 import { NumberInputContext } from './Context';
 
@@ -14,9 +14,8 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
     onChange,
     ...newProps
   } = useThemeProps('NumberInput', props);
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
+  const formControlContext = useFormControlContext();
+
   const [numberInputValue, setNumberInputValue] = React.useState(
     parseInt(value || defaultValue, 10)
   );

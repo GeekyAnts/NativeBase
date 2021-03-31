@@ -8,7 +8,7 @@ import {
 import { getCoordinates } from './../Popover/utils';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
 import isEqual from 'lodash/isEqual';
-import { useKeyboardDismissable } from '../../hooks';
+import { useKeyboardDismissable } from '../../hooks/useKeyboardDismissable';
 
 type PopoverWrapperType = {
   popoverItem: any;
