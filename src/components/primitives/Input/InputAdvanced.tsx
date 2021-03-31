@@ -6,7 +6,6 @@ import type { IInputProps } from './types';
 import { useThemeProps, usePlatformProps } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import { useHover } from '@react-native-aria/interactions';
-import { useFormControl } from '../../composites/FormControl';
 
 const styleSystemProps = {
   space: [
@@ -109,18 +108,13 @@ const InputAdvance = (
     InputRightElement,
     onFocus,
     onBlur,
+    inputProps,
     ...props
-  }: IInputProps,
+  }: IInputProps & {
+    inputProps: any;
+  },
   ref: any
 ) => {
-  const inputProps = useFormControl({
-    isDisabled: props.isDisabled,
-    isInvalid: props.isInvalid,
-    isReadOnly: props.isReadOnly,
-    isRequired: props.isRequired,
-    nativeID: props.nativeID,
-  });
-
   const inputThemeProps = {
     isDisabled: inputProps.disabled,
     isInvalid: inputProps.accessibilityInvalid,
@@ -185,6 +179,7 @@ const InputAdvance = (
         </Flex>
       ) : null}
       <InputBase
+        inputProps={inputProps}
         {...baseInputProps}
         p={0}
         flex={1}

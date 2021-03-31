@@ -22,7 +22,6 @@ import {
 import type { IInputProps } from './types';
 import { usePlatformProps, useThemeProps, useToken } from '../../../hooks';
 import { useHover } from '@react-native-aria/interactions';
-import { useFormControl } from '../../composites/FormControl';
 import { mergeRefs } from '../../../utils';
 
 const StyledInput = styled(TextInput)<IInputProps>(
@@ -48,20 +47,14 @@ const InputBase = (
     onFocus,
     onBlur,
     disableFocusHandling,
+    inputProps,
     ...props
   }: IInputProps & {
     disableFocusHandling?: boolean;
+    inputProps: any;
   },
   ref: any
 ) => {
-  const inputProps = useFormControl({
-    isDisabled: props.isDisabled,
-    isInvalid: props.isInvalid,
-    isReadOnly: props.isReadOnly,
-    isRequired: props.isRequired,
-    nativeID: props.nativeID,
-  });
-
   const [isFocused, setIsFocused] = React.useState(false);
   const handleFocus = (focusState: boolean, callback: any) => {
     !disableFocusHandling && setIsFocused(focusState);
