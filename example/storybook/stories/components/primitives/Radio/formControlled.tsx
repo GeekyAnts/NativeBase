@@ -7,17 +7,17 @@ export default function () {
       <FormControl isRequired isInvalid>
         <FormControl.Label>Select One</FormControl.Label>
         <Radio.Group defaultValue="1" name="exampleGroup">
-          <Radio value="1">
+          <Radio value="1" my={1}>
             <Text mx={2}>First</Text>
           </Radio>
-          <Radio value="2">
+          <Radio value="2" my={1}>
             <Text mx={2}>Second</Text>
           </Radio>
-          <Radio value="3">
+          <Radio value="3" my={1}>
             <Text mx={2}>Third</Text>
           </Radio>
         </Radio.Group>
-        <FormControl.HelperText>
+        <FormControl.HelperText my={1}>
           We'll keep this between us.
         </FormControl.HelperText>
         <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>

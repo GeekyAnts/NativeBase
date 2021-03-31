@@ -10,9 +10,9 @@ export default function () {
       colorScheme="success"
       onChange={(value) => {
         if (value === '2')
-          myRef?.current.setNativeProps({ backgroundColor: '#00de0050' });
+          myRef?.current?.setNativeProps({ backgroundColor: '#00de0050' });
         else
-          myRef?.current.setNativeProps({
+          myRef?.current?.setNativeProps({
             backgroundColor: '#fa000050',
           });
       }}
@@ -23,6 +23,7 @@ export default function () {
           <Icon name="bullseye" type="MaterialCommunityIcons" opacity={0} />
         }
         value="1"
+        my={1}
       >
         Wrong
       </Radio>
@@ -33,6 +34,7 @@ export default function () {
         }
         ref={myRef}
         value="2"
+        my={1}
       >
         Correct
       </Radio>
