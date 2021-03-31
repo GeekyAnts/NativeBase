@@ -1,64 +1,48 @@
 import React from 'react';
 import type { ISelectItemProps } from './types';
-import { usePopover } from '../../../core';
-import Button from '../Button';
-import Text from '../Text';
-import { Picker as RNPicker } from '@react-native-picker/picker';
-import { useThemeProps } from '../../../hooks';
+import { Platform } from 'react-native';
+import { Actionsheet } from '../../composites/Actionsheet';
+import { SelectContext } from './Select';
+import Icon from '../Icon';
+import HStack from '../Stack/HStack';
+import Box from '../Box';
 
 export const Item = ({
   isDisabled,
   label,
   value,
-  _label,
-  style,
   ...props
 }: ISelectItemProps) => {
-  const { parentComponentConfig } = usePopover();
-  const { ...newProps } = useThemeProps('SelectItem', props);
-  if (parentComponentConfig?.variant === 'styled') {
-    const {
-      selectedValue,
-      closeMenu,
-      selectedItemBg,
-      _selectedItem,
-      onValueChange,
-      itemsList,
-      _item,
-      width,
-    } = parentComponentConfig;
+  const { onValueChange, selectedValue, closeMenu } = React.useContext(
+    SelectContext
+  );
+  if (Platform.OS !== 'web') {
+    const isSelected = selectedValue === value;
 
-    let currentIndex = -1;
-    itemsList.forEach((item: any, index: number) => {
-      if (item.value === value) {
-        currentIndex = index;
-      }
-    });
-    let textProps = { ..._item, ..._label };
-    if (selectedValue === value) {
-      textProps = { ..._selectedItem };
-    }
     return (
-      <Button
-        width={width ?? 150}
-        {...newProps}
-        bg={selectedValue === value ? selectedItemBg : undefined}
-        justifyContent="flex-start"
-        style={style}
+      <Actionsheet.Item
+        {...props}
         onPress={() => {
           if (!isDisabled) {
-            onValueChange(value, currentIndex);
+            onValueChange(value);
             closeMenu && closeMenu();
           }
         }}
+        // endIcon={
+        //   isSelected ? <Icon type="MaterialIcons" name="check" /> : <></>
+        // }
+        accessibilityState={{ selected: isSelected }}
       >
-        <Text fontSize="sm" key={`select-item-${value}`} {...textProps}>
-          {label}
-        </Text>
-      </Button>
+        <HStack space={4} alignItems="center">
+          <Box>{label}</Box>
+          <Box>
+            {isSelected ? <Icon type="MaterialIcons" name="check" /> : <></>}
+          </Box>
+        </HStack>
+      </Actionsheet.Item>
     );
   } else {
-    return <RNPicker.Item label={label} value={value} />;
+    return <option label={label} value={value} />;
   }
 };
 
