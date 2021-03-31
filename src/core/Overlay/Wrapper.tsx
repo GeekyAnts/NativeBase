@@ -9,7 +9,7 @@ import {
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
 import isEqual from 'lodash/isEqual';
 import type { IOverlayConfig } from './types';
-import { useKeyboardDismissable } from '../../hooks';
+import { useKeyboardDismissable } from '../../hooks/useKeyboardDismissable';
 
 type OverlayWrapperType = {
   overlayItem: any;
@@ -176,7 +176,7 @@ function Wrapper({
       // @ts-ignore
       accessibilityModal={isModal}
       // @ts-ignore
-      accessibilityRole={isModal ? 'dialog' : undefined}
+      accessibilityRole={overlayConfig.accessibilityRole}
       style={[overlayStyle.wrapper, { opacity: fadeValue }]}
       pointerEvents={'box-none'}
     >

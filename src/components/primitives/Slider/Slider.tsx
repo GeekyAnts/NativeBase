@@ -1,9 +1,6 @@
 import React from 'react';
 import { PanResponder, Platform } from 'react-native';
-import {
-  FormControlContext,
-  IFormControlContext,
-} from '../../composites/FormControl';
+import { useFormControlContext } from '../../composites/FormControl';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
 import type { ISliderProps } from './types';
@@ -204,9 +201,7 @@ class NBSlider extends React.PureComponent<
 }
 
 const Slider = ({ ...props }: ISliderProps) => {
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
+  const formControlContext = useFormControlContext();
   const newProps = useThemeProps('Slider', {
     ...formControlContext,
     ...props,

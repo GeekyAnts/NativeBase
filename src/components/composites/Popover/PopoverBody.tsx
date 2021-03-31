@@ -1,21 +1,11 @@
+import { useThemeProps } from '../../../hooks';
 import React from 'react';
 import { default as Box, IBoxProps } from '../../primitives/Box';
-import { PopoverContext } from './popover';
 
 const PopoverBody = (props: IBoxProps) => {
-  const {
-    newProps: { popoverBodyProps },
-    borderColor,
-    borderWidth,
-  } = React.useContext(PopoverContext);
-  return (
-    <Box
-      {...popoverBodyProps}
-      borderTopColor={borderColor}
-      borderTopWidth={borderWidth}
-      {...props}
-    />
-  );
+  const style = useThemeProps('Popover', props);
+
+  return <Box {...style.popoverBodyProps} {...props} />;
 };
 
 export default React.memo(PopoverBody);
