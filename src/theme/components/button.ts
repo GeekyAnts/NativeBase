@@ -6,7 +6,6 @@ const baseStyle = {
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
-  shadow: 4,
 };
 function variantGhost(props: Dict) {
   const { colorScheme: c } = props;
