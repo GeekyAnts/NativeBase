@@ -11,10 +11,12 @@ export type IListProps = IStackProps & {
   ul?: boolean;
   ordered?: boolean;
   ol?: boolean;
+  _hover?: any;
   start?: number;
 };
 
 export type IListItemProps = IBoxProps & {
+  _hover?: any;
   unordered?: boolean;
   ul?: boolean;
   ordered?: boolean;

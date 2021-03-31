@@ -1,16 +1,20 @@
+import { mode } from '../tools';
 // List
 export const List = {
-  baseStyle: {
-    borderWidth: 1,
-    borderColor: 'gray.300',
-    borderRadius: 'lg',
+  baseStyle: (props: Record<string, any>) => {
+    return {
+      py: 2,
+      borderWidth: 1,
+      borderColor: 'gray.300',
+      _hover: { bg: mode('primary.100', 'primary.700')(props) },
+    };
   },
 };
 
 // ListItem
 export const ListItem = {
   baseStyle: {
-    borderTopWidth: 1,
+    // borderTopWidth: 1,
     borderColor: 'gray.300',
   },
   defaultProps: {
