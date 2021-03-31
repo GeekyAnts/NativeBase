@@ -63,6 +63,8 @@ function variantSolid(props: Dict) {
   const { bg = `${c}.500` } = accessibleColorMap[c] || {};
   return {
     bg: mode(bg, `${c}.400`)(props),
+    shadow: 4,
+
     _text: {
       color: mode(`gray.100`, `gray.800`)(props),
     },
