@@ -76,7 +76,7 @@ const Collapse = ({
     setSize(layoutSize.height);
   };
   const _web = {
-    transition: `height ${duration ? duration + 'ms' : '400ms'}`,
+    transition: `height ${duration ?? '400'}ms`,
     height: isOpen ? endingHeight || size : startingHeight || 0,
   };
 
