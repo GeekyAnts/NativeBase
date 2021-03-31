@@ -1,9 +1,11 @@
-const defaultProps = {
-  rounded: 4,
+const baseStyle = {
   multiline: true,
-  numberOfLines: 2,
   px: 4,
   py: 2,
+  totalLines: 4,
+  _ios: {
+    h: 20,
+  },
 };
 
-export default { defaultProps };
+export default { baseStyle };

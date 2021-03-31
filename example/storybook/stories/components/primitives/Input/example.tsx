@@ -59,6 +59,7 @@ export const InputAddons = () => {
 export const InputElements = () => {
   return (
     <Input
+      bg="amber.200"
       w="90%"
       InputLeftElement={
         <Icon name="phone" size="md" type="MaterialIcons" m={2} color="black" />

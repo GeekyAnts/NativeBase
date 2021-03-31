@@ -1,20 +1,17 @@
 import React from 'react';
-import { TextArea, Heading, Center, Text, Stack } from 'native-base';
+import { TextArea, Center, Text, Stack } from 'native-base';
 
 export default function () {
   return (
-    <Stack space={4}>
-      <Center>
-        <Heading>TextArea</Heading>
-      </Center>
+    <Stack space={4} w="90%">
       <Center>
         <Text>Invalid TextArea</Text>
       </Center>
-      <TextArea placeholder="Invalid TextArea" w="90%" isInvalid />
+      <TextArea numberOfLines={4} placeholder="Invalid TextArea" isInvalid />
       <Center>
         <Text>Disabled TextArea</Text>
       </Center>
-      <TextArea placeholder="Disabled TextArea" w="90%" isDisabled />
+      <TextArea placeholder="Disabled TextArea" isDisabled />
     </Stack>
   );
 }

@@ -25,6 +25,7 @@ export type ICheckboxProps = IBoxProps & {
   // ariaLabelledby?: string;
   // Custom Props
   style?: any;
+  ref?: any;
 };
 
 export type ICheckboxGroupProps = IBoxProps & {
