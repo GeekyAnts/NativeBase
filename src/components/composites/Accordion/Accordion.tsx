@@ -54,8 +54,6 @@ const Accordion = (
       value={{
         index: index,
         changeHandler,
-        TotalChildren: children.length,
-        AccordionProps: newProps,
         AnimationProps: {
           endingHeight,
           startingHeight,
@@ -66,7 +64,7 @@ const Accordion = (
         },
       }}
     >
-      <Box {...newProps} ref={ref}>
+      <Box overflow="hidden" {...newProps} ref={ref}>
         {getIndexedChildren(children)}
       </Box>
     </AccordionContext.Provider>

@@ -9,7 +9,6 @@ export default function () {
 
       <Actionsheet isOpen={isOpen} onClose={onClose}>
         <Actionsheet.Content>
-          <Actionsheet.Header my={3}>Header</Actionsheet.Header>
           <Divider borderColor="gray.300" />
           <Actionsheet.Item _text={{ color: 'blue.500' }}>
             Save
@@ -19,11 +18,6 @@ export default function () {
             Delete
           </Actionsheet.Item>
         </Actionsheet.Content>
-        <Actionsheet.Footer>
-          <Actionsheet.Item _text={{ color: 'red.500' }} onPress={onClose}>
-            Cancel
-          </Actionsheet.Item>
-        </Actionsheet.Footer>
       </Actionsheet>
     </>
   );
