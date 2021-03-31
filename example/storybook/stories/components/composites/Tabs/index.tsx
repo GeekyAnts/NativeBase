@@ -5,22 +5,24 @@ import Wrapper from '../../Wrapper';
 import Usage from './Usage';
 import Controlled from './Controlled';
 import TabBarOnly from './TabBarOnly';
-import FittedTabs from './FittedTabs';
+import FittedTab from './FittedTab';
+import TabAlignment from './TabAlignment';
+import IconTabs from './IconTabs';
 import Size from './Size';
 import Colors from './Colors';
-import TabsAlignment from './TabsAlignment';
 import Composition from './Composition';
 import Variants from './Variants';
 
 storiesOf('Tabs', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
-  .add('Usage', () => <Usage />)
-  .add('Controlled', () => <Controlled />)
-  .add('Composition', () => <Composition />)
-  .add('Variants', () => <Variants />)
-  .add('TabsAlignment', () => <TabsAlignment />)
+  .add('Basic', () => <Usage />)
   .add('Colors', () => <Colors />)
   .add('Size', () => <Size />)
-  .add('FittedTabs', () => <FittedTabs />)
-  .add('TabBarOnly', () => <TabBarOnly />);
+  .add('Variants', () => <Variants />)
+  .add('IconTabs', () => <IconTabs />)
+  .add('Tab Alignment', () => <TabAlignment />)
+  .add('Fitted Tab', () => <FittedTab />)
+  .add('Controlled', () => <Controlled />)
+  .add('TabBarOnly', () => <TabBarOnly />)
+  .add('Composition', () => <Composition />);

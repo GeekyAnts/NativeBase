@@ -22,10 +22,6 @@ import {
 import type { IInputProps } from './types';
 import { usePlatformProps, useThemeProps, useToken } from '../../../hooks';
 import { useHover } from '@react-native-aria/interactions';
-import {
-  FormControlContext,
-  IFormControlContext,
-} from '../../composites/FormControl';
 import { mergeRefs } from '../../../utils';
 
 const StyledInput = styled(TextInput)<IInputProps>(
@@ -51,23 +47,29 @@ const InputBase = (
     onFocus,
     onBlur,
     disableFocusHandling,
+    inputProps,
     ...props
   }: IInputProps & {
     disableFocusHandling?: boolean;
+    inputProps: any;
   },
   ref: any
 ) => {
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
   const [isFocused, setIsFocused] = React.useState(false);
   const handleFocus = (focusState: boolean, callback: any) => {
     !disableFocusHandling && setIsFocused(focusState);
     callback();
   };
 
+  const inputThemeProps = {
+    isDisabled: inputProps.disabled,
+    isInvalid: inputProps.accessibilityInvalid,
+    isReadOnly: inputProps.accessibilityReadOnly,
+    isRequired: inputProps.required,
+  };
+
   const themedProps = useThemeProps('Input', {
-    ...formControlContext,
+    ...inputThemeProps,
     ...props,
   });
   // usePlatformProps is merging Platform specific props to themedProps
@@ -95,6 +97,7 @@ const InputBase = (
 
   return (
     <StyledInput
+      {...inputProps}
       secureTextEntry={type === 'password'}
       accessible
       accessibilityLabel={ariaLabel || accessibilityLabel}

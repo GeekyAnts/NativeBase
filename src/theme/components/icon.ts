@@ -5,7 +5,7 @@ import omit from 'lodash/omit';
 let sizes = omit(allSizes, ['container']);
 const baseStyle = (props: Record<string, any>) => {
   return {
-    color: mode('primary.800', 'primary.100')(props),
+    color: mode('muted.800', 'muted.100')(props),
   };
 };
 

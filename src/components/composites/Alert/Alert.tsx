@@ -29,7 +29,7 @@ const Alert = (
     >
       <Box _text={_text} {...newProps} ref={ref}>
         {children}
-        {action ? <Box mr={0}>{action}</Box> : null}
+        {action ? <Box ml="auto">{action}</Box> : null}
       </Box>
     </AlertContext.Provider>
   );

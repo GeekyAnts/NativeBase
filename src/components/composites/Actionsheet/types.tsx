@@ -17,12 +17,6 @@ export type IActionsheetComponentType = ((
   Content: React.MemoExoticComponent<
     (props: IActionsheetContentProps) => JSX.Element
   >;
-  Footer: React.MemoExoticComponent<
-    (props: IActionsheetFooterProps) => JSX.Element
-  >;
-  Header: React.MemoExoticComponent<
-    (props: IActionsheetHeaderProps) => JSX.Element
-  >;
   Item: React.MemoExoticComponent<
     (props: IActionsheetItemProps) => JSX.Element
   >;

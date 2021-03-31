@@ -1,10 +1,16 @@
-import React from 'react';
-import { Pressable } from 'react-native';
+import React, { createContext } from 'react';
+import Pressable from '../../primitives/Pressable';
 import Box from '../../primitives/Box';
 import { TabsContext } from './Context';
 import type { ITabProps, ITabsContextProps } from './types';
 import { omitUndefined } from '../../../theme/tools/utils';
 import { useTab } from '@react-native-aria/tabs';
+import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils';
+import { merge } from 'lodash';
+import { themeTools } from '../../../theme';
+
+export const TabContext = createContext({});
 
 const Tab = ({
   children,
@@ -20,9 +26,11 @@ const Tab = ({
     inactiveTabStyle,
     activeTabStyle,
     state,
+    isFitted,
   }: ITabsContextProps = React.useContext(TabsContext);
   let ref = React.useRef<any>(null);
-
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
   let isSelected = state.selectedKey === item.key;
 
   let { tabProps } = useTab({ item, isDisabled }, state, ref);
@@ -36,17 +44,49 @@ const Tab = ({
   }, [isDisabled, item.key, state.disabledKeys]);
 
   const tabStyle = isSelected ? activeTabStyle : inactiveTabStyle;
-
+  const { _hover, ...remainingTabStyle } = tabStyle;
+  const mergedProps = merge(remainingTabStyle, newProps);
+  const [
+    marginalProps,
+    remainingProps,
+  ] = themeTools.extractInObject(mergedProps, [
+    'margin',
+    'm',
+    'marginTop',
+    'mt',
+    'marginRight',
+    'mr',
+    'marginBottom',
+    'mb',
+    'marginLeft',
+    'ml',
+    'marginX',
+    'mx',
+    'marginY',
+    'my',
+  ]);
   return (
-    <Pressable disabled={isDisabled} ref={ref} {...tabProps}>
-      <Box
-        {...tabStyle}
-        {...newProps}
-        style={[style, isSelected && _active, isDisabled && _disabled]}
+    <TabContext.Provider
+      value={{
+        isSelected,
+      }}
+    >
+      <Pressable
+        disabled={isDisabled}
+        ref={mergeRefs([ref, _ref])}
+        flex={isFitted ? 1 : undefined}
+        {...tabProps}
+        {...marginalProps}
       >
-        {children}
-      </Box>
-    </Pressable>
+        <Box
+          {...(isHovered && _hover)}
+          {...remainingProps}
+          style={[style, isSelected && _active, isDisabled && _disabled]}
+        >
+          {children}
+        </Box>
+      </Pressable>
+    </TabContext.Provider>
   );
 };
 

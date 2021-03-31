@@ -1,6 +1,6 @@
 import type { RefObject } from 'react';
 import type { ViewProps } from 'react-native';
-import type { IBoxProps } from '../../primitives';
+import type { IBoxProps, IIconProps } from '../../primitives';
 
 export type ITabsProps = IBoxProps & {
   align?: 'center' | 'end' | 'start';
@@ -13,8 +13,9 @@ export type ITabsProps = IBoxProps & {
   isManual?: boolean;
   orientation?: 'horizontal' | 'vertical';
   size?: 'sm' | 'md' | 'lg';
-  variant?: string;
+  variant?: 'outline' | 'filled' | 'filled-outline';
   onChange?: (index: number) => void;
+  keyboardActivation?: 'manual' | 'automatic';
 };
 
 export type ITabBarProps = IBoxProps & {
@@ -38,13 +39,17 @@ export type ITabViewProps = IBoxProps & {
 };
 
 export type ITabsContextProps = {
+  activeIconProps?: any;
+  inactiveIconProps?: any;
   activeTabStyle?: any;
   inactiveTabStyle?: any;
   tabBarStyle?: any;
   isFitted?: boolean;
   align?: 'start' | 'center' | 'end';
-
   state?: any;
+};
+export type ITabContextProps = {
+  isSelected?: boolean;
 };
 
 export type ITabsComponentType = ((props: ITabsProps) => JSX.Element) & {
@@ -52,4 +57,5 @@ export type ITabsComponentType = ((props: ITabsProps) => JSX.Element) & {
   Tab: React.MemoExoticComponent<(props: ITabProps) => JSX.Element>;
   Views: React.MemoExoticComponent<(props: ITabViewsProps) => JSX.Element>;
   View: React.MemoExoticComponent<(props: ITabViewProps) => JSX.Element>;
+  Icon: React.MemoExoticComponent<(props: IIconProps) => JSX.Element>;
 };

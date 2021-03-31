@@ -1,9 +1,6 @@
 import React from 'react';
 import Box from '../Box';
-import {
-  FormControlContext,
-  IFormControlContext,
-} from '../../composites/FormControl';
+import { useFormControlContext } from '../../composites/FormControl';
 import type { IRadioContext, IRadioGroupProps } from './types';
 import { useRadioGroupState } from '@react-stately/radio';
 import { useRadioGroup } from '@react-native-aria/radio';
@@ -16,9 +13,7 @@ const RadioGroup = (
   { size, colorScheme, ...props }: IRadioGroupProps,
   ref: any
 ) => {
-  const formControlContext: IFormControlContext = React.useContext(
-    FormControlContext
-  );
+  const formControlContext = useFormControlContext();
 
   let state = useRadioGroupState(props);
   let { radioGroupProps } = useRadioGroup(

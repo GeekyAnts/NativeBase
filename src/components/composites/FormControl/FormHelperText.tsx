@@ -1,24 +1,32 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { FormControlContext } from './FormControl';
-import type { IFormControlHelperTextProps, IFormControlContext } from './types';
 import { useThemeProps } from '../../../hooks';
+import { useFormControlContext } from './useFormControl';
+import type { IFormControlHelperTextProps } from './types';
 
 const FormHelperText = (
   { children, _disabled, _invalid, ...props }: IFormControlHelperTextProps,
   ref: any
 ) => {
-  const { isInvalid, isDisabled }: IFormControlContext = React.useContext(
-    FormControlContext
-  );
-  const newProps = useThemeProps('FormControlHelperText', props);
+  const formControlContext = useFormControlContext();
+
+  const themedProps = useThemeProps('FormControlHelperText', props);
+
+  React.useEffect(() => {
+    formControlContext?.setHasHelpText(true);
+    return () => {
+      formControlContext?.setHasHelpText(false);
+    };
+  });
 
   return (
     <Box
-      {...newProps}
+      {...themedProps}
+      nativeID={formControlContext?.feedbackId}
+      {...props}
       ref={ref}
-      {...(isInvalid && _invalid)}
-      {...(isDisabled && _disabled)}
+      {...(formControlContext?.isInvalid && _invalid)}
+      {...(formControlContext?.isDisabled && _disabled)}
     >
       {children}
     </Box>

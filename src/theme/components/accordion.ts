@@ -19,10 +19,9 @@ export const AccordionItem = {};
 export const AccordionIcon = {};
 
 // AccordionSummary
-const accordionButtonBaseStyle = (props: Record<string, any>) => {
+const accordionSummaryBaseStyle = (props: Record<string, any>) => {
   return {
-    borderWidth: 1,
-    borderColor: 'transparent',
+    borderTopWidth: 1,
     borderTopColor: mode('gray.300', 'gray.600')(props),
     p: 3,
     _hover: {
@@ -39,7 +38,7 @@ const accordionButtonBaseStyle = (props: Record<string, any>) => {
   };
 };
 export const AccordionSummary = {
-  baseStyle: accordionButtonBaseStyle,
+  baseStyle: accordionSummaryBaseStyle,
 };
 
 // AccordionDetails
