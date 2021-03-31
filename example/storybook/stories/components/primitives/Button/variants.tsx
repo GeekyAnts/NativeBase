@@ -6,7 +6,7 @@ export default function () {
     <HStack space={2}>
       {['solid', 'outline', 'ghost', 'link', 'unstyled'].map((variant: any) => (
         <Button variant={variant} key={variant}>
-          Button
+          BUTTON
         </Button>
       ))}
     </HStack>

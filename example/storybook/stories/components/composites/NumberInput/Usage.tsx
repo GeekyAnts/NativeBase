@@ -9,7 +9,7 @@ import {
 
 export default function () {
   return (
-    <NumberInput>
+    <NumberInput w="95%">
       <NumberInputField />
       <NumberInputStepper>
         <NumberIncrementStepper />

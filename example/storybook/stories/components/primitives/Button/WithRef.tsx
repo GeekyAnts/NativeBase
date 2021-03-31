@@ -12,7 +12,7 @@ export default function () {
   }, [myRef]);
   return (
     <Button size="sm" variant={'solid'} ref={myRef}>
-      Button
+      BUTTON
     </Button>
   );
 }
