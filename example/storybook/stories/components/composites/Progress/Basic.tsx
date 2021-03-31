@@ -5,9 +5,9 @@ export default function () {
   return (
     <Box w="90%">
       <Center mb={8}>
-        <Heading>This is a Simple Progress Bar</Heading>
+        <Heading px={0}>This is a Simple Progress Bar</Heading>
       </Center>
-      <Progress value={45} />
+      <Progress value={45} mx={4} />
     </Box>
   );
 }

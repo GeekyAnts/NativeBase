@@ -4,7 +4,7 @@ import type { IListProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
 const OrderedList = ({ style, children, spacing, ...props }: IListProps) => {
-  const { _text, start, ...newProps } = useThemeProps('List', props);
+  const { _text, start, _hover, ...newProps } = useThemeProps('List', props);
   // add props to children
   children = React.Children.map(children, (child: any, ind: number) => {
     return React.cloneElement(
@@ -14,6 +14,7 @@ const OrderedList = ({ style, children, spacing, ...props }: IListProps) => {
         index: ind,
         py: spacing,
         _text,
+        _hover,
         start,
         ...child.props,
       },

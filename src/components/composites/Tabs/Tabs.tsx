@@ -57,6 +57,8 @@ const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
     onChange,
     activeTabStyle,
     inactiveTabStyle,
+    activeIconProps,
+    inactiveIconProps,
     tabBarStyle,
     isFitted,
     align,
@@ -102,6 +104,8 @@ const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
       value={{
         activeTabStyle,
         inactiveTabStyle,
+        activeIconProps,
+        inactiveIconProps,
         tabBarStyle,
         isFitted,
         align: setAlign(),

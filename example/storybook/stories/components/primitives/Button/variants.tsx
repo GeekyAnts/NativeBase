@@ -1,14 +1,14 @@
 import React from 'react';
-import { Button, HStack } from 'native-base';
+import { Button, VStack } from 'native-base';
 
 export default function () {
   return (
-    <HStack space={2}>
+    <VStack space={3}>
       {['solid', 'outline', 'ghost', 'link', 'unstyled'].map((variant: any) => (
         <Button variant={variant} key={variant}>
-          Button
+          BUTTON
         </Button>
       ))}
-    </HStack>
+    </VStack>
   );
 }

@@ -8,8 +8,8 @@ import {
 import {
   Actionsheet,
   ActionsheetContent,
-  ActionsheetHeader,
-  ActionsheetFooter,
+  // ActionsheetHeader,
+  // ActionsheetFooter,
   ActionsheetItem,
 } from './actionsheet';
 import { Select, SelectItem } from './select';
@@ -85,8 +85,8 @@ export default {
   AccordionDetails,
   Actionsheet,
   ActionsheetContent,
-  ActionsheetHeader,
-  ActionsheetFooter,
+  // ActionsheetHeader,
+  // ActionsheetFooter,
   ActionsheetItem,
   Alert,
   AlertDescription,

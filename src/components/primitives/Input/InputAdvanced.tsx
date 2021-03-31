@@ -166,6 +166,7 @@ const InputAdvance = (
     <Box
       display="flex"
       flexDirection="row"
+      overflow="hidden"
       {...layoutProps}
       {...(isHovered && _hover)}
       {...(isFocused && _focus)}

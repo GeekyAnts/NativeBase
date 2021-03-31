@@ -8,11 +8,13 @@ export default function () {
         <Heading textAlign="center" mb={8}>
           Progress ColorScheme
         </Heading>
-        <Progress colorScheme="primary" value={35} />
-        <Progress colorScheme="secondary" value={45} />
-        <Progress colorScheme="emerald" value={55} />
-        <Progress colorScheme="warning" value={65} />
-        <Progress colorScheme="light" value={75} />
+        <VStack mx={4} space="md">
+          <Progress colorScheme="primary" value={35} />
+          <Progress colorScheme="secondary" value={45} />
+          <Progress colorScheme="emerald" value={55} />
+          <Progress colorScheme="warning" value={65} />
+          <Progress colorScheme="light" value={75} />
+        </VStack>
       </VStack>
     </Box>
   );

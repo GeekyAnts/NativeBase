@@ -13,11 +13,11 @@ export default function ControlledRadio() {
         setValue(nextValue);
       }}
     >
-      <Radio value="one">
-        <Text>One</Text>
+      <Radio value="one" my={1}>
+        <Text mx={1}>One</Text>
       </Radio>
-      <Radio value="two">
-        <Text>Two</Text>
+      <Radio value="two" my={1}>
+        <Text mx={1}>Two</Text>
       </Radio>
     </Radio.Group>
   );

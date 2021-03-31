@@ -12,6 +12,8 @@ import { SSRProvider } from '@react-native-aria/utils';
 import { theme as defaultTheme, ITheme } from './../theme';
 import type { IColorModeProviderProps } from './color-mode';
 import HybridProvider from './hybrid-overlay/HybridProvider';
+// import { createGlobalStyle } from 'styled-components';
+// import Roboto from './Roboto.ttf';
 
 export interface NativeBaseProviderProps {
   theme?: ITheme;
@@ -20,6 +22,17 @@ export interface NativeBaseProviderProps {
   initialWindowMetrics?: any;
   // Refer https://github.com/th3rdwave/react-native-safe-area-context#testing
 }
+
+// const GlobalStyles = createGlobalStyle`
+//   @font-face {
+//     font-family: 'Roboto';
+//     src: url('${Roboto}') format('opentype');
+//   }
+
+//   body {
+//     font-family: 'Roboto', sans-serif;
+//   }
+// `;
 
 const NativeBaseProvider = (props: NativeBaseProviderProps) => {
   const {

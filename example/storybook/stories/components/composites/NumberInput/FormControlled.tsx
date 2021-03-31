@@ -11,7 +11,7 @@ import {
 
 export default function () {
   return (
-    <Container>
+    <Container w={'95%'}>
       <FormControl isRequired isInvalid>
         <FormControl.Label>How many components we have</FormControl.Label>
         <NumberInput>
