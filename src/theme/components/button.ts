@@ -1,11 +1,12 @@
 import { Dict, mode } from './../tools';
 
 const baseStyle = {
-  borderRadius: 'lg',
+  borderRadius: 'md',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
+  shadow: 4,
 };
 function variantGhost(props: Dict) {
   const { colorScheme: c } = props;

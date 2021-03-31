@@ -17,6 +17,7 @@ export default function () {
       step={number('step', 3)}
       isDisabled={boolean('isDisabled', true)}
       keepWithinRange={boolean('keepWithinRange', true)}
+      w="95%"
     >
       <NumberInputField />
       <NumberInputStepper>

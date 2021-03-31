@@ -10,7 +10,7 @@ export default function () {
       border="2px"
       borderColor="green.500"
     >
-      Button
+      BUTTON
     </Button>
   );
 }

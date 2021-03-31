@@ -7,6 +7,8 @@ const baseStyle = (props: Record<string, any>) => {
 };
 const defaultProps = {
   fontWeight: 300,
+  letterSpacing: 1,
+  fontFamily: 'Roboto',
 };
 
 export default { baseStyle, defaultProps };

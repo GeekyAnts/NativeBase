@@ -6,7 +6,7 @@ export default function () {
     <HStack space={2}>
       {['xs', 'sm', 'md', 'lg'].map((size: any) => (
         <Button key={size} size={size}>
-          Button
+          BUTTON
         </Button>
       ))}
     </HStack>

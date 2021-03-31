@@ -9,6 +9,7 @@ export default function () {
         colorScheme="green"
         value="1"
         icon={<Icon name="alien" type="MaterialCommunityIcons" />}
+        my={1}
       >
         Alien
       </Radio>
@@ -17,6 +18,7 @@ export default function () {
         colorScheme="red"
         value="2"
         icon={<Icon name="fire" type="MaterialCommunityIcons" />}
+        my={1}
       >
         Fire
       </Radio>
@@ -25,6 +27,7 @@ export default function () {
         _text={{ mx: 2 }}
         value="3"
         icon={<Icon name="exclamation" type="MaterialCommunityIcons" />}
+        my={1}
       >
         Warning
       </Radio>

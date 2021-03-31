@@ -7,7 +7,7 @@ export default function () {
       <Center mb={8}>
         <Heading>Flat Progress</Heading>
       </Center>
-      <Progress rounded="0" size="lg" value={65} />
+      <Progress rounded="0" size="lg" value={65} mx={4} />
     </Box>
   );
 }

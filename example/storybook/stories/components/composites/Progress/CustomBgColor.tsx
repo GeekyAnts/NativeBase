@@ -13,6 +13,7 @@ export default function () {
         bg="secondary.200"
         mb={4}
         value={75}
+        mx={4}
       />
     </Box>
   );

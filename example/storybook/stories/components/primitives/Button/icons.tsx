@@ -15,7 +15,7 @@ export default function () {
           />
         }
       >
-        Menu
+        MENU
       </Button>
       <Button
         endIcon={
@@ -27,7 +27,7 @@ export default function () {
           />
         }
       >
-        Menu
+        MENU
       </Button>
     </VStack>
   );
