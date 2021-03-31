@@ -4,13 +4,15 @@ import { Box, Text, Button, Heading } from 'native-base';
 export default function () {
   return (
     <Box>
-      <Heading mb={4}>Modern online and offline payments for Africa</Heading>
+      <Heading mb={4}>
+        Mobile first accessible components for React Native & Web.
+      </Heading>
       <Text fontSize="xl">
-        Paystack helps businesses in Africa get paid by anyone, anywhere in the
-        world
+        An accessible & utility-first component library to build your design
+        system for all the platforms (web in beta).
       </Text>
       <Button size="lg" colorScheme="green" mt="24px">
-        Create a free account
+        Let's get started
       </Button>
     </Box>
   );

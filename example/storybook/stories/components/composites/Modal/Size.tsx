@@ -19,7 +19,7 @@ export default function () {
       >
         <Modal.Content>
           <Modal.CloseButton />
-          <Modal.Header _text={{ fontSize: '4xl', fontWeight: 'bold' }}>
+          <Modal.Header _text={{ fontSize: '2xl', fontWeight: 'bold' }}>
             Hello World
           </Modal.Header>
           <Modal.Body>
@@ -44,11 +44,6 @@ export default function () {
       </Modal>
       <Center>
         <Button
-          onPress={() => handleSizeClick('xs')}
-          key={'xs'}
-          m={4}
-        >{`Open ${'xs'} Modal`}</Button>
-        <Button
           onPress={() => handleSizeClick('sm')}
           key={'sm'}
           m={4}
@@ -63,11 +58,6 @@ export default function () {
           key={'lg'}
           m={4}
         >{`Open ${'lg'} Modal`}</Button>
-        <Button
-          onPress={() => handleSizeClick('xl')}
-          key={'xl'}
-          m={4}
-        >{`Open ${'xl'} Modal`}</Button>
         <Button
           onPress={() => handleSizeClick('full')}
           key={'full'}

@@ -3,7 +3,7 @@ import { List, Heading, Box } from 'native-base';
 
 export default function () {
   return (
-    <Box w="50%">
+    <Box w="80%">
       <Heading fontSize={24}>Ordered List</Heading>
       <List.Ordered my={2} spacing={2}>
         <List.Item>Inferno</List.Item>

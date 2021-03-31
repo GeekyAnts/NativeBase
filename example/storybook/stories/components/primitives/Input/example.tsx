@@ -47,7 +47,7 @@ export const VariantInput = () => {
 };
 export const InputAddons = () => {
   return (
-    <Stack space={4}>
+    <Stack alignItems="center" mx={3}>
       <InputGroup>
         <InputLeftAddon children={'https://'} />
         <Input w="70%" placeholder="nativebase" />
@@ -61,10 +61,16 @@ export const InputElements = () => {
     <Input
       w="90%"
       InputLeftElement={
-        <Icon name="phone" fontSize="xl" type="MaterialIcons" m={2} />
+        <Icon name="phone" size="md" type="MaterialIcons" m={2} color="black" />
       }
       InputRightElement={
-        <Icon name="person" fontSize="xl" type="MaterialIcons" m={2} />
+        <Icon
+          name="person"
+          size="md"
+          type="MaterialIcons"
+          m={2}
+          color="black"
+        />
       }
       placeholder="Left and Right InputElement"
     />
@@ -122,12 +128,17 @@ export const FocusErrorBorderColor = () => {
 export const FormControlled = () => {
   return (
     <FormControl isRequired isInvalid p={2}>
-      <FormControl.Label>Form Controlled Input</FormControl.Label>
-      <Input placeholder="FormControl is providing me isInvalid prop" my={2} />
-      <FormControl.HelperText>I am a Helper text 😊</FormControl.HelperText>
-      <FormControl.ErrorMessage>
-        I'll only appear when FormControl have isInvalid props.
-      </FormControl.ErrorMessage>
+      <Stack mx={4}>
+        <FormControl.Label>Form Controlled Input</FormControl.Label>
+        <Input
+          placeholder="FormControl is providing me isInvalid prop"
+          my={2}
+        />
+        <FormControl.HelperText>I am a Helper text 😊</FormControl.HelperText>
+        <FormControl.ErrorMessage>
+          I'll only appear when FormControl have isInvalid props.
+        </FormControl.ErrorMessage>
+      </Stack>
     </FormControl>
   );
 };

@@ -6,20 +6,20 @@ export default function () {
   return (
     <>
       <Modal
-        accessibilityLabel="this is a simple form"
+        accessibilityLabel="this is a simple modal"
         isOpen={modalVisible}
         onClose={setModalVisible}
         overlayVisible={true}
+        size="md"
       >
         <Modal.Content>
           <Modal.CloseButton />
-          <Modal.Header _text={{ fontSize: '4xl', fontWeight: 'bold' }}>
+          <Modal.Header _text={{ fontSize: '2xl', fontWeight: 'bold' }}>
             Hello World
           </Modal.Header>
           <Modal.Body>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quasi
-            cupiditate expedita, ipsa corporis officia totam similique delectus!
-            Debitis esse, ea blanditiis iste enim iure at odit fugiat autem.
+            cupiditate expedita, ipsa delectus!
             <Input mt={4} placeholder="Lorem ipsum dolor sit" />
           </Modal.Body>
           <Modal.Footer>

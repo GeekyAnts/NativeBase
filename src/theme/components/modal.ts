@@ -1,27 +1,17 @@
 import { mode } from '../tools';
 
 const sizes = {
-  xs: {
-    contentSize: {
-      width: '40%',
-    },
-  },
   sm: {
-    contentSize: {
-      width: '48%',
-    },
-  },
-  md: {
     contentSize: {
       width: '60%',
     },
   },
-  lg: {
+  md: {
     contentSize: {
       width: '75%',
     },
   },
-  xl: {
+  lg: {
     contentSize: {
       width: '90%',
     },
@@ -61,8 +51,12 @@ export const ModalCloseButton = {
   baseStyle: {
     position: 'absolute',
     right: 8,
-    top: 6,
+    top: 5,
     zIndex: 1,
+    _icon: {
+      size: 'sm',
+      color: 'black',
+    },
   },
   defaultProps: {
     size: 8,
