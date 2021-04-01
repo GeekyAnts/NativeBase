@@ -3,12 +3,16 @@ import { Input } from '../../primitives/Input';
 import type { IPinInputFieldProps, IPinInputContext } from './types';
 import { PinInputContext } from './Context';
 import { Platform } from 'react-native';
+import { mergeRefs } from '../../../utils';
 
-const PinInputFiled = ({
-  fieldIndex = 0,
-  defaultValue: pDefaultValue,
-  ...props
-}: IPinInputFieldProps) => {
+const PinInputFiled = (
+  {
+    fieldIndex = 0,
+    defaultValue: pDefaultValue,
+    ...props
+  }: IPinInputFieldProps,
+  ref?: any
+) => {
   let {
     handleChange,
     value: cValue,
@@ -41,7 +45,7 @@ const PinInputFiled = ({
 
   return (
     <Input
-      ref={myRef}
+      ref={mergeRefs([myRef, ref])}
       {...context}
       {...props}
       onKeyPress={(event) => keyPressHandler(event)}
@@ -53,4 +57,4 @@ const PinInputFiled = ({
   );
 };
 
-export default React.memo(PinInputFiled);
+export default React.memo(React.forwardRef(PinInputFiled));

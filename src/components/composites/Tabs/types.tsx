@@ -52,10 +52,22 @@ export type ITabContextProps = {
   isSelected?: boolean;
 };
 
-export type ITabsComponentType = ((props: ITabsProps) => JSX.Element) & {
-  Bar: React.MemoExoticComponent<(props: ITabBarProps) => JSX.Element>;
-  Tab: React.MemoExoticComponent<(props: ITabProps) => JSX.Element>;
-  Views: React.MemoExoticComponent<(props: ITabViewsProps) => JSX.Element>;
-  View: React.MemoExoticComponent<(props: ITabViewProps) => JSX.Element>;
-  Icon: React.MemoExoticComponent<(props: IIconProps) => JSX.Element>;
+export type ITabsComponentType = ((
+  props: ITabsProps & { ref?: any }
+) => JSX.Element) & {
+  Bar: React.MemoExoticComponent<
+    (props: ITabBarProps & { ref?: any }) => JSX.Element
+  >;
+  Tab: React.MemoExoticComponent<
+    (props: ITabProps & { ref?: any }) => JSX.Element
+  >;
+  Views: React.MemoExoticComponent<
+    (props: ITabViewsProps & { ref?: any }) => JSX.Element
+  >;
+  View: React.MemoExoticComponent<
+    (props: ITabViewProps & { ref?: any }) => JSX.Element
+  >;
+  Icon: React.MemoExoticComponent<
+    (props: IIconProps & { ref?: any }) => JSX.Element
+  >;
 };

@@ -17,7 +17,7 @@ class NBSlider extends React.PureComponent<
     thumbSize?: number;
     sliderSize?: number;
     activeColor?: string;
-  },
+  } & { innerRef?: any },
   StateType
 > {
   static contextType = SliderContext;
@@ -192,6 +192,7 @@ class NBSlider extends React.PureComponent<
             },
           ]}
           onAccessibilityAction={this.onAccessibilityAction}
+          ref={this.props.innerRef}
         >
           {this.state.barSize && this.props.children}
         </Box>
@@ -200,14 +201,14 @@ class NBSlider extends React.PureComponent<
   }
 }
 
-const Slider = ({ ...props }: ISliderProps) => {
+const Slider = ({ ...props }: ISliderProps, ref?: any) => {
   const formControlContext = useFormControlContext();
   const newProps = useThemeProps('Slider', {
     ...formControlContext,
     ...props,
   });
 
-  return <NBSlider {...newProps} />;
+  return <NBSlider {...newProps} innerRef={ref} />;
 };
 
-export default React.memo(Slider);
+export default React.memo(React.forwardRef(Slider));

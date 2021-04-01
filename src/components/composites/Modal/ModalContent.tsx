@@ -4,11 +4,11 @@ import { ModalContext } from './Context';
 import type { IModalContextType } from './types';
 import { useThemeProps } from '../../../hooks';
 
-const ModalContent = (props: IBoxProps) => {
+const ModalContent = (props: IBoxProps, ref?: any) => {
   const { ...newProps } = useThemeProps('ModalContent', props);
   const { contentSize }: IModalContextType = React.useContext(ModalContext);
 
-  return <Box {...contentSize} {...newProps} />;
+  return <Box {...contentSize} {...newProps} ref={ref} />;
 };
 
-export default React.memo(ModalContent);
+export default React.memo(React.forwardRef(ModalContent));

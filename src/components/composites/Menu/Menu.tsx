@@ -17,7 +17,7 @@ export const Menu = React.memo(
         onClose,
         ...props
       }: IMenuProps,
-      ref: any
+      ref?: any
     ) => {
       const newProps = useThemeProps('Menu', props);
 
@@ -30,12 +30,11 @@ export const Menu = React.memo(
           trigger={trigger}
           placement={props.placement ?? 'bottom left'}
           trapFocus
+          ref={ref}
         >
           <Popover.Content isUnstyled>
             <MenuContext.Provider value={{ closeOnSelect }}>
-              <View {...newProps} ref={ref}>
-                {children}
-              </View>
+              <View {...newProps}>{children}</View>
             </MenuContext.Provider>
           </Popover.Content>
         </Popover>

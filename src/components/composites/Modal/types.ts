@@ -57,14 +57,25 @@ export type IModalContextType = {
   toggleOnClose?: (_bool: boolean) => any;
   contentSize?: any;
 };
-export type IModalComponentType = ((props: IModalProps) => JSX.Element) & {
-  Body: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
-  CloseButton: React.MemoExoticComponent<
-    (props: ICloseButtonProps) => JSX.Element
+export type IModalComponentType = ((
+  props: IModalProps,
+  ref: any
+) => JSX.Element) & {
+  Body: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
   >;
-  Content: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
-  Footer: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
-  Header: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  CloseButton: React.MemoExoticComponent<
+    (props: ICloseButtonProps & { ref?: any }) => JSX.Element
+  >;
+  Content: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  Footer: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  Header: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
 };
 
 export type IModalProps = IModalSemiProps & { isOpen: boolean; onClose: any };

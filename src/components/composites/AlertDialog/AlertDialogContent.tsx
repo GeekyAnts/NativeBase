@@ -3,9 +3,9 @@ import { Modal } from '../Modal';
 
 const AlertDialogContent = React.forwardRef(function AlertDialogContent(
   props: any,
-  ref
+  ref?: any
 ) {
-  return <Modal.Content ref={ref} accessibilityRole="alert" {...props} />;
+  return <Modal.Content accessibilityRole="alert" {...props} ref={ref} />;
 });
 
 export default AlertDialogContent;

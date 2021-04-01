@@ -38,14 +38,18 @@ export type IAccordionIconProps = IIconProps & {
 };
 
 export type IAccordionComponentType = ((
-  props: IAccordionProps
+  props: IAccordionProps & { ref?: any }
 ) => JSX.Element) & {
-  Item: React.MemoExoticComponent<(props: IAccordionItemProps) => JSX.Element>;
+  Item: React.MemoExoticComponent<
+    (props: IAccordionItemProps & { ref?: any }) => JSX.Element
+  >;
   Summary: React.MemoExoticComponent<
-    (props: IAccordionSummaryProps) => JSX.Element
+    (props: IAccordionSummaryProps & { ref?: any }) => JSX.Element
   >;
   Details: React.MemoExoticComponent<
-    (props: IAccordionDetailsProps) => JSX.Element
+    (props: IAccordionDetailsProps & { ref?: any }) => JSX.Element
   >;
-  Icon: React.MemoExoticComponent<(props: IAccordionIconProps) => JSX.Element>;
+  Icon: React.MemoExoticComponent<
+    (props: IAccordionIconProps & { ref?: any }) => JSX.Element
+  >;
 };

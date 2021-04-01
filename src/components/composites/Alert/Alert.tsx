@@ -6,7 +6,7 @@ import { AlertContext } from './Context';
 
 const Alert = (
   { children, _text, action, ...props }: IAlertProps,
-  ref: any
+  ref?: any
 ) => {
   const {
     status,

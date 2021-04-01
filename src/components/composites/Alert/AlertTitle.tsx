@@ -4,13 +4,16 @@ import { useThemeProps } from '../../../hooks';
 import type { IAlertContext } from './index';
 import { AlertContext } from './Context';
 
-const AlertTitle = ({ children, _text, ...props }: { _text?: any } & any) => {
+const AlertTitle = (
+  { children, _text, ...props }: { _text?: any } & any,
+  ref?: any
+) => {
   const newProps = useThemeProps('AlertTitle', props);
   const { textColor }: IAlertContext = React.useContext(AlertContext);
   return (
-    <Text color={textColor} {...newProps} {..._text}>
+    <Text color={textColor} {...newProps} {..._text} ref={ref}>
       {children}
     </Text>
   );
 };
-export default React.memo(AlertTitle);
+export default React.memo(React.forwardRef(AlertTitle));

@@ -5,7 +5,7 @@ import { Animated, Platform } from 'react-native';
 import type { ISlideFadeProps } from './types';
 import { canUseDom } from '../../../utils';
 
-const SlideFade = ({ children, ...props }: ISlideFadeProps) => {
+const SlideFade = ({ children, ...props }: ISlideFadeProps, ref?: any) => {
   const isDomUsable = canUseDom();
 
   const { in: animationState, duration, offsetX, offsetY } = useThemeProps(
@@ -66,10 +66,11 @@ const SlideFade = ({ children, ...props }: ISlideFadeProps) => {
           transform: [{ translateX: slideAnimX, translateY: slideAnimY }],
         },
       ]}
+      ref={ref}
     >
       <Box {...props}>{children}</Box>
     </Animated.View>
   );
 };
 
-export default React.memo(SlideFade);
+export default React.memo(React.forwardRef(SlideFade));

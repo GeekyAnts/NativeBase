@@ -8,32 +8,28 @@ import { useTabsState } from '@react-stately/tabs';
 import TabViews from './TabViews';
 import TabBar from './TabBar';
 import { useTabs } from '@react-native-aria/tabs';
-
+import { mergeRefs } from '../../../utils';
 const getTabsAndBars = (children: any) => {
   let bars: any = [];
   let views: any = [];
   let items = React.Children.toArray(children);
-  let tabBarProps = {};
-  let tabViewsProps = {};
-
+  let tabBarProps: any = { props: {}, ref: undefined };
+  let tabViewsProps = { props: {}, ref: undefined };
   items.forEach((item: any) => {
     if (item.type) {
       if (item.type.displayName === 'TabBar') {
         bars = bars.concat(item.props.children);
-        tabBarProps = item.props;
+        tabBarProps = { props: item.props, ref: item.ref };
       } else if (item.type.displayName === 'TabViews') {
         views = views.concat(item.props.children);
-        tabViewsProps = item.props;
+        tabViewsProps = { props: item.props, ref: item.ref };
       }
     }
   });
-
   return { views, bars, tabViewsProps, tabBarProps };
 };
-
 const convertToCollectionItems = (children: any) => {
   const { views, bars } = getTabsAndBars(children);
-
   return bars.map((bar: any, index: number) => {
     let textValue;
     if (bar.props.accessibilityLabel) {
@@ -43,7 +39,6 @@ const convertToCollectionItems = (children: any) => {
     } else if (__DEV__) {
       console.warn('Please pass accessibilityLabel into Tabs.Tab component');
     }
-
     return (
       <Item key={index} title={bar} textValue={textValue}>
         {views[index]}
@@ -51,7 +46,6 @@ const convertToCollectionItems = (children: any) => {
     );
   });
 };
-
 const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
   const {
     onChange,
@@ -64,11 +58,9 @@ const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
     align,
     ...newProps
   } = useThemeProps('Tabs', props);
-
   // useTabsState needs collection children.
   const collectionChildren = convertToCollectionItems(children);
   const { tabBarProps, tabViewsProps } = getTabsAndBars(children);
-
   const mappedProps = {
     children: collectionChildren,
     defaultSelectedKey:
@@ -79,10 +71,8 @@ const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
     onSelectionChange: (e: any) => onChange && onChange(parseInt(e)),
     keyboardActivation: props.keyboardActivation,
   };
-
   // useTabsState needs collection children.
   let state = useTabsState(mappedProps);
-
   const setAlign = () => {
     switch (align) {
       case 'start':
@@ -95,10 +85,8 @@ const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
         return 'flex-start';
     }
   };
-
   let tablistRef = React.useRef<any>();
   let { tabListProps, tabPanelProps } = useTabs(mappedProps, state, tablistRef);
-
   return (
     <TabsContext.Provider
       value={{
@@ -115,15 +103,18 @@ const Tabs = ({ children, ...props }: ITabsProps, ref: any) => {
       <Box width="100%" {...newProps} ref={ref}>
         <TabBar
           tabListProps={tabListProps}
-          {...tabBarProps}
-          tablistRef={tablistRef}
+          {...tabBarProps.props}
+          tablistRef={mergeRefs([tablistRef, tabBarProps.ref])}
         />
-        <TabViews {...tabPanelProps} {...tabViewsProps}>
+        <TabViews
+          {...tabPanelProps}
+          {...tabViewsProps.props}
+          ref={tabViewsProps.ref}
+        >
           {state.selectedItem && state.selectedItem.props.children}
         </TabViews>
       </Box>
     </TabsContext.Provider>
   );
 };
-
 export default React.memo(React.forwardRef(Tabs));

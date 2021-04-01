@@ -6,7 +6,7 @@ import Icon from '../Icon';
 import { useThemeProps } from '../../../hooks';
 import type { ISliderProps, ISliderContextProps } from './types';
 
-const SliderThumb = ({ children, ...props }: ISliderProps) => {
+const SliderThumb = ({ children, ...props }: ISliderProps, ref?: any) => {
   const { ...newProps } = useThemeProps('SliderThumb', props);
   const {
     sliderOffset = 0,
@@ -55,6 +55,7 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
           : customStyle.horizontalStyle,
       ]}
       {...panResponder.panHandlers}
+      ref={ref}
     >
       <Box
         cursor={
@@ -91,4 +92,4 @@ const SliderThumb = ({ children, ...props }: ISliderProps) => {
   );
 };
 
-export default SliderThumb;
+export default React.forwardRef(SliderThumb);

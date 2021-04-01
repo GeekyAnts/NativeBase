@@ -12,11 +12,7 @@ import type {
 } from './types';
 import { Overlay } from '../../../core/Overlay/Overlay';
 import { useControllableState } from '../../../hooks';
-import { PopoverContent } from './PopoverContent';
-import PopoverBody from './PopoverBody';
-import PopoverCloseButton from './PopoverCloseButton';
-import PopoverFooter from './PopoverFooter';
-import PopoverHeader from './PopoverHeader';
+
 import Box from '../../primitives/Box';
 import { PopoverContext } from './PopoverContext';
 
@@ -237,68 +233,70 @@ export const useElementByType = (children: React.ReactNode, name: string) => {
   return element;
 };
 // This component just uses original Popover by wrapping it with OverlayContainer, to make sure it gets rendered in OverlayProvider
-const PopoverWithOverlayContainer = (props: IPopoverProps) => {
-  let triggerRef = React.useRef<any>(null);
+const PopoverWithOverlayContainer = React.forwardRef(
+  (props: IPopoverProps, ref?: any) => {
+    let triggerRef = React.useRef<any>(null);
 
-  const [isOpen, setIsOpen] = useControllableState({
-    defaultValue: props.defaultIsOpen,
-    value: props.isOpen,
-    onChange: (val) => {
-      if (val) {
-        props.onOpen && props.onOpen();
-      } else {
-        props.onClose && props.onClose();
-      }
-    },
-  });
-
-  let triggerElem = null;
-
-  // Received a trigger ref
-  if (props.trigger.hasOwnProperty('current')) {
-    // @ts-ignore
-    triggerRef = props.trigger;
-  }
-  // Received a trigger function
-  else if (typeof props.trigger === 'function') {
-    triggerElem = props.trigger(
-      {
-        onPress: () => setIsOpen(true),
-        ref: triggerRef,
-        accessibilityRole: 'button',
+    const [isOpen, setIsOpen] = useControllableState({
+      defaultValue: props.defaultIsOpen,
+      value: props.isOpen,
+      onChange: (val: any) => {
+        if (val) {
+          props.onOpen && props.onOpen();
+        } else {
+          props.onClose && props.onClose();
+        }
       },
-      { open: isOpen }
+    });
+
+    let triggerElem = null;
+
+    // Received a trigger ref
+    if (props.trigger.hasOwnProperty('current')) {
+      // @ts-ignore
+      triggerRef = props.trigger;
+    }
+    // Received a trigger function
+    else if (typeof props.trigger === 'function') {
+      triggerElem = props.trigger(
+        {
+          onPress: () => setIsOpen(true),
+          ref: triggerRef,
+          accessibilityRole: 'button',
+        },
+        { open: isOpen }
+      );
+    }
+
+    const handleClose = () => {
+      setIsOpen(false);
+    };
+
+    // let Parent = ({ children }: any) =>
+    //   props.trapFocus ? <FocusScope> {children} </FocusScope> : children;
+
+    return (
+      <Box ref={ref}>
+        {triggerElem}
+        <Overlay
+          isOpen={isOpen}
+          closeOnBlur={props.closeOnBlur}
+          onClose={handleClose}
+        >
+          <PopoverContext.Provider value={{ onClose: handleClose }}>
+            {/* <Parent> */}
+            <PopoverImpl
+              {...props}
+              onClose={handleClose}
+              triggerRef={triggerRef}
+            />
+            {/* </Parent> */}
+          </PopoverContext.Provider>
+        </Overlay>
+      </Box>
     );
   }
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
-  // let Parent = ({ children }: any) =>
-  //   props.trapFocus ? <FocusScope> {children} </FocusScope> : children;
-
-  return (
-    <>
-      {triggerElem}
-      <Overlay
-        isOpen={isOpen}
-        closeOnBlur={props.closeOnBlur}
-        onClose={handleClose}
-      >
-        <PopoverContext.Provider value={{ onClose: handleClose }}>
-          {/* <Parent> */}
-          <PopoverImpl
-            {...props}
-            onClose={handleClose}
-            triggerRef={triggerRef}
-          />
-          {/* </Parent> */}
-        </PopoverContext.Provider>
-      </Overlay>
-    </>
-  );
-};
+);
 
 export const PopoverArrow = (_props: IPopoverArrowProps) => {
   return <></>;
@@ -306,11 +304,11 @@ export const PopoverArrow = (_props: IPopoverArrowProps) => {
 
 PopoverArrow.displayName = 'PopoverArrow';
 
-PopoverWithOverlayContainer.Content = PopoverContent;
-PopoverWithOverlayContainer.Arrow = PopoverArrow;
-PopoverWithOverlayContainer.CloseButton = PopoverCloseButton;
-PopoverWithOverlayContainer.Header = PopoverHeader;
-PopoverWithOverlayContainer.Footer = PopoverFooter;
-PopoverWithOverlayContainer.Body = PopoverBody;
+// PopoverWithOverlayContainer.Content = PopoverContent;
+// PopoverWithOverlayContainer.Arrow = PopoverArrow;
+// PopoverWithOverlayContainer.CloseButton = PopoverCloseButton;
+// PopoverWithOverlayContainer.Header = PopoverHeader;
+// PopoverWithOverlayContainer.Footer = PopoverFooter;
+// PopoverWithOverlayContainer.Body = PopoverBody;
 
 export { PopoverWithOverlayContainer as Popover };

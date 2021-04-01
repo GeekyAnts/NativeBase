@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import Box from '../Box';
 import type { ISliderProps, ISliderContextProps } from './types';
 
-const SliderFilledTrack = ({ style, ...props }: ISliderProps) => {
+const SliderFilledTrack = ({ style, ...props }: ISliderProps, ref?: any) => {
   const {
     isReversed,
     colorScheme,
@@ -41,8 +41,9 @@ const SliderFilledTrack = ({ style, ...props }: ISliderProps) => {
           ? customStyle.verticalStyle
           : customStyle.horizontalStyle,
       ]}
+      ref={ref}
     />
   );
 };
 
-export default SliderFilledTrack;
+export default React.forwardRef(SliderFilledTrack);

@@ -1,5 +1,5 @@
 import isNil from 'lodash/isNil';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, forwardRef } from 'react';
 import { ViewStyle, LayoutAnimation, UIManager, Platform } from 'react-native';
 import { Box, IBoxProps } from '../../primitives';
 
@@ -25,16 +25,19 @@ function usePrevious(value: any) {
   return { value: ref.current, updatePrevious };
 }
 
-const Collapse = ({
-  endingHeight,
-  startingHeight,
-  duration,
-  // animateOpacity,
-  isOpen,
-  onAnimationEnd,
-  onAnimationStart,
-  ...props
-}: ICollapseProps) => {
+const Collapse = (
+  {
+    endingHeight,
+    startingHeight,
+    duration,
+    // animateOpacity,
+    isOpen,
+    onAnimationEnd,
+    onAnimationStart,
+    ...props
+  }: ICollapseProps,
+  ref?: any
+) => {
   if (Platform.OS === 'android') {
     UIManager.setLayoutAnimationEnabledExperimental &&
       UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -84,6 +87,7 @@ const Collapse = ({
     <Box
       style={{ ...animatedStyle, ...(Platform.OS === 'web' && _web) }}
       overflow="hidden"
+      ref={ref}
     >
       <Box
         overflow={Platform.OS === 'web' ? 'auto' : 'scroll'}
@@ -94,4 +98,4 @@ const Collapse = ({
   );
 };
 
-export default React.memo(Collapse);
+export default React.memo(forwardRef(Collapse));

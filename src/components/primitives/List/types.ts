@@ -26,9 +26,19 @@ export type IListItemProps = IBoxProps & {
   start?: number;
   _text?: any;
 };
-export type IListComponentType = ((props: IListProps) => JSX.Element) & {
-  Item: React.MemoExoticComponent<(props: IListItemProps) => JSX.Element>;
-  Icon: React.MemoExoticComponent<(props: IIconProps) => JSX.Element>;
-  Ordered: React.MemoExoticComponent<(props: IListProps) => JSX.Element>;
-  Unordered: React.MemoExoticComponent<(props: IListProps) => JSX.Element>;
+export type IListComponentType = ((
+  props: IListProps & { ref?: any }
+) => JSX.Element) & {
+  Item: React.MemoExoticComponent<
+    (props: IListItemProps & { ref?: any }) => JSX.Element
+  >;
+  Icon: React.MemoExoticComponent<
+    (props: IIconProps & { ref?: any }) => JSX.Element
+  >;
+  Ordered: React.MemoExoticComponent<
+    (props: IListProps & { ref?: any }) => JSX.Element
+  >;
+  Unordered: React.MemoExoticComponent<
+    (props: IListProps & { ref?: any }) => JSX.Element
+  >;
 };

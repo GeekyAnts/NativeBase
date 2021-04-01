@@ -3,13 +3,17 @@ import { Modal } from '../../composites/Modal';
 import type { IActionsheetContentProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
-const ActionsheetContent = ({
-  children,
-  ...props
-}: IActionsheetContentProps) => {
+const ActionsheetContent = (
+  { children, ...props }: IActionsheetContentProps,
+  ref?: any
+) => {
   const newProps = useThemeProps('ActionsheetContent', props);
 
-  return <Modal.Content {...newProps}>{children}</Modal.Content>;
+  return (
+    <Modal.Content {...newProps} ref={ref}>
+      {children}
+    </Modal.Content>
+  );
 };
 
-export default React.memo(ActionsheetContent);
+export default React.memo(React.forwardRef(ActionsheetContent));

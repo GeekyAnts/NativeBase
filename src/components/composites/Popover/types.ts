@@ -1,5 +1,6 @@
 import type { ColorValue } from 'react-native';
 import type { IBoxProps } from '../../primitives/Box';
+import type { ICloseButtonProps } from '../../composites/CloseButton';
 
 export type IPopoverArrowProps = {
   height?: number;
@@ -75,4 +76,27 @@ export type IScrollContentStyle = {
 
 export type IPopoverContentProps = IBoxProps & {
   isUnstyled?: boolean;
+};
+
+export type IPopoverComponentType = ((
+  props: IPopoverProps & { ref?: any }
+) => JSX.Element & { ref?: any }) & {
+  Body: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  CloseButton: React.MemoExoticComponent<
+    (props: ICloseButtonProps & { ref?: any }) => JSX.Element
+  >;
+  Content: React.MemoExoticComponent<
+    (props: IPopoverContentProps & { ref?: any }) => JSX.Element
+  >;
+  Footer: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  Header: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  Arrow: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
 };

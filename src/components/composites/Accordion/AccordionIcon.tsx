@@ -4,16 +4,22 @@ import type { IAccordionIconProps, IAccordionItemContextProps } from './types';
 import { AccordionItemContext } from './Context';
 import { useThemeProps } from '../../../hooks';
 
-const AccordionIcon = ({ ...props }: IAccordionIconProps) => {
+const AccordionIcon = ({ ...props }: IAccordionIconProps, ref?: any) => {
   const { isOpen }: IAccordionItemContextProps = React.useContext(
     AccordionItemContext
   );
   const { ...newProps } = useThemeProps('AccordionIcon', props);
   return isOpen ? (
-    <Icon name={'chevron-small-up'} color="white" type="Entypo" {...newProps} />
+    <Icon
+      name={'chevron-small-up'}
+      color="white"
+      type="Entypo"
+      {...newProps}
+      ref={ref}
+    />
   ) : (
-    <Icon name={'chevron-small-down'} type="Entypo" {...newProps} />
+    <Icon name={'chevron-small-down'} type="Entypo" {...newProps} ref={ref} />
   );
 };
 
-export default React.memo(AccordionIcon);
+export default React.memo(React.forwardRef(AccordionIcon));

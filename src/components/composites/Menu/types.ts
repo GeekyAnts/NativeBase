@@ -49,6 +49,7 @@ export type IMenuProps = BorderProps &
     offsetSpace?: number;
     closeOnSelect?: boolean;
     style?: ViewStyle;
+    isOpen?: boolean;
   } & IPopoverProps;
 
 export type IMenuItemProps = IBoxProps &
@@ -91,13 +92,19 @@ export type IMenuOptionContextProps = {
   type: 'radio' | 'checkbox';
 };
 
-export type IMenuComponent = ((props: IMenuProps) => JSX.Element) & {
-  Item: React.MemoExoticComponent<(props: IMenuItemProps) => JSX.Element>;
-  Group: React.MemoExoticComponent<(props: IMenuGroupProps) => JSX.Element>;
+export type IMenuComponent = ((
+  props: IMenuProps & { ref?: any }
+) => JSX.Element) & {
+  Item: React.MemoExoticComponent<
+    (props: IMenuItemProps & { ref?: any }) => JSX.Element
+  >;
+  Group: React.MemoExoticComponent<
+    (props: IMenuGroupProps & { ref?: any }) => JSX.Element
+  >;
   ItemOption: React.MemoExoticComponent<
-    (props: IMenuItemOptionProps) => JSX.Element
+    (props: IMenuItemOptionProps & { ref?: any }) => JSX.Element
   >;
   OptionGroup: React.MemoExoticComponent<
-    (props: IMenuOptionGroupProps) => JSX.Element
+    (props: IMenuOptionGroupProps & { ref?: any }) => JSX.Element
   >;
 };

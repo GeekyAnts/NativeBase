@@ -3,8 +3,9 @@ import { useThemeProps } from '../../../hooks';
 import { useFormControlContext } from '../FormControl';
 import type { INumberInputProps } from './types';
 import { NumberInputContext } from './Context';
+import Box from '../../primitives/Box';
 
-const NumberInput = ({ children, ...props }: INumberInputProps) => {
+const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
   const {
     defaultValue,
     keepWithinRange,
@@ -40,23 +41,25 @@ const NumberInput = ({ children, ...props }: INumberInputProps) => {
       setNumberInputValue(value);
   }, [value, numberInputValue, setNumberInputValue]);
   return (
-    <NumberInputContext.Provider
-      value={{
-        ...formControlContext,
-        ...newProps,
-        min,
-        max,
-        handleChange,
-        handleChangeWithoutCheck,
-        numberInputValue,
-        numberInputStepper,
-        setNumberInputStepper,
-        isControlled: value !== undefined,
-      }}
-    >
-      {children}
-    </NumberInputContext.Provider>
+    <Box ref={ref}>
+      <NumberInputContext.Provider
+        value={{
+          ...formControlContext,
+          ...newProps,
+          min,
+          max,
+          handleChange,
+          handleChangeWithoutCheck,
+          numberInputValue,
+          numberInputStepper,
+          setNumberInputStepper,
+          isControlled: value !== undefined,
+        }}
+      >
+        {children}
+      </NumberInputContext.Provider>
+    </Box>
   );
 };
 
-export default React.memo(NumberInput);
+export default React.memo(React.forwardRef(NumberInput));

@@ -22,7 +22,13 @@ export type IAvatarGroupProps = IAvatarProps & {
   max?: number;
 };
 
-export type IAvatarComponentType = ((props: IAvatarProps) => JSX.Element) & {
-  Group: React.MemoExoticComponent<(props: IAvatarGroupProps) => JSX.Element>;
-  Badge: React.MemoExoticComponent<(props: IAvatarBadgeProps) => JSX.Element>;
+export type IAvatarComponentType = ((
+  props: IAvatarProps & { ref?: any }
+) => JSX.Element) & {
+  Group: React.MemoExoticComponent<
+    (props: IAvatarGroupProps & { ref?: any }) => JSX.Element
+  >;
+  Badge: React.MemoExoticComponent<
+    (props: IAvatarBadgeProps & { ref?: any }) => JSX.Element
+  >;
 };
