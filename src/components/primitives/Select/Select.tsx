@@ -104,6 +104,7 @@ const Select = (
         <>
           <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}>
             <select
+              {...selectProps}
               disabled={isDisabled}
               {...focusProps}
               {...hoverProps}
