@@ -11,7 +11,7 @@ export default function () {
         An accessible & utility-first component library to build your design
         system for all the platforms (web in beta).
       </Text>
-      <Button size="lg" colorScheme="green" mt="24px">
+      <Button size="md" colorScheme="green" mt="24px">
         Let's get started
       </Button>
     </Box>

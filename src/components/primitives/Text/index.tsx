@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text as NativeText } from 'react-native';
+import { useTheme } from '../../../hooks';
 import styled from 'styled-components/native';
 import {
   color,
@@ -22,6 +23,34 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import type { ITextProps } from './types';
+
+type IUseResolvedFontFamily = {
+  fontFamily: string;
+  fontStyle: string;
+  fontWeight: string | number;
+};
+
+// Android doesn't support fontWeight or fontStyle properties. So, we pass fontFamily instead.
+function useResolvedFontFamily(props: IUseResolvedFontFamily) {
+  const { fontFamily, fontStyle, fontWeight } = props;
+
+  const { customFonts, fontWeights, fonts } = useTheme();
+  const fontToken = fonts[fontFamily];
+
+  if (customFonts && customFonts[fontToken]) {
+    // fontWeights are also specified using "400"
+    const parsedFontWeight = parseInt(fontWeight as any);
+    let fontWeightNumber = Number.isNaN(parsedFontWeight)
+      ? fontWeights[fontWeight]
+      : fontWeight;
+    let fontVariants = customFonts[fontToken][fontWeightNumber];
+    if (typeof fontVariants === 'object') {
+      if (fontVariants[fontStyle]) return fontVariants[fontStyle];
+    } else {
+      return fontVariants;
+    }
+  }
+}
 
 const StyledText = styled(NativeText)<ITextProps>(
   color,
@@ -52,14 +81,32 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     highlight,
     underline,
     strikeThrough,
+    fontFamily: propFontFamily,
+    fontWeight: propFontWeight,
+    fontStyle: propFontStyle,
     ...newProps
   } = useThemeProps('Text', props);
+
+  let fontFamily = propFontFamily;
+  let fontStyle = italic ? 'italic' : propFontStyle;
+  let fontWeight = bold ? 'bold' : propFontWeight;
+
+  const resolvedFontFamily = useResolvedFontFamily({
+    fontFamily,
+    fontWeight,
+    fontStyle,
+  });
+
+  if (resolvedFontFamily) {
+    fontFamily = resolvedFontFamily;
+  }
+
   return (
     <StyledText
       {...newProps}
       numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : undefined}
-      fontWeight={bold ? 'bold' : newProps.fontWeight}
-      fontStyle={italic ? 'italic' : newProps.fontStyle}
+      fontWeight={bold ? 'bold' : fontWeight}
+      fontStyle={italic ? 'italic' : fontStyle}
       bg={highlight ? 'warning.200' : newProps.bg}
       textDecorationLine={
         underline
@@ -70,6 +117,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
       }
       fontSize={sub ? 10 : newProps.fontSize}
       ref={ref}
+      fontFamily={fontFamily}
     >
       {children}
     </StyledText>
