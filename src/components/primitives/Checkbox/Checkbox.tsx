@@ -138,7 +138,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
           outlineStyle={'solid'}
         >
           <VisuallyHidden>
-            <input {...inputProps} {...focusProps} ref={mergedRef}></input>
+            <input {...inputProps} {...focusProps} ref={mergedRef} />
           </VisuallyHidden>
 
           {component}

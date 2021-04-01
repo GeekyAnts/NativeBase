@@ -156,7 +156,7 @@ const PopoverArrowImpl = ({
   }
 
   return (
-    <Box style={[triangle, additionalStyles, arrowProps.style]} {...rest}></Box>
+    <Box style={[triangle, additionalStyles, arrowProps.style]} {...rest} />
   );
 };
 

@@ -6,13 +6,16 @@ const baseStyle = {
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
+  _text: {
+    fontWeight: 500,
+  },
 };
 function variantGhost(props: Dict) {
   const { colorScheme: c } = props;
-  if (c === 'gray') {
+  if (c === 'muted') {
     return {
       _text: {
-        color: mode(`gray.500`, `white`)(props),
+        color: mode(`muted.500`, `white`)(props),
       },
     };
   }
@@ -27,11 +30,11 @@ function variantGhost(props: Dict) {
 
 function variantOutline(props: Dict) {
   const { colorScheme: c } = props;
-  const borderColor = mode(`gray.200`, `gray.500`)(props);
+  const borderColor = mode(`muted.200`, `muted.500`)(props);
   return {
     border: '1px solid',
     borderColor:
-      c === 'gray' ? borderColor : mode(`${c}.500`, `${c}.200`)(props),
+      c === 'muted' ? borderColor : mode(`${c}.500`, `${c}.200`)(props),
     ...variantGhost(props),
   };
 }
@@ -53,20 +56,12 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
 
 function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
-  if (c === 'gray')
-    return {
-      bg: mode(`gray.100`, `gray.800`)(props),
-      _text: {
-        color: mode(`gray.100`, `gray.800`)(props),
-      },
-    };
   const { bg = `${c}.500` } = accessibleColorMap[c] || {};
   return {
     bg: mode(bg, `${c}.400`)(props),
-    shadow: 4,
-
+    shadow: 3,
     _text: {
-      color: mode(`gray.100`, `gray.800`)(props),
+      color: mode('white', 'black')(props),
     },
   };
 }
@@ -75,23 +70,18 @@ function variantLink(props: Dict) {
   const { colorScheme: c } = props;
 
   return {
-    padding: 0,
-    height: 'auto',
     _text: {
       textDecorationLine: 'underline',
       color:
-        c === 'gray'
-          ? mode(`gray.800`, `${c}.200`)(props)
+        c === 'muted'
+          ? mode(`muted.800`, `${c}.200`)(props)
           : mode(`${c}.500`, `${c}.200`)(props),
     },
   };
 }
 
 function variantUnstyled() {
-  return {
-    m: 0,
-    p: 0,
-  };
+  return {};
 }
 
 const variants = {
@@ -104,40 +94,33 @@ const variants = {
 
 const sizes = {
   lg: {
-    minH: 12,
-    minW: 12,
+    px: 6,
+    py: 3,
     _text: {
       fontSize: 'lg',
     },
-    px: 6,
-    py: 5,
   },
   md: {
-    minH: 10,
-    minW: 10,
+    px: 4,
+    py: 2,
     _text: {
       fontSize: 'md',
+      lineHeight: 5,
     },
-    px: 4,
-    py: 3,
   },
   sm: {
-    minH: 8,
-    minW: 8,
+    px: 4,
+    py: 2,
     _text: {
       fontSize: 'sm',
     },
-    px: 3,
-    py: 2,
   },
   xs: {
-    minH: 6,
-    minW: 6,
+    px: 2,
+    py: 1,
     _text: {
       fontSize: 'xs',
     },
-    px: 2,
-    py: 1,
   },
 };
 
@@ -145,9 +128,6 @@ const defaultProps = {
   variant: 'solid',
   size: 'md',
   colorScheme: 'primary',
-  _text: {
-    fontWeight: 'semibold',
-  },
 };
 
 export default {

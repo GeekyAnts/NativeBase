@@ -3,7 +3,6 @@ import { mode } from './../tools';
 const baseStyle = (props: Record<string, any>) => {
   return {
     color: mode('muted.800', 'white')(props),
-    fontWeight: 'bold',
   };
 };
 
@@ -17,17 +16,43 @@ function sizes(props: Record<string, any>) {
     return { fontSize: size };
   } else {
     return {
-      '2xl': { fontSize: '4xl' },
-      'xl': { fontSize: '3xl' },
-      'lg': { fontSize: '2xl' },
-      'md': { fontSize: 'xl' },
-      'sm': { fontSize: 'md' },
-      'xs': { fontSize: 'sm' },
+      '2xl': {
+        fontSize: '6xl',
+        fontWeight: 'light',
+        letterSpacing: 'xxs',
+      },
+      'xl': {
+        fontSize: '5xl',
+        fontWeight: 'light',
+        letterSpacing: 'xs',
+      },
+      'lg': {
+        fontSize: '4xl',
+        fontWeight: 'normal',
+        letterSpacing: 'sm',
+      },
+      'md': {
+        fontSize: '3xl',
+        fontWeight: 'normal',
+        letterSpacing: 'xl',
+      },
+      'sm': {
+        fontSize: 'xl',
+        fontWeight: 'normal',
+        letterSpacing: 'sm',
+      },
+      'xs': {
+        fontSize: 'lg',
+        fontWeight: 'medium',
+        letterSpacing: 'lg',
+      },
     };
   }
 }
 
-const defaultProps = { size: 'xl' };
+const defaultProps = {
+  size: 'md',
+};
 
 export default {
   baseStyle,

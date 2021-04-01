@@ -18,6 +18,7 @@
       "@react-native-aria/overlays": "^0.2.9",
       "@react-native-async-storage/async-storage": "^1.13.2",
       "expo": "~40.0.0",
+      "expo-font": "~8.4.0",
       "expo-splash-screen": "^0.8.1",
       "expo-status-bar": "~1.0.3",
       "formik": "^2.2.6",

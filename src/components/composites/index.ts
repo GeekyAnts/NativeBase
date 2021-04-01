@@ -15,9 +15,6 @@ export { Avatar } from './Avatar';
 export { Breadcrumb } from './Breadcrumb';
 export type { IBreadcrumbProps } from './Breadcrumb';
 
-export { default as CloseButton } from './CloseButton';
-export type { ICloseButtonProps } from './CloseButton';
-
 export { default as Container } from './Container';
 export type { IContainerProps } from './Container';
 

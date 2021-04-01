@@ -1,6 +1,6 @@
 import type { ColorValue } from 'react-native';
 import type { IBoxProps } from '../../primitives/Box';
-import type { ICloseButtonProps } from '../../composites/CloseButton';
+import type { IIconButtonProps } from '../../composites/IconButton';
 
 export type IPopoverArrowProps = {
   height?: number;
@@ -85,7 +85,7 @@ export type IPopoverComponentType = ((
     (props: IBoxProps & { ref?: any }) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
-    (props: ICloseButtonProps & { ref?: any }) => JSX.Element
+    (props: IIconButtonProps & { ref?: any }) => JSX.Element
   >;
   Content: React.MemoExoticComponent<
     (props: IPopoverContentProps & { ref?: any }) => JSX.Element

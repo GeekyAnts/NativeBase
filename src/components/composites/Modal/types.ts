@@ -16,7 +16,7 @@ import type {
   customShadowProps,
 } from '../../../utils/customProps';
 import type { IBoxProps } from '../../primitives';
-import type { ICloseButtonProps } from '..';
+import type { IIconButtonProps } from '../../composites/IconButton';
 type SpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 export type IModalSemiProps = ModalProps &
   ColorProps &
@@ -65,7 +65,7 @@ export type IModalComponentType = ((
     (props: IBoxProps & { ref?: any }) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
-    (props: ICloseButtonProps & { ref?: any }) => JSX.Element
+    (props: IIconButtonProps & { ref?: any }) => JSX.Element
   >;
   Content: React.MemoExoticComponent<
     (props: IBoxProps & { ref?: any }) => JSX.Element

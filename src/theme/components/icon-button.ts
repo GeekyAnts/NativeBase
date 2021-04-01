@@ -11,16 +11,13 @@ const defaultProps = {
 
 const sizes = {
   lg: {
-    size: 16,
-    p: 2,
+    p: 4,
   },
   md: {
-    size: 12,
-    p: 1,
+    p: 3,
   },
   sm: {
-    size: 8,
-    p: 0,
+    p: 2,
   },
 };
 

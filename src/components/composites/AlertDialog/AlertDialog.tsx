@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, IModalProps } from '../Modal';
 import type { IBoxProps } from '../../primitives/Box';
-import type { ICloseButtonProps } from '../CloseButton';
+import type { IIconButtonProps } from '../IconButton';
 
 export interface IAlertDialogProps
   extends Omit<IModalProps, 'initialFocusRef'> {
@@ -14,7 +14,7 @@ export type IAlertDialogComponentType = ((
     (props: IBoxProps & { ref?: any }) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
-    (props: ICloseButtonProps & { ref?: any }) => JSX.Element
+    (props: IIconButtonProps & { ref?: any }) => JSX.Element
   >;
   Content: React.MemoExoticComponent<
     (props: IBoxProps & { ref?: any }) => JSX.Element
