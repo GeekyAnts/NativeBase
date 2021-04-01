@@ -59,7 +59,8 @@ const Button = (
     ...props,
     size,
   });
-  let [layoutProps, viewProps] = themeTools.extractInObject(newProps, [
+
+  const [layoutProps, viewProps] = themeTools.extractInObject(newProps, [
     'm',
     'margin',
     'mt',
@@ -98,7 +99,7 @@ const Button = (
     'height',
     'width',
   ]);
-  let [
+  const [
     accessibilityProps,
     innerButtonProps,
   ] = themeTools.extractInObject(viewProps, [
