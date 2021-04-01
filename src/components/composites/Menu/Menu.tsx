@@ -1,8 +1,9 @@
 import React from 'react';
 import type { IMenuProps } from './types';
-import View from '../../primitives/View';
+import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
 import { Popover } from '../Popover';
+import { ScrollView } from 'react-native';
 
 export const MenuContext = React.createContext({ closeOnSelect: true });
 
@@ -30,12 +31,13 @@ export const Menu = React.memo(
           trigger={trigger}
           placement={props.placement ?? 'bottom left'}
           trapFocus
+          shouldOverlapWithTrigger
         >
           <Popover.Content isUnstyled>
             <MenuContext.Provider value={{ closeOnSelect }}>
-              <View {...newProps} ref={ref}>
-                {children}
-              </View>
+              <Box {...newProps} ref={ref}>
+                <ScrollView>{children}</ScrollView>
+              </Box>
             </MenuContext.Provider>
           </Popover.Content>
         </Popover>

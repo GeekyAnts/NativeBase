@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Icon, IconNameType } from '../../primitives';
+import { Flex, Icon } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import { MenuItem } from './MenuItem';
 import type { IMenuItemOptionProps, IMenuOptionContextProps } from './types';
@@ -7,31 +7,24 @@ import { MenuOptionContext } from './MenuOptionGroup';
 
 export const MenuItemOption = React.memo(
   ({ value, children, onPress, ...props }: IMenuItemOptionProps) => {
-    const {
-      values,
-      onChange,
-      type,
-    }: IMenuOptionContextProps = React.useContext(MenuOptionContext);
+    const { values, onChange }: IMenuOptionContextProps = React.useContext(
+      MenuOptionContext
+    );
     const modifiedOnPress = (e: any) => {
       onChange(value);
       onPress && onPress(e);
     };
-    let iconName: IconNameType =
-      type === 'checkbox'
-        ? values.includes(value)
-          ? 'check-box'
-          : 'check-box-outline-blank'
-        : values.includes(value)
-        ? 'radio-button-checked'
-        : 'radio-button-unchecked';
+
     const newProps = useThemeProps('MenuItem', props);
+
     return (
-      <MenuItem {...props} px={0} py={0} onPress={modifiedOnPress}>
-        <Flex direction="row" px={newProps.px} py={newProps.py}>
+      <MenuItem {...props} onPress={modifiedOnPress}>
+        <Flex direction="row" px={newProps.px} alignItems="center">
           <Icon
-            name={iconName}
-            pr={newProps.px}
+            name="check"
+            pr={newProps.p}
             size={newProps._text.fontSize}
+            opacity={values.includes(value) ? 1 : 0}
           />
           {children}
         </Flex>

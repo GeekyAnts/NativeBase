@@ -1,6 +1,6 @@
 import React from 'react';
 import { useOverlayPosition } from '@react-native-aria/overlays';
-import { ScrollView, View, ViewStyle } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import type {
   IPopoverArrowImplProps,
   IPopoverArrowProps,
@@ -122,11 +122,7 @@ const PopoverContentImpl = (props: IPopoverContentImpl) => {
     [props.arrowHeight, arrowWidth, placement]
   );
 
-  return (
-    <ScrollView contentContainerStyle={scrollContainerStyle}>
-      {props.children}
-    </ScrollView>
-  );
+  return <View style={scrollContainerStyle}>{props.children}</View>;
 };
 
 // This is an internal implementation of PopoverArrow
