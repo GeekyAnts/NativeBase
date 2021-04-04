@@ -12,6 +12,9 @@ export default function () {
           <Actionsheet.Item>Option 1</Actionsheet.Item>
           <Actionsheet.Item>Option 2</Actionsheet.Item>
           <Actionsheet.Item>Option 3</Actionsheet.Item>
+          <Actionsheet.Item>Option 4</Actionsheet.Item>
+          <Actionsheet.Item>Option 5</Actionsheet.Item>
+          <Actionsheet.Item>Option 6</Actionsheet.Item>
         </Actionsheet.Content>
       </Actionsheet>
     </>
