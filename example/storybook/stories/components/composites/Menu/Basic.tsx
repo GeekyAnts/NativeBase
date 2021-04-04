@@ -1,18 +1,24 @@
 import React from 'react';
-import { Menu, Divider, IconButton, Icon } from 'native-base';
+import { Menu, Divider, Icon } from 'native-base';
+import { Pressable } from 'react-native';
 
 export default function () {
   return (
     <Menu
       trigger={(triggerProps: any) => {
-        return <IconButton icon={<Icon name="menu" />} {...triggerProps} />;
+        return (
+          <Pressable {...triggerProps}>
+            <Icon name="menu" />
+          </Pressable>
+        );
       }}
     >
-      <Menu.Item isDisabled>Menu item 1</Menu.Item>
-      <Menu.Item>Menu item 2</Menu.Item>
-      <Menu.Item isDisabled>Menu item 3</Menu.Item>
+      <Menu.Item>Aria</Menu.Item>
+      <Menu.Item>Nunito Sans</Menu.Item>
+      <Menu.Item isDisabled>Tahoma</Menu.Item>
       <Divider />
-      <Menu.Item>Menu item 4</Menu.Item>
+      <Menu.Item>Roboto</Menu.Item>
+      <Menu.Item>Montserrat</Menu.Item>
     </Menu>
   );
 }

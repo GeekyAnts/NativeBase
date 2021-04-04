@@ -5,7 +5,7 @@ function baseStyle(props: Record<string, any>) {
     bg: mode(`#fff`, `gray.700`)(props),
     py: 2,
     shadow: 9,
-    borderRadius: 'sm',
+    borderRadius: 4,
   };
 }
 
@@ -16,9 +16,11 @@ export default {
 export const MenuGroup = {
   baseStyle: {
     _title: {
-      fontSize: 'md',
+      fontSize: 'sm',
+      fontWeight: 500,
     },
-    p: 2,
+    px: 5,
+    py: 4,
   },
 };
 export const MenuItem = {

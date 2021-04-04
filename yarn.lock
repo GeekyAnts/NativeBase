@@ -2300,6 +2300,16 @@
     "@react-types/listbox" "^3.1.1"
     "@react-types/shared" "^3.4.0"
 
+"@react-native-aria/overlays@^0.2.10":
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/overlays/-/overlays-0.2.10.tgz#490650786dcbe79caf5ef25ce847a1439907983d"
+  integrity sha512-yV/SY7B1Kc/XMRflQq3TlXvEVcnfMPNpgONI2yKNBjBr0+Ax4BiOR8bOSZnhs/EDiLnFdswXvx4YEOk63XxayA==
+  dependencies:
+    "@react-aria/overlays" "^3.6.0"
+    "@react-native-aria/utils" "^0.2.5"
+    "@react-stately/overlays" "^3.1.1"
+    "@react-types/overlays" "^3.4.0"
+
 "@react-native-aria/overlays@^0.2.9":
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/@react-native-aria/overlays/-/overlays-0.2.9.tgz#137748bde8030aae4b3b23af60792d3934c9341a"
@@ -10347,6 +10357,14 @@ react-native-material-ripple@^0.9.1:
   integrity sha512-dHjARdKoGD3LXwPh2TkURabywM5BfdpKc/AHplJTfBMalhVZ2bc7iJoJmNhNnmT/TZ+B3szL6uV1mO7Pv8zNeA==
   dependencies:
     prop-types "^15.5.10"
+
+react-native-popper@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/react-native-popper/-/react-native-popper-0.1.8.tgz#293c8fc6ff8886d8a1b8e1449fc676f55d51f965"
+  integrity sha512-6z7KafgAMcniOg2531G3glohBxAt5hoo682vY9iiddf4OFZBP4HV1jKagE9CHOc0g0+b/rc65n/8PuBLozblGQ==
+  dependencies:
+    "@react-native-aria/focus" "^0.2.4"
+    "@react-native-aria/overlays" "^0.2.10"
 
 react-native-safe-area-context@^3.1.9:
   version "3.1.9"
