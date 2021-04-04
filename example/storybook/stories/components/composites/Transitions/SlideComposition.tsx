@@ -6,13 +6,13 @@ export default function () {
   return (
     <>
       <Box width="90%" height="50%" alignItems="center" justifyContent="center">
-        <Heading fontSize="xs">
+        <Heading fontSize="xs" my={3}>
           This is an example to show how slider can be used.
         </Heading>
-        <Button my={2} onPress={() => setIsOpen(!isOpen)}>
+        <Button my={4} onPress={() => setIsOpen(!isOpen)}>
           Click Me to {isOpen ? 'hide' : 'show'}
         </Button>
-        <Center>
+        <Center my={4}>
           The Force is strong with this one. I have you now. Look, I ain't in
           this for your revolution, and I'm not in it for you, Princess. I
           expect to be well paid. I'm in it for the money. What!? Hey, Luke! May

@@ -9,7 +9,14 @@ export default function () {
         Click Me to {isOpen ? 'hide' : 'show'}
       </Button>
       <Fade in={isOpen}>
-        <Box p="40px" color="white" mt="4" bg="teal.500" rounded="md">
+        <Box
+          p="40px"
+          color="white"
+          mt="4"
+          bg="teal.500"
+          rounded="md"
+          _text={{ color: 'white' }}
+        >
           Fade
         </Box>
       </Fade>

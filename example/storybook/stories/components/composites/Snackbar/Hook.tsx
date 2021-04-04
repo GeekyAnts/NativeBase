@@ -1,12 +1,14 @@
 import React from 'react';
-import { Button, Alert, useSnackbar, VStack } from 'native-base';
+import { Button, Alert, useSnackbar, VStack, View } from 'native-base';
 export default function () {
   const { setSnackbar } = useSnackbar();
   const template = (
-    <Alert status="success">
-      <Alert.Icon />
-      <Alert.Description>Welldone, we are proud of you.</Alert.Description>
-    </Alert>
+    <View safeArea>
+      <Alert status="success">
+        <Alert.Icon />
+        <Alert.Description>Well done, we are proud of you.</Alert.Description>
+      </Alert>
+    </View>
   );
   return (
     <VStack space={3}>
@@ -14,7 +16,7 @@ export default function () {
         onPress={() =>
           setSnackbar(template, {
             accessibilityAnnouncement: 'Well done, we are proud of you.',
-            autoHideDuration: 1000,
+            autoHideDuration: 3000,
             accessibilityLiveRegion: 'assertive',
           })
         }
@@ -25,12 +27,12 @@ export default function () {
         onPress={() =>
           setSnackbar(template, {
             placement: 'top',
-            accessibilityAnnouncement: 'Well done, we are proud of you.',
+            accessibilityAnnouncement: 'Well one, we are proud of you.',
             accessibilityLiveRegion: 'polite',
           })
         }
       >
-        Get Snackbar With Overlay
+        Get Snackbar on Top
       </Button>
     </VStack>
   );
