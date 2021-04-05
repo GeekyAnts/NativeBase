@@ -25,19 +25,6 @@ export default (
 
   const orientation = axis === 'X' ? 'vertical' : 'horizontal';
 
-  if (divider) {
-    divider = React.cloneElement(<Box>{divider}</Box>, {
-      ...divider.props,
-      orientation,
-    });
-
-    childrenArray = childrenArray.reduce(
-      (r: any[], a: any) => r.concat(a, divider),
-      [divider]
-    );
-    childrenArray = childrenArray.slice(1, -1);
-  }
-
   let spaceValue;
   if (typeof space === 'string') {
     switch (space) {
@@ -73,17 +60,39 @@ export default (
   } else {
     spaceValue = space;
   }
+  // If there's a divider, we wrap it with a Box and apply vertical and horizontal margins else we add a spacer Box with height or width
+  if (divider) {
+    const spacingProp: object = {
+      ...(axis === 'X' ? { mx: spaceValue } : { my: spaceValue }),
+    };
 
-  const marginProp: object = {
-    ...(axis === 'X' ? { width: spaceValue } : { height: spaceValue }),
-  };
+    divider = React.cloneElement(divider, {
+      orientation,
+    });
 
-  return childrenArray.map((child: any, index: number) => {
-    return (
-      <React.Fragment key={`spaced-child-${index}`}>
-        {child}
-        {index < childrenArray.length - 1 && <Box {...marginProp} />}
-      </React.Fragment>
-    );
-  });
+    childrenArray = childrenArray.map((child: any, index: number) => {
+      return (
+        <React.Fragment key={`spaced-child-${index}`}>
+          {child}
+          {index < childrenArray.length - 1 && (
+            <Box {...spacingProp}>{divider}</Box>
+          )}
+        </React.Fragment>
+      );
+    });
+  } else {
+    const spacingProp: object = {
+      ...(axis === 'X' ? { width: spaceValue } : { height: spaceValue }),
+    };
+    childrenArray = childrenArray.map((child: any, index: number) => {
+      return (
+        <React.Fragment key={`spaced-child-${index}`}>
+          {child}
+          {index < childrenArray.length - 1 && <Box {...spacingProp} />}
+        </React.Fragment>
+      );
+    });
+  }
+
+  return childrenArray;
 };
