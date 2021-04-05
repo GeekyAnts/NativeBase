@@ -126,10 +126,20 @@ export const Alert = {
     flexWrap: 'wrap',
     colorScheme: 'primary',
     variant: 'subtle',
-    px: 4,
-    py: 3,
-    borderRadius: 'md',
+    pl: 4,
+    pr: 2,
+    pt: 4,
+    pb: 2,
     shadow: 2,
+    _actionProps: { alignSelf: 'flex-end', ml: 'auto' },
+    _text: {
+      fontSize: 'sm',
+      fontWeight: 'medium',
+      mr: { base: 4, sm: 4, lg: 24, md: 4 },
+      pb: 2,
+      lineHeight: 5,
+      color: 'gray.700',
+    },
   },
   variants,
 };
@@ -141,6 +151,8 @@ export const AlertTitle = {
     fontSize: 'md',
     fontWeight: 'semibold',
     mr: 2,
+    pb: 2,
+    lineHeight: 5,
   },
 };
 
@@ -149,8 +161,9 @@ export const AlertTitle = {
 export const AlertIcon = {
   defaultProps: {
     type: 'MaterialIcons',
-    size: 8,
-    mr: 2,
+    size: 10,
+    mr: { base: 4, sm: 4, lg: 6 },
+    mb: 2,
   },
 };
 
@@ -159,5 +172,8 @@ export const AlertDescription = {
   defaultProps: {
     fontSize: 'sm',
     fontWeight: 'medium',
+    mr: { base: 4, sm: 4, lg: 24, md: 4 },
+    pb: 2,
+    lineHeight: 5,
   },
 };

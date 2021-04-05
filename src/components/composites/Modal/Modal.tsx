@@ -118,7 +118,7 @@ const Modal = (
                 restoreFocus={!(finalFocusRef && finalFocusRef.current)}
                 autoFocus={!(initialFocusRef && initialFocusRef.current)}
               >
-                <Box ref={ref} nativeID={id} h="100%">
+                <Box ref={ref} nativeID={id} w="100%" h="100%">
                   <ModalWeb
                     initialFocusRef={initialFocusRef}
                     finalFocusRef={finalFocusRef}

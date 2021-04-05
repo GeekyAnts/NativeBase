@@ -17,15 +17,16 @@ export default function () {
           ['left-accent', 'solid', 'subtle', 'top-accent'],
           'subtle'
         )}
+        action={
+          <IconButton
+            icon={<Icon name="close" color="danger.500" size="xs" />}
+          />
+        }
+        actionProps={{ alignSelf: 'center' }}
       >
         <Alert.Icon />
         <Alert.Title>Error Alert</Alert.Title>
         <Alert.Description>description goes here </Alert.Description>
-        <IconButton
-          icon={<Icon name="close" color="danger.500" size="xs" />}
-          position="absolute"
-          right="8px"
-        />
       </Alert>
     </Box>
   );

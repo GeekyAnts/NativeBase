@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Input, VStack, Text } from 'native-base';
+import { Modal, Button, Input, VStack, Text, ButtonGroup } from 'native-base';
 
 export default function () {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -24,17 +24,17 @@ export default function () {
             <Input mt={4} placeholder="Lorem ipsum dolor sit" />
           </Modal.Body>
           <Modal.Footer>
-            <Button colorScheme="blue" mr={1}>
-              Save
-            </Button>
-            <Button
-              colorScheme="secondary"
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
-            >
-              Close
-            </Button>
+            <ButtonGroup variant="ghost" spacing={2}>
+              <Button>SAVE</Button>
+              <Button
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}
+                colorScheme="secondary"
+              >
+                CLOSE
+              </Button>
+            </ButtonGroup>
           </Modal.Footer>
         </Modal.Content>
       </Modal>

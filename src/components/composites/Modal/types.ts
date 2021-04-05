@@ -65,7 +65,7 @@ export type IModalComponentType = ((
     (props: IBoxProps & { ref?: any }) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
-    (props: IIconButtonProps & { ref?: any }) => JSX.Element
+    (props: Omit<IIconButtonProps, 'icon'> & { ref?: any }) => JSX.Element
   >;
   Content: React.MemoExoticComponent<
     (props: IBoxProps & { ref?: any }) => JSX.Element

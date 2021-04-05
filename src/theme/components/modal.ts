@@ -40,23 +40,25 @@ export const ModalContent = {
   baseStyle: (props: Record<string, any>) => {
     return {
       bg: mode('gray.50', 'gray.700')(props),
-      px: 8,
-      py: 6,
+      pl: 6,
+      pt: 6,
       shadow: 8,
       rounded: 'md',
     };
   },
 };
 export const ModalCloseButton = {
-  baseStyle: {
-    position: 'absolute',
-    right: 8,
-    top: 5,
-    zIndex: 1,
-    _icon: {
-      size: 'sm',
-      color: 'black',
-    },
+  baseStyle: (props: Record<string, any>) => {
+    return {
+      position: 'absolute',
+      right: 3,
+      top: 5,
+      zIndex: 1,
+      _icon: {
+        size: 'sm',
+        color: mode('black', 'white')(props),
+      },
+    };
   },
   defaultProps: {
     size: 8,
@@ -65,19 +67,26 @@ export const ModalCloseButton = {
 export const ModalHeader = {
   baseStyle: {
     pb: 3,
+    pr: 6,
+    _text: { fontSize: 'lg', fontWeight: 'bold' },
   },
 };
 export const ModalBody = {
-  baseStyle: {
-    pb: 3,
+  baseStyle: (props: Record<string, any>) => {
+    return {
+      pb: 7,
+      pr: 6,
+      _text: { fontSize: 'md', color: mode('gray.600', 'gray.300')(props) },
+    };
   },
 };
 export const ModalFooter = {
   baseStyle: {
-    pt: 2,
+    py: 2,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     flexWrap: 'wrap',
+    pr: 2,
   },
 };
 export const ModalOverlay = {

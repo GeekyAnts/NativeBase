@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Center, Input } from 'native-base';
+import { Modal, Button, Center, ButtonGroup } from 'native-base';
 
 export default function () {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -10,30 +10,22 @@ export default function () {
         isOpen={modalVisible}
         onClose={setModalVisible}
         overlayVisible={true}
-        size="md"
       >
         <Modal.Content>
           <Modal.CloseButton />
-          <Modal.Header _text={{ fontSize: '2xl', fontWeight: 'bold' }}>
-            Hello World
-          </Modal.Header>
-          <Modal.Body>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quasi
-            cupiditate expedita, ipsa delectus!
-            <Input mt={4} placeholder="Lorem ipsum dolor sit" />
-          </Modal.Body>
+          <Modal.Header>Modal Header</Modal.Header>
+          <Modal.Body>Modal body text</Modal.Body>
           <Modal.Footer>
-            <Button colorScheme="blue" mr={1}>
-              Done
-            </Button>
-            <Button
-              colorScheme="secondary"
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
-            >
-              Cancel
-            </Button>
+            <ButtonGroup variant="ghost" spacing={2}>
+              <Button>ACTION 1</Button>
+              <Button
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}
+              >
+                ACTION 2
+              </Button>
+            </ButtonGroup>
           </Modal.Footer>
         </Modal.Content>
       </Modal>

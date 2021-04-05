@@ -5,7 +5,7 @@ import { IconButton } from '..';
 import Icon from '../../primitives/Icon';
 import type { IIconButtonProps } from 'native-base';
 
-const ModalCloseButton = (props: IIconButtonProps, ref?: any) => {
+const ModalCloseButton = (props: Omit<IIconButtonProps, 'icon'>, ref?: any) => {
   const newProps = useThemeProps('ModalCloseButton', props);
   const { _icon, ...rest } = newProps;
   const { toggleVisible, toggleOnClose } = React.useContext(ModalContext);

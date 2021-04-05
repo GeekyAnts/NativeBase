@@ -2,9 +2,7 @@ import omitBy from 'lodash/omitBy';
 import isNil from 'lodash/isNil';
 import pick from 'lodash/pick';
 import omit from 'lodash/omit';
-
 export type Dict = Record<string, any>;
-
 export function omitUndefined(obj: any) {
   return omitBy(obj, isNil);
 }
@@ -18,7 +16,6 @@ export function getRandomString(length: number) {
   }
   return result;
 }
-
 // Inefficient way for pick, but retains order of props.
 function orderedPick(obj: any, values: any) {
   let ret: any = {};
@@ -29,14 +26,12 @@ function orderedPick(obj: any, values: any) {
   });
   return ret;
 }
-
 export function orderedExtractInObject(parent: any, values: Array<string>) {
   return [
     omitUndefined(orderedPick(parent, values)),
     omitUndefined(omit(parent, values)),
   ];
 }
-
 /**
  *
  * @param parent The object from which data needs to extracted
@@ -49,11 +44,9 @@ export function extractInObject(parent: any, values: Array<string>) {
     omitUndefined(omit(parent, values)),
   ];
 }
-
 export function getColorFormColorScheme(props: Record<string, any>) {
   const { theme, colorScheme, isDisabled } = props;
   const simpleColorScheme = colorScheme.split('.')[0];
-
   if (isDisabled) return 'gray.300';
   else if (simpleColorScheme in theme.colors) {
     return theme.colors[simpleColorScheme][0] === '#'
@@ -73,10 +66,8 @@ export function getColorScheme(
     if (typeof theme.colors[colorScheme] === 'object') return colorScheme;
   }
 }
-
 export const breakpoints = Object.freeze(['base', 'sm', 'md', 'lg', 'xl']);
 export const inValidBreakpointProps = ['style', 'children', 'shadowOffset'];
-
 export function hasValidBreakpointFormat(breaks: any, property?: string) {
   if (property && inValidBreakpointProps.indexOf(property) !== -1) {
     return false;
@@ -94,7 +85,6 @@ export function hasValidBreakpointFormat(breaks: any, property?: string) {
     return false;
   }
 }
-
 export function findLastValidBreakpoint(
   values: any,
   currentBreakpoint: number
@@ -110,7 +100,6 @@ export function findLastValidBreakpoint(
       .pop()
   );
 }
-
 export function getClosestBreakpoint(
   values: Record<string, any>,
   point: number
@@ -123,6 +112,11 @@ export function getClosestBreakpoint(
       break;
     } else if (dimValues[i] > point && i !== 0) {
       index = i - 1;
+      break;
+    }
+    // If windowWidth is greater than last available breakpoint clamp it to last index
+    else if (dimValues[i] < point && i === dimValues.length - 1) {
+      index = i;
       break;
     }
   }

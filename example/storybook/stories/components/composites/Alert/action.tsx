@@ -14,6 +14,7 @@ export default function () {
               onPress={() => handleToggle(false)}
             />
           }
+          actionProps={{ alignSelf: 'center' }}
         >
           <Alert.Icon />
           <Alert.Title>Error Alert</Alert.Title>
