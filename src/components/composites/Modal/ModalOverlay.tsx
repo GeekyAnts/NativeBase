@@ -4,12 +4,12 @@ import Box from '../../primitives/Box';
 import { ModalContext } from './Context';
 import { useThemeProps } from '../../../hooks';
 
-const ModalOverlay = ({ children, ...props }: any) => {
+const ModalOverlay = ({ children, ...props }: any, ref?: any) => {
   const newProps = useThemeProps('ModalOverlay', props);
   const { toggleVisible, toggleOnClose } = React.useContext(ModalContext);
 
   return (
-    <Box {...newProps}>
+    <Box {...newProps} ref={ref}>
       <Pressable
         style={{
           position: 'absolute',
@@ -40,4 +40,4 @@ const ModalOverlay = ({ children, ...props }: any) => {
   );
 };
 
-export default React.memo(ModalOverlay);
+export default React.memo(React.forwardRef(ModalOverlay));

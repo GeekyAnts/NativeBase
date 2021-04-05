@@ -8,7 +8,10 @@ import type {
 } from './types';
 import { useThemeProps } from '../../../hooks';
 
-const AccordionDetails = ({ children, ...props }: IAccordionDetailsProps) => {
+const AccordionDetails = (
+  { children, ...props }: IAccordionDetailsProps,
+  ref?: any
+) => {
   const { ...newProps } = useThemeProps('AccordionDetails', props);
   const { isOpen }: IAccordionItemContextProps = React.useContext(
     AccordionItemContext
@@ -17,10 +20,10 @@ const AccordionDetails = ({ children, ...props }: IAccordionDetailsProps) => {
     AccordionContext
   );
   return (
-    <Collapse {...AnimationProps} {...newProps} isOpen={isOpen}>
+    <Collapse {...AnimationProps} {...newProps} isOpen={isOpen} ref={ref}>
       {children}
     </Collapse>
   );
 };
 
-export default React.memo(AccordionDetails);
+export default React.memo(React.forwardRef(AccordionDetails));

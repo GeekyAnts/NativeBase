@@ -5,7 +5,7 @@ import { Animated, Platform } from 'react-native';
 import type { IScaleFadeProps } from './types';
 import { canUseDom } from '../../../utils';
 
-const ScaleFade = ({ children, ...props }: IScaleFadeProps) => {
+const ScaleFade = ({ children, ...props }: IScaleFadeProps, ref?: any) => {
   const isDomUsable = canUseDom();
   const { in: animationState, duration, initialScale } = useThemeProps(
     'ScaleFade',
@@ -61,6 +61,7 @@ const ScaleFade = ({ children, ...props }: IScaleFadeProps) => {
   return (
     <Animated.View
       style={{ opacity: fadeAnim, transform: [{ scale: scaleAnim }] }}
+      ref={ref}
     >
       <Box {...props} />
       {children}
@@ -68,4 +69,4 @@ const ScaleFade = ({ children, ...props }: IScaleFadeProps) => {
   );
 };
 
-export default React.memo(ScaleFade);
+export default React.memo(React.forwardRef(ScaleFade));

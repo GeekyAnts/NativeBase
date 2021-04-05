@@ -3,7 +3,10 @@ import { VStack } from '../Stack';
 import type { IListProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
-const OrderedList = ({ style, children, spacing, ...props }: IListProps) => {
+const OrderedList = (
+  { style, children, spacing, ...props }: IListProps,
+  ref?: any
+) => {
   const { _text, start, _hover, ...newProps } = useThemeProps('List', props);
   // add props to children
   children = React.Children.map(children, (child: any, ind: number) => {
@@ -22,10 +25,10 @@ const OrderedList = ({ style, children, spacing, ...props }: IListProps) => {
     );
   });
   return (
-    <VStack style={style} {...newProps}>
+    <VStack style={style} {...newProps} ref={ref}>
       {children}
     </VStack>
   );
 };
 
-export default React.memo(OrderedList);
+export default React.memo(React.forwardRef(OrderedList));

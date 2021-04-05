@@ -7,7 +7,10 @@ import { MenuOptionContext } from './MenuOptionGroup';
 import { useMenuOptionItem } from './useMenu';
 
 export const MenuItemOption = React.memo(
-  ({ value, children, onPress, ...props }: IMenuItemOptionProps) => {
+  React.forwardRef(function MenuItemOption(
+    { value, children, onPress, ...props }: IMenuItemOptionProps,
+    ref: any
+  ) {
     const {
       values,
       onChange,
@@ -23,7 +26,12 @@ export const MenuItemOption = React.memo(
     const menuOptionProps = useMenuOptionItem({ isChecked, type });
 
     return (
-      <MenuItem {...props} {...menuOptionProps} onPress={modifiedOnPress}>
+      <MenuItem
+        {...props}
+        {...menuOptionProps}
+        onPress={modifiedOnPress}
+        ref={ref}
+      >
         <Box
           flexDirection="row"
           px={newProps.px}
@@ -41,5 +49,5 @@ export const MenuItemOption = React.memo(
         </Box>
       </MenuItem>
     );
-  }
+  })
 );

@@ -83,13 +83,10 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       position="absolute"
       style={holderStyle[placement]}
       opacity={containerOpacity}
+      ref={ref}
     >
       <Animated.View style={animatioStyle[placement]}>
-        <Box
-          {...props}
-          onLayout={(e) => provideSize(e.nativeEvent.layout)}
-          ref={ref}
-        >
+        <Box {...props} onLayout={(e) => provideSize(e.nativeEvent.layout)}>
           {children}
         </Box>
       </Animated.View>

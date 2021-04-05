@@ -11,46 +11,61 @@ import {
 } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 
-export const StatLabel = React.memo(({ style, ...props }: ITextProps) => {
-  let newProps = useThemeProps('Stat', props);
-  return (
-    <Text {...newProps._statLabel} {...newProps} style={style} {...props}>
-      {props.children}
-    </Text>
-  );
-});
+export const StatLabel = React.memo(
+  React.forwardRef(({ style, ...props }: ITextProps, ref?: any) => {
+    let newProps = useThemeProps('Stat', props);
+    return (
+      <Text
+        {...newProps._statLabel}
+        {...newProps}
+        style={style}
+        {...props}
+        ref={ref}
+      >
+        {props.children}
+      </Text>
+    );
+  })
+);
 
-export const StatNumber = React.memo(({ style, ...props }: ITextProps) => {
-  let newProps = useThemeProps('Stat', props);
-  return (
-    <Text {...newProps._statNumber} {...newProps} style={style}>
-      {props.children}
-    </Text>
-  );
-});
+export const StatNumber = React.memo(
+  React.forwardRef(({ style, ...props }: ITextProps, ref?: any) => {
+    let newProps = useThemeProps('Stat', props);
+    return (
+      <Text {...newProps._statNumber} {...newProps} style={style} ref={ref}>
+        {props.children}
+      </Text>
+    );
+  })
+);
 
-export const StatHelpText = React.memo(({ style, ...props }: IBoxProps) => {
-  let newProps = useThemeProps('Stat', props);
-  return (
-    <Box {...newProps._statHelpText} {...newProps} style={style}>
-      {props.children}
-    </Box>
-  );
-});
+export const StatHelpText = React.memo(
+  React.forwardRef(({ style, ...props }: IBoxProps, ref?: any) => {
+    let newProps = useThemeProps('Stat', props);
+    return (
+      <Box {...newProps._statHelpText} {...newProps} style={style} ref={ref}>
+        {props.children}
+      </Box>
+    );
+  })
+);
 
 type IStatArrowProps = IIconProps | { type?: 'increase' | 'decrease' };
-export const StatArrow = React.memo(({ type, ...props }: IStatArrowProps) => {
-  return (
-    <Icon
-      ml={-1}
-      type="Entypo"
-      name={type === 'increase' ? 'triangle-up' : 'triangle-down'}
-      color={type === 'increase' ? 'green.500' : 'red.500'}
-      size={8}
-      {...props}
-    />
-  );
-});
+export const StatArrow = React.memo(
+  React.forwardRef(({ type, ...props }: IStatArrowProps, ref?: any) => {
+    return (
+      <Icon
+        ml={-1}
+        type="Entypo"
+        name={type === 'increase' ? 'triangle-up' : 'triangle-down'}
+        color={type === 'increase' ? 'green.500' : 'red.500'}
+        size={8}
+        {...props}
+        ref={ref}
+      />
+    );
+  })
+);
 
 export const StatGroup = React.memo(
   React.forwardRef(({ style, ...props }: IBoxProps, ref: any) => {
@@ -67,12 +82,24 @@ const StatMain = React.forwardRef(
   }
 );
 
-type IStatComponentType = ((props: IBoxProps) => JSX.Element) & {
-  Label: React.MemoExoticComponent<(props: ITextProps) => JSX.Element>;
-  Number: React.MemoExoticComponent<(props: ITextProps) => JSX.Element>;
-  HelpText: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
-  Arrow: React.MemoExoticComponent<(props: IStatArrowProps) => JSX.Element>;
-  Group: React.MemoExoticComponent<(props: IStackProps) => JSX.Element>;
+type IStatComponentType = ((
+  props: IBoxProps & { ref?: any }
+) => JSX.Element) & {
+  Label: React.MemoExoticComponent<
+    (props: ITextProps & { ref?: any }) => JSX.Element
+  >;
+  Number: React.MemoExoticComponent<
+    (props: ITextProps & { ref?: any }) => JSX.Element
+  >;
+  HelpText: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  Arrow: React.MemoExoticComponent<
+    (props: IStatArrowProps & { ref?: any }) => JSX.Element
+  >;
+  Group: React.MemoExoticComponent<
+    (props: IStackProps & { ref?: any }) => JSX.Element
+  >;
 };
 
 const StatTemp: any = StatMain;

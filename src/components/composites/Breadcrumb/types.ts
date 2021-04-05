@@ -18,8 +18,12 @@ export type IBreadcrumbItemProps = IBreadcrumbProps & {
   isCurrentPage?: boolean;
 };
 export type IBreadcrumbComponentType = ((
-  props: IBreadcrumbProps
+  props: IBreadcrumbProps & { ref?: any }
 ) => JSX.Element) & {
-  Item: React.MemoExoticComponent<(props: IBreadcrumbItemProps) => JSX.Element>;
-  Link: React.MemoExoticComponent<(props: ILinkProps) => JSX.Element>;
+  Item: React.MemoExoticComponent<
+    (props: IBreadcrumbItemProps & { ref?: any }) => JSX.Element
+  >;
+  Link: React.MemoExoticComponent<
+    (props: ILinkProps & { ref?: any }) => JSX.Element
+  >;
 };

@@ -8,26 +8,37 @@ export interface IAlertDialogProps
   leastDestructiveRef: IModalProps['initialFocusRef'];
 }
 export type IAlertDialogComponentType = ((
-  props: IAlertDialogProps
+  props: IAlertDialogProps & { ref?: any }
 ) => JSX.Element) & {
-  Body: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
-  CloseButton: React.MemoExoticComponent<
-    (props: IIconButtonProps) => JSX.Element
+  Body: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
   >;
-  Content: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
-  Footer: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
-  Header: React.MemoExoticComponent<(props: IBoxProps) => JSX.Element>;
+  CloseButton: React.MemoExoticComponent<
+    (props: IIconButtonProps & { ref?: any }) => JSX.Element
+  >;
+  Content: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  Footer: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  Header: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
 };
 
-const AlertDialog = React.memo((props: IAlertDialogProps) => {
-  const { leastDestructiveRef, ...rest } = props;
-  return (
-    <Modal
-      {...rest}
-      initialFocusRef={leastDestructiveRef}
-      closeOnOverlayClick={false}
-    />
-  );
-});
+const AlertDialog = React.memo(
+  React.forwardRef((props: IAlertDialogProps, ref?: any) => {
+    const { leastDestructiveRef, ...rest } = props;
+    return (
+      <Modal
+        {...rest}
+        initialFocusRef={leastDestructiveRef}
+        closeOnOverlayClick={false}
+        ref={ref}
+      />
+    );
+  })
+);
 
 export default AlertDialog;

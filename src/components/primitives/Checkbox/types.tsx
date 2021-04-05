@@ -61,5 +61,7 @@ export type IUseCheckboxGroupReturnType = {
 export type ICheckboxComponentType = ((
   props: ICheckboxProps
 ) => JSX.Element) & {
-  Group: React.MemoExoticComponent<(props: ICheckboxGroupProps) => JSX.Element>;
+  Group: React.MemoExoticComponent<
+    (props: ICheckboxGroupProps, ref?: any) => JSX.Element
+  >;
 };

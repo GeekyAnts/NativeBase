@@ -6,7 +6,6 @@ import { Popover } from 'react-native-popper';
 import { Platform, ScrollView } from 'react-native';
 import { useControllableState } from '../../../hooks';
 import { useMenuTrigger, useMenu, useMenuTypeahead } from './useMenu';
-import { mergeRefs } from '../../../utils';
 
 export const MenuContext = React.createContext({ closeOnSelect: true });
 
@@ -21,10 +20,9 @@ export const Menu = React.memo(
         onClose,
         ...props
       }: IMenuProps,
-      ref: any
+      ref?: any
     ) => {
       const triggerRef = React.useRef(null);
-      const mergedRef = mergeRefs([triggerRef, ref]);
       const [isOpen, setIsOpen] = useControllableState({
         value: props.isOpen,
         defaultValue: props.defaultIsOpen,
@@ -51,7 +49,7 @@ export const Menu = React.memo(
         return trigger(
           {
             ...triggerProps,
-            ref: mergedRef,
+            ref: triggerRef,
             onPress: handleOpen,
           },
           { open: isOpen }
@@ -76,7 +74,9 @@ export const Menu = React.memo(
             <Popover.Backdrop />
             <Popover.Content>
               <MenuContext.Provider value={{ closeOnSelect }}>
-                <MenuContent {...newProps}>{children}</MenuContent>
+                <MenuContent menuRef={ref} {...newProps}>
+                  {children}
+                </MenuContent>
               </MenuContext.Provider>
             </Popover.Content>
           </Popover>
@@ -86,13 +86,16 @@ export const Menu = React.memo(
   )
 );
 
-const MenuContent = (props: Omit<IMenuProps, 'trigger'>) => {
+const MenuContent = ({
+  menuRef,
+  ...restProps
+}: Omit<IMenuProps, 'trigger'> & { menuRef: any }) => {
   const menuProps = useMenu();
   const typeaheadProps = useMenuTypeahead(menuProps);
 
   return (
-    <Box {...props} {...menuProps} {...typeaheadProps}>
-      <ScrollView>{props.children}</ScrollView>
+    <Box {...restProps} {...menuProps} {...typeaheadProps} ref={menuRef}>
+      <ScrollView>{restProps.children}</ScrollView>
     </Box>
   );
 };

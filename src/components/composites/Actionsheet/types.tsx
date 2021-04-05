@@ -12,12 +12,12 @@ export type IActionsheetHeaderProps = IBoxProps;
 export type IActionsheetItemProps = IButtonProps;
 
 export type IActionsheetComponentType = ((
-  props: IActionsheetProps
+  props: IActionsheetProps & { ref?: any }
 ) => JSX.Element) & {
   Content: React.MemoExoticComponent<
-    (props: IActionsheetContentProps) => JSX.Element
+    (props: IActionsheetContentProps & { ref?: any }) => JSX.Element
   >;
   Item: React.MemoExoticComponent<
-    (props: IActionsheetItemProps) => JSX.Element
+    (props: IActionsheetItemProps & { ref?: any }) => JSX.Element
   >;
 };

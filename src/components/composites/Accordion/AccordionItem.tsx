@@ -4,12 +4,10 @@ import { AccordionContext, AccordionItemContext } from './Context';
 import type { IAccordionItemProps, IAccordionContextProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
-const AccordionItem = ({
-  children,
-  index: pIndex = 0,
-  isDisabled,
-  ...props
-}: IAccordionItemProps) => {
+const AccordionItem = (
+  { children, index: pIndex = 0, isDisabled, ...props }: IAccordionItemProps,
+  ref?: any
+) => {
   const {
     index: cIndex,
     changeHandler,
@@ -40,9 +38,11 @@ const AccordionItem = ({
         onOpen,
       }}
     >
-      <Box {...newProps}>{childSetter()}</Box>
+      <Box {...newProps} ref={ref}>
+        {childSetter()}
+      </Box>
     </AccordionItemContext.Provider>
   );
 };
 
-export default React.memo(AccordionItem);
+export default React.memo(React.forwardRef(AccordionItem));

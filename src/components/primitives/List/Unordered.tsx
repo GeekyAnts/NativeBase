@@ -3,7 +3,10 @@ import { VStack } from '../Stack';
 import type { IListProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
-const UnorderedList = ({ style, children, spacing, ...props }: IListProps) => {
+const UnorderedList = (
+  { style, children, spacing, ...props }: IListProps,
+  ref?: any
+) => {
   const { _text, _hover, ...newProps } = useThemeProps('List', props);
   // add props to children
   children = React.Children.map(children, (child: any, ind: number) => {
@@ -22,10 +25,10 @@ const UnorderedList = ({ style, children, spacing, ...props }: IListProps) => {
   });
 
   return (
-    <VStack style={style} {...newProps}>
+    <VStack style={style} {...newProps} ref={ref}>
       {children}
     </VStack>
   );
 };
 
-export default React.memo(UnorderedList);
+export default React.memo(React.forwardRef(UnorderedList));

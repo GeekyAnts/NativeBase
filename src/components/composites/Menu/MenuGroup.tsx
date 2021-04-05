@@ -4,15 +4,20 @@ import { useThemeProps } from '../../../hooks';
 import Box from '../../primitives/Box';
 import type { IMenuGroupProps } from './types';
 
-export const MenuGroup = React.memo(({ title, children }: IMenuGroupProps) => {
-  const { _title, ...newProps } = useThemeProps('MenuGroup', {});
+export const MenuGroup = React.memo(
+  React.forwardRef(function MenuGroup(
+    { title, children }: IMenuGroupProps,
+    ref: any
+  ) {
+    const { _title, ...newProps } = useThemeProps('MenuGroup', {});
 
-  return (
-    <>
-      <Box {...newProps}>
-        <Text {..._title}>{title}</Text>
-      </Box>
-      {children}
-    </>
-  );
-});
+    return (
+      <>
+        <Box {...newProps} ref={ref}>
+          <Text {..._title}>{title}</Text>
+        </Box>
+        {children}
+      </>
+    );
+  })
+);

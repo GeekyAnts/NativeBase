@@ -2,8 +2,12 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import { TabsContext } from './Context';
 import type { ITabsContextProps, ITabBarProps } from './types';
+import { mergeRefs } from '../../../utils';
 
-const TabBarImpl = ({ tablistRef, tabListProps, ...props }: ITabBarProps) => {
+const TabBarImpl = (
+  { tablistRef, tabListProps, ...props }: ITabBarProps,
+  ref?: any
+) => {
   const {
     tabBarStyle,
     align,
@@ -12,24 +16,22 @@ const TabBarImpl = ({ tablistRef, tabListProps, ...props }: ITabBarProps) => {
   }: ITabsContextProps = React.useContext(TabsContext);
 
   return (
-    <>
-      <Box
-        flexDirection="row"
-        width="100%"
-        justifyContent={isFitted ? 'space-between' : align}
-        {...tabListProps}
-        {...tabBarStyle}
-        {...props}
-        ref={tablistRef}
-      >
-        {[...state.collection].map((item) =>
-          React.cloneElement(item.rendered, { item, key: item.key })
-        )}
-      </Box>
-    </>
+    <Box
+      flexDirection="row"
+      width="100%"
+      justifyContent={isFitted ? 'space-between' : align}
+      {...tabListProps}
+      {...tabBarStyle}
+      {...props}
+      ref={mergeRefs([ref, tablistRef])}
+    >
+      {[...state.collection].map((item) =>
+        React.cloneElement(item.rendered, { item, key: item.key })
+      )}
+    </Box>
   );
 };
-const TabBar = React.memo(TabBarImpl);
+const TabBar = React.memo(React.forwardRef(TabBarImpl));
 
 TabBar.displayName = 'TabBar';
 

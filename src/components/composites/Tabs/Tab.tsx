@@ -12,15 +12,18 @@ import { themeTools } from '../../../theme';
 
 export const TabContext = createContext({});
 
-const Tab = ({
-  children,
-  isDisabled,
-  style,
-  _active,
-  _disabled,
-  item,
-  ...props
-}: ITabProps) => {
+const Tab = (
+  {
+    children,
+    isDisabled,
+    style,
+    _active,
+    _disabled,
+    item,
+    ...props
+  }: ITabProps,
+  ref?: any
+) => {
   const newProps = omitUndefined(props);
   const {
     inactiveTabStyle,
@@ -28,12 +31,12 @@ const Tab = ({
     state,
     isFitted,
   }: ITabsContextProps = React.useContext(TabsContext);
-  let ref = React.useRef<any>(null);
+  let tabRef = React.useRef<any>(null);
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
   let isSelected = state.selectedKey === item.key;
 
-  let { tabProps } = useTab({ item, isDisabled }, state, ref);
+  let { tabProps } = useTab({ item, isDisabled }, state, tabRef);
 
   React.useEffect(() => {
     if (isDisabled) {
@@ -73,7 +76,7 @@ const Tab = ({
     >
       <Pressable
         disabled={isDisabled}
-        ref={mergeRefs([ref, _ref])}
+        ref={mergeRefs([tabRef, _ref, ref])}
         flex={isFitted ? 1 : undefined}
         {...tabProps}
         {...marginalProps}
@@ -90,4 +93,4 @@ const Tab = ({
   );
 };
 
-export default React.memo(Tab);
+export default React.memo(React.forwardRef(Tab));

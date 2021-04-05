@@ -1,24 +1,23 @@
 import React from 'react';
 import { Popover as PopoverAlias } from 'react-native-popper';
-import PopoverBody from './PopoverBody';
-import PopoverFooter from './PopoverFooter';
-import PopoverHeader from './PopoverHeader';
-import PopoverCloseButton from './PopoverCloseButton';
-import { PopoverContent } from './PopoverContent';
 import type { IPopoverProps } from 'native-base';
 import { mergeRefs } from '../../../utils';
 import { useControllableState } from '../../../hooks';
 import { PopoverContext } from './PopoverContext';
+import Box from '../../primitives/Box';
 
-function Popover({
-  onOpen,
-  trigger,
-  onClose,
-  isOpen: isOpenProp,
-  children,
-  defaultIsOpen,
-  ...restProps
-}: IPopoverProps) {
+const Popover = React.forwardRef(function Popover(
+  {
+    onOpen,
+    trigger,
+    onClose,
+    isOpen: isOpenProp,
+    children,
+    defaultIsOpen,
+    ...restProps
+  }: IPopoverProps,
+  ref: any
+) {
   const triggerRef = React.useRef(null);
   const mergedRef = mergeRefs([triggerRef]);
   const [isOpen, setIsOpen] = useControllableState({
@@ -60,7 +59,7 @@ function Popover({
   }, [restProps.finalFocusRef, restProps.initialFocusRef, isOpen]);
 
   return (
-    <>
+    <Box ref={ref}>
       {updatedTrigger()}
       <PopoverAlias
         isOpen={isOpen}
@@ -73,14 +72,8 @@ function Popover({
           {children}
         </PopoverContext.Provider>
       </PopoverAlias>
-    </>
+    </Box>
   );
-}
-
-Popover.Content = PopoverContent;
-Popover.Header = PopoverHeader;
-Popover.Footer = PopoverFooter;
-Popover.Body = PopoverBody;
-Popover.CloseButton = PopoverCloseButton;
+});
 
 export { Popover };

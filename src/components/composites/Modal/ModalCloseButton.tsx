@@ -5,7 +5,7 @@ import { IconButton } from '..';
 import Icon from '../../primitives/Icon';
 import type { IIconButtonProps } from 'native-base';
 
-const ModalCloseButton = (props: IIconButtonProps) => {
+const ModalCloseButton = (props: IIconButtonProps, ref?: any) => {
   const newProps = useThemeProps('ModalCloseButton', props);
   const { _icon, ...rest } = newProps;
   const { toggleVisible, toggleOnClose } = React.useContext(ModalContext);
@@ -18,8 +18,9 @@ const ModalCloseButton = (props: IIconButtonProps) => {
         toggleVisible(false);
         toggleOnClose(false);
       }}
+      ref={ref}
     />
   );
 };
 
-export default React.memo(ModalCloseButton);
+export default React.memo(React.forwardRef(ModalCloseButton));

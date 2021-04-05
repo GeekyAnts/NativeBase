@@ -3,7 +3,7 @@ import Box from '../Box';
 import { SliderContext } from './Context';
 import type { ISliderProps, ISliderContextProps } from './types';
 
-const SliderTrack = ({ children, ...props }: ISliderProps) => {
+const SliderTrack = ({ children, ...props }: ISliderProps, ref?: any) => {
   const {
     sliderSize,
     trackColor,
@@ -19,10 +19,11 @@ const SliderTrack = ({ children, ...props }: ISliderProps) => {
       width={orientation === 'vertical' ? `${sliderSize}px` : '100%'}
       {...props}
       overflow="hidden"
+      ref={ref}
     >
       {children}
     </Box>
   );
 };
 
-export default SliderTrack;
+export default React.forwardRef(SliderTrack);

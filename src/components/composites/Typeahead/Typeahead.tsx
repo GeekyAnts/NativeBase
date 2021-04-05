@@ -13,125 +13,135 @@ import { ITypeaheadProps, IComboBoxProps, layoutPropsList } from './types';
 import { Input } from '../../primitives/Input';
 import { useThemeProps } from '../../../hooks';
 
-export function Typeahead({
-  onSelectedItemChange,
-  options,
-  renderItem,
-  getOptionLabel,
-  getOptionKey,
-  onChange,
-  numberOfItems,
-  ...rest
-}: ITypeaheadProps) {
-  return (
-    <ComboBoxImplementation
-      {...rest}
-      onSelectionChange={onSelectedItemChange}
-      items={
-        numberOfItems !== undefined ? options.slice(0, numberOfItems) : options
-      }
-      onInputChange={onChange}
-    >
-      {(item: any) => {
-        if (typeof item !== 'string' && getOptionLabel === undefined) {
-          throw new Error('Please use getOptionLabel prop');
-        }
-
-        if (item.id === undefined && getOptionKey === undefined) {
-          throw new Error('Please use getOptionKey prop');
-        }
-
-        const optionLabel = getOptionLabel ? getOptionLabel(item) : item;
-        const optionKey = getOptionKey
-          ? getOptionKey(item)
-          : item.id !== undefined
-          ? item.id
-          : optionLabel;
-
-        return (
-          <Item textValue={optionLabel} key={optionKey}>
-            {renderItem ? (
-              renderItem(item)
-            ) : (
-              <Box p={2} justifyContent="center">
-                <Text>{optionLabel}</Text>
-              </Box>
-            )}
-          </Item>
-        );
-      }}
-    </ComboBoxImplementation>
-  );
-}
-
-function ComboBoxImplementation(props: IComboBoxProps) {
-  const [layoutProps] = extractInObject(props, layoutPropsList);
-  let state = useComboBoxState(props);
-
-  let triggerRef = React.useRef(null);
-  let inputRef = React.useRef(null);
-  let listBoxRef = React.useRef(null);
-  let popoverRef = React.useRef(null);
-
-  let {
-    buttonProps: triggerProps,
-    inputProps,
-    listBoxProps,
-    labelProps,
-  } = useComboBox(
+export const Typeahead = React.forwardRef(
+  (
     {
-      ...props,
-      inputRef,
-      buttonRef: triggerRef,
-      listBoxRef,
-      popoverRef,
-      menuTrigger: 'input',
-    },
-    state
-  );
-
-  const toggleIconSetter = () => {
-    if (typeof props.toggleIcon === 'function')
-      return props.toggleIcon({
-        isOpen: state.isOpen,
-      });
-    return props.toggleIcon;
-  };
-
-  let { buttonProps } = useButton(triggerProps, triggerRef);
-
-  return (
-    <Box flexDirection="row" {...layoutProps}>
-      <Box flex={1}>
-        {props.label && (
-          <Text {...labelProps} pb={1}>
-            {props.label}
-          </Text>
-        )}
-        <Input
-          {...inputProps}
-          ref={inputRef}
-          InputRightElement={
-            // @ts-ignore - RN has hitSlop type inconsistent for View and Pressable!
-            <Pressable {...buttonProps} ref={triggerRef}>
-              {toggleIconSetter()}
-            </Pressable>
+      onSelectedItemChange,
+      options,
+      renderItem,
+      getOptionLabel,
+      getOptionKey,
+      onChange,
+      numberOfItems,
+      ...rest
+    }: ITypeaheadProps,
+    ref?: any
+  ) => {
+    return (
+      <ComboBoxImplementation
+        {...rest}
+        onSelectionChange={onSelectedItemChange}
+        items={
+          numberOfItems !== undefined
+            ? options.slice(0, numberOfItems)
+            : options
+        }
+        onInputChange={onChange}
+        ref={ref}
+      >
+        {(item: any) => {
+          if (typeof item !== 'string' && getOptionLabel === undefined) {
+            throw new Error('Please use getOptionLabel prop');
           }
-        />
 
-        {state.isOpen && (
-          <ListBoxPopup
-            {...listBoxProps}
-            listBoxRef={listBoxRef}
-            popoverRef={popoverRef}
-            state={state}
-            label={props.label}
+          if (item.id === undefined && getOptionKey === undefined) {
+            throw new Error('Please use getOptionKey prop');
+          }
+
+          const optionLabel = getOptionLabel ? getOptionLabel(item) : item;
+          const optionKey = getOptionKey
+            ? getOptionKey(item)
+            : item.id !== undefined
+            ? item.id
+            : optionLabel;
+
+          return (
+            <Item textValue={optionLabel} key={optionKey}>
+              {renderItem ? (
+                renderItem(item)
+              ) : (
+                <Box p={2} justifyContent="center">
+                  <Text>{optionLabel}</Text>
+                </Box>
+              )}
+            </Item>
+          );
+        }}
+      </ComboBoxImplementation>
+    );
+  }
+);
+
+const ComboBoxImplementation = React.forwardRef(
+  (props: IComboBoxProps, ref?: any) => {
+    const [layoutProps] = extractInObject(props, layoutPropsList);
+    let state = useComboBoxState(props);
+
+    let triggerRef = React.useRef(null);
+    let inputRef = React.useRef(null);
+    let listBoxRef = React.useRef(null);
+    let popoverRef = React.useRef(null);
+
+    let {
+      buttonProps: triggerProps,
+      inputProps,
+      listBoxProps,
+      labelProps,
+    } = useComboBox(
+      {
+        ...props,
+        inputRef,
+        buttonRef: triggerRef,
+        listBoxRef,
+        popoverRef,
+        menuTrigger: 'input',
+      },
+      state
+    );
+
+    const toggleIconSetter = () => {
+      if (typeof props.toggleIcon === 'function')
+        return props.toggleIcon({
+          isOpen: state.isOpen,
+        });
+      return props.toggleIcon;
+    };
+
+    let { buttonProps } = useButton(triggerProps, triggerRef);
+
+    return (
+      <Box flexDirection="row" {...layoutProps} ref={ref}>
+        <Box flex={1}>
+          {props.label && (
+            <Text {...labelProps} pb={1}>
+              {props.label}
+            </Text>
+          )}
+          <Input
+            {...inputProps}
+            ref={inputRef}
+            InputRightElement={
+              // @ts-ignore - RN has hitSlop type inconsistent for View and Pressable!
+              <Pressable {...buttonProps} ref={triggerRef}>
+                {toggleIconSetter()}
+              </Pressable>
+            }
           />
-        )}
+
+          {state.isOpen && (
+            <ListBoxPopup
+              {...listBoxProps}
+              listBoxRef={listBoxRef}
+              popoverRef={popoverRef}
+              state={state}
+              label={props.label}
+            />
+          )}
+        </Box>
       </Box>
-    </Box>
-  );
-}
+    );
+  }
+);
 
 type IListBoxProps = {
   popoverRef: any;

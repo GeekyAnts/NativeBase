@@ -132,7 +132,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         <Box
           // @ts-ignore - RN web supports accessibilityRole="label"
           accessibilityRole="label"
-          ref={mergedRef}
+          ref={_ref}
           outlineWidth={isFocusVisible ? 1 : 0}
           outlineColor={activeColor}
           outlineStyle={'solid'}

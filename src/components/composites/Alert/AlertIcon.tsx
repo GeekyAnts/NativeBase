@@ -5,7 +5,7 @@ import { useThemeProps } from '../../../hooks';
 import { AlertContext } from './Context';
 import { omitUndefined } from '../../../theme/tools/utils';
 
-const AlertIcon = ({ children, ...props }: any) => {
+const AlertIcon = ({ children, ...props }: any, ref?: any) => {
   let newProps = useThemeProps('AlertIcon', props);
   newProps = omitUndefined(newProps);
   const { status, iconColor }: IAlertContext = React.useContext(AlertContext);
@@ -26,9 +26,9 @@ const AlertIcon = ({ children, ...props }: any) => {
   return (
     <Box alignSelf="center">
       {children || (
-        <Icon name={getIconName()} color={iconColor} {...newProps} />
+        <Icon name={getIconName()} color={iconColor} {...newProps} ref={ref} />
       )}
     </Box>
   );
 };
-export default React.memo(AlertIcon);
+export default React.memo(React.forwardRef(AlertIcon));

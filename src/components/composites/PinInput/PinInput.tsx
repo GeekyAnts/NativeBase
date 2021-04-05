@@ -8,7 +8,7 @@ import { PinInputContext } from './Context';
 import { themeTools } from '../../../theme';
 import remove from 'lodash/remove';
 
-const PinInput = ({ children, ...props }: IPinInputProps) => {
+const PinInput = ({ children, ...props }: IPinInputProps, ref?: any) => {
   let [padding, remProps] = themeTools.extractInObject(props, [
     'p',
     'px',
@@ -104,7 +104,7 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
       }}
     >
       {children && (
-        <HStack flexDirection="row" space={space} {...padding}>
+        <HStack flexDirection="row" space={space} {...padding} ref={ref}>
           {indexSetter(children)}
         </HStack>
       )}
@@ -112,4 +112,4 @@ const PinInput = ({ children, ...props }: IPinInputProps) => {
   );
 };
 
-export default React.memo(PinInput);
+export default React.memo(React.forwardRef(PinInput));
