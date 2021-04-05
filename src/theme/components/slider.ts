@@ -40,7 +40,7 @@ export default {
 
 // SliderThumb
 const sliderThumbDefaultProps = {
-  shadow: 2,
+  shadow: 3,
   borderWidth: 2,
 };
 export const SliderThumb = {
