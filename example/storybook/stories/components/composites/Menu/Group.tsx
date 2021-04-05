@@ -1,5 +1,6 @@
 import React from 'react';
-import { Menu, Divider, IconButton, Icon } from 'native-base';
+import { Menu, Divider, Icon } from 'native-base';
+import { Pressable } from 'react-native';
 
 export default function () {
   return (
@@ -9,9 +10,9 @@ export default function () {
       onClose={() => console.log('closed')}
       trigger={(triggerProps) => {
         return (
-          <IconButton icon={<Icon name="menu" />} {...triggerProps}>
-            Show Menu
-          </IconButton>
+          <Pressable {...triggerProps}>
+            <Icon name="menu" />
+          </Pressable>
         );
       }}
     >

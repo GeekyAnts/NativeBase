@@ -5,7 +5,7 @@ export default function () {
   return (
     <HStack space={4} alignItems="flex-start">
       {['sm', 'md', 'lg'].map((size) => (
-        <Tag size={size} key={size} variant="solid" colorScheme="default">
+        <Tag size={size} key={size} variant="solid" _text={{ color: 'white' }}>
           NativeBase
         </Tag>
       ))}

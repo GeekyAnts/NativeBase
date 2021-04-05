@@ -1,4 +1,4 @@
-// Components
+// Components;
 export * from './components/composites/Accordion';
 export * from './components/composites/Actionsheet';
 export * from './components/composites/Alert';

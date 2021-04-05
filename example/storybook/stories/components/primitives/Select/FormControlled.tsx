@@ -17,6 +17,7 @@ export default function () {
           onValueChange={(itemValue: string) => {
             setValue(itemValue);
           }}
+          mt={1}
         >
           <Select.Item label="JavaScript" value="js" />
           <Select.Item label="TypeScript" value="ts" />
@@ -24,7 +25,7 @@ export default function () {
           <Select.Item label="Python" value="py" />
           <Select.Item label="Java" value="java" />
         </Select>
-        <FormControl.HelperText>
+        <FormControl.HelperText mt={1}>
           We'll keep this between us.
         </FormControl.HelperText>
         <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>

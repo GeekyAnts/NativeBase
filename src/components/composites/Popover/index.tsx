@@ -1,4 +1,4 @@
-import { Popover as PopoverMain, PopoverArrow } from './popover';
+import { Popover as PopoverMain } from './Popover';
 import { PopoverContent } from './PopoverContent';
 import PopoverBody from './PopoverBody';
 import PopoverCloseButton from './PopoverCloseButton';
@@ -10,7 +10,6 @@ export type { IPopoverProps } from './types';
 let PopoverTemp: any = PopoverMain;
 PopoverTemp.Content = PopoverContent;
 PopoverTemp.CloseButton = PopoverCloseButton;
-PopoverTemp.Arrow = PopoverArrow;
 PopoverTemp.Header = PopoverHeader;
 PopoverTemp.Footer = PopoverFooter;
 PopoverTemp.Body = PopoverBody;

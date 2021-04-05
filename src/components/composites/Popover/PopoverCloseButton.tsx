@@ -5,7 +5,10 @@ import { default as IconButton, IIconButtonProps } from '../IconButton';
 import Icon from '../../primitives/Icon';
 import { PopoverContext } from './PopoverContext';
 
-const PopoverCloseButton = (props: IIconButtonProps, ref?: any) => {
+const PopoverCloseButton = (
+  props: Omit<IIconButtonProps, 'icon'>,
+  ref: any
+) => {
   const { onClose }: any = React.useContext(PopoverContext);
   const style = useThemeProps('Popover', props);
 
