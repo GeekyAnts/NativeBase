@@ -307,6 +307,7 @@ const ScrollableTabView = createReactClass({
       disabled: this._children().map(child => child.props.disabled),
       accessible: this._children().map(child => child.props.accessible==false ? false : true || true ),
       accessibilityLabel: this._children().map(child => child.props.accessibilityLabel),
+      testID: this._children().map(child => child.props.testID),
       activeTab: this.state.currentPage,
       scrollValue: this.state.scrollValue,
       containerWidth: this.state.containerWidth

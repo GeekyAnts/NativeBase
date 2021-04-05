@@ -65,7 +65,8 @@ const DefaultTabBar = createReactClass({
     disabled,
     disabledTextColor,
     accessible,
-    accessibilityLabel
+    accessibilityLabel,
+    testID
   ) {
     const headerContent =
       typeof name !== 'string' ? name.props.children : undefined;
@@ -94,6 +95,7 @@ const DefaultTabBar = createReactClass({
           accessibilityRole='tab'
           accessibilityLabel={accessibilityLabel}
           accessibilityState={accessibilityState}
+          testID={testID}
           onPress={() => onPressHandler(page)}
         >
           <TabHeading
@@ -122,6 +124,7 @@ const DefaultTabBar = createReactClass({
         accessibilityRole='tab'
         accessibilityLabel={accessibilityLabel}
         accessibilityState={accessibilityState}
+        testID={testID}
         onPress={() => onPressHandler(page)}
       >
         <TabHeading style={tabHeaderStyle} active={isTabActive}>
