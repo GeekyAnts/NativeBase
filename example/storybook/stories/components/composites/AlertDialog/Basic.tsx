@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertDialog, Button, Center } from 'native-base';
+import { AlertDialog, Button, ButtonGroup, Center } from 'native-base';
 import type { TouchableOpacity } from 'react-native';
 
 export default function () {
@@ -25,10 +25,12 @@ export default function () {
             Are you sure? You can't undo this action afterwards.
           </AlertDialog.Body>
           <AlertDialog.Footer>
-            <Button onPress={onClose}>Cancel</Button>
-            <Button colorScheme="red" onPress={onClose} ml={3}>
-              Delete
-            </Button>
+            <ButtonGroup variant="ghost" spacing={2}>
+              <Button onPress={onClose}>CANCEL</Button>
+              <Button colorScheme="red" onPress={onClose}>
+                DELETE
+              </Button>
+            </ButtonGroup>
           </AlertDialog.Footer>
         </AlertDialog.Content>
       </AlertDialog>
