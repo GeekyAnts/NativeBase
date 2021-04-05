@@ -176,6 +176,7 @@
     "lodash": "^4.17.20",
     "patch-package": "^6.2.2",
     "react-native-material-ripple": "^0.9.1",
+    "react-native-popper": "^0.1.8",
     "react-native-unimodules": "~0.10.1",
     "tinycolor2": "^1.4.2"
   },
