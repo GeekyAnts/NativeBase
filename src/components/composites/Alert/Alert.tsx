@@ -5,7 +5,7 @@ import type { IAlertProps } from './types';
 import { AlertContext } from './Context';
 
 const Alert = (
-  { children, _text, action, ...props }: IAlertProps,
+  { children, _text, action, actionProps, ...props }: IAlertProps,
   ref?: any
 ) => {
   const {
@@ -14,6 +14,7 @@ const Alert = (
     iconColor,
     textColor,
     colorScheme,
+    _actionProps,
     ...newProps
   } = useThemeProps('Alert', props);
 
@@ -29,7 +30,11 @@ const Alert = (
     >
       <Box _text={_text} {...newProps} ref={ref}>
         {children}
-        {action ? <Box ml="auto">{action}</Box> : null}
+        {action ? (
+          <Box {..._actionProps} {...actionProps}>
+            {action}
+          </Box>
+        ) : null}
       </Box>
     </AlertContext.Provider>
   );

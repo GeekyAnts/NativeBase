@@ -6,7 +6,9 @@ export default function () {
       <Alert>
         <Alert.Icon />
         <Alert.Title>Alert Title</Alert.Title>
-        <Alert.Description>description goes here</Alert.Description>
+        <Alert.Description>
+          Alert Description should be a brief about the Alert Message.
+        </Alert.Description>
       </Alert>
     </Box>
   );

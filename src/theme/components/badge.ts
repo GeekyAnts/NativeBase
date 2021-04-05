@@ -2,7 +2,7 @@ import { mode, getColorScheme } from '../tools';
 
 const baseStyle = {
   px: 3,
-  py: 1,
+  py: 2,
   _text: { fontSize: 'xs' },
   borderRadius: 'pill',
 };

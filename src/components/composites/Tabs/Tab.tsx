@@ -82,8 +82,8 @@ const Tab = (
         {...marginalProps}
       >
         <Box
-          {...(isHovered && _hover)}
           {...remainingProps}
+          {...(isHovered && _hover)}
           style={[style, isSelected && _active, isDisabled && _disabled]}
         >
           {children}

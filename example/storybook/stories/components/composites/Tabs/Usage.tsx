@@ -5,9 +5,9 @@ export default function () {
   return (
     <Tabs>
       <Tabs.Bar>
-        <Tabs.Tab>One</Tabs.Tab>
-        <Tabs.Tab>Two</Tabs.Tab>
-        <Tabs.Tab>Three</Tabs.Tab>
+        <Tabs.Tab>TAB ONE</Tabs.Tab>
+        <Tabs.Tab>TAB TWO</Tabs.Tab>
+        <Tabs.Tab>TAB THREE</Tabs.Tab>
       </Tabs.Bar>
       <Tabs.Views>
         <Tabs.View>One</Tabs.View>

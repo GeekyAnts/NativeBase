@@ -8,12 +8,18 @@ function baseStyle(props: Record<string, any>) {
       alignItems: 'center',
       mb: '-2px',
       flexDirection: 'row',
+      _text: { fontSize: 'sm', fontWeight: 'bold' },
     },
     inactiveTabStyle: {
       justifyContent: 'center',
       alignItems: 'center',
       mb: '-2px',
       flexDirection: 'row',
+      _text: {
+        color: mode('gray.500', 'gray.400')(props),
+        fontSize: 'sm',
+        fontWeight: 'bold',
+      },
     },
     activeIconProps: {
       color: activeColor,
@@ -31,31 +37,37 @@ const sizes = {
   sm: {
     activeTabStyle: {
       _text: { fontSize: 'sm' },
-      p: 1,
+      py: 2,
+      px: 3,
     },
     inactiveTabStyle: {
       _text: { fontSize: 'sm' },
-      p: 1,
+      py: 2,
+      px: 3,
     },
   },
   md: {
     activeTabStyle: {
       _text: { fontSize: 'md' },
-      p: 2,
+      py: 3,
+      px: 4,
     },
     inactiveTabStyle: {
       _text: { fontSize: 'md' },
-      p: 2,
+      py: 3,
+      px: 4,
     },
   },
   lg: {
     activeTabStyle: {
       _text: { fontSize: 'lg' },
-      p: 3,
+      py: 4,
+      px: 5,
     },
     inactiveTabStyle: {
       _text: { fontSize: 'lg' },
-      p: 3,
+      py: 4,
+      px: 5,
     },
   },
 };
@@ -69,15 +81,16 @@ function variantOutline(props: Record<string, any>) {
   );
   return {
     activeTabStyle: {
-      roundedTop: 'md',
       borderColor: activeColor,
       _text: {
         color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
       },
+      _hover: {
+        bg: mode(`${colorScheme}.50`, `${colorScheme}.800`)(props),
+      },
       borderBottomWidth: 2,
     },
     inactiveTabStyle: {
-      roundedTop: 'md',
       borderColor: 'transparent',
       borderBottomWidth: 2,
       _hover: {
@@ -100,14 +113,15 @@ function variantFilled(props: Record<string, any>) {
   );
   return {
     activeTabStyle: {
-      roundedTop: 'md',
       borderColor: activeColor,
       _text: { color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props) },
+      _hover: {
+        bg: mode(`${colorScheme}.50`, `${colorScheme}.800`)(props),
+      },
       borderBottomWidth: 2,
       bg: mode(`${colorScheme}.100`, `${colorScheme}.700`)(props),
     },
     inactiveTabStyle: {
-      roundedTop: 'md',
       borderColor: 'transparent',
       borderBottomWidth: 2,
       _hover: {
@@ -149,6 +163,9 @@ function variantFilledOutline(props: Record<string, any>) {
     activeTabStyle: {
       borderColor: activeColor,
       _text: { color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props) },
+      _hover: {
+        bg: mode(`${colorScheme}.50`, `${colorScheme}.800`)(props),
+      },
       borderBottomWidth: 2,
     },
     inactiveTabStyle: {
@@ -159,7 +176,6 @@ function variantFilledOutline(props: Record<string, any>) {
       },
     },
     tabBarStyle: {
-      roundedTop: 'md',
       borderBottomWidth: 2,
       borderColor: mode('muted.200', 'muted.500')(props),
       bg: mode(`${colorScheme}.100`, `${colorScheme}.700`)(props),
