@@ -50,7 +50,7 @@ export const InputAddons = () => {
     <Stack alignItems="center" mx={3}>
       <InputGroup>
         <InputLeftAddon children={'https://'} />
-        <Input w="70%" placeholder="nativebase" />
+        <Input placeholder="nativebase" />
         <InputRightAddon children={'.io'} />
       </InputGroup>
     </Stack>
@@ -59,8 +59,6 @@ export const InputAddons = () => {
 export const InputElements = () => {
   return (
     <Input
-      bg="amber.200"
-      w="90%"
       InputLeftElement={
         <Icon name="phone" size="md" type="MaterialIcons" m={2} color="black" />
       }
@@ -83,7 +81,6 @@ export const PasswordInput = () => {
 
   return (
     <Input
-      w="70%"
       type={show ? 'text' : 'password'}
       InputRightElement={
         <Button ml={1} roundedLeft={0} roundedRight="md" onPress={handleClick}>

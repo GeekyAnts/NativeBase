@@ -1,14 +1,13 @@
 import React from 'react';
 import InputBase from './InputBase';
 import Box from '../Box';
-import Flex from '../Flex';
 import type { IInputProps } from './types';
 import { useThemeProps, usePlatformProps } from '../../../hooks';
 import { themeTools } from '../../../theme';
 import { useHover } from '@react-native-aria/interactions';
 
 const styleSystemProps = {
-  space: [
+  margin: [
     'margin',
     'm',
     'marginTop',
@@ -23,6 +22,8 @@ const styleSystemProps = {
     'mx',
     'marginY',
     'my',
+  ],
+  padding: [
     'padding',
     'p',
     'paddingTop',
@@ -146,7 +147,7 @@ const InputAdvance = (
     layoutProps,
     remainingProps,
   ] = themeTools.extractInObject(platformProps, [
-    ...styleSystemProps.space,
+    ...styleSystemProps.margin,
     ...styleSystemProps.border,
     ...styleSystemProps.layout,
     ...styleSystemProps.flexbox,
@@ -166,6 +167,8 @@ const InputAdvance = (
     <Box
       display="flex"
       flexDirection="row"
+      alignItems="center"
+      justifyContent="space-between"
       overflow="hidden"
       {...layoutProps}
       {...(isHovered && _hover)}
@@ -174,15 +177,10 @@ const InputAdvance = (
       {...(isInvalid && _invalid)}
       ref={_ref}
     >
-      {InputLeftElement ? (
-        <Flex justify="center" align="center" left={0}>
-          {InputLeftElement}
-        </Flex>
-      ) : null}
+      {InputLeftElement ? InputLeftElement : null}
       <InputBase
         inputProps={inputProps}
         {...baseInputProps}
-        p={0}
         flex={1}
         disableFocusHandling
         ref={ref}
@@ -194,11 +192,7 @@ const InputAdvance = (
           handleFocus(false, onBlur ? () => onBlur(e) : () => {});
         }}
       />
-      {InputRightElement ? (
-        <Flex justify="center" align="center" right={0}>
-          {InputRightElement}
-        </Flex>
-      ) : null}
+      {InputRightElement ? InputRightElement : null}
     </Box>
   );
 };

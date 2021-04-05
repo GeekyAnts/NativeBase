@@ -17,9 +17,9 @@ const baseStyle = (props: Record<string, any>) => {
 };
 
 const sizes = {
-  lg: { size: 5 },
-  md: { size: 4 },
-  sm: { size: 3 },
+  lg: { size: 6 },
+  md: { size: 5 },
+  sm: { size: 4 },
 };
 
 const defaultProps = {
