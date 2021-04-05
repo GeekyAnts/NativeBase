@@ -33,7 +33,8 @@ const DefaultTabBar = createReactClass({
       style: PropTypes.any,
     }),
     accessible: PropTypes.array,
-    accessibilityLabel: PropTypes.array
+    accessibilityLabel: PropTypes.array,
+    testID: PropTypes.array
   },
   contextTypes: {
     theme: PropTypes.object
@@ -177,7 +178,8 @@ const DefaultTabBar = createReactClass({
             this.props.disabled[page],
             this.props.disabledTextColor,
             this.props.accessible[page],
-            this.props.accessibilityLabel[page]
+            this.props.accessibilityLabel[page],
+            this.props.testID[page]
           );
         })}
         <Animated.View
