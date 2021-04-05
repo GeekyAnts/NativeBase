@@ -89,7 +89,6 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
         ) : (
           <Icon
             name="circle"
-            type="MaterialCommunityIcons"
             size={size}
             color={
               isSelected

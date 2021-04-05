@@ -105,15 +105,13 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         }
         borderColor={outlineColor}
         borderWidth={2}
-        borderRadius="md"
-        p={1}
+        borderRadius="sm"
       >
         {icon && sizedIcon && isChecked ? (
           sizedIcon()
         ) : (
           <Icon
-            name="check-bold"
-            type="MaterialCommunityIcons"
+            name="check"
             size={size}
             color={iconColor}
             opacity={isChecked ? 1 : 0}

@@ -18,10 +18,10 @@ const baseStyle = (props: Record<string, any>) => {
 };
 
 const sizes = {
-  // sizes mentioned here are used in pxiles.
-  lg: { thumbSize: 14, sliderSize: 9 },
-  md: { thumbSize: 10, sliderSize: 6 },
-  sm: { thumbSize: 6, sliderSize: 3 },
+  // sizes mentioned here are used in pixels.
+  lg: { thumbSize: 10, sliderSize: 8 },
+  md: { thumbSize: 8, sliderSize: 6 },
+  sm: { thumbSize: 4, sliderSize: 4 },
 };
 
 const defaultProps = {

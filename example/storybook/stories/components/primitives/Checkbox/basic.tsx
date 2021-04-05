@@ -1,8 +1,15 @@
 import React from 'react';
-import { Checkbox } from 'native-base';
+import { HStack, Checkbox } from 'native-base';
 
 export default function () {
   return (
-    <Checkbox value="test" accessibilityLabel="This is a dummy checkbox" />
+    <HStack space={6}>
+      <Checkbox value="test" accessibilityLabel="This is a dummy checkbox" />
+      <Checkbox
+        value="test"
+        accessibilityLabel="This is a dummy checkbox"
+        isChecked
+      />
+    </HStack>
   );
 }
