@@ -12,7 +12,6 @@ export default function () {
         return <Button {...triggerProps}>Trigger</Button>;
       }}
     >
-      <Popover.Arrow height={10} width={16} color="gray.200" />
       <Popover.Content width={250}>
         <Popover.CloseButton />
         <Popover.Header fontSize={20} fontWeight={700}>

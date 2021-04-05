@@ -2,7 +2,7 @@ import React from 'react';
 import { Wrap, Center } from 'native-base';
 export default function () {
   return (
-    <Wrap direction="row" space={10}>
+    <Wrap direction="row" space={10} mx={4}>
       <Center
         size={16}
         bg="primary.400"

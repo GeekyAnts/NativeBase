@@ -10,7 +10,7 @@ export default function () {
         </Slider.Track>
         <Slider.Thumb />
       </Slider>
-      <Slider defaultValue={60} colorScheme="purple">
+      <Slider defaultValue={60}>
         <Slider.Track>
           <Slider.FilledTrack />
         </Slider.Track>

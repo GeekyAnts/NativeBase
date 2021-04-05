@@ -19,9 +19,9 @@ const baseStyle = (props: Record<string, any>) => {
 
 const sizes = {
   // sizes mentioned here are used in pxiles.
-  lg: { thumbSize: 10, sliderSize: 9 },
-  md: { thumbSize: 8, sliderSize: 8 },
-  sm: { thumbSize: 6, sliderSize: 6 },
+  lg: { thumbSize: 14, sliderSize: 9 },
+  md: { thumbSize: 10, sliderSize: 6 },
+  sm: { thumbSize: 6, sliderSize: 3 },
 };
 
 const defaultProps = {

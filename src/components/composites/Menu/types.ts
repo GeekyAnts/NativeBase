@@ -62,6 +62,7 @@ export type IMenuItemProps = IBoxProps &
     isDisabled?: boolean;
     style?: ViewStyle;
     _text?: ITextProps;
+    textValue?: string;
   };
 
 export type IMenuItemOptionProps = IMenuItemProps & {

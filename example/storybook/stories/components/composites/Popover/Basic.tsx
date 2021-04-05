@@ -8,7 +8,6 @@ export default function () {
         return <Button {...triggerProps}>Trigger</Button>;
       }}
     >
-      <Popover.Arrow height={10} width={16} color="gray.200" />
       <Popover.Content>
         <Popover.CloseButton />
         <Popover.Header>Confirmation!</Popover.Header>
