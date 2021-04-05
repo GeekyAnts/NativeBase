@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio, Icon } from 'native-base';
+import { Radio, Icon, Text } from 'native-base';
 
 export default function () {
   const myRef: any = React.useRef({});
@@ -25,7 +25,7 @@ export default function () {
         value="1"
         my={1}
       >
-        Wrong
+        <Text mx={1}>Wrong</Text>
       </Radio>
       <Radio
         colorScheme="success"
@@ -36,7 +36,7 @@ export default function () {
         value="2"
         my={1}
       >
-        Correct
+        <Text mx={1}>Right</Text>
       </Radio>
     </Radio.Group>
   );

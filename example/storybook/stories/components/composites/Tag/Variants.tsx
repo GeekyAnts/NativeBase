@@ -5,7 +5,7 @@ export default function () {
   return (
     <HStack space={4} alignItems="flex-start">
       {['solid', 'subtle', 'outline'].map((variant: any) => (
-        <Tag key={variant} variant={variant} colorScheme="default">
+        <Tag key={variant} variant={variant}>
           NativeBase
         </Tag>
       ))}
