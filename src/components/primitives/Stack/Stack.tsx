@@ -25,7 +25,6 @@ const Stack = (
     ...remainingProps
   } = props;
   const newProps: any = useThemeProps('Stack', remainingProps);
-  console.log('mancn', newProps);
 
   return (
     <Box flexDirection={direction} {...newProps} ref={ref}>
