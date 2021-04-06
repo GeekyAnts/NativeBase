@@ -253,6 +253,13 @@ export function calculateProps(
         theme,
         ...colorModeProps,
       });
+      variantProps = extractProps(
+        variantProps,
+        theme,
+        colorModeProps,
+        componentTheme,
+        currentBreakpoint
+      );
       // added this to handle order of props
       newProps = mergeWith(
         newProps,

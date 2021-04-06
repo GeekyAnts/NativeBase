@@ -1,156 +1,106 @@
 import React from 'react';
-import {
-  TouchableOpacity,
-  TouchableOpacityProps,
-  Platform,
-} from 'react-native';
-import styled from 'styled-components/native';
-import { border, color, flexbox, layout, position, space } from 'styled-system';
-import { useThemeProps } from '../../../hooks';
-import { themeTools } from '../../../theme';
-import {
-  customBackground,
-  customBorder,
-  customExtra,
-  customLayout,
-  customOutline,
-  customPosition,
-  customShadow,
-} from '../../../utils/customProps';
-import Text from '../../primitives/Text';
-import { default as Box, IBoxProps } from '../Box';
-import Flex from '../Flex';
 import Spinner from '../Spinner';
+import { useThemeProps } from '../../../hooks';
+import { default as Box, IBoxProps } from '../Box';
+import HStack from '../Stack/HStack';
+import Pressable from '../Pressable';
 import type { IButtonGroupProps, IButtonProps } from './types';
+import { composeEventHandlers } from '../../../utils';
 
-const StyledButton = styled(TouchableOpacity)<
-  IButtonProps & TouchableOpacityProps
->(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout
-);
+const useHover = () => {
+  const [isHovered, setHovered] = React.useState(false);
+  return {
+    pressableProps: {
+      onHoverIn: () => setHovered(true),
+      onHoverOut: () => setHovered(false),
+    },
+    isHovered,
+  };
+};
+
+const useIsPressed = () => {
+  const [isPressed, setIsPressed] = React.useState(false);
+  return {
+    pressableProps: {
+      onPressIn: () => setIsPressed(true),
+      onPressOut: () => setIsPressed(false),
+    },
+    isPressed,
+  };
+};
+
 const Button = (
   {
-    style,
     children,
-    highlight,
     isLoading,
     isLoadingText,
+    accessibilityLabel,
+    accessibilityHint,
+    accessibilityState,
+    accessibilityRole,
     size,
     startIcon,
+    onPress,
+    onLongPress,
+    onPressIn,
+    onPressOut,
+    onHoverIn,
+    onHoverOut,
     endIcon,
     spinner,
     ...props
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  const { _text, ...newProps } = useThemeProps('Button', {
+  const { _text, _hover, _pressed, ...newProps } = useThemeProps('Button', {
     ...props,
     size,
   });
 
-  const [layoutProps, viewProps] = themeTools.extractInObject(newProps, [
-    'm',
-    'margin',
-    'mt',
-    'marginTop',
-    'mr',
-    'marginRight',
-    'mb',
-    'marginBottom',
-    'ml',
-    'marginLeft',
-    'mx',
-    'marginX',
-    'my',
-    'marginY',
-    'left',
-    'top',
-    'bottom',
-    'right',
-    'position',
-    'zIndex',
-    'minH',
-    'minHeight',
-    'minWidth',
-    'minW',
-    'h',
-    'height',
-    'w',
-    'width',
-    'opacity',
-  ]);
-  const [commonProps] = themeTools.extractInObject(layoutProps, [
-    'minH',
-    'minHeight',
-    'minWidth',
-    'minW',
-    'height',
-    'width',
-  ]);
-  const [
-    accessibilityProps,
-    innerButtonProps,
-  ] = themeTools.extractInObject(viewProps, [
-    'accessible',
-    'accessibilityRole',
-    'accessibilityState',
-    'accessibilityLabel',
-    'accessibilityHint',
-    'isDisabled',
-    'onPress',
-  ]);
-  accessibilityProps.isDisabled = accessibilityProps.isDisabled || isLoading;
-  const innerButton = (
-    <Box {...innerButtonProps} {...commonProps}>
-      {startIcon ? (
-        <Box mr={Math.floor(innerButtonProps.px / 2) || 2}>{startIcon}</Box>
-      ) : null}
-      {isLoading ? (
-        <Flex direction="row">
-          {spinner ? spinner : <Spinner color={_text?.color} size="sm" />}
-          <Text {..._text}>{isLoadingText ? ' ' + isLoadingText : ''}</Text>
-        </Flex>
-      ) : React.Children.count(children) > 1 || typeof children !== 'string' ? (
-        children
-      ) : (
-        <Text {..._text}>{children}</Text>
-      )}
-      {endIcon ? (
-        <Box ml={Math.floor(innerButtonProps.px / 2) || 2}>{endIcon}</Box>
-      ) : null}
-    </Box>
-  );
+  const { isDisabled } = props;
+
+  const { pressableProps, isHovered } = useHover();
+  const { pressableProps: isPressedProps, isPressed } = useIsPressed();
+
+  const themeProps = {
+    ...newProps,
+    ...(isHovered && _hover),
+    ...(isPressed && _pressed),
+  };
 
   return (
-    <StyledButton
-      activeOpacity={highlight ? highlight : 0.2}
+    <Pressable
+      onPress={onPress}
+      onLongPress={onLongPress}
+      onPressIn={composeEventHandlers(onPressIn, isPressedProps.onPressIn)}
+      onPressOut={composeEventHandlers(onPressOut, isPressedProps.onPressOut)}
+      disabled={isDisabled}
       ref={ref}
-      style={style}
-      accessibilityRole="button"
-      disabled={accessibilityProps.isDisabled}
-      opacity={isLoading ? 0.8 : accessibilityProps.isDisabled ? 0.5 : 1}
-      {...accessibilityProps}
-      {...layoutProps}
-      {...(Platform.OS === 'web'
-        ? {
-            cursor: accessibilityProps.isDisabled ? 'not-allowed' : 'auto',
-          }
-        : {})}
+      accessibilityHint={accessibilityHint}
+      accessibilityRole={accessibilityRole ?? 'button'}
+      accessibilityState={accessibilityState}
+      accessibilityLabel={accessibilityLabel}
+      // @ts-ignore - web only
+      onHoverIn={composeEventHandlers(onHoverIn, pressableProps.onHoverIn)}
+      // @ts-ignore - web only
+      onHoverOut={composeEventHandlers(onHoverOut, pressableProps.onHoverOut)}
+      {...themeProps}
     >
-      {innerButton}
-    </StyledButton>
+      <HStack opacity={isDisabled ? 0.7 : undefined} space={2}>
+        {startIcon && !isLoading ? startIcon : null}
+        {isLoading ? (
+          spinner ? (
+            spinner
+          ) : (
+            <Spinner color={_text?.color} size="sm" />
+          )
+        ) : null}
+        <Box _text={_text}>
+          {isLoading && isLoadingText ? isLoadingText : children}
+        </Box>
+        {endIcon && !isLoading ? endIcon : null}
+      </HStack>
+    </Pressable>
   );
 };
 

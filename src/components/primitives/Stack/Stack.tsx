@@ -1,14 +1,13 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import { IViewProps, default as View } from '../View';
+import { default as Box } from '../Box';
 import { getSpacedChildren } from '../../../utils';
 import { useThemeProps } from '../../../hooks';
+import type { IBoxProps } from '../Box';
 
 type SpaceType = 'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
-const StyledStack = styled(View)<IStackProps>({});
-export type IStackProps = IViewProps & {
-  children: JSX.Element[] | JSX.Element;
+export type IStackProps = IBoxProps & {
+  children: React.ReactNode[];
   divider?: JSX.Element;
   space?: number | SpaceType;
   reversed?: boolean;
@@ -28,7 +27,7 @@ const Stack = (
   const newProps: any = useThemeProps('Stack', remainingProps);
 
   return (
-    <StyledStack flexDirection={direction} {...newProps} ref={ref}>
+    <Box flexDirection={direction} {...newProps} ref={ref}>
       {getSpacedChildren(
         children,
         space,
@@ -36,7 +35,7 @@ const Stack = (
         reversed ? 'reverse' : 'normal',
         divider
       )}
-    </StyledStack>
+    </Box>
   );
 };
 

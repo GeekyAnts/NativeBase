@@ -1,4 +1,4 @@
-import { Dict, mode } from './../tools';
+import { Dict, mode, transparentize } from './../tools';
 
 const baseStyle = {
   borderRadius: 'md',
@@ -36,6 +36,9 @@ function variantOutline(props: Dict) {
     borderColor:
       c === 'muted' ? borderColor : mode(`${c}.500`, `${c}.200`)(props),
     ...variantGhost(props),
+    _hover: {
+      backgroundColor: transparentize(`${c}.100`, 0.5)(props.theme),
+    },
   };
 }
 
@@ -62,6 +65,12 @@ function variantSolid(props: Dict) {
     shadow: 3,
     _text: {
       color: mode('white', 'black')(props),
+    },
+    _hover: {
+      backgroundColor: `${c}.600`,
+    },
+    _pressed: {
+      backgroundColor: `${c}.700`,
     },
   };
 }
