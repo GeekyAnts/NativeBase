@@ -13,17 +13,21 @@ export default function () {
       >
         <Modal.Content>
           <Modal.CloseButton />
-          <Modal.Header>Modal Header</Modal.Header>
-          <Modal.Body>Modal body text</Modal.Body>
+          <Modal.Header>Cookie Policy</Modal.Header>
+          <Modal.Body>
+            We use our own and third-party cookies and other tracking
+            technologies, by continuing to browse the website, you accept our
+            use of cookies and tracking technologies.
+          </Modal.Body>
           <Modal.Footer>
             <ButtonGroup variant="ghost" spacing={2}>
-              <Button>ACTION 1</Button>
+              <Button>LEARN MORE</Button>
               <Button
                 onPress={() => {
                   setModalVisible(!modalVisible);
                 }}
               >
-                ACTION 2
+                ACCEPT
               </Button>
             </ButtonGroup>
           </Modal.Footer>

@@ -29,6 +29,7 @@ export type IBoxProps = ViewProps &
   FlexboxProps &
   TypographyProps &
   PositionProps &
+  BorderProps &
   customBorderProps &
   customPositionProps &
   customExtraProps &
@@ -38,8 +39,7 @@ export type IBoxProps = ViewProps &
   customTypographyProps &
   customBackgroundProps &
   customTransformProps &
-  customFlexboxProps &
-  BorderProps & {
+  customFlexboxProps & {
     style?: ViewStyle;
     children?: JSX.Element | JSX.Element[] | string | any;
     shadow?: number;

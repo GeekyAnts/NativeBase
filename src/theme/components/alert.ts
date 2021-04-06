@@ -41,6 +41,7 @@ const variantOutline = (props: Record<string, any>) => {
     colorScheme !== 'primary' ? colorScheme : status
   );
   return {
+    bg: mode('white', 'gray.800')(props),
     borderWidth: 1,
     borderColor: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
     iconColor: mode(`${colorScheme}.500`, `${colorScheme}.500`)(props),
@@ -54,6 +55,7 @@ const variantOutlineLight = (props: Record<string, any>) => {
     colorScheme !== 'primary' ? colorScheme : status
   );
   return {
+    bg: mode('white', 'gray.800')(props),
     borderWidth: 1,
     borderColor: transparentize(`${colorScheme}.600`, 0.2)(theme),
     iconColor: mode(`${colorScheme}.500`, `${colorScheme}.200`)(props),
