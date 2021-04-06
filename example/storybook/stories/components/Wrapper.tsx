@@ -11,22 +11,11 @@ import {
 import type { StorageManager } from 'native-base';
 import { Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useFonts } from 'expo-font';
 
 function MyWrapper({ children }: any) {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const bgColor = useColorModeValue(`gray.50`, `gray.800`);
-
-  const [loaded] = useFonts({
-    'Roboto-Bold': require('../../../assets/fonts/Roboto-Bold.ttf'),
-    'Roboto-Italic': require('../../../assets/fonts/Roboto-Italic.ttf'),
-    'Roboto-Light': require('../../../assets/fonts/Roboto-Light.ttf'),
-    'Roboto-Regular': require('../../../assets/fonts/Roboto-Regular.ttf'),
-    'Roboto-Medium': require('../../../assets/fonts/Roboto-Medium.ttf'),
-  });
-
-  if (!loaded) return null;
 
   return (
     <View
