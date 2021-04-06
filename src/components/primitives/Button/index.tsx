@@ -6,7 +6,6 @@ import HStack from '../Stack/HStack';
 import Pressable from '../Pressable';
 import type { IButtonGroupProps, IButtonProps } from './types';
 import { composeEventHandlers } from '../../../utils';
-import { useTheme } from '../../../hooks';
 
 const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
@@ -69,11 +68,6 @@ const Button = (
     ...(isPressed && _pressed),
   };
 
-  // const shadowProps = useToken('shadows', themeProps.shadow);
-  const theme = useTheme();
-  const shadowProps = theme.shadows()[themeProps.shadow];
-  themeProps.shadow = undefined;
-
   return (
     <Pressable
       onPress={onPress}
@@ -91,7 +85,6 @@ const Button = (
       // @ts-ignore - web only
       onHoverOut={composeEventHandlers(onHoverOut, pressableProps.onHoverOut)}
       {...themeProps}
-      style={{ ...shadowProps }}
     >
       <HStack opacity={isDisabled ? 0.7 : undefined} space={2}>
         {startIcon && !isLoading ? startIcon : null}
