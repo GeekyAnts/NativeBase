@@ -38,12 +38,16 @@ export type IButtonProps = ViewProps &
   IAccessibilityProps & {
     style?: ViewStyle;
     children?: any;
-    highlight?: number | 0 | 1 | 0.5 | 0.25 | 0.75;
     colorScheme?: string;
     variant?: string;
     isLoading?: any;
     size?: 'xs' | 'sm' | 'md' | 'lg';
     onPress?: any;
+    onLongPress?: any;
+    onPressIn?: any;
+    onPressOut?: any;
+    onHoverIn?: any;
+    onHoverOut?: any;
     shadow?: number;
     startIcon?: JSX.Element | Array<JSX.Element>;
     endIcon?: JSX.Element | Array<JSX.Element>;

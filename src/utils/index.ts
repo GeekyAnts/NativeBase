@@ -3,7 +3,7 @@ import getAbsoluteChildren from './getAbsoluteChildren';
 import getAttachedChildren from './getAttachedChildren';
 import { addTextAndPropsToStrings } from './addTextAndPropsToStrings';
 import { canUseDom } from './canUseDom';
-import { mergeRefs } from './mergeRefs';
+import { mergeRefs, composeEventHandlers } from './mergeRefs';
 export {
   getSpacedChildren,
   getAbsoluteChildren,
@@ -11,6 +11,7 @@ export {
   addTextAndPropsToStrings,
   canUseDom,
   mergeRefs,
+  composeEventHandlers,
 };
 export type { IAccessibilityProps } from './accessibilityTypes';
 export { ariaAttr } from './accessibilityUtils';
