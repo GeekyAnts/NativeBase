@@ -20,12 +20,11 @@ export default function () {
         <Modal.Content>
           <Modal.CloseButton />
           <Modal.Header _text={{ fontSize: '2xl', fontWeight: 'bold' }}>
-            Hello World
+            Hey There! Tell us about yourself.
           </Modal.Header>
           <Modal.Body>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quasi
-            cupiditate expedita, ipsa delectus!
-            <Input mt={4} placeholder="Lorem ipsum dolor sit" />
+            Just a one liner would work for us.
+            <Input mt={4} placeholder="Something about you..." />
           </Modal.Body>
           <Modal.Footer>
             <ButtonGroup variant="ghost" spacing={2}>
