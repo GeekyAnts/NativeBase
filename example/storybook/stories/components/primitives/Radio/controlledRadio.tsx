@@ -14,10 +14,10 @@ export default function ControlledRadio() {
       }}
     >
       <Radio value="one" my={1}>
-        <Text mx={1}>One</Text>
+        <Text mx={3}>One</Text>
       </Radio>
       <Radio value="two" my={1}>
-        <Text mx={1}>Two</Text>
+        <Text mx={3}>Two</Text>
       </Radio>
     </Radio.Group>
   );

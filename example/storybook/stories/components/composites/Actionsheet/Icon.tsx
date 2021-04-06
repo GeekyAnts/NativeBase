@@ -10,40 +10,31 @@ export default function () {
       <Actionsheet isOpen={isOpen} onClose={onClose} size="full">
         <Actionsheet.Content>
           <Actionsheet.Item
-            startIcon={
-              <Icon
-                name="bat"
-                type="MaterialCommunityIcons"
-                color="muted.500"
-                mr={5}
-              />
-            }
+            startIcon={<Icon name="share" color="muted.500" mr={5} />}
           >
-            Movie
+            Share
           </Actionsheet.Item>
           <Actionsheet.Item
             startIcon={
               <Icon
-                name="campfire"
+                name="link"
                 type="MaterialCommunityIcons"
                 color="muted.500"
                 mr={5}
               />
             }
           >
-            Camping
+            Link
           </Actionsheet.Item>
           <Actionsheet.Item
-            startIcon={
-              <Icon
-                name="chess-knight"
-                type="MaterialCommunityIcons"
-                color="muted.500"
-                mr={5}
-              />
-            }
+            startIcon={<Icon name="edit" color="muted.500" mr={5} />}
           >
-            Chess
+            Edit name
+          </Actionsheet.Item>
+          <Actionsheet.Item
+            startIcon={<Icon name="delete" color="muted.500" mr={5} />}
+          >
+            Delete Collection
           </Actionsheet.Item>
         </Actionsheet.Content>
       </Actionsheet>
