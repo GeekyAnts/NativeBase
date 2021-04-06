@@ -16,13 +16,14 @@ export default function () {
       >
         <Modal.Content>
           <Modal.CloseButton />
-          <Modal.Header>Hello World</Modal.Header>
+          <Modal.Header>Want to set focus somewhere?</Modal.Header>
           <Modal.Body>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quasi
-            cupiditate expedita, ipsa corporis officia totam similique delectus!
-            Debitis esse, ea blanditiis iste enim iure at odit fugiat autem.
-            Accusamus?
-            <Input mt={4} ref={initialRef} placeholder="First name" />
+            The below input will get focus upon opening of the Modal
+            <Input
+              mt={4}
+              ref={initialRef}
+              placeholder="I'll recieve focus on Modal's opening"
+            />
           </Modal.Body>
           <Modal.Footer>
             <ButtonGroup variant="ghost" spacing={2}>

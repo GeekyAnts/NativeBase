@@ -33,6 +33,13 @@ function extractProps(
   let newProps: any = {};
   for (let property in props) {
     // If the property exists in themePropertyMap then get its value
+    if (property === 'border') {
+      if (typeof props.border === 'string' && !props.border.includes(' ')) {
+        throw Error(
+          '`border` expects value in the form of `1px solid`,`1px dotted` or a number.'
+        );
+      }
+    }
     if (themePropertyMap[property]) {
       let propValues = extractPropertyFromFunction(
         property,
@@ -228,6 +235,7 @@ export function calculateProps(
         }
       }
     );
+
     const variant =
       props.variant || get(componentTheme, 'defaultProps.variant');
     // Extracting props from variant

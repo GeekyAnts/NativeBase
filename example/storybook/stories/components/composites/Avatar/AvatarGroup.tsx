@@ -7,7 +7,7 @@ export default function () {
       <Avatar
         source={{
           uri:
-            'https://pbs.twimg.com/profile_images/1188747996843761665/8CiUdKZW_400x400.jpg',
+            'https://pbs.twimg.com/profile_images/1369921787568422915/hoyvrUpc_400x400.jpg',
         }}
       >
         SS
