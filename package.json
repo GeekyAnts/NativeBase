@@ -49,7 +49,6 @@
     "@types/react": "^16.9.19",
     "@types/react-native": "~0.63.2",
     "@types/styled-components-react-native": "^5.1.0",
-    "@types/styled-system": "^5.1.9",
     "@types/tinycolor2": "^1.4.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "commitlint": "^8.3.5",
@@ -176,7 +175,8 @@
     "react-native-material-ripple": "^0.9.1",
     "react-native-popper": "^0.1.8",
     "react-native-unimodules": "~0.10.1",
-    "tinycolor2": "^1.4.2"
+    "tinycolor2": "^1.4.2",
+    "@types/styled-system": "^5.1.9"
   },
   "directories": {
     "example": "example",
