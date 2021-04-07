@@ -13,7 +13,7 @@ export function mergeRefs<T = any>(
 }
 
 export function composeEventHandlers<E>(
-  originalEventHandler?: (event: E) => void,
+  originalEventHandler?: null | ((event: E) => void),
   ourEventHandler?: (event: E) => void,
   { checkForDefaultPrevented = true } = {}
 ) {
