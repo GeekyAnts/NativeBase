@@ -13,13 +13,17 @@ import {
   customShadow,
 } from '../../../utils/customProps';
 import type { IBoxProps } from '../Box';
+import { useFocusRing } from '@react-native-aria/focus';
 
 export type IPressableProps = PressableProps &
   IBoxProps & {
     onHoverIn?: any;
     onHoverOut?: any;
+    onFocus?: any;
+    onBlur?: any;
     _hover?: any;
     _pressed?: any;
+    _focus?: any;
   };
 
 const useHover = () => {
@@ -66,14 +70,18 @@ const Pressable = (
     onPressOut,
     onHoverIn,
     onHoverOut,
+    onFocus,
+    onBlur,
     _hover,
     _pressed,
+    _focus,
     ...props
   }: IPressableProps,
   ref: any
 ) => {
   const { pressableProps, isHovered } = useHover();
   const { pressableProps: isPressedProps, isPressed } = useIsPressed();
+  const { focusProps, isFocusVisible } = useFocusRing();
 
   return (
     <StyledPressable
@@ -85,7 +93,12 @@ const Pressable = (
       // @ts-ignore - web only
       onHoverOut={composeEventHandlers(onHoverOut, pressableProps.onHoverOut)}
       {...props}
+      // @ts-ignore - web only
+      onFocus={composeEventHandlers(onFocus, focusProps.onFocus)}
+      // @ts-ignore - web only
+      onBlur={composeEventHandlers(onBlur, focusProps.onBlur)}
       {...(isHovered && _hover)}
+      {...(isFocusVisible && _focus)}
       {...(isPressed && _pressed)}
     />
   );

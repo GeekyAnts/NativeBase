@@ -5,6 +5,7 @@ import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import Pressable from '../Pressable';
 import type { IButtonGroupProps, IButtonProps } from './types';
+import { usePlatformProps } from '../../../hooks';
 
 const Button = (
   {
@@ -19,22 +20,28 @@ const Button = (
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  const { _text, _hover, _pressed, ...restProps } = useThemeProps('Button', {
-    ...props,
-    size,
-  });
+  const { _text, _hover, _pressed, _focus, ...restProps } = useThemeProps(
+    'Button',
+    {
+      ...props,
+      size,
+    }
+  );
+
+  const platformProps = usePlatformProps(restProps);
 
   const { isDisabled } = props;
 
   const pressableProps = {
-    ...restProps,
+    ...platformProps,
     _hover,
     _pressed,
+    _focus,
   };
 
   return (
-    <Pressable disabled={isDisabled} ref={ref} {...pressableProps}>
-      <HStack opacity={isDisabled ? 0.7 : undefined} space={2}>
+    <Pressable disabled={isDisabled || isLoading} ref={ref} {...pressableProps}>
+      <HStack opacity={isDisabled || isLoading ? 0.6 : undefined} space={2}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading ? (
           spinner ? (

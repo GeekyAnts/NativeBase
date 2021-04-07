@@ -2,12 +2,12 @@ import { Dict, mode, transparentize } from './../tools';
 
 const baseStyle = {
   borderRadius: 'md',
-  display: 'flex',
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
   _text: {
     fontWeight: 500,
+    letterSpacing: '4xl',
   },
 };
 function variantGhost(props: Dict) {
@@ -25,6 +25,27 @@ function variantGhost(props: Dict) {
       color: mode(`${c}.500`, `${c}.200`)(props),
     },
     bg: 'transparent',
+    _web: {
+      outlineWidth: 0,
+    },
+    _hover: {
+      backgroundColor: transparentize(
+        mode(`${c}.200`, `${c}.500`)(props),
+        0.5
+      )(props.theme),
+    },
+    _focus: {
+      backgroundColor: transparentize(
+        mode(`${c}.200`, `${c}.500`)(props),
+        0.5
+      )(props.theme),
+    },
+    _pressed: {
+      backgroundColor: transparentize(
+        mode(`${c}.200`, `${c}.500`)(props),
+        0.6
+      )(props.theme),
+    },
   };
 }
 
@@ -36,9 +57,6 @@ function variantOutline(props: Dict) {
     borderColor:
       c === 'muted' ? borderColor : mode(`${c}.500`, `${c}.200`)(props),
     ...variantGhost(props),
-    _hover: {
-      backgroundColor: transparentize(`${c}.100`, 0.5)(props.theme),
-    },
   };
 }
 
@@ -59,15 +77,22 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
 
 function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
-  const { bg = `${c}.500` } = accessibleColorMap[c] || {};
+  let { bg = `${c}.500` } = accessibleColorMap[c] || {};
+  bg = mode(bg, `${c}.400`)(props);
   return {
-    bg: mode(bg, `${c}.400`)(props),
+    _web: {
+      outlineWidth: 0,
+    },
+    bg,
     shadow: 3,
     _hover: {
-      backgroundColor: `${c}.600`,
+      backgroundColor: mode(`${c}.600`, `${c}.500`)(props),
+    },
+    _focus: {
+      backgroundColor: mode(`${c}.600`, `${c}.500`)(props),
     },
     _pressed: {
-      backgroundColor: `${c}.700`,
+      backgroundColor: mode(`${c}.700`, `${c}.600`)(props),
     },
   };
 }
@@ -76,6 +101,7 @@ function variantLink(props: Dict) {
   const { colorScheme: c } = props;
 
   return {
+    ...variantGhost(props),
     _text: {
       textDecorationLine: 'underline',
       color:
@@ -110,7 +136,7 @@ const sizes = {
     px: 4,
     py: 2,
     _text: {
-      fontSize: 'md',
+      fontSize: 'sm',
       lineHeight: 5,
     },
   },
