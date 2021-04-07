@@ -23,6 +23,7 @@ import {
   customTypography,
 } from '../../../utils/customProps';
 import type { IBoxProps } from './types';
+import { useSafeArea } from '../../../hooks/useSafeArea';
 
 const StyledBox = styled(View)<IBoxProps>(
   color,
@@ -44,8 +45,9 @@ const StyledBox = styled(View)<IBoxProps>(
 
 const Box = ({ children, _text, ...props }: IBoxProps, ref: any) => {
   const boxProps = useThemeProps('Box', props);
+  const safeAreaProps = useSafeArea(boxProps);
   return (
-    <StyledBox ref={ref} {...boxProps}>
+    <StyledBox ref={ref} {...safeAreaProps}>
       {React.Children.map(children, (child) =>
         typeof child === 'string' ? <Text {..._text}>{child}</Text> : child
       )}
