@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { useThemeProps } from '../../../hooks';
-import { default as View } from './../../primitives/View';
+import Box from './../../primitives/Box';
 import type { IDividerProps } from './types';
 
 const Divider = (props: IDividerProps, ref?: any) => {
@@ -17,7 +17,7 @@ const Divider = (props: IDividerProps, ref?: any) => {
           height: 0,
         };
   return (
-    <View
+    <Box
       {...orientationProps}
       borderColor={newProps.bg ?? newProps.backgroundColor}
       {...newProps}

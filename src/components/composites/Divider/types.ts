@@ -1,5 +1,5 @@
-import type { IViewProps } from '../../primitives/View/types';
+import type { IBoxProps } from '../../primitives/Box/types';
 
-export type IDividerProps = IViewProps & {
+export type IDividerProps = IBoxProps & {
   orientation?: 'vertical' | 'horizontal';
 };
