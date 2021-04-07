@@ -56,24 +56,28 @@ const componentMap = {
   Zocial,
 };
 
+let memoizedStyledIcons: any = {};
 function getStyledIconComponent(type: IconType) {
-  return styled(componentMap[type])<IIconProps>(
-    color,
-    space,
-    layout,
-    flexbox,
-    border,
-    typography,
-    position,
-    customPosition,
-    customBorder,
-    customBackground,
-    customOutline,
-    customShadow,
-    customExtra,
-    customLayout,
-    customTypography
-  );
+  if (!memoizedStyledIcons[type]) {
+    memoizedStyledIcons[type] = styled(componentMap[type])<IIconProps>(
+      color,
+      space,
+      layout,
+      flexbox,
+      border,
+      typography,
+      position,
+      customPosition,
+      customBorder,
+      customBackground,
+      customOutline,
+      customShadow,
+      customExtra,
+      customLayout,
+      customTypography
+    );
+  }
+  return memoizedStyledIcons[type];
 }
 
 const Icon = ({ type, name, style, ...props }: IIconProps, ref?: any) => {
