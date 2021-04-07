@@ -40,8 +40,13 @@ const Button = (
   };
 
   return (
-    <Pressable disabled={isDisabled || isLoading} ref={ref} {...pressableProps}>
-      <HStack opacity={isDisabled || isLoading ? 0.6 : undefined} space={2}>
+    <Pressable
+      disabled={isDisabled || isLoading}
+      ref={ref}
+      {...pressableProps}
+      opacity={isDisabled || isLoading ? 0.6 : undefined}
+    >
+      <HStack space={2}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading ? (
           spinner ? (
