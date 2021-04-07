@@ -22,8 +22,7 @@
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
     "build:web": "rollup --config",
-    "bundle:analysis": "visualize-bundle",
-    "postinstall": "patch-package"
+    "bundle:analysis": "visualize-bundle"
   },
   "version": "3.0.0-next.36",
   "license": "Apache-2.0",
@@ -78,7 +77,7 @@
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
-    "@expo/vector-icons": "^12.0.2",
+    "@expo/vector-icons": "^12.0.4",
     "react": "16.11.0",
     "react-dom": "*",
     "react-native": "0.62.2",
@@ -174,7 +173,6 @@
     "expo-font": "^8.3.0",
     "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.20",
-    "patch-package": "^6.2.2",
     "react-native-material-ripple": "^0.9.1",
     "react-native-popper": "^0.1.8",
     "react-native-unimodules": "~0.10.1",
