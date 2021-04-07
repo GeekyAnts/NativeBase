@@ -13,10 +13,16 @@ export default function () {
         errorMessage="Sample error message"
         placeholder="Default TextField"
         InputLeftElement={
-          <Icon name="calendar-today" size="md" m={3} color="muted.500" />
+          <Icon
+            name="calendar-today"
+            size="md"
+            my={3}
+            ml={3}
+            color="muted.500"
+          />
         }
         InputRightElement={
-          <Icon name="cancel" size="md" m={3} color="muted.500" />
+          <Icon name="cancel" size="md" my={3} mr={3} color="muted.500" />
         }
       />
       <Button onPress={() => setIsInvalid(!isInvalid)}>
