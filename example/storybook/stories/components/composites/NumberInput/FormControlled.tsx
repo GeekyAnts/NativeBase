@@ -1,17 +1,17 @@
 import React from 'react';
 import {
+  Stack,
   FormControl,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
-  Container,
 } from 'native-base';
 
 export default function () {
   return (
-    <Container w={'95%'}>
+    <Stack w="90%">
       <FormControl isRequired isInvalid>
         <FormControl.Label>How many components we have</FormControl.Label>
         <NumberInput>
@@ -26,6 +26,6 @@ export default function () {
           Don't worry, it's just an example.
         </FormControl.ErrorMessage>
       </FormControl>
-    </Container>
+    </Stack>
   );
 }

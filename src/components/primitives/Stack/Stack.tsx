@@ -7,7 +7,7 @@ import type { IBoxProps } from '../Box';
 type SpaceType = 'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 export type IStackProps = IBoxProps & {
-  children: React.ReactNode[];
+  children?: React.ReactNode | React.ReactNode[];
   divider?: JSX.Element;
   space?: number | SpaceType;
   reversed?: boolean;

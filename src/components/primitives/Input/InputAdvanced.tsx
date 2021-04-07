@@ -3,105 +3,8 @@ import InputBase from './InputBase';
 import Box from '../Box';
 import type { IInputProps } from './types';
 import { useThemeProps, usePlatformProps } from '../../../hooks';
-import { themeTools } from '../../../theme';
+import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { useHover } from '@react-native-aria/interactions';
-
-const styleSystemProps = {
-  margin: [
-    'margin',
-    'm',
-    'marginTop',
-    'mt',
-    'marginRight',
-    'mr',
-    'marginBottom',
-    'mb',
-    'marginLeft',
-    'ml',
-    'marginX',
-    'mx',
-    'marginY',
-    'my',
-  ],
-  padding: [
-    'padding',
-    'p',
-    'paddingTop',
-    'pt',
-    'paddingRight',
-    'pr',
-    'paddingBottom',
-    'pb',
-    'paddingLeft',
-    'pl',
-    'paddingX',
-    'px',
-    'paddingY',
-    'py',
-  ],
-  border: [
-    'border',
-    'borderWidth',
-    'borderStyle',
-    'borderColor',
-    'borderRadius',
-    'borderTop',
-    'borderTopWidth',
-    'borderTopStyle',
-    'borderTopColor',
-    'borderTopLeftRadius',
-    'borderTopRightRadius',
-    'borderRight',
-    'borderRightWidth',
-    'borderRightStyle',
-    'borderRightColor',
-    'borderBottom',
-    'borderBottomWidth',
-    'borderBottomStyle',
-    'borderBottomColor',
-    'borderBottomLeftRadius',
-    'borderBottomRightRadius',
-    'borderLeft',
-    'borderLeftWidth',
-    'borderLeftStyle',
-    'borderLeftColor',
-    'borderX',
-    'borderY',
-  ],
-  layout: [
-    'width',
-    'w',
-    'height',
-    'h',
-    'display',
-    'minWidth',
-    'minHeight',
-    'maxWidth',
-    'maxHeight',
-    'size',
-    'verticalAlign',
-    'overflow',
-    'overflowX',
-    'overflowY',
-  ],
-  flexbox: [
-    'alignItems',
-    'alignContent',
-    'justifyItems',
-    'justifyContent',
-    'flexWrap',
-    'flexDirection',
-    'flex',
-    'flexGrow',
-    'flexShrink',
-    'flexBasis',
-    'justifySelf',
-    'alignSelf',
-    'order',
-  ],
-  position: ['position', 'zIndex', 'top', 'right', 'bottom', 'left'],
-  background: ['bg', 'backgroundColor'],
-};
 
 const InputAdvance = (
   {
@@ -143,22 +46,17 @@ const InputAdvance = (
     callback();
   };
 
-  const [
-    layoutProps,
-    remainingProps,
-  ] = themeTools.extractInObject(platformProps, [
-    ...styleSystemProps.margin,
-    ...styleSystemProps.border,
-    ...styleSystemProps.layout,
-    ...styleSystemProps.flexbox,
-    ...styleSystemProps.position,
-    ...styleSystemProps.background,
+  const [layoutProps, nonLayoutProps] = extractInObject(platformProps, [
+    ...stylingProps.margin,
+    ...stylingProps.border,
+    ...stylingProps.layout,
+    ...stylingProps.flexbox,
+    ...stylingProps.position,
+    ...stylingProps.background,
   ]);
 
   // Extracting baseInputProps from remaining props
-  const [, baseInputProps] = themeTools.extractInObject(remainingProps, [
-    'variant',
-  ]);
+  const [, baseInputProps] = extractInObject(nonLayoutProps, ['variant']);
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
