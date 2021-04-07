@@ -77,7 +77,6 @@ function getStyledIconComponent(type: IconType) {
       customTypography
     );
   }
-  console.log('memoized ', memoizedStyledIcons);
   return memoizedStyledIcons[type];
 }
 
