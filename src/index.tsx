@@ -105,6 +105,8 @@ import {
   IuseSnackbarProps,
   Fab,
   IFabProps,
+  TextField,
+  ITextFieldProps,
   Typeahead,
   useTypeahead,
 } from './components/composites';
@@ -217,6 +219,7 @@ export {
   Stat,
   Tag,
   TextArea,
+  TextField,
   Wrap,
   PinInput,
   Fade,
@@ -326,4 +329,5 @@ export type {
   IFabProps,
   ISelectProps,
   ISelectItemProps,
+  ITextFieldProps,
 };

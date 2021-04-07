@@ -54,6 +54,7 @@ export * from './components/composites/Tabs';
 export * from './components/composites/Tag';
 export * from './components/primitives/Text';
 export * from './components/primitives/TextArea';
+export * from './components/composites/TextField';
 export * from './components/composites/Toast';
 export * from './components/composites/Transitions';
 export * from './components/composites/Typeahead';
