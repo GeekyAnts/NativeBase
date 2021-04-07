@@ -1,10 +1,11 @@
 import React from 'react';
-import { Flex, Spacer, Center } from 'native-base';
+import { Flex, Spacer, Center, Heading } from 'native-base';
 
 export const SpacerExample = () => {
   return (
     <Center flex={1}>
-      <Flex h={56} w={20} justify="space-between">
+      <Heading mb={3}>Adding Spacer</Heading>
+      <Flex h={56} w={20}>
         <Center
           size={16}
           bg="primary.400"

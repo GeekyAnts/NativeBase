@@ -63,9 +63,6 @@ function variantSolid(props: Dict) {
   return {
     bg: mode(bg, `${c}.400`)(props),
     shadow: 3,
-    _text: {
-      color: mode('white', 'black')(props),
-    },
     _hover: {
       backgroundColor: `${c}.600`,
     },
