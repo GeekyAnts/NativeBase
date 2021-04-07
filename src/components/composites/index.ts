@@ -128,6 +128,8 @@ export type {
   ITabViewProps,
   ITabsContextProps,
 } from './Tabs';
+export { TextField } from './TextField';
+export type { ITextFieldProps } from './TextField';
 
 export { Actionsheet } from './Actionsheet';
 export type {

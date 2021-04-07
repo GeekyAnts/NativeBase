@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Stack,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -8,12 +9,14 @@ import {
 } from 'native-base';
 export default function () {
   return (
-    <NumberInput defaultValue="10" min={5} max={20} step={2} w="95%">
-      <NumberInputField />
-      <NumberInputStepper>
-        <NumberIncrementStepper />
-        <NumberDecrementStepper />
-      </NumberInputStepper>
-    </NumberInput>
+    <Stack w="90%">
+      <NumberInput defaultValue="10" min={5} max={20} step={2}>
+        <NumberInputField />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
+      </NumberInput>
+    </Stack>
   );
 }

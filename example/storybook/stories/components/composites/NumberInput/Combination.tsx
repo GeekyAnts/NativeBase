@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Stack,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -10,7 +11,7 @@ import {
 export default function () {
   const [value, setValue] = React.useState(20);
   return (
-    <>
+    <Stack w="90%">
       <NumberInput
         value={`${value}`}
         step={5}
@@ -36,6 +37,6 @@ export default function () {
         </Slider.Track>
         <Slider.Thumb />
       </Slider>
-    </>
+    </Stack>
   );
 }

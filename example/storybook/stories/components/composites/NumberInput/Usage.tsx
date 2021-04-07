@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Stack,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -9,12 +10,14 @@ import {
 
 export default function () {
   return (
-    <NumberInput w="95%">
-      <NumberInputField />
-      <NumberInputStepper>
-        <NumberIncrementStepper />
-        <NumberDecrementStepper />
-      </NumberInputStepper>
-    </NumberInput>
+    <Stack w="90%">
+      <NumberInput>
+        <NumberInputField />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
+      </NumberInput>
+    </Stack>
   );
 }

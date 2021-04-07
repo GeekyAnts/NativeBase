@@ -66,6 +66,7 @@ import Tag from './tag';
 import Text from './text';
 import AppBar from './app-bar';
 import TextArea from './textarea';
+import { TextField } from './textField';
 import Toast from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import { List, ListItem, ListIcon } from './list';
@@ -156,6 +157,7 @@ export default {
   Text,
   AppBar,
   TextArea,
+  TextField,
   Toast,
   TypeAheadSearchItem,
   View,
