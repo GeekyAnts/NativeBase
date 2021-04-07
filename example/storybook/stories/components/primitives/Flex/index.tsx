@@ -2,13 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Flex from './basic';
-import { NativeBaseProvider } from 'native-base';
 import { SpacerExample } from './spacer';
+import Wrapper from './../../Wrapper';
 
 storiesOf('Flex', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => (
-    <NativeBaseProvider>{getStory()}</NativeBaseProvider>
-  ))
+  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic Usage', () => <Flex />)
   .add('Spacer Example', () => <SpacerExample />);
