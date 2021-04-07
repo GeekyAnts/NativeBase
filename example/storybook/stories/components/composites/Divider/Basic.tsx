@@ -3,7 +3,7 @@ import { Divider, Heading, Box, Icon } from 'native-base';
 
 export default function () {
   return (
-    <Box>
+    <Box w={190}>
       <Heading mx={3}>
         Chrome <Icon ml="auto" type="AntDesign" name="chrome" />
       </Heading>
