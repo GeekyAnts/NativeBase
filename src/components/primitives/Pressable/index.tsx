@@ -1,3 +1,4 @@
+import { composeEventHandlers } from '../../../utils';
 import React from 'react';
 import { PressableProps, Pressable as RNPressable } from 'react-native';
 import styled from 'styled-components/native';
@@ -13,7 +14,35 @@ import {
 } from '../../../utils/customProps';
 import type { IBoxProps } from '../Box';
 
-type IPressableProps = PressableProps & IBoxProps;
+export type IPressableProps = PressableProps &
+  IBoxProps & {
+    onHoverIn?: any;
+    onHoverOut?: any;
+    _hover?: any;
+    _pressed?: any;
+  };
+
+const useHover = () => {
+  const [isHovered, setHovered] = React.useState(false);
+  return {
+    pressableProps: {
+      onHoverIn: () => setHovered(true),
+      onHoverOut: () => setHovered(false),
+    },
+    isHovered,
+  };
+};
+
+const useIsPressed = () => {
+  const [isPressed, setIsPressed] = React.useState(false);
+  return {
+    pressableProps: {
+      onPressIn: () => setIsPressed(true),
+      onPressOut: () => setIsPressed(false),
+    },
+    isPressed,
+  };
+};
 
 const StyledPressable = styled(RNPressable)<IPressableProps>(
   color,
@@ -31,8 +60,35 @@ const StyledPressable = styled(RNPressable)<IPressableProps>(
   customLayout
 );
 
-const Pressable = (props: IPressableProps, ref: any) => {
-  return <StyledPressable {...props} ref={ref} />;
+const Pressable = (
+  {
+    onPressIn,
+    onPressOut,
+    onHoverIn,
+    onHoverOut,
+    _hover,
+    _pressed,
+    ...props
+  }: IPressableProps,
+  ref: any
+) => {
+  const { pressableProps, isHovered } = useHover();
+  const { pressableProps: isPressedProps, isPressed } = useIsPressed();
+
+  return (
+    <StyledPressable
+      ref={ref}
+      onPressIn={composeEventHandlers(onPressIn, isPressedProps.onPressIn)}
+      onPressOut={composeEventHandlers(onPressOut, isPressedProps.onPressOut)}
+      // @ts-ignore - web only
+      onHoverIn={composeEventHandlers(onHoverIn, pressableProps.onHoverIn)}
+      // @ts-ignore - web only
+      onHoverOut={composeEventHandlers(onHoverOut, pressableProps.onHoverOut)}
+      {...props}
+      {...(isHovered && _hover)}
+      {...(isPressed && _pressed)}
+    />
+  );
 };
 
 export default React.forwardRef(Pressable);

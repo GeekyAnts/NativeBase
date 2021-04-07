@@ -1,61 +1,18 @@
-import type { ViewProps, ViewStyle } from 'react-native';
-import type { IAccessibilityProps } from '../../../utils/accessibilityTypes';
-import type {
-  BorderProps,
-  ColorProps,
-  FlexboxProps,
-  LayoutProps,
-  PositionProps,
-  SpaceProps,
-} from 'styled-system';
-import type {
-  customBackgroundProps,
-  customBorderProps,
-  customExtraProps,
-  customLayoutProps,
-  customOutlineProps,
-  customShadowProps,
-  customFlexboxProps,
-  customPositionProps,
-} from '../../../utils/customProps';
 import type { ITextProps } from './../Text/types';
+import type { IPressableProps } from '../Pressable';
 
-export type IButtonProps = ViewProps &
-  ColorProps &
-  SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  BorderProps &
-  PositionProps &
-  customBorderProps &
-  customExtraProps &
-  customOutlineProps &
-  customShadowProps &
-  customFlexboxProps &
-  customPositionProps &
-  customLayoutProps &
-  customBackgroundProps &
-  IAccessibilityProps & {
-    style?: ViewStyle;
-    children?: any;
-    colorScheme?: string;
-    variant?: string;
-    isLoading?: any;
-    size?: 'xs' | 'sm' | 'md' | 'lg';
-    onPress?: any;
-    onLongPress?: any;
-    onPressIn?: any;
-    onPressOut?: any;
-    onHoverIn?: any;
-    onHoverOut?: any;
-    shadow?: number;
-    startIcon?: JSX.Element | Array<JSX.Element>;
-    endIcon?: JSX.Element | Array<JSX.Element>;
-    isLoadingText?: string;
-    spinner?: JSX.Element;
-    isDisabled?: boolean;
-    _text?: ITextProps;
-  };
+export type IButtonProps = IPressableProps & {
+  colorScheme?: string;
+  variant?: string;
+  isLoading?: any;
+  size?: 'xs' | 'sm' | 'md' | 'lg';
+  startIcon?: JSX.Element | Array<JSX.Element>;
+  endIcon?: JSX.Element | Array<JSX.Element>;
+  isLoadingText?: string;
+  spinner?: JSX.Element;
+  isDisabled?: boolean;
+  _text?: ITextProps;
+};
 
 export type IButtonGroupProps = {
   children: JSX.Element | Array<JSX.Element>;

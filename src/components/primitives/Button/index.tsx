@@ -5,87 +5,35 @@ import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import Pressable from '../Pressable';
 import type { IButtonGroupProps, IButtonProps } from './types';
-import { composeEventHandlers } from '../../../utils';
-
-const useHover = () => {
-  const [isHovered, setHovered] = React.useState(false);
-  return {
-    pressableProps: {
-      onHoverIn: () => setHovered(true),
-      onHoverOut: () => setHovered(false),
-    },
-    isHovered,
-  };
-};
-
-const useIsPressed = () => {
-  const [isPressed, setIsPressed] = React.useState(false);
-  return {
-    pressableProps: {
-      onPressIn: () => setIsPressed(true),
-      onPressOut: () => setIsPressed(false),
-    },
-    isPressed,
-  };
-};
 
 const Button = (
   {
     children,
     isLoading,
     isLoadingText,
-    accessibilityLabel,
-    accessibilityHint,
-    accessibilityState,
-    accessibilityRole,
     size,
     startIcon,
-    onPress,
-    onLongPress,
-    onPressIn,
-    onPressOut,
-    onHoverIn,
-    onHoverOut,
     endIcon,
     spinner,
     ...props
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  const { _text, _hover, _pressed, ...newProps } = useThemeProps('Button', {
+  const { _text, _hover, _pressed, ...restProps } = useThemeProps('Button', {
     ...props,
     size,
   });
 
   const { isDisabled } = props;
 
-  const { pressableProps, isHovered } = useHover();
-  const { pressableProps: isPressedProps, isPressed } = useIsPressed();
-
-  const themeProps = {
-    ...newProps,
-    ...(isHovered && _hover),
-    ...(isPressed && _pressed),
+  const pressableProps = {
+    ...restProps,
+    _hover,
+    _pressed,
   };
 
   return (
-    <Pressable
-      onPress={onPress}
-      onLongPress={onLongPress}
-      onPressIn={composeEventHandlers(onPressIn, isPressedProps.onPressIn)}
-      onPressOut={composeEventHandlers(onPressOut, isPressedProps.onPressOut)}
-      disabled={isDisabled}
-      ref={ref}
-      accessibilityHint={accessibilityHint}
-      accessibilityRole={accessibilityRole ?? 'button'}
-      accessibilityState={accessibilityState}
-      accessibilityLabel={accessibilityLabel}
-      // @ts-ignore - web only
-      onHoverIn={composeEventHandlers(onHoverIn, pressableProps.onHoverIn)}
-      // @ts-ignore - web only
-      onHoverOut={composeEventHandlers(onHoverOut, pressableProps.onHoverOut)}
-      {...themeProps}
-    >
+    <Pressable disabled={isDisabled} ref={ref} {...pressableProps}>
       <HStack opacity={isDisabled ? 0.7 : undefined} space={2}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading ? (
