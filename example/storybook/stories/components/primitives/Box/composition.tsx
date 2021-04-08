@@ -9,10 +9,11 @@ import {
   Center,
   HStack,
   Stack,
+  useColorModeValue,
 } from 'native-base';
 export const Composition = () => {
   return (
-    <Box width={72} bg="gray.50" shadow={4}>
+    <Box width={72} bg={useColorModeValue('gray.50', 'gray.700')} shadow={4}>
       <Box>
         <AspectRatio ratio={16 / 9}>
           <Image
@@ -51,10 +52,14 @@ export const Composition = () => {
           27 MAR
         </Center>
       </Box>
-      <Stack p={4} space={3}>
+      <Stack p={4} space={4}>
         <Stack space={2}>
-          <Heading size="md">Life in the Garden City</Heading>
-          <Heading size="sm" color="red.500" fontWeight="500">
+          <Heading size="sm">Life in the Garden City</Heading>
+          <Heading
+            size="xs"
+            color={useColorModeValue('red.500', 'red.300')}
+            fontWeight="500"
+          >
             The Silicon Valley of India.
           </Heading>
         </Stack>
@@ -64,13 +69,18 @@ export const Composition = () => {
         </Text>
         <HStack alignItems="center" space={4} justifyContent="space-between">
           <HStack alignItems="center">
-            <Icon name="access-time" color="gray.500" />
+            <Icon name="access-time" color="gray.500" size="sm" />
             <Text ml={1} color="gray.500" fontWeight="500">
               6 mins ago
             </Text>
           </HStack>
           <HStack alignItems="center">
-            <Icon name="ios-chatbubbles" type="Ionicons" color="gray.500" />
+            <Icon
+              name="ios-chatbubbles"
+              type="Ionicons"
+              color="gray.500"
+              size="sm"
+            />
             <Text ml={1} color="gray.500" fontWeight="500">
               39 comments
             </Text>

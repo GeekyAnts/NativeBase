@@ -19,6 +19,7 @@ import type {
   customShadowProps,
   customTransformProps,
   customTypographyProps,
+  SafeAreaProps,
 } from '../../../utils/customProps';
 import type { ITextProps } from './../Text/types';
 
@@ -30,6 +31,7 @@ export type IBoxProps = ViewProps &
   TypographyProps &
   PositionProps &
   BorderProps &
+  SafeAreaProps &
   customBorderProps &
   customPositionProps &
   customExtraProps &

@@ -112,7 +112,7 @@ import {
 } from './components/composites';
 
 import {
-  View,
+  // View,
   Text,
   ITextProps,
   Checkbox,
@@ -181,7 +181,7 @@ export {
   ButtonGroup,
   IconButton,
   Heading,
-  View,
+  // View,
   Text,
   Code,
   Checkbox,
