@@ -1,4 +1,4 @@
-import colors from '../base/colors';
+import shadows from '../base/shadows';
 import { Dict, mode, transparentize } from './../tools';
 const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
 
@@ -107,23 +107,18 @@ function variantSolid(props: Dict) {
     shadow: props.isDisabled ? 0 : 3,
     _hover: {
       backgroundColor: mode(`${c}.600`, `${c}.500`)(props),
+      // Todo: Shadow doesn't work for underscore props currently. Fix this when useThemeProps refactor
+      style: shadows()[5],
     },
     _focus: {
       backgroundColor: mode(`${c}.300`, `${c}.200`)(props),
+      // Todo: Shadow doesn't work for underscore props currently. Fix this when useThemeProps refactor
+      style: shadows()[6],
     },
     _pressed: {
       backgroundColor: mode(`${c}.700`, `${c}.600`)(props),
       // Todo: Shadow doesn't work for underscore props currently. Fix this when useThemeProps refactor
-      style: {
-        shadowColor: colors.black,
-        shadowOffset: {
-          width: 0,
-          height: 3,
-        },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
-        elevation: 6,
-      },
+      style: shadows()[7],
     },
   };
 
