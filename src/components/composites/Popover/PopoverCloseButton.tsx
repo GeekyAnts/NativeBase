@@ -1,6 +1,6 @@
 import React from 'react';
 import { useThemeProps } from '../../../hooks';
-import View from '../../primitives/View';
+import Box from '../../primitives/Box';
 import { default as IconButton, IIconButtonProps } from '../IconButton';
 import Icon from '../../primitives/Icon';
 import { PopoverContext } from './PopoverContext';
@@ -13,14 +13,14 @@ const PopoverCloseButton = (
   const style = useThemeProps('Popover', props);
 
   return (
-    <View position="absolute" right={0} top={0} zIndex={1} ref={ref}>
+    <Box position="absolute" right={0} top={0} zIndex={1} ref={ref}>
       <IconButton
         {...style.popoverCloseButtonProps}
         {...props}
         icon={<Icon name="close" size="xs" />}
         onPress={onClose}
       />
-    </View>
+    </Box>
   );
 };
 

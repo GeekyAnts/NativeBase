@@ -1,14 +1,14 @@
 import React from 'react';
-import { Button, Alert, useSnackbar, VStack, View } from 'native-base';
+import { Button, Alert, useSnackbar, VStack, Box } from 'native-base';
 export default function () {
   const { setSnackbar } = useSnackbar();
   const template = (
-    <View safeArea>
+    <Box safeArea>
       <Alert status="success">
         <Alert.Icon />
         <Alert.Description>Well done, we are proud of you.</Alert.Description>
       </Alert>
-    </View>
+    </Box>
   );
   return (
     <VStack space={3}>

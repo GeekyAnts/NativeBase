@@ -103,26 +103,6 @@ export const ControlledInput = () => {
     />
   );
 };
-export const FocusErrorBorderColor = () => {
-  return (
-    <Stack space={4} w="80%">
-      <Input
-        placeholder="focusBorderColor Example"
-        focusBorderColor="green.400"
-      />
-      <Input
-        placeholder="focusBorderColor Example"
-        focusBorderColor="pink.400"
-      />
-      <Input placeholder="Invalid Input Example" isInvalid />
-      <Input
-        placeholder="errorBorderColor Example"
-        isInvalid
-        errorBorderColor="yellow.400"
-      />
-    </Stack>
-  );
-};
 export const FormControlled = () => {
   return (
     <FormControl isRequired isInvalid p={2}>

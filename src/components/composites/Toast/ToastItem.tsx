@@ -1,7 +1,6 @@
 import React from 'react';
-import Box from '../../primitives/Box';
 import Text from '../../primitives/Text';
-import View from '../../primitives/View';
+import Box from '../../primitives/Box';
 import type { IToastProps } from './types';
 import { useThemeProps } from '../../../hooks';
 import { AccessibilityInfo, Platform } from 'react-native';
@@ -21,11 +20,11 @@ const ToastItem = ({
   }, [accessibilityAnnouncement]);
 
   return (
-    <View safeArea>
+    <Box safeArea>
       <Box ml={offset?.x} mt={offset?.y} {...newProps}>
         <Text {..._title}>{title}</Text>
       </Box>
-    </View>
+    </Box>
   );
 };
 

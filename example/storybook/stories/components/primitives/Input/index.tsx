@@ -11,7 +11,6 @@ import {
   PasswordInput,
   ControlledInput,
   FormControlled,
-  FocusErrorBorderColor,
 } from './example';
 
 storiesOf('Input', module)
@@ -24,5 +23,4 @@ storiesOf('Input', module)
   .add('Input Elements', () => <InputElements />)
   .add('Input Password', () => <PasswordInput />)
   .add('Value Controlled Input', () => <ControlledInput />)
-  .add('Form Controlled', () => <FormControlled />)
-  .add('Focus and Error Border Color Change', () => <FocusErrorBorderColor />);
+  .add('Form Controlled', () => <FormControlled />);
