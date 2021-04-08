@@ -5,6 +5,6 @@ export type ITextFieldProps = IInputProps &
   IStackProps & {
     helperText?: string;
     errorMessage?: string;
-    _helperTextProps?: string;
-    _errorMessageProps?: string;
+    _helperTextProps?: any;
+    _errorMessageProps?: any;
   };

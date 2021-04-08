@@ -4,9 +4,8 @@ import { Stack, TextField, Button } from 'native-base';
 export default function () {
   const [isInvalid, setIsInvalid] = React.useState(true);
   return (
-    <Stack space={4}>
+    <Stack space={4} w="90%">
       <TextField
-        w="90%"
         isInvalid={isInvalid}
         placeholder="Default TextField"
         helperText="Sample helper text"
