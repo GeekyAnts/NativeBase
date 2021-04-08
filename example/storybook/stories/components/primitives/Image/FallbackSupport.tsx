@@ -4,11 +4,11 @@ export default function () {
   return (
     <Image
       size={150}
-      alt="nativebase"
+      alt="fallback text"
       borderRadius={100}
       source={{
         uri: 'https://-page-icon.png',
-        // uri: 'https://nativebase.io/assets/img/front-page-icon.png',
+        // uri: 'https://wallpaperaccess.com/full/317501.jpg',
       }}
       fallbackSource={{
         uri: 'https://www.w3schools.com/css/img_lights.jpg',
