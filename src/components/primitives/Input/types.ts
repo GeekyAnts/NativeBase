@@ -37,13 +37,10 @@ export type IInputProps = ColorProps &
     isInvalid?: boolean;
     variant?: string;
     isDisabled?: boolean;
-    successMessage?: string;
     size?: string;
     isRequired?: boolean;
     isReadOnly?: boolean;
     isFullWidth?: boolean;
-    focusBorderColor?: string;
-    errorBorderColor?: string;
     InputLeftElement?: JSX.Element | JSX.Element[];
     InputRightElement?: JSX.Element | JSX.Element[];
     type?: 'text' | 'password' | string;

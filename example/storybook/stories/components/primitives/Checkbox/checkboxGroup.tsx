@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Checkbox,
-  Heading,
-  HStack,
-  VStack,
-  Text,
-  View,
-  Box,
-} from 'native-base';
+import { Checkbox, Heading, HStack, VStack, Text, Box } from 'native-base';
 
 export default function () {
   const [groupValue, setGroupValue] = React.useState(['Item 1', 'Item 3']);
@@ -22,7 +14,7 @@ export default function () {
   };
 
   return (
-    <View display="flex" justifyContent="space-between" alignItems="center">
+    <Box display="flex" justifyContent="space-between" alignItems="center">
       <HStack mb={2} alignItems="baseline">
         <Heading mt={3}>CheckboxGroup </Heading>
       </HStack>
@@ -59,6 +51,6 @@ export default function () {
           </Text>
         </Box>
       </VStack>
-    </View>
+    </Box>
   );
 }

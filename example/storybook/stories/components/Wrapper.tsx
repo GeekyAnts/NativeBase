@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View,
+  Box,
   NativeBaseProvider,
   useColorMode,
   IconButton,
@@ -18,7 +18,7 @@ function MyWrapper({ children }: any) {
   const bgColor = useColorModeValue(`gray.50`, `gray.800`);
 
   return (
-    <View
+    <Box
       flex={1}
       justifyContent="center"
       alignItems="center"
@@ -39,16 +39,16 @@ function MyWrapper({ children }: any) {
         }
       />
       {children}
-    </View>
+    </Box>
   );
 }
 
 export function RenderTestButton() {
   const [state, setState] = React.useState(1);
   return (
-    <View style={{ position: 'absolute', top: 10, left: 20 }}>
+    <Box style={{ position: 'absolute', top: 10, left: 20 }}>
       <Button title={state.toString()} onPress={() => setState(state + 1)} />
-    </View>
+    </Box>
   );
 }
 export default ({ children, theme }: any) => {

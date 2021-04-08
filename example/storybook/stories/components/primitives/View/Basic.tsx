@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, Text } from 'native-base';
+import { Box, Text } from 'native-base';
 
 export default function () {
   return (
-    <View
+    <Box
       bg="primary.400"
       justifyContent="center"
       alignItems="center"
       height={200}
       width={200}
     >
-      <Text color="white">This is a View</Text>
-    </View>
+      <Text color="white">This is a Box</Text>
+    </Box>
   );
 }

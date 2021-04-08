@@ -15,7 +15,7 @@ import {
   customPosition,
   customShadow,
 } from '../../../utils/customProps';
-import { Box, View } from '../../primitives';
+import { Box } from '../../primitives';
 import type { IModalProps, IModalSemiProps } from './types';
 import { default as ModalOverlay } from './ModalOverlay';
 import { ModalContext } from './Context';
@@ -162,7 +162,7 @@ const Modal = (
   );
   return Platform.OS !== 'web' ? (
     <ModalContext.Provider value={value}>
-      <View nativeID={id}>
+      <Box nativeID={id}>
         <StyledModal
           visible={isVisible}
           onRequestClose={() => {
@@ -186,7 +186,7 @@ const Modal = (
             modalChildren
           )}
         </StyledModal>
-      </View>
+      </Box>
     </ModalContext.Provider>
   ) : null;
 };
