@@ -10,7 +10,6 @@ import { usePlatformProps } from '../../../hooks';
 const Button = (
   {
     children,
-    isLoading,
     isLoadingText,
     size,
     startIcon,
@@ -30,7 +29,7 @@ const Button = (
 
   const platformProps = usePlatformProps(restProps);
 
-  const { isDisabled } = props;
+  const { isDisabled, isLoading } = props;
 
   const pressableProps = {
     ...platformProps,
@@ -44,7 +43,8 @@ const Button = (
       disabled={isDisabled || isLoading}
       ref={ref}
       {...pressableProps}
-      opacity={isDisabled || isLoading ? 0.6 : undefined}
+      accessibilityRole={props.accessibilityRole ?? 'button'}
+      opacity={isDisabled ? 0.5 : undefined}
     >
       <HStack space={2}>
         {startIcon && !isLoading ? startIcon : null}

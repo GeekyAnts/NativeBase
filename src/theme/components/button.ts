@@ -1,15 +1,23 @@
 import { Dict, mode, transparentize } from './../tools';
 
-const baseStyle = {
+const baseStyle = (props: any) => ({
   borderRadius: 'md',
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
+  _web: {
+    cursor: props.isDisabled
+      ? 'not-allowed'
+      : props.isLoading
+      ? 'progress'
+      : 'pointer',
+  },
   _text: {
     fontWeight: 500,
     letterSpacing: '4xl',
   },
-};
+});
+
 function variantGhost(props: Dict) {
   const { colorScheme: c } = props;
   if (c === 'muted') {
