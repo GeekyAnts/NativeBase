@@ -1,11 +1,11 @@
 import React from 'react';
-import { NativeBaseProvider, View, Text } from 'native-base';
+import { NativeBaseProvider, Text, Box } from 'native-base';
 function MyComponent() {
   return (
     // This would look different on devices with different insets
-    <View bg="teal.400" height={200} width={200} safeArea>
+    <Box bg="teal.400" height={200} width={200} safeAreaTop>
       <Text>NativeBase</Text>
-    </View>
+    </Box>
   );
 }
 
