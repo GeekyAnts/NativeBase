@@ -1,19 +1,19 @@
 import React from 'react';
-import { Heading, Link, View, Text, Box, Center } from 'native-base';
+import { Heading, Link, Box, Text, Center } from 'native-base';
 
 export const DefaultLink = () => {
   return (
-    <View>
+    <Box>
       <Heading>This is default Link</Heading>
       <Link mt={4} fontSize="xl">
         Default Link
       </Link>
-    </View>
+    </Box>
   );
 };
 export const ExternalLink = () => {
   return (
-    <View>
+    <Box>
       <Heading>External Link</Heading>
       <Link
         _text={{ color: 'blue.700' }}
@@ -23,17 +23,17 @@ export const ExternalLink = () => {
       >
         https://nativebase.io
       </Link>
-    </View>
+    </Box>
   );
 };
 export const StyledLink = () => {
   return (
-    <View>
+    <Box>
       <Heading>Link without underline</Heading>
       <Link isUnderlined={false} mt={4}>
         www.google.com
       </Link>
-    </View>
+    </Box>
   );
 };
 export const CustomOnClick = () => {

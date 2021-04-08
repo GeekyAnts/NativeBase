@@ -4,7 +4,7 @@ import {
   useOverlay,
   VStack,
   Alert,
-  View,
+  Box,
   IconButton,
   Icon,
 } from 'native-base';
@@ -13,12 +13,12 @@ export default function () {
   const { closeOverlay, setOverlay } = useOverlay();
 
   return (
-    <View safeArea>
+    <Box safeArea>
       <VStack space={3}>
         <Button
           onPress={() =>
             setOverlay(
-              <View w="100%" safeArea>
+              <Box w="100%" safeArea>
                 <Alert status="warning">
                   <Alert.Icon />
                   <Alert.Description> Sample Warning message</Alert.Description>
@@ -30,7 +30,7 @@ export default function () {
                     onPress={closeOverlay}
                   />
                 </Alert>
-              </View>,
+              </Box>,
               {
                 position: 'top',
                 closeOnPress: true,
@@ -42,6 +42,6 @@ export default function () {
           Show Overlay
         </Button>
       </VStack>
-    </View>
+    </Box>
   );
 }

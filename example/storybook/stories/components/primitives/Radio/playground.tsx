@@ -1,5 +1,5 @@
 import React from 'react';
-import { IRadioValue, Radio, Text, View } from 'native-base';
+import { IRadioValue, Radio, Text, Box } from 'native-base';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { useState } from 'react';
 
@@ -7,7 +7,7 @@ export default function () {
   const [value, setValue] = useState<IRadioValue>('');
 
   return (
-    <View display="flex" justifyContent="space-between" alignItems="center">
+    <Box display="flex" justifyContent="space-between" alignItems="center">
       <Radio.Group value={value} onChange={setValue} name="exampleGroup">
         <Radio
           colorScheme={text('colorScheme', 'primary')}
@@ -31,6 +31,6 @@ export default function () {
         </Radio>
       </Radio.Group>
       <Text mt={1}>{'Yes, you are ' + value}</Text>
-    </View>
+    </Box>
   );
 }
