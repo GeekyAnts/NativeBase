@@ -1,4 +1,5 @@
 import { Dict, mode, transparentize } from './../tools';
+const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
 
 const baseStyle = (props: any) => ({
   borderRadius: 'md',
@@ -23,14 +24,16 @@ function variantGhost(props: Dict) {
   if (c === 'muted') {
     return {
       _text: {
-        color: mode(`muted.500`, `white`)(props),
+        color: disabledTextColor(props),
       },
     };
   }
 
   return {
     _text: {
-      color: mode(`${c}.500`, `${c}.200`)(props),
+      color: props.isDisabled
+        ? disabledTextColor(props)
+        : mode(`${c}.500`, `${c}.200`)(props),
     },
     bg: 'transparent',
     _web: {
@@ -63,7 +66,11 @@ function variantOutline(props: Dict) {
   return {
     border: '1px solid',
     borderColor:
-      c === 'muted' ? borderColor : mode(`${c}.500`, `${c}.200`)(props),
+      c === 'muted'
+        ? borderColor
+        : props.isDisabled
+        ? disabledTextColor(props)
+        : mode(`${c}.500`, `${c}.200`)(props),
     ...variantGhost(props),
   };
 }
@@ -87,22 +94,28 @@ function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
   let { bg = `${c}.500` } = accessibleColorMap[c] || {};
   bg = mode(bg, `${c}.400`)(props);
-  return {
+  if (props.isDisabled) {
+    bg = mode(`muted.300`, `muted.500`)(props);
+  }
+
+  const styleObject = {
     _web: {
       outlineWidth: 0,
     },
     bg,
-    shadow: 3,
+    shadow: props.isDisabled ? 0 : 3,
     _hover: {
       backgroundColor: mode(`${c}.600`, `${c}.500`)(props),
     },
     _focus: {
-      backgroundColor: mode(`${c}.600`, `${c}.500`)(props),
+      backgroundColor: mode(`${c}.300`, `${c}.200`)(props),
     },
     _pressed: {
       backgroundColor: mode(`${c}.700`, `${c}.600`)(props),
     },
   };
+
+  return styleObject;
 }
 
 function variantLink(props: Dict) {
@@ -115,6 +128,8 @@ function variantLink(props: Dict) {
       color:
         c === 'muted'
           ? mode(`muted.800`, `${c}.200`)(props)
+          : props.isDisabled
+          ? disabledTextColor(props)
           : mode(`${c}.500`, `${c}.200`)(props),
     },
   };

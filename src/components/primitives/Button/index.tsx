@@ -38,6 +38,14 @@ const Button = (
     _focus,
   };
 
+  if (endIcon && React.isValidElement(endIcon)) {
+    endIcon = React.cloneElement(endIcon, _text);
+  }
+
+  if (startIcon && React.isValidElement(startIcon)) {
+    startIcon = React.cloneElement(startIcon, _text);
+  }
+
   return (
     <Pressable
       disabled={isDisabled || isLoading}
@@ -46,7 +54,7 @@ const Button = (
       accessibilityRole={props.accessibilityRole ?? 'button'}
       opacity={isDisabled ? 0.5 : undefined}
     >
-      <HStack space={2}>
+      <HStack space={2} alignItems="center">
         {startIcon && !isLoading ? startIcon : null}
         {isLoading ? (
           spinner ? (
