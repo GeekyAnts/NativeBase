@@ -1,30 +1,63 @@
+import shadows from '../base/shadows';
 import { Dict, mode, transparentize } from './../tools';
+const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
 
-const baseStyle = {
+const baseStyle = (props: any) => ({
   borderRadius: 'md',
-  display: 'flex',
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
+  _web: {
+    cursor: props.isDisabled
+      ? 'not-allowed'
+      : props.isLoading
+      ? 'progress'
+      : 'pointer',
+  },
   _text: {
     fontWeight: 500,
+    letterSpacing: '4xl',
   },
-};
+});
+
 function variantGhost(props: Dict) {
   const { colorScheme: c } = props;
   if (c === 'muted') {
     return {
       _text: {
-        color: mode(`muted.500`, `white`)(props),
+        color: disabledTextColor(props),
       },
     };
   }
 
   return {
     _text: {
-      color: mode(`${c}.500`, `${c}.200`)(props),
+      color: props.isDisabled
+        ? disabledTextColor(props)
+        : mode(`${c}.500`, `${c}.200`)(props),
     },
     bg: 'transparent',
+    _web: {
+      outlineWidth: 0,
+    },
+    _hover: {
+      backgroundColor: transparentize(
+        mode(`${c}.200`, `${c}.500`)(props),
+        0.5
+      )(props.theme),
+    },
+    _focus: {
+      backgroundColor: transparentize(
+        mode(`${c}.200`, `${c}.500`)(props),
+        0.5
+      )(props.theme),
+    },
+    _pressed: {
+      backgroundColor: transparentize(
+        mode(`${c}.200`, `${c}.500`)(props),
+        0.6
+      )(props.theme),
+    },
   };
 }
 
@@ -34,11 +67,12 @@ function variantOutline(props: Dict) {
   return {
     border: '1px solid',
     borderColor:
-      c === 'muted' ? borderColor : mode(`${c}.500`, `${c}.200`)(props),
+      c === 'muted'
+        ? borderColor
+        : props.isDisabled
+        ? disabledTextColor(props)
+        : mode(`${c}.500`, `${c}.200`)(props),
     ...variantGhost(props),
-    _hover: {
-      backgroundColor: transparentize(`${c}.100`, 0.5)(props.theme),
-    },
   };
 }
 
@@ -59,28 +93,50 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
 
 function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
-  const { bg = `${c}.500` } = accessibleColorMap[c] || {};
-  return {
-    bg: mode(bg, `${c}.400`)(props),
-    shadow: 3,
+  let { bg = `${c}.500` } = accessibleColorMap[c] || {};
+  bg = mode(bg, `${c}.400`)(props);
+  if (props.isDisabled) {
+    bg = mode(`muted.300`, `muted.500`)(props);
+  }
+
+  const styleObject = {
+    _web: {
+      outlineWidth: 0,
+    },
+    bg,
+    shadow: props.isDisabled ? 0 : 3,
     _hover: {
-      backgroundColor: `${c}.600`,
+      backgroundColor: mode(`${c}.600`, `${c}.500`)(props),
+      // Todo: Shadow doesn't work for underscore props currently. Fix this when useThemeProps refactor
+      style: shadows()[5],
+    },
+    _focus: {
+      backgroundColor: mode(`${c}.300`, `${c}.200`)(props),
+      // Todo: Shadow doesn't work for underscore props currently. Fix this when useThemeProps refactor
+      style: shadows()[6],
     },
     _pressed: {
-      backgroundColor: `${c}.700`,
+      backgroundColor: mode(`${c}.700`, `${c}.600`)(props),
+      // Todo: Shadow doesn't work for underscore props currently. Fix this when useThemeProps refactor
+      style: shadows()[7],
     },
   };
+
+  return styleObject;
 }
 
 function variantLink(props: Dict) {
   const { colorScheme: c } = props;
 
   return {
+    ...variantGhost(props),
     _text: {
       textDecorationLine: 'underline',
       color:
         c === 'muted'
           ? mode(`muted.800`, `${c}.200`)(props)
+          : props.isDisabled
+          ? disabledTextColor(props)
           : mode(`${c}.500`, `${c}.200`)(props),
     },
   };
@@ -110,7 +166,7 @@ const sizes = {
     px: 4,
     py: 2,
     _text: {
-      fontSize: 'md',
+      fontSize: 'sm',
       lineHeight: 5,
     },
   },
