@@ -3,7 +3,7 @@ import { Text, VStack, Heading } from 'native-base';
 
 export default function () {
   return (
-    <VStack space={2} alignItems="center">
+    <VStack space={2} alignItems="center" width={350}>
       <Heading mt={3}>Truncated </Heading>
       <Text isTruncated>
         Lorem ipsum is placeholder text commonly used in the graphic, print, and
