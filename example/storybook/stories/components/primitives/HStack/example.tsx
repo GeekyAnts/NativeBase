@@ -1,33 +1,39 @@
 import React from 'react';
-import { HStack, Center } from 'native-base';
+import { HStack, Stack, Center, Heading } from 'native-base';
 
 export default function () {
   return (
-    <HStack space={3}>
-      <Center
-        size={16}
-        bg="primary.400"
-        rounded="xl"
-        _text={{ color: 'white' }}
-      >
-        Box 1
-      </Center>
-      <Center
-        bg="secondary.400"
-        size={16}
-        rounded="xl"
-        _text={{ color: 'white' }}
-      >
-        Box 2
-      </Center>
-      <Center
-        size={16}
-        bg="emerald.400"
-        rounded="xl"
-        _text={{ color: 'white' }}
-      >
-        Box 3
-      </Center>
-    </HStack>
+    <Stack space={3} alignItems="center">
+      <Heading>HStack</Heading>
+      <HStack space={3} alignItems="center">
+        <Center
+          size={16}
+          bg="primary.400"
+          rounded="md"
+          _text={{ color: 'white' }}
+          shadow={3}
+        >
+          Box 1
+        </Center>
+        <Center
+          bg="secondary.400"
+          size={16}
+          rounded="md"
+          _text={{ color: 'white' }}
+          shadow={3}
+        >
+          Box 2
+        </Center>
+        <Center
+          size={16}
+          bg="emerald.400"
+          rounded="md"
+          _text={{ color: 'white' }}
+          shadow={3}
+        >
+          Box 3
+        </Center>
+      </HStack>
+    </Stack>
   );
 }
