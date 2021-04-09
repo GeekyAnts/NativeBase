@@ -3,7 +3,7 @@ import { Heading } from 'native-base';
 
 export default function () {
   return (
-    <Heading size="lg" fontSize={50}>
+    <Heading size="lg" fontSize={60} bold>
       I'm overriding this heading
     </Heading>
   );

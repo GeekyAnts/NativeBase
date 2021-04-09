@@ -11,7 +11,12 @@ export default function () {
         onPress={() =>
           setOverlay(
             <Button onPress={closeOverlay}>Press to close Overlay</Button>,
-            { disableOverlay, position: 'bottom', backgroundColor: '#5511ff44' }
+            {
+              disableOverlay,
+              position: 'bottom',
+              closeOnPress: false,
+              backgroundColor: '#5511ff44',
+            }
           )
         }
       >
@@ -24,7 +29,6 @@ export default function () {
       >
         {disableOverlay ? 'Enable ' : 'Disable '}Overlay
       </Button>
-      <Button onPress={closeOverlay}>Hide Overlay</Button>
     </VStack>
   );
 }
