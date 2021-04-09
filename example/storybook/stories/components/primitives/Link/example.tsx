@@ -59,27 +59,29 @@ export const CustomOnClick = () => {
 };
 export const CompositeLink = () => {
   return (
-    <Center>
-      <Heading size="sm">Composite Link Example</Heading>
-      <Link
-        href="https://nativebase.io"
-        _hover={{ bg: 'primary.100' }}
-        isExternal
-        mt={4}
-        mx={4}
-      >
-        <Box p={6} bg="seagreen">
-          <Text color="white" fontSize={16}>
-            Box
-          </Text>
-        </Box>
-        <Text px={2}>Clicking anywhere will trigger the link</Text>
-        <Box p={6} bg="blue.300">
-          <Text color="white" fontSize={16}>
-            Box
-          </Text>
-        </Box>
-      </Link>
-    </Center>
+    <Box w="85%">
+      <Center>
+        <Heading size="sm">Composite Link Example</Heading>
+        <Link
+          href="https://nativebase.io"
+          _hover={{ bg: 'primary.100' }}
+          isExternal
+          mt={4}
+          mx={4}
+        >
+          <Box p={4} bg="seagreen">
+            <Text color="white" fontSize={16}>
+              Box
+            </Text>
+          </Box>
+          <Text px={2}>Clicking anywhere will trigger the link</Text>
+          <Box p={4} bg="blue.300">
+            <Text color="white" fontSize={16}>
+              Box
+            </Text>
+          </Box>
+        </Link>
+      </Center>
+    </Box>
   );
 };
