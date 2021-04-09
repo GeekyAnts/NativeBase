@@ -67,7 +67,7 @@ const Link = (
   };
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
-  const { linkProps } = useLink({ href, onClick, isExternal });
+  const { linkProps } = useLink({ href, onClick, isExternal, _ref });
   return (
     <Box {...layoutProps}>
       {Platform.OS === 'web' ? (

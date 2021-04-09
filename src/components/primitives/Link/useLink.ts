@@ -16,16 +16,19 @@ const addOnPressFunctionality = (
 };
 
 export function useLink(props: IUseLinkProp) {
-  const { href, isExternal, onClick } = props;
+  const { href, isExternal, onClick, _ref } = props;
 
   let platformLinkProps = {};
 
   if (Platform.OS === 'web') {
     platformLinkProps = {
       href,
-      target: isExternal ? '_blank' : undefined,
       onClick,
     };
+    // Adding target to a tag created by RN-Web
+    if (isExternal && _ref.current) {
+      _ref.current.target = '_blank';
+    }
   } else {
     platformLinkProps = {
       onPress: () => {

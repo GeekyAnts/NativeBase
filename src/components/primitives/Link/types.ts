@@ -28,4 +28,5 @@ export type IUseLinkProp = {
   href?: string;
   isExternal?: boolean;
   onClick: any;
+  _ref: any;
 };
