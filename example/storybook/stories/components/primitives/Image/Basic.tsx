@@ -5,10 +5,9 @@ export default function () {
     <Box size={200}>
       <Image
         source={{
-          uri:
-            'https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+          uri: 'https://wallpaperaccess.com/full/317501.jpg',
         }}
-        alt="NativeBase logo"
+        alt="Alternate Text"
       />
     </Box>
   );
