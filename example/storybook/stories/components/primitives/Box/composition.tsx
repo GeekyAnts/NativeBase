@@ -54,11 +54,15 @@ export const Composition = () => {
       </Box>
       <Stack p={4} space={4}>
         <Stack space={2}>
-          <Heading size="sm">Life in the Garden City</Heading>
+          <Heading size="md" ml={-1}>
+            The Garden City
+          </Heading>
           <Heading
             size="xs"
             color={useColorModeValue('red.500', 'red.300')}
             fontWeight="500"
+            ml={-0.5}
+            mt={-1}
           >
             The Silicon Valley of India.
           </Heading>

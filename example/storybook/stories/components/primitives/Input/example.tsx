@@ -11,6 +11,7 @@ import {
   FormControl,
   Button,
   Icon,
+  useColorModeValue,
 } from 'native-base';
 
 export const DefaultInput = () => {
@@ -60,7 +61,13 @@ export const InputElements = () => {
   return (
     <Input
       InputLeftElement={
-        <Icon name="phone" size="md" type="MaterialIcons" m={2} color="black" />
+        <Icon
+          name="phone"
+          size="md"
+          type="MaterialIcons"
+          m={2}
+          color={useColorModeValue('black', 'gray.300')}
+        />
       }
       InputRightElement={
         <Icon
@@ -68,10 +75,11 @@ export const InputElements = () => {
           size="md"
           type="MaterialIcons"
           m={2}
-          color="black"
+          color={useColorModeValue('black', 'gray.300')}
         />
       }
       placeholder="Left and Right InputElement"
+      mx={4}
     />
   );
 };
