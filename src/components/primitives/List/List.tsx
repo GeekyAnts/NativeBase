@@ -3,7 +3,7 @@ import { VStack } from '../Stack';
 import type { IListProps, IListItemProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
-const List = ({ children, spacing, ...props }: IListProps, ref?: any) => {
+const List = ({ children, divider, ...props }: IListProps, ref?: any) => {
   const { _text, _hover, ...newProps } = useThemeProps('List', props);
   // add props to children
   children = React.Children.map(children, (child: any, ind: number) => {
@@ -11,7 +11,6 @@ const List = ({ children, spacing, ...props }: IListProps, ref?: any) => {
       child,
       {
         index: ind,
-        py: spacing,
         _text: _text,
         _hover,
         ...child.props,
@@ -20,7 +19,7 @@ const List = ({ children, spacing, ...props }: IListProps, ref?: any) => {
     );
   });
   return (
-    <VStack ref={ref} {...newProps}>
+    <VStack divider={divider} ref={ref} {...newProps}>
       {children}
     </VStack>
   );

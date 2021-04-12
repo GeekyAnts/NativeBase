@@ -4,7 +4,7 @@ import type { IListProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
 const UnorderedList = (
-  { style, children, spacing, ...props }: IListProps,
+  { style, children, ...props }: IListProps,
   ref?: any
 ) => {
   const { _text, _hover, ...newProps } = useThemeProps('List', props);
@@ -15,7 +15,6 @@ const UnorderedList = (
       {
         index: ind,
         ul: true,
-        py: spacing,
         _text: _text,
         _hover,
         ...child.props,

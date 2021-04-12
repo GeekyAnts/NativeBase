@@ -15,6 +15,7 @@ export const List = {
 export const ListItem = {
   baseStyle: {
     // borderTopWidth: 1,
+    py: 2,
     borderColor: 'gray.300',
   },
   defaultProps: {
@@ -23,4 +24,8 @@ export const ListItem = {
 };
 
 // ListIcon
-export const ListIcon = {};
+export const ListIcon = {
+  baseStyle: {
+    mr: 2,
+  },
+};
