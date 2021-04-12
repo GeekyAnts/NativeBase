@@ -154,7 +154,7 @@
   },
   "dependencies": {
     "@react-aria/visually-hidden": "^3.2.1",
-    "@react-native-aria/button": "^0.2.2",
+    "@react-native-aria/button": "^0.2.4",
     "@react-native-aria/checkbox": "^0.2.2",
     "@react-native-aria/combobox": "^0.2.4-alpha.0",
     "@react-native-aria/focus": "^0.2.4",
@@ -166,6 +166,7 @@
     "@react-native-aria/utils": "^0.2.5",
     "@react-stately/combobox": "^3.0.0-alpha.1",
     "@react-stately/radio": "^3.2.1",
+    "@types/styled-system": "^5.1.9",
     "babel-eslint": "^10.1.0",
     "deepmerge": "^4.2.2",
     "expo-constants": "^9.3.5",
@@ -175,8 +176,7 @@
     "react-native-material-ripple": "^0.9.1",
     "react-native-popper": "^0.1.8",
     "react-native-unimodules": "~0.10.1",
-    "tinycolor2": "^1.4.2",
-    "@types/styled-system": "^5.1.9"
+    "tinycolor2": "^1.4.2"
   },
   "directories": {
     "example": "example",

@@ -107,7 +107,7 @@ const ComboBoxImplementation = React.forwardRef(
       return props.toggleIcon;
     };
 
-    let { buttonProps } = useButton(triggerProps, triggerRef);
+    let { buttonProps } = useButton(triggerProps);
 
     return (
       <Box flexDirection="row" {...layoutProps} ref={ref}>
