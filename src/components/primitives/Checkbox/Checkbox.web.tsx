@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { default as Pressable, IPressableProps } from '../Pressable';
 import { mergeRefs } from './../../../utils';
 import { useThemeProps } from '../../../hooks';
 import { Center } from '../../composites/Center';
@@ -8,17 +7,24 @@ import Box from '../Box';
 import Icon from '../Icon';
 import type { ICheckboxProps } from './types';
 import { useToggleState } from '@react-stately/toggle';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { CheckboxGroupContext } from './CheckboxGroup';
+import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
+import { useFocusRing } from '@react-native-aria/focus';
 
-const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
+const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext = useFormControlContext();
-
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
   const {
-    _interactionBox: { _pressed: _iterationBoxPressed, ..._interactionBox },
+    _interactionBox: {
+      _hover: _iterationBoxHover,
+      _focus: _iterationBoxFocus,
+      _disabled: _iterationBoxDisabled,
+      ..._interactionBox
+    },
     _checkbox: {
-      _checked: _checboxChecked,
+      _checked: _checkboxChecked,
       _disabled: _checkboxDisabled,
       _invalid: _checkboxInvalid,
       ..._checkbox
@@ -40,6 +46,7 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
     isSelected: props.isChecked,
   });
   const groupState = useContext(CheckboxGroupContext);
+  const { isHovered } = useHover({}, _ref);
 
   // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.
   // This is a bit unorthodox. Typically, hooks cannot be called in a conditional,
@@ -65,7 +72,6 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
 
   const isChecked = inputProps.checked;
   const isDisabled = inputProps.disabled;
-
   const sizedIcon = icon
     ? () =>
         React.cloneElement(
@@ -77,59 +83,67 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
           icon.props.children
         )
     : null;
-  const nativeComponent = (
-    <Pressable
-      {...(inputProps as IPressableProps)}
-      accessibilityRole="checkbox"
+  const { focusProps, isFocusVisible } = useFocusRing();
+
+  const component = (
+    <Box
+      flexDirection="row"
+      alignItems="center"
+      {...newProps}
+      opacity={isDisabled ? 0.4 : 1}
+      cursor={isDisabled ? 'not-allowed' : 'pointer'}
     >
-      {({ isPressed }: any) => {
-        return (
-          <Center
-            flexDirection="row"
-            justifyContent="center "
-            alignItems="center"
-            borderRadius="full"
-            ref={_ref}
-            {...newProps}
-          >
-            <Center>
-              {/* Interaction Wrapper */}
-              <Box
-                {..._interactionBox}
-                {...(isPressed && _iterationBoxPressed)}
-                p={5}
-                w="100%"
-                height="100%"
-                zIndex={-1}
-              />
-              {/* Checkbox */}
-              <Center
-                {..._checkbox}
-                {...(isChecked && _checboxChecked)}
-                {...(isDisabled && _checkboxDisabled)}
-                {...(isInvalid && _checkboxInvalid)}
-              >
-                {icon && sizedIcon && isChecked ? (
-                  sizedIcon()
-                ) : (
-                  <Icon
-                    name="check"
-                    size={size}
-                    {..._icon}
-                    opacity={isChecked ? 1 : 0}
-                  />
-                )}
-              </Center>
-            </Center>
-            {/* Label */}
-            {children}
-          </Center>
-        );
-      }}
-    </Pressable>
+      <Center>
+        {/* Interaction Box */}
+        <Box
+          {..._interactionBox}
+          {...(isFocusVisible && _iterationBoxFocus)}
+          {...(isHovered && _iterationBoxHover)}
+          {...(isDisabled && _iterationBoxDisabled)}
+          style={{
+            // @ts-ignore - only for web"
+            transition: 'height 200ms, width 200ms',
+          }}
+          h={isFocusVisible || isHovered ? '200%' : '100%'}
+          w={isFocusVisible || isHovered ? '200%' : '100%'}
+          zIndex={-1}
+        />
+        {/* Checkbox */}
+        <Center
+          {..._checkbox}
+          {...(isChecked && _checkboxChecked)}
+          {...(isDisabled && _checkboxDisabled)}
+          {...(isInvalid && _checkboxInvalid)}
+        >
+          {icon && sizedIcon && isChecked ? (
+            sizedIcon()
+          ) : (
+            <Icon
+              name="check"
+              {..._icon}
+              size={size}
+              opacity={isChecked ? 1 : 0}
+            />
+          )}
+        </Center>
+      </Center>
+      {props.children}
+    </Box>
   );
 
-  return nativeComponent;
+  return (
+    <Box
+      // @ts-ignore - RN web supports accessibilityRole="label"
+      accessibilityRole="label"
+      ref={_ref}
+    >
+      <VisuallyHidden>
+        <input {...inputProps} {...focusProps} ref={mergedRef} />
+      </VisuallyHidden>
+
+      {component}
+    </Box>
+  );
 };
 
 export default React.memo(React.forwardRef(Checkbox));

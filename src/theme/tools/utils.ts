@@ -152,6 +152,8 @@ export function getColorFormColorScheme(props: Record<string, any>) {
           theme.colors[simpleColorScheme][200];
   } else return 'default.200';
 }
+
+// TODO: This function can be removed.
 export function getColorScheme(
   props: Record<string, any>,
   customColorScheme?: string

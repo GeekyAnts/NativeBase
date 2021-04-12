@@ -66,6 +66,7 @@ const StyledPressable = styled(RNPressable)<IPressableProps>(
 
 const Pressable = (
   {
+    children,
     onPressIn,
     onPressOut,
     onHoverIn,
@@ -100,7 +101,16 @@ const Pressable = (
       {...(isHovered && _hover)}
       {...(isFocusVisible && _focus)}
       {...(isPressed && _pressed)}
-    />
+    >
+      {typeof children !== 'function'
+        ? children
+        : children({
+            isPressed,
+            isHovered,
+            isFocusVisible,
+            focusProps,
+          })}
+    </StyledPressable>
   );
 };
 
