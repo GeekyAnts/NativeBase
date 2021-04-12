@@ -8,7 +8,7 @@ export default function () {
       <Checkbox
         value="test"
         accessibilityLabel="This is a dummy checkbox"
-        isChecked
+        defaultIsChecked
       />
     </HStack>
   );
