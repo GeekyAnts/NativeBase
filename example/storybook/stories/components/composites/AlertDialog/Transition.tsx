@@ -29,7 +29,7 @@ export default function () {
             />
           </AlertDialog.Body>
           <AlertDialog.Footer>
-            <ButtonGroup variant="ghost" spacing={2}>
+            <ButtonGroup variant="ghost" space={2}>
               <Button onPress={onClose}>SUBMIT</Button>
               <Button colorScheme="red" onPress={onClose}>
                 CANCEL

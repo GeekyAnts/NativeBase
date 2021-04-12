@@ -20,7 +20,7 @@ export default function () {
             use of cookies and tracking technologies.
           </Modal.Body>
           <Modal.Footer>
-            <ButtonGroup variant="ghost" spacing={2}>
+            <ButtonGroup variant="ghost" space={2}>
               <Button>LEARN MORE</Button>
               <Button
                 onPress={() => {

@@ -1,9 +1,10 @@
 import type { ITextProps } from './../Text/types';
 import type { IPressableProps } from '../Pressable';
+import type { IStackProps } from '../Stack';
 
 export type IButtonProps = IPressableProps & {
   colorScheme?: string;
-  variant?: string;
+  variant?: 'ghost' | 'outline' | 'solid' | 'link' | 'unstyled';
   isLoading?: any;
   size?: 'xs' | 'sm' | 'md' | 'lg';
   startIcon?: JSX.Element | Array<JSX.Element>;
@@ -14,9 +15,11 @@ export type IButtonProps = IPressableProps & {
   _text?: ITextProps;
 };
 
-export type IButtonGroupProps = {
+export type IButtonGroupProps = IStackProps & {
+  direction?: 'column' | 'row';
   children: JSX.Element | Array<JSX.Element>;
-  variant?: string;
+  variant?: 'ghost' | 'outline' | 'solid' | 'link' | 'unstyled';
   size?: 'xs' | 'sm' | 'md' | 'lg';
-  spacing?: string | number;
+  colorScheme?: string;
+  isDisabled?: boolean;
 };

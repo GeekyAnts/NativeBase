@@ -25,7 +25,7 @@ export default function () {
             Are you sure? You can't undo this action afterwards.
           </AlertDialog.Body>
           <AlertDialog.Footer>
-            <ButtonGroup variant="ghost" spacing={2}>
+            <ButtonGroup variant="ghost" space={2}>
               <Button onPress={onClose}>CANCEL</Button>
               <Button colorScheme="red" onPress={onClose}>
                 DELETE

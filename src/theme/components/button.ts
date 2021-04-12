@@ -192,6 +192,11 @@ const defaultProps = {
   colorScheme: 'primary',
 };
 
+export const ButtonGroup = {
+  baseStyle: { direction: 'row' },
+  defaultProps: { space: 1 },
+};
+
 export default {
   baseStyle,
   variants,
