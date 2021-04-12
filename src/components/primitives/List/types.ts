@@ -1,6 +1,6 @@
 import type { ViewStyle } from 'react-native';
 import type { IStackProps } from '../Stack';
-import type { IButtonProps } from '../Button';
+import type { IPressableProps } from '../Pressable';
 import type { IIconProps } from '../Icon/types';
 
 export type IListProps = IStackProps & {
@@ -15,7 +15,7 @@ export type IListProps = IStackProps & {
   _text?: any;
 };
 
-export type IListItemProps = IButtonProps & {
+export type IListItemProps = IPressableProps & {
   _hover?: any;
   unordered?: boolean;
   ul?: boolean;
