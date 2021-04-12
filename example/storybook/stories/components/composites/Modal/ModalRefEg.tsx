@@ -26,7 +26,7 @@ export default function () {
             />
           </Modal.Body>
           <Modal.Footer>
-            <ButtonGroup variant="ghost" spacing={2}>
+            <ButtonGroup variant="ghost" space={2}>
               <Button>SAVE</Button>
               <Button
                 onPress={() => {
