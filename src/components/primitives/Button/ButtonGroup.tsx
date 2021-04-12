@@ -1,45 +1,36 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import { border, color, flexbox, layout, position, space } from 'styled-system';
-import {
-  customBackground,
-  customBorder,
-  customExtra,
-  customLayout,
-  customOutline,
-  customPosition,
-  customShadow,
-} from '../../../utils/customProps';
 import type { IButtonGroupProps } from './types';
-
-const StyledButtonGroup = styled.View<IButtonGroupProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout,
-  { flexDirection: 'row', flexWrap: 'wrap' }
-);
+import { useThemeProps } from '../../../hooks';
+import { Stack } from '../Stack';
 
 export const ButtonGroup = React.memo(
-  ({ children, spacing, ...props }: IButtonGroupProps) => {
+  ({
+    children,
+    divider,
+    variant,
+    size,
+    colorScheme,
+    isDisabled,
+    ...props
+  }: IButtonGroupProps) => {
+    const newProps = useThemeProps('ButtonGroup', props);
+    const computedChildren = React.Children.map(
+      children,
+      (child: JSX.Element, index: number) => {
+        return React.cloneElement(child, {
+          key: `button-group-child-${index}`,
+          variant,
+          size,
+          colorScheme,
+          isDisabled,
+          ...child.props,
+        });
+      }
+    );
     return (
-      <StyledButtonGroup>
-        {React.Children.map(children, (child: JSX.Element, index: number) => {
-          return React.cloneElement(child, {
-            ml: index !== 0 ? spacing : undefined,
-            ...props,
-          });
-        })}
-      </StyledButtonGroup>
+      <Stack divider={divider} {...newProps}>
+        {computedChildren}
+      </Stack>
     );
   }
 );
