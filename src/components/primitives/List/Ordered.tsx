@@ -3,10 +3,7 @@ import { VStack } from '../Stack';
 import type { IListProps } from './types';
 import { useThemeProps } from '../../../hooks';
 
-const OrderedList = (
-  { style, children, spacing, ...props }: IListProps,
-  ref?: any
-) => {
+const OrderedList = ({ style, children, ...props }: IListProps, ref?: any) => {
   const { _text, start, _hover, ...newProps } = useThemeProps('List', props);
   // add props to children
   children = React.Children.map(children, (child: any, ind: number) => {
@@ -15,7 +12,6 @@ const OrderedList = (
       {
         ol: true,
         index: ind,
-        py: spacing,
         _text,
         _hover,
         start,

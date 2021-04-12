@@ -4,12 +4,12 @@ import { List, Heading, Box } from 'native-base';
 export default function () {
   return (
     <Box w="80%">
-      <Heading fontSize={24}>Plain List</Heading>
-      <List spacing={2} my={2}>
-        <List.Item>Inferno</List.Item>
-        <List.Item>Mirage</List.Item>
-        <List.Item>Dust 2</List.Item>
-        <List.Item>Nuke</List.Item>
+      <Heading fontSize={24}>Topics (Plain List)</Heading>
+      <List space={2} my={2}>
+        <List.Item>Education</List.Item>
+        <List.Item>Health</List.Item>
+        <List.Item>Office</List.Item>
+        <List.Item>Sports</List.Item>
       </List>
     </Box>
   );

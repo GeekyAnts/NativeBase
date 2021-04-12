@@ -1,11 +1,10 @@
 import type { ViewStyle } from 'react-native';
 import type { IStackProps } from '../Stack';
-import type { IBoxProps } from '../Box';
+import type { IButtonProps } from '../Button';
 import type { IIconProps } from '../Icon/types';
 
 export type IListProps = IStackProps & {
   style?: ViewStyle;
-  spacing?: number;
   children: JSX.Element[] | JSX.Element;
   unordered?: boolean;
   ul?: boolean;
@@ -16,7 +15,7 @@ export type IListProps = IStackProps & {
   _text?: any;
 };
 
-export type IListItemProps = IBoxProps & {
+export type IListItemProps = IButtonProps & {
   _hover?: any;
   unordered?: boolean;
   ul?: boolean;
