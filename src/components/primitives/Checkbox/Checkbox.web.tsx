@@ -13,7 +13,7 @@ import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
 
-const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
+const Checkbox = ({ children, icon, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext = useFormControlContext();
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
   const {
@@ -32,7 +32,7 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     _icon,
     isInvalid,
     size,
-    ...newProps
+    ...themedProps
   } = useThemeProps('Checkbox', {
     ...checkboxGroupContext,
     ...formControlContext,
@@ -55,8 +55,8 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckboxGroupItem(
         {
-          ...newProps,
-          value: newProps.value,
+          ...themedProps,
+          value: themedProps.value,
         },
         groupState.state,
         //@ts-ignore
@@ -64,14 +64,14 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
       )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckbox(
-        newProps,
+        themedProps,
         state,
         //@ts-ignore
         mergedRef
       );
 
-  const isChecked = inputProps.checked;
-  const isDisabled = inputProps.disabled;
+  const { checked, disabled } = inputProps;
+
   const sizedIcon = icon
     ? () =>
         React.cloneElement(
@@ -89,9 +89,9 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     <Box
       flexDirection="row"
       alignItems="center"
-      {...newProps}
-      opacity={isDisabled ? 0.4 : 1}
-      cursor={isDisabled ? 'not-allowed' : 'pointer'}
+      {...themedProps}
+      opacity={disabled ? 0.4 : 1}
+      cursor={disabled ? 'not-allowed' : 'pointer'}
     >
       <Center>
         {/* Interaction Box */}
@@ -99,7 +99,8 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
           {..._interactionBox}
           {...(isFocusVisible && _iterationBoxFocus)}
           {...(isHovered && _iterationBoxHover)}
-          {...(isDisabled && _iterationBoxDisabled)}
+          {...(disabled && _iterationBoxDisabled)}
+          {...(disabled && _iterationBoxDisabled)}
           style={{
             // @ts-ignore - only for web"
             transition: 'height 200ms, width 200ms',
@@ -111,23 +112,23 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
         {/* Checkbox */}
         <Center
           {..._checkbox}
-          {...(isChecked && _checkboxChecked)}
-          {...(isDisabled && _checkboxDisabled)}
+          {...(checked && _checkboxChecked)}
+          {...(disabled && _checkboxDisabled)}
           {...(isInvalid && _checkboxInvalid)}
         >
-          {icon && sizedIcon && isChecked ? (
+          {icon && sizedIcon && checked ? (
             sizedIcon()
           ) : (
             <Icon
               name="check"
               {..._icon}
               size={size}
-              opacity={isChecked ? 1 : 0}
+              opacity={checked ? 1 : 0}
             />
           )}
         </Center>
       </Center>
-      {props.children}
+      {children}
     </Box>
   );
 
