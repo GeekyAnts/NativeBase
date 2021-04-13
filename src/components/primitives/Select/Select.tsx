@@ -132,9 +132,11 @@ const Select = (
     androidPrompt,
     ...newProps
   } = useThemeProps(type === 'native' ? 'NativeSelect' : 'CustomSelect', props);
-  const [layoutProps, nonLayoutProps] = extractInObject(newProps, [
-    ...stylingProps.margin,
+  const [borderProps, remainingProps] = extractInObject(newProps, [
     ...stylingProps.border,
+  ]);
+  const [layoutProps, nonLayoutProps] = extractInObject(remainingProps, [
+    ...stylingProps.margin,
     ...stylingProps.layout,
     ...stylingProps.flexbox,
     ...stylingProps.position,
@@ -161,6 +163,7 @@ const Select = (
       {...(isFocusVisible ? themeProps._focus : {})}
       {...(isHovered ? themeProps._hover : {})}
       {...nonLayoutProps}
+      {...borderProps}
     />
   );
   // Getting theme values for androidIconColor and color
@@ -191,6 +194,7 @@ const Select = (
         {...(isInvalid && _isInvalid)}
         {...(isHovered && _hover)}
         {...nonLayoutProps}
+        {...borderProps}
       >
         {children}
       </StyledNativePicker>
@@ -213,11 +217,13 @@ const Select = (
           {...(isInvalid && _isInvalid)}
           {...(isHovered && _hover)}
           {...nonLayoutProps}
+          {...borderProps}
         >
           {children}
         </StyledNativePicker>
       </Box>
     );
+
   const StyledSelect = (
     <Box {...layoutProps}>
       {Platform.OS === 'web' ? (

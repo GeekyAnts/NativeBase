@@ -4,7 +4,7 @@ import { Select, VStack, Switch, HStack, Text } from 'native-base';
 export default function () {
   let [language, setLanguage] = React.useState<string>('');
   let [type, setType] = React.useState<'custom' | 'native' | undefined>(
-    'native'
+    'custom'
   );
   return (
     <VStack alignItems="center" space={4}>
