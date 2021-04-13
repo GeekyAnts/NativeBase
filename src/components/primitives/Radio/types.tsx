@@ -15,6 +15,7 @@ export type IRadioProps = IBoxProps & {
   size?: 'sm' | 'md' | 'lg';
   icon?: JSX.Element;
   style?: any;
+  ref?: any;
 };
 export type IRadioGroupProps = IBoxProps & {
   value?: IRadioValue;
