@@ -15,7 +15,7 @@ export default function () {
 
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center">
-      <HStack mb={2} alignItems="baseline">
+      <HStack mb={3} alignItems="baseline">
         <Heading mt={3}>CheckboxGroup </Heading>
       </HStack>
       <Checkbox.Group
@@ -26,13 +26,13 @@ export default function () {
         }}
       >
         <Checkbox value="Item 1" my={1}>
-          <Text mx={2}>Item 1</Text>
+          Item 1
         </Checkbox>
         <Checkbox value="Item 2" my={1}>
-          <Text mx={2}>Item 2</Text>
+          Item 2
         </Checkbox>
         <Checkbox value="Item 3" my={1}>
-          <Text mx={2}>Item 3</Text>
+          Item 3
         </Checkbox>
         <Checkbox
           colorScheme="orange"
@@ -40,7 +40,7 @@ export default function () {
           value="Indeterminate Item"
           my={1}
         >
-          <Text mx={2}>Indeterminate Item</Text>
+          Indeterminate Item
         </Checkbox>
       </Checkbox.Group>
       <VStack mt={3}>
