@@ -1,11 +1,11 @@
 import React from 'react';
-import { Radio, Text } from 'native-base';
+import { Radio } from 'native-base';
 
 export default function () {
   return (
     <Radio.Group name="exampleGroup">
       <Radio value="test" isInvalid>
-        <Text mx={2}>Invalid Radio</Text>
+        Invalid Radio
       </Radio>
     </Radio.Group>
   );

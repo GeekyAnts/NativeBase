@@ -1,17 +1,17 @@
 import React from 'react';
-import { Radio, Text } from 'native-base';
+import { Radio } from 'native-base';
 
 export default function () {
   return (
     <Radio.Group defaultValue="1" name="exampleGroup">
       <Radio colorScheme="red" value="1" my={1}>
-        <Text mx={2}>red</Text>
+        red
       </Radio>
       <Radio colorScheme="dark" value="2" my={1}>
-        <Text mx={2}>dark</Text>
+        dark
       </Radio>
       <Radio colorScheme="success" value="3" my={1}>
-        <Text mx={2}>success</Text>
+        success
       </Radio>
     </Radio.Group>
   );
