@@ -149,7 +149,6 @@ const Select = (
       importantForAccessibility="no"
       value={selectedItem?.label}
       placeholder={placeholder}
-      // placeholderTextColor={}
       editable={false}
       focusable={false}
       variant={selectThemeProps.variant}
