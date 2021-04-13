@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Text, Box } from 'native-base';
+import { Checkbox, Box } from 'native-base';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 export default function () {
@@ -10,8 +10,7 @@ export default function () {
       <Checkbox
         colorScheme={text('colorScheme', 'primary')}
         size={select('size', ['sm', 'md', 'lg'], 'md')}
-        defaultIsChecked={boolean('defaultIsChecked', true)}
-        isChecked={boolean('isChecked', true)}
+        isChecked={toggleCheckBox}
         isDisabled={boolean('isDisabled', false)}
         isInvalid={boolean('isInvalid', false)}
         value={checkboxValue}
@@ -19,7 +18,7 @@ export default function () {
           setToggleCheckBox(!toggleCheckBox);
         }}
       >
-        <Text mx={2}>Are you Awesome?</Text>
+        Are you Awesome?
       </Checkbox>
     </Box>
   );

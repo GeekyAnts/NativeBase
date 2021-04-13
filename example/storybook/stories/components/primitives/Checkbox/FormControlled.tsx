@@ -26,13 +26,13 @@ export default function () {
           alignItems="flex-start"
         >
           <Checkbox value="Item 1" my={1}>
-            <Text mx={2}>Item 1</Text>
+            Item 1
           </Checkbox>
           <Checkbox value="Item 2" my={1}>
-            <Text mx={2}>Item 2</Text>
+            Item 2
           </Checkbox>
           <Checkbox value="Item 3" my={1}>
-            <Text mx={2}>Item 3</Text>
+            Item 3
           </Checkbox>
           <Checkbox
             colorScheme="orange"
@@ -40,7 +40,7 @@ export default function () {
             value="Indeterminate Item"
             my={1}
           >
-            <Text mx={2}>Indeterminate Item</Text>
+            Indeterminate Item
           </Checkbox>
         </Checkbox.Group>
         <FormControl.HelperText>
@@ -49,7 +49,7 @@ export default function () {
         <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>
       </FormControl>
 
-      <VStack mt={3} alignItems="baseline">
+      <VStack mt={4} alignItems="baseline">
         <Text fontSize="md">Selected Values: </Text>
         <Text fontSize="md" bold>
           {getSelectedGroupValue()}

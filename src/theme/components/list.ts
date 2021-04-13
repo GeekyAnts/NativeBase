@@ -26,6 +26,7 @@ export const ListItem = {
 // ListIcon
 export const ListIcon = {
   baseStyle: {
-    mr: 2,
+    mr: 8,
+    size: 'md',
   },
 };
