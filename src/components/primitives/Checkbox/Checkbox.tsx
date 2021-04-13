@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { default as Pressable, IPressableProps } from '../Pressable';
-import { mergeRefs } from './../../../utils';
 import { useThemeProps } from '../../../hooks';
 import { Center } from '../../composites/Center';
 import { useFormControlContext } from '../../composites/FormControl';
@@ -26,14 +25,12 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
     _icon,
     isInvalid,
     size,
-    ...newProps
+    ...themedProps
   } = useThemeProps('Checkbox', {
     ...checkboxGroupContext,
     ...formControlContext,
     ...props,
   });
-  const _ref = React.useRef();
-  const mergedRef = mergeRefs([ref, _ref]);
   const state = useToggleState({
     ...props,
     defaultSelected: props.defaultIsChecked,
@@ -48,23 +45,16 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckboxGroupItem(
         {
-          ...newProps,
-          value: newProps.value,
+          ...themedProps,
+          value: themedProps.value,
         },
         groupState.state,
-        //@ts-ignore
-        mergedRef
+        ref
       )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
-      useCheckbox(
-        newProps,
-        state,
-        //@ts-ignore
-        mergedRef
-      );
+      useCheckbox(themedProps, state, ref);
 
-  const isChecked = inputProps.checked;
-  const isDisabled = inputProps.disabled;
+  const { checked, disabled } = inputProps;
 
   const sizedIcon = icon
     ? () =>
@@ -77,9 +67,10 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
           icon.props.children
         )
     : null;
-  const nativeComponent = (
+  return (
     <Pressable
       {...(inputProps as IPressableProps)}
+      ref={ref}
       accessibilityRole="checkbox"
     >
       {({ isPressed }: any) => {
@@ -89,8 +80,7 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
             justifyContent="center "
             alignItems="center"
             borderRadius="full"
-            ref={_ref}
-            {...newProps}
+            {...themedProps}
           >
             <Center>
               {/* Interaction Wrapper */}
@@ -105,18 +95,18 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
               {/* Checkbox */}
               <Center
                 {..._checkbox}
-                {...(isChecked && _checboxChecked)}
-                {...(isDisabled && _checkboxDisabled)}
+                {...(checked && _checboxChecked)}
+                {...(disabled && _checkboxDisabled)}
                 {...(isInvalid && _checkboxInvalid)}
               >
-                {icon && sizedIcon && isChecked ? (
+                {icon && sizedIcon && checked ? (
                   sizedIcon()
                 ) : (
                   <Icon
                     name="check"
                     size={size}
                     {..._icon}
-                    opacity={isChecked ? 1 : 0}
+                    opacity={checked ? 1 : 0}
                   />
                 )}
               </Center>
@@ -128,8 +118,6 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
       }}
     </Pressable>
   );
-
-  return nativeComponent;
 };
 
 export default React.memo(React.forwardRef(Checkbox));
