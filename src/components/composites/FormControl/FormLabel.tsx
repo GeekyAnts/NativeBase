@@ -5,7 +5,7 @@ import { useFormControlContext } from './useFormControl';
 import { useThemeProps } from '../../../hooks';
 import type { IFormControlLabelProps } from './types';
 import { mergeRefs } from '../../../utils';
-
+import { Platform } from 'react-native';
 const FormLabel = (
   { children, _disabled, _invalid, ...props }: IFormControlLabelProps,
   ref: any
@@ -16,20 +16,17 @@ const FormLabel = (
     'FormControlLabel',
     props
   );
-
   const requiredAsterisk = () => (
     <Text
       //@ts-ignore web only role
-      accessibilityRole="presentation"
+      accessibilityRole={Platform.OS === 'web' ? 'presentation' : undefined}
       accessibilityHidden
       color={astrickColor}
     >
       *
     </Text>
   );
-
   const mergedRef = mergeRefs([_ref, ref]);
-
   React.useEffect(() => {
     if (_ref.current) {
       // RN web doesn't support htmlFor for Label element yet
@@ -40,12 +37,11 @@ const FormLabel = (
       }
     }
   }, [formControlContext?.nativeID, props.htmlFor]);
-
   return (
     <Box
       flexDirection="row"
       justifyContent="flex-start"
-      accessibilityRole="label"
+      accessibilityRole={Platform.OS === 'web' ? 'label' : undefined}
       {...themedProps}
       nativeID={formControlContext?.labelId}
       {...props}
