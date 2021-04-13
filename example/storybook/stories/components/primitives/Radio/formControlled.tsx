@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, FormControl, Radio, Text } from 'native-base';
+import { Container, FormControl, Radio } from 'native-base';
 
 export default function () {
   return (
@@ -8,13 +8,13 @@ export default function () {
         <FormControl.Label>Select One</FormControl.Label>
         <Radio.Group defaultValue="1" name="exampleGroup">
           <Radio value="1" my={1}>
-            <Text mx={2}>First</Text>
+            First
           </Radio>
           <Radio value="2" my={1}>
-            <Text mx={2}>Second</Text>
+            Second
           </Radio>
           <Radio value="3" my={1}>
-            <Text mx={2}>Third</Text>
+            Third
           </Radio>
         </Radio.Group>
         <FormControl.HelperText my={1}>

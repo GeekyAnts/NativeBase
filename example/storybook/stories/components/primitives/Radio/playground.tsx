@@ -17,7 +17,7 @@ export default function () {
           value={'cool'}
           my={1}
         >
-          <Text mx={2}>Are you Awesome?</Text>
+          Are you Awesome?
         </Radio>
         <Radio
           colorScheme={text('colorScheme', 'primary')}
@@ -27,10 +27,10 @@ export default function () {
           value={'awesome'}
           my={1}
         >
-          <Text mx={2}>Are you Cool?</Text>
+          Are you Cool?
         </Radio>
       </Radio.Group>
-      <Text mt={1}>{'Yes, you are ' + value}</Text>
+      <Text mt={2}>{'Yes, you are ' + value}</Text>
     </Box>
   );
 }
