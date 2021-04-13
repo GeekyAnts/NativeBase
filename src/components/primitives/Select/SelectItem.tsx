@@ -7,12 +7,10 @@ import Icon from '../Icon';
 import HStack from '../Stack/HStack';
 import Box from '../Box';
 
-export const Item = ({
-  isDisabled,
-  label,
-  value,
-  ...props
-}: ISelectItemProps) => {
+export const Item = (
+  { isDisabled, label, value, ...props }: ISelectItemProps,
+  ref?: any
+) => {
   const { onValueChange, selectedValue } = React.useContext(SelectContext);
   if (Platform.OS !== 'web') {
     const isSelected = selectedValue === value;
@@ -20,6 +18,7 @@ export const Item = ({
     return (
       <Actionsheet.Item
         {...props}
+        ref={ref}
         onPress={() => {
           if (!isDisabled) {
             onValueChange(value);
@@ -39,8 +38,8 @@ export const Item = ({
       </Actionsheet.Item>
     );
   } else {
-    return <option label={label} value={value} />;
+    return <option ref={ref} label={label} value={value} />;
   }
 };
 
-export default React.memo(Item);
+export default React.memo(React.forwardRef(Item));

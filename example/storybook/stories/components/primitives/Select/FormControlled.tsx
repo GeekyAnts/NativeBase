@@ -9,7 +9,6 @@ export default function () {
       <FormControl isRequired isInvalid>
         <FormControl.Label>Select Item</FormControl.Label>
         <Select
-          variant="filled"
           selectedValue={value}
           minWidth={200}
           accessibilityLabel="Select your favorite programming language"
