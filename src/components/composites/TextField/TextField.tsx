@@ -5,28 +5,32 @@ import { Stack } from '../../primitives/Stack';
 import { Input } from '../../primitives/Input';
 import Text from '../../primitives/Text';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import Select from '../../primitives/Select';
+import TextArea from '../../primitives/TextArea';
 
-const TextField = (
-  {
+const TextField = (mainProps: ITextFieldProps, ref?: any) => {
+  //TODO: Remove `any`
+  const {
+    children,
     helperText,
     errorMessage,
     InputLeftElement,
     InputRightElement,
+    dropdownIcon,
     ...props
-  }: ITextFieldProps,
-  ref?: any
-) => {
-  // NOTE:
+  }: any = mainProps;
+
   const { divider, ...themedProps } = useThemeProps('TextField', props);
 
   // usePlatformProps is merging Platform specific props to themedProps
   const {
     _errorMessageProps,
     _helperTextProps,
+    component,
     ...platformProps
   } = usePlatformProps(themedProps);
 
-  const [layoutProps, inputProps] = extractInObject(platformProps, [
+  const [layoutProps, componentProps] = extractInObject(platformProps, [
     'space',
     'reversed',
     ...stylingProps.margin,
@@ -35,18 +39,37 @@ const TextField = (
     ...stylingProps.position,
   ]);
 
+  const activeComponent = () => {
+    switch (component) {
+      case 'select':
+        return (
+          <Select {...componentProps} dropdownIcon={dropdownIcon}>
+            {children}
+          </Select>
+        );
+      case 'textarea':
+        return <TextArea {...componentProps} ref={ref} />;
+      default:
+        return (
+          <Input
+            InputLeftElement={InputLeftElement}
+            InputRightElement={InputRightElement}
+            {...componentProps}
+            ref={ref}
+          />
+        );
+    }
+  };
+
   return (
     <Stack divider={divider} {...layoutProps}>
-      <Input
-        InputLeftElement={InputLeftElement}
-        InputRightElement={InputRightElement}
-        {...inputProps}
-        ref={ref}
-      />
-      {inputProps.isInvalid && (
+      {activeComponent()}
+      {componentProps.isInvalid && (
         <Text {..._errorMessageProps}>{errorMessage}</Text>
       )}
-      {!inputProps.isInvalid && <Text {..._helperTextProps}>{helperText}</Text>}
+      {!componentProps.isInvalid && (
+        <Text {..._helperTextProps}>{helperText}</Text>
+      )}
     </Stack>
   );
 };
