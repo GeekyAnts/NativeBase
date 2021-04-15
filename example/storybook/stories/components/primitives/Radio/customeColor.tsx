@@ -4,14 +4,14 @@ import { Radio } from 'native-base';
 export default function () {
   return (
     <Radio.Group defaultValue="1" name="exampleGroup">
-      <Radio colorScheme="red" value="1" my={1}>
-        red
+      <Radio colorScheme="emerald" value="1" my={1}>
+        emerald
       </Radio>
-      <Radio colorScheme="dark" value="2" my={1}>
-        dark
+      <Radio colorScheme="secondary" value="2" my={1}>
+        secondary
       </Radio>
-      <Radio colorScheme="success" value="3" my={1}>
-        success
+      <Radio colorScheme="warning" value="3" my={1}>
+        warning
       </Radio>
     </Radio.Group>
   );
