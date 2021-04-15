@@ -1,48 +1,51 @@
-import { mode, getColorScheme, transparentize } from '../tools';
+import { getColorScheme, mode } from '../tools';
+export const SliderTrack = {
+  baseStyle: (props: any) => {
+    const simplifiedColorScheme = getColorScheme(props);
+    return {
+      bg: `${simplifiedColorScheme}.100`,
+      borderRadius: 'lg',
+      overflow: 'hidden',
+    };
+  },
+};
 
-const baseStyle = (props: Record<string, any>) => {
-  const simplifiedColorScheme = getColorScheme(props);
-  return {
-    activeColor: mode(
-      `${simplifiedColorScheme}.500`,
-      `${simplifiedColorScheme}.200`
-    )(props),
-    trackColor: transparentize(
-      mode(
+export const SliderThumb = {
+  baseStyle: (props: any) => {
+    const simplifiedColorScheme = getColorScheme(props);
+    return {
+      borderRadius: 99999,
+      zIndex: 999,
+      bg: mode(
         `${simplifiedColorScheme}.500`,
-        `${simplifiedColorScheme}.200`
+        `${simplifiedColorScheme}.300`
       )(props),
-      0.3
-    )(props.theme),
-  };
+      scaleOnPressed: 1.2,
+    };
+  },
+};
+
+export const SliderFilledTrack = {
+  baseStyle: (props: any) => {
+    const simplifiedColorScheme = getColorScheme(props);
+    return {
+      bg: mode(
+        `${simplifiedColorScheme}.500`,
+        `${simplifiedColorScheme}.300`
+      )(props),
+    };
+  },
 };
 
 const sizes = {
-  // sizes mentioned here are used in pixels.
-  lg: { thumbSize: 10, sliderSize: 8 },
-  md: { thumbSize: 8, sliderSize: 6 },
+  lg: { thumbSize: 6, sliderSize: 6 },
+  md: { thumbSize: 5, sliderSize: 5 },
   sm: { thumbSize: 4, sliderSize: 4 },
 };
 
-const defaultProps = {
-  colorScheme: 'primary',
-  size: 'md',
-  min: 0,
-  max: 100,
-  step: 1,
-};
-
-export default {
-  baseStyle,
+export const Slider = {
+  defaultProps: {
+    size: 'sm',
+  },
   sizes,
-  defaultProps,
-};
-
-// SliderThumb
-const sliderThumbDefaultProps = {
-  shadow: 3,
-  borderWidth: 2,
-};
-export const SliderThumb = {
-  defaultProps: sliderThumbDefaultProps,
 };

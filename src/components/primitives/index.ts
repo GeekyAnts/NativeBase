@@ -25,7 +25,7 @@ export { default as Button, ButtonGroup } from './Button';
 export type { IButtonProps } from './Button';
 
 export { Slider } from './Slider';
-export type { ISliderProps, ISliderContextProps } from './Slider';
+export type { ISliderProps } from './Slider';
 
 export { Stack, VStack, HStack } from './Stack';
 export type { IStackProps } from './Stack';
