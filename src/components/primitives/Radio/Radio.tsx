@@ -31,6 +31,8 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
   const { inputProps } = useRadio(props, contextState.state, inputRef);
   const { disabled, checked } = inputProps;
 
+  console.log(inputProps);
+
   // only calling below function when icon exist.
   const sizedIcon = () =>
     //@ts-ignore
