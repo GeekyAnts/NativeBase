@@ -1,9 +1,8 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
-import { Box } from 'native-base';
-import { Backdrop } from '..';
+import { Box, Backdrop } from 'native-base';
 
-const Modal = ({
+const Drawer = ({
   children,
   isOpen,
   onClose,
@@ -18,14 +17,14 @@ const Modal = ({
     <OverlayContainer>
       <Backdrop onClick={onClose ? onClose : () => {}} />
       <Box
-        margin="auto"
         top={0}
         bottom={0}
         left={0}
-        right={0}
         bg="white"
-        minWidth={64}
-        minHeight={24}
+        width={'30%'}
+        minWidth={'72'}
+        maxW="96"
+        h={'100%'}
         opacity={1}
       >
         {children ? children : null}
@@ -34,4 +33,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default Drawer;

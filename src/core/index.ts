@@ -27,3 +27,5 @@ export type {
   IColorModeProviderProps,
   IColorModeContextProps,
 } from './color-mode';
+
+export { ToastProvider, CustomToast } from '../components/composites/Toast';

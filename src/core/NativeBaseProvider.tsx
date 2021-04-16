@@ -12,6 +12,8 @@ import { SSRProvider } from '@react-native-aria/utils';
 import { theme as defaultTheme, ITheme } from './../theme';
 import type { IColorModeProviderProps } from './color-mode';
 import HybridProvider from './hybrid-overlay/HybridProvider';
+import { OverlayProvider } from '@react-native-aria/overlays';
+import { ToastProvider } from '../components/composites/Toast';
 // import { createGlobalStyle } from 'styled-components';
 // import Roboto from './Roboto.ttf';
 
@@ -50,7 +52,11 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
           colorModeManager={colorModeManager}
           options={theme.config}
         >
-          <SSRProvider>{children}</SSRProvider>
+          <OverlayProvider>
+            <ToastProvider>
+              <SSRProvider>{children}</SSRProvider>
+            </ToastProvider>
+          </OverlayProvider>
         </HybridProvider>
       </SafeAreaProvider>
     </ThemeProvider>
