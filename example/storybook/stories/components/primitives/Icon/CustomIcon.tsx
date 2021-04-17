@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from 'native-base';
-import { Svg, Path, G } from 'react-native-svg';
+import { Path, G } from 'react-native-svg';
 export default function () {
   return (
     <Icon width="870px" height="873px" viewBox="0 0 870 873">
