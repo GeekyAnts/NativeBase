@@ -127,6 +127,7 @@ class Fab extends Component {
           ? this.fabTopValue(position).right
           : variables.fabContainerBottom,
         left: position ? this.fabTopValue(position).left : undefined,
+        borderRadius: variables.fabBorderRadius,
         width: variables.fabWidth,
         height: this.containerHeight,
         flexDirection: direction
@@ -479,7 +480,7 @@ class Fab extends Component {
             // eslint-disable-next-line new-cap
             background={TouchableNativeFeedback.Ripple(
               variables.androidRippleColor,
-              false
+              true
             )}
             {...this.prepareFabProps()}
           >
