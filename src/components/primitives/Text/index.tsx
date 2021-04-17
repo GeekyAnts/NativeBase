@@ -11,7 +11,7 @@ import {
   flexbox,
   border,
 } from 'styled-system';
-import { useThemeProps } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import {
   customBorder,
   customBackground,
@@ -85,7 +85,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontWeight: propFontWeight,
     fontStyle: propFontStyle,
     ...newProps
-  } = useThemeProps('Text', props);
+  } = usePropsResolution('Text', props);
 
   let fontFamily = propFontFamily;
   let fontStyle = italic ? 'italic' : propFontStyle;

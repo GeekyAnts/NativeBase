@@ -1,11 +1,10 @@
 import React from 'react';
 import Spinner from '../Spinner';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import Pressable from '../Pressable';
 import type { IButtonGroupProps, IButtonProps } from './types';
-import { usePlatformProps } from '../../../hooks';
 
 const Button = (
   {
@@ -19,15 +18,25 @@ const Button = (
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  const { _text, _hover, _pressed, _focus, ...restProps } = useThemeProps(
-    'Button',
-    {
-      ...props,
-      size,
-    }
-  );
+  // const { _text, _hover, _pressed, _focus, ...restProps } = useThemeProps(
+  //   'Button',
+  //   {
+  //     ...props,
+  //     size,
+  //   }
+  // );
+  // const platformProps = usePlatformProps(restProps);
 
-  const platformProps = usePlatformProps(restProps);
+  const {
+    _text,
+    _hover,
+    _pressed,
+    _focus,
+    ...platformProps
+  } = usePropsResolution('Button', {
+    ...props,
+    size,
+  });
 
   const { isDisabled, isLoading } = props;
 

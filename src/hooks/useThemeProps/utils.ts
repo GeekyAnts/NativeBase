@@ -23,7 +23,7 @@ import { useContrastText } from '../useContrastText';
  * @param currentBreakpoint Current breakpoint values
  * @returns Extracting props from defaultProps while overriding the props that are already present
  */
-function extractProps(
+export function extractProps(
   props: any,
   theme: any,
   colorModeProps: any,
@@ -92,7 +92,7 @@ function filterDefaultProps(props: any, defaultProps: any) {
  * @param componentTheme : component specific theme
  * @returns
  */
-const extractPropertyFromFunction = (
+export const extractPropertyFromFunction = (
   property: string,
   props: any,
   theme: any,
@@ -129,7 +129,7 @@ const extractPropertyFromFunction = (
 /*
 Merge _props and apply contrastText color if not passed by theme or user
 */
-function mergeUnderscoreProps(newProps: any, props: any) {
+export function mergeUnderscoreProps(newProps: any, props: any) {
   const _props = Object.keys(newProps).filter((propName) =>
     propName.startsWith('_')
   );
@@ -162,7 +162,7 @@ function mergeUnderscoreProps(newProps: any, props: any) {
  * @param property : property name
  * @returns
  */
-const resolveValueWithBreakpoint = (
+export const resolveValueWithBreakpoint = (
   values: any,
   currentBreakpoint: number,
   property: any
