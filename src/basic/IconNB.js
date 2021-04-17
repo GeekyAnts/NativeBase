@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connectStyle } from 'native-base-shoutem-theme';
 import { get } from 'lodash';
@@ -23,7 +23,7 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 const Icomoon = createIconSetFromIcoMoon(icoMoonConfig);
 
-class IconNB extends React.PureComponent {
+class IconNB extends Component {
   static contextTypes = {
     theme: PropTypes.object,
   };
@@ -38,10 +38,6 @@ class IconNB extends React.PureComponent {
     if (nextProps.type && this.props.type !== nextProps.type) {
       this.setIcon(nextProps.type);
     }
-  }
-
-  setRoot(c){
-    this._root = c;
   }
 
   setIcon(iconType) {
@@ -102,7 +98,7 @@ class IconNB extends React.PureComponent {
   }
 
   render() {
-    return <this.Icon ref={this.setRoot} {...this.props} />;
+    return <this.Icon ref={c => (this._root = c)} {...this.props} />;
   }
 }
 

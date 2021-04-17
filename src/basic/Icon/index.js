@@ -18,10 +18,6 @@ class Icon extends React.PureComponent {
     theme: PropTypes.object
   };
 
-  setRoot(c){
-    this._root = c;
-  }
-
   getName() {
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
@@ -67,7 +63,7 @@ class Icon extends React.PureComponent {
     if (this.props.ios && this.props.android) {
       return (
         <IconNB
-          ref={this.setRoot}
+          ref={c => (this._root = c)}
           {...this.props}
           name={IS_IOS ? this.props.ios : this.props.android}
         />
@@ -75,7 +71,7 @@ class Icon extends React.PureComponent {
     } else if (this.props.name && (this.props.android || this.props.ios)) {
       return (
         <IconNB
-          ref={this.setRoot}
+          ref={c => (this._root = c)}
           {...this.props}
           name={this.getIconName()}
         />
@@ -83,7 +79,7 @@ class Icon extends React.PureComponent {
     }
     return (
       <IconNB
-        ref={this.setRoot}
+        ref={c => (this._root = c)}
         {...this.props}
         name={this.getName()}
       />
