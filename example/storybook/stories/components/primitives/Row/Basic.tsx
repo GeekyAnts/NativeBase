@@ -1,11 +1,36 @@
 import React from 'react';
-import { Row, Text } from 'native-base';
+import { Center, Row } from 'native-base';
 
 export default function () {
   return (
-    <Row>
-      <Text>Test Text</Text>
-      <Text>Testing this text with Row</Text>
+    <Row space={2}>
+      <Center
+        size={16}
+        bg="primary.400"
+        rounded="md"
+        _text={{ color: 'white' }}
+        shadow={3}
+      >
+        Box 1
+      </Center>
+      <Center
+        bg="secondary.400"
+        size={16}
+        rounded="md"
+        _text={{ color: 'white' }}
+        shadow={3}
+      >
+        Box 2
+      </Center>
+      <Center
+        size={16}
+        bg="emerald.400"
+        rounded="md"
+        _text={{ color: 'white' }}
+        shadow={3}
+      >
+        Box 3
+      </Center>
     </Row>
   );
 }

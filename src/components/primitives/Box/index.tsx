@@ -10,7 +10,7 @@ import {
   space,
   typography,
 } from 'styled-system';
-import { useThemeProps } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Text from './../Text';
 import {
   customBackground,
@@ -43,9 +43,11 @@ const StyledBox = styled(View)<IBoxProps>(
   customLayout
 );
 
-const Box = ({ children, _text, ...props }: IBoxProps, ref: any) => {
-  const boxProps = useThemeProps('Box', props);
-  const safeAreaProps = useSafeArea(boxProps);
+const Box = ({ children, ...props }: IBoxProps, ref: any) => {
+  // const { _text, ...resolvedProps } = useThemeProps('Box', props);
+  const { _text, ...resolvedProps } = usePropsResolution('Box', props);
+  const safeAreaProps = useSafeArea(resolvedProps);
+
   return (
     <StyledBox ref={ref} {...safeAreaProps}>
       {React.Children.map(children, (child) =>

@@ -8,7 +8,7 @@ export default function () {
       component="select"
       variant="filled"
       selectedValue={language}
-      minWidth={200}
+      w="90%"
       accessibilityLabel="Select your favorite programming language"
       placeholder="Select your favorite programming language"
       onValueChange={(itemValue: string) => setLanguage(itemValue)}

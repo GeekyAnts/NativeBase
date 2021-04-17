@@ -11,7 +11,7 @@ import {
   flexbox,
   border,
 } from 'styled-system';
-import { useThemeProps } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import {
   customBorder,
   customBackground,
@@ -88,7 +88,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontStyle: propFontStyle,
     _hover,
     ...newProps
-  } = useThemeProps('Text', props);
+  } = usePropsResolution('Text', props);
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);

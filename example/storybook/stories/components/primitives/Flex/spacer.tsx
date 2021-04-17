@@ -4,8 +4,8 @@ import { Flex, Spacer, Center, Heading } from 'native-base';
 export const SpacerExample = () => {
   return (
     <Center flex={1}>
-      <Heading mb={3}>Adding Spacer</Heading>
-      <Flex h={56} w={20}>
+      <Heading>Adding Spacer</Heading>
+      <Flex h={40} w={20} mt={6}>
         <Center
           size={16}
           bg="primary.400"

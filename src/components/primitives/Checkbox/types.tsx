@@ -6,7 +6,6 @@ import type { IBoxProps } from '../Box';
 export type ICheckboxValue = string;
 
 export type ICheckboxProps = IBoxProps & {
-  Group?: ICheckboxGroupProps;
   id?: string;
   name?: string;
   value: ICheckboxValue;

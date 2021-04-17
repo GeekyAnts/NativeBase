@@ -161,7 +161,7 @@
     "@react-native-aria/interactions": "^0.2.2",
     "@react-native-aria/listbox": "^0.2.4-alpha.0",
     "@react-native-aria/overlays": "^0.2.9",
-    "@react-native-aria/radio": "^0.2.2",
+    "@react-native-aria/radio": "^0.2.4",
     "@react-native-aria/tabs": "^0.2.3",
     "@react-native-aria/utils": "^0.2.5",
     "@react-native-picker/picker": "1.14.0",

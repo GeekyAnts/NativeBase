@@ -4,7 +4,7 @@ import { Icon } from 'native-base';
 export default function () {
   return (
     <>
-      <Icon type="Ionicons" name="md-checkmark-circle" />
+      <Icon name="check" />
     </>
   );
 }

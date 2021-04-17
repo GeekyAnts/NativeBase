@@ -37,8 +37,11 @@ const filterAndCalculateProps = (
 
 export function useThemeProps(component: string, propsReceived: any) {
   const { theme, ...colorModeProps } = useNativeBase();
+  // console.log('THEME = ', theme);
+
   const componentTheme = get(theme, `components.${component}`);
-  let windowWidth = useWindowDimensions()?.width;
+  // console.log('COMPONENT THEME = ', componentTheme);
+  const windowWidth = useWindowDimensions()?.width;
 
   // To pass the component theme props and component props seperately
   return filterAndCalculateProps(

@@ -5,7 +5,6 @@ const baseStyle = (props: Record<string, any>) => {
   return {
     _text: {
       ml: 3,
-      fontSize: 'lg',
     },
     _interactionBox: {
       position: 'absolute',
@@ -51,9 +50,9 @@ const baseStyle = (props: Record<string, any>) => {
 };
 
 const sizes = {
-  lg: { size: 4 },
-  md: { size: 3 },
-  sm: { size: 2 },
+  lg: { size: 4, _text: { fontSize: 'lg' } },
+  md: { size: 3, _text: { fontSize: 'md' } },
+  sm: { size: 2, _text: { fontSize: 'sm' } },
 };
 
 const defaultProps = {
