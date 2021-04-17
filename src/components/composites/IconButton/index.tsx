@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { useThemeProps } from '../../../hooks';
-import Button, { IButtonProps } from '../../primitives/Button';
+import { Button, IButtonProps } from '../../primitives/Button';
 
 export type IIconButtonProps = IButtonProps & {
   icon: JSX.Element;

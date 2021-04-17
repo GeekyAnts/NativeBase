@@ -3,18 +3,17 @@ import { mode } from '../tools/colors';
 const customSelectBaseStyle = (props: Record<string, any>) => {
   return {
     type: 'custom',
-    pl: 2,
-    pr: 0,
-    border: 1,
-    borderColor: mode('gray.600', 'gray.400')(props),
     _isDisabled: {
       opacity: 0.4,
     },
     _isInvalid: {
       borderColor: mode('danger.600', 'danger.200')(props),
     },
-    _hover: {
-      borderColor: 'primary.500',
+    customDropdownIconProps: {
+      type: 'MaterialCommunityIcons',
+      name: 'chevron-down',
+      size: 5,
+      mr: 2,
     },
   };
 };
@@ -51,7 +50,7 @@ export const NativeSelect = {
 // Select
 export const Select = {
   defaultProps: {
-    variant: 'filled',
+    variant: 'outline',
     type: 'custom',
   },
 };

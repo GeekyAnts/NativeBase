@@ -130,6 +130,7 @@ const Select = (
     androidMode,
     androidIconColor,
     androidPrompt,
+    customDropdownIconProps,
     ...newProps
   } = useThemeProps(type === 'native' ? 'NativeSelect' : 'CustomSelect', props);
   const [borderProps, remainingProps] = extractInObject(newProps, [
@@ -153,13 +154,8 @@ const Select = (
       focusable={false}
       variant={selectThemeProps.variant}
       InputRightElement={
-        dropdownIcon ? (
-          dropdownIcon
-        ) : (
-          <Icon type="MaterialIcons" name="keyboard-arrow-down" />
-        )
+        dropdownIcon ? dropdownIcon : <Icon {...customDropdownIconProps} />
       }
-      {...(isFocusVisible ? themeProps._focus : {})}
       {...(isHovered ? themeProps._hover : {})}
       {...nonLayoutProps}
       {...borderProps}
@@ -223,8 +219,14 @@ const Select = (
       </Box>
     );
 
+  // Todo: focusRing fix
+
   const StyledSelect = (
-    <Box {...layoutProps}>
+    <Box
+      {...layoutProps}
+      borderRadius={themeProps.borderRadius}
+      {...(isFocusVisible ? themeProps._focus : {})}
+    >
       {Platform.OS === 'web' ? (
         <>
           <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}>

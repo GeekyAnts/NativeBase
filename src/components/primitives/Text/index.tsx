@@ -23,6 +23,8 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import type { ITextProps } from './types';
+import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils';
 
 type IUseResolvedFontFamily = {
   fontFamily: string;
@@ -84,9 +86,12 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontFamily: propFontFamily,
     fontWeight: propFontWeight,
     fontStyle: propFontStyle,
+    _hover,
     ...newProps
   } = useThemeProps('Text', props);
 
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
   let fontFamily = propFontFamily;
   let fontStyle = italic ? 'italic' : propFontStyle;
   let fontWeight = bold ? 'bold' : propFontWeight;
@@ -116,8 +121,9 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
           : newProps.textDecorationLine
       }
       fontSize={sub ? 10 : newProps.fontSize}
-      ref={ref}
+      ref={mergeRefs([ref, _ref])}
       fontFamily={fontFamily}
+      {...(isHovered && _hover)}
     >
       {children}
     </StyledText>

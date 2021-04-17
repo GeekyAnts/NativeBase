@@ -2,7 +2,7 @@ import { mode } from './../tools';
 
 const baseStyle = (props: Record<string, any>) => {
   return {
-    color: mode('muted.800', 'white')(props),
+    color: mode('muted.700', 'white')(props),
   };
 };
 
@@ -18,32 +18,32 @@ function sizes(props: Record<string, any>) {
     return {
       '2xl': {
         fontSize: '6xl',
-        fontWeight: 'light',
+        fontWeight: 'bold',
         letterSpacing: 'xxs',
       },
       'xl': {
         fontSize: '5xl',
-        fontWeight: 'light',
+        fontWeight: 'bold',
         letterSpacing: 'xs',
       },
       'lg': {
         fontSize: '4xl',
-        fontWeight: 'normal',
+        fontWeight: 'bold',
         letterSpacing: 'sm',
       },
       'md': {
         fontSize: '3xl',
-        fontWeight: 'normal',
+        fontWeight: 'bold',
         letterSpacing: 'xl',
       },
       'sm': {
         fontSize: 'xl',
-        fontWeight: 'normal',
+        fontWeight: 'bold',
         letterSpacing: 'sm',
       },
       'xs': {
         fontSize: 'lg',
-        fontWeight: 'medium',
+        fontWeight: 'bold',
         letterSpacing: 'lg',
       },
     };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Center, ButtonGroup } from 'native-base';
+import { Modal, Button, Center } from 'native-base';
 
 export default function () {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -20,7 +20,7 @@ export default function () {
             use of cookies and tracking technologies.
           </Modal.Body>
           <Modal.Footer>
-            <ButtonGroup variant="ghost" space={2}>
+            <Button.Group variant="ghost" space={2}>
               <Button>LEARN MORE</Button>
               <Button
                 onPress={() => {
@@ -29,7 +29,7 @@ export default function () {
               >
                 ACCEPT
               </Button>
-            </ButtonGroup>
+            </Button.Group>
           </Modal.Footer>
         </Modal.Content>
       </Modal>

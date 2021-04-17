@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 const typography = {
   letterSpacings: {
     'xxs': -1.5,
@@ -27,46 +29,46 @@ const typography = {
     '9': '36px',
     '10': '40px',
   },
-  customFonts: {
-    Roboto: {
-      100: {
-        normal: 'Roboto-Light',
-        italic: 'Roboto-LightItalic',
-      },
-      200: {
-        normal: 'Roboto-Light',
-        italic: 'Roboto-LightItalic',
-      },
-      300: {
-        normal: 'Roboto-Light',
-        italic: 'Roboto-LightItalic',
-      },
-      400: {
-        normal: 'Roboto-Regular',
-        italic: 'Roboto-Italic',
-      },
-      500: {
-        normal: 'Roboto-Medium',
-        italic: 'Roboto-MediumItalic',
-      },
-      600: {
-        normal: 'Roboto-Medium',
-        italic: 'Roboto-MediumItalic',
-      },
-      700: {
-        normal: 'Roboto-Bold',
-        italic: 'Roboto-BoldItalic',
-      },
-      800: {
-        normal: 'Roboto-Bold',
-        italic: 'Roboto-BoldItalic',
-      },
-      900: {
-        normal: 'Roboto-Bold',
-        italic: 'Roboto-BoldItalic',
-      },
-    },
-  },
+  // customFonts: {
+  //   Roboto: {
+  //     100: {
+  //       normal: 'Roboto-Light',
+  //       italic: 'Roboto-LightItalic',
+  //     },
+  //     200: {
+  //       normal: 'Roboto-Light',
+  //       italic: 'Roboto-LightItalic',
+  //     },
+  //     300: {
+  //       normal: 'Roboto-Light',
+  //       italic: 'Roboto-LightItalic',
+  //     },
+  //     400: {
+  //       normal: 'Roboto-Regular',
+  //       italic: 'Roboto-Italic',
+  //     },
+  //     500: {
+  //       normal: 'Roboto-Medium',
+  //       italic: 'Roboto-MediumItalic',
+  //     },
+  //     600: {
+  //       normal: 'Roboto-Medium',
+  //       italic: 'Roboto-MediumItalic',
+  //     },
+  //     700: {
+  //       normal: 'Roboto-Bold',
+  //       italic: 'Roboto-BoldItalic',
+  //     },
+  //     800: {
+  //       normal: 'Roboto-Bold',
+  //       italic: 'Roboto-BoldItalic',
+  //     },
+  //     900: {
+  //       normal: 'Roboto-Bold',
+  //       italic: 'Roboto-BoldItalic',
+  //     },
+  //   },
+  // },
   fontWeights: {
     hairline: 100,
     thin: 200,
@@ -78,9 +80,10 @@ const typography = {
     extrabold: 800,
     black: 900,
   },
+  // Todo: Remove Platform Conditionals
   fonts: {
-    heading: 'Roboto',
-    body: 'Roboto',
+    heading: Platform.OS === 'web' ? 'system-ui' : '',
+    body: Platform.OS === 'web' ? 'system-ui' : '',
     mono: 'monospace',
   },
   fontSizes: {
@@ -90,7 +93,7 @@ const typography = {
     'md': 16,
     'lg': 20,
     'xl': 24,
-    '2xl': 24,
+    '2xl': 28,
     '3xl': 34,
     '4xl': 48,
     '5xl': 60,
