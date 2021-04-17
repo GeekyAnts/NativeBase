@@ -115,7 +115,8 @@ class Fab extends Component {
         shadowRadius: variables.fabShadowRadius,
         position: 'absolute',
         bottom: variables.fabBottom,
-        backgroundColor: variables.fabBackgroundColor
+        backgroundColor: variables.fabBackgroundColor,
+        overflow: 'hidden'
       },
       container: {
         position: 'absolute',
@@ -127,15 +128,16 @@ class Fab extends Component {
           ? this.fabTopValue(position).right
           : variables.fabContainerBottom,
         left: position ? this.fabTopValue(position).left : undefined,
-        borderRadius: variables.fabBorderRadius,
         width: variables.fabWidth,
         height: this.containerHeight,
+        borderRadius: variables.fabBorderRadius,
         flexDirection: direction
           ? direction === DIRECTION.LEFT || direction === DIRECTION.RIGHT
             ? 'row'
             : 'column'
           : 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        overflow: 'hidden'
       },
       iconStyle: {
         color: variables.fabIconColor,
@@ -477,11 +479,15 @@ class Fab extends Component {
         ) : (
           <TouchableNativeFeedback
             onPress={() => this.fabOnPress()}
+            style={{
+              borderRadius: variables.fabBorderRadius
+            }}
             // eslint-disable-next-line new-cap
             background={TouchableNativeFeedback.Ripple(
               variables.androidRippleColor,
-              true
+              false
             )}
+            useForeground={true}
             {...this.prepareFabProps()}
           >
             <View style={[this.getInitialStyle().fab, style]}>
