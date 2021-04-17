@@ -2320,15 +2320,15 @@
     "@react-stately/overlays" "^3.1.1"
     "@react-types/overlays" "^3.4.0"
 
-"@react-native-aria/radio@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/radio/-/radio-0.2.2.tgz#4c5e818e7dc1a11672556528dc6b6fcf7c1c88ab"
-  integrity sha512-p3n6JNM25pvoQV2dtNO7BjiIWfZGa4Tp3hPIC7CUYVbxhB0BrdURep+3s3redhYTtO7RMnQOzezD69yRWIUqHg==
+"@react-native-aria/radio@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/radio/-/radio-0.2.4.tgz#01288fde85e879db19eaefdb3d1ac4e525a6d0f9"
+  integrity sha512-Aokj+08gDsBhrsmBWoiSOPTj8BUN1dXbI+7IQXmGJAiCWs59poFE9p/11VgKZmdEZn0Guarl8CQxNl9qhPh/rA==
   dependencies:
     "@react-aria/radio" "^3.1.2"
-    "@react-aria/utils" "^3.5.0"
-    "@react-native-aria/interactions" "^0.2.2"
-    "@react-native-aria/utils" "^0.2.2"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/interactions" "^0.2.3"
+    "@react-native-aria/utils" "^0.2.4"
     "@react-stately/radio" "^3.2.1"
     "@react-types/radio" "^3.1.1"
 
