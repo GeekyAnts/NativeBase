@@ -74,7 +74,6 @@ const InputBase = (
   });
   // usePlatformProps is merging Platform specific props to themedProps
   const {
-    style,
     isFullWidth,
     isDisabled,
     isInvalid,
@@ -121,18 +120,10 @@ const InputBase = (
       onBlur={(e) => {
         handleFocus(false, onBlur ? () => onBlur(e) : () => {});
       }}
-      style={[
-        Platform.OS === 'web' && {
-          // @ts-ignore
-          // NOTE: setting outline to none as it'll be handled manually
-          outline: 'none',
-        },
-        style,
-      ]}
       {...(Platform.OS === 'web'
         ? {
             disabled: isDisabled,
-            cursor: isDisabled ? 'not-allowed' : 'pointer',
+            cursor: isDisabled ? 'not-allowed' : 'auto',
           }
         : {})}
       ref={mergeRefs([ref, _ref])}

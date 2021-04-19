@@ -1,33 +1,15 @@
 import React from 'react';
-import { Button, VStack, Icon, useColorMode } from 'native-base';
+import { Button, VStack, Icon } from 'native-base';
 
 export default function () {
-  const { colorMode } = useColorMode();
   return (
     <VStack space={4}>
+      <Button startIcon={<Icon name="email" size={5} />}>Email</Button>
       <Button
-        startIcon={
-          <Icon
-            name="menu"
-            type="MaterialIcons"
-            size={4}
-            color={colorMode === 'dark' ? 'black' : 'white'}
-          />
-        }
+        variant="outline"
+        endIcon={<Icon name="arrow-forward" size={4} />}
       >
-        MENU
-      </Button>
-      <Button
-        endIcon={
-          <Icon
-            name="menu"
-            type="MaterialIcons"
-            size={4}
-            color={colorMode === 'dark' ? 'black' : 'white'}
-          />
-        }
-      >
-        MENU
+        Call us
       </Button>
     </VStack>
   );

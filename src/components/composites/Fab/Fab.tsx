@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../primitives/Button';
+import { Button } from '../../primitives/Button';
 import { HStack } from '../../primitives/Stack';
 import type { IFabProps } from './types';
 import { useThemeProps } from '../../../hooks/useThemeProps';

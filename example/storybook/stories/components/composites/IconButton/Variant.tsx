@@ -9,7 +9,9 @@ export default function () {
           variant={variant}
           icon={
             <Icon
-              name={'menu'}
+              size={4}
+              name={'search1'}
+              type="AntDesign"
               color={variant === 'solid' ? 'white' : 'primary.500'}
             />
           }
