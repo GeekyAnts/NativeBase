@@ -57,7 +57,6 @@ import Popover from './popover';
 import Progress from './progress';
 import Radio from './radio';
 import Skeleton from './skeleton';
-import { default as Slider, SliderThumb } from './slider';
 import Spinner from './spinner';
 import Stat from './stat';
 import Switch from './switch';
@@ -77,6 +76,7 @@ import Stack from './stack';
 import View from './view';
 import ZStack from './zstack';
 import FAB from './fab';
+import { SliderTrack, Slider, SliderThumb, SliderFilledTrack } from './slider';
 
 export default {
   Accordion,
@@ -147,10 +147,12 @@ export default {
   SelectItem,
   SimpleGrid,
   Skeleton,
+  SliderFilledTrack,
+  SliderThumb,
+  SliderTrack,
+  Slider,
   Slide,
   SlideFade,
-  Slider,
-  SliderThumb,
   Spinner,
   Stack,
   Stat,

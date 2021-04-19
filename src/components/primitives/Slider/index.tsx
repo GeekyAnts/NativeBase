@@ -15,4 +15,4 @@ const Slider = SliderTemp as ISliderComponentType;
 export { Slider };
 export { SliderContext } from './Context';
 
-export type { ISliderProps, ISliderContextProps } from './types';
+export type { ISliderProps } from './types';

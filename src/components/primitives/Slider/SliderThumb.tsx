@@ -1,95 +1,78 @@
 import React from 'react';
-import { StyleSheet, Animated, Platform } from 'react-native';
+import { Platform } from 'react-native';
+import { useSliderThumb } from '@react-native-aria/slider';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
+import { useThemeProps, useToken } from '../../../hooks';
+import type { AriaSliderThumbProps } from './types';
+import Box, { IBoxProps } from '../Box';
 import { SliderContext } from './Context';
-import Box from '../Box';
-import Icon from '../Icon';
-import { useThemeProps } from '../../../hooks';
-import type { ISliderProps, ISliderContextProps } from './types';
 
-const SliderThumb = ({ children, ...props }: ISliderProps, ref?: any) => {
-  const { ...newProps } = useThemeProps('SliderThumb', props);
-  const {
-    sliderOffset = 0,
-    panResponder,
-    colorScheme,
-    thumbSize = 0,
+interface SliderThumbProps extends AriaSliderThumbProps, IBoxProps {}
+
+function SliderThumb(props: Omit<SliderThumbProps, 'index'>, ref: any) {
+  let {
+    state,
+    trackLayout,
     orientation,
-    isDisabled,
-  }: ISliderContextProps = React.useContext(SliderContext);
+    colorScheme,
+    thumbSize,
+  } = React.useContext(SliderContext);
+  const themeProps = useThemeProps('SliderThumb', {
+    size: thumbSize,
+    colorScheme,
+    ...props,
+  });
+  let inputRef = React.useRef(null);
 
-  const sliderThumbPosition = sliderOffset - 8 - thumbSize / 2;
+  let { thumbProps, inputProps } = useSliderThumb(
+    {
+      index: 0,
+      trackLayout,
+      inputRef,
+      orientation,
+    },
+    state
+  );
 
-  const customStyle = StyleSheet.create({
-    SliderThumb: {
-      position: 'absolute',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: 999,
-      padding: 4, // increased touch area for better touch detection.
-    },
-    verticalStyle: {
-      bottom: sliderThumbPosition,
-    },
-    horizontalStyle: {
-      left: sliderThumbPosition,
-    },
+  const thumbAbsoluteSize = useToken('sizes', themeProps.size);
+
+  const thumbStyles: any = {
+    bottom:
+      orientation === 'vertical'
+        ? `${state.getThumbPercent(0) * 100}%`
+        : undefined,
+    left:
+      orientation !== 'vertical'
+        ? `${state.getThumbPercent(0) * 100}%`
+        : undefined,
+    transform:
+      orientation === 'vertical'
+        ? [{ translateY: parseInt(thumbAbsoluteSize) / 2 }]
+        : [{ translateX: -parseInt(thumbAbsoluteSize) / 2 }],
+  };
+
+  thumbStyles.transform.push({
+    scale: state.isThumbDragging(0) ? themeProps.scaleOnPressed : 1,
   });
 
-  const sizedIcon = () =>
-    React.cloneElement(
-      children,
-      {
-        size: `${thumbSize}px`,
-        color: children.props.color ? children.props.color : colorScheme,
-      },
-      children.props.children
-    );
-
   return (
-    <Animated.View
-      style={[
-        customStyle.SliderThumb,
-        orientation === 'vertical'
-          ? customStyle.verticalStyle
-          : customStyle.horizontalStyle,
-      ]}
-      {...panResponder.panHandlers}
+    <Box
+      position="absolute"
+      {...thumbProps}
+      {...themeProps}
       ref={ref}
+      style={[thumbStyles, props.style]}
     >
-      <Box
-        cursor={
-          Platform.OS === 'web'
-            ? isDisabled
-              ? 'not-allowed'
-              : 'pointer'
-            : null
-        }
-        borderColor={colorScheme}
-        position="relative"
-        borderRadius="full"
-        backgroundColor={colorScheme}
-        p={1}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        userSelect={Platform.OS === 'web' ? 'none' : null}
-        {...newProps}
-      >
-        {children ? (
-          sizedIcon()
-        ) : (
-          <Icon
-            name="circle-medium"
-            type="MaterialCommunityIcons"
-            color={colorScheme}
-            size={`${thumbSize}px`}
-            opacity={0}
-          />
-        )}
-      </Box>
-    </Animated.View>
+      {props.children}
+      {Platform.OS === 'web' && (
+        <VisuallyHidden>
+          <input ref={inputRef} {...inputProps} />
+        </VisuallyHidden>
+      )}
+    </Box>
   );
-};
+}
+
+SliderThumb.displayName = 'SliderThumb';
 
 export default React.forwardRef(SliderThumb);

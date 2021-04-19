@@ -1,28 +1,50 @@
 import React from 'react';
+import { useThemeProps } from '../../../hooks';
+import Pressable from '../Pressable';
 import Box from '../Box';
 import { SliderContext } from './Context';
-import type { ISliderProps, ISliderContextProps } from './types';
+import type { ISliderProps } from './types';
 
 const SliderTrack = ({ children, ...props }: ISliderProps, ref?: any) => {
   const {
-    sliderSize,
-    trackColor,
     orientation,
-  }: ISliderContextProps = React.useContext(SliderContext);
+    trackProps,
+    onTrackLayout,
+    colorScheme,
+    sliderSize,
+  } = React.useContext(SliderContext);
+
+  const themeProps = useThemeProps('SliderTrack', {
+    size: sliderSize,
+    colorScheme,
+    ...props,
+  });
+
+  const isVertical = orientation === 'vertical';
+
+  const trackStyle = React.useMemo(
+    () => ({
+      height: isVertical ? '100%' : themeProps.size,
+      width: !isVertical ? '100%' : themeProps.size,
+    }),
+    [isVertical, themeProps.size]
+  );
 
   return (
-    <Box
-      position="absolute"
-      backgroundColor={trackColor}
-      height={orientation === 'vertical' ? '100%' : `${sliderSize}px`}
-      borderRadius="full"
-      width={orientation === 'vertical' ? `${sliderSize}px` : '100%'}
-      {...props}
-      overflow="hidden"
+    <Pressable
+      onLayout={onTrackLayout}
       ref={ref}
+      {...trackProps}
+      {...trackStyle}
+      paddingY={!isVertical ? '12px' : undefined}
+      paddingX={isVertical ? '12px' : undefined}
+      justifyContent="center"
+      alignItems="center"
     >
-      {children}
-    </Box>
+      <Box {...themeProps} style={trackStyle}>
+        {children}
+      </Box>
+    </Pressable>
   );
 };
 

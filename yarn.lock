@@ -2129,6 +2129,22 @@
     "@react-stately/selection" "^3.3.0"
     "@react-types/shared" "^3.4.0"
 
+"@react-aria/slider@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/slider/-/slider-3.0.1.tgz#c1d99d7303fe269bd57a9504ba13c6b34c830fd3"
+  integrity sha512-qRmdn+6BrcgDkUqlPmkqr11GOxpOdeNjTAMYPCD5cXxbZdio1INGDtIQkQG8G7RIBld1Auhq7leeFfT4f7vhdg==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.2.3"
+    "@react-aria/i18n" "^3.3.0"
+    "@react-aria/interactions" "^3.3.3"
+    "@react-aria/label" "^3.1.1"
+    "@react-aria/utils" "^3.6.0"
+    "@react-stately/radio" "^3.3.0"
+    "@react-stately/slider" "^3.0.1"
+    "@react-types/radio" "^3.1.1"
+    "@react-types/slider" "^3.0.1"
+
 "@react-aria/ssr@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.0.1.tgz#5f7c111f9ecd184b8f6140139703c1ee552dca30"
@@ -2332,6 +2348,18 @@
     "@react-stately/radio" "^3.2.1"
     "@react-types/radio" "^3.1.1"
 
+"@react-native-aria/slider@^0.2.5-alpha.0":
+  version "0.2.5-alpha.0"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/slider/-/slider-0.2.5-alpha.0.tgz#1ee8918bd254bb73a16797f0e9042096adb40c09"
+  integrity sha512-+VGny075PUwI1n/RWDiTuymZW59/WQv6h8hB56Gsf7ga+Xd4ielCVr9yUEOrCN+0jxuc9F95YhsbvR4/Vr7XIw==
+  dependencies:
+    "@react-aria/focus" "^3.2.3"
+    "@react-aria/label" "^3.1.1"
+    "@react-aria/slider" "^3.0.1"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/utils" "^0.2.6"
+    "@react-stately/slider" "^3.0.1"
+
 "@react-native-aria/tabs@^0.2.3":
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/@react-native-aria/tabs/-/tabs-0.2.3.tgz#e84a566e3b94ab9abbfbdf6d76112972ccadd99c"
@@ -2375,6 +2403,11 @@
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.5.tgz#db3979cf96b1ac09f990a0e6977bf1efda567db2"
   integrity sha512-5YDAQa3j/85i3ZAHs0p4PMIGGSvjyKSLoUNtHAfVcuinvDyxiuirO2fhohOiSH5rGNN41a036yHayMfFh+t6wA==
+
+"@react-native-aria/utils@^0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.6.tgz#6808efee15459585dd1eaef4a530912c53eb1bec"
+  integrity sha512-8BhM7/CpSi3YqXIMEWJ7PHrzNip2IsZY8/cEr04GI63ZMcXGktOhv1/6E+hLzDmN2uD8QnrzpAK6pQvQMY8bVw==
 
 "@react-native-community/bob@^0.16.2":
   version "0.16.2"
@@ -2637,6 +2670,15 @@
     "@react-stately/utils" "^3.1.1"
     "@react-types/radio" "^3.1.1"
 
+"@react-stately/radio@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/radio/-/radio-3.3.0.tgz#6c8c980370f267011bbc0a79c080b4bf35274c1b"
+  integrity sha512-CcQT/UtiPx7Cy3+9gGcY/J3YH61/U3pw8jwoHA7lBBbqKH7b5Wjbis/UP9wv4tDBeUYPV0MdXlJjGBjyKt5Kow==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/utils" "^3.2.0"
+    "@react-types/radio" "^3.1.1"
+
 "@react-stately/select@^3.1.0":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@react-stately/select/-/select-3.1.1.tgz#f49602ee7fc71f14550360bfa7c5becab58ac877"
@@ -2660,6 +2702,17 @@
     "@react-stately/collections" "^3.2.1"
     "@react-stately/utils" "^3.1.1"
     "@react-types/shared" "^3.3.0"
+
+"@react-stately/slider@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@react-stately/slider/-/slider-3.0.1.tgz#076c149947ae45f5eda30178b368ad0c4052f2a3"
+  integrity sha512-gGpfdVbTmdsOvrmZvFx4hJ5b7nczvAWdHR/tFFJKfxH0/V8NudZ5hGnawY84R3x+OvgV+tKUfifEUKA+oJyG5w==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.3.0"
+    "@react-aria/utils" "^3.6.0"
+    "@react-stately/utils" "^3.2.0"
+    "@react-types/slider" "^3.0.1"
 
 "@react-stately/tabs@3.0.0-alpha.0":
   version "3.0.0-alpha.0"
@@ -2803,6 +2856,13 @@
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.5.0.tgz#dbc90e8fe711967e66d6f3ce0e17d34b24bd6283"
   integrity sha512-997Me7AegwJOI10ye/Q5ds6fT+VBc6XcsXYzPqOD+HIbyL1kUQNDF/VoO37ib7KEH8jXH9aceoX9blz3Q1QcpA==
+
+"@react-types/slider@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@react-types/slider/-/slider-3.0.1.tgz#b663c06765c5517f5d433e6158ad29d12eeaac4e"
+  integrity sha512-EUWogUMH/dU01+adJ7/Hlu6mP0thbXw8ftmWbPVMLWqweV2dEzRkvQZ8d9+q2JFMSNXwMSWvuMSVSnPKFbUXeQ==
+  dependencies:
+    "@react-types/shared" "^3.4.0"
 
 "@react-types/switch@^3.1.1":
   version "3.1.1"
