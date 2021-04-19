@@ -3,17 +3,21 @@ import { Platform } from 'react-native';
 
 const baseStyle = (props: Record<string, any>) => {
   const { primary } = props.theme.colors;
+  // Todo: Resolve boxShadow Color or Provide some alternatiove prop for user to change focusRing color
+  // Todo: Update to support similar focusRing on iOS , Android and Web
   const focusRing =
     Platform.OS === 'web'
       ? {
           boxShadow:
             props.variant !== 'underlined'
-              ? `${primary[400]} 0px 0px 0px 2px`
-              : `${primary[400]} 0px 2px 0px 0px`,
+              ? `${primary[400]} 0px 0px 0px 1px`
+              : `${primary[400]} 0px 1px 0px 0px`,
+          zIndex: 1,
         }
       : {
           // boxShadow: `${useToken('colors', ['primary.400'])} 0px 0px 0px 1px`,
         };
+
   return {
     px: 4,
     py: 2,
@@ -33,15 +37,21 @@ const baseStyle = (props: Record<string, any>) => {
       borderColor: mode('error.600', 'error.200')(props),
     },
     _focus: {
-      // borderColor: mode('muted.500', 'muted.400')(props),
       style: { ...focusRing },
+      borderColor: 'primary.400',
     },
     _android: {
       p: 3,
+      _focus: {
+        borderColor: 'primary.400',
+      },
     },
     _ios: {
       px: 4,
       py: 3,
+      _focus: {
+        borderColor: 'primary.400',
+      },
     },
     _web: {
       outlineWidth: 0,
