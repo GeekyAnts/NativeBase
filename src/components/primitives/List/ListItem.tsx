@@ -19,6 +19,7 @@ const ListItem = React.memo(
       _text,
       borderTopWidth,
       _hover,
+      _bullet,
       ...newProps
     } = useThemeProps('ListItem', props);
     const _ref = React.useRef(null);
@@ -45,6 +46,7 @@ const ListItem = React.memo(
       '_focus',
     ]);
 
+    console.log('_bullet &*&', _bullet);
     return Object.keys(pressableProps).length !== 0 ? (
       // Checking if any Pressable Props present
       <Pressable
@@ -61,15 +63,15 @@ const ListItem = React.memo(
         <Box flexDirection="row" alignItems="center" pl={2}>
           {ul || unordered ? ( //Adding disc in front of ListItem
             <Box
+              {..._bullet}
               style={{ transform: [{ scale: 1.5 }] }}
-              mr={2}
-              _text={{ fontWeight: 'bold', ..._text }}
+              _text={{ ..._text }}
             >
               •
             </Box>
           ) : null}
           {ol || ordered ? ( //Adding index number in front of ListItem
-            <Box mr={2} _text={{ fontWeight: 'bold', ..._text }}>
+            <Box {..._bullet} _text={{ ..._text }}>
               {index + start + '.'}
             </Box>
           ) : null}
@@ -94,14 +96,14 @@ const ListItem = React.memo(
           {ul || unordered ? ( //Adding disc in front of ListItem
             <Box
               style={{ transform: [{ scale: 1.5 }] }}
-              mr={2}
-              _text={{ fontWeight: 'bold', ..._text }}
+              _text={{ ..._text }}
+              {..._bullet}
             >
               •
             </Box>
           ) : null}
           {ol || ordered ? ( //Adding index number in front of ListItem
-            <Box mr={2} _text={{ fontWeight: 'bold', ..._text }}>
+            <Box {..._bullet} _text={{ ..._text }}>
               {index + start + '.'}
             </Box>
           ) : null}

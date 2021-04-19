@@ -5,7 +5,7 @@ export default function () {
   return (
     <Box w="80%">
       <Heading fontSize={24}>Topics (Plain List)</Heading>
-      <List space={2} my={2}>
+      <List my={2}>
         <List.Item>Education</List.Item>
         <List.Item>Health</List.Item>
         <List.Item>Office</List.Item>

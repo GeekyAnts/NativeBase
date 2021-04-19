@@ -1,12 +1,10 @@
-import { mode } from '../tools';
 // List
 export const List = {
-  baseStyle: (props: Record<string, any>) => {
+  baseStyle: () => {
     return {
-      py: 2,
-      borderWidth: 1,
-      borderColor: 'gray.300',
-      _hover: { bg: mode('primary.100', 'primary.700')(props) },
+      _web: {
+        cursor: 'default',
+      },
     };
   },
 };
@@ -14,9 +12,11 @@ export const List = {
 // ListItem
 export const ListItem = {
   baseStyle: {
-    // borderTopWidth: 1,
-    py: 2,
+    py: 1,
     borderColor: 'gray.300',
+    _bullet: {
+      mr: 1,
+    },
   },
   defaultProps: {
     start: 1,
