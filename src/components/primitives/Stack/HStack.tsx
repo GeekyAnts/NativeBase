@@ -1,10 +1,10 @@
 import React from 'react';
 import { StackMain } from './Stack';
 import type { IStackProps } from './Stack';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 export const HStack = (props: IStackProps, ref?: any) => {
-  const newProps: any = useThemeProps('HStack', props);
+  const newProps: any = usePropsResolution('HStack', props);
   return StackMain({ ...newProps, direction: 'row' }, ref);
 };
 

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { default as Pressable, IPressableProps } from '../Pressable';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
 import { useFormControlContext } from '../../composites/FormControl';
 import Box from '../Box';
@@ -24,13 +24,14 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
     },
     _icon,
     isInvalid,
-    size,
+    iconSize,
     ...themedProps
-  } = useThemeProps('Checkbox', {
+  } = usePropsResolution('Checkbox', {
     ...checkboxGroupContext,
     ...formControlContext,
     ...props,
   });
+
   const state = useToggleState({
     ...props,
     defaultSelected: props.defaultIsChecked,
@@ -61,7 +62,7 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
         React.cloneElement(
           icon,
           {
-            size,
+            iconSize,
             ..._icon,
           },
           icon.props.children
@@ -104,7 +105,7 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
                 ) : (
                   <Icon
                     name="check"
-                    size={size}
+                    size={iconSize}
                     {..._icon}
                     opacity={checked ? 1 : 0}
                   />

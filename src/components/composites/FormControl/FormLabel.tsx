@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import Text from '../../primitives/Text';
 import { useFormControlContext } from './useFormControl';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IFormControlLabelProps } from './types';
 import { mergeRefs } from '../../../utils';
 import { Platform } from 'react-native';
@@ -12,7 +12,7 @@ const FormLabel = (
 ) => {
   const formControlContext = useFormControlContext();
   const _ref = React.useRef<HTMLLabelElement>(null);
-  const { astrickColor, ...themedProps } = useThemeProps(
+  const { astrickColor, ...themedProps } = usePropsResolution(
     'FormControlLabel',
     props
   );

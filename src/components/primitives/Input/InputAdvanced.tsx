@@ -2,7 +2,7 @@ import React from 'react';
 import InputBase from './InputBase';
 import Box from '../Box';
 import type { IInputProps } from './types';
-import { useThemeProps, usePlatformProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { useHover } from '@react-native-aria/interactions';
 
@@ -26,11 +26,6 @@ const InputAdvance = (
     isRequired: inputProps.required,
   };
 
-  const themedProps = useThemeProps('Input', {
-    ...inputThemeProps,
-    ...props,
-  });
-
   const {
     isInvalid,
     isDisabled,
@@ -38,15 +33,19 @@ const InputAdvance = (
     _disabled,
     _invalid,
     _focus,
-    ...platformProps
-  } = usePlatformProps(themedProps);
+    ...themedProps
+  } = usePropsResolution('Input', {
+    ...inputThemeProps,
+    ...props,
+  });
+
   const [isFocused, setIsFocused] = React.useState(false);
   const handleFocus = (focusState: boolean, callback: any) => {
     setIsFocused(focusState);
     callback();
   };
 
-  const [layoutProps, nonLayoutProps] = extractInObject(platformProps, [
+  const [layoutProps, nonLayoutProps] = extractInObject(themedProps, [
     ...stylingProps.margin,
     ...stylingProps.border,
     ...stylingProps.layout,

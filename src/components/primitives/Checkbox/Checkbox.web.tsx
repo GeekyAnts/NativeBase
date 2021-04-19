@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { mergeRefs } from './../../../utils';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
 import { useFormControlContext } from '../../composites/FormControl';
 import Box from '../Box';
@@ -31,9 +31,9 @@ const Checkbox = ({ children, icon, ...props }: ICheckboxProps, ref: any) => {
     },
     _icon,
     isInvalid,
-    size,
+    iconSize,
     ...themedProps
-  } = useThemeProps('Checkbox', {
+  } = usePropsResolution('Checkbox', {
     ...checkboxGroupContext,
     ...formControlContext,
     ...props,
@@ -77,7 +77,7 @@ const Checkbox = ({ children, icon, ...props }: ICheckboxProps, ref: any) => {
         React.cloneElement(
           icon,
           {
-            size,
+            iconSize,
             ..._icon,
           },
           icon.props.children
@@ -122,7 +122,7 @@ const Checkbox = ({ children, icon, ...props }: ICheckboxProps, ref: any) => {
             <Icon
               name="check"
               {..._icon}
-              size={size}
+              size={iconSize}
               opacity={checked ? 1 : 0}
             />
           )}

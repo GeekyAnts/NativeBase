@@ -2,7 +2,7 @@ import get from 'lodash/get';
 import omit from 'lodash/omit';
 import isNil from 'lodash/isNil';
 import merge from 'lodash/merge';
-import { useWindowDimensions } from 'react-native';
+import { useWindowDimensions, Platform } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { usePlatformProps } from '../usePlatformProps';
 import { useColorMode } from '../../core/color-mode';
@@ -11,7 +11,12 @@ import {
   resolveValueWithBreakpoint,
   extractPropertyFromFunction,
 } from './utils';
-import { getClosestBreakpoint, extractInObject } from './../../theme/tools';
+import {
+  getClosestBreakpoint,
+  omitUndefined,
+  extractInObject,
+} from './../../theme/tools';
+import { filterShadowProps } from './../../utils/filterShadowProps';
 import { themePropertyMap } from './../../theme/base';
 
 /**
@@ -112,6 +117,7 @@ const magicFunction = (
       if (typeof propValues === 'string' || typeof propValues === 'number') {
         brewedProps[property] = propValues;
       } else if (!isNil(propValues)) {
+        // TODO: This setion new needs to handle stuff differently
         for (let nestedProp in propValues) {
           brewedProps[nestedProp] = get(
             theme,
@@ -164,6 +170,7 @@ const magicFunction = (
       // }
     }
   }
+
   return brewedProps;
 };
 
@@ -176,8 +183,8 @@ const magicFunction = (
  */
 export function usePropsResolution(component: string, incomingProps: any) {
   // console.log(
-  //   '%c Oh my heavens!',
-  //   'background: #222; color: #bada55',
+  //   '%c\tComponent:\t',
+  //   'background: #374151; color: #10b981; font-weight: 700;',
   //   component
   // );
 
@@ -241,10 +248,19 @@ export function usePropsResolution(component: string, incomingProps: any) {
 
   // console.log('extractedProps = ', extractedProps);
 
-  const contrastText = mergeUnderscoreProps(magicalProps, incomingProps);
+  // For shadow fix
+  // TODO: Later merge it in base logic
+
+  let shadowedProps = filterShadowProps(
+    magicalProps,
+    ignoredProps,
+    Platform.OS
+  );
+
+  const contrastText = mergeUnderscoreProps(shadowedProps, incomingProps);
 
   const resolvedProps = merge({}, contrastText, ignoredProps);
   // console.log('resolvedProps = ', resolvedProps);
 
-  return resolvedProps;
+  return omitUndefined(resolvedProps);
 }
