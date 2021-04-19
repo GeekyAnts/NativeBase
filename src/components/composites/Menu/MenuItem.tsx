@@ -1,7 +1,7 @@
 import React from 'react';
 import Text from '../../primitives/Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import TouchableItem from '../../primitives/TouchableItem';
+import Pressable from '../../primitives/Pressable';
 import type { IMenuItemProps } from './types';
 import { MenuContext } from './Menu';
 import { PopoverContext } from '../Popover/PopoverContext';
@@ -29,14 +29,17 @@ export const MenuItem = React.forwardRef(function MenuItem(
     ...newProps,
     ...(newProps.isDisabled ? newProps._disabled : {}),
   };
-  const { _text, ...touchProps } = allProps;
+  const { _text, _hover, _pressed, _focus, ...touchProps } = allProps;
 
   const menuItemProps = useMenuItem({
     textValue: textValue ?? textContent,
   });
 
   return (
-    <TouchableItem
+    <Pressable
+      _hover={_hover}
+      _pressed={_pressed}
+      _focus={_focus}
       {...menuItemProps}
       {...touchProps}
       ref={mergedRef}
@@ -68,6 +71,6 @@ export const MenuItem = React.forwardRef(function MenuItem(
           }
         })}
       </>
-    </TouchableItem>
+    </Pressable>
   );
 });

@@ -1,3 +1,5 @@
+import { mode } from '../tools';
+
 function baseStyle(props: Record<string, any>) {
   const { orientation, size } = props;
   const orientationProps =
@@ -12,7 +14,7 @@ function baseStyle(props: Record<string, any>) {
         };
 
   return {
-    bg: 'muted.200',
+    bg: mode('muted.200', 'muted.500')(props),
     ...orientationProps,
   };
 }
