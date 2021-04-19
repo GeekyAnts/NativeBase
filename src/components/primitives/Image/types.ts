@@ -1,3 +1,4 @@
+import type { IPlatformProps } from '../../types/IPlafromProps';
 import type {
   ImageProps as RNImageProps,
   ImageSourcePropType,
@@ -19,7 +20,8 @@ import type {
   customPositionProps,
 } from '../../../utils/customProps';
 
-export type IImageProps = RNImageProps &
+export type IImageProps = IPlatformProps &
+  RNImageProps &
   LayoutProps &
   SpaceProps &
   BorderRadiusProps &

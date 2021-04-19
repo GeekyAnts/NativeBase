@@ -1,6 +1,6 @@
 import React from 'react';
 import type { IButtonGroupProps } from './types';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Stack } from '../Stack';
 
 export default React.memo(
@@ -18,7 +18,7 @@ export default React.memo(
       }: IButtonGroupProps,
       ref?: any
     ) => {
-      const { space, ...newProps } = useThemeProps('ButtonGroup', props);
+      const { space, ...newProps } = usePropsResolution('ButtonGroup', props);
       const computedChildren = React.Children.map(
         children,
         (child: JSX.Element, index: number) => {

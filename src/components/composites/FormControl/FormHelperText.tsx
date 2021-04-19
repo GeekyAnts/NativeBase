@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFormControlContext } from './useFormControl';
 import type { IFormControlHelperTextProps } from './types';
 
@@ -10,7 +10,7 @@ const FormHelperText = (
 ) => {
   const formControlContext = useFormControlContext();
 
-  const themedProps = useThemeProps('FormControlHelperText', props);
+  const themedProps = usePropsResolution('FormControlHelperText', props);
 
   React.useEffect(() => {
     formControlContext?.setHasHelpText(true);

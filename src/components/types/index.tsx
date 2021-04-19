@@ -1,0 +1,1 @@
+export { IPlatformProps } from './IPlafromProps';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { default as Box } from '../Box';
 import { getSpacedChildren } from '../../../utils';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
 
 type SpaceType = 'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
@@ -24,7 +24,7 @@ const Stack = (
     direction,
     ...remainingProps
   } = props;
-  const newProps: any = useThemeProps('Stack', remainingProps);
+  const newProps: any = usePropsResolution('Stack', remainingProps);
 
   return (
     <Box flexDirection={direction} {...newProps} ref={ref}>
