@@ -12,7 +12,6 @@ const Alert = (
     status,
     variant,
     iconColor,
-    textColor,
     colorScheme,
     _actionProps,
     ...newProps
@@ -24,7 +23,6 @@ const Alert = (
         status,
         variant,
         iconColor,
-        textColor,
         colorScheme,
       }}
     >
