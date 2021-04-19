@@ -1,139 +1,93 @@
 import React from 'react';
-import {
-  TouchableOpacity,
-  Platform,
-  TouchableOpacityProps,
-} from 'react-native';
+import { default as Pressable, IPressableProps } from '../Pressable';
 import Icon from '../Icon';
+import { Center } from '../../composites/Center';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';
 import type { IRadioProps } from './types';
-import { mergeRefs } from './../../../utils';
-import { useHover } from '@react-native-aria/interactions';
 import { useRadio } from '@react-native-aria/radio';
-import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { RadioContext } from './RadioGroup';
-import { useFocusRing } from '@react-native-aria/focus';
 
 const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
-  let contextState = React.useContext(RadioContext);
+  const contextState = React.useContext(RadioContext);
   const {
-    activeColor,
-    borderColor,
+    _interactionBox: { _pressed: _iterationBoxPressed, ..._interactionBox },
+    _radio: {
+      _checked: _radioChecked,
+      _disabled: _radioDisabled,
+      _invalid: _radioInvalid,
+      ..._radio
+    },
+    _icon,
+    isInvalid,
     size,
-    // isInvalid,
-    ...newProps
+    ...themedProps
   } = useThemeProps('Radio', {
     ...contextState,
     ...props,
   });
 
   const inputRef = React.useRef(null);
-  let { inputProps } = useRadio(props, contextState.state, inputRef);
+  const { inputProps } = useRadio(props, contextState.state, inputRef);
+  const { disabled, checked } = inputProps;
 
   // only calling below function when icon exist.
   const sizedIcon = () =>
     //@ts-ignore
     React.cloneElement(icon, {
       size,
-      color:
-        //@ts-ignore
-        icon.props.color ?? isSelected
-          ? inputProps.disabled
-            ? borderColor
-            : activeColor
-          : borderColor,
+      ..._icon,
     });
 
-  let isSelected = contextState.state.selectedValue === props.value;
-
-  const _ref = React.useRef(null);
-  const { isHovered } = useHover({}, _ref);
-  const mergedRefs = mergeRefs([_ref, ref]);
-
-  const outlineColor =
-    isHovered && !inputProps.disabled
-      ? activeColor
-      : isSelected
-      ? inputProps.disabled
-        ? borderColor
-        : activeColor
-      : borderColor;
-
-  let component = (
-    <Box
-      flexDirection="row"
-      justifyContent="center"
-      alignItems="center"
-      {...newProps}
-      opacity={inputProps.disabled ? 0.4 : 1}
-      {...(Platform.OS === 'web'
-        ? {
-            disabled: inputProps.disabled,
-            cursor: inputProps.disabled ? 'not-allowed' : 'pointer',
-          }
-        : {})}
-    >
-      <Box
-        borderColor={outlineColor}
-        backgroundColor={inputProps.disabled ? 'muted.200' : 'transparent'}
-        borderWidth={2}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        borderRadius="full"
-        p="2px"
-      >
-        {icon && isSelected ? (
-          sizedIcon()
-        ) : (
-          <Icon
-            name="circle"
-            size={size}
-            color={
-              isSelected
-                ? inputProps.disabled
-                  ? borderColor
-                  : activeColor
-                : 'transparent'
-            }
-            opacity={isSelected ? 1 : 0}
-          />
-        )}
-      </Box>
-      {children}
-    </Box>
-  );
-
-  const { focusProps, isFocusVisible } = useFocusRing();
-
   return (
-    <>
-      {Platform.OS === 'web' ? (
-        <Box
-          // @ts-ignore - RN web supports accessibilityRole="label"
-          accessibilityRole="label"
-          ref={_ref}
-          outlineWidth={isFocusVisible ? 1 : 0}
-          outlineColor={activeColor}
-          outlineStyle={'solid'}
-        >
-          <VisuallyHidden>
-            <input {...inputProps} ref={ref} {...focusProps} />
-          </VisuallyHidden>
-
-          {component}
-        </Box>
-      ) : (
-        <TouchableOpacity
-          activeOpacity={0.2}
-          ref={mergedRefs}
-          {...(inputProps as TouchableOpacityProps)}
-        >
-          {component}
-        </TouchableOpacity>
-      )}
-    </>
+    <Pressable
+      {...(inputProps as IPressableProps)}
+      ref={ref}
+      accessibilityRole="radio"
+    >
+      {({ isPressed }: any) => {
+        return (
+          <Center
+            flexDirection="row"
+            justifyContent="center "
+            alignItems="center"
+            borderRadius="full"
+            {...themedProps}
+          >
+            <Center>
+              {/* Interaction Wrapper */}
+              <Box
+                {..._interactionBox}
+                {...(isPressed && _iterationBoxPressed)}
+                p={5}
+                w="100%"
+                height="100%"
+              />
+              {/* radio */}
+              <Center
+                {..._radio}
+                {...(checked && _radioChecked)}
+                {...(disabled && _radioDisabled)}
+                {...(isInvalid && _radioInvalid)}
+              >
+                {icon && sizedIcon && checked ? (
+                  sizedIcon()
+                ) : (
+                  <Icon
+                    name="circle"
+                    size={size}
+                    {..._icon}
+                    opacity={checked ? 1 : 0}
+                  />
+                )}
+              </Center>
+            </Center>
+            {/* Label */}
+            {children}
+          </Center>
+        );
+      }}
+    </Pressable>
   );
 };
 

@@ -6,6 +6,7 @@ export default function () {
   return (
     <Stack space={4} w="90%">
       <TextField
+        component="textarea"
         isInvalid={isInvalid}
         placeholder="Default TextField"
         helperText="Sample helper text"

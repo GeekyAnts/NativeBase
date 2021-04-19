@@ -1,9 +1,9 @@
 import React from 'react';
-import { Checkbox, HStack, Text, Icon } from 'native-base';
+import { Checkbox, VStack, Icon } from 'native-base';
 
 export default function () {
   return (
-    <HStack>
+    <VStack space={3} alignItems="flex-start">
       <Checkbox
         value="orange"
         colorScheme="orange"
@@ -11,7 +11,7 @@ export default function () {
         icon={<Icon name="bullseye" type="MaterialCommunityIcons" />}
         defaultIsChecked
       >
-        <Text mx={2}>Darts</Text>
+        Darts
       </Checkbox>
       <Checkbox
         value="dark"
@@ -20,7 +20,7 @@ export default function () {
         icon={<Icon name="bat" type="MaterialCommunityIcons" />}
         defaultIsChecked
       >
-        <Text mx={2}>Movie</Text>
+        Movie
       </Checkbox>
       <Checkbox
         colorScheme="red"
@@ -29,7 +29,7 @@ export default function () {
         icon={<Icon name="campfire" type="MaterialCommunityIcons" />}
         defaultIsChecked
       >
-        <Text mx={2}>Camping</Text>
+        Camping
       </Checkbox>
       <Checkbox
         value="blue"
@@ -38,8 +38,8 @@ export default function () {
         icon={<Icon name="chess-knight" type="MaterialCommunityIcons" />}
         defaultIsChecked
       >
-        <Text mx={2}>Chess</Text>
+        Chess
       </Checkbox>
-    </HStack>
+    </VStack>
   );
 }

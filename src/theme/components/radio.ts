@@ -1,24 +1,58 @@
-import { mode, getColorScheme } from '../tools';
+import { mode, transparentize } from '../tools';
 
 const baseStyle = (props: Record<string, any>) => {
-  const { isInvalid } = props;
-  const simplifiedColorScheme = getColorScheme(props);
-  const activeColor = mode(
-    `${simplifiedColorScheme}.500`,
-    `${simplifiedColorScheme}.200`
-  )(props);
+  const { colorScheme, theme } = props;
   return {
-    activeColor,
-    borderColor: isInvalid
-      ? mode('danger.500', 'danger.200')(props)
-      : mode('muted.400', 'muted.600')(props),
+    _text: {
+      ml: 3,
+    },
+    _interactionBox: {
+      position: 'absolute',
+      zIndex: -1,
+      borderRadius: 'full',
+      _hover: {
+        bg: transparentize('muted.200', 0.3)(theme),
+      },
+      _focus: {
+        bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+      },
+      _disabled: {
+        bg: 'transaprarent',
+      },
+      _pressed: {
+        bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+      },
+    },
+    _radio: {
+      borderWidth: 2,
+      borderRadius: 'full',
+      p: '2px',
+      borderColor: mode('muted.600', 'muted.400')(props),
+      bg: mode('muted.50', 'muted.700')(props), // matching background color
+      _checked: {
+        borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
+      },
+      _disabled: {
+        opacity: 0.4,
+      },
+      _invalid: {
+        borderColor: mode('error.600', 'error.400')(props),
+      },
+    },
+    _icon: {
+      color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props), // matching background color
+
+      _disabled: {
+        bg: 'transaprarent',
+      },
+    },
   };
 };
 
 const sizes = {
-  lg: { size: 4 },
-  md: { size: 3 },
-  sm: { size: 2 },
+  lg: { size: 4, _text: { fontSize: 'lg' } },
+  md: { size: 3, _text: { fontSize: 'md' } },
+  sm: { size: 2, _text: { fontSize: 'sm' } },
 };
 
 const defaultProps = {

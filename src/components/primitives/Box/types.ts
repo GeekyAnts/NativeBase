@@ -23,6 +23,13 @@ import type {
 } from '../../../utils/customProps';
 import type { ITextProps } from './../Text/types';
 
+// TODO: Need to mmoved globally or some other place.
+export type IPlatformProps = {
+  _web?: any;
+  _ios?: any;
+  _android?: any;
+};
+
 export type IBoxProps = ViewProps &
   ColorProps &
   SpaceProps &
@@ -41,9 +48,11 @@ export type IBoxProps = ViewProps &
   customTypographyProps &
   customBackgroundProps &
   customTransformProps &
-  customFlexboxProps & {
+  customFlexboxProps &
+  IPlatformProps & {
     style?: ViewStyle;
     children?: JSX.Element | JSX.Element[] | string | any;
     shadow?: number;
     _text?: ITextProps;
+    _web?: any;
   };

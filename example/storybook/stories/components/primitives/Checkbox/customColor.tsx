@@ -1,21 +1,21 @@
 import React from 'react';
-import { Checkbox, HStack, Text } from 'native-base';
+import { Checkbox, VStack } from 'native-base';
 
 export default function () {
   return (
-    <HStack>
+    <VStack space={3} alignItems="flex-start">
       <Checkbox value="danger" colorScheme="danger" defaultIsChecked>
-        <Text mx={2}>Danger</Text>
+        Danger
       </Checkbox>
       <Checkbox value="info" colorScheme="info" defaultIsChecked>
-        <Text mx={2}>Info</Text>
+        Info
       </Checkbox>
       <Checkbox value="orange" colorScheme="orange" defaultIsChecked>
-        <Text mx={2}>Orange</Text>
+        Orange
       </Checkbox>
       <Checkbox value="purple" colorScheme="purple" defaultIsChecked>
-        <Text mx={2}>Purple</Text>
+        Purple
       </Checkbox>
-    </HStack>
+    </VStack>
   );
 }

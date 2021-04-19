@@ -1,15 +1,15 @@
 import React from 'react';
-import { Checkbox, HStack, Text } from 'native-base';
+import { Checkbox, VStack } from 'native-base';
 
 export default function () {
   return (
-    <HStack>
+    <VStack space={2}>
       <Checkbox isDisabled value="one">
-        <Text m={2}>Checkbox</Text>
+        Checkbox
       </Checkbox>
       <Checkbox isDisabled defaultIsChecked value="two">
-        <Text m={2}>Checkbox</Text>
+        Checkbox
       </Checkbox>
-    </HStack>
+    </VStack>
   );
 }
