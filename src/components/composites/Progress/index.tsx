@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ViewStyle } from 'react-native';
 import { Box, IBoxProps } from '../../primitives';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 type SpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
@@ -29,7 +29,7 @@ const Progress = (
   //   ).start();
   // });
 
-  const newProps = useThemeProps('Progress', props);
+  const newProps = usePropsResolution('Progress', props);
   const { innerBg } = newProps;
   const innerProps = {
     bg: innerBg,

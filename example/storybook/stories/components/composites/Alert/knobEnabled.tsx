@@ -26,7 +26,7 @@ export default function () {
       >
         <Alert.Icon />
         <Alert.Title>Error Alert</Alert.Title>
-        <Alert.Description>description goes here </Alert.Description>
+        <Alert.Description>Description </Alert.Description>
       </Alert>
     </Box>
   );

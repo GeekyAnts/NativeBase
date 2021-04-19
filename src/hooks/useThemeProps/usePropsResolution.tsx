@@ -259,8 +259,8 @@ export function usePropsResolution(component: string, incomingProps: any) {
 
   const contrastText = mergeUnderscoreProps(shadowedProps, incomingProps);
 
-  const resolvedProps = merge({}, contrastText, ignoredProps);
+  // const resolvedProps = merge({}, contrastText);
   // console.log('resolvedProps = ', resolvedProps);
 
-  return omitUndefined(resolvedProps);
+  return omitUndefined(contrastText);
 }

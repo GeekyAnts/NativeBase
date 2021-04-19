@@ -1,7 +1,7 @@
 import React from 'react';
 import { default as Box, IBoxProps } from '../Box';
 import { getAbsoluteChildren } from '../../../utils';
-import { useThemeProps } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 export type IZStackProps = IBoxProps & {
   children: JSX.Element[] | JSX.Element;
@@ -9,7 +9,7 @@ export type IZStackProps = IBoxProps & {
 };
 
 const ZStack = ({ children, reversed, ...props }: IZStackProps, ref?: any) => {
-  const newProps = useThemeProps('ZStack', props);
+  const newProps = usePropsResolution('ZStack', props);
   return (
     <Box {...newProps} ref={ref}>
       {getAbsoluteChildren(children, reversed)}
