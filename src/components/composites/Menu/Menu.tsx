@@ -1,7 +1,7 @@
 import React from 'react';
 import type { IMenuProps } from './types';
 import Box from '../../primitives/Box';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Popover } from 'react-native-popper';
 import { Platform, ScrollView } from 'react-native';
 import { useControllableState } from '../../../hooks';
@@ -31,7 +31,7 @@ export const Menu = React.memo(
         },
       });
 
-      const newProps = useThemeProps('Menu', props);
+      const newProps = usePropsResolution('Menu', props);
       const handleOpen = React.useCallback(() => {
         setIsOpen(true);
       }, [setIsOpen]);

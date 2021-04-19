@@ -1,3 +1,4 @@
+import type { IPlatformProps } from '../../types/IPlafromProps';
 import type {
   ColorProps,
   SpaceProps,
@@ -17,7 +18,8 @@ import type {
   customTypographyProps,
 } from '../../../utils/customProps';
 
-export type IInputProps = ColorProps &
+export type IInputProps = IPlatformProps &
+  ColorProps &
   TextInputProps &
   SpaceProps &
   LayoutProps &
@@ -49,10 +51,6 @@ export type IInputProps = ColorProps &
     _focus?: any;
     _disabled?: any;
     _invalid?: any;
-    // Platform Specific Props
-    _ios?: any;
-    _web?: any;
-    _andriod?: any;
     // These porps are currently on hold
     // label?: string;
     // _label?: ITextProps;

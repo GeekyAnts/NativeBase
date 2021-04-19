@@ -13,10 +13,11 @@ import {
 } from 'native-base';
 export const Composition = () => {
   return (
-    <Box width={72} bg={useColorModeValue('gray.50', 'gray.700')} shadow={4}>
+    <Box width={72} bg={useColorModeValue('gray.50', 'gray.700')} shadow={1}>
       <Box>
         <AspectRatio ratio={16 / 9}>
           <Image
+            roundedTop="lg"
             source={{
               uri:
                 'https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg',

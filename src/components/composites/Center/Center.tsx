@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks';
+import { useThemeProps } from '../../../hooks/useThemeProps';
 import Box from '../../primitives/Box';
 import type { ICenterProps } from './types';
 

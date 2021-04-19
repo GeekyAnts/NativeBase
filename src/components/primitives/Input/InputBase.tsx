@@ -20,7 +20,8 @@ import {
   customTypography,
 } from '../../../utils/customProps';
 import type { IInputProps } from './types';
-import { usePlatformProps, useThemeProps, useToken } from '../../../hooks';
+import { useToken } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 
@@ -68,11 +69,6 @@ const InputBase = (
     isRequired: inputProps.required,
   };
 
-  const themedProps = useThemeProps('Input', {
-    ...inputThemeProps,
-    ...props,
-  });
-  // usePlatformProps is merging Platform specific props to themedProps
   const {
     isFullWidth,
     isDisabled,
@@ -88,8 +84,11 @@ const InputBase = (
     _focus,
     _disabled,
     _invalid,
-    ...platformProps
-  } = usePlatformProps(themedProps);
+    ...themedProps
+  } = usePropsResolution('Input', {
+    ...inputThemeProps,
+    ...props,
+  });
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
@@ -102,7 +101,7 @@ const InputBase = (
       accessibilityLabel={ariaLabel || accessibilityLabel}
       editable={isDisabled || isReadOnly ? false : true}
       w={isFullWidth ? '100%' : undefined}
-      {...platformProps}
+      {...themedProps}
       {...(isHovered && _hover)}
       {...(isFocused && _focus)}
       {...(isDisabled && _disabled)}

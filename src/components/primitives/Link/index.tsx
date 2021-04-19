@@ -13,7 +13,7 @@ const Link = (
   {
     style,
     href,
-    isUnderlined = true,
+    isUnderlined = false,
     onClick,
     isExternal,
     children,
@@ -61,17 +61,16 @@ const Link = (
     height,
   };
   let { _hover, ...newProps } = useThemeProps('Link', props);
-  const linkTextProps = {
-    textDecorationLine: isUnderlined ? 'underline' : 'none',
-    ..._text,
-  };
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
+  const linkTextProps = {
+    textDecorationLine: isUnderlined || isHovered ? 'underline' : 'none',
+    ..._text,
+  };
   const { linkProps } = useLink({ href, onClick, isExternal, _ref });
   return (
     <Box {...layoutProps}>
       {Platform.OS === 'web' ? (
-        // Using <Text /> as currently rn - web only supports target="_blank" on Text element
         <StyledLink
           {...linkProps}
           {...newProps}

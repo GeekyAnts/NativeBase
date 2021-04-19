@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Pressable from '../Pressable';
 import Box from '../Box';
 import { SliderContext } from './Context';
@@ -14,7 +14,7 @@ const SliderTrack = ({ children, ...props }: ISliderProps, ref?: any) => {
     sliderSize,
   } = React.useContext(SliderContext);
 
-  const themeProps = useThemeProps('SliderTrack', {
+  const themeProps = usePropsResolution('SliderTrack', {
     size: sliderSize,
     colorScheme,
     ...props,

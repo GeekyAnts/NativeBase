@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFormControlContext } from './useFormControl';
 import type { IFormControlErrorMessageProps } from './types';
 
@@ -8,7 +8,7 @@ const FormErrorMessage = (
   { children, _disabled, ...props }: IFormControlErrorMessageProps,
   ref: any
 ) => {
-  const themedProps = useThemeProps('FormControlErrorMessage', props);
+  const themedProps = usePropsResolution('FormControlErrorMessage', props);
 
   const formControlContext = useFormControlContext();
 

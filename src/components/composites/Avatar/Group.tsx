@@ -1,6 +1,6 @@
 import React from 'react';
 import Flex from '../../primitives/Flex';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import isNil from 'lodash/isNil';
 import type { IAvatarGroupProps } from './types';
 import { default as Avatar } from './Avatar';
@@ -52,7 +52,10 @@ const getAvatarGroupChildren = (
 
 const AvatarGroup = (allProps: IAvatarGroupProps, ref: any) => {
   const { children, spacing, max, ...props } = allProps;
-  const { borderColor, borderWidth, bg } = useThemeProps('AvatarBadge', props);
+  const { borderColor, borderWidth, bg } = usePropsResolution(
+    'AvatarBadge',
+    props
+  );
   return (
     <Flex direction="row-reverse" ref={ref}>
       {getAvatarGroupChildren(children, spacing, max, bg, {

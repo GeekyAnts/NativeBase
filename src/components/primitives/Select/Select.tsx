@@ -6,7 +6,8 @@ import Icon from '../Icon';
 import Box from '../Box';
 import { Input } from '../Input';
 import { useFocusRing } from '@react-native-aria/focus';
-import { useControllableState, useThemeProps } from '../../../hooks';
+import { useControllableState } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import { useFormControl } from '../../composites/FormControl';
@@ -90,7 +91,7 @@ const Select = (
   const isDisabled = selectProps.disabled;
 
   const _ref = React.useRef(null);
-  const themeProps = useThemeProps('Input', { ...props, size });
+  const themeProps = usePropsResolution('Input', { ...props, size });
   let [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const { focusProps, isFocusVisible } = useFocusRing();
@@ -120,7 +121,7 @@ const Select = (
   );
   const selectedItem =
     selectedItemArray && selectedItemArray.length ? selectedItemArray[0] : null;
-  const selectThemeProps = useThemeProps('Select', props);
+  const selectThemeProps = usePropsResolution('Select', props);
 
   const {
     _ios,
@@ -138,7 +139,10 @@ const Select = (
     customDropdownIconProps,
     _actionSheetContent,
     ...newProps
-  } = useThemeProps(type === 'native' ? 'NativeSelect' : 'CustomSelect', props);
+  } = usePropsResolution(
+    type === 'native' ? 'NativeSelect' : 'CustomSelect',
+    props
+  );
   const [borderProps, remainingProps] = extractInObject(newProps, [
     ...stylingProps.border,
   ]);

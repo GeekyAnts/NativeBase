@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '../Box';
 import type { IFlexProps } from './types';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 const Flex = (
   {
     style,
@@ -16,7 +16,7 @@ const Flex = (
   }: IFlexProps,
   ref: any
 ) => {
-  const newProps = useThemeProps('Flex', props);
+  const newProps = usePropsResolution('Flex', props);
   return (
     <Box
       {...props}
