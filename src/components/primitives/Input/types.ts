@@ -35,7 +35,7 @@ export type IInputProps = ColorProps &
     children?: string | JSX.Element[] | JSX.Element;
     placeholder?: string;
     isInvalid?: boolean;
-    variant?: string;
+    variant?: 'outline' | 'filled' | 'underlined' | 'unstyled' | 'rounded';
     isDisabled?: boolean;
     size?: string;
     isRequired?: boolean;

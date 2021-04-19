@@ -15,6 +15,10 @@ const customSelectBaseStyle = (props: Record<string, any>) => {
       size: 5,
       mr: 2,
     },
+    _actionSheetContent: {
+      maxHeight: '50%',
+      pb: 6,
+    },
   };
 };
 export const CustomSelect = {
