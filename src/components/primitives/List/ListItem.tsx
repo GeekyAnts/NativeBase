@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '../Box';
 import type { IListItemProps } from './types';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { mergeRefs } from '../../../utils';
 import Pressable from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
@@ -20,7 +20,7 @@ const ListItem = React.memo(
       borderTopWidth,
       _hover,
       ...newProps
-    } = useThemeProps('ListItem', props);
+    } = usePropsResolution('ListItem', props);
     const _ref = React.useRef(null);
     const { isHovered } = useHover({}, _ref);
     // Extracting Pressable Props from newProps

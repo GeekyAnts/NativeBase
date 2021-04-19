@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon, Box } from '../../primitives';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { MenuItem } from './MenuItem';
 import type { IMenuItemOptionProps, IMenuOptionContextProps } from './types';
 import { MenuOptionContext } from './MenuOptionGroup';
@@ -21,7 +21,7 @@ export const MenuItemOption = React.memo(
       onPress && onPress(e);
     };
 
-    const newProps = useThemeProps('MenuItem', props);
+    const newProps = usePropsResolution('MenuItem', props);
     const isChecked = values.includes(value);
     const menuOptionProps = useMenuOptionItem({ isChecked, type });
 

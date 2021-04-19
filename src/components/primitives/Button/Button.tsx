@@ -1,6 +1,6 @@
 import React from 'react';
 import Spinner from '../Spinner';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import Pressable from '../Pressable';
@@ -19,7 +19,7 @@ const Button = (
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  const { _text, _hover, _pressed, _focus, ...restProps } = useThemeProps(
+  const { _text, _hover, _pressed, _focus, ...restProps } = usePropsResolution(
     'Button',
     {
       ...props,

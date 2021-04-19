@@ -1,9 +1,9 @@
 import React from 'react';
 import { IIconProps, default as Icon } from '../Icon';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const ListIcon = (props: IIconProps, ref?: any) => {
-  const newProps = useThemeProps('ListIcon', props);
+  const newProps = usePropsResolution('ListIcon', props);
 
   return <Icon {...newProps} ref={ref} />;
 };

@@ -6,7 +6,7 @@ export const DefaultLink = () => {
     <Box>
       <Heading>This is default Link</Heading>
       <Center>
-        <Link mt={4} fontSize="xl">
+        <Link mt={4} fontSize="xl" href="https://nativebase.io">
           Default Link
         </Link>
       </Center>
@@ -30,18 +30,7 @@ export const ExternalLink = () => {
     </Box>
   );
 };
-export const StyledLink = () => {
-  return (
-    <Box>
-      <Heading>Link without underline</Heading>
-      <Center>
-        <Link isUnderlined={false} mt={4}>
-          www.google.com
-        </Link>
-      </Center>
-    </Box>
-  );
-};
+
 export const CustomOnClick = () => {
   const [state, setState] = React.useState(false);
   const toggleState = () => {
@@ -65,6 +54,8 @@ export const CompositeLink = () => {
         <Link
           href="https://nativebase.io"
           _hover={{ bg: 'primary.100' }}
+          justifyContent="center"
+          alignItems="center"
           isExternal
           mt={4}
           mx={4}
