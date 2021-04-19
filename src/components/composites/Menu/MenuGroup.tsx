@@ -1,6 +1,6 @@
 import React from 'react';
 import Text from '../../primitives/Text';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Box from '../../primitives/Box';
 import type { IMenuGroupProps } from './types';
 
@@ -9,7 +9,7 @@ export const MenuGroup = React.memo(
     { title, children }: IMenuGroupProps,
     ref: any
   ) {
-    const { _title, ...newProps } = useThemeProps('MenuGroup', {});
+    const { _title, ...newProps } = usePropsResolution('MenuGroup', {});
 
     return (
       <>

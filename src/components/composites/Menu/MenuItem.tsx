@@ -1,6 +1,6 @@
 import React from 'react';
 import Text from '../../primitives/Text';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import TouchableItem from '../../primitives/TouchableItem';
 import type { IMenuItemProps } from './types';
 import { MenuContext } from './Menu';
@@ -16,7 +16,7 @@ export const MenuItem = React.forwardRef(function MenuItem(
   const { onClose } = React.useContext(PopoverContext);
   const menuItemRef = React.useRef<any>(null);
   const mergedRef = mergeRefs([menuItemRef, ref]);
-  const newProps = useThemeProps('MenuItem', props);
+  const newProps = usePropsResolution('MenuItem', props);
   const [textContent, setTextContent] = React.useState('');
   React.useEffect(() => {
     const menuItem = menuItemRef.current;

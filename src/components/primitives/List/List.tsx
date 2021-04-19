@@ -1,10 +1,10 @@
 import React from 'react';
 import { VStack } from '../Stack';
 import type { IListProps, IListItemProps } from './types';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const List = ({ children, divider, ...props }: IListProps, ref?: any) => {
-  const { _text, _hover, ...newProps } = useThemeProps('List', props);
+  const { _text, _hover, ...newProps } = usePropsResolution('List', props);
   // add props to children
   children = React.Children.map(children, (child: any, ind: number) => {
     return React.cloneElement(

@@ -87,7 +87,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontWeight: propFontWeight,
     fontStyle: propFontStyle,
     _hover,
-    ...newProps
+    ...reslovedProps
   } = usePropsResolution('Text', props);
 
   const _ref = React.useRef(null);
@@ -108,19 +108,19 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
 
   return (
     <StyledText
-      {...newProps}
+      {...reslovedProps}
       numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : undefined}
       fontWeight={bold ? 'bold' : fontWeight}
       fontStyle={italic ? 'italic' : fontStyle}
-      bg={highlight ? 'warning.200' : newProps.bg}
+      bg={highlight ? 'warning.200' : reslovedProps.bg}
       textDecorationLine={
         underline
           ? 'underline'
           : strikeThrough
           ? 'line-through'
-          : newProps.textDecorationLine
+          : reslovedProps.textDecorationLine
       }
-      fontSize={sub ? 10 : newProps.fontSize}
+      fontSize={sub ? 10 : reslovedProps.fontSize}
       ref={mergeRefs([ref, _ref])}
       fontFamily={fontFamily}
       {...(isHovered && _hover)}

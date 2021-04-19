@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSliderState } from '@react-stately/slider';
-import { useLayout, useThemeProps } from '../../../hooks';
+import { useLayout } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ISliderProps } from './types';
 import Box from '../Box';
 import { SliderContext } from './Context';
@@ -40,7 +41,7 @@ function Slider(props: ISliderProps<number>, ref?: any) {
     },
   });
 
-  const themeProps = useThemeProps('Slider', props);
+  const themeProps = usePropsResolution('Slider', props);
 
   let { trackProps } = useSlider(
     (props as unknown) as ISliderProps<number[]>,

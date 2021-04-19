@@ -3,7 +3,7 @@ import { SliderContext } from './Context';
 import { StyleSheet } from 'react-native';
 import Box from '../Box';
 import type { ISliderProps } from './types';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const SliderFilledTrack = ({ style, ...props }: ISliderProps, ref?: any) => {
   const {
@@ -21,7 +21,7 @@ const SliderFilledTrack = ({ style, ...props }: ISliderProps, ref?: any) => {
       : trackLayout.width - trackLayout.width * state.getThumbPercent(0)
     : state.getThumbPercent(0) * 100 + '%';
 
-  const themeProps = useThemeProps('SliderFilledTrack', {
+  const themeProps = usePropsResolution('SliderFilledTrack', {
     size: sliderSize,
     colorScheme,
     ...props,

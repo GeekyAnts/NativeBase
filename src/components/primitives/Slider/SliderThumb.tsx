@@ -2,7 +2,8 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { useSliderThumb } from '@react-native-aria/slider';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
-import { useThemeProps, useToken } from '../../../hooks';
+import { useToken } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { AriaSliderThumbProps } from './types';
 import Box, { IBoxProps } from '../Box';
 import { SliderContext } from './Context';
@@ -17,13 +18,12 @@ function SliderThumb(props: Omit<SliderThumbProps, 'index'>, ref: any) {
     colorScheme,
     thumbSize,
   } = React.useContext(SliderContext);
-  const themeProps = useThemeProps('SliderThumb', {
+  const themeProps = usePropsResolution('SliderThumb', {
     size: thumbSize,
     colorScheme,
     ...props,
   });
   let inputRef = React.useRef(null);
-
   let { thumbProps, inputProps } = useSliderThumb(
     {
       index: 0,
