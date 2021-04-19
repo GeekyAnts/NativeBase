@@ -1,3 +1,4 @@
+import type { IPlatformProps } from '../../types/IPlafromProps';
 import type { TextStyle } from 'react-native';
 import type {
   BorderProps,
@@ -65,7 +66,8 @@ export type IconType =
   | 'SimpleLineIcons'
   | 'Zocial';
 
-export type IIconProps = ColorProps &
+export type IIconProps = IPlatformProps &
+  ColorProps &
   SpaceProps &
   LayoutProps &
   FlexboxProps &

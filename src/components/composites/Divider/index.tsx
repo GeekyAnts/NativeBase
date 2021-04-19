@@ -1,12 +1,12 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Box from './../../primitives/Box';
 import type { IDividerProps } from './types';
 import { extractInObject } from '../../../theme/tools';
 
 const Divider = (props: IDividerProps, ref?: any) => {
-  const { orientation, ...newProps } = useThemeProps('Divider', props);
+  const { orientation, ...newProps } = usePropsResolution('Divider', props);
   const [, remainingProps] = extractInObject(newProps, ['size']);
   return (
     <Box

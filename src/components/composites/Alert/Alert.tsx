@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '../../primitives/Box';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAlertProps } from './types';
 import { AlertContext } from './Context';
 
@@ -16,7 +16,7 @@ const Alert = (
     colorScheme,
     _actionProps,
     ...newProps
-  } = useThemeProps('Alert', props);
+  } = usePropsResolution('Alert', props);
 
   return (
     <AlertContext.Provider

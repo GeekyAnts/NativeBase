@@ -1,3 +1,4 @@
+import type { IPlatformProps } from '../../types/IPlafromProps';
 import type { ViewProps, ViewStyle } from 'react-native';
 import type {
   BorderProps,
@@ -23,13 +24,6 @@ import type {
 } from '../../../utils/customProps';
 import type { ITextProps } from './../Text/types';
 
-// TODO: Need to mmoved globally or some other place.
-export type IPlatformProps = {
-  _web?: any;
-  _ios?: any;
-  _android?: any;
-};
-
 export type IBoxProps = ViewProps &
   ColorProps &
   SpaceProps &
@@ -54,5 +48,4 @@ export type IBoxProps = ViewProps &
     children?: JSX.Element | JSX.Element[] | string | any;
     shadow?: number;
     _text?: ITextProps;
-    _web?: any;
   };

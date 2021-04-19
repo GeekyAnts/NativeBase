@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box, Image, Text } from '../../primitives';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
 
 const Avatar = (props: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
   const { size, style, source, children, ...remainingProps } = props;
 
-  const { _text, ...newProps } = useThemeProps('Avatar', {
+  const { _text, ...newProps } = usePropsResolution('Avatar', {
     ...remainingProps,
     name: 'avatar',
     size,

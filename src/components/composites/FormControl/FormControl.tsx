@@ -1,12 +1,12 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Box from '../../primitives/Box';
 import type { IFormControlProps } from './types';
 import { useFormControlProvider, FormControlContext } from './useFormControl';
 
 const FormControl = (props: IFormControlProps, ref: any) => {
   const { htmlProps, ...context } = useFormControlProvider(props);
-  const themedProps = useThemeProps('FormControl', props);
+  const themedProps = usePropsResolution('FormControl', props);
 
   return (
     <FormControlContext.Provider value={context}>

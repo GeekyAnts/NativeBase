@@ -1,13 +1,13 @@
 import React, { forwardRef } from 'react';
-import { useThemeProps } from '../../../hooks';
 import { Button, IButtonProps } from '../../primitives/Button';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 export type IIconButtonProps = IButtonProps & {
   icon: JSX.Element;
 };
 
 const IconButton = ({ icon, ...props }: IIconButtonProps, ref: any) => {
-  const newProps = useThemeProps('IconButton', props);
+  const newProps = usePropsResolution('IconButton', props);
   return (
     <Button ref={ref} {...newProps}>
       {icon}
