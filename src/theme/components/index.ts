@@ -16,6 +16,7 @@ import { Select, SelectItem, NativeSelect, CustomSelect } from './select';
 import { Alert, AlertDescription, AlertTitle, AlertIcon } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
+import AvatarGroup from './avatar-group';
 import Badge from './badge';
 import Breadcrumb from './breadcrumb';
 import Button, { ButtonGroup } from './button';
@@ -95,6 +96,7 @@ export default {
   AlertIcon,
   Avatar,
   AvatarBadge,
+  AvatarGroup,
   Badge,
   Box,
   Breadcrumb,

@@ -12,12 +12,11 @@ export type IProgressProps = IBoxProps & {
   size?: SpaceType | string;
   colorScheme?: string;
   isIndeterminate?: any;
+  min?: number;
+  max?: number;
 };
 
-const Progress = (
-  { value = 0, isIndeterminate, ...props }: IProgressProps,
-  ref?: any
-) => {
+const Progress = (props: IProgressProps, ref?: any) => {
   // const width = new Animated.Value(0);
   // useEffect(() => {
   //   Animated.loop(
@@ -29,30 +28,45 @@ const Progress = (
   //   ).start();
   // });
 
-  const newProps = usePropsResolution('Progress', props);
+  const { min, max, value, isIndeterminate, ...newProps } = usePropsResolution(
+    'Progress',
+    props
+  );
   const { innerBg } = newProps;
+
   const innerProps = {
     bg: innerBg,
     shadow: 0,
     rounded: newProps.rounded,
     height: '100%',
-    w: (value % 100) + '%',
+    w:
+      value < max && value > min
+        ? ((value - min) / (max - min)) * 100 + '%'
+        : value > min
+        ? '100%'
+        : '0%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     color: 'white',
   };
+
   return (
     <Box
       {...newProps}
-      style={props.style}
+      style={newProps.style}
       ref={ref}
       accessible
       accessibilityRole="progressbar"
       accessibilityValue={{
-        min: 0,
-        max: 100,
-        now: value,
+        min: min,
+        max: max,
+        now:
+          value < max && value > min
+            ? ((value - min) / (max - min)) * 100
+            : value > min
+            ? 100
+            : 0,
       }}
     >
       {isIndeterminate ? (

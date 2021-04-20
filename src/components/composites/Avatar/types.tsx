@@ -18,7 +18,7 @@ export type IAvatarBadgeProps = IAvatarProps & {
 
 export type IAvatarGroupProps = IAvatarProps & {
   children?: JSX.Element[] | JSX.Element;
-  spacing?: number;
+  space?: number;
   max?: number;
 };
 

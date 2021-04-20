@@ -5,9 +5,11 @@ import isNil from 'lodash/isNil';
 import type { IAvatarGroupProps } from './types';
 import { default as Avatar } from './Avatar';
 
+// Todo: Try using HStack instead
+
 const getAvatarGroupChildren = (
   children?: JSX.Element[] | JSX.Element,
-  spacing?: number,
+  space?: number,
   max?: number,
   plusAvatarBg?: string,
   props?: any
@@ -20,7 +22,7 @@ const getAvatarGroupChildren = (
   }
   let trailingChildren = childrenArray.slice(1);
   const defaultProps = {
-    ml: isNil(spacing) ? -4 : spacing,
+    ml: space,
   };
   return [
     plusAvatars > 0 ? (
@@ -28,17 +30,21 @@ const getAvatarGroupChildren = (
         {'+ ' + plusAvatars}
       </Avatar>
     ) : null,
-    React.Children.map(trailingChildren.reverse(), (child: any) => {
-      return React.cloneElement(
-        child,
-        {
-          ...props,
-          ...defaultProps,
-          ...child.props,
-        },
-        child.props.children
-      );
-    }),
+    React.Children.map(
+      trailingChildren.reverse(),
+      (child: any, index: number) => {
+        return React.cloneElement(
+          child,
+          {
+            key: `avatar-group-child-${index}`,
+            ...props,
+            ...defaultProps,
+            ...child.props,
+          },
+          child.props.children
+        );
+      }
+    ),
     React.cloneElement(
       childrenArray[0],
       {
@@ -51,14 +57,14 @@ const getAvatarGroupChildren = (
 };
 
 const AvatarGroup = (allProps: IAvatarGroupProps, ref: any) => {
-  const { children, spacing, max, ...props } = allProps;
-  const { borderColor, borderWidth, bg } = usePropsResolution(
-    'AvatarBadge',
+  const { children, max, ...props } = allProps;
+  const { borderColor, borderWidth, bg, space } = usePropsResolution(
+    'AvatarGroup',
     props
   );
   return (
     <Flex direction="row-reverse" ref={ref}>
-      {getAvatarGroupChildren(children, spacing, max, bg, {
+      {getAvatarGroupChildren(children, space, max, bg, {
         borderColor,
         borderWidth,
         ...props,
