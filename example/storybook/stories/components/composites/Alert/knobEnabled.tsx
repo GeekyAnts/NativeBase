@@ -18,9 +18,7 @@ export default function () {
           'subtle'
         )}
         action={
-          <IconButton
-            icon={<Icon name="close" color="danger.500" size="xs" />}
-          />
+          <IconButton icon={<Icon name="close" color="gray.400" size="md" />} />
         }
         actionProps={{ alignSelf: 'center' }}
       >

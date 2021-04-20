@@ -1,10 +1,8 @@
 import { mode, getColorScheme } from '../tools';
 
 const baseStyle = {
-  px: 3,
-  py: 2,
-  _text: { fontSize: 'xs' },
-  borderRadius: 'pill',
+  px: 1,
+  _text: { fontSize: 'xs', fontWeight: 'bold' },
 };
 
 function variantSolid(props: Record<string, any>) {
