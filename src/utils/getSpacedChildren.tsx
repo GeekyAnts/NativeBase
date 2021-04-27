@@ -73,7 +73,7 @@ export default (
 
     childrenArray = childrenArray.map((child: any, index: number) => {
       return (
-        <React.Fragment key={`spaced-child-${index}`}>
+        <React.Fragment key={child.key ?? `spaced-child-${index}`}>
           {child}
           {index < childrenArray.length - 1 && divider}
         </React.Fragment>
@@ -85,7 +85,7 @@ export default (
     };
     childrenArray = childrenArray.map((child: any, index: number) => {
       return (
-        <React.Fragment key={`spaced-child-${index}`}>
+        <React.Fragment key={child.key ?? `spaced-child-${index}`}>
           {child}
           {index < childrenArray.length - 1 && <Box {...spacingProp} />}
         </React.Fragment>
