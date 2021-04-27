@@ -1,6 +1,6 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
 import { VStack, Text, Alert } from 'native-base';
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, ReactNode, useState } from 'react';
 
 const POSITIONS = {
   'bottom': {
@@ -41,41 +41,53 @@ const POSITIONS = {
   },
 };
 
+type IToastProps = {
+  // The description of the toast
+  description?: ReactNode;
+  // The delay before the toast hides (in milliseconds) If set to `null`, toast will never dismiss.
+  duration?: number;
+  // The `id` of the toast. Mostly used when you need to prevent duplicate. By default, we generate a unique `id` for each toast
+  id?: any;
+  // If `true`, toast will show a close button
+  isClosable?: boolean;
+  // Callback function to run side effects after the toast has closed.
+  onCloseComplete?: () => void;
+  // The placement of the toast. Defaults to bottom
+  position?: keyof typeof POSITIONS;
+  // Render a component toast component. Any component passed will receive 2 props: `id` and `onClose`.
+  render?: (props: any) => ReactNode;
+  // The status of the toast.
+  status?: 'info' | 'warning' | 'error' | 'success';
+  // The title of the toast
+  title?: ReactNode;
+  // The alert component `variant` to use
+  variant?: string;
+};
+
 type IToast = {
   id: number;
   component: any;
-  config?: any;
+  config?: IToastProps;
 };
 
 type IToastInfo = {
   [key in keyof typeof POSITIONS]?: Array<IToast>;
 };
 
-type IRenderFunction = () => JSX.Element;
-
-type IArg =
-  | string
-  | {
-      title: string;
-      description?: string;
-      status?: string;
-      duration?: number;
-      isClosable?: boolean;
-    }
-  | IRenderFunction;
-
 type IToastContext = {
   toastInfo: IToastInfo;
   setToastInfo: any;
-  setToast: (arg1: IArg, position?: keyof typeof POSITIONS) => void;
+  setToast: (props: IToastProps) => void;
+  removeToast: (id: any) => void;
+  removeAll: () => void;
 };
 
 export const ToastContext = createContext<IToastContext>({
   toastInfo: {},
-  setToastInfo: () => {
-    console.log('Toast being called');
-  },
+  setToastInfo: () => {},
   setToast: () => {},
+  removeToast: (id: any) => {},
+  removeAll: () => {},
 });
 
 export const CustomToast = () => {
@@ -85,13 +97,14 @@ export const CustomToast = () => {
     return Object.keys(toastInfo);
   };
 
-  return (
+  return getPositions().length > 0 ? (
     <OverlayContainer>
       {getPositions().map((position: string) => {
         if (Object.keys(POSITIONS).includes(position))
           return (
             <VStack
               margin="auto"
+              key={position}
               // @ts-ignore
               {...POSITIONS[position]}
               position="absolute"
@@ -101,111 +114,104 @@ export const CustomToast = () => {
             >
               {
                 // @ts-ignore
-                toastInfo[position].map((toast: IToast) => toast.component)
+                toastInfo[position].map((toast: IToast) => (
+                  <React.Fragment key={toast.id}>
+                    {toast.component}
+                  </React.Fragment>
+                ))
               }
             </VStack>
           );
         else return null;
       })}
     </OverlayContainer>
-  );
+  ) : null;
 };
 
 export const ToastProvider = ({ children }: { children: any }) => {
   const [toastInfo, setToastInfo] = useState<IToastInfo>({});
-  const [toastIndex, setToastIndex] = useState(0);
+  let toastIndex = React.useRef(0);
 
-  useEffect(() => {
-    return function cleanup() {
-      setToastInfo({});
-    };
-  }, []);
-
-  const removeToast = (id: number, toastInfo: IToastInfo) => {
-    console.log('removed id &*&', id, Object.values(toastInfo));
-    for (let toastPosition of Object.keys(toastInfo)) {
-      // @ts-ignore
-      let positionArray: Array<IToast> = toastInfo[toastPosition];
-
-      let newPositionArray = positionArray.slice(
-        positionArray.findIndex((toastData) => toastData.id === id),
-        1
-      );
-
-      let temp: any = {};
-      temp[toastPosition] = newPositionArray;
-
-      let newToastInfo = { ...toastInfo, ...temp };
-      setToastInfo(newToastInfo);
-    }
-
-    console.log('not find &*&');
-    return null;
+  const removeAll = () => {
+    setToastInfo({});
   };
 
-  const setToast = (
-    arg1: IArg,
-    position: keyof typeof POSITIONS = 'bottom'
-  ) => {
-    console.log('Was called &*&');
+  const removeToast = (id: any) => {
+    setToastInfo((prev) => {
+      for (let toastPosition of Object.keys(prev)) {
+        // @ts-ignore
+        let positionArray: Array<IToast> = prev[toastPosition];
+        const isToastPresent =
+          positionArray.findIndex((toastData) => toastData.id === id) > -1;
+
+        if (isToastPresent) {
+          let newPositionArray = positionArray.filter((item) => item.id !== id);
+          let temp: any = {};
+          temp[toastPosition] = newPositionArray;
+
+          let newToastInfo = { ...prev, ...temp };
+
+          return newToastInfo;
+        }
+      }
+
+      return prev;
+    });
+  };
+
+  const setToast = (props: IToastProps) => {
+    const {
+      position = 'bottom',
+      title,
+      render,
+      status,
+      id = toastIndex.current++,
+      description,
+      duration = 5000,
+    } = props;
     let positionToastArray = toastInfo[position];
     if (!positionToastArray) positionToastArray = [];
 
     let component = null;
 
-    if (typeof arg1 === 'string') {
+    if (render) {
+      component = render({ id: toastIndex.current });
+    } else if (typeof status === 'string') {
       component = (
-        <Text bg="black" color="white" p={2} rounded={'md'}>
-          {arg1}
-        </Text>
-      );
-    } else if (typeof arg1 === 'object' && arg1.title) {
-      component = (
-        <Alert status={arg1.status ?? 'info'}>
+        <Alert status={status ?? 'info'}>
           <Alert.Icon />
-          <Alert.Title>{arg1.title}</Alert.Title>
-          {arg1.description ? (
-            <Alert.Description>{arg1.description}</Alert.Description>
+          <Alert.Title>{title}</Alert.Title>
+          {description ? (
+            <Alert.Description>{description}</Alert.Description>
           ) : null}
         </Alert>
       );
-    } else if (typeof arg1 === 'function') {
-      component = arg1();
     } else {
-      return;
+      component = (
+        <Text bg="black" color="white" p={2} rounded={'md'}>
+          {title}
+        </Text>
+      );
     }
 
-    let id = toastIndex;
-    toastInfo[position] = [...positionToastArray, { component, id }];
+    toastInfo[position] = [
+      ...positionToastArray,
+      { component, id, config: props },
+    ];
+
     setToastInfo({ ...toastInfo });
-    setToastIndex(toastIndex + 1);
 
-    // setTimeout(function () {
-    //   console.log('removed id &*&', id, Object.values(toastInfo));
-    //   // for (let toastPosition of Object.keys(toastInfo)) {
-    //   //   // @ts-ignore
-    //   //   let positionArray: Array<IToast> = toastInfo[toastPosition];
+    setTimeout(function () {
+      removeToast(id);
+    }, duration);
 
-    //   //   let newPositionArray = positionArray.slice(
-    //   //     positionArray.findIndex((toastData) => toastData.id === id),
-    //   //     1
-    //   //   );
-
-    //   //   let temp: any = {};
-    //   //   temp[toastPosition] = newPositionArray;
-
-    //   //   let newToastInfo = { ...toastInfo, ...temp };
-    //   //   setToastInfo(newToastInfo);
-    //   // }
-
-    //   // console.log('not find &*&');
-    //   // return null;
-    // }, 3000);
     return id;
   };
 
   return (
-    <ToastContext.Provider value={{ toastInfo, setToastInfo, setToast }}>
+    <ToastContext.Provider
+      value={{ toastInfo, setToastInfo, setToast, removeToast, removeAll }}
+    >
       {children}
       <CustomToast />
     </ToastContext.Provider>
@@ -213,7 +219,13 @@ export const ToastProvider = ({ children }: { children: any }) => {
 };
 
 export const useToast = () => {
-  const { setToast } = React.useContext(ToastContext);
+  const { removeToast, setToast, removeAll } = React.useContext(ToastContext);
 
-  return setToast;
+  const toast = {
+    show: setToast,
+    close: removeToast,
+    closeAll: removeAll,
+  };
+
+  return toast;
 };
