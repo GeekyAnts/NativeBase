@@ -2,32 +2,55 @@ import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
 import { Box, Backdrop } from 'native-base';
 
+type DrawerProps = {
+  placement?: 'top' | 'left' | 'right' | 'bottom';
+  children?: any;
+  isOpen: boolean;
+  onClose?: () => void;
+};
+
 const Drawer = ({
   children,
   isOpen,
   onClose,
-}: {
-  children?: any;
-  isOpen: boolean;
-  onClose?: () => void;
-}) => {
+  placement = 'right',
+}: DrawerProps) => {
   if (!isOpen) return null;
+
+  let placementStyles = React.useMemo(() => {
+    let styles: any = {
+      position: 'absolute',
+    };
+
+    if (placement === 'top') {
+      styles.top = 0;
+      styles.left = 0;
+      styles.right = 0;
+      styles.width = '100%';
+    } else if (placement === 'bottom') {
+      styles.bottom = 0;
+      styles.left = 0;
+      styles.right = 0;
+      styles.width = '100%';
+    } else if (placement === 'right') {
+      styles.right = 0;
+      styles.top = 0;
+      styles.bottom = 0;
+      styles.height = '100%';
+    } else {
+      styles.top = 0;
+      styles.bottom = 0;
+      styles.left = 0;
+      styles.height = '100%';
+    }
+    return styles;
+  }, [placement]);
 
   return (
     <OverlayContainer>
       <Backdrop onClick={onClose ? onClose : () => {}} />
-      <Box
-        top={0}
-        bottom={0}
-        left={0}
-        bg="white"
-        width={'30%'}
-        minWidth={'72'}
-        maxW="96"
-        h={'100%'}
-        opacity={1}
-      >
-        {children ? children : null}
+      <Box {...placementStyles} opacity={1}>
+        {children}
       </Box>
     </OverlayContainer>
   );
