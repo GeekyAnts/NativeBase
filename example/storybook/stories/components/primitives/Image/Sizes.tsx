@@ -1,31 +1,18 @@
 import React from 'react';
-import { HStack, Image } from 'native-base';
+import { VStack, Image } from 'native-base';
 export default function () {
   return (
-    <HStack alignItems="center" space={2}>
-      <Image
-        size={12}
-        resizeMode="cover"
-        source={{
-          uri: 'https://wallpaperaccess.com/full/317501.jpg',
-        }}
-        alt="Alternate Text"
-      />
-      <Image
-        size={20}
-        resizeMode="cover"
-        source={{
-          uri: 'https://wallpaperaccess.com/full/317501.jpg',
-        }}
-        alt="Alternate Text"
-      />
-      <Image
-        size={32}
-        source={{
-          uri: 'https://wallpaperaccess.com/full/317501.jpg',
-        }}
-        alt="Alternate Text"
-      />
-    </HStack>
+    <VStack space={2} alignItems="center">
+      {['xs', 'sm', 'md', 'lg', 'xl', '2xl'].map((size) => (
+        <Image
+          size={size}
+          resizeMode="cover"
+          source={{
+            uri: 'https://wallpaperaccess.com/full/317501.jpg',
+          }}
+          alt={'Alternate Text ' + size}
+        />
+      ))}
+    </VStack>
   );
 }

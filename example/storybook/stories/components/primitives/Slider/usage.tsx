@@ -6,9 +6,10 @@ export default function () {
     <Box mx={5} width="80%">
       <Slider
         defaultValue={70}
-        accessibilityIncrementSteps={10}
-        accessibilityDecrementSteps={5}
-        accessibilityLabel="This is a test slider"
+        minValue={0}
+        maxValue={100}
+        accessibilityLabel="hello world"
+        step={10}
       >
         <Slider.Track>
           <Slider.FilledTrack />

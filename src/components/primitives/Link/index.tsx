@@ -7,71 +7,38 @@ import { useThemeProps } from '../../../hooks';
 import { useLink } from './useLink';
 import { mergeRefs } from '../../../utils';
 import { useHover } from '@react-native-aria/interactions';
+import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 
 const StyledLink = styled(Box)<ILinkProps>({});
 const Link = (
   {
     style,
     href,
-    isUnderlined = true,
+    isUnderlined = false,
     onClick,
     isExternal,
     children,
-    m,
-    mt,
-    mr,
-    ml,
-    mb,
-    my,
-    mx,
-    p,
-    pt,
-    pl,
-    pr,
-    pb,
-    px,
-    py,
-    w,
-    width,
-    h,
-    height,
     _text,
     ...props
   }: ILinkProps,
   ref: any
 ) => {
-  const layoutProps = {
-    m,
-    mt,
-    mr,
-    ml,
-    mb,
-    my,
-    mx,
-    p,
-    pt,
-    pr,
-    pl,
-    pb,
-    py,
-    px,
-    w,
-    width,
-    h,
-    height,
-  };
-  let { _hover, ...newProps } = useThemeProps('Link', props);
-  const linkTextProps = {
-    textDecorationLine: isUnderlined ? 'underline' : 'none',
-    ..._text,
-  };
+  const [layoutProps, remProps] = extractInObject(props, [
+    ...stylingProps.margin,
+    ...stylingProps.position,
+    ...stylingProps.layout,
+  ]);
+  let { _hover, ...newProps } = useThemeProps('Link', remProps);
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
+  const linkTextProps = {
+    textDecorationLine: isUnderlined || isHovered ? 'underline' : 'none',
+    ..._text,
+  };
   const { linkProps } = useLink({ href, onClick, isExternal, _ref });
   return (
     <Box {...layoutProps}>
       {Platform.OS === 'web' ? (
-        // Using <Text /> as currently rn - web only supports target="_blank" on Text element
         <StyledLink
           {...linkProps}
           {...newProps}

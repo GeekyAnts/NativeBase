@@ -11,7 +11,7 @@ import {
   flexbox,
   border,
 } from 'styled-system';
-import { useThemeProps } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import {
   customBorder,
   customBackground,
@@ -23,6 +23,8 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import type { ITextProps } from './types';
+import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils';
 
 type IUseResolvedFontFamily = {
   fontFamily: string;
@@ -84,9 +86,12 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontFamily: propFontFamily,
     fontWeight: propFontWeight,
     fontStyle: propFontStyle,
-    ...newProps
-  } = useThemeProps('Text', props);
+    _hover,
+    ...reslovedProps
+  } = usePropsResolution('Text', props);
 
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
   let fontFamily = propFontFamily;
   let fontStyle = italic ? 'italic' : propFontStyle;
   let fontWeight = bold ? 'bold' : propFontWeight;
@@ -103,21 +108,22 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
 
   return (
     <StyledText
-      {...newProps}
+      {...reslovedProps}
       numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : undefined}
       fontWeight={bold ? 'bold' : fontWeight}
       fontStyle={italic ? 'italic' : fontStyle}
-      bg={highlight ? 'warning.200' : newProps.bg}
+      bg={highlight ? 'warning.200' : reslovedProps.bg}
       textDecorationLine={
         underline
           ? 'underline'
           : strikeThrough
           ? 'line-through'
-          : newProps.textDecorationLine
+          : reslovedProps.textDecorationLine
       }
-      fontSize={sub ? 10 : newProps.fontSize}
-      ref={ref}
+      fontSize={sub ? 10 : reslovedProps.fontSize}
+      ref={mergeRefs([ref, _ref])}
       fontFamily={fontFamily}
+      {...(isHovered && _hover)}
     >
       {children}
     </StyledText>

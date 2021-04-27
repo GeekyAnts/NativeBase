@@ -1,11 +1,14 @@
+import { Platform } from 'react-native';
 import { mode } from './../tools';
 
 function baseStyle(props: Record<string, any>) {
   return {
     bg: mode(`#fff`, `gray.700`)(props),
     py: 2,
-    shadow: 9,
-    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: mode(`gray.200`, `gray.700`)(props),
+    shadow: 1,
+    borderRadius: 8,
   };
 }
 
@@ -24,13 +27,23 @@ export const MenuGroup = {
   },
 };
 export const MenuItem = {
-  baseStyle: {
+  baseStyle: (props: any) => ({
     p: 4,
     _text: {
       fontSize: 'md',
       textAlign: 'left',
     },
-  },
+    outlineWidth: Platform.OS === 'web' ? 0 : undefined,
+    _hover: {
+      bg: mode(`gray.100`, `gray.600`)(props),
+    },
+    _focus: {
+      bg: mode(`gray.100`, `gray.600`)(props),
+    },
+    _pressed: {
+      bg: mode(`gray.200`, `gray.500`)(props),
+    },
+  }),
   defaultProps: {
     isDisabled: false,
     underlayColor: '#E8EDFB',

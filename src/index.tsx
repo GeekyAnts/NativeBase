@@ -5,7 +5,7 @@ export default {
 };
 
 import {
-  AppBar,
+  // AppBar,
   Badge,
   IBadgeProps,
   IconButton,
@@ -125,7 +125,6 @@ import {
   IRadioValue,
   IRadioGroupProps,
   Button,
-  ButtonGroup,
   IButtonProps,
   Column,
   Row,
@@ -137,7 +136,6 @@ import {
   ZStack,
   Slider,
   ISliderProps,
-  ISliderContextProps,
   Icon,
   createIcon,
   IIconProps,
@@ -174,13 +172,12 @@ export * from './hooks';
 export * from './factory';
 
 export {
-  AppBar,
+  // AppBar,
   Alert,
   AspectRatio,
   Avatar,
   Badge,
   Button,
-  ButtonGroup,
   IconButton,
   Heading,
   // View,
@@ -276,7 +273,6 @@ export type {
   IBreadcrumbProps,
   ITagProps,
   ISliderProps,
-  ISliderContextProps,
   IIconProps,
   IInputProps,
   ISpinnerProps,

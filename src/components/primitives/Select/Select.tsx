@@ -1,12 +1,13 @@
 import React from 'react';
 import type { ISelectProps } from './types';
-import { Platform, View, Pressable } from 'react-native';
+import { Platform, View, Pressable, ScrollView } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
 import Icon from '../Icon';
 import Box from '../Box';
 import { Input } from '../Input';
 import { useFocusRing } from '@react-native-aria/focus';
-import { useControllableState, useThemeProps } from '../../../hooks';
+import { useControllableState } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import { useFormControl } from '../../composites/FormControl';
@@ -61,6 +62,8 @@ const unstyledSelecWebtStyles = {
 export const SelectContext = React.createContext({
   onValueChange: (() => {}) as any,
   selectedValue: null as any,
+  _selectedItem: null as any,
+  _item: null as any,
 });
 
 const Select = (
@@ -73,6 +76,9 @@ const Select = (
     accessibilityLabel,
     defaultValue,
     type,
+    size,
+    _item,
+    _selectedItem,
     ...props
   }: ISelectProps,
   ref: any
@@ -85,7 +91,7 @@ const Select = (
   const isDisabled = selectProps.disabled;
 
   const _ref = React.useRef(null);
-  const themeProps = useThemeProps('Input', props);
+  const themeProps = usePropsResolution('Input', { ...props, size });
   let [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const { focusProps, isFocusVisible } = useFocusRing();
@@ -115,13 +121,13 @@ const Select = (
   );
   const selectedItem =
     selectedItemArray && selectedItemArray.length ? selectedItemArray[0] : null;
-  const selectThemeProps = useThemeProps('Select', props);
+  const selectThemeProps = usePropsResolution('Select', props);
 
   const {
-    _item,
     _ios,
     _web,
     _android,
+    itemStyle,
     _hover,
     isInvalid,
     _isInvalid,
@@ -130,8 +136,13 @@ const Select = (
     androidMode,
     androidIconColor,
     androidPrompt,
+    customDropdownIconProps,
+    _actionSheetContent,
     ...newProps
-  } = useThemeProps(type === 'native' ? 'NativeSelect' : 'CustomSelect', props);
+  } = usePropsResolution(
+    type === 'native' ? 'NativeSelect' : 'CustomSelect',
+    props
+  );
   const [borderProps, remainingProps] = extractInObject(newProps, [
     ...stylingProps.border,
   ]);
@@ -151,15 +162,11 @@ const Select = (
       placeholder={placeholder}
       editable={false}
       focusable={false}
+      size={size}
       variant={selectThemeProps.variant}
       InputRightElement={
-        dropdownIcon ? (
-          dropdownIcon
-        ) : (
-          <Icon type="MaterialIcons" name="keyboard-arrow-down" />
-        )
+        dropdownIcon ? dropdownIcon : <Icon {...customDropdownIconProps} />
       }
-      {...(isFocusVisible ? themeProps._focus : {})}
       {...(isHovered ? themeProps._hover : {})}
       {...nonLayoutProps}
       {...borderProps}
@@ -184,7 +191,7 @@ const Select = (
         dropdownIconColor={themeAndroidIconColor}
         itemStyle={{
           color: themeItemStyleColor,
-          ..._item,
+          ...itemStyle,
         }}
         {...selectProps}
         {...(Platform.OS === 'ios' && _ios)}
@@ -208,7 +215,7 @@ const Select = (
           selectedValue={selectedValue}
           itemStyle={{
             color: themeItemStyleColor,
-            ..._item,
+            ...itemStyle,
           }}
           {...selectProps}
           {...(Platform.OS === 'web' && _web)}
@@ -223,8 +230,16 @@ const Select = (
       </Box>
     );
 
+  // Todo: focusRing fix
+
   const StyledSelect = (
-    <Box {...layoutProps}>
+    <Box
+      borderWidth={1}
+      borderColor="transparent"
+      {...layoutProps}
+      borderRadius={themeProps.borderRadius}
+      {...(isFocusVisible ? themeProps._focus : {})}
+    >
       {Platform.OS === 'web' ? (
         <>
           <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}>
@@ -258,15 +273,19 @@ const Select = (
             <View pointerEvents="none">{commonInput}</View>
           </Pressable>
           <Actionsheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
-            <Actionsheet.Content>
-              <SelectContext.Provider
-                value={{
-                  onValueChange: setValue,
-                  selectedValue: value,
-                }}
-              >
-                {children}
-              </SelectContext.Provider>
+            <Actionsheet.Content {..._actionSheetContent}>
+              <ScrollView style={{ width: '100%' }}>
+                <SelectContext.Provider
+                  value={{
+                    onValueChange: setValue,
+                    selectedValue: value,
+                    _selectedItem: _selectedItem,
+                    _item: _item,
+                  }}
+                >
+                  {children}
+                </SelectContext.Provider>
+              </ScrollView>
             </Actionsheet.Content>
           </Actionsheet>
         </>

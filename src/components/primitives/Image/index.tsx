@@ -12,7 +12,7 @@ import {
   customPosition,
 } from '../../../utils/customProps';
 import Text from '../Text';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IImageProps } from './types';
 
 const StyledImage = styled(RNImage)<IImageProps>(
@@ -38,7 +38,7 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
     ignoreFallback,
     _alt,
     ...newProps
-  } = useThemeProps('Image', props);
+  } = usePropsResolution('Image', props);
   const [renderedSource, setSource] = useState(source);
   const [alternate, setAlternate] = useState(false);
 

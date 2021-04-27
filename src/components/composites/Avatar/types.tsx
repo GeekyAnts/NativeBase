@@ -10,7 +10,7 @@ export type IAvatarProps = IBoxProps & {
   children?: JSX.Element[] | JSX.Element | any | undefined | string;
 };
 
-export type IAvatarBadgeProps = IAvatarProps & {
+export type IAvatarBadgeProps = IBoxProps & {
   bg?: string;
   boxSize?: number;
   borderColor?: string;
@@ -18,7 +18,7 @@ export type IAvatarBadgeProps = IAvatarProps & {
 
 export type IAvatarGroupProps = IAvatarProps & {
   children?: JSX.Element[] | JSX.Element;
-  spacing?: number;
+  space?: number;
   max?: number;
 };
 

@@ -16,6 +16,7 @@ import { Select, SelectItem, NativeSelect, CustomSelect } from './select';
 import { Alert, AlertDescription, AlertTitle, AlertIcon } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
+import AvatarGroup from './avatar-group';
 import Badge from './badge';
 import Breadcrumb from './breadcrumb';
 import Button, { ButtonGroup } from './button';
@@ -57,7 +58,6 @@ import Popover from './popover';
 import Progress from './progress';
 import Radio from './radio';
 import Skeleton from './skeleton';
-import { default as Slider, SliderThumb } from './slider';
 import Spinner from './spinner';
 import Stat from './stat';
 import Switch from './switch';
@@ -77,6 +77,7 @@ import Stack from './stack';
 import View from './view';
 import ZStack from './zstack';
 import FAB from './fab';
+import { SliderTrack, Slider, SliderThumb, SliderFilledTrack } from './slider';
 
 export default {
   Accordion,
@@ -95,6 +96,7 @@ export default {
   AlertIcon,
   Avatar,
   AvatarBadge,
+  AvatarGroup,
   Badge,
   Box,
   Breadcrumb,
@@ -147,10 +149,12 @@ export default {
   SelectItem,
   SimpleGrid,
   Skeleton,
+  SliderFilledTrack,
+  SliderThumb,
+  SliderTrack,
+  Slider,
   Slide,
   SlideFade,
-  Slider,
-  SliderThumb,
   Spinner,
   Stack,
   Stat,

@@ -6,7 +6,6 @@ export default function () {
   return (
     <Stack space={4} w="90%">
       <TextField
-        bg="gray.300"
         variant="underlined"
         isInvalid={isInvalid}
         helperText="Sample helper text"

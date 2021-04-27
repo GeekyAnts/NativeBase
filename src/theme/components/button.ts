@@ -1,24 +1,34 @@
-import shadows from '../base/shadows';
 import { Dict, mode, transparentize } from './../tools';
+import { Platform } from 'react-native';
 const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
 
-const baseStyle = (props: any) => ({
-  borderRadius: 'md',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  _web: {
-    cursor: props.isDisabled
-      ? 'not-allowed'
-      : props.isLoading
-      ? 'progress'
-      : 'pointer',
-  },
-  _text: {
-    fontWeight: 500,
-    letterSpacing: '4xl',
-  },
-});
+const baseStyle = (props: any) => {
+  const { primary } = props.theme.colors;
+  const focusRing =
+    Platform.OS === 'web'
+      ? { boxShadow: `${primary[400]} 0px 0px 0px 3px` }
+      : {};
+
+  return {
+    borderRadius: 'lg',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    _web: {
+      cursor: props.isDisabled
+        ? 'not-allowed'
+        : props.isLoading
+        ? 'default'
+        : 'pointer',
+    },
+    _text: {
+      fontWeight: 600,
+    },
+    _focus: {
+      style: props.variant !== 'unstyled' ? { ...focusRing } : {},
+    },
+  };
+};
 
 function variantGhost(props: Dict) {
   const { colorScheme: c } = props;
@@ -71,7 +81,7 @@ function variantOutline(props: Dict) {
         ? borderColor
         : props.isDisabled
         ? disabledTextColor(props)
-        : mode(`${c}.500`, `${c}.200`)(props),
+        : mode(`${c}.300`, `${c}.600`)(props),
     ...variantGhost(props),
   };
 }
@@ -104,21 +114,14 @@ function variantSolid(props: Dict) {
       outlineWidth: 0,
     },
     bg,
-    shadow: props.isDisabled ? 0 : 3,
     _hover: {
       backgroundColor: mode(`${c}.600`, `${c}.500`)(props),
-      // Todo: Shadow doesn't work for underscore props currently. Fix this when useThemeProps refactor
-      style: shadows()[5],
     },
     _focus: {
-      backgroundColor: mode(`${c}.300`, `${c}.200`)(props),
-      // Todo: Shadow doesn't work for underscore props currently. Fix this when useThemeProps refactor
-      style: shadows()[6],
+      backgroundColor: bg,
     },
     _pressed: {
       backgroundColor: mode(`${c}.700`, `${c}.600`)(props),
-      // Todo: Shadow doesn't work for underscore props currently. Fix this when useThemeProps refactor
-      style: shadows()[7],
     },
   };
 
@@ -131,13 +134,28 @@ function variantLink(props: Dict) {
   return {
     ...variantGhost(props),
     _text: {
-      textDecorationLine: 'underline',
+      // textDecorationLine: 'underline',
       color:
         c === 'muted'
           ? mode(`muted.800`, `${c}.200`)(props)
           : props.isDisabled
           ? disabledTextColor(props)
           : mode(`${c}.500`, `${c}.200`)(props),
+    },
+    _hover: {
+      _text: {
+        textDecorationLine: 'underline',
+      },
+    },
+    _ios: {
+      _text: {
+        textDecorationLine: 'underline',
+      },
+    },
+    _android: {
+      _text: {
+        textDecorationLine: 'underline',
+      },
     },
   };
 }
@@ -164,10 +182,10 @@ const sizes = {
   },
   md: {
     px: 4,
-    py: 2,
+    py: 3,
     _text: {
-      fontSize: 'sm',
-      lineHeight: 5,
+      fontSize: 'md',
+      lineHeight: 4,
     },
   },
   sm: {
@@ -194,7 +212,7 @@ const defaultProps = {
 
 export const ButtonGroup = {
   baseStyle: { direction: 'row' },
-  defaultProps: { space: 1 },
+  defaultProps: { space: 2 },
 };
 
 export default {

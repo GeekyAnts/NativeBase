@@ -1,17 +1,14 @@
 import React from 'react';
 import Text from '../../primitives/Text';
-import { useThemeProps } from '../../../hooks';
-import type { IAlertContext } from './index';
-import { AlertContext } from './Context';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const AlertTitle = (
   { children, _text, ...props }: { _text?: any } & any,
   ref?: any
 ) => {
-  const newProps = useThemeProps('AlertTitle', props);
-  const { textColor }: IAlertContext = React.useContext(AlertContext);
+  const newProps = usePropsResolution('AlertTitle', props);
   return (
-    <Text color={textColor} {...newProps} {..._text} ref={ref}>
+    <Text {...newProps} {..._text} ref={ref}>
       {children}
     </Text>
   );

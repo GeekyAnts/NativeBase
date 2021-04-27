@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../primitives/Button';
+import { Button } from '../../primitives/Button';
 import type { IActionsheetItemProps } from './types';
 import { useThemeProps } from '../../../hooks';
 

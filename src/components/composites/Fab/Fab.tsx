@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from '../../primitives/Button';
+import { Button } from '../../primitives/Button';
 import { HStack } from '../../primitives/Stack';
 import type { IFabProps } from './types';
-import { useThemeProps } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const Fab = ({ label, icon, ...props }: IFabProps, ref: any) => {
-  const themeProps = useThemeProps('FAB', props);
+  const themeProps = usePropsResolution('FAB', props);
   const { placement, placementProps, ...newProps } = themeProps;
 
   return (

@@ -22,4 +22,13 @@ export type IButtonGroupProps = IStackProps & {
   size?: 'xs' | 'sm' | 'md' | 'lg';
   colorScheme?: string;
   isDisabled?: boolean;
+  isAttached?: boolean;
+};
+
+export type IButtonComponentType = ((
+  props: IButtonProps & { ref?: any }
+) => JSX.Element) & {
+  Group: React.MemoExoticComponent<
+    (props: IButtonGroupProps & { ref?: any }) => JSX.Element
+  >;
 };

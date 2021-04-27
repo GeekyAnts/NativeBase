@@ -4,6 +4,10 @@ const defaultProps = {
   colorScheme: 'primary',
   size: 'sm',
   rounded: 'full',
+  min: 0,
+  max: 100,
+  value: 0,
+  isIndeterminate: false,
 };
 
 function baseStyle(props: Record<string, any>) {

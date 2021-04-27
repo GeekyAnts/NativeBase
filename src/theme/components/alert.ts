@@ -19,7 +19,7 @@ function getBg(props: Record<string, any>) {
 }
 
 const variantSubtle = (props: Record<string, any>) => {
-  let { colorScheme, status, theme } = props;
+  let { colorScheme, status } = props;
   colorScheme = getColorScheme(
     props,
     colorScheme !== 'primary' ? colorScheme : status
@@ -27,10 +27,6 @@ const variantSubtle = (props: Record<string, any>) => {
   return {
     bg: getBg(props),
     iconColor: mode(`${colorScheme}.500`, `${colorScheme}.200`)(props),
-    textColor: mode(
-      getColor(theme, `${colorScheme}.600`, colorScheme),
-      getColor(theme, `${colorScheme}.300`, colorScheme)
-    )(props),
   };
 };
 
@@ -41,7 +37,6 @@ const variantOutline = (props: Record<string, any>) => {
     colorScheme !== 'primary' ? colorScheme : status
   );
   return {
-    bg: mode('white', 'gray.800')(props),
     borderWidth: 1,
     borderColor: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
     iconColor: mode(`${colorScheme}.500`, `${colorScheme}.500`)(props),
@@ -55,7 +50,6 @@ const variantOutlineLight = (props: Record<string, any>) => {
     colorScheme !== 'primary' ? colorScheme : status
   );
   return {
-    bg: mode('white', 'gray.800')(props),
     borderWidth: 1,
     borderColor: transparentize(`${colorScheme}.600`, 0.2)(theme),
     iconColor: mode(`${colorScheme}.500`, `${colorScheme}.200`)(props),
@@ -73,7 +67,7 @@ const variantSolid = (props: Record<string, any>) => {
     borderWidth: 6,
     borderColor: 'transparent',
     bg: getBg(props),
-    iconColor: mode(`white`, `${colorScheme}.300`)(props),
+    iconColor: mode(`white`, `gray.900`)(props),
     textColor: mode('white', `${colorScheme}.200`)(props),
   };
 };
@@ -128,17 +122,11 @@ export const Alert = {
     flexWrap: 'wrap',
     colorScheme: 'primary',
     variant: 'subtle',
-    pl: 4,
-    pr: 2,
-    pt: 4,
-    pb: 2,
-    shadow: 2,
+    px: 4,
+    py: 3,
     _actionProps: { alignSelf: 'flex-end', ml: 'auto' },
     _text: {
       fontSize: 'sm',
-      fontWeight: 'medium',
-      mr: { base: 4, sm: 4, lg: 24, md: 4 },
-      pb: 2,
       lineHeight: 5,
       color: 'gray.700',
     },
@@ -151,10 +139,9 @@ export const Alert = {
 export const AlertTitle = {
   defaultProps: {
     fontSize: 'md',
-    fontWeight: 'semibold',
-    mr: 2,
-    pb: 2,
     lineHeight: 5,
+    fontWeight: 'bold',
+    mr: 2,
   },
 };
 
@@ -163,9 +150,8 @@ export const AlertTitle = {
 export const AlertIcon = {
   defaultProps: {
     type: 'MaterialIcons',
-    size: 10,
-    mr: { base: 4, sm: 4, lg: 6 },
-    mb: 2,
+    size: 6,
+    mr: 2,
   },
 };
 
@@ -173,9 +159,6 @@ export const AlertIcon = {
 export const AlertDescription = {
   defaultProps: {
     fontSize: 'sm',
-    fontWeight: 'medium',
-    mr: { base: 4, sm: 4, lg: 24, md: 4 },
-    pb: 2,
     lineHeight: 5,
   },
 };

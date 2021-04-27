@@ -21,11 +21,11 @@ export type { IIconProps, IconType, IconNameType } from './Icon';
 export { Column } from './Column';
 export { Row } from './Row';
 
-export { default as Button, ButtonGroup } from './Button';
+export { Button } from './Button';
 export type { IButtonProps } from './Button';
 
 export { Slider } from './Slider';
-export type { ISliderProps, ISliderContextProps } from './Slider';
+export type { ISliderProps } from './Slider';
 
 export { Stack, VStack, HStack } from './Stack';
 export type { IStackProps } from './Stack';

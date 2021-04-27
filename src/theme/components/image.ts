@@ -1,12 +1,12 @@
 // Image
 const sizes = {
-  '2xs': { size: 4 },
-  'xs': { size: 6 },
-  'sm': { size: 8 },
-  'md': { size: 12 },
-  'lg': { size: 16 },
-  'xl': { size: 24 },
-  '2xl': { size: 32 },
+  '2xs': { size: 6 },
+  'xs': { size: 10 },
+  'sm': { size: 16 },
+  'md': { size: 20 },
+  'lg': { size: 24 },
+  'xl': { size: 32 },
+  '2xl': { size: 64 },
   'full': { size: '100%' },
 };
 
@@ -16,6 +16,6 @@ export const Image = {
   },
   sizes,
   defaultProps: {
-    size: 'full',
+    size: 'md',
   },
 };

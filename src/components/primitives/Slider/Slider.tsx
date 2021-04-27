@@ -1,214 +1,92 @@
 import React from 'react';
-import { PanResponder, Platform } from 'react-native';
-import { useFormControlContext } from '../../composites/FormControl';
-import Box from '../Box';
-import { useThemeProps } from '../../../hooks';
+import { useSliderState } from '@react-stately/slider';
+import { useLayout } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ISliderProps } from './types';
+import Box from '../Box';
 import { SliderContext } from './Context';
+import { useSlider } from '@react-native-aria/slider';
 
-type StateType = {
-  barSize: number | null;
-  deltaValue: number;
-  value: number;
-};
-
-class NBSlider extends React.PureComponent<
-  ISliderProps & {
-    thumbSize?: number;
-    sliderSize?: number;
-    activeColor?: string;
-  } & { innerRef?: any },
-  StateType
-> {
-  static contextType = SliderContext;
-  state = {
-    barSize: null,
-    deltaValue: 0,
-    value: this.props.defaultValue || 0,
+function Slider(props: ISliderProps<number>, ref?: any) {
+  let newProps = {
+    ...props,
+    'aria-label': props.accessibilityLabel ?? 'Slider',
   };
 
-  panResponder = PanResponder.create({
-    onMoveShouldSetPanResponderCapture: () => true,
-    onPanResponderMove: (_event, gestureState) =>
-      !(this.props.isDisabled || this.props.isReadOnly) &&
-      this.onMove(gestureState),
-    onPanResponderRelease: () => this.onEndMove(),
-    onPanResponderTerminate: () => {},
+  if (typeof props.value === 'number') {
+    //@ts-ignore - React Native Aria slider accepts array of values
+    newProps.value = [props.value];
+  }
+
+  if (typeof props.defaultValue === 'number') {
+    //@ts-ignore - React Native Aria slider accepts array of values
+    newProps.defaultValue = [props.defaultValue];
+  }
+
+  props = newProps;
+
+  const { onLayout, layout: trackLayout } = useLayout();
+
+  const state = useSliderState({
+    ...props,
+    //@ts-ignore
+    numberFormatter: { format: (e) => e },
+    minValue: props.minValue,
+    maxValue: props.maxValue,
+    onChange: (val: any) => {
+      props.onChange && props.onChange(val[0]);
+    },
+    onChangeEnd: (val: any) => {
+      props.onChangeEnd && props.onChangeEnd(val[0]);
+    },
   });
 
-  onMove(gestureState: any) {
-    const { barSize } = this.state;
-    const { min = 0, max = 100 } = this.props;
-    const newDeltaValue = this.getValueFromStartOffset(
-      this.props.orientation === 'vertical'
-        ? -gestureState.dy
-        : gestureState.dx,
-      barSize,
-      this.props.min || 0,
-      this.props.max || 100
-    );
-    this.props.onChange &&
-      this.props.onChange(
-        this.capValueWithinRange(this.state.value + newDeltaValue, [min, max])
-      );
-    this.setState({
-      deltaValue: newDeltaValue,
-    });
-  }
-  onEndMove() {
-    const { value, deltaValue } = this.state;
-    const { min = 0, max = 100 } = this.props;
-    const cappedVal = this.capValueWithinRange(value + deltaValue, [min, max]);
-    this.props.onChangeEnd && this.props.onChangeEnd(cappedVal);
-    this.setState({ value: cappedVal, deltaValue: 0 });
-  }
+  const themeProps = usePropsResolution('Slider', props);
 
-  onBarLayout = (event: any) => {
-    const { width, height } = event.nativeEvent.layout;
-    const barSize = this.props.orientation === 'vertical' ? height : width;
-    this.setState({ barSize });
+  let { trackProps } = useSlider(
+    (props as unknown) as ISliderProps<number[]>,
+    state,
+    trackLayout
+  );
+
+  const wrapperStyle = {
+    height: props.orientation === 'vertical' ? '100%' : undefined,
+    width: props.orientation !== 'vertical' ? '100%' : undefined,
   };
 
-  capValueWithinRange = (value: number, range: number[]) => {
-    if (value < range[0]) return range[0];
-    if (value > range[1]) return range[1];
-    return value;
-  };
-
-  getValueFromStartOffset = (
-    offset: number,
-    barSize: number | null,
-    rangeMin: number,
-    rangeMax: number
-  ) => {
-    if (barSize === null) return 0;
-    return ((rangeMax - rangeMin) * offset) / barSize;
-  };
-
-  getOffsetFromValue = (
-    value: number,
-    rangeMin: number,
-    rangeMax: number,
-    barSize: number | null
-  ) => {
-    if (barSize === null) return 0;
-    const valueOffset = value - rangeMin;
-    const totalRange = rangeMax - rangeMin;
-    const percentage = valueOffset / totalRange;
-    return barSize * percentage;
-  };
-
-  onAccessibilityAction = (event: any) => {
-    const max = this.props.max ?? 100;
-    const min = this.props.min ?? 0;
-
-    const incrementStep = this.props.accessibilityIncrementSteps ?? max / 10;
-    const decrementStep = this.props.accessibilityDecrementSteps ?? max / 10;
-
-    switch (event.nativeEvent.actionName) {
-      case 'increment':
-        this.setState({
-          value: Math.min(this.state.value + incrementStep, max),
-        });
-        break;
-      case 'decrement':
-        this.setState({
-          value: Math.max(this.state.value - decrementStep, min),
-        });
-        break;
-      default:
-        break;
-    }
-  };
-
-  render() {
-    const { value, deltaValue, barSize } = this.state;
-    const min = this.props.min ?? 0;
-    const max = this.props.max ?? 100;
-    const cappedValue = this.capValueWithinRange(value + deltaValue, [
-      min,
-      max,
-    ]);
-
-    const sliderOffset = this.getOffsetFromValue(
-      cappedValue,
-      min,
-      max,
-      barSize
-    );
-
-    return (
-      <SliderContext.Provider
-        value={{
-          sliderOffset,
-          trackColor: this.props.trackColor,
-          colorScheme: this.props.activeColor,
-          barSize: this.state.barSize,
-          panResponder: this.panResponder,
-          isReversed: this.props.isReversed,
-          thumbSize: this.props.thumbSize,
-          sliderSize: this.props.sliderSize,
-          orientation: this.props.orientation,
-          isDisabled: this.props.isDisabled,
-          value: this.state.value,
-        }}
+  return (
+    <SliderContext.Provider
+      value={{
+        trackLayout,
+        state,
+        orientation: props.orientation,
+        isReversed: props.isReversed,
+        colorScheme: props.colorScheme,
+        trackProps,
+        onTrackLayout: onLayout,
+        thumbSize: themeProps.thumbSize,
+        sliderSize: themeProps.sliderSize,
+      }}
+    >
+      <Box
+        {...wrapperStyle}
+        justifyContent="center"
+        ref={ref}
+        alignItems="center"
+        {...themeProps}
       >
-        <Box
-          position="relative"
-          display="flex"
-          my={3}
-          justifyContent="center"
-          alignItems="center"
-          minHeight={3}
-          minWidth="100%"
-          {...this.props}
-          onLayout={this.onBarLayout}
-          opacity={this.props.isDisabled ? 0.4 : 1}
-          {...(Platform.OS === 'web' && this.props.isDisabled
-            ? {
-                disabled: this.props.isDisabled,
-                cursor: this.props.isDisabled ? 'not-allowed' : 'auto',
-              }
-            : {})}
-          //A11y props
+        {React.Children.map(props.children, (child, index) => {
+          if (child.displayName === 'SliderThumb') {
+            return React.cloneElement(child as React.ReactElement, {
+              index,
+            });
+          }
 
-          accessible
-          accessibilityRole="adjustable"
-          accessibilityLabel={this.props.accessibilityLabel ?? 'Slider'}
-          accessibilityValue={{
-            min,
-            max,
-            now: value,
-          }}
-          accessibilityHint={this.props.accessibilityHint}
-          accessibilityActions={[
-            {
-              name: 'increment',
-              label: 'Increment',
-            },
-            {
-              name: 'decrement',
-              label: 'Decrement',
-            },
-          ]}
-          onAccessibilityAction={this.onAccessibilityAction}
-          ref={this.props.innerRef}
-        >
-          {this.state.barSize && this.props.children}
-        </Box>
-      </SliderContext.Provider>
-    );
-  }
+          return child;
+        })}
+      </Box>
+    </SliderContext.Provider>
+  );
 }
 
-const Slider = ({ ...props }: ISliderProps, ref?: any) => {
-  const formControlContext = useFormControlContext();
-  const newProps = useThemeProps('Slider', {
-    ...formControlContext,
-    ...props,
-  });
-
-  return <NBSlider {...newProps} innerRef={ref} />;
-};
-
-export default React.memo(React.forwardRef(Slider));
+export default React.forwardRef(Slider);

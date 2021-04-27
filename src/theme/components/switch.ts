@@ -16,7 +16,7 @@ const baseStyle = (props: Record<string, any>) => {
       onTrackColor ??
       mode(
         Platform.OS !== 'ios' ? `${colorScheme}.300` : `${colorScheme}.500`,
-        Platform.OS !== 'ios' ? `${colorScheme}.800` : `${colorScheme}.600`
+        Platform.OS !== 'ios' ? `${colorScheme}.700` : `${colorScheme}.500`
       )(props),
     onThumbColor:
       onThumbColor ??

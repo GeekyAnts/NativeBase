@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Center, Input, ButtonGroup } from 'native-base';
+import { Modal, Button, Center, Input } from 'native-base';
 
 export default function () {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -27,7 +27,7 @@ export default function () {
             <Input mt={4} placeholder="Something about you..." />
           </Modal.Body>
           <Modal.Footer>
-            <ButtonGroup variant="ghost" space={2}>
+            <Button.Group variant="ghost" space={2}>
               <Button>SAVE</Button>
               <Button
                 onPress={() => {
@@ -37,7 +37,7 @@ export default function () {
               >
                 CLOSE
               </Button>
-            </ButtonGroup>
+            </Button.Group>
           </Modal.Footer>
         </Modal.Content>
       </Modal>

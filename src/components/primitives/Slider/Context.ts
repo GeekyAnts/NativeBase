@@ -1,3 +1,3 @@
-import { createContext } from 'react';
+import React from 'react';
 
-export const SliderContext = createContext({});
+export const SliderContext = React.createContext<any>({});

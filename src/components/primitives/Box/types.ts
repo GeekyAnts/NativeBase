@@ -1,3 +1,4 @@
+import type { IPlatformProps } from '../../types/IPlafromProps';
 import type { ViewProps, ViewStyle } from 'react-native';
 import type {
   BorderProps,
@@ -41,7 +42,8 @@ export type IBoxProps = ViewProps &
   customTypographyProps &
   customBackgroundProps &
   customTransformProps &
-  customFlexboxProps & {
+  customFlexboxProps &
+  IPlatformProps & {
     style?: ViewStyle;
     children?: JSX.Element | JSX.Element[] | string | any;
     shadow?: number;

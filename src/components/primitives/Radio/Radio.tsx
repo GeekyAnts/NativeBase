@@ -3,7 +3,7 @@ import { default as Pressable, IPressableProps } from '../Pressable';
 import Icon from '../Icon';
 import { Center } from '../../composites/Center';
 import Box from '../Box';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IRadioProps } from './types';
 import { useRadio } from '@react-native-aria/radio';
 import { RadioContext } from './RadioGroup';
@@ -20,9 +20,9 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
     },
     _icon,
     isInvalid,
-    size,
+    iconSize,
     ...themedProps
-  } = useThemeProps('Radio', {
+  } = usePropsResolution('Radio', {
     ...contextState,
     ...props,
   });
@@ -35,7 +35,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
   const sizedIcon = () =>
     //@ts-ignore
     React.cloneElement(icon, {
-      size,
+      iconSize,
       ..._icon,
     });
 
@@ -75,7 +75,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
                 ) : (
                   <Icon
                     name="circle"
-                    size={size}
+                    size={iconSize}
                     {..._icon}
                     opacity={checked ? 1 : 0}
                   />

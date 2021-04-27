@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, VStack, Switch, HStack, Text } from 'native-base';
+import { Select, VStack, Switch, HStack, Text, Icon } from 'native-base';
 
 export default function () {
   let [language, setLanguage] = React.useState<string>('');
@@ -15,6 +15,11 @@ export default function () {
         accessibilityLabel="Select your favorite programming language"
         placeholder="Select your favorite programming language"
         onValueChange={(itemValue: string) => setLanguage(itemValue)}
+        _selectedItem={{
+          stackProps: { reversed: true },
+          bg: 'primary.200',
+          icon: <Icon name="check" size={5} />,
+        }}
       >
         <Select.Item label="JavaScript" value="js" />
         <Select.Item label="TypeScript" value="ts" />

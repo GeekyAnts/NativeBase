@@ -25,7 +25,7 @@ const baseStyle = (props: Record<string, any>) => {
     _checkbox: {
       borderWidth: 2,
       borderRadius: 'sm',
-      borderColor: mode('muted.600', 'muted.400')(props),
+      borderColor: mode('muted.300', 'muted.600')(props),
       bg: mode('muted.50', 'muted.700')(props), // matching background color
       _checked: {
         borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
@@ -45,14 +45,14 @@ const baseStyle = (props: Record<string, any>) => {
 };
 
 const sizes = {
-  lg: { size: 6, _text: { fontSize: 'xl' } },
-  md: { size: 5, _text: { fontSize: 'lg' } },
-  sm: { size: 4, _text: { fontSize: 'md' } },
+  lg: { iconSize: 6, _text: { fontSize: 'xl' } },
+  md: { iconSize: 5, _text: { fontSize: 'lg' } },
+  sm: { iconSize: 4, _text: { fontSize: 'md' } },
 };
 
 const defaultProps = {
   defaultIsChecked: false,
-  size: 'md',
+  size: 'sm',
   colorScheme: 'primary',
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertDialog, Button, Center, Input, ButtonGroup } from 'native-base';
+import { AlertDialog, Button, Center, Input } from 'native-base';
 import type { TouchableOpacity } from 'react-native';
 
 export default function () {
@@ -29,12 +29,12 @@ export default function () {
             />
           </AlertDialog.Body>
           <AlertDialog.Footer>
-            <ButtonGroup variant="ghost" space={2}>
+            <Button.Group variant="ghost" space={2}>
               <Button onPress={onClose}>SUBMIT</Button>
               <Button colorScheme="red" onPress={onClose}>
                 CANCEL
               </Button>
-            </ButtonGroup>
+            </Button.Group>
           </AlertDialog.Footer>
         </AlertDialog.Content>
       </AlertDialog>

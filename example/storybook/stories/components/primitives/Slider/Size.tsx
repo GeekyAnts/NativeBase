@@ -10,7 +10,7 @@ export default function () {
         </Slider.Track>
         <Slider.Thumb />
       </Slider>
-      <Slider defaultValue={60}>
+      <Slider defaultValue={60} size="md">
         <Slider.Track>
           <Slider.FilledTrack />
         </Slider.Track>

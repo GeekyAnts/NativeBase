@@ -1,7 +1,6 @@
 const baseStyle = {
   borderRadius: 'md',
-  py: 2,
-  px: 2,
+  p: 3,
 };
 
 const defaultProps = {

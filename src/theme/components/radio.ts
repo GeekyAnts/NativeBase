@@ -27,7 +27,7 @@ const baseStyle = (props: Record<string, any>) => {
       borderWidth: 2,
       borderRadius: 'full',
       p: '2px',
-      borderColor: mode('muted.600', 'muted.400')(props),
+      borderColor: mode('muted.300', 'muted.600')(props),
       bg: mode('muted.50', 'muted.700')(props), // matching background color
       _checked: {
         borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
@@ -50,9 +50,9 @@ const baseStyle = (props: Record<string, any>) => {
 };
 
 const sizes = {
-  lg: { size: 4, _text: { fontSize: 'lg' } },
-  md: { size: 3, _text: { fontSize: 'md' } },
-  sm: { size: 2, _text: { fontSize: 'sm' } },
+  lg: { iconSize: 4, _text: { fontSize: 'lg' } },
+  md: { iconSize: 3, _text: { fontSize: 'md' } },
+  sm: { iconSize: 2, _text: { fontSize: 'sm' } },
 };
 
 const defaultProps = {
