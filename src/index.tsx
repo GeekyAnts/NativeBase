@@ -5,7 +5,7 @@ export default {
 };
 
 import {
-  AppBar,
+  // AppBar,
   Badge,
   IBadgeProps,
   IconButton,
@@ -170,7 +170,7 @@ export * from './hooks';
 export * from './factory';
 
 export {
-  AppBar,
+  // AppBar,
   Alert,
   AspectRatio,
   Avatar,
