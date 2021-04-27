@@ -1,44 +1,88 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
 import { VStack, Box, Alert } from 'native-base';
 import React, { createContext, ReactNode, useState } from 'react';
+import { Animated, SafeAreaView } from 'react-native';
+
+let INSET = 0;
 
 const POSITIONS = {
   'bottom': {
-    bottom: 10,
+    bottom: INSET,
     left: 0,
     right: 0,
   },
   'top': {
-    top: 10,
+    top: INSET,
     left: 0,
-    right: 0,
-  },
-  'left': {
-    top: 0,
-    bottom: 0,
-    left: 0,
-  },
-  'right': {
-    top: 0,
-    bottom: 0,
     right: 0,
   },
   'top-right': {
-    top: 10,
-    right: 0,
+    top: INSET,
+    right: INSET,
   },
   'top-left': {
-    top: 0,
-    left: 0,
+    top: INSET,
+    left: INSET,
   },
   'bottom-left': {
-    bottom: 0,
-    left: 0,
+    bottom: INSET,
+    left: INSET,
   },
   'bottom-right': {
-    bottom: 0,
-    right: 0,
+    bottom: INSET,
+    right: INSET,
   },
+};
+
+const transitionConfig = {
+  'bottom': {
+    outputRange: [20, 0],
+  },
+  'top': {
+    outputRange: [-20, 0],
+  },
+  'top-right': {
+    outputRange: [-20, 0],
+  },
+  'top-left': {
+    outputRange: [-20, 0],
+  },
+  'bottom-left': {
+    outputRange: [20, 0],
+  },
+  'bottom-right': {
+    outputRange: [20, 0],
+  },
+};
+
+const Transition = ({ children, translateOutputRange }: any) => {
+  const animateValue = React.useRef(new Animated.Value(0)).current;
+
+  React.useEffect(() => {
+    Animated.timing(animateValue, {
+      toValue: 1,
+      duration: 250,
+      useNativeDriver: true,
+    }).start();
+  }, []);
+
+  return (
+    <Animated.View
+      style={{
+        opacity: animateValue,
+        transform: [
+          {
+            translateY: animateValue.interpolate({
+              inputRange: [0, 1],
+              outputRange: translateOutputRange,
+            }),
+          },
+        ],
+      }}
+    >
+      {children}
+    </Animated.View>
+  );
 };
 
 type IToastProps = {
@@ -117,9 +161,16 @@ export const CustomToast = () => {
               {
                 // @ts-ignore
                 toastInfo[position].map((toast: IToast) => (
-                  <React.Fragment key={toast.id}>
-                    {toast.component}
-                  </React.Fragment>
+                  <Transition
+                    translateOutputRange={
+                      //@ts-ignore
+                      transitionConfig[position].outputRange
+                    }
+                  >
+                    <React.Fragment key={toast.id}>
+                      {toast.component}
+                    </React.Fragment>
+                  </Transition>
                 ))
               }
             </VStack>

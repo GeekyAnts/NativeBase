@@ -8,34 +8,46 @@ const Basic = () => {
     <>
       <Button
         onPress={() =>
-          toast.show({ title: 'Toast check', position: 'top-right' })
+          toast.show({
+            title: 'Toast check',
+            position: 'top-right',
+            status: 'info',
+          })
         }
       >
-        Button on top
+        Top right
       </Button>
       <Button onPress={() => toast.show({ title: 'Toast check' })}>
-        Button
+        Bottom
       </Button>
       <Button
-        onPress={() =>
-          toast.show({
-            render: (props) => <Text>hello world</Text>,
-          })
-        }
+        onPress={() => toast.show({ title: 'Toast check', position: 'top' })}
       >
-        Button
+        Top
       </Button>
 
-      <Button onPress={() => toast.closeAll()}>close all</Button>
       <Button
         onPress={() =>
-          toast.show({
-            title: 'hello world',
-            status: 'success',
-          })
+          toast.show({ title: 'Toast check', position: 'top-left' })
         }
       >
-        Button
+        Top Left
+      </Button>
+
+      <Button
+        onPress={() =>
+          toast.show({ title: 'Toast check', position: 'bottom-right' })
+        }
+      >
+        Bottom Right
+      </Button>
+
+      <Button
+        onPress={() =>
+          toast.show({ title: 'Toast check', position: 'bottom-left' })
+        }
+      >
+        Bottom Left
       </Button>
     </>
   );
