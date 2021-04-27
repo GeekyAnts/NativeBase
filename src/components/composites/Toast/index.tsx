@@ -1,5 +1,5 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { VStack, Text, Alert } from 'native-base';
+import { VStack, Box, Alert } from 'native-base';
 import React, { createContext, ReactNode, useState } from 'react';
 
 const POSITIONS = {
@@ -80,6 +80,7 @@ type IToastContext = {
   setToast: (props: IToastProps) => void;
   removeToast: (id: any) => void;
   removeAll: () => void;
+  isActive: (id: any) => boolean;
 };
 
 export const ToastContext = createContext<IToastContext>({
@@ -88,6 +89,7 @@ export const ToastContext = createContext<IToastContext>({
   setToast: () => {},
   removeToast: (id: any) => {},
   removeAll: () => {},
+  isActive: (id: any) => false,
 });
 
 export const CustomToast = () => {
@@ -134,6 +136,16 @@ export const ToastProvider = ({ children }: { children: any }) => {
 
   const removeAll = () => {
     setToastInfo({});
+  };
+
+  const isActive = (id: any) => {
+    for (let toastPosition of Object.keys(toastInfo)) {
+      // @ts-ignore
+      let positionArray: Array<IToast> = toastInfo[toastPosition];
+      return positionArray.findIndex((toastData) => toastData.id === id) > -1;
+    }
+
+    return false;
   };
 
   const removeToast = (id: any) => {
@@ -188,9 +200,9 @@ export const ToastProvider = ({ children }: { children: any }) => {
       );
     } else {
       component = (
-        <Text bg="black" color="white" p={2} rounded={'md'}>
+        <Box p={2} rounded="md" bg="gray.800" _text={{ color: 'gray.50' }}>
           {title}
-        </Text>
+        </Box>
       );
     }
 
@@ -210,7 +222,14 @@ export const ToastProvider = ({ children }: { children: any }) => {
 
   return (
     <ToastContext.Provider
-      value={{ toastInfo, setToastInfo, setToast, removeToast, removeAll }}
+      value={{
+        toastInfo,
+        setToastInfo,
+        setToast,
+        removeToast,
+        removeAll,
+        isActive,
+      }}
     >
       {children}
       <CustomToast />
@@ -219,12 +238,15 @@ export const ToastProvider = ({ children }: { children: any }) => {
 };
 
 export const useToast = () => {
-  const { removeToast, setToast, removeAll } = React.useContext(ToastContext);
+  const { removeToast, setToast, removeAll, isActive } = React.useContext(
+    ToastContext
+  );
 
   const toast = {
     show: setToast,
     close: removeToast,
     closeAll: removeAll,
+    isActive,
   };
 
   return toast;
