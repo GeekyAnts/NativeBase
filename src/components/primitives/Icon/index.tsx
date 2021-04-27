@@ -83,7 +83,7 @@ function getStyledIconComponent(type: IconType) {
 const Icon = ({ type, name, style, ...props }: IIconProps, ref?: any) => {
   const { size, ...newProps } = usePropsResolution('Icon', props);
   if (!name) {
-    return <SVGIcon {...props} style={style} />;
+    return <SVGIcon ref={ref} {...props} style={style} />;
   }
   const Component = getStyledIconComponent(type ?? 'MaterialIcons');
   return (
