@@ -1,7 +1,8 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { VStack, Box, Alert } from 'native-base';
+import { VStack, Box, Alert, Icon } from 'native-base';
 import React, { createContext, ReactNode, useState } from 'react';
-import { Animated, SafeAreaView } from 'react-native';
+import { Animated } from 'react-native';
+import IconButton from '../IconButton';
 
 let INSET = 0;
 
@@ -55,7 +56,11 @@ const transitionConfig = {
   },
 };
 
-const Transition = ({ children, translateOutputRange }: any) => {
+const Transition = ({
+  children,
+  translateOutputRange,
+  onTransitionComplete,
+}: any) => {
   const animateValue = React.useRef(new Animated.Value(0)).current;
 
   React.useEffect(() => {
@@ -63,7 +68,9 @@ const Transition = ({ children, translateOutputRange }: any) => {
       toValue: 1,
       duration: 250,
       useNativeDriver: true,
-    }).start();
+    }).start(() => {
+      onTransitionComplete && onTransitionComplete('entered');
+    });
   }, []);
 
   return (
@@ -230,6 +237,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       status,
       id = toastIndex.current++,
       description,
+      isClosable = true,
       duration = 5000,
     } = props;
     let positionToastArray = toastInfo[position];
@@ -241,12 +249,26 @@ export const ToastProvider = ({ children }: { children: any }) => {
       component = render({ id: toastIndex.current });
     } else if (typeof status === 'string') {
       component = (
-        <Alert status={status ?? 'info'}>
+        <Alert
+          status={status ?? 'info'}
+          action={
+            isClosable ? (
+              <IconButton
+                onPress={() => {
+                  removeToast(id);
+                }}
+                icon={<Icon size="xs" name="close" />}
+              />
+            ) : undefined
+          }
+        >
           <Alert.Icon />
-          <Alert.Title>{title}</Alert.Title>
-          {description ? (
-            <Alert.Description>{description}</Alert.Description>
-          ) : null}
+          <VStack>
+            <Alert.Title>{title}</Alert.Title>
+            {description ? (
+              <Alert.Description>{description}</Alert.Description>
+            ) : null}
+          </VStack>
         </Alert>
       );
     } else {

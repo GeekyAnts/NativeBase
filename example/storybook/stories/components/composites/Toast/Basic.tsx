@@ -10,12 +10,12 @@ const Basic = () => {
         onPress={() =>
           toast.show({
             title: 'Toast check',
-            position: 'top-right',
-            status: 'info',
+            status: 'success',
+            description: 'this is a test toast. Please ignore',
           })
         }
       >
-        Top right
+        Success toast
       </Button>
       <Button onPress={() => toast.show({ title: 'Toast check' })}>
         Bottom
