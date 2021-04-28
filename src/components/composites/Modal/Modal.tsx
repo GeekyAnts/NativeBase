@@ -92,7 +92,7 @@ const Modal = React.forwardRef(
               autoFocus={visible && !initialFocusRef}
               restoreFocus={visible && !finalFocusRef}
             >
-              <Box {...restThemeProps} ref={ref}>
+              <Box {...restThemeProps} ref={ref} pointerEvents="box-none">
                 {avoidKeyboard ? (
                   <KeyboardAvoidingView
                     behavior="padding"
@@ -121,8 +121,7 @@ ModalMain.Footer = ModalFooter;
 ModalMain.Body = ModalBody;
 
 export type IModalComponentType = ((
-  props: IModalProps,
-  ref: any
+  props: IModalProps & { ref: any }
 ) => JSX.Element) & {
   Body: React.MemoExoticComponent<
     (props: IBoxProps & { ref?: any }) => JSX.Element
