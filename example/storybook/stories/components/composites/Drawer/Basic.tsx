@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Drawer, Text } from 'native-base';
+import { Box, Button, Drawer } from 'native-base';
 import { useState } from 'react';
 import { Dimensions } from 'react-native';
 

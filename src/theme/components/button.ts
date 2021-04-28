@@ -3,11 +3,9 @@ import { Platform } from 'react-native';
 const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
 
 const baseStyle = (props: any) => {
-  const { primary } = props.theme.colors;
+  const { blue } = props.theme.colors;
   const focusRing =
-    Platform.OS === 'web'
-      ? { boxShadow: `${primary[400]} 0px 0px 0px 3px` }
-      : {};
+    Platform.OS === 'web' ? { boxShadow: `${blue[400]} 0px 0px 0px 3px` } : {};
 
   return {
     borderRadius: 'lg',

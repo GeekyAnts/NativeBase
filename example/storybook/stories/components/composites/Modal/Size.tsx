@@ -11,12 +11,7 @@ export default function () {
   };
   return (
     <>
-      <Modal
-        isCentered
-        isOpen={modalVisible}
-        onClose={setModalVisible}
-        size={size}
-      >
+      <Modal isOpen={modalVisible} onClose={setModalVisible} size={size}>
         <Modal.Content>
           <Modal.CloseButton />
           <Modal.Header _text={{ fontSize: '2xl', fontWeight: 'bold' }}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, useToast, Text } from 'native-base';
+import { Button, useToast } from 'native-base';
 
 const CustomID = () => {
   const toast = useToast();

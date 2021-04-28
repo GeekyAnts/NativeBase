@@ -1,3 +1,4 @@
+import { Dimensions } from 'react-native';
 import { mode } from '../tools';
 
 const sizes = {
@@ -42,8 +43,10 @@ export const ModalContent = {
       bg: mode('gray.50', 'gray.700')(props),
       pl: 6,
       pt: 6,
-      shadow: 8,
-      rounded: 'md',
+      shadow: 3,
+      rounded: 'lg',
+      margin: 'auto',
+      maxHeight: `${Dimensions.get('window').height - 150}px`,
     };
   },
 };
@@ -51,17 +54,15 @@ export const ModalCloseButton = {
   baseStyle: (props: Record<string, any>) => {
     return {
       position: 'absolute',
-      right: 3,
-      top: 5,
+      right: 4,
+      top: 4,
       zIndex: 1,
+      size: 8,
       _icon: {
-        size: 'sm',
+        size: 6,
         color: mode('black', 'white')(props),
       },
     };
-  },
-  defaultProps: {
-    size: 8,
   },
 };
 export const ModalHeader = {

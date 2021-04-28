@@ -1,6 +1,6 @@
 import React from 'react';
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { Backdrop, Text } from 'native-base';
+import { Text } from 'native-base';
 
 const OverlayExample = () => {
   return (

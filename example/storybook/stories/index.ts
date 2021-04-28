@@ -1,3 +1,4 @@
+export * from './components/composites/Modal';
 export * from './components/composites/Toast';
 // // Components;
 // // export * from './components/composites/Accordion';
@@ -34,7 +35,6 @@ export * from './components/composites/Toast';
 // export * from './components/primitives/Link';
 // export * from './components/primitives/List';
 // export * from './components/composites/Menu';
-// // export * from './components/composites/Modal';
 // // export * from './components/composites/NumberInput';
 // export * from './components/primitives/Overlay';
 // // export * from './components/composites/PinInput';

@@ -15,8 +15,6 @@ const Drawer = ({
   onClose,
   placement = 'right',
 }: DrawerProps) => {
-  if (!isOpen) return null;
-
   let placementStyles = React.useMemo(() => {
     let styles: any = {
       position: 'absolute',
@@ -46,9 +44,11 @@ const Drawer = ({
     return styles;
   }, [placement]);
 
+  if (!isOpen) return null;
+
   return (
     <OverlayContainer>
-      <Backdrop onClick={onClose ? onClose : () => {}} />
+      <Backdrop onPress={onClose ? onClose : () => {}} />
       <Box {...placementStyles} opacity={1}>
         {children}
       </Box>

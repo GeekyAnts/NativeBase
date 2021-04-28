@@ -56,7 +56,7 @@ const defaultStyles = {
   scaleY: 1,
 };
 
-const Transition = ({
+export const Transition = ({
   children,
   onTransitionComplete,
   visible = false,
@@ -66,6 +66,7 @@ const Transition = ({
   exitDuration = 200,
   entryDuration = 250,
   transition,
+  style,
 }: any) => {
   const animateValue = React.useRef(new Animated.Value(0)).current;
 
@@ -86,7 +87,14 @@ const Transition = ({
         setExited(false);
       });
     }
-  }, [visible]);
+  }, [
+    visible,
+    onTransitionComplete,
+    setExited,
+    animateValue,
+    entryDuration,
+    transition,
+  ]);
 
   React.useEffect(() => {
     // Exit request
@@ -109,7 +117,15 @@ const Transition = ({
         setExiting(false);
       });
     }
-  }, [exiting]);
+  }, [
+    transition,
+    exiting,
+    onTransitionComplete,
+    setExiting,
+    setExited,
+    exitDuration,
+    animateValue,
+  ]);
 
   if (!visible && exited) {
     return null;
@@ -123,6 +139,7 @@ const Transition = ({
 
   return (
     <Animated.View
+      pointerEvents="box-none"
       style={[
         {
           opacity: animateValue.interpolate({
@@ -144,7 +161,7 @@ const Transition = ({
             },
           ],
         },
-        { flex: 1 },
+        style,
       ]}
     >
       {children}
@@ -201,12 +218,12 @@ export const ToastContext = createContext<IToastContext>({
   toastInfo: {},
   setToastInfo: () => {},
   setToast: () => {},
-  removeToast: (id: any) => {},
+  removeToast: () => {},
   hideAll: () => {},
-  isActive: (id: any) => false,
+  isActive: () => false,
   visibleToasts: {},
-  setVisibleToasts: (data: any) => {},
-  hideToast: (id: any) => {},
+  setVisibleToasts: () => {},
+  hideToast: () => {},
 });
 
 export const CustomToast = () => {

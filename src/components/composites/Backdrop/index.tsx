@@ -1,7 +1,7 @@
 import React from 'react';
-import Pressable from '../../primitives/Pressable';
+import Pressable, { IPressableProps } from '../../primitives/Pressable';
 
-const Backdrop = ({ onClick }: { onClick?: () => void }) => {
+const Backdrop = (props: IPressableProps) => {
   return (
     <Pressable
       position="absolute"
@@ -10,7 +10,7 @@ const Backdrop = ({ onClick }: { onClick?: () => void }) => {
       left={0}
       right={0}
       bg="rgba(0, 0, 0, 0.5)"
-      onPress={onClick}
+      {...props}
     ></Pressable>
   );
 };
