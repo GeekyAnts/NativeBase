@@ -14,5 +14,8 @@ export { useToken } from './useToken';
 export { useSafeArea } from './useSafeArea';
 export { useContrastText } from './useContrastText';
 export { useScreenReaderEnabled } from './useScreenReaderEnabled';
-export { useKeyboardDismissable } from './useKeyboardDismissable';
+export {
+  useKeyboardDismissable,
+  keyboardDismissHandlerManager,
+} from './useKeyboardDismissable';
 export { useLayout } from './useLayout';

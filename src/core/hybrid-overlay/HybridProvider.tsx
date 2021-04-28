@@ -1,7 +1,9 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { HybridContext } from './Context';
 import { useModeManager } from './../color-mode/hooks';
 import type { IColorModeProviderProps } from './../color-mode';
+import { keyboardDismissHandlerManager } from '../../hooks';
 
 const HybridProvider = ({
   children,
@@ -16,6 +18,7 @@ const HybridProvider = ({
     initialColorMode,
     colorModeManager
   );
+
   const toggleColorMode = React.useCallback(() => {
     setColorMode(colorMode === 'light' ? 'dark' : 'light');
   }, [colorMode, setColorMode]);
@@ -24,6 +27,29 @@ const HybridProvider = ({
   const [accessibleColors, setAccessibleColors] = React.useState<boolean>(
     isTextColorAccessible
   );
+
+  React.useEffect(() => {
+    function closeOverlayOnEscapeEffectCallback() {
+      let escapeKeyListener: any = null;
+      if (Platform.OS === 'web') {
+        escapeKeyListener = (e: KeyboardEvent) => {
+          if (e.key === 'Escape') {
+            if (keyboardDismissHandlerManager.length() > 0) {
+              const lastHandler: any = keyboardDismissHandlerManager.pop();
+              lastHandler();
+            }
+          }
+        };
+        document.addEventListener('keydown', escapeKeyListener);
+      }
+      return () => {
+        if (Platform.OS === 'web') {
+          document.removeEventListener('keydown', escapeKeyListener);
+        }
+      };
+    }
+    closeOverlayOnEscapeEffectCallback();
+  }, []);
 
   return (
     <HybridContext.Provider

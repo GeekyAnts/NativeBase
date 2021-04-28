@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, IBoxProps } from '../../primitives';
+import Box, { IBoxProps } from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
 import { ScrollView } from 'react-native';
 

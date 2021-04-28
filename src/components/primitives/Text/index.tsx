@@ -24,7 +24,7 @@ import {
 } from '../../../utils/customProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
-import { mergeRefs } from '../../../utils';
+import { mergeRefs } from '../../../utils/mergeRefs';
 
 type IUseResolvedFontFamily = {
   fontFamily: string;

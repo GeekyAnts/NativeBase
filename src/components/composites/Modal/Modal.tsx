@@ -1,19 +1,16 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
 import { KeyboardAvoidingView, StyleSheet } from 'react-native';
-import { Backdrop } from '..';
-import { Transition } from '../Toast';
+import Backdrop from '../Backdrop';
+import { Transition } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
-import { useControllableState, useKeyboardDismissable } from '../../../hooks';
-import { useThemeProps } from '../../../hooks';
-import ModalContent from './ModalContent';
-import ModalBody from './ModalBody';
-import ModalCloseButton from './ModalCloseButton';
-import ModalFooter from './ModalFooter';
-import ModalHeader from './ModalHeader';
+import {
+  useControllableState,
+  keyboardDismissHandlerManager,
+  useThemeProps,
+} from '../../../hooks';
 import { ModalContext } from './Context';
 import Box, { IBoxProps } from '../../primitives/Box';
-import type { IIconButtonProps } from '../../composites/IconButton';
 
 export type IModalProps = IBoxProps & {
   children?: any;
@@ -56,10 +53,16 @@ const Modal = React.forwardRef(
       },
     });
 
-    useKeyboardDismissable({
-      onClose: () => setVisible(false),
-      enabled: visible && isKeyboardDismissable,
-    });
+    React.useEffect(() => {
+      let cleanupFn = () => {};
+      if (isKeyboardDismissable && visible) {
+        cleanupFn = keyboardDismissHandlerManager.push(() => setVisible(false));
+      }
+
+      return () => {
+        cleanupFn();
+      };
+    }, [visible]);
 
     return (
       <OverlayContainer>
@@ -113,31 +116,4 @@ const Modal = React.forwardRef(
   }
 );
 
-let ModalMain: any = Modal;
-ModalMain.Content = ModalContent;
-ModalMain.CloseButton = ModalCloseButton;
-ModalMain.Header = ModalHeader;
-ModalMain.Footer = ModalFooter;
-ModalMain.Body = ModalBody;
-
-export type IModalComponentType = ((
-  props: IModalProps & { ref: any }
-) => JSX.Element) & {
-  Body: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
-  >;
-  CloseButton: React.MemoExoticComponent<
-    (props: Omit<IIconButtonProps, 'icon'> & { ref?: any }) => JSX.Element
-  >;
-  Content: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
-  >;
-  Footer: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
-  >;
-  Header: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
-  >;
-};
-
-export default ModalMain as IModalComponentType;
+export default Modal;

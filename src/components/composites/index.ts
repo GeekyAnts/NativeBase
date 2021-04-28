@@ -150,5 +150,3 @@ export { AppBar } from './AppBar';
 export { Fab } from './Fab';
 export type { IFabProps } from './Fab';
 export { Typeahead, useTypeahead } from './Typeahead';
-
-export { default as OverlayExample } from '../composites/OverlayExample';

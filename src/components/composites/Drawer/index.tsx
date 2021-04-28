@@ -1,6 +1,7 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
-import { Box, Backdrop } from 'native-base';
+import Backdrop from '../Backdrop';
+import Box from '../../primitives/Box';
 
 type DrawerProps = {
   placement?: 'top' | 'left' | 'right' | 'bottom';
