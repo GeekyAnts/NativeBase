@@ -145,8 +145,6 @@ export type {
   IActionsheetItemProps,
 } from './Actionsheet';
 
-export { Snackbar, useSnackbar } from './Snackbar';
-export type { ISnackbarProps, IuseSnackbarProps } from './Snackbar';
 export { AppBar } from './AppBar';
 
 export { Fab } from './Fab';

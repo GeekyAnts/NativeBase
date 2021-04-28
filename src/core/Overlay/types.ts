@@ -35,11 +35,6 @@ export type IOverlayConfig = {
   accessibilityRole?: string;
 };
 
-export type IuseOverlayProps = () => {
-  closeOverlay: () => void;
-  setOverlay: (component: ReactNode, config?: IOverlayConfig) => void;
-};
-
 export type IOverlayNewProps = {
   isOpen?: boolean;
   children: any;

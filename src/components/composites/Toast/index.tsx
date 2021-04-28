@@ -1,7 +1,13 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
 import { VStack, Alert, Icon } from 'native-base';
 import React, { createContext, ReactNode, useState } from 'react';
-import { Animated, Easing, SafeAreaView } from 'react-native';
+import {
+  AccessibilityInfo,
+  Animated,
+  Easing,
+  Platform,
+  SafeAreaView,
+} from 'react-native';
 import IconButton from '../IconButton';
 
 let INSET = 0;
@@ -190,6 +196,10 @@ type IToastProps = {
   title?: ReactNode;
   // The alert component `variant` to use
   variant?: any;
+
+  accessibilityAnnouncement?: string;
+
+  accessibilityLiveRegion?: 'none' | 'polite' | 'assertive';
 };
 
 type IToast = {
@@ -349,6 +359,8 @@ export const ToastProvider = ({ children }: { children: any }) => {
       isClosable = true,
       duration = 5000,
       variant,
+      accessibilityAnnouncement,
+      accessibilityLiveRegion = 'polite',
     } = props;
     let positionToastArray = toastInfo[position];
     if (!positionToastArray) positionToastArray = [];
@@ -362,6 +374,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
         <Alert
           status={status ?? 'info'}
           variant={variant}
+          accessibilityLiveRegion={accessibilityLiveRegion}
           action={
             isClosable ? (
               <IconButton
@@ -396,6 +409,11 @@ export const ToastProvider = ({ children }: { children: any }) => {
     setTimeout(function () {
       hideToast(id);
     }, duration);
+
+    // iOS doesn't support accessibilityLiveRegion
+    if (accessibilityAnnouncement && Platform.OS === 'ios') {
+      AccessibilityInfo.announceForAccessibility(accessibilityAnnouncement);
+    }
 
     return id;
   };

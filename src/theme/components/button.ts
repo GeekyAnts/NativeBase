@@ -50,19 +50,19 @@ function variantGhost(props: Dict) {
     },
     _hover: {
       backgroundColor: transparentize(
-        mode(`${c}.200`, `${c}.500`)(props),
+        mode(`gray.200`, `gray.500`)(props),
         0.5
       )(props.theme),
     },
     _focus: {
       backgroundColor: transparentize(
-        mode(`${c}.200`, `${c}.500`)(props),
+        mode(`gray.200`, `gray.500`)(props),
         0.5
       )(props.theme),
     },
     _pressed: {
       backgroundColor: transparentize(
-        mode(`${c}.200`, `${c}.500`)(props),
+        mode(`gray.200`, `gray.500`)(props),
         0.6
       )(props.theme),
     },
