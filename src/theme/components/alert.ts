@@ -11,10 +11,11 @@ function getBg(props: Record<string, any>) {
     variant === 'solid'
       ? getColor(theme, `${colorScheme}.400`, colorScheme)
       : getColor(theme, `${colorScheme}.100`, colorScheme);
-  const darkBg = transparentize(
-    `${colorScheme}.500`,
-    variant === 'solid' ? 0.8 : 0.5
-  )(theme);
+
+  const darkBg =
+    variant === 'solid'
+      ? getColor(theme, `${colorScheme}.700`, colorScheme)
+      : getColor(theme, `${colorScheme}.400`, colorScheme);
   return mode(lightBg, darkBg)(props);
 }
 
@@ -122,8 +123,9 @@ export const Alert = {
     flexWrap: 'wrap',
     colorScheme: 'primary',
     variant: 'subtle',
-    px: 4,
-    py: 3,
+    px: 3,
+    py: 2,
+    borderRadius: 'md',
     _actionProps: { alignSelf: 'flex-end', ml: 'auto' },
     _text: {
       fontSize: 'sm',

@@ -1,7 +1,7 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { VStack, Box, Alert, Icon } from 'native-base';
+import { VStack, Alert, Icon } from 'native-base';
 import React, { createContext, ReactNode, useState } from 'react';
-import { Animated } from 'react-native';
+import { Animated, Easing, SafeAreaView } from 'react-native';
 import IconButton from '../IconButton';
 
 let INSET = 0;
@@ -35,57 +35,117 @@ const POSITIONS = {
   },
 };
 
-const transitionConfig = {
-  'bottom': {
-    outputRange: [20, 0],
-  },
-  'top': {
-    outputRange: [-20, 0],
-  },
-  'top-right': {
-    outputRange: [-20, 0],
-  },
-  'top-left': {
-    outputRange: [-20, 0],
-  },
-  'bottom-left': {
-    outputRange: [20, 0],
-  },
-  'bottom-right': {
-    outputRange: [20, 0],
-  },
+const initialAnimationOffset = 24;
+
+const transitionConfig: any = {
+  'bottom': initialAnimationOffset,
+  'top': -initialAnimationOffset,
+  'top-right': -initialAnimationOffset,
+  'top-left': -initialAnimationOffset,
+  'bottom-left': initialAnimationOffset,
+  'bottom-right': initialAnimationOffset,
+};
+
+const defaultStyles = {
+  opacity: 1,
+  translateY: 0,
+  translateX: 0,
+  translate: 0,
+  scale: 1,
+  scaleX: 1,
+  scaleY: 1,
 };
 
 const Transition = ({
   children,
-  translateOutputRange,
   onTransitionComplete,
+  visible = false,
+  from,
+  entry,
+  exit,
+  exitDuration = 200,
+  entryDuration = 250,
+  transition,
 }: any) => {
   const animateValue = React.useRef(new Animated.Value(0)).current;
 
+  const [exiting, setExiting] = React.useState(false);
+  const [exited, setExited] = React.useState(!visible);
+
+  const prevVisible = React.useRef(visible);
+
   React.useEffect(() => {
-    Animated.timing(animateValue, {
-      toValue: 1,
-      duration: 250,
-      useNativeDriver: true,
-    }).start(() => {
-      onTransitionComplete && onTransitionComplete('entered');
-    });
-  }, []);
+    if (visible) {
+      Animated.timing(animateValue, {
+        toValue: 1,
+        duration: entryDuration,
+        useNativeDriver: true,
+        ...transition,
+      }).start(() => {
+        onTransitionComplete && onTransitionComplete('entered');
+        setExited(false);
+      });
+    }
+  }, [visible]);
+
+  React.useEffect(() => {
+    // Exit request
+    if (prevVisible.current !== visible && !visible) {
+      setExiting(true);
+    }
+    prevVisible.current = visible;
+  }, [visible]);
+
+  React.useEffect(() => {
+    if (exiting) {
+      Animated.timing(animateValue, {
+        toValue: 0,
+        duration: exitDuration,
+        useNativeDriver: true,
+        ...transition,
+      }).start(() => {
+        onTransitionComplete && onTransitionComplete('exited');
+        setExited(true);
+        setExiting(false);
+      });
+    }
+  }, [exiting]);
+
+  if (!visible && exited) {
+    return null;
+  }
+
+  from = exiting
+    ? { ...defaultStyles, ...exit }
+    : { ...defaultStyles, ...from };
+
+  entry = { ...defaultStyles, ...entry };
 
   return (
     <Animated.View
-      style={{
-        opacity: animateValue,
-        transform: [
-          {
-            translateY: animateValue.interpolate({
-              inputRange: [0, 1],
-              outputRange: translateOutputRange,
-            }),
-          },
-        ],
-      }}
+      style={[
+        {
+          opacity: animateValue.interpolate({
+            inputRange: [0, 1],
+            outputRange: [from.opacity, entry.opacity],
+          }),
+          transform: [
+            {
+              translateY: animateValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: [from.translateY, entry.translateY],
+              }),
+            },
+            {
+              scale: animateValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: [from.scale, entry.scale],
+              }),
+            },
+          ],
+        },
+        { flex: 1 },
+      ]}
     >
       {children}
     </Animated.View>
@@ -112,7 +172,7 @@ type IToastProps = {
   // The title of the toast
   title?: ReactNode;
   // The alert component `variant` to use
-  variant?: string;
+  variant?: any;
 };
 
 type IToast = {
@@ -130,8 +190,11 @@ type IToastContext = {
   setToastInfo: any;
   setToast: (props: IToastProps) => void;
   removeToast: (id: any) => void;
-  removeAll: () => void;
+  hideAll: () => void;
   isActive: (id: any) => boolean;
+  visibleToasts: any;
+  setVisibleToasts: any;
+  hideToast: (id: any) => void;
 };
 
 export const ToastContext = createContext<IToastContext>({
@@ -139,12 +202,17 @@ export const ToastContext = createContext<IToastContext>({
   setToastInfo: () => {},
   setToast: () => {},
   removeToast: (id: any) => {},
-  removeAll: () => {},
+  hideAll: () => {},
   isActive: (id: any) => false,
+  visibleToasts: {},
+  setVisibleToasts: (data: any) => {},
+  hideToast: (id: any) => {},
 });
 
 export const CustomToast = () => {
-  const { toastInfo } = React.useContext(ToastContext);
+  const { toastInfo, visibleToasts, removeToast } = React.useContext(
+    ToastContext
+  );
 
   const getPositions = () => {
     return Object.keys(toastInfo);
@@ -169,14 +237,31 @@ export const CustomToast = () => {
                 // @ts-ignore
                 toastInfo[position].map((toast: IToast) => (
                   <Transition
-                    translateOutputRange={
-                      //@ts-ignore
-                      transitionConfig[position].outputRange
-                    }
+                    key={toast.id}
+                    visible={visibleToasts[toast.id]}
+                    onTransitionComplete={(status: any) => {
+                      if (status === 'exited') {
+                        removeToast(toast.id);
+                        toast.config?.onCloseComplete &&
+                          toast.config?.onCloseComplete();
+                      }
+                    }}
+                    from={{
+                      opacity: 0,
+                      translateY: transitionConfig[position],
+                    }}
+                    entry={{
+                      opacity: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0.85,
+                    }}
+                    transition={{
+                      easing: Easing.ease,
+                    }}
                   >
-                    <React.Fragment key={toast.id}>
-                      {toast.component}
-                    </React.Fragment>
+                    <SafeAreaView>{toast.component}</SafeAreaView>
                   </Transition>
                 ))
               }
@@ -190,10 +275,18 @@ export const CustomToast = () => {
 
 export const ToastProvider = ({ children }: { children: any }) => {
   const [toastInfo, setToastInfo] = useState<IToastInfo>({});
+  const [visibleToasts, setVisibleToasts] = useState<IToastInfo>({});
   let toastIndex = React.useRef(0);
 
-  const removeAll = () => {
-    setToastInfo({});
+  const hideAll = () => {
+    setVisibleToasts({});
+  };
+
+  const hideToast = (id: any) => {
+    setVisibleToasts((prevVisibleToasts) => ({
+      ...prevVisibleToasts,
+      [id]: false,
+    }));
   };
 
   const isActive = (id: any) => {
@@ -220,7 +313,6 @@ export const ToastProvider = ({ children }: { children: any }) => {
           temp[toastPosition] = newPositionArray;
 
           let newToastInfo = { ...prev, ...temp };
-
           return newToastInfo;
         }
       }
@@ -234,11 +326,12 @@ export const ToastProvider = ({ children }: { children: any }) => {
       position = 'bottom',
       title,
       render,
-      status,
+      status = 'info',
       id = toastIndex.current++,
       description,
       isClosable = true,
       duration = 5000,
+      variant,
     } = props;
     let positionToastArray = toastInfo[position];
     if (!positionToastArray) positionToastArray = [];
@@ -251,11 +344,12 @@ export const ToastProvider = ({ children }: { children: any }) => {
       component = (
         <Alert
           status={status ?? 'info'}
+          variant={variant}
           action={
             isClosable ? (
               <IconButton
                 onPress={() => {
-                  removeToast(id);
+                  hideToast(id);
                 }}
                 icon={<Icon size="xs" name="close" />}
               />
@@ -271,12 +365,6 @@ export const ToastProvider = ({ children }: { children: any }) => {
           </VStack>
         </Alert>
       );
-    } else {
-      component = (
-        <Box p={2} rounded="md" bg="gray.800" _text={{ color: 'gray.50' }}>
-          {title}
-        </Box>
-      );
     }
 
     toastInfo[position] = [
@@ -286,8 +374,10 @@ export const ToastProvider = ({ children }: { children: any }) => {
 
     setToastInfo({ ...toastInfo });
 
+    setVisibleToasts({ ...visibleToasts, [id]: true });
+
     setTimeout(function () {
-      removeToast(id);
+      hideToast(id);
     }, duration);
 
     return id;
@@ -300,8 +390,11 @@ export const ToastProvider = ({ children }: { children: any }) => {
         setToastInfo,
         setToast,
         removeToast,
-        removeAll,
+        hideAll,
         isActive,
+        visibleToasts,
+        setVisibleToasts,
+        hideToast,
       }}
     >
       {children}
@@ -311,14 +404,14 @@ export const ToastProvider = ({ children }: { children: any }) => {
 };
 
 export const useToast = () => {
-  const { removeToast, setToast, removeAll, isActive } = React.useContext(
+  const { setToast, hideAll, isActive, hideToast } = React.useContext(
     ToastContext
   );
 
   const toast = {
     show: setToast,
-    close: removeToast,
-    closeAll: removeAll,
+    close: hideToast,
+    closeAll: hideAll,
     isActive,
   };
 

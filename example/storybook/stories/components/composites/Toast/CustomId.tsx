@@ -7,7 +7,14 @@ const CustomID = () => {
   const id = 'test-id';
   return (
     <>
-      <Button onPress={() => toast.show({ title: 'Toast check', id })}>
+      <Button
+        onPress={() =>
+          toast.show({
+            title: 'Toast check',
+            id,
+          })
+        }
+      >
         Show Toast
       </Button>
 
