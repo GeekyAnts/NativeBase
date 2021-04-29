@@ -138,7 +138,7 @@ export const Tooltip = ({
             visible={isOpen}
             style={StyleSheet.absoluteFill}
             exitDuration={100}
-            entryDuration={200}
+            entryDuration={150}
           >
             <Popper
               triggerRef={targetRef}
