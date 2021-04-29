@@ -13,7 +13,7 @@ export default function () {
         <Popover.Header>Data Saved</Popover.Header>
         <Popover.Body>Your changes has been saved.</Popover.Body>
         <Popover.Footer>
-          <Link>View Changes</Link>
+          <Link href="https://google.com">View Changes</Link>
         </Popover.Footer>
       </Popover.Content>
     </Popover>

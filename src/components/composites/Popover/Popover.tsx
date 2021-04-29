@@ -6,8 +6,10 @@ import { useControllableState } from '../../../hooks';
 import { PopoverContext } from './PopoverContext';
 import Box from '../../primitives/Box';
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { Backdrop } from '..';
+import Backdrop from '../Backdrop';
 import { FocusScope } from '@react-native-aria/focus';
+import { Transition } from '../Transitions';
+import { StyleSheet } from 'react-native';
 
 const Popover = React.forwardRef(function Popover(
   {
@@ -53,8 +55,16 @@ const Popover = React.forwardRef(function Popover(
   return (
     <Box ref={ref}>
       {updatedTrigger()}
-      {isOpen && (
-        <OverlayContainer>
+      <OverlayContainer>
+        <Transition
+          from={{ opacity: 0 }}
+          entry={{ opacity: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          visible={isOpen}
+          style={StyleSheet.absoluteFill}
+          exitDuration={100}
+          entryDuration={150}
+        >
           <Popper onClose={handleClose} triggerRef={triggerRef}>
             <Backdrop onPress={handleClose} bg="transparent" />
             <PopoverContext.Provider
@@ -65,8 +75,8 @@ const Popover = React.forwardRef(function Popover(
               </FocusScope>
             </PopoverContext.Provider>
           </Popper>
-        </OverlayContainer>
-      )}
+        </Transition>
+      </OverlayContainer>
     </Box>
   );
 });

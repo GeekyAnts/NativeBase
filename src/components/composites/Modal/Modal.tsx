@@ -81,7 +81,7 @@ const Modal = React.forwardRef(
             visible={visible}
             style={StyleSheet.absoluteFill}
             exitDuration={100}
-            enterDuration={200}
+            entryDuration={200}
           >
             {overlayVisible && (
               <Backdrop
