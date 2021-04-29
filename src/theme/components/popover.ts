@@ -25,30 +25,27 @@ const baseStyle = (props: Record<string, any>) => {
   return {
     popoverCloseButtonProps: {
       size: 'xs',
-      p: 0,
+      p: 2,
+      mt: 'auto',
     },
     popoverBodyProps: {
-      mb: 3,
-      pt: 3,
-      px: 3,
+      p: 3,
       borderColor: mode('gray.300', 'gray.700')(props),
       borderTopWidth: 1,
     },
     popoverContentProps: {
-      backgroundColor: mode('gray.100', 'gray.600')(props),
+      backgroundColor: mode('gray.50', 'gray.600')(props),
       // borderColor: 'gray.300',
       borderColor: mode('gray.300', 'gray.700')(props),
       borderWidth: 1,
+      shadow: 1,
+      rounded: 'md',
     },
     popoverHeaderProps: {
-      pt: 2,
-      pb: 3,
-      px: 3,
+      p: 3,
     },
     popoverFooterProps: {
-      px: 3,
-      pb: 3,
-      pt: 3,
+      p: 3,
       borderTopWidth: 1,
       borderColor: mode('gray.300', 'gray.700')(props),
       flexDirection: 'row',

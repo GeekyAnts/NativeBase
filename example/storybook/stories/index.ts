@@ -1,3 +1,4 @@
+export * from './components/composites/Popover';
 export * from './components/composites/AlertDialog';
 export * from './components/composites/Modal';
 export * from './components/composites/Toast';
@@ -37,7 +38,6 @@ export * from './components/primitives/List';
 export * from './components/composites/Menu';
 // export * from './components/composites/NumberInput';
 // export * from './components/composites/PinInput';
-export * from './components/composites/Popover';
 export * from './components/composites/Progress';
 export * from './components/primitives/Radio';
 export * from './components/primitives/Row';

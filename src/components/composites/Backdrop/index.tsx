@@ -9,7 +9,7 @@ const Backdrop = (props: IPressableProps) => {
       bottom={0}
       left={0}
       right={0}
-      bg="rgba(0, 0, 0, 0.5)"
+      bg={props.bg || 'rgba(0, 0, 0, 0.5)'}
       {...props}
     ></Pressable>
   );

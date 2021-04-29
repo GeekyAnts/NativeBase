@@ -1,10 +1,13 @@
 import React from 'react';
-import { Popover as PopoverAlias } from 'react-native-popper';
+import { Popper } from '../Popper';
 import type { IPopoverProps } from 'native-base';
 import { mergeRefs } from '../../../utils';
 import { useControllableState } from '../../../hooks';
 import { PopoverContext } from './PopoverContext';
 import Box from '../../primitives/Box';
+import { OverlayContainer } from '@react-native-aria/overlays';
+import { Backdrop } from '..';
+import { FocusScope } from '@react-native-aria/focus';
 
 const Popover = React.forwardRef(function Popover(
   {
@@ -14,7 +17,8 @@ const Popover = React.forwardRef(function Popover(
     isOpen: isOpenProp,
     children,
     defaultIsOpen,
-    ...restProps
+    initialFocusRef,
+    finalFocusRef,
   }: IPopoverProps,
   ref: any
 ) {
@@ -46,32 +50,23 @@ const Popover = React.forwardRef(function Popover(
     setIsOpen(false);
   };
 
-  React.useEffect(() => {
-    if (restProps.initialFocusRef && restProps.initialFocusRef.current) {
-      restProps.initialFocusRef.current.focus();
-    }
-
-    return () => {
-      if (restProps.finalFocusRef && restProps.finalFocusRef.current) {
-        restProps.finalFocusRef.current.focus();
-      }
-    };
-  }, [restProps.finalFocusRef, restProps.initialFocusRef, isOpen]);
-
   return (
     <Box ref={ref}>
       {updatedTrigger()}
-      <PopoverAlias
-        isOpen={isOpen}
-        onOpenChange={setIsOpen}
-        trigger={triggerRef}
-        {...restProps}
-      >
-        <PopoverAlias.Backdrop />
-        <PopoverContext.Provider value={{ onClose: handleClose }}>
-          {children}
-        </PopoverContext.Provider>
-      </PopoverAlias>
+      {isOpen && (
+        <OverlayContainer>
+          <Popper onClose={handleClose} triggerRef={triggerRef}>
+            <Backdrop onPress={handleClose} bg="transparent" />
+            <PopoverContext.Provider
+              value={{ onClose: handleClose, initialFocusRef, finalFocusRef }}
+            >
+              <FocusScope contain restoreFocus autoFocus>
+                {children}
+              </FocusScope>
+            </PopoverContext.Provider>
+          </Popper>
+        </OverlayContainer>
+      )}
     </Box>
   );
 });
