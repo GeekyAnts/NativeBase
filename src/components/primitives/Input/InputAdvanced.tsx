@@ -5,6 +5,7 @@ import type { IInputProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils';
 
 const InputAdvance = (
   {
@@ -13,6 +14,7 @@ const InputAdvance = (
     onFocus,
     onBlur,
     inputProps,
+    wrapperRef,
     ...props
   }: IInputProps & {
     inputProps: any;
@@ -72,7 +74,7 @@ const InputAdvance = (
       {...(isFocused && _focus)}
       {...(isDisabled && _disabled)}
       {...(isInvalid && _invalid)}
-      ref={_ref}
+      ref={mergeRefs([_ref, wrapperRef])}
     >
       {InputLeftElement ? InputLeftElement : null}
       <InputBase

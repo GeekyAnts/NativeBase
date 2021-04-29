@@ -5,12 +5,16 @@ import { Center } from '../../composites/Center';
 import { useFormControlContext } from '../../composites/FormControl';
 import Box from '../Box';
 import Icon from '../Icon';
+import { mergeRefs } from './../../../utils';
 import type { ICheckboxProps } from './types';
 import { useToggleState } from '@react-stately/toggle';
 import { CheckboxGroupContext } from './CheckboxGroup';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 
-const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
+const Checkbox = (
+  { icon, children, wrapperRef, ...props }: ICheckboxProps,
+  ref: any
+) => {
   const formControlContext = useFormControlContext();
 
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
@@ -71,7 +75,7 @@ const Checkbox = ({ icon, children, ...props }: ICheckboxProps, ref: any) => {
   return (
     <Pressable
       {...(inputProps as IPressableProps)}
-      ref={ref}
+      ref={mergeRefs([ref, wrapperRef])}
       accessibilityRole="checkbox"
     >
       {({ isPressed }: any) => {

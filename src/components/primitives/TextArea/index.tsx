@@ -5,9 +5,16 @@ export type ITextAreaProps = IInputProps & {
   totalLines?: number;
 };
 
-const TextArea = ({ ...props }: ITextAreaProps, ref: any) => {
+const TextArea = ({ wrapperRef, ...props }: ITextAreaProps, ref: any) => {
   const { totalLines, ...newProps } = usePropsResolution('TextArea', props);
-  return <Input {...newProps} numberOfLines={totalLines} ref={ref} />;
+  return (
+    <Input
+      {...newProps}
+      numberOfLines={totalLines}
+      wrapperRef={wrapperRef}
+      ref={ref}
+    />
+  );
 };
 
 export default React.memo(React.forwardRef(TextArea));

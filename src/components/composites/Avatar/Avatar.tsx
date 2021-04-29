@@ -3,7 +3,7 @@ import { Box, Image, Text } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
 
-const Avatar = (props: IAvatarProps, ref: any) => {
+const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
   const { size, style, source, children, ...remainingProps } = props;
 
@@ -19,7 +19,7 @@ const Avatar = (props: IAvatarProps, ref: any) => {
   React.Children.map(children, (child, key) => {
     if (
       typeof child.type === 'object' &&
-      child.type.type?.name === 'AvatarBadge'
+      child.type.displayName === 'AvatarBadge'
     ) {
       Badge = child;
     } else {
@@ -38,7 +38,7 @@ const Avatar = (props: IAvatarProps, ref: any) => {
   const imageFitStyle = { height: '100%', width: '100%' };
 
   return (
-    <Box {...newProps} style={style} ref={ref}>
+    <Box {...newProps} style={style} ref={wrapperRef}>
       {source && !error ? (
         <Image
           borderRadius={newProps.borderRadius}
@@ -49,6 +49,7 @@ const Avatar = (props: IAvatarProps, ref: any) => {
           onError={() => {
             setError(true);
           }}
+          ref={ref}
         />
       ) : remainingChildren.length === 0 ? (
         <Text {..._text}>--</Text> // default alternate

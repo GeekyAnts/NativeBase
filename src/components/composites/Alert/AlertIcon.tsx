@@ -5,7 +5,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { AlertContext } from './Context';
 import { omitUndefined } from '../../../theme/tools/utils';
 
-const AlertIcon = ({ children, ...props }: any, ref?: any) => {
+const AlertIcon = ({ children, wrapperRef, ...props }: any, ref?: any) => {
   let newProps = usePropsResolution('AlertIcon', props);
   newProps = omitUndefined(newProps);
   const { status, iconColor }: IAlertContext = React.useContext(AlertContext);
@@ -24,7 +24,7 @@ const AlertIcon = ({ children, ...props }: any, ref?: any) => {
 
   // TODO: Refactor this and move alignSelf to Icon component.
   return (
-    <Box alignSelf="center">
+    <Box alignSelf="center" ref={wrapperRef}>
       {children || (
         <Icon name={getIconName()} color={iconColor} {...newProps} ref={ref} />
       )}

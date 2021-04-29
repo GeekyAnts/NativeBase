@@ -103,7 +103,9 @@ const SVGIcon = (
 ) => {
   const newProps = usePropsResolution('Icon', { size });
   let strokeColor = useToken('colors', stroke || '');
-  colorProp = useToken('colors', colorProp || '');
+
+  colorProp = useToken('colors', colorProp || 'primary.400');
+
   return (
     <SVG
       height={
@@ -136,7 +138,7 @@ const SVGIcon = (
           )}
         </G>
       ) : (
-        getDefaultIcon(ref)
+        getDefaultIcon()
       )}
     </SVG>
   );
@@ -162,9 +164,9 @@ const ChildPath = ({
     />
   );
 };
-const getDefaultIcon = (ref: any) => {
+const getDefaultIcon = () => {
   return (
-    <G strokeWidth={1.5} stroke="currentColor" ref={ref}>
+    <G strokeWidth={1.5} stroke="currentColor">
       <Path
         d={'M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25'}
         fill="none"

@@ -51,6 +51,7 @@ export type IInputProps = IPlatformProps &
     _focus?: any;
     _disabled?: any;
     _invalid?: any;
+    wrapperRef?: any;
     // These porps are currently on hold
     // label?: string;
     // _label?: ITextProps;

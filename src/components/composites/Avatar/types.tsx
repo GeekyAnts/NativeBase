@@ -8,6 +8,7 @@ export type IAvatarProps = IBoxProps & {
   size?: string | undefined;
   source?: ImageSourcePropType;
   children?: JSX.Element[] | JSX.Element | any | undefined | string;
+  wrapperRef?: any;
 };
 
 export type IAvatarBadgeProps = IBoxProps & {
