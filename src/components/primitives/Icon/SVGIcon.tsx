@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks';
 import { useToken } from '../../../hooks';
 import styled from 'styled-components/native';
 import {
