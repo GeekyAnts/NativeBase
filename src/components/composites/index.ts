@@ -112,7 +112,7 @@ export { default as CircularProgress } from './CircularProgress';
 export { Popover } from './Popover';
 export type { IPopoverProps } from './Popover';
 
-// export { AlertDialog } from './AlertDialog';
+export { AlertDialog } from './AlertDialog';
 
 export { Menu } from './Menu';
 export type {

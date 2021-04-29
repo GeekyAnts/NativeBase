@@ -35,4 +35,4 @@ export type IModalComponentType = ((
   >;
 };
 
-export { Modal, IModalProps };
+export { ModalMain as Modal, IModalProps };
