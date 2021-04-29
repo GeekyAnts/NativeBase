@@ -21,6 +21,7 @@ const Popover = React.forwardRef(function Popover(
     defaultIsOpen,
     initialFocusRef,
     finalFocusRef,
+    ...rest
   }: IPopoverProps,
   ref: any
 ) {
@@ -65,7 +66,7 @@ const Popover = React.forwardRef(function Popover(
           exitDuration={100}
           entryDuration={150}
         >
-          <Popper onClose={handleClose} triggerRef={triggerRef}>
+          <Popper onClose={handleClose} triggerRef={triggerRef} {...rest}>
             <Backdrop onPress={handleClose} bg="transparent" />
             <PopoverContext.Provider
               value={{ onClose: handleClose, initialFocusRef, finalFocusRef }}

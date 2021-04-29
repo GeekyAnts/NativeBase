@@ -9,6 +9,7 @@ export default function () {
       }}
     >
       <Popover.Content>
+        <Popover.Arrow />
         <Popover.CloseButton />
         <Popover.Header>Data Saved</Popover.Header>
         <Popover.Body>Your changes has been saved.</Popover.Body>

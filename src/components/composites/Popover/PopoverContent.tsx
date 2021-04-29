@@ -1,9 +1,11 @@
-import { keyboardDismissHandlerManager, useThemeProps } from '../../../hooks';
+import {
+  keyboardDismissHandlerManager,
+  useThemeProps,
+  useToken,
+} from '../../../hooks';
 import React from 'react';
-import Box from '../../primitives/Box';
 import type { IPopoverContentProps } from './types';
 import { Popper } from '../Popper';
-import { useToken } from '../../../hooks';
 import { PopoverContext } from './PopoverContext';
 
 export const PopoverContent = React.forwardRef(
@@ -13,7 +15,13 @@ export const PopoverContent = React.forwardRef(
     );
     let defaultStyle = useThemeProps('Popover', props);
     defaultStyle = props.isUnstyled ? {} : defaultStyle.popoverContentProps;
-    const color = useToken('colors', defaultStyle.backgroundColor);
+
+    const arrowDefaultColor =
+      props.bgColor ??
+      props.bg ??
+      props.backgroundColor ??
+      defaultStyle.backgroundColor;
+    const color = useToken('colors', arrowDefaultColor);
 
     React.useEffect(() => {
       if (initialFocusRef && initialFocusRef.current) {
@@ -35,10 +43,22 @@ export const PopoverContent = React.forwardRef(
       };
     }, []);
 
+    let arrowElement = null;
+    let restChildren: any = [];
+    React.Children.forEach(props.children, (child) => {
+      if (child.type.displayName === 'PopperArrow') {
+        arrowElement = React.cloneElement(child, {
+          color: child.props.color ?? color,
+        });
+      } else {
+        restChildren.push(child);
+      }
+    });
+
     return (
-      <Popper.Content>
-        <Popper.Arrow height={10} width={16} color={color} />
-        <Box {...defaultStyle} {...props} ref={ref} />
+      <Popper.Content {...defaultStyle} {...props} ref={ref}>
+        {arrowElement}
+        {restChildren}
       </Popper.Content>
     );
   }

@@ -9,6 +9,8 @@ import type {
   IPopoverContent,
 } from './types';
 import { createContext } from '../../../utils';
+import Box, { IBoxProps } from '../../primitives/Box';
+import { useToken } from '../../../hooks';
 
 const defaultArrowHeight = 10;
 const defaultArrowWidth = 16;
@@ -33,156 +35,179 @@ const Popper = (
   return <PopperProvider {...props}>{props.children}</PopperProvider>;
 };
 
-const PopperContent = ({ children }: IPopoverContent) => {
-  const {
-    triggerRef,
-    shouldFlip,
-    crossOffset,
-    offset,
-    placement: placementProp,
-    onClose,
-    shouldOverlapWithTrigger,
-    setOverlayRef,
-  } = usePopperContext('PopperContent');
-  const overlayRef = React.useRef(null);
+const PopperContent = React.forwardRef(
+  ({ children, style, ...rest }: IPopoverContent & IBoxProps, ref: any) => {
+    const {
+      triggerRef,
+      shouldFlip,
+      crossOffset,
+      offset,
+      placement: placementProp,
+      onClose,
+      shouldOverlapWithTrigger,
+      setOverlayRef,
+    } = usePopperContext('PopperContent');
+    const overlayRef = React.useRef(null);
 
-  const { overlayProps, rendered, arrowProps, placement } = useOverlayPosition({
-    targetRef: triggerRef,
-    overlayRef,
-    shouldFlip: shouldFlip,
-    crossOffset: crossOffset,
-    isOpen: true,
-    offset: offset,
-    placement: placementProp as any,
-    containerPadding: 0,
-    onClose: onClose,
-    shouldOverlapWithTrigger,
-  });
+    const {
+      overlayProps,
+      rendered,
+      arrowProps,
+      placement,
+    } = useOverlayPosition({
+      targetRef: triggerRef,
+      overlayRef,
+      shouldFlip: shouldFlip,
+      crossOffset: crossOffset,
+      isOpen: true,
+      offset: offset,
+      placement: placementProp as any,
+      containerPadding: 0,
+      onClose: onClose,
+      shouldOverlapWithTrigger,
+    });
 
-  let restElements: React.ReactNode[] = [];
-  let arrowElement: React.ReactElement | null = null;
+    let restElements: React.ReactNode[] = [];
+    let arrowElement: React.ReactElement | null = null;
 
-  React.useEffect(() => {
-    setOverlayRef && setOverlayRef(overlayRef);
-  }, [overlayRef, setOverlayRef]);
+    React.useEffect(() => {
+      setOverlayRef && setOverlayRef(overlayRef);
+    }, [overlayRef, setOverlayRef]);
 
-  // Might have performance impact if there are a lot of siblings!
-  // Shouldn't be an issue with popovers since it would have atmost 2. Arrow and Content.
-  React.Children.forEach(children, (child) => {
-    if (
-      React.isValidElement(child) &&
-      // @ts-ignore
-      child.type.displayName === 'PopperArrow'
-    ) {
-      arrowElement = React.cloneElement(child, {
+    // Might have performance impact if there are a lot of siblings!
+    // Shouldn't be an issue with popovers since it would have atmost 2. Arrow and Content.
+    React.Children.forEach(children, (child) => {
+      if (
+        React.isValidElement(child) &&
         // @ts-ignore
-        arrowProps,
-        actualPlacement: placement,
-      });
-    } else {
-      restElements.push(child);
-    }
-  });
+        child.type.displayName === 'PopperArrow'
+      ) {
+        arrowElement = React.cloneElement(child, {
+          // @ts-ignore
+          arrowProps,
+          actualPlacement: placement,
+        });
+      } else {
+        restElements.push(child);
+      }
+    });
 
-  let arrowHeight = 0;
-  let arrowWidth = 0;
+    let arrowHeight = 0;
+    let arrowWidth = 0;
 
-  if (arrowElement) {
-    arrowHeight = defaultArrowHeight;
-    arrowWidth = defaultArrowWidth;
+    if (arrowElement) {
+      arrowHeight = defaultArrowHeight;
+      arrowWidth = defaultArrowWidth;
 
-    //@ts-ignore
-    if (arrowElement.props.height) {
       //@ts-ignore
-      arrowHeight = arrowElement.props.height;
-    }
+      if (arrowElement.props.height) {
+        //@ts-ignore
+        arrowHeight = arrowElement.props.height;
+      }
 
-    //@ts-ignore
-    if (arrowElement.props.width) {
       //@ts-ignore
-      arrowWidth = arrowElement.props.width;
+      if (arrowElement.props.width) {
+        //@ts-ignore
+        arrowWidth = arrowElement.props.width;
+      }
     }
-  }
 
-  const containerStyle = React.useMemo(
-    () =>
-      getContainerStyle({
-        placement,
-        arrowHeight,
-        arrowWidth,
-      }),
-    [arrowHeight, arrowWidth, placement]
-  );
+    const containerStyle = React.useMemo(
+      () =>
+        getContainerStyle({
+          placement,
+          arrowHeight,
+          arrowWidth,
+        }),
+      [arrowHeight, arrowWidth, placement]
+    );
 
-  const overlayStyle = React.useMemo(
-    () =>
-      StyleSheet.create({
-        overlay: {
-          ...overlayProps.style,
-          opacity: rendered ? 1 : 0,
-          position: 'absolute',
-        },
-      }),
-    [rendered, overlayProps.style]
-  );
+    const overlayStyle = React.useMemo(
+      () =>
+        StyleSheet.create({
+          overlay: {
+            ...overlayProps.style,
+            opacity: rendered ? 1 : 0,
+            position: 'absolute',
+          },
+        }),
+      [rendered, overlayProps.style]
+    );
 
-  return (
-    <View ref={overlayRef} collapsable={false} style={overlayStyle.overlay}>
-      {arrowElement}
-      <View style={containerStyle}>{restElements}</View>
-    </View>
-  );
-};
-
-// This is an internal implementation of PopoverArrow
-const PopperArrow = ({
-  height = defaultArrowHeight,
-  width = defaultArrowWidth,
-
-  //@ts-ignore - Will be passed by React.cloneElement from PopperContent
-  arrowProps,
-  //@ts-ignore - Will be passed by React.cloneElement from PopperContent
-  actualPlacement,
-  ...rest
-}: IPopoverArrowProps) => {
-  const additionalStyles = React.useMemo(
-    () => getArrowStyles({ placement: actualPlacement, height, width }),
-    [actualPlacement, height, width]
-  );
-
-  let triangleStyle: ViewStyle = React.useMemo(
-    () => ({
-      position: 'absolute',
-      width: 0,
-      height: 0,
-      backgroundColor: 'transparent',
-      borderStyle: 'solid',
-      borderLeftWidth: width / 2,
-      borderRightWidth: width / 2,
-      borderBottomWidth: height,
-      borderLeftColor: 'transparent',
-      borderRightColor: 'transparent',
-      borderBottomColor: rest.color,
-    }),
-    [width, height, rest.color]
-  );
-
-  let arrowStyles = React.useMemo(
-    () => [triangleStyle, additionalStyles, arrowProps.style, rest.style],
-    [triangleStyle, additionalStyles, arrowProps.style, rest.style]
-  );
-
-  // Passed a custom Arrow, don't apply triangle style
-  if (rest.children) {
     return (
-      <View style={[additionalStyles, arrowProps.style, rest.style]}>
-        {rest.children}
+      <View ref={overlayRef} collapsable={false} style={overlayStyle.overlay}>
+        {arrowElement}
+        <Box
+          style={StyleSheet.flatten([containerStyle, style])}
+          {...rest}
+          ref={ref}
+        >
+          {restElements}
+        </Box>
       </View>
     );
   }
+);
 
-  return <View style={arrowStyles}></View>;
-};
+// This is an internal implementation of PopoverArrow
+const PopperArrow = React.forwardRef(
+  (
+    {
+      height = defaultArrowHeight,
+      width = defaultArrowWidth,
+
+      //@ts-ignore - Will be passed by React.cloneElement from PopperContent
+      arrowProps,
+      //@ts-ignore - Will be passed by React.cloneElement from PopperContent
+      actualPlacement,
+      ...rest
+    }: IPopoverArrowProps,
+    ref: any
+  ) => {
+    const additionalStyles = React.useMemo(
+      () => getArrowStyles({ placement: actualPlacement, height, width }),
+      [actualPlacement, height, width]
+    );
+
+    const color = useToken('colors', rest.color ?? 'black');
+
+    let triangleStyle: ViewStyle = React.useMemo(
+      () => ({
+        position: 'absolute',
+        width: 0,
+        height: 0,
+        backgroundColor: 'transparent',
+        borderStyle: 'solid',
+        borderLeftWidth: width / 2,
+        borderRightWidth: width / 2,
+        borderBottomWidth: height,
+        borderLeftColor: 'transparent',
+        borderRightColor: 'transparent',
+        borderBottomColor: color,
+      }),
+      [width, height, color]
+    );
+
+    let arrowStyles = React.useMemo(
+      () => [triangleStyle, additionalStyles, arrowProps.style, rest.style],
+      [triangleStyle, additionalStyles, arrowProps.style, rest.style]
+    );
+
+    // Passed a custom Arrow, don't apply triangle style
+    if (rest.children) {
+      return (
+        <View
+          ref={ref}
+          style={[additionalStyles, arrowProps.style, rest.style]}
+        >
+          {rest.children}
+        </View>
+      );
+    }
+
+    return <View ref={ref} style={arrowStyles}></View>;
+  }
+);
 
 const getArrowStyles = (props: IArrowStyles) => {
   let additionalStyles: any = {
