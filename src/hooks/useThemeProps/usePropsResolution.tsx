@@ -2,12 +2,11 @@ import get from 'lodash/get';
 import omit from 'lodash/omit';
 import isNil from 'lodash/isNil';
 import merge from 'lodash/merge';
-import { useWindowDimensions, Platform } from 'react-native';
+import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { usePlatformProps } from '../usePlatformProps';
 import { useColorMode } from '../../core/color-mode';
 import {
-  mergeUnderscoreProps,
   resolveValueWithBreakpoint,
   extractPropertyFromFunction,
 } from './utils';
@@ -16,8 +15,8 @@ import {
   omitUndefined,
   extractInObject,
 } from './../../theme/tools';
-import { filterShadowProps } from './../../utils/filterShadowProps';
 import { themePropertyMap } from './../../theme/base';
+import { useContrastText } from '../useContrastText';
 
 /**
  * @summary Resolves, simplify and merge components specific theme.
@@ -57,7 +56,6 @@ const simplifyComponentTheme = (
             ...colorModeProps,
           });
   }
-  // console.log('componentBaseStyle = ', componentBaseStyle);
 
   const variant = combinedProps.variant;
   let componentVariantProps = {};
@@ -72,7 +70,6 @@ const simplifyComponentTheme = (
             ...colorModeProps,
           });
   }
-  // console.log('componentVariantProps = ', componentVariantProps);
 
   const componentMergedTheme = merge(
     {},
@@ -80,187 +77,158 @@ const simplifyComponentTheme = (
     componentBaseStyle,
     componentVariantProps
   );
-  // console.log('componentMergedTheme = ', componentMergedTheme);
 
   return componentMergedTheme;
 };
 
-const magicFunction = (
-  unbrewedProps: any,
-  theme: any,
-  colorModeProps: object,
-  componentTheme: object,
-  windowWidth: number
-) => {
-  let brewedProps: any = {};
-
-  let currentBreakpoint = getClosestBreakpoint(theme.breakpoints, windowWidth);
-  for (var property in unbrewedProps) {
-    // check also if property is not inherited from prototype
-
-    if (themePropertyMap[property]) {
-      // TODO: The function can be removed, as it's kind of over kill.
-      // const propValues =
-      //   typeof unbrewedProps[property] !== 'function'
-      //     ? unbrewedProps[property]
-      //     : unbrewedProps[property]({
-      //         theme,
-      //         ...unbrewedProps,
-      //         ...colorModeProps,
-      //       });
+/**
+ * @summary Translates the prop with it's appropriate value.
+ * @description NOTE: Avoid passo  JSX and functions.
+ * @arg {any} props - Props object with should be translated.
+ * @arg {any} theme - Theme based on which props will be translated.
+ * @arg {object} colorModeProps - `colorMode` object.
+ * @arg {object} componentTheme - Theme for specific components.
+ * @arg {object} windowWidth - Current width of the window / screen.
+ * @returns {object} Translated props object.
+ */
+const propTranslator = ({
+  props,
+  theme,
+  colorModeProps,
+  componentTheme,
+  windowWidth,
+}: {
+  props: any;
+  theme: any;
+  colorModeProps: object;
+  componentTheme: object;
+  windowWidth: number;
+}) => {
+  let translatedProps: any = {};
+  const currentBreakpoint = getClosestBreakpoint(
+    theme.breakpoints,
+    windowWidth
+  );
+  for (const property in props) {
+    // STEP 1 - Responsive prop check and resolve
+    if (property.startsWith('_')) {
+      // STEP 1.a - Resolving _ porps
+      const nestedTranslatedProps = propTranslator({
+        props: props[property],
+        theme,
+        colorModeProps,
+        componentTheme,
+        windowWidth,
+      });
+      translatedProps[property] = nestedTranslatedProps;
+    } else if (themePropertyMap[property]) {
+      // STEP 1.b Resolving themed props
       const propValues = extractPropertyFromFunction(
         property,
-        unbrewedProps,
+        props,
         theme,
         componentTheme
       );
+
+      // NOTE: Direct value identified.
       if (typeof propValues === 'string' || typeof propValues === 'number') {
-        brewedProps[property] = propValues;
+        translatedProps[property] = propValues;
+        // NOTE: Nested object (excluding _props) (To be specific, only for key exist in themePropertyMap)
       } else if (!isNil(propValues)) {
         // TODO: This setion new needs to handle stuff differently
         for (let nestedProp in propValues) {
-          brewedProps[nestedProp] = get(
+          translatedProps[nestedProp] = get(
             theme,
             `${themePropertyMap[nestedProp]}.${propValues[nestedProp]}`,
             propValues[nestedProp]
           );
         }
-        delete brewedProps[property];
+        delete translatedProps[property];
+        // Manually handeling shadow props (example of Mapped tokens)
       } else if (property === 'shadow') {
+        const resolveValueWithBreakpointValue = resolveValueWithBreakpoint(
+          props.shadow,
+          currentBreakpoint,
+          property
+        );
         let shadowProps = theme[themePropertyMap[property]](colorModeProps)[
-          unbrewedProps[property]
+          resolveValueWithBreakpointValue
         ];
-        if (!isNil(shadowProps)) {
-          brewedProps = { ...brewedProps, ...shadowProps };
-        }
+        translatedProps.style = merge({}, shadowProps, props.style);
+        delete translatedProps[property];
       } else {
-        brewedProps[property] = resolveValueWithBreakpoint(
-          unbrewedProps[property],
+        translatedProps[property] = resolveValueWithBreakpoint(
+          props[property],
           currentBreakpoint,
           property
         );
       }
     } else {
-      // TODO: not working
-      // if (property.startsWith('_')) {
-      //   brewedProps[property] = magicFunction(
-      //     unbrewedProps[property],
-      //     theme,
-      //     colorModeProps,
-      //     componentTheme
-      //   );
-      // }
-      // else if (property === 'variant') {
-      //   const fsdfdsf =
-      //     typeof componentTheme.variants[unbrewedProps[property]] !== 'function'
-      //       ? componentTheme.variants[unbrewedProps[property]]
-      //       : componentTheme.variants[unbrewedProps[property]]({
-      //           theme,
-      //           ...unbrewedProps,
-      //           ...colorModeProps,
-      //         });
-      //   merge(brewedProps, fsdfdsf);
-      // }
-      // else {
-      brewedProps[property] = resolveValueWithBreakpoint(
-        unbrewedProps[property],
+      // STEP 1.d Resolving Direct Values
+      translatedProps[property] = resolveValueWithBreakpoint(
+        props[property],
         currentBreakpoint,
         property
       );
-      // }
     }
   }
 
-  return brewedProps;
+  return translatedProps;
 };
 
 /**
- * @summary undefined.
- * @description undefined.
- * @arg {string} component - Theme object of NativeBase (without component theme).
+ * @summary Combines provided porps with component's theme props and resloves them.
+ * @description NOTE: Avoid passing JSX and functions.
+ * @arg {string} component - Name of the component.
  * @arg {object} incomingProps - Props passed by the user.
  * @returns {object} Resolved props.
  */
 export function usePropsResolution(component: string, incomingProps: any) {
-  // console.log(
-  //   '%c\tComponent:\t',
-  //   'background: #374151; color: #10b981; font-weight: 700;',
-  //   component
-  // );
-
-  // TODO: removed unrequired stuff from recived porp
-  // Extracting out children and style, as they do not contribute in props calculation
-  // This is done as these props are passed as it is later in the development
-  // Required as some of these will trigger cyclic computation which may lead to error
   const [ignoredProps, cleanIncomingProps] = extractInObject(incomingProps, [
     'children',
-    'style',
     'onPress',
     'icon',
     'onOpen',
     'onClose',
   ]);
-
   const { theme } = useNativeBase();
   const colorModeProps = useColorMode();
-  // console.log('THEME = ', theme);
 
   const componentTheme = get(theme, `components.${component}`);
-  // console.log('COMPONENT THEME = ', componentTheme);
+  const notComponentTheme = omit(theme, ['components']);
 
   const componentThemeObject = simplifyComponentTheme(
-    omit(theme, ['components']),
+    notComponentTheme,
     componentTheme,
     cleanIncomingProps,
     colorModeProps
   );
-
   const componentThemeIntegratedProps = merge(
     {},
     componentThemeObject,
-    incomingProps
+    cleanIncomingProps
   );
-  // console.log(
-  //   'componentThemeIntegratedProps = ',
-  //   componentThemeIntegratedProps
-  // );
-
   const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
-  // console.log('platformSpecificProps = ', platformSpecificProps);
 
   const windowWidth = useWindowDimensions()?.width;
-  const magicalProps = magicFunction(
-    platformSpecificProps,
-    theme,
+  const translatedProps = propTranslator({
+    props: platformSpecificProps,
+    theme: notComponentTheme,
     colorModeProps,
     componentTheme,
-    windowWidth
-  );
-  // console.log('magicalProps = ', magicalProps);
+    windowWidth,
+  });
 
-  // const extractedProps = extractProps(
-  //   platformSpecificProps,
-  //   theme,
-  //   colorModeProps,
-  //   componentTheme,
-  //   windowWidth
-  // );
+  // TODO: Maybe it can be moved to Box itself
+  let textBg = translatedProps.bg || translatedProps.backgroundColor || 'white';
+  // When no bg exists, assuming it's white.
+  const contrastTextColor = useContrastText(textBg || 'white', theme.colors);
+  translatedProps._text = {
+    color: contrastTextColor,
+    ...translatedProps._text,
+  };
 
-  // console.log('extractedProps = ', extractedProps);
+  const resolvedProps = omitUndefined({ ...translatedProps, ...ignoredProps });
 
-  // For shadow fix
-  // TODO: Later merge it in base logic
-
-  let shadowedProps = filterShadowProps(
-    magicalProps,
-    ignoredProps,
-    Platform.OS
-  );
-
-  const contrastText = mergeUnderscoreProps(shadowedProps, incomingProps);
-
-  // const resolvedProps = merge({}, contrastText);
-  // console.log('resolvedProps = ', resolvedProps);
-
-  return omitUndefined(contrastText);
+  return resolvedProps;
 }

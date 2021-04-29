@@ -91,7 +91,9 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   } = usePropsResolution('Text', props);
 
   const _ref = React.useRef(null);
-  const { isHovered } = useHover({}, _ref);
+  // TODO: might have to add this condition
+  const { isHovered } = useHover({}, _hover ? _ref : null);
+  // const { isHovered } = useHover({}, _ref);
   let fontFamily = propFontFamily;
   let fontStyle = italic ? 'italic' : propFontStyle;
   let fontWeight = bold ? 'bold' : propFontWeight;

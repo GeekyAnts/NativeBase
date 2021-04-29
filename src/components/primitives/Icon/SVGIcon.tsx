@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import { useToken } from '../../../hooks';
 import styled from 'styled-components/native';
 import {
@@ -101,7 +101,7 @@ const SVGIcon = (
   }: IIconProps,
   ref: any
 ) => {
-  const newProps = useThemeProps('Icon', { size });
+  const newProps = usePropsResolution('Icon', { size });
   let strokeColor = useToken('colors', stroke || '');
   colorProp = useToken('colors', colorProp || '');
   return (

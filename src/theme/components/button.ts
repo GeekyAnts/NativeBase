@@ -51,22 +51,13 @@ function variantGhost(props: Dict) {
       outlineWidth: 0,
     },
     _hover: {
-      backgroundColor: transparentize(
-        mode(`${c}.200`, `${c}.500`)(props),
-        0.5
-      )(props.theme),
+      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
     },
     _focus: {
-      backgroundColor: transparentize(
-        mode(`${c}.200`, `${c}.500`)(props),
-        0.5
-      )(props.theme),
+      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
     },
     _pressed: {
-      backgroundColor: transparentize(
-        mode(`${c}.200`, `${c}.500`)(props),
-        0.6
-      )(props.theme),
+      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.6)(props.theme),
     },
   };
 }
@@ -115,13 +106,13 @@ function variantSolid(props: Dict) {
     },
     bg,
     _hover: {
-      backgroundColor: mode(`${c}.600`, `${c}.500`)(props),
+      bg: mode(`${c}.600`, `${c}.500`)(props),
     },
     _focus: {
-      backgroundColor: bg,
+      bg: bg,
     },
     _pressed: {
-      backgroundColor: mode(`${c}.700`, `${c}.600`)(props),
+      bg: mode(`${c}.700`, `${c}.600`)(props),
     },
   };
 
