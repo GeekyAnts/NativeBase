@@ -26,6 +26,7 @@ export type ISelectProps = IBoxProps & {
   androidPrompt?: string;
   type?: 'native' | 'custom';
   _actionSheetContent?: IActionsheetContentProps;
+  wrapperRef?: any;
 };
 
 export type ISelectItemProps = IButtonProps & {

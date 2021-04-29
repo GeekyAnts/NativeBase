@@ -16,18 +16,20 @@ function CheckboxGroup(
   let { groupProps } = useCheckboxGroup(props, state);
   const formControlContext = useFormControlContext();
   return (
-    <CheckboxGroupContext.Provider
-      value={{
-        size,
-        colorScheme,
-        ...formControlContext,
-        state,
-      }}
-    >
-      <Box alignItems="flex-start" {...groupProps} {...props} ref={ref}>
-        {children}
-      </Box>
-    </CheckboxGroupContext.Provider>
+    <Box ref={ref}>
+      <CheckboxGroupContext.Provider
+        value={{
+          size,
+          colorScheme,
+          ...formControlContext,
+          state,
+        }}
+      >
+        <Box alignItems="flex-start" {...groupProps} {...props}>
+          {children}
+        </Box>
+      </CheckboxGroupContext.Provider>
+    </Box>
   );
 }
 

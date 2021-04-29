@@ -11,7 +11,10 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { RadioContext } from './RadioGroup';
 import { useFocusRing } from '@react-native-aria/focus';
 
-const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
+const Radio = (
+  { icon, children, wrapperRef, ...props }: IRadioProps,
+  ref: any
+) => {
   const contextState = React.useContext(RadioContext);
   const {
     _interactionBox: {
@@ -41,7 +44,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
-  const mergedRefs = mergeRefs([_ref, ref]);
+  const mergedRefs = mergeRefs([_ref, wrapperRef]);
   const { focusProps, isFocusVisible } = useFocusRing();
 
   // only calling below function when icon exist.

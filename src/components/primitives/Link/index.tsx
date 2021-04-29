@@ -19,6 +19,7 @@ const Link = (
     isExternal,
     children,
     _text,
+    wrapperRef,
     ...props
   }: ILinkProps,
   ref: any
@@ -37,7 +38,7 @@ const Link = (
   };
   const { linkProps } = useLink({ href, onClick, isExternal, _ref });
   return (
-    <Box {...layoutProps}>
+    <Box {...layoutProps} ref={wrapperRef}>
       {Platform.OS === 'web' ? (
         <StyledLink
           {...linkProps}

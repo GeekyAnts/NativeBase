@@ -6,46 +6,52 @@ import { useColorModeValue } from '../../../core/color-mode/hooks';
 import Flex from '../Flex';
 import { themeTools } from '../../../theme';
 
-export const InputLeftAddon = React.memo((props: IBoxProps & IInputProps) => {
-  const addonsDefaultStyle = {
-    p: 3,
-    borderColor: useColorModeValue('gray.300', 'gray.600'),
-    borderWidth: 1,
-  };
-  return (
-    <Box
-      {...addonsDefaultStyle}
-      borderRightWidth={0}
-      roundedLeft={4}
-      bg={useColorModeValue('gray.50', 'gray.700')}
-      {...props}
-    >
-      <Box m="auto" _text={props._text || { fontWeight: 600 }}>
-        {props.children}
+export const InputLeftAddon = React.memo(
+  React.forwardRef((props: IBoxProps & IInputProps, ref?: any) => {
+    const addonsDefaultStyle = {
+      p: 3,
+      borderColor: useColorModeValue('gray.300', 'gray.600'),
+      borderWidth: 1,
+    };
+    return (
+      <Box
+        {...addonsDefaultStyle}
+        borderRightWidth={0}
+        roundedLeft={4}
+        bg={useColorModeValue('gray.50', 'gray.700')}
+        {...props}
+        ref={ref}
+      >
+        <Box m="auto" _text={props._text || { fontWeight: 600 }}>
+          {props.children}
+        </Box>
       </Box>
-    </Box>
-  );
-});
-export const InputRightAddon = React.memo((props: IBoxProps & IInputProps) => {
-  const addonsDefaultStyle = {
-    p: 3,
-    borderColor: useColorModeValue('gray.300', 'gray.600'),
-    borderWidth: 1,
-  };
-  return (
-    <Box
-      {...addonsDefaultStyle}
-      borderLeftWidth={0}
-      roundedRight={4}
-      bg={useColorModeValue('gray.50', 'gray.700')}
-      {...props}
-    >
-      <Box m="auto" _text={props._text || { fontWeight: 600 }}>
-        {props.children}
+    );
+  })
+);
+export const InputRightAddon = React.memo(
+  React.forwardRef((props: IBoxProps & IInputProps, ref?: any) => {
+    const addonsDefaultStyle = {
+      p: 3,
+      borderColor: useColorModeValue('gray.300', 'gray.600'),
+      borderWidth: 1,
+    };
+    return (
+      <Box
+        {...addonsDefaultStyle}
+        borderLeftWidth={0}
+        roundedRight={4}
+        bg={useColorModeValue('gray.50', 'gray.700')}
+        {...props}
+        ref={ref}
+      >
+        <Box m="auto" _text={props._text || { fontWeight: 600 }}>
+          {props.children}
+        </Box>
       </Box>
-    </Box>
-  );
-});
+    );
+  })
+);
 
 type InputGroupProps = IBoxProps & {
   children: JSX.Element | JSX.Element[];

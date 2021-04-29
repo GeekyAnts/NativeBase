@@ -13,7 +13,10 @@ import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
 
-const Checkbox = ({ children, icon, ...props }: ICheckboxProps, ref: any) => {
+const Checkbox = (
+  { children, icon, wrapperRef, ...props }: ICheckboxProps,
+  ref: any
+) => {
   const formControlContext = useFormControlContext();
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
   const {
@@ -136,7 +139,7 @@ const Checkbox = ({ children, icon, ...props }: ICheckboxProps, ref: any) => {
     <Box
       // @ts-ignore - RN web supports accessibilityRole="label"
       accessibilityRole="label"
-      ref={_ref}
+      ref={mergeRefs([wrapperRef, _ref])}
     >
       <VisuallyHidden>
         <input {...inputProps} {...focusProps} ref={mergedRef} />
