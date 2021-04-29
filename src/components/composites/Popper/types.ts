@@ -21,6 +21,20 @@ export type IArrowProps = {
   style: Object;
 };
 
+export type IPlacement =
+  | 'top'
+  | 'bottom'
+  | 'left'
+  | 'right'
+  | 'top left'
+  | 'top right'
+  | 'bottom left'
+  | 'bottom right'
+  | 'right top'
+  | 'right bottom'
+  | 'left top'
+  | 'left bottom';
+
 // Tooltip is rendered in Non RN modal which won't shift accessibilityFocus
 export type OverlayType = 'single' | 'multiple';
 
@@ -39,22 +53,8 @@ export type IPopoverProps = {
   shouldOverlapWithTrigger?: boolean;
   trigger?: ReactElement | RefObject<any>;
   animated?: boolean;
-  animationEntryDuration?: number;
-  animationExitDuration?: number;
   shouldCloseOnOutsideClick?: boolean;
-  placement?:
-    | 'top'
-    | 'bottom'
-    | 'left'
-    | 'right'
-    | 'top left'
-    | 'top right'
-    | 'bottom left'
-    | 'bottom right'
-    | 'right top'
-    | 'right bottom'
-    | 'left top'
-    | 'left bottom';
+  placement?: IPlacement;
 
   // Web only
   isKeyboardDismissable?: boolean;

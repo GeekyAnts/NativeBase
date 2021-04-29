@@ -40,6 +40,7 @@ import Icon from './icon';
 import IconButton from './icon-button';
 import { Image } from './image';
 import { Input } from './input';
+import { Tooltip } from './tooltip';
 import Kbd from './kbd';
 import Link from './link';
 import { default as Menu, MenuGroup, MenuItem } from './menu';
@@ -170,4 +171,5 @@ export default {
   View,
   Wrap,
   ZStack,
+  Tooltip,
 };

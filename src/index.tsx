@@ -107,6 +107,7 @@ import {
   useToast,
   Backdrop,
   Drawer,
+  Tooltip,
 } from './components/composites';
 
 import {
@@ -246,6 +247,7 @@ export {
   useToast,
   Backdrop,
   Drawer,
+  Tooltip,
 };
 export type {
   IAlertProps,

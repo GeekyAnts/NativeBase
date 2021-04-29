@@ -110,6 +110,7 @@ export { default as CircularProgress } from './CircularProgress';
 // export type { IModalProps } from './Modal';
 
 export { Popover } from './Popover';
+export { Tooltip } from './Tooltip';
 export type { IPopoverProps } from './Popover';
 
 export { AlertDialog } from './AlertDialog';
