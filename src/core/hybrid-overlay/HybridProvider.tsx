@@ -29,26 +29,25 @@ const HybridProvider = ({
   );
 
   React.useEffect(() => {
-    function closeOverlayOnEscapeEffectCallback() {
-      let escapeKeyListener: any = null;
-      if (Platform.OS === 'web') {
-        escapeKeyListener = (e: KeyboardEvent) => {
-          if (e.key === 'Escape') {
-            if (keyboardDismissHandlerManager.length() > 0) {
-              const lastHandler: any = keyboardDismissHandlerManager.pop();
-              lastHandler();
-            }
+    let escapeKeyListener: any = null;
+
+    if (Platform.OS === 'web') {
+      escapeKeyListener = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          if (keyboardDismissHandlerManager.length() > 0) {
+            const lastHandler: any = keyboardDismissHandlerManager.pop();
+            lastHandler();
           }
-        };
-        document.addEventListener('keydown', escapeKeyListener);
-      }
-      return () => {
-        if (Platform.OS === 'web') {
-          document.removeEventListener('keydown', escapeKeyListener);
         }
       };
+      document.addEventListener('keydown', escapeKeyListener);
     }
-    closeOverlayOnEscapeEffectCallback();
+
+    return () => {
+      if (Platform.OS === 'web') {
+        document.removeEventListener('keydown', escapeKeyListener);
+      }
+    };
   }, []);
 
   return (
