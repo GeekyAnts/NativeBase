@@ -1,8 +1,6 @@
 export * from './NativeBaseProvider';
 export * from './extendTheme';
 
-export type { IPopoverProps, IPopoverContextProps } from './Popover';
-
 export {
   useColorMode,
   useColorModeValue,

@@ -93,7 +93,6 @@ export const Menu = React.memo(
               entryDuration={150}
             >
               <Popper
-                isOpen={isOpen}
                 triggerRef={triggerRef}
                 onClose={handleClose}
                 placement={props.placement ?? 'bottom left'}
