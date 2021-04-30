@@ -11,6 +11,8 @@ import {
   SafeAreaView,
 } from 'react-native';
 import IconButton from '../IconButton';
+import Box from '../../primitives/Box';
+import { useThemeProps } from '../../../hooks';
 
 let INSET = 0;
 
@@ -70,7 +72,7 @@ type IToastProps = {
   // Render a component toast component. Any component passed will receive 2 props: `id` and `onClose`.
   render?: (props: any) => ReactNode;
   // The status of the toast.
-  status?: 'info' | 'warning' | 'error' | 'success';
+  status?: 'none' | 'info' | 'warning' | 'error' | 'success';
   // The title of the toast
   title?: ReactNode;
   // The alert component `variant` to use
@@ -182,6 +184,7 @@ export const CustomToast = () => {
 export const ToastProvider = ({ children }: { children: any }) => {
   const [toastInfo, setToastInfo] = useState<IToastInfo>({});
   const [visibleToasts, setVisibleToasts] = useState<IToastInfo>({});
+  const themeProps = useThemeProps('Toast', {});
   let toastIndex = React.useRef(0);
 
   const hideAll = () => {
@@ -232,7 +235,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       position = 'bottom',
       title,
       render,
-      status = 'info',
+      status = 'none',
       id = toastIndex.current++,
       description,
       isClosable = true,
@@ -248,6 +251,15 @@ export const ToastProvider = ({ children }: { children: any }) => {
 
     if (render) {
       component = render({ id: toastIndex.current });
+    } else if (status === 'none') {
+      component = (
+        <VStack space={1} {...themeProps}>
+          <Box _text={themeProps._title}>{title}</Box>
+          {description && (
+            <Box _text={themeProps._description}>{description}</Box>
+          )}
+        </VStack>
+      );
     } else if (typeof status === 'string') {
       component = (
         <Alert

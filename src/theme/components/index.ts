@@ -68,7 +68,7 @@ import Text from './text';
 import AppBar from './app-bar';
 import TextArea from './textarea';
 import { TextField } from './textField';
-import Toast from './toast';
+import { Toast } from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import { List, ListItem, ListIcon } from './list';
 import { TypeAheadSearchItem } from './typeahead';
