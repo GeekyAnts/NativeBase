@@ -148,7 +148,12 @@ export const Tooltip = ({
             >
               <Popper.Content>
                 {hasArrow && (
-                  <Popper.Arrow color={arrowBg} height={8} width={14} />
+                  <Popper.Arrow
+                    borderColor="transparent"
+                    backgroundColor={arrowBg}
+                    height={10}
+                    width={10}
+                  />
                 )}
                 <Box {...themeProps}>{label}</Box>
               </Popper.Content>
