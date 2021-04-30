@@ -57,11 +57,9 @@ const Modal = React.forwardRef(
       let cleanupFn = () => {};
       if (isKeyboardDismissable && visible) {
         cleanupFn = keyboardDismissHandlerManager.push(() => setVisible(false));
-      }
-
-      return () => {
+      } else {
         cleanupFn();
-      };
+      }
     }, [visible]);
 
     return (
