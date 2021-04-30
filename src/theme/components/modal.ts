@@ -57,7 +57,7 @@ export const ModalCloseButton = {
       right: 4,
       top: 4,
       zIndex: 1,
-      size: 8,
+      size: 9,
       _icon: {
         size: 6,
         color: mode('black', 'white')(props),

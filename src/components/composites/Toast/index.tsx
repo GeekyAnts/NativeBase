@@ -9,19 +9,15 @@ import {
   Easing,
   Platform,
   SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import IconButton from '../IconButton';
 import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
 
-let INSET = 0;
+let INSET = `${StatusBar.currentHeight}px`;
 
 const POSITIONS = {
-  'bottom': {
-    bottom: INSET,
-    left: 0,
-    right: 0,
-  },
   'top': {
     top: INSET,
     left: 0,
@@ -29,19 +25,24 @@ const POSITIONS = {
   },
   'top-right': {
     top: INSET,
-    right: INSET,
+    right: 0,
   },
   'top-left': {
     top: INSET,
-    left: INSET,
+    left: 0,
+  },
+  'bottom': {
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   'bottom-left': {
-    bottom: INSET,
-    left: INSET,
+    bottom: 0,
+    left: 0,
   },
   'bottom-right': {
-    bottom: INSET,
-    right: INSET,
+    bottom: 0,
+    right: 0,
   },
 };
 
@@ -68,7 +69,7 @@ type IToastProps = {
   // Callback function to run side effects after the toast has closed.
   onCloseComplete?: () => void;
   // The placement of the toast. Defaults to bottom
-  position?: keyof typeof POSITIONS;
+  placement?: keyof typeof POSITIONS;
   // Render a component toast component. Any component passed will receive 2 props: `id` and `onClose`.
   render?: (props: any) => ReactNode;
   // The status of the toast.
@@ -165,6 +166,7 @@ export const CustomToast = () => {
                       opacity: 0,
                       scale: 0.85,
                     }}
+                    exitDuration={100}
                     transition={{
                       easing: Easing.ease,
                     }}
@@ -232,7 +234,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
 
   const setToast = (props: IToastProps) => {
     const {
-      position = 'bottom',
+      placement = 'bottom',
       title,
       render,
       status = 'none',
@@ -244,7 +246,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       accessibilityAnnouncement,
       accessibilityLiveRegion = 'polite',
     } = props;
-    let positionToastArray = toastInfo[position];
+    let positionToastArray = toastInfo[placement];
     if (!positionToastArray) positionToastArray = [];
 
     let component = null;
@@ -288,7 +290,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       );
     }
 
-    toastInfo[position] = [
+    toastInfo[placement] = [
       ...positionToastArray,
       { component, id, config: props },
     ];

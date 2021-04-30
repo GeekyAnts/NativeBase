@@ -123,8 +123,7 @@ export const Alert = {
     flexWrap: 'wrap',
     colorScheme: 'primary',
     variant: 'subtle',
-    px: 3,
-    py: 2,
+    p: 3,
     borderRadius: 'md',
     _actionProps: { alignSelf: 'flex-end', ml: 'auto' },
     _text: {

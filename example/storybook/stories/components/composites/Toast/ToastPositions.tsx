@@ -10,7 +10,7 @@ const ToastPositions = () => {
         onPress={() =>
           toast.show({
             title: 'Hello world',
-            position: 'bottom',
+            placement: 'bottom',
           })
         }
       >
@@ -21,7 +21,7 @@ const ToastPositions = () => {
         onPress={() =>
           toast.show({
             title: 'Hello world',
-            position: 'top',
+            placement: 'top',
           })
         }
       >
@@ -32,7 +32,7 @@ const ToastPositions = () => {
         onPress={() =>
           toast.show({
             title: 'Hello world',
-            position: 'top-left',
+            placement: 'top-left',
           })
         }
       >
@@ -43,7 +43,8 @@ const ToastPositions = () => {
         onPress={() =>
           toast.show({
             title: 'Hello world',
-            position: 'top-right',
+            placement: 'top-right',
+            backgroundColor: 'pink.400',
           })
         }
       >
@@ -54,7 +55,7 @@ const ToastPositions = () => {
         onPress={() =>
           toast.show({
             title: 'Hello world',
-            position: 'bottom-left',
+            placement: 'bottom-left',
           })
         }
       >
@@ -65,7 +66,7 @@ const ToastPositions = () => {
         onPress={() =>
           toast.show({
             title: 'Hello world',
-            position: 'bottom-right',
+            placement: 'bottom-right',
           })
         }
       >

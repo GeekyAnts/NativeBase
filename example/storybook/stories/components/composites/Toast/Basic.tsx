@@ -9,7 +9,6 @@ const Basic = () => {
       onPress={() =>
         toast.show({
           title: 'Hello world',
-          position: 'bottom',
         })
       }
     >

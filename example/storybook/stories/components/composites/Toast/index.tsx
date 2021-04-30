@@ -11,8 +11,8 @@ import PreventDuplicate from './PreventDuplicate';
 storiesOf('Toast', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .add('Toast Variants', () => <ToastVariants />)
   .add('Basic', () => <Basic />)
   .add('Toast Positions', () => <ToastPositions />)
-  .add('Toast Variants', () => <ToastVariants />)
   .add('Custom Id', () => <CustomID />)
   .add('Prevent Duplicate', () => <PreventDuplicate />);
