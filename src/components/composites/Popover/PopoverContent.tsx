@@ -4,15 +4,19 @@ import {
   useToken,
 } from '../../../hooks';
 import React from 'react';
+import { Platform } from 'react-native';
 import type { IPopoverContentProps } from './types';
 import { Popper } from '../Popper';
 import { PopoverContext } from './PopoverContext';
 
 export const PopoverContent = React.forwardRef(
   (props: IPopoverContentProps, ref: any) => {
-    const { onClose, initialFocusRef, finalFocusRef } = React.useContext(
-      PopoverContext
-    );
+    const {
+      onClose,
+      initialFocusRef,
+      finalFocusRef,
+      popoverContentId,
+    } = React.useContext(PopoverContext);
     let defaultStyle = useThemeProps('Popover', props);
     defaultStyle = props.isUnstyled ? {} : defaultStyle.popoverContentProps;
 
@@ -56,7 +60,14 @@ export const PopoverContent = React.forwardRef(
     });
 
     return (
-      <Popper.Content {...defaultStyle} {...props} ref={ref}>
+      <Popper.Content
+        nativeID={popoverContentId}
+        //@ts-ignore
+        accessibilityRole={Platform.OS === 'web' ? 'dialog' : undefined}
+        {...defaultStyle}
+        {...props}
+        ref={ref}
+      >
         {arrowElement}
         {restChildren}
       </Popper.Content>

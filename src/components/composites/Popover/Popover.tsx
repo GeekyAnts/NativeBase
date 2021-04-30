@@ -10,6 +10,7 @@ import Backdrop from '../Backdrop';
 import { FocusScope } from '@react-native-aria/focus';
 import { Transition } from '../Transitions';
 import { StyleSheet } from 'react-native';
+import { useId } from '@react-aria/utils';
 
 const Popover = React.forwardRef(function Popover(
   {
@@ -21,6 +22,7 @@ const Popover = React.forwardRef(function Popover(
     defaultIsOpen,
     initialFocusRef,
     finalFocusRef,
+    trapFocus = true,
     ...rest
   }: IPopoverProps,
   ref: any
@@ -35,6 +37,8 @@ const Popover = React.forwardRef(function Popover(
     },
   });
 
+  const popoverContentId = useId();
+
   const handleOpen = React.useCallback(() => {
     setIsOpen(true);
   }, [setIsOpen]);
@@ -42,8 +46,11 @@ const Popover = React.forwardRef(function Popover(
   let updatedTrigger = () => {
     return trigger(
       {
-        ref: mergedRef,
-        onPress: handleOpen,
+        'ref': mergedRef,
+        'onPress': handleOpen,
+        'aria-expanded': isOpen ? true : false,
+        'aria-controls': isOpen ? popoverContentId : undefined,
+        'aria-haspopup': true,
       },
       { open: isOpen }
     );
@@ -69,9 +76,14 @@ const Popover = React.forwardRef(function Popover(
           <Popper onClose={handleClose} triggerRef={triggerRef} {...rest}>
             <Backdrop onPress={handleClose} bg="transparent" />
             <PopoverContext.Provider
-              value={{ onClose: handleClose, initialFocusRef, finalFocusRef }}
+              value={{
+                onClose: handleClose,
+                initialFocusRef,
+                finalFocusRef,
+                popoverContentId,
+              }}
             >
-              <FocusScope contain restoreFocus autoFocus>
+              <FocusScope contain={trapFocus} restoreFocus autoFocus>
                 {children}
               </FocusScope>
             </PopoverContext.Provider>

@@ -8,7 +8,7 @@ export default function () {
         return <Button {...triggerProps}>Trigger</Button>;
       }}
     >
-      <Popover.Content>
+      <Popover.Content accessibilityLabel="hello world">
         <Popover.Arrow />
         <Popover.CloseButton />
         <Popover.Header>Data Saved</Popover.Header>

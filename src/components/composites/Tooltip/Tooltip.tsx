@@ -8,9 +8,10 @@ import { Popper } from '../Popper';
 import type { IPlacement } from '../Popper/types';
 import { composeEventHandlers, mergeRefs } from '../../../utils';
 import { Transition } from '../Transitions';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { useThemeProps } from '../../../hooks';
 import Box, { IBoxProps } from '../../primitives/Box';
+import { useId } from '@react-aria/utils';
 
 type ITooltipProps = {
   label: string;
@@ -67,6 +68,7 @@ export const Tooltip = ({
 
   const enterTimeout = React.useRef<number>();
   const exitTimeout = React.useRef<number>();
+  const tooltipID = useId();
 
   const openWithDelay = React.useCallback(() => {
     if (!isDisabled) {
@@ -96,25 +98,30 @@ export const Tooltip = ({
   }
 
   newChildren = React.cloneElement(newChildren, {
-    onPress: composeEventHandlers<any>(newChildren.props.onPress, () => {
+    'onPress': composeEventHandlers<any>(newChildren.props.onPress, () => {
       if (closeOnClick) {
         closeWithDelay();
       }
     }),
-    onFocus: composeEventHandlers<any>(
+    'onFocus': composeEventHandlers<any>(
       newChildren.props.onFocus,
       openWithDelay
     ),
-    onBlur: composeEventHandlers<any>(newChildren.props.onBlur, closeWithDelay),
-    onMouseEnter: composeEventHandlers<any>(
+    'onBlur': composeEventHandlers<any>(
+      newChildren.props.onBlur,
+      closeWithDelay
+    ),
+    'onMouseEnter': composeEventHandlers<any>(
       newChildren.props.onMouseEnter,
       openWithDelay
     ),
-    onMouseLeave: composeEventHandlers<any>(
+    'onMouseLeave': composeEventHandlers<any>(
       newChildren.props.onMouseLeave,
       closeWithDelay
     ),
-    ref: mergeRefs([newChildren.ref, targetRef]),
+    'ref': mergeRefs([newChildren.ref, targetRef]),
+
+    'aria-describedby': isOpen ? tooltipID : undefined,
   });
 
   React.useEffect(() => {
@@ -155,7 +162,16 @@ export const Tooltip = ({
                     width={10}
                   />
                 )}
-                <Box {...themeProps}>{label}</Box>
+                <Box
+                  {...themeProps}
+                  //@ts-ignore
+                  accessibilityRole={
+                    Platform.OS === 'web' ? 'tooltip' : undefined
+                  }
+                  nativeID={tooltipID}
+                >
+                  {label}
+                </Box>
               </Popper.Content>
             </Popper>
           </Transition>
