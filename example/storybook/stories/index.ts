@@ -1,7 +1,7 @@
-export * from './components/composites/Tooltip';
 export * from './components/composites/Popover';
-export * from './components/composites/AlertDialog';
 export * from './components/composites/Modal';
+export * from './components/composites/Tooltip';
+export * from './components/composites/AlertDialog';
 export * from './components/composites/Toast';
 // Components;
 // export * from './components/composites/Accordion';

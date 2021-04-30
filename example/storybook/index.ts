@@ -9,6 +9,7 @@ import {
 import { withKnobs } from '@storybook/addon-knobs';
 
 import './rn-addons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // enables knobs for all stories
 addDecorator(withKnobs);
@@ -23,7 +24,7 @@ configure(() => {
 const StorybookUIRoot = getStorybookUI({
   // DOC: Uncomment this to get normal app view
   // onDeviceUI: false,
-  asyncStorage: null,
+  asyncStorage: AsyncStorage,
 });
 
 // If you are using React Native vanilla and after installation you don't see your app name here, write it manually.

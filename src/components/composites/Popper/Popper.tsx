@@ -1,6 +1,6 @@
 import React from 'react';
 import { useOverlayPosition } from '@react-native-aria/overlays';
-import { StyleSheet, View, ViewStyle } from 'react-native';
+import { StatusBar, StyleSheet, View, ViewStyle } from 'react-native';
 import type {
   IPopoverProps,
   IScrollContentStyle,
@@ -10,10 +10,14 @@ import type {
 } from './types';
 import { createContext } from '../../../utils';
 import Box, { IBoxProps } from '../../primitives/Box';
-import { useToken } from '../../../hooks';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-const defaultArrowHeight = 10;
-const defaultArrowWidth = 16;
+const defaultArrowHeight = 15;
+const defaultArrowWidth = 15;
+
+const getDiagonalLength = (height: number, width: number) => {
+  return Math.pow(height * height + width * width, 0.5);
+};
 
 type PopperContext = IPopoverProps & {
   triggerRef: any;
@@ -127,6 +131,7 @@ const PopperContent = React.forwardRef(
         StyleSheet.create({
           overlay: {
             ...overlayProps.style,
+            marginTop: StatusBar.currentHeight,
             opacity: rendered ? 1 : 0,
             position: 'absolute',
           },
@@ -160,8 +165,11 @@ const PopperArrow = React.forwardRef(
       arrowProps,
       //@ts-ignore - Will be passed by React.cloneElement from PopperContent
       actualPlacement,
+      style,
+      borderColor = '#52525b',
+      backgroundColor = 'black',
       ...rest
-    }: IPopoverArrowProps,
+    }: IPopoverArrowProps & IBoxProps,
     ref: any
   ) => {
     const additionalStyles = React.useMemo(
@@ -169,99 +177,101 @@ const PopperArrow = React.forwardRef(
       [actualPlacement, height, width]
     );
 
-    const color = useToken('colors', rest.color ?? 'black');
-
     let triangleStyle: ViewStyle = React.useMemo(
       () => ({
         position: 'absolute',
-        width: 0,
-        height: 0,
-        backgroundColor: 'transparent',
-        borderStyle: 'solid',
-        borderLeftWidth: width / 2,
-        borderRightWidth: width / 2,
-        borderBottomWidth: height,
-        borderLeftColor: 'transparent',
-        borderRightColor: 'transparent',
-        borderBottomColor: color,
+        zIndex: 1,
+        width,
+        height,
       }),
-      [width, height, color]
+      [width, height]
     );
 
     let arrowStyles = React.useMemo(
-      () => [triangleStyle, additionalStyles, arrowProps.style, rest.style],
-      [triangleStyle, additionalStyles, arrowProps.style, rest.style]
+      () => [arrowProps.style, triangleStyle, additionalStyles, style],
+      [triangleStyle, additionalStyles, arrowProps.style, style]
     );
 
-    // Passed a custom Arrow, don't apply triangle style
-    if (rest.children) {
-      return (
-        <View
-          ref={ref}
-          style={[additionalStyles, arrowProps.style, rest.style]}
-        >
-          {rest.children}
-        </View>
-      );
-    }
-
-    return <View ref={ref} style={arrowStyles}></View>;
+    return (
+      <Box
+        ref={ref}
+        style={arrowStyles}
+        borderColor={borderColor}
+        backgroundColor={backgroundColor}
+        {...rest}
+      />
+    );
   }
 );
 
 const getArrowStyles = (props: IArrowStyles) => {
   let additionalStyles: any = {
     transform: [],
-    position: 'absolute',
-    height: props.height,
-    width: props.width,
-    justifyContent: 'center',
-    alignItems: 'center',
   };
+
+  const diagonalLength = getDiagonalLength(
+    defaultArrowHeight,
+    defaultArrowHeight
+  );
 
   if (props.placement === 'top' && props.width) {
     additionalStyles.transform.push({ translateX: -props.width / 2 });
-    additionalStyles.transform.push({ rotate: '180deg' });
-    additionalStyles.bottom = 0;
+    additionalStyles.transform.push({ rotate: '45deg' });
+    additionalStyles.bottom = Math.ceil(
+      (diagonalLength - defaultArrowHeight) / 2
+    );
+    additionalStyles.borderBottomWidth = 1;
+    additionalStyles.borderRightWidth = 1;
   }
 
-  // No rotation is needed in bottom as arrow is already pointing top!
-  // additionalStyles.transform.push({ rotate: '-180deg' });
   if (props.placement === 'bottom' && props.width) {
     additionalStyles.transform.push({ translateX: -props.width / 2 });
-    additionalStyles.top = 0;
+    additionalStyles.transform.push({ rotate: '45deg' });
+    additionalStyles.top = Math.ceil((diagonalLength - defaultArrowHeight) / 2);
+    additionalStyles.borderTopWidth = 1;
+    additionalStyles.borderLeftWidth = 1;
   }
 
   if (props.placement === 'left' && props.height) {
     additionalStyles.transform.push({ translateY: -props.height / 2 });
-    additionalStyles.transform.push({ rotate: '90deg' });
-    additionalStyles.right = 0;
+    additionalStyles.transform.push({ rotate: '45deg' });
+    additionalStyles.right = Math.ceil(
+      (diagonalLength - defaultArrowHeight) / 2
+    );
+    additionalStyles.borderTopWidth = 1;
+    additionalStyles.borderRightWidth = 1;
   }
 
   if (props.placement === 'right' && props.height) {
     additionalStyles.transform.push({ translateY: -props.height / 2 });
-    additionalStyles.transform.push({ rotate: '-90deg' });
-    additionalStyles.left = 0;
+    additionalStyles.transform.push({ rotate: '45deg' });
+    additionalStyles.left = Math.ceil(
+      (diagonalLength - defaultArrowHeight) / 2
+    );
+    additionalStyles.borderBottomWidth = 1;
+    additionalStyles.borderLeftWidth = 1;
   }
 
   return additionalStyles;
 };
 
 const getContainerStyle = ({ placement, arrowHeight }: IScrollContentStyle) => {
+  const diagonalLength = getDiagonalLength(arrowHeight, arrowHeight) / 2;
+
   if (placement === 'top') {
-    return { marginBottom: arrowHeight };
+    return { marginBottom: diagonalLength };
   }
 
   if (placement === 'bottom') {
-    return { marginTop: arrowHeight };
+    return { marginTop: diagonalLength };
   }
 
   if (placement === 'left') {
-    return { marginRight: arrowHeight };
+    return { marginRight: diagonalLength };
   }
 
   if (placement === 'right') {
-    return { marginLeft: arrowHeight };
+    return { marginLeft: diagonalLength };
   }
 
   return {};

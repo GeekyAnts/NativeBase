@@ -95,6 +95,8 @@ export const Transition = ({
   return (
     <Animated.View
       pointerEvents="box-none"
+      // https://github.com/facebook/react-native/issues/23090#issuecomment-710803743
+      needsOffscreenAlphaCompositing
       style={[
         {
           opacity: animateValue.interpolate({

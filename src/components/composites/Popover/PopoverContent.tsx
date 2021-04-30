@@ -48,7 +48,7 @@ export const PopoverContent = React.forwardRef(
     React.Children.forEach(props.children, (child) => {
       if (child.type.displayName === 'PopperArrow') {
         arrowElement = React.cloneElement(child, {
-          color: child.props.color ?? color,
+          backgroundColor: child.props.color ?? color,
         });
       } else {
         restChildren.push(child);

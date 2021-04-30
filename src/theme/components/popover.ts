@@ -30,7 +30,7 @@ const baseStyle = (props: Record<string, any>) => {
     },
     popoverBodyProps: {
       p: 3,
-      borderColor: mode('gray.300', 'gray.700')(props),
+      borderColor: mode('muted.200', 'muted.500')(props),
       borderTopWidth: 1,
     },
     popoverContentProps: {
@@ -44,10 +44,13 @@ const baseStyle = (props: Record<string, any>) => {
     popoverHeaderProps: {
       p: 3,
     },
+    popoverArrowProps: {
+      borderColor: mode('gray.200', 'gray.600')(props),
+    },
     popoverFooterProps: {
       p: 3,
       borderTopWidth: 1,
-      borderColor: mode('gray.300', 'gray.700')(props),
+      borderColor: mode('muted.200', 'muted.500')(props),
       flexDirection: 'row',
       flexWrap: 'wrap',
     },
