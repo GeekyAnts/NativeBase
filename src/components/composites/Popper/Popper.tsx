@@ -2,11 +2,10 @@ import React from 'react';
 import { useOverlayPosition } from '@react-native-aria/overlays';
 import { StatusBar, StyleSheet, View, ViewStyle } from 'react-native';
 import type {
-  IPopoverProps,
+  IPopperProps,
   IScrollContentStyle,
   IArrowStyles,
   IPopoverArrowProps,
-  IPopoverContent,
 } from './types';
 import { createContext } from '../../../utils';
 import Box, { IBoxProps } from '../../primitives/Box';
@@ -18,7 +17,7 @@ const getDiagonalLength = (height: number, width: number) => {
   return Math.pow(height * height + width * width, 0.5);
 };
 
-type PopperContext = IPopoverProps & {
+type PopperContext = IPopperProps & {
   triggerRef: any;
   onClose: any;
   setOverlayRef?: (overlayRef: any) => void;
@@ -29,7 +28,7 @@ const [PopperProvider, usePopperContext] = createContext<PopperContext>(
 );
 
 const Popper = (
-  props: IPopoverProps & {
+  props: IPopperProps & {
     triggerRef: any;
     onClose: any;
     setOverlayRef?: (overlayRef: any) => void;
@@ -39,7 +38,7 @@ const Popper = (
 };
 
 const PopperContent = React.forwardRef(
-  ({ children, style, ...rest }: IPopoverContent & IBoxProps, ref: any) => {
+  ({ children, style, ...rest }: IBoxProps, ref: any) => {
     const {
       triggerRef,
       shouldFlip,

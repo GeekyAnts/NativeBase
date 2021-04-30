@@ -16,6 +16,10 @@ export const PopoverContent = React.forwardRef(
       initialFocusRef,
       finalFocusRef,
       popoverContentId,
+      headerMounted,
+      bodyMounted,
+      bodyId,
+      headerId,
     } = React.useContext(PopoverContext);
     let defaultStyle = useThemeProps('Popover', props);
     defaultStyle = props.isUnstyled ? {} : defaultStyle.popoverContentProps;
@@ -59,11 +63,19 @@ export const PopoverContent = React.forwardRef(
       }
     });
 
+    const accessibilityProps =
+      Platform.OS === 'web'
+        ? ({
+            'accessibilityRole': 'dialog',
+            'aria-labelledby': headerMounted ? headerId : undefined,
+            'aria-describedby': bodyMounted ? bodyId : undefined,
+          } as any)
+        : {};
+
     return (
       <Popper.Content
         nativeID={popoverContentId}
-        //@ts-ignore
-        accessibilityRole={Platform.OS === 'web' ? 'dialog' : undefined}
+        {...accessibilityProps}
         {...defaultStyle}
         {...props}
         ref={ref}

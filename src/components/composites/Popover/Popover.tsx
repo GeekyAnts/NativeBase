@@ -37,7 +37,12 @@ const Popover = React.forwardRef(function Popover(
     },
   });
 
-  const popoverContentId = useId();
+  const [bodyMounted, setBodyMounted] = React.useState(false);
+  const [headerMounted, setHeaderMounted] = React.useState(false);
+
+  const popoverContentId = `${useId()}-content`;
+  const headerId = `${popoverContentId}-header`;
+  const bodyId = `${popoverContentId}-body`;
 
   const handleOpen = React.useCallback(() => {
     setIsOpen(true);
@@ -81,6 +86,12 @@ const Popover = React.forwardRef(function Popover(
                 initialFocusRef,
                 finalFocusRef,
                 popoverContentId,
+                bodyId,
+                headerId,
+                headerMounted,
+                bodyMounted,
+                setBodyMounted,
+                setHeaderMounted,
               }}
             >
               <FocusScope contain={trapFocus} restoreFocus autoFocus>

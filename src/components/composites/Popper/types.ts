@@ -9,18 +9,6 @@ export type IPopoverArrowProps = {
   style?: ViewStyle;
 };
 
-export type IPopoverArrowImplProps = {
-  placement?: string;
-  arrowProps: IArrowProps;
-  width: number;
-  height: number;
-  style: ViewStyle;
-} & IPopoverArrowProps;
-
-export type IArrowProps = {
-  style: Object;
-};
-
 export type IPlacement =
   | 'top'
   | 'bottom'
@@ -35,43 +23,14 @@ export type IPlacement =
   | 'left top'
   | 'left bottom';
 
-// Tooltip is rendered in Non RN modal which won't shift accessibilityFocus
-export type OverlayType = 'single' | 'multiple';
-
-export type IPopoverProps = {
-  focusable?: boolean;
-  mode?: OverlayType;
-  disableAriaAttributes?: boolean;
-  defaultIsOpen?: boolean;
-  on?: 'press' | 'longPress' | 'hover';
-  isOpen?: boolean;
-  onOpenChange?: (value: boolean) => void;
+export type IPopperProps = {
   shouldFlip?: boolean;
   crossOffset?: number;
   offset?: number;
   children: React.ReactNode;
   shouldOverlapWithTrigger?: boolean;
   trigger?: ReactElement | RefObject<any>;
-  animated?: boolean;
-  shouldCloseOnOutsideClick?: boolean;
   placement?: IPlacement;
-
-  // Web only
-  isKeyboardDismissable?: boolean;
-  autoFocus?: boolean;
-  trapFocus?: boolean;
-  restoreFocus?: boolean;
-};
-
-export type IPopoverContentImpl = {
-  arrowHeight: number;
-  arrowWidth: number;
-  placement?: string;
-  children: any;
-};
-
-export type IPopoverContent = {
-  children: React.ReactNode;
 };
 
 export type IArrowStyles = {
@@ -84,22 +43,4 @@ export type IScrollContentStyle = {
   placement?: string;
   arrowHeight: number;
   arrowWidth: number;
-};
-
-export type IOverlayProps = {
-  mode?: OverlayType;
-  focusable?: boolean;
-  isOpen: boolean;
-  children: any;
-  onClose: any;
-  isKeyboardDismissable?: boolean;
-  shouldCloseOnOutsideClick?: boolean;
-  autoFocus?: boolean;
-  restoreFocus?: boolean;
-  trapFocus?: boolean;
-  animated?: boolean;
-  animationEntryDuration?: number;
-  animationExitDuration?: number;
-  overlayRef?: RefObject<any>;
-  triggerRef?: RefObject<any>;
 };
