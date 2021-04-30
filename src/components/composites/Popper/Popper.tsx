@@ -10,7 +10,6 @@ import type {
 } from './types';
 import { createContext } from '../../../utils';
 import Box, { IBoxProps } from '../../primitives/Box';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 const defaultArrowHeight = 15;
 const defaultArrowWidth = 15;
@@ -180,7 +179,6 @@ const PopperArrow = React.forwardRef(
     let triangleStyle: ViewStyle = React.useMemo(
       () => ({
         position: 'absolute',
-        zIndex: 1,
         width,
         height,
       }),
@@ -198,6 +196,7 @@ const PopperArrow = React.forwardRef(
         style={arrowStyles}
         borderColor={borderColor}
         backgroundColor={backgroundColor}
+        zIndex={1}
         {...rest}
       />
     );

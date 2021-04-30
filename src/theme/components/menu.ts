@@ -19,9 +19,10 @@ export default {
 export const MenuGroup = {
   baseStyle: (props: any) => ({
     _title: {
-      fontSize: 'sm',
+      fontSize: 'xs',
       fontWeight: 500,
-      color: mode(`gray.600`, `gray.300`)(props),
+      textTransform: 'uppercase',
+      color: mode(`gray.500`, `gray.300`)(props),
     },
     px: 5,
     py: 4,
