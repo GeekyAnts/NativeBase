@@ -41,6 +41,9 @@ const baseStyle = (props: Record<string, any>) => {
     },
     popoverHeaderProps: {
       p: 3,
+      _text: {
+        fontWeight: 600,
+      },
     },
     popoverArrowProps: {
       borderColor: mode('gray.200', 'gray.600')(props),

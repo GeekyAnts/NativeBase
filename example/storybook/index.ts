@@ -23,7 +23,7 @@ configure(() => {
 // To find allowed options for getStorybookUI
 const StorybookUIRoot = getStorybookUI({
   // DOC: Uncomment this to get normal app view
-  // onDeviceUI: false,
+  onDeviceUI: false,
   asyncStorage: AsyncStorage,
 });
 

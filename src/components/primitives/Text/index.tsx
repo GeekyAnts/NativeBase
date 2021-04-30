@@ -87,6 +87,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontWeight: propFontWeight,
     fontStyle: propFontStyle,
     _hover,
+    fontSize = 'md',
     ...reslovedProps
   } = usePropsResolution('Text', props);
 
@@ -120,7 +121,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
           ? 'line-through'
           : reslovedProps.textDecorationLine
       }
-      fontSize={sub ? 10 : reslovedProps.fontSize}
+      fontSize={sub ? 10 : fontSize}
       ref={mergeRefs([ref, _ref])}
       fontFamily={fontFamily}
       {...(isHovered && _hover)}

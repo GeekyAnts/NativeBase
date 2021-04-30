@@ -60,6 +60,10 @@ const Modal = React.forwardRef(
       } else {
         cleanupFn();
       }
+
+      return () => {
+        cleanupFn();
+      };
     }, [visible]);
 
     return (

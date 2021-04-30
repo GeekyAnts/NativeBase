@@ -131,6 +131,10 @@ export const Tooltip = ({
     } else {
       cleanupFn();
     }
+
+    return () => {
+      cleanupFn();
+    };
   }, [isOpen]);
 
   return (

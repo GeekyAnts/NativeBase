@@ -73,6 +73,10 @@ export const Menu = React.memo(
         } else {
           cleanupFn();
         }
+
+        return () => {
+          cleanupFn();
+        };
       }, [isOpen]);
 
       return (
