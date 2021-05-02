@@ -9,7 +9,7 @@ import {
   position,
   space,
   typography,
-} from 'styled-system';
+} from '../../../styled-system/packages/styled-system/src/index';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Text from './../Text';
 import {
@@ -43,10 +43,10 @@ const StyledBox = styled(View)<IBoxProps>(
   customLayout
 );
 
-const Box = ({ children, ...props }: IBoxProps, ref: any) => {
+const Box = ({ children, _text, ...props }: IBoxProps, ref: any) => {
   // const { _text, ...resolvedProps } = useThemeProps('Box', props);
-  const { _text, ...resolvedProps } = usePropsResolution('Box', props);
-  const safeAreaProps = useSafeArea(resolvedProps);
+  // const { _text, ...resolvedProps } = usePropsResolution('Box', props);
+  const safeAreaProps = useSafeArea(props);
 
   return (
     <StyledBox ref={ref} {...safeAreaProps}>

@@ -1,0 +1,38 @@
+import { Flex, Box } from 'reflexbox'
+
+## Expressive, consistent UI components
+
+Styled System lets you quickly build custom UI components with constraint-based style props based on scales defined in your theme.
+
+<Flex flexWrap={['wrap', 'nowrap']}>
+<Box width={[ 1, 1/2 ]}>
+
+```js
+import styled from '@emotion/styled'
+import { typography, space, color } from 'styled-system'
+
+const Box = styled('div')(
+  typography,
+  space,
+  color
+)
+```
+
+</Box>
+<Box px={2} />
+<Box width={[ 1, 1/2 ]}>
+
+```jsx
+<Box
+  fontSize={4}
+  fontWeight='bold'
+  p={3}
+  mb={[ 4, 5 ]}
+  color='white'
+  bg='primary'>
+  Hello
+</Box>
+```
+
+</Box>
+</Flex>

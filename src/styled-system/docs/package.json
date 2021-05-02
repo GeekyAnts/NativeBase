@@ -1,0 +1,42 @@
+{
+  "private": true,
+  "name": "@styled-system/docs",
+  "version": "5.0.0-8",
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.11",
+    "@mdx-js/mdx": "^1.0.19",
+    "@mdx-js/react": "^1.0.16",
+    "@styled-system/babel-plugin": "0.0.20",
+    "@styled-system/should-forward-prop": "^5.0.15",
+    "@theme-ui/sidenav": "^0.3.1",
+    "gatsby": "^2.4.6",
+    "gatsby-plugin-emotion": "^4.0.6",
+    "gatsby-plugin-google-analytics": "^2.0.20",
+    "gatsby-plugin-mdx": "^1.0.5",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-remark-prismjs": "^3.2.9",
+    "gatsby-source-filesystem": "^2.0.35",
+    "is-absolute-url": "^3.0.0",
+    "lodash.get": "^4.4.2",
+    "lodash.merge": "^4.6.1",
+    "prismjs": "^1.16.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^6.0.0-beta",
+    "reflexbox": "^4.0.2",
+    "remark-slug": "^6.0.0",
+    "remark-unwrap-images": "^2.0.0",
+    "styled-system": "^5.0.0-8",
+    "theme-ui": "^0.3.1",
+    "typography-theme-lincoln": "^0.16.19"
+  },
+  "devDependencies": {}
+}

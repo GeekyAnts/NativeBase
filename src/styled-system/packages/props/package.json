@@ -1,0 +1,14 @@
+{
+  "name": "@styled-system/props",
+  "version": "5.1.5",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "styled-system": "^5.1.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

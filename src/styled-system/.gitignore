@@ -1,0 +1,7 @@
+dist
+node_modules
+.nyc_output
+coverage*
+site
+public
+package-lock.json

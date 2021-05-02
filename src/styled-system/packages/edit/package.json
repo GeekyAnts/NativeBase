@@ -1,0 +1,21 @@
+{
+  "name": "@styled-system/edit",
+  "version": "5.1.5",
+  "description": "",
+  "main": "dist/index.js",
+  "keywords": [],
+  "author": "Brent Jackson <jxnblk@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "color": "^3.1.0",
+    "lodash.get": "^4.4.2",
+    "lodash.merge": "^4.6.1",
+    "lodash.omit": "^4.5.0",
+    "lodash.set": "^4.3.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f"
+}

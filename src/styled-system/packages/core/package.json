@@ -1,0 +1,15 @@
+{
+  "name": "@styled-system/core",
+  "version": "5.1.2",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "author": "Brent Jackson <jxnblk@gmail.com>",
+  "license": "MIT",
+  "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f",
+  "dependencies": {
+    "object-assign": "^4.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

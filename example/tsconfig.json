@@ -4,6 +4,7 @@
     "paths": {
       "native-base": ["../src/index"]
     },
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
     "lib": ["dom", "esnext"],

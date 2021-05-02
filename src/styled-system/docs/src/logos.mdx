@@ -1,0 +1,63 @@
+import { jsx, ThemeProvider, Styled } from 'theme-ui'
+
+export default props =>
+  <ThemeProvider
+    theme={{
+      styles: {
+        root: {
+          textAlign: 'center',
+        },
+        ul: {
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'center',
+          listStyle: 'none',
+          m: 0,
+          p: 0,
+        },
+        img: {
+          height: 'auto',
+          filter: 'grayscale(100%) contrast(50%)',
+          mixBlendMode: 'multiply',
+          m: 4,
+        }
+      }
+    }}>
+    <Styled.root>
+      {props.children}
+    </Styled.root>
+  </ThemeProvider>
+
+### Used by
+
+<ul>
+<li>
+  <img
+    alt='GitHub logo'
+    src='https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png'
+    width='128'
+  />
+</li>
+<li>
+  <img
+    alt='Artsy logo'
+    src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Art.sylogo_2.tiff/lossless-page1-1200px-Art.sylogo_2.tiff.png'
+    width='128'
+  />
+</li>
+<li>
+  <img
+    alt='Cloudflare logo'
+    src='https://www.cloudflare.com/img/logo-cloudflare-dark.svg'
+    width='128'
+  />
+</li>
+<li>
+  <img
+    alt='Priceline logo'
+    src='https://www.freelogovectors.net/svg03/priceline-logo.svg'
+    width='160'
+  />
+</li>
+</ul>

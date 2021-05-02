@@ -1,0 +1,21 @@
+{
+  "name": "@styled-system/prop-types",
+  "version": "5.1.5",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "peerDependencies": {
+    "styled-system": "^5.0.0-8"
+  },
+  "devDependencies": {
+    "styled-system": "^5.1.5"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f"
+}

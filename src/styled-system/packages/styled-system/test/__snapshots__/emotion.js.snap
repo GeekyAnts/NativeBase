@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`emotion object breakpoints work with defaultProps 1`] = `
+.emotion-0 {
+  padding: 0;
+}
+
+@media screen and (min-width:32em) {
+  .emotion-0 {
+    margin: 8px;
+  }
+}
+
+@media screen and (min-width:40em) {
+  .emotion-0 {
+    padding: 32px;
+    margin: 16px;
+  }
+}
+
+<div
+  className="emotion-0"
+/>
+`;
+
+exports[`emotion responsive styles are rendered in the correct order 1`] = `
+.emotion-0 {
+  margin: 4px;
+  padding: 4px;
+}
+
+@media screen and (min-width:40em) {
+  .emotion-0 {
+    padding: 8px;
+  }
+}
+
+@media screen and (min-width:52em) {
+  .emotion-0 {
+    margin: 16px;
+    padding: 16px;
+  }
+}
+
+<div
+  className="emotion-0"
+/>
+`;
