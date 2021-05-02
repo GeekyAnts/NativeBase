@@ -1,18 +1,6 @@
 import { Platform } from 'react-native'
 import merge from 'lodash/merge'
-// import assign from 'object-assign'
 const assign = Object.assign
-
-// export const merge = (a, b) => {
-//   let result = assign({}, a, b)
-//   for (const key in a) {
-//     if (!a[key] || typeof b[key] !== 'object') continue
-//     assign(result, {
-//       [key]: assign(a[key], b[key]),
-//     })
-//   }
-//   return result
-// }
 
 // sort object-value responsive styles
 const sort = (obj) => {
@@ -102,7 +90,6 @@ export const createParser = (config) => {
         }
         continue
       }
-
       assign(styles, sx(raw, scale, props))
     }
 

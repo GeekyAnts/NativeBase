@@ -1,6 +1,6 @@
 import type * as CSS from 'csstype';
 import type { ResponsiveValue } from './responsiveValue';
-import { Config, system } from 'styled-system';
+import { Config, system } from '../../styled-system/packages/styled-system/src';
 
 const config: Config = {
   flexDir: {

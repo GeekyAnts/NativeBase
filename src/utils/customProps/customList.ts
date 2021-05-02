@@ -1,5 +1,5 @@
-import { Config, system } from 'styled-system';
 import type * as CSS from 'csstype';
+import { Config, system } from '../../styled-system/packages/styled-system/src';
 
 const config: Config = {
   listStyleType: true,

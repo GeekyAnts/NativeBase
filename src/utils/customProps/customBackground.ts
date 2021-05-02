@@ -1,4 +1,4 @@
-import { Config, system } from 'styled-system';
+import { Config, system } from '../../styled-system/packages/styled-system/src';
 import type * as CSS from 'csstype';
 
 const config: Config = {
