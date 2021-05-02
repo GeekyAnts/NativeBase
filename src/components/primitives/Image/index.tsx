@@ -74,7 +74,6 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
   if (alternate) {
     return <Text {..._alt}>{alt}</Text>;
   }
-  console.log('hello world ', newProps);
   return (
     <StyledImage
       source={renderedSource}
