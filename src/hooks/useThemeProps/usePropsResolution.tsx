@@ -81,9 +81,16 @@ const simplifyComponentTheme = (
 
   const size = componentMergedTheme.size;
   let componentSizeProps = {};
-  // Extracting props from variant
   if (size && componentTheme.sizes && componentTheme.sizes[size]) {
-    componentSizeProps = componentTheme.sizes[size];
+    if (
+      typeof componentTheme.sizes[size] === 'number' ||
+      typeof componentTheme.sizes[size] === 'string'
+    ) {
+      componentMergedTheme.size = componentTheme.sizes[size];
+    } else {
+      componentSizeProps = componentTheme.sizes[size];
+      delete componentMergedTheme.size;
+    }
     // componentSizeProps =
     //   typeof componentTheme.sizes !== 'function'
     //     ? componentTheme.sizes[size]
@@ -92,7 +99,6 @@ const simplifyComponentTheme = (
     //         ...combinedProps,
     //         ...colorModeProps,
     //       })[size];
-    delete componentMergedTheme.size;
   }
 
   componentMergedTheme = merge({}, componentSizeProps, componentMergedTheme);
