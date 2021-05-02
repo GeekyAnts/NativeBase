@@ -1,16 +1,18 @@
+import { Platform } from 'react-native'
+import merge from 'lodash/merge'
 // import assign from 'object-assign'
 const assign = Object.assign
 
-export const merge = (a, b) => {
-  let result = assign({}, a, b)
-  for (const key in a) {
-    if (!a[key] || typeof b[key] !== 'object') continue
-    assign(result, {
-      [key]: assign(a[key], b[key]),
-    })
-  }
-  return result
-}
+// export const merge = (a, b) => {
+//   let result = assign({}, a, b)
+//   for (const key in a) {
+//     if (!a[key] || typeof b[key] !== 'object') continue
+//     assign(result, {
+//       [key]: assign(a[key], b[key]),
+//     })
+//   }
+//   return result
+// }
 
 // sort object-value responsive styles
 const sort = (obj) => {
@@ -42,8 +44,14 @@ export const get = (obj, key, def, p, undef) => {
   return obj === undef ? def : obj
 }
 
-const shadowResolver = (theme, value) => {
-  return theme.shadows[value]
+const shadowResolver = (props) => {
+  return props.theme.shadows()[props.shadow]
+}
+
+const platformUnderscoreMap = {
+  web: '_web',
+  android: '_android',
+  ios: '_ios',
 }
 
 export const createParser = (config) => {
@@ -51,15 +59,20 @@ export const createParser = (config) => {
   const parse = (props) => {
     let styles = {}
     let shouldSort = false
-    const isCacheDisabled = props.theme && props.theme.disableStyledSystemCache
 
-    if (props.shadow) {
-      styles = merge(styles, props.theme.shadows()[props.shadow])
-      props.shadow = undefined
+    if (props[platformUnderscoreMap[Platform.OS]]) {
+      props = merge(props, props[platformUnderscoreMap[Platform.OS]])
+      delete props[platformUnderscoreMap[Platform.OS]]
     }
 
+    if (typeof props.shadow === 'number') {
+      styles = merge(styles, props.theme.shadows()[props.shadow])
+      delete props.shadow
+    }
+
+    const isCacheDisabled = props.theme && props.theme.disableStyledSystemCache
+
     for (const key in props) {
-      // console.log('key in props ', key)
       if (!config[key]) continue
       const sx = config[key]
       const raw = props[key]
