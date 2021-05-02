@@ -17,7 +17,30 @@ function MyWrapper({ children }: any) {
 
   const bgColor = useColorModeValue(`gray.50`, `gray.800`);
 
-  return children;
+  return (
+    <Box
+      flex={1}
+      justifyContent="center"
+      alignItems="center"
+      bg={bgColor}
+      safeAreaY
+    >
+      <IconButton
+        position="absolute"
+        top={12}
+        right={8}
+        onPress={toggleColorMode}
+        icon={
+          <Icon
+            name={colorMode === 'dark' ? 'light-up' : 'md-moon'}
+            type={colorMode === 'dark' ? 'Entypo' : 'Ionicons'}
+            color={colorMode === 'dark' ? 'white' : 'black'}
+          />
+        }
+      />
+      {children}
+    </Box>
+  );
 }
 
 export function RenderTestButton() {

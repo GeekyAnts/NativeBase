@@ -15,7 +15,5 @@ export const Image = {
     maxWidth: '100%',
   },
   sizes,
-  defaultProps: {
-    size: 'md',
-  },
+  defaultProps: {},
 };

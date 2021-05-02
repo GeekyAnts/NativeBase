@@ -7,7 +7,7 @@ import {
   space,
   typography,
   position,
-} from 'styled-system';
+} from '../../../styled-system/packages/styled-system/src';
 import {
   customBorder,
   customBackground,

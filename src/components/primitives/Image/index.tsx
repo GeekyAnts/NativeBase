@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { Image as RNImage } from 'react-native';
 import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space, position } from 'styled-system';
+import {
+  border,
+  color,
+  flexbox,
+  layout,
+  space,
+  position,
+} from '../../../styled-system/packages/styled-system/src/index';
 import {
   customBorder,
   customBackground,
@@ -67,6 +74,7 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
   if (alternate) {
     return <Text {..._alt}>{alt}</Text>;
   }
+  console.log('hello world ', newProps);
   return (
     <StyledImage
       source={renderedSource}

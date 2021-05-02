@@ -25,7 +25,7 @@ const Stack = (
     ...remainingProps
   } = props;
   const newProps: any = usePropsResolution('Stack', remainingProps);
-
+  console.log('sjjdjdj ', newProps);
   return (
     <Box flexDirection={direction} {...newProps} ref={ref}>
       {getSpacedChildren(

@@ -3,14 +3,15 @@ import { Text as NativeText } from 'react-native';
 import { useTheme } from '../../../hooks';
 import styled from 'styled-components/native';
 import {
+  border,
   color,
+  flexbox,
+  layout,
   position,
   space,
   typography,
-  layout,
-  flexbox,
-  border,
-} from 'styled-system';
+} from '../../../styled-system/packages/styled-system/src/index';
+
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import {
   customBorder,

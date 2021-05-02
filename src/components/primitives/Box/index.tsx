@@ -11,6 +11,7 @@ import {
 } from '../../../styled-system/packages/styled-system/src/index';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Text from './../Text';
+import styled from 'styled-components/native';
 import {
   customBackground,
   customBorder,
@@ -60,31 +61,31 @@ const stylesheetResolver = (props) => {
   return styleSheet.boxStyle;
 };
 
-const StyledBox = React.forwardRef(({ style, ...rest }, ref) => {
-  const { theme } = useNativeBase();
-  const styles = stylesheetResolver({ ...rest, theme });
-  return <View style={[styles, style]} ref={ref} {...rest} />;
-});
+// const StyledBox = React.forwardRef(({ style, ...rest }, ref) => {
+//   const { theme } = useNativeBase();
+//   const styles = stylesheetResolver({ ...rest, theme });
+//   return <View style={[styles, style]} ref={ref} {...rest} />;
+// });
 
-console.log('color ', color);
+// console.log('color ', color);
 
-// const StyledBox = styled(View)<IBoxProps>(
-//   color,
-//   space,
-//   layout,
-//   flexbox,
-//   border,
-//   position,
-//   typography,
-//   customPosition,
-//   customBorder,
-//   customBackground,
-//   customOutline,
-//   customShadow,
-//   customExtra,
-//   customTypography,
-//   customLayout
-// );
+const StyledBox = styled(View)<IBoxProps>(
+  color,
+  space,
+  layout,
+  flexbox,
+  border,
+  position,
+  typography,
+  customPosition,
+  customBorder,
+  customBackground,
+  customOutline,
+  customShadow,
+  customExtra,
+  customTypography,
+  customLayout
+);
 
 const Box = ({ children, _text, ...props }: IBoxProps, ref: any) => {
   // const { _text, ...resolvedProps } = useThemeProps('Box', props);

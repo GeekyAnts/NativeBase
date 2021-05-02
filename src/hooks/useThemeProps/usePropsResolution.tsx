@@ -33,6 +33,7 @@ const simplifyComponentTheme = (
     defaultProps?: object;
     baseStyle?: object | Function;
     variants?: any | Function;
+    sizes?: any;
   },
   incomingProps: object,
   colorModeProps: object
@@ -71,12 +72,30 @@ const simplifyComponentTheme = (
           });
   }
 
-  const componentMergedTheme = merge(
+  let componentMergedTheme: any = merge(
     {},
-    componentTheme.defaultProps,
     componentBaseStyle,
-    componentVariantProps
+    componentVariantProps,
+    combinedProps
   );
+
+  const size = componentMergedTheme.size;
+  let componentSizeProps = {};
+  // Extracting props from variant
+  if (size && componentTheme.sizes && componentTheme.sizes[size]) {
+    componentSizeProps = componentTheme.sizes[size];
+    // componentSizeProps =
+    //   typeof componentTheme.sizes !== 'function'
+    //     ? componentTheme.sizes[size]
+    //     : componentTheme.sizes({
+    //         theme,
+    //         ...combinedProps,
+    //         ...colorModeProps,
+    //       })[size];
+    delete componentMergedTheme.size;
+  }
+
+  componentMergedTheme = merge({}, componentSizeProps, componentMergedTheme);
 
   return componentMergedTheme;
 };
@@ -201,12 +220,7 @@ export function usePropsResolution(component: string, incomingProps: any) {
     cleanIncomingProps,
     colorModeProps
   );
-  const componentThemeIntegratedProps = merge(
-    {},
-    componentThemeObject,
-    cleanIncomingProps
-  );
 
-  const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
+  const platformSpecificProps = usePlatformProps(componentThemeObject);
   return platformSpecificProps;
 }

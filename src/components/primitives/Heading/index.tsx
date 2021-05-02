@@ -5,6 +5,7 @@ import type { IHeadingProps } from './types';
 
 const Heading = (props: IHeadingProps, ref: any) => {
   const newProps = usePropsResolution('Heading', props);
+  console.log('nbew props ', newProps);
   return <Text {...newProps} ref={ref} />;
 };
 

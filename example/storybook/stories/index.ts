@@ -7,8 +7,8 @@
 // // export * from './components/composites/AspectRatio';
 // export * from './components/composites/Avatar';
 // export * from './components/composites/Badge';
-export * from './components/primitives/Button';
 export * from './components/primitives/Box';
+export * from './components/primitives/Button';
 // export * from './components/composites/Breadcrumb';
 // export * from './components/composites/Center';
 // export * from './components/primitives/Checkbox';
