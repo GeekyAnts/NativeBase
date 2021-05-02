@@ -1,5 +1,6 @@
-import { Platform } from 'react-native'
+import { Dimensions, Platform } from 'react-native'
 import merge from 'lodash/merge'
+import { getClosestBreakpoint } from '../../../../theme/tools'
 const assign = Object.assign
 
 // sort object-value responsive styles
@@ -48,20 +49,11 @@ export const createParser = (config) => {
     let styles = {}
     let shouldSort = false
 
-    if (props[platformUnderscoreMap[Platform.OS]]) {
-      props = merge(props, props[platformUnderscoreMap[Platform.OS]])
-      delete props[platformUnderscoreMap[Platform.OS]]
-    }
-
-    if (typeof props.shadow === 'number') {
-      styles = merge(styles, props.theme.shadows()[props.shadow])
-      delete props.shadow
-    }
-
     const isCacheDisabled = props.theme && props.theme.disableStyledSystemCache
 
     for (const key in props) {
       if (!config[key]) continue
+
       const sx = config[key]
       const raw = props[key]
       const scale = get(props.theme, sx.scale, sx.defaults)
@@ -71,25 +63,22 @@ export const createParser = (config) => {
           (!isCacheDisabled && cache.breakpoints) ||
           get(props.theme, 'breakpoints', defaults.breakpoints)
         if (Array.isArray(raw)) {
-          cache.media = (!isCacheDisabled && cache.media) || [
-            null,
-            ...cache.breakpoints.map(createMediaQuery),
-          ]
           styles = merge(
             styles,
-            parseResponsiveStyle(cache.media, sx, scale, raw, props)
+            parseResponsiveStyle(cache.breakpoints, sx, scale, raw, props)
           )
           continue
         }
         if (raw !== null) {
           styles = merge(
             styles,
-            parseResponsiveObject(cache.breakpoints, sx, scale, raw, props)
+            parseResponsiveStyle(cache.breakpoints, sx, scale, raw, props)
           )
           shouldSort = true
         }
         continue
       }
+
       assign(styles, sx(raw, scale, props))
     }
 
@@ -98,6 +87,10 @@ export const createParser = (config) => {
       styles = sort(styles)
     }
 
+    if (styles.shadow) {
+      styles = { ...styles, ...styles.shadow }
+      delete styles.shadow
+    }
     return styles
   }
   parse.config = config
@@ -114,37 +107,14 @@ export const createParser = (config) => {
   return parse
 }
 
-const parseResponsiveStyle = (mediaQueries, sx, scale, raw, _props) => {
+const parseResponsiveStyle = (breakpoints, sx, scale, raw, _props) => {
   let styles = {}
-  raw.slice(0, mediaQueries.length).forEach((value, i) => {
-    const media = mediaQueries[i]
-    const style = sx(value, scale, _props)
-    if (!media) {
-      assign(styles, style)
-    } else {
-      assign(styles, {
-        [media]: assign({}, styles[media], style),
-      })
-    }
-  })
-  return styles
-}
+  const width = Dimensions.get('window').width
 
-const parseResponsiveObject = (breakpoints, sx, scale, raw, _props) => {
-  let styles = {}
-  for (let key in raw) {
-    const breakpoint = breakpoints[key]
-    const value = raw[key]
-    const style = sx(value, scale, _props)
-    if (!breakpoint) {
-      assign(styles, style)
-    } else {
-      const media = createMediaQuery(breakpoint)
-      assign(styles, {
-        [media]: assign({}, styles[media], style),
-      })
-    }
-  }
+  const currentBreakpoint = getClosestBreakpoint(breakpoints, width)
+  const value = resolveValueWithBreakpoint(raw, currentBreakpoint)
+  const style = sx(value, scale, _props)
+  assign(styles, style)
   return styles
 }
 
@@ -203,4 +173,44 @@ export const compose = (...parsers) => {
   const parser = createParser(config)
 
   return parser
+}
+
+export const resolveValueWithBreakpoint = (values, currentBreakpoint) => {
+  if (hasValidBreakpointFormat(values)) {
+    // Check the last valid breakpoint value from all values
+    // If current breakpoint is `md` and we have `base` then `lg`, then last value will be taken(`base` in this case)
+    return findLastValidBreakpoint(values, currentBreakpoint)
+  } else {
+    return values
+  }
+}
+
+export const breakpoints = Object.freeze(['base', 'sm', 'md', 'lg', 'xl'])
+
+export function hasValidBreakpointFormat(breaks) {
+  if (Array.isArray(breaks)) {
+    return breaks.length ? true : false
+  } else if (typeof breaks === 'object') {
+    const keys = Object.keys(breaks)
+    for (let i = 0; i < keys.length; i++) {
+      if (breakpoints.indexOf(keys[i]) === -1) {
+        return false
+      }
+    }
+    return true
+  } else {
+    return false
+  }
+}
+export function findLastValidBreakpoint(values, currentBreakpoint) {
+  let valArray = Array.isArray(values)
+    ? values
+    : breakpoints.map((bPoint) => values[bPoint])
+  return (
+    valArray[currentBreakpoint] ??
+    valArray
+      .slice(0, currentBreakpoint + 1)
+      .filter((v) => v ?? null)
+      .pop()
+  )
 }

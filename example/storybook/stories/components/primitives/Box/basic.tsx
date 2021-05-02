@@ -4,18 +4,19 @@ export const Basic = () => {
   return (
     <Box
       w={'90%'}
-      bg="primary.400"
-      p={4}
-      shadow={9}
+      bg={['primary.400', 'green.400']}
+      p={{ base: 9, md: 5, sm: 1 }}
+      shadow={[1, 2, 9]}
+      mt={[100, 300]}
       _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}
       _web={{
-        w: '40%',
-      }}
-      _ios={{
         w: '80%',
       }}
-    >
-      This is a Box
-    </Box>
+      _ios={{
+        w: '30%',
+        shadow: 9,
+        bg: 'pink.400',
+      }}
+    ></Box>
   );
 };
