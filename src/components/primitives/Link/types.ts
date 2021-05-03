@@ -22,6 +22,7 @@ export type ILinkProps = IBoxProps &
     onClick?: any;
     isExternal?: boolean;
     _hover?: any;
+    wrapperRef?: any;
   };
 
 export type IUseLinkProp = {

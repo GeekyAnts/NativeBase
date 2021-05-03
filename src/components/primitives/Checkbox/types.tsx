@@ -25,6 +25,7 @@ export type ICheckboxProps = IBoxProps & {
   // Custom Props
   style?: any;
   ref?: any;
+  wrapperRef?: any;
 };
 
 export type ICheckboxGroupProps = IBoxProps & {

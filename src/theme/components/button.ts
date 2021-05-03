@@ -113,13 +113,13 @@ function variantSolid(props: Dict) {
     },
     bg,
     _hover: {
-      backgroundColor: mode(`${c}.600`, `${c}.500`)(props),
+      bg: mode(`${c}.600`, `${c}.500`)(props),
     },
     _focus: {
-      backgroundColor: bg,
+      bg: bg,
     },
     _pressed: {
-      backgroundColor: mode(`${c}.700`, `${c}.600`)(props),
+      bg: mode(`${c}.700`, `${c}.600`)(props),
     },
   };
 

@@ -16,6 +16,7 @@ export type IRadioProps = IBoxProps & {
   icon?: JSX.Element;
   style?: any;
   ref?: any;
+  wrapperRef?: any;
 };
 export type IRadioGroupProps = IBoxProps & {
   value?: IRadioValue;
@@ -47,5 +48,7 @@ export type IUseRadioGroupReturnType = {
 };
 
 export type IRadioComponentType = ((props: IRadioProps) => JSX.Element) & {
-  Group: React.MemoExoticComponent<(props: IRadioGroupProps) => JSX.Element>;
+  Group: React.MemoExoticComponent<
+    (props: IRadioGroupProps & { ref?: any }) => JSX.Element
+  >;
 };

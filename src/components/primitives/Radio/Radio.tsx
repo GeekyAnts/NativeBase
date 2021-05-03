@@ -7,8 +7,12 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IRadioProps } from './types';
 import { useRadio } from '@react-native-aria/radio';
 import { RadioContext } from './RadioGroup';
+import { mergeRefs } from '../../../utils';
 
-const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
+const Radio = (
+  { icon, children, wrapperRef, ...props }: IRadioProps,
+  ref: any
+) => {
   const contextState = React.useContext(RadioContext);
   const {
     _interactionBox: { _pressed: _iterationBoxPressed, ..._interactionBox },
@@ -42,7 +46,7 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
   return (
     <Pressable
       {...(inputProps as IPressableProps)}
-      ref={ref}
+      ref={mergeRefs([ref, wrapperRef])}
       accessibilityRole="radio"
     >
       {({ isPressed }: any) => {

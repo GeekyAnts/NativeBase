@@ -79,6 +79,7 @@ const Select = (
     size,
     _item,
     _selectedItem,
+    wrapperRef,
     ...props
   }: ISelectProps,
   ref: any
@@ -180,7 +181,7 @@ const Select = (
     Platform.OS !== 'web' ? (
       <StyledNativePicker
         // Not getting ref on web
-        ref={mergeRefs([ref, _ref])}
+        ref={mergeRefs([ref, _ref, wrapperRef])}
         enabled={!isDisabled}
         {...layoutProps}
         color={color}
@@ -205,7 +206,7 @@ const Select = (
         {children}
       </StyledNativePicker>
     ) : (
-      <Box {...layoutProps} ref={mergeRefs([ref, _ref])}>
+      <Box {...layoutProps} ref={wrapperRef}>
         <StyledNativePicker
           // Not getting ref on web
           ref={mergeRefs([ref, _ref])}
@@ -239,6 +240,7 @@ const Select = (
       {...layoutProps}
       borderRadius={themeProps.borderRadius}
       {...(isFocusVisible ? themeProps._focus : {})}
+      ref={wrapperRef}
     >
       {Platform.OS === 'web' ? (
         <>
@@ -269,6 +271,7 @@ const Select = (
             disabled={isDisabled}
             accessibilityLabel={accessibilityLabel}
             accessibilityRole="button"
+            ref={mergeRefs([ref, _ref])}
           >
             <View pointerEvents="none">{commonInput}</View>
           </Pressable>

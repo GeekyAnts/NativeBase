@@ -49,6 +49,7 @@ const InputBase = (
     onBlur,
     disableFocusHandling,
     inputProps,
+    wrapperRef,
     ...props
   }: IInputProps & {
     disableFocusHandling?: boolean;
@@ -125,7 +126,7 @@ const InputBase = (
             cursor: isDisabled ? 'not-allowed' : 'auto',
           }
         : {})}
-      ref={mergeRefs([ref, _ref])}
+      ref={mergeRefs([ref, _ref, wrapperRef])}
     />
   );
 };

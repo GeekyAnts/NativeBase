@@ -8,7 +8,10 @@ export {
   useControllableProp,
   useControllableState,
 } from './useControllableProp';
+// TODO: Have to properly remove these as we're no longer using them internally.
 export { useThemeProps, usePropsWithComponentTheme } from './useThemeProps';
+// TODO: instead export only this.
+export { usePropsResolution } from './useThemeProps';
 export { useTheme } from './useTheme';
 export { useToken } from './useToken';
 export { useSafeArea } from './useSafeArea';

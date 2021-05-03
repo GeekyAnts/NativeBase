@@ -21,18 +21,20 @@ const RadioGroup = (
     state
   );
   return (
-    <RadioContext.Provider
-      value={{
-        ...formControlContext,
-        size,
-        colorScheme,
-        state,
-      }}
-    >
-      <Box alignItems="flex-start" {...radioGroupProps} {...props} ref={ref}>
-        {props.children}
-      </Box>
-    </RadioContext.Provider>
+    <Box ref={ref}>
+      <RadioContext.Provider
+        value={{
+          ...formControlContext,
+          size,
+          colorScheme,
+          state,
+        }}
+      >
+        <Box alignItems="flex-start" {...radioGroupProps} {...props}>
+          {props.children}
+        </Box>
+      </RadioContext.Provider>
+    </Box>
   );
 };
 

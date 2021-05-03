@@ -5,13 +5,11 @@ import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import Pressable from '../Pressable';
 import type { IButtonProps } from './types';
-import { usePlatformProps } from '../../../hooks';
 
 const Button = (
   {
     children,
     isLoadingText,
-    size,
     startIcon,
     endIcon,
     spinner,
@@ -19,24 +17,22 @@ const Button = (
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  const { _text, _hover, _pressed, _focus, ...restProps } = usePropsResolution(
-    'Button',
-    {
-      ...props,
-      size,
-    }
-  );
-
-  const platformProps = usePlatformProps(restProps);
-
-  const { isDisabled, isLoading } = props;
+  const {
+    _text,
+    _hover,
+    _pressed,
+    _focus,
+    ...resolvedProps
+  } = usePropsResolution('Button', props);
 
   const pressableProps = {
-    ...platformProps,
+    ...resolvedProps,
     _hover,
     _pressed,
     _focus,
   };
+
+  const { isDisabled, isLoading } = props;
 
   if (endIcon && React.isValidElement(endIcon)) {
     endIcon = React.Children.map(
