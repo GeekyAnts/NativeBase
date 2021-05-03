@@ -15,7 +15,7 @@ export type { ICheckboxProps, ICheckboxGroupProps } from './Checkbox';
 export { Radio } from './Radio';
 export type { IRadioProps, IRadioGroupProps, IRadioValue } from './Radio';
 
-export { default as Icon, createIcon } from './Icon';
+export { Icon, createIcon } from './Icon';
 export type { IIconProps, IconType, IconNameType } from './Icon';
 
 export { Column } from './Column';

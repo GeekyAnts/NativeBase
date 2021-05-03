@@ -4,12 +4,12 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
 import { useFormControlContext } from '../../composites/FormControl';
 import Box from '../Box';
-import Icon from '../Icon';
 import { mergeRefs } from './../../../utils';
 import type { ICheckboxProps } from './types';
 import { useToggleState } from '@react-stately/toggle';
 import { CheckboxGroupContext } from './CheckboxGroup';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
+import { CheckIcon } from '../Icon/Icons';
 
 const Checkbox = (
   { icon, children, wrapperRef, ...props }: ICheckboxProps,
@@ -107,8 +107,7 @@ const Checkbox = (
                 {icon && sizedIcon && checked ? (
                   sizedIcon()
                 ) : (
-                  <Icon
-                    name="check"
+                  <CheckIcon
                     size={iconSize}
                     {..._icon}
                     opacity={checked ? 1 : 0}

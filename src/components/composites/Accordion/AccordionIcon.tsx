@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../primitives/Icon';
+import { ChevronDownIcon, ChevronUpIcon } from '../../primitives/Icon/Icons';
 import type { IAccordionIconProps, IAccordionItemContextProps } from './types';
 import { AccordionItemContext } from './Context';
 import { useThemeProps } from '../../../hooks';
@@ -10,15 +10,9 @@ const AccordionIcon = ({ ...props }: IAccordionIconProps, ref?: any) => {
   );
   const { ...newProps } = useThemeProps('AccordionIcon', props);
   return isOpen ? (
-    <Icon
-      name={'chevron-small-up'}
-      color="white"
-      type="Entypo"
-      {...newProps}
-      ref={ref}
-    />
+    <ChevronUpIcon color="white" {...newProps} ref={ref} />
   ) : (
-    <Icon name={'chevron-small-down'} type="Entypo" {...newProps} ref={ref} />
+    <ChevronDownIcon {...newProps} ref={ref} />
   );
 };
 

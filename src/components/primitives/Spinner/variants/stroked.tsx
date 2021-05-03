@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../../primitives/Icon';
+import { Icon } from '../../../primitives/Icon';
 import { Path, G } from 'react-native-svg';
 
 export function Stroked(props: any) {

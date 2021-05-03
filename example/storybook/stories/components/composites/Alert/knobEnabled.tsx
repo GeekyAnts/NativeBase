@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Box, Icon, IconButton } from 'native-base';
+import { Alert, Box, CloseIcon, IconButton } from 'native-base';
 import { select } from '@storybook/addon-knobs';
 
 export default function () {
@@ -17,9 +17,7 @@ export default function () {
           ['left-accent', 'solid', 'subtle', 'top-accent'],
           'subtle'
         )}
-        action={
-          <IconButton icon={<Icon name="close" color="gray.400" size="md" />} />
-        }
+        action={<IconButton icon={<CloseIcon size="xxs" />} />}
         actionProps={{ alignSelf: 'center' }}
       >
         <Alert.Icon />
