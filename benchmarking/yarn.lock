@@ -5664,9 +5664,9 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-"native-base@file:../native-base-v3.0.0-next.36.tgz":
-  version "3.0.0-next.36"
-  resolved "file:../native-base-v3.0.0-next.36.tgz#a645cd63203683780e3295c1d2d61361c978c0bb"
+"native-base@file:../native-base-v3.0.0-next.37.tgz":
+  version "3.0.0-next.37"
+  resolved "file:../native-base-v3.0.0-next.37.tgz#beaf47da7645c8dac84f7d0ff298a311c1345e6b"
   dependencies:
     "@react-aria/visually-hidden" "^3.2.1"
     "@react-native-aria/button" "^0.2.4"
