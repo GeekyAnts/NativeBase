@@ -2,7 +2,7 @@ import { OverlayContainer } from '@react-native-aria/overlays';
 import { Transition } from '../Transitions';
 import VStack from '../../primitives/Stack/VStack';
 import { Alert } from '../../composites/Alert';
-import Icon from '../../primitives/Icon';
+import { CloseIcon } from '../../primitives/Icon/Icons';
 import React, { createContext, ReactNode, useState } from 'react';
 import {
   AccessibilityInfo,
@@ -274,7 +274,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
                 onPress={() => {
                   hideToast(id);
                 }}
-                icon={<Icon size="xs" name="close" />}
+                icon={<CloseIcon />}
               />
             ) : undefined
           }

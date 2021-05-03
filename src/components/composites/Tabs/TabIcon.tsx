@@ -1,5 +1,6 @@
 import React from 'react';
-import { Icon, IIconProps } from '../../primitives/Icon';
+import { Icon } from '../../primitives/Icon';
+import type { IIconProps } from '../../primitives/Icon/types';
 import type { ITabsContextProps, ITabContextProps } from './types';
 import { TabsContext } from './Context';
 import { TabContext } from './Tab';
