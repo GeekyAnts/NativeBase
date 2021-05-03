@@ -9,6 +9,7 @@ const baseStyle = (props: any) => {
     shadow: 1,
     _text: {
       color: mode(`gray.300`, `gray.700`)(props),
+      fontSize: 'sm',
     },
   };
 };
