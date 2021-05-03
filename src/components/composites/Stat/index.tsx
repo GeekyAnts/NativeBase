@@ -4,12 +4,12 @@ import {
   IBoxProps,
   Text,
   ITextProps,
-  Icon,
   IIconProps,
   HStack,
   IStackProps,
 } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
+import { ChevronDownIcon, ChevronUpIcon } from '../../primitives/Icon/Icons';
 
 export const StatLabel = React.memo(
   React.forwardRef(({ style, ...props }: ITextProps, ref?: any) => {
@@ -50,19 +50,13 @@ export const StatHelpText = React.memo(
   })
 );
 
-type IStatArrowProps = IIconProps | { type?: 'increase' | 'decrease' };
+type IStatArrowProps = IIconProps & { type?: 'increase' | 'decrease' };
 export const StatArrow = React.memo(
   React.forwardRef(({ type, ...props }: IStatArrowProps, ref?: any) => {
-    return (
-      <Icon
-        ml={-1}
-        type="Entypo"
-        name={type === 'increase' ? 'triangle-up' : 'triangle-down'}
-        color={type === 'increase' ? 'green.500' : 'red.500'}
-        size={8}
-        {...props}
-        ref={ref}
-      />
+    return type === 'increase' ? (
+      <ChevronUpIcon ml={-1} color="green.500" size={8} {...props} ref={ref} />
+    ) : (
+      <ChevronDownIcon ml={-1} color="red.500" size={8} {...props} ref={ref} />
     );
   })
 );

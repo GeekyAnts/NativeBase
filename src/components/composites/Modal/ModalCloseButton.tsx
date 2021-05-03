@@ -2,7 +2,7 @@ import React from 'react';
 import { ModalContext } from './Context';
 import { useThemeProps } from '../../../hooks';
 import Button from '../../primitives/Button/Button';
-import Icon from '../../primitives/Icon';
+import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IIconButtonProps } from 'native-base';
 
 const ModalCloseButton = (props: Omit<IIconButtonProps, 'icon'>, ref?: any) => {
@@ -17,7 +17,7 @@ const ModalCloseButton = (props: Omit<IIconButtonProps, 'icon'>, ref?: any) => {
       accessibilityLabel="Close dialog"
       ref={ref}
     >
-      <Icon name="close" {..._icon} />
+      <CloseIcon {..._icon} />
     </Button>
   );
 };

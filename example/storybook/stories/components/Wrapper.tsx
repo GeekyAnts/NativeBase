@@ -4,10 +4,11 @@ import {
   NativeBaseProvider,
   useColorMode,
   IconButton,
-  Icon,
+  MoonIcon,
   ColorMode,
   useColorModeValue,
   Tooltip,
+  SunIcon,
 } from 'native-base';
 import type { StorageManager } from 'native-base';
 import { Button } from 'react-native';
@@ -37,13 +38,7 @@ function MyWrapper({ children }: any) {
           top={12}
           right={8}
           onPress={toggleColorMode}
-          icon={
-            <Icon
-              name={colorMode === 'dark' ? 'light-up' : 'md-moon'}
-              type={colorMode === 'dark' ? 'Entypo' : 'Ionicons'}
-              color={colorMode === 'dark' ? 'white' : 'black'}
-            />
-          }
+          icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
         />
       </Tooltip>
       {children}

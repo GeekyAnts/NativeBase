@@ -10,15 +10,16 @@ const baseStyle = (props: Record<string, any>) => {
 };
 
 const iconSizes = {
-  'xs': '16',
-  'sm': '20',
-  'md': '24',
-  'lg': '30',
-  'xl': '34',
-  '2xl': '38',
-  '3xl': '42',
-  '4xl': '48',
-  '5xl': '56',
+  'xxs': '2',
+  'xs': '4',
+  'sm': '6',
+  'md': '8',
+  'lg': '10',
+  'xl': '12',
+  '2xl': '16',
+  '3xl': '20',
+  '4xl': '24',
+  '5xl': '32',
   '6xl': '64',
 };
 
@@ -27,5 +28,5 @@ sizes = {
   ...iconSizes,
 };
 
-const defaultProps = { size: 8, color: 'primary' };
+const defaultProps = { size: 'md', color: 'primary' };
 export default { baseStyle, sizes, defaultProps };

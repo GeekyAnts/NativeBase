@@ -1,9 +1,10 @@
 import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
-import { VStack, Box, Icon } from '../../primitives';
+import { VStack, Box } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import type { INumberInputSteppersProps, INumberInputContext } from './types';
 import { NumberInputContext } from './Context';
+import { ChevronUpIcon, ChevronDownIcon } from '../../primitives/Icon/Icons';
 
 export const NBStepper = React.forwardRef(
   ({ children, ...props }: any, ref?: any) => {
@@ -43,13 +44,9 @@ export const NBStepper = React.forwardRef(
             : {})}
         >
           {children || isIncrement ? (
-            <Icon name="arrow-drop-up" type="MaterialIcons" color={iconColor} />
+            <ChevronUpIcon color={iconColor} />
           ) : (
-            <Icon
-              name="arrow-drop-down"
-              type="MaterialIcons"
-              color={iconColor}
-            />
+            <ChevronDownIcon color={iconColor} />
           )}
         </Box>
       </TouchableOpacity>
