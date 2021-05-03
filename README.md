@@ -4,7 +4,7 @@
 
 Essential cross-platform UI components for React Native
 
- Updated docs [here!](https://docs.nativebase.io/)
+ Updated docs [here!](https://alpha.nativebase.io/)
 
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/screenshots/iOS.gif)
 ![Demo](https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/master/screenshots/Android.gif)
