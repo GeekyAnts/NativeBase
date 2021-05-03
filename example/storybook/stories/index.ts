@@ -1,5 +1,5 @@
+export * from './components/primitives/Button';
 export * from './components/primitives/Box';
-// export * from './components/primitives/Button';
 // // Components;
 // // export * from './components/composites/Accordion';
 // // export * from './components/composites/Actionsheet';

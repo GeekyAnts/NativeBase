@@ -31,8 +31,7 @@ const composeStyles = (props: any, ...args: any) => {
     styles = { ...styles, ...arg(props) };
   });
 
-  return StyleSheet.create({ styledComponentStyles: styles })
-    .styledComponentStyles;
+  return styles;
 };
 
 export const styled = (Component: any) => (...args: any) =>
@@ -42,10 +41,11 @@ export const styled = (Component: any) => (...args: any) =>
     const styledComponentStyles = composeStyles({ ...props, theme }, ...args);
 
     const styles = StyleSheet.create({
-      styledElement: StyleSheet.flatten([styledComponentStyles, style]),
+      style: StyleSheet.flatten([styledComponentStyles, style]),
     });
 
-    return <Component ref={ref} style={styles.styledElement} {...props} />;
+    console.log('styles ', styles, props.nativeID);
+    return <Component ref={ref} style={styles.style} {...props} />;
   });
 
 export default function <P>(
