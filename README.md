@@ -50,7 +50,7 @@ What is really great with [NativeBase](https://nativebase.io/) is that you can u
 *Install NativeBase*
 
 ```js
-npm install native-base --save
+npm install native-base@next --save
 ```
 *Install Peer Dependencies*<br />
 The peer dependencies included from any npm packages does not automatically get installed. Your application will not depend on it explicitly.
@@ -69,7 +69,7 @@ Refer this link for additional information on [Expo](https://docs.expo.io/)
 
 *Install NativeBase*
 ```js
-npm install native-base --save
+npm i native-base@next react-native-svg @expo/vector-icons styled-components styled-system react-native-safe-area-context @react-native-picker/picker
 ```
 
 <br />
@@ -118,6 +118,15 @@ react-native run-android
 ```
 Refer [ignite-native-base-boilerplate](https://github.com/GeekyAnts/ignite-native-base-boilerplate) page for additional information
 
+**d. Setup for Next.js with Expo for Web**
+```js
+npx create-react-native-app -t with-nextjs
+```
+
+For Installing NativeBase just copy this and paste in your terminal.
+```js
+yarn add native-base@next react-native-svg @expo/vector-icons styled-components styled-system
+```
 ## 5. Components
 
 [NativeBase](https://nativebase.io/) is made from effective building blocks referred to as components. The Components are constructed in pure [React Native](https://github.com/facebook/react-native) platform along with some JavaScript functionality with rich set of customisable properties. These components allow you to quickly build the perfect interface.
