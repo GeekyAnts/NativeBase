@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput, Platform } from 'react-native';
-import styled from 'styled-components/native';
+import { styled } from '../../../factory';
 import {
   border,
   flex,

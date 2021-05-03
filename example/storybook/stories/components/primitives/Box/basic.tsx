@@ -7,6 +7,7 @@ export const Basic = () => {
       bg="primary.400"
       p={4}
       _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}
+      nativeID="box-test"
     >
       This is a Box
     </Box>
