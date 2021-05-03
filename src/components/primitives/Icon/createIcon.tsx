@@ -2,7 +2,7 @@ import React from 'react';
 import SVGIcon from './SVGIcon';
 import { Path } from 'react-native-svg';
 import type { ICreateIconProps } from './types';
-import isEmpty from 'lodash/isEmpty';
+import isEmpty from 'lodash.isempty';
 
 export function createIcon({ path, d, ...initialProps }: ICreateIconProps) {
   const createdIcon = (props: any, ref: any) => {

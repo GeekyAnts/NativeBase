@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { getCoordinates } from './../Popover/utils';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
-import isEqual from 'lodash/isEqual';
+import isEqual from 'lodash.isequal';
 import { useKeyboardDismissable } from '../../hooks/useKeyboardDismissable';
 
 type PopoverWrapperType = {

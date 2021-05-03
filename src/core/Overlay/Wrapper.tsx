@@ -7,7 +7,7 @@ import {
   Platform,
 } from 'react-native';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
-import isEqual from 'lodash/isEqual';
+import isEqual from 'lodash.isequal';
 import type { IOverlayConfig } from './types';
 import { useKeyboardDismissable } from '../../hooks/useKeyboardDismissable';
 

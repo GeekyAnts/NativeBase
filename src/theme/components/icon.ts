@@ -1,6 +1,6 @@
 import { default as allSizes } from './../base/sizes';
 import { mode } from './../tools';
-import omit from 'lodash/omit';
+import omit from 'lodash.omit';
 
 let sizes = omit(allSizes, ['container']);
 const baseStyle = (props: Record<string, any>) => {
