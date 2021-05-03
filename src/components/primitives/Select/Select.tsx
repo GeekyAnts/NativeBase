@@ -2,7 +2,6 @@ import React from 'react';
 import type { ISelectProps } from './types';
 import { Platform, View, Pressable, ScrollView } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
-import Icon from '../Icon';
 import Box from '../Box';
 import { Input } from '../Input';
 import { useFocusRing } from '@react-native-aria/focus';
@@ -34,6 +33,7 @@ import {
   customTypography,
 } from '../../../utils/customProps';
 import { useToken } from '../../../hooks/useToken';
+import { ChevronDownIcon } from '../Icon/Icons';
 
 const StyledNativePicker = styled(RNPicker)<ISelectProps>(
   flex,
@@ -166,7 +166,11 @@ const Select = (
       size={size}
       variant={selectThemeProps.variant}
       InputRightElement={
-        dropdownIcon ? dropdownIcon : <Icon {...customDropdownIconProps} />
+        dropdownIcon ? (
+          dropdownIcon
+        ) : (
+          <ChevronDownIcon {...customDropdownIconProps} />
+        )
       }
       {...(isHovered ? themeProps._hover : {})}
       {...nonLayoutProps}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Icon, Box } from '../../primitives';
+import { Box } from '../../primitives';
+import { CheckIcon } from '../../primitives/Icon/Icons';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { MenuItem } from './MenuItem';
 import type { IMenuItemOptionProps, IMenuOptionContextProps } from './types';
@@ -39,10 +40,11 @@ export const MenuItemOption = React.memo(
           justifyContent="flex-start"
           width="100%"
         >
-          <Icon
-            name="check"
+          <CheckIcon
+            // TODO: Needs to update, with _icon (_prop) [Instead of passsing p here.]
             pr={newProps.p}
-            size={newProps._text.fontSize}
+            // size={newProps._text.fontSize}
+            size="sm"
             opacity={isChecked ? 1 : 0}
           />
           {children}

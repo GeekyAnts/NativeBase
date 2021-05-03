@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../../primitives/Icon';
+import { Icon } from '../../../primitives/Icon';
 import { Circle, Ellipse } from 'react-native-svg';
 
 export function MultiColorDotted(props: any) {

@@ -84,8 +84,9 @@ export type IIconProps = IPlatformProps &
   customTransformProps &
   customFlexboxProps &
   BorderProps & {
-    name?: IconNameType;
-    type?: IconType;
+    // name?: IconNameType;
+    // type?: IconType;
+    as?: any;
     style?: TextStyle;
     viewBox?: string;
     size?: string | number;

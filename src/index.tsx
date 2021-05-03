@@ -164,6 +164,7 @@ import {
   ISelectItemProps,
 } from './components/primitives';
 
+export * from './components/primitives/Icon/Icons';
 export * from './theme';
 export * from './core';
 export * from './hooks';
