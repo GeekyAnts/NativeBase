@@ -44,8 +44,7 @@ export const styled = (Component: any) => (...args: any) =>
       style: StyleSheet.flatten([styledComponentStyles, style]),
     });
 
-    console.log('styles ', styles, props.nativeID);
-    return <Component ref={ref} style={styles.style} {...props} />;
+    return <Component ref={ref} {...props} style={styles.style} />;
   });
 
 export default function <P>(
