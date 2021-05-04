@@ -26,6 +26,8 @@ You can find the complete documentation [here](https://nativebase.github.io/).
 10. [Website](#10-website)
 11. [Quick Links to NativeBase](#11-quick-links-to-nativebase)
 12. [About the creators](#12-about-the-creators)
+13. [Community](#13-community)
+14. [License](#14-license)
 
 ## 1. What is NativeBase 3.0?
 [NativeBase](https://nativebase.github.io/) is a universal Design System for Mobile & Web built for React Native and React with the same API. Ships a bunch of components for most of the use-cases that includes Button, AppBar, Dialog, Modal and what not.
@@ -244,6 +246,12 @@ Support this project with your organization. Your logo will show up here with a 
 <a href="https://opencollective.com/NativeBase/organization/8/website"><img src="https://opencollective.com/NativeBase/organization/8/avatar.svg"></a>
 <a href="https://opencollective.com/NativeBase/organization/9/website"><img src="https://opencollective.com/NativeBase/organization/9/avatar.svg"></a>
 
-
-## License
+## 13. Community
+- [Facebook](https://www.facebook.com/nativebaseio)
+- [Twitter](https://twitter.com/nativebaseio)
+- [Discord](https://discord.com/invite/TSgCw2UPmb)
+- [Stackoverflow](https://stackoverflow.com/questions/tagged/native-base)
+- [Medium](https://blog.nativebase.io/)
+- [YouTube](https://www.youtube.com/channel/UCoL_iTwpY07vDs91974z3xA/about)
+## 14. License
 NativeBase is [Apache licensed](https://github.com/GeekyAnts/NativeBase/blob/v3-pre-beta/LICENSE)
