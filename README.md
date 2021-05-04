@@ -190,7 +190,7 @@ The order is important because Expo can mix in the location of vector icons to t
 
 ## 9. Documentation
 
-Go through [NativeBase Docs](https://nativebase.github.io/) to play with [NativeBase](https://nativebase.github.io/).
+Go through [NativeBase Docs](https://nativebase.github.io/docs/nativebase) to play with [NativeBase](https://nativebase.github.io/).
 
 
 
@@ -241,3 +241,7 @@ Support this project with your organization. Your logo will show up here with a 
 <a href="https://opencollective.com/NativeBase/organization/7/website"><img src="https://opencollective.com/NativeBase/organization/7/avatar.svg"></a>
 <a href="https://opencollective.com/NativeBase/organization/8/website"><img src="https://opencollective.com/NativeBase/organization/8/avatar.svg"></a>
 <a href="https://opencollective.com/NativeBase/organization/9/website"><img src="https://opencollective.com/NativeBase/organization/9/avatar.svg"></a>
+
+
+## License
+NativeBase is [Apache licensed](https://github.com/GeekyAnts/NativeBase/blob/v3-pre-beta/LICENSE)
