@@ -187,8 +187,6 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
-    "react-native-popper": "^0.1.8",
-    "react-native-unimodules": "~0.10.1",
     "tinycolor2": "^1.4.2"
   },
   "directories": {
