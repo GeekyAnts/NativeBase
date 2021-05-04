@@ -8,12 +8,20 @@ export default function () {
         return <Button {...triggerProps}>Trigger</Button>;
       }}
     >
-      <Popover.Content>
+      <Popover.Content accessibilityLabel="hello world">
+        <Popover.Arrow />
         <Popover.CloseButton />
-        <Popover.Header>Data Saved</Popover.Header>
-        <Popover.Body>Your changes has been saved.</Popover.Body>
-        <Popover.Footer>
-          <Link>View Changes</Link>
+        <Popover.Header>Confirmation</Popover.Header>
+        <Popover.Body>
+          Are you sure you want to continue with your action?
+        </Popover.Body>
+        <Popover.Footer justifyContent="flex-end">
+          <Button.Group>
+            <Button size="sm" variant="ghost">
+              Cancel
+            </Button>
+            <Button size="sm">Apply</Button>
+          </Button.Group>
         </Popover.Footer>
       </Popover.Content>
     </Popover>

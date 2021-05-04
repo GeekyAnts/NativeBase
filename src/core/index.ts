@@ -1,19 +1,6 @@
 export * from './NativeBaseProvider';
 export * from './extendTheme';
 
-export { useOverlay } from './Overlay';
-export type {
-  IOverlayProps,
-  IOverlayContextProps,
-  IuseOverlayProps,
-} from './Overlay';
-
-export { usePopover } from './Popover';
-export type {
-  IPopoverProps,
-  IPopoverContextProps, // IusePopoverProps,
-} from './Popover';
-
 export {
   useColorMode,
   useColorModeValue,
@@ -27,3 +14,5 @@ export type {
   IColorModeProviderProps,
   IColorModeContextProps,
 } from './color-mode';
+
+export { ToastProvider, CustomToast } from '../components/composites/Toast';

@@ -7,6 +7,7 @@ import {
   MoonIcon,
   ColorMode,
   useColorModeValue,
+  Tooltip,
   SunIcon,
 } from 'native-base';
 import type { StorageManager } from 'native-base';
@@ -26,13 +27,20 @@ function MyWrapper({ children }: any) {
       bg={bgColor}
       safeAreaY
     >
-      <IconButton
-        position="absolute"
-        top={12}
-        right={8}
-        onPress={toggleColorMode}
-        icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-      />
+      <Tooltip
+        label={colorMode === 'dark' ? 'Enable light mode' : 'Enable dark mode'}
+        placement="bottom right"
+        openDelay={300}
+        closeOnClick={false}
+      >
+        <IconButton
+          position="absolute"
+          top={12}
+          right={8}
+          onPress={toggleColorMode}
+          icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+        />
+      </Tooltip>
       {children}
     </Box>
   );

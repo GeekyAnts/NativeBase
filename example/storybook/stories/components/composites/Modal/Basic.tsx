@@ -1,30 +1,47 @@
 import React from 'react';
-import { Modal, Button, Center } from 'native-base';
+import { Button, Modal } from 'native-base';
+import { useState } from 'react';
 
-export default function () {
-  const [modalVisible, setModalVisible] = React.useState(false);
+const Basic = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
-      <Modal
-        accessibilityLabel="this is a simple modal"
-        isOpen={modalVisible}
-        onClose={setModalVisible}
-        overlayVisible={true}
-      >
-        <Modal.Content>
+      <Button onPress={() => setShowModal(true)}>Button</Button>
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
-          <Modal.Header>Cookie Policy</Modal.Header>
+          <Modal.Header>Modal Title</Modal.Header>
           <Modal.Body>
-            We use our own and third-party cookies and other tracking
-            technologies, by continuing to browse the website, you accept our
-            use of cookies and tracking technologies.
+            Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
+            ullamco deserunt aute id consequat veniam incididunt duis in sint
+            irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+            officia tempor esse quis. Sunt ad dolore quis aute consequat. Magna
+            exercitation reprehenderit magna aute tempor cupidatat consequat
+            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
+            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim
+            ullamco deserunt aute id consequat veniam incididunt duis in sint
+            irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+            officia tempor esse quis. Sunt ad dolore quis aute consequat. Magna
+            exercitation reprehenderit magna aute tempor cupidatat consequat
+            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
+            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim
+            exercitation reprehenderit magna aute tempor cupidatat consequat
+            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
+            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim
+            ullamco deserunt aute id consequat veniam incididunt duis in sint
+            irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+            officia tempor esse quis. Sunt ad dolore quis aute consequat. Magna
+            exercitation reprehenderit magna aute tempor cupidatat consequat
+            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
+            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim
           </Modal.Body>
           <Modal.Footer>
             <Button.Group variant="ghost" space={2}>
               <Button>LEARN MORE</Button>
               <Button
                 onPress={() => {
-                  setModalVisible(!modalVisible);
+                  setShowModal(false);
                 }}
               >
                 ACCEPT
@@ -33,15 +50,8 @@ export default function () {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-      <Center>
-        <Button
-          onPress={() => {
-            setModalVisible(!modalVisible);
-          }}
-        >
-          Open Modal
-        </Button>
-      </Center>
     </>
   );
-}
+};
+
+export default Basic;

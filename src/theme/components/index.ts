@@ -40,6 +40,7 @@ import Icon from './icon';
 import IconButton from './icon-button';
 import { Image } from './image';
 import { Input } from './input';
+import { Tooltip } from './tooltip';
 import Kbd from './kbd';
 import Link from './link';
 import { default as Menu, MenuGroup, MenuItem } from './menu';
@@ -67,7 +68,7 @@ import Text from './text';
 import AppBar from './app-bar';
 import TextArea from './textarea';
 import { TextField } from './textField';
-import Toast from './toast';
+import { Toast } from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import { List, ListItem, ListIcon } from './list';
 import { TypeAheadSearchItem } from './typeahead';
@@ -170,4 +171,5 @@ export default {
   View,
   Wrap,
   ZStack,
+  Tooltip,
 };

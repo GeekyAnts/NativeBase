@@ -1,19 +1,38 @@
+import Modal, { IModalProps } from './Modal';
 import ModalContent from './ModalContent';
 import ModalBody from './ModalBody';
 import ModalCloseButton from './ModalCloseButton';
 import ModalFooter from './ModalFooter';
 import ModalHeader from './ModalHeader';
-import ModalMain from './Modal';
-export type { IModalProps, IModalSemiProps } from './types';
-import type { IModalComponentType } from './types';
+import type { IIconButtonProps } from '../../composites/IconButton';
+import type { IBoxProps } from '../../primitives/Box';
 
-let ModalTemp: any = ModalMain;
-ModalTemp.Content = ModalContent;
-ModalTemp.CloseButton = ModalCloseButton;
-ModalTemp.Header = ModalHeader;
-ModalTemp.Footer = ModalFooter;
-ModalTemp.Body = ModalBody;
+let ModalMain: any = Modal;
 
-// To add typings
-const Modal = ModalTemp as IModalComponentType;
-export { Modal };
+ModalMain.Content = ModalContent;
+ModalMain.CloseButton = ModalCloseButton;
+ModalMain.Header = ModalHeader;
+ModalMain.Footer = ModalFooter;
+ModalMain.Body = ModalBody;
+
+export type IModalComponentType = ((
+  props: IModalProps & { ref?: any }
+) => JSX.Element) & {
+  Body: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  CloseButton: React.MemoExoticComponent<
+    (props: Omit<IIconButtonProps, 'icon'> & { ref?: any }) => JSX.Element
+  >;
+  Content: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  Footer: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  Header: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+};
+
+export { ModalMain as Modal, IModalProps };
