@@ -1,7 +1,7 @@
 import React from 'react';
 import Flex from '../../primitives/Flex';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import isNil from 'lodash/isNil';
+import isNil from 'lodash.isnil';
 import type { IAvatarGroupProps } from './types';
 import { default as Avatar } from './Avatar';
 

@@ -32,13 +32,14 @@ export const PopoverContent = React.forwardRef(
     const color = useToken('colors', arrowDefaultColor);
 
     React.useEffect(() => {
+      let finalFocusRefCurrentVal = finalFocusRef?.current;
       if (initialFocusRef && initialFocusRef.current) {
         initialFocusRef.current.focus();
       }
 
       return () => {
-        if (finalFocusRef && finalFocusRef.current) {
-          finalFocusRef.current.focus();
+        if (finalFocusRefCurrentVal) {
+          finalFocusRefCurrentVal.focus();
         }
       };
     }, [finalFocusRef, initialFocusRef]);
@@ -49,7 +50,7 @@ export const PopoverContent = React.forwardRef(
       return () => {
         removeHandler();
       };
-    }, []);
+    }, [onClose]);
 
     let arrowElement = null;
     let restChildren: any = [];

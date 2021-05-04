@@ -11,46 +11,8 @@ import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import { useFormControl } from '../../composites/FormControl';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
-
-import { Picker as RNPicker } from '@react-native-picker/picker';
-import styled from 'styled-components/native';
-import {
-  border,
-  flex,
-  space,
-  color,
-  flexbox,
-  layout,
-  typography,
-} from 'styled-system';
-import {
-  customBorder,
-  customBackground,
-  customOutline,
-  customLayout,
-  customExtra,
-  customShadow,
-  customTypography,
-} from '../../../utils/customProps';
-import { useToken } from '../../../hooks/useToken';
 import { ChevronDownIcon } from '../Icon/Icons';
 
-const StyledNativePicker = styled(RNPicker)<ISelectProps>(
-  flex,
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  typography,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customTypography,
-  customLayout
-);
 const unstyledSelecWebtStyles = {
   width: '100%',
   height: '100%',
@@ -75,7 +37,6 @@ const Select = (
     placeholder,
     accessibilityLabel,
     defaultValue,
-    type,
     size,
     _item,
     _selectedItem,
@@ -122,28 +83,13 @@ const Select = (
   );
   const selectedItem =
     selectedItemArray && selectedItemArray.length ? selectedItemArray[0] : null;
-  const selectThemeProps = usePropsResolution('Select', props);
 
   const {
-    _ios,
-    _web,
-    _android,
-    itemStyle,
-    _hover,
-    isInvalid,
-    _isInvalid,
-    _isDisabled,
-    color,
-    androidMode,
-    androidIconColor,
-    androidPrompt,
+    variant,
     customDropdownIconProps,
     _actionSheetContent,
     ...newProps
-  } = usePropsResolution(
-    type === 'native' ? 'NativeSelect' : 'CustomSelect',
-    props
-  );
+  } = usePropsResolution('Select', props);
   const [borderProps, remainingProps] = extractInObject(newProps, [
     ...stylingProps.border,
   ]);
@@ -164,7 +110,7 @@ const Select = (
       editable={false}
       focusable={false}
       size={size}
-      variant={selectThemeProps.variant}
+      variant={variant}
       InputRightElement={
         dropdownIcon ? (
           dropdownIcon
@@ -177,67 +123,8 @@ const Select = (
       {...borderProps}
     />
   );
-  // Getting theme values for androidIconColor and color
-  const themeAndroidIconColor = useToken('colors', androidIconColor);
-  const themeItemStyleColor = useToken('colors', color);
 
-  const NativeSelect =
-    Platform.OS !== 'web' ? (
-      <StyledNativePicker
-        // Not getting ref on web
-        ref={mergeRefs([ref, _ref, wrapperRef])}
-        enabled={!isDisabled}
-        {...layoutProps}
-        color={color}
-        onValueChange={onValueChange}
-        selectedValue={selectedValue}
-        mode={androidMode}
-        prompt={androidPrompt}
-        dropdownIconColor={themeAndroidIconColor}
-        itemStyle={{
-          color: themeItemStyleColor,
-          ...itemStyle,
-        }}
-        {...selectProps}
-        {...(Platform.OS === 'ios' && _ios)}
-        {...(Platform.OS === 'android' && _android)}
-        {...(isDisabled && _isDisabled)}
-        {...(isInvalid && _isInvalid)}
-        {...(isHovered && _hover)}
-        {...nonLayoutProps}
-        {...borderProps}
-      >
-        {children}
-      </StyledNativePicker>
-    ) : (
-      <Box {...layoutProps} ref={wrapperRef}>
-        <StyledNativePicker
-          // Not getting ref on web
-          ref={mergeRefs([ref, _ref])}
-          enabled={!isDisabled}
-          color={color}
-          onValueChange={onValueChange}
-          selectedValue={selectedValue}
-          itemStyle={{
-            color: themeItemStyleColor,
-            ...itemStyle,
-          }}
-          {...selectProps}
-          {...(Platform.OS === 'web' && _web)}
-          {...(isDisabled && _isDisabled)}
-          {...(isInvalid && _isInvalid)}
-          {...(isHovered && _hover)}
-          {...nonLayoutProps}
-          {...borderProps}
-        >
-          {children}
-        </StyledNativePicker>
-      </Box>
-    );
-
-  // Todo: focusRing fix
-
-  const StyledSelect = (
+  return (
     <Box
       borderWidth={1}
       borderColor="transparent"
@@ -299,7 +186,6 @@ const Select = (
       )}
     </Box>
   );
-  return type === 'native' ? NativeSelect : StyledSelect;
 };
 
 export default React.forwardRef(Select);

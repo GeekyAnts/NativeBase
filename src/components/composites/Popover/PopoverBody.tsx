@@ -12,7 +12,7 @@ const PopoverBody = (props: IBoxProps, ref?: any) => {
     return () => {
       setBodyMounted(false);
     };
-  }, []);
+  }, [setBodyMounted]);
 
   return (
     <Box nativeID={bodyId} {...style.popoverBodyProps} {...props} ref={ref} />

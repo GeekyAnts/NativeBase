@@ -7,7 +7,7 @@ import { omitUndefined } from '../../../theme/tools/utils';
 import { useTab } from '@react-native-aria/tabs';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
-import merge from 'lodash/merge';
+import merge from 'lodash.merge';
 import { themeTools } from '../../../theme';
 
 export const TabContext = createContext({});

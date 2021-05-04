@@ -12,7 +12,7 @@ const PopoverHeader = (props: IBoxProps, ref?: any) => {
     return () => {
       setHeaderMounted(false);
     };
-  }, []);
+  }, [setHeaderMounted]);
   return (
     <Box
       accessibilityRole="banner"

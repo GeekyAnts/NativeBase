@@ -1,7 +1,7 @@
-import omitBy from 'lodash/omitBy';
-import isNil from 'lodash/isNil';
-import pick from 'lodash/pick';
-import omit from 'lodash/omit';
+import omitBy from 'lodash.omitby';
+import isNil from 'lodash.isnil';
+import pick from 'lodash.pick';
+import omit from 'lodash.omit';
 
 export const stylingProps = {
   margin: [

@@ -2,7 +2,6 @@ import { OverlayContainer } from '@react-native-aria/overlays';
 import { Transition } from '../Transitions';
 import VStack from '../../primitives/Stack/VStack';
 import { Alert } from '../../composites/Alert';
-import Icon from '../../primitives/Icon';
 import React, { createContext, ReactNode, useState } from 'react';
 import {
   AccessibilityInfo,
@@ -14,6 +13,7 @@ import {
 import IconButton from '../IconButton';
 import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
+import { CloseIcon } from '../../primitives/Icon/Icons';
 
 let INSET = `${StatusBar.currentHeight}px`;
 
@@ -274,7 +274,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
                 onPress={() => {
                   hideToast(id);
                 }}
-                icon={<Icon size="xs" name="close" />}
+                icon={<CloseIcon size="xs" />}
               />
             ) : undefined
           }

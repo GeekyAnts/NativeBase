@@ -64,7 +64,7 @@ const Modal = React.forwardRef(
       return () => {
         cleanupFn();
       };
-    }, [visible]);
+    }, [visible, isKeyboardDismissable, setVisible]);
 
     return (
       <OverlayContainer>

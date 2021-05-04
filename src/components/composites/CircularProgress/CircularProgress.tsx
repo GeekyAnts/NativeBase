@@ -1,4 +1,4 @@
-import get from 'lodash/get';
+import get from 'lodash.get';
 import React from 'react';
 import { Animated, Easing, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
