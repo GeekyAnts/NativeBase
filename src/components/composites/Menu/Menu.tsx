@@ -2,12 +2,22 @@ import React from 'react';
 import type { IMenuProps } from './types';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { Popover } from 'react-native-popper';
-import { Platform, ScrollView } from 'react-native';
-import { useControllableState } from '../../../hooks';
+import { Popper } from '../Popper';
+import { ScrollView, StyleSheet } from 'react-native';
+import {
+  keyboardDismissHandlerManager,
+  useControllableState,
+} from '../../../hooks';
 import { useMenuTrigger, useMenu, useMenuTypeahead } from './useMenu';
+import Backdrop from '../Backdrop';
+import { OverlayContainer } from '@react-native-aria/overlays';
+import { Transition } from '../Transitions';
+import { FocusScope } from '@react-native-aria/focus';
 
-export const MenuContext = React.createContext({ closeOnSelect: true });
+export const MenuContext = React.createContext({
+  closeOnSelect: true,
+  onClose: () => {},
+});
 
 export const Menu = React.memo(
   React.forwardRef(
@@ -55,31 +65,54 @@ export const Menu = React.memo(
           { open: isOpen }
         );
       };
+
+      React.useEffect(() => {
+        let cleanupFn = () => {};
+        if (isOpen) {
+          cleanupFn = keyboardDismissHandlerManager.push(handleClose);
+        } else {
+          cleanupFn();
+        }
+
+        return () => {
+          cleanupFn();
+        };
+      }, [isOpen, handleClose]);
+
       return (
         <>
           {updatedTrigger()}
-          <Popover
-            isOpen={isOpen}
-            // Disabling android animation till a fix for this issue is found. https://github.com/facebook/react-native/issues/23090
-            animated={Platform.OS !== 'android'}
-            trigger={triggerRef}
-            onOpenChange={(value) => {
-              if (!value) {
-                handleClose();
-              }
-            }}
-            placement={props.placement ?? 'bottom left'}
-            shouldOverlapWithTrigger
-          >
-            <Popover.Backdrop />
-            <Popover.Content>
-              <MenuContext.Provider value={{ closeOnSelect }}>
-                <MenuContent menuRef={ref} {...newProps}>
-                  {children}
-                </MenuContent>
-              </MenuContext.Provider>
-            </Popover.Content>
-          </Popover>
+          <OverlayContainer>
+            <Transition
+              from={{ opacity: 0 }}
+              entry={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              visible={isOpen}
+              style={StyleSheet.absoluteFill}
+              exitDuration={100}
+              entryDuration={150}
+            >
+              <Popper
+                triggerRef={triggerRef}
+                onClose={handleClose}
+                placement={props.placement ?? 'bottom left'}
+                shouldOverlapWithTrigger
+              >
+                <Backdrop bg="transparent" onPress={handleClose} />
+                <Popper.Content>
+                  <MenuContext.Provider
+                    value={{ closeOnSelect, onClose: handleClose }}
+                  >
+                    <FocusScope contain restoreFocus autoFocus>
+                      <MenuContent menuRef={ref} {...newProps}>
+                        {children}
+                      </MenuContent>
+                    </FocusScope>
+                  </MenuContext.Provider>
+                </Popper.Content>
+              </Popper>
+            </Transition>
+          </OverlayContainer>
         </>
       );
     }

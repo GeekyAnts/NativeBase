@@ -13,7 +13,7 @@ const PopoverCloseButton = (
   const style = useThemeProps('Popover', props);
 
   return (
-    <Box position="absolute" right={0} top={0} zIndex={1} ref={ref}>
+    <Box position="absolute" right={1} top={1} zIndex={1} ref={ref}>
       <IconButton
         {...style.popoverCloseButtonProps}
         {...props}

@@ -3,11 +3,9 @@ import { Platform } from 'react-native';
 const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
 
 const baseStyle = (props: any) => {
-  const { primary } = props.theme.colors;
+  const { blue } = props.theme.colors;
   const focusRing =
-    Platform.OS === 'web'
-      ? { boxShadow: `${primary[400]} 0px 0px 0px 3px` }
-      : {};
+    Platform.OS === 'web' ? { boxShadow: `${blue[400]} 0px 0px 0px 3px` } : {};
 
   return {
     borderRadius: 'lg',
@@ -51,13 +49,22 @@ function variantGhost(props: Dict) {
       outlineWidth: 0,
     },
     _hover: {
-      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
+      backgroundColor: transparentize(
+        mode(`gray.200`, `gray.500`)(props),
+        0.5
+      )(props.theme),
     },
     _focus: {
-      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
+      backgroundColor: transparentize(
+        mode(`gray.200`, `gray.500`)(props),
+        0.5
+      )(props.theme),
     },
     _pressed: {
-      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.6)(props.theme),
+      backgroundColor: transparentize(
+        mode(`gray.200`, `gray.500`)(props),
+        0.6
+      )(props.theme),
     },
   };
 }

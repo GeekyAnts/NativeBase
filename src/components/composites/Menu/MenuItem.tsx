@@ -4,7 +4,6 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Pressable from '../../primitives/Pressable';
 import type { IMenuItemProps } from './types';
 import { MenuContext } from './Menu';
-import { PopoverContext } from '../Popover/PopoverContext';
 import { useMenuItem } from './useMenu';
 import { mergeRefs } from '../../../utils';
 
@@ -12,8 +11,7 @@ export const MenuItem = React.forwardRef(function MenuItem(
   { children, onPress, style, textValue, ...props }: IMenuItemProps,
   ref: any
 ) {
-  const { closeOnSelect } = React.useContext(MenuContext);
-  const { onClose } = React.useContext(PopoverContext);
+  const { closeOnSelect, onClose } = React.useContext(MenuContext);
   const menuItemRef = React.useRef<any>(null);
   const mergedRef = mergeRefs([menuItemRef, ref]);
   const newProps = usePropsResolution('MenuItem', props);

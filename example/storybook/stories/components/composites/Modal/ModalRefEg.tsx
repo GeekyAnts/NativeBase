@@ -8,7 +8,6 @@ export default function () {
   return (
     <>
       <Modal
-        isCentered
         isOpen={modalVisible}
         onClose={setModalVisible}
         initialFocusRef={initialRef}

@@ -89,7 +89,7 @@ export const useMenuTypeahead = (props: any): any => {
         const searchKey = event.key;
 
         const foundValue = values.find((value) =>
-          value.toLowerCase().includes(searchKey)
+          value.toLowerCase().startsWith(searchKey)
         );
         const newItem = container.querySelector(
           `[${ITEM_ATTR}="${foundValue}"]`

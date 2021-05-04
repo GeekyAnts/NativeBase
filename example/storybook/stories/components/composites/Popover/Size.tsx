@@ -9,6 +9,7 @@ export default function () {
       }}
     >
       <Popover.Content>
+        <Popover.Arrow />
         <Popover.CloseButton />
         <Popover.Header>Confirmation!</Popover.Header>
         <Popover.Body>

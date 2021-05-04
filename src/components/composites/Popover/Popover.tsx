@@ -1,10 +1,16 @@
 import React from 'react';
-import { Popover as PopoverAlias } from 'react-native-popper';
+import { Popper } from '../Popper';
 import type { IPopoverProps } from 'native-base';
 import { mergeRefs } from '../../../utils';
 import { useControllableState } from '../../../hooks';
 import { PopoverContext } from './PopoverContext';
 import Box from '../../primitives/Box';
+import { OverlayContainer } from '@react-native-aria/overlays';
+import Backdrop from '../Backdrop';
+import { FocusScope } from '@react-native-aria/focus';
+import { Transition } from '../Transitions';
+import { StyleSheet } from 'react-native';
+import { useId } from '@react-aria/utils';
 
 const Popover = React.forwardRef(function Popover(
   {
@@ -14,7 +20,10 @@ const Popover = React.forwardRef(function Popover(
     isOpen: isOpenProp,
     children,
     defaultIsOpen,
-    ...restProps
+    initialFocusRef,
+    finalFocusRef,
+    trapFocus = true,
+    ...rest
   }: IPopoverProps,
   ref: any
 ) {
@@ -28,6 +37,13 @@ const Popover = React.forwardRef(function Popover(
     },
   });
 
+  const [bodyMounted, setBodyMounted] = React.useState(false);
+  const [headerMounted, setHeaderMounted] = React.useState(false);
+
+  const popoverContentId = `${useId()}-content`;
+  const headerId = `${popoverContentId}-header`;
+  const bodyId = `${popoverContentId}-body`;
+
   const handleOpen = React.useCallback(() => {
     setIsOpen(true);
   }, [setIsOpen]);
@@ -35,8 +51,11 @@ const Popover = React.forwardRef(function Popover(
   let updatedTrigger = () => {
     return trigger(
       {
-        ref: mergedRef,
-        onPress: handleOpen,
+        'ref': mergedRef,
+        'onPress': handleOpen,
+        'aria-expanded': isOpen ? true : false,
+        'aria-controls': isOpen ? popoverContentId : undefined,
+        'aria-haspopup': true,
       },
       { open: isOpen }
     );
@@ -46,32 +65,42 @@ const Popover = React.forwardRef(function Popover(
     setIsOpen(false);
   };
 
-  React.useEffect(() => {
-    if (restProps.initialFocusRef && restProps.initialFocusRef.current) {
-      restProps.initialFocusRef.current.focus();
-    }
-
-    return () => {
-      if (restProps.finalFocusRef && restProps.finalFocusRef.current) {
-        restProps.finalFocusRef.current.focus();
-      }
-    };
-  }, [restProps.finalFocusRef, restProps.initialFocusRef, isOpen]);
-
   return (
     <Box ref={ref}>
       {updatedTrigger()}
-      <PopoverAlias
-        isOpen={isOpen}
-        onOpenChange={setIsOpen}
-        trigger={triggerRef}
-        {...restProps}
-      >
-        <PopoverAlias.Backdrop />
-        <PopoverContext.Provider value={{ onClose: handleClose }}>
-          {children}
-        </PopoverContext.Provider>
-      </PopoverAlias>
+      <OverlayContainer>
+        <Transition
+          from={{ opacity: 0 }}
+          entry={{ opacity: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          visible={isOpen}
+          style={StyleSheet.absoluteFill}
+          exitDuration={100}
+          entryDuration={150}
+        >
+          <Popper onClose={handleClose} triggerRef={triggerRef} {...rest}>
+            <Backdrop onPress={handleClose} bg="transparent" />
+            <PopoverContext.Provider
+              value={{
+                onClose: handleClose,
+                initialFocusRef,
+                finalFocusRef,
+                popoverContentId,
+                bodyId,
+                headerId,
+                headerMounted,
+                bodyMounted,
+                setBodyMounted,
+                setHeaderMounted,
+              }}
+            >
+              <FocusScope contain={trapFocus} restoreFocus autoFocus>
+                {children}
+              </FocusScope>
+            </PopoverContext.Provider>
+          </Popper>
+        </Transition>
+      </OverlayContainer>
     </Box>
   );
 });
