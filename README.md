@@ -149,6 +149,37 @@ yarn add styled-system
 npm i styled-system
 ```
 
+## Setup for Next.js with Expo for Web
+
+```bash
+# using yarn
+yarn add native-base@next react-native-svg @expo/vector-icons styled-components styled-system
+```
+
+```bash
+# using npm
+npm i native-base@next react-native-svg @expo/vector-icons styled-components styled-system
+```
+
+By default Next.js doesn't support static assets like an Expo project. Because this is the intended functionality of Next.js, @expo/next-adapter doesn't add font support by default. If you want to use libraries like expo-font, @expo/vector-icons, you'll need to change a few things.
+
+```bash
+yarn add next-fonts
+```
+Wrap the font method with the Expo method in your next.config.js:
+
+```js
+const { withExpo } = require('@expo/next-adapter');
+const withFonts = require('next-fonts');
+
+module.exports = withExpo(
+  withFonts({
+    projectRoot: __dirname,
+  })
+);
+```
+The order is important because Expo can mix in the location of vector icons to the existing font loader.Now restart your project and you should be able to load fonts!
+
 ## 8. Components
 
 [NativeBase 3.0](https://nativebase.github.io/) is made from two types of components — Primitives and Composite.
