@@ -1,5 +1,6 @@
 export * from './components/primitives/Box';
 export * from './components/primitives/Button';
+export * from './components/composites/Menu';
 // // Components;
 // // export * from './components/composites/Accordion';
 // // export * from './components/composites/Actionsheet';
@@ -32,7 +33,6 @@ export * from './components/primitives/Button';
 // // export * from './components/composites/Kbd';
 // export * from './components/primitives/Link';
 // export * from './components/primitives/List';
-// export * from './components/composites/Menu';
 // // export * from './components/composites/Modal';
 // // export * from './components/composites/NumberInput';
 // export * from './components/primitives/Overlay';

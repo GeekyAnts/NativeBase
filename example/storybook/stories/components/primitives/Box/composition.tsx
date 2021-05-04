@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Box,
   Heading,
-  Icon,
   AspectRatio,
   Image,
   Text,
@@ -10,6 +9,7 @@ import {
   HStack,
   Stack,
   useColorModeValue,
+  InfoIcon,
 } from 'native-base';
 export const Composition = () => {
   return (
@@ -68,24 +68,19 @@ export const Composition = () => {
             The Silicon Valley of India.
           </Heading>
         </Stack>
-        <Text lineHeight={6} fontWeight={400}>
+        <Text lineHeight={6}>
           Bengaluru (also called Bangalore) is the center of India's high-tech
           industry. The city is also known for its parks and nightlife.
         </Text>
         <HStack alignItems="center" space={4} justifyContent="space-between">
           <HStack alignItems="center">
-            <Icon name="access-time" color="gray.500" size="sm" />
+            <InfoIcon />
             <Text ml={1} color="gray.500" fontWeight="500">
               6 mins ago
             </Text>
           </HStack>
           <HStack alignItems="center">
-            <Icon
-              name="ios-chatbubbles"
-              type="Ionicons"
-              color="gray.500"
-              size="sm"
-            />
+            <InfoIcon />
             <Text ml={1} color="gray.500" fontWeight="500">
               39 comments
             </Text>

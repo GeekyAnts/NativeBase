@@ -3,7 +3,7 @@ import { Button, Divider, Heading, HStack, VStack } from 'native-base';
 
 export default function () {
   return (
-    <VStack space={4} px={2}>
+    <VStack space={4} px={2} w="100%">
       {/* Solid */}
       <Heading size="xs" textAlign="left">
         Solid

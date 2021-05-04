@@ -5,9 +5,9 @@ export default function () {
   return (
     <Button
       size="md"
-      height="48px"
-      width="200px"
-      border="2px"
+      height={12}
+      width={48}
+      borderWidth={1}
       borderColor="green.500"
     >
       BUTTON

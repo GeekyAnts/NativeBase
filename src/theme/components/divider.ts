@@ -5,12 +5,12 @@ function baseStyle(props: Record<string, any>) {
   const orientationProps =
     orientation === 'vertical'
       ? {
-          width: `${size}px`,
+          width: size,
           height: '100%',
         }
       : {
           width: '100%',
-          height: `${size}px`,
+          height: size,
         };
 
   return {
@@ -23,6 +23,6 @@ export default {
   baseStyle,
   defaultProps: {
     orientation: 'horizontal',
-    size: 1,
+    size: '1px',
   },
 };
