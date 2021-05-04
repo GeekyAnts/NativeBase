@@ -1,6 +1,5 @@
 import React from 'react';
-import { usePropsResolution } from '../../../hooks';
-import { useToken } from '../../../hooks';
+import { useToken, usePropsResolution } from '../../../hooks';
 import styled from 'styled-components/native';
 import {
   border,
@@ -89,7 +88,13 @@ const SVG = styled(Svg)<IIconProps>(
 );
 
 const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
-  const { stroke, color, ...resolvedProps } = usePropsResolution('Icon', props);
+  const {
+    focusable,
+    stroke,
+    color,
+    size,
+    ...resolvedProps
+  } = usePropsResolution('Icon', props);
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
 
@@ -106,12 +111,11 @@ const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
       //     ? parseInt(newProps.size, 10)
       //     : parseInt(newProps.width, 10)
       // }
-      // viewBox={viewBox}
+      size={size}
       color={colorHex}
       stroke={strokeHex}
-      // strokeWidth={strokeWidth}
-      // focusable={focusable}
-      accessibilityRole={'image'}
+      focusable={focusable}
+      accessibilityRole="image"
       // style={style}
       ref={ref}
     >
@@ -121,12 +125,12 @@ const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
             type &&
             type.name &&
             Object.keys(VALID_SVG_COMPONENTS).includes(type.name) ? (
-              <ChildPath {...childProps} type={type.name} />
+              <ChildPath {...childProps} tabIndex={-1} type={type.name} />
             ) : null
           )}
         </G>
       ) : (
-        <QuestionOutlineIcon />
+        <QuestionOutlineIcon tabIndex={-1} />
       )}
     </SVG>
   );

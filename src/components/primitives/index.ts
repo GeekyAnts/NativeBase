@@ -16,7 +16,7 @@ export { Radio } from './Radio';
 export type { IRadioProps, IRadioGroupProps, IRadioValue } from './Radio';
 
 export { Icon, createIcon } from './Icon';
-export type { IIconProps, IconType, IconNameType } from './Icon';
+export type { IIconProps } from './Icon';
 
 export { Column } from './Column';
 export { Row } from './Row';
