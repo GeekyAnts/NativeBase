@@ -38,8 +38,8 @@ function getValueInPixels(
     appliedInset = inset;
   }
   return originalValue
-    ? parseInt(originalValue, 10) + parseInt(appliedInset, 10) + 'px'
-    : parseInt(appliedInset, 10) + 'px';
+    ? parseInt(originalValue, 10) + parseInt(appliedInset, 10)
+    : parseInt(appliedInset, 10);
 }
 
 export function calculatePaddingTop(

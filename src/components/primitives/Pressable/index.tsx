@@ -1,15 +1,8 @@
 import { composeEventHandlers } from '../../../utils';
 import React from 'react';
 import { PressableProps, Pressable as RNPressable } from 'react-native';
-import styled from 'styled-components/native';
-import {
-  border,
-  color,
-  flexbox,
-  layout,
-  position,
-  space,
-} from '../../../styled-system/styled-system/src/index';
+import { styled } from '../../../factory';
+import { border, color, flexbox, layout, position, space } from 'styled-system';
 import {
   customBackground,
   customBorder,

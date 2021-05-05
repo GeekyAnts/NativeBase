@@ -9,14 +9,9 @@ export const Basic = () => {
       shadow={[1, 2, 9]}
       mt={[100, 300]}
       _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}
-      _web={{
-        w: '80%',
-      }}
-      _ios={{
-        w: '30%',
-        shadow: 9,
-        bg: 'pink.400',
-      }}
-    ></Box>
+      nativeID="box-test"
+    >
+      This is a Box
+    </Box>
   );
 };

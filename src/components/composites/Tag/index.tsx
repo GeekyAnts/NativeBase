@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { styled } from '../../../factory';
 import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
 import type { ITagProps } from './types';

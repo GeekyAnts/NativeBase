@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
 import { Image as RNImage } from 'react-native';
-import styled from 'styled-components/native';
-import {
-  border,
-  color,
-  flexbox,
-  layout,
-  space,
-  position,
-} from '../../../styled-system/styled-system/src/index';
+import { styled } from '../../../factory';
+import { border, color, flexbox, layout, space, position } from 'styled-system';
 import {
   customBorder,
   customBackground,

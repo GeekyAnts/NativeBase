@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text as NativeText } from 'react-native';
 import { useTheme } from '../../../hooks';
-import styled from 'styled-components/native';
+import { styled } from '../../../factory';
 import {
   border,
   color,
