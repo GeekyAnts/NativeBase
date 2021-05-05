@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from 'react';
 import type { AnyStyledComponent } from 'styled-components';
 import { usePropsWithComponentTheme } from '../hooks/useThemeProps/usePropsWithComponentTheme';
@@ -44,26 +45,27 @@ const composeStyles = (props: any, ...args: any) => {
   return styles;
 };
 
-export const styled = (Component: any) => (...args: any) =>
-  React.forwardRef(({ style, ...props }: any, ref: any) => {
-    style = Array.isArray(style) ? style : [style];
-    const { theme } = useNativeBase();
-    const styledComponentStyles = composeStyles({ ...props, theme }, ...args);
+export function styled(Component: any) {
+  return <T extends unknown>(...args: any) =>
+    React.forwardRef(({ style, ...props }: any, ref: any) => {
+      style = Array.isArray(style) ? style : [style];
+      const { theme } = useNativeBase();
+      const styledComponentStyles = composeStyles({ ...props, theme }, ...args);
 
-    const styles = StyleSheet.create({
-      style: StyleSheet.flatten([styledComponentStyles, style]),
+      const styles = StyleSheet.create({
+        style: StyleSheet.flatten([styledComponentStyles, style]),
+      });
+
+      return <Component ref={ref} {...props} style={styles.style} />;
     });
-
-    return <Component ref={ref} {...props} style={styles.style} />;
-  });
-
+}
 export default function <P>(
   Component: React.ComponentType<P>,
   componentTheme?: ComponentTheme
 ) {
   return React.forwardRef(
     ({ children, ...props }: P & FactoryComponentProps, ref: any) => {
-      const StyledComponent = styled(Component as AnyStyledComponent)(
+      const StyledComponent = styled(Component)(
         color,
         space,
         layout,
