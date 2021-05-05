@@ -2223,7 +2223,7 @@
     "@react-aria/checkbox" "^3.2.1"
     "@react-aria/utils" "^3.5.0"
     "@react-native-aria/toggle" "^0.2.2-alpha.0"
-    "@react-native-aria/utils" "^0.2.2"
+    "@react-native-aria/utils" "^0.2.6"
     "@react-stately/toggle" "^3.2.1"
 
 "@react-native-aria/combobox@^0.2.4-alpha.0":
@@ -2235,7 +2235,7 @@
     "@react-aria/live-announcer" "^3.0.0-alpha.0"
     "@react-aria/overlays" "^3.6.1"
     "@react-aria/utils" "^3.6.0"
-    "@react-native-aria/utils" "^0.2.4"
+    "@react-native-aria/utils" "^0.2.6"
     "@react-types/button" "^3.3.1"
 
 "@react-native-aria/focus@^0.2.4":
@@ -2252,7 +2252,7 @@
   dependencies:
     "@react-aria/interactions" "^3.3.2"
     "@react-aria/utils" "^3.5.0"
-    "@react-native-aria/utils" "^0.2.1"
+    "@react-native-aria/utils" "^0.2.6"
 
 "@react-native-aria/interactions@^0.2.2":
   version "0.2.2"
@@ -2261,7 +2261,7 @@
   dependencies:
     "@react-aria/interactions" "^3.3.2"
     "@react-aria/utils" "^3.5.0"
-    "@react-native-aria/utils" "^0.2.2"
+    "@react-native-aria/utils" "^0.2.6"
 
 "@react-native-aria/interactions@^0.2.3":
   version "0.2.3"
@@ -2270,7 +2270,7 @@
   dependencies:
     "@react-aria/interactions" "^3.3.2"
     "@react-aria/utils" "^3.6.0"
-    "@react-native-aria/utils" "^0.2.4"
+    "@react-native-aria/utils" "^0.2.6"
 
 "@react-native-aria/listbox@^0.2.4-alpha.0":
   version "0.2.4-alpha.0"
@@ -2282,7 +2282,7 @@
     "@react-aria/selection" "^3.3.2"
     "@react-aria/utils" "^3.6.0"
     "@react-native-aria/interactions" "^0.2.2"
-    "@react-native-aria/utils" "^0.2.4"
+    "@react-native-aria/utils" "^0.2.6"
     "@react-types/listbox" "^3.1.1"
     "@react-types/shared" "^3.4.0"
 
@@ -2292,7 +2292,7 @@
   integrity sha512-dIU+MioYAykJyJm1BoL+qjL6OuVfxgAudWHr8ewBZDZzuLUBftQu8lk9dEvUWjJuc0ZW4ZRG2dn5Xp3qJrW8+A==
   dependencies:
     "@react-aria/overlays" "^3.6.0"
-    "@react-native-aria/utils" "^0.2.5"
+    "@react-native-aria/utils" "^0.2.6"
     "@react-stately/overlays" "^3.1.1"
     "@react-types/overlays" "^3.4.0"
 
@@ -2304,7 +2304,7 @@
     "@react-aria/radio" "^3.1.2"
     "@react-aria/utils" "^3.6.0"
     "@react-native-aria/interactions" "^0.2.3"
-    "@react-native-aria/utils" "^0.2.4"
+    "@react-native-aria/utils" "^0.2.6"
     "@react-stately/radio" "^3.2.1"
     "@react-types/radio" "^3.1.1"
 
@@ -2328,7 +2328,7 @@
     "@react-aria/i18n" "^3.3.0"
     "@react-aria/tabs" "3.0.0-alpha.2"
     "@react-native-aria/interactions" "^0.2.3"
-    "@react-native-aria/utils" "^0.2.3"
+    "@react-native-aria/utils" "^0.2.6"
     "@react-stately/tabs" "3.0.0-alpha.1"
     "@react-types/tabs" "3.0.0-alpha.2"
 
@@ -2340,29 +2340,9 @@
     "@react-aria/focus" "^3.2.3"
     "@react-aria/utils" "^3.5.0"
     "@react-native-aria/interactions" "^0.2.1"
-    "@react-native-aria/utils" "^0.2.1"
+    "@react-native-aria/utils" "^0.2.6"
     "@react-stately/toggle" "^3.2.1"
     "@react-types/checkbox" "^3.2.1"
-
-"@react-native-aria/utils@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.1.tgz#b12f2981ef937e738a311feb94823534fbdedbf3"
-  integrity sha512-qidrRPA5cQXIH3fJXw3EJiQ1JsyyxK+dzM55jsgAoRq7XbIL8WH9cN1wkkZEm+mINazG/VQ21Nx/hjkPDEzkuA==
-
-"@react-native-aria/utils@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.2.tgz#ecdc51a55f2e03a40257f0975e3897cc09bb0826"
-  integrity sha512-aHgHLcR+0DZmv00zUubrA2Ea2hw+zGEag4T1eaAQOjml8oAe+eQoY7Oz8wMrutFEG35VCjh3zj9VDcaTqh8rag==
-
-"@react-native-aria/utils@^0.2.3", "@react-native-aria/utils@^0.2.4":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.4.tgz#7b2ad211b648f861085ea98c963d2e8ac97d40dc"
-  integrity sha512-dBzPTytIfRVRUSoqT/6J75lTNwCgGv2TdpvwM2pmFQxyj1GiembJI2S8qNGR9RX2R/584JLKLwIDlNXsF+qqXg==
-
-"@react-native-aria/utils@^0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.5.tgz#db3979cf96b1ac09f990a0e6977bf1efda567db2"
-  integrity sha512-5YDAQa3j/85i3ZAHs0p4PMIGGSvjyKSLoUNtHAfVcuinvDyxiuirO2fhohOiSH5rGNN41a036yHayMfFh+t6wA==
 
 "@react-native-aria/utils@^0.2.6":
   version "0.2.6"

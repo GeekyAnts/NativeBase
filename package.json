@@ -171,7 +171,7 @@
     "@react-native-aria/radio": "^0.2.4",
     "@react-native-aria/slider": "^0.2.5-alpha.0",
     "@react-native-aria/tabs": "^0.2.3",
-    "@react-native-aria/utils": "^0.2.5",
+    "@react-native-aria/utils": "^0.2.6",
     "@react-stately/combobox": "^3.0.0-alpha.1",
     "@react-stately/radio": "^3.2.1",
     "@types/styled-system": "^5.1.9",
