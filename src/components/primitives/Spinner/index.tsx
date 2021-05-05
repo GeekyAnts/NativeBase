@@ -1,8 +1,12 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
 import type { ActivityIndicator as ActivityIndicatorType } from 'react-native';
-import styled from 'styled-components/native';
-import { color, space, position } from 'styled-system';
+import { styled } from '../../../factory';
+import {
+  color,
+  space,
+  position,
+} from '../../../styled-system/styled-system/src';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useToken } from '../../../hooks';
 import type { ISpinnerProps } from './types';

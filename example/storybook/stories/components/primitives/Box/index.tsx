@@ -14,11 +14,11 @@ import Wrapper from './../../Wrapper';
 storiesOf('Box', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
-  .add('Composition', () => <Composition />)
   .add('Basic Box', () => <Basic />)
+  .add('Composition', () => <Composition />)
   .add('With Ref', () => <WithRef />)
   .add('Composition Card', () => <CompositionCard />)
-  .add('Composition Shoes Card', () => <CompositionShoesCard />)
+  // .add('Composition Shoes Card', () => <CompositionShoesCard />)
   .add('CompositionCard1', () => <CompositionCard1 />)
   .add('CompositionCard2', () => <CompositionCard2 />)
   .add('CompositionCard3', () => <CompositionCard3 />);

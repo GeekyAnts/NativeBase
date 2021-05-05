@@ -1,7 +1,14 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { styled } from '../../../factory';
 import { TouchableHighlight } from 'react-native';
-import { border, color, flexbox, layout, space, position } from 'styled-system';
+import {
+  border,
+  color,
+  flexbox,
+  layout,
+  space,
+  position,
+} from '../../../styled-system/styled-system/src';
 import {
   customBorder,
   customBackground,

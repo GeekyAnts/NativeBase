@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform, TouchableWithoutFeedback } from 'react-native';
-import styled from 'styled-components/native';
+import { styled } from '../../../factory';
 import type { ILinkProps } from './types';
 import Box from '../Box';
 import { useThemeProps } from '../../../hooks';

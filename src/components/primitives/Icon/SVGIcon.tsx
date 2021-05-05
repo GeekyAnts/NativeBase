@@ -1,6 +1,6 @@
 import React from 'react';
 import { useToken, usePropsResolution } from '../../../hooks';
-import styled from 'styled-components/native';
+import { styled } from '../../../factory';
 import {
   border,
   color,
@@ -9,7 +9,7 @@ import {
   space,
   typography,
   position,
-} from 'styled-system';
+} from '../../../styled-system/styled-system/src';
 import {
   customBorder,
   customBackground,
@@ -69,23 +69,7 @@ const VALID_SVG_COMPONENTS: any = {
   Pattern,
   Mask,
 };
-const SVG = styled(Svg)<IIconProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  typography,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout,
-  customTypography
-);
+const SVG = styled(Svg)<IIconProps>();
 
 const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
   const {
@@ -97,7 +81,7 @@ const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
   } = usePropsResolution('Icon', props);
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
-
+  return null;
   return (
     <SVG
       {...resolvedProps}

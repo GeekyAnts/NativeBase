@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput, Platform } from 'react-native';
-import styled from 'styled-components/native';
+import { styled } from '../../../factory';
 import {
   border,
   flex,
@@ -9,7 +9,7 @@ import {
   flexbox,
   layout,
   typography,
-} from 'styled-system';
+} from '../../../styled-system/styled-system/src';
 import {
   customBorder,
   customBackground,
@@ -114,10 +114,10 @@ const InputBase = (
         e.persist();
         onKeyPress && onKeyPress(e);
       }}
-      onFocus={(e) => {
+      onFocus={(e: any) => {
         handleFocus(true, onFocus ? () => onFocus(e) : () => {});
       }}
-      onBlur={(e) => {
+      onBlur={(e: any) => {
         handleFocus(false, onBlur ? () => onBlur(e) : () => {});
       }}
       {...(Platform.OS === 'web'

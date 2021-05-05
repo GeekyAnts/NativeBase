@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Image as RNImage } from 'react-native';
-import styled from 'styled-components/native';
+import { styled } from '../../../factory';
 import {
   border,
   color,
@@ -8,7 +8,7 @@ import {
   layout,
   space,
   position,
-} from '../../../styled-system/styled-system/src/index';
+} from '../../../styled-system/styled-system/src';
 import {
   customBorder,
   customBackground,

@@ -1,3 +1,5 @@
+*.tgz
+Pods
 # OSX
 #
 .DS_Store
