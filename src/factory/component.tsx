@@ -26,10 +26,20 @@ import type { FactoryComponentProps } from './types';
 import { useNativeBase } from '../hooks';
 
 const composeStyles = (props: any, ...args: any) => {
-  let styles = {};
+  let styles: any = {};
   args.forEach((arg: any) => {
     styles = { ...styles, ...arg(props) };
   });
+
+  for (let key in styles) {
+    if (typeof styles[key] === 'string' && styles[key].endsWith('px')) {
+      styles[key] = parseInt(styles[key], 10);
+    }
+
+    if (key === 'fontWeight' && typeof styles[key] === 'number') {
+      styles[key] = styles[key].toString();
+    }
+  }
 
   return styles;
 };

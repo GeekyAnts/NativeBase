@@ -74,13 +74,13 @@ export const Composition = () => {
         </Text>
         <HStack alignItems="center" space={4} justifyContent="space-between">
           <HStack alignItems="center">
-            <InfoIcon />
+            {/* <InfoIcon /> */}
             <Text ml={1} color="gray.500" fontWeight="500">
               6 mins ago
             </Text>
           </HStack>
           <HStack alignItems="center">
-            <InfoIcon />
+            {/* <InfoIcon /> */}
             <Text ml={1} color="gray.500" fontWeight="500">
               39 comments
             </Text>
