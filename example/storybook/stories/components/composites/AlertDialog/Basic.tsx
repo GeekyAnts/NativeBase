@@ -15,7 +15,6 @@ export default function () {
         leastDestructiveRef={cancelRef}
         isOpen={isOpen}
         onClose={onClose}
-        motionPreset="slide"
       >
         <AlertDialog.Content>
           <AlertDialog.Header _text={{ fontSize: 'lg', fontWeight: 'bold' }}>
@@ -26,7 +25,9 @@ export default function () {
           </AlertDialog.Body>
           <AlertDialog.Footer>
             <Button.Group variant="ghost" space={2}>
-              <Button onPress={onClose}>CANCEL</Button>
+              <Button onPress={onClose} ref={cancelRef}>
+                CANCEL
+              </Button>
               <Button colorScheme="red" onPress={onClose}>
                 DELETE
               </Button>

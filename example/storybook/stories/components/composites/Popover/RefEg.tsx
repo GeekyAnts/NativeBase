@@ -13,6 +13,7 @@ export default function () {
       }}
     >
       <Popover.Content width={250}>
+        <Popover.Arrow />
         <Popover.CloseButton />
         <Popover.Header fontSize={20} fontWeight={700}>
           Header

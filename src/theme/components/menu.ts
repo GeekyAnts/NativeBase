@@ -17,14 +17,16 @@ export default {
 };
 
 export const MenuGroup = {
-  baseStyle: {
+  baseStyle: (props: any) => ({
     _title: {
-      fontSize: 'sm',
+      fontSize: 'xs',
       fontWeight: 500,
+      textTransform: 'uppercase',
+      color: mode(`gray.500`, `gray.300`)(props),
     },
     px: 5,
     py: 4,
-  },
+  }),
 };
 export const MenuItem = {
   baseStyle: (props: any) => ({
