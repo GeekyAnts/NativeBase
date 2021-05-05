@@ -2,7 +2,10 @@ import type * as CSS from 'csstype';
 import { Config, system } from '../../styled-system/styled-system/src';
 
 const config: Config = {
-  shadow: {},
+  shadow: {
+    scale: 'shadows',
+    property: 'shadow',
+  },
 };
 
 export interface customShadowProps {

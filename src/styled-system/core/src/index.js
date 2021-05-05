@@ -19,10 +19,6 @@ const sort = (obj) => {
   return next;
 };
 
-const defaults = {
-  breakpoints: [40, 52, 64].map((n) => n + 'em'),
-};
-const createMediaQuery = (n) => `@media screen and (min-width: ${n})`;
 const getValue = (n, scale) => get(scale, n, n);
 
 export const get = (obj, key, def, p, undef) => {
@@ -31,16 +27,6 @@ export const get = (obj, key, def, p, undef) => {
     obj = obj ? obj[key[p]] : undef;
   }
   return obj === undef ? def : obj;
-};
-
-const shadowResolver = (props) => {
-  return props.theme.shadows()[props.shadow];
-};
-
-const platformUnderscoreMap = {
-  web: '_web',
-  android: '_android',
-  ios: '_ios',
 };
 
 export const createParser = (config) => {
@@ -61,7 +47,7 @@ export const createParser = (config) => {
       if (typeof raw === 'object') {
         cache.breakpoints =
           (!isCacheDisabled && cache.breakpoints) ||
-          get(props.theme, 'breakpoints', defaults.breakpoints);
+          get(props.theme, 'breakpoints');
         if (Array.isArray(raw)) {
           styles = merge(
             styles,
@@ -88,8 +74,8 @@ export const createParser = (config) => {
     }
 
     if (styles.shadow) {
-      styles = { ...styles, ...styles.shadow };
-      delete styles.shadow;
+      styles = assign(styles, styles.shadow);
+      styles.shadow = undefined;
     }
     return styles;
   };

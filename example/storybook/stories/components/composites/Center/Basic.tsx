@@ -7,6 +7,7 @@ export default function () {
       _text={{ color: 'white', fontWeight: 'bold' }}
       height={200}
       width={200}
+      shadow={4}
     >
       This is the Center
     </Center>
