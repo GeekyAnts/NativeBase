@@ -79,7 +79,6 @@
     "release-it": "^13.5.8",
     "rollup": "^2.34.1",
     "rollup-plugin-flow": "^1.1.1",
-    "styled-components": "^5.2.1",
     "styled-system": "^5.1.5",
     "typescript": "^3.8.3",
     "visualize-bundle": "^1.4.0"
