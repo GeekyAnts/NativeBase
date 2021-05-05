@@ -1,5 +1,5 @@
+//@ts-nocheck
 import React from 'react';
-import type { AnyStyledComponent } from 'styled-components';
 import { usePropsWithComponentTheme } from '../hooks/useThemeProps/usePropsWithComponentTheme';
 import { StyleSheet } from 'react-native';
 import type { ComponentTheme } from '../theme';
@@ -25,6 +25,8 @@ import {
 import type { FactoryComponentProps } from './types';
 import { useNativeBase } from '../hooks';
 
+type AnyStyledComponent = any;
+
 const composeStyles = (props: any, ...args: any) => {
   let styles: any = {};
   args.forEach((arg: any) => {
@@ -44,7 +46,7 @@ const composeStyles = (props: any, ...args: any) => {
   return styles;
 };
 
-export const styled = (Component: any) => (...args: any) =>
+export const styled = (Component: any) => <T extends unknown>(...args: any) =>
   React.forwardRef(({ style, ...props }: any, ref: any) => {
     style = Array.isArray(style) ? style : [style];
     const { theme } = useNativeBase();

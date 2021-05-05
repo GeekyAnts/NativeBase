@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { styled } from '../../../factory';
 import { border, color, flexbox, layout, space, position } from 'styled-system';
 import { View as RNView } from 'react-native';
 import {

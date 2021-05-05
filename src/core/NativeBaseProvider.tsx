@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components/native';
+import { ThemeProvider } from '../core/NativeBaseContext';
 import {
   SafeAreaProvider,
   initialWindowMetrics as defaultInitialWindowMetrics,
@@ -27,7 +27,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     initialWindowMetrics,
   } = props;
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider value={theme}>
       <SafeAreaProvider
         initialMetrics={initialWindowMetrics ?? defaultInitialWindowMetrics}
       >
