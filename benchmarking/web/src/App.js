@@ -1,12 +1,10 @@
-import './App.css';
-// import {NativeBaseProvider, Box} from 'native-base';
-import {ChakraProvider, Box} from '@chakra-ui/react';
+import {NativeBaseProvider, Box} from 'native-base';
 
 function App() {
   return (
-    <ChakraProvider>
+    <NativeBaseProvider>
       <Box>hii</Box>
-    </ChakraProvider>
+    </NativeBaseProvider>
   );
 }
 
