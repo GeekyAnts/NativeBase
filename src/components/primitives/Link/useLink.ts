@@ -6,12 +6,8 @@ const linkToHREF = (URL: string) => {
   Linking.openURL(URL).catch((err) => console.error('An error occurred', err));
 };
 
-const addOnPressFunctionality = (
-  href: string | any,
-  isExternal: any,
-  callback: any
-) => {
-  href && isExternal ? linkToHREF(href) : '';
+const addOnPressFunctionality = (href: string | any, callback: any) => {
+  href ? linkToHREF(href) : '';
   callback ? callback() : () => {};
 };
 
@@ -32,7 +28,7 @@ export function useLink(props: IUseLinkProp) {
   } else {
     platformLinkProps = {
       onPress: () => {
-        addOnPressFunctionality(href, isExternal, onClick);
+        addOnPressFunctionality(href, onClick);
       },
     };
   }

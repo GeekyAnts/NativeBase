@@ -1,5 +1,5 @@
 import React from 'react';
-import { IIconProps, default as Icon } from '../Icon';
+import { IIconProps, Icon } from '../Icon';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const ListIcon = (props: IIconProps, ref?: any) => {

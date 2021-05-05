@@ -73,12 +73,10 @@ import {
   INumberInputStepperProps,
   Collapse,
   CircularProgress,
-  Modal,
   Popover,
   IPopoverProps,
   AlertDialog,
-  IToastProps,
-  useToast,
+  // useToast,
   Menu,
   IMenuProps,
   IMenuItemProps,
@@ -99,16 +97,17 @@ import {
   IActionsheetProps,
   IActionsheetContentProps,
   IActionsheetItemProps,
-  Snackbar,
-  useSnackbar,
-  ISnackbarProps,
-  IuseSnackbarProps,
   Fab,
   IFabProps,
   TextField,
   ITextFieldProps,
   Typeahead,
   useTypeahead,
+  Modal,
+  useToast,
+  Backdrop,
+  Drawer,
+  Tooltip,
 } from './components/composites';
 
 import {
@@ -164,6 +163,7 @@ import {
   ISelectItemProps,
 } from './components/primitives';
 
+export * from './components/primitives/Icon/Icons';
 export * from './theme';
 export * from './core';
 export * from './hooks';
@@ -233,20 +233,22 @@ export {
   Collapse,
   CircularProgress,
   List,
-  Modal,
   Popover,
   AlertDialog,
-  useToast,
+  // useToast,
   Menu,
   SimpleGrid,
   Tabs,
   Actionsheet,
-  Snackbar,
-  useSnackbar,
   Fab,
   Typeahead,
   useTypeahead,
   Select,
+  Modal,
+  useToast,
+  Backdrop,
+  Drawer,
+  Tooltip,
 };
 export type {
   IAlertProps,
@@ -304,7 +306,6 @@ export type {
   INumberInputStepperProps,
   IListProps,
   IListItemProps,
-  IToastProps,
   IMenuProps,
   IMenuItemProps,
   IMenuItemOptionProps,
@@ -320,8 +321,6 @@ export type {
   IActionsheetProps,
   IActionsheetContentProps,
   IActionsheetItemProps,
-  ISnackbarProps,
-  IuseSnackbarProps,
   IFabProps,
   ISelectProps,
   ISelectItemProps,

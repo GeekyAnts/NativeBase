@@ -1,6 +1,6 @@
 import { themeTools } from '../../theme';
 import type { SafeAreaProps } from './../../utils/customProps';
-import isNil from 'lodash/isNil';
+import isNil from 'lodash.isnil';
 
 export function calculatePaddingProps(
   safeAreaProps: SafeAreaProps,

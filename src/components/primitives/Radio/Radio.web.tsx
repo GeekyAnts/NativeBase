@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from '../Icon';
 import Box from '../Box';
 import { Center } from '../../composites/Center';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -10,6 +9,7 @@ import { useRadio } from '@react-native-aria/radio';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { RadioContext } from './RadioGroup';
 import { useFocusRing } from '@react-native-aria/focus';
+import { CircleIcon } from '../Icon/Icons';
 
 const Radio = (
   { icon, children, wrapperRef, ...props }: IRadioProps,
@@ -87,12 +87,7 @@ const Radio = (
           {icon && sizedIcon && checked ? (
             sizedIcon()
           ) : (
-            <Icon
-              name="circle"
-              {..._icon}
-              size={iconSize}
-              opacity={checked ? 1 : 0}
-            />
+            <CircleIcon {..._icon} size={iconSize} opacity={checked ? 1 : 0} />
           )}
         </Center>
       </Center>

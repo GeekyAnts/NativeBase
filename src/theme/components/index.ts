@@ -12,7 +12,7 @@ import {
   // ActionsheetFooter,
   ActionsheetItem,
 } from './actionsheet';
-import { Select, SelectItem, NativeSelect, CustomSelect } from './select';
+import { Select, SelectItem } from './select';
 import { Alert, AlertDescription, AlertTitle, AlertIcon } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
@@ -40,6 +40,7 @@ import Icon from './icon';
 import IconButton from './icon-button';
 import { Image } from './image';
 import { Input } from './input';
+import { Tooltip } from './tooltip';
 import Kbd from './kbd';
 import Link from './link';
 import { default as Menu, MenuGroup, MenuItem } from './menu';
@@ -67,7 +68,7 @@ import Text from './text';
 import AppBar from './app-bar';
 import TextArea from './textarea';
 import { TextField } from './textField';
-import Toast from './toast';
+import { Toast } from './toast';
 import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import { List, ListItem, ListIcon } from './list';
 import { TypeAheadSearchItem } from './typeahead';
@@ -144,8 +145,6 @@ export default {
   Radio,
   ScaleFade,
   Select,
-  CustomSelect,
-  NativeSelect,
   SelectItem,
   SimpleGrid,
   Skeleton,
@@ -170,4 +169,5 @@ export default {
   View,
   Wrap,
   ZStack,
+  Tooltip,
 };

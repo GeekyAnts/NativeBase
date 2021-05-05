@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { NativeBaseContext } from './../core/NativeBaseProvider';
+import { NativeBaseContext } from './../core/NativeBaseContext';
 
 export function useTheme<T extends object = Record<string, any>>() {
   const theme = useContext(

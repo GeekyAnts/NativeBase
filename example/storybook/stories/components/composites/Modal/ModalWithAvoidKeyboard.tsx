@@ -5,12 +5,7 @@ export default function () {
   const [modalVisible, setModalVisible] = React.useState(false);
   return (
     <>
-      <Modal
-        isCentered
-        isOpen={modalVisible}
-        onClose={setModalVisible}
-        avoidKeyboard
-      >
+      <Modal isOpen={modalVisible} onClose={setModalVisible} avoidKeyboard>
         <Modal.Content>
           <Modal.CloseButton />
           <Modal.Header _text={{ fontSize: '2xl', fontWeight: 'bold' }}>

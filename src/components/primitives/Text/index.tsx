@@ -25,7 +25,7 @@ import {
 } from '../../../utils/customProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
-import { mergeRefs } from '../../../utils';
+import { mergeRefs } from '../../../utils/mergeRefs';
 
 type IUseResolvedFontFamily = {
   fontFamily: string;
@@ -88,6 +88,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontWeight: propFontWeight,
     fontStyle: propFontStyle,
     _hover,
+    fontSize = 'md',
     ...reslovedProps
   } = usePropsResolution('Text', props);
 
@@ -123,7 +124,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
           ? 'line-through'
           : reslovedProps.textDecorationLine
       }
-      fontSize={sub ? 10 : reslovedProps.fontSize}
+      fontSize={sub ? 10 : fontSize}
       ref={mergeRefs([ref, _ref])}
       fontFamily={fontFamily}
       {...(isHovered && _hover)}

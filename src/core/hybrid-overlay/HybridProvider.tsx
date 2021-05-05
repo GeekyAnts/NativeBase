@@ -1,11 +1,9 @@
 import React from 'react';
-import type { IPopoverConfig } from './../Popover/types';
-import type { IOverlayConfig } from './../Overlay/types';
+import { Platform } from 'react-native';
 import { HybridContext } from './Context';
-import OverlayWrapper from '../Overlay/Wrapper';
-import PopoverWrapper from '../Popover/Wrapper';
 import { useModeManager } from './../color-mode/hooks';
 import type { IColorModeProviderProps } from './../color-mode';
+import { keyboardDismissHandlerManager } from '../../hooks';
 
 const HybridProvider = ({
   children,
@@ -15,33 +13,12 @@ const HybridProvider = ({
   },
   colorModeManager,
 }: IColorModeProviderProps) => {
-  // Popover content
-  const [popoverItem, setPopoverItem] = React.useState(null);
-  const [popoverConfig, setPopoverConfig] = React.useState<IPopoverConfig>({
-    triggerRef: null,
-    placeOverTriggerElement: undefined,
-    onClose: null,
-    animationDuration: 200,
-    isKeyboardDismissable: true,
-  });
-
-  // Overlay content
-  const [overlayItem, setOverlayItem] = React.useState(null);
-  const [overlayConfig, setOverlayConfig] = React.useState<IOverlayConfig>({
-    disableOverlay: undefined,
-    position: 'center',
-    backgroundColor: '#161616',
-    animationDuration: 400,
-    closeOnPress: false,
-    onClose: (_a: any) => {},
-    isKeyboardDismissable: true,
-  });
-
   // Color-mode content
   const { colorMode, setColorMode } = useModeManager(
     initialColorMode,
     colorModeManager
   );
+
   const toggleColorMode = React.useCallback(() => {
     setColorMode(colorMode === 'light' ? 'dark' : 'light');
   }, [colorMode, setColorMode]);
@@ -51,20 +28,31 @@ const HybridProvider = ({
     isTextColorAccessible
   );
 
+  React.useEffect(() => {
+    let escapeKeyListener: any = null;
+
+    if (Platform.OS === 'web') {
+      escapeKeyListener = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          if (keyboardDismissHandlerManager.length() > 0) {
+            const lastHandler: any = keyboardDismissHandlerManager.pop();
+            lastHandler();
+          }
+        }
+      };
+      document.addEventListener('keydown', escapeKeyListener);
+    }
+
+    return () => {
+      if (Platform.OS === 'web') {
+        document.removeEventListener('keydown', escapeKeyListener);
+      }
+    };
+  }, []);
+
   return (
     <HybridContext.Provider
       value={{
-        popover: {
-          setPopoverItem,
-          defaultConfig: popoverConfig,
-          setConfig: setPopoverConfig,
-          parentComponentConfig: popoverConfig.parentComponentConfig,
-        },
-        overlay: {
-          setOverlayItem,
-          defaultConfig: overlayConfig,
-          setConfig: setOverlayConfig,
-        },
         colorMode: {
           colorMode,
           toggleColorMode,
@@ -75,16 +63,6 @@ const HybridProvider = ({
       }}
     >
       {children}
-      <OverlayWrapper
-        overlayItem={overlayItem}
-        overlayConfig={overlayConfig}
-        setOverlayItem={setOverlayItem}
-      />
-      <PopoverWrapper
-        popoverItem={popoverItem}
-        popoverConfig={popoverConfig}
-        setPopoverItem={setPopoverItem}
-      />
     </HybridContext.Provider>
   );
 };

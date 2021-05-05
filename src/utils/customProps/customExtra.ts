@@ -35,7 +35,7 @@ export interface customExtraProps {
   /**
    * The CSS `pointer-events` property
    */
-  pointerEvents?: ResponsiveValue<CSS.Property.PointerEvents>;
+  pointerEvents?: 'box-none' | 'none' | 'box-only' | 'auto';
   /**
    * The CSS `cursor` property
    */

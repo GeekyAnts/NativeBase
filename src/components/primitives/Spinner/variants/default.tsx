@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../../primitives/Icon';
+import { Icon } from '../../../primitives/Icon';
 import { Circle, G } from 'react-native-svg';
 
 export function Default(props: any) {

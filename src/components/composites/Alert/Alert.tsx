@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from '../../primitives/Box';
+import HStack from '../../primitives/Stack/HStack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAlertProps } from './types';
 import { AlertContext } from './Context';
@@ -26,14 +27,14 @@ const Alert = (
         colorScheme,
       }}
     >
-      <Box _text={_text} {...newProps} ref={ref}>
+      <HStack _text={_text} {...newProps} ref={ref} space={2}>
         {children}
         {action ? (
           <Box {..._actionProps} {...actionProps}>
             {action}
           </Box>
         ) : null}
-      </Box>
+      </HStack>
     </AlertContext.Provider>
   );
 };
