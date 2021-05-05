@@ -1,5 +1,4 @@
 import React from 'react';
-import remove from 'lodash/remove';
 import Box from '../../primitives/Box';
 import type { IAccordionProps } from './types';
 import { useThemeProps } from '../../../hooks';
@@ -43,7 +42,7 @@ const Accordion = (
         indexCopy.push(activeIndex);
         allowMultiple ? setIndex(indexCopy) : setIndex([activeIndex]);
       } else {
-        remove(indexCopy, (n) => n === activeIndex);
+        indexCopy = indexCopy.filter((n) => n !== activeIndex);
         setIndex(indexCopy);
       }
     }

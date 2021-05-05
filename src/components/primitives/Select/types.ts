@@ -1,7 +1,6 @@
 import type { IBoxProps } from '../Box';
 import type { IButtonProps } from '../Button';
 import type { ITextProps } from '../Text';
-import type { TextStyle } from 'react-native';
 import type { IActionsheetContentProps } from '../../composites/Actionsheet/types';
 
 export type ISelectProps = IBoxProps & {
@@ -17,14 +16,6 @@ export type ISelectProps = IBoxProps & {
   dropdownOpenIcon?: JSX.Element;
   dropdownCloseIcon?: JSX.Element;
   variant?: 'outline' | 'filled' | 'underlined' | 'unstyled' | 'rounded';
-  _ios?: any;
-  _android?: any;
-  _web?: any;
-  itemStyle?: TextStyle; // only on Native variant (ios and Windows)
-  androidMode?: 'dialog' | 'dropdown'; // only on Native variant (android)
-  androidIconColor?: string; // only on Native variant (android)
-  androidPrompt?: string;
-  type?: 'native' | 'custom';
   _actionSheetContent?: IActionsheetContentProps;
   wrapperRef?: any;
 };

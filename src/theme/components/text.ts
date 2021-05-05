@@ -6,7 +6,7 @@ const baseStyle = (props: Record<string, any>) => {
   };
 };
 const defaultProps = {
-  fontWeight: 400,
+  fontWeight: '400',
   letterSpacing: '3xl',
   fontFamily: 'body',
   fontStyle: 'normal',

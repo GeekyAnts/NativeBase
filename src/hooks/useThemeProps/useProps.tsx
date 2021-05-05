@@ -1,5 +1,5 @@
-import get from 'lodash/get';
-import omit from 'lodash/omit';
+import get from 'lodash.get';
+import omit from 'lodash.omit';
 import { useWindowDimensions, Platform } from 'react-native';
 import { useNativeBase } from './../useNativeBase';
 import { omitUndefined, extractInObject } from './../../theme/tools/';

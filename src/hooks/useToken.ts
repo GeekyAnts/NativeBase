@@ -1,5 +1,5 @@
 import { useTheme } from './useTheme';
-import get from 'lodash/get';
+import get from 'lodash.get';
 
 export function useToken<T extends string | number>(
   property: string,

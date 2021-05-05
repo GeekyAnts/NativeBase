@@ -1,6 +1,6 @@
 import { themeTools } from '../../theme';
 import type { SafeAreaProps } from './../../utils/customProps';
-import isNil from 'lodash/isNil';
+import isNil from 'lodash.isnil';
 
 export function calculatePaddingProps(
   safeAreaProps: SafeAreaProps,
@@ -38,8 +38,8 @@ function getValueInPixels(
     appliedInset = inset;
   }
   return originalValue
-    ? parseInt(originalValue, 10) + parseInt(appliedInset, 10) + 'px'
-    : parseInt(appliedInset, 10) + 'px';
+    ? parseInt(originalValue, 10) + parseInt(appliedInset, 10)
+    : parseInt(appliedInset, 10);
 }
 
 export function calculatePaddingTop(

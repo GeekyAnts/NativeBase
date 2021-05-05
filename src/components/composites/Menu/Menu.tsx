@@ -77,7 +77,7 @@ export const Menu = React.memo(
         return () => {
           cleanupFn();
         };
-      }, [isOpen]);
+      }, [isOpen, handleClose]);
 
       return (
         <>

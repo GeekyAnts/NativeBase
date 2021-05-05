@@ -6,7 +6,6 @@ import { useFormControlContext } from '../FormControl';
 import { Platform } from 'react-native';
 import { PinInputContext } from './Context';
 import { themeTools } from '../../../theme';
-import remove from 'lodash/remove';
 
 const PinInput = ({ children, ...props }: IPinInputProps, ref?: any) => {
   let [padding, remProps] = themeTools.extractInObject(props, [
@@ -58,10 +57,10 @@ const PinInput = ({ children, ...props }: IPinInputProps, ref?: any) => {
     }
 
     if (Platform.OS !== 'ios') {
-      const temp = pinInputValue ? [...pinInputValue] : [];
+      let temp = pinInputValue ? [...pinInputValue] : [];
       if (newValue === '') {
         // Handling Backward focus.
-        remove(temp, (_n, i) => i === fieldIndex);
+        temp = temp.filter((_n, i) => i !== fieldIndex);
         if (manageFocus && fieldIndex - 1 > -1)
           RefList[fieldIndex - 1].current.focus();
       } else {

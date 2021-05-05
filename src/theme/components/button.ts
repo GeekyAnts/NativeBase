@@ -3,9 +3,11 @@ import { Platform } from 'react-native';
 const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
 
 const baseStyle = (props: any) => {
-  const { blue } = props.theme.colors;
+  const { primary } = props.theme.colors;
   const focusRing =
-    Platform.OS === 'web' ? { boxShadow: `${blue[400]} 0px 0px 0px 3px` } : {};
+    Platform.OS === 'web'
+      ? { boxShadow: `${primary[400]} 0px 0px 0px 3px` }
+      : {};
 
   return {
     borderRadius: 'lg',
@@ -49,22 +51,13 @@ function variantGhost(props: Dict) {
       outlineWidth: 0,
     },
     _hover: {
-      backgroundColor: transparentize(
-        mode(`gray.200`, `gray.500`)(props),
-        0.5
-      )(props.theme),
+      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
     },
     _focus: {
-      backgroundColor: transparentize(
-        mode(`gray.200`, `gray.500`)(props),
-        0.5
-      )(props.theme),
+      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
     },
     _pressed: {
-      backgroundColor: transparentize(
-        mode(`gray.200`, `gray.500`)(props),
-        0.6
-      )(props.theme),
+      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.6)(props.theme),
     },
   };
 }
@@ -72,8 +65,9 @@ function variantGhost(props: Dict) {
 function variantOutline(props: Dict) {
   const { colorScheme: c } = props;
   const borderColor = mode(`muted.200`, `muted.500`)(props);
+  console.log('border color ', borderColor);
   return {
-    border: '1px solid',
+    borderWidth: 1,
     borderColor:
       c === 'muted'
         ? borderColor

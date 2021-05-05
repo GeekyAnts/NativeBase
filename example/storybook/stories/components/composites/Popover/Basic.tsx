@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popover, Button, Link } from 'native-base';
+import { Popover, Button } from 'native-base';
 
 export default function () {
   return (

@@ -1,4 +1,4 @@
-import merge from 'lodash/merge';
+import merge from 'lodash.merge';
 import { Platform } from 'react-native';
 
 export const usePlatformProps = (props: any) => {

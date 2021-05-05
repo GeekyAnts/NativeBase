@@ -1,4 +1,4 @@
-import omit from 'lodash/omit';
+import omit from 'lodash.omit';
 import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from './../useNativeBase';
 import { calculateProps } from './utils';

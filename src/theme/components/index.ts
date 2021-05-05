@@ -12,7 +12,7 @@ import {
   // ActionsheetFooter,
   ActionsheetItem,
 } from './actionsheet';
-import { Select, SelectItem, NativeSelect, CustomSelect } from './select';
+import { Select, SelectItem } from './select';
 import { Alert, AlertDescription, AlertTitle, AlertIcon } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
@@ -145,8 +145,6 @@ export default {
   Radio,
   ScaleFade,
   Select,
-  CustomSelect,
-  NativeSelect,
   SelectItem,
   SimpleGrid,
   Skeleton,

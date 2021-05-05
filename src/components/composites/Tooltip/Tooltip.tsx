@@ -81,7 +81,7 @@ export const Tooltip = ({
       clearTimeout(enterTimeout.current);
     }
     exitTimeout.current = setTimeout(() => setIsOpen(false), closeDelay);
-  }, [closeDelay, onClose, setIsOpen]);
+  }, [closeDelay, setIsOpen]);
 
   React.useEffect(
     () => () => {
@@ -135,7 +135,7 @@ export const Tooltip = ({
     return () => {
       cleanupFn();
     };
-  }, [isOpen]);
+  }, [isOpen, setIsOpen]);
 
   return (
     <>

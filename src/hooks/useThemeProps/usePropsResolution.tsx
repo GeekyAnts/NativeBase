@@ -1,7 +1,7 @@
-import get from 'lodash/get';
-import omit from 'lodash/omit';
-import isNil from 'lodash/isNil';
-import merge from 'lodash/merge';
+import get from 'lodash.get';
+import omit from 'lodash.omit';
+import isNil from 'lodash.isnil';
+import merge from 'lodash.merge';
 import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { usePlatformProps } from '../usePlatformProps';

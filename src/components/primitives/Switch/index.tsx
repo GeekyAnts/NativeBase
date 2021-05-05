@@ -2,7 +2,7 @@ import React from 'react';
 import { useToggleState } from '@react-stately/toggle';
 import { StyleSheet, ViewStyle, Switch as RNSwitch } from 'react-native';
 import styled from 'styled-components/native';
-import isNil from 'lodash/isNil';
+import isNil from 'lodash.isnil';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useToken } from '../../../hooks';
 import { border, color, flexbox, layout, space, position } from 'styled-system';
