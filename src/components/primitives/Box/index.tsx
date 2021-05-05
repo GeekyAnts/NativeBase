@@ -8,7 +8,7 @@ import {
   position,
   space,
   typography,
-} from '../../../styled-system/packages/styled-system/src/index';
+} from '../../../styled-system/styled-system/src/index';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Text from './../Text';
 import {

@@ -8,7 +8,7 @@ import {
   layout,
   space,
   position,
-} from '../../../styled-system/packages/styled-system/src/index';
+} from '../../../styled-system/styled-system/src/index';
 import {
   customBorder,
   customBackground,

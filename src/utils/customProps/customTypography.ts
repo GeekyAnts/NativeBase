@@ -1,4 +1,4 @@
-import { Config, system } from '../../styled-system/packages/styled-system/src';
+import { Config, system } from '../../styled-system/styled-system/src';
 import type { ResponsiveValue } from './responsiveValue';
 import type * as CSS from 'csstype';
 
