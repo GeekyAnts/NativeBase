@@ -17,24 +17,4 @@ const config: Config = {
   },
 };
 
-export interface customTransitionProps {
-  /**
-   * The CSS `transition` property
-   */
-  transition?: CSS.Property.Transition;
-  /**
-   * The CSS `transition-property` property
-   */
-  transitionProperty?: CSS.Property.TransitionProperty;
-  /**
-   * The CSS `transition-timing-function` property
-   */
-  transitionTimingFunction?: CSS.Property.TransitionTimingFunction;
-
-  /**
-   * The CSS `transition-duration` property
-   */
-  transitionDuration?: string;
-}
-
 export const customTransition = system(config);

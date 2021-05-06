@@ -1,5 +1,4 @@
-import type { IPlatformProps } from '../../types/IPlafromProps';
-import type { ViewProps, ViewStyle } from 'react-native';
+// import type { PlatformProps } from '../../types/PlafromProps';
 import type {
   BorderProps,
   ColorProps,
@@ -8,20 +7,31 @@ import type {
   PositionProps,
   SpaceProps,
   TypographyProps,
-} from 'styled-system';
-import type {
-  customBackgroundProps,
-  customBorderProps,
-  customExtraProps,
-  customFlexboxProps,
-  customLayoutProps,
-  customOutlineProps,
-  customPositionProps,
-  customShadowProps,
-  customTransformProps,
-  customTypographyProps,
-  SafeAreaProps,
-} from '../../../utils/customProps';
+  PlatformProps,
+} from '../../types';
+import type { ViewProps, ViewStyle } from 'react-native';
+// import type {
+//   BorderProps,
+//   ColorProps,
+//   FlexboxProps,
+//   LayoutProps,
+//   PositionProps,
+//   SpaceProps,
+//   TypographyProps,
+// } from 'styled-system';
+// import type {
+//   customBackgroundProps,
+//   customBorderProps,
+//   customExtraProps,
+//   customFlexboxProps,
+//   customLayoutProps,
+//   customOutlineProps,
+//   customPositionProps,
+//   customShadowProps,
+//   customTransformProps,
+//   customTypographyProps,
+//   SafeAreaProps,
+// } from '../../../utils/customProps';
 import type { ITextProps } from './../Text/types';
 
 export type IBoxProps = ViewProps &
@@ -32,18 +42,7 @@ export type IBoxProps = ViewProps &
   TypographyProps &
   PositionProps &
   BorderProps &
-  SafeAreaProps &
-  customBorderProps &
-  customPositionProps &
-  customExtraProps &
-  customOutlineProps &
-  customShadowProps &
-  customLayoutProps &
-  customTypographyProps &
-  customBackgroundProps &
-  customTransformProps &
-  customFlexboxProps &
-  IPlatformProps & {
+  PlatformProps & {
     style?: ViewStyle;
     children?: JSX.Element | JSX.Element[] | string | any;
     shadow?: number;
