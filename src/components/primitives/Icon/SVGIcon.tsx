@@ -1,5 +1,6 @@
 import React from 'react';
-import { useToken, usePropsResolution } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
+import { useToken } from '../../../hooks';
 import { styled } from '../../../factory';
 import {
   border,
@@ -9,7 +10,7 @@ import {
   space,
   typography,
   position,
-} from '../../../styled-system/styled-system/src';
+} from 'styled-system';
 import {
   customBorder,
   customBackground,
@@ -69,19 +70,29 @@ const VALID_SVG_COMPONENTS: any = {
   Pattern,
   Mask,
 };
-const SVG = styled(Svg)<IIconProps>();
+const SVG = styled(Svg)<IIconProps>(
+  color,
+  space,
+  layout,
+  flexbox,
+  border,
+  typography,
+  position,
+  customPosition,
+  customBorder,
+  customBackground,
+  customOutline,
+  customShadow,
+  customExtra,
+  customLayout,
+  customTypography
+);
 
 const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
-  const {
-    focusable,
-    stroke,
-    color,
-    size,
-    ...resolvedProps
-  } = usePropsResolution('Icon', props);
+  const { stroke, color, ...resolvedProps } = usePropsResolution('Icon', props);
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
-  return null;
+
   return (
     <SVG
       {...resolvedProps}
@@ -95,11 +106,12 @@ const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
       //     ? parseInt(newProps.size, 10)
       //     : parseInt(newProps.width, 10)
       // }
-      size={size}
+      // viewBox={viewBox}
       color={colorHex}
       stroke={strokeHex}
-      focusable={focusable}
-      accessibilityRole="image"
+      // strokeWidth={strokeWidth}
+      // focusable={focusable}
+      accessibilityRole={'image'}
       // style={style}
       ref={ref}
     >
@@ -109,12 +121,12 @@ const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
             type &&
             type.name &&
             Object.keys(VALID_SVG_COMPONENTS).includes(type.name) ? (
-              <ChildPath {...childProps} tabIndex={-1} type={type.name} />
+              <ChildPath {...childProps} type={type.name} />
             ) : null
           )}
         </G>
       ) : (
-        <QuestionOutlineIcon tabIndex={-1} />
+        <QuestionOutlineIcon />
       )}
     </SVG>
   );
