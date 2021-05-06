@@ -219,14 +219,22 @@ export function usePropsResolution(component: string, incomingProps: any) {
     windowWidth,
   });
 
-  // TODO: Maybe it can be moved to Box itself
-  let textBg = translatedProps.bg || translatedProps.backgroundColor || 'white';
-  // When no bg exists, assuming it's white.
-  const contrastTextColor = useContrastText(textBg || 'white', theme.colors);
-  translatedProps._text = {
-    color: contrastTextColor,
-    ...translatedProps._text,
-  };
+  let bgColor =
+    translatedProps.bg ??
+    translatedProps.backgroundColor ??
+    translatedProps.bgColor;
+
+  const contrastTextColor = useContrastText(
+    bgColor,
+    translatedProps?._text?.color
+  );
+
+  translatedProps._text = contrastTextColor
+    ? {
+        color: contrastTextColor,
+        ...translatedProps._text,
+      }
+    : translatedProps._text;
 
   const resolvedProps = omitUndefined({ ...translatedProps, ...ignoredProps });
 
