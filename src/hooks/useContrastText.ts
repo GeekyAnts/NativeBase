@@ -16,21 +16,31 @@ export function useContrastText(bg: string, color?: string) {
     bg,
     color ?? '',
   ]);
+
   let [accessibleColors] = useAccessibleColors();
+
+  if (!bg) {
+    return;
+  }
+
   const [bgThemeColorVariant, bgShade] = bg.split('.');
-  return !accessibleColors &&
+
+  const textColor =
+    !accessibleColors &&
     bgThemeColorVariant &&
     themeColorsThresholdShades[bgThemeColorVariant]
-    ? getContrastThemeColor(bgThemeColorVariant, bgShade)
-    : getAccessibleContrastColor(
-        contrastThreshold,
-        trueDarkText,
-        trueLightText,
-        trueBg,
-        trueColor,
-        bg,
-        color
-      );
+      ? getContrastThemeColor(bgThemeColorVariant, bgShade)
+      : getAccessibleContrastColor(
+          contrastThreshold,
+          trueDarkText,
+          trueLightText,
+          trueBg,
+          trueColor,
+          bg,
+          color
+        );
+
+  return textColor;
 }
 
 function getContrastThemeColor(bgThemeColorVariant: string, bgShade: string) {
@@ -127,7 +137,7 @@ const themeColorsThresholdShades: any = {
   success: 400,
   warning: 900,
   muted: 500,
-  default: 400,
+  primary: 500,
   info: 400,
   secondary: 500,
   light: 500,
