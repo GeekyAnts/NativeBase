@@ -5,7 +5,7 @@ import type { IBoxProps } from '../Box';
 
 export type ICheckboxValue = string;
 
-export type ICheckboxProps = IBoxProps & {
+export interface ICheckboxProps extends IBoxProps {
   id?: string;
   name?: string;
   value: ICheckboxValue;
@@ -26,9 +26,9 @@ export type ICheckboxProps = IBoxProps & {
   style?: any;
   ref?: any;
   wrapperRef?: any;
-};
+}
 
-export type ICheckboxGroupProps = IBoxProps & {
+export interface ICheckboxGroupProps extends IBoxProps {
   id?: string;
   value?: Array<any>;
   defaultValue?: Array<any>;
@@ -37,26 +37,26 @@ export type ICheckboxGroupProps = IBoxProps & {
   onChange?: (values: any) => any;
   // Custom props
   style?: any;
-};
-export type ICheckboxContext = IFormControlContext & {
+}
+export interface ICheckboxContext extends IFormControlContext {
   colorScheme?: string;
   size?: 'sm' | 'md' | 'lg';
   style?: any;
   state: CheckboxGroupState;
-};
+}
 
-export type IUseCheckboxReturnType = {
+export interface IUseCheckboxReturnType {
   inputProps: {
     checked: boolean;
   } & Partial<TouchableOpacityProps>;
-};
+}
 
-export type IUseCheckboxGroupReturnType = {
+export interface IUseCheckboxGroupReturnType {
   checkboxGroupProps: {
     onChange: (checkboxValue: ICheckboxValue, isChecked: boolean) => any;
     values: Array<ICheckboxValue>;
   };
-};
+}
 
 export type ICheckboxComponentType = ((
   props: ICheckboxProps

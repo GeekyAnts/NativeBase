@@ -11,7 +11,7 @@ import {
   Stack,
   useColorModeValue,
 } from 'native-base';
-export const Composition = () => {
+export const Example = () => {
   return (
     <Box width={72} bg={useColorModeValue('gray.50', 'gray.700')} shadow={1}>
       <Box>

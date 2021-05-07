@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box } from 'native-base';
-export const Basic = () => {
+export const Example = () => {
   return (
     <Box
-      w={'90%'}
+      w="90%"
       bg="primary.400"
       p={4}
       _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}

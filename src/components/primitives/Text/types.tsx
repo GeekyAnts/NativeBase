@@ -1,3 +1,4 @@
+import type { TextProps } from 'react-native';
 import type {
   BorderProps,
   ColorProps,
@@ -13,8 +14,6 @@ import type {
   TypographyProps,
 } from '../../types';
 
-const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'];
-
 export interface ITextProps
   extends ColorProps,
     SpaceProps,
@@ -28,7 +27,8 @@ export interface ITextProps
     PlatformProps,
     ShadowProps,
     FlexboxProps,
-    TypographyProps {
+    TypographyProps,
+    TextProps {
   /**
    *  Renders components as Text children. Accepts a JSX.Element or an array of JSX.Element.
    */
@@ -37,7 +37,16 @@ export interface ITextProps
    * The size of font
    */
   fontSize?:
-    | typeof sizes[number]
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '3xl'
+    | '4xl'
+    | '5xl'
+    | '6xl'
     | number
     | Array<number>
     | Array<string>

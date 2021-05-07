@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Heading, Image, Text, HStack, Stack, Button } from 'native-base';
-export const CompositionCard1 = () => {
+export const Example = () => {
   return (
     <Box rounded="pill" w={96} shadow={4}>
       <Image
