@@ -1,7 +1,7 @@
 import React from 'react';
-import { Alert, Stack } from 'native-base';
+import { Alert, Stack, Center, NativeBaseProvider } from 'native-base';
 
-export default function () {
+export function Variant() {
   return (
     <Stack space={4} mx={3}>
       <Alert variant="solid" colorScheme="teal">
@@ -31,3 +31,13 @@ export default function () {
     </Stack>
   );
 }
+
+export default () => {
+  return (
+    <NativeBaseProvider>
+      <Center flex={1}>
+        <Variant />
+      </Center>
+    </NativeBaseProvider>
+  );
+};

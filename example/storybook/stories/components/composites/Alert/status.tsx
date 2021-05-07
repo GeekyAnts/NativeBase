@@ -1,29 +1,27 @@
 import React from 'react';
-import { Stack, Alert, HStack } from 'native-base';
+import { Stack, Alert, NativeBaseProvider, Center } from 'native-base';
 
-export default function () {
+export function Status() {
   return (
-    <HStack>
-      {['subtle', 'solid', 'outline'].map((key: any) => (
-        <Stack space={3} mx={3}>
-          <Alert status="error" variant={key} key={key}>
+    <Stack space={3}>
+      {['error', 'warning', 'info', 'success'].map((key) => {
+        return (
+          <Alert status={key}>
             <Alert.Icon />
-            <Alert.Title>This is an error alert</Alert.Title>
+            <Alert.Title>{`This is an ${key} alert`}</Alert.Title>
           </Alert>
-          <Alert status="warning" variant={key}>
-            <Alert.Icon />
-            <Alert.Title>This is a warning alert</Alert.Title>
-          </Alert>
-          <Alert status="info" variant={key}>
-            <Alert.Icon />
-            <Alert.Title>This is an info alert</Alert.Title>
-          </Alert>
-          <Alert status="success" variant={key}>
-            <Alert.Icon />
-            <Alert.Title>This is a success alert</Alert.Title>
-          </Alert>
-        </Stack>
-      ))}
-    </HStack>
+        );
+      })}
+    </Stack>
   );
 }
+
+export default () => {
+  return (
+    <NativeBaseProvider>
+      <Center>
+        <Status />
+      </Center>
+    </NativeBaseProvider>
+  );
+};
