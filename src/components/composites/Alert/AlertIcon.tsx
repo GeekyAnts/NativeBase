@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box } from '../../primitives';
+import React, { memo, forwardRef } from 'react';
+import Box from '../../primitives/Box';
 import {
   WarningIcon,
   WarningTwoIcon,
@@ -10,10 +10,15 @@ import type { IAlertContext } from './index';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { AlertContext } from './Context';
 import { omitUndefined } from '../../../theme/tools/utils';
+import type { IAlertIconProps } from './types';
 
-const AlertIcon = ({ children, wrapperRef, ...props }: any, ref?: any) => {
+const AlertIcon = (
+  { children, wrapperRef, ...props }: IAlertIconProps,
+  ref?: any
+) => {
   let newProps = usePropsResolution('AlertIcon', props);
   newProps = omitUndefined(newProps);
+  console.log('neww props', newProps);
   const { status, iconColor }: IAlertContext = React.useContext(AlertContext);
   const getIcon = () => {
     switch (status) {
@@ -28,11 +33,6 @@ const AlertIcon = ({ children, wrapperRef, ...props }: any, ref?: any) => {
     }
   };
 
-  // TODO: Refactor this and move alignSelf to Icon component.
-  return (
-    <Box alignSelf="center" ref={wrapperRef}>
-      {children || getIcon()}
-    </Box>
-  );
+  return <Box ref={wrapperRef}>{children || getIcon()}</Box>;
 };
-export default React.memo(React.forwardRef(AlertIcon));
+export default memo(forwardRef(AlertIcon));

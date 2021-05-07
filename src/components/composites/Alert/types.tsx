@@ -1,7 +1,7 @@
+import type { IIconProps } from '../../primitives/Icon';
 import type { ITextProps, IBoxProps } from '../../primitives';
 
-export type IAlertProps = IBoxProps & {
-  style?: any;
+export interface IAlertProps extends IBoxProps {
   status?: 'info' | 'warning' | 'success' | 'error' | string;
   colorScheme?: string;
   children?: JSX.Element | JSX.Element[] | any;
@@ -15,13 +15,13 @@ export type IAlertProps = IBoxProps & {
   fontSize?: number;
   action?: JSX.Element;
   actionProps?: IBoxProps;
-};
-export type IAlertContext = {
+}
+export interface IAlertContext {
   status?: string;
   variant?: string;
   iconColor?: string;
   textColor?: string;
-};
+}
 export type IAlertComponentType = ((
   props: IAlertProps & { ref?: any }
 ) => JSX.Element) & {
@@ -33,3 +33,7 @@ export type IAlertComponentType = ((
     (props: { _text?: any } & ITextProps & { ref?: any }) => JSX.Element
   >;
 };
+
+export interface IAlertIconProps extends IIconProps {
+  wrapperRef?: any;
+}
