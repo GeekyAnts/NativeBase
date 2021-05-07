@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef, useRef } from 'react';
 import { Text as NativeText } from 'react-native';
 import { useTheme } from '../../../hooks';
 import styled from 'styled-components/native';
@@ -91,7 +91,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     ...reslovedProps
   } = usePropsResolution('Text', props);
 
-  const _ref = React.useRef(null);
+  const _ref = useRef(null);
   // TODO: might have to add this condition
   const { isHovered } = useHover({}, _hover ? _ref : null);
   // const { isHovered } = useHover({}, _ref);
@@ -133,5 +133,5 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(Text));
+export default memo(forwardRef(Text));
 export type { ITextProps };
