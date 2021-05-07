@@ -8,6 +8,17 @@ import type {
 } from 'styled-system';
 
 import type {
+  BorderProps,
+  ColorProps,
+  FlexboxProps,
+  LayoutProps,
+  PositionProps,
+  SpaceProps,
+  TypographyProps,
+  PlatformProps,
+} from '../../types';
+
+import type {
   customBorderProps,
   customBackgroundProps,
   customOutlineProps,

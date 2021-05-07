@@ -2,12 +2,12 @@ import type * as CSS from 'csstype';
 
 import type { BackgroundColorProps as ssBackgroundColorProps } from 'styled-system';
 
-export interface BackgroundColorProps extends ssBackgroundColorProps {
-  bg?: CSS.Property.BackgroundColor;
+export interface BackgroundProps extends ssBackgroundColorProps {
+  // Both exist on ssColorProps
+  // bg?: CSS.Property.BackgroundColor;
+  // backgroundColor?: CSS.Property.BackgroundColor;
 
   bgColor?: CSS.Property.BackgroundColor;
-
-  backgroundColor?: CSS.Property.BackgroundColor;
 
   backgroundImage?: CSS.Property.BackgroundImage;
 
