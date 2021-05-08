@@ -82,8 +82,8 @@ const Modal = React.forwardRef(
             exit={{ opacity: 0 }}
             visible={visible}
             style={StyleSheet.absoluteFill}
-            exitDuration={100}
-            entryDuration={200}
+            exitTransition={{ duration: 100 }}
+            entryTransition={{ duration: 200 }}
           >
             {overlayVisible && (
               <Backdrop
@@ -92,6 +92,7 @@ const Modal = React.forwardRef(
                 }}
               />
             )}
+
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}

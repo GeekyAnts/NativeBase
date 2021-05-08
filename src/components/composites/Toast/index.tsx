@@ -166,7 +166,7 @@ export const CustomToast = () => {
                       opacity: 0,
                       scale: 0.85,
                     }}
-                    exitDuration={100}
+                    exitTransition={{ duration: 100 }}
                     transition={{
                       easing: Easing.ease,
                     }}

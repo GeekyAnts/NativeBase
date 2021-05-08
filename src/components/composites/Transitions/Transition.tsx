@@ -1,5 +1,6 @@
 import React from 'react';
 import { Animated, ViewProps } from 'react-native';
+
 type ISupportedTransitions = {
   opacity?: number;
   translateY?: number;
@@ -7,7 +8,16 @@ type ISupportedTransitions = {
   scale?: number;
   scaleX?: number;
   scaleY?: number;
-  rotate?: number;
+  rotate?: string;
+};
+
+const transformStylesMap = {
+  translateY: true,
+  translateX: true,
+  scale: true,
+  scaleX: true,
+  scaleY: true,
+  rotate: true,
 };
 
 const defaultStyles = {
@@ -17,12 +27,12 @@ const defaultStyles = {
   scale: 1,
   scaleX: 1,
   scaleY: 1,
-  rotate: 0,
+  rotate: '0deg',
 };
 
-type AnimationConfig = {
-  spring?: Animated.SpringAnimationConfig;
-  timing?: Animated.TimingAnimationConfig;
+type ITransitionConfig = {
+  type?: 'spring' | 'timing';
+  [key: string]: any;
 };
 
 interface ITransitionProps extends ViewProps {
@@ -30,23 +40,12 @@ interface ITransitionProps extends ViewProps {
   from: ISupportedTransitions;
   entry: ISupportedTransitions;
   exit: ISupportedTransitions;
-  exitTransition?: AnimationConfig;
-  entryTransition?: AnimationConfig;
-  transition?: AnimationConfig;
+  exitTransition?: ITransitionConfig;
+  entryTransition?: ITransitionConfig;
+  transition?: ITransitionConfig;
   children?: any;
   visible?: boolean;
-  exitDuration?: number;
-  entryDuration?: number;
 }
-
-const transformStyles = {
-  translateY: true,
-  translateX: true,
-  scale: true,
-  scaleX: true,
-  scaleY: true,
-  rotate: true,
-};
 
 const getAnimatedStyles = (animateValue: any) => (
   from: ISupportedTransitions,
@@ -57,7 +56,7 @@ const getAnimatedStyles = (animateValue: any) => (
   };
 
   for (let key in from) {
-    if (key in transformStyles) {
+    if (key in transformStylesMap) {
       styles.transform?.push({
         [key]: animateValue.interpolate({
           inputRange: [0, 1],
@@ -75,6 +74,15 @@ const getAnimatedStyles = (animateValue: any) => (
   return styles;
 };
 
+const defaultTransitionConfig: ITransitionConfig = {
+  type: 'timing',
+  useNativeDriver: true,
+  duration: 200,
+};
+
+const defaultEntryTransition = { ...defaultTransitionConfig, duration: 250 };
+const defaultExitTransition = { ...defaultTransitionConfig, duration: 200 };
+
 export const Transition = ({
   children,
   onTransitionComplete,
@@ -82,9 +90,9 @@ export const Transition = ({
   from,
   entry,
   exit,
-  exitDuration = 200,
-  entryDuration = 250,
-  transition,
+  transition = defaultTransitionConfig,
+  entryTransition = defaultEntryTransition,
+  exitTransition = defaultExitTransition,
   style,
 }: ITransitionProps) => {
   const animateValue = React.useRef(new Animated.Value(0)).current;
@@ -93,21 +101,32 @@ export const Transition = ({
     visible ? 'entering' : 'exited'
   );
 
+  entryTransition = {
+    ...defaultEntryTransition,
+    ...transition,
+    ...entryTransition,
+  };
+
+  exitTransition = {
+    ...defaultExitTransition,
+    ...transition,
+    ...exitTransition,
+  };
+
   const prevVisible = React.useRef(visible);
 
   React.useEffect(() => {
     if (visible) {
-      Animated.timing(animateValue, {
+      Animated[entryTransition.type ?? 'timing'](animateValue, {
         toValue: 1,
-        duration: entryDuration,
         useNativeDriver: true,
-        ...transition,
+        ...entryTransition,
       }).start(() => {
         onTransitionComplete && onTransitionComplete('entered');
         setAnimationState('entered');
       });
     }
-  }, [visible, onTransitionComplete, animateValue, entryDuration, transition]);
+  }, [visible, onTransitionComplete, animateValue, entryTransition]);
 
   React.useEffect(() => {
     // Exit request
@@ -119,22 +138,20 @@ export const Transition = ({
 
   React.useEffect(() => {
     if (animationState === 'exiting') {
-      Animated.timing(animateValue, {
+      Animated[exitTransition.type ?? 'timing'](animateValue, {
         toValue: 0,
-        duration: exitDuration,
         useNativeDriver: true,
-        ...transition,
+        ...exitTransition,
       }).start(() => {
         onTransitionComplete && onTransitionComplete('exited');
         setAnimationState('exited');
       });
     }
   }, [
-    transition,
+    exitTransition,
     onTransitionComplete,
     setAnimationState,
     animationState,
-    exitDuration,
     animateValue,
   ]);
 
@@ -142,7 +159,7 @@ export const Transition = ({
     return null;
   }
 
-  // If exit animation is present and state is exiting, we replace from with exit animation
+  // If exit animation is present and state is exiting, we replace 'from' with 'exit' animation
   from =
     animationState === 'exiting' && exit
       ? { ...defaultStyles, ...exit }
