@@ -114,9 +114,6 @@ const variants = {
 
 export const Alert = {
   baseStyle: {
-    minW: '100%',
-    maxW: '100%',
-    position: 'relative',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
