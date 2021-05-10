@@ -1,1 +1,12 @@
-export { IPlatformProps } from './IPlafromProps';
+export * from './BackgroundProps';
+export * from './BorderProps';
+export * from './ColorProps';
+export * from './ExtraProps';
+export * from './FlexboxProps';
+export * from './GridLayoutProps';
+export * from './LayoutProps';
+export * from './PlafromProps';
+export * from './PositionProps';
+export * from './ShdaowProps';
+export * from './SpaceProps';
+export * from './TypographyProps';

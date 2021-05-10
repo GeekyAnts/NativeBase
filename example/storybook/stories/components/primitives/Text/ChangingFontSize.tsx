@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, VStack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={2} alignItems="center">
       <Text fontSize="xs">Extra Small</Text>
@@ -16,4 +16,4 @@ export default function () {
       <Text fontSize="6xl">6 Extra Large</Text>
     </VStack>
   );
-}
+};

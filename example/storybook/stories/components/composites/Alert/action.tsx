@@ -1,6 +1,16 @@
 import React from 'react';
-import { Alert, Collapse, Button, IconButton, Icon, Box } from 'native-base';
-export default function () {
+import {
+  Alert,
+  Collapse,
+  Button,
+  IconButton,
+  Icon,
+  Box,
+  NativeBaseProvider,
+  Center,
+} from 'native-base';
+
+export function Example() {
   const [show, setShow] = React.useState(true);
   const handleToggle = (val: boolean) => setShow(val);
   return (
@@ -27,3 +37,11 @@ export default function () {
     </Box>
   );
 }
+
+export default () => (
+  <NativeBaseProvider>
+    <Center>
+      <Example />
+    </Center>
+  </NativeBaseProvider>
+);

@@ -6,15 +6,4 @@ const config: Config = {
   transformOrigin: true,
 };
 
-export interface customTransformProps {
-  /**
-   * The CSS `transform` property
-   */
-  transform?: CSS.Property.Transform;
-  /**
-   * The CSS `transform-origin` property
-   */
-  transformOrigin?: CSS.Property.TransformOrigin;
-}
-
 export const customTransform = system(config);

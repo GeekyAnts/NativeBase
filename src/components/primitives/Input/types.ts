@@ -1,4 +1,4 @@
-import type { IPlatformProps } from '../../types/IPlafromProps';
+import type { IPlatformProps } from '../../types/PlafromProps';
 import type {
   ColorProps,
   SpaceProps,

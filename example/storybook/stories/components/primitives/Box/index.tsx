@@ -1,14 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
-import { Basic } from './basic';
-import WithRef from './WithRef';
-import { Composition } from './composition';
-import { CompositionCard } from './composition-card';
-import { CompositionCard1 } from './composition-card1';
-import { CompositionCard2 } from './composition-card2';
-import { CompositionCard3 } from './composition-card3';
-import CompositionShoesCard from './composition-shoes-card';
+import { Example as Basic } from './basic';
+import { Example as WithRef } from './WithRef';
+import { Example as Composition } from './composition';
+import { Example as CompositionCard } from './composition-card';
+import { Example as CompositionCard1 } from './composition-card1';
+import { Example as CompositionCard2 } from './composition-card2';
+import { Example as CompositionCard3 } from './composition-card3';
+import { Example as CompositionShoesCard } from './composition-shoes-card';
 import Wrapper from './../../Wrapper';
 
 storiesOf('Box', module)

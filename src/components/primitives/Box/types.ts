@@ -1,4 +1,3 @@
-import type { IPlatformProps } from '../../types/IPlafromProps';
 import type { ViewProps, ViewStyle } from 'react-native';
 import type {
   BorderProps,
@@ -8,44 +7,46 @@ import type {
   PositionProps,
   SpaceProps,
   TypographyProps,
-} from 'styled-system';
-import type {
-  customBackgroundProps,
-  customBorderProps,
-  customExtraProps,
-  customFlexboxProps,
-  customLayoutProps,
-  customOutlineProps,
-  customPositionProps,
-  customShadowProps,
-  customTransformProps,
-  customTypographyProps,
+  ExtraProps,
+  OutlineProps,
+  ShadowProps,
+  BackgroundProps,
   SafeAreaProps,
-} from '../../../utils/customProps';
+  TransformProps,
+  PlatformProps,
+} from '../../types';
 import type { ITextProps } from './../Text/types';
 
-export type IBoxProps = ViewProps &
-  ColorProps &
-  SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  TypographyProps &
-  PositionProps &
-  BorderProps &
-  SafeAreaProps &
-  customBorderProps &
-  customPositionProps &
-  customExtraProps &
-  customOutlineProps &
-  customShadowProps &
-  customLayoutProps &
-  customTypographyProps &
-  customBackgroundProps &
-  customTransformProps &
-  customFlexboxProps &
-  IPlatformProps & {
-    style?: ViewStyle;
-    children?: JSX.Element | JSX.Element[] | string | any;
-    shadow?: number;
-    _text?: ITextProps;
-  };
+export interface IBoxProps
+  extends ViewProps,
+    ColorProps,
+    SpaceProps,
+    LayoutProps,
+    FlexboxProps,
+    TypographyProps,
+    PositionProps,
+    BorderProps,
+    ExtraProps,
+    OutlineProps,
+    ShadowProps,
+    BackgroundProps,
+    SafeAreaProps,
+    TransformProps,
+    PlatformProps {
+  /**
+   * For inline Style
+   */
+  style?: ViewStyle;
+  /**
+   * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
+  children?: JSX.Element | JSX.Element[] | string | any;
+  /**
+   * Applies box shadow and accepts a number from 0 to 9
+   * @default 0
+   */
+  shadow?: number;
+  /**
+   * For providing props to Text inside Box
+   */
+  _text?: ITextProps;
+}

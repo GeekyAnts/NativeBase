@@ -1,4 +1,3 @@
-import type * as CSS from 'csstype';
 import { Config, system } from 'styled-system';
 
 const config: Config = {
@@ -8,12 +7,5 @@ const config: Config = {
     defaultScale: ['#000', '#ffff'],
   },
 };
-
-export interface customShadowProps {
-  /**
-   * The `box-shadow` property
-   */
-  shadow?: CSS.Property.BoxShadow | number;
-}
 
 export const customShadow = system(config);

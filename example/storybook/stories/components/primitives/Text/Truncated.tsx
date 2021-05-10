@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, VStack, Heading } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={2} alignItems="center" width={350}>
       <Heading mt={3}>Truncated </Heading>
@@ -17,4 +17,4 @@ export default function () {
       </Text>
     </VStack>
   );
-}
+};

@@ -9,7 +9,7 @@ import {
   Stack,
   Center,
 } from 'native-base';
-export const CompositionCard3 = () => {
+export const Example = () => {
   return (
     <Box rounded="pill" w={64} shadow={4}>
       <Image

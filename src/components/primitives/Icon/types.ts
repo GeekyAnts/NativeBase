@@ -1,57 +1,49 @@
-import type { IPlatformProps } from '../../types/IPlafromProps';
 import type { TextStyle } from 'react-native';
+
 import type {
   BorderProps,
   ColorProps,
   FlexboxProps,
   LayoutProps,
+  PositionProps,
   SpaceProps,
   TypographyProps,
-  PositionProps,
-} from 'styled-system';
-import type {
-  customBorderProps,
-  customBackgroundProps,
-  customOutlineProps,
-  customLayoutProps,
-  customExtraProps,
-  customShadowProps,
-  customTypographyProps,
-  customTransformProps,
-  customFlexboxProps,
-  customPositionProps,
-} from '../../../utils/customProps';
+  ExtraProps,
+  OutlineProps,
+  ShadowProps,
+  BackgroundProps,
+  SafeAreaProps,
+  TransformProps,
+  PlatformProps,
+} from '../../types';
 
-export type IIconProps = IPlatformProps &
-  ColorProps &
-  SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  TypographyProps &
-  PositionProps &
-  customBorderProps &
-  customPositionProps &
-  customExtraProps &
-  customOutlineProps &
-  customShadowProps &
-  customLayoutProps &
-  customTypographyProps &
-  customBackgroundProps &
-  customTransformProps &
-  customFlexboxProps &
-  BorderProps & {
-    // name?: IconNameType;
-    // type?: IconType;
-    as?: any;
-    style?: TextStyle;
-    viewBox?: string;
-    size?: string | number;
-    color?: string;
-    focusable?: boolean;
-    children?: JSX.Element[] | JSX.Element;
-    stroke?: string;
-    strokeWidth?: string;
-  };
+export interface IIconProps
+  extends BorderProps,
+    ColorProps,
+    FlexboxProps,
+    LayoutProps,
+    PositionProps,
+    SpaceProps,
+    TypographyProps,
+    ExtraProps,
+    OutlineProps,
+    ShadowProps,
+    BackgroundProps,
+    SafeAreaProps,
+    TransformProps,
+    PlatformProps {
+  // name?: IconNameType;
+  // type?: IconType;
+  as?: any;
+  style?: TextStyle;
+  viewBox?: string;
+  size?: string | number;
+  color?: string;
+  focusable?: boolean;
+  children?: JSX.Element[] | JSX.Element;
+  stroke?: string;
+  strokeWidth?: string;
+}
 
 export type ICreateIconProps = {
   viewBox?: string;

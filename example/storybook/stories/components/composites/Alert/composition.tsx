@@ -1,7 +1,15 @@
 import React from 'react';
-import { Alert, Box, VStack, Icon, IconButton } from 'native-base';
+import {
+  Alert,
+  Box,
+  VStack,
+  Icon,
+  IconButton,
+  Center,
+  NativeBaseProvider,
+} from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <VStack m={3} space={5}>
       <Alert
@@ -65,3 +73,13 @@ export default function () {
     </VStack>
   );
 }
+
+export default () => {
+  return (
+    <NativeBaseProvider>
+      <Center>
+        <Example />
+      </Center>
+    </NativeBaseProvider>
+  );
+};
