@@ -3,9 +3,7 @@ import { default as Box } from '../Box';
 import { getSpacedChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
-import type { ResponsiveValue } from 'src/components/types/responsiveValue';
-
-type SpaceType = 'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+import type { ResponsiveValue } from '../../types';
 
 export interface IStackProps extends IBoxProps {
   /**
@@ -13,9 +11,9 @@ export interface IStackProps extends IBoxProps {
    */
   divider?: JSX.Element;
   /**
-   * The space between each stack item.
+   * The space between each stack item. Accepts Responsive values
    */
-  space?: ResponsiveValue<SpaceType | number>;
+  space?: ResponsiveValue<'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number>;
   /**
    * Determines whether to reverse the direction of Stack Items.
    */
