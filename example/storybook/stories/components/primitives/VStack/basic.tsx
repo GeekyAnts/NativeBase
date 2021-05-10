@@ -2,7 +2,7 @@ import React from 'react';
 import { VStack, Center, Heading } from 'native-base';
 import { number } from '@storybook/addon-knobs';
 
-export default function () {
+export function Example() {
   return (
     <VStack space={number('Space', 4)} alignItems="center">
       <Heading>VStack</Heading>

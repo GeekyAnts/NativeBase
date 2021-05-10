@@ -1,11 +1,10 @@
-import React from 'react';
-import { StackMain } from './Stack';
-import type { IStackProps } from './Stack';
+import React, { memo, forwardRef } from 'react';
+import StackMain, { IStackProps } from './Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
-export const HStack = (props: IStackProps, ref?: any) => {
+const HStack = (props: IStackProps, ref?: any) => {
   const newProps = usePropsResolution('HStack', props);
-  return StackMain({ ...newProps, direction: 'row' }, ref);
+  return <StackMain ref={ref} direction="row" {...newProps} />;
 };
 
-export default React.memo(React.forwardRef(HStack));
+export default memo(forwardRef(HStack));

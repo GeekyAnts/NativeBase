@@ -1,18 +1,12 @@
 import React from 'react';
 import { Stack, Center, Heading, Button } from 'native-base';
-import { number } from '@storybook/addon-knobs';
 
-export default function () {
+export function Example() {
   const [direction, setDirection]: any = React.useState('column');
   return (
     <Stack space={3} alignItems="center">
       <Heading>Stack - {direction === 'row' ? 'Row' : 'Column'}</Heading>
-      <Stack
-        direction={direction}
-        space={number('space', 3)}
-        mb={number('mb', 3)}
-        alignItems="center"
-      >
+      <Stack direction={direction} space={3} mb={3} alignItems="center">
         <Center
           size={16}
           bg="primary.400"
