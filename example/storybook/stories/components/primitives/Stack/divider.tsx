@@ -2,7 +2,7 @@ import React from 'react';
 import { Stack, Heading, Divider, Box } from 'native-base';
 import { number } from '@storybook/addon-knobs';
 
-export default function () {
+export function Example() {
   return (
     <Stack space={3} alignItems="center">
       <Heading>Stack with Divider</Heading>

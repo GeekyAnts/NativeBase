@@ -1,7 +1,7 @@
 import React from 'react';
 import { HStack, Stack, Center, Heading } from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <Stack space={3} alignItems="center">
       <Heading>HStack</Heading>
