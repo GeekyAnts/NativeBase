@@ -1,5 +1,5 @@
 import React, { memo, forwardRef } from 'react';
-import { Box } from '../../primitives';
+import { Box, IIconProps } from '../../primitives';
 import {
   WarningIcon,
   WarningTwoIcon,
@@ -11,7 +11,17 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { AlertContext } from './Context';
 import { omitUndefined } from '../../../theme/tools/utils';
 
-const AlertIcon = ({ children, wrapperRef, ...props }: any, ref?: any) => {
+interface IAlertIconProps extends IIconProps {
+  /**
+   * Ref to be attached to the Parent Box of the icon
+   */
+  wrapperRef?: any;
+}
+
+const AlertIcon = (
+  { children, wrapperRef, ...props }: IAlertIconProps,
+  ref?: any
+) => {
   let newProps = usePropsResolution('AlertIcon', props);
   newProps = omitUndefined(newProps);
   const { status, iconColor }: IAlertContext = React.useContext(AlertContext);

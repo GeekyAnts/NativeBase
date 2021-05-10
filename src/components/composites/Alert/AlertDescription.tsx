@@ -1,17 +1,11 @@
 import React, { memo, forwardRef } from 'react';
-import { Text } from '../../primitives';
+import { ITextProps, Text } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
-const AlertDescription = (
-  { children, ...props }: { _text?: any } & any,
-  ref?: any
-) => {
-  const { _text, ...themeProps } = usePropsResolution(
-    'AlertDescription',
-    props
-  );
+const AlertDescription = ({ children, ...props }: ITextProps, ref?: any) => {
+  const themeProps = usePropsResolution('AlertDescription', props);
   return (
-    <Text {...themeProps} {..._text} ref={ref}>
+    <Text {...themeProps} ref={ref}>
       {children}
     </Text>
   );
