@@ -193,7 +193,10 @@ export function findLastValidBreakpoint(
     : breakpoints.map((bPoint: string) => values[bPoint]);
   return (
     valArray[currentBreakpoint] ??
-    valArray.slice(0, currentBreakpoint + 1).pop()
+    valArray
+      .slice(0, currentBreakpoint + 1)
+      .filter((v: any) => v ?? null)
+      .pop()
   );
 }
 export function getClosestBreakpoint(
