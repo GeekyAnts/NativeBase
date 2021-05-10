@@ -38,11 +38,6 @@ const AlertIcon = (
     }
   };
 
-  // TODO: Refactor this and move alignSelf to Icon component.
-  return (
-    <Box alignSelf="center" ref={wrapperRef}>
-      {children || getIcon()}
-    </Box>
-  );
+  return <Box ref={wrapperRef}>{children || getIcon()}</Box>;
 };
 export default memo(forwardRef(AlertIcon));

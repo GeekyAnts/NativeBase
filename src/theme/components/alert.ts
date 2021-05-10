@@ -123,7 +123,7 @@ export const Alert = {
     flexWrap: 'wrap',
     p: 3,
     borderRadius: 'md',
-    _actionProps: { alignSelf: 'flex-end', ml: 'auto' },
+    _actionProps: { alignSelf: 'center', ml: 'auto' },
     _text: {
       fontSize: 'sm',
       lineHeight: 5,

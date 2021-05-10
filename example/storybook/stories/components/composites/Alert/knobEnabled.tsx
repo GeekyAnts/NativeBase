@@ -17,7 +17,7 @@ export default function () {
           ['left-accent', 'solid', 'subtle', 'top-accent'],
           'subtle'
         )}
-        action={<IconButton icon={<CloseIcon size="xxs" />} />}
+        action={<IconButton icon={<CloseIcon size={3} />} />}
         actionProps={{ alignSelf: 'center' }}
       >
         <Alert.Icon />
