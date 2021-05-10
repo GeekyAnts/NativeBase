@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 import Text from '../../primitives/Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const AlertTitle = (
-  { children, _text, ...props }: { _text?: any } & any,
+  { children, ...props }: { _text?: any } & any,
   ref?: any
 ) => {
   const newProps = usePropsResolution('AlertTitle', props);
   return (
-    <Text {...newProps} {..._text} ref={ref}>
+    <Text {...newProps} ref={ref}>
       {children}
     </Text>
   );
 };
-export default React.memo(React.forwardRef(AlertTitle));
+export default memo(forwardRef(AlertTitle));

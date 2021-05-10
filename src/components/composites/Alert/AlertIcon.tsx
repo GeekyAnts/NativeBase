@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Box } from '../../primitives';
 import {
   WarningIcon,
@@ -35,4 +35,4 @@ const AlertIcon = ({ children, wrapperRef, ...props }: any, ref?: any) => {
     </Box>
   );
 };
-export default React.memo(React.forwardRef(AlertIcon));
+export default memo(forwardRef(AlertIcon));
