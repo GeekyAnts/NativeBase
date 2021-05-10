@@ -15,13 +15,13 @@ export interface IAlertProps extends IBoxProps {
     | 'top-accent'
     | 'outline'
     | 'outline-light';
-  /* The colorScheme of the Alert.
+  /** The colorScheme of the Alert.
    */
   colorScheme?: string;
-  /* The action to display. It renders after the message, at the end of the alert.
+  /** The action to display. It renders after the message, at the end of the alert.
    */
   action?: JSX.Element;
-  /* Props to be passed to the action Wrapper Box
+  /** Props to be passed to the action Wrapper Box
    */
   actionProps?: IBoxProps;
 }
