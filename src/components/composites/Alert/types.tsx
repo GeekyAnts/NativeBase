@@ -1,4 +1,4 @@
-import type { ITextProps, IBoxProps } from '../../primitives';
+import type { ITextProps, IBoxProps, IIconProps } from '../../primitives';
 
 export interface IAlertProps extends IBoxProps {
   /** The status of the alert

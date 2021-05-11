@@ -1,22 +1,16 @@
 import type { SwitchProps, ViewStyle } from 'react-native';
 import type {
-  BorderProps,
   ColorProps,
   FlexboxProps,
-  LayoutProps,
   SpaceProps,
+  BorderProps,
+  BackgroundProps,
+  OutlineProps,
+  LayoutProps,
+  ExtraProps,
+  ShadowProps,
   PositionProps,
-} from 'styled-system';
-
-import type {
-  customBorderProps,
-  customBackgroundProps,
-  customOutlineProps,
-  customLayoutProps,
-  customExtraProps,
-  customShadowProps,
-  customPositionProps,
-} from '../../../utils/customProps';
+} from '../../types';
 import type { IAccessibilityProps } from '../../../utils/accessibilityTypes';
 
 export type ISwitchProps = SwitchProps &
@@ -25,13 +19,13 @@ export type ISwitchProps = SwitchProps &
   LayoutProps &
   FlexboxProps &
   PositionProps &
-  customPositionProps &
-  customBorderProps &
-  customExtraProps &
-  customOutlineProps &
-  customShadowProps &
-  customLayoutProps &
-  customBackgroundProps &
+  PositionProps &
+  BorderProps &
+  ExtraProps &
+  OutlineProps &
+  ShadowProps &
+  LayoutProps &
+  BackgroundProps &
   IAccessibilityProps &
   BorderProps & {
     style?: ViewStyle;

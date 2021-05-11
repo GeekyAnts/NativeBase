@@ -1,4 +1,3 @@
-
 import { Config, system } from 'styled-system';
 
 const config: Config = {

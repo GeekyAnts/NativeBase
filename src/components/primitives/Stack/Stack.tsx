@@ -13,7 +13,9 @@ export interface IStackProps extends IBoxProps {
   /**
    * The space between each stack item. Accepts Responsive values
    */
-  space?: ResponsiveValue<'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number>;
+  space?: ResponsiveValue<
+    'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number
+  >;
   /**
    * Determines whether to reverse the direction of Stack Items.
    */

@@ -1,5 +1,4 @@
 import { Config, system } from 'styled-system';
-import type * as CSS from 'csstype';
 
 const config: Config = {
   listStyleType: true,

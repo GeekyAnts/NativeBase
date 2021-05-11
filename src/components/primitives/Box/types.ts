@@ -1,4 +1,4 @@
-import type { ViewProps, ViewStyle } from 'react-native';
+import type { ViewProps } from 'react-native';
 import type {
   BorderProps,
   ColorProps,
@@ -33,10 +33,6 @@ export interface IBoxProps
     SafeAreaProps,
     TransformProps,
     PlatformProps {
-  /**
-   * For inline Style
-   */
-  style?: ViewStyle;
   /**
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;

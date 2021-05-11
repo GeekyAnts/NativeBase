@@ -1,19 +1,15 @@
 import type {
   ColorProps,
   SpaceProps,
-  PositionProps,
   LayoutProps,
-} from 'styled-system';
-import type {
-  customLayoutProps,
-  customPositionProps,
-} from '../../../utils/customProps';
+  PositionProps,
+} from '../../types';
 
 export type ISpinnerProps = ColorProps &
   SpaceProps &
   LayoutProps &
-  customLayoutProps &
-  customPositionProps &
+  LayoutProps &
+  PositionProps &
   PositionProps & {
     style?: any | undefined;
     size?: 'sm' | 'lg' | 'small' | 'large';

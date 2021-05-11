@@ -1,4 +1,5 @@
 import React from 'react';
+import { AccessibilityRole, Platform } from 'react-native';
 import Text from '../../primitives/Text';
 
 export const getBreadcrumbSeparator = (
@@ -8,7 +9,9 @@ export const getBreadcrumbSeparator = (
   spacing: number | undefined
 ) => {
   let separatorProps = {
-    accessibilityRole: 'presentation',
+    accessibilityRole: (Platform.OS === 'web'
+      ? 'presentation'
+      : undefined) as AccessibilityRole,
   };
 
   if (Array.isArray(children)) {

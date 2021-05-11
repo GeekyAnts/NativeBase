@@ -15,4 +15,4 @@ export type {
   IColorModeContextProps,
 } from './color-mode';
 
-export { ToastProvider, CustomToast } from '../components/composites/Toast';
+export { ToastProvider } from '../components/composites/Toast';

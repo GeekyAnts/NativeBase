@@ -1,41 +1,34 @@
-import type { IPlatformProps } from '../../types/PlafromProps';
 import type {
   ImageProps as RNImageProps,
   ImageSourcePropType,
 } from 'react-native';
 import type { ITextProps } from '../../primitives';
 import type {
-  BorderProps,
   FlexboxProps,
-  LayoutProps,
   SpaceProps,
+  LayoutProps,
+  ExtraProps,
+  ShadowProps,
+  BorderProps,
   PositionProps,
-  BorderRadiusProps,
-} from 'styled-system';
-import type {
-  customLayoutProps,
-  customExtraProps,
-  customShadowProps,
-  customBorderProps,
-  customPositionProps,
-} from '../../../utils/customProps';
+  PlatformProps,
+} from '../../types';
 
-export type IImageProps = IPlatformProps &
+export type IImageProps = PlatformProps &
   RNImageProps &
   LayoutProps &
   SpaceProps &
-  BorderRadiusProps &
   FlexboxProps &
   SpaceProps &
   LayoutProps &
   PositionProps &
-  customPositionProps &
+  PositionProps &
   FlexboxProps &
   BorderProps &
-  customExtraProps &
-  customBorderProps &
-  customShadowProps &
-  customLayoutProps &
+  ExtraProps &
+  BorderProps &
+  ShadowProps &
+  LayoutProps &
   PositionProps & {
     alt: string;
     fallbackSource?: ImageSourcePropType;

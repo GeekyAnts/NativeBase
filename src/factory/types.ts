@@ -1,28 +1,18 @@
 import type {
-  BorderProps,
   ColorProps,
-  FlexboxProps,
-  LayoutProps,
   SpaceProps,
+  BorderProps,
+  BackgroundProps,
+  OutlineProps,
+  LayoutProps,
+  ExtraProps,
+  ShadowProps,
+  TypographyProps,
+  TransformProps,
+  FlexboxProps,
   PositionProps,
-  MarginProps,
-  PaddingProps,
-  BackgroundColorProps,
-} from 'styled-system';
-
-import type {
-  customBorderProps,
-  customBackgroundProps,
-  customOutlineProps,
-  customLayoutProps,
-  customExtraProps,
-  customShadowProps,
-  customTypographyProps,
-  customTransformProps,
-  customFlexboxProps,
-  customPositionProps,
-  customTransitionProps,
-} from '../utils/customProps';
+  TransitionProps,
+} from '../components/types';
 
 export type FactoryComponentProps = ColorProps &
   SpaceProps &
@@ -30,20 +20,17 @@ export type FactoryComponentProps = ColorProps &
   FlexboxProps &
   PositionProps &
   BorderProps &
-  MarginProps &
-  PaddingProps &
-  BackgroundColorProps &
   FlexboxProps &
-  customBackgroundProps &
-  customBorderProps &
-  customExtraProps &
-  customFlexboxProps &
-  customLayoutProps &
-  customOutlineProps &
-  customPositionProps &
-  customShadowProps &
-  customTransformProps &
-  customTransitionProps &
-  customTypographyProps & {
+  BackgroundProps &
+  BorderProps &
+  ExtraProps &
+  FlexboxProps &
+  LayoutProps &
+  OutlineProps &
+  PositionProps &
+  ShadowProps &
+  TransformProps &
+  TransitionProps &
+  TypographyProps & {
     children?: string | JSX.Element | JSX.Element[];
   };

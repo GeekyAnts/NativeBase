@@ -12,5 +12,3 @@ export * from './customTransform';
 export * from './customTransition';
 export * from './customTypography';
 export * from './customExtra';
-export * from './customSize';
-export * from './safeArea';

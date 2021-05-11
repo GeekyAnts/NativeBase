@@ -1,6 +1,4 @@
 import { Config, system } from 'styled-system';
-import type * as CSS from 'csstype';
-import type { ResponsiveValue } from '../../components/types/responsiveValue';
 
 /**
  * The parser configuration for common outline properties

@@ -1,25 +1,19 @@
-import type {
-  BorderProps,
-  ColorProps,
-  FlexboxProps,
-  LayoutProps,
-  SpaceProps,
-  PositionProps,
-} from 'styled-system';
 import type { ViewProps } from 'react-native';
 import type {
-  customBorderProps,
-  customBackgroundProps,
-  customOutlineProps,
-  customLayoutProps,
-  customExtraProps,
-  customShadowProps,
-  customTypographyProps,
-  customTransformProps,
-  customFlexboxProps,
-  customPositionProps,
+  ColorProps,
+  SpaceProps,
+  BorderProps,
+  BackgroundProps,
+  OutlineProps,
+  LayoutProps,
+  ExtraProps,
+  ShadowProps,
+  TypographyProps,
+  TransformProps,
+  FlexboxProps,
+  PositionProps,
   SafeAreaProps,
-} from '../../../utils/customProps';
+} from '../../types';
 
 export type IPressableProps = ViewProps &
   ColorProps &
@@ -27,16 +21,16 @@ export type IPressableProps = ViewProps &
   LayoutProps &
   FlexboxProps &
   PositionProps &
-  customBorderProps &
-  customExtraProps &
-  customOutlineProps &
-  customShadowProps &
-  customLayoutProps &
-  customTypographyProps &
-  customBackgroundProps &
-  customTransformProps &
-  customFlexboxProps &
-  customPositionProps &
+  BorderProps &
+  ExtraProps &
+  OutlineProps &
+  ShadowProps &
+  LayoutProps &
+  TypographyProps &
+  BackgroundProps &
+  TransformProps &
+  FlexboxProps &
+  PositionProps &
   BorderProps &
   SafeAreaProps & {
     children?: any;

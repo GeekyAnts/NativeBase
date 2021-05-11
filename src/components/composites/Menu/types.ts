@@ -1,69 +1,27 @@
-import type {
-  ViewStyle,
-  TouchableNativeFeedbackProps,
-  TouchableHighlightProps,
-} from 'react-native';
-import type {
-  BorderProps,
-  ColorProps,
-  FlexboxProps,
-  LayoutProps,
-  SpaceProps,
-  TypographyProps,
-  PositionProps,
-} from 'styled-system';
-import type {
-  customBorderProps,
-  customBackgroundProps,
-  customOutlineProps,
-  customLayoutProps,
-  customExtraProps,
-  customShadowProps,
-  customTypographyProps,
-  customPositionProps,
-} from '../../../utils/customProps';
+import type { ViewStyle } from 'react-native';
 import type { ITextProps } from '../../primitives/Text';
 import type { IBoxProps } from '../../primitives/Box';
 import type { IPopoverProps } from '../Popover';
+import type { IPressableProps } from 'src/components/primitives/Pressable';
 
-export type IMenuProps = BorderProps &
-  ColorProps &
-  SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  customBorderProps &
-  customExtraProps &
-  customOutlineProps &
-  customShadowProps &
-  customLayoutProps &
-  customTypographyProps &
-  customBackgroundProps &
-  TypographyProps &
-  PositionProps &
-  customPositionProps &
-  BorderProps & {
-    trigger: (_props: any, state: { open: boolean }) => JSX.Element;
-    children?: JSX.Element | Array<JSX.Element>;
-    onOpen?: () => void;
-    onClose?: () => void;
-    offsetSpace?: number;
-    closeOnSelect?: boolean;
-    style?: ViewStyle;
-    isOpen?: boolean;
-  } & IPopoverProps;
+export type IMenuProps = IBoxProps & {
+  trigger: (_props: any, state: { open: boolean }) => JSX.Element;
+  children?: JSX.Element | Array<JSX.Element>;
+  onOpen?: () => void;
+  onClose?: () => void;
+  offsetSpace?: number;
+  closeOnSelect?: boolean;
+  style?: ViewStyle;
+  isOpen?: boolean;
+} & IPopoverProps;
 
-export type IMenuItemProps = IBoxProps &
-  BorderProps &
-  customBorderProps &
-  customBackgroundProps &
-  TouchableNativeFeedbackProps &
-  TouchableHighlightProps & {
-    children: string | JSX.Element | Array<JSX.Element>;
-    isDisabled?: boolean;
-    style?: ViewStyle;
-    _text?: ITextProps;
-    textValue?: string;
-  };
+export type IMenuItemProps = IPressableProps & {
+  children: string | JSX.Element | Array<JSX.Element>;
+  isDisabled?: boolean;
+  style?: ViewStyle;
+  _text?: ITextProps;
+  textValue?: string;
+};
 
 export type IMenuItemOptionProps = IMenuItemProps & {
   value: string | number;

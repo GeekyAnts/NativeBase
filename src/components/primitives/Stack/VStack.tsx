@@ -1,12 +1,13 @@
 import React, { memo, forwardRef } from 'react';
 import StackMain, { IStackProps } from './Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import type { ResponsiveValue } from '../../types';
 export interface IVStackProps extends IStackProps {
   /**
    * The direction of the Stack Items.
    * @default column
    */
-  direction?: 'column' | 'row';
+  direction?: ResponsiveValue<'column' | 'row'>;
 }
 
 const HStack = (props: IVStackProps, ref?: any) => {
