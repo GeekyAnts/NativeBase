@@ -4,10 +4,10 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
 import Playground from './knobEnabled';
 import { Example as Composition } from './composition';
-import { Basic } from './basic';
-import { Variant } from './variant';
-import { Status } from './status';
-import ColorScheme from './colorScheme';
+import { Example as Basic } from './basic';
+import { Example as Variant } from './variant';
+import { Example as Status } from './status';
+import { Example as ColorScheme } from './colorScheme';
 import { Example as Action } from './action';
 
 storiesOf('Alert', module)

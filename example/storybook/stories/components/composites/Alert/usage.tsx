@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, Box } from 'native-base';
-export default function () {
+export function Example() {
   return (
     <Box mx={3} w="90%">
       <Alert>

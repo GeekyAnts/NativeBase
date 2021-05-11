@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stack, Alert, Box } from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <Box w="90%">
       <Stack space={4} mx={3}>

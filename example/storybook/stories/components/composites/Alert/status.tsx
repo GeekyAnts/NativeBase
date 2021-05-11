@@ -1,7 +1,7 @@
 import React from 'react';
-import { Stack, Alert, NativeBaseProvider, Center } from 'native-base';
+import { Stack, Alert } from 'native-base';
 
-export function Status() {
+export function Example() {
   return (
     <Stack space={3}>
       {['error', 'warning', 'info', 'success'].map((key) => {
@@ -15,13 +15,3 @@ export function Status() {
     </Stack>
   );
 }
-
-export default () => {
-  return (
-    <NativeBaseProvider>
-      <Center>
-        <Status />
-      </Center>
-    </NativeBaseProvider>
-  );
-};

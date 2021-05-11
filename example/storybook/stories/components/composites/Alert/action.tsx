@@ -4,10 +4,8 @@ import {
   Collapse,
   Button,
   IconButton,
-  Icon,
   Box,
-  NativeBaseProvider,
-  Center,
+  CloseIcon,
 } from 'native-base';
 
 export function Example() {
@@ -20,7 +18,7 @@ export function Example() {
           status="error"
           action={
             <IconButton
-              icon={<Icon name="close" color="red.400" size="xs" />}
+              icon={<CloseIcon color="red.400" size="xs" />}
               onPress={() => handleToggle(false)}
             />
           }
@@ -37,11 +35,3 @@ export function Example() {
     </Box>
   );
 }
-
-export default () => (
-  <NativeBaseProvider>
-    <Center>
-      <Example />
-    </Center>
-  </NativeBaseProvider>
-);
