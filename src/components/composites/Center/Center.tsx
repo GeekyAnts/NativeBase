@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { useThemeProps } from '../../../hooks/useThemeProps';
 import Box from '../../primitives/Box';
 import type { ICenterProps } from './types';
@@ -16,4 +16,4 @@ const Center = (props: ICenterProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(Center));
+export default memo(forwardRef(Center));

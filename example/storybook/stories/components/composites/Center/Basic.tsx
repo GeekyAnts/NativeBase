@@ -1,6 +1,6 @@
 import React from 'react';
 import { Center } from 'native-base';
-export default function () {
+export function Example() {
   return (
     <Center
       bg="primary.400"
