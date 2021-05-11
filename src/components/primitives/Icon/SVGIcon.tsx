@@ -20,55 +20,10 @@ import {
   customTypography,
   customPosition,
 } from '../../../utils/customProps';
-import {
-  Svg,
-  Path,
-  G,
-  Circle,
-  Ellipse,
-  Text,
-  TSpan,
-  TextPath,
-  Polygon,
-  Polyline,
-  Line,
-  Rect,
-  Use,
-  Image,
-  Symbol,
-  Defs,
-  LinearGradient,
-  RadialGradient,
-  Stop,
-  ClipPath,
-  Pattern,
-  Mask,
-} from 'react-native-svg';
+import { Svg, G } from 'react-native-svg';
 import type { IIconProps } from './types';
 import { QuestionOutlineIcon } from './Icons';
-const VALID_SVG_COMPONENTS: any = {
-  G,
-  Path,
-  Circle,
-  Ellipse,
-  Text,
-  TSpan,
-  TextPath,
-  Polygon,
-  Polyline,
-  Line,
-  Rect,
-  Use,
-  Image,
-  Symbol,
-  Defs,
-  LinearGradient,
-  RadialGradient,
-  Stop,
-  ClipPath,
-  Pattern,
-  Mask,
-};
+
 const SVG = styled(Svg)<IIconProps>(
   color,
   space,
@@ -121,39 +76,31 @@ const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
     >
       {React.Children.count(children) > 0 ? (
         <G>
-          {React.Children.map(children, ({ props: childProps, type }: any) =>
-            type &&
-            type.name &&
-            Object.keys(VALID_SVG_COMPONENTS).includes(type.name) ? (
-              <ChildPath {...childProps} tabIndex={-1} type={type.name} />
-            ) : null
-          )}
+          {React.Children.map(children, (child, i) => (
+            <ChildPath
+              key={child?.key ?? i}
+              element={child}
+              {...child?.props}
+            />
+          ))}
         </G>
       ) : (
-        <QuestionOutlineIcon tabIndex={-1} />
+        <QuestionOutlineIcon />
       )}
     </SVG>
   );
 };
-const ChildPath = ({
-  type,
-  fill,
-  stroke: pathStroke,
-  ...remainingProps
-}: any) => {
-  const Component = VALID_SVG_COMPONENTS[type];
+const ChildPath = ({ element, fill, stroke: pathStroke }: any) => {
   const pathStrokeColor = useToken('colors', pathStroke || '');
   const fillColor = useToken('colors', fill || '');
 
-  if (!Component) {
+  if (!element) {
     return null;
   }
-  return (
-    <Component
-      {...remainingProps}
-      fill={fillColor ? fillColor : 'currentColor'}
-      stroke={pathStrokeColor}
-    />
-  );
+
+  return React.cloneElement(element, {
+    fill: fillColor ? fillColor : 'currentColor',
+    stroke: pathStrokeColor,
+  });
 };
 export default React.memo(React.forwardRef(SVGIcon));
