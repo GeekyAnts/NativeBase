@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
-import Flex from './basic';
+import { Example as Flex } from './basic';
 import { SpacerExample } from './spacer';
 import Wrapper from './../../Wrapper';
 

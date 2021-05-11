@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Center, Heading, Button } from 'native-base';
 
-export default function () {
+export function Example() {
   const [direction, setDirection]: any = React.useState('column');
   return (
     <Center flex={1}>
