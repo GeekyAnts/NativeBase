@@ -3,6 +3,10 @@ import type { IBoxProps } from '../../primitives/Box';
 
 export interface IToastProps extends IBoxProps {
   /**
+   * The title to be rendered in the Toast
+   */
+  title?: ReactNode;
+  /**
    * The description of the toast
    */
   description?: ReactNode;
@@ -42,10 +46,6 @@ export interface IToastProps extends IBoxProps {
    * The status of the toast. Adding status will render an [Alert](alert.md) component inside the `Toast`
    */
   status?: 'info' | 'warning' | 'error' | 'success';
-  /**
-   * The title to be rendered in the Toast
-   */
-  title?: ReactNode;
   /** The variants of the [Alert](alert.md) component.
    */
   variant?:
