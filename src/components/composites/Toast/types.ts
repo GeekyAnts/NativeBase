@@ -38,18 +38,22 @@ export interface IToastProps extends IBoxProps {
    */
   render?: (props: any) => ReactNode;
   /**
-   * The status of the toast. Any values apart from `none` will render an [Alert](alert.md) component inside the `Toast`
-   * @default none
+   * The status of the toast. Adding status will render an [Alert](alert.md) component inside the `Toast`
    */
-  status?: 'none' | 'info' | 'warning' | 'error' | 'success';
+  status?: 'info' | 'warning' | 'error' | 'success';
   /**
    * The title to be rendered in the Toast
    */
   title?: ReactNode;
-  /** The variants of the [Alert](alert.md) component. This will be only applied when the status is not `none`
-   *  @default subtle
+  /** The variants of the [Alert](alert.md) component.
    */
-  variant?: string;
+  variant?:
+    | 'subtle'
+    | 'solid'
+    | 'left-accent'
+    | 'top-accent'
+    | 'outline'
+    | 'outline-light';
   /**
    * The text to be announced by a screen reader when the Toast opens.
    */

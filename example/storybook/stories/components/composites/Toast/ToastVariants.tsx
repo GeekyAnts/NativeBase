@@ -1,59 +1,27 @@
 import React from 'react';
-import { Button, useToast, VStack } from 'native-base';
+import { Button, useToast, Wrap } from 'native-base';
 
 export const Example = () => {
   const toast = useToast();
+  const variants = ['solid', 'subtle', 'left-accent', 'top-accent'];
 
   return (
-    <VStack space={2}>
-      <Button
-        onPress={() =>
-          toast.show({
-            title: 'Account verified',
-            status: 'success',
-            description: 'Thanks for signing up with us.',
-          })
-        }
-      >
-        Success
-      </Button>
-
-      <Button
-        onPress={() =>
-          toast.show({
-            title: 'Something went wrong',
-            status: 'error',
-            description: 'Please create a support ticket from the support page',
-          })
-        }
-      >
-        Error
-      </Button>
-
-      <Button
-        onPress={() =>
-          toast.show({
-            title: 'Network connection restored',
-            status: 'info',
-            description:
-              'This is to inform you that your network connectivity is restored',
-          })
-        }
-      >
-        Info
-      </Button>
-
-      <Button
-        onPress={() =>
-          toast.show({
-            title: 'Invalid email address',
-            status: 'warning',
-            description: 'Please enter a valid email address',
-          })
-        }
-      >
-        Warning
-      </Button>
-    </VStack>
+    <Wrap>
+      {variants.map((variant) => (
+        <Button
+          key={variant}
+          onPress={() =>
+            toast.show({
+              title: `${variant} toast`,
+              variant: variant,
+              isClosable: true,
+            })
+          }
+          mr={2}
+        >
+          Show {variant} toast
+        </Button>
+      ))}
+    </Wrap>
   );
 };

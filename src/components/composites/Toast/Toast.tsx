@@ -191,7 +191,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       placement = 'bottom',
       title,
       render,
-      status = 'none',
+      status,
       id = toastIndex.current++,
       description,
       isClosable = true,
@@ -208,7 +208,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
 
     if (render) {
       component = render({ id: toastIndex.current });
-    } else if (status === 'none') {
+    } else if (!status && !variant) {
       component = (
         <VStack space={1} {...themeProps} {...rest}>
           <Box _text={themeProps._title}>{title}</Box>
@@ -217,7 +217,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
           )}
         </VStack>
       );
-    } else if (typeof status === 'string') {
+    } else if (status || variant) {
       component = (
         <Alert
           status={status ?? 'info'}
