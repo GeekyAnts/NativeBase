@@ -11,7 +11,7 @@ export const Example = () => {
           render: () => {
             return (
               <Box bg="teal.500" px={4} py={3} rounded="md" mb={5}>
-                Hi, Nice to see you!
+                Hi, Nice to see you ( ´ ∀ ` )ﾉ
               </Box>
             );
           },

@@ -141,7 +141,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
     { [key in string]: boolean }
   >({});
   const themeProps = useThemeProps('Toast', {});
-  let toastIndex = React.useRef(0);
+  let toastIndex = React.useRef(1);
 
   const hideAll = () => {
     setVisibleToasts({});
@@ -186,7 +186,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
     });
   };
 
-  const setToast = (props: IToastProps) => {
+  const setToast = (props: IToastProps): number => {
     const {
       placement = 'bottom',
       title,

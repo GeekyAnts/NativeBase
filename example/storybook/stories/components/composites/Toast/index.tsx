@@ -5,7 +5,7 @@ import Wrapper from '../../Wrapper';
 import { Example as ToastPositions } from './ToastPositions';
 import { Example as ToastVariants } from './ToastVariants';
 import { Example as Basic } from './Basic';
-import { Example as HideToast } from './HideToast';
+import { Example as CloseToast } from './CloseToast';
 import { Example as CustomComponent } from './CustomComponent';
 import { Example as PreventDuplicate } from './PreventDuplicate';
 
@@ -16,5 +16,5 @@ storiesOf('Toast', module)
   .add('Basic', () => <Basic />)
   .add('Toast Positions', () => <ToastPositions />)
   .add('Custom Component', () => <CustomComponent />)
-  .add('Custom Id', () => <HideToast />)
+  .add('CloseToast', () => <CloseToast />)
   .add('Prevent Duplicate', () => <PreventDuplicate />);

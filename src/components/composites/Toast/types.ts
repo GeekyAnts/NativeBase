@@ -73,7 +73,7 @@ export type IToastInfo = {
 export type IToastContext = {
   toastInfo: IToastInfo;
   setToastInfo: any;
-  setToast: (props: IToastProps) => void;
+  setToast: (props: IToastProps) => any;
   removeToast: (id: any) => void;
   hideAll: () => void;
   isActive: (id: any) => boolean;
