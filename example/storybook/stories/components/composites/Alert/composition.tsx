@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Alert,
-  Box,
-  VStack,
-  Icon,
-  IconButton,
-  Center,
-  NativeBaseProvider,
-} from 'native-base';
+import { Alert, Box, VStack, IconButton, CloseIcon } from 'native-base';
 
 export function Example() {
   return (
@@ -64,7 +56,7 @@ export function Example() {
           </Alert.Description>
         </Box>
         <IconButton
-          icon={<Icon name="close" color="success.500" size="xs" />}
+          icon={<CloseIcon color="success.500" size="xs" />}
           position="absolute"
           top={0.5}
           right={1}
@@ -73,13 +65,3 @@ export function Example() {
     </VStack>
   );
 }
-
-export default () => {
-  return (
-    <NativeBaseProvider>
-      <Center>
-        <Example />
-      </Center>
-    </NativeBaseProvider>
-  );
-};
