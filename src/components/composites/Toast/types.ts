@@ -8,6 +8,7 @@ export interface IToastProps extends IBoxProps {
   description?: ReactNode;
   /**
    * The delay before the toast hides (in milliseconds). If set to `null`, toast will never dismiss.
+   * @default 5000
    */
   duration?: number | null;
   /**
