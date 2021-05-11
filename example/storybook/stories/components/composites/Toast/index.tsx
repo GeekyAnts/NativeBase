@@ -2,11 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from '../../Wrapper';
-import ToastPositions from './ToastPositions';
-import ToastVariants from './ToastVariants';
-import Basic from './Basic';
-import CustomID from './CustomId';
-import PreventDuplicate from './PreventDuplicate';
+import { Example as ToastPositions } from './ToastPositions';
+import { Example as ToastVariants } from './ToastVariants';
+import { Example as Basic } from './Basic';
+import { Example as CustomID } from './CustomId';
+import { Example as PreventDuplicate } from './PreventDuplicate';
 
 storiesOf('Toast', module)
   .addDecorator(withKnobs)

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, useToast } from 'native-base';
 
-export default function PreventDuplicateExample() {
+export function Example() {
   const toast = useToast();
   const id = 'test-toast';
   return (

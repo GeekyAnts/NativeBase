@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, useToast, VStack } from 'native-base';
 
-const ToastPositions = () => {
+export const Example = () => {
   const toast = useToast();
 
   return (
@@ -75,5 +75,3 @@ const ToastPositions = () => {
     </VStack>
   );
 };
-
-export default ToastPositions;

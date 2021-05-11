@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, useToast } from 'native-base';
 
-const CustomID = () => {
+export const Example = () => {
   const toast = useToast();
 
   const id = 'test-id';
@@ -22,5 +22,3 @@ const CustomID = () => {
     </>
   );
 };
-
-export default CustomID;

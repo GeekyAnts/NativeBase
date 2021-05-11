@@ -15,9 +15,13 @@ const baseStyle = (props: Record<string, any>) => {
       color: mode(`gray.300`, `gray.700`)(props),
       fontWeight: 400,
     },
+    _closeIcon: {
+      size: 4,
+    },
   };
 };
 
 export const Toast = {
   baseStyle,
+  defaultProps: {},
 };

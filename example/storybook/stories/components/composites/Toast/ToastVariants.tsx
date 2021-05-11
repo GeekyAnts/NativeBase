@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, useToast, VStack } from 'native-base';
 
-const ToastVariants = () => {
+export const Example = () => {
   const toast = useToast();
 
   return (
@@ -57,5 +57,3 @@ const ToastVariants = () => {
     </VStack>
   );
 };
-
-export default ToastVariants;

@@ -27,6 +27,7 @@ import CircularProgress from './circular-progress';
 import Code from './code';
 import Container from './container';
 import HStack from './hstack';
+import VStack from './vstack';
 import Divider from './divider';
 import SimpleGrid from './simple-grid';
 import {
@@ -118,6 +119,7 @@ export default {
   FormControlErrorMessage,
   Heading,
   HStack,
+  VStack,
   Icon,
   IconButton,
   Image,

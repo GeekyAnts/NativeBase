@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, useToast } from 'native-base';
 
-const Basic = () => {
+export const Example = () => {
   const toast = useToast();
 
   return (
@@ -16,5 +16,3 @@ const Basic = () => {
     </Button>
   );
 };
-
-export default Basic;

@@ -2,7 +2,7 @@ import { OverlayContainer } from '@react-native-aria/overlays';
 import { Transition } from '../Transitions';
 import VStack from '../../primitives/Stack/VStack';
 import { Alert } from '../../composites/Alert';
-import React, { createContext, ReactNode, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import {
   AccessibilityInfo,
   Easing,
@@ -14,6 +14,7 @@ import IconButton from '../IconButton';
 import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
 import { CloseIcon } from '../../primitives/Icon/Icons';
+import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
 
 let INSET = `${StatusBar.currentHeight}px`;
 
@@ -57,56 +58,7 @@ const transitionConfig: any = {
   'bottom-right': initialAnimationOffset,
 };
 
-type IToastProps = {
-  // The description of the toast
-  description?: ReactNode;
-  // The delay before the toast hides (in milliseconds) If set to `null`, toast will never dismiss.
-  duration?: number;
-  // The `id` of the toast. Mostly used when you need to prevent duplicate. By default, we generate a unique `id` for each toast
-  id?: any;
-  // If `true`, toast will show a close button
-  isClosable?: boolean;
-  // Callback function to run side effects after the toast has closed.
-  onCloseComplete?: () => void;
-  // The placement of the toast. Defaults to bottom
-  placement?: keyof typeof POSITIONS;
-  // Render a component toast component. Any component passed will receive 2 props: `id` and `onClose`.
-  render?: (props: any) => ReactNode;
-  // The status of the toast.
-  status?: 'none' | 'info' | 'warning' | 'error' | 'success';
-  // The title of the toast
-  title?: ReactNode;
-  // The alert component `variant` to use
-  variant?: any;
-
-  accessibilityAnnouncement?: string;
-
-  accessibilityLiveRegion?: 'none' | 'polite' | 'assertive';
-};
-
-type IToast = {
-  id: number;
-  component: any;
-  config?: IToastProps;
-};
-
-type IToastInfo = {
-  [key in keyof typeof POSITIONS]?: Array<IToast>;
-};
-
-type IToastContext = {
-  toastInfo: IToastInfo;
-  setToastInfo: any;
-  setToast: (props: IToastProps) => void;
-  removeToast: (id: any) => void;
-  hideAll: () => void;
-  isActive: (id: any) => boolean;
-  visibleToasts: any;
-  setVisibleToasts: any;
-  hideToast: (id: any) => void;
-};
-
-export const ToastContext = createContext<IToastContext>({
+const ToastContext = createContext<IToastContext>({
   toastInfo: {},
   setToastInfo: () => {},
   setToast: () => {},
@@ -118,7 +70,7 @@ export const ToastContext = createContext<IToastContext>({
   hideToast: () => {},
 });
 
-export const CustomToast = () => {
+const CustomToast = () => {
   const { toastInfo, visibleToasts, removeToast } = React.useContext(
     ToastContext
   );
@@ -185,7 +137,9 @@ export const CustomToast = () => {
 
 export const ToastProvider = ({ children }: { children: any }) => {
   const [toastInfo, setToastInfo] = useState<IToastInfo>({});
-  const [visibleToasts, setVisibleToasts] = useState<IToastInfo>({});
+  const [visibleToasts, setVisibleToasts] = useState<
+    { [key in string]: boolean }
+  >({});
   const themeProps = useThemeProps('Toast', {});
   let toastIndex = React.useRef(0);
 
@@ -245,6 +199,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       variant,
       accessibilityAnnouncement,
       accessibilityLiveRegion = 'polite',
+      ...rest
     } = props;
     let positionToastArray = toastInfo[placement];
     if (!positionToastArray) positionToastArray = [];
@@ -255,7 +210,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       component = render({ id: toastIndex.current });
     } else if (status === 'none') {
       component = (
-        <VStack space={1} {...themeProps}>
+        <VStack space={1} {...themeProps} {...rest}>
           <Box _text={themeProps._title}>{title}</Box>
           {description && (
             <Box _text={themeProps._description}>{description}</Box>
@@ -266,7 +221,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       component = (
         <Alert
           status={status ?? 'info'}
-          variant={variant}
+          variant={variant as any}
           accessibilityLiveRegion={accessibilityLiveRegion}
           action={
             isClosable ? (
@@ -274,10 +229,11 @@ export const ToastProvider = ({ children }: { children: any }) => {
                 onPress={() => {
                   hideToast(id);
                 }}
-                icon={<CloseIcon size="xs" />}
+                icon={<CloseIcon size={themeProps._closeIcon} />}
               />
             ) : undefined
           }
+          {...rest}
         >
           <Alert.Icon />
           <VStack>
@@ -298,10 +254,11 @@ export const ToastProvider = ({ children }: { children: any }) => {
     setToastInfo({ ...toastInfo });
 
     setVisibleToasts({ ...visibleToasts, [id]: true });
-
-    setTimeout(function () {
-      hideToast(id);
-    }, duration);
+    if (duration !== null) {
+      setTimeout(function () {
+        hideToast(id);
+      }, duration);
+    }
 
     // iOS doesn't support accessibilityLiveRegion
     if (accessibilityAnnouncement && Platform.OS === 'ios') {
