@@ -6,7 +6,7 @@ export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);
   const [size, setSize] = React.useState('md');
 
-  const handleSizeClick = (newSize: string) => {
+  const handleSizeClick = (newSize) => {
     setSize(newSize);
     setModalVisible(!modalVisible);
   };
