@@ -7,7 +7,6 @@ export function Example() {
   return (
     <Popover
       initialFocusRef={initialFocusRef}
-      closeOnBlur={false}
       trigger={(triggerProps) => {
         return <Button {...triggerProps}>Trigger</Button>;
       }}

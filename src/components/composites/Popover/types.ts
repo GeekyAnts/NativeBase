@@ -34,10 +34,6 @@ export interface IPopoverProps {
    */
   trapFocus?: boolean;
   /**
-   * Whether popover should be closed on Blur. This will trigger `onClose` function.
-   */
-  closeOnBlur?: boolean;
-  /**
    * Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely.
    */
   shouldFlip?: boolean;
