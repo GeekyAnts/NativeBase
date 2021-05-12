@@ -5,5 +5,5 @@ export interface IHeadingProps extends ITextProps {
    * The size of the heading.
    * @default xl
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number | string;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;
 }
