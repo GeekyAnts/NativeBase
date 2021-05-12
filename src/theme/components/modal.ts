@@ -28,6 +28,8 @@ export const Modal = {
   baseStyle: {
     width: '100%',
     height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   sizes,
   defaultProps: {
@@ -44,7 +46,6 @@ export const ModalContent = {
       pt: 6,
       shadow: 3,
       rounded: 'lg',
-      margin: 'auto',
       maxHeight: `${Dimensions.get('window').height - 150}px`,
     };
   },
