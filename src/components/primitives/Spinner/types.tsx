@@ -16,7 +16,7 @@ export type ISpinnerProps = ColorProps &
   customPositionProps &
   PositionProps & {
     style?: any | undefined;
-    size?: 'sm' | 'lg' | 'small' | 'large';
+    size?: 'sm' | 'lg' | 'small' | 'large' | number;
     accessibilityLabel?: string;
     // variant?:
     //   | 'custom'
