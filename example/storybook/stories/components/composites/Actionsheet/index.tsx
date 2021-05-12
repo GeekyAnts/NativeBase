@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from '../../Wrapper';
-import Icon from './Icon';
-import Usage from './Usage';
-import Composition from './Composition';
-import DisableOverlay from './DisableOverlay';
+import { Example as Icon } from './Icon';
+import { Example as Usage } from './Usage';
+import { Example as Composition } from './Composition';
+import { Example as DisableOverlay } from './DisableOverlay';
 
 storiesOf('Actionsheet', module)
   .addDecorator(withKnobs)

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Divider, Actionsheet, useDisclose } from 'native-base';
 
-export default function () {
+export function Example() {
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
     <>

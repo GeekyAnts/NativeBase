@@ -2,7 +2,7 @@ import React, { forwardRef, memo } from 'react';
 import { OverlayContainer } from '@react-native-aria/overlays';
 import { KeyboardAvoidingView, StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';
-import { Transition } from '../Transitions';
+import { Transition, Slide } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import {
   useControllableState,
@@ -25,6 +25,8 @@ const Modal = (
     closeOnOverlayClick = true,
     isKeyboardDismissable = true,
     overlayVisible = true,
+    //@ts-ignore - internal purpose only
+    animationPreset = 'fade',
     ...rest
   }: IModalProps,
   ref: any
@@ -52,6 +54,22 @@ const Modal = (
     };
   }, [visible, isKeyboardDismissable, setVisible]);
 
+  let child = (
+    <Box {...restThemeProps} ref={ref} pointerEvents="box-none">
+      {avoidKeyboard ? (
+        <KeyboardAvoidingView
+          behavior="padding"
+          style={StyleSheet.absoluteFill}
+          pointerEvents="box-none"
+        >
+          {children}
+        </KeyboardAvoidingView>
+      ) : (
+        children
+      )}
+    </Box>
+  );
+
   return (
     <OverlayContainer>
       <ModalContext.Provider
@@ -78,26 +96,36 @@ const Modal = (
               }}
             />
           )}
-          <FocusScope
-            contain={visible}
-            autoFocus={visible && !initialFocusRef}
-            restoreFocus={visible && !finalFocusRef}
-          >
-            <Box {...restThemeProps} ref={ref} pointerEvents="box-none">
-              {avoidKeyboard ? (
-                <KeyboardAvoidingView
-                  behavior="padding"
-                  style={StyleSheet.absoluteFill}
-                  pointerEvents="box-none"
-                >
-                  {children}
-                </KeyboardAvoidingView>
-              ) : (
-                children
-              )}
-            </Box>
-          </FocusScope>
         </Transition>
+        {animationPreset === 'slide' ? (
+          <Slide in={visible}>
+            <FocusScope
+              contain={visible}
+              autoFocus={visible && !initialFocusRef}
+              restoreFocus={visible && !finalFocusRef}
+            >
+              {child}
+            </FocusScope>
+          </Slide>
+        ) : (
+          <Transition
+            from={{ opacity: 0 }}
+            entry={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            visible={visible}
+            style={StyleSheet.absoluteFill}
+            exitDuration={150}
+            entryDuration={200}
+          >
+            <FocusScope
+              contain={visible}
+              autoFocus={visible && !initialFocusRef}
+              restoreFocus={visible && !finalFocusRef}
+            >
+              {child}
+            </FocusScope>
+          </Transition>
+        )}
       </ModalContext.Provider>
     </OverlayContainer>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Modal } from '../../composites/Modal';
 import type { IActionsheetProps } from './types';
 import { useThemeProps } from '../../../hooks';
@@ -14,6 +14,8 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
       isOpen={isOpen}
       onClose={onClose}
       justifyContent="flex-end"
+      //@ts-ignore - internal use only
+      animationPreset="slide"
       {...newProps}
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}
@@ -24,4 +26,4 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(Actionsheet));
+export default memo(forwardRef(Actionsheet));

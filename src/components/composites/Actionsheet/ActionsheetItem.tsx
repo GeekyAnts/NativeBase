@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Button } from '../../primitives/Button';
 import type { IActionsheetItemProps } from './types';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 
 const ActionsheetItem = (
   { children, startIcon, endIcon, spinner, ...props }: IActionsheetItemProps,
   ref?: any
 ) => {
-  const newProps = useThemeProps('ActionsheetItem', props);
+  const newProps = usePropsResolution('ActionsheetItem', props);
 
   return (
     <Button
@@ -22,4 +22,4 @@ const ActionsheetItem = (
   );
 };
 
-export default React.memo(React.forwardRef(ActionsheetItem));
+export default memo(forwardRef(ActionsheetItem));

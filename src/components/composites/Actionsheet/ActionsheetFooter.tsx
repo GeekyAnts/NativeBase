@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Modal } from '../../composites/Modal';
 import type { IActionsheetFooterProps } from './types';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 
 const ActionsheetFooter = (
   { children, ...props }: IActionsheetFooterProps,
   ref?: any
 ) => {
-  const newProps = useThemeProps('ActionsheetFooter', props);
+  const newProps = usePropsResolution('ActionsheetFooter', props);
 
   return (
     <Modal.Content {...newProps} ref={ref}>
@@ -16,4 +16,4 @@ const ActionsheetFooter = (
   );
 };
 
-export default React.memo(React.forwardRef(ActionsheetFooter));
+export default memo(forwardRef(ActionsheetFooter));

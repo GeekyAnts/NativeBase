@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Actionsheet, useDisclose, Icon } from 'native-base';
+import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function () {
+export function Example() {
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
     <>
@@ -10,15 +11,20 @@ export default function () {
       <Actionsheet isOpen={isOpen} onClose={onClose} size="full">
         <Actionsheet.Content>
           <Actionsheet.Item
-            startIcon={<Icon name="share" color="muted.500" mr={5} />}
+            startIcon={
+              <Icon
+                as={<MaterialIcons name="share" />}
+                color="muted.500"
+                mr={5}
+              />
+            }
           >
             Share
           </Actionsheet.Item>
           <Actionsheet.Item
             startIcon={
               <Icon
-                name="link"
-                type="MaterialCommunityIcons"
+                as={<MaterialCommunityIcons name="link" />}
                 color="muted.500"
                 mr={5}
               />
@@ -27,12 +33,24 @@ export default function () {
             Link
           </Actionsheet.Item>
           <Actionsheet.Item
-            startIcon={<Icon name="edit" color="muted.500" mr={5} />}
+            startIcon={
+              <Icon
+                as={<MaterialIcons name="edit" />}
+                color="muted.500"
+                mr={5}
+              />
+            }
           >
             Edit name
           </Actionsheet.Item>
           <Actionsheet.Item
-            startIcon={<Icon name="delete" color="muted.500" mr={5} />}
+            startIcon={
+              <Icon
+                as={<MaterialIcons name="delete" />}
+                color="muted.500"
+                mr={5}
+              />
+            }
           >
             Delete Collection
           </Actionsheet.Item>
