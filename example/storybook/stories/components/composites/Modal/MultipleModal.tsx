@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Modal } from 'native-base';
 import { useState } from 'react';
 
-const MultipleModal = () => {
+export const Example = () => {
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
   const [showModal3, setShowModal3] = useState(false);
@@ -53,6 +53,20 @@ const MultipleModal = () => {
             officia tempor esse quis. Sunt ad dolore quis aute consequat. Magna
             exercitation reprehenderit magna aute tempor cupidatat consequat
             elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
+            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim cillum
+            quis. Velit duis sit officia eiusmod Lorem aliqua enim ullamco
+            deserunt aute id consequat veniam incididunt duis in sint irure
+            nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia
+            tempor esse quis. Sunt ad dolore quis aute consequat. Magna
+            exercitation reprehenderit magna aute tempor cupidatat consequat
+            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
+            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim cillum
+            quis. Velit duis sit officia eiusmod Lorem aliqua enim ullamco
+            deserunt aute id consequat veniam incididunt duis in sint irure
+            nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia
+            tempor esse quis. Sunt ad dolore quis aute consequat. Magna
+            exercitation reprehenderit magna aute tempor cupidatat consequat
+            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
             cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim
           </Modal.Body>
           <Modal.Footer>
@@ -98,5 +112,3 @@ const MultipleModal = () => {
     </>
   );
 };
-
-export default MultipleModal;

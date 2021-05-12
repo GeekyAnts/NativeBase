@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box, { IBoxProps } from '../../primitives/Box';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import { ModalContext } from './Context';
 import { Platform } from 'react-native';
 
 const ModalContent = (props: IBoxProps, ref?: any) => {
-  const { ...newProps } = useThemeProps('ModalContent', props);
+  const { ...newProps } = usePropsResolution('ModalContent', props);
   const {
     contentSize,
     initialFocusRef,
@@ -42,4 +42,4 @@ const ModalContent = (props: IBoxProps, ref?: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(ModalContent));
+export default memo(forwardRef(ModalContent));

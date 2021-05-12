@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Modal } from 'native-base';
 import { useState } from 'react';
 
-const Basic = () => {
+export const Example = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -53,5 +53,3 @@ const Basic = () => {
     </>
   );
 };
-
-export default Basic;

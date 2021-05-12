@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box, { IBoxProps } from '../../primitives/Box';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import { ScrollView } from 'react-native';
 
 const ModalBody = (props: IBoxProps, ref?: any) => {
-  const newProps = useThemeProps('ModalBody', props);
+  const newProps = usePropsResolution('ModalBody', props);
 
   return (
     <ScrollView>
@@ -15,4 +15,4 @@ const ModalBody = (props: IBoxProps, ref?: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(ModalBody));
+export default memo(forwardRef(ModalBody));
