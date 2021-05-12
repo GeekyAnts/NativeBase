@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from 'native-base';
 
-export default function () {
+export function Example() {
   return <Badge>NEW FEATURE</Badge>;
 }

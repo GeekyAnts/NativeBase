@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge, HStack } from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <HStack>
       <Badge m={2} colorScheme="success">

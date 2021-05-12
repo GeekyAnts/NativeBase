@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box from '../../primitives/Box';
 import type { IBadgeProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -12,5 +12,5 @@ const Badge = ({ children, ...props }: IBadgeProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(Badge));
+export default memo(forwardRef(Badge));
 export type { IBadgeProps };

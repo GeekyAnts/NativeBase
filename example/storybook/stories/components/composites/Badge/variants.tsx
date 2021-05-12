@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge, HStack, VStack } from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <VStack>
       {['solid', 'outline', 'subtle'].map((key: any) => (
