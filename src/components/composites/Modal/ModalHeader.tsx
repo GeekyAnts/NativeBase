@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box, { IBoxProps } from '../../primitives/Box';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 
 const ModalHeader = (props: IBoxProps, ref?: any) => {
-  const newProps = useThemeProps('ModalHeader', props);
+  const newProps = usePropsResolution('ModalHeader', props);
   return <Box {...newProps} ref={ref} />;
 };
 
-export default React.memo(React.forwardRef(ModalHeader));
+export default memo(forwardRef(ModalHeader));

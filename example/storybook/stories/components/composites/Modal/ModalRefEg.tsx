@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button, Input } from 'native-base';
 
-export default function () {
+export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);

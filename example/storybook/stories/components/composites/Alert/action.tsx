@@ -4,15 +4,12 @@ import {
   Collapse,
   Button,
   IconButton,
-  Icon,
   Box,
-  NativeBaseProvider,
-  Center,
+  CloseIcon,
 } from 'native-base';
 
 export function Example() {
   const [show, setShow] = React.useState(true);
-  const handleToggle = (val: boolean) => setShow(val);
   return (
     <Box w="90%">
       <Collapse isOpen={show}>
@@ -20,8 +17,8 @@ export function Example() {
           status="error"
           action={
             <IconButton
-              icon={<Icon name="close" color="red.400" size="xs" />}
-              onPress={() => handleToggle(false)}
+              icon={<CloseIcon color="red.400" size="xs" />}
+              onPress={() => setShow(false)}
             />
           }
           actionProps={{ alignSelf: 'center' }}
@@ -31,17 +28,9 @@ export function Example() {
           <Alert.Description>description goes here</Alert.Description>
         </Alert>
       </Collapse>
-      <Button size={'sm'} onPress={() => handleToggle(true)} my={1}>
+      <Button size={'sm'} onPress={() => setShow(true)} my={1}>
         Re-Open
       </Button>
     </Box>
   );
 }
-
-export default () => (
-  <NativeBaseProvider>
-    <Center>
-      <Example />
-    </Center>
-  </NativeBaseProvider>
-);

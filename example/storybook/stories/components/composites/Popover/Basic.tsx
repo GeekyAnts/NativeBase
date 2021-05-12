@@ -1,14 +1,14 @@
 import React from 'react';
 import { Popover, Button } from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <Popover
-      trigger={(triggerProps: any) => {
+      trigger={(triggerProps) => {
         return <Button {...triggerProps}>Trigger</Button>;
       }}
     >
-      <Popover.Content accessibilityLabel="hello world">
+      <Popover.Content accessibilityLabel="hello world" borderRadius={'xl'}>
         <Popover.Arrow />
         <Popover.CloseButton />
         <Popover.Header>Confirmation</Popover.Header>

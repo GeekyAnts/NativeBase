@@ -19,20 +19,63 @@ export type IArrowProps = {
   style: Object;
 };
 
-export type IPopoverProps = {
+export interface IPopoverProps {
+  /**
+   * If true, the popover will be opened by default
+   */
   defaultIsOpen?: boolean;
-  trapFocus?: boolean;
-  closeOnBlur?: boolean;
+  /**
+   * Whether the popover is opened. Useful for conrolling the open state
+   */
   isOpen?: boolean;
+  /**
+   * Whether popover should trap focus.
+   * @default true
+   */
+  trapFocus?: boolean;
+  /**
+   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely.
+   * @default true
+   */
   shouldFlip?: boolean;
+  /**
+   * The ref of element to receive focus when the popover opens.
+   */
   initialFocusRef?: any;
+  /**
+   * The ref of element to receive focus when the modal closes.
+   */
   finalFocusRef?: any;
+  /**
+   * Function that returns a React Element. This element will be used as a Trigger for the popover
+   */
   trigger: (_props: any, state: { open: boolean }) => JSX.Element;
+  /**
+   * The additional offset applied along the cross axis between the element and its trigger element.
+   */
   crossOffset?: number;
+  /**
+   * The additional offset applied along the main axis between the element and its trigger element.
+   */
   offset?: number;
+  /**
+   * Determines whether menu content should overlap with the trigger
+   * @default false
+   */
   shouldOverlapWithTrigger?: boolean;
+  /**
+   * Popover children
+   */
   children: React.ReactNode;
+  /**
+   * If true, the modal will close when Escape key is pressed
+   * @default true
+   */
   isKeyboardDismissable?: boolean;
+  /**
+   * Popover placement
+   * @default bottom
+   */
   placement?:
     | 'top'
     | 'bottom'
@@ -46,9 +89,15 @@ export type IPopoverProps = {
     | 'right bottom'
     | 'left top'
     | 'left bottom';
+  /**
+   * This function will be invoked when popover is closed. It'll also be called when user attempts to close the popover via Escape key or backdrop press.
+   */
   onClose?: () => void;
+  /**
+   * This function will be invoked when popover is opened
+   */
   onOpen?: () => void;
-};
+}
 
 export type IPopoverContentImpl = {
   arrowHeight: number;
@@ -74,9 +123,7 @@ export type IScrollContentStyle = {
   arrowWidth: number;
 };
 
-export type IPopoverContentProps = IBoxProps & {
-  isUnstyled?: boolean;
-};
+export interface IPopoverContentProps extends IBoxProps {}
 
 export type IPopoverComponentType = ((
   props: IPopoverProps & { ref?: any }

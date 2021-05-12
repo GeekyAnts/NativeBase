@@ -28,7 +28,8 @@ export const Modal = {
   baseStyle: {
     width: '100%',
     height: '100%',
-    // border: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   sizes,
   defaultProps: {
@@ -45,7 +46,6 @@ export const ModalContent = {
       pt: 6,
       shadow: 3,
       rounded: 'lg',
-      margin: 'auto',
       maxHeight: `${Dimensions.get('window').height - 150}px`,
     };
   },
@@ -59,8 +59,8 @@ export const ModalCloseButton = {
       zIndex: 1,
       size: 9,
       _icon: {
-        size: 6,
-        color: mode('black', 'white')(props),
+        size: 4,
+        color: mode('gray.600', 'gray.100')(props),
       },
     };
   },

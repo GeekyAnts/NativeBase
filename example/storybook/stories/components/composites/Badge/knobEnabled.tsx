@@ -2,7 +2,7 @@ import React from 'react';
 import { Badge } from 'native-base';
 import { select, text } from '@storybook/addon-knobs';
 
-export default function () {
+export function Example() {
   return (
     <Badge
       colorScheme={text('colorScheme', 'success')}

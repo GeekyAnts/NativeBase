@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading, VStack } from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <VStack>
       <Heading size="2xl">(2xl) Heading</Heading>

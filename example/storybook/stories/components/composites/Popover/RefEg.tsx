@@ -1,13 +1,11 @@
 import React from 'react';
 import { Popover, Button, Input } from 'native-base';
-import type { TextInput } from 'react-native';
 
-export default function () {
-  const initialFocusRef = React.useRef<TextInput>(null);
+export function Example() {
+  const initialFocusRef = React.useRef(null);
   return (
     <Popover
       initialFocusRef={initialFocusRef}
-      closeOnBlur={false}
       trigger={(triggerProps) => {
         return <Button {...triggerProps}>Trigger</Button>;
       }}

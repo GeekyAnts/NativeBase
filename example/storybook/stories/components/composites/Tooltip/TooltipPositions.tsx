@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tooltip, Button, VStack, HStack } from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <VStack space={6}>
       <Tooltip label="Auto">

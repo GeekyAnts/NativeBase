@@ -1,8 +1,9 @@
+//@ts-nocheck
 import React from 'react';
 import { Stack, Center, Heading, Button } from 'native-base';
 
 export function Example() {
-  const [direction, setDirection]: any = React.useState('column');
+  const [direction, setDirection] = React.useState('column');
   return (
     <Stack space={3} alignItems="center">
       <Heading>Stack - {direction === 'row' ? 'Row' : 'Column'}</Heading>

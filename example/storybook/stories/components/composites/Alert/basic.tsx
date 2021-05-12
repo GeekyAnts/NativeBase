@@ -1,6 +1,7 @@
 import React from 'react';
-import { Alert, Box, NativeBaseProvider } from 'native-base';
-export const Basic = () => {
+import { Alert, Box } from 'native-base';
+
+export const Example = () => {
   return (
     <Box mx={3} w="90%">
       <Alert>
@@ -11,13 +12,5 @@ export const Basic = () => {
         </Alert.Description>
       </Alert>
     </Box>
-  );
-};
-
-export default () => {
-  return (
-    <NativeBaseProvider>
-      <Basic />
-    </NativeBaseProvider>
   );
 };

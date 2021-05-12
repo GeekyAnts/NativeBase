@@ -114,13 +114,15 @@ const variants = {
 
 export const Alert = {
   baseStyle: {
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    flexWrap: 'wrap',
     p: 3,
+    space: 2,
     borderRadius: 'md',
-    _actionProps: { alignSelf: 'center', ml: 'auto' },
+    _actionProps: {
+      alignSelf: 'center',
+      ml: 'auto',
+    },
     _text: {
       fontSize: 'sm',
       lineHeight: 5,
@@ -150,7 +152,6 @@ export const AlertTitle = {
 export const AlertIcon = {
   baseStyle: {
     size: 6,
-    mr: 2,
   },
 };
 

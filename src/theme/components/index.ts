@@ -54,9 +54,9 @@ import {
   ModalOverlay,
   ModalCloseButton,
 } from './modal';
+import * as PopoverComponentTheme from './popover';
 import { default as NumberInput, NumberInputStepper } from './number-input';
 import PinInput from './pin-input';
-import Popover from './popover';
 import Progress from './progress';
 import Radio from './radio';
 import Skeleton from './skeleton';
@@ -142,7 +142,7 @@ export default {
   NumberInput,
   NumberInputStepper,
   PinInput,
-  Popover,
+  ...PopoverComponentTheme,
   Progress,
   Radio,
   ScaleFade,

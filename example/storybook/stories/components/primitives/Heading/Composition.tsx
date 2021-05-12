@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Text, Button, Heading } from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <Box>
       <Heading mb={4}>

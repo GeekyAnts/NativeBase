@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 import { Popper } from '../Popper';
-import type { IPopoverProps } from 'native-base';
+import type { IPopoverProps } from './types';
 import { mergeRefs } from '../../../utils';
 import { useControllableState } from '../../../hooks';
 import { PopoverContext } from './PopoverContext';
@@ -12,7 +12,7 @@ import { Transition } from '../Transitions';
 import { StyleSheet } from 'react-native';
 import { useId } from '@react-aria/utils';
 
-const Popover = React.forwardRef(function Popover(
+const Popover = (
   {
     onOpen,
     trigger,
@@ -26,7 +26,7 @@ const Popover = React.forwardRef(function Popover(
     ...rest
   }: IPopoverProps,
   ref: any
-) {
+) => {
   const triggerRef = React.useRef(null);
   const mergedRef = mergeRefs([triggerRef]);
   const [isOpen, setIsOpen] = useControllableState({
@@ -103,6 +103,6 @@ const Popover = React.forwardRef(function Popover(
       </OverlayContainer>
     </Box>
   );
-});
+};
 
-export { Popover };
+export default memo(forwardRef(Popover));

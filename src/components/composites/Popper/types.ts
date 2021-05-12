@@ -1,12 +1,11 @@
 import type { ReactElement, RefObject } from 'react';
-import type { ViewStyle } from 'react-native';
 
 export type IPopoverArrowProps = {
-  height?: number;
-  width?: number;
-  children?: React.ReactNode;
-  color?: string;
-  style?: ViewStyle;
+  height?: any;
+  width?: any;
+  children?: any;
+  color?: any;
+  style?: any;
 };
 
 export type IPlacement =
