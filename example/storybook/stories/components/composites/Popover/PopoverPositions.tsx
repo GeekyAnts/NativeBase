@@ -5,7 +5,7 @@ export function Example() {
   return (
     <VStack space={6}>
       <Popover
-        trigger={(triggerProps: any) => {
+        trigger={(triggerProps) => {
           return <Button {...triggerProps}>Auto</Button>;
         }}
       >
@@ -20,7 +20,7 @@ export function Example() {
       <HStack space={6}>
         <Popover
           placement="top left"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Top Left</Button>;
           }}
         >
@@ -34,7 +34,7 @@ export function Example() {
 
         <Popover
           placement="top"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Top</Button>;
           }}
         >
@@ -48,7 +48,7 @@ export function Example() {
 
         <Popover
           placement="top right"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Top right</Button>;
           }}
         >
@@ -64,7 +64,7 @@ export function Example() {
       <HStack space={6}>
         <Popover
           placement="right top"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Right top</Button>;
           }}
         >
@@ -78,7 +78,7 @@ export function Example() {
 
         <Popover
           placement="right"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Right</Button>;
           }}
         >
@@ -92,7 +92,7 @@ export function Example() {
 
         <Popover
           placement="right bottom"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Right bottom</Button>;
           }}
         >
@@ -108,7 +108,7 @@ export function Example() {
       <HStack space={6}>
         <Popover
           placement="bottom left"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Bottom left</Button>;
           }}
         >
@@ -122,7 +122,7 @@ export function Example() {
 
         <Popover
           placement="bottom"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Bottom</Button>;
           }}
         >
@@ -136,7 +136,7 @@ export function Example() {
 
         <Popover
           placement="bottom right"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Bottom right</Button>;
           }}
         >
@@ -152,7 +152,7 @@ export function Example() {
       <HStack space={6}>
         <Popover
           placement="left top"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Left top</Button>;
           }}
         >
@@ -165,7 +165,7 @@ export function Example() {
         </Popover>
         <Popover
           placement="left"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Left</Button>;
           }}
         >
@@ -179,7 +179,7 @@ export function Example() {
 
         <Popover
           placement="left bottom"
-          trigger={(triggerProps: any) => {
+          trigger={(triggerProps) => {
             return <Button {...triggerProps}>Left bottom</Button>;
           }}
         >

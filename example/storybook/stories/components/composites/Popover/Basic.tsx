@@ -4,7 +4,7 @@ import { Popover, Button } from 'native-base';
 export function Example() {
   return (
     <Popover
-      trigger={(triggerProps: any) => {
+      trigger={(triggerProps) => {
         return <Button {...triggerProps}>Trigger</Button>;
       }}
     >
