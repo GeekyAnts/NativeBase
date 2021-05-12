@@ -1,5 +1,6 @@
+// @ts-nocheck
 import React from 'react';
-import { Modal, Button, Center, Input } from 'native-base';
+import { Modal, Button, VStack } from 'native-base';
 
 export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -14,12 +15,17 @@ export function Example() {
       <Modal isOpen={modalVisible} onClose={setModalVisible} size={size}>
         <Modal.Content>
           <Modal.CloseButton />
-          <Modal.Header _text={{ fontSize: '2xl', fontWeight: 'bold' }}>
-            Hey There! Tell us about yourself.
-          </Modal.Header>
+          <Modal.Header>Modal Title</Modal.Header>
           <Modal.Body>
-            Just a one liner would work for us.
-            <Input mt={4} placeholder="Something about you..." />
+            Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
+            ullamco deserunt aute id consequat veniam incididunt duis in sint
+            irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+            officia tempor esse quis. Sunt ad dolore quis aute consequat. Magna
+            exercitation reprehenderit magna aute tempor cupidatat consequat
+            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
+            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim
+            laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
+            laborum eiusmod pariatur
           </Modal.Body>
           <Modal.Footer>
             <Button.Group variant="ghost" space={2}>
@@ -28,7 +34,7 @@ export function Example() {
                 onPress={() => {
                   setModalVisible(!modalVisible);
                 }}
-                colorScheme="secondary"
+                colorScheme="muted"
               >
                 CLOSE
               </Button>
@@ -36,28 +42,16 @@ export function Example() {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-      <Center>
-        <Button
-          onPress={() => handleSizeClick('sm')}
-          key={'sm'}
-          m={4}
-        >{`Open ${'sm'} Modal`}</Button>
-        <Button
-          onPress={() => handleSizeClick('md')}
-          key={'md'}
-          m={4}
-        >{`Open ${'md'} Modal`}</Button>
-        <Button
-          onPress={() => handleSizeClick('lg')}
-          key={'lg'}
-          m={4}
-        >{`Open ${'lg'} Modal`}</Button>
-        <Button
-          onPress={() => handleSizeClick('full')}
-          key={'full'}
-          m={4}
-        >{`Open ${'full'} Modal`}</Button>
-      </Center>
+      <VStack space={2}>
+        {['sm', 'md', 'lg', 'full'].map((size) => {
+          return (
+            <Button
+              onPress={() => handleSizeClick(size)}
+              key={size}
+            >{`Open ${size} Modal`}</Button>
+          );
+        })}
+      </VStack>
     </>
   );
 }
