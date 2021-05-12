@@ -75,8 +75,8 @@ const Popover = (
           exit={{ opacity: 0, scale: 0.95 }}
           visible={isOpen}
           style={StyleSheet.absoluteFill}
-          exitDuration={100}
-          entryDuration={150}
+          entryTransition={{ duration: 100 }}
+          exitTransition={{ duration: 150 }}
         >
           <Popper onClose={handleClose} triggerRef={triggerRef} {...rest}>
             <Backdrop onPress={handleClose} bg="transparent" />

@@ -86,8 +86,8 @@ const Modal = (
           exit={{ opacity: 0 }}
           visible={visible}
           style={StyleSheet.absoluteFill}
-          exitDuration={150}
-          entryDuration={200}
+          exitTransition={{ duration: 150 }}
+          entryTransition={{ duration: 200 }}
         >
           {overlayVisible && (
             <Backdrop
@@ -98,7 +98,7 @@ const Modal = (
           )}
         </Transition>
         {animationPreset === 'slide' ? (
-          <Slide in={visible}>
+          <Slide in={visible} duration={200}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
@@ -114,9 +114,17 @@ const Modal = (
             exit={{ opacity: 0 }}
             visible={visible}
             style={StyleSheet.absoluteFill}
-            exitDuration={150}
-            entryDuration={200}
+            exitTransition={{ duration: 100 }}
+            entryTransition={{ duration: 200 }}
           >
+            {overlayVisible && (
+              <Backdrop
+                onPress={() => {
+                  closeOnOverlayClick && setVisible(false);
+                }}
+              />
+            )}
+
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}

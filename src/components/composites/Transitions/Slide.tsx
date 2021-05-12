@@ -28,9 +28,8 @@ const holderStyle: any = {
 };
 
 const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
-  // TODO: Slide from right and left needs implmentation.
-  const { in: visible, placement = 'left' } = useThemeProps('Slide', props);
-  const [containerOpacity, setContainerOpacity] = React.useState(1);
+  const { in: visible, placement, duration } = useThemeProps('Slide', props);
+  const [containerOpacity, setContainerOpacity] = React.useState(0);
   const [size, setSize] = React.useState(0);
   const provideSize = (layoutSize: any) => {
     if (placement === 'right' || placement === 'left')
@@ -39,12 +38,9 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
     setContainerOpacity(1);
   };
 
-  const animatioStyle: any = {
+  const animationStyle: any = {
     top: {
       from: {
-        translateY: -size,
-      },
-      exit: {
         translateY: -size,
       },
       entry: {
@@ -55,18 +51,12 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       from: {
         translateY: size,
       },
-      exit: {
-        translateY: size,
-      },
       entry: {
         translateY: 0,
       },
     },
     left: {
       from: {
-        translateX: -size,
-      },
-      exit: {
         translateX: -size,
       },
       entry: {
@@ -77,9 +67,6 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       from: {
         translateX: size,
       },
-      exit: {
-        translateX: size,
-      },
       entry: {
         translateX: 0,
       },
@@ -87,24 +74,22 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
   };
 
   return (
-    <Box
-      overflow="hidden"
-      position="absolute"
-      style={holderStyle[placement]}
-      opacity={containerOpacity}
-      ref={ref}
+    <Transition
+      visible={visible}
+      {...animationStyle[placement]}
+      entryTransition={{ duration }}
+      exitTransition={{ duration }}
+      style={[{ position: 'absolute' }, holderStyle[placement]]}
     >
-      <Transition
-        visible={visible}
-        {...animatioStyle[placement]}
-        entryDuration={200}
-        exitDuration={150}
+      <Box
+        {...props}
+        opacity={containerOpacity}
+        ref={ref}
+        onLayout={(e) => provideSize(e.nativeEvent.layout)}
       >
-        <Box {...props} onLayout={(e) => provideSize(e.nativeEvent.layout)}>
-          {children}
-        </Box>
-      </Transition>
-    </Box>
+        {children}
+      </Box>
+    </Transition>
   );
 };
 

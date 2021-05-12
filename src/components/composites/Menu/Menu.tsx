@@ -89,8 +89,8 @@ export const Menu = React.memo(
               exit={{ opacity: 0 }}
               visible={isOpen}
               style={StyleSheet.absoluteFill}
-              exitDuration={100}
-              entryDuration={150}
+              entryTransition={{ duration: 150 }}
+              exitTransition={{ duration: 100 }}
             >
               <Popper
                 triggerRef={triggerRef}
