@@ -1,6 +1,6 @@
 import {
   keyboardDismissHandlerManager,
-  useThemeProps,
+  usePropsResolution,
   useToken,
 } from '../../../hooks';
 import React from 'react';
@@ -21,7 +21,7 @@ export const PopoverContent = React.forwardRef(
       bodyId,
       headerId,
     } = React.useContext(PopoverContext);
-    let defaultStyle = useThemeProps('Popover', props);
+    let defaultStyle = usePropsResolution('Popover', props);
     defaultStyle = props.isUnstyled ? {} : defaultStyle.popoverContentProps;
 
     const arrowDefaultColor =

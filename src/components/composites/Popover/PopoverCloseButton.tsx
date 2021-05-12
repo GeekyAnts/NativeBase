@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import Box from '../../primitives/Box';
 import { default as IconButton, IIconButtonProps } from '../IconButton';
 import { CloseIcon } from '../../primitives/Icon/Icons';
@@ -10,7 +10,7 @@ const PopoverCloseButton = (
   ref: any
 ) => {
   const { onClose }: any = React.useContext(PopoverContext);
-  const style = useThemeProps('Popover', props);
+  const style = usePropsResolution('Popover', props);
 
   return (
     <Box position="absolute" right={1} top={1} zIndex={1} ref={ref}>

@@ -23,7 +23,7 @@ export interface IModalProps extends IBoxProps {
    */
   initialFocusRef?: any;
   /**
-   * If true, the modal will return focus to the element that triggered it when it closes.
+   * The ref of element to receive focus when the modal closes.
    */
   finalFocusRef?: any;
   /**

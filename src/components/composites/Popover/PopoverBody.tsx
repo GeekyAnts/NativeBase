@@ -1,10 +1,10 @@
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import React from 'react';
 import { default as Box, IBoxProps } from '../../primitives/Box';
 import { PopoverContext } from './PopoverContext';
 
 const PopoverBody = (props: IBoxProps, ref?: any) => {
-  const style = useThemeProps('Popover', props);
+  const style = usePropsResolution('Popover', props);
   const { setBodyMounted, bodyId } = React.useContext(PopoverContext);
 
   React.useEffect(() => {

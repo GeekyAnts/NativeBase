@@ -1,9 +1,9 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import { default as Box, IBoxProps } from '../../primitives/Box';
 
 const PopoverFooter = (props: IBoxProps, ref?: any) => {
-  const style = useThemeProps('Popover', props);
+  const style = usePropsResolution('Popover', props);
   return <Box {...style.popoverFooterProps} {...props} ref={ref} />;
 };
 

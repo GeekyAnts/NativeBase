@@ -1,7 +1,7 @@
 import React from 'react';
 import { Popover, Button, VStack, HStack } from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <VStack space={6}>
       <Popover

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Popover, Button } from 'native-base';
 
-export default function () {
+export function Example() {
   return (
     <Popover
       trigger={(triggerProps: any) => {

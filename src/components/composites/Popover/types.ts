@@ -19,20 +19,65 @@ export type IArrowProps = {
   style: Object;
 };
 
-export type IPopoverProps = {
+export interface IPopoverProps {
+  /**
+   * If true, the modal will be opened by default
+   */
   defaultIsOpen?: boolean;
-  trapFocus?: boolean;
-  closeOnBlur?: boolean;
+  /**
+   * Whether the popover is opened. Useful for conrolling the open state
+   */
   isOpen?: boolean;
+  /**
+   * Whether popover should trap focus.
+   * @default true
+   */
+  trapFocus?: boolean;
+  /**
+   * Whether popover should be closed on Blur. This will trigger `onClose` function.
+   */
+  closeOnBlur?: boolean;
+  /**
+   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely.
+   */
   shouldFlip?: boolean;
+  /**
+   * The ref of element to receive focus when the popover opens.
+   */
   initialFocusRef?: any;
+  /**
+   * The ref of element to receive focus when the modal closes.
+   */
   finalFocusRef?: any;
+  /**
+   * Function which should return a React Element. This element will be used as a Trigger for the popup
+   */
   trigger: (_props: any, state: { open: boolean }) => JSX.Element;
+  /**
+   * TThe additional offset applied along the cross axis between the element and its trigger element.
+   */
   crossOffset?: number;
+  /**
+   * The additional offset applied along the main axis between the element and its trigger element.
+   */
   offset?: number;
+  /**
+   * Determines whether menu content should overlap with the trigger
+   */
   shouldOverlapWithTrigger?: boolean;
+  /**
+   * Popover children
+   */
   children: React.ReactNode;
+  /**
+   * If true, the modal will close when Escape key is pressed
+   * @default true
+   */
   isKeyboardDismissable?: boolean;
+  /**
+   * Popover placement
+   * @default bottom
+   */
   placement?:
     | 'top'
     | 'bottom'
@@ -46,9 +91,15 @@ export type IPopoverProps = {
     | 'right bottom'
     | 'left top'
     | 'left bottom';
+  /**
+   * Function to be invoved when popover is closed
+   */
   onClose?: () => void;
+  /**
+   * Function to be invoved when popover is opened
+   */
   onOpen?: () => void;
-};
+}
 
 export type IPopoverContentImpl = {
   arrowHeight: number;

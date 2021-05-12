@@ -1,26 +1,5 @@
 import { mode } from '../tools';
 
-const sizes = {
-  xs: {
-    _width: '40%',
-  },
-  sm: {
-    _width: '48%',
-  },
-  md: {
-    _width: '60%',
-  },
-  lg: {
-    _width: '75%',
-  },
-  xl: {
-    _width: '90%',
-  },
-  full: {
-    _width: '100%',
-  },
-};
-
 const baseStyle = (props: Record<string, any>) => {
   return {
     popoverCloseButtonProps: {
@@ -58,4 +37,4 @@ const baseStyle = (props: Record<string, any>) => {
   };
 };
 
-export default { baseStyle, sizes };
+export default { baseStyle };
