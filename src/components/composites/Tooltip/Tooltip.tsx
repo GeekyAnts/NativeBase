@@ -8,7 +8,7 @@ import { Popper } from '../Popper';
 import { composeEventHandlers, mergeRefs } from '../../../utils';
 import { Transition } from '../Transitions';
 import { Platform, StyleSheet } from 'react-native';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import Box, { IBoxProps } from '../../primitives/Box';
 import { useId } from '@react-aria/utils';
 
@@ -112,7 +112,8 @@ export const Tooltip = ({
     offset = 6;
   }
 
-  const themeProps = useThemeProps('Tooltip', rest);
+  const themeProps = usePropsResolution('Tooltip', rest);
+  console.log('jefjef ', themeProps);
   const [isOpen, setIsOpen] = useControllableState({
     value: isOpenProp,
     defaultValue: defaultIsOpen,
