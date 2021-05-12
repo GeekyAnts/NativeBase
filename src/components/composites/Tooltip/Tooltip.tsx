@@ -113,7 +113,6 @@ export const Tooltip = ({
   }
 
   const themeProps = usePropsResolution('Tooltip', rest);
-  console.log('jefjef ', themeProps);
   const [isOpen, setIsOpen] = useControllableState({
     value: isOpenProp,
     defaultValue: defaultIsOpen,

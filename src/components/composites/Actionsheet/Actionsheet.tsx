@@ -1,13 +1,57 @@
 import React, { memo, forwardRef } from 'react';
 import { Modal } from '../../composites/Modal';
 import type { IActionsheetProps } from './types';
-import { useThemeProps } from '../../../hooks';
-
+import { usePropsResolution } from '../../../hooks';
+import { Animated, PanResponder } from 'react-native';
+console.disableYellowBox = true;
 const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
-  const { isOpen, disableOverlay, onClose, ...newProps } = useThemeProps(
+  const { isOpen, disableOverlay, onClose, ...newProps } = usePropsResolution(
     'Actionsheet',
     props
   );
+  let pan = React.useRef(new Animated.ValueXY()).current;
+  let sheetHeight = React.useRef(0);
+
+  React.useEffect(() => {
+    if (!isOpen) {
+      // Reset value when modal close animation is completed
+      setTimeout(() => {
+        pan.setValue({
+          x: 0,
+          y: 0,
+        });
+      }, 250);
+    }
+  }, [isOpen, pan]);
+
+  const panResponder = React.useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderMove: (e, gestureState) => {
+        if (gestureState.dy > 0) {
+          Animated.event([null, { dy: pan.y }])(e, gestureState);
+        }
+      },
+      onPanResponderRelease: (_e, gestureState) => {
+        // If sheet is dragged 1/5th of it's height, close it
+        if (sheetHeight.current / 5 - gestureState.dy < 0) {
+          Animated.timing(pan, {
+            toValue: { x: 0, y: sheetHeight.current },
+            duration: 150,
+            useNativeDriver: true,
+          }).start(() => {
+            onClose();
+          });
+        } else {
+          Animated.spring(pan, {
+            toValue: { x: 0, y: 0 },
+            overshootClamping: true,
+            useNativeDriver: true,
+          }).start();
+        }
+      },
+    })
+  ).current;
 
   return (
     <Modal
@@ -21,7 +65,20 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
       closeOnOverlayClick={disableOverlay ? false : true}
       ref={ref}
     >
-      {children}
+      <Animated.View
+        style={{
+          transform: [{ translateY: pan.y }],
+          width: '100%',
+        }}
+        pointerEvents="box-none"
+        onLayout={(event) => {
+          const { height } = event.nativeEvent.layout;
+          sheetHeight.current = height;
+        }}
+        {...panResponder.panHandlers}
+      >
+        {children}
+      </Animated.View>
     </Modal>
   );
 };
