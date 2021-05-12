@@ -5,7 +5,6 @@ import {
   useControllableState,
 } from '../../../hooks';
 import { Popper } from '../Popper';
-import type { IPlacement } from '../Popper/types';
 import { composeEventHandlers, mergeRefs } from '../../../utils';
 import { Transition } from '../Transitions';
 import { Platform, StyleSheet } from 'react-native';
@@ -13,22 +12,82 @@ import { useThemeProps } from '../../../hooks';
 import Box, { IBoxProps } from '../../primitives/Box';
 import { useId } from '@react-aria/utils';
 
-type ITooltipProps = {
+interface ITooltipProps extends IBoxProps {
+  /**
+   * Text to be placed in the tooltip
+   */
   label: string;
+  /**
+   * Whether the tooltip is opened. Useful for conrolling the open state
+   */
   isOpen?: boolean;
+  /**
+   * Whether the tooltip is disabled
+   */
   isDisabled?: boolean;
+  /**
+   * If true, the popover will be opened by default
+   */
   defaultIsOpen?: boolean;
+  /**
+   * This function will be invoked when tooltip is closed. It'll also be called when user attempts to close the tooltip via Escape key
+   */
   onClose?: () => void;
+  /**
+   * This function will be invoked when tooltip is opened
+   */
   onOpen?: () => void;
+  /**
+   * Duration in ms to wait till displaying the tooltip
+   * @default 0
+   */
   openDelay?: number;
+  /**
+   * Duration in ms to wait till hiding the tooltip
+   * @default 0
+   */
   closeDelay?: number;
-  placement?: IPlacement;
+  /**
+   * Tooltip placement
+   * @default bottom
+   */
+  placement?:
+    | 'top'
+    | 'bottom'
+    | 'left'
+    | 'right'
+    | 'top left'
+    | 'top right'
+    | 'bottom left'
+    | 'bottom right'
+    | 'right top'
+    | 'right bottom'
+    | 'left top'
+    | 'left bottom';
+  /**
+   * Children passed will be used as Trigger element for the tooltip
+   */
   children: any;
+  /**
+   * Whether tooltip should be closed on Trigger click
+   * @default true
+   */
   closeOnClick?: boolean;
-  arrowSize?: string;
+  /**
+   * Size of the arrow
+   * @default 12
+   */
+  arrowSize?: number;
+  /**
+   * Whether tooltip should display arrow
+   * @default false
+   */
   hasArrow?: boolean;
+  /**
+   * Distance between the trigger and the tooltip
+   */
   offset?: number;
-} & IBoxProps;
+}
 
 export const Tooltip = ({
   label,
@@ -43,6 +102,7 @@ export const Tooltip = ({
   offset,
   isDisabled,
   hasArrow,
+  arrowSize = 12,
   isOpen: isOpenProp,
   ...rest
 }: ITooltipProps) => {
@@ -162,8 +222,8 @@ export const Tooltip = ({
                   <Popper.Arrow
                     borderColor="transparent"
                     backgroundColor={arrowBg}
-                    height={10}
-                    width={10}
+                    height={arrowSize}
+                    width={arrowSize}
                   />
                 )}
                 <Box

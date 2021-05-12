@@ -21,7 +21,7 @@ export type IArrowProps = {
 
 export interface IPopoverProps {
   /**
-   * If true, the modal will be opened by default
+   * If true, the popover will be opened by default
    */
   defaultIsOpen?: boolean;
   /**
@@ -90,11 +90,11 @@ export interface IPopoverProps {
     | 'left top'
     | 'left bottom';
   /**
-   * Function to be invoved when popover is closed
+   * This function will be invoked when popover is closed. It'll also be called when user attempts to close the popover via Escape key or backdrop press.
    */
   onClose?: () => void;
   /**
-   * Function to be invoved when popover is opened
+   * This function will be invoked when popover is opened
    */
   onOpen?: () => void;
 }
