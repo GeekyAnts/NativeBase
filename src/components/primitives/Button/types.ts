@@ -1,7 +1,8 @@
 import type { ITextProps } from './../Text/types';
 import type { IPressableProps } from '../Pressable';
 import type { IStackProps } from '../Stack';
-
+// Todo: Create underscore Props section on docs.
+// _hover?: IButtonProps;
 export interface IButtonProps extends IPressableProps {
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
