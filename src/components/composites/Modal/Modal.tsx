@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { OverlayContainer } from '@react-native-aria/overlays';
 import { KeyboardAvoidingView, StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';
@@ -103,4 +103,4 @@ const Modal = (
   );
 };
 
-export default forwardRef(Modal);
+export default React.forwardRef(Modal);

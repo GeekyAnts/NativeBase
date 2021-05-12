@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Center, Heading, Button } from 'native-base';
 
 export function Example() {
-  const [direction, setDirection]: any = React.useState('column');
+  const [direction, setDirection] = React.useState('column');
   return (
     <Center flex={1}>
       <Heading mb={3}>Primary Shades</Heading>
