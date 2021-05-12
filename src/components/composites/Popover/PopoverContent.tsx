@@ -21,14 +21,13 @@ export const PopoverContent = React.forwardRef(
       bodyId,
       headerId,
     } = React.useContext(PopoverContext);
-    let defaultStyle = usePropsResolution('Popover', props);
-    defaultStyle = props.isUnstyled ? {} : defaultStyle.popoverContentProps;
+    let newProps = usePropsResolution('PopoverContent', props);
 
     const arrowDefaultColor =
       props.bgColor ??
       props.bg ??
       props.backgroundColor ??
-      defaultStyle.backgroundColor;
+      newProps.backgroundColor;
     const color = useToken('colors', arrowDefaultColor);
 
     React.useEffect(() => {
@@ -77,7 +76,7 @@ export const PopoverContent = React.forwardRef(
       <Popper.Content
         nativeID={popoverContentId}
         {...accessibilityProps}
-        {...defaultStyle}
+        {...newProps}
         {...props}
         ref={ref}
       >

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { usePropsResolution } from '../../../hooks';
 import { default as Box, IBoxProps } from '../../primitives/Box';
 
 const PopoverFooter = (props: IBoxProps, ref?: any) => {
-  const style = usePropsResolution('Popover', props);
-  return <Box {...style.popoverFooterProps} {...props} ref={ref} />;
+  const newProps = usePropsResolution('PopoverFooter', props);
+  return <Box {...newProps} {...props} ref={ref} />;
 };
 
-export default React.memo(React.forwardRef(PopoverFooter));
+export default memo(forwardRef(PopoverFooter));

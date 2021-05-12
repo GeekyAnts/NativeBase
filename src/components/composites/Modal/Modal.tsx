@@ -1,4 +1,4 @@
-import React, {forwardRef, memo} from 'react';
+import React, { forwardRef, memo } from 'react';
 import { OverlayContainer } from '@react-native-aria/overlays';
 import { KeyboardAvoidingView, StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';

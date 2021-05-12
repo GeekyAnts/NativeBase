@@ -8,7 +8,7 @@ export function Example() {
         return <Button {...triggerProps}>Trigger</Button>;
       }}
     >
-      <Popover.Content accessibilityLabel="hello world">
+      <Popover.Content accessibilityLabel="hello world" borderRadius={'xl'}>
         <Popover.Arrow />
         <Popover.CloseButton />
         <Popover.Header>Confirmation</Popover.Header>

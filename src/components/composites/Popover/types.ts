@@ -121,9 +121,7 @@ export type IScrollContentStyle = {
   arrowWidth: number;
 };
 
-export type IPopoverContentProps = IBoxProps & {
-  isUnstyled?: boolean;
-};
+export interface IPopoverContentProps extends IBoxProps {}
 
 export type IPopoverComponentType = ((
   props: IPopoverProps & { ref?: any }

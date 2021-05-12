@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
+import { Platform } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
 import { default as Box, IBoxProps } from '../../primitives/Box';
 import { PopoverContext } from './PopoverContext';
 
 const PopoverHeader = (props: IBoxProps, ref?: any) => {
-  const style = usePropsResolution('Popover', props);
+  const newProps = usePropsResolution('PopoverHeader', props);
   const { setHeaderMounted, headerId } = React.useContext(PopoverContext);
 
   React.useEffect(() => {
@@ -15,13 +16,14 @@ const PopoverHeader = (props: IBoxProps, ref?: any) => {
   }, [setHeaderMounted]);
   return (
     <Box
-      accessibilityRole="banner"
+      //@ts-ignore
+      accessibilityRole={Platform.OS === 'web' ? 'banner' : undefined}
       nativeID={headerId}
-      {...style.popoverHeaderProps}
+      {...newProps}
       {...props}
       ref={ref}
     />
   );
 };
 
-export default React.memo(React.forwardRef(PopoverHeader));
+export default memo(forwardRef(PopoverHeader));
