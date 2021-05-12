@@ -5,7 +5,7 @@ function baseStyle(props: Record<string, any>) {
   const orientationProps =
     orientation === 'vertical'
       ? {
-          width: `${size}px`,
+          width: `${size}px`, // handle for web : To be discussed
           height: '100%',
         }
       : {
