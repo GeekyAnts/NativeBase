@@ -35,6 +35,7 @@ export interface IPopoverProps {
   trapFocus?: boolean;
   /**
    * Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely.
+   * @default true
    */
   shouldFlip?: boolean;
   /**
@@ -46,11 +47,11 @@ export interface IPopoverProps {
    */
   finalFocusRef?: any;
   /**
-   * Function which should return a React Element. This element will be used as a Trigger for the popup
+   * Function that returns a React Element. This element will be used as a Trigger for the popover
    */
   trigger: (_props: any, state: { open: boolean }) => JSX.Element;
   /**
-   * TThe additional offset applied along the cross axis between the element and its trigger element.
+   * The additional offset applied along the cross axis between the element and its trigger element.
    */
   crossOffset?: number;
   /**
@@ -59,6 +60,7 @@ export interface IPopoverProps {
   offset?: number;
   /**
    * Determines whether menu content should overlap with the trigger
+   * @default false
    */
   shouldOverlapWithTrigger?: boolean;
   /**
