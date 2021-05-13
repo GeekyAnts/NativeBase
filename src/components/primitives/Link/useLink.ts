@@ -12,14 +12,14 @@ const addOnPressFunctionality = (href: string | any, callback: any) => {
 };
 
 export function useLink(props: IUseLinkProp) {
-  const { href, isExternal, onClick, _ref } = props;
+  const { href, isExternal, onPress, _ref } = props;
 
   let platformLinkProps = {};
 
   if (Platform.OS === 'web') {
     platformLinkProps = {
       href,
-      onClick,
+      onClick: onPress,
     };
     // Adding target to a tag created by RN-Web
     if (isExternal && _ref.current) {
@@ -28,7 +28,7 @@ export function useLink(props: IUseLinkProp) {
   } else {
     platformLinkProps = {
       onPress: () => {
-        addOnPressFunctionality(href, onClick);
+        addOnPressFunctionality(href, onPress);
       },
     };
   }

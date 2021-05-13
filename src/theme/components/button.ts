@@ -176,7 +176,6 @@ const sizes = {
     py: 3,
     _text: {
       fontSize: 'md',
-      lineHeight: 4,
     },
   },
   sm: {

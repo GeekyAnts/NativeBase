@@ -33,8 +33,8 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
         }
       },
       onPanResponderRelease: (_e, gestureState) => {
-        // If sheet is dragged 1/5th of it's height, close it
-        if (sheetHeight.current / 5 - gestureState.dy < 0) {
+        // If sheet is dragged 1/4th of it's height, close it
+        if (sheetHeight.current / 4 - gestureState.dy < 0) {
           Animated.timing(pan, {
             toValue: { x: 0, y: sheetHeight.current },
             duration: 150,

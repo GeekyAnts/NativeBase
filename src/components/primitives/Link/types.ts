@@ -1,33 +1,39 @@
-import type {
-  ViewStyle,
-  TouchableWithoutFeedbackProps,
-  ViewProps,
-} from 'react-native';
-import type { BorderProps, FlexboxProps, LayoutProps } from 'styled-system';
-import type { ITextProps } from '../Text';
 import type { IBoxProps } from '../Box';
 
-export type ILinkProps = IBoxProps &
-  ITextProps &
-  ViewProps &
-  LayoutProps &
-  FlexboxProps &
-  TouchableWithoutFeedbackProps &
-  BorderProps & {
-    style?: ViewStyle;
-    children?: string | JSX.Element | JSX.Element[] | any;
-    href?: string | undefined;
-    size?: '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xsm' | number;
-    isUnderlined?: boolean | undefined;
-    onClick?: any;
-    isExternal?: boolean;
-    _hover?: any;
-    wrapperRef?: any;
-  };
+export interface ILinkProps extends IBoxProps {
+  /**
+   * URL that should be opened on Link press
+   */
+  href?: string | undefined;
+  /**
+   * Size of the link
+   */
+  size?: '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xsm' | number;
+  /**
+   * Whether Link text should be underlined
+   */
+  isUnderlined?: boolean | undefined;
+  /**
+   * Callback that will be invoked on Link press
+   */
+  onPress?: any;
+  /**
+   * If true, link will be opened in new tab on web. It uses _target property to achieve this
+   */
+  isExternal?: boolean;
+  /**
+   * Hover props. Accepts all styled system props.
+   */
+  _hover?: any;
+  /**
+   * Ref to be attached to the Link wrapper
+   */
+  wrapperRef?: any;
+}
 
 export type IUseLinkProp = {
   href?: string;
   isExternal?: boolean;
-  onClick: any;
+  onPress: any;
   _ref: any;
 };
