@@ -1,4 +1,3 @@
-import type { ViewStyle } from 'react-native';
 import type { ITextProps } from '../../primitives/Text';
 import type { IBoxProps } from '../../primitives/Box';
 import type { IPressableProps } from 'src/components/primitives/Pressable';
@@ -66,35 +65,64 @@ export interface IMenuProps extends IBoxProps {
   shouldFlip?: boolean;
 }
 
-export type IMenuItemProps = IPressableProps & {
+export interface IMenuItemProps extends IPressableProps {
+  /**
+   * Children of Menu Item
+   */
   children: string | JSX.Element | Array<JSX.Element>;
+  /**
+   * Whether menu item is disabled
+   */
   isDisabled?: boolean;
-  style?: ViewStyle;
+  /**
+   * Props to be passed to Text
+   */
   _text?: ITextProps;
+  /**
+   * This value will be available for the typeahead menu feature
+   */
   textValue?: string;
-};
+}
 
-export type IMenuItemOptionProps = IMenuItemProps & {
+export interface IMenuItemOptionProps extends IMenuItemProps {
+  /**
+   * Value of the Menu Item option.
+   */
   value: string | number;
-};
-export type IMenuGroupProps = {
+}
+export interface IMenuGroupProps {
+  /**
+   *  The title of the menu group
+   */
   title: string;
+  /**
+   * The children of Menu group
+   */
   children: JSX.Element | Array<JSX.Element>;
+  /**
+   * Props to pass on to Text.
+   */
   _title?: ITextProps;
-};
+}
 
-export type IMenuContextProps = {
-  closeMenu?: () => void;
-  open?: boolean;
-  closeOnSelect?: boolean;
-};
-
-export type IMenuOptionGroupProps = IMenuGroupProps & {
+export interface IMenuOptionGroupProps extends IMenuGroupProps {
+  /**
+   * Used to add selection type of menu group.
+   */
   type: 'radio' | 'checkbox';
-  defaultValue?: string | number | Array<string> | Array<number>;
+  /**
+   * The initial value of the option group
+   */
+  defaultValue?: string | number | string[] | number[];
+  /**
+   * The value of the option group
+   */
   value?: string | number | Array<string> | Array<number>;
+  /**
+   * Function called when selection changes
+   */
   onChange?: (val: any) => void;
-};
+}
 
 export type IMenuOptionContextProps = {
   values: Array<string | number>;
@@ -117,4 +145,10 @@ export type IMenuComponent = ((
   OptionGroup: React.MemoExoticComponent<
     (props: IMenuOptionGroupProps & { ref?: any }) => JSX.Element
   >;
+};
+
+export type IMenuContextProps = {
+  closeMenu?: () => void;
+  open?: boolean;
+  closeOnSelect?: boolean;
 };

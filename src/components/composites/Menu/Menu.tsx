@@ -13,13 +13,9 @@ import Backdrop from '../Backdrop';
 import { OverlayContainer } from '@react-native-aria/overlays';
 import { Transition } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
+import { MenuContext } from './MenuContext';
 
-export const MenuContext = React.createContext({
-  closeOnSelect: true,
-  onClose: () => {},
-});
-
-export const Menu = React.memo(
+const Menu = React.memo(
   React.forwardRef(
     (
       {
@@ -135,3 +131,5 @@ const MenuContent = ({
     </Box>
   );
 };
+
+export default Menu;

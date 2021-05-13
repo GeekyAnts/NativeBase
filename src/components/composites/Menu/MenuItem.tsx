@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Text from '../../primitives/Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Pressable from '../../primitives/Pressable';
 import type { IMenuItemProps } from './types';
-import { MenuContext } from './Menu';
+import { MenuContext } from './MenuContext';
 import { useMenuItem } from './useMenu';
 import { mergeRefs } from '../../../utils';
 
-export const MenuItem = React.forwardRef(function MenuItem(
+const MenuItem = (
   { children, onPress, style, textValue, ...props }: IMenuItemProps,
   ref: any
-) {
+) => {
   const { closeOnSelect, onClose } = React.useContext(MenuContext);
   const menuItemRef = React.useRef<any>(null);
   const mergedRef = mergeRefs([menuItemRef, ref]);
@@ -71,4 +71,6 @@ export const MenuItem = React.forwardRef(function MenuItem(
       </>
     </Pressable>
   );
-});
+};
+
+export default forwardRef(MenuItem);
