@@ -24,16 +24,12 @@ export const MenuGroup = {
       textTransform: 'uppercase',
       color: mode(`gray.500`, `gray.300`)(props),
     },
-    px: 5,
-    py: 4,
+    p: 4,
   }),
 };
 export const MenuItem = {
   baseStyle: (props: any) => ({
     p: 4,
-    _text: {
-      textAlign: 'left',
-    },
     outlineWidth: Platform.OS === 'web' ? 0 : undefined,
     _focus: {
       bg: mode(`gray.100`, `gray.600`)(props),
