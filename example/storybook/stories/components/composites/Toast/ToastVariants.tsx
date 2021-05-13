@@ -19,7 +19,7 @@ export const Example = () => {
           }
           mr={2}
         >
-          Show {variant} toast
+          {`Show ${variant} toast`}
         </Button>
       ))}
     </Wrap>
