@@ -92,14 +92,26 @@ const simplifyComponentTheme = (
   let componentSizeProps = {};
   // Extracting props from size
   if (size && componentTheme.sizes && componentTheme.sizes[size]) {
-    componentSizeProps =
-      typeof componentTheme.sizes[size] !== 'function'
-        ? componentTheme.sizes[size]
-        : componentTheme.sizes[size]({
-            theme,
-            ...combinedProps,
-            ...colorModeProps,
-          });
+    // Type - sizes: {lg: 1}. Refer icon theme
+    if (
+      typeof componentTheme.sizes[size] === 'string' ||
+      typeof componentTheme.sizes[size] === 'number'
+    ) {
+      //@ts-ignore
+      componentSizeProps.size = componentTheme.sizes[size];
+    }
+    // Type - sizes: (props) => ({lg: {px: 1}}). Refer heading theme
+    else if (typeof componentTheme.sizes[size] === 'function') {
+      componentSizeProps = componentTheme.sizes[size]({
+        theme,
+        ...combinedProps,
+        ...colorModeProps,
+      });
+    }
+    // Type - sizes: {lg: {px: 1}}. Refer button theme
+    else {
+      componentSizeProps = componentTheme.sizes[size];
+    }
 
     // We remove size from original props if we found it in the componentTheme
     //@ts-ignore
