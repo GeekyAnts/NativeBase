@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import type { IMenuProps } from './types';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -15,108 +15,104 @@ import { Transition } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import { MenuContext } from './MenuContext';
 
-const Menu = React.memo(
-  React.forwardRef(
-    (
+const Menu = (
+  {
+    trigger,
+    closeOnSelect = true,
+    children,
+    onOpen,
+    onClose,
+    isOpen: isOpenProp,
+    defaultIsOpen,
+    placement = 'bottom left',
+    ...restProps
+  }: IMenuProps,
+  ref?: any
+) => {
+  const triggerRef = React.useRef(null);
+  const [isOpen, setIsOpen] = useControllableState({
+    value: isOpenProp,
+    defaultValue: defaultIsOpen,
+    onChange: (value) => {
+      value ? onOpen && onOpen() : onClose && onClose();
+    },
+  });
+
+  const newProps = usePropsResolution('Menu', restProps);
+  const handleOpen = React.useCallback(() => {
+    setIsOpen(true);
+  }, [setIsOpen]);
+
+  const handleClose = React.useCallback(() => {
+    setIsOpen(false);
+  }, [setIsOpen]);
+
+  const triggerProps = useMenuTrigger({
+    handleOpen,
+    isOpen,
+  });
+
+  let updatedTrigger = () => {
+    return trigger(
       {
-        trigger,
-        closeOnSelect = true,
-        children,
-        onOpen,
-        onClose,
-        isOpen: isOpenProp,
-        defaultIsOpen,
-        placement = 'bottom left',
-        ...restProps
-      }: IMenuProps,
-      ref?: any
-    ) => {
-      const triggerRef = React.useRef(null);
-      const [isOpen, setIsOpen] = useControllableState({
-        value: isOpenProp,
-        defaultValue: defaultIsOpen,
-        onChange: (value) => {
-          value ? onOpen && onOpen() : onClose && onClose();
-        },
-      });
+        ...triggerProps,
+        ref: triggerRef,
+        onPress: handleOpen,
+      },
+      { open: isOpen }
+    );
+  };
 
-      const newProps = usePropsResolution('Menu', restProps);
-      const handleOpen = React.useCallback(() => {
-        setIsOpen(true);
-      }, [setIsOpen]);
-
-      const handleClose = React.useCallback(() => {
-        setIsOpen(false);
-      }, [setIsOpen]);
-
-      const triggerProps = useMenuTrigger({
-        handleOpen,
-        isOpen,
-      });
-
-      let updatedTrigger = () => {
-        return trigger(
-          {
-            ...triggerProps,
-            ref: triggerRef,
-            onPress: handleOpen,
-          },
-          { open: isOpen }
-        );
-      };
-
-      React.useEffect(() => {
-        let cleanupFn = () => {};
-        if (isOpen) {
-          cleanupFn = keyboardDismissHandlerManager.push(handleClose);
-        } else {
-          cleanupFn();
-        }
-
-        return () => {
-          cleanupFn();
-        };
-      }, [isOpen, handleClose]);
-
-      return (
-        <>
-          {updatedTrigger()}
-          <OverlayContainer>
-            <Transition
-              from={{ opacity: 0 }}
-              entry={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              visible={isOpen}
-              style={StyleSheet.absoluteFill}
-              entryTransition={{ duration: 150 }}
-              exitTransition={{ duration: 100 }}
-            >
-              <Popper
-                triggerRef={triggerRef}
-                onClose={handleClose}
-                placement={placement}
-                {...restProps}
-              >
-                <Backdrop bg="transparent" onPress={handleClose} />
-                <Popper.Content>
-                  <MenuContext.Provider
-                    value={{ closeOnSelect, onClose: handleClose }}
-                  >
-                    <FocusScope contain restoreFocus autoFocus>
-                      <MenuContent menuRef={ref} {...newProps}>
-                        {children}
-                      </MenuContent>
-                    </FocusScope>
-                  </MenuContext.Provider>
-                </Popper.Content>
-              </Popper>
-            </Transition>
-          </OverlayContainer>
-        </>
-      );
+  React.useEffect(() => {
+    let cleanupFn = () => {};
+    if (isOpen) {
+      cleanupFn = keyboardDismissHandlerManager.push(handleClose);
+    } else {
+      cleanupFn();
     }
-  )
-);
+
+    return () => {
+      cleanupFn();
+    };
+  }, [isOpen, handleClose]);
+
+  return (
+    <>
+      {updatedTrigger()}
+      <OverlayContainer>
+        <Transition
+          from={{ opacity: 0 }}
+          entry={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          visible={isOpen}
+          style={StyleSheet.absoluteFill}
+          entryTransition={{ duration: 150 }}
+          exitTransition={{ duration: 100 }}
+        >
+          <Popper
+            triggerRef={triggerRef}
+            onClose={handleClose}
+            placement={placement}
+            {...restProps}
+          >
+            <Backdrop bg="transparent" onPress={handleClose} />
+            <Popper.Content>
+              <MenuContext.Provider
+                value={{ closeOnSelect, onClose: handleClose }}
+              >
+                <FocusScope contain restoreFocus autoFocus>
+                  <MenuContent menuRef={ref} {...newProps}>
+                    {children}
+                  </MenuContent>
+                </FocusScope>
+              </MenuContext.Provider>
+            </Popper.Content>
+          </Popper>
+        </Transition>
+      </OverlayContainer>
+    </>
+  );
+};
 
 const MenuContent = ({
   menuRef,
@@ -132,4 +128,4 @@ const MenuContent = ({
   );
 };
 
-export default Menu;
+export default memo(forwardRef(Menu));

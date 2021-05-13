@@ -12,18 +12,48 @@ import {
   customPosition,
   customShadow,
 } from '../../../utils/customProps';
-import type { IBoxProps } from '../Box';
+import type {
+  BorderProps,
+  ColorProps,
+  FlexboxProps,
+  LayoutProps,
+  PositionProps,
+  SpaceProps,
+  TypographyProps,
+  ExtraProps,
+  OutlineProps,
+  ShadowProps,
+  BackgroundProps,
+  SafeAreaProps,
+  TransformProps,
+  PlatformProps,
+} from '../../types';
 
-export type IPressableProps = PressableProps &
-  IBoxProps & {
-    onHoverIn?: any;
-    onHoverOut?: any;
-    onFocus?: any;
-    onBlur?: any;
-    _hover?: any;
-    _pressed?: any;
-    _focus?: any;
-  };
+export interface IPressableProps
+  extends PressableProps,
+    ColorProps,
+    SpaceProps,
+    LayoutProps,
+    FlexboxProps,
+    TypographyProps,
+    PositionProps,
+    BorderProps,
+    ExtraProps,
+    OutlineProps,
+    ShadowProps,
+    BackgroundProps,
+    SafeAreaProps,
+    TransformProps,
+    PlatformProps {
+  onHoverIn?: any;
+  onHoverOut?: any;
+  onFocus?: any;
+  onBlur?: any;
+  _hover?: any;
+  _pressed?: any;
+  _focus?: any;
+  children?: any;
+}
 
 const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
