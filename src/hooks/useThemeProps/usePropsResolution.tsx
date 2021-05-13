@@ -17,6 +17,7 @@ import {
 } from './../../theme/tools';
 import { themePropertyMap } from './../../theme/base';
 import { useContrastText } from '../useContrastText';
+import React from 'react';
 
 /**
  * @summary Resolves, simplify and merge components specific theme.
@@ -33,9 +34,11 @@ const simplifyComponentTheme = (
     defaultProps?: object;
     baseStyle?: object | Function;
     variants?: any | Function;
+    sizes?: any | Function;
   },
   incomingProps: object,
-  colorModeProps: object
+  colorModeProps: object,
+  currentBreakpoint: number
 ) => {
   // Resolving component's defaultProps.
 
@@ -57,7 +60,12 @@ const simplifyComponentTheme = (
           });
   }
 
-  const variant = combinedProps.variant;
+  const variant = resolveValueWithBreakpoint(
+    combinedProps.variant,
+    currentBreakpoint,
+    'variant'
+  );
+
   let componentVariantProps = {};
   // Extracting props from variant
   if (variant && componentTheme.variants && componentTheme.variants[variant]) {
@@ -69,13 +77,41 @@ const simplifyComponentTheme = (
             ...combinedProps,
             ...colorModeProps,
           });
+
+    // We remove variant from original props if we found it in the componentTheme
+    //@ts-ignore
+    incomingProps.variant = undefined;
+  }
+
+  const size = resolveValueWithBreakpoint(
+    combinedProps.size,
+    currentBreakpoint,
+    'size'
+  );
+
+  let componentSizeProps = {};
+  // Extracting props from size
+  if (size && componentTheme.sizes && componentTheme.sizes[size]) {
+    componentSizeProps =
+      typeof componentTheme.sizes[size] !== 'function'
+        ? componentTheme.sizes[size]
+        : componentTheme.sizes[size]({
+            theme,
+            ...combinedProps,
+            ...colorModeProps,
+          });
+
+    // We remove size from original props if we found it in the componentTheme
+    //@ts-ignore
+    incomingProps.size = undefined;
   }
 
   const componentMergedTheme = merge(
     {},
     componentTheme.defaultProps,
     componentBaseStyle,
-    componentVariantProps
+    componentVariantProps,
+    componentSizeProps
   );
 
   return componentMergedTheme;
@@ -91,24 +127,21 @@ const simplifyComponentTheme = (
  * @arg {object} windowWidth - Current width of the window / screen.
  * @returns {object} Translated props object.
  */
+// Todo - move responsive calculation in styled system
 const propTranslator = ({
   props,
   theme,
   colorModeProps,
   componentTheme,
-  windowWidth,
+  currentBreakpoint,
 }: {
   props: any;
   theme: any;
   colorModeProps: object;
   componentTheme: object;
-  windowWidth: number;
+  currentBreakpoint: number;
 }) => {
   let translatedProps: any = {};
-  const currentBreakpoint = getClosestBreakpoint(
-    theme.breakpoints,
-    windowWidth
-  );
   for (const property in props) {
     // STEP 1 - Responsive prop check and resolve
     if (property.startsWith('_')) {
@@ -118,7 +151,7 @@ const propTranslator = ({
         theme,
         colorModeProps,
         componentTheme,
-        windowWidth,
+        currentBreakpoint,
       });
       translatedProps[property] = nestedTranslatedProps;
     } else if (themePropertyMap[property]) {
@@ -196,12 +229,19 @@ export function usePropsResolution(component: string, incomingProps: any) {
 
   const componentTheme = get(theme, `components.${component}`);
   const notComponentTheme = omit(theme, ['components']);
+  const windowWidth = useWindowDimensions()?.width;
+
+  const currentBreakpoint = React.useMemo(
+    () => getClosestBreakpoint(theme.breakpoints, windowWidth),
+    [windowWidth, theme.breakpoints]
+  );
 
   const componentThemeObject = simplifyComponentTheme(
     notComponentTheme,
     componentTheme,
     cleanIncomingProps,
-    colorModeProps
+    colorModeProps,
+    currentBreakpoint
   );
   const componentThemeIntegratedProps = merge(
     {},
@@ -210,13 +250,12 @@ export function usePropsResolution(component: string, incomingProps: any) {
   );
   const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
 
-  const windowWidth = useWindowDimensions()?.width;
   const translatedProps = propTranslator({
     props: platformSpecificProps,
     theme: notComponentTheme,
     colorModeProps,
     componentTheme,
-    windowWidth,
+    currentBreakpoint,
   });
 
   let bgColor =
