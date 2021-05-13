@@ -13,7 +13,6 @@ import {
   customShadow,
 } from '../../../utils/customProps';
 import type { IBoxProps } from '../Box';
-import { useFocusRing } from '@react-native-aria/focus';
 
 export type IPressableProps = PressableProps &
   IBoxProps & {
@@ -34,6 +33,17 @@ const useHover = () => {
       onHoverOut: () => setHovered(false),
     },
     isHovered,
+  };
+};
+
+const useFocus = () => {
+  const [isFocused, setFocused] = React.useState(false);
+  return {
+    focusProps: {
+      onFocus: () => setFocused(true),
+      onBlur: () => setFocused(false),
+    },
+    isFocused,
   };
 };
 
@@ -82,7 +92,7 @@ const Pressable = (
 ) => {
   const { pressableProps, isHovered } = useHover();
   const { pressableProps: isPressedProps, isPressed } = useIsPressed();
-  const { focusProps, isFocusVisible } = useFocusRing();
+  const { focusProps, isFocused } = useFocus();
   // TODO : Replace Render props with Context Hook
   return (
     <StyledPressable
@@ -99,7 +109,7 @@ const Pressable = (
       // @ts-ignore - web only
       onBlur={composeEventHandlers(onBlur, focusProps.onBlur)}
       {...(isHovered && _hover)}
-      {...(isFocusVisible && _focus)}
+      {...(isFocused && _focus)}
       {...(isPressed && _pressed)}
     >
       {typeof children !== 'function'
@@ -107,7 +117,7 @@ const Pressable = (
         : children({
             isPressed,
             isHovered,
-            isFocusVisible,
+            isFocused,
             focusProps,
           })}
     </StyledPressable>

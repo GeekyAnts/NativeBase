@@ -1,11 +1,12 @@
 import React from 'react';
-import { Box } from '../../primitives';
 import { CheckIcon } from '../../primitives/Icon/Icons';
+import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { MenuItem } from './MenuItem';
 import type { IMenuItemOptionProps, IMenuOptionContextProps } from './types';
 import { MenuOptionContext } from './MenuOptionGroup';
 import { useMenuOptionItem } from './useMenu';
+import { HStack } from '../../primitives/Stack';
 
 export const MenuItemOption = React.memo(
   React.forwardRef(function MenuItemOption(
@@ -30,25 +31,14 @@ export const MenuItemOption = React.memo(
       <MenuItem
         {...props}
         {...menuOptionProps}
+        accessibilityRole="button"
         onPress={modifiedOnPress}
         ref={ref}
       >
-        <Box
-          flexDirection="row"
-          px={newProps.px}
-          alignItems="center"
-          justifyContent="flex-start"
-          width="100%"
-        >
-          <CheckIcon
-            // TODO: Needs to update, with _icon (_prop) [Instead of passsing p here.]
-            pr={newProps.p}
-            // size={newProps._text.fontSize}
-            size="sm"
-            opacity={isChecked ? 1 : 0}
-          />
-          {children}
-        </Box>
+        <HStack px={newProps.px} space={3}>
+          <CheckIcon {...newProps._icon} opacity={isChecked ? 1 : 0} />
+          <Box>{children}</Box>
+        </HStack>
       </MenuItem>
     );
   })

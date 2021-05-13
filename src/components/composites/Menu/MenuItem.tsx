@@ -27,15 +27,15 @@ export const MenuItem = React.forwardRef(function MenuItem(
     ...newProps,
     ...(newProps.isDisabled ? newProps._disabled : {}),
   };
-  const { _text, _hover, _pressed, _focus, ...touchProps } = allProps;
+  const { _text, _pressed, _focus, ...touchProps } = allProps;
 
   const menuItemProps = useMenuItem({
     textValue: textValue ?? textContent,
+    ref: menuItemRef,
   });
 
   return (
     <Pressable
-      _hover={_hover}
       _pressed={_pressed}
       _focus={_focus}
       {...menuItemProps}

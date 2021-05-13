@@ -1,17 +1,16 @@
 import React from 'react';
-import { Menu, Divider, Icon } from 'native-base';
+import { Menu, Divider, HamburgerIcon } from 'native-base';
 import { Pressable } from 'react-native';
 
-export default function () {
+export function Example() {
   return (
     <Menu
-      closeOnSelect={false}
       onOpen={() => console.log('opened')}
       onClose={() => console.log('closed')}
       trigger={(triggerProps) => {
         return (
           <Pressable {...triggerProps}>
-            <Icon name="menu" />
+            <HamburgerIcon />
           </Pressable>
         );
       }}
@@ -22,10 +21,7 @@ export default function () {
       </Menu.OptionGroup>
       <Divider />
       <Menu.OptionGroup title="Country" type="checkbox">
-        <Menu.ItemOption value="email" _text={{ fontWeight: 'bold' }}>
-          Email
-        </Menu.ItemOption>
-        <Menu.ItemOption value="phone">Phone</Menu.ItemOption>
+        <Menu.ItemOption value="email">Email</Menu.ItemOption>
         <Menu.ItemOption value="country">Country</Menu.ItemOption>
       </Menu.OptionGroup>
     </Menu>

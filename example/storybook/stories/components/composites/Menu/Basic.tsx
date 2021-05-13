@@ -1,14 +1,14 @@
 import React from 'react';
-import { Menu, Divider, Icon } from 'native-base';
+import { Menu, Divider, HamburgerIcon } from 'native-base';
 import { Pressable } from 'react-native';
 
-export default function () {
+export function Example() {
   return (
     <Menu
       trigger={(triggerProps: any) => {
         return (
           <Pressable {...triggerProps}>
-            <Icon name="menu" />
+            <HamburgerIcon />
           </Pressable>
         );
       }}

@@ -41,11 +41,20 @@ export const useMenu = () => {
   };
 };
 
-export const useMenuItem = ({ textValue }: { textValue: string }) => {
+export const useMenuItem = ({
+  textValue,
+  ref,
+}: {
+  textValue: string;
+  ref: any;
+}) => {
   return {
     accessibilityRole: 'menuitem' as AccessibilityRole,
     dataSet: {
       nativebaseMenuItem: textValue,
+    },
+    onHoverIn: () => {
+      if (ref.current && Platform.OS === 'web') ref.current.focus();
     },
   };
 };

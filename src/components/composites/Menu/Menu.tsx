@@ -28,20 +28,23 @@ export const Menu = React.memo(
         children,
         onOpen,
         onClose,
-        ...props
+        isOpen: isOpenProp,
+        defaultIsOpen,
+        placement = 'bottom left',
+        ...restProps
       }: IMenuProps,
       ref?: any
     ) => {
       const triggerRef = React.useRef(null);
       const [isOpen, setIsOpen] = useControllableState({
-        value: props.isOpen,
-        defaultValue: props.defaultIsOpen,
+        value: isOpenProp,
+        defaultValue: defaultIsOpen,
         onChange: (value) => {
           value ? onOpen && onOpen() : onClose && onClose();
         },
       });
 
-      const newProps = usePropsResolution('Menu', props);
+      const newProps = usePropsResolution('Menu', restProps);
       const handleOpen = React.useCallback(() => {
         setIsOpen(true);
       }, [setIsOpen]);
@@ -95,8 +98,8 @@ export const Menu = React.memo(
               <Popper
                 triggerRef={triggerRef}
                 onClose={handleClose}
-                placement={props.placement ?? 'bottom left'}
-                shouldOverlapWithTrigger
+                placement={placement}
+                {...restProps}
               >
                 <Backdrop bg="transparent" onPress={handleClose} />
                 <Popper.Content>

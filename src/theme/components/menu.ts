@@ -8,7 +8,7 @@ function baseStyle(props: Record<string, any>) {
     borderWidth: 1,
     borderColor: mode(`gray.200`, `gray.700`)(props),
     shadow: 1,
-    borderRadius: 8,
+    borderRadius: 5,
   };
 }
 
@@ -32,23 +32,21 @@ export const MenuItem = {
   baseStyle: (props: any) => ({
     p: 4,
     _text: {
-      fontSize: 'md',
       textAlign: 'left',
     },
     outlineWidth: Platform.OS === 'web' ? 0 : undefined,
-    _hover: {
-      bg: mode(`gray.100`, `gray.600`)(props),
-    },
     _focus: {
       bg: mode(`gray.100`, `gray.600`)(props),
     },
     _pressed: {
       bg: mode(`gray.200`, `gray.500`)(props),
     },
+    _icon: {
+      size: 4,
+      color: mode('gray.500', 'gray.100')(props),
+    },
   }),
   defaultProps: {
-    isDisabled: false,
-    underlayColor: '#E8EDFB',
     _disabled: {
       opacity: 0.5,
     },
