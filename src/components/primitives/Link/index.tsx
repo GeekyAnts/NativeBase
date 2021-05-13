@@ -2,7 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import { Platform } from 'react-native';
 import type { ILinkProps } from './types';
 import Box from '../Box';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import { useLink } from './useLink';
 import { mergeRefs } from '../../../utils';
 import Pressable from '../Pressable';
@@ -28,7 +28,7 @@ const Link = (
     ...stylingProps.position,
     ...stylingProps.layout,
   ]);
-  let { _hover, ...newProps } = useThemeProps('Link', remProps);
+  let { _hover, ...newProps } = usePropsResolution('Link', remProps);
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
   const linkTextProps = {

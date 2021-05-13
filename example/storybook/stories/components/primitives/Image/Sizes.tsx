@@ -1,6 +1,6 @@
 import React from 'react';
 import { VStack, Image } from 'native-base';
-export default function () {
+export function Example() {
   return (
     <VStack space={2} alignItems="center">
       {['xs', 'sm', 'md', 'lg', 'xl', '2xl'].map((size) => (

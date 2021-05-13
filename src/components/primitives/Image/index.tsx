@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo, forwardRef } from 'react';
 import { Image as RNImage } from 'react-native';
 import styled from 'styled-components/native';
 import { border, color, flexbox, layout, space, position } from 'styled-system';
@@ -71,8 +71,6 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
     <StyledImage
       source={renderedSource}
       accessibilityLabel={alt}
-      accessibilityRole="image"
-      accessible
       alt={alt}
       {...newProps}
       onError={props.onError ? props.onError : onImageLoadError}
@@ -81,5 +79,5 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(Image));
+export default memo(forwardRef(Image));
 export type { IImageProps };

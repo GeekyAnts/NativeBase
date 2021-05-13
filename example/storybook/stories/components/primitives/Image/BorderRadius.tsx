@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'native-base';
-export default function () {
+export function Example() {
   return (
     <Image
       size={150}

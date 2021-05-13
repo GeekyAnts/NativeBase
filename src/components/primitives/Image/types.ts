@@ -1,7 +1,4 @@
-import type {
-  ImageProps as RNImageProps,
-  ImageSourcePropType,
-} from 'react-native';
+import type { ImageProps, ImageSourcePropType } from 'react-native';
 import type { ITextProps } from '../../primitives';
 import type {
   FlexboxProps,
@@ -14,24 +11,33 @@ import type {
   PlatformProps,
 } from '../../types';
 
-export type IImageProps = PlatformProps &
-  RNImageProps &
-  LayoutProps &
-  SpaceProps &
-  FlexboxProps &
-  SpaceProps &
-  LayoutProps &
-  PositionProps &
-  PositionProps &
-  FlexboxProps &
-  BorderProps &
-  ExtraProps &
-  BorderProps &
-  ShadowProps &
-  LayoutProps &
-  PositionProps & {
-    alt: string;
-    fallbackSource?: ImageSourcePropType;
-    ignoreFallback?: boolean;
-    _alt?: ITextProps;
-  };
+export interface IImageProps
+  extends PlatformProps,
+    Omit<
+      ImageProps,
+      | 'borderRadius'
+      | 'borderTopLeftRadius'
+      | 'borderTopRightRadius'
+      | 'borderBottomLeftRadius'
+      | 'borderBottomRightRadius'
+      | 'height'
+      | 'width'
+    >,
+    LayoutProps,
+    SpaceProps,
+    FlexboxProps,
+    SpaceProps,
+    LayoutProps,
+    PositionProps,
+    PositionProps,
+    FlexboxProps,
+    ExtraProps,
+    BorderProps,
+    ShadowProps,
+    LayoutProps,
+    PositionProps {
+  alt: string;
+  fallbackSource?: ImageSourcePropType;
+  ignoreFallback?: boolean;
+  _alt?: ITextProps;
+}

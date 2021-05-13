@@ -2,11 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Basic from './Basic';
-import Sizes from './Sizes';
-import BorderRadius from './BorderRadius';
-import WithRef from './WithRef';
-import FallbackSupport from './FallbackSupport';
+import { Example as Basic } from './Basic';
+import { Example as Sizes } from './Sizes';
+import { Example as BorderRadius } from './BorderRadius';
+import { Example as WithRef } from './WithRef';
+import { Example as FallbackSupport } from './FallbackSupport';
 
 storiesOf('Image', module)
   .addDecorator(withKnobs)
