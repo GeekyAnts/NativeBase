@@ -5,7 +5,7 @@ import { Pressable } from 'react-native';
 export function Example() {
   return (
     <Menu
-      trigger={(triggerProps: any) => {
+      trigger={(triggerProps) => {
         return (
           <Pressable {...triggerProps}>
             <HamburgerIcon />
