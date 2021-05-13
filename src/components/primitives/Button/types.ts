@@ -1,6 +1,7 @@
 import type { ITextProps } from './../Text/types';
 import type { IPressableProps } from '../Pressable';
 import type { IStackProps } from '../Stack';
+import type { ResponsiveValue } from '../../types';
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
 export interface IButtonProps extends IPressableProps {
@@ -13,7 +14,9 @@ export interface IButtonProps extends IPressableProps {
    * The variant of the button style to use.
    * @default 'solid'
    */
-  variant?: 'ghost' | 'outline' | 'solid' | 'link' | 'unstyled';
+  variant?: ResponsiveValue<
+    'ghost' | 'outline' | 'solid' | 'link' | 'unstyled'
+  >;
   /**
    * If true, the button will show a spinner.
    */
@@ -21,7 +24,7 @@ export interface IButtonProps extends IPressableProps {
   /**
    * The size of the button.
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg';
+  size?: ResponsiveValue<'xs' | 'sm' | 'md' | 'lg'>;
   /**
    * The start icon element to use in the button.
    */
