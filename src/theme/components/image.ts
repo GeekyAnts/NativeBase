@@ -1,13 +1,13 @@
 // Image
 const sizes = {
-  '2xs': { size: 6 },
-  'xs': { size: 10 },
-  'sm': { size: 16 },
-  'md': { size: 20 },
-  'lg': { size: 24 },
-  'xl': { size: 32 },
-  '2xl': { size: 64 },
-  'full': { size: '100%' },
+  '2xs': { width: 6 },
+  'xs': { width: 10 },
+  'sm': { width: 16 },
+  'md': { width: 20 },
+  'lg': { width: 24 },
+  'xl': { width: 32 },
+  '2xl': { width: 64 },
+  'full': { width: '100%' },
 };
 
 export const Image = {
@@ -15,7 +15,5 @@ export const Image = {
     maxWidth: '100%',
   },
   sizes,
-  defaultProps: {
-    size: 'md',
-  },
+  defaultProps: {},
 };
