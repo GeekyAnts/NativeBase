@@ -25,7 +25,7 @@ const Item = ({ title }: any) => (
   </List.Item>
 );
 
-export default function () {
+export const Example = () => {
   return (
     <VirtualizedList
       data={DATA}
@@ -36,4 +36,4 @@ export default function () {
       getItem={getItem}
     />
   );
-}
+};

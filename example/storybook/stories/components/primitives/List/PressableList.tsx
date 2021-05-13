@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Heading, Box } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [defaultColor, setDefaultColor] = React.useState('primary.400');
   return (
     <Box w="80%">
@@ -47,4 +47,4 @@ export default function () {
       </List>
     </Box>
   );
-}
+};

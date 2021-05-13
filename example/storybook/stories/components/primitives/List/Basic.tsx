@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Heading, Box } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Box w="80%">
       <Heading fontSize={24}>Topics (Plain List)</Heading>
@@ -13,4 +13,4 @@ export default function () {
       </List>
     </Box>
   );
-}
+};
