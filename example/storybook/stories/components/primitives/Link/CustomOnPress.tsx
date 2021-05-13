@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'native-base';
+import { Box, Link } from 'native-base';
 
 export const Example = () => {
   const [state, setState] = React.useState(false);
@@ -7,8 +7,11 @@ export const Example = () => {
     setState(!state);
   };
   return (
-    <Link onPress={toggleState} mt={4}>
-      Click here to toggle the color of box.
-    </Link>
+    <>
+      <Link onPress={toggleState} mt={4}>
+        Click here to toggle the color of box.
+      </Link>
+      <Box h="100" w="100" mt={4} bg={state ? 'orange.300' : 'blue.300'} />
+    </>
   );
 };
