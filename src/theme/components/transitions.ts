@@ -1,6 +1,7 @@
 //Fade
 const fadeDefaultProps = {
-  duration: 500,
+  entryDuration: 500,
+  exitDuration: 500,
 };
 
 export const Fade = {

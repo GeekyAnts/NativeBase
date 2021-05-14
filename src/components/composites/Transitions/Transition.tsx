@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Animated, ViewProps } from 'react-native';
 
 type ISupportedTransitions = {
@@ -83,98 +83,104 @@ const defaultTransitionConfig: ITransitionConfig = {
 const defaultEntryTransition = { ...defaultTransitionConfig, duration: 250 };
 const defaultExitTransition = { ...defaultTransitionConfig, duration: 200 };
 
-export const Transition = ({
-  children,
-  onTransitionComplete,
-  visible = false,
-  from,
-  entry,
-  exit,
-  transition = defaultTransitionConfig,
-  entryTransition = defaultEntryTransition,
-  exitTransition = defaultExitTransition,
-  style,
-}: ITransitionProps) => {
-  const animateValue = React.useRef(new Animated.Value(0)).current;
+export const Transition = forwardRef(
+  (
+    {
+      children,
+      onTransitionComplete,
+      visible = false,
+      from,
+      entry,
+      exit,
+      transition = defaultTransitionConfig,
+      entryTransition = defaultEntryTransition,
+      exitTransition = defaultExitTransition,
+      style,
+    }: ITransitionProps,
+    ref: any
+  ) => {
+    const animateValue = React.useRef(new Animated.Value(0)).current;
 
-  const [animationState, setAnimationState] = React.useState(
-    visible ? 'entering' : 'exited'
-  );
+    const [animationState, setAnimationState] = React.useState(
+      visible ? 'entering' : 'exited'
+    );
 
-  entryTransition = {
-    ...defaultEntryTransition,
-    ...transition,
-    ...entryTransition,
-  };
+    entryTransition = {
+      ...defaultEntryTransition,
+      ...transition,
+      ...entryTransition,
+    };
 
-  exitTransition = {
-    ...defaultExitTransition,
-    ...transition,
-    ...exitTransition,
-  };
+    exitTransition = {
+      ...defaultExitTransition,
+      ...transition,
+      ...exitTransition,
+    };
 
-  const prevVisible = React.useRef(visible);
+    const prevVisible = React.useRef(visible);
 
-  React.useEffect(() => {
-    if (visible) {
-      Animated[entryTransition.type ?? 'timing'](animateValue, {
-        toValue: 1,
-        useNativeDriver: true,
-        ...entryTransition,
-      }).start(() => {
-        onTransitionComplete && onTransitionComplete('entered');
-        setAnimationState('entered');
-      });
+    React.useEffect(() => {
+      if (visible) {
+        Animated[entryTransition.type ?? 'timing'](animateValue, {
+          toValue: 1,
+          useNativeDriver: true,
+          ...entryTransition,
+        }).start(() => {
+          onTransitionComplete && onTransitionComplete('entered');
+          setAnimationState('entered');
+        });
+      }
+    }, [visible, onTransitionComplete, animateValue, entryTransition]);
+
+    React.useEffect(() => {
+      // Exit request
+      if (prevVisible.current !== visible && !visible) {
+        setAnimationState('exiting');
+      }
+      prevVisible.current = visible;
+    }, [visible]);
+
+    React.useEffect(() => {
+      if (animationState === 'exiting') {
+        Animated[exitTransition.type ?? 'timing'](animateValue, {
+          toValue: 0,
+          useNativeDriver: true,
+          ...exitTransition,
+        }).start(() => {
+          onTransitionComplete && onTransitionComplete('exited');
+          setAnimationState('exited');
+        });
+      }
+    }, [
+      exitTransition,
+      onTransitionComplete,
+      setAnimationState,
+      animationState,
+      animateValue,
+    ]);
+
+    if (!visible && animationState === 'exited') {
+      return null;
     }
-  }, [visible, onTransitionComplete, animateValue, entryTransition]);
 
-  React.useEffect(() => {
-    // Exit request
-    if (prevVisible.current !== visible && !visible) {
-      setAnimationState('exiting');
-    }
-    prevVisible.current = visible;
-  }, [visible]);
+    // If exit animation is present and state is exiting, we replace 'from' with 'exit' animation
+    from =
+      animationState === 'exiting' && exit
+        ? { ...defaultStyles, ...exit }
+        : { ...defaultStyles, ...from };
 
-  React.useEffect(() => {
-    if (animationState === 'exiting') {
-      Animated[exitTransition.type ?? 'timing'](animateValue, {
-        toValue: 0,
-        useNativeDriver: true,
-        ...exitTransition,
-      }).start(() => {
-        onTransitionComplete && onTransitionComplete('exited');
-        setAnimationState('exited');
-      });
-    }
-  }, [
-    exitTransition,
-    onTransitionComplete,
-    setAnimationState,
-    animationState,
-    animateValue,
-  ]);
+    entry = { ...defaultStyles, ...entry };
 
-  if (!visible && animationState === 'exited') {
-    return null;
+    return (
+      <Animated.View
+        pointerEvents="box-none"
+        // https://github.com/facebook/react-native/issues/23090#issuecomment-710803743
+        needsOffscreenAlphaCompositing
+        style={[getAnimatedStyles(animateValue)(from, entry), style]}
+        ref={ref}
+      >
+        {children}
+      </Animated.View>
+    );
   }
-
-  // If exit animation is present and state is exiting, we replace 'from' with 'exit' animation
-  from =
-    animationState === 'exiting' && exit
-      ? { ...defaultStyles, ...exit }
-      : { ...defaultStyles, ...from };
-
-  entry = { ...defaultStyles, ...entry };
-
-  return (
-    <Animated.View
-      pointerEvents="box-none"
-      // https://github.com/facebook/react-native/issues/23090#issuecomment-710803743
-      needsOffscreenAlphaCompositing
-      style={[getAnimatedStyles(animateValue)(from, entry), style]}
-    >
-      {children}
-    </Animated.View>
-  );
-};
+);

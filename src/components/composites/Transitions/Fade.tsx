@@ -1,19 +1,26 @@
 import React from 'react';
-import { Animated } from 'react-native';
 import { useThemeProps } from '../../../hooks/useThemeProps';
+import { Transition } from '../Transitions';
 import type { IFadeProps } from './types';
-import { useFadeTransition } from './useFadeTransition';
-import Box from '../../primitives/Box';
 
-const Fade = ({ children, ...props }: IFadeProps, ref?: any) => {
-  const { in: animationState, duration } = useThemeProps('Fade', props);
-  const { fadeValue, fadeIn, fadeOut } = useFadeTransition(duration);
-  animationState ? fadeIn() : fadeOut();
+const Fade = ({ children, style, ...props }: IFadeProps, ref?: any) => {
+  const { in: animationState, entryDuration, exitDuration } = useThemeProps(
+    'Fade',
+    props
+  );
   return (
-    <Animated.View style={{ opacity: fadeValue }} ref={ref}>
-      <Box {...props} />
+    <Transition
+      from={{ opacity: 0 }}
+      entry={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      style={style}
+      visible={animationState}
+      exitTransition={{ duration: exitDuration }}
+      entryTransition={{ duration: entryDuration }}
+      ref={ref}
+    >
       {children}
-    </Animated.View>
+    </Transition>
   );
 };
 

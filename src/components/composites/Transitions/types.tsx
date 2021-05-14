@@ -2,7 +2,8 @@ import type { IBoxProps } from '../../primitives';
 
 export type IFadeProps = IBoxProps & {
   in?: boolean;
-  duration?: number;
+  entryDuration?: number;
+  exitDuration?: number;
   delay?: number;
 };
 export type IScaleFadeProps = IBoxProps & {

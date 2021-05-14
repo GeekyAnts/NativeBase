@@ -1,71 +1,30 @@
 import React from 'react';
-import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks/useThemeProps';
-import { Animated, Platform } from 'react-native';
 import type { IScaleFadeProps } from './types';
-import { canUseDom } from '../../../utils';
+import { Transition } from './Transition';
 
-const ScaleFade = ({ children, ...props }: IScaleFadeProps, ref?: any) => {
-  const isDomUsable = canUseDom();
+const ScaleFade = (
+  { children, style, ...props }: IScaleFadeProps,
+  ref?: any
+) => {
   const { in: animationState, duration, initialScale } = useThemeProps(
     'ScaleFade',
     props
   );
-  const fadeAnim = React.useRef(new Animated.Value(0)).current;
-  const scaleAnim = React.useRef(new Animated.Value(initialScale)).current;
 
-  const fadeIn = () => {
-    if (isDomUsable) {
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: duration,
-        useNativeDriver: Platform.OS !== 'web',
-      }).start();
-    }
-  };
-  const fadeOut = () => {
-    if (isDomUsable) {
-      Animated.timing(fadeAnim, {
-        toValue: 0,
-        duration: duration,
-        useNativeDriver: Platform.OS !== 'web',
-      }).start();
-    }
-  };
-  const scaleIn = () => {
-    if (isDomUsable) {
-      Animated.timing(scaleAnim, {
-        toValue: 1,
-        duration: duration,
-        useNativeDriver: Platform.OS !== 'web',
-      }).start();
-    }
-  };
-  const scaleOut = () => {
-    if (isDomUsable) {
-      Animated.timing(scaleAnim, {
-        toValue: initialScale,
-        duration: duration,
-        useNativeDriver: Platform.OS !== 'web',
-      }).start();
-    }
-  };
-
-  if (animationState) {
-    fadeIn();
-    scaleIn();
-  } else {
-    fadeOut();
-    scaleOut();
-  }
   return (
-    <Animated.View
-      style={{ opacity: fadeAnim, transform: [{ scale: scaleAnim }] }}
+    <Transition
+      from={{ opacity: 0, scale: initialScale }}
+      entry={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: initialScale }}
+      style={style}
+      visible={animationState}
+      exitTransition={{ duration }}
+      entryTransition={{ duration }}
       ref={ref}
     >
-      <Box {...props} />
       {children}
-    </Animated.View>
+    </Transition>
   );
 };
 

@@ -90,13 +90,7 @@ export type { IWrapProps } from './Wrap';
 export { PinInput } from './PinInput';
 export type { IPinInputProps, IPinInputFieldProps } from './PinInput';
 
-export {
-  Fade,
-  useFadeTransition,
-  ScaleFade,
-  Slide,
-  SlideFade,
-} from './Transitions';
+export { Fade, ScaleFade, Slide, SlideFade } from './Transitions';
 export type {
   IFadeProps,
   IScaleFadeProps,

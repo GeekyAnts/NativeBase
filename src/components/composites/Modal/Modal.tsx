@@ -2,7 +2,7 @@ import React, { forwardRef, memo } from 'react';
 import { OverlayContainer } from '@react-native-aria/overlays';
 import { KeyboardAvoidingView, StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';
-import { Transition, Slide } from '../Transitions';
+import { Slide } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import {
   useControllableState,
@@ -12,6 +12,7 @@ import {
 import { ModalContext } from './Context';
 import Box from '../../primitives/Box';
 import type { IModalProps } from './types';
+import { Fade } from '../../composites/Transitions';
 
 const Modal = (
   {
@@ -80,14 +81,11 @@ const Modal = (
           finalFocusRef,
         }}
       >
-        <Transition
-          from={{ opacity: 0 }}
-          entry={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          visible={visible}
+        <Fade
+          exitDuration={150}
+          entryDuration={200}
+          in={visible}
           style={StyleSheet.absoluteFill}
-          exitTransition={{ duration: 150 }}
-          entryTransition={{ duration: 200 }}
         >
           {overlayVisible && (
             <Backdrop
@@ -96,7 +94,7 @@ const Modal = (
               }}
             />
           )}
-        </Transition>
+        </Fade>
         {animationPreset === 'slide' ? (
           <Slide in={visible} duration={200}>
             <FocusScope
@@ -108,23 +106,12 @@ const Modal = (
             </FocusScope>
           </Slide>
         ) : (
-          <Transition
-            from={{ opacity: 0 }}
-            entry={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            visible={visible}
+          <Fade
+            exitDuration={100}
+            entryDuration={200}
+            in={visible}
             style={StyleSheet.absoluteFill}
-            exitTransition={{ duration: 100 }}
-            entryTransition={{ duration: 200 }}
           >
-            {overlayVisible && (
-              <Backdrop
-                onPress={() => {
-                  closeOnOverlayClick && setVisible(false);
-                }}
-              />
-            )}
-
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
@@ -132,7 +119,7 @@ const Modal = (
             >
               {child}
             </FocusScope>
-          </Transition>
+          </Fade>
         )}
       </ModalContext.Provider>
     </OverlayContainer>
