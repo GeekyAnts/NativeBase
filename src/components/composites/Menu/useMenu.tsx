@@ -26,12 +26,16 @@ export const useMenu = () => {
   let focusManager = useFocusManager();
   let onKeyDown = (e: KeyboardEvent) => {
     switch (e.key) {
-      case 'ArrowDown':
+      case 'ArrowDown': {
+        e.preventDefault();
         focusManager.focusNext({ wrap: true });
         break;
-      case 'ArrowUp':
+      }
+      case 'ArrowUp': {
+        e.preventDefault();
         focusManager.focusPrevious({ wrap: true });
         break;
+      }
     }
   };
 
