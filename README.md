@@ -37,7 +37,7 @@ Essential cross-platform UI components for React Native
 What is really great with [NativeBase](https://nativebase.io/) is that you can use shared UI cross-platform components, which will drastically increase your productivity. When using NativeBase, you can use any native third-party libraries out of the box.<br />
 
 **Recommended by** *Microsoft*
-> If you're looking to get started with React Native + CodePush, and are looking for an awesome starter kit, you should check out Native Starter Pro - [Microsoft's react-native-code-push repo](https://github.com/Microsoft/react-native-code-push#example-apps--starters)
+> If you're looking to get started with React Native + CodePush, and are looking for an awesome starter kit, you should check out Native Starter Pro - [Microsoft's react-native-code-push repo](https://github.com/Microsoft/react-native-code-push#example-apps--starters).
 
 **Recommended by [Awesome React Native](https://github.com/jondot/awesome-react-native)**
 >NativeBase added into the list of [Frameworks](https://github.com/jondot/awesome-react-native#frameworks) of Awesome React Native and are also used by many other React lovers across the world.
@@ -66,7 +66,7 @@ You've successfully setup [NativeBase](https://nativebase.io/) with your [React 
 **b. Setup with Expo**
 
 Expo helps you make React Native apps with no build configuration. It works on macOS, Windows, and Linux. <br />
-Refer this link for additional information on [Expo](https://docs.expo.io/)
+Refer this link for additional information on [Expo](https://docs.expo.io/).
 
 *Install NativeBase:*
 ```js
@@ -125,7 +125,7 @@ export default class App extends React.Component {
 <br />
 
 Check out the [KitchenSink](https://expo.io/@geekyants/nativebasekitchensink) with Expo for an example of the implementation.<br />
-Find the [KitchenSink repo here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/CRNA)
+Find the [KitchenSink repo here](https://github.com/GeekyAnts/NativeBase-KitchenSink/tree/CRNA).
 
 **c. Setup with ignite-native-base-boilerplate**
 
