@@ -1,6 +1,6 @@
 import React, { forwardRef, memo } from 'react';
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { KeyboardAvoidingView, StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';
 import { Slide } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
@@ -13,6 +13,8 @@ import { ModalContext } from './Context';
 import Box from '../../primitives/Box';
 import type { IModalProps } from './types';
 import { Fade } from '../../composites/Transitions';
+import { Factory } from '../../../factory';
+const StyledKeyboardView = Factory(KeyboardAvoidingView);
 
 const Modal = (
   {
@@ -55,19 +57,19 @@ const Modal = (
     };
   }, [visible, isKeyboardDismissable, setVisible]);
 
-  let child = (
+  let child = avoidKeyboard ? (
+    <StyledKeyboardView
+      // Padding on android behaves weird
+      behavior={Platform.select({ ios: 'padding' })}
+      pointerEvents="box-none"
+      {...restThemeProps}
+      ref={ref}
+    >
+      {children}
+    </StyledKeyboardView>
+  ) : (
     <Box {...restThemeProps} ref={ref} pointerEvents="box-none">
-      {avoidKeyboard ? (
-        <KeyboardAvoidingView
-          behavior="padding"
-          style={StyleSheet.absoluteFill}
-          pointerEvents="box-none"
-        >
-          {children}
-        </KeyboardAvoidingView>
-      ) : (
-        children
-      )}
+      {children}
     </Box>
   );
 
