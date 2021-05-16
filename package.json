@@ -81,9 +81,9 @@
   "peerDependencies": {
     "@expo/vector-icons": "^12.0.2",
     "@react-native-picker/picker": "^1.9.11",
-    "react": "16.11.0",
+    "react": "^16.11.0",
     "react-dom": "*",
-    "react-native": "0.62.2",
+    "react-native": "^0.62 || ^0.63",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
     "styled-components": "^5.2.1",
