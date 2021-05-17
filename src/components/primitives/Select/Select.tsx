@@ -12,6 +12,7 @@ import { mergeRefs } from '../../../utils';
 import { useFormControl } from '../../composites/FormControl';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { ChevronDownIcon } from '../Icon/Icons';
+import type { IButtonProps } from '../Button/types';
 
 const unstyledSelecWebtStyles = {
   width: '100%',
@@ -24,8 +25,8 @@ const unstyledSelecWebtStyles = {
 export const SelectContext = React.createContext({
   onValueChange: (() => {}) as any,
   selectedValue: null as any,
-  _selectedItem: null as any,
-  _item: null as any,
+  _selectedItem: {} as IButtonProps,
+  _item: {} as IButtonProps,
 });
 
 const Select = (
@@ -173,8 +174,8 @@ const Select = (
                   value={{
                     onValueChange: setValue,
                     selectedValue: value,
-                    _selectedItem: _selectedItem,
-                    _item: _item,
+                    _selectedItem: _selectedItem ?? {},
+                    _item: _item ?? {},
                   }}
                 >
                   {children}

@@ -13,9 +13,8 @@ export const Example = () => {
         placeholder="Select your favorite programming language"
         onValueChange={(itemValue: string) => setLanguage(itemValue)}
         _selectedItem={{
-          stackProps: { reversed: true },
-          bg: 'primary.200',
-          icon: <CheckIcon size={5} />,
+          bg: 'cyan.600',
+          endIcon: <CheckIcon size={4} />,
         }}
       >
         <Select.Item label="JavaScript" value="js" />
