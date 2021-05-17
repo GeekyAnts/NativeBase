@@ -1,4 +1,4 @@
-import type { SwitchProps, ViewStyle } from 'react-native';
+import type { SwitchProps } from 'react-native';
 import type {
   ColorProps,
   FlexboxProps,
@@ -11,36 +11,70 @@ import type {
   ShadowProps,
   PositionProps,
 } from '../../types';
-import type { IAccessibilityProps } from '../../../utils/accessibilityTypes';
 
-export type ISwitchProps = SwitchProps &
-  ColorProps &
-  SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  PositionProps &
-  PositionProps &
-  BorderProps &
-  ExtraProps &
-  OutlineProps &
-  ShadowProps &
-  LayoutProps &
-  BackgroundProps &
-  IAccessibilityProps &
-  BorderProps & {
-    style?: ViewStyle;
-    size?: 'lg' | 'md' | 'sm';
-    isDisabled?: boolean;
-    name?: string;
-    onToggle?: any;
-    isChecked?: boolean;
-    defaultIsChecked?: boolean;
-    isInvalid?: boolean;
-    onTrackColor?: string;
-    offTrackColor?: string;
-    onThumbColor?: string;
-    offThumbColor?: string;
-    activeThumbColor?: string;
-    colorScheme?: string;
-    _hover?: any;
-  };
+export interface ISwitchProps
+  extends SwitchProps,
+    ColorProps,
+    SpaceProps,
+    FlexboxProps,
+    PositionProps,
+    ExtraProps,
+    OutlineProps,
+    ShadowProps,
+    LayoutProps,
+    BackgroundProps,
+    BorderProps {
+  /**
+   * The size (width and height) of the switch.
+   * @default md
+   */
+  size?: 'lg' | 'md' | 'sm';
+  /**
+   * If true, set the disabled to the invalid state.
+   */
+  isDisabled?: boolean;
+  /**
+   * The input name of the Switch when used in a form.
+   */
+  name?: string;
+  /**
+   * Function called when the state of the Switch changes.
+   */
+  onToggle?: any;
+  /**
+   * If true, set the Switch to the checked state.
+   */
+  isChecked?: boolean;
+  /**
+   * If true, the checkbox will be initially checked.
+   */
+  defaultIsChecked?: boolean;
+  /**
+   * If true, set the switch to the invalid state.
+   */
+  isInvalid?: boolean;
+  /**
+   * The track color of the Switch when on.
+   */
+  onTrackColor?: string;
+  /**
+   * The track color of the Switch when off.
+   */
+  offTrackColor?: string;
+  /**
+   * The thumb color of the Switch when on.
+   */
+  onThumbColor?: string;
+  /**
+   * The thumb color of the Switch when off.
+   */
+  offThumbColor?: string;
+  /**
+   * Color scheme to be used for the Switch
+   */
+  colorScheme?: string;
+  /**
+   * Props when Switch is hovered. Accepts all the Switch props.
+   */
+  _hover?: any;
+}

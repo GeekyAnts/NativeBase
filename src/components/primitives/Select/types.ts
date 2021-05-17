@@ -1,9 +1,8 @@
 import type { IBoxProps } from '../Box';
 import type { IButtonProps } from '../Button';
-import type { ITextProps } from '../Text';
 import type { IActionsheetContentProps } from '../../composites/Actionsheet/types';
 
-export type ISelectProps = IBoxProps & {
+export interface ISelectProps extends IBoxProps {
   /**
    * The placeholder that describes the Select.
    */
@@ -61,13 +60,18 @@ export type ISelectProps = IBoxProps & {
    * Ref to be attached to the Select wrapper
    */
   wrapperRef?: any;
-};
+}
 
-export type ISelectItemProps = IButtonProps & {
+export interface ISelectItemProps extends IButtonProps {
+  /**
+   * The label which will be displayed.
+   */
   label: string;
+  /**
+   * The value to be used for the item. This is the value that will be returned on form submission.
+   */
   value: string;
-  _label?: ITextProps;
-};
+}
 
 export type ISelectComponentType = ((
   props: ISelectProps & { ref?: any }

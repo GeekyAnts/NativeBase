@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 import type { ISelectItemProps } from './types';
 import { Platform } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
@@ -38,4 +38,4 @@ export const Item = (
   }
 };
 
-export default React.memo(React.forwardRef(Item));
+export default memo(forwardRef(Item));

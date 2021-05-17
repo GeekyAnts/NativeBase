@@ -20,7 +20,7 @@ export const Example = () => {
           minWidth={200}
           accessibilityLabel="Select your favorite programming language"
           placeholder="Select your favorite programming language"
-          onValueChange={(itemValue: string) => {
+          onValueChange={(itemValue) => {
             setValue(itemValue);
           }}
           _selectedItem={{

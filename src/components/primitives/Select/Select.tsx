@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 import type { ISelectProps } from './types';
 import { Platform, View, Pressable, ScrollView } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
@@ -189,4 +189,4 @@ const Select = (
   );
 };
 
-export default React.forwardRef(Select);
+export default memo(forwardRef(Select));

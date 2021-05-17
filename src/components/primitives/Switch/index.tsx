@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { useToggleState } from '@react-stately/toggle';
 import { StyleSheet, ViewStyle, Switch as RNSwitch } from 'react-native';
 import styled from 'styled-components/native';
@@ -101,5 +101,5 @@ const Switch = (
   );
 };
 
-export default React.memo(React.forwardRef(Switch));
+export default memo(forwardRef(Switch));
 export type { ISwitchProps };
