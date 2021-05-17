@@ -76,6 +76,9 @@ const Button = (
         const pressedTextProps = isPressed &&
           _pressed?._text && { ..._pressed._text };
 
+        const boxChildren =
+          isLoading && isLoadingText ? isLoadingText : children;
+
         return (
           <HStack space={2} alignItems="center">
             {startIcon && !isLoading ? startIcon : null}
@@ -86,16 +89,18 @@ const Button = (
                 <Spinner color={_text?.color} size="sm" />
               )
             ) : null}
-            <Box
-              _text={{
-                ..._text,
-                ...hoverTextProps,
-                ...focusTextProps,
-                ...pressedTextProps,
-              }}
-            >
-              {isLoading && isLoadingText ? isLoadingText : children}
-            </Box>
+            {boxChildren ? (
+              <Box
+                _text={{
+                  ..._text,
+                  ...hoverTextProps,
+                  ...focusTextProps,
+                  ...pressedTextProps,
+                }}
+              >
+                {isLoading && isLoadingText ? isLoadingText : children}
+              </Box>
+            ) : null}
             {endIcon && !isLoading ? endIcon : null}
           </HStack>
         );

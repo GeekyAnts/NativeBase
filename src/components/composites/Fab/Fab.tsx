@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Button } from '../../primitives/Button';
-import { HStack } from '../../primitives/Stack';
 import type { IFabProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { OverlayContainer } from '@react-native-aria/overlays';
 
 const Fab = ({ label, icon, ...props }: IFabProps, ref: any) => {
   const themeProps = usePropsResolution('FAB', props);
   const { placement, placementProps, ...newProps } = themeProps;
 
   return (
-    <Button {...placementProps[placement]} {...newProps} ref={ref}>
-      {icon && label ? (
-        <HStack space={1} justifyContent="center" alignItems="center">
-          {icon}
-          {label}
-        </HStack>
-      ) : (
-        icon ?? label
-      )}
-    </Button>
+    <OverlayContainer>
+      <Button
+        {...placementProps[placement]}
+        ref={ref}
+        startIcon={icon}
+        {...newProps}
+      >
+        {label}
+      </Button>
+    </OverlayContainer>
   );
 };
 
-export default React.memo(React.forwardRef(Fab));
+export default memo(forwardRef(Fab));
