@@ -2,9 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
-import Flexible from './Flexible';
-import Fixed from './Fixed';
-import Hook from './Hook';
+import { Example as Flexible } from './Flexible';
+import { Example as Fixed } from './Fixed';
+import { Example as Hook } from './Hook';
 
 storiesOf('useSafeArea', module)
   .addDecorator(withKnobs)

@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
-import Basic from './Basic';
-import FormControlled from './FormControlled';
+import { Example as Basic } from './Basic';
+import { Example as FormControlled } from './FormControlled';
 import Wrapper from './../../Wrapper';
 
 storiesOf('Select', module)

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextField, Select } from 'native-base';
 
-export default function () {
+export const Example = () => {
   let [language, setLanguage] = React.useState<string>('');
   return (
     <TextField
@@ -22,4 +22,4 @@ export default function () {
       <Select.Item label="Java" value="java" />
     </TextField>
   );
-}
+};

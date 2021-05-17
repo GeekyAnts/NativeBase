@@ -1,7 +1,7 @@
 import React from 'react';
 import { HStack, Checkbox } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <HStack space={6}>
       <Checkbox value="test" accessibilityLabel="This is a dummy checkbox" />
@@ -12,4 +12,4 @@ export default function () {
       />
     </HStack>
   );
-}
+};

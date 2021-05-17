@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return <Button onPress={() => console.log('hello world')}>PRIMARY</Button>;
-}
+};

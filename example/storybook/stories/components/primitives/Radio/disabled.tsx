@@ -1,7 +1,7 @@
 import React from 'react';
 import { Radio } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Radio.Group defaultValue="2" name="exampleGroup">
       <Radio value="1" my={1} isDisabled>
@@ -15,4 +15,4 @@ export default function () {
       </Radio>
     </Radio.Group>
   );
-}
+};

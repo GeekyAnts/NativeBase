@@ -2,7 +2,7 @@ import React from 'react';
 import { Factory, themeTools } from 'native-base';
 import { View } from 'react-native';
 
-export default function () {
+export const Example = () => {
   const FactoryView = Factory(View, {
     baseStyle: (props: any) => {
       return {
@@ -12,4 +12,4 @@ export default function () {
     },
   });
   return <FactoryView height={50} width={50} />;
-}
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typeahead, Icon } from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const animals = [
   { id: 1, value: 'Aardvark' },
@@ -31,9 +32,9 @@ export function UsingControlledInput() {
       label="Select your favorite animal"
       toggleIcon={({ isOpen }: any) => {
         return isOpen ? (
-          <Icon name="arrow-drop-up" type="MaterialIcons" size={12} />
+          <Icon as={<MaterialIcons name="arrow-drop-up" />} size={12} />
         ) : (
-          <Icon name="arrow-drop-down" type="MaterialIcons" size={12} />
+          <Icon as={<MaterialIcons name="arrow-drop-down" />} size={12} />
         );
       }}
     />

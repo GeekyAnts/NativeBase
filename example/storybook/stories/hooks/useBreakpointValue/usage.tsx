@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, useBreakpointValue } from 'native-base';
-export default () => {
+export const Example = () => {
   const color = useBreakpointValue({
     base: 'red.200',
     sm: 'blue.200',

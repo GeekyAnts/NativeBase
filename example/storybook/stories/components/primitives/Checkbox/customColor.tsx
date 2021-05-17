@@ -1,7 +1,7 @@
 import React from 'react';
 import { Checkbox, VStack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={3} alignItems="flex-start">
       <Checkbox value="danger" colorScheme="danger" defaultIsChecked>
@@ -18,4 +18,4 @@ export default function () {
       </Checkbox>
     </VStack>
   );
-}
+};

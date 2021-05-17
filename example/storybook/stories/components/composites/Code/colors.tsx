@@ -1,6 +1,6 @@
 import React from 'react';
 import { Code, Stack } from 'native-base';
-export default function () {
+export const Example = () => {
   return (
     <Stack space={4}>
       <Code>let direction = "row";</Code>
@@ -9,4 +9,4 @@ export default function () {
       <Code colorScheme="dark">React Native</Code>
     </Stack>
   );
-}
+};

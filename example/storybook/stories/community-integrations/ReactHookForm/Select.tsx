@@ -1,12 +1,13 @@
 import { VStack, Button, FormControl, Select, Icon } from 'native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
+import { MaterialIcons } from '@expo/vector-icons';
 
 interface IFormInput {
   language: number;
 }
 
-export default function () {
+export const Example = () => {
   const { control, handleSubmit, errors } = useForm<IFormInput>();
   const onSubmit = (data: IFormInput) => {
     console.log('submiting with ', data);
@@ -25,12 +26,11 @@ export default function () {
               onValueChange={(itemValue: string) => {
                 onChange(itemValue);
               }}
-              selectedItemBg={'teal.400'}
               dropdownOpenIcon={
-                <Icon name="arrow-drop-up" type="MaterialIcons" size={6} />
+                <Icon as={<MaterialIcons name="arrow-drop-up" />} size={6} />
               }
               dropdownCloseIcon={
-                <Icon name="arrow-drop-down" type="MaterialIcons" size={6} />
+                <Icon as={<MaterialIcons name="arrow-drop-down" />} size={6} />
               }
             >
               <Select.Item label="JavaScript" value="js" />
@@ -51,4 +51,4 @@ export default function () {
       </Button>
     </VStack>
   );
-}
+};

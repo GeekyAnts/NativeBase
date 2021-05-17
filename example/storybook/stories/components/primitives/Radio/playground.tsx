@@ -3,7 +3,7 @@ import { IRadioValue, Radio, Text, Box } from 'native-base';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { useState } from 'react';
 
-export default function () {
+export const Example = () => {
   const [value, setValue] = useState<IRadioValue>('');
 
   return (
@@ -33,4 +33,4 @@ export default function () {
       <Text mt={2}>{'Yes, you are ' + value}</Text>
     </Box>
   );
-}
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, Input, Stack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <FormControl isRequired isInvalid>
       <Stack mx={4}>
@@ -14,4 +14,4 @@ export default function () {
       </Stack>
     </FormControl>
   );
-}
+};

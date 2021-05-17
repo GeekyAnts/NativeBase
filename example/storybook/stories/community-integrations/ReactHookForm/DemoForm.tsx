@@ -15,8 +15,9 @@ import {
   Icon,
 } from 'native-base';
 import React from 'react';
+import { Ionicons, EvilIcons, AntDesign } from '@expo/vector-icons';
 
-export default function () {
+export const Example = () => {
   const [language, setLanguage] = React.useState('eng');
   const [currency, setCurrency] = React.useState('usd');
   return (
@@ -89,8 +90,7 @@ export default function () {
                   <Button
                     startIcon={
                       <Icon
-                        type="Ionicons"
-                        name="md-cloud-upload-sharp"
+                        as={<Ionicons name="md-cloud-upload-sharp" />}
                         size={5}
                       />
                     }
@@ -194,14 +194,13 @@ export default function () {
           </Box>
           <Box flex={2}>
             <Button.Group variant="outline" colorScheme="light" space={2}>
-              <Button startIcon={<Icon name="sc-github" type="EvilIcons" />}>
+              <Button startIcon={<Icon as={<EvilIcons name="sc-github" />} />}>
                 Connect Github
               </Button>
               <Button
                 startIcon={
                   <Icon
-                    name="google"
-                    type="AntDesign"
+                    as={<AntDesign name="google" />}
                     color="red.400"
                     size={5}
                   />
@@ -228,4 +227,4 @@ export default function () {
       </Box>
     </VStack>
   );
-}
+};

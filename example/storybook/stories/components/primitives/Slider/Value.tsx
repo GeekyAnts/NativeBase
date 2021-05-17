@@ -1,7 +1,7 @@
 import React from 'react';
 import { Slider, Stack, Text, Box } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [onChangeValue, setOnChangeValue] = React.useState(70);
   const [onChangeEndValue, setOnChangeEndValue] = React.useState(70);
   return (
@@ -28,4 +28,4 @@ export default function () {
       </Box>
     </Stack>
   );
-}
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const myRef: any = React.useRef({});
   React.useEffect(() => {
     myRef?.current.setNativeProps({
@@ -15,4 +15,4 @@ export default function () {
       BUTTON
     </Button>
   );
-}
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Avatar.Group size="lg" max={4}>
       <Avatar
@@ -47,4 +47,4 @@ export default function () {
       </Avatar>
     </Avatar.Group>
   );
-}
+};

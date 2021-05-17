@@ -9,6 +9,8 @@ import {
   Stack,
   Center,
 } from 'native-base';
+import { Feather, AntDesign } from '@expo/vector-icons';
+
 export const Example = () => {
   return (
     <Box rounded="pill" w={64} shadow={4}>
@@ -23,8 +25,7 @@ export const Example = () => {
       />
       <Center position="absolute" height="100%" width="100%">
         <Icon
-          type="AntDesign"
-          name="play"
+          as={<AntDesign name="play" />}
           color="gray.200"
           size={12}
           opacity={0.8}
@@ -44,7 +45,7 @@ export const Example = () => {
           </Heading>
           <Text color="gray.200">Meghalaya</Text>
         </Stack>
-        <Icon name="more-horizontal" type="Feather" color="white" />
+        <Icon as={<Feather name="more-horizontal" />} color="white" />
       </HStack>
     </Box>
   );

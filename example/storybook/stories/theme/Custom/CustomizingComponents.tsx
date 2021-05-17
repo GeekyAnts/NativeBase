@@ -2,7 +2,7 @@ import React from 'react';
 import { NativeBaseProvider, themeTools, extendTheme } from 'native-base';
 import { Content } from './Content';
 
-export default function () {
+export const Example = () => {
   const theme = extendTheme({
     colors: {
       // Add new color
@@ -50,4 +50,4 @@ export default function () {
       <Content />
     </NativeBaseProvider>
   );
-}
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, HStack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <HStack>
       <Avatar mr={1} source={{ uri: 'https://bit.ly/broken-link' }}>
@@ -11,4 +11,4 @@ export default function () {
       <Avatar source={{ uri: 'https://bit.ly/broken-link' }} />
     </HStack>
   );
-}
+};

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Slider, Icon, Box } from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 
-export default function () {
+export const Example = () => {
   return (
     <Box mx={5} width="80%">
       <Slider defaultValue={70} size="lg" colorScheme="orange">
@@ -9,9 +10,9 @@ export default function () {
           <Slider.FilledTrack bg="green.400" />
         </Slider.Track>
         <Slider.Thumb borderWidth={0} bg="gra.200">
-          <Icon name="park" type="MaterialIcons" color="green.500" />
+          <Icon as={<MaterialIcons name="park" />} color="green.500" />
         </Slider.Thumb>
       </Slider>
     </Box>
   );
-}
+};

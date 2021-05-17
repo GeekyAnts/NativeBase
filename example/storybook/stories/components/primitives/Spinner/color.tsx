@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spinner, HStack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <HStack space={2}>
       <Spinner color="danger.400" />
@@ -10,4 +10,4 @@ export default function () {
       <Spinner color="warning.500" />
     </HStack>
   );
-}
+};

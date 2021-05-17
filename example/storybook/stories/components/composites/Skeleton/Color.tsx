@@ -1,6 +1,6 @@
 import React from 'react';
 import { Skeleton, VStack } from 'native-base';
-export default function () {
+export const Example = () => {
   return (
     <VStack space={5} width="90%">
       <Skeleton
@@ -17,4 +17,4 @@ export default function () {
       />
     </VStack>
   );
-}
+};

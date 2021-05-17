@@ -9,7 +9,7 @@ import {
   NumberDecrementStepper,
 } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Stack w="90%">
       <FormControl isRequired isInvalid>
@@ -28,4 +28,4 @@ export default function () {
       </FormControl>
     </Stack>
   );
-}
+};

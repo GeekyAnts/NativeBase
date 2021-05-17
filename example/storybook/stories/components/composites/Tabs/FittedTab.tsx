@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs, Box } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Box w="90%">
       <Tabs isFitted>
@@ -14,4 +14,4 @@ export default function () {
       </Tabs>
     </Box>
   );
-}
+};

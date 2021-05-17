@@ -1,7 +1,7 @@
 // import React from 'react';
 // import { Spinner, HStack, Icon } from 'native-base';
 
-// export default function () {
+//  export const Example = () => {
 //   return (
 //     <HStack space={2}>
 //       <Spinner />

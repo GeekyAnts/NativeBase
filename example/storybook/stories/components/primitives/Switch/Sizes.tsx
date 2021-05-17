@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, VStack, Heading } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={4} alignItems="center">
       <Heading>Switch Sizes</Heading>
@@ -10,4 +10,4 @@ export default function () {
       <Switch size="lg" />
     </VStack>
   );
-}
+};

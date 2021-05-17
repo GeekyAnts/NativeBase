@@ -3,7 +3,7 @@ import { Icon, MoonIcon, Stack } from 'native-base';
 import { G, Path } from 'react-native-svg';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function () {
+export const Example = () => {
   return (
     <Stack space={8}>
       <MoonIcon />
@@ -18,4 +18,4 @@ export default function () {
       </Icon>
     </Stack>
   );
-}
+};

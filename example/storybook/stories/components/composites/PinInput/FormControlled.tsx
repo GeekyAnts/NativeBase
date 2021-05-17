@@ -1,7 +1,7 @@
 import React from 'react';
 import { PinInput, Center, FormControl } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Center>
       <FormControl isRequired isInvalid>
@@ -19,4 +19,4 @@ export default function () {
       </FormControl>
     </Center>
   );
-}
+};

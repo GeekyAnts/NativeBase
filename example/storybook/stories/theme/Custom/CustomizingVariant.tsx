@@ -7,7 +7,7 @@ import {
   VStack,
 } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const theme = extendTheme({
     components: {
       Button: {
@@ -35,4 +35,4 @@ export default function () {
       </Center>
     </NativeBaseProvider>
   );
-}
+};

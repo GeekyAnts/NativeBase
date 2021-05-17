@@ -1,13 +1,16 @@
 import React from 'react';
 import { Checkbox, Icon } from 'native-base';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function () {
+export const Example = () => {
   const myRef: any = React.useRef({});
   return (
     <Checkbox
       value="success"
       colorScheme="success"
-      icon={<Icon name="bullseye" type="MaterialCommunityIcons" opacity={1} />}
+      icon={
+        <Icon as={<MaterialCommunityIcons name="bullseye" />} opacity={1} />
+      }
       ref={myRef}
       onChange={(state) => {
         if (state)
@@ -21,4 +24,4 @@ export default function () {
       Label
     </Checkbox>
   );
-}
+};

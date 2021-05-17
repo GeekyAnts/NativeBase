@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Divider, Heading, HStack, VStack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={4} px={2}>
       {/* Solid */}
@@ -106,4 +106,4 @@ export default function () {
       </HStack>
     </VStack>
   );
-}
+};

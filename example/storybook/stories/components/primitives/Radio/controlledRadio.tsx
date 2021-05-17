@@ -2,7 +2,7 @@ import React from 'react';
 import { Radio } from 'native-base';
 import type { IRadioValue } from 'native-base';
 
-export default function ControlledRadio() {
+export const Example = () => {
   const [value, setValue] = React.useState<IRadioValue>('one');
 
   return (
@@ -21,4 +21,4 @@ export default function ControlledRadio() {
       </Radio>
     </Radio.Group>
   );
-}
+};

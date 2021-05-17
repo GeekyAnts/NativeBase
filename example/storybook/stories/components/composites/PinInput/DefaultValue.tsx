@@ -1,7 +1,7 @@
 import React from 'react';
 import { PinInput, Stack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Stack space={5}>
       <PinInput defaultValue="123">
@@ -16,4 +16,4 @@ export default function () {
       </PinInput>
     </Stack>
   );
-}
+};

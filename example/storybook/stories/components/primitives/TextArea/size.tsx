@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextArea, Stack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const Sizes: any = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
   return (
     <Stack space={4} w="90%">
@@ -10,4 +10,4 @@ export default function () {
       })}
     </Stack>
   );
-}
+};

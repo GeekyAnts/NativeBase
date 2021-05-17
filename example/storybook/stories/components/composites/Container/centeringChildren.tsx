@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Text, Heading } from 'native-base';
-export default function () {
+export const Example = () => {
   return (
     <Container centerContent>
       <Heading>Benefits</Heading>
@@ -13,4 +13,4 @@ export default function () {
       </Text>
     </Container>
   );
-}
+};

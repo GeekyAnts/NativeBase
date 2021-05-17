@@ -9,13 +9,14 @@ import {
 } from 'native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 interface IFormInput {
   hobbies: string;
   gender: number;
 }
 
-export default function () {
+export const Example = () => {
   const { control, handleSubmit, errors } = useForm<IFormInput>();
   const onSubmit = (data: IFormInput) => {
     console.log('submiting with ', data);
@@ -36,21 +37,21 @@ export default function () {
               <Checkbox
                 value="dart"
                 colorScheme="orange"
-                icon={<Icon name="bullseye" type="MaterialCommunityIcons" />}
+                icon={<Icon as={<MaterialCommunityIcons name="bullseye" />} />}
               >
                 <Text mx={2}>Darts</Text>
               </Checkbox>
               <Checkbox
                 value="movie"
                 colorScheme="dark"
-                icon={<Icon name="bat" type="MaterialCommunityIcons" />}
+                icon={<Icon as={<MaterialCommunityIcons name="bat" />} />}
               >
                 <Text mx={2}>Movie</Text>
               </Checkbox>
               <Checkbox
                 colorScheme="red"
                 value="camping"
-                icon={<Icon name="campfire" type="MaterialCommunityIcons" />}
+                icon={<Icon as={<MaterialCommunityIcons name="campfire" />} />}
               >
                 <Text mx={2}>Camping</Text>
               </Checkbox>
@@ -58,7 +59,7 @@ export default function () {
                 value="chess"
                 colorScheme="blue"
                 icon={
-                  <Icon name="chess-knight" type="MaterialCommunityIcons" />
+                  <Icon as={<MaterialCommunityIcons name="chess-knight" />} />
                 }
               >
                 <Text mx={2}>Chess</Text>
@@ -103,4 +104,4 @@ export default function () {
       </Button>
     </VStack>
   );
-}
+};

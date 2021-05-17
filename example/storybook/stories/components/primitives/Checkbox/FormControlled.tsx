@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, Checkbox, VStack, Text, Container } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [groupValue, setGroupValue] = React.useState(['Item 1', 'Item 3']);
 
   const getSelectedGroupValue = () => {
@@ -57,4 +57,4 @@ export default function () {
       </VStack>
     </Container>
   );
-}
+};

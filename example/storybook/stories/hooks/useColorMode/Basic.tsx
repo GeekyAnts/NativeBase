@@ -19,10 +19,10 @@ function UseColorMode() {
   );
 }
 
-export default function () {
+export const Example = () => {
   return (
     <NativeBaseProvider>
       <UseColorMode />
     </NativeBaseProvider>
   );
-}
+};
