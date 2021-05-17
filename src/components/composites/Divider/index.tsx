@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Platform } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Box from './../../primitives/Box';
@@ -19,5 +19,5 @@ const Divider = (props: IDividerProps, ref?: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(Divider));
+export default memo(forwardRef(Divider));
 export type { IDividerProps };
