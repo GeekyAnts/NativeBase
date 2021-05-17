@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Spinner from '../Spinner';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { default as Box, IBoxProps } from '../Box';
@@ -110,4 +110,4 @@ const Button = (
   );
 };
 
-export default React.memo(React.forwardRef(Button));
+export default memo(forwardRef(Button));
