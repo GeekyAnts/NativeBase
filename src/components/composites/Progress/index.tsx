@@ -10,6 +10,7 @@ export interface IProgressProps extends IBoxProps {
   value?: number;
   /**
    * Defines height of Progress
+   * @default sm
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | string;
   /**
