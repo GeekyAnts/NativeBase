@@ -2,7 +2,7 @@ import React from 'react';
 import { Select, VStack, CheckIcon } from 'native-base';
 
 export const Example = () => {
-  let [language, setLanguage] = React.useState<string>('');
+  let [language, setLanguage] = React.useState('');
 
   return (
     <VStack alignItems="center" space={4}>
@@ -11,7 +11,7 @@ export const Example = () => {
         minWidth={200}
         accessibilityLabel="Select your favorite programming language"
         placeholder="Select your favorite programming language"
-        onValueChange={(itemValue: string) => setLanguage(itemValue)}
+        onValueChange={(itemValue) => setLanguage(itemValue)}
         _selectedItem={{
           bg: 'cyan.600',
           endIcon: <CheckIcon size={4} />,
