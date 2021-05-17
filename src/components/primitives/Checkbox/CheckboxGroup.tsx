@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, memo, forwardRef } from 'react';
 import { useCheckboxGroupState } from '@react-stately/checkbox';
 import { useCheckboxGroup } from '@react-native-aria/checkbox';
 import { useFormControlContext } from '../../composites/FormControl';
@@ -33,4 +33,4 @@ function CheckboxGroup(
   );
 }
 
-export default React.memo(React.forwardRef(CheckboxGroup));
+export default memo(forwardRef(CheckboxGroup));

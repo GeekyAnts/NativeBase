@@ -3,7 +3,7 @@ import { Checkbox, Icon } from 'native-base';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const Example = () => {
-  const myRef: any = React.useRef({});
+  const myRef = React.useRef({});
   return (
     <Checkbox
       value="success"
