@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { ActivityIndicator } from 'react-native';
-import type { ActivityIndicator as ActivityIndicatorType } from 'react-native';
 import styled from 'styled-components/native';
 import { color, space, position } from 'styled-system';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -30,7 +29,7 @@ const StyledSpinner = styled(ActivityIndicator)<ISpinnerProps>(
   space,
   position
 );
-const Spinner: any = ({ ...props }: ISpinnerProps, ref: any) => {
+const Spinner = (props: ISpinnerProps, ref: any) => {
   const newProps = usePropsResolution('Spinner', props);
   const spinnerColor = useToken('colors', newProps.color);
   const { spinnerProps } = useSpinner(props);
@@ -126,7 +125,5 @@ const Spinner: any = ({ ...props }: ISpinnerProps, ref: any) => {
   // }
 };
 
-export default React.memo(
-  React.forwardRef<ActivityIndicatorType, ISpinnerProps>(Spinner)
-);
+export default memo(forwardRef(Spinner));
 export type { ISpinnerProps };
