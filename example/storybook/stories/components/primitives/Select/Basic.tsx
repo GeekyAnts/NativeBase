@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select, VStack, CheckIcon } from 'native-base';
 
-export default function () {
+export const Example = () => {
   let [language, setLanguage] = React.useState<string>('');
 
   return (
@@ -26,4 +26,4 @@ export default function () {
       </Select>
     </VStack>
   );
-}
+};

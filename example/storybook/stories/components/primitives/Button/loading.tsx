@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, HStack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <HStack space={2}>
       <Button isLoading>Button</Button>
@@ -13,4 +13,4 @@ export default function () {
       </Button>
     </HStack>
   );
-}
+};

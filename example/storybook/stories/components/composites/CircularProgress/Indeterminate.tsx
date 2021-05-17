@@ -1,6 +1,6 @@
 import React from 'react';
 import { CircularProgress, Center, Heading } from 'native-base';
-export default function () {
+export const Example = () => {
   return (
     <Center>
       <Heading>Indeterminate Progress</Heading>
@@ -9,4 +9,4 @@ export default function () {
       </CircularProgress>
     </Center>
   );
-}
+};

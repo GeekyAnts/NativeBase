@@ -1,7 +1,7 @@
 import React from 'react';
 import { PinInput } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <PinInput placeholder="🥳">
       <PinInput.Field />
@@ -9,4 +9,4 @@ export default function () {
       <PinInput.Field />
     </PinInput>
   );
-}
+};

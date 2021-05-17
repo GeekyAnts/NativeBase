@@ -28,7 +28,7 @@ import {
   WarningTwoIcon,
 } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const icons = [
     <AddIcon />,
     <ArrowBackIcon />,
@@ -61,4 +61,4 @@ export default function () {
       {icons}
     </SimpleGrid>
   );
-}
+};

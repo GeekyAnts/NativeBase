@@ -15,7 +15,7 @@ interface IFormInput {
   version: boolean;
 }
 
-export default function () {
+export const Example = () => {
   const { control, handleSubmit, errors } = useForm<IFormInput>();
   const onSubmit = (data: IFormInput) => {
     console.log('submiting with ', data);
@@ -51,4 +51,4 @@ export default function () {
       </Button>
     </VStack>
   );
-}
+};

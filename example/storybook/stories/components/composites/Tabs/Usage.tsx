@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Tabs>
       <Tabs.Bar>
@@ -16,4 +16,4 @@ export default function () {
       </Tabs.Views>
     </Tabs>
   );
-}
+};

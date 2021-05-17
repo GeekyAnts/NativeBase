@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import ZStack from './example';
-import CenterStack from './CenterStack';
+import { Example as ZStack } from './example';
+import { Example as CenterStack } from './CenterStack';
 
 storiesOf('ZStack', module)
   .addDecorator(withKnobs)

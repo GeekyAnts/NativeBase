@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs, Text } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [index, setIndex] = React.useState(0);
 
   return (
@@ -20,4 +20,4 @@ export default function () {
       </Tabs.Views>
     </Tabs>
   );
-}
+};

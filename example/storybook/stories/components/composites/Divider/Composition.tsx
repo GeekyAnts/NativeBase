@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider, Flex, Text } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Flex direction="row" p={4}>
       <Text>Simple</Text>
@@ -13,4 +13,4 @@ export default function () {
       <Text>Nativebase</Text>
     </Flex>
   );
-}
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, HStack, VStack, Text, Input, useClipboard } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [copyText, setCopyText] = React.useState('Copy Me');
   const [pasteText, setPasteText] = React.useState('');
   const { value, onCopy, hasCopied } = useClipboard();
@@ -28,4 +28,4 @@ export default function () {
       </HStack>
     </VStack>
   );
-}
+};

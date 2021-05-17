@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tag } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return <Tag>NativeBase</Tag>;
-}
+};

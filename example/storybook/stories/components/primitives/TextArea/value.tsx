@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextArea, Stack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [textAreaValue, setTextAreaValue] = useState('Value Controlled');
   const demoValueControlledTextArea = (e: any) => {
     setTextAreaValue(e.currentTarget.value);
@@ -11,4 +11,4 @@ export default function () {
       <TextArea value={textAreaValue} onChange={demoValueControlledTextArea} />
     </Stack>
   );
-}
+};

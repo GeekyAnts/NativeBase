@@ -20,10 +20,10 @@ const colorModeManager: StorageManager = {
     }
   },
 };
-export default function () {
+export const Example = () => {
   return (
     <NativeBaseProvider colorModeManager={colorModeManager}>
       <Content />
     </NativeBaseProvider>
   );
-}
+};

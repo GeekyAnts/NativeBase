@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stat, Heading, Box } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Box>
       <Heading>Basic Stat Usage</Heading>
@@ -12,4 +12,4 @@ export default function () {
       </Stat>
     </Box>
   );
-}
+};

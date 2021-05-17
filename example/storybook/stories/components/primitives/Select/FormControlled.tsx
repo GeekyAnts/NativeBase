@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, Select, VStack, Text, Container } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [value, setValue] = React.useState('js');
 
   return (
@@ -38,4 +38,4 @@ export default function () {
       </VStack>
     </Container>
   );
-}
+};

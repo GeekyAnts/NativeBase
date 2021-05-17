@@ -1,6 +1,6 @@
 import React from 'react';
 import { Accordion, Box } from 'native-base';
-export default function () {
+export const Example = () => {
   return (
     <Box m={3}>
       <Accordion allowMultiple defaultIndex={[0, 2]}>
@@ -43,4 +43,4 @@ export default function () {
       </Accordion>
     </Box>
   );
-}
+};

@@ -8,7 +8,7 @@ import {
   NumberDecrementStepper,
   Slider,
 } from 'native-base';
-export default function () {
+export const Example = () => {
   const [value, setValue] = React.useState(20);
   return (
     <Stack w="90%">
@@ -39,4 +39,4 @@ export default function () {
       </Slider>
     </Stack>
   );
-}
+};

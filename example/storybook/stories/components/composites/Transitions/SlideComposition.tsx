@@ -1,6 +1,6 @@
 import React from 'react';
 import { Slide, Button, Box, Center, Heading } from 'native-base';
-export default function () {
+export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -33,4 +33,4 @@ export default function () {
       </Slide>
     </>
   );
-}
+};

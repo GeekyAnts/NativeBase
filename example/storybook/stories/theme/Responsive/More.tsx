@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from 'native-base';
-export default () => {
+export const Example = () => {
   return (
     <>
       <Box

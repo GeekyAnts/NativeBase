@@ -9,6 +9,7 @@ import {
   IconButton,
 } from 'native-base';
 import { ScrollView } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 let countries = [
   'Afghanistan',
@@ -57,9 +58,9 @@ export function UsingHook() {
           {...getToggleButtonProps()}
           icon={
             isOpen ? (
-              <Icon name="arrow-drop-up" type="MaterialIcons" size={12} />
+              <Icon as={<MaterialIcons name="arrow-drop-up" />} size={12} />
             ) : (
-              <Icon name="arrow-drop-down" type="MaterialIcons" size={12} />
+              <Icon as={<MaterialIcons name="arrow-drop-down" />} size={12} />
             )
           }
         />

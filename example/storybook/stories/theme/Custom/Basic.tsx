@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading, VStack, NativeBaseProvider, extendTheme } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const theme = extendTheme({
     colors: {
       custom: {
@@ -27,4 +27,4 @@ export default function () {
       </VStack>
     </NativeBaseProvider>
   );
-}
+};

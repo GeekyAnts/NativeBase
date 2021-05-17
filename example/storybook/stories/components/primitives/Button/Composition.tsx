@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Button
       size="md"
@@ -13,4 +13,4 @@ export default function () {
       BUTTON
     </Button>
   );
-}
+};

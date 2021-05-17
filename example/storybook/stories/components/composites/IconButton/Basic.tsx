@@ -1,10 +1,12 @@
 import React from 'react';
 import { IconButton, Icon } from 'native-base';
-export default function () {
+import { AntDesign } from '@expo/vector-icons';
+
+export const Example = () => {
   return (
     <IconButton
       variant="solid"
-      icon={<Icon size="md" name={'search1'} type="AntDesign" color="white" />}
+      icon={<Icon size="md" as={<AntDesign name="search1" />} color="white" />}
     />
   );
-}
+};

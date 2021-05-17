@@ -2,18 +2,18 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Playground from './playground';
-import Disabled from './disabled';
-import Basic from './basic';
-import CustomColor from './customColor';
-import Size from './size';
-import CustomIcon from './customIcon';
-import Invalid from './invalid';
-import WithRef from './withRef';
-import FormControlled from './FormControlled';
-import CheckboxGroup from './checkboxGroup';
-import ControlledCheckbox from './controlledCheckbox';
-import UnControlledCheckbox from './uncontrolledCheckbox';
+import { Example as Playground } from './playground';
+import { Example as Disabled } from './disabled';
+import { Example as Basic } from './basic';
+import { Example as CustomColor } from './customColor';
+import { Example as Size } from './size';
+import { Example as CustomIcon } from './customIcon';
+import { Example as Invalid } from './invalid';
+import { Example as WithRef } from './withRef';
+import { Example as FormControlled } from './FormControlled';
+import { Example as CheckboxGroup } from './checkboxGroup';
+import { Example as ControlledCheckbox } from './controlledCheckbox';
+import { Example as UnControlledCheckbox } from './uncontrolledCheckbox';
 
 storiesOf('Checkbox', module)
   .addDecorator(withKnobs)

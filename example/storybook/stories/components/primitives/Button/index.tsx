@@ -1,14 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
-import ButtonGroup from './ButtonGroup';
-import WithRef from './WithRef';
-import Sizes from './sizes';
-import Basic from './basic';
-import Variants from './variants';
-import Loading from './loading';
-import Icons from './icons';
-import Composition from './Composition';
+import { Example as ButtonGroup } from './ButtonGroup';
+import { Example as WithRef } from './WithRef';
+import { Example as Sizes } from './sizes';
+import { Example as Basic } from './basic';
+import { Example as Variants } from './variants';
+import { Example as Loading } from './loading';
+import { Example as Icons } from './icons';
+import { Example as Composition } from './Composition';
 import Wrapper from './../../Wrapper';
 
 storiesOf('Button', module)

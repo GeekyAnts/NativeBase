@@ -5,7 +5,7 @@ import {
   useAccessibleColors,
   useTheme,
 } from 'native-base';
-export default function () {
+export const Example = () => {
   let [, , toggleAccessibleColors] = useAccessibleColors();
   const { colors } = useTheme();
   return (
@@ -28,4 +28,4 @@ export default function () {
       </Button>
     </>
   );
-}
+};

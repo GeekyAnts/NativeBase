@@ -2,7 +2,7 @@ import React from 'react';
 import { Alert, Box, CloseIcon, IconButton } from 'native-base';
 import { select } from '@storybook/addon-knobs';
 
-export default function () {
+export const Example = () => {
   return (
     <Box mx={3} w="90%">
       <Alert
@@ -26,4 +26,4 @@ export default function () {
       </Alert>
     </Box>
   );
-}
+};

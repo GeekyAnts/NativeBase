@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, Input, Stack, Text } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Stack width="90%" space={4} px={4}>
       <Text bold underline>
@@ -72,4 +72,4 @@ export default function () {
       </FormControl>
     </Stack>
   );
-}
+};

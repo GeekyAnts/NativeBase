@@ -2,7 +2,7 @@ import React from 'react';
 import { Spinner, Box, Heading } from 'native-base';
 import { select } from '@storybook/addon-knobs';
 
-export default function () {
+export const Example = () => {
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center">
       <Heading mb={3}>Playaround with Knobs</Heading>
@@ -30,4 +30,4 @@ export default function () {
       />
     </Box>
   );
-}
+};

@@ -14,10 +14,10 @@ const customTheme = extendTheme({
     },
   },
 });
-export default function () {
+export const Example = () => {
   return (
     <NativeBaseProvider theme={customTheme}>
       <Content />
     </NativeBaseProvider>
   );
-}
+};

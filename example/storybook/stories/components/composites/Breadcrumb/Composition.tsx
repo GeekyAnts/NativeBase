@@ -1,6 +1,12 @@
 import React from 'react';
 import { Breadcrumb, Box, Heading, Icon, Text, HStack } from 'native-base';
-export default function () {
+import {
+  MaterialCommunityIcons,
+  MaterialIcons,
+  AntDesign,
+} from '@expo/vector-icons';
+
+export const Example = () => {
   return (
     <Box>
       <Heading mb={4}>Breadcrumb Composition</Heading>
@@ -8,7 +14,7 @@ export default function () {
         <Breadcrumb.Item>
           <Breadcrumb.Link>
             <HStack>
-              <Icon name="home" mr={1} size="xs" />
+              <Icon as={<MaterialIcons name="home" />} mr={1} size="xs" />
               <Text>Home</Text>
             </HStack>
           </Breadcrumb.Link>
@@ -17,8 +23,7 @@ export default function () {
           <Breadcrumb.Link href="https://alpha.nativebase.io/" isExternal>
             <HStack>
               <Icon
-                name="file-document"
-                type="MaterialCommunityIcons"
+                as={<MaterialCommunityIcons name="file-document" />}
                 mr={1}
                 size="xs"
               />
@@ -33,7 +38,7 @@ export default function () {
             isExternal
           >
             <HStack>
-              <Icon name="github" type="AntDesign" mr={1} size="xs" />
+              <Icon as={<AntDesign name="github" />} mr={1} size="xs" />
               <Text>Github (This is currently active)</Text>
             </HStack>
           </Breadcrumb.Link>
@@ -41,4 +46,4 @@ export default function () {
       </Breadcrumb>
     </Box>
   );
-}
+};

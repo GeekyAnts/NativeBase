@@ -1,12 +1,13 @@
 import { Fab, Icon } from 'native-base';
 import React from 'react';
+import { AntDesign } from '@expo/vector-icons';
 
-export default function () {
+export const Example = () => {
   return (
     <Fab
       bottom={4}
       right={24}
-      icon={<Icon name="plus" color="white" type="AntDesign" />}
+      icon={<Icon color="white" as={<AntDesign name="plus" />} />}
     />
   );
-}
+};

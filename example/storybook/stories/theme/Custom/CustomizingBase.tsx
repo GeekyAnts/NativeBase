@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, extendTheme, Center, NativeBaseProvider } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const theme = extendTheme({
     components: {
       Text: {
@@ -26,4 +26,4 @@ export default function () {
       </Center>
     </NativeBaseProvider>
   );
-}
+};

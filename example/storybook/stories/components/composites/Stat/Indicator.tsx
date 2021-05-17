@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stat, Heading, Box } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Box>
       <Heading>Stat with Indicator</Heading>
@@ -25,4 +25,4 @@ export default function () {
       </Stat.Group>
     </Box>
   );
-}
+};

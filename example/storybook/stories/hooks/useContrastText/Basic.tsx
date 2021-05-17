@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, useContrastText } from 'native-base';
-export default function () {
+export const Example = () => {
   const bgDark = 'gray.900';
   const bgLight = 'gray.50';
   const colorContrastDark = useContrastText(bgDark);
@@ -16,4 +16,4 @@ export default function () {
       </Button>
     </>
   );
-}
+};

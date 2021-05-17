@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, FormControl, Radio } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Container>
       <FormControl isRequired isInvalid>
@@ -24,4 +24,4 @@ export default function () {
       </FormControl>
     </Container>
   );
-}
+};

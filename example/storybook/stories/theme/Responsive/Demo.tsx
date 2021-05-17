@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Text, Image, Heading, Stack } from 'native-base';
-export default () => {
+export const Example = () => {
   return (
     <Box
       flexDirection={{ base: 'column', md: 'row' }}

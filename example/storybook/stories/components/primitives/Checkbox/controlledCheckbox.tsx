@@ -1,7 +1,7 @@
 import React from 'react';
 import { Checkbox } from 'native-base';
 
-export default function ControlledCheckbox() {
+export const Example = () => {
   const [groupValues, setGroupValues] = React.useState<Array<string>>([]);
 
   return (
@@ -12,4 +12,4 @@ export default function ControlledCheckbox() {
       <Checkbox value="two">Two</Checkbox>
     </Checkbox.Group>
   );
-}
+};

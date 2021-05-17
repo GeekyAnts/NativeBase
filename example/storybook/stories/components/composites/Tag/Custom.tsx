@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tag, Avatar } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Tag colorScheme="emerald" size="sm" rounded={'full'}>
       <Avatar
@@ -15,4 +15,4 @@ export default function () {
       Nativebase
     </Tag>
   );
-}
+};

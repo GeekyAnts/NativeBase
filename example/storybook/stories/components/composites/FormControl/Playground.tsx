@@ -2,7 +2,7 @@ import React from 'react';
 import { FormControl, Input, Stack } from 'native-base';
 import { boolean } from '@storybook/addon-knobs';
 
-export default function () {
+export const Example = () => {
   return (
     <FormControl
       isRequired={boolean('isRequired', true)}
@@ -22,4 +22,4 @@ export default function () {
       </Stack>
     </FormControl>
   );
-}
+};

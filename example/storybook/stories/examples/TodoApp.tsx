@@ -11,7 +11,7 @@ import {
   Icon,
 } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const instState = [
     { title: 'code', isCompleted: true },
     { title: 'sleep', isCompleted: false },
@@ -92,4 +92,4 @@ export default function () {
       </VStack>
     </VStack>
   );
-}
+};

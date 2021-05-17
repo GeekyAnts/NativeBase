@@ -1,6 +1,6 @@
 import React from 'react';
 import { Breadcrumb, Box, Heading } from 'native-base';
-export default function () {
+export const Example = () => {
   return (
     <Box>
       <Heading mb={4}>Default Breadcrumb</Heading>
@@ -26,4 +26,4 @@ export default function () {
       </Breadcrumb>
     </Box>
   );
-}
+};

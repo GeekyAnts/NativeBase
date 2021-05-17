@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
-import Basic from './Basic';
+import { Example as Basic } from './Basic';
 
 storiesOf('useColorMode', module)
   .addDecorator(withKnobs)

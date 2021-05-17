@@ -1,7 +1,7 @@
 import React from 'react';
 import { Checkbox, Heading, HStack, VStack, Text, Box } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [groupValue, setGroupValue] = React.useState(['Item 1', 'Item 3']);
 
   const getSelectedGroupValue = () => {
@@ -53,4 +53,4 @@ export default function () {
       </VStack>
     </Box>
   );
-}
+};

@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar } from 'native-base';
 import { select, number, text } from '@storybook/addon-knobs';
 
-export default function () {
+export const Example = () => {
   return (
     <Avatar
       source={{
@@ -23,4 +23,4 @@ export default function () {
       />
     </Avatar>
   );
-}
+};

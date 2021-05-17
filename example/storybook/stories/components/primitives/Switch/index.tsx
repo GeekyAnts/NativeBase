@@ -2,11 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Basic from './Basic';
-import Sizes from './Sizes';
-import SwitchBgColor from './SwitchBgColor';
-import Accessibility from './Accessibility';
-import ColorSchemes from './ColorSchemes';
+import { Example as Basic } from './Basic';
+import { Example as Sizes } from './Sizes';
+import { Example as SwitchBgColor } from './SwitchBgColor';
+import { Example as Accessibility } from './Accessibility';
+import { Example as ColorSchemes } from './ColorSchemes';
 
 storiesOf('Switch', module)
   .addDecorator(withKnobs)

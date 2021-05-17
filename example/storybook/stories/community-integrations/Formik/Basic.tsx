@@ -13,7 +13,7 @@ function validateEmail(email: string) {
   return re.test(email);
 }
 
-export default function () {
+export const Example = () => {
   const formik = useFormik<IFormFields>({
     initialValues: {
       firstName: '',
@@ -75,7 +75,7 @@ export default function () {
         <FormControl.ErrorMessage>{errors.email}</FormControl.ErrorMessage>
       </FormControl>
 
-      <Button onPress={handleSubmit}>Submit</Button>
+      <Button onPress={() => handleSubmit}>Submit</Button>
     </>
   );
-}
+};

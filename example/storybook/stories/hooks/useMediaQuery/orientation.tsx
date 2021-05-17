@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, useMediaQuery } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [isLandScape, isPortrait] = useMediaQuery([
     { orientation: 'landscape' },
     { orientation: 'portrait' },
@@ -12,4 +12,4 @@ export default function () {
       <Text>{`Portrait Mode: ${isPortrait}`}</Text>
     </>
   );
-}
+};

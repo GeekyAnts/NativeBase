@@ -1,7 +1,7 @@
 import React from 'react';
 import { CircularProgress, Heading, Center, Box, Text } from 'native-base';
 import { number } from '@storybook/addon-knobs';
-export default function () {
+export const Example = () => {
   return (
     <Center>
       <Heading mb={6}>Adding Min and Max</Heading>
@@ -19,4 +19,4 @@ export default function () {
       </Box>
     </Center>
   );
-}
+};
