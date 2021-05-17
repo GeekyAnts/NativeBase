@@ -22,6 +22,7 @@ const Button = (
     _hover,
     _pressed,
     _focus,
+    _stack,
     ...resolvedProps
   } = usePropsResolution('Button', props);
 
@@ -80,7 +81,7 @@ const Button = (
           isLoading && isLoadingText ? isLoadingText : children;
 
         return (
-          <HStack space={2} alignItems="center">
+          <HStack {..._stack}>
             {startIcon && !isLoading ? startIcon : null}
             {isLoading ? (
               spinner ? (

@@ -49,6 +49,11 @@ export interface IButtonProps extends IPressableProps {
    * Props to style the child text
    */
   _text?: ITextProps;
+
+  /**
+   * Props to be passed to the HStack used inside of Button.
+   */
+  _stack?: IStackProps;
 }
 
 export interface IButtonGroupProps extends IStackProps {

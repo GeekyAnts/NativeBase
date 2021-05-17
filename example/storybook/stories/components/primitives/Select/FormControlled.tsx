@@ -1,5 +1,12 @@
 import React from 'react';
-import { FormControl, Select, VStack, Text, Container } from 'native-base';
+import {
+  FormControl,
+  Select,
+  VStack,
+  Text,
+  Container,
+  CheckIcon,
+} from 'native-base';
 
 export const Example = () => {
   const [value, setValue] = React.useState('js');
@@ -15,6 +22,10 @@ export const Example = () => {
           placeholder="Select your favorite programming language"
           onValueChange={(itemValue: string) => {
             setValue(itemValue);
+          }}
+          _selectedItem={{
+            bg: 'teal.600',
+            endIcon: <CheckIcon size={5} />,
           }}
           mt={1}
         >

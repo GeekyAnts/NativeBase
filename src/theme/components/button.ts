@@ -27,6 +27,10 @@ const baseStyle = (props: any) => {
     _focus: {
       style: props.variant !== 'unstyled' ? { ...focusRing } : {},
     },
+    _stack: {
+      space: 2,
+      alignItems: 'center',
+    },
   };
 };
 
