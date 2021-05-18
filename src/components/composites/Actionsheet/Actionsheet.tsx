@@ -26,7 +26,10 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
 
   const panResponder = React.useRef(
     PanResponder.create({
-      onMoveShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: (_evt, gestureState) => {
+        // return true if user is swiping, return false if it's a single click
+        return gestureState.dx !== 0 || gestureState.dy !== 0;
+      },
       onPanResponderMove: (e, gestureState) => {
         if (gestureState.dy > 0) {
           Animated.event([null, { dy: pan.y }])(e, gestureState);
@@ -70,7 +73,6 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
           transform: [{ translateY: pan.y }],
           width: '100%',
         }}
-        pointerEvents="box-none"
         onLayout={(event) => {
           const { height } = event.nativeEvent.layout;
           sheetHeight.current = height;

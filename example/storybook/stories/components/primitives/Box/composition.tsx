@@ -11,6 +11,8 @@ import {
   Stack,
   useColorModeValue,
 } from 'native-base';
+import { MaterialIcons, Ionicons } from '@expo/vector-icons';
+
 export const Example = () => {
   return (
     <Box width={72} bg={useColorModeValue('gray.50', 'gray.700')} shadow={1}>
@@ -74,18 +76,22 @@ export const Example = () => {
         </Text>
         <HStack alignItems="center" space={4} justifyContent="space-between">
           <HStack alignItems="center">
-            <Icon name="access-time" color="gray.500" size="sm" />
+            <Icon
+              as={<MaterialIcons name="access-time" />}
+              color="gray.500"
+              size="sm"
+            />
             <Text ml={1} color="gray.500" fontWeight="500">
               6 mins ago
             </Text>
           </HStack>
           <HStack alignItems="center">
             <Icon
-              name="ios-chatbubbles"
-              type="Ionicons"
+              as={<Ionicons name="ios-chatbubbles" />}
               color="gray.500"
               size="sm"
             />
+
             <Text ml={1} color="gray.500" fontWeight="500">
               39 comments
             </Text>

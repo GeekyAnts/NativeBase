@@ -10,7 +10,7 @@ const defaultProps = {
   rounded: 'full',
   zIndex: 20,
   placementProps,
-  p: 5,
+  p: 4,
   placement: 'bottom-right',
 };
 const baseStyle = {

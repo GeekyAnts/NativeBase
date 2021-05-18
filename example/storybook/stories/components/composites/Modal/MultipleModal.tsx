@@ -22,7 +22,7 @@ export const Example = () => {
                   setShowModal2(true);
                 }}
               >
-                Open nested modal
+                Open
               </Button>
               <Button
                 onPress={() => {
