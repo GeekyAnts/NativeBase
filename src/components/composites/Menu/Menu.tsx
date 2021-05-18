@@ -4,10 +4,7 @@ import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Popper } from '../Popper';
 import { ScrollView, StyleSheet } from 'react-native';
-import {
-  keyboardDismissHandlerManager,
-  useControllableState,
-} from '../../../hooks';
+import { useControllableState, useKeyboardDismissable } from '../../../hooks';
 import { useMenuTrigger, useMenu, useMenuTypeahead } from './useMenu';
 import Backdrop from '../Backdrop';
 import { OverlayContainer } from '@react-native-aria/overlays';
@@ -63,18 +60,10 @@ const Menu = (
     );
   };
 
-  React.useEffect(() => {
-    let cleanupFn = () => {};
-    if (isOpen) {
-      cleanupFn = keyboardDismissHandlerManager.push(handleClose);
-    } else {
-      cleanupFn();
-    }
-
-    return () => {
-      cleanupFn();
-    };
-  }, [isOpen, handleClose]);
+  useKeyboardDismissable({
+    enabled: isOpen,
+    callback: handleClose,
+  });
 
   return (
     <>

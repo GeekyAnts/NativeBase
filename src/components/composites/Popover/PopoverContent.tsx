@@ -1,5 +1,5 @@
 import {
-  keyboardDismissHandlerManager,
+  useKeyboardDismissable,
   usePropsResolution,
   useToken,
 } from '../../../hooks';
@@ -43,13 +43,10 @@ export const PopoverContent = React.forwardRef(
       };
     }, [finalFocusRef, initialFocusRef]);
 
-    React.useEffect(() => {
-      let removeHandler = () => {};
-      removeHandler = keyboardDismissHandlerManager.push(onClose);
-      return () => {
-        removeHandler();
-      };
-    }, [onClose]);
+    useKeyboardDismissable({
+      enabled: true,
+      callback: onClose,
+    });
 
     let arrowElement = null;
     let restChildren: any = [];
