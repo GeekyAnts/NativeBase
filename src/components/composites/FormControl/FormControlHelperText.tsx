@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFormControlContext } from './useFormControl';
 import type { IFormControlHelperTextProps } from './types';
 
-const FormHelperText = (
+const FormControlHelperText = (
   { children, _disabled, _invalid, ...props }: IFormControlHelperTextProps,
   ref: any
 ) => {
@@ -33,4 +33,4 @@ const FormHelperText = (
   );
 };
 
-export default React.memo(React.forwardRef(FormHelperText));
+export default memo(forwardRef(FormControlHelperText));

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFormControlContext } from './useFormControl';
 import type { IFormControlErrorMessageProps } from './types';
 
-const FormErrorMessage = (
+const FormControlErrorMessage = (
   { children, _disabled, ...props }: IFormControlErrorMessageProps,
   ref: any
 ) => {
@@ -33,4 +33,4 @@ const FormErrorMessage = (
   ) : null;
 };
 
-export default React.memo(React.forwardRef(FormErrorMessage));
+export default memo(forwardRef(FormControlErrorMessage));

@@ -2,7 +2,7 @@ import React from 'react';
 import { Radio } from 'native-base';
 
 export const Example = () => {
-  const myRef: any = React.useRef({});
+  const myRef = React.useRef({});
 
   return (
     <Radio.Group

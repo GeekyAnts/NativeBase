@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box from '../../primitives/Box';
 import Text from '../../primitives/Text';
 import { useFormControlContext } from './useFormControl';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IFormControlLabelProps } from './types';
 import { mergeRefs } from '../../../utils';
-import { Platform } from 'react-native';
-const FormLabel = (
+
+const FormControlLabel = (
   { children, _disabled, _invalid, ...props }: IFormControlLabelProps,
   ref: any
 ) => {
@@ -18,9 +18,10 @@ const FormLabel = (
   );
   const requiredAsterisk = () => (
     <Text
-      //@ts-ignore web only role
-      accessibilityRole={Platform.OS === 'web' ? 'presentation' : undefined}
-      accessibilityHidden
+      _web={{
+        accessibilityHidden: true,
+        accessibilityRole: 'presentation',
+      }}
       color={astrickColor}
     >
       *
@@ -41,7 +42,9 @@ const FormLabel = (
     <Box
       flexDirection="row"
       justifyContent="flex-start"
-      accessibilityRole={Platform.OS === 'web' ? 'label' : undefined}
+      _web={{
+        accessibilityRole: 'label',
+      }}
       {...themedProps}
       nativeID={formControlContext?.labelId}
       {...props}
@@ -54,4 +57,4 @@ const FormLabel = (
     </Box>
   );
 };
-export default React.memo(React.forwardRef(FormLabel));
+export default memo(forwardRef(FormControlLabel));

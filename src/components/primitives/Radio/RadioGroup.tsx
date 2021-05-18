@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box from '../Box';
 import { useFormControlContext } from '../../composites/FormControl';
 import type { IRadioContext, IRadioGroupProps } from './types';
@@ -38,4 +38,4 @@ const RadioGroup = (
   );
 };
 
-export default React.memo(React.forwardRef(RadioGroup));
+export default memo(forwardRef(RadioGroup));

@@ -1,7 +1,7 @@
 import { default as FormControlBase } from './FormControl';
-import { default as FormControlLabel } from './FormLabel';
-import { default as FormControlErrorMessage } from './FormErrorMessage';
-import { default as FormControlHelperText } from './FormHelperText';
+import { default as FormControlLabel } from './FormControlLabel';
+import { default as FormControlErrorMessage } from './FormControlErrorMessage';
+import { default as FormControlHelperText } from './FormControlHelperText';
 import type { FormControlComponentType } from './types';
 
 let FormControlTemp: any = FormControlBase;

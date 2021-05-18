@@ -2,9 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Usage from './Usage';
-import CustomStyle from './CustomStyle';
-import Playground from './Playground';
+import { Example as Usage } from './Usage';
+import { Example as CustomStyle } from './CustomStyle';
+import { Example as Playground } from './Playground';
 
 storiesOf('FormControl', module)
   .addDecorator(withKnobs)

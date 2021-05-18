@@ -1,9 +1,8 @@
 import React from 'react';
 import { Radio } from 'native-base';
-import type { IRadioValue } from 'native-base';
 
 export const Example = () => {
-  const [value, setValue] = React.useState<IRadioValue>('one');
+  const [value, setValue] = React.useState('one');
 
   return (
     <Radio.Group
