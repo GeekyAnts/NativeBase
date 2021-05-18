@@ -13,10 +13,10 @@ export const Example = () => {
         <Slider
           defaultValue={70}
           colorScheme="cyan"
-          onChange={(v: any) => {
+          onChange={(v) => {
             setOnChangeValue(Math.floor(v));
           }}
-          onChangeEnd={(v: any) => {
+          onChangeEnd={(v) => {
             v && setOnChangeEndValue(Math.floor(v));
           }}
         >
