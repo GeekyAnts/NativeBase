@@ -2,26 +2,47 @@ import type { ITextProps } from '../../primitives/Text';
 import type { IBoxProps } from '../../primitives/Box';
 import type { ImageSourcePropType } from 'react-native';
 
-export type IAvatarProps = IBoxProps & {
+export interface IAvatarProps extends IBoxProps {
+  /**
+   * Text styling for fallback text
+   */
   _text?: ITextProps;
+  /**
+   * Style to be passed in rendered Image component
+   */
   style?: any;
-  size?: string | undefined;
+  /**
+   * The image source of the avatar.
+   */
   source?: ImageSourcePropType;
-  children?: JSX.Element[] | JSX.Element | any | undefined | string;
+
+  /**
+   * The size of the avatar
+   * @default md
+   */
+  size?: '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | string | number;
+  /**
+   * ref to be attached to Avatar wrapper
+   */
   wrapperRef?: any;
-};
+}
 
-export type IAvatarBadgeProps = IBoxProps & {
-  bg?: string;
-  boxSize?: number;
-  borderColor?: string;
-};
+export interface IAvatarBadgeProps extends IBoxProps {}
 
-export type IAvatarGroupProps = IAvatarProps & {
+export interface IAvatarGroupProps extends IAvatarProps {
+  /**
+   * Avatar children
+   */
   children?: JSX.Element[] | JSX.Element;
+  /**
+   * The distance each avatar.
+   */
   space?: number;
+  /**
+   * The max number of avatar.
+   */
   max?: number;
-};
+}
 
 export type IAvatarComponentType = ((
   props: IAvatarProps & { ref?: any }

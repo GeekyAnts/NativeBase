@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarBadgeProps } from './types';
@@ -17,6 +17,6 @@ const AvatarBadgeImpl = (props: IAvatarBadgeProps, ref?: any) => {
     />
   );
 };
-const AvatarBadge = React.memo(React.forwardRef(AvatarBadgeImpl));
+const AvatarBadge = memo(forwardRef(AvatarBadgeImpl));
 AvatarBadge.displayName = 'AvatarBadge';
 export default AvatarBadge;
