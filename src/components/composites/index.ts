@@ -26,7 +26,7 @@ export { default as Drawer } from './Drawer';
 export { useToast } from './Toast';
 
 export { default as Divider } from './Divider';
-export type { IDividerProps } from './Divider';
+export type { IDividerProps } from './Divider/types';
 
 export { default as Progress } from './Progress';
 
