@@ -14,13 +14,11 @@ const ScaleFade = (
 
   return (
     <Transition
-      from={{ opacity: 0, scale: initialScale }}
-      entry={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: initialScale }}
+      initial={{ opacity: 0, scale: initialScale }}
+      entry={{ opacity: 1, scale: 1, transition: { duration } }}
+      exit={{ opacity: 0, scale: initialScale, transition: { duration } }}
       style={style}
       visible={animationState}
-      exitTransition={{ duration }}
-      entryTransition={{ duration }}
       ref={ref}
     >
       {children}

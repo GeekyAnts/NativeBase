@@ -70,13 +70,11 @@ const Menu = (
       {updatedTrigger()}
       <OverlayContainer>
         <Transition
-          from={{ opacity: 0 }}
-          entry={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          entry={{ opacity: 1, transition: { duration: 150 } }}
+          exit={{ opacity: 0, transition: { duration: 150 } }}
           visible={isOpen}
           style={StyleSheet.absoluteFill}
-          entryTransition={{ duration: 150 }}
-          exitTransition={{ duration: 100 }}
         >
           <Popper
             triggerRef={triggerRef}

@@ -10,13 +10,11 @@ const Fade = ({ children, style, ...props }: IFadeProps, ref?: any) => {
   );
   return (
     <Transition
-      from={{ opacity: 0 }}
-      entry={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      entry={{ opacity: 1, transition: { duration: entryDuration } }}
+      exit={{ opacity: 0, transition: { duration: exitDuration } }}
       style={style}
       visible={animationState}
-      exitTransition={{ duration: exitDuration }}
-      entryTransition={{ duration: entryDuration }}
       ref={ref}
     >
       {children}

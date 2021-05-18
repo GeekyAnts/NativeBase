@@ -192,13 +192,11 @@ export const Tooltip = ({
       {isOpen && (
         <OverlayContainer>
           <Transition
-            from={{ opacity: 0 }}
-            entry={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            entry={{ opacity: 1, transition: { duration: 150 } }}
+            exit={{ opacity: 0, transition: { duration: 100 } }}
             visible={isOpen}
             style={StyleSheet.absoluteFill}
-            exitTransition={{ duration: 100 }}
-            entryTransition={{ duration: 150 }}
           >
             <Popper
               triggerRef={targetRef}

@@ -37,36 +37,37 @@ type ITransitionConfig = {
 
 interface ITransitionProps extends ViewProps {
   onTransitionComplete?: (s: 'entered' | 'exited') => void;
-  from: ISupportedTransitions;
-  entry: ISupportedTransitions;
-  exit: ISupportedTransitions;
-  exitTransition?: ITransitionConfig;
-  entryTransition?: ITransitionConfig;
-  transition?: ITransitionConfig;
+  initial: ISupportedTransitions;
+  entry: ISupportedTransitions & { transition?: ITransitionConfig };
+  exit: ISupportedTransitions & { transition?: ITransitionConfig };
   children?: any;
   visible?: boolean;
 }
 
 const getAnimatedStyles = (animateValue: any) => (
-  from: ISupportedTransitions,
+  initial: ISupportedTransitions,
   to: ISupportedTransitions
 ) => {
   const styles: any = {
     transform: [],
   };
 
-  for (let key in from) {
+  for (let key in initial) {
+    if (key === 'transition') {
+      continue;
+    }
+
     if (key in transformStylesMap) {
       styles.transform?.push({
         [key]: animateValue.interpolate({
           inputRange: [0, 1],
-          outputRange: [(from as any)[key], (to as any)[key]],
+          outputRange: [(initial as any)[key], (to as any)[key]],
         }),
       } as any);
     } else {
       styles[key] = animateValue.interpolate({
         inputRange: [0, 1],
-        outputRange: [(from as any)[key], (to as any)[key]],
+        outputRange: [(initial as any)[key], (to as any)[key]],
       });
     }
   }
@@ -89,12 +90,9 @@ export const Transition = forwardRef(
       children,
       onTransitionComplete,
       visible = false,
-      from,
+      initial,
       entry,
       exit,
-      transition = defaultTransitionConfig,
-      entryTransition = defaultEntryTransition,
-      exitTransition = defaultExitTransition,
       style,
     }: ITransitionProps,
     ref: any
@@ -105,21 +103,14 @@ export const Transition = forwardRef(
       visible ? 'entering' : 'exited'
     );
 
-    entryTransition = {
-      ...defaultEntryTransition,
-      ...transition,
-      ...entryTransition,
-    };
-
-    exitTransition = {
-      ...defaultExitTransition,
-      ...transition,
-      ...exitTransition,
-    };
-
     const prevVisible = React.useRef(visible);
 
     React.useEffect(() => {
+      const entryTransition = {
+        ...defaultEntryTransition,
+        ...entry?.transition,
+      };
+
       if (visible) {
         Animated[entryTransition.type ?? 'timing'](animateValue, {
           toValue: 1,
@@ -130,7 +121,7 @@ export const Transition = forwardRef(
           setAnimationState('entered');
         });
       }
-    }, [visible, onTransitionComplete, animateValue, entryTransition]);
+    }, [visible, onTransitionComplete, animateValue, entry]);
 
     React.useEffect(() => {
       // Exit request
@@ -141,6 +132,11 @@ export const Transition = forwardRef(
     }, [visible]);
 
     React.useEffect(() => {
+      const exitTransition = {
+        ...defaultExitTransition,
+        ...exit?.transition,
+      };
+
       if (animationState === 'exiting') {
         Animated[exitTransition.type ?? 'timing'](animateValue, {
           toValue: 0,
@@ -152,7 +148,7 @@ export const Transition = forwardRef(
         });
       }
     }, [
-      exitTransition,
+      exit,
       onTransitionComplete,
       setAnimationState,
       animationState,
@@ -163,11 +159,11 @@ export const Transition = forwardRef(
       return null;
     }
 
-    // If exit animation is present and state is exiting, we replace 'from' with 'exit' animation
-    from =
+    // If exit animation is present and state is exiting, we replace 'initial' with 'exit' animation
+    initial =
       animationState === 'exiting' && exit
         ? { ...defaultStyles, ...exit }
-        : { ...defaultStyles, ...from };
+        : { ...defaultStyles, ...initial };
 
     entry = { ...defaultStyles, ...entry };
 
@@ -176,7 +172,7 @@ export const Transition = forwardRef(
         pointerEvents="box-none"
         // https://github.com/facebook/react-native/issues/23090#issuecomment-710803743
         needsOffscreenAlphaCompositing
-        style={[getAnimatedStyles(animateValue)(from, entry), style]}
+        style={[getAnimatedStyles(animateValue)(initial, entry), style]}
         ref={ref}
       >
         {children}
