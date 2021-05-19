@@ -9,10 +9,10 @@ import {
   Rect as RnRect,
 } from 'react-native-svg';
 
-export const Svg = (props: any) => <RnSvg {...props} tabindex={-1} />;
-export const G = (props: any) => <RnG {...props} tabindex={-1} />;
-export const Path = (props: any) => <RnPath {...props} tabindex={-1} />;
-export const Polygon = (props: any) => <RnPolygon {...props} tabindex={-1} />;
-export const Line = (props: any) => <RnLine {...props} tabindex={-1} />;
-export const Circle = (props: any) => <RnCircle {...props} tabindex={-1} />;
-export const Rect = (props: any) => <RnRect {...props} tabindex={-1} />;
+export const Svg = (props: any) => <RnSvg tabindex={-1} {...props} />;
+export const G = (props: any) => <RnG tabindex={-1} {...props} />;
+export const Path = (props: any) => <RnPath tabindex={-1} {...props} />;
+export const Polygon = (props: any) => <RnPolygon tabindex={-1} {...props} />;
+export const Line = (props: any) => <RnLine tabindex={-1} {...props} />;
+export const Circle = (props: any) => <RnCircle tabindex={-1} {...props} />;
+export const Rect = (props: any) => <RnRect tabindex={-1} {...props} />;
