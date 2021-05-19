@@ -57,6 +57,7 @@ const Switch = (
     offTrackColor: _offTrackColor,
     onThumbColor: _onThumbColor,
     offThumbColor: _offThumbColor,
+    style: themeStyle,
     _hover,
     ...newProps
   } = usePropsResolution('Switch', props);
@@ -73,8 +74,8 @@ const Switch = (
   };
 
   let computedStyle: ViewStyle = StyleSheet.flatten([
+    themeStyle,
     style,
-    { transform: newProps.transform ?? undefined },
     isInvalid ? inValidPropFactors : {},
   ]);
 

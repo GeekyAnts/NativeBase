@@ -24,6 +24,9 @@ export const ActionsheetItem = {
     _pressed: {
       bg: mode('gray.200', 'gray.600')(props),
     },
+    _hover: {
+      bg: mode('gray.100', 'gray.600')(props),
+    },
   }),
   defaultProps: {
     variant: 'unstyled',
