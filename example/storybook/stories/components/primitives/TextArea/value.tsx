@@ -3,7 +3,7 @@ import { TextArea, Stack } from 'native-base';
 
 export const Example = () => {
   const [textAreaValue, setTextAreaValue] = useState('Value Controlled');
-  const demoValueControlledTextArea = (e: any) => {
+  const demoValueControlledTextArea = (e) => {
     setTextAreaValue(e.currentTarget.value);
   };
   return (

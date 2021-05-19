@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import InputBase from './InputBase';
 import InputAdvanced from './InputAdvanced';
 import type { IInputProps } from './types';
@@ -18,4 +18,4 @@ const Input = (props: IInputProps, ref: any) => {
   else return <InputBase {...props} ref={ref} inputProps={inputProps} />;
 };
 
-export default React.memo(React.forwardRef(Input));
+export default memo(forwardRef(Input));

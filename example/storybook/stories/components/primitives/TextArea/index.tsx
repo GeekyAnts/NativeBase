@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import { Example as TextArea } from './example';
+import { Example as TextArea } from './basic';
 import { Example as Invalid } from './invalid';
 import { Example as Size } from './size';
 import { Example as Value } from './value';

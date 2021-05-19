@@ -34,7 +34,7 @@ export interface IRadioProps extends IBoxProps {
    */
   icon?: JSX.Element;
   /**
-   *
+   * Ref to be passed to Icon's wrapper Box
    */
   wrapperRef?: any;
 }
