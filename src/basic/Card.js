@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
+import React,{ useRef } from 'react';
 import PropTypes from 'prop-types';
 import { FlatList, View, ViewPropTypes } from 'react-native';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
-class Card extends Component {
-  render() {
-    if (this.props.dataArray && this.props.renderRow) {
+const Card=(props)=> {
+  const root = useRef(null);
+    if (props.dataArray && props.renderRow) {
       return (
         <FlatList
-          {...this.props}
-          data={this.props.dataArray}
-          renderItem={this.props.renderRow}
+          {...props}
+          data={props.dataArray}
+          renderItem={props.renderRow}
           keyExtractor={(item, index) => index.toString()}
         />
       );
     }
     return (
-      <View ref={c => (this._root = c)} {...this.props}>
-        {this.props.children}
+      <View ref={root} {...props}>
+        {props.children}
       </View>
     );
-  }
+  
 }
 
 Card.propTypes = {
