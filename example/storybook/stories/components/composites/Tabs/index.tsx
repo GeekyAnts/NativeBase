@@ -2,16 +2,16 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from '../../Wrapper';
-import Usage from './Usage';
-import Controlled from './Controlled';
-import TabBarOnly from './TabBarOnly';
-import FittedTab from './FittedTab';
-import TabAlignment from './TabAlignment';
-import IconTabs from './IconTabs';
-import Size from './Size';
-import Colors from './Colors';
-import Composition from './Composition';
-import Variants from './Variants';
+import { Example as Usage } from './Usage';
+import { Example as Controlled } from './Controlled';
+import { Example as TabBarOnly } from './TabBarOnly';
+import { Example as FittedTab } from './FittedTab';
+import { Example as TabAlignment } from './TabAlignment';
+import { Example as IconTabs } from './IconTabs';
+import { Example as Size } from './Size';
+import { Example as Colors } from './Colors';
+import { Example as Composition } from './Composition';
+import { Example as Variants } from './Variants';
 
 storiesOf('Tabs', module)
   .addDecorator(withKnobs)
