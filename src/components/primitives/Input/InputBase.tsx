@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { TextInput, Platform } from 'react-native';
 import styled from 'styled-components/native';
 import {
@@ -131,4 +131,4 @@ const InputBase = (
   );
 };
 
-export default React.memo(React.forwardRef(InputBase));
+export default memo(forwardRef(InputBase));
