@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { useToken, usePropsResolution } from '../../../hooks';
 import styled from 'styled-components/native';
 import {
@@ -103,4 +103,4 @@ const ChildPath = ({ element, fill, stroke: pathStroke }: any) => {
     stroke: pathStrokeColor,
   });
 };
-export default React.memo(React.forwardRef(SVGIcon));
+export default memo(forwardRef(SVGIcon));

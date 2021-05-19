@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { useToken, usePropsResolution } from '../../../hooks';
 import type { IIconProps } from './types';
 import SVGIcon from './SVGIcon';
@@ -21,4 +21,4 @@ const Icon = ({ as, ...props }: IIconProps, ref?: any) => {
   return <Box {...resolvedProps}>{asWithProps}</Box>;
 };
 
-export default React.memo(React.forwardRef(Icon));
+export default memo(forwardRef(Icon));
