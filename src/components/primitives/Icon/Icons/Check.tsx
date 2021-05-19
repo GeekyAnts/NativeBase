@@ -1,6 +1,6 @@
 import React from 'react';
 import { createIcon } from '../createIcon';
-import { G, Polygon } from 'react-native-svg';
+import { G, Polygon } from '../nbSvg';
 
 export const CheckIcon = createIcon({
   viewBox: '0 0 14 14',

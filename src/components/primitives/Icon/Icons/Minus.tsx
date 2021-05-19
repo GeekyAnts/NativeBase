@@ -1,6 +1,6 @@
 import React from 'react';
 import { createIcon } from '../createIcon';
-import { G, Rect } from 'react-native-svg';
+import { G, Rect } from '../nbSvg';
 
 export const MinusIcon = createIcon({
   path: (
