@@ -1,6 +1,6 @@
 import React from 'react';
 import { createIcon } from '../createIcon';
-import { G, Line, Circle } from 'react-native-svg';
+import { G, Line, Circle } from '../nbSvg';
 
 export const InfoOutlineIcon = createIcon({
   viewBox: '0 0 24 24',

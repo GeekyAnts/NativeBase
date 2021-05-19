@@ -20,7 +20,7 @@ import {
   customTypography,
   customPosition,
 } from '../../../utils/customProps';
-import { Svg, G } from 'react-native-svg';
+import { Svg, G } from './nbSvg';
 import type { IIconProps } from './types';
 import { QuestionOutlineIcon } from './Icons';
 

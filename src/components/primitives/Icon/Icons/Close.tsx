@@ -1,6 +1,6 @@
 import React from 'react';
 import { createIcon } from '../createIcon';
-import { Path } from 'react-native-svg';
+import { Path } from '../nbSvg';
 
 export const CloseIcon = createIcon({
   viewBox: '0 0 24 24',
