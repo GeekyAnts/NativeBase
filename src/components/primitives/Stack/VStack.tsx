@@ -10,9 +10,9 @@ export interface IVStackProps extends IStackProps {
   direction?: ResponsiveValue<'column' | 'row'>;
 }
 
-const HStack = (props: IVStackProps, ref?: any) => {
+const VStack = (props: IVStackProps, ref?: any) => {
   const newProps = usePropsResolution('VStack', props);
   return <StackMain ref={ref} {...newProps} />;
 };
 
-export default memo(forwardRef(HStack));
+export default memo(forwardRef(VStack));
