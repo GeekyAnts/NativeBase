@@ -1,6 +1,6 @@
 import React from 'react';
 import SVGIcon from './SVGIcon';
-import { Path } from 'react-native-svg';
+import { Path } from './nbSvg';
 import type { ICreateIconProps } from './types';
 import isEmpty from 'lodash.isempty';
 

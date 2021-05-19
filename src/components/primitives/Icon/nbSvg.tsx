@@ -9,24 +9,10 @@ import {
   Rect as RnRect,
 } from 'react-native-svg';
 
-export const Svg = ({ style, ...props }: any) => (
-  <RnSvg {...props} style={[{ tabIndex: false }, style]} />
-);
-export const G = ({ style, ...props }: any) => (
-  <RnG {...props} style={[{ tabIndex: false }, style]} />
-);
-export const Path = ({ style, ...props }: any) => (
-  <RnPath {...props} style={[{ tabIndex: false }, style]} />
-);
-export const Polygon = ({ style, ...props }: any) => (
-  <RnPolygon {...props} style={[{ tabIndex: false }, style]} />
-);
-export const Line = ({ style, ...props }: any) => (
-  <RnLine {...props} style={[{ tabIndex: false }, style]} />
-);
-export const Circle = ({ style, ...props }: any) => (
-  <RnCircle {...props} style={[{ tabIndex: false }, style]} />
-);
-export const Rect = ({ style, ...props }: any) => (
-  <RnRect {...props} style={[{ tabIndex: false }, style]} />
-);
+export const Svg = (props: any) => <RnSvg {...props} tabindex={-1} />;
+export const G = (props: any) => <RnG {...props} tabindex={-1} />;
+export const Path = (props: any) => <RnPath {...props} tabindex={-1} />;
+export const Polygon = (props: any) => <RnPolygon {...props} tabindex={-1} />;
+export const Line = (props: any) => <RnLine {...props} tabindex={-1} />;
+export const Circle = (props: any) => <RnCircle {...props} tabindex={-1} />;
+export const Rect = (props: any) => <RnRect {...props} tabindex={-1} />;
