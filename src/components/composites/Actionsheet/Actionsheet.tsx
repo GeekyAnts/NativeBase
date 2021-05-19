@@ -3,7 +3,7 @@ import { Modal } from '../../composites/Modal';
 import type { IActionsheetProps } from './types';
 import { usePropsResolution } from '../../../hooks';
 import { Animated, PanResponder } from 'react-native';
-console.disableYellowBox = true;
+
 const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
   const { isOpen, disableOverlay, onClose, ...newProps } = usePropsResolution(
     'Actionsheet',
