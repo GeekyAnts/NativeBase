@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { useToggleState } from '@react-stately/toggle';
 import { StyleSheet, ViewStyle, Switch as RNSwitch } from 'react-native';
 import styled from 'styled-components/native';
@@ -57,6 +57,7 @@ const Switch = (
     offTrackColor: _offTrackColor,
     onThumbColor: _onThumbColor,
     offThumbColor: _offThumbColor,
+    style: themeStyle,
     _hover,
     ...newProps
   } = usePropsResolution('Switch', props);
@@ -73,8 +74,8 @@ const Switch = (
   };
 
   let computedStyle: ViewStyle = StyleSheet.flatten([
+    themeStyle,
     style,
-    { transform: newProps.transform ?? undefined },
     isInvalid ? inValidPropFactors : {},
   ]);
 
@@ -101,5 +102,5 @@ const Switch = (
   );
 };
 
-export default React.memo(React.forwardRef(Switch));
+export default memo(forwardRef(Switch));
 export type { ISwitchProps };

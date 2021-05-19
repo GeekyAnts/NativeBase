@@ -9,7 +9,7 @@ import {
 } from 'native-base';
 import { boolean, number, text } from '@storybook/addon-knobs';
 
-export default function () {
+export const Example = () => {
   return (
     <Stack w="90%">
       <NumberInput
@@ -28,4 +28,4 @@ export default function () {
       </NumberInput>
     </Stack>
   );
-}
+};

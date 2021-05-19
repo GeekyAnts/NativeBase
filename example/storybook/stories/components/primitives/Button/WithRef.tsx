@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from 'native-base';
 
-export default function () {
-  const myRef: any = React.useRef({});
+export const Example = () => {
+  const myRef = React.useRef({});
   React.useEffect(() => {
     myRef?.current.setNativeProps({
       borderWidth: 10,
@@ -15,4 +15,4 @@ export default function () {
       BUTTON
     </Button>
   );
-}
+};

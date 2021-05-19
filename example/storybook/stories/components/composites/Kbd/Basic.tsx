@@ -1,7 +1,7 @@
 import React from 'react';
 import { VStack, HStack, Kbd, Text } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={8}>
       <HStack>
@@ -21,4 +21,4 @@ export default function () {
       </HStack>
     </VStack>
   );
-}
+};

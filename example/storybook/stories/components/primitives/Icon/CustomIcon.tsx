@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from 'native-base';
 import { Path, G } from 'react-native-svg';
-export default function () {
+export const Example = () => {
   return (
     <Icon viewBox="0 0 870 873">
       <G fillRule="nonzero" stroke="none" strokeWidth={1} fill="none">
@@ -22,4 +22,4 @@ export default function () {
       </G>
     </Icon>
   );
-}
+};

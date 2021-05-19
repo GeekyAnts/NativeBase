@@ -7,36 +7,77 @@ export type IRadioValue = string;
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
 
-export type IRadioProps = IBoxProps & {
+export interface IRadioProps extends IBoxProps {
+  /**
+   * The value to be used in the radio input. This is the value that will be returned on form submission
+   */
   value: IRadioValue;
+  /**
+   * The color of the radio. This should be one of the color keys in the theme (e.g."green", "red").
+   * @default 'priamry'
+   */
   colorScheme?: string | 'default';
+  /**
+   * 	If true, the radio will be disabled
+   */
   isDisabled?: boolean;
+  /**
+   * If true, the radio is marked as invalid. Changes style of unchecked state.
+   */
   isInvalid?: boolean;
+  /**
+   * 	The size (width and height) of the radio.
+   */
   size?: 'sm' | 'md' | 'lg';
+  /**
+   * If given, will use this icon instead of the default.
+   */
   icon?: JSX.Element;
-  style?: any;
-  ref?: any;
+  /**
+   * Ref to be passed to Icon's wrapper Box
+   */
   wrapperRef?: any;
-};
-export type IRadioGroupProps = IBoxProps & {
+}
+export interface IRadioGroupProps extends IBoxProps {
+  /**
+   * The value of the radio group.
+   */
   value?: IRadioValue;
+  /**
+   * The name of the input field in a radio (Useful for form submission).
+   */
   name: string;
+  /**
+   * The initial value of the radio group.
+   */
   defaultValue?: IRadioValue;
+  /**
+   * The color of the radios. This should be one of the color keys in the theme (e.g."green", "red").
+   * @default 'priamry'
+   */
   colorScheme?: string;
+  /**
+   * 	The size (width and height) of the radio.
+   */
   size?: 'sm' | 'md' | 'lg';
-  children?:
-    | React.ReactElement<IRadioProps>
-    | React.ReactElement<IRadioProps>[];
+  /**
+   *
+   */
+  // TODO: removing
+  // children?:
+  //   | React.ReactElement<IRadioProps>
+  //   | React.ReactElement<IRadioProps>[];
+  /**
+   * The callback fired when any children radio is checked or unchecked.
+   */
   onChange?: IRadioGroupOnChangeHandler;
-  style?: any;
-};
-export type IRadioContext = IFormControlContext & {
+}
+export interface IRadioContext extends IFormControlContext {
   colorScheme?: string;
   size?: 'sm' | 'md' | 'lg';
-  // Custom props
   style?: any;
   state: RadioGroupState;
-};
+}
 
 export type IUseRadioGroupReturnType = {
   radioGroupProps: {

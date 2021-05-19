@@ -1,20 +1,39 @@
-import React from 'react';
-import type { ViewStyle } from 'react-native';
+import React, { memo, forwardRef } from 'react';
 import { Box, IBoxProps } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
-type SpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-
-export type IProgressProps = IBoxProps & {
-  style?: ViewStyle;
-  children?: JSX.Element | JSX.Element[] | string;
+export interface IProgressProps extends IBoxProps {
+  /**
+   * Value of Progress.
+   * @default 0
+   */
   value?: number;
-  size?: SpaceType | string;
+  /**
+   * Defines height of Progress
+   * @default sm
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | string;
+  /**
+   * The color scheme of the progress. This should be one of the color keys in the theme (e.g."green", "red").
+   * @default primary
+   */
   colorScheme?: string;
+  /**
+   * Whether progress is indeterminate
+   * @default false
+   */
   isIndeterminate?: any;
+  /**
+   * Min progress value
+   * @default 0
+   */
   min?: number;
+  /**
+   * Max progress value
+   * @default 100
+   */
   max?: number;
-};
+}
 
 const Progress = (props: IProgressProps, ref?: any) => {
   // const width = new Animated.Value(0);
@@ -90,4 +109,4 @@ const Progress = (props: IProgressProps, ref?: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(Progress));
+export default memo(forwardRef(Progress));

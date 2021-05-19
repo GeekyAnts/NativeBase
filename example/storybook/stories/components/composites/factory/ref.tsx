@@ -2,7 +2,7 @@ import React from 'react';
 import { Stack, Factory, Button } from 'native-base';
 import { TextInput } from 'react-native';
 
-export default function () {
+export const Example = () => {
   const NBInput = Factory(TextInput);
   const inputRef: any = React.useRef(null);
   return (
@@ -25,4 +25,4 @@ export default function () {
       </Button>
     </Stack>
   );
-}
+};

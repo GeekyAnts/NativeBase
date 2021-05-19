@@ -1,9 +1,6 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
-import {
-  keyboardDismissHandlerManager,
-  useControllableState,
-} from '../../../hooks';
+import { useControllableState, useKeyboardDismissable } from '../../../hooks';
 import { Popper } from '../Popper';
 import { composeEventHandlers, mergeRefs } from '../../../utils';
 import { Transition } from '../Transitions';
@@ -184,18 +181,10 @@ export const Tooltip = ({
     'aria-describedby': isOpen ? tooltipID : undefined,
   });
 
-  React.useEffect(() => {
-    let cleanupFn = () => {};
-    if (isOpen) {
-      cleanupFn = keyboardDismissHandlerManager.push(() => setIsOpen(false));
-    } else {
-      cleanupFn();
-    }
-
-    return () => {
-      cleanupFn();
-    };
-  }, [isOpen, setIsOpen]);
+  useKeyboardDismissable({
+    enabled: true,
+    callback: () => setIsOpen(false),
+  });
 
   return (
     <>
@@ -203,13 +192,11 @@ export const Tooltip = ({
       {isOpen && (
         <OverlayContainer>
           <Transition
-            from={{ opacity: 0 }}
-            entry={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            entry={{ opacity: 1, transition: { duration: 150 } }}
+            exit={{ opacity: 0, transition: { duration: 100 } }}
             visible={isOpen}
             style={StyleSheet.absoluteFill}
-            exitTransition={{ duration: 100 }}
-            entryTransition={{ duration: 150 }}
           >
             <Popper
               triggerRef={targetRef}

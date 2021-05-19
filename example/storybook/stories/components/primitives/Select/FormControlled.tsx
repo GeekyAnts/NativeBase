@@ -1,7 +1,14 @@
 import React from 'react';
-import { FormControl, Select, VStack, Text, Container } from 'native-base';
+import {
+  FormControl,
+  Select,
+  VStack,
+  Text,
+  Container,
+  CheckIcon,
+} from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [value, setValue] = React.useState('js');
 
   return (
@@ -13,8 +20,12 @@ export default function () {
           minWidth={200}
           accessibilityLabel="Select your favorite programming language"
           placeholder="Select your favorite programming language"
-          onValueChange={(itemValue: string) => {
+          onValueChange={(itemValue) => {
             setValue(itemValue);
+          }}
+          _selectedItem={{
+            bg: 'teal.600',
+            endIcon: <CheckIcon size={5} />,
           }}
           mt={1}
         >
@@ -38,4 +49,4 @@ export default function () {
       </VStack>
     </Container>
   );
-}
+};

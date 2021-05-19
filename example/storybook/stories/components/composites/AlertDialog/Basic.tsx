@@ -2,7 +2,7 @@ import React from 'react';
 import { AlertDialog, Button, Center } from 'native-base';
 import type { TouchableOpacity } from 'react-native';
 
-export default function () {
+export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
   const cancelRef = React.useRef<TouchableOpacity>(null);
@@ -37,4 +37,4 @@ export default function () {
       </AlertDialog>
     </Center>
   );
-}
+};

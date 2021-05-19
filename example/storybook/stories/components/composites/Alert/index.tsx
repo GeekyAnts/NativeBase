@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Playground from './knobEnabled';
+import { Example as Playground } from './knobEnabled';
 import { Example as Composition } from './composition';
 import { Example as Basic } from './basic';
 import { Example as Variant } from './variant';

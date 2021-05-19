@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrap, Center } from 'native-base';
-export default function () {
+export const Example = () => {
   return (
     <Wrap space={10} direction="row">
       <Center w="180px" h="80px" bg="primary.400">
@@ -17,4 +17,4 @@ export default function () {
       </Center>
     </Wrap>
   );
-}
+};

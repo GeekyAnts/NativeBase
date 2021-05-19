@@ -1,7 +1,7 @@
 import React from 'react';
 import { Slider, Stack, Text, Box } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [onChangeValue, setOnChangeValue] = React.useState(70);
   const [onChangeEndValue, setOnChangeEndValue] = React.useState(70);
   return (
@@ -13,10 +13,10 @@ export default function () {
         <Slider
           defaultValue={70}
           colorScheme="cyan"
-          onChange={(v: any) => {
+          onChange={(v) => {
             setOnChangeValue(Math.floor(v));
           }}
-          onChangeEnd={(v: any) => {
+          onChangeEnd={(v) => {
             v && setOnChangeEndValue(Math.floor(v));
           }}
         >
@@ -28,4 +28,4 @@ export default function () {
       </Box>
     </Stack>
   );
-}
+};

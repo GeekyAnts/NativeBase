@@ -15,7 +15,7 @@ export function Example() {
               <Icon
                 as={<MaterialIcons name="share" />}
                 color="muted.500"
-                mr={5}
+                mr={3}
               />
             }
           >
@@ -26,7 +26,7 @@ export function Example() {
               <Icon
                 as={<MaterialCommunityIcons name="link" />}
                 color="muted.500"
-                mr={5}
+                mr={3}
               />
             }
           >
@@ -37,7 +37,7 @@ export function Example() {
               <Icon
                 as={<MaterialIcons name="edit" />}
                 color="muted.500"
-                mr={5}
+                mr={3}
               />
             }
           >
@@ -48,7 +48,7 @@ export function Example() {
               <Icon
                 as={<MaterialIcons name="delete" />}
                 color="muted.500"
-                mr={5}
+                mr={3}
               />
             }
           >

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextArea, Center, Text, Stack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Stack space={4} w="90%">
       <Center>
@@ -14,4 +14,4 @@ export default function () {
       <TextArea placeholder="Disabled TextArea" isDisabled />
     </Stack>
   );
-}
+};

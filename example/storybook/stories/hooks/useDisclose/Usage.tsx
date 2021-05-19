@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button, Input, useDisclose } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
     <>
@@ -30,4 +30,4 @@ export default function () {
       <Button onPress={onOpen}>Open Modal</Button>
     </>
   );
-}
+};

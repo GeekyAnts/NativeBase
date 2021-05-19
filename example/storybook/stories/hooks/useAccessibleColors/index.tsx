@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from '../../components/Wrapper';
-import Basic from './Basic';
+import { Example as Basic } from './Basic';
 
 storiesOf('useAccessibleColors', module)
   .addDecorator(withKnobs)

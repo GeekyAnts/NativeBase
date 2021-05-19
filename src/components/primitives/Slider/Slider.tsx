@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { useSliderState } from '@react-stately/slider';
 import { useLayout } from '../../../hooks';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -7,7 +7,7 @@ import Box from '../Box';
 import { SliderContext } from './Context';
 import { useSlider } from '@react-native-aria/slider';
 
-function Slider(props: ISliderProps<number>, ref?: any) {
+function Slider(props: ISliderProps, ref?: any) {
   let newProps = {
     ...props,
     'aria-label': props.accessibilityLabel ?? 'Slider',
@@ -43,11 +43,7 @@ function Slider(props: ISliderProps<number>, ref?: any) {
 
   const themeProps = usePropsResolution('Slider', props);
 
-  let { trackProps } = useSlider(
-    (props as unknown) as ISliderProps<number[]>,
-    state,
-    trackLayout
-  );
+  let { trackProps } = useSlider((props as unknown) as any, state, trackLayout);
 
   const wrapperStyle = {
     height: props.orientation === 'vertical' ? '100%' : undefined,
@@ -89,4 +85,4 @@ function Slider(props: ISliderProps<number>, ref?: any) {
   );
 }
 
-export default React.forwardRef(Slider);
+export default forwardRef(Slider);

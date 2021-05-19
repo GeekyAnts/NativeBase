@@ -2,7 +2,7 @@ import React from 'react';
 import { VStack, Switch } from 'native-base';
 import { select, boolean } from '@storybook/addon-knobs';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={50}>
       <Switch
@@ -32,4 +32,4 @@ export default function () {
       />
     </VStack>
   );
-}
+};

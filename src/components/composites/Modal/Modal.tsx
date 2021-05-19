@@ -6,8 +6,8 @@ import { Slide } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import {
   useControllableState,
-  keyboardDismissHandlerManager,
   usePropsResolution,
+  useKeyboardDismissable,
 } from '../../../hooks';
 import { ModalContext } from './Context';
 import Box from '../../primitives/Box';
@@ -44,18 +44,10 @@ const Modal = (
     },
   });
 
-  React.useEffect(() => {
-    let cleanupFn = () => {};
-    if (isKeyboardDismissable && visible) {
-      cleanupFn = keyboardDismissHandlerManager.push(() => setVisible(false));
-    } else {
-      cleanupFn();
-    }
-
-    return () => {
-      cleanupFn();
-    };
-  }, [visible, isKeyboardDismissable, setVisible]);
+  useKeyboardDismissable({
+    enabled: isKeyboardDismissable && visible,
+    callback: () => setVisible(false),
+  });
 
   let child = avoidKeyboard ? (
     <StyledKeyboardView

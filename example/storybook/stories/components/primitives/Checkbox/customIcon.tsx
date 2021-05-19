@@ -1,14 +1,15 @@
 import React from 'react';
 import { Checkbox, VStack, Icon } from 'native-base';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={3} alignItems="flex-start">
       <Checkbox
         value="orange"
         colorScheme="orange"
         size="md"
-        icon={<Icon name="bullseye" type="MaterialCommunityIcons" />}
+        icon={<Icon as={<MaterialCommunityIcons name="bullseye" />} />}
         defaultIsChecked
       >
         Darts
@@ -17,7 +18,7 @@ export default function () {
         value="dark"
         colorScheme="dark"
         size="md"
-        icon={<Icon name="bat" type="MaterialCommunityIcons" />}
+        icon={<Icon as={<MaterialCommunityIcons name="bat" />} />}
         defaultIsChecked
       >
         Movie
@@ -26,7 +27,7 @@ export default function () {
         colorScheme="red"
         value="red"
         size="md"
-        icon={<Icon name="campfire" type="MaterialCommunityIcons" />}
+        icon={<Icon as={<MaterialCommunityIcons name="campfire" />} />}
         defaultIsChecked
       >
         Camping
@@ -35,11 +36,11 @@ export default function () {
         value="blue"
         colorScheme="blue"
         size="md"
-        icon={<Icon name="chess-knight" type="MaterialCommunityIcons" />}
+        icon={<Icon as={<MaterialCommunityIcons name="chess-knight" />} />}
         defaultIsChecked
       >
         Chess
       </Checkbox>
     </VStack>
   );
-}
+};

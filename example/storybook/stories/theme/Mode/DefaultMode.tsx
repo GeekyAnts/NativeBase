@@ -2,7 +2,7 @@ import React from 'react';
 import { NativeBaseProvider, extendTheme } from 'native-base';
 import { Content } from './Content';
 
-export default function () {
+export const Example = () => {
   const config = {
     useSystemColorMode: false,
     initialColorMode: 'dark',
@@ -13,4 +13,4 @@ export default function () {
       <Content />
     </NativeBaseProvider>
   );
-}
+};

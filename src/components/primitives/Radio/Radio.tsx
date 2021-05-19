@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { default as Pressable, IPressableProps } from '../Pressable';
 import { Center } from '../../composites/Center';
 import Box from '../Box';
@@ -94,4 +94,4 @@ const Radio = (
   );
 };
 
-export default React.memo(React.forwardRef(Radio));
+export default memo(forwardRef(Radio));

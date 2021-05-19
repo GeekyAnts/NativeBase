@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box from '../Box';
 import { Center } from '../../composites/Center';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -109,4 +109,4 @@ const Radio = (
   );
 };
 
-export default React.memo(React.forwardRef(Radio));
+export default memo(forwardRef(Radio));

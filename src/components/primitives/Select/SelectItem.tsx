@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 import type { ISelectItemProps } from './types';
 import { Platform } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
 import { SelectContext } from './Select';
-import HStack from '../Stack/HStack';
-import Box from '../Box';
-import { extractInObject } from '../../../theme/tools';
 
 export const Item = (
   { isDisabled, label, value, ...props }: ISelectItemProps,
@@ -19,14 +16,9 @@ export const Item = (
   } = React.useContext(SelectContext);
   if (Platform.OS !== 'web') {
     const isSelected = selectedValue === value;
-    const [, selectedProps] = extractInObject(_selectedItem, [
-      '_label',
-      'icon',
-    ]);
-    const [, itemProps] = extractInObject(_item, ['_label', 'icon']);
+
     return (
       <Actionsheet.Item
-        {...props}
         ref={ref}
         onPress={() => {
           if (!isDisabled) {
@@ -34,25 +26,11 @@ export const Item = (
           }
         }}
         accessibilityState={{ selected: isSelected }}
-        {...itemProps}
-        {...(isSelected && selectedProps)}
+        {..._item}
+        {...(isSelected && _selectedItem)}
+        {...props}
       >
-        <HStack
-          space={4}
-          alignItems="center"
-          {...itemProps?.stackProps}
-          {...(isSelected && _selectedItem?.stackProps)}
-        >
-          <Box
-            _text={{
-              ..._item?._label,
-              ...(isSelected && _selectedItem?._label),
-            }}
-          >
-            {label}
-          </Box>
-          {isSelected ? _selectedItem?.icon : _item?.icon}
-        </HStack>
+        {label}
       </Actionsheet.Item>
     );
   } else {
@@ -60,4 +38,4 @@ export const Item = (
   }
 };
 
-export default React.memo(React.forwardRef(Item));
+export default memo(forwardRef(Item));

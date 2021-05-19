@@ -1,9 +1,10 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { useEffect } from 'react';
+import { BackHandler } from 'react-native';
 
 type IParams = {
   enabled?: boolean;
-  onClose: () => void;
+  callback: () => any;
 };
 
 let keyboardDismissHandlers: Array<() => any> = [];
@@ -22,24 +23,37 @@ export const keyboardDismissHandlerManager = {
   },
 };
 
-export const useKeyboardDismissable = ({ enabled, onClose }: IParams) => {
-  React.useEffect(
-    function closeOverlayOnEscapeEffectCallback() {
-      let escapeKeyListener: any = null;
-      if (Platform.OS === 'web') {
-        escapeKeyListener = (e: KeyboardEvent) => {
-          if (e.key === 'Escape' && enabled) {
-            onClose();
-          }
-        };
-        document.addEventListener('keydown', escapeKeyListener);
-      }
-      return () => {
-        if (Platform.OS === 'web') {
-          document.removeEventListener('keydown', escapeKeyListener);
-        }
-      };
-    },
-    [enabled, onClose]
-  );
+/**
+ * Handles attaching callback for Escape key listener on web and Back button listener on Android
+ */
+export const useKeyboardDismissable = ({ enabled, callback }: IParams) => {
+  React.useEffect(() => {
+    let cleanupFn = () => {};
+    if (enabled) {
+      cleanupFn = keyboardDismissHandlerManager.push(callback);
+    } else {
+      cleanupFn();
+    }
+    return () => {
+      cleanupFn();
+    };
+  }, [enabled, callback]);
+
+  useBackHandler({ enabled, callback });
 };
+
+export function useBackHandler({ enabled, callback }: IParams) {
+  useEffect(() => {
+    let backHandler = () => {
+      callback();
+      return true;
+    };
+    if (enabled) {
+      BackHandler.addEventListener('hardwareBackPress', backHandler);
+    } else {
+      BackHandler.removeEventListener('hardwareBackPress', backHandler);
+    }
+    return () =>
+      BackHandler.removeEventListener('hardwareBackPress', backHandler);
+  }, [enabled, callback]);
+}

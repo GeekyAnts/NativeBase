@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Box, Image, Text } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
@@ -61,4 +61,4 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(Avatar));
+export default memo(forwardRef(Avatar));

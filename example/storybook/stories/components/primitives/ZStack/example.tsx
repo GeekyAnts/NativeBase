@@ -1,7 +1,7 @@
 import React from 'react';
 import { ZStack, Box } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <ZStack mt={-20} ml={-20}>
       <Box bg="primary.400" size={20} rounded="lg" shadow={3} />
@@ -9,4 +9,4 @@ export default function () {
       <Box bg="emerald.400" mt={10} ml={10} size={20} rounded="lg" shadow={7} />
     </ZStack>
   );
-}
+};

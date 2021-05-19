@@ -1,6 +1,6 @@
 import React from 'react';
 import { Collapse, Stack, Heading, Button, Text } from 'native-base';
-export default function () {
+export const Example = () => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   const [text, setText] = React.useState(
@@ -35,4 +35,4 @@ export default function () {
       </Button>
     </Stack>
   );
-}
+};

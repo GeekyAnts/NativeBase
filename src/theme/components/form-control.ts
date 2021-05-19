@@ -14,7 +14,9 @@ export const FormControlErrorMessage = {
 // FormControlLabel
 export const FormControlLabel = {
   baseStyle: {
-    _text: { fontSize: 'md' },
+    _text: {
+      fontSize: 'md',
+    },
     astrickColor: 'error.400',
     mb: 2,
     mr: 3,

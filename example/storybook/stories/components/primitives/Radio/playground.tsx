@@ -1,10 +1,10 @@
 import React from 'react';
-import { IRadioValue, Radio, Text, Box } from 'native-base';
+import { Radio, Text, Box } from 'native-base';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { useState } from 'react';
 
-export default function () {
-  const [value, setValue] = useState<IRadioValue>('');
+export const Example = () => {
+  const [value, setValue] = useState('');
 
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -33,4 +33,4 @@ export default function () {
       <Text mt={2}>{'Yes, you are ' + value}</Text>
     </Box>
   );
-}
+};

@@ -8,7 +8,7 @@ import {
   NumberDecrementStepper,
 } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Stack w="90%">
       <NumberInput>
@@ -20,4 +20,4 @@ export default function () {
       </NumberInput>
     </Stack>
   );
-}
+};

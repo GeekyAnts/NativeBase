@@ -1,35 +1,33 @@
-import type {
-  FocusableProps,
-  LabelableProps,
-  Orientation,
-  RangeInputBase,
-  Validation,
-  ValueBase,
-} from '@react-types/shared';
 import type { IBoxProps } from '../Box';
 
-export interface ISliderProps<T = number[]>
-  extends RangeInputBase<number>,
-    ValueBase<T>,
-    LabelableProps,
-    IBoxProps {
+export interface ISliderProps extends IBoxProps {
+  /** The current value of the Slider */
+  value?: number;
+  /** The default value (uncontrolled). */
+  defaultValue?: number;
+  /** Handler that is called when the value changes. */
+  onChange?: (value: number) => void;
+  /**
+   * Color scheme of the slider
+   */
   colorScheme?: string;
-
+  /**
+   * Text description of slider. This will be announced by screen reader/
+   */
   accessibilityLabel?: string;
-
+  /**
+   * If true, the value will be incremented or decremented in reverse.
+   */
   isReversed?: boolean;
-
-  children?: any;
   /**
    * The orientation of the Slider.
    * @default 'horizontal'
    */
-  orientation?: Orientation;
+  orientation?: 'horizontal' | 'vertical';
   /** Whether the whole Slider is disabled. */
   isDisabled?: boolean;
   /** Fired when the slider stops moving, due to being let go. */
-  onChangeEnd?: (value: T) => void;
-  // These are duplicated from ValueBase to define defaults for the docs.
+  onChangeEnd?: (value: number) => void;
   /**
    * The slider's minimum value.
    * @default 0
@@ -47,28 +45,21 @@ export interface ISliderProps<T = number[]>
   step?: number;
 }
 
-export interface SliderThumbProps
-  extends FocusableProps,
-    Validation,
-    LabelableProps {
+export interface ISliderThumbProps extends IBoxProps {
   /**
    * The orientation of the Slider.
    * @default 'horizontal'
    */
-  orientation?: Orientation;
+  orientation?: 'horizontal' | 'vertical';
   /** Whether the Thumb is disabled. */
   isDisabled?: boolean;
-  /** Index of the thumb for accessing purposes. */
-  index: number;
 }
 
-export interface AriaSliderThumbProps extends SliderThumbProps {}
-
 export type ISliderComponentType = ((
-  props: ISliderProps<number> & { ref?: any }
+  props: ISliderProps & { ref?: any }
 ) => JSX.Element) & {
   Thumb: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: ISliderThumbProps & { ref?: any }) => JSX.Element
   >;
   Track: React.MemoExoticComponent<
     (props: IBoxProps & { ref?: any }) => JSX.Element

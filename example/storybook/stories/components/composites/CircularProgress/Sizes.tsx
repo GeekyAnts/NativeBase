@@ -1,6 +1,6 @@
 import React from 'react';
 import { CircularProgress, Heading, Center, VStack } from 'native-base';
-export default function () {
+export const Example = () => {
   return (
     <Center>
       <Heading>Changing the sizes</Heading>
@@ -11,4 +11,4 @@ export default function () {
       </VStack>
     </Center>
   );
-}
+};

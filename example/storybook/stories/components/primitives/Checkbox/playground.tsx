@@ -2,7 +2,7 @@ import React from 'react';
 import { Checkbox, Box } from 'native-base';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
-export default function () {
+export const Example = () => {
   const [toggleCheckBox, setToggleCheckBox] = React.useState(true);
   const checkboxValue = text('value', 'Cool');
   return (
@@ -22,4 +22,4 @@ export default function () {
       </Checkbox>
     </Box>
   );
-}
+};

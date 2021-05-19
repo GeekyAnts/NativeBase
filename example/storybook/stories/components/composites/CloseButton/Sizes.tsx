@@ -1,6 +1,6 @@
 import React from 'react';
 import { CloseButton, HStack } from 'native-base';
-export default function () {
+export const Example = () => {
   return (
     <HStack space="md">
       <CloseButton size="sm" color="teal.200" />
@@ -8,4 +8,4 @@ export default function () {
       <CloseButton size="lg" color="blue.200" />
     </HStack>
   );
-}
+};

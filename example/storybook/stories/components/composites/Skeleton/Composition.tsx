@@ -47,11 +47,11 @@ function Composition({ loaded }: any) {
   );
 }
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={4}>
       <Composition />
       <Composition loaded />
     </VStack>
   );
-}
+};

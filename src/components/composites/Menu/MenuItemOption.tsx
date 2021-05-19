@@ -32,7 +32,7 @@ const MenuItemOption = (
       onPress={modifiedOnPress}
       ref={ref}
     >
-      <HStack px={newProps.px} space={3}>
+      <HStack alignItems="center" px={newProps.px} space={3}>
         <CheckIcon {...newProps._icon} opacity={isChecked ? 1 : 0} />
         <Box>{children}</Box>
       </HStack>

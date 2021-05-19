@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Text } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Box
       bg="primary.400"
@@ -13,4 +13,4 @@ export default function () {
       <Text color="white">This is a Box</Text>
     </Box>
   );
-}
+};

@@ -16,7 +16,7 @@ import { useThemeProps } from '../../../hooks';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
 
-let INSET = `${StatusBar.currentHeight}px`;
+let INSET = `${StatusBar.currentHeight}`;
 
 const POSITIONS = {
   'top': {
@@ -107,20 +107,18 @@ const CustomToast = () => {
                           toast.config?.onCloseComplete();
                       }
                     }}
-                    from={{
+                    initial={{
                       opacity: 0,
                       translateY: transitionConfig[position],
                     }}
                     entry={{
                       opacity: 1,
+                      transition: { easing: Easing.ease },
                     }}
                     exit={{
                       opacity: 0,
                       scale: 0.85,
-                    }}
-                    exitTransition={{ duration: 100 }}
-                    transition={{
-                      easing: Easing.ease,
+                      transition: { easing: Easing.ease, duration: 100 },
                     }}
                   >
                     <SafeAreaView>{toast.component}</SafeAreaView>

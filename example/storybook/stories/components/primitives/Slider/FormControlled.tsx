@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, Slider, VStack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={4} mx={10} width="80%">
       <FormControl isRequired isInvalid isDisabled>
@@ -21,4 +21,4 @@ export default function () {
       </FormControl>
     </VStack>
   );
-}
+};

@@ -2,12 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Composition from './Composition';
-import Basic from './Basic';
-import Flat from './Flat';
-import Size from './Sizes';
-import CustomBgColor from './CustomBgColor';
-import ColorScheme from './ColorScheme';
+import { Example as Composition } from './Composition';
+import { Example as Basic } from './Basic';
+import { Example as Flat } from './Flat';
+import { Example as Size } from './Sizes';
+import { Example as CustomBgColor } from './CustomBgColor';
+import { Example as ColorScheme } from './ColorScheme';
 
 storiesOf('Progress', module)
   .addDecorator(withKnobs)

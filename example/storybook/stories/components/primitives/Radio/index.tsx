@@ -2,16 +2,16 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Playground from './playground';
-import Disabled from './disabled';
-import CustomColor from './customeColor';
-import CustomIcon from './customeIcon';
-import Size from './size';
-import Invalid from './invalid';
-import FormControlled from './formControlled';
-import WithRef from './withRef';
-import ControlledRadio from './controlledRadio';
-import UncontrolledRadio from './uncontrolledRadio';
+import { Example as Playground } from './playground';
+import { Example as Disabled } from './disabled';
+import { Example as CustomColor } from './customColor';
+import { Example as CustomIcon } from './customIcon';
+import { Example as Size } from './size';
+import { Example as Invalid } from './invalid';
+import { Example as FormControlled } from './formControlled';
+import { Example as WithRef } from './withRef';
+import { Example as ControlledRadio } from './controlledRadio';
+import { Example as UncontrolledRadio } from './uncontrolledRadio';
 
 storiesOf('Radio', module)
   .addDecorator(withKnobs)

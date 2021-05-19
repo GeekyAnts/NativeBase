@@ -70,13 +70,11 @@ const Popover = (
       {updatedTrigger()}
       <OverlayContainer>
         <Transition
-          from={{ opacity: 0 }}
-          entry={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0 }}
+          entry={{ opacity: 1, transition: { duration: 150 } }}
+          exit={{ opacity: 0, scale: 0.95, transition: { duration: 100 } }}
           visible={isOpen}
           style={StyleSheet.absoluteFill}
-          entryTransition={{ duration: 100 }}
-          exitTransition={{ duration: 150 }}
         >
           <Popper onClose={handleClose} triggerRef={triggerRef} {...rest}>
             <Backdrop onPress={handleClose} bg="transparent" />

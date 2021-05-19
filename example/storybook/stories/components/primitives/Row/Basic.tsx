@@ -1,7 +1,7 @@
 import React from 'react';
 import { Center, Row } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Row space={2}>
       <Center
@@ -33,4 +33,4 @@ export default function () {
       </Center>
     </Row>
   );
-}
+};

@@ -10,8 +10,9 @@ import {
   Heading,
   Icon,
 } from 'native-base';
+import { FontAwesome5 } from '@expo/vector-icons';
 
-export default function () {
+export const Example = () => {
   const instState = [
     { title: 'code', isCompleted: true },
     { title: 'sleep', isCompleted: false },
@@ -58,7 +59,7 @@ export default function () {
               setInputValue('');
             }}
           >
-            <Icon type="FontAwesome5" name="plus" />
+            <Icon as={<FontAwesome5 name="plus" />} />
           </Button>
         }
         onChangeText={(v) => setInputValue(v)}
@@ -84,7 +85,7 @@ export default function () {
             </Checkbox>
             <IconButton
               colorScheme="emerald"
-              icon={<Icon type="FontAwesome5" name="trash" />}
+              icon={<Icon as={<FontAwesome5 name="trash" />} />}
               onPress={() => handleDelete(itemI)}
             />
           </HStack>
@@ -92,4 +93,4 @@ export default function () {
       </VStack>
     </VStack>
   );
-}
+};

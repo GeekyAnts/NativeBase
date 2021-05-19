@@ -38,37 +38,43 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
     setContainerOpacity(1);
   };
 
+  const transition = { duration };
+
   const animationStyle: any = {
     top: {
-      from: {
+      initial: {
         translateY: -size,
       },
       entry: {
         translateY: 0,
+        transition,
       },
     },
     bottom: {
-      from: {
+      initial: {
         translateY: size,
       },
       entry: {
         translateY: 0,
+        transition,
       },
     },
     left: {
-      from: {
+      initial: {
         translateX: -size,
       },
       entry: {
         translateX: 0,
+        transition,
       },
     },
     right: {
-      from: {
+      initial: {
         translateX: size,
       },
       entry: {
         translateX: 0,
+        transition,
       },
     },
   };
@@ -77,8 +83,6 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
     <Transition
       visible={visible}
       {...animationStyle[placement]}
-      entryTransition={{ duration }}
-      exitTransition={{ duration }}
       style={[{ position: 'absolute' }, holderStyle[placement]]}
     >
       <Box

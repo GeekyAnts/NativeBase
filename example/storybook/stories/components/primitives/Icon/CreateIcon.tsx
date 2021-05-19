@@ -1,7 +1,7 @@
 import React from 'react';
 import { createIcon } from 'native-base';
 import { Path, Circle } from 'react-native-svg';
-export default function () {
+export const Example = () => {
   const CustomIcon = createIcon({
     viewBox: '0 0 200 200',
     // d: 'M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0',
@@ -14,4 +14,4 @@ export default function () {
     ],
   });
   return <CustomIcon color="red.200" size={12} />;
-}
+};

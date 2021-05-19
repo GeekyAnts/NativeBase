@@ -1,7 +1,7 @@
 import React from 'react';
 import { Slider, VStack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack space={4} width="80%">
       <Slider defaultValue={40} colorScheme="red" size="lg">
@@ -24,4 +24,4 @@ export default function () {
       </Slider>
     </VStack>
   );
-}
+};

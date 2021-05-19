@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import InputBase from './InputBase';
 import Box from '../Box';
 import type { IInputProps } from './types';
@@ -96,4 +96,4 @@ const InputAdvance = (
   );
 };
 
-export default React.memo(React.forwardRef(InputAdvance));
+export default memo(forwardRef(InputAdvance));

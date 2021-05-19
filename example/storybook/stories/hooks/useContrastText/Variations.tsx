@@ -5,27 +5,33 @@ import {
   useAccessibleColors,
   useTheme,
 } from 'native-base';
-export default function () {
+
+const ButtonTemplate = ({ shade }: any) => {
+  const colorContrast = useContrastText(`teal.${shade}`);
+  return (
+    <Button
+      key={`primary.${shade}`}
+      bg={`primary.${shade}`}
+      _text={{ color: colorContrast }}
+      mb={1}
+    >
+      NativeBase
+    </Button>
+  );
+};
+
+export const Example = () => {
   let [, , toggleAccessibleColors] = useAccessibleColors();
   const { colors } = useTheme();
+
   return (
     <>
-      {Object.keys(colors.teal).map((key) => {
-        const colorContrast = useContrastText(`teal.${key}`);
-        return (
-          <Button
-            key={`teal.${key}`}
-            bg={`teal.${key}`}
-            _text={{ color: colorContrast }}
-            mb={1}
-          >
-            NativeBase
-          </Button>
-        );
-      })}
-      <Button mt={2} onPress={toggleAccessibleColors} bg={'indigo.600'}>
+      {Object.keys(colors.primary).map((key) => (
+        <ButtonTemplate shade={key} />
+      ))}
+      <Button mt={2} onPress={toggleAccessibleColors} colorScheme="secondary">
         Toggle Accessible Colors
       </Button>
     </>
   );
-}
+};

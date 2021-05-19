@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import type { IButtonGroupProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Stack } from '../Stack';
 
-export default React.memo(
-  React.forwardRef(
+export default memo(
+  forwardRef(
     (
       {
         children,

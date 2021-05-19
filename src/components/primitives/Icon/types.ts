@@ -1,5 +1,3 @@
-import type { TextStyle } from 'react-native';
-
 import type {
   BorderProps,
   ColorProps,
@@ -16,9 +14,14 @@ import type {
   TransformProps,
   PlatformProps,
 } from '../../types';
+import type { SvgProps } from 'react-native-svg';
 
 export interface IIconProps
-  extends BorderProps,
+  extends Omit<
+      SvgProps,
+      'opacity' | 'fill' | 'stroke' | 'height' | 'width' | 'transform'
+    >,
+    BorderProps,
     ColorProps,
     FlexboxProps,
     LayoutProps,
@@ -34,19 +37,51 @@ export interface IIconProps
     PlatformProps {
   // name?: IconNameType;
   // type?: IconType;
+  /**
+   * Use <a href='https://github.com/expo/vector-icons'>@expo/vector-icons</a>
+   */
   as?: any;
-  style?: TextStyle;
-  viewBox?: string;
+  /**
+   * The viewBox of the icon.
+   */
+  // viewBox?: string;
+  /**
+   * The size of the icon.
+   */
   size?: string | number;
+  /**
+   * The color of the icon.
+   */
   color?: string;
-  focusable?: boolean;
+  /**
+   *
+   */
+  // focusable?: boolean;
+  /**
+   *
+   */
   children?: JSX.Element[] | JSX.Element;
-  stroke?: string;
-  strokeWidth?: string;
+  /**
+   *
+   */
+  // stroke?: string;
+  /**
+   *
+   */
+  // strokeWidth?: string;
 }
 
-export type ICreateIconProps = {
+export interface IcreateIconProps {
+  /**
+   * The viewBox of the icon.
+   */
   viewBox?: string;
+  /**
+   * Path element of the icon.
+   */
   path?: JSX.Element[] | JSX.Element;
+  /**
+   * The path of the SVG icon.
+   */
   d?: string;
-};
+}

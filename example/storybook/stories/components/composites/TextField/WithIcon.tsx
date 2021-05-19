@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stack, TextField, Button, Icon } from 'native-base';
 
-export default function () {
+export const Example = () => {
   const [isInvalid, setIsInvalid] = React.useState(false);
   return (
     <Stack space={4} w="90%">
@@ -29,4 +29,4 @@ export default function () {
       </Button>
     </Stack>
   );
-}
+};

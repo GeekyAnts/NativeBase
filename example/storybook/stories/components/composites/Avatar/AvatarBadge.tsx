@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, HStack } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <HStack>
       <Avatar
@@ -18,4 +18,4 @@ export default function () {
       </Avatar>
     </HStack>
   );
-}
+};

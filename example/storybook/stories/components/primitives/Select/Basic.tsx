@@ -1,8 +1,8 @@
 import React from 'react';
 import { Select, VStack, CheckIcon } from 'native-base';
 
-export default function () {
-  let [language, setLanguage] = React.useState<string>('');
+export const Example = () => {
+  let [language, setLanguage] = React.useState('');
 
   return (
     <VStack alignItems="center" space={4}>
@@ -11,11 +11,10 @@ export default function () {
         minWidth={200}
         accessibilityLabel="Select your favorite programming language"
         placeholder="Select your favorite programming language"
-        onValueChange={(itemValue: string) => setLanguage(itemValue)}
+        onValueChange={(itemValue) => setLanguage(itemValue)}
         _selectedItem={{
-          stackProps: { reversed: true },
-          bg: 'primary.200',
-          icon: <CheckIcon size={5} />,
+          bg: 'cyan.600',
+          endIcon: <CheckIcon size={4} />,
         }}
       >
         <Select.Item label="JavaScript" value="js" />
@@ -26,4 +25,4 @@ export default function () {
       </Select>
     </VStack>
   );
-}
+};

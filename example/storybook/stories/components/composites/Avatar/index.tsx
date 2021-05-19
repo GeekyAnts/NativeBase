@@ -2,12 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Playground from './knobEnabled';
-import Usage from './usage';
-import Size from './size';
-import Fallback from './Fallback';
-import AvatarBadge from './AvatarBadge';
-import AvatarGroup from './AvatarGroup';
+import { Example as Playground } from './knobEnabled';
+import { Example as Usage } from './usage';
+import { Example as Size } from './size';
+import { Example as Fallback } from './Fallback';
+import { Example as AvatarBadge } from './AvatarBadge';
+import { Example as AvatarGroup } from './AvatarGroup';
 
 storiesOf('Avatar', module)
   .addDecorator(withKnobs)

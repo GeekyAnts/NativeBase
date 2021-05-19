@@ -1,7 +1,7 @@
 import React from 'react';
 import { VStack, Tabs } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <VStack width="100%" p={3} space={7}>
       {/* Small Tabs */}
@@ -45,4 +45,4 @@ export default function () {
       </Tabs>
     </VStack>
   );
-}
+};

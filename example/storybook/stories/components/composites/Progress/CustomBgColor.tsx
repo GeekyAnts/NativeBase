@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Progress, Center, Heading } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Box w="90%">
       <Center mb={8}>
@@ -17,4 +17,4 @@ export default function () {
       />
     </Box>
   );
-}
+};

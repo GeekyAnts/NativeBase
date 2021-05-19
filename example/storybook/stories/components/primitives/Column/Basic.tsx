@@ -1,7 +1,7 @@
 import React from 'react';
 import { Column, Box } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Column h="100">
       <Box w="100" h={'100'} flexGrow={1} bg="green.500" />
@@ -9,4 +9,4 @@ export default function () {
       <Box flexGrow={1} w="100" h={'100'} bg="tomato" />
     </Column>
   );
-}
+};

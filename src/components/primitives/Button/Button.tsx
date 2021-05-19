@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Spinner from '../Spinner';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { default as Box, IBoxProps } from '../Box';
@@ -22,6 +22,7 @@ const Button = (
     _hover,
     _pressed,
     _focus,
+    _stack,
     ...resolvedProps
   } = usePropsResolution('Button', props);
 
@@ -80,7 +81,7 @@ const Button = (
           isLoading && isLoadingText ? isLoadingText : children;
 
         return (
-          <HStack space={2} alignItems="center">
+          <HStack {..._stack}>
             {startIcon && !isLoading ? startIcon : null}
             {isLoading ? (
               spinner ? (
@@ -109,4 +110,4 @@ const Button = (
   );
 };
 
-export default React.memo(React.forwardRef(Button));
+export default memo(forwardRef(Button));

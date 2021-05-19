@@ -1,6 +1,8 @@
 import React from 'react';
 import { Accordion, Box, Icon } from 'native-base';
-export default function () {
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+export const Example = () => {
   return (
     <Box m={3}>
       <Accordion allowMultiple defaultIndex={[1]}>
@@ -24,12 +26,11 @@ export default function () {
                 {isExpanded ? 'Fire' : 'Snow'}
                 {isExpanded ? (
                   <Icon
-                    name="fire"
                     color="white"
-                    type="MaterialCommunityIcons"
+                    as={<MaterialCommunityIcons name="fire" />}
                   />
                 ) : (
-                  <Icon name="snowflake" type="MaterialCommunityIcons" />
+                  <Icon as={<MaterialCommunityIcons name="snowflake" />} />
                 )}
               </Accordion.Summary>
               <Accordion.Details>
@@ -44,4 +45,4 @@ export default function () {
       </Accordion>
     </Box>
   );
-}
+};

@@ -1,16 +1,17 @@
 import React from 'react';
 import { Divider, Flex, Box, Heading, Icon } from 'native-base';
+import { AntDesign, FontAwesome } from '@expo/vector-icons';
 
-export default function () {
+export const Example = () => {
   return (
     <Box w={160}>
       <Heading mx="auto">Browser</Heading>
       <Divider my={2} />
       <Flex mx={3} direction="row" justify="space-evenly">
-        <Icon type="AntDesign" name="chrome" />
+        <Icon as={<AntDesign name="chrome" />} />
         <Divider orientation="vertical" />
-        <Icon type="FontAwesome" name="firefox" />
+        <Icon as={<FontAwesome name="firefox" />} />
       </Flex>
     </Box>
   );
-}
+};

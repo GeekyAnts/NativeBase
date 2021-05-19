@@ -2,7 +2,7 @@ import React from 'react';
 import { IconButton, Icon } from 'native-base';
 import { Path, Circle } from 'react-native-svg';
 
-export default function () {
+export const Example = () => {
   return (
     <IconButton
       variant="solid"
@@ -20,4 +20,4 @@ export default function () {
       }
     />
   );
-}
+};

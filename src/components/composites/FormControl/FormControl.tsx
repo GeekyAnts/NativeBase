@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Box from '../../primitives/Box';
 import type { IFormControlProps } from './types';
@@ -15,4 +15,4 @@ const FormControl = (props: IFormControlProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(FormControl));
+export default memo(forwardRef(FormControl));

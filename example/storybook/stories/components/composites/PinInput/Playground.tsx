@@ -2,7 +2,7 @@ import React from 'react';
 import { PinInput } from 'native-base';
 import { select, text } from '@storybook/addon-knobs';
 
-export default function () {
+export const Example = () => {
   return (
     <PinInput
       placeholder={text('placeholder', '○')}
@@ -19,4 +19,4 @@ export default function () {
       <PinInput.Field />
     </PinInput>
   );
-}
+};

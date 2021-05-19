@@ -49,11 +49,17 @@ export interface IButtonProps extends IPressableProps {
    * Props to style the child text
    */
   _text?: ITextProps;
+
+  /**
+   * Props to be passed to the HStack used inside of Button.
+   */
+  _stack?: IStackProps;
 }
 
 export interface IButtonGroupProps extends IStackProps {
   /**
-   *
+   * The direction of the Stack Items.
+   * @default row
    */
   direction?: 'column' | 'row';
   /**
@@ -61,23 +67,25 @@ export interface IButtonGroupProps extends IStackProps {
    */
   children: JSX.Element | Array<JSX.Element>;
   /**
-   *
+   * The variant of the button style to use.
+   * @default 'solid'
    */
   variant?: 'ghost' | 'outline' | 'solid' | 'link' | 'unstyled';
   /**
-   *
+   * The start icon element to use in the button.
    */
   size?: 'xs' | 'sm' | 'md' | 'lg';
   /**
-   *
+   * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
+   * @default 'primary'
    */
   colorScheme?: string;
   /**
-   *
+   * If true, the button will be disabled.
    */
   isDisabled?: boolean;
   /**
-   *
+   * If true, button will be atttached together.
    */
   isAttached?: boolean;
 }

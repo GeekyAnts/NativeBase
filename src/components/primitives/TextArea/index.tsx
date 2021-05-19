@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Input, IInputProps } from '../Input';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-export type ITextAreaProps = IInputProps & {
+export interface ITextAreaProps extends IInputProps {
+  /**
+   * Maps to react-native TextInput's numberOfLines.
+   */
   totalLines?: number;
-};
+}
 
 const TextArea = ({ wrapperRef, ...props }: ITextAreaProps, ref: any) => {
   const { totalLines, ...newProps } = usePropsResolution('TextArea', props);
@@ -17,4 +20,4 @@ const TextArea = ({ wrapperRef, ...props }: ITextAreaProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(TextArea));
+export default memo(forwardRef(TextArea));

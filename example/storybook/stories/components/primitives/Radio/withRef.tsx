@@ -1,8 +1,8 @@
 import React from 'react';
 import { Radio } from 'native-base';
 
-export default function () {
-  const myRef: any = React.useRef({});
+export const Example = () => {
+  const myRef = React.useRef({});
 
   return (
     <Radio.Group
@@ -25,4 +25,4 @@ export default function () {
       </Radio>
     </Radio.Group>
   );
-}
+};

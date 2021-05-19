@@ -2,11 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../components/Wrapper';
-import Basic from './Basic';
-import FontSize from './FontSize';
-import Direction from './Direction';
-import More from './More';
-import Demo from './Demo';
+import { Example as Basic } from './Basic';
+import { Example as FontSize } from './FontSize';
+import { Example as Direction } from './Direction';
+import { Example as More } from './More';
+import { Example as Demo } from './Demo';
 
 storiesOf('Responsive', module)
   .addDecorator(withKnobs)

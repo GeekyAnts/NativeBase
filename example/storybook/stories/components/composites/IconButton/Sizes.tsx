@@ -1,6 +1,6 @@
 import React from 'react';
 import { HStack, IconButton, Icon, Box } from 'native-base';
-export default function () {
+export const Example = () => {
   return (
     <HStack space={2}>
       {['sm', 'md', 'lg'].map((size: any) => (
@@ -14,4 +14,4 @@ export default function () {
       ))}
     </HStack>
   );
-}
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Heading, Tabs, Text } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Box width="100%" p={3}>
       <Heading>This is an example for Tabs</Heading>
@@ -20,4 +20,4 @@ export default function () {
       <Text>To show how tabs behaves around other components.</Text>
     </Box>
   );
-}
+};

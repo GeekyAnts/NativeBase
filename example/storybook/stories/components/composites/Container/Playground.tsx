@@ -2,7 +2,7 @@ import React from 'react';
 import { Heading, Container, Text } from 'native-base';
 import { boolean, text } from '@storybook/addon-knobs';
 
-export default function () {
+export const Example = () => {
   return (
     <Container
       centerContent={boolean('centerContent', true)}
@@ -18,4 +18,4 @@ export default function () {
       </Text>
     </Container>
   );
-}
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { CircularProgress, Heading, Center } from 'native-base';
 import { text } from '@storybook/addon-knobs';
-export default function () {
+export const Example = () => {
   return (
     <Center>
       <Heading mb={6}>Changing the TrackColor</Heading>
@@ -11,4 +11,4 @@ export default function () {
       />
     </Center>
   );
-}
+};

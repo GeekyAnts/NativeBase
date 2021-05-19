@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Avatar } from 'native-base';
-export default () => {
+export const Example = () => {
   return (
     <Box
       justifyContent="space-between"
@@ -10,7 +10,6 @@ export default () => {
       p={4}
     >
       <Avatar
-        name="Sanket Sahu"
         borderWidth={1}
         size="xl"
         m={2}
@@ -20,7 +19,6 @@ export default () => {
         }}
       />
       <Avatar
-        name="Gaurav Guha"
         borderWidth={1}
         size="xl"
         m={2}
@@ -30,7 +28,6 @@ export default () => {
         }}
       />
       <Avatar
-        name="Rohit Singh"
         borderWidth={1}
         size="xl"
         m={2}
@@ -40,7 +37,6 @@ export default () => {
         }}
       />
       <Avatar
-        name="Ankur Kedia"
         borderWidth={1}
         size="xl"
         m={2}
@@ -50,7 +46,6 @@ export default () => {
         }}
       />
       <Avatar
-        name="Suraj Ahmed"
         borderWidth={1}
         size="xl"
         m={2}
@@ -60,7 +55,6 @@ export default () => {
         }}
       />
       <Avatar
-        name="Rehman Baig"
         borderWidth={1}
         size="xl"
         m={2}

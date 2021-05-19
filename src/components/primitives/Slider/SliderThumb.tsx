@@ -1,16 +1,14 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Platform } from 'react-native';
 import { useSliderThumb } from '@react-native-aria/slider';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { useToken } from '../../../hooks';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import type { AriaSliderThumbProps } from './types';
-import Box, { IBoxProps } from '../Box';
+import type { ISliderThumbProps } from './types';
+import Box from '../Box';
 import { SliderContext } from './Context';
 
-interface SliderThumbProps extends AriaSliderThumbProps, IBoxProps {}
-
-function SliderThumb(props: Omit<SliderThumbProps, 'index'>, ref: any) {
+function SliderThumb(props: ISliderThumbProps, ref: any) {
   let {
     state,
     trackLayout,
@@ -75,4 +73,4 @@ function SliderThumb(props: Omit<SliderThumbProps, 'index'>, ref: any) {
 
 SliderThumb.displayName = 'SliderThumb';
 
-export default React.forwardRef(SliderThumb);
+export default forwardRef(SliderThumb);

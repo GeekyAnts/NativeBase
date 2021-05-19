@@ -1,6 +1,6 @@
 import React from 'react';
 import { createIcon } from '../createIcon';
-import { G, Path, Circle } from 'react-native-svg';
+import { G, Path, Circle } from '../nbSvg';
 
 export const SunIcon = createIcon({
   viewBox: '0 0 24 24',

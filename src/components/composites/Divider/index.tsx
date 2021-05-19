@@ -20,4 +20,3 @@ const Divider = (props: IDividerProps, ref?: any) => {
 };
 
 export default memo(forwardRef(Divider));
-export type { IDividerProps };

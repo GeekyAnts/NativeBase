@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Progress, VStack, Heading } from 'native-base';
 
-export default function () {
+export const Example = () => {
   return (
     <Box w="90%">
       <VStack space="md">
@@ -19,4 +19,4 @@ export default function () {
       </VStack>
     </Box>
   );
-}
+};

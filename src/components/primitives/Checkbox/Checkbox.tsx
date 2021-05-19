@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo, forwardRef } from 'react';
 import { default as Pressable, IPressableProps } from '../Pressable';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
@@ -124,4 +124,4 @@ const Checkbox = (
   );
 };
 
-export default React.memo(React.forwardRef(Checkbox));
+export default memo(forwardRef(Checkbox));

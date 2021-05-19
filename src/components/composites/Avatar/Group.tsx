@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Flex from '../../primitives/Flex';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import isNil from 'lodash.isnil';
@@ -73,4 +73,4 @@ const AvatarGroup = (allProps: IAvatarGroupProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(AvatarGroup));
+export default memo(forwardRef(AvatarGroup));
