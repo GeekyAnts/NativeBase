@@ -381,12 +381,28 @@ export const getStyleAndFilteredProps = (
       const config = propThemeMap[key as keyof typeof propThemeMap];
       if (config === true) {
         styleFromProps = { ...styleFromProps, [key]: rawValue };
-      } else if (config && 'scale' in config && 'property' in config) {
-        const { property, scale } = config;
-        styleFromProps = {
-          ...styleFromProps,
-          [property]: get(theme[scale], rawValue, rawValue),
-        };
+      } else if (config && 'scale' in config) {
+        //@ts-ignore
+        const { property, scale, properties } = config;
+        let val = get(theme[scale], rawValue, rawValue);
+        // Remove the below hack once we go unitless
+        if (typeof val === 'string' && val.includes('px')) {
+          val = parseInt(val, 10);
+        }
+        if (properties) {
+          //@ts-ignore
+          properties.forEach((property) => {
+            styleFromProps = {
+              ...styleFromProps,
+              [property]: val,
+            };
+          });
+        } else {
+          styleFromProps = {
+            ...styleFromProps,
+            [property]: val,
+          };
+        }
       }
     } else {
       newProps[key] = props[key];

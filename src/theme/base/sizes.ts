@@ -1,23 +1,23 @@
 import { spacing } from './space';
 
 const container = {
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
 };
 
 const sizes = {
   ...spacing,
   ...{
-    '3xs': '224px',
-    '2xs': '256px',
-    'xs': '320px',
-    'sm': '384px',
-    'md': '448px',
-    'lg': '512px',
-    'xl': '576px',
-    '2xl': '672px',
+    '3xs': 224,
+    '2xs': 256,
+    'xs': 320,
+    'sm': 384,
+    'md': 448,
+    'lg': 512,
+    'xl': 576,
+    '2xl': 672,
   },
   container,
 };
