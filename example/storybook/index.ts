@@ -24,7 +24,7 @@ configure(() => {
 const StorybookUIRoot = getStorybookUI({
   // DOC: Uncomment this to get normal app view
   // onDeviceUI: false,
-  asyncStorage: AsyncStorage,
+  // asyncStorage: AsyncStorage,
 });
 
 // If you are using React Native vanilla and after installation you don't see your app name here, write it manually.
