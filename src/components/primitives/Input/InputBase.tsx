@@ -3,7 +3,6 @@ import { TextInput, Platform } from 'react-native';
 import styled from 'styled-components/native';
 import {
   border,
-  flex,
   space,
   color,
   flexbox,
@@ -26,7 +25,6 @@ import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 
 const StyledInput = styled(TextInput)<IInputProps>(
-  flex,
   color,
   space,
   layout,
