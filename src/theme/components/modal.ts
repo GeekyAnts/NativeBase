@@ -69,7 +69,7 @@ export const ModalHeader = {
   baseStyle: {
     pb: 3,
     pr: 6,
-    _text: { fontSize: 'lg', fontWeight: 'bold' },
+    _text: { fontSize: 'xl', fontWeight: 'bold' },
   },
 };
 export const ModalBody = {
