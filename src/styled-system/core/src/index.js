@@ -3,7 +3,6 @@ import merge from 'lodash/merge';
 import { getClosestBreakpoint } from '../../../theme/tools';
 const assign = Object.assign;
 
-console.log('efieijefiefijeifjiji ', 123);
 // sort object-value responsive styles
 const sort = (obj) => {
   const next = {};
