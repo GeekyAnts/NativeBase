@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`styled-components responsive styles are rendered in the correct order 1`] = `
+.c0 {
+  margin: 4px;
+  padding: 4px;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    margin: 8px;
+    padding: 8px;
+  }
+}
+
+@media screen and (min-width:52em) {
+  .c0 {
+    margin: 16px;
+    padding: 16px;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
