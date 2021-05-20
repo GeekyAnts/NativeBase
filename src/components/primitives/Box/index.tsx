@@ -24,36 +24,43 @@ import {
 } from '../../../utils/customProps';
 import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
+import { getStyleAndFilteredProps } from '../../../utils/styled-system/props';
+import { useTheme } from '../../../hooks';
 
-const StyledBox = styled(View)<IBoxProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  typography,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customTypography,
-  customLayout
-);
+// const StyledBox = styled(View)<IBoxProps>(
+//   color,
+//   space,
+//   layout,
+//   flexbox,
+//   border,
+//   position,
+//   typography,
+//   customPosition,
+//   customBorder,
+//   customBackground,
+//   customOutline,
+//   customShadow,
+//   customExtra,
+//   customTypography,
+//   customLayout
+// );
 
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   // const { _text, ...resolvedProps } = useThemeProps('Box', props);
   const { _text, ...resolvedProps } = usePropsResolution('Box', props);
-  const safeAreaProps = useSafeArea(resolvedProps);
+  const theme = useTheme();
+  console.log('new props 1233', resolvedProps);
+
+  const newProps = getStyleAndFilteredProps(resolvedProps, theme);
+  // const safeAreaProps = useSafeArea(newProps);
+  console.log('new props ', newProps);
 
   return (
-    <StyledBox ref={ref} {...safeAreaProps}>
+    <View ref={ref} {...newProps}>
       {React.Children.map(children, (child) =>
         typeof child === 'string' ? <Text {..._text}>{child}</Text> : child
       )}
-    </StyledBox>
+    </View>
   );
 };
 
