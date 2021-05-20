@@ -79,7 +79,6 @@
     "rollup": "^2.34.1",
     "rollup-plugin-flow": "^1.1.1",
     "styled-components": "^5.2.1",
-    "styled-system": "^5.1.5",
     "typescript": "^3.8.3",
     "visualize-bundle": "^1.4.0"
   },
@@ -89,8 +88,7 @@
     "react-native": "0.62.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
-    "styled-components": "^5.2.1",
-    "styled-system": "^5.1.5"
+    "styled-components": "^5.2.1"
   },
   "jest": {
     "preset": "jest-expo",

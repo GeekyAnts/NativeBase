@@ -2,7 +2,7 @@ import { Config, system } from 'styled-system';
 
 const config: Config = {
   shadow: {
-    property: 'boxShadow',
+    property: 'shadow',
     scale: 'shadows',
     defaultScale: ['#000', '#ffff'],
   },

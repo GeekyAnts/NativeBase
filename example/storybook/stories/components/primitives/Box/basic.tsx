@@ -5,7 +5,7 @@ export const Example = () => {
     <Box
       w="90%"
       bg="primary.400"
-      p={4}
+      p={[4, 5, 10, 20]}
       _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}
     >
       This is a Box

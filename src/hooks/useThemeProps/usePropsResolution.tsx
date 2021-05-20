@@ -116,109 +116,18 @@ const simplifyComponentTheme = (
     // We remove size from original props if we found it in the componentTheme
     //@ts-ignore
     incomingProps.size = undefined;
+    combinedProps.size = undefined;
   }
 
   const componentMergedTheme = merge(
     {},
-    componentTheme.defaultProps,
     componentBaseStyle,
+    combinedProps,
     componentVariantProps,
     componentSizeProps
   );
 
   return componentMergedTheme;
-};
-
-/**
- * @summary Translates the prop with it's appropriate value.
- * @description NOTE: Avoid passo  JSX and functions.
- * @arg {any} props - Props object with should be translated.
- * @arg {any} theme - Theme based on which props will be translated.
- * @arg {object} colorModeProps - `colorMode` object.
- * @arg {object} componentTheme - Theme for specific components.
- * @arg {object} windowWidth - Current width of the window / screen.
- * @returns {object} Translated props object.
- */
-// Todo - move responsive calculation in styled system
-const propTranslator = ({
-  props,
-  theme,
-  colorModeProps,
-  componentTheme,
-  currentBreakpoint,
-}: {
-  props: any;
-  theme: any;
-  colorModeProps: object;
-  componentTheme: object;
-  currentBreakpoint: number;
-}) => {
-  let translatedProps: any = {};
-  for (const property in props) {
-    // STEP 1 - Responsive prop check and resolve
-    if (property.startsWith('_')) {
-      // STEP 1.a - Resolving _ porps
-      const nestedTranslatedProps = propTranslator({
-        props: props[property],
-        theme,
-        colorModeProps,
-        componentTheme,
-        currentBreakpoint,
-      });
-      translatedProps[property] = nestedTranslatedProps;
-    } else if (themePropertyMap[property]) {
-      // STEP 1.b Resolving themed props
-      const propValues = extractPropertyFromFunction(
-        property,
-        props,
-        theme,
-        componentTheme
-      );
-
-      // NOTE: Direct value identified.
-      if (typeof propValues === 'string' || typeof propValues === 'number') {
-        translatedProps[property] = propValues;
-        // NOTE: Nested object (excluding _props) (To be specific, only for key exist in themePropertyMap)
-      } else if (!isNil(propValues)) {
-        // TODO: This setion new needs to handle stuff differently
-        for (let nestedProp in propValues) {
-          translatedProps[nestedProp] = get(
-            theme,
-            `${themePropertyMap[nestedProp]}.${propValues[nestedProp]}`,
-            propValues[nestedProp]
-          );
-        }
-        delete translatedProps[property];
-        // Manually handeling shadow props (example of Mapped tokens)
-      } else if (property === 'shadow') {
-        const resolveValueWithBreakpointValue = resolveValueWithBreakpoint(
-          props.shadow,
-          currentBreakpoint,
-          property
-        );
-        let shadowProps = theme[themePropertyMap[property]](colorModeProps)[
-          resolveValueWithBreakpointValue
-        ];
-        translatedProps.style = merge({}, shadowProps, props.style);
-        delete translatedProps[property];
-      } else {
-        translatedProps[property] = resolveValueWithBreakpoint(
-          props[property],
-          currentBreakpoint,
-          property
-        );
-      }
-    } else {
-      // STEP 1.d Resolving Direct Values
-      translatedProps[property] = resolveValueWithBreakpoint(
-        props[property],
-        currentBreakpoint,
-        property
-      );
-    }
-  }
-
-  return translatedProps;
 };
 
 /**
@@ -255,39 +164,30 @@ export function usePropsResolution(component: string, incomingProps: any) {
     colorModeProps,
     currentBreakpoint
   );
-  const componentThemeIntegratedProps = merge(
-    {},
-    componentThemeObject,
-    cleanIncomingProps
-  );
-  const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
 
-  const translatedProps = propTranslator({
-    props: platformSpecificProps,
-    theme: notComponentTheme,
-    colorModeProps,
-    componentTheme,
-    currentBreakpoint,
-  });
+  const platformSpecificProps = usePlatformProps(componentThemeObject);
 
   let bgColor =
-    translatedProps.bg ??
-    translatedProps.backgroundColor ??
-    translatedProps.bgColor;
+    platformSpecificProps.bg ??
+    platformSpecificProps.backgroundColor ??
+    platformSpecificProps.bgColor;
 
   const contrastTextColor = useContrastText(
     bgColor,
-    translatedProps?._text?.color
+    platformSpecificProps?._text?.color
   );
 
-  translatedProps._text = contrastTextColor
+  platformSpecificProps._text = contrastTextColor
     ? {
         color: contrastTextColor,
-        ...translatedProps._text,
+        ...platformSpecificProps._text,
       }
-    : translatedProps._text;
+    : platformSpecificProps._text;
 
-  const resolvedProps = omitUndefined({ ...translatedProps, ...ignoredProps });
+  const resolvedProps = omitUndefined({
+    ...platformSpecificProps,
+    ...ignoredProps,
+  });
 
   return resolvedProps;
 }
