@@ -195,7 +195,7 @@ export function findLastValidBreakpoint(
     valArray[currentBreakpoint] ??
     valArray
       .slice(0, currentBreakpoint + 1)
-      .filter((v: any) => v !== undefined)
+      .filter((v: any) => !isNil(v))
       .pop()
   );
 }

@@ -317,6 +317,7 @@ const colors = {
   info: {},
   secondary: {},
   light: {},
+  tertiary: {},
 };
 
 colors.danger = colors.rose;
@@ -324,9 +325,10 @@ colors.error = colors.red;
 colors.success = colors.green;
 colors.warning = colors.orange;
 colors.muted = colors.trueGray;
-colors.primary = colors.darkBlue;
-colors.info = colors.lightBlue;
+colors.primary = colors.cyan;
 colors.secondary = colors.pink;
+colors.tertiary = colors.emerald;
+colors.info = colors.lightBlue;
 colors.light = colors.warmGray;
 
 export default colors;

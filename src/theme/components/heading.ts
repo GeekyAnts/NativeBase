@@ -3,55 +3,33 @@ import { mode } from './../tools';
 const baseStyle = (props: Record<string, any>) => {
   return {
     color: mode('muted.700', 'white')(props),
+    fontWeight: 'bold',
   };
 };
 
-const sizeArray = ['2xl', 'xl', 'lg', 'md', 'sm', 'xs'];
-
-function sizes(props: Record<string, any>) {
-  const { size } = props;
-  if (typeof size === 'number') {
-    return { fontSize: size };
-  } else if (typeof size === 'string' && !sizeArray.includes(size)) {
-    return { fontSize: size };
-  } else {
-    return {
-      '2xl': {
-        fontSize: '6xl',
-        fontWeight: 'bold',
-        letterSpacing: 'xxs',
-      },
-      'xl': {
-        fontSize: '5xl',
-        fontWeight: 'bold',
-        letterSpacing: 'xs',
-      },
-      'lg': {
-        fontSize: '4xl',
-        fontWeight: 'bold',
-        letterSpacing: 'sm',
-      },
-      'md': {
-        fontSize: '3xl',
-        fontWeight: 'bold',
-        letterSpacing: 'xl',
-      },
-      'sm': {
-        fontSize: 'xl',
-        fontWeight: 'bold',
-        letterSpacing: 'sm',
-      },
-      'xs': {
-        fontSize: 'lg',
-        fontWeight: 'bold',
-        letterSpacing: 'lg',
-      },
-    };
-  }
-}
+const sizes = {
+  '4xl': {
+    fontSize: ['6xl', null, '7xl'],
+  },
+  '3xl': {
+    fontSize: ['5xl', null, '6xl'],
+  },
+  '2xl': {
+    fontSize: ['4xl', null, '5xl'],
+  },
+  'xl': {
+    fontSize: ['3xl', null, '4xl'],
+  },
+  'lg': {
+    fontSize: ['2xl', null, '3xl'],
+  },
+  'md': { fontSize: 'xl' },
+  'sm': { fontSize: 'md' },
+  'xs': { fontSize: 'sm' },
+};
 
 const defaultProps = {
-  size: 'md',
+  size: 'xl',
 };
 
 export default {
