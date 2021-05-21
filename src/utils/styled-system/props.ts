@@ -1,8 +1,11 @@
 import { get } from 'lodash';
-import { StyleSheet } from 'react-native';
 
-const layout = {
+export const layout = {
   width: {
+    property: 'width',
+    scale: 'sizes',
+  },
+  w: {
     property: 'width',
     scale: 'sizes',
   },
@@ -10,7 +13,15 @@ const layout = {
     property: 'height',
     scale: 'sizes',
   },
+  h: {
+    property: 'height',
+    scale: 'sizes',
+  },
   minWidth: {
+    property: 'minWidth',
+    scale: 'sizes',
+  },
+  minW: {
     property: 'minWidth',
     scale: 'sizes',
   },
@@ -18,11 +29,23 @@ const layout = {
     property: 'minHeight',
     scale: 'sizes',
   },
+  minH: {
+    property: 'minHeight',
+    scale: 'sizes',
+  },
   maxWidth: {
     property: 'maxWidth',
     scale: 'sizes',
   },
+  maxW: {
+    property: 'maxWidth',
+    scale: 'sizes',
+  },
   maxHeight: {
+    property: 'maxHeight',
+    scale: 'sizes',
+  },
+  maxH: {
     property: 'maxHeight',
     scale: 'sizes',
   },
@@ -37,7 +60,7 @@ const layout = {
   verticalAlign: true,
 };
 
-const flexBox = {
+export const flexbox = {
   alignItems: true,
   alignContent: true,
   justifyItems: true,
@@ -54,7 +77,7 @@ const flexBox = {
   order: true,
 };
 
-const position = {
+export const position = {
   position: true,
   zIndex: {
     property: 'zIndex',
@@ -78,7 +101,7 @@ const position = {
   },
 };
 
-const color = {
+export const color = {
   color: {
     property: 'color',
     scale: 'colors',
@@ -92,9 +115,13 @@ const color = {
     property: 'backgroundColor',
     scale: 'colors',
   },
+  bgColor: {
+    property: 'backgroundColor',
+    scale: 'colors',
+  },
 };
 
-const border = {
+export const border = {
   border: {
     property: 'border',
     scale: 'borders',
@@ -118,6 +145,18 @@ const border = {
   borderTop: {
     property: 'borderTop',
     scale: 'borders',
+  },
+  borderTopRadius: {
+    properties: ['borderTopLeftRadius', 'borderTopRightRadius'],
+    scale: 'radii',
+  },
+  borderLeftRadius: {
+    properties: ['borderTopLeftRadius', 'borderBottomLeftRadius'],
+    scale: 'radii',
+  },
+  borderRightRadius: {
+    properties: ['borderTopRightRadius', 'borderBottomRightRadius'],
+    scale: 'radii',
   },
   borderTopLeftRadius: {
     property: 'borderTopLeftRadius',
@@ -205,19 +244,39 @@ const border = {
   },
 };
 
-const background = {
-  background: true,
-  backgroundImage: true,
+export const background = {
   backgroundSize: true,
   backgroundPosition: true,
   backgroundRepeat: true,
-  bgImage: true,
-  bgSize: true,
-  bgPosition: true,
-  bgRepeat: true,
+  backgroundAttachment: true,
+  backgroundBlendMode: true,
+  bgImage: {
+    property: 'backgroundImage',
+  },
+  bgImg: {
+    property: 'backgroundImage',
+  },
+  bgBlendMode: {
+    property: 'backgroundBlendMode',
+  },
+  bgSize: {
+    property: 'backgroundSize',
+  },
+  bgPosition: {
+    property: 'backgroundPosition',
+  },
+  bgPos: {
+    property: 'backgroundPosition',
+  },
+  bgRepeat: {
+    property: 'backgroundRepeat',
+  },
+  bgAttachment: {
+    property: 'backgroundAttachment',
+  },
 };
 
-const space = {
+export const space = {
   margin: {
     property: 'margin',
     scale: 'space',
@@ -333,7 +392,7 @@ const space = {
   },
 };
 
-const typography = {
+export const typography = {
   fontFamily: {
     property: 'fontFamily',
     scale: 'fonts',
@@ -356,39 +415,32 @@ const typography = {
   },
   textAlign: true,
   fontStyle: true,
+  wordBreak: true,
+  overflowWrap: true,
+  textOverflow: true,
+  textTransform: true,
+  whiteSpace: true,
+  textDecoration: true,
+  txtDecor: { property: 'textDecoration' },
+  textDecorationLine: { property: 'textDecorationLine' },
 };
 
-const propThemeMap = {
-  ...layout,
-  ...flexBox,
-  ...position,
-  ...color,
-  ...border,
-  ...background,
-  ...space,
-  ...typography,
-};
-
-export const getStyleAndFilteredProps = (
-  { style, ...props }: any,
-  theme: any
-) => {
-  let newProps: any = {};
+export const getStyleAndFilteredProps = (propConfig: any) => ({
+  style,
+  theme,
+  ...props
+}: any) => {
   let styleFromProps: any = {};
   for (let key in props) {
     const rawValue = props[key];
-    if (key in propThemeMap) {
-      const config = propThemeMap[key as keyof typeof propThemeMap];
+    if (key in propConfig) {
+      const config = propConfig[key as keyof typeof propConfig];
       if (config === true) {
         styleFromProps = { ...styleFromProps, [key]: rawValue };
-      } else if (config && 'scale' in config) {
+      } else if (config) {
         //@ts-ignore
         const { property, scale, properties } = config;
         let val = get(theme[scale], rawValue, rawValue);
-        // Remove the below hack once we go unitless
-        if (typeof val === 'string' && val.includes('px')) {
-          val = parseInt(val, 10);
-        }
         if (properties) {
           //@ts-ignore
           properties.forEach((property) => {
@@ -404,11 +456,8 @@ export const getStyleAndFilteredProps = (
           };
         }
       }
-    } else {
-      newProps[key] = props[key];
     }
   }
 
-  newProps.style = StyleSheet.flatten([styleFromProps, style]);
-  return newProps;
+  return styleFromProps;
 };

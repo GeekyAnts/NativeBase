@@ -2,16 +2,24 @@ import { composeEventHandlers } from '../../../utils';
 import React from 'react';
 import { PressableProps, Pressable as RNPressable } from 'react-native';
 import styled from 'styled-components/native';
-// import { border, color, flexbox, layout, position, space } from 'styled-system';
 import {
-  customBackground,
-  customBorder,
-  customExtra,
-  customLayout,
-  customOutline,
-  customPosition,
-  customShadow,
-} from '../../../utils/customProps';
+  border,
+  color,
+  flexbox,
+  getStyleAndFilteredProps,
+  layout,
+  position,
+  space,
+} from '../../../utils/styled-system/props';
+// import {
+//   customBackground,
+//   customBorder,
+//   customExtra,
+//   customLayout,
+//   customOutline,
+//   customPosition,
+//   customShadow,
+// } from '../../../utils/customProps';
 import type {
   BorderProps,
   ColorProps,
@@ -28,8 +36,6 @@ import type {
   TransformProps,
   PlatformProps,
 } from '../../types';
-import { getStyleAndFilteredProps } from '../../../utils/styled-system/props';
-import { useTheme } from '../../../hooks';
 
 export interface IPressableProps
   extends PressableProps,
@@ -90,12 +96,23 @@ const useIsPressed = () => {
   };
 };
 
-const StyledPressable = (props) => {
-  const theme = useTheme();
-  const newProps = getStyleAndFilteredProps(props, theme);
-  console.log('efjejfej ', newProps);
-  return <RNPressable {...newProps} />;
-};
+const StyledPressable = styled(RNPressable)<IPressableProps>(
+  getStyleAndFilteredProps({
+    ...color,
+    ...space,
+    ...layout,
+    ...flexbox,
+    ...border,
+    ...position,
+  })
+  // customPosition,
+  // customBorder,
+  // customBackground,
+  // customOutline,
+  // customShadow,
+  // customExtra,
+  // customLayout
+);
 
 const Pressable = (
   {
