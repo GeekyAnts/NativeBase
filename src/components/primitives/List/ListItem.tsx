@@ -3,7 +3,7 @@ import Box from '../Box';
 import type { IListItemProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { mergeRefs } from '../../../utils';
-import Pressable from '../Pressable';
+import { Pressable } from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
 import { extractInObject } from '../../../theme/tools';
 

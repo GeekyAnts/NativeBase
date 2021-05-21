@@ -1,13 +1,13 @@
 import React, { memo, forwardRef } from 'react';
-import { ITextProps, Text } from '../../primitives';
+import { IBoxProps, Box } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
-const AlertDescription = ({ children, ...props }: ITextProps, ref?: any) => {
+const AlertDescription = ({ children, ...props }: IBoxProps, ref?: any) => {
   const themeProps = usePropsResolution('AlertDescription', props);
   return (
-    <Text {...themeProps} ref={ref}>
+    <Box {...themeProps} ref={ref}>
       {children}
-    </Text>
+    </Box>
   );
 };
 export default memo(forwardRef(AlertDescription));
