@@ -3,7 +3,7 @@ import Spinner from '../Spinner';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
-import Pressable from '../Pressable';
+import { Pressable } from '../Pressable';
 import type { IButtonProps } from './types';
 
 const Button = (

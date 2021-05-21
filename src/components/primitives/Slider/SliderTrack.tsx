@@ -1,6 +1,6 @@
 import React from 'react';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import Pressable from '../Pressable';
+import { Pressable } from '../Pressable';
 import Box from '../Box';
 import { SliderContext } from './Context';
 import type { ISliderProps } from './types';

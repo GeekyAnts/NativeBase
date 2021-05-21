@@ -1,37 +1,66 @@
-import type { ViewProps } from 'react-native';
+import type { PressableProps } from 'react-native';
 import type {
-  ColorProps,
-  SpaceProps,
   BorderProps,
-  BackgroundProps,
-  OutlineProps,
-  LayoutProps,
-  ExtraProps,
-  ShadowProps,
-  TypographyProps,
-  TransformProps,
+  ColorProps,
   FlexboxProps,
+  LayoutProps,
   PositionProps,
+  SpaceProps,
+  TypographyProps,
+  ExtraProps,
+  OutlineProps,
+  ShadowProps,
+  BackgroundProps,
   SafeAreaProps,
+  TransformProps,
+  PlatformProps,
 } from '../../types';
-
-export type IPressableProps = ViewProps &
-  ColorProps &
-  SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  PositionProps &
-  BorderProps &
-  ExtraProps &
-  OutlineProps &
-  ShadowProps &
-  LayoutProps &
-  TypographyProps &
-  BackgroundProps &
-  TransformProps &
-  FlexboxProps &
-  PositionProps &
-  BorderProps &
-  SafeAreaProps & {
-    children?: any;
-  };
+export interface IPressableProps
+  extends PressableProps,
+    ColorProps,
+    SpaceProps,
+    LayoutProps,
+    FlexboxProps,
+    TypographyProps,
+    PositionProps,
+    BorderProps,
+    ExtraProps,
+    OutlineProps,
+    ShadowProps,
+    BackgroundProps,
+    SafeAreaProps,
+    TransformProps,
+    PlatformProps {
+  /**
+   *
+   */
+  onHoverIn?: any;
+  /**
+   *
+   */
+  onHoverOut?: any;
+  /**
+   *
+   */
+  onFocus?: any;
+  /**
+   *
+   */
+  onBlur?: any;
+  /**
+   *
+   */
+  _hover?: IPressableProps;
+  /**
+   *
+   */
+  _pressed?: IPressableProps;
+  /**
+   *
+   */
+  _focus?: IPressableProps;
+  /**
+   *
+   */
+  children?: any;
+}

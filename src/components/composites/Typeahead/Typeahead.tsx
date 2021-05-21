@@ -6,7 +6,7 @@ import { useListBox, useOption } from '@react-native-aria/listbox';
 import { ScrollView, findNodeHandle, Platform } from 'react-native';
 import { Item } from '@react-stately/collections';
 import Box from '../../primitives/Box';
-import Pressable from '../../primitives/Pressable';
+import { Pressable } from '../../primitives/Pressable';
 import Text from '../../primitives/Text';
 import { extractInObject } from '../../../theme/tools';
 import { ITypeaheadProps, IComboBoxProps, layoutPropsList } from './types';

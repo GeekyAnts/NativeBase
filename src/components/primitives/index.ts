@@ -7,7 +7,7 @@ export type { ITextProps } from './Text';
 export { Input, InputGroup, InputLeftAddon, InputRightAddon } from './Input';
 export type { IInputProps } from './Input';
 
-export { default as View } from './View';
+// export { default as View } from './View';
 
 export { Checkbox } from './Checkbox';
 export type { ICheckboxProps, ICheckboxGroupProps } from './Checkbox';
@@ -41,6 +41,8 @@ export type { ISpinnerProps } from './Spinner';
 
 export { default as Heading } from './Heading';
 export type { IHeadingProps } from './Heading';
+
+export { Pressable, IPressableProps } from './Pressable';
 
 export { default as Flex, Spacer } from './Flex';
 export type { IFlexProps } from './Flex';

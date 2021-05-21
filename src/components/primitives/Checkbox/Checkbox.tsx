@@ -1,5 +1,5 @@
 import React, { useContext, memo, forwardRef } from 'react';
-import { default as Pressable, IPressableProps } from '../Pressable';
+import { Pressable, IPressableProps } from '../Pressable';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
 import { useFormControlContext } from '../../composites/FormControl';
