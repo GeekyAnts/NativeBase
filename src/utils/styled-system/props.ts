@@ -242,6 +242,53 @@ export const border = {
     property: 'borderRightStyle',
     scale: 'borderStyles',
   },
+  rounded: {
+    property: 'borderRadius',
+    scale: 'radii',
+  },
+
+  roundedTopLeft: {
+    property: 'borderTopLeftRadius',
+    scale: 'radii',
+  },
+
+  roundedTopRight: {
+    property: 'borderTopRightRadius',
+    scale: 'radii',
+  },
+
+  roundedBottomLeft: {
+    property: 'borderBottomLeftRadius',
+    scale: 'radii',
+  },
+
+  roundedBottomRight: {
+    property: 'borderBottomRightRadius',
+    scale: 'radii',
+  },
+
+  roundedTop: {
+    properties: ['borderTopLeftRadius', 'borderTopRightRadius'],
+    scale: 'radii',
+  },
+  borderBottomRadius: {
+    properties: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
+    scale: 'radii',
+  },
+  roundedBottom: {
+    properties: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
+    scale: 'radii',
+  },
+
+  roundedLeft: {
+    properties: ['borderTopLeftRadius', 'borderBottomLeftRadius'],
+    scale: 'radii',
+  },
+
+  roundedRight: {
+    properties: ['borderTopRightRadius', 'borderBottomRightRadius'],
+    scale: 'radii',
+  },
 };
 
 export const background = {
