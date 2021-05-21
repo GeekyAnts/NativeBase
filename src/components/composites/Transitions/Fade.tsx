@@ -1,6 +1,6 @@
 import React from 'react';
 import { useThemeProps } from '../../../hooks/useThemeProps';
-import { Transition } from '../Transitions';
+import { Transition } from '../Transitions/Transition';
 import type { IFadeProps } from './types';
 
 const Fade = ({ children, style, ...props }: IFadeProps, ref?: any) => {

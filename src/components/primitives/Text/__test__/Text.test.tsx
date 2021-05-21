@@ -9,7 +9,7 @@ jest.useFakeTimers();
 
 const theme = {
   ...defaultTheme,
-  customFonts: {
+  fontConfig: {
     Roboto: {
       100: 'Roboto-Light',
       200: 'Roboto-Light',
@@ -121,7 +121,7 @@ describe('Text component', () => {
 
   it("doesn't break if custom font is not specified", () => {
     let newTheme = JSON.parse(JSON.stringify(defaultTheme));
-    delete newTheme.customFonts;
+    delete newTheme.fontConfig;
     let { getByTestId } = render(
       <Provider theme={newTheme}>
         <Text testID="my-text" fontWeight={400}>
