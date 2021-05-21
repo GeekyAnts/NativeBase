@@ -1,7 +1,7 @@
 import React, { forwardRef, memo } from 'react';
 import Text from '../../primitives/Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import Pressable from '../../primitives/Pressable';
+import { Pressable } from '../../primitives/Pressable';
 import type { IMenuItemProps } from './types';
 import { MenuContext } from './MenuContext';
 import { useMenuItem } from './useMenu';

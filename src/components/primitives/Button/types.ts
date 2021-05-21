@@ -88,6 +88,18 @@ export interface IButtonGroupProps extends IStackProps {
    * If true, button will be atttached together.
    */
   isAttached?: boolean;
+  /**
+   * Passed props will be applied on hovered state.
+   */
+  _hover?: IButtonProps;
+  /**
+   * Passed props will be applied on pressed state.
+   */
+  _pressed?: IButtonProps;
+  /**
+   * Passed props will be applied on focused state.
+   */
+  _focus?: IButtonProps;
 }
 
 export type IButtonComponentType = ((

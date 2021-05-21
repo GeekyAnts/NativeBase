@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import Pressable from '../../primitives/Pressable';
+import { Pressable } from '../../primitives/Pressable';
 import Box from '../../primitives/Box';
 import { TabsContext } from './Context';
 import type { ITabProps, ITabsContextProps } from './types';
