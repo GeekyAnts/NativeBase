@@ -159,9 +159,6 @@ export const AlertIcon = {
 export const AlertDescription = {
   baseStyle: {
     fontSize: 'sm',
-    lineHeight: 5,
-    _text: {
-      flexShrink: 1,
-    },
+    flexShrink: 1,
   },
 };
