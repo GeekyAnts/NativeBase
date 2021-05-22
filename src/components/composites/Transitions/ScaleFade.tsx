@@ -15,7 +15,7 @@ const ScaleFade = (
   return (
     <Transition
       initial={{ opacity: 0, scale: initialScale }}
-      entry={{ opacity: 1, scale: 1, transition: { duration } }}
+      animate={{ opacity: 1, scale: 1, transition: { duration } }}
       exit={{ opacity: 0, scale: initialScale, transition: { duration } }}
       style={style}
       visible={animationState}

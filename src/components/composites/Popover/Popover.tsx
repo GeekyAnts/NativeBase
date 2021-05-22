@@ -71,7 +71,7 @@ const Popover = (
       <OverlayContainer>
         <Transition
           initial={{ opacity: 0 }}
-          entry={{ opacity: 1, transition: { duration: 150 } }}
+          animate={{ opacity: 1, transition: { duration: 150 } }}
           exit={{ opacity: 0, scale: 0.95, transition: { duration: 100 } }}
           visible={isOpen}
           style={StyleSheet.absoluteFill}

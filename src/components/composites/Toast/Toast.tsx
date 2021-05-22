@@ -111,7 +111,7 @@ const CustomToast = () => {
                       opacity: 0,
                       translateY: transitionConfig[position],
                     }}
-                    entry={{
+                    animate={{
                       opacity: 1,
                       transition: { easing: Easing.ease },
                     }}

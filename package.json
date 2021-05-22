@@ -154,18 +154,8 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      [
-        "commonjs",
-        {
-          "configFile": true
-        }
-      ],
-      [
-        "module",
-        {
-          "configFile": true
-        }
-      ],
+      "commonjs",
+      "module",
       "typescript"
     ]
   },
