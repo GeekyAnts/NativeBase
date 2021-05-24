@@ -190,30 +190,42 @@ export const Transition = forwardRef(
   }
 );
 
-interface IStaggerProps extends ITransitionProps {
+interface IStaggerProps {
   children: any;
-  offset?: number;
+  initial?: ISupportedTransitions;
+  animate?: ISupportedTransitions & { transition?: ITransitionConfig };
+  exit?: ISupportedTransitions & { transition?: ITransitionConfig };
+  visible?: boolean;
 }
 
-export const Stagger = ({
-  children,
-  offset = 10,
-  ...animationConfig
-}: IStaggerProps) => {
+export const Stagger = ({ children, ...animationConfig }: IStaggerProps) => {
   return React.Children.map(children, (child, index) => {
     const clonedAnimationConfig = cloneDeep(animationConfig);
     if (clonedAnimationConfig.animate) {
       if (!clonedAnimationConfig.animate.transition) {
         clonedAnimationConfig.animate.transition = {};
       }
-      clonedAnimationConfig.animate.transition.delay = offset * index;
+      clonedAnimationConfig.animate.transition.delay =
+        clonedAnimationConfig.animate.transition.delay ?? 0;
+      const stagger = clonedAnimationConfig.animate.transition.stagger;
+      const offset = stagger.reverse
+        ? (React.Children.count(children) - 1 - index) * stagger.offset
+        : index * stagger.offset;
+      clonedAnimationConfig.animate.transition.delay =
+        clonedAnimationConfig.animate.transition.delay + offset;
     }
     if (clonedAnimationConfig.exit) {
       if (!clonedAnimationConfig.exit.transition) {
         clonedAnimationConfig.exit.transition = {};
       }
-
-      clonedAnimationConfig.exit.transition.delay = offset * index;
+      clonedAnimationConfig.exit.transition.delay =
+        clonedAnimationConfig.exit.transition.delay ?? 0;
+      const stagger = clonedAnimationConfig.exit.transition.stagger;
+      const offset = stagger.reverse
+        ? (React.Children.count(children) - 1 - index) * stagger.offset
+        : index * stagger.offset;
+      clonedAnimationConfig.exit.transition.delay =
+        clonedAnimationConfig.exit.transition.delay + offset;
     }
     return (
       <Transition key={child.key} {...clonedAnimationConfig}>

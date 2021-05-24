@@ -45,7 +45,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       initial: {
         translateY: -size,
       },
-      entry: {
+      animate: {
         translateY: 0,
         transition,
       },
@@ -54,8 +54,12 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       initial: {
         translateY: size,
       },
-      entry: {
+      animate: {
         translateY: 0,
+        transition,
+      },
+      exit: {
+        translateY: size,
         transition,
       },
     },
@@ -63,7 +67,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       initial: {
         translateX: -size,
       },
-      entry: {
+      animate: {
         translateX: 0,
         transition,
       },
@@ -72,7 +76,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       initial: {
         translateX: size,
       },
-      entry: {
+      animate: {
         translateX: 0,
         transition,
       },
