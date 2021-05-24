@@ -165,12 +165,14 @@ export const Example = () => {
     <Box>
       <Box alignItems="center" minH={275}>
         <Stagger
+          as={VStack}
           visible={isOpen}
           initial={{
             opacity: 0,
             scale: 0,
             translateY: 34,
           }}
+          space={4}
           animate={{
             translateY: 0,
             scale: 1,
@@ -191,13 +193,13 @@ export const Example = () => {
             },
           }}
         >
-          <Box mb={4}>
+          <Box>
             <Gallery />
           </Box>
-          <Box mb={4}>
+          <Box>
             <Camera />
           </Box>
-          <Box mb={4}>
+          <Box>
             <Docs />
           </Box>
           <Box>

@@ -1,5 +1,5 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { Transition } from '../Transitions';
+import { PresenceTransition } from '../Transitions';
 import VStack from '../../primitives/Stack/VStack';
 import { Alert } from '../../composites/Alert';
 import React, { createContext, useState } from 'react';
@@ -97,7 +97,7 @@ const CustomToast = () => {
               {
                 // @ts-ignore
                 toastInfo[position].map((toast: IToast) => (
-                  <Transition
+                  <PresenceTransition
                     key={toast.id}
                     visible={visibleToasts[toast.id]}
                     onTransitionComplete={(status: any) => {
@@ -113,7 +113,7 @@ const CustomToast = () => {
                     }}
                     animate={{
                       opacity: 1,
-                      transition: { easing: Easing.ease },
+                      transition: { easing: Easing.ease, duration: 250 },
                     }}
                     exit={{
                       opacity: 0,
@@ -122,7 +122,7 @@ const CustomToast = () => {
                     }}
                   >
                     <SafeAreaView>{toast.component}</SafeAreaView>
-                  </Transition>
+                  </PresenceTransition>
                 ))
               }
             </VStack>

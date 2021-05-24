@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { ISlideProps } from './types';
-import { Transition } from './Transition';
+import { PresenceTransition } from './Transition';
 
 const holderStyle: any = {
   top: {
@@ -84,7 +84,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
   };
 
   return (
-    <Transition
+    <PresenceTransition
       visible={visible}
       {...animationStyle[placement]}
       style={[{ position: 'absolute' }, holderStyle[placement]]}
@@ -97,7 +97,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       >
         {children}
       </Box>
-    </Transition>
+    </PresenceTransition>
   );
 };
 

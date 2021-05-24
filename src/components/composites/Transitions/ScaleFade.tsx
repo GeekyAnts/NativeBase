@@ -1,7 +1,7 @@
 import React from 'react';
 import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { IScaleFadeProps } from './types';
-import { Transition } from './Transition';
+import { PresenceTransition } from './Transition';
 
 const ScaleFade = (
   { children, style, ...props }: IScaleFadeProps,
@@ -13,7 +13,7 @@ const ScaleFade = (
   );
 
   return (
-    <Transition
+    <PresenceTransition
       initial={{ opacity: 0, scale: initialScale }}
       animate={{ opacity: 1, scale: 1, transition: { duration } }}
       exit={{ opacity: 0, scale: initialScale, transition: { duration } }}
@@ -22,7 +22,7 @@ const ScaleFade = (
       ref={ref}
     >
       {children}
-    </Transition>
+    </PresenceTransition>
   );
 };
 

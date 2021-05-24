@@ -8,7 +8,7 @@ import { useControllableState, useKeyboardDismissable } from '../../../hooks';
 import { useMenuTrigger, useMenu, useMenuTypeahead } from './useMenu';
 import Backdrop from '../Backdrop';
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { Transition } from '../Transitions';
+import { PresenceTransition } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import { MenuContext } from './MenuContext';
 
@@ -69,7 +69,7 @@ const Menu = (
     <>
       {updatedTrigger()}
       <OverlayContainer>
-        <Transition
+        <PresenceTransition
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 150 } }}
           exit={{ opacity: 0, transition: { duration: 150 } }}
@@ -95,7 +95,7 @@ const Menu = (
               </MenuContext.Provider>
             </Popper.Content>
           </Popper>
-        </Transition>
+        </PresenceTransition>
       </OverlayContainer>
     </>
   );

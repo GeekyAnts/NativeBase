@@ -8,7 +8,7 @@ import Box from '../../primitives/Box';
 import { OverlayContainer } from '@react-native-aria/overlays';
 import Backdrop from '../Backdrop';
 import { FocusScope } from '@react-native-aria/focus';
-import { Transition } from '../Transitions';
+import { PresenceTransition } from '../Transitions';
 import { StyleSheet } from 'react-native';
 import { useId } from '@react-aria/utils';
 
@@ -69,7 +69,7 @@ const Popover = (
     <Box ref={ref}>
       {updatedTrigger()}
       <OverlayContainer>
-        <Transition
+        <PresenceTransition
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 150 } }}
           exit={{ opacity: 0, scale: 0.95, transition: { duration: 100 } }}
@@ -97,7 +97,7 @@ const Popover = (
               </FocusScope>
             </PopoverContext.Provider>
           </Popper>
-        </Transition>
+        </PresenceTransition>
       </OverlayContainer>
     </Box>
   );

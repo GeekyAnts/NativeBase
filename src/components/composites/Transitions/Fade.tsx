@@ -1,6 +1,6 @@
 import React from 'react';
 import { useThemeProps } from '../../../hooks/useThemeProps';
-import { Transition } from '../Transitions/Transition';
+import { PresenceTransition } from '../Transitions/Transition';
 import type { IFadeProps } from './types';
 
 const Fade = ({ children, style, ...props }: IFadeProps, ref?: any) => {
@@ -9,7 +9,7 @@ const Fade = ({ children, style, ...props }: IFadeProps, ref?: any) => {
     props
   );
   return (
-    <Transition
+    <PresenceTransition
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: entryDuration } }}
       exit={{ opacity: 0, transition: { duration: exitDuration } }}
@@ -18,7 +18,7 @@ const Fade = ({ children, style, ...props }: IFadeProps, ref?: any) => {
       ref={ref}
     >
       {children}
-    </Transition>
+    </PresenceTransition>
   );
 };
 

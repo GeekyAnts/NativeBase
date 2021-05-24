@@ -1,5 +1,5 @@
 import { cloneDeep } from 'lodash';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, Fragment } from 'react';
 import { Animated, ViewProps } from 'react-native';
 
 console.log('man ', Animated);
@@ -30,6 +30,7 @@ const defaultStyles = {
   scaleX: 1,
   scaleY: 1,
   rotate: '0deg',
+  backgroundColor: 'transparent',
 };
 
 type ITransitionConfig = {
@@ -44,6 +45,7 @@ interface ITransitionProps extends ViewProps {
   exit?: ISupportedTransitions & { transition?: ITransitionConfig };
   children?: any;
   visible?: boolean;
+  as?: any;
 }
 
 const getAnimatedStyles = (animateValue: any) => (
@@ -97,10 +99,19 @@ export const Transition = forwardRef(
       animate,
       exit,
       style,
+      as,
+      ...rest
     }: ITransitionProps,
     ref: any
   ) => {
     const animateValue = React.useRef(new Animated.Value(0)).current;
+
+    const Component = React.useMemo(() => {
+      if (as) {
+        return Animated.createAnimatedComponent(as);
+      }
+      return Animated.View;
+    }, [as]);
 
     const [animationState, setAnimationState] = React.useState(
       visible ? 'entering' : 'exited'
@@ -164,10 +175,6 @@ export const Transition = forwardRef(
       animateValue,
     ]);
 
-    if (!visible && animationState === 'exited') {
-      return null;
-    }
-
     // If exit animation is present and state is exiting, we replace 'initial' with 'exit' animation
     initial =
       animationState === 'exiting' && exit
@@ -177,15 +184,16 @@ export const Transition = forwardRef(
     animate = { ...defaultStyles, ...animate };
 
     return (
-      <Animated.View
+      <Component
         pointerEvents="box-none"
         // https://github.com/facebook/react-native/issues/23090#issuecomment-710803743
         needsOffscreenAlphaCompositing
         style={[getAnimatedStyles(animateValue)(initial, animate), style]}
         ref={ref}
+        {...rest}
       >
         {children}
-      </Animated.View>
+      </Component>
     );
   }
 );
@@ -195,44 +203,86 @@ interface IStaggerProps {
   initial?: ISupportedTransitions;
   animate?: ISupportedTransitions & { transition?: ITransitionConfig };
   exit?: ISupportedTransitions & { transition?: ITransitionConfig };
+  as?: any;
   visible?: boolean;
 }
 
-export const Stagger = ({ children, ...animationConfig }: IStaggerProps) => {
-  return React.Children.map(children, (child, index) => {
-    const clonedAnimationConfig = cloneDeep(animationConfig);
-    if (clonedAnimationConfig.animate) {
-      if (!clonedAnimationConfig.animate.transition) {
-        clonedAnimationConfig.animate.transition = {};
-      }
-      clonedAnimationConfig.animate.transition.delay =
-        clonedAnimationConfig.animate.transition.delay ?? 0;
-      const stagger = clonedAnimationConfig.animate.transition.stagger;
-      const offset = stagger.reverse
-        ? (React.Children.count(children) - 1 - index) * stagger.offset
-        : index * stagger.offset;
-      clonedAnimationConfig.animate.transition.delay =
-        clonedAnimationConfig.animate.transition.delay + offset;
-    }
-    if (clonedAnimationConfig.exit) {
-      if (!clonedAnimationConfig.exit.transition) {
-        clonedAnimationConfig.exit.transition = {};
-      }
-      clonedAnimationConfig.exit.transition.delay =
-        clonedAnimationConfig.exit.transition.delay ?? 0;
-      const stagger = clonedAnimationConfig.exit.transition.stagger;
-      const offset = stagger.reverse
-        ? (React.Children.count(children) - 1 - index) * stagger.offset
-        : index * stagger.offset;
-      clonedAnimationConfig.exit.transition.delay =
-        clonedAnimationConfig.exit.transition.delay + offset;
-    }
-    return (
-      <Transition key={child.key} {...clonedAnimationConfig}>
-        {child}
-      </Transition>
-    );
-  });
+export const Stagger = ({
+  children,
+  as,
+  ...animationConfig
+}: IStaggerProps) => {
+  const WrapperComponent = as ? as : Fragment;
+  return (
+    <WrapperComponent {...animationConfig}>
+      {React.Children.map(children, (child, index) => {
+        const clonedAnimationConfig = cloneDeep(animationConfig);
+        if (clonedAnimationConfig.animate) {
+          if (!clonedAnimationConfig.animate.transition) {
+            clonedAnimationConfig.animate.transition = {};
+          }
+          clonedAnimationConfig.animate.transition.delay =
+            clonedAnimationConfig.animate.transition.delay ?? 0;
+          const stagger = clonedAnimationConfig.animate.transition.stagger;
+          const offset = stagger.reverse
+            ? (React.Children.count(children) - 1 - index) * stagger.offset
+            : index * stagger.offset;
+          clonedAnimationConfig.animate.transition.delay =
+            clonedAnimationConfig.animate.transition.delay + offset;
+        }
+        if (clonedAnimationConfig.exit) {
+          if (!clonedAnimationConfig.exit.transition) {
+            clonedAnimationConfig.exit.transition = {};
+          }
+          clonedAnimationConfig.exit.transition.delay =
+            clonedAnimationConfig.exit.transition.delay ?? 0;
+          const stagger = clonedAnimationConfig.exit.transition.stagger;
+          const offset = stagger.reverse
+            ? (React.Children.count(children) - 1 - index) * stagger.offset
+            : index * stagger.offset;
+          clonedAnimationConfig.exit.transition.delay =
+            clonedAnimationConfig.exit.transition.delay + offset;
+        }
+        return (
+          <PresenceTransition key={child.key} {...clonedAnimationConfig}>
+            {child}
+          </PresenceTransition>
+        );
+      })}
+    </WrapperComponent>
+  );
 };
 
 Stagger.displayName = 'Stagger';
+
+// const defaultEntryTransition = { ...defaultTransitionConfig, duration: 250 };
+// const defaultExitTransition = { ...defaultTransitionConfig, duration: 200 };
+
+export const PresenceTransition = forwardRef(
+  (
+    { visible = false, onTransitionComplete, ...rest }: ITransitionProps,
+    ref: any
+  ) => {
+    const [animationExited, setAnimationExited] = React.useState(true);
+    console.log('ejej ', visible);
+    if (!visible && animationExited) {
+      return null;
+    }
+
+    return (
+      <Transition
+        visible={visible}
+        onTransitionComplete={(state) => {
+          if (state === 'exited') {
+            setAnimationExited(true);
+          } else {
+            setAnimationExited(false);
+          }
+          onTransitionComplete && onTransitionComplete(state);
+        }}
+        {...rest}
+        ref={ref}
+      />
+    );
+  }
+);
