@@ -5,7 +5,6 @@ import merge from 'lodash.merge';
 import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { usePlatformProps } from '../usePlatformProps';
-import { useToken } from '../useToken';
 import { useColorMode } from '../../core/color-mode';
 import {
   resolveValueWithBreakpoint,
