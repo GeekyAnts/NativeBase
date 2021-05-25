@@ -17,7 +17,7 @@ export * from './components/primitives/Checkbox';
 // export * from './components/composites/Code';
 // export * from './components/composites/Collapse';
 export * from './components/primitives/Column';
-// export * from './components/composites/Container';
+export * from './components/composites/Container';
 export * from './components/composites/Divider';
 export * from './components/composites/Fab';
 // export * from './components/composites/factory';

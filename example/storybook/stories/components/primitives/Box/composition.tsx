@@ -55,7 +55,7 @@ export const Example = () => {
           27 MAR
         </Center>
       </Box>
-      <Stack p={4} space={4}>
+      <Stack p={4} space={2}>
         <Stack space={2}>
           <Heading size="md" ml={-1}>
             The Garden City

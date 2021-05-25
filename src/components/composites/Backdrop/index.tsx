@@ -1,5 +1,5 @@
 import React from 'react';
-import Pressable, { IPressableProps } from '../../primitives/Pressable';
+import { Pressable, IPressableProps } from '../../primitives/Pressable';
 
 const Backdrop = (props: IPressableProps) => {
   return (

@@ -1,5 +1,3 @@
-import { Platform } from 'react-native';
-
 const typography = {
   letterSpacings: {
     'xxs': -1.5,
@@ -29,7 +27,7 @@ const typography = {
     '9': '36px',
     '10': '40px',
   },
-  // customFonts: {
+  // fontConfig: {
   //   Roboto: {
   //     100: {
   //       normal: 'Roboto-Light',
@@ -80,24 +78,26 @@ const typography = {
     extrabold: 800,
     black: 900,
   },
-  // Todo: Remove Platform Conditionals
   fonts: {
-    heading: Platform.OS === 'web' ? 'system-ui' : '',
-    body: Platform.OS === 'web' ? 'system-ui' : '',
-    mono: 'monospace',
+    heading: '',
+    body: '',
+    mono: '',
   },
   fontSizes: {
     'xxs': 10,
     'xs': 12,
     'sm': 14,
     'md': 16,
-    'lg': 20,
-    'xl': 24,
-    '2xl': 28,
-    '3xl': 34,
-    '4xl': 48,
-    '5xl': 60,
-    '6xl': 96,
+    'lg': 18,
+    'xl': 20,
+    '2xl': 24,
+    '3xl': 30,
+    '4xl': 36,
+    '5xl': 48,
+    '6xl': 60,
+    '7xl': 72,
+    '8xl': 96,
+    '9xl': 128,
   },
 };
 

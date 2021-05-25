@@ -36,16 +36,16 @@ type IUseResolvedFontFamily = {
 function useResolvedFontFamily(props: IUseResolvedFontFamily) {
   const { fontFamily, fontStyle, fontWeight } = props;
 
-  const { customFonts, fontWeights, fonts } = useTheme();
+  const { fontConfig, fontWeights, fonts } = useTheme();
   const fontToken = fonts[fontFamily];
 
-  if (customFonts && customFonts[fontToken]) {
+  if (fontConfig && fontConfig[fontToken]) {
     // fontWeights are also specified using "400"
     const parsedFontWeight = parseInt(fontWeight as any);
     let fontWeightNumber = Number.isNaN(parsedFontWeight)
       ? fontWeights[fontWeight]
       : fontWeight;
-    let fontVariants = customFonts[fontToken][fontWeightNumber];
+    let fontVariants = fontConfig[fontToken][fontWeightNumber];
     if (typeof fontVariants === 'object') {
       if (fontVariants[fontStyle]) return fontVariants[fontStyle];
     } else {

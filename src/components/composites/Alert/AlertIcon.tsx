@@ -1,22 +1,15 @@
 import React, { memo, forwardRef } from 'react';
-import { Box, IIconProps } from '../../primitives';
+import { Box } from '../../primitives';
 import {
   WarningIcon,
   WarningTwoIcon,
   InfoIcon,
   CheckCircleIcon,
 } from '../../primitives/Icon/Icons';
-import type { IAlertContext } from './index';
+import type { IAlertContext, IAlertIconProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { AlertContext } from './Context';
 import { omitUndefined } from '../../../theme/tools/utils';
-
-interface IAlertIconProps extends IIconProps {
-  /**
-   * Ref to be attached to the Parent Box of the icon
-   */
-  wrapperRef?: any;
-}
 
 const AlertIcon = (
   { children, wrapperRef, ...props }: IAlertIconProps,

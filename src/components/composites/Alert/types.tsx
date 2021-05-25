@@ -1,4 +1,4 @@
-import type { ITextProps, IBoxProps, IIconProps } from '../../primitives';
+import type { IBoxProps, IIconProps } from '../../primitives';
 
 export interface IAlertProps extends IBoxProps {
   /** The status of the alert
@@ -31,20 +31,23 @@ export type IAlertContext = {
   iconColor?: string;
   textColor?: string;
 };
-export type IAlertComponentType = ((
-  props: IAlertProps & { ref?: any }
-) => JSX.Element) & {
-  Description: React.MemoExoticComponent<
-    (props: { _text?: any } & ITextProps & { ref?: any }) => JSX.Element
-  >;
-  Icon: React.MemoExoticComponent<(props: any & { ref?: any }) => JSX.Element>;
-  Title: React.MemoExoticComponent<
-    (props: { _text?: any } & ITextProps & { ref?: any }) => JSX.Element
-  >;
-};
 
 export interface IAlertIconProps extends IIconProps {
   /** Ref to be passed to Icon's wrapper Box
    */
   wrapperRef?: any;
 }
+
+export type IAlertComponentType = ((
+  props: IAlertProps & { ref?: any }
+) => JSX.Element) & {
+  Description: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+  Icon: React.MemoExoticComponent<
+    (props: IAlertIconProps & { ref?: any }) => JSX.Element
+  >;
+  Title: React.MemoExoticComponent<
+    (props: IBoxProps & { ref?: any }) => JSX.Element
+  >;
+};
