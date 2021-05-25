@@ -5,6 +5,7 @@ import merge from 'lodash.merge';
 import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { usePlatformProps } from '../usePlatformProps';
+import { useToken } from '../useToken';
 import { useColorMode } from '../../core/color-mode';
 import {
   resolveValueWithBreakpoint,
@@ -262,8 +263,37 @@ export function usePropsResolution(component: string, incomingProps: any) {
   );
   const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
 
+  // NOTE: sperating removing props while should be translated
+  let ignore: any = [];
+  let gradColors: any = null;
+
+  if (
+    platformSpecificProps.bg?.linearGradient ||
+    platformSpecificProps.background?.linearGradient ||
+    platformSpecificProps.backgroundColor?.linearGradient
+  ) {
+    let bgProp = 'bg';
+    if (platformSpecificProps.background?.linearGradient) {
+      bgProp = 'background';
+    } else if (platformSpecificProps.backgroundColor?.linearGradient) {
+      bgProp = 'backgroundColor';
+    }
+    platformSpecificProps[bgProp].linearGradient.colors = platformSpecificProps[
+      bgProp
+    ].linearGradient.colors.map((color: string) => {
+      return get(theme.colors, color);
+    });
+    ignore = ['bg', 'background', 'backgroundColor'];
+  }
+  // NOTE: seprating bg props when linearGardiant is available
+  const [gradientProps, nonGradientProps] = extractInObject(
+    platformSpecificProps,
+    ignore
+  );
+  gradientProps.colors = gradColors;
+
   const translatedProps = propTranslator({
-    props: platformSpecificProps,
+    props: nonGradientProps,
     theme: notComponentTheme,
     colorModeProps,
     componentTheme,
@@ -287,7 +317,11 @@ export function usePropsResolution(component: string, incomingProps: any) {
       }
     : translatedProps._text;
 
-  const resolvedProps = omitUndefined({ ...translatedProps, ...ignoredProps });
+  const resolvedProps = omitUndefined({
+    ...translatedProps,
+    ...ignoredProps,
+    ...gradientProps,
+  });
 
   return resolvedProps;
 }

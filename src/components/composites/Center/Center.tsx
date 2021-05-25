@@ -1,10 +1,10 @@
 import React, { memo, forwardRef } from 'react';
-import { useThemeProps } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Box from '../../primitives/Box';
 import type { ICenterProps } from './types';
 
 const Center = (props: ICenterProps, ref: any) => {
-  let newProps = useThemeProps('Center', props);
+  let newProps = usePropsResolution('Center', props);
   return (
     <Box
       ref={ref}
