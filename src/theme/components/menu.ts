@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { mode } from './../tools';
 
 function baseStyle(props: Record<string, any>) {
@@ -9,6 +9,16 @@ function baseStyle(props: Record<string, any>) {
     borderColor: mode(`gray.200`, `gray.700`)(props),
     shadow: 1,
     borderRadius: 5,
+    transition: {
+      initial: { opacity: 0, translateY: -10 },
+      animate: {
+        opacity: 1,
+        translateY: 0,
+        transition: { duration: 200 },
+      },
+      exit: { opacity: 0, translateY: -10, transition: { duration: 150 } },
+      style: StyleSheet.absoluteFill,
+    },
   };
 }
 

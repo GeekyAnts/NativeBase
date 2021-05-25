@@ -1,5 +1,5 @@
 import { cloneDeep } from 'lodash';
-import React, { forwardRef, Fragment } from 'react';
+import React, { forwardRef } from 'react';
 import { Animated, ViewProps } from 'react-native';
 
 console.log('man ', Animated);
@@ -30,7 +30,6 @@ const defaultStyles = {
   scaleX: 1,
   scaleY: 1,
   rotate: '0deg',
-  backgroundColor: 'transparent',
 };
 
 type ITransitionConfig = {
@@ -82,12 +81,9 @@ const getAnimatedStyles = (animateValue: any) => (
 const defaultTransitionConfig: ITransitionConfig = {
   type: 'timing',
   useNativeDriver: true,
-  duration: 0,
+  duration: 250,
   delay: 0,
 };
-
-// const defaultEntryTransition = { ...defaultTransitionConfig, duration: 250 };
-// const defaultExitTransition = { ...defaultTransitionConfig, duration: 200 };
 
 export const Transition = forwardRef(
   (
@@ -134,8 +130,8 @@ export const Transition = forwardRef(
             ...entryTransition,
           }),
         ]).start(() => {
-          onTransitionComplete && onTransitionComplete('entered');
           setAnimationState('entered');
+          onTransitionComplete && onTransitionComplete('entered');
         });
       }
     }, [visible, onTransitionComplete, animateValue, animate]);
@@ -163,8 +159,8 @@ export const Transition = forwardRef(
             ...exitTransition,
           }),
         ]).start(() => {
-          onTransitionComplete && onTransitionComplete('exited');
           setAnimationState('exited');
+          onTransitionComplete && onTransitionComplete('exited');
         });
       }
     }, [
@@ -183,12 +179,22 @@ export const Transition = forwardRef(
 
     animate = { ...defaultStyles, ...animate };
 
+    const styles = React.useMemo(() => {
+      return [
+        getAnimatedStyles(animateValue)(
+          initial as ISupportedTransitions,
+          animate as ISupportedTransitions
+        ),
+        style,
+      ];
+    }, [animateValue, initial, animate, style]);
+
     return (
       <Component
         pointerEvents="box-none"
         // https://github.com/facebook/react-native/issues/23090#issuecomment-710803743
         needsOffscreenAlphaCompositing
-        style={[getAnimatedStyles(animateValue)(initial, animate), style]}
+        style={styles}
         ref={ref}
         {...rest}
       >
@@ -203,60 +209,47 @@ interface IStaggerProps {
   initial?: ISupportedTransitions;
   animate?: ISupportedTransitions & { transition?: ITransitionConfig };
   exit?: ISupportedTransitions & { transition?: ITransitionConfig };
-  as?: any;
   visible?: boolean;
 }
 
-export const Stagger = ({
-  children,
-  as,
-  ...animationConfig
-}: IStaggerProps) => {
-  const WrapperComponent = as ? as : Fragment;
-  return (
-    <WrapperComponent {...animationConfig}>
-      {React.Children.map(children, (child, index) => {
-        const clonedAnimationConfig = cloneDeep(animationConfig);
-        if (clonedAnimationConfig.animate) {
-          if (!clonedAnimationConfig.animate.transition) {
-            clonedAnimationConfig.animate.transition = {};
-          }
-          clonedAnimationConfig.animate.transition.delay =
-            clonedAnimationConfig.animate.transition.delay ?? 0;
-          const stagger = clonedAnimationConfig.animate.transition.stagger;
-          const offset = stagger.reverse
-            ? (React.Children.count(children) - 1 - index) * stagger.offset
-            : index * stagger.offset;
-          clonedAnimationConfig.animate.transition.delay =
-            clonedAnimationConfig.animate.transition.delay + offset;
-        }
-        if (clonedAnimationConfig.exit) {
-          if (!clonedAnimationConfig.exit.transition) {
-            clonedAnimationConfig.exit.transition = {};
-          }
-          clonedAnimationConfig.exit.transition.delay =
-            clonedAnimationConfig.exit.transition.delay ?? 0;
-          const stagger = clonedAnimationConfig.exit.transition.stagger;
-          const offset = stagger.reverse
-            ? (React.Children.count(children) - 1 - index) * stagger.offset
-            : index * stagger.offset;
-          clonedAnimationConfig.exit.transition.delay =
-            clonedAnimationConfig.exit.transition.delay + offset;
-        }
-        return (
-          <PresenceTransition key={child.key} {...clonedAnimationConfig}>
-            {child}
-          </PresenceTransition>
-        );
-      })}
-    </WrapperComponent>
-  );
+export const Stagger = ({ children, ...restProps }: IStaggerProps) => {
+  return React.Children.map(children, (child, index) => {
+    const clonedAnimationConfig = cloneDeep(restProps);
+    const { animate, exit } = clonedAnimationConfig;
+
+    if (animate) {
+      if (!animate.transition) {
+        animate.transition = {};
+      }
+      animate.transition.delay = animate.transition.delay ?? 0;
+      const stagger = animate.transition.stagger;
+      const offset = stagger.reverse
+        ? (React.Children.count(children) - 1 - index) * stagger.offset
+        : index * stagger.offset;
+      animate.transition.delay = animate.transition.delay + offset;
+    }
+
+    if (exit) {
+      if (!exit.transition) {
+        exit.transition = {};
+      }
+      exit.transition.delay = exit.transition.delay ?? 0;
+      const stagger = exit.transition.stagger;
+      const offset = stagger.reverse
+        ? (React.Children.count(children) - 1 - index) * stagger.offset
+        : index * stagger.offset;
+      exit.transition.delay = exit.transition.delay + offset;
+    }
+
+    return (
+      <PresenceTransition key={child.key} {...clonedAnimationConfig}>
+        {child}
+      </PresenceTransition>
+    );
+  });
 };
 
 Stagger.displayName = 'Stagger';
-
-// const defaultEntryTransition = { ...defaultTransitionConfig, duration: 250 };
-// const defaultExitTransition = { ...defaultTransitionConfig, duration: 200 };
 
 export const PresenceTransition = forwardRef(
   (
@@ -264,7 +257,6 @@ export const PresenceTransition = forwardRef(
     ref: any
   ) => {
     const [animationExited, setAnimationExited] = React.useState(true);
-    console.log('ejej ', visible);
     if (!visible && animationExited) {
       return null;
     }

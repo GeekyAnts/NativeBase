@@ -8,7 +8,6 @@ import {
   Easing,
   Platform,
   SafeAreaView,
-  StatusBar,
 } from 'react-native';
 import IconButton from '../IconButton';
 import Box from '../../primitives/Box';
@@ -16,7 +15,7 @@ import { useThemeProps } from '../../../hooks';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
 
-let INSET = `${StatusBar.currentHeight}`;
+let INSET = 50;
 
 const POSITIONS = {
   'top': {
@@ -33,16 +32,16 @@ const POSITIONS = {
     left: 0,
   },
   'bottom': {
-    bottom: 0,
+    bottom: INSET,
     left: 0,
     right: 0,
   },
   'bottom-left': {
-    bottom: 0,
+    bottom: INSET,
     left: 0,
   },
   'bottom-right': {
-    bottom: 0,
+    bottom: INSET,
     right: 0,
   },
 };
