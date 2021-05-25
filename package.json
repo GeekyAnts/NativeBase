@@ -185,6 +185,7 @@
     "@react-stately/combobox": "^3.0.0-alpha.1",
     "@react-stately/radio": "^3.2.1",
     "@types/styled-system": "^5.1.9",
+    "expo-linear-gradient": "^9.1.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.isempty": "^4.4.0",
@@ -195,6 +196,7 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
+    "react-native-unimodules": "^0.13.3",
     "tinycolor2": "^1.4.2"
   },
   "directories": {
