@@ -84,13 +84,13 @@
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
-    "react": "16.11.0",
+    "react": "*",
     "react-dom": "*",
-    "react-native": "0.62.2",
-    "react-native-safe-area-context": "^3.1.9",
-    "react-native-svg": "^12.1.0",
-    "styled-components": "^5.2.1",
-    "styled-system": "^5.1.5"
+    "react-native": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-svg": "*",
+    "styled-components": "*",
+    "styled-system": "*"
   },
   "jest": {
     "preset": "jest-expo",
