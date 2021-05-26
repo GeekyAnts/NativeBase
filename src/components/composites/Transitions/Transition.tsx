@@ -1,16 +1,10 @@
-import { cloneDeep } from 'lodash';
 import React, { forwardRef } from 'react';
-import { Animated, ViewProps } from 'react-native';
-
-type ISupportedTransitions = {
-  opacity?: number;
-  translateY?: number;
-  translateX?: number;
-  scale?: number;
-  scaleX?: number;
-  scaleY?: number;
-  rotate?: string;
-};
+import { Animated } from 'react-native';
+import type {
+  ISupportedTransitions,
+  ITransitionConfig,
+  ITransitionProps,
+} from './types';
 
 const transformStylesMap = {
   translateY: true,
@@ -30,44 +24,6 @@ const defaultStyles = {
   scaleY: 1,
   rotate: '0deg',
 };
-
-type ITransitionConfigSpring = {
-  type?: 'spring';
-  overshootClamping?: boolean;
-  restDisplacementThreshold?: number;
-  restSpeedThreshold?: number;
-  velocity?: number | { x: number; y: number };
-  bounciness?: number;
-  speed?: number;
-  tension?: number;
-  friction?: number;
-  stiffness?: number;
-  mass?: number;
-  damping?: number;
-  delay?: number;
-  duration?: number;
-  useNativeDriver?: boolean;
-};
-
-type ITransitionConfigTiming = {
-  type?: 'timing';
-  easing?: (value: number) => number;
-  duration?: number;
-  delay?: number;
-  useNativeDriver?: boolean;
-};
-
-type ITransitionConfig = ITransitionConfigSpring | ITransitionConfigTiming;
-
-interface ITransitionProps extends ViewProps {
-  onTransitionComplete?: (s: 'entered' | 'exited') => void;
-  initial?: ISupportedTransitions;
-  animate?: ISupportedTransitions & { transition?: ITransitionConfig };
-  exit?: ISupportedTransitions & { transition?: ITransitionConfig };
-  children?: any;
-  visible?: boolean;
-  as?: any;
-}
 
 const getAnimatedStyles = (animateValue: any) => (
   initial: ISupportedTransitions,
@@ -107,7 +63,7 @@ const defaultTransitionConfig: ITransitionConfig = {
   delay: 0,
 };
 
-const Transition = forwardRef(
+export const Transition = forwardRef(
   (
     {
       children,
@@ -230,91 +186,6 @@ const Transition = forwardRef(
       >
         {children}
       </Component>
-    );
-  }
-);
-
-interface IStaggerConfig {
-  offset: number;
-  reverse?: boolean;
-}
-interface IStaggerProps {
-  children: any;
-  initial?: ISupportedTransitions;
-  animate?: ISupportedTransitions & {
-    transition?: ITransitionConfig & { stagger?: IStaggerConfig };
-  };
-  exit?: ISupportedTransitions & {
-    transition?: ITransitionConfig & { stagger?: IStaggerConfig };
-  };
-  visible?: boolean;
-}
-
-const defaultStaggerConfig: IStaggerConfig = { offset: 0, reverse: false };
-
-export const Stagger = ({ children, ...restProps }: IStaggerProps) => {
-  return React.Children.map(children, (child, index) => {
-    const clonedAnimationConfig = cloneDeep(restProps);
-    const { animate, exit } = clonedAnimationConfig;
-
-    if (animate) {
-      if (!animate.transition) {
-        animate.transition = {};
-      }
-      animate.transition.delay = animate.transition.delay ?? 0;
-      const stagger = animate.transition.stagger ?? defaultStaggerConfig;
-      const offset = stagger.reverse
-        ? (React.Children.count(children) - 1 - index) * stagger.offset
-        : index * stagger.offset;
-      animate.transition.delay = animate.transition.delay + offset;
-    }
-
-    if (exit) {
-      if (!exit.transition) {
-        exit.transition = {};
-      }
-      exit.transition.delay = exit.transition.delay ?? 0;
-      const stagger = exit.transition.stagger ?? defaultStaggerConfig;
-      const offset = stagger.reverse
-        ? (React.Children.count(children) - 1 - index) * stagger.offset
-        : index * stagger.offset;
-      exit.transition.delay = exit.transition.delay + offset;
-    }
-
-    return (
-      <PresenceTransition key={child.key} {...clonedAnimationConfig}>
-        {child}
-      </PresenceTransition>
-    );
-  });
-};
-
-Stagger.displayName = 'Stagger';
-
-export const PresenceTransition = forwardRef(
-  (
-    { visible = false, onTransitionComplete, ...rest }: ITransitionProps,
-    ref: any
-  ) => {
-    const [animationExited, setAnimationExited] = React.useState(true);
-    if (!visible && animationExited) {
-      return null;
-    }
-
-    return (
-      <Transition
-        visible={visible}
-        onTransitionComplete={(state) => {
-          if (state === 'exited') {
-            setAnimationExited(true);
-          } else {
-            setAnimationExited(false);
-          }
-          onTransitionComplete && onTransitionComplete(state);
-        }}
-        {...rest}
-        ref={ref}
-      />
     );
   }
 );
