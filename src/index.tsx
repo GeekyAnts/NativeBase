@@ -56,6 +56,8 @@ import {
   IFadeProps,
   ScaleFade,
   IScaleFadeProps,
+  PresenceTransition,
+  Stagger,
   Slide,
   ISlideProps,
   SlideFade,
@@ -222,6 +224,8 @@ export {
   ScaleFade,
   Slide,
   SlideFade,
+  PresenceTransition,
+  Stagger,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -324,3 +328,5 @@ export type {
   ISelectItemProps,
   ITextFieldProps,
 };
+
+export { OverlayContainer as Portal } from '@react-native-aria/overlays';

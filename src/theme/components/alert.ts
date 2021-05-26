@@ -117,7 +117,7 @@ export const Alert = {
     alignItems: 'center',
     justifyContent: 'flex-start',
     p: 3,
-    space: 2,
+    space: 3,
     borderRadius: 'md',
     _actionProps: {
       alignSelf: 'center',
@@ -140,10 +140,11 @@ export const Alert = {
 
 export const AlertTitle = {
   baseStyle: {
-    fontSize: 'md',
-    lineHeight: 5,
-    fontWeight: 'bold',
-    mr: 2,
+    _text: {
+      fontSize: 'md',
+      lineHeight: 5,
+      fontWeight: 'bold',
+    },
   },
 };
 
@@ -158,7 +159,9 @@ export const AlertIcon = {
 // AlertDescription
 export const AlertDescription = {
   baseStyle: {
-    fontSize: 'sm',
+    _text: {
+      fontSize: 'sm',
+    },
     flexShrink: 1,
   },
 };
