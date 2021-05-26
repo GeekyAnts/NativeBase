@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { ISlideProps } from './types';
-import { PresenceTransition } from './Transition';
+import PresenceTransition from './PresenceTransition';
 
 const holderStyle: any = {
   top: {

@@ -84,7 +84,7 @@ export interface ITransitionProps extends ViewProps {
   as?: any;
 }
 
-export interface IPresenceTransitionProps {
+export interface IPresenceTransitionProps extends ViewProps {
   /**
    * Callback invoked when transition is completed
    */

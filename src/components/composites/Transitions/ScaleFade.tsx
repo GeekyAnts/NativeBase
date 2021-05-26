@@ -1,7 +1,7 @@
 import React from 'react';
 import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { IScaleFadeProps } from './types';
-import { PresenceTransition } from './Transition';
+import PresenceTransition from './PresenceTransition';
 
 const ScaleFade = (
   { children, style, ...props }: IScaleFadeProps,
