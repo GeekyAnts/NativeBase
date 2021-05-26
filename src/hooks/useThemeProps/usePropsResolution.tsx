@@ -270,19 +270,6 @@ export function usePropsResolution(component: string, incomingProps: any) {
   );
   const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
 
-  // Remove it while removing styled components.
-  propsThatCannotHoldNegativityWithStrings.forEach((p) => {
-    if (
-      platformSpecificProps[p] &&
-      typeof platformSpecificProps[p] === 'string'
-    ) {
-      const parsedNum = +platformSpecificProps[p];
-      if (!isNaN(parsedNum)) {
-        platformSpecificProps[p] = parsedNum;
-      }
-    }
-  });
-
   const translatedProps = propTranslator({
     props: platformSpecificProps,
     theme: notComponentTheme,
@@ -309,6 +296,16 @@ export function usePropsResolution(component: string, incomingProps: any) {
     : translatedProps._text;
 
   const resolvedProps = omitUndefined({ ...translatedProps, ...ignoredProps });
+
+  // Remove it while removing styled components.
+  propsThatCannotHoldNegativityWithStrings.forEach((p) => {
+    if (resolvedProps[p] && typeof resolvedProps[p] === 'string') {
+      const parsedNum = +resolvedProps[p];
+      if (!isNaN(parsedNum)) {
+        resolvedProps[p] = parsedNum;
+      }
+    }
+  });
 
   return resolvedProps;
 }
