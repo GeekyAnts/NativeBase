@@ -2,7 +2,6 @@ import { cloneDeep } from 'lodash';
 import React, { forwardRef } from 'react';
 import { Animated, ViewProps } from 'react-native';
 
-console.log('man ', Animated);
 type ISupportedTransitions = {
   opacity?: number;
   translateY?: number;
@@ -32,10 +31,33 @@ const defaultStyles = {
   rotate: '0deg',
 };
 
-type ITransitionConfig = {
-  type?: 'spring' | 'timing';
-  [key: string]: any;
+type ITransitionConfigSpring = {
+  type?: 'spring';
+  overshootClamping?: boolean;
+  restDisplacementThreshold?: number;
+  restSpeedThreshold?: number;
+  velocity?: number | { x: number; y: number };
+  bounciness?: number;
+  speed?: number;
+  tension?: number;
+  friction?: number;
+  stiffness?: number;
+  mass?: number;
+  damping?: number;
+  delay?: number;
+  duration?: number;
+  useNativeDriver?: boolean;
 };
+
+type ITransitionConfigTiming = {
+  type?: 'timing';
+  easing?: (value: number) => number;
+  duration?: number;
+  delay?: number;
+  useNativeDriver?: boolean;
+};
+
+type ITransitionConfig = ITransitionConfigSpring | ITransitionConfigTiming;
 
 interface ITransitionProps extends ViewProps {
   onTransitionComplete?: (s: 'entered' | 'exited') => void;
@@ -85,7 +107,7 @@ const defaultTransitionConfig: ITransitionConfig = {
   delay: 0,
 };
 
-export const Transition = forwardRef(
+const Transition = forwardRef(
   (
     {
       children,
@@ -115,26 +137,30 @@ export const Transition = forwardRef(
 
     const prevVisible = React.useRef(visible);
 
-    React.useEffect(() => {
-      const entryTransition = {
-        ...defaultTransitionConfig,
-        ...animate?.transition,
-      };
+    React.useEffect(
+      function startEntryTransition() {
+        const entryTransition = {
+          ...defaultTransitionConfig,
+          ...animate?.transition,
+        };
 
-      if (visible) {
-        Animated.sequence([
-          Animated.delay(entryTransition.delay),
-          Animated[entryTransition.type ?? 'timing'](animateValue, {
-            toValue: 1,
-            useNativeDriver: true,
-            ...entryTransition,
-          }),
-        ]).start(() => {
-          setAnimationState('entered');
-          onTransitionComplete && onTransitionComplete('entered');
-        });
-      }
-    }, [visible, onTransitionComplete, animateValue, animate]);
+        if (visible) {
+          Animated.sequence([
+            // @ts-ignore - delay is present in defaultTransitionConfig
+            Animated.delay(entryTransition.delay),
+            Animated[entryTransition.type ?? 'timing'](animateValue, {
+              toValue: 1,
+              useNativeDriver: true,
+              ...entryTransition,
+            }),
+          ]).start(() => {
+            setAnimationState('entered');
+            onTransitionComplete && onTransitionComplete('entered');
+          });
+        }
+      },
+      [visible, onTransitionComplete, animateValue, animate]
+    );
 
     React.useEffect(() => {
       // Exit request
@@ -144,32 +170,36 @@ export const Transition = forwardRef(
       prevVisible.current = visible;
     }, [visible]);
 
-    React.useEffect(() => {
-      const exitTransition = {
-        ...defaultTransitionConfig,
-        ...exit?.transition,
-      };
+    React.useEffect(
+      function startExitTransition() {
+        const exitTransition = {
+          ...defaultTransitionConfig,
+          ...exit?.transition,
+        };
 
-      if (animationState === 'exiting') {
-        Animated.sequence([
-          Animated.delay(exitTransition.delay),
-          Animated[exitTransition.type ?? 'timing'](animateValue, {
-            toValue: 0,
-            useNativeDriver: true,
-            ...exitTransition,
-          }),
-        ]).start(() => {
-          setAnimationState('exited');
-          onTransitionComplete && onTransitionComplete('exited');
-        });
-      }
-    }, [
-      exit,
-      onTransitionComplete,
-      setAnimationState,
-      animationState,
-      animateValue,
-    ]);
+        if (animationState === 'exiting') {
+          Animated.sequence([
+            // @ts-ignore - delay is present in defaultTransitionConfig
+            Animated.delay(exitTransition.delay),
+            Animated[exitTransition.type ?? 'timing'](animateValue, {
+              toValue: 0,
+              useNativeDriver: true,
+              ...exitTransition,
+            }),
+          ]).start(() => {
+            setAnimationState('exited');
+            onTransitionComplete && onTransitionComplete('exited');
+          });
+        }
+      },
+      [
+        exit,
+        onTransitionComplete,
+        setAnimationState,
+        animationState,
+        animateValue,
+      ]
+    );
 
     // If exit animation is present and state is exiting, we replace 'initial' with 'exit' animation
     initial =
@@ -204,13 +234,23 @@ export const Transition = forwardRef(
   }
 );
 
+interface IStaggerConfig {
+  offset: number;
+  reverse?: boolean;
+}
 interface IStaggerProps {
   children: any;
   initial?: ISupportedTransitions;
-  animate?: ISupportedTransitions & { transition?: ITransitionConfig };
-  exit?: ISupportedTransitions & { transition?: ITransitionConfig };
+  animate?: ISupportedTransitions & {
+    transition?: ITransitionConfig & { stagger?: IStaggerConfig };
+  };
+  exit?: ISupportedTransitions & {
+    transition?: ITransitionConfig & { stagger?: IStaggerConfig };
+  };
   visible?: boolean;
 }
+
+const defaultStaggerConfig: IStaggerConfig = { offset: 0, reverse: false };
 
 export const Stagger = ({ children, ...restProps }: IStaggerProps) => {
   return React.Children.map(children, (child, index) => {
@@ -222,7 +262,7 @@ export const Stagger = ({ children, ...restProps }: IStaggerProps) => {
         animate.transition = {};
       }
       animate.transition.delay = animate.transition.delay ?? 0;
-      const stagger = animate.transition.stagger;
+      const stagger = animate.transition.stagger ?? defaultStaggerConfig;
       const offset = stagger.reverse
         ? (React.Children.count(children) - 1 - index) * stagger.offset
         : index * stagger.offset;
@@ -234,7 +274,7 @@ export const Stagger = ({ children, ...restProps }: IStaggerProps) => {
         exit.transition = {};
       }
       exit.transition.delay = exit.transition.delay ?? 0;
-      const stagger = exit.transition.stagger;
+      const stagger = exit.transition.stagger ?? defaultStaggerConfig;
       const offset = stagger.reverse
         ? (React.Children.count(children) - 1 - index) * stagger.offset
         : index * stagger.offset;
