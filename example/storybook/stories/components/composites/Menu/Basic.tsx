@@ -1,16 +1,11 @@
 import React from 'react';
-import { Menu, Divider, HamburgerIcon } from 'native-base';
-import { Pressable } from 'react-native';
+import { Menu, Divider, HamburgerIcon, IconButton } from 'native-base';
 
 export function Example() {
   return (
     <Menu
       trigger={(triggerProps) => {
-        return (
-          <Pressable {...triggerProps}>
-            <HamburgerIcon />
-          </Pressable>
-        );
+        return <IconButton {...triggerProps} icon={<HamburgerIcon />} />;
       }}
     >
       <Menu.Item>Aria</Menu.Item>

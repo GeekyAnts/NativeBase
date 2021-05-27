@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fade, Button, Box } from 'native-base';
+import { Button, Box, PresenceTransition } from 'native-base';
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -8,7 +8,11 @@ export const Example = () => {
       <Button onPress={() => setIsOpen(!isOpen)}>
         Click Me to {isOpen ? 'hide' : 'show'}
       </Button>
-      <Fade in={isOpen}>
+      <PresenceTransition
+        visible={isOpen}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 250 } }}
+      >
         <Box
           p="40px"
           color="white"
@@ -19,7 +23,7 @@ export const Example = () => {
         >
           Fade
         </Box>
-      </Fade>
+      </PresenceTransition>
     </>
   );
 };

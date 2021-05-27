@@ -1,15 +1,10 @@
 import React, { forwardRef } from 'react';
-import { Animated, ViewProps } from 'react-native';
-
-type ISupportedTransitions = {
-  opacity?: number;
-  translateY?: number;
-  translateX?: number;
-  scale?: number;
-  scaleX?: number;
-  scaleY?: number;
-  rotate?: string;
-};
+import { Animated } from 'react-native';
+import type {
+  ISupportedTransitions,
+  ITransitionConfig,
+  ITransitionProps,
+} from './types';
 
 const transformStylesMap = {
   translateY: true,
@@ -29,20 +24,6 @@ const defaultStyles = {
   scaleY: 1,
   rotate: '0deg',
 };
-
-type ITransitionConfig = {
-  type?: 'spring' | 'timing';
-  [key: string]: any;
-};
-
-interface ITransitionProps extends ViewProps {
-  onTransitionComplete?: (s: 'entered' | 'exited') => void;
-  initial: ISupportedTransitions;
-  entry: ISupportedTransitions & { transition?: ITransitionConfig };
-  exit: ISupportedTransitions & { transition?: ITransitionConfig };
-  children?: any;
-  visible?: boolean;
-}
 
 const getAnimatedStyles = (animateValue: any) => (
   initial: ISupportedTransitions,
@@ -78,11 +59,9 @@ const getAnimatedStyles = (animateValue: any) => (
 const defaultTransitionConfig: ITransitionConfig = {
   type: 'timing',
   useNativeDriver: true,
-  duration: 200,
+  duration: 250,
+  delay: 0,
 };
-
-const defaultEntryTransition = { ...defaultTransitionConfig, duration: 250 };
-const defaultExitTransition = { ...defaultTransitionConfig, duration: 200 };
 
 export const Transition = forwardRef(
   (
@@ -91,13 +70,22 @@ export const Transition = forwardRef(
       onTransitionComplete,
       visible = false,
       initial,
-      entry,
+      animate,
       exit,
       style,
+      as,
+      ...rest
     }: ITransitionProps,
     ref: any
   ) => {
     const animateValue = React.useRef(new Animated.Value(0)).current;
+
+    const Component = React.useMemo(() => {
+      if (as) {
+        return Animated.createAnimatedComponent(as);
+      }
+      return Animated.View;
+    }, [as]);
 
     const [animationState, setAnimationState] = React.useState(
       visible ? 'entering' : 'exited'
@@ -105,23 +93,30 @@ export const Transition = forwardRef(
 
     const prevVisible = React.useRef(visible);
 
-    React.useEffect(() => {
-      const entryTransition = {
-        ...defaultEntryTransition,
-        ...entry?.transition,
-      };
+    React.useEffect(
+      function startEntryTransition() {
+        const entryTransition = {
+          ...defaultTransitionConfig,
+          ...animate?.transition,
+        };
 
-      if (visible) {
-        Animated[entryTransition.type ?? 'timing'](animateValue, {
-          toValue: 1,
-          useNativeDriver: true,
-          ...entryTransition,
-        }).start(() => {
-          onTransitionComplete && onTransitionComplete('entered');
-          setAnimationState('entered');
-        });
-      }
-    }, [visible, onTransitionComplete, animateValue, entry]);
+        if (visible) {
+          Animated.sequence([
+            // @ts-ignore - delay is present in defaultTransitionConfig
+            Animated.delay(entryTransition.delay),
+            Animated[entryTransition.type ?? 'timing'](animateValue, {
+              toValue: 1,
+              useNativeDriver: true,
+              ...entryTransition,
+            }),
+          ]).start(() => {
+            setAnimationState('entered');
+            onTransitionComplete && onTransitionComplete('entered');
+          });
+        }
+      },
+      [visible, onTransitionComplete, animateValue, animate]
+    );
 
     React.useEffect(() => {
       // Exit request
@@ -131,33 +126,36 @@ export const Transition = forwardRef(
       prevVisible.current = visible;
     }, [visible]);
 
-    React.useEffect(() => {
-      const exitTransition = {
-        ...defaultExitTransition,
-        ...exit?.transition,
-      };
+    React.useEffect(
+      function startExitTransition() {
+        const exitTransition = {
+          ...defaultTransitionConfig,
+          ...exit?.transition,
+        };
 
-      if (animationState === 'exiting') {
-        Animated[exitTransition.type ?? 'timing'](animateValue, {
-          toValue: 0,
-          useNativeDriver: true,
-          ...exitTransition,
-        }).start(() => {
-          onTransitionComplete && onTransitionComplete('exited');
-          setAnimationState('exited');
-        });
-      }
-    }, [
-      exit,
-      onTransitionComplete,
-      setAnimationState,
-      animationState,
-      animateValue,
-    ]);
-
-    if (!visible && animationState === 'exited') {
-      return null;
-    }
+        if (animationState === 'exiting') {
+          Animated.sequence([
+            // @ts-ignore - delay is present in defaultTransitionConfig
+            Animated.delay(exitTransition.delay),
+            Animated[exitTransition.type ?? 'timing'](animateValue, {
+              toValue: 0,
+              useNativeDriver: true,
+              ...exitTransition,
+            }),
+          ]).start(() => {
+            setAnimationState('exited');
+            onTransitionComplete && onTransitionComplete('exited');
+          });
+        }
+      },
+      [
+        exit,
+        onTransitionComplete,
+        setAnimationState,
+        animationState,
+        animateValue,
+      ]
+    );
 
     // If exit animation is present and state is exiting, we replace 'initial' with 'exit' animation
     initial =
@@ -165,18 +163,29 @@ export const Transition = forwardRef(
         ? { ...defaultStyles, ...exit }
         : { ...defaultStyles, ...initial };
 
-    entry = { ...defaultStyles, ...entry };
+    animate = { ...defaultStyles, ...animate };
+
+    const styles = React.useMemo(() => {
+      return [
+        getAnimatedStyles(animateValue)(
+          initial as ISupportedTransitions,
+          animate as ISupportedTransitions
+        ),
+        style,
+      ];
+    }, [animateValue, initial, animate, style]);
 
     return (
-      <Animated.View
+      <Component
         pointerEvents="box-none"
         // https://github.com/facebook/react-native/issues/23090#issuecomment-710803743
         needsOffscreenAlphaCompositing
-        style={[getAnimatedStyles(animateValue)(initial, entry), style]}
+        style={styles}
         ref={ref}
+        {...rest}
       >
         {children}
-      </Animated.View>
+      </Component>
     );
   }
 );
