@@ -229,6 +229,23 @@ const propsThatCannotHoldNegativityWithStrings = [
   'p',
 ];
 
+// remove it while removing styled components.
+const mutatePropToHandleNegativeVal = (theme: any, props: any, key: any) => {
+  if (props[key] in theme.space) {
+    return;
+  }
+
+  if (typeof props[key] === 'string' && props[key].startsWith('-')) {
+    const parsedNum = +props[key];
+    // converts '-8' to -8
+    if (!isNaN(parsedNum)) {
+      props[key] = parsedNum;
+    } else if (props[key] === '-') {
+      props[key] = undefined;
+    }
+  }
+};
+
 /**
  * @summary Combines provided porps with component's theme props and resloves them.
  * @description NOTE: Avoid passing JSX and functions.
@@ -295,17 +312,14 @@ export function usePropsResolution(component: string, incomingProps: any) {
       }
     : translatedProps._text;
 
-  const resolvedProps = omitUndefined({ ...translatedProps, ...ignoredProps });
-
   // Remove it while removing styled components.
-  propsThatCannotHoldNegativityWithStrings.forEach((p) => {
-    if (resolvedProps[p] && typeof resolvedProps[p] === 'string') {
-      const parsedNum = +resolvedProps[p];
-      if (!isNaN(parsedNum)) {
-        resolvedProps[p] = parsedNum;
-      }
+  propsThatCannotHoldNegativityWithStrings.forEach((key) => {
+    if (translatedProps && key in translatedProps) {
+      mutatePropToHandleNegativeVal(theme, translatedProps, key);
     }
   });
+
+  const resolvedProps = omitUndefined({ ...translatedProps, ...ignoredProps });
 
   return resolvedProps;
 }
