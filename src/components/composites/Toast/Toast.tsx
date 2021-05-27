@@ -1,5 +1,5 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { Transition } from '../Transitions';
+import { PresenceTransition } from '../Transitions';
 import VStack from '../../primitives/Stack/VStack';
 import { Alert } from '../../composites/Alert';
 import React, { createContext, useState } from 'react';
@@ -8,7 +8,6 @@ import {
   Easing,
   Platform,
   SafeAreaView,
-  StatusBar,
 } from 'react-native';
 import IconButton from '../IconButton';
 import Box from '../../primitives/Box';
@@ -16,7 +15,7 @@ import { useThemeProps } from '../../../hooks';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
 
-let INSET = `${StatusBar.currentHeight}`;
+let INSET = 50;
 
 const POSITIONS = {
   'top': {
@@ -33,16 +32,16 @@ const POSITIONS = {
     left: 0,
   },
   'bottom': {
-    bottom: 0,
+    bottom: INSET,
     left: 0,
     right: 0,
   },
   'bottom-left': {
-    bottom: 0,
+    bottom: INSET,
     left: 0,
   },
   'bottom-right': {
-    bottom: 0,
+    bottom: INSET,
     right: 0,
   },
 };
@@ -97,7 +96,7 @@ const CustomToast = () => {
               {
                 // @ts-ignore
                 toastInfo[position].map((toast: IToast) => (
-                  <Transition
+                  <PresenceTransition
                     key={toast.id}
                     visible={visibleToasts[toast.id]}
                     onTransitionComplete={(status: any) => {
@@ -111,9 +110,9 @@ const CustomToast = () => {
                       opacity: 0,
                       translateY: transitionConfig[position],
                     }}
-                    entry={{
+                    animate={{
                       opacity: 1,
-                      transition: { easing: Easing.ease },
+                      transition: { easing: Easing.ease, duration: 250 },
                     }}
                     exit={{
                       opacity: 0,
@@ -122,7 +121,7 @@ const CustomToast = () => {
                     }}
                   >
                     <SafeAreaView>{toast.component}</SafeAreaView>
-                  </Transition>
+                  </PresenceTransition>
                 ))
               }
             </VStack>
