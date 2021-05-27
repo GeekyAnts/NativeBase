@@ -1,4 +1,5 @@
 import type { ViewProps } from 'react-native';
+
 import type {
   BorderProps,
   ColorProps,
@@ -17,9 +18,17 @@ import type {
 } from '../../types';
 import type { ITextProps } from './../Text/types';
 
+export interface ILinearGradientProps {
+  linearGradient?: {
+    colors: Array<string>;
+    start?: Array<number>;
+    end?: Array<number>;
+    location?: Array<number>;
+  };
+}
 export interface IBoxProps
   extends ViewProps,
-    ColorProps,
+    Omit<ColorProps, 'backgroundColor' | 'bg'>,
     SpaceProps,
     LayoutProps,
     FlexboxProps,
@@ -29,7 +38,7 @@ export interface IBoxProps
     ExtraProps,
     OutlineProps,
     ShadowProps,
-    BackgroundProps,
+    Omit<BackgroundProps, 'bgColor' | 'background' | 'bg' | 'backgroundColor'>,
     SafeAreaProps,
     TransformProps,
     PlatformProps {
@@ -45,4 +54,8 @@ export interface IBoxProps
    * For providing props to Text inside Box
    */
   _text?: ITextProps;
+  bg?: string | ILinearGradientProps;
+  background?: string | ILinearGradientProps;
+  bgColor?: string | ILinearGradientProps;
+  backgroundColor?: string | ILinearGradientProps;
 }

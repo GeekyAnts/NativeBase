@@ -91,7 +91,8 @@
     "react-native-svg": "*",
     "styled-components": "*",
     "styled-system": "*",
-    "expo-linear-gradient": "*"
+    "expo-linear-gradient": "*",
+    "react-native-linear-gradient": "*"
   },
   "jest": {
     "preset": "jest-expo",
