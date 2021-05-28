@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import { View } from 'react-native';
-import { LinearGradient } from './LinearGradiant';
+import { LinearGradient } from './LinearGradient';
 import styled from 'styled-components/native';
 import {
   border,
