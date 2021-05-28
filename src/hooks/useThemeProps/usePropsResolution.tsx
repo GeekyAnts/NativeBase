@@ -229,15 +229,12 @@ const propsThatCannotHoldNegativityWithStrings = [
   'p',
 ];
 
+const matchRegex = new RegExp(/(\d*\.?\d+)\s?(px|em|ex|%|in|cn|mm|pt|pc+)/gim);
 // remove it while removing styled components.
 const mutatePropToHandleNegativeVal = (theme: any, props: any, key: any) => {
   if (props[key] in theme.space) {
     return;
   }
-
-  const matchRegex = new RegExp(
-    /(\d*\.?\d+)\s?(px|em|ex|%|in|cn|mm|pt|pc+)/gim
-  );
 
   if (typeof props[key] === 'string') {
     const parsedNum = +props[key];
