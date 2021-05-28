@@ -68,11 +68,13 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   if (
     resolvedProps.bg?.linearGradient ||
     resolvedProps.background?.linearGradient ||
+    resolvedProps.bgColor?.linearGradient ||
     resolvedProps.backgroundColor?.linearGradient
   ) {
     const lgrad =
       resolvedProps.bg?.linearGradient ||
       resolvedProps.background?.linearGradient ||
+      resolvedProps.bgColor?.linearGradient ||
       resolvedProps.backgroundColor?.linearGradient;
 
     return (
