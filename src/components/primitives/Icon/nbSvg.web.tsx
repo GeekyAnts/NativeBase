@@ -1,10 +1,25 @@
 //@ts-ignore
 import { unstable_createElement } from 'react-native-web';
+import { forwardRef } from 'react';
 
-export const Svg = (props: any) => unstable_createElement('svg', props);
-export const G = (props: any) => unstable_createElement('g', props);
-export const Path = (props: any) => unstable_createElement('path', props);
-export const Polygon = (props: any) => unstable_createElement('polygon', props);
-export const Line = (props: any) => unstable_createElement('line', props);
-export const Circle = (props: any) => unstable_createElement('circle', props);
-export const Rect = (props: any) => unstable_createElement('rect', props);
+export const Svg = forwardRef((props: any, ref: any) =>
+  unstable_createElement('svg', { ...props, ref })
+);
+export const G = forwardRef((props: any, ref: any) =>
+  unstable_createElement('g', { ...props, ref })
+);
+export const Path = forwardRef((props: any, ref: any) =>
+  unstable_createElement('path', { ...props, ref })
+);
+export const Polygon = forwardRef((props: any, ref: any) =>
+  unstable_createElement('polygon', { ...props, ref })
+);
+export const Line = forwardRef((props: any, ref: any) =>
+  unstable_createElement('line', { ...props, ref })
+);
+export const Circle = forwardRef((props: any, ref: any) =>
+  unstable_createElement('circle', { ...props, ref })
+);
+export const Rect = forwardRef((props: any, ref: any) =>
+  unstable_createElement('rect', { ...props, ref })
+);
