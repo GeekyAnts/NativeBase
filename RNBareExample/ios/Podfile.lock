@@ -1,5 +1,7 @@
 PODS:
   - boost-for-react-native (1.63.0)
+  - BVLinearGradient (2.5.6):
+    - React
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.64.1)
@@ -325,6 +327,7 @@ PODS:
     - Yoga (~> 1.14)
 
 DEPENDENCIES:
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
@@ -393,6 +396,8 @@ SPEC REPOS:
     - YogaKit
 
 EXTERNAL SOURCES:
+  BVLinearGradient:
+    :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
@@ -456,10 +461,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: 7b423f9e248eae65987838148c36eec1dbfe0b53
-  FBReactNativeSpec: 5f6e2e27e4a0db2ea066dd223b5b9f94ec2f48be
+  FBReactNativeSpec: 8a0376327036abc1c376a85b3b5d9f2a344562d3
   Flipper: d3da1aa199aad94455ae725e9f3aa43f3ec17021
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
   Flipper-Folly: 755929a4f851b2fb2c347d533a23f191b008554c
@@ -498,6 +504,6 @@ SPEC CHECKSUMS:
   Yoga: a7de31c64fe738607e7a3803e3f591a4b1df7393
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: dc5d01e4a4e62be7d53db1a0908320d4f3b146fd
+PODFILE CHECKSUM: 482de712ad72f62685e5dda7b1e5b0f83984b5ae
 
 COCOAPODS: 1.10.1
