@@ -6,7 +6,6 @@ import type {
   LayoutProps,
   PositionProps,
   SpaceProps,
-  TypographyProps,
   ExtraProps,
   OutlineProps,
   ShadowProps,
@@ -21,7 +20,6 @@ export interface IPressableProps
     SpaceProps,
     LayoutProps,
     FlexboxProps,
-    TypographyProps,
     PositionProps,
     BorderProps,
     ExtraProps,
@@ -32,35 +30,43 @@ export interface IPressableProps
     TransformProps,
     PlatformProps {
   /**
-   *
+   * Called when a mouse enters the Pressable
    */
   onHoverIn?: any;
   /**
-   *
+   * Called when a mouse leaves the Pressable
    */
   onHoverOut?: any;
   /**
-   *
+   * Called when Pressable receives focus
    */
   onFocus?: any;
   /**
-   *
+   * Called when Pressable loses focus
    */
   onBlur?: any;
   /**
-   *
+   * Style props to be applied when hovered
    */
   _hover?: IPressableProps;
   /**
-   *
+   * Style props to be applied when pressed
    */
   _pressed?: IPressableProps;
   /**
-   *
+   * Style props to be applied when focus
    */
   _focus?: IPressableProps;
-  /**
-   *
-   */
-  children?: any;
+
+  children?:
+    | React.ReactNode
+    | (({
+        isPressed,
+        isHovered,
+        isFocused,
+      }: {
+        isPressed: boolean;
+        isHovered: boolean;
+        isFocused: boolean;
+      }) => any);
 }

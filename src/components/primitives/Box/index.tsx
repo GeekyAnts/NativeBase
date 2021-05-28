@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import { View } from 'react-native';
-import { LinearGradient } from './LinearGradiant';
+import { LinearGradient } from './LinearGradient';
 import styled from 'styled-components/native';
 import {
   border,
@@ -68,11 +68,13 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   if (
     resolvedProps.bg?.linearGradient ||
     resolvedProps.background?.linearGradient ||
+    resolvedProps.bgColor?.linearGradient ||
     resolvedProps.backgroundColor?.linearGradient
   ) {
     const lgrad =
       resolvedProps.bg?.linearGradient ||
       resolvedProps.background?.linearGradient ||
+      resolvedProps.bgColor?.linearGradient ||
       resolvedProps.backgroundColor?.linearGradient;
 
     return (

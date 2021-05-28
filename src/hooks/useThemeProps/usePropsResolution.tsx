@@ -273,12 +273,15 @@ export function usePropsResolution(component: string, incomingProps: any) {
     [windowWidth, theme.breakpoints]
   );
 
-  const componentThemeObject = simplifyComponentTheme(
-    notComponentTheme,
-    componentTheme,
-    cleanIncomingProps,
-    colorModeProps,
-    currentBreakpoint
+  // TODO: using usePlatformProps here to simplify the component theme. So that on on component level it shouldn't have to maintain the Specificity.
+  const componentThemeObject = usePlatformProps(
+    simplifyComponentTheme(
+      notComponentTheme,
+      componentTheme,
+      cleanIncomingProps,
+      colorModeProps,
+      currentBreakpoint
+    )
   );
   const componentThemeIntegratedProps = merge(
     {},
@@ -306,7 +309,7 @@ export function usePropsResolution(component: string, incomingProps: any) {
     platformSpecificProps[bgProp].linearGradient.colors = platformSpecificProps[
       bgProp
     ].linearGradient.colors.map((color: string) => {
-      return get(theme.colors, color);
+      return get(theme.colors, color, color);
     });
     ignore = ['bg', 'background', 'backgroundColor', 'bgColor'];
   }
