@@ -57,6 +57,7 @@ export * from './components/composites/Tooltip';
 // export * from './components/composites/TextField';
 // export * from './components/composites/Toast';
 export * from './components/composites/Transitions';
+export * from './components/primitives/Pressable';
 // export * from './components/composites/Typeahead';
 
 // export * from './components/primitives/View';
