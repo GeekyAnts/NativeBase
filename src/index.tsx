@@ -162,6 +162,7 @@ import {
   Select,
   ISelectProps,
   ISelectItemProps,
+  Pressable,
 } from './components/primitives';
 
 export * from './components/primitives/Icon/Icons';
@@ -210,6 +211,7 @@ export {
   Container,
   Divider,
   Link,
+  Pressable,
   Progress,
   Accordion,
   Skeleton,

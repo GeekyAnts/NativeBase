@@ -107,7 +107,6 @@ const Pressable = (
             isPressed,
             isHovered,
             isFocused,
-            focusProps,
           })}
     </StyledPressable>
   );
