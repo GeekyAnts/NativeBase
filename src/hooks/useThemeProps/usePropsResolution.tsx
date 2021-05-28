@@ -309,7 +309,7 @@ export function usePropsResolution(component: string, incomingProps: any) {
     platformSpecificProps[bgProp].linearGradient.colors = platformSpecificProps[
       bgProp
     ].linearGradient.colors.map((color: string) => {
-      return get(theme.colors, color);
+      return get(theme.colors, color, color);
     });
     ignore = ['bg', 'background', 'backgroundColor', 'bgColor'];
   }

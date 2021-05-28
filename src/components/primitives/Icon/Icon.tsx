@@ -18,7 +18,11 @@ const Icon = ({ as, ...props }: IIconProps, ref?: any) => {
     size: themeSize,
   });
 
-  return <Box {...resolvedProps}>{asWithProps}</Box>;
+  return (
+    <Box {...resolvedProps} ref={ref}>
+      {asWithProps}
+    </Box>
+  );
 };
 
 export default memo(forwardRef(Icon));
