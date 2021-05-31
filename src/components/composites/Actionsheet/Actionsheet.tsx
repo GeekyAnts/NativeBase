@@ -32,7 +32,10 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
       },
       onPanResponderMove: (e, gestureState) => {
         if (gestureState.dy > 0) {
-          Animated.event([null, { dy: pan.y }], {useNativeDriver: false})(e, gestureState);
+          Animated.event([null, { dy: pan.y }], { useNativeDriver: false })(
+            e,
+            gestureState
+          );
         }
       },
       onPanResponderRelease: (_e, gestureState) => {
