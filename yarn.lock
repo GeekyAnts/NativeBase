@@ -2352,7 +2352,7 @@
     "@react-stately/toggle" "^3.2.1"
     "@react-types/checkbox" "^3.2.1"
 
-"@react-native-aria/utils@^0.2.7":
+"@react-native-aria/utils@^0.2.1", "@react-native-aria/utils@^0.2.2", "@react-native-aria/utils@^0.2.4", "@react-native-aria/utils@^0.2.5", "@react-native-aria/utils@^0.2.6", "@react-native-aria/utils@^0.2.7":
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.7.tgz#53d1f4a44cad382bd9d1a6b5af6cb86624e70f76"
   integrity sha512-mozajHovHHYjNY28j5lrIzUQ3p3mQ7EnaKlukd0EuSaAwBboPQ1sVK9ToxPLyyixkxGe4pxy+br5ahzd6wlf5Q==
