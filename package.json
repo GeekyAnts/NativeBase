@@ -90,9 +90,7 @@
     "react-native-safe-area-context": "*",
     "react-native-svg": "*",
     "styled-components": "*",
-    "styled-system": "*",
-    "expo-linear-gradient": "*",
-    "react-native-linear-gradient": "*"
+    "styled-system": "*"
   },
   "jest": {
     "preset": "jest-expo",
