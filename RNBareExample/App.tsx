@@ -7,7 +7,6 @@ const config = {
   },
 };
 
-console.log('man ', config);
 const App = () => {
   return (
     <NativeBaseProvider config={config}>
