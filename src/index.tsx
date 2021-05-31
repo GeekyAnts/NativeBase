@@ -330,5 +330,3 @@ export type {
   ISelectItemProps,
   ITextFieldProps,
 };
-
-export { OverlayContainer as Portal } from '@react-native-aria/overlays';

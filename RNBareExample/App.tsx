@@ -1,9 +1,15 @@
 import React from 'react';
 import {NativeBaseProvider, Box, Center} from 'native-base';
 
+const config = {
+  dependencies: {
+    'linear-gradient': require('react-native-linear-gradient').default,
+  },
+};
+
 const App = () => {
   return (
-    <NativeBaseProvider>
+    <NativeBaseProvider config={config}>
       <Center flex={1}>
         <Box
           bg={{
