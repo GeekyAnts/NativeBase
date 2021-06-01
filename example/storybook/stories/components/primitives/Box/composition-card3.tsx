@@ -25,7 +25,8 @@ export const Example = () => {
       />
       <Center position="absolute" height="100%" width="100%">
         <Icon
-          as={<AntDesign name="play" />}
+          as={AntDesign}
+          name="play"
           color="gray.200"
           size={12}
           opacity={0.8}
@@ -45,7 +46,7 @@ export const Example = () => {
           </Heading>
           <Text color="gray.200">Meghalaya</Text>
         </Stack>
-        <Icon as={<Feather name="more-horizontal" />} color="white" />
+        <Icon as={Feather} name="more-horizontal" color="white" />
       </HStack>
     </Box>
   );

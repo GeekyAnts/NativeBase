@@ -58,9 +58,9 @@ export function UsingHook() {
           {...getToggleButtonProps()}
           icon={
             isOpen ? (
-              <Icon as={<MaterialIcons name="arrow-drop-up" />} size={12} />
+              <Icon as={MaterialIcons} name="arrow-drop-up" size={12} />
             ) : (
-              <Icon as={<MaterialIcons name="arrow-drop-down" />} size={12} />
+              <Icon as={MaterialIcons} name="arrow-drop-down" size={12} />
             )
           }
         />

@@ -7,7 +7,7 @@ export const Example = () => {
     <Fab
       bottom={4}
       right={24}
-      icon={<Icon color="white" as={<AntDesign name="plus" />} />}
+      icon={<Icon color="white" as={AntDesign} name="plus" />}
     />
   );
 };

@@ -59,7 +59,7 @@ export const Example = () => {
               setInputValue('');
             }}
           >
-            <Icon as={<FontAwesome5 name="plus" />} />
+            <Icon as={FontAwesome5} name="plus" />
           </Button>
         }
         onChangeText={(v) => setInputValue(v)}
@@ -85,7 +85,7 @@ export const Example = () => {
             </Checkbox>
             <IconButton
               colorScheme="emerald"
-              icon={<Icon as={<FontAwesome5 name="trash" />} />}
+              icon={<Icon as={FontAwesome5} name="trash" />}
               onPress={() => handleDelete(itemI)}
             />
           </HStack>

@@ -90,7 +90,8 @@ export const Example = () => {
                   <Button
                     startIcon={
                       <Icon
-                        as={<Ionicons name="md-cloud-upload-sharp" />}
+                        as={Ionicons}
+                        name="md-cloud-upload-sharp"
                         size={5}
                       />
                     }
@@ -194,16 +195,12 @@ export const Example = () => {
           </Box>
           <Box flex={2}>
             <Button.Group variant="outline" colorScheme="light" space={2}>
-              <Button startIcon={<Icon as={<EvilIcons name="sc-github" />} />}>
+              <Button startIcon={<Icon as={EvilIcons} name="sc-github" />}>
                 Connect Github
               </Button>
               <Button
                 startIcon={
-                  <Icon
-                    as={<AntDesign name="google" />}
-                    color="red.400"
-                    size={5}
-                  />
+                  <Icon as={AntDesign} name="google" color="red.400" size={5} />
                 }
               >
                 Connect Google

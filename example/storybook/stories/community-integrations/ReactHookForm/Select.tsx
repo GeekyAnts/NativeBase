@@ -27,10 +27,10 @@ export const Example = () => {
                 onChange(itemValue);
               }}
               dropdownOpenIcon={
-                <Icon as={<MaterialIcons name="arrow-drop-up" />} size={6} />
+                <Icon as={MaterialIcons} name="arrow-drop-up" size={6} />
               }
               dropdownCloseIcon={
-                <Icon as={<MaterialIcons name="arrow-drop-down" />} size={6} />
+                <Icon as={MaterialIcons} name="arrow-drop-down" size={6} />
               }
             >
               <Select.Item label="JavaScript" value="js" />
