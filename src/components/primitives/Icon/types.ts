@@ -64,6 +64,10 @@ export interface IIconProps
   /**
    *
    */
+  name?: string;
+  /**
+   *
+   */
   // stroke?: string;
   /**
    *

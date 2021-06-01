@@ -24,7 +24,6 @@ const Radio = (
     },
     _icon,
     isInvalid,
-    iconSize,
     ...themedProps
   } = usePropsResolution('Radio', {
     ...contextState,
@@ -39,7 +38,6 @@ const Radio = (
   const sizedIcon = () =>
     //@ts-ignore
     React.cloneElement(icon, {
-      iconSize,
       ..._icon,
     });
 
@@ -77,11 +75,7 @@ const Radio = (
                 {icon && sizedIcon && checked ? (
                   sizedIcon()
                 ) : (
-                  <CircleIcon
-                    size={iconSize}
-                    {..._icon}
-                    opacity={checked ? 1 : 0}
-                  />
+                  <CircleIcon {..._icon} opacity={checked ? 1 : 0} />
                 )}
               </Center>
             </Center>

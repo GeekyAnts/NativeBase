@@ -50,9 +50,9 @@ const baseStyle = (props: Record<string, any>) => {
 };
 
 const sizes = {
-  lg: { iconSize: 4, _text: { fontSize: 'lg' } },
-  md: { iconSize: 3, _text: { fontSize: 'md' } },
-  sm: { iconSize: 2, _text: { fontSize: 'sm' } },
+  lg: { _icon: { size: 4 }, _text: { fontSize: 'lg' } },
+  md: { _icon: { size: 3 }, _text: { fontSize: 'md' } },
+  sm: { _icon: { size: 2 }, _text: { fontSize: 'sm' } },
 };
 
 const defaultProps = {
