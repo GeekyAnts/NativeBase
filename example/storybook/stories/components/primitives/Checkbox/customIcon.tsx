@@ -9,7 +9,9 @@ export const Example = () => {
         value="orange"
         colorScheme="orange"
         size="md"
-        icon={<Icon as={<MaterialCommunityIcons name="bullseye" />} />}
+        icon={
+          <Icon as={MaterialCommunityIcons} name="bullseye" fontSize="10" />
+        }
         defaultIsChecked
       >
         Darts
@@ -18,7 +20,7 @@ export const Example = () => {
         value="dark"
         colorScheme="dark"
         size="md"
-        icon={<Icon as={<MaterialCommunityIcons name="bat" />} />}
+        icon={<Icon as={MaterialCommunityIcons} name="bat" />}
         defaultIsChecked
       >
         Movie
@@ -27,7 +29,7 @@ export const Example = () => {
         colorScheme="red"
         value="red"
         size="md"
-        icon={<Icon as={<MaterialCommunityIcons name="campfire" />} />}
+        icon={<Icon as={MaterialCommunityIcons} name="campfire" />}
         defaultIsChecked
       >
         Camping
@@ -36,7 +38,7 @@ export const Example = () => {
         value="blue"
         colorScheme="blue"
         size="md"
-        icon={<Icon as={<MaterialCommunityIcons name="chess-knight" />} />}
+        icon={<Icon as={MaterialCommunityIcons} name="chess-knight" />}
         defaultIsChecked
       >
         Chess
