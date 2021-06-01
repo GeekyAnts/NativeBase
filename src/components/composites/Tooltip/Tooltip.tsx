@@ -182,7 +182,7 @@ export const Tooltip = ({
   });
 
   useKeyboardDismissable({
-    enabled: true,
+    enabled: isOpen,
     callback: () => setIsOpen(false),
   });
 
