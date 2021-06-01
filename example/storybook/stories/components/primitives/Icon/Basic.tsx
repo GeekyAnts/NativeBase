@@ -7,7 +7,7 @@ export const Example = () => {
   return (
     <Stack space={8}>
       <MoonIcon />
-      <Icon as={<Ionicons name="md-checkmark-circle" />} />
+      <Icon as={Ionicons} name="home" />
       <Icon viewBox="0 0 870 873">
         <G fillRule="nonzero" stroke="none" strokeWidth={1} fill="none">
           <Path

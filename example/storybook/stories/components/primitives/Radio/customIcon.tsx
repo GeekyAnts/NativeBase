@@ -9,7 +9,7 @@ export const Example = () => {
         _text={{ mx: 2 }}
         colorScheme="green"
         value="1"
-        icon={<Icon as={<MaterialCommunityIcons name="alien" />} />}
+        icon={<Icon as={MaterialCommunityIcons} name="alien" />}
         my={1}
       >
         Alien
@@ -18,7 +18,7 @@ export const Example = () => {
         _text={{ mx: 2 }}
         colorScheme="red"
         value="2"
-        icon={<Icon as={<MaterialCommunityIcons name="fire" />} />}
+        icon={<Icon as={MaterialCommunityIcons} name="fire" />}
         my={1}
       >
         Fire
@@ -27,7 +27,7 @@ export const Example = () => {
         colorScheme="warning"
         _text={{ mx: 2 }}
         value="3"
-        icon={<Icon as={<MaterialCommunityIcons name="exclamation" />} />}
+        icon={<Icon as={MaterialCommunityIcons} name="exclamation" />}
         my={1}
       >
         Warning

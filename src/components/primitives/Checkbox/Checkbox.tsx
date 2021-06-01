@@ -28,7 +28,6 @@ const Checkbox = (
     },
     _icon,
     isInvalid,
-    iconSize,
     ...themedProps
   } = usePropsResolution('Checkbox', {
     ...checkboxGroupContext,
@@ -66,7 +65,6 @@ const Checkbox = (
         React.cloneElement(
           icon,
           {
-            iconSize,
             ..._icon,
           },
           icon.props.children
@@ -107,11 +105,7 @@ const Checkbox = (
                 {icon && sizedIcon && checked ? (
                   sizedIcon()
                 ) : (
-                  <CheckIcon
-                    size={iconSize}
-                    {..._icon}
-                    opacity={checked ? 1 : 0}
-                  />
+                  <CheckIcon {..._icon} opacity={checked ? 1 : 0} />
                 )}
               </Center>
             </Center>
