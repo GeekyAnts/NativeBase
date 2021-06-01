@@ -229,18 +229,19 @@ const propsThatCannotHoldNegativityWithStrings = [
   'p',
 ];
 
+const matchRegex = new RegExp(/(\d*\.?\d+)\s?(px|em|ex|%|in|cn|mm|pt|pc+)/gim);
 // remove it while removing styled components.
 const mutatePropToHandleNegativeVal = (theme: any, props: any, key: any) => {
   if (props[key] in theme.space) {
     return;
   }
 
-  if (typeof props[key] === 'string' && props[key].startsWith('-')) {
+  if (typeof props[key] === 'string') {
     const parsedNum = +props[key];
     // converts '-8' to -8
     if (!isNaN(parsedNum)) {
       props[key] = parsedNum;
-    } else if (props[key] === '-') {
+    } else if (!matchRegex.exec(props[key])) {
       props[key] = undefined;
     }
   }
