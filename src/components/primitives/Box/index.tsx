@@ -26,25 +26,7 @@ import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
-const StyledBox = styled(View)<IBoxProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  typography,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customTypography,
-  customLayout
-);
-
-const getGradientComponent = (Comp: any) =>
+const getStyledBox = (Comp: any) =>
   styled(Comp)<IBoxProps>(
     color,
     space,
@@ -62,6 +44,8 @@ const getGradientComponent = (Comp: any) =>
     customTypography,
     customLayout
   );
+
+const StyledBox = getStyledBox(View);
 
 let MemoizedGradient: any = undefined;
 
@@ -87,7 +71,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 
     if (Gradient) {
       if (!MemoizedGradient) {
-        MemoizedGradient = getGradientComponent(Gradient);
+        MemoizedGradient = getStyledBox(Gradient);
       }
 
       Gradient = MemoizedGradient;
