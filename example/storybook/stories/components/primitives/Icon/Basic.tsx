@@ -8,6 +8,7 @@ export const Example = () => {
     <Stack space={8}>
       <MoonIcon />
       <Icon as={Ionicons} name="home" />
+      <Icon as={<Ionicons name="home" />} color="red.400" />
       <Icon viewBox="0 0 870 873">
         <G fillRule="nonzero" stroke="none" strokeWidth={1} fill="none">
           <Path

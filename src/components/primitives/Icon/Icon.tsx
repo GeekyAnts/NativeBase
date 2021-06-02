@@ -11,7 +11,16 @@ const Icon = ({ as, ...props }: IIconProps, ref?: any) => {
   if (!as) {
     return <SVGIcon size={size} {...resolvedProps} ref={ref} />;
   }
-  const StyledAs = Factory(as);
+  const isJSX = React.isValidElement(as);
+  const StyledAs = Factory(
+    isJSX
+      ? (resolvedProps) =>
+          React.cloneElement(as, {
+            ...resolvedProps,
+            ...as.props,
+          })
+      : as
+  );
 
   return (
     <StyledAs
