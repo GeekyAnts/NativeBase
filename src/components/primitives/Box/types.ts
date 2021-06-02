@@ -7,14 +7,13 @@ import type {
   LayoutProps,
   PositionProps,
   SpaceProps,
-  TypographyProps,
   ExtraProps,
   OutlineProps,
   ShadowProps,
   BackgroundProps,
   SafeAreaProps,
-  TransformProps,
   PlatformProps,
+  TransformProps,
 } from '../../types';
 import type { ITextProps } from './../Text/types';
 
@@ -28,11 +27,10 @@ export interface ILinearGradientProps {
 }
 export interface IBoxProps
   extends ViewProps,
-    Omit<ColorProps, 'backgroundColor' | 'bg'>,
+    Omit<ColorProps, 'backgroundColor' | 'bg' | 'color' | 'fill' | 'stroke'>,
     SpaceProps,
     LayoutProps,
     FlexboxProps,
-    TypographyProps,
     PositionProps,
     BorderProps,
     ExtraProps,

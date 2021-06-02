@@ -12,7 +12,7 @@ const Container = (
     <Box
       ref={ref}
       alignItems={centerContent ? 'center' : 'flex-start'}
-      textAlign={centerContent ? 'center' : 'left'}
+      _text={{ textAlign: centerContent ? 'center' : 'left' }}
       {...newProps}
     >
       {children}

@@ -8,7 +8,9 @@ const Code = ({ ...props }: ICodeProps, ref?: any) => {
   let { ...newProps } = useThemeProps('Code', props);
   return (
     <Box
-      fontFamily={Platform.OS === 'ios' ? 'Courier' : 'monospace'}
+      _text={{
+        fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+      }}
       {...newProps}
       ref={ref}
     />

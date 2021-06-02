@@ -8,6 +8,11 @@ const config: Config = {
   whiteSpace: true,
   textDecoration: true,
   txtDecor: { property: 'textDecoration' },
+  textDecorationColor: {
+    property: 'textDecorationColor',
+    scale: 'colors',
+  },
+  textDecorationStyle: true,
   textDecorationLine: { property: 'textDecorationLine' },
 };
 

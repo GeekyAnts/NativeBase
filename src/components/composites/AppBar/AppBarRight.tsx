@@ -8,7 +8,9 @@ const AppBarRight = (props: IStackProps) => {
     <HStack
       alignItems="center"
       justifyContent="flex-end"
-      color={color}
+      _text={{
+        color,
+      }}
       {...props}
     />
   );
