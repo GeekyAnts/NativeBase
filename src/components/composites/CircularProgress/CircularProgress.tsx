@@ -178,9 +178,7 @@ const CircularProgress = (
             style={[styles.firstProgressLayer, firstProgressLayerStyle]}
           />
           {renderThirdLayer(value)}
-          <Box fontSize={sizeProps.height / 4} _text={newProps._text}>
-            {remainingProps.children}
-          </Box>
+          <Box _text={newProps._text}>{remainingProps.children}</Box>
         </>
       ) : (
         <StyleAnimatedView

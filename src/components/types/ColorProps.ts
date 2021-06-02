@@ -4,6 +4,7 @@ import type { ColorProps as ssColorProps } from 'styled-system';
 export interface ColorProps extends ssColorProps {
   /**
    * The CSS `color` property
+   * @deprecated Use `color` prop instead of non standard textColor
    */
   textColor?: CSS.Property.Color;
   /**
