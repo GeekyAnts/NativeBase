@@ -6,7 +6,7 @@ export const Example = () => {
   return (
     <Fab
       placement="top-left"
-      icon={<Icon color="white" as={<AntDesign name="plus" />} size={4} />}
+      icon={<Icon color="white" as={AntDesign} name="plus" size={4} />}
       label={
         <Text color="white" fontSize="sm">
           BUTTON

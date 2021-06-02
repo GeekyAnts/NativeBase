@@ -30,9 +30,9 @@ export function UsingComponent() {
       label="Select your favorite animal"
       toggleIcon={({ isOpen }: any) => {
         return isOpen ? (
-          <Icon as={<MaterialIcons name="arrow-drop-up" />} size={12} />
+          <Icon as={MaterialIcons} name="arrow-drop-up" size={12} />
         ) : (
-          <Icon as={<MaterialIcons name="arrow-drop-down" />} size={12} />
+          <Icon as={MaterialIcons} name="arrow-drop-down" size={12} />
         );
       }}
     />

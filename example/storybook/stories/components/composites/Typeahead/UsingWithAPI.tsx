@@ -47,13 +47,13 @@ export function UsingWithAPI() {
         } else if (isOpen) {
           return (
             <Center height={10} width={10}>
-              <Icon as={<MaterialIcons name="arrow-drop-up" />} size={12} />
+              <Icon as={MaterialIcons} name="arrow-drop-up" size={12} />
             </Center>
           );
         }
         return (
           <Center height={10} width={10}>
-            <Icon as={<MaterialIcons name="arrow-drop-down" />} size={12} />
+            <Icon as={MaterialIcons} name="arrow-drop-down" size={12} />
           </Center>
         );
       }}

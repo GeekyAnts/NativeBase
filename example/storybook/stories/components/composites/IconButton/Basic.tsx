@@ -6,7 +6,7 @@ export const Example = () => {
   return (
     <IconButton
       variant="solid"
-      icon={<Icon size="md" as={<AntDesign name="search1" />} color="white" />}
+      icon={<Icon size="md" as={AntDesign} name="search1" color="white" />}
     />
   );
 };

@@ -8,9 +8,7 @@ export const Example = () => {
     <Checkbox
       value="success"
       colorScheme="success"
-      icon={
-        <Icon as={<MaterialCommunityIcons name="bullseye" />} opacity={1} />
-      }
+      icon={<Icon as={MaterialCommunityIcons} name="bullseye" opacity={1} />}
       ref={myRef}
       onChange={(state) => {
         if (state)
