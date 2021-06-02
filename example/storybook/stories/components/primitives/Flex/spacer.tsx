@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Spacer, Center, Heading } from 'native-base';
 
-export const SpacerExample = () => {
+export const Example = () => {
   return (
     <Center flex={1}>
       <Heading>Adding Spacer</Heading>
