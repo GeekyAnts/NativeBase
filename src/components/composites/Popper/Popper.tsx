@@ -136,7 +136,7 @@ const PopperContent = React.forwardRef(
             position: 'absolute',
           },
         }),
-      [rendered, overlayProps.style]
+      [rendered, overlayProps.style, top]
     );
 
     return (
