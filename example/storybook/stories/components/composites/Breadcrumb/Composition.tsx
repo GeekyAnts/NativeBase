@@ -14,7 +14,7 @@ export const Example = () => {
         <Breadcrumb.Item>
           <Breadcrumb.Link>
             <HStack>
-              <Icon as={<MaterialIcons name="home" />} mr={1} size="xs" />
+              <Icon as={MaterialIcons} name="home" mr={1} size="xs" />
               <Text>Home</Text>
             </HStack>
           </Breadcrumb.Link>
@@ -23,7 +23,8 @@ export const Example = () => {
           <Breadcrumb.Link href="https://alpha.nativebase.io/" isExternal>
             <HStack>
               <Icon
-                as={<MaterialCommunityIcons name="file-document" />}
+                as={MaterialCommunityIcons}
+                name="file-document"
                 mr={1}
                 size="xs"
               />
@@ -38,7 +39,7 @@ export const Example = () => {
             isExternal
           >
             <HStack>
-              <Icon as={<AntDesign name="github" />} mr={1} size="xs" />
+              <Icon as={AntDesign} name="github" mr={1} size="xs" />
               <Text>Github (This is currently active)</Text>
             </HStack>
           </Breadcrumb.Link>

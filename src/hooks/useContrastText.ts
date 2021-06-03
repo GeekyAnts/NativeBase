@@ -19,7 +19,7 @@ export function useContrastText(bg: string, color?: string) {
 
   let [accessibleColors] = useAccessibleColors();
 
-  if (!bg) {
+  if (typeof bg !== 'string') {
     return;
   }
 

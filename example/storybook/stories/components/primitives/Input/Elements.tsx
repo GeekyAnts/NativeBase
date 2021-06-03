@@ -7,7 +7,8 @@ export const Example = () => {
     <Input
       InputLeftElement={
         <Icon
-          as={<MaterialIcons name="phone" />}
+          as={MaterialIcons}
+          name="phone"
           size="md"
           m={2}
           color={useColorModeValue('black', 'gray.300')}
@@ -15,7 +16,8 @@ export const Example = () => {
       }
       InputRightElement={
         <Icon
-          as={<MaterialIcons name="person" />}
+          as={MaterialIcons}
+          name="person"
           size="md"
           m={2}
           color={useColorModeValue('black', 'gray.300')}

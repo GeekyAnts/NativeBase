@@ -25,12 +25,9 @@ export const Example = () => {
               <Accordion.Summary>
                 {isExpanded ? 'Fire' : 'Snow'}
                 {isExpanded ? (
-                  <Icon
-                    color="white"
-                    as={<MaterialCommunityIcons name="fire" />}
-                  />
+                  <Icon color="white" as={MaterialCommunityIcons} name="fire" />
                 ) : (
-                  <Icon as={<MaterialCommunityIcons name="snowflake" />} />
+                  <Icon as={MaterialCommunityIcons} name="snowflake" />
                 )}
               </Accordion.Summary>
               <Accordion.Details>

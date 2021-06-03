@@ -10,15 +10,7 @@ const ActionsheetHeader = (
   const newProps = usePropsResolution('ActionsheetHeader', props);
 
   return (
-    <Box
-      fontWeight="bold"
-      justifyContent="center"
-      alignItems="center"
-      fontSize="md"
-      color="gray.900"
-      {...newProps}
-      ref={ref}
-    >
+    <Box justifyContent="center" alignItems="center" {...newProps} ref={ref}>
       {children}
     </Box>
   );

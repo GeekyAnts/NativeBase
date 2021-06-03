@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, memo } from 'react';
 import { Pressable as RNPressable } from 'react-native';
 import styled from 'styled-components/native';
 import { composeEventHandlers } from '../../../utils';
@@ -107,10 +107,9 @@ const Pressable = (
             isPressed,
             isHovered,
             isFocused,
-            focusProps,
           })}
     </StyledPressable>
   );
 };
 
-export default forwardRef(Pressable);
+export default memo(forwardRef(Pressable));

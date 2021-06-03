@@ -3,7 +3,7 @@ import React from 'react';
 import { useControllableState, useKeyboardDismissable } from '../../../hooks';
 import { Popper } from '../Popper';
 import { composeEventHandlers, mergeRefs } from '../../../utils';
-import { Transition } from '../Transitions';
+import { PresenceTransition } from '../Transitions';
 import { Platform, StyleSheet } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
 import Box, { IBoxProps } from '../../primitives/Box';
@@ -182,7 +182,7 @@ export const Tooltip = ({
   });
 
   useKeyboardDismissable({
-    enabled: true,
+    enabled: isOpen,
     callback: () => setIsOpen(false),
   });
 
@@ -191,9 +191,9 @@ export const Tooltip = ({
       {newChildren}
       {isOpen && (
         <OverlayContainer>
-          <Transition
+          <PresenceTransition
             initial={{ opacity: 0 }}
-            entry={{ opacity: 1, transition: { duration: 150 } }}
+            animate={{ opacity: 1, transition: { duration: 150 } }}
             exit={{ opacity: 0, transition: { duration: 100 } }}
             visible={isOpen}
             style={StyleSheet.absoluteFill}
@@ -225,7 +225,7 @@ export const Tooltip = ({
                 </Box>
               </Popper.Content>
             </Popper>
-          </Transition>
+          </PresenceTransition>
         </OverlayContainer>
       )}
     </>

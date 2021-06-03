@@ -6,7 +6,7 @@ export function Example() {
   return (
     <HStack>
       <Center w="40px" h="40px" bg="primary.400" color="white">
-        <Icon name="audiotrack" as={<MaterialIcons />} color="white" size={6} />
+        <Icon name="audiotrack" as={MaterialIcons} color="white" size={6} />
       </Center>
       <Center w="40px" h="40px" bg="secondary.400">
         <Box _text={{ fontWeight: 'bold', fontSize: 'lg', color: 'white' }}>

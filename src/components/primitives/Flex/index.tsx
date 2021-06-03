@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import Box from '../Box';
 import type { IFlexProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -23,12 +23,12 @@ const Flex = (
       {...newProps}
       display="flex"
       flexDirection={direction || newProps.flexDirection}
-      alignItems={align}
-      justifyContent={justify}
-      flexGrow={grow}
-      flexBasis={basis}
-      flexShrink={shrink}
-      flexWrap={wrap}
+      alignItems={align || newProps.alignItems}
+      justifyContent={justify || newProps.justifyContent}
+      flexGrow={grow || newProps.flexGrow}
+      flexBasis={basis || newProps.flexBasis}
+      flexShrink={shrink || newProps.flexShrink}
+      flexWrap={wrap || newProps.flexWrap}
       style={style}
       ref={ref}
     />
@@ -41,4 +41,4 @@ export const Spacer = (props: any) => {
 };
 
 export type { IFlexProps };
-export default React.memo(React.forwardRef(Flex));
+export default memo(forwardRef(Flex));

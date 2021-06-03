@@ -1,6 +1,5 @@
 const baseStyle = {
   borderRadius: 'md',
-  p: 3,
 };
 
 const defaultProps = {
@@ -10,13 +9,13 @@ const defaultProps = {
 
 const sizes = {
   lg: {
-    p: 4,
-  },
-  md: {
     p: 3,
   },
-  sm: {
+  md: {
     p: 2,
+  },
+  sm: {
+    p: 1,
   },
 };
 

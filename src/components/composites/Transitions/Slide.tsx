@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { ISlideProps } from './types';
-import { Transition } from './Transition';
+import PresenceTransition from './PresenceTransition';
 
 const holderStyle: any = {
   top: {
@@ -45,7 +45,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       initial: {
         translateY: -size,
       },
-      entry: {
+      animate: {
         translateY: 0,
         transition,
       },
@@ -54,8 +54,12 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       initial: {
         translateY: size,
       },
-      entry: {
+      animate: {
         translateY: 0,
+        transition,
+      },
+      exit: {
+        translateY: size,
         transition,
       },
     },
@@ -63,7 +67,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       initial: {
         translateX: -size,
       },
-      entry: {
+      animate: {
         translateX: 0,
         transition,
       },
@@ -72,7 +76,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       initial: {
         translateX: size,
       },
-      entry: {
+      animate: {
         translateX: 0,
         transition,
       },
@@ -80,7 +84,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
   };
 
   return (
-    <Transition
+    <PresenceTransition
       visible={visible}
       {...animationStyle[placement]}
       style={[{ position: 'absolute' }, holderStyle[placement]]}
@@ -93,7 +97,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       >
         {children}
       </Box>
-    </Transition>
+    </PresenceTransition>
   );
 };
 

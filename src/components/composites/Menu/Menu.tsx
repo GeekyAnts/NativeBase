@@ -3,12 +3,12 @@ import type { IMenuProps } from './types';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Popper } from '../Popper';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
 import { useControllableState, useKeyboardDismissable } from '../../../hooks';
 import { useMenuTrigger, useMenu, useMenuTypeahead } from './useMenu';
 import Backdrop from '../Backdrop';
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { Transition } from '../Transitions';
+import { PresenceTransition } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import { MenuContext } from './MenuContext';
 
@@ -35,7 +35,7 @@ const Menu = (
     },
   });
 
-  const newProps = usePropsResolution('Menu', restProps);
+  const { transition, ...newProps } = usePropsResolution('Menu', restProps);
   const handleOpen = React.useCallback(() => {
     setIsOpen(true);
   }, [setIsOpen]);
@@ -69,13 +69,7 @@ const Menu = (
     <>
       {updatedTrigger()}
       <OverlayContainer>
-        <Transition
-          initial={{ opacity: 0 }}
-          entry={{ opacity: 1, transition: { duration: 150 } }}
-          exit={{ opacity: 0, transition: { duration: 150 } }}
-          visible={isOpen}
-          style={StyleSheet.absoluteFill}
-        >
+        <PresenceTransition visible={isOpen} {...transition}>
           <Popper
             triggerRef={triggerRef}
             onClose={handleClose}
@@ -95,7 +89,7 @@ const Menu = (
               </MenuContext.Provider>
             </Popper.Content>
           </Popper>
-        </Transition>
+        </PresenceTransition>
       </OverlayContainer>
     </>
   );

@@ -56,6 +56,8 @@ import {
   IFadeProps,
   ScaleFade,
   IScaleFadeProps,
+  PresenceTransition,
+  Stagger,
   Slide,
   ISlideProps,
   SlideFade,
@@ -160,6 +162,7 @@ import {
   Select,
   ISelectProps,
   ISelectItemProps,
+  Pressable,
 } from './components/primitives';
 
 export * from './components/primitives/Icon/Icons';
@@ -208,6 +211,7 @@ export {
   Container,
   Divider,
   Link,
+  Pressable,
   Progress,
   Accordion,
   Skeleton,
@@ -222,6 +226,8 @@ export {
   ScaleFade,
   Slide,
   SlideFade,
+  PresenceTransition,
+  Stagger,
   NumberInput,
   NumberInputField,
   NumberInputStepper,

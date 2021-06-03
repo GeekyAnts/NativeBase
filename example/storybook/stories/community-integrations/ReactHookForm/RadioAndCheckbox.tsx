@@ -37,30 +37,28 @@ export const Example = () => {
               <Checkbox
                 value="dart"
                 colorScheme="orange"
-                icon={<Icon as={<MaterialCommunityIcons name="bullseye" />} />}
+                icon={<Icon as={MaterialCommunityIcons} name="bullseye" />}
               >
                 <Text mx={2}>Darts</Text>
               </Checkbox>
               <Checkbox
                 value="movie"
                 colorScheme="dark"
-                icon={<Icon as={<MaterialCommunityIcons name="bat" />} />}
+                icon={<Icon as={MaterialCommunityIcons} name="bat" />}
               >
                 <Text mx={2}>Movie</Text>
               </Checkbox>
               <Checkbox
                 colorScheme="red"
                 value="camping"
-                icon={<Icon as={<MaterialCommunityIcons name="campfire" />} />}
+                icon={<Icon as={MaterialCommunityIcons} name="campfire" />}
               >
                 <Text mx={2}>Camping</Text>
               </Checkbox>
               <Checkbox
                 value="chess"
                 colorScheme="blue"
-                icon={
-                  <Icon as={<MaterialCommunityIcons name="chess-knight" />} />
-                }
+                icon={<Icon as={MaterialCommunityIcons} name="chess-knight" />}
               >
                 <Text mx={2}>Chess</Text>
               </Checkbox>

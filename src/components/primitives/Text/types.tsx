@@ -15,11 +15,10 @@ import type {
 } from '../../types';
 
 export interface ITextProps
-  extends ColorProps,
+  extends Omit<ColorProps, 'fill' | 'stroke'>,
     SpaceProps,
     BorderProps,
     BackgroundProps,
-    PositionProps,
     PositionProps,
     LayoutProps,
     OutlineProps,
@@ -55,10 +54,6 @@ export interface ITextProps
    * Used to truncate text at a specific number of lines
    */
   noOfLines?: number;
-  /**
-   * For inline Style
-   */
-  style?: any;
   /**
    * Make the text bold.
    */

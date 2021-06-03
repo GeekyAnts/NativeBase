@@ -4,8 +4,6 @@ import { AntDesign } from '@expo/vector-icons';
 
 export const Example = () => {
   return (
-    <Fab
-      icon={<Icon color="white" as={<AntDesign name="plus" />} size="sm" />}
-    />
+    <Fab icon={<Icon color="white" as={AntDesign} name="plus" size="sm" />} />
   );
 };

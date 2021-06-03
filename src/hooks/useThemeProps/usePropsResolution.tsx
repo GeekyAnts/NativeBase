@@ -274,12 +274,15 @@ export function usePropsResolution(component: string, incomingProps: any) {
     [windowWidth, theme.breakpoints]
   );
 
-  const componentThemeObject = simplifyComponentTheme(
-    notComponentTheme,
-    componentTheme,
-    cleanIncomingProps,
-    colorModeProps,
-    currentBreakpoint
+  // TODO: using usePlatformProps here to simplify the component theme. So that on on component level it shouldn't have to maintain the Specificity.
+  const componentThemeObject = usePlatformProps(
+    simplifyComponentTheme(
+      notComponentTheme,
+      componentTheme,
+      cleanIncomingProps,
+      colorModeProps,
+      currentBreakpoint
+    )
   );
   const componentThemeIntegratedProps = merge(
     {},
@@ -288,8 +291,37 @@ export function usePropsResolution(component: string, incomingProps: any) {
   );
   const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
 
+  // NOTE: sperating removing props while should be translated
+  let ignore: any = [];
+  if (
+    platformSpecificProps.bg?.linearGradient ||
+    platformSpecificProps.background?.linearGradient ||
+    platformSpecificProps.bgColor?.linearGradient ||
+    platformSpecificProps.backgroundColor?.linearGradient
+  ) {
+    let bgProp = 'bg';
+    if (platformSpecificProps.background?.linearGradient) {
+      bgProp = 'background';
+    } else if (platformSpecificProps.bgColor?.linearGradient) {
+      bgProp = 'bgColor';
+    } else if (platformSpecificProps.backgroundColor?.linearGradient) {
+      bgProp = 'backgroundColor';
+    }
+    platformSpecificProps[bgProp].linearGradient.colors = platformSpecificProps[
+      bgProp
+    ].linearGradient.colors.map((color: string) => {
+      return get(theme.colors, color, color);
+    });
+    ignore = ['bg', 'background', 'backgroundColor', 'bgColor'];
+  }
+  // NOTE: seprating bg props when linearGardiant is available
+  const [gradientProps, nonGradientProps] = extractInObject(
+    platformSpecificProps,
+    ignore
+  );
+
   const translatedProps = propTranslator({
-    props: platformSpecificProps,
+    props: nonGradientProps,
     theme: notComponentTheme,
     colorModeProps,
     componentTheme,
@@ -320,7 +352,11 @@ export function usePropsResolution(component: string, incomingProps: any) {
     }
   });
 
-  const resolvedProps = omitUndefined({ ...translatedProps, ...ignoredProps });
+  const resolvedProps = omitUndefined({
+    ...translatedProps,
+    ...ignoredProps,
+    ...gradientProps,
+  });
 
   return resolvedProps;
 }
