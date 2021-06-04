@@ -221,32 +221,6 @@ const propTranslator = ({
   return translatedProps;
 };
 
-// remove it while removing styled components.
-const propsThatCannotHoldNegativityWithStrings = [
-  'm',
-  'margin',
-  'padding',
-  'p',
-];
-
-const matchRegex = new RegExp(/(\d*\.?\d+)\s?(px|em|ex|%|in|cn|mm|pt|pc+)/gim);
-// remove it while removing styled components.
-const mutatePropToHandleNegativeVal = (theme: any, props: any, key: any) => {
-  if (props[key] in theme.space) {
-    return;
-  }
-
-  if (typeof props[key] === 'string') {
-    const parsedNum = +props[key];
-    // converts '-8' to -8
-    if (!isNaN(parsedNum)) {
-      props[key] = parsedNum;
-    } else if (!matchRegex.exec(props[key])) {
-      props[key] = undefined;
-    }
-  }
-};
-
 /**
  * @summary Combines provided porps with component's theme props and resloves them.
  * @description NOTE: Avoid passing JSX and functions.
@@ -344,13 +318,6 @@ export function usePropsResolution(component: string, incomingProps: any) {
         ...translatedProps._text,
       }
     : translatedProps._text;
-
-  // Remove it while removing styled components.
-  propsThatCannotHoldNegativityWithStrings.forEach((key) => {
-    if (translatedProps && key in translatedProps) {
-      mutatePropToHandleNegativeVal(theme, translatedProps, key);
-    }
-  });
 
   const resolvedProps = omitUndefined({
     ...translatedProps,
