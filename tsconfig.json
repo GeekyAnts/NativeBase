@@ -1,5 +1,5 @@
 {
-  "exclude": ["node_modules", "public", "example"],
+  "exclude": ["node_modules", "public", "example", "RNBareExample"],
   "compilerOptions": {
     "baseUrl": ".",
     "declaration": true,
