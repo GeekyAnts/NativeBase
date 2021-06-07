@@ -1,51 +1,13 @@
 import React, { memo, forwardRef } from 'react';
 import { View } from 'react-native';
-import styled from 'styled-components/native';
-import {
-  border,
-  color,
-  flexbox,
-  layout,
-  position,
-  space,
-  typography,
-} from 'styled-system';
 import { usePropsResolution } from '../../../hooks';
 import Text from './../Text';
-import {
-  customBackground,
-  customBorder,
-  customExtra,
-  customLayout,
-  customOutline,
-  customPosition,
-  customShadow,
-  customTypography,
-} from '../../../utils/customProps';
+import { makeStyledBox } from '../../../utils/styled';
 import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
-const getStyledBox = (Comp: any) =>
-  styled(Comp)<IBoxProps>(
-    color,
-    space,
-    layout,
-    flexbox,
-    border,
-    position,
-    typography,
-    customPosition,
-    customBorder,
-    customBackground,
-    customOutline,
-    customShadow,
-    customExtra,
-    customTypography,
-    customLayout
-  );
-
-const StyledBox = getStyledBox(View);
+const StyledBox = makeStyledBox(View);
 
 let MemoizedGradient: any = undefined;
 
@@ -71,7 +33,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 
     if (Gradient) {
       if (!MemoizedGradient) {
-        MemoizedGradient = getStyledBox(Gradient);
+        MemoizedGradient = makeStyledBox(Gradient);
       }
 
       Gradient = MemoizedGradient;

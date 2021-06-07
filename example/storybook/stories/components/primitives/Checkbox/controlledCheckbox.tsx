@@ -2,7 +2,7 @@ import React from 'react';
 import { Checkbox } from 'native-base';
 
 export const Example = () => {
-  const [groupValues, setGroupValues] = React.useState<Array<string>>([]);
+  const [groupValues, setGroupValues] = React.useState([]);
 
   return (
     <Checkbox.Group onChange={setGroupValues} value={groupValues}>
