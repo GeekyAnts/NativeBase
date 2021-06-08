@@ -411,7 +411,7 @@ export interface FontWeightProps<
    *
    * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)
    */
-  fontWeight?: ResponsiveValue<TVal, ThemeType>;
+  fontWeight?: ResponsiveValue<TVal | number, ThemeType>;
 }
 
 export const fontWeight: styleFn;

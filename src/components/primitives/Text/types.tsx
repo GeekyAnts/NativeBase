@@ -23,9 +23,9 @@ export interface ITextProps<T>
     PositionProps<T>,
     LayoutProps<T>,
     ShadowProps<T>,
+    TypographyProps<T>,
     PlatformProps,
-    FlexboxProps,
-    TypographyProps {
+    FlexboxProps {
   /**
    *  Renders components as Text children. Accepts a JSX.Element or an array of JSX.Element.
    */
