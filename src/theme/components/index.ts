@@ -20,6 +20,7 @@ import AvatarGroup from './avatar-group';
 import Badge from './badge';
 import Breadcrumb from './breadcrumb';
 import Button, { ButtonGroup } from './button';
+import Pressable from './pressable';
 import Center from './center';
 import Checkbox from './checkbox';
 import Box from './box';
@@ -172,4 +173,5 @@ export default {
   Wrap,
   ZStack,
   Tooltip,
+  Pressable,
 };

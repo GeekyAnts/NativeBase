@@ -13,6 +13,7 @@ import {
   customPosition,
   customShadow,
 } from '../../../utils/customProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
@@ -72,13 +73,15 @@ const Pressable = (
     onHoverOut,
     onFocus,
     onBlur,
-    _hover,
-    _pressed,
-    _focus,
     ...props
   }: IPressableProps,
   ref: any
 ) => {
+  const { _hover, _pressed, _focus, ...themeProps } = usePropsResolution(
+    'Pressable',
+    props
+  );
+
   const { pressableProps, isHovered } = useHover();
   const { pressableProps: isPressedProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
@@ -92,7 +95,7 @@ const Pressable = (
       onHoverIn={composeEventHandlers(onHoverIn, pressableProps.onHoverIn)}
       // @ts-ignore - web only
       onHoverOut={composeEventHandlers(onHoverOut, pressableProps.onHoverOut)}
-      {...props}
+      {...themeProps}
       // @ts-ignore - web only
       onFocus={composeEventHandlers(onFocus, focusProps.onFocus)}
       // @ts-ignore - web only
