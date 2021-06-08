@@ -332,4 +332,18 @@ colors.info = colors.lightBlue;
 colors.light = colors.warmGray;
 
 export default colors;
-export type IColors = typeof colors;
+
+export type IColors = Omit<typeof colors, 'contrastThreshold'>;
+
+type InnerColor<Type, Property extends string> = Type extends object
+  ? `${Property}.${(string | number) & keyof Type}`
+  : Property;
+
+type AllColors = {
+  [Property in keyof IColors as InnerColor<
+    IColors[Property],
+    Property
+  >]: IColors[Property];
+};
+
+export type IThemeColors = keyof AllColors;

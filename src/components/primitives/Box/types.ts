@@ -1,4 +1,5 @@
 import type { ViewProps } from 'react-native';
+import type { IThemeColors } from '../../../theme/base/colors';
 
 import type {
   BorderProps,
@@ -25,11 +26,11 @@ export interface ILinearGradientProps {
     location?: Array<number>;
   };
 }
-export interface IBoxProps
+export interface IBoxProps<Theme>
   extends ViewProps,
     Omit<ColorProps, 'backgroundColor' | 'bg' | 'color' | 'fill' | 'stroke'>,
-    SpaceProps,
-    LayoutProps,
+    SpaceProps<Theme>,
+    LayoutProps<Theme>,
     FlexboxProps,
     PositionProps,
     BorderProps,
@@ -52,8 +53,8 @@ export interface IBoxProps
    * For providing props to Text inside Box
    */
   _text?: ITextProps;
-  bg?: string | ILinearGradientProps;
-  background?: string | ILinearGradientProps;
-  bgColor?: string | ILinearGradientProps;
-  backgroundColor?: string | ILinearGradientProps;
+  bg?: IThemeColors | ILinearGradientProps;
+  background?: IThemeColors | ILinearGradientProps;
+  bgColor?: IThemeColors | ILinearGradientProps;
+  backgroundColor?: IThemeColors | ILinearGradientProps;
 }

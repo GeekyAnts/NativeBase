@@ -10,4 +10,6 @@ const radii = {
 
 export type IRadii = typeof radii;
 
+export type IThemeRadii = keyof typeof radii | number;
+
 export default radii;

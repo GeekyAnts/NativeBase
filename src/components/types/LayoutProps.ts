@@ -5,7 +5,7 @@ import type { LayoutProps as ssLayoutProps } from 'styled-system';
 /**
  * Types for layout related CSS properties
  */
-export interface LayoutProps extends ssLayoutProps {
+export interface LayoutProps<Theme> extends ssLayoutProps<Theme> {
   /**
    * The CSS `display` property
    */

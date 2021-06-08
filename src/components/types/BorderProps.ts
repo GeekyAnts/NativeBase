@@ -1,42 +1,34 @@
-import type * as CSS from 'csstype';
 import type { ResponsiveValue } from './responsiveValue';
 // TODO: More BorderProps exists
-import type { BorderProps as ssBorderProps } from 'styled-system';
+import type { BorderProps as ssBorderProps } from './theme';
+import type { IThemeColors } from '../../theme/base/colors';
+import type { IThemeRadii } from '../../theme/base/radius';
 
 export interface BorderProps extends ssBorderProps {
-  rounded?: ResponsiveValue<CSS.Property.BorderRadius<string | number>>;
-  roundedTopLeft?: ResponsiveValue<CSS.Property.BorderRadius<string | number>>;
-  roundedTopRight?: ResponsiveValue<CSS.Property.BorderRadius<string | number>>;
-  borderTopLeftRadius?: ResponsiveValue<
-    CSS.Property.BorderRadius<string | number>
-  >;
-  borderTopRightRadius?: ResponsiveValue<
-    CSS.Property.BorderRadius<string | number>
-  >;
-  roundedBottomLeft?: ResponsiveValue<
-    CSS.Property.BorderRadius<string | number>
-  >;
-  roundedBottomRight?: ResponsiveValue<
-    CSS.Property.BorderRadius<string | number>
-  >;
-  borderBottomLeftRadius?: ResponsiveValue<
-    CSS.Property.BorderRadius<string | number>
-  >;
-  borderBottomRightRadius?: ResponsiveValue<
-    CSS.Property.BorderRadius<string | number>
-  >;
-  borderTopRadius?: ResponsiveValue<CSS.Property.BorderRadius<string | number>>;
-  roundedTop?: ResponsiveValue<CSS.Property.BorderRadius<string | number>>;
-  borderBottomRadius?: ResponsiveValue<
-    CSS.Property.BorderRadius<string | number>
-  >;
-  roundedBottom?: ResponsiveValue<CSS.Property.BorderRadius<string | number>>;
-  borderLeftRadius?: ResponsiveValue<
-    CSS.Property.BorderRadius<string | number>
-  >;
-  roundedLeft?: ResponsiveValue<CSS.Property.BorderRadius<string | number>>;
-  borderRightRadius?: ResponsiveValue<
-    CSS.Property.BorderRadius<string | number>
-  >;
-  roundedRight?: ResponsiveValue<CSS.Property.BorderRadius<string | number>>;
+  // Border Radius
+  rounded?: ResponsiveValue<IThemeRadii>;
+  roundedTopLeft?: ResponsiveValue<IThemeRadii>;
+  roundedTopRight?: ResponsiveValue<IThemeRadii>;
+  borderTopLeftRadius?: ResponsiveValue<IThemeRadii>;
+  borderTopRightRadius?: ResponsiveValue<IThemeRadii>;
+  roundedBottomLeft?: ResponsiveValue<IThemeRadii>;
+  roundedBottomRight?: ResponsiveValue<IThemeRadii>;
+  borderRadius?: ResponsiveValue<IThemeRadii>;
+  borderBottomLeftRadius?: ResponsiveValue<IThemeRadii>;
+  borderBottomRightRadius?: ResponsiveValue<IThemeRadii>;
+  borderTopRadius?: ResponsiveValue<IThemeRadii>;
+  roundedTop?: ResponsiveValue<IThemeRadii>;
+  borderBottomRadius?: ResponsiveValue<IThemeRadii>;
+  roundedBottom?: ResponsiveValue<IThemeRadii>;
+  borderLeftRadius?: ResponsiveValue<IThemeRadii>;
+  roundedLeft?: ResponsiveValue<IThemeRadii>;
+  borderRightRadius?: ResponsiveValue<IThemeRadii>;
+  roundedRight?: ResponsiveValue<IThemeRadii>;
+
+  // Border Colors
+  borderColor?: ResponsiveValue<IThemeColors>;
+  borderTopColor?: ResponsiveValue<IThemeColors>;
+  borderBottomColor?: ResponsiveValue<IThemeColors>;
+  borderLeftColor?: ResponsiveValue<IThemeColors>;
+  borderRightColor?: ResponsiveValue<IThemeColors>;
 }
