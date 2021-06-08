@@ -1285,31 +1285,9 @@ export interface BorderProps<
     BorderTopProps<ThemeType>,
     BorderRightProps<ThemeType>,
     BorderBottomProps<ThemeType>,
-    BorderLeftProps<ThemeType> {
-  /**
-   * The border CSS property sets an element's border. It's a shorthand for border-width, border-style,
-   * and border-color.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
-   */
-  border?: ResponsiveValue<TVal, ThemeType>;
-  borderX?: ResponsiveValue<TVal, ThemeType>;
-  borderY?: ResponsiveValue<TVal, ThemeType>;
-}
+    BorderLeftProps<ThemeType> {}
 
 export const border: styleFn;
-
-export interface BoxShadowProps<ThemeType extends Theme = RequiredTheme> {
-  /**
-   * The box-shadow CSS property adds shadow effects around an element's frame. You can set multiple effects separated
-   * by commas. A box shadow is described by X and Y offsets relative to the element, blur and spread radii and color.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
-   */
-  boxShadow?: ResponsiveValue<CSS.Property.BoxShadow | number, ThemeType>;
-}
-
-export const boxShadow: styleFn;
 
 export interface TextShadowProps<ThemeType extends Theme = RequiredTheme> {
   /**
