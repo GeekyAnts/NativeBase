@@ -1212,6 +1212,21 @@ export interface BorderRadiusProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = ThemeValue<'radii', ThemeType>
 > {
+  rounded?: ResponsiveValue<TVal, ThemeType>;
+  roundedTopLeft?: ResponsiveValue<TVal, ThemeType>;
+  roundedTopRight?: ResponsiveValue<TVal, ThemeType>;
+
+  roundedBottomLeft?: ResponsiveValue<TVal, ThemeType>;
+  roundedBottomRight?: ResponsiveValue<TVal, ThemeType>;
+
+  roundedTop?: ResponsiveValue<TVal, ThemeType>;
+
+  roundedBottom?: ResponsiveValue<TVal, ThemeType>;
+
+  roundedLeft?: ResponsiveValue<TVal, ThemeType>;
+
+  roundedRight?: ResponsiveValue<TVal, ThemeType>;
+
   /**
    * The border-radius CSS property rounds the corners of an element's outer border edge. You can set a single
    * radius to make circular corners, or two radii to make elliptical corners.

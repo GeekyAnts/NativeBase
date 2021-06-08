@@ -31,23 +31,15 @@ export interface IBoxProps<ThemeType>
     Omit<ColorProps<ThemeType>, 'bg' | 'bgColor' | 'backgroundColor'>,
     SpaceProps<ThemeType>,
     LayoutProps<ThemeType>,
-    FlexboxProps,
     PositionProps<ThemeType>,
-    BorderProps,
-    ExtraProps,
-    OutlineProps,
-    ShadowProps,
+    BorderProps<ThemeType>,
+    ShadowProps<ThemeType>,
+    FlexboxProps,
     SafeAreaProps,
-    TransformProps,
     PlatformProps {
   /**
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;
-  /**
-   * Applies box shadow and accepts a number from 0 to 9
-   * @default 0
-   */
-  shadow?: number;
   /**
    * For providing props to Text inside Box
    */

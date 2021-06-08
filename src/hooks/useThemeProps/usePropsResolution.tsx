@@ -196,9 +196,8 @@ const propTranslator = ({
           currentBreakpoint,
           property
         );
-        let shadowProps = theme[themePropertyMap[property]](colorModeProps)[
-          resolveValueWithBreakpointValue
-        ];
+        let shadowProps =
+          theme[themePropertyMap[property]][resolveValueWithBreakpointValue];
         translatedProps.style = merge({}, shadowProps, props.style);
         delete translatedProps[property];
       } else {

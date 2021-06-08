@@ -1,7 +1,7 @@
 import type * as CSS from 'csstype';
 import type { ResponsiveValue } from '../../components/types/responsiveValue';
 // TODO: MORE flex type exists than before
-import type { FlexboxProps as ssFlexboxProps } from 'styled-system';
+import type { FlexboxProps as ssFlexboxProps } from './theme';
 
 /**
  * Types for flexbox related CSS properties
