@@ -25,6 +25,7 @@ import {
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
+import type { ITheme } from '../../../theme/base';
 
 type IUseResolvedFontFamily = {
   fontFamily: string;
@@ -54,7 +55,7 @@ function useResolvedFontFamily(props: IUseResolvedFontFamily) {
   }
 }
 
-const StyledText = styled(NativeText)<ITextProps>(
+const StyledText = styled(NativeText)<ITextProps<ITheme>>(
   color,
   space,
   position,
@@ -73,7 +74,7 @@ const StyledText = styled(NativeText)<ITextProps>(
   customTypography
 );
 
-const Text = ({ children, ...props }: ITextProps, ref: any) => {
+const Text = ({ children, ...props }: ITextProps<ITheme>, ref: any) => {
   const {
     isTruncated,
     noOfLines,

@@ -6,28 +6,22 @@ import type {
   LayoutProps,
   PositionProps,
   SpaceProps,
-  ExtraProps,
-  OutlineProps,
   ShadowProps,
   BackgroundProps,
   SafeAreaProps,
-  TransformProps,
   PlatformProps,
 } from '../../types';
-export interface IPressableProps
+export interface IPressableProps<T>
   extends PressableProps,
-    ColorProps,
-    SpaceProps,
-    LayoutProps,
-    FlexboxProps,
-    PositionProps,
-    BorderProps,
-    ExtraProps,
-    OutlineProps,
-    ShadowProps,
-    BackgroundProps,
+    ColorProps<T>,
+    SpaceProps<T>,
+    LayoutProps<T>,
+    PositionProps<T>,
+    BorderProps<T>,
+    ShadowProps<T>,
+    BackgroundProps<T>,
     SafeAreaProps,
-    TransformProps,
+    FlexboxProps,
     PlatformProps {
   /**
    * Called when a mouse enters the Pressable
@@ -48,15 +42,15 @@ export interface IPressableProps
   /**
    * Style props to be applied when hovered
    */
-  _hover?: IPressableProps;
+  _hover?: any;
   /**
    * Style props to be applied when pressed
    */
-  _pressed?: IPressableProps;
+  _pressed?: any;
   /**
    * Style props to be applied when focus
    */
-  _focus?: IPressableProps;
+  _focus?: any;
 
   children?:
     | React.ReactNode

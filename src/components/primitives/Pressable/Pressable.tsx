@@ -13,6 +13,7 @@ import {
   customPosition,
   customShadow,
 } from '../../../utils/customProps';
+import type { ITheme } from '../../../theme/base';
 
 const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
@@ -47,7 +48,7 @@ const useIsPressed = () => {
   };
 };
 
-const StyledPressable = styled(RNPressable)<IPressableProps>(
+const StyledPressable = styled(RNPressable)<IPressableProps<ITheme>>(
   color,
   space,
   layout,
@@ -76,7 +77,7 @@ const Pressable = (
     _pressed,
     _focus,
     ...props
-  }: IPressableProps,
+  }: IPressableProps<ITheme>,
   ref: any
 ) => {
   const { pressableProps, isHovered } = useHover();

@@ -14,20 +14,18 @@ import type {
   TypographyProps,
 } from '../../types';
 
-export interface ITextProps
-  extends Omit<ColorProps, 'fill' | 'stroke'>,
-    SpaceProps,
-    BorderProps,
-    BackgroundProps,
-    PositionProps,
-    LayoutProps,
-    OutlineProps,
-    ExtraProps,
+export interface ITextProps<T>
+  extends TextProps,
+    Omit<ColorProps<T>, 'fill' | 'stroke'>,
+    SpaceProps<T>,
+    BorderProps<T>,
+    BackgroundProps<T>,
+    PositionProps<T>,
+    LayoutProps<T>,
+    ShadowProps<T>,
     PlatformProps,
-    ShadowProps,
     FlexboxProps,
-    TypographyProps,
-    TextProps {
+    TypographyProps {
   /**
    *  Renders components as Text children. Accepts a JSX.Element or an array of JSX.Element.
    */
