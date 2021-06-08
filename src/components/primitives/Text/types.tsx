@@ -3,8 +3,6 @@ import type {
   BorderProps,
   ColorProps,
   BackgroundProps,
-  OutlineProps,
-  ExtraProps,
   PlatformProps,
   ShadowProps,
   FlexboxProps,
@@ -30,24 +28,6 @@ export interface ITextProps<T>
    *  Renders components as Text children. Accepts a JSX.Element or an array of JSX.Element.
    */
   children?: React.ReactNode | string;
-  /**
-   * The size of font
-   */
-  fontSize?:
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | '6xl'
-    | number
-    | Array<number>
-    | Array<string>
-    | Record<string, string>;
   /**
    * Used to truncate text at a specific number of lines
    */

@@ -389,13 +389,13 @@ export interface FontSizeProps<
    * - And array values are converted into responsive values.
    *
    */
-  fontSize?: ResponsiveValue<TVal, ThemeType>;
+  fontSize?: ResponsiveValue<TVal | number, ThemeType>;
 }
 
 export const fontSize: styleFn;
 
 export interface FontFamilyProps<ThemeType extends Theme = RequiredTheme> {
-  fontFamily?: ResponsiveValue<CSS.Property.FontFamily, ThemeType>;
+  fontFamily?: ResponsiveValue<string, ThemeType>;
 }
 
 export const fontFamily: styleFn;
