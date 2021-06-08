@@ -1,7 +1,6 @@
 import type { ViewProps } from 'react-native';
 import type { IThemeColors } from '../../types/theme';
 import type { ResponsiveValue } from '../../types';
-
 import type {
   BorderProps,
   ColorProps,
@@ -9,12 +8,9 @@ import type {
   LayoutProps,
   PositionProps,
   SpaceProps,
-  ExtraProps,
-  OutlineProps,
   ShadowProps,
   SafeAreaProps,
   PlatformProps,
-  TransformProps,
 } from '../../types';
 import type { ITextProps } from './../Text/types';
 
