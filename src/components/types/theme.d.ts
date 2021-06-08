@@ -25,6 +25,21 @@
 
 import * as CSS from 'csstype';
 
+type IColors<ThemeType> = Pick<ThemeType, 'colors'>['colors'];
+
+type InnerColor<Type, Property> = Type extends object
+  ? `${Property}.${keyof Type}`
+  : Property;
+
+type AllColors<ThemeType> = {
+  [Property in keyof IColors<ThemeType> as InnerColor<
+    IColors<ThemeType>[Property],
+    Property
+  >]: IColors<ThemeType>[Property];
+};
+
+export type IThemeColors<ThemeType> = keyof AllColors<ThemeType>;
+
 export function get(obj: any, ...paths: Array<string | number>): any;
 
 export type ObjectOrArray<T, K extends keyof any = keyof any> =
@@ -321,7 +336,7 @@ export interface TextColorProps<
    *
    * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
    */
-  color?: ResponsiveValue<TVal, ThemeType>;
+  color?: ResponsiveValue<IThemeColors<ThemeType>>;
 }
 
 export const textColor: styleFn;
@@ -339,8 +354,9 @@ export interface BackgroundColorProps<
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color)
    */
-  bg?: ResponsiveValue<TVal, ThemeType>;
-  backgroundColor?: ResponsiveValue<TVal, ThemeType>;
+  bg?: ResponsiveValue<IThemeColors<ThemeType>>;
+  backgroundColor?: ResponsiveValue<IThemeColors<ThemeType>>;
+  bgColor?: ResponsiveValue<IThemeColors<ThemeType>>;
 }
 
 export const backgroundColor: styleFn;

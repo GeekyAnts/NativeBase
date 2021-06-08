@@ -25,18 +25,18 @@ export interface ILinearGradientProps {
     location?: Array<number>;
   };
 }
-export interface IBoxProps
+export interface IBoxProps<ThemeType>
   extends ViewProps,
-    Omit<ColorProps, 'backgroundColor' | 'bg' | 'color' | 'fill' | 'stroke'>,
-    SpaceProps,
-    LayoutProps,
+    ColorProps<ThemeType>,
+    SpaceProps<ThemeType>,
+    LayoutProps<ThemeType>,
     FlexboxProps,
-    PositionProps,
+    PositionProps<ThemeType>,
     BorderProps,
     ExtraProps,
     OutlineProps,
     ShadowProps,
-    Omit<BackgroundProps, 'bgColor' | 'background' | 'bg' | 'backgroundColor'>,
+    BackgroundProps<ThemeType>,
     SafeAreaProps,
     TransformProps,
     PlatformProps {
@@ -52,8 +52,8 @@ export interface IBoxProps
    * For providing props to Text inside Box
    */
   _text?: ITextProps;
-  bg?: string | ILinearGradientProps;
-  background?: string | ILinearGradientProps;
-  bgColor?: string | ILinearGradientProps;
-  backgroundColor?: string | ILinearGradientProps;
+  // bg?: string | ILinearGradientProps;
+  // background?: string | ILinearGradientProps;
+  // bgColor?: string | ILinearGradientProps;
+  // backgroundColor?: string | ILinearGradientProps;
 }

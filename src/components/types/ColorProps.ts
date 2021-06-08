@@ -1,12 +1,7 @@
 import type * as CSS from 'csstype';
-import type { ColorProps as ssColorProps } from 'styled-system';
+import type { ColorProps as ssColorProps } from './theme';
 
-export interface ColorProps extends ssColorProps {
-  /**
-   * The CSS `color` property
-   * @deprecated Use `color` prop instead of non standard textColor
-   */
-  textColor?: CSS.Property.Color;
+export interface ColorProps<ThemeType> extends ssColorProps<ThemeType> {
   /**
    * The CSS `fill` property for icon svgs and paths
    */

@@ -1,3 +1,3 @@
-import type { SpaceProps as ssSpaceProps } from 'styled-system';
+import type { SpaceProps as ssSpaceProps } from './theme';
 
-export interface SpaceProps extends ssSpaceProps {}
+export interface SpaceProps<ThemeType> extends ssSpaceProps<ThemeType> {}

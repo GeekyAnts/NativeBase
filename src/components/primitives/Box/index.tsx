@@ -25,9 +25,10 @@ import {
 import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import type { ITheme } from '../../../theme/base';
 
 const getStyledBox = (Comp: any) =>
-  styled(Comp)<IBoxProps>(
+  styled(Comp)<IBoxProps<ITheme>>(
     color,
     space,
     layout,
@@ -49,7 +50,7 @@ const StyledBox = getStyledBox(View);
 
 let MemoizedGradient: any = undefined;
 
-const Box = ({ children, ...props }: IBoxProps, ref: any) => {
+const Box = ({ children, ...props }: IBoxProps<ITheme>, ref: any) => {
   // const { _text, ...resolvedProps } = useThemeProps('Box', props);
   const { _text, ...resolvedProps } = usePropsResolution('Box', props);
   let Gradient = useNativeBaseConfig('NativeBaseConfigProvider').config

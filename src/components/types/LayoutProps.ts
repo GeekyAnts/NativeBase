@@ -1,15 +1,11 @@
 import type * as CSS from 'csstype';
 import type { ResponsiveValue } from '../../components/types/responsiveValue';
-import type { LayoutProps as ssLayoutProps } from 'styled-system';
+import type { LayoutProps as ssLayoutProps } from './theme';
 
 /**
  * Types for layout related CSS properties
  */
-export interface LayoutProps extends ssLayoutProps {
-  /**
-   * The CSS `display` property
-   */
-  d?: ResponsiveValue<CSS.Property.Display>;
+export interface LayoutProps<ThemeType> extends ssLayoutProps<ThemeType> {
   /**
    * The CSS `width` property
    */

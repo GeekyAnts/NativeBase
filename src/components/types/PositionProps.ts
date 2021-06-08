@@ -5,7 +5,7 @@ import type { PositionProps as ssPositionProps } from 'styled-system';
 /**
  * Types for position CSS properties
  */
-export interface PositionProps extends ssPositionProps {
+export interface PositionProps<ThemeType> extends ssPositionProps<ThemeType> {
   /**
    * The CSS `left`, `right`, `top`, `bottom` property
    */
