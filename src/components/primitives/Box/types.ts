@@ -1,4 +1,6 @@
 import type { ViewProps } from 'react-native';
+import type { IThemeColors } from '../../types/theme';
+import type { ResponsiveValue } from '../../types';
 
 import type {
   BorderProps,
@@ -10,7 +12,6 @@ import type {
   ExtraProps,
   OutlineProps,
   ShadowProps,
-  BackgroundProps,
   SafeAreaProps,
   PlatformProps,
   TransformProps,
@@ -27,7 +28,7 @@ export interface ILinearGradientProps {
 }
 export interface IBoxProps<ThemeType>
   extends ViewProps,
-    ColorProps<ThemeType>,
+    Omit<ColorProps<ThemeType>, 'bg' | 'bgColor' | 'backgroundColor'>,
     SpaceProps<ThemeType>,
     LayoutProps<ThemeType>,
     FlexboxProps,
@@ -36,7 +37,6 @@ export interface IBoxProps<ThemeType>
     ExtraProps,
     OutlineProps,
     ShadowProps,
-    BackgroundProps<ThemeType>,
     SafeAreaProps,
     TransformProps,
     PlatformProps {
@@ -52,8 +52,11 @@ export interface IBoxProps<ThemeType>
    * For providing props to Text inside Box
    */
   _text?: ITextProps;
-  // bg?: string | ILinearGradientProps;
-  // background?: string | ILinearGradientProps;
-  // bgColor?: string | ILinearGradientProps;
-  // backgroundColor?: string | ILinearGradientProps;
+
+  bg?: ResponsiveValue<IThemeColors<ThemeType> | ILinearGradientProps>;
+  background?: ResponsiveValue<IThemeColors<ThemeType> | ILinearGradientProps>;
+  bgColor?: ResponsiveValue<IThemeColors<ThemeType> | ILinearGradientProps>;
+  backgroundColor?: ResponsiveValue<
+    IThemeColors<ThemeType> | ILinearGradientProps
+  >;
 }
