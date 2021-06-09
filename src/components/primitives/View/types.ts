@@ -3,13 +3,10 @@ import type {
   ColorProps,
   SpaceProps,
   BorderProps,
-  BackgroundProps,
-  OutlineProps,
+  BackgroundColorProps,
   LayoutProps,
-  ExtraProps,
   ShadowProps,
   TypographyProps,
-  TransformProps,
   FlexboxProps,
   PositionProps,
   SafeAreaProps,
@@ -22,13 +19,10 @@ export type IViewProps = ViewProps &
   FlexboxProps &
   PositionProps &
   BorderProps &
-  ExtraProps &
-  OutlineProps &
   ShadowProps &
   LayoutProps &
   TypographyProps &
-  BackgroundProps &
-  TransformProps &
+  BackgroundColorProps &
   FlexboxProps &
   PositionProps &
   BorderProps &

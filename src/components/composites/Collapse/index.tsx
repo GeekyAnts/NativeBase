@@ -86,10 +86,12 @@ const Collapse = (
   return (
     <Box
       style={{ ...animatedStyle, ...(Platform.OS === 'web' && _web) }}
+      //@ts-ignore
       overflow="hidden"
       ref={ref}
     >
       <Box
+        //@ts-ignore
         overflow={Platform.OS === 'web' ? 'auto' : 'scroll'}
         onLayout={(e) => provideSize(e.nativeEvent.layout)}
         {...props}

@@ -1,12 +1,5 @@
 import { spacing } from './space';
 
-const container = {
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
-};
-
 const sizes = {
   ...spacing,
   ...{
@@ -19,7 +12,10 @@ const sizes = {
     'xl': '576px',
     '2xl': '672px',
   },
-  container,
+  'container.sm': '640px',
+  'container.md': '768px',
+  'container.lg': '1024px',
+  'container.xl': '1280px',
 };
 
 export type Sizes = typeof sizes;

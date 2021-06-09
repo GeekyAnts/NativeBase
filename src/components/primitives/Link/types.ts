@@ -6,10 +6,6 @@ export interface ILinkProps extends IBoxProps {
    */
   href?: string | undefined;
   /**
-   * Size of the link
-   */
-  size?: '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xsm' | number;
-  /**
    * Whether Link text should be underlined
    */
   isUnderlined?: boolean | undefined;

@@ -6,13 +6,7 @@ import type { ICenterProps } from './types';
 const Center = (props: ICenterProps, ref: any) => {
   let newProps = usePropsResolution('Center', props);
   return (
-    <Box
-      ref={ref}
-      {...newProps}
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    />
+    <Box ref={ref} {...newProps} alignItems="center" justifyContent="center" />
   );
 };
 

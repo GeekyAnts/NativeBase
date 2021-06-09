@@ -3,7 +3,6 @@ import type { IThemeColors } from '../../types/theme';
 import type { ResponsiveValue } from '../../types';
 import type {
   BorderProps,
-  ColorProps,
   FlexboxProps,
   LayoutProps,
   PositionProps,
@@ -11,8 +10,11 @@ import type {
   ShadowProps,
   SafeAreaProps,
   PlatformProps,
-} from '../../types';
+  OpacityProps,
+  RequiredTheme,
+} from '../../types/theme';
 import type { ITextProps } from './../Text/types';
+import type { ITheme } from '../../../theme/base';
 
 export interface ILinearGradientProps {
   linearGradient?: {
@@ -22,12 +24,9 @@ export interface ILinearGradientProps {
     location?: Array<number>;
   };
 }
-export interface IBoxProps<ThemeType>
+export interface IBoxProps<ThemeType extends ITheme = RequiredTheme>
   extends ViewProps,
-    Omit<
-      ColorProps<ThemeType>,
-      'bg' | 'bgColor' | 'backgroundColor' | 'fill' | 'stroke'
-    >,
+    OpacityProps<ThemeType>,
     SpaceProps<ThemeType>,
     LayoutProps<ThemeType>,
     PositionProps<ThemeType>,

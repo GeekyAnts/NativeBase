@@ -4,11 +4,9 @@ import type {
   SpaceProps,
   FlexboxProps,
   BorderProps,
-  ExtraProps,
-  OutlineProps,
   ShadowProps,
   LayoutProps,
-  BackgroundProps,
+  BackgroundColorProps,
   PlatformProps,
   TypographyProps,
 } from '../../types';
@@ -19,16 +17,13 @@ export interface IInputProps
     ColorProps,
     Omit<TextInputProps, 'textAlign'>,
     SpaceProps,
-    LayoutProps,
+    Omit<LayoutProps, 'size'>,
     FlexboxProps,
     TypographyProps,
     BorderProps,
-    ExtraProps,
-    OutlineProps,
     ShadowProps,
-    LayoutProps,
     TypographyProps,
-    BackgroundProps,
+    BackgroundColorProps,
     BorderProps {
   /**
    * If true, the input will indicate an error.
@@ -99,7 +94,7 @@ export interface IInputProps
   // _label?: ITextProps;
 }
 
-export interface IInputGroupProps extends IBoxProps {
+export interface IInputGroupProps extends Omit<IBoxProps, 'size'> {
   /**
    * The variant of the input style to use.
    * @default <code>outline</code>

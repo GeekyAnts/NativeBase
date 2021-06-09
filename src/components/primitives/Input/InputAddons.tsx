@@ -1,10 +1,9 @@
 import React, { memo, forwardRef } from 'react';
 import { default as Box, IBoxProps } from '../Box';
-import type { IInputProps } from './types';
 import { useColorModeValue } from '../../../core/color-mode/hooks';
 
 export const InputLeftAddon = memo(
-  forwardRef((props: IBoxProps & IInputProps, ref?: any) => {
+  forwardRef((props: IBoxProps, ref?: any) => {
     const addonsDefaultStyle = {
       p: 3,
       borderColor: useColorModeValue('gray.300', 'gray.600'),
@@ -27,7 +26,7 @@ export const InputLeftAddon = memo(
   })
 );
 export const InputRightAddon = memo(
-  forwardRef((props: IBoxProps & IInputProps, ref?: any) => {
+  forwardRef((props: IBoxProps, ref?: any) => {
     const addonsDefaultStyle = {
       p: 3,
       borderColor: useColorModeValue('gray.300', 'gray.600'),

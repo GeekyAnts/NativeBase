@@ -1,8 +1,9 @@
 import type { TextProps } from 'react-native';
+import type { ITheme } from '../../../theme/base';
 import type {
   BorderProps,
   ColorProps,
-  BackgroundProps,
+  BackgroundColorProps,
   PlatformProps,
   ShadowProps,
   FlexboxProps,
@@ -10,14 +11,15 @@ import type {
   PositionProps,
   SpaceProps,
   TypographyProps,
-} from '../../types';
+  RequiredTheme,
+} from '../../types/theme';
 
-export interface ITextProps<T>
+export interface ITextProps<T extends ITheme = RequiredTheme>
   extends TextProps,
     Omit<ColorProps<T>, 'fill' | 'stroke'>,
     SpaceProps<T>,
     BorderProps<T>,
-    BackgroundProps<T>,
+    BackgroundColorProps<T>,
     PositionProps<T>,
     LayoutProps<T>,
     ShadowProps<T>,

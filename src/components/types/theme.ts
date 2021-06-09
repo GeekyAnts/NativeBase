@@ -1,46 +1,24 @@
-// Type definitions for styled-system 5.1
-// Project: https://github.com/jxnblk/styled-system#readme
-// Definitions by: Ben McCormick <https://github.com/phobon>
-//                 Justin Bennett <https://github.com/zephraph>
-//                 Christopher Pappas <https://github.com/damassi>
-//                 Eloy Durán <https://github.com/alloy>
-//                 Matthieu Vachon <https://github.com/maoueh>
-//                 Adam Lavin <https://github.com/lavoaster>
-//                 Joachim Schuler <https://github.com/jschuler>
-//                 Adam Misiorny <https://github.com/adam187>
-//                 Sara F-P <https://github.com/gretzky>
-//                 Chris LoPresto <https://github.com/chrislopresto>
-//                 Pedro Duarte <https://github.com/peduarte>
-//                 Dhalton Huber <https://github.com/Dhalton>
-//                 Elliot Bonneville <https://github.com/elliotbonneville>
-//                 Jack Caldwell <https://github.com/jackcaldwell>
-//                 Eliseu Monar dos Santos <https://github.com/eliseumds>
-//                 Craig Michael Thompson <https://github.com/craga89>
-//                 Nicholas Hehr <https://github.com/HipsterBrown>
-//                 Hammad Jutt <https://github.com/hammadj>
-//                 Dhruv Jain <https://github.com/maddhruv>
-//                 Jeffrey Cherewaty <https://github.com/cherewaty>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 2.9
+import type * as CSS from 'csstype';
 
-import * as CSS from 'csstype';
+import type { ITheme as Theme } from '../../theme/base';
+import type { TextStyle } from 'react-native';
 
-type IColors<ThemeType> = Pick<ThemeType, 'colors'>['colors'];
+type IColors<ThemeType extends Theme> = Pick<ThemeType, 'colors'>['colors'];
 
-type InnerColor<Type, Property> = Type extends object
-  ? `${Property}.${keyof Type}`
+type InnerColor<Type, Property extends string | number> = Type extends object
+  ? `${Property}.${(string | number) & keyof Type}`
   : Property;
 
-type AllColors<ThemeType> = {
+type AllColors<ThemeType extends Theme> = {
   [Property in keyof IColors<ThemeType> as InnerColor<
     IColors<ThemeType>[Property],
-    Property
+    string & Property
   >]: IColors<ThemeType>[Property];
 };
 
-export type IThemeColors<ThemeType> = keyof AllColors<ThemeType>;
-
-export function get(obj: any, ...paths: Array<string | number>): any;
+export type IThemeColors<ThemeType extends Theme> =
+  | keyof AllColors<ThemeType>
+  | string;
 
 export type ObjectOrArray<T, K extends keyof any = keyof any> =
   | T[]
@@ -49,28 +27,6 @@ export type ObjectOrArray<T, K extends keyof any = keyof any> =
 export type Scale = ObjectOrArray<number | string>;
 
 export type TLengthStyledSystem = string | 0 | number;
-
-export interface Theme<TLength = TLengthStyledSystem> {
-  breakpoints?: ObjectOrArray<number | string | symbol>;
-  mediaQueries?: { [size: string]: string };
-  space?: ObjectOrArray<CSS.Property.Margin<number | string>>;
-  fontSizes?: ObjectOrArray<CSS.Property.FontSize<number>>;
-  colors?: ObjectOrArray<CSS.Property.Color>;
-  fonts?: ObjectOrArray<CSS.Property.FontFamily>;
-  fontWeights?: ObjectOrArray<CSS.Property.FontWeight>;
-  lineHeights?: ObjectOrArray<CSS.Property.LineHeight<TLength>>;
-  letterSpacings?: ObjectOrArray<CSS.Property.LetterSpacing<TLength>>;
-  sizes?: ObjectOrArray<CSS.Property.Height<{}> | CSS.Property.Width<{}>>;
-  borders?: ObjectOrArray<CSS.Property.Border<{}>>;
-  borderStyles?: ObjectOrArray<CSS.Property.Border<{}>>;
-  borderWidths?: ObjectOrArray<CSS.Property.BorderWidth<TLength>>;
-  radii?: ObjectOrArray<CSS.Property.BorderRadius<TLength>>;
-  shadows?: ObjectOrArray<CSS.Property.BoxShadow>;
-  zIndices?: ObjectOrArray<CSS.Property.ZIndex>;
-  buttons?: ObjectOrArray<CSS.StandardProperties>;
-  colorStyles?: ObjectOrArray<CSS.StandardProperties>;
-  textStyles?: ObjectOrArray<CSS.StandardProperties>;
-}
 
 export type RequiredTheme = Required<Theme>;
 
@@ -94,7 +50,7 @@ export type ThemeValue<
 
 export interface SpaceProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'space', ThemeType>
+  TVal = ThemeValue<'space', ThemeType> | number | 'auto'
 > {
   /** Margin on top, left, bottom and right */
   m?: ResponsiveValue<TVal, ThemeType>;
@@ -154,179 +110,11 @@ export interface SpaceProps<
   paddingY?: ResponsiveValue<TVal, ThemeType>;
 }
 
-// Preserved to support v4 shim:
-// https://github.com/styled-system/styled-system/blob/master/packages/styled-system/src/index.js#L108
-export interface LowLevelStyleFunctionArguments<N, S> {
-  prop: string;
-  cssProperty?: string;
-  alias?: string;
-  key?: string;
-  transformValue?: (n: N, scale?: S) => any;
-  scale?: S;
-  // new v5 api
-  properties?: string[];
-}
-
-export function style<N = string | number, S = Scale>(
-  // tslint:disable-next-line no-unnecessary-generics
-  args: LowLevelStyleFunctionArguments<N, S>
-): styleFn;
-
-export interface styleFn {
-  (...args: any[]): any;
-
-  config?: object;
-  propNames?: string[];
-  cache?: object;
-}
-
-export interface ConfigStyle {
-  /** The CSS property to use in the returned style object (overridden by `properties` if present). */
-  property?: keyof CSS.Properties;
-  /**
-   * An array of multiple properties (e.g. `['marginLeft', 'marginRight']`) to which this style's value will be
-   * assigned (overrides `property` when present).
-   */
-  properties?: Array<keyof CSS.Properties>;
-  /** A string referencing a key in the `theme` object. */
-  scale?: string;
-  /** A fallback scale object for when there isn't one defined in the `theme` object. */
-  defaultScale?: Scale;
-  /** A function to transform the raw value based on the scale. */
-  transform?: (value: any, scale?: Scale) => any;
-}
-
-export interface Config {
-  /** Property name exposed for use in components */
-  [customStyleName: string]: ConfigStyle | boolean;
-}
-
-export function compose(...parsers: styleFn[]): styleFn;
-
-export function system(styleDefinitions: Config): styleFn;
-
-export function createParser(config: ConfigStyle): styleFn;
-
-export function createStyleFunction(args: ConfigStyle): styleFn;
-
-export interface VariantArgs<
-  TStyle = object,
-  K extends string = string,
-  TPropName = string
-> {
-  key?: string;
-  /** Component prop, defaults to "variant" */
-  prop?: TPropName;
-  /** theme key for variant definitions */
-  scale?: string;
-  /** inline theme aware variants definitions  */
-  variants?: {
-    [key in K]: TStyle;
-  };
-}
-
-export function variant<
-  TStyle = object,
-  K extends string = string,
-  TPropName = string
->(
-  // tslint:disable-next-line no-unnecessary-generics
-  props: VariantArgs<TStyle, K, TPropName>
-): (...args: any[]) => any;
-/**
- * Converts shorthand or longhand margin and padding props to margin and padding CSS declarations
- *
- * - Numbers from 0-4 (or the length of theme.space) are converted to values on the spacing scale.
- * - Negative values can be used for negative margins.
- * - Numbers greater than the length of the theme.space array are converted to raw pixel values.
- * - String values are passed as raw CSS values.
- * - Array values are converted into responsive values.
- */
-
-export const space: styleFn;
-
-export interface MarginProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<
-    SpaceProps<ThemeType>,
-    | 'm'
-    | 'margin'
-    | 'mt'
-    | 'marginTop'
-    | 'mb'
-    | 'marginBottom'
-    | 'ml'
-    | 'marginLeft'
-    | 'mr'
-    | 'marginRight'
-    | 'my'
-    | 'marginY'
-    | 'mx'
-    | 'marginX'
-  > {}
-
-export interface MarginTopProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'mt' | 'marginTop'> {}
-
-export interface MarginBottomProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'mb' | 'marginBottom'> {}
-
-export interface MarginLeftProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'ml' | 'marginLeft'> {}
-
-export interface MarginRightProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'mr' | 'marginRight'> {}
-
-export const margin: styleFn;
-export const marginTop: styleFn;
-export const marginBottom: styleFn;
-export const marginLeft: styleFn;
-export const marginRight: styleFn;
-
-export interface PaddingProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<
-    SpaceProps<ThemeType>,
-    | 'p'
-    | 'padding'
-    | 'pt'
-    | 'paddingTop'
-    | 'pb'
-    | 'paddingBottom'
-    | 'pl'
-    | 'paddingLeft'
-    | 'pr'
-    | 'paddingRight'
-    | 'py'
-    | 'paddingY'
-    | 'px'
-    | 'paddingX'
-  > {}
-
-export interface PaddingTopProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'pt' | 'paddingTop'> {}
-
-export interface PaddingBottomProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'pb' | 'paddingBottom'> {}
-
-export interface PaddingLeftProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'pl' | 'paddingLeft'> {}
-
-export interface PaddingRightProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'pr' | 'paddingRight'> {}
-
-export const padding: styleFn;
-export const paddingTop: styleFn;
-export const paddingBottom: styleFn;
-export const paddingLeft: styleFn;
-export const paddingRight: styleFn;
-
 /**
  * Color
  */
 
-export interface TextColorProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'colors', ThemeType>
-> {
+export interface TextColorProps<ThemeType extends Theme = RequiredTheme> {
   /**
    * The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.
    * By default the raw value of the prop is returned.
@@ -339,12 +127,7 @@ export interface TextColorProps<
   color?: ResponsiveValue<IThemeColors<ThemeType>>;
 }
 
-export const textColor: styleFn;
-
-export interface BackgroundColorProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'colors', ThemeType>
-> {
+export interface BackgroundColorProps<ThemeType extends Theme = RequiredTheme> {
   /**
    * The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.
    * By default the raw value of the prop is returned.
@@ -359,22 +142,14 @@ export interface BackgroundColorProps<
   bgColor?: ResponsiveValue<IThemeColors<ThemeType>>;
 }
 
-export const backgroundColor: styleFn;
-
-export interface ColorProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'colors', ThemeType>
-> extends TextColorProps<ThemeType, TVal>,
-    BackgroundColorProps<ThemeType, TVal>,
+export interface ColorProps<ThemeType extends Theme = RequiredTheme>
+  extends TextColorProps<ThemeType>,
+    BackgroundColorProps<ThemeType>,
     OpacityProps {}
-
-export const color: styleFn;
 
 /**
  * Typography
  */
-
-export function getPx(n: any, scale: any): string;
 
 export interface FontSizeProps<
   ThemeType extends Theme = RequiredTheme,
@@ -392,13 +167,9 @@ export interface FontSizeProps<
   fontSize?: ResponsiveValue<TVal | number, ThemeType>;
 }
 
-export const fontSize: styleFn;
-
 export interface FontFamilyProps<ThemeType extends Theme = RequiredTheme> {
   fontFamily?: ResponsiveValue<string, ThemeType>;
 }
-
-export const fontFamily: styleFn;
 
 export interface FontWeightProps<
   ThemeType extends Theme = RequiredTheme,
@@ -413,8 +184,6 @@ export interface FontWeightProps<
    */
   fontWeight?: ResponsiveValue<TVal | number, ThemeType>;
 }
-
-export const fontWeight: styleFn;
 
 export interface LineHeightProps<
   ThemeType extends Theme = RequiredTheme,
@@ -431,8 +200,6 @@ export interface LineHeightProps<
   lineHeight?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const lineHeight: styleFn;
-
 export interface TextAlignProps<ThemeType extends Theme = RequiredTheme> {
   /**
    * The text-align CSS property specifies the horizontal alignment of an inline or table-cell box.
@@ -441,8 +208,6 @@ export interface TextAlignProps<ThemeType extends Theme = RequiredTheme> {
    */
   textAlign?: ResponsiveValue<CSS.Property.TextAlign, ThemeType>;
 }
-
-export const textAlign: styleFn;
 
 export interface FontStyleProps<ThemeType extends Theme = RequiredTheme> {
   /**
@@ -453,8 +218,6 @@ export interface FontStyleProps<ThemeType extends Theme = RequiredTheme> {
    */
   fontStyle?: ResponsiveValue<CSS.Property.FontStyle, ThemeType>;
 }
-
-export const fontStyle: styleFn;
 
 export interface LetterSpacingProps<
   ThemeType extends Theme = RequiredTheme,
@@ -467,8 +230,6 @@ export interface LetterSpacingProps<
    */
   letterSpacing?: ResponsiveValue<TVal, ThemeType>;
 }
-
-export const letterSpacing: styleFn;
 
 /**
  * A convenience style group containing props related to typography such as fontFamily, fontSize, fontWeight, etc.
@@ -483,9 +244,23 @@ export interface TypographyProps<ThemeType extends Theme = RequiredTheme>
     LineHeightProps<ThemeType>,
     LetterSpacingProps<ThemeType>,
     FontStyleProps<ThemeType>,
-    TextAlignProps<ThemeType> {}
+    TextAlignProps<ThemeType> {
+  textTransform?: ResponsiveValue<
+    Pick<TextStyle, 'textTransform'>['textTransform']
+  >;
 
-export const typography: styleFn;
+  textDecorationColor?: ResponsiveValue<
+    Pick<TextStyle, 'textDecorationColor'>['textDecorationColor']
+  >;
+
+  textDecorationStyle?: ResponsiveValue<
+    Pick<TextStyle, 'textDecorationStyle'>['textDecorationStyle']
+  >;
+
+  textDecorationLine?: ResponsiveValue<
+    Pick<TextStyle, 'textDecorationLine'>['textDecorationLine'] | string
+  >;
+}
 
 /**
  * Layout
@@ -502,8 +277,6 @@ export interface DisplayProps<ThemeType extends Theme = RequiredTheme> {
   display?: ResponsiveValue<CSS.Property.Display, ThemeType>;
 }
 
-export const display: styleFn;
-
 export interface WidthProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = CSS.Property.Width<TLengthStyledSystem>
@@ -519,8 +292,6 @@ export interface WidthProps<
   width?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const width: styleFn;
-
 export interface MaxWidthProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = CSS.Property.MaxWidth<TLengthStyledSystem>
@@ -533,8 +304,6 @@ export interface MaxWidthProps<
    */
   maxWidth?: ResponsiveValue<TVal, ThemeType>;
 }
-
-export const maxWidth: styleFn;
 
 export interface MinWidthProps<
   ThemeType extends Theme = RequiredTheme,
@@ -549,8 +318,6 @@ export interface MinWidthProps<
   minWidth?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const minWidth: styleFn;
-
 export interface HeightProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = CSS.Property.Height<TLengthStyledSystem>
@@ -563,8 +330,6 @@ export interface HeightProps<
    */
   height?: ResponsiveValue<TVal, ThemeType>;
 }
-
-export const height: styleFn;
 
 export interface MaxHeightProps<
   ThemeType extends Theme = RequiredTheme,
@@ -579,8 +344,6 @@ export interface MaxHeightProps<
   maxHeight?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const maxHeight: styleFn;
-
 export interface MinHeightProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = CSS.Property.MinHeight<TLengthStyledSystem>
@@ -594,16 +357,12 @@ export interface MinHeightProps<
   minHeight?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const minHeight: styleFn;
-
 export interface SizeProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.Height<TLengthStyledSystem>
+  TVal = ThemeValue<'sizes', ThemeType>
 > {
-  size?: ResponsiveValue<TVal, ThemeType>;
+  size?: ResponsiveValue<TVal | number, ThemeType>;
 }
-
-export const size: styleFn;
 
 export interface VerticalAlignProps<
   ThemeType extends Theme = RequiredTheme,
@@ -616,8 +375,6 @@ export interface VerticalAlignProps<
    */
   verticalAlign?: ResponsiveValue<TVal, ThemeType>;
 }
-
-export const verticalAlign: styleFn;
 
 /**
  * Flexbox
@@ -635,8 +392,6 @@ export interface AlignItemsProps<ThemeType extends Theme = RequiredTheme> {
   alignItems?: ResponsiveValue<CSS.Property.AlignItems, ThemeType>;
 }
 
-export const alignItems: styleFn;
-
 export interface AlignContentProps<ThemeType extends Theme = RequiredTheme> {
   /**
    * The CSS align-content property sets how the browser distributes space between and around content items
@@ -646,8 +401,6 @@ export interface AlignContentProps<ThemeType extends Theme = RequiredTheme> {
    */
   alignContent?: ResponsiveValue<CSS.Property.AlignContent, ThemeType>;
 }
-
-export const alignContent: styleFn;
 
 export interface JustifyItemsProps<ThemeType extends Theme = RequiredTheme> {
   /**
@@ -659,8 +412,6 @@ export interface JustifyItemsProps<ThemeType extends Theme = RequiredTheme> {
   justifyItems?: ResponsiveValue<CSS.Property.JustifyItems, ThemeType>;
 }
 
-export const justifyItems: styleFn;
-
 export interface JustifyContentProps<ThemeType extends Theme = RequiredTheme> {
   /**
    * The CSS justify-content property defines how the browser distributes space between and around content items
@@ -671,8 +422,6 @@ export interface JustifyContentProps<ThemeType extends Theme = RequiredTheme> {
   justifyContent?: ResponsiveValue<CSS.Property.JustifyContent, ThemeType>;
 }
 
-export const justifyContent: styleFn;
-
 export interface FlexWrapProps<ThemeType extends Theme = RequiredTheme> {
   /**
    * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines.
@@ -682,8 +431,6 @@ export interface FlexWrapProps<ThemeType extends Theme = RequiredTheme> {
    */
   flexWrap?: ResponsiveValue<CSS.Property.FlexWrap, ThemeType>;
 }
-
-export const flexWrap: styleFn;
 
 export interface FlexBasisProps<
   ThemeType extends Theme = RequiredTheme,
@@ -696,8 +443,6 @@ export interface FlexBasisProps<
   flexBasis?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const flexBasis: styleFn;
-
 export interface FlexDirectionProps<ThemeType extends Theme = RequiredTheme> {
   /**
    * The flex-direction CSS property specifies how flex items are placed in the flex container defining the main
@@ -707,8 +452,6 @@ export interface FlexDirectionProps<ThemeType extends Theme = RequiredTheme> {
    */
   flexDirection?: ResponsiveValue<CSS.Property.FlexDirection, ThemeType>;
 }
-
-export const flexDirection: styleFn;
 
 export interface FlexProps<
   ThemeType extends Theme = RequiredTheme,
@@ -723,8 +466,6 @@ export interface FlexProps<
   flex?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const flex: styleFn;
-
 export interface JustifySelfProps<ThemeType extends Theme = RequiredTheme> {
   /**
    * The CSS justify-self property set the way a box is justified inside its alignment container along
@@ -734,8 +475,6 @@ export interface JustifySelfProps<ThemeType extends Theme = RequiredTheme> {
    */
   justifySelf?: ResponsiveValue<CSS.Property.JustifySelf, ThemeType>;
 }
-
-export const justifySelf: styleFn;
 
 export interface AlignSelfProps<ThemeType extends Theme = RequiredTheme> {
   /**
@@ -749,8 +488,6 @@ export interface AlignSelfProps<ThemeType extends Theme = RequiredTheme> {
   alignSelf?: ResponsiveValue<CSS.Property.AlignSelf, ThemeType>;
 }
 
-export const alignSelf: styleFn;
-
 export interface OrderProps<ThemeType extends Theme = RequiredTheme> {
   /**
    * The order CSS property sets the order to lay out an item in a flex or grid container. Items in a container
@@ -760,8 +497,6 @@ export interface OrderProps<ThemeType extends Theme = RequiredTheme> {
    */
   order?: ResponsiveValue<CSS.Property.Order, ThemeType>;
 }
-
-export const order: styleFn;
 
 export interface FlexGrowProps<ThemeType extends Theme = RequiredTheme> {
   /**
@@ -773,8 +508,6 @@ export interface FlexGrowProps<ThemeType extends Theme = RequiredTheme> {
   flexGrow?: ResponsiveValue<CSS.Property.FlexGrow, ThemeType>;
 }
 
-export const flexGrow: styleFn;
-
 export interface FlexShrinkProps<ThemeType extends Theme = RequiredTheme> {
   /**
    * The flex-shrink CSS property sets the flex shrink factor of a flex item. If the size of all flex items is larger
@@ -784,8 +517,6 @@ export interface FlexShrinkProps<ThemeType extends Theme = RequiredTheme> {
    */
   flexShrink?: ResponsiveValue<CSS.Property.FlexShrink, ThemeType>;
 }
-
-export const flexShrink: styleFn;
 
 /**
  * A convenience style group containing props related to flexbox.
@@ -806,207 +537,9 @@ export interface FlexboxProps<ThemeType extends Theme = RequiredTheme>
     FlexBasisProps<ThemeType>,
     JustifySelfProps<ThemeType>,
     AlignSelfProps<ThemeType>,
-    OrderProps<ThemeType> {}
-
-export const flexbox: styleFn;
-
-/**
- * Grid Layout
- */
-
-export interface GridGapProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.GridGap<TLengthStyledSystem>
-> {
-  /**
-   * The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap
-   * and column-gap.
-   *
-   * @deprecated use gap
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/gap)
-   */
-  gridGap?: ResponsiveValue<TVal, ThemeType>;
+    OrderProps<ThemeType> {
+  flexDir?: ResponsiveValue<CSS.Property.FlexDirection>;
 }
-
-export const gridGap: styleFn;
-
-export interface GridColumnGapProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.GridColumnGap<TLengthStyledSystem>
-> {
-  /**
-   * The column-gap CSS property sets the size of the gap (gutter) between an element's columns.
-   *
-   * @deprecated use column-gap
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap)
-   */
-  gridColumnGap?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const gridColumnGap: styleFn;
-
-export interface GridRowGapProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.GridRowGap<TLengthStyledSystem>
-> {
-  /**
-   * The row-gap CSS property sets the size of the gap (gutter) between an element's rows.
-   *
-   * @deprecated use row-gap
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap)
-   */
-  gridRowGap?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const gridRowGap: styleFn;
-
-export interface GridColumnProps<ThemeType extends Theme = RequiredTheme> {
-  /**
-   * The grid-column CSS property is a shorthand property for grid-column-start and grid-column-end specifying
-   * a grid item's size and location within the grid column by contributing a line, a span, or nothing (automatic)
-   * to its grid placement, thereby specifying the inline-start and inline-end edge of its grid area.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column)
-   */
-  gridColumn?: ResponsiveValue<CSS.Property.GridColumn, ThemeType>;
-}
-
-export const gridColumn: styleFn;
-
-export interface GridRowProps<ThemeType extends Theme = RequiredTheme> {
-  /**
-   * The grid-row CSS property is a shorthand property for grid-row-start and grid-row-end specifying a grid item’s
-   * size and location within the grid row by contributing a line, a span, or nothing (automatic) to its grid
-   * placement, thereby specifying the inline-start and inline-end edge of its grid area.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row)
-   */
-  gridRow?: ResponsiveValue<CSS.Property.GridRow, ThemeType>;
-}
-
-export const gridRow: styleFn;
-
-export interface GridAutoFlowProps<ThemeType extends Theme = RequiredTheme> {
-  /**
-   * The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly
-   * how auto-placed items get flowed into the grid.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow)
-   */
-  gridAutoFlow?: ResponsiveValue<CSS.Property.GridAutoFlow, ThemeType>;
-}
-
-export const gridAutoFlow: styleFn;
-
-export interface GridAutoColumnsProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.GridAutoColumns<TLengthStyledSystem>
-> {
-  /**
-   * The grid-auto-columns CSS property specifies the size of an implicitly-created grid column track.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns)
-   */
-  gridAutoColumns?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const gridAutoColumns: styleFn;
-
-export interface GridAutoRowsProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.GridAutoRows<TLengthStyledSystem>
-> {
-  /**
-   * The grid-auto-rows CSS property specifies the size of an implicitly-created grid row track.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows)
-   */
-  gridAutoRows?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const gridAutoRows: styleFn;
-
-export interface GridTemplateColumnsProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.GridTemplateColumns<TLengthStyledSystem>
-> {
-  /**
-   * The grid-template-columns CSS property defines the line names and track sizing functions of the grid columns.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
-   */
-  gridTemplateColumns?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const gridTemplateColumns: styleFn;
-
-export interface GridTemplateRowsProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.GridTemplateRows<TLengthStyledSystem>
-> {
-  /**
-   * The grid-template-rows CSS property defines the line names and track sizing functions of the grid rows.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/row-template-rows)
-   */
-  gridTemplateRows?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const gridTemplateRows: styleFn;
-
-export interface GridTemplateAreasProps<
-  ThemeType extends Theme = RequiredTheme
-> {
-  /**
-   * The grid-template-areas CSS property specifies named grid areas.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas)
-   */
-  gridTemplateAreas?: ResponsiveValue<
-    CSS.Property.GridTemplateAreas,
-    ThemeType
-  >;
-}
-
-export const gridTemplateAreas: styleFn;
-
-export interface GridAreaProps<ThemeType extends Theme = RequiredTheme> {
-  /**
-   * The grid-area CSS property is a shorthand property for grid-row-start, grid-column-start, grid-row-end
-   * and grid-column-end, specifying a grid item’s size and location within the grid row by contributing a line,
-   * a span, or nothing (automatic) to its grid placement, thereby specifying the edges of its grid area.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area)
-   */
-  gridArea?: ResponsiveValue<CSS.Property.GridArea, ThemeType>;
-}
-
-export const gridArea: styleFn;
-
-/**
- * A convenience style group containing props related to grid.
- *
- * - String values are passed as raw CSS values.
- * - Array values are converted into responsive values.
- */
-export interface GridProps<ThemeType extends Theme = RequiredTheme>
-  extends GridGapProps<ThemeType>,
-    GridColumnGapProps<ThemeType>,
-    GridRowGapProps<ThemeType>,
-    GridColumnProps<ThemeType>,
-    GridRowProps<ThemeType>,
-    GridAutoFlowProps<ThemeType>,
-    GridAutoColumnsProps<ThemeType>,
-    GridAutoRowsProps<ThemeType>,
-    GridTemplateColumnsProps<ThemeType>,
-    GridTemplateRowsProps<ThemeType>,
-    GridTemplateAreasProps<ThemeType>,
-    GridAreaProps<ThemeType> {}
-
-export const grid: styleFn;
 
 /**
  * A convenience style group containing props related to layout such as width, height, and display.
@@ -1023,12 +556,32 @@ export interface LayoutProps<ThemeType extends Theme = RequiredTheme>
     MinHeightProps<ThemeType>,
     MaxWidthProps<ThemeType>,
     MaxHeightProps<ThemeType>,
-    DisplayProps<ThemeType>,
-    VerticalAlignProps<ThemeType>,
-    SizeProps<ThemeType>,
-    OverflowProps<ThemeType> {}
-
-export const layout: styleFn;
+    SizeProps<ThemeType> {
+  /**
+   * The CSS `width` property
+   */
+  w?: ResponsiveValue<CSS.Property.Width<string | number>>;
+  /**
+   * The CSS `max-width` property
+   */
+  maxW?: ResponsiveValue<CSS.Property.MaxWidth<string | number>>;
+  /**
+   * The CSS `min-width` property
+   */
+  minW?: ResponsiveValue<CSS.Property.MinWidth<string | number>>;
+  /**
+   * The CSS `height` property
+   */
+  h?: ResponsiveValue<CSS.Property.Height<string | number>>;
+  /**
+   * The CSS `max-height` property
+   */
+  maxH?: ResponsiveValue<CSS.Property.MaxHeight<string | number>>;
+  /**
+   * The CSS `min-height` property
+   */
+  minH?: ResponsiveValue<CSS.Property.MinHeight<string | number>>;
+}
 
 /**
  * Borders
@@ -1036,7 +589,7 @@ export const layout: styleFn;
 
 export interface BorderWidthProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'borderWidths', ThemeType>
+  TVal = number
 > {
   /**
    * The border-width shorthand CSS property sets the width of all sides of an element's border.
@@ -1069,8 +622,6 @@ export interface BorderWidthProps<
    */
   borderRightWidth?: ResponsiveValue<TVal, ThemeType>;
 }
-
-export const borderWidth: styleFn;
 
 export interface BorderStyleProps<ThemeType extends Theme = RequiredTheme> {
   /**
@@ -1108,11 +659,9 @@ export interface BorderStyleProps<ThemeType extends Theme = RequiredTheme> {
   borderRightStyle?: ResponsiveValue<CSS.Property.BorderRightStyle, ThemeType>;
 }
 
-export const borderStyle: styleFn;
-
 export interface BorderColorProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'colors', ThemeType>
+  TVal = IThemeColors<ThemeType>
 > {
   /**
    * The border-color shorthand CSS property sets the color of all sides of an element's border.
@@ -1146,71 +695,9 @@ export interface BorderColorProps<
   borderRightColor?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const borderColor: styleFn;
-
-export interface BorderTopProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.BorderTop<TLengthStyledSystem>
-> {
-  /**
-   * The border-top CSS property is a shorthand that sets the values of border-top-width, border-top-style,
-   * and border-top-color. These properties describe an element's top border.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top)
-   */
-  borderTop?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const borderTop: styleFn;
-
-export interface BorderRightProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.BorderRight<TLengthStyledSystem>
-> {
-  /**
-   * The border-right CSS property is a shorthand that sets border-right-width, border-right-style,
-   * and border-right-color. These properties set an element's right border.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/border-right)
-   */
-  borderRight?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const borderRight: styleFn;
-
-export interface BorderBottomProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.BorderBottom<TLengthStyledSystem>
-> {
-  /**
-   * The border-bottom CSS property sets an element's bottom border. It's a shorthand for
-   * border-bottom-width, border-bottom-style and border-bottom-color.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom)
-   */
-  borderBottom?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const borderBottom: styleFn;
-
-export interface BorderLeftProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.BorderLeft<TLengthStyledSystem>
-> {
-  /**
-   * The border-left CSS property is a shorthand that sets the values of border-left-width,
-   * border-left-style, and border-left-color. These properties describe an element's left border.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/border-left)
-   */
-  borderLeft?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const borderLeft: styleFn;
-
 export interface BorderRadiusProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'radii', ThemeType>
+  TVal = ThemeValue<'radii', ThemeType> | number
 > {
   rounded?: ResponsiveValue<TVal, ThemeType>;
   roundedTopLeft?: ResponsiveValue<TVal, ThemeType>;
@@ -1260,53 +747,18 @@ export interface BorderRadiusProps<
   borderBottomRightRadius?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const borderRadius: styleFn;
-
 export interface BordersProps<ThemeType extends Theme = RequiredTheme>
   extends BorderProps<ThemeType>,
-    BorderTopProps<ThemeType>,
-    BorderRightProps<ThemeType>,
-    BorderBottomProps<ThemeType>,
-    BorderLeftProps<ThemeType>,
     BorderWidthProps<ThemeType>,
     BorderColorProps<ThemeType>,
     BorderStyleProps<ThemeType>,
     BorderRadiusProps<ThemeType> {}
 
-export const borders: styleFn;
-
-export interface BorderProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.Border<TLengthStyledSystem>
-> extends BorderWidthProps<ThemeType>,
+export interface BorderProps<ThemeType extends Theme = RequiredTheme>
+  extends BorderWidthProps<ThemeType>,
     BorderStyleProps<ThemeType>,
     BorderColorProps<ThemeType>,
-    BorderRadiusProps<ThemeType>,
-    BorderTopProps<ThemeType>,
-    BorderRightProps<ThemeType>,
-    BorderBottomProps<ThemeType>,
-    BorderLeftProps<ThemeType> {}
-
-export const border: styleFn;
-
-export interface TextShadowProps<ThemeType extends Theme = RequiredTheme> {
-  /**
-   * The `text-shadow` CSS property adds shadows to text. It accepts a comma-separated list of shadows to be applied
-   * to the text and any of its `decorations`. Each shadow is described by some combination of X and Y offsets from
-   * the element, blur radius, and color.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow)
-   */
-  textShadow?: ResponsiveValue<CSS.Property.TextShadow | number, ThemeType>;
-}
-
-export const textShadow: styleFn;
-
-export interface ShadowProps<ThemeType extends Theme = RequiredTheme>
-  extends BoxShadowProps<ThemeType>,
-    TextShadowProps<ThemeType> {}
-
-export const shadow: styleFn;
+    BorderRadiusProps<ThemeType> {}
 
 export interface OpacityProps<ThemeType extends Theme = RequiredTheme> {
   /**
@@ -1317,111 +769,6 @@ export interface OpacityProps<ThemeType extends Theme = RequiredTheme> {
    */
   opacity?: ResponsiveValue<CSS.Property.Opacity, ThemeType>;
 }
-
-export const opacity: styleFn;
-
-export interface OverflowProps<ThemeType extends Theme = RequiredTheme> {
-  /**
-   * The overflow CSS property sets what to do when an element's content is too big to fit in its block
-   * formatting context. It is a shorthand for overflow-x and overflow-y.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)
-   */
-  overflow?: ResponsiveValue<CSS.Property.Overflow, ThemeType>;
-  /**
-   * The overflow-x CSS property sets what shows when content overflows a block-level element's left
-   * and right edges. This may be nothing, a scroll bar, or the overflow content.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x)
-   */
-  overflowX?: ResponsiveValue<CSS.Property.OverflowX, ThemeType>;
-  /**
-   * The overflow-y CSS property sets what shows when content overflows a block-level element's top
-   * and bottom edges. This may be nothing, a scroll bar, or the overflow content.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y)
-   */
-  overflowY?: ResponsiveValue<CSS.Property.OverflowY, ThemeType>;
-}
-
-export const overflow: styleFn;
-
-/**
- * Background
- */
-
-export interface BackgroundImageProps<ThemeType extends Theme = RequiredTheme> {
-  /**
-   * The background-image CSS property sets one or more background images on an element.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image)
-   */
-  backgroundImage?: ResponsiveValue<CSS.Property.BackgroundImage, ThemeType>;
-}
-
-export const backgroundImage: styleFn;
-
-export interface BackgroundSizeProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.BackgroundSize<TLengthStyledSystem>
-> {
-  /**
-   * The background-size CSS property sets the size of the element's background image. The
-   * image can be left to its natural size, stretched, or constrained to fit the available space.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)
-   */
-  backgroundSize?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const backgroundSize: styleFn;
-
-export interface BackgroundPositionProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.BackgroundPosition<TLengthStyledSystem>
-> {
-  /**
-   * The background-position CSS property sets the initial position for each background image. The
-   * position is relative to the position layer set by background-origin.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position)
-   */
-  backgroundPosition?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const backgroundPosition: styleFn;
-
-export interface BackgroundRepeatProps<
-  ThemeType extends Theme = RequiredTheme
-> {
-  /**
-   * The background-repeat CSS property sets how background images are repeated. A background
-   * image can be repeated along the horizontal and vertical axes, or not repeated at all.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat)
-   */
-  backgroundRepeat?: ResponsiveValue<CSS.Property.BackgroundRepeat, ThemeType>;
-}
-
-export const backgroundRepeat: styleFn;
-
-export interface BackgroundProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.Background<TLengthStyledSystem>
-> extends BackgroundImageProps<ThemeType>,
-    BackgroundSizeProps<ThemeType>,
-    BackgroundPositionProps<ThemeType>,
-    BackgroundRepeatProps<ThemeType> {
-  /**
-   * The background shorthand CSS property sets all background style properties at once,
-   * such as color, image, origin and size, repeat method, and others.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
-   */
-  background?: ResponsiveValue<TVal, ThemeType>;
-}
-
-export const background: styleFn;
 
 /**
  * Position
@@ -1437,8 +784,6 @@ export interface ZIndexProps<ThemeType extends Theme = RequiredTheme> {
   zIndex?: ResponsiveValue<CSS.Property.ZIndex, ThemeType>;
 }
 
-export const zIndex: styleFn;
-
 export interface TopProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = CSS.Property.Top<TLengthStyledSystem>
@@ -1451,8 +796,6 @@ export interface TopProps<
    */
   top?: ResponsiveValue<TVal, ThemeType>;
 }
-
-export const top: styleFn;
 
 export interface RightProps<
   ThemeType extends Theme = RequiredTheme,
@@ -1467,8 +810,6 @@ export interface RightProps<
   right?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const right: styleFn;
-
 export interface BottomProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = CSS.Property.Bottom<TLengthStyledSystem>
@@ -1482,8 +823,6 @@ export interface BottomProps<
   bottom?: ResponsiveValue<TVal, ThemeType>;
 }
 
-export const bottom: styleFn;
-
 export interface LeftProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = CSS.Property.Left<TLengthStyledSystem>
@@ -1496,8 +835,6 @@ export interface LeftProps<
    */
   left?: ResponsiveValue<TVal, ThemeType>;
 }
-
-export const left: styleFn;
 
 export interface PositionProps<ThemeType extends Theme = RequiredTheme>
   extends ZIndexProps<ThemeType>,
@@ -1514,105 +851,35 @@ export interface PositionProps<ThemeType extends Theme = RequiredTheme>
   position?: ResponsiveValue<CSS.Property.Position, ThemeType>;
 }
 
-export const position: styleFn;
-
-export interface ButtonStyleProps<ThemeType extends Theme = RequiredTheme> {
-  variant?: ResponsiveValue<string, ThemeType>;
+export interface PlatformProps {
+  /**
+   * Props only for web
+   */
+  _web?: any;
+  /**
+   * Props only for ios
+   */
+  _ios?: any;
+  /**
+   * Props only for android
+   */
+  _android?: any;
 }
 
-export const buttonStyle: styleFn;
-
-export interface TextStyleProps<ThemeType extends Theme = RequiredTheme> {
-  textStyle?: ResponsiveValue<string, ThemeType>;
+export interface ShadowProps<ThemeType extends Theme = RequiredTheme> {
+  /**
+   * The `box-shadow` property
+   */
+  //@ts-ignore
+  shadow?: ThemeValue<'shadows', ThemeType>;
 }
 
-export const textStyle: styleFn;
-
-export interface ColorStyleProps<ThemeType extends Theme = RequiredTheme> {
-  colors?: ResponsiveValue<string, ThemeType>;
+export interface SafeAreaProps {
+  safeArea?: boolean | number;
+  safeAreaX?: boolean | number;
+  safeAreaY?: boolean | number;
+  safeAreaTop?: boolean | number;
+  safeAreaBottom?: boolean | number;
+  safeAreaLeft?: boolean | number;
+  safeAreaRight?: boolean | number;
 }
-
-export const colorStyle: styleFn;
-
-export interface StylesProps {
-  space: typeof space;
-  margin: typeof margin;
-  marginTop: typeof marginTop;
-  marginBottom: typeof marginBottom;
-  marginLeft: typeof marginLeft;
-  marginRight: typeof marginRight;
-  padding: typeof padding;
-  paddingTop: typeof paddingTop;
-  paddingBottom: typeof paddingBottom;
-  paddingLeft: typeof paddingLeft;
-  paddingRight: typeof paddingRight;
-  width: typeof width;
-  fontSize: typeof fontSize;
-  textColor: typeof textColor;
-  backgroundColor: typeof backgroundColor;
-  color: typeof color;
-  fontFamily: typeof fontFamily;
-  textAlign: typeof textAlign;
-  lineHeight: typeof lineHeight;
-  fontWeight: typeof fontWeight;
-  fontStyle: typeof fontStyle;
-  letterSpacing: typeof letterSpacing;
-  display: typeof display;
-  maxWidth: typeof maxWidth;
-  minWidth: typeof minWidth;
-  height: typeof height;
-  maxHeight: typeof maxHeight;
-  minHeight: typeof minHeight;
-  size: typeof size;
-  verticalAlign: typeof verticalAlign;
-  alignItems: typeof alignItems;
-  alignContent: typeof alignContent;
-  justifyItems: typeof justifyItems;
-  justifyContent: typeof justifyContent;
-  flexWrap: typeof flexWrap;
-  flexBasis: typeof flexBasis;
-  flexDirection: typeof flexDirection;
-  flex: typeof flex;
-  justifySelf: typeof justifySelf;
-  alignSelf: typeof alignSelf;
-  order: typeof order;
-  gridGap: typeof gridGap;
-  gridColumnGap: typeof gridColumnGap;
-  gridRowGap: typeof gridRowGap;
-  gridColumn: typeof gridColumn;
-  gridRow: typeof gridRow;
-  gridAutoFlow: typeof gridAutoFlow;
-  gridAutoColumns: typeof gridAutoColumns;
-  gridAutoRows: typeof gridAutoRows;
-  gridTemplateColumns: typeof gridTemplateColumns;
-  gridTemplateRows: typeof gridTemplateRows;
-  gridTemplateAreas: typeof gridTemplateAreas;
-  gridArea: typeof gridArea;
-  border: typeof border;
-  borderTop: typeof borderTop;
-  borderRight: typeof borderRight;
-  borderBottom: typeof borderBottom;
-  borderLeft: typeof borderLeft;
-  borders: typeof borders;
-  borderColor: typeof borderColor;
-  borderRadius: typeof borderRadius;
-  boxShadow: typeof boxShadow;
-  opacity: typeof opacity;
-  overflow: typeof overflow;
-  background: typeof background;
-  backgroundImage: typeof backgroundImage;
-  backgroundPosition: typeof backgroundPosition;
-  backgroundRepeat: typeof backgroundRepeat;
-  backgroundSize: typeof backgroundSize;
-  position: typeof position;
-  zIndex: typeof zIndex;
-  top: typeof top;
-  right: typeof right;
-  bottom: typeof bottom;
-  left: typeof left;
-  textStyle: typeof textStyle;
-  colorStyle: typeof colorStyle;
-  buttonStyle: typeof buttonStyle;
-}
-
-export const styles: StylesProps;

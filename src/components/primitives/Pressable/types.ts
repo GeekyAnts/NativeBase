@@ -1,26 +1,26 @@
 import type { PressableProps } from 'react-native';
+import type { ITheme } from '../../../theme/base';
 import type {
   BorderProps,
-  ColorProps,
   FlexboxProps,
   LayoutProps,
   PositionProps,
   SpaceProps,
   ShadowProps,
-  BackgroundProps,
-  SafeAreaProps,
+  BackgroundColorProps,
   PlatformProps,
-} from '../../types';
-export interface IPressableProps<T>
+  OpacityProps,
+  RequiredTheme,
+} from '../../types/theme';
+export interface IPressableProps<T extends ITheme = RequiredTheme>
   extends PressableProps,
-    ColorProps<T>,
+    OpacityProps<T>,
     SpaceProps<T>,
     LayoutProps<T>,
     PositionProps<T>,
     BorderProps<T>,
     ShadowProps<T>,
-    BackgroundProps<T>,
-    SafeAreaProps,
+    BackgroundColorProps<T>,
     FlexboxProps,
     PlatformProps {
   /**

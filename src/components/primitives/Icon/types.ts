@@ -6,12 +6,9 @@ import type {
   PositionProps,
   SpaceProps,
   TypographyProps,
-  ExtraProps,
-  OutlineProps,
   ShadowProps,
-  BackgroundProps,
+  BackgroundColorProps,
   SafeAreaProps,
-  TransformProps,
   PlatformProps,
 } from '../../types';
 import type { SvgProps } from 'react-native-svg';
@@ -19,21 +16,18 @@ import type { SvgProps } from 'react-native-svg';
 export interface IIconProps
   extends Omit<
       SvgProps,
-      'opacity' | 'fill' | 'stroke' | 'height' | 'width' | 'transform'
+      'opacity' | 'height' | 'width' | 'transform' | 'color'
     >,
     BorderProps,
     ColorProps,
     FlexboxProps,
-    LayoutProps,
+    Omit<LayoutProps, 'size'>,
     PositionProps,
     SpaceProps,
     TypographyProps,
-    ExtraProps,
-    OutlineProps,
     ShadowProps,
-    BackgroundProps,
+    BackgroundColorProps,
     SafeAreaProps,
-    TransformProps,
     PlatformProps {
   // name?: IconNameType;
   // type?: IconType;
@@ -49,10 +43,6 @@ export interface IIconProps
    * The size of the icon.
    */
   size?: string | number;
-  /**
-   * The color of the icon.
-   */
-  color?: string;
   /**
    *
    */

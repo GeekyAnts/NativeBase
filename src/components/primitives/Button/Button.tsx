@@ -1,7 +1,7 @@
 import React, { memo, forwardRef } from 'react';
 import Spinner from '../Spinner';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { default as Box, IBoxProps } from '../Box';
+import { default as Box } from '../Box';
 import HStack from '../Stack/HStack';
 import { Pressable } from '../Pressable';
 import type { IButtonProps } from './types';
@@ -14,7 +14,7 @@ const Button = (
     endIcon,
     spinner,
     ...props
-  }: IButtonProps & IBoxProps,
+  }: IButtonProps,
   ref: any
 ) => {
   const {

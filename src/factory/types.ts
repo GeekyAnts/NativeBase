@@ -2,16 +2,12 @@ import type {
   ColorProps,
   SpaceProps,
   BorderProps,
-  BackgroundProps,
-  OutlineProps,
+  BackgroundColorProps,
   LayoutProps,
-  ExtraProps,
   ShadowProps,
   TypographyProps,
-  TransformProps,
   FlexboxProps,
   PositionProps,
-  TransitionProps,
 } from '../components/types';
 
 export type FactoryComponentProps = ColorProps &
@@ -21,16 +17,12 @@ export type FactoryComponentProps = ColorProps &
   PositionProps &
   BorderProps &
   FlexboxProps &
-  BackgroundProps &
+  BackgroundColorProps &
   BorderProps &
-  ExtraProps &
   FlexboxProps &
   LayoutProps &
-  OutlineProps &
   PositionProps &
   ShadowProps &
-  TransformProps &
-  TransitionProps &
   TypographyProps & {
     children?: string | JSX.Element | JSX.Element[];
   };

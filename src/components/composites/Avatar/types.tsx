@@ -2,7 +2,7 @@ import type { ITextProps } from '../../primitives/Text';
 import type { IBoxProps } from '../../primitives/Box';
 import type { ImageSourcePropType } from 'react-native';
 
-export interface IAvatarProps extends IBoxProps {
+export interface IAvatarProps extends Omit<IBoxProps, 'size'> {
   /**
    * Text styling for fallback text
    */

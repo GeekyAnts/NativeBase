@@ -1,29 +1,8 @@
 import type { SwitchProps } from 'react-native';
-import type {
-  ColorProps,
-  FlexboxProps,
-  SpaceProps,
-  BorderProps,
-  BackgroundProps,
-  OutlineProps,
-  LayoutProps,
-  ExtraProps,
-  ShadowProps,
-  PositionProps,
-} from '../../types';
 
-export interface ISwitchProps
-  extends SwitchProps,
-    ColorProps,
-    SpaceProps,
-    FlexboxProps,
-    PositionProps,
-    ExtraProps,
-    OutlineProps,
-    ShadowProps,
-    LayoutProps,
-    BackgroundProps,
-    BorderProps {
+import type { IBoxProps } from '../Box';
+
+export interface ISwitchProps extends SwitchProps, IBoxProps {
   /**
    * The size (width and height) of the switch.
    * @default md

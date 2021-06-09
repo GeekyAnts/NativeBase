@@ -2,7 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import { Box, IBoxProps } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
-export interface IProgressProps extends IBoxProps {
+export interface IProgressProps extends Omit<IBoxProps, 'size'> {
   /**
    * Value of Progress.
    * @default 0
@@ -55,7 +55,6 @@ const Progress = (props: IProgressProps, ref?: any) => {
 
   const innerProps = {
     bg: innerBg,
-    shadow: 0,
     rounded: newProps.rounded,
     height: '100%',
     w:
@@ -64,7 +63,6 @@ const Progress = (props: IProgressProps, ref?: any) => {
         : value > min
         ? '100%'
         : '0%',
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     color: 'white',

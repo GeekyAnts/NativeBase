@@ -1,7 +1,7 @@
 import type { IBoxProps } from '../../primitives/Box';
 import type { IButtonProps } from 'native-base';
 
-export interface IModalProps extends IBoxProps {
+export interface IModalProps extends Omit<IBoxProps, 'size'> {
   /**
    * If true, the modal will open. Useful for controllable state behaviour
    */

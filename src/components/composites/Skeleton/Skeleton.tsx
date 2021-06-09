@@ -49,7 +49,7 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
         style,
         {
           transform:
-            props.transform ?? variant === 'text'
+            style.transform ?? variant === 'text'
               ? [{ scaleY: 0.6 }]
               : undefined,
         },

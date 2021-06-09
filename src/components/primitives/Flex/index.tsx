@@ -21,7 +21,6 @@ const Flex = (
     <Box
       {...props}
       {...newProps}
-      display="flex"
       flexDirection={direction || newProps.flexDirection}
       alignItems={align || newProps.alignItems}
       justifyContent={justify || newProps.justifyContent}

@@ -63,7 +63,12 @@ const Accordion = (
         },
       }}
     >
-      <Box overflow="hidden" {...newProps} ref={ref}>
+      <Box
+        //@ts-ignore
+        overflow="hidden"
+        {...newProps}
+        ref={ref}
+      >
         {getIndexedChildren(children)}
       </Box>
     </AccordionContext.Provider>

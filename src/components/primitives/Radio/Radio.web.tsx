@@ -59,6 +59,7 @@ const Radio = (
       alignItems="center"
       {...themedProps}
       opacity={disabled ? 0.4 : 1}
+      //@ts-ignore
       cursor={disabled ? 'not-allowed' : 'pointer'}
     >
       <Center>

@@ -1,13 +1,9 @@
 import type { ActivityIndicatorProps } from 'react-native';
-import type { SpaceProps, LayoutProps, PositionProps } from '../../types';
+import type { IBoxProps } from '../Box';
 
 export interface ISpinnerProps
   extends Omit<ActivityIndicatorProps, 'size'>,
-    SpaceProps,
-    LayoutProps,
-    LayoutProps,
-    PositionProps,
-    PositionProps {
+    Omit<IBoxProps, 'size'> {
   /**
    * Style to be passed in ActivityIndicator
    */
