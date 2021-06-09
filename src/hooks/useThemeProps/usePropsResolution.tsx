@@ -239,7 +239,7 @@ export function usePropsResolution(component: string, incomingProps: any) {
   const { theme } = useNativeBase();
   const colorModeProps = useColorMode();
 
-  const componentTheme = get(theme, `components.${component}`);
+  const componentTheme = get(theme, `components.${component}`, {});
   const notComponentTheme = omit(theme, ['components']);
   const windowWidth = useWindowDimensions()?.width;
 
