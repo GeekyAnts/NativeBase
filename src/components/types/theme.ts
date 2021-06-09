@@ -50,7 +50,7 @@ export type ThemeValue<
 
 export interface SpaceProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'space', ThemeType> | number | 'auto'
+  TVal = ThemeValue<'space', ThemeType> | any
 > {
   /** Margin on top, left, bottom and right */
   m?: ResponsiveValue<TVal, ThemeType>;
@@ -153,7 +153,7 @@ export interface ColorProps<ThemeType extends Theme = RequiredTheme>
 
 export interface FontSizeProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'fontSizes', ThemeType>
+  TVal = ThemeValue<'fontSizes', ThemeType> | string | number
 > {
   /**
    * The fontSize utility parses a component's `fontSize` prop and converts it into a CSS font-size declaration.
@@ -164,7 +164,7 @@ export interface FontSizeProps<
    * - And array values are converted into responsive values.
    *
    */
-  fontSize?: ResponsiveValue<TVal | number, ThemeType>;
+  fontSize?: ResponsiveValue<TVal, ThemeType>;
 }
 
 export interface FontFamilyProps<ThemeType extends Theme = RequiredTheme> {
@@ -187,7 +187,7 @@ export interface FontWeightProps<
 
 export interface LineHeightProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'lineHeights', ThemeType>
+  TVal = ThemeValue<'lineHeights', ThemeType> | number
 > {
   /**
    * The line-height CSS property sets the amount of space used for lines, such as in text. On block-level elements,
@@ -221,7 +221,7 @@ export interface FontStyleProps<ThemeType extends Theme = RequiredTheme> {
 
 export interface LetterSpacingProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'letterSpacings', ThemeType>
+  TVal = ThemeValue<'letterSpacings', ThemeType> | number
 > {
   /**
    * The letter-spacing CSS property sets the spacing behavior between text characters.
@@ -265,17 +265,6 @@ export interface TypographyProps<ThemeType extends Theme = RequiredTheme>
 /**
  * Layout
  */
-
-export interface DisplayProps<ThemeType extends Theme = RequiredTheme> {
-  /**
-   * The display CSS property defines the display type of an element, which consists of the two basic qualities
-   * of how an element generates boxes — the outer display type defining how the box participates in flow layout,
-   * and the inner display type defining how the children of the box are laid out.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/display)
-   */
-  display?: ResponsiveValue<CSS.Property.Display, ThemeType>;
-}
 
 export interface WidthProps<
   ThemeType extends Theme = RequiredTheme,
@@ -359,21 +348,9 @@ export interface MinHeightProps<
 
 export interface SizeProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'sizes', ThemeType>
+  TVal = ThemeValue<'sizes', ThemeType> | number | string
 > {
   size?: ResponsiveValue<TVal | number, ThemeType>;
-}
-
-export interface VerticalAlignProps<
-  ThemeType extends Theme = RequiredTheme,
-  TVal = CSS.Property.VerticalAlign<TLengthStyledSystem>
-> {
-  /**
-   * The vertical-align CSS property specifies sets vertical alignment of an inline or table-cell box.
-   *
-   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)
-   */
-  verticalAlign?: ResponsiveValue<TVal, ThemeType>;
 }
 
 /**
@@ -661,7 +638,7 @@ export interface BorderStyleProps<ThemeType extends Theme = RequiredTheme> {
 
 export interface BorderColorProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = IThemeColors<ThemeType>
+  TVal = IThemeColors<ThemeType> | string
 > {
   /**
    * The border-color shorthand CSS property sets the color of all sides of an element's border.
