@@ -35,6 +35,8 @@ const Select = (
     selectedValue,
     children,
     dropdownIcon,
+    dropdownCloseIcon,
+    dropdownOpenIcon,
     placeholder,
     accessibilityLabel,
     defaultValue,
@@ -102,6 +104,17 @@ const Select = (
     ...stylingProps.background,
   ]);
 
+  const rightIcon =
+    isOpen && dropdownOpenIcon ? (
+      dropdownOpenIcon
+    ) : !isOpen && dropdownCloseIcon ? (
+      dropdownCloseIcon
+    ) : dropdownIcon ? (
+      dropdownIcon
+    ) : (
+      <ChevronDownIcon {...customDropdownIconProps} />
+    );
+
   const commonInput = (
     <Input
       aria-hidden={true}
@@ -112,13 +125,7 @@ const Select = (
       focusable={false}
       size={size}
       variant={variant}
-      InputRightElement={
-        dropdownIcon ? (
-          dropdownIcon
-        ) : (
-          <ChevronDownIcon {...customDropdownIconProps} />
-        )
-      }
+      InputRightElement={rightIcon}
       {...(isHovered ? themeProps._hover : {})}
       {...nonLayoutProps}
       {...borderProps}
