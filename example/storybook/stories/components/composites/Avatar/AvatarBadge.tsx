@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Center, HStack } from 'native-base';
+import { Avatar, HStack } from 'native-base';
 
 export const Example = () => {
   return (

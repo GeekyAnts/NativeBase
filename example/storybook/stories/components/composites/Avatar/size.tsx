@@ -1,14 +1,7 @@
 import React from 'react';
-import { Avatar, Stack, Flex, useBreakpointValue } from 'native-base';
+import { Avatar, Stack } from 'native-base';
 
 export const Example = () => {
-  const isLargeScreen = useBreakpointValue({
-    base: false,
-    sm: false,
-    md: false,
-    lg: true,
-  });
-
   return (
     <Stack
       direction={{ base: 'column', md: 'row' }}

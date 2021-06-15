@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Divider, Heading, HStack, VStack, Stack } from 'native-base';
+import { Button, Divider, Heading, VStack, Stack } from 'native-base';
 
 export const Example = () => {
   return (

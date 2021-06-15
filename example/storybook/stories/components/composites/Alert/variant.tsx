@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Stack, Box } from 'native-base';
+import { Alert, Stack } from 'native-base';
 
 export function Example() {
   return (
