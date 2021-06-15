@@ -13,6 +13,8 @@ import {
   customPosition,
   customShadow,
 } from '../../../utils/customProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { useFocusRing } from '@react-native-aria/focus';
 
 const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
@@ -72,9 +74,6 @@ const Pressable = (
     onHoverOut,
     onFocus,
     onBlur,
-    _hover,
-    _pressed,
-    _focus,
     ...props
   }: IPressableProps,
   ref: any
@@ -82,6 +81,14 @@ const Pressable = (
   const { pressableProps, isHovered } = useHover();
   const { pressableProps: isPressedProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
+  const {
+    _hover,
+    _pressed,
+    _focus,
+    _focusVisible,
+    ...themeProps
+  } = usePropsResolution('Pressable', props);
+  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
   // TODO : Replace Render props with Context Hook
   return (
     <StyledPressable
@@ -92,13 +99,20 @@ const Pressable = (
       onHoverIn={composeEventHandlers(onHoverIn, pressableProps.onHoverIn)}
       // @ts-ignore - web only
       onHoverOut={composeEventHandlers(onHoverOut, pressableProps.onHoverOut)}
-      {...props}
       // @ts-ignore - web only
-      onFocus={composeEventHandlers(onFocus, focusProps.onFocus)}
+      onFocus={composeEventHandlers(
+        composeEventHandlers(onFocus, focusProps.onFocus),
+        focusRingProps.onFocus
+      )}
       // @ts-ignore - web only
-      onBlur={composeEventHandlers(onBlur, focusProps.onBlur)}
+      onBlur={composeEventHandlers(
+        composeEventHandlers(onBlur, focusProps.onBlur),
+        focusRingProps.onBlur
+      )}
+      {...themeProps}
       {...(isHovered && _hover)}
       {...(isFocused && _focus)}
+      {...(isFocusVisible && _focusVisible)}
       {...(isPressed && _pressed)}
     >
       {typeof children !== 'function'

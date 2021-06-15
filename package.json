@@ -84,11 +84,9 @@
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
-    "expo-linear-gradient": "*",
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
-    "react-native-linear-gradient": "*",
     "react-native-safe-area-context": "*",
     "react-native-svg": "*",
     "styled-components": "*",

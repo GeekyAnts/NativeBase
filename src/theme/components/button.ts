@@ -24,7 +24,7 @@ const baseStyle = (props: any) => {
     _text: {
       fontWeight: 600,
     },
-    _focus: {
+    _focusVisible: {
       style: props.variant !== 'unstyled' ? { ...focusRing } : {},
     },
     _stack: {
@@ -57,7 +57,7 @@ function variantGhost(props: Dict) {
     _hover: {
       bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
     },
-    _focus: {
+    _focusVisible: {
       bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
     },
     _pressed: {
@@ -111,9 +111,6 @@ function variantSolid(props: Dict) {
     bg,
     _hover: {
       bg: mode(`${c}.600`, `${c}.500`)(props),
-    },
-    _focus: {
-      bg: bg,
     },
     _pressed: {
       bg: mode(`${c}.700`, `${c}.600`)(props),
