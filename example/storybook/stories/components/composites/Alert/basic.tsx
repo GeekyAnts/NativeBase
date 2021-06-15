@@ -1,16 +1,14 @@
 import React from 'react';
-import { Alert, Box } from 'native-base';
+import { Alert } from 'native-base';
 
 export const Example = () => {
   return (
-    <Box mx={3} w="90%">
-      <Alert>
-        <Alert.Icon />
-        <Alert.Title>Alert Title</Alert.Title>
-        <Alert.Description>
-          Alert Description should be a brief about the Alert Message.
-        </Alert.Description>
-      </Alert>
-    </Box>
+    <Alert w="100%">
+      <Alert.Icon />
+      <Alert.Title>Alert Title</Alert.Title>
+      <Alert.Description>
+        Alert Description should be a brief about the Alert Message.
+      </Alert.Description>
+    </Alert>
   );
 };

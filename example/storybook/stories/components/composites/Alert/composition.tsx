@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native';
 export function Example() {
   return (
     <ScrollView>
-      <VStack m={3} space={5}>
+      <VStack my={3} space={5} w="100%">
         <Alert
           status="success"
           display="flex"
