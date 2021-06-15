@@ -12,7 +12,11 @@ export function Example() {
         <Actionsheet.Content>
           <Actionsheet.Item
             startIcon={
-              <Icon as={MaterialIcons} name="share" color="muted.500" mr={3} />
+              <Icon
+                as={<MaterialIcons name="share" />}
+                color="muted.500"
+                mr={3}
+              />
             }
           >
             Share
@@ -20,8 +24,7 @@ export function Example() {
           <Actionsheet.Item
             startIcon={
               <Icon
-                as={MaterialCommunityIcons}
-                name="link"
+                as={<MaterialCommunityIcons name="link" />}
                 color="muted.500"
                 mr={3}
               />
@@ -31,14 +34,22 @@ export function Example() {
           </Actionsheet.Item>
           <Actionsheet.Item
             startIcon={
-              <Icon as={MaterialIcons} name="edit" color="muted.500" mr={3} />
+              <Icon
+                as={<MaterialIcons name="edit" />}
+                color="muted.500"
+                mr={3}
+              />
             }
           >
             Edit name
           </Actionsheet.Item>
           <Actionsheet.Item
             startIcon={
-              <Icon as={MaterialIcons} name="delete" color="muted.500" mr={3} />
+              <Icon
+                as={<MaterialIcons name="delete" />}
+                color="muted.500"
+                mr={3}
+              />
             }
           >
             Delete Collection
