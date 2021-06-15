@@ -171,6 +171,11 @@
       "typescript"
     ]
   },
+  "files": [
+    "lib",
+    "src",
+    "cli.js"
+  ],
   "dependencies": {
     "@react-aria/visually-hidden": "^3.2.1",
     "@react-native-aria/button": "^0.2.4",
