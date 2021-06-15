@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, Text, Image, Heading, Stack } from 'native-base';
+import {
+  Box,
+  Text,
+  Image,
+  Heading,
+  Stack,
+  useColorModeValue,
+} from 'native-base';
 export const Example = () => {
   return (
     <Box
@@ -7,6 +14,7 @@ export const Example = () => {
       shadow={4}
       rounded="xl"
       overflow="hidden"
+      w="100%"
     >
       <Box width={{ md: 24 }} height={{ base: 32, md: '100%' }}>
         <Image
@@ -24,14 +32,24 @@ export const Example = () => {
         </Text>
         <Stack space={1}>
           <Heading size="sm">Jordan MA2</Heading>
-          <Text fontWeight="medium" color="blueGray.600">
+          <Text
+            fontWeight="medium"
+            color={useColorModeValue('blueGray.600', 'blueGray.50')}
+          >
             Older Kids' Shoe
           </Text>
-          <Text fontWeight="medium" color="blueGray.600">
+          <Text
+            fontWeight="medium"
+            color={useColorModeValue('blueGray.600', 'blueGray.50')}
+          >
             2 colors
           </Text>
         </Stack>
-        <Text fontSize="md" fontWeight="semibold" color="blueGray.600">
+        <Text
+          fontSize="md"
+          fontWeight="semibold"
+          color={useColorModeValue('blueGray.600', 'blueGray.50')}
+        >
           $ 150
         </Text>
       </Stack>
