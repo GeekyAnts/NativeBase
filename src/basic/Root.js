@@ -6,6 +6,7 @@ import { connectStyle } from 'native-base-shoutem-theme';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 import { ToastContainer as Toast } from './ToastContainer';
+import { SnackbarContainer as Snackbar } from './SnackbarContainer';
 import { ActionSheetContainer as ActionSheet } from './Actionsheet';
 
 class Root extends Component {
@@ -16,6 +17,11 @@ class Root extends Component {
         <Toast
           ref={c => {
             if (c) Toast.toastInstance = c;
+          }}
+        />
+        <Snackbar
+          ref={c => {
+            if (c) Snackbar.snackbarInstance = c;
           }}
         />
         <ActionSheet

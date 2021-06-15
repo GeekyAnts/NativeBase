@@ -1,6 +1,5 @@
 import { StyleProvider } from 'native-base-shoutem-theme';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-
 import Drawer from './basic/Drawer';
 import { SwipeRow } from './basic/SwipeRow';
 import { Text } from './basic/Text';
@@ -37,6 +36,7 @@ import { Footer } from './basic/Footer';
 import { FooterTab } from './basic/FooterTab';
 import { Form } from './basic/Form';
 import { ToastContainer } from './basic/ToastContainer';
+import { SnackbarContainer } from './basic/SnackbarContainer';
 import { ActionSheetContainer } from './basic/Actionsheet';
 import { PickerNB } from './basic/Picker';
 import { List } from './basic/List';
@@ -99,6 +99,7 @@ const VueNativeBasePlugin = {
     Vue.component('nb-footer-tab', FooterTab);
     Vue.component('nb-form', Form);
     Vue.component('nb-toast', ToastContainer);
+    Vue.component('nb-snackbar', SnackbarContainer);
     Vue.component('nb-action-sheet', ActionSheetContainer);
     Vue.component('nb-picker', PickerNB);
     Vue.component('nb-list', List);

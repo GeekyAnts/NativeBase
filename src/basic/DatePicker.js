@@ -2,8 +2,6 @@ import React from 'react';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-import variable from '../theme/variables/platform';
-
 export class DatePicker extends React.Component {
   static defaultProps = {
     disabled: false
@@ -19,10 +17,10 @@ export class DatePicker extends React.Component {
     };
   }
 
-  setDate(date) {
-    this.setState({ chosenDate: new Date(date) });
+  setDate = (event, selectedDate) => {
+    this.setState({ chosenDate: new Date(selectedDate) });
     if (this.props.onDateChange) {
-      this.props.onDateChange(date);
+      this.props.onDateChange(selectedDate);
     }
   }
 
@@ -41,16 +39,10 @@ export class DatePicker extends React.Component {
       timeZoneOffsetInMinutes
     } = this.props;
 
-    const variables = this.context.theme
-      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
-      : variable;
-
     return (
       <DateTimePicker
-        date={
-          this.state.chosenDate ? this.state.chosenDate : this.state.defaultDate
-        }
-        onDateChange={date => this.setDate(date)}
+        value={this.state.chosenDate || this.state.defaultDate}
+        onChange={this.setDate}
         minimumDate={minimumDate}
         maximumDate={maximumDate}
         mode="date"

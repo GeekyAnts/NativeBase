@@ -1,7 +1,6 @@
 import { StyleProvider, connectStyle } from 'native-base-shoutem-theme';
 import { keys } from 'lodash';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-
 import setDefaultThemeStyle from './init';
 import getTheme from './theme/components';
 import variables from './theme/variables/platform';
@@ -19,6 +18,8 @@ import { Header } from './basic/Header';
 import { InputGroup } from './basic/InputGroup';
 import { Input } from './basic/Input';
 import { Title } from './basic/Title';
+import { ToastContainer } from './basic/ToastContainer';
+import { SnackbarContainer } from './basic/SnackbarContainer';
 import { Fab } from './basic/Fab';
 import { Left } from './basic/Left';
 import { Right } from './basic/Right';
@@ -40,7 +41,6 @@ import { Content } from './basic/Content';
 import { Footer } from './basic/Footer';
 import { FooterTab } from './basic/FooterTab';
 import { Form } from './basic/Form';
-import { ToastContainer } from './basic/ToastContainer';
 import { ActionSheetContainer } from './basic/Actionsheet';
 import { PickerNB } from './basic/Picker';
 import { List } from './basic/List';
@@ -98,6 +98,7 @@ export {
   ScrollableTabView as Tabs,
   FooterTab,
   PickerNB as Picker,
+  SnackbarContainer as Snackbar,
   List,
   ListItem,
   Separator,
