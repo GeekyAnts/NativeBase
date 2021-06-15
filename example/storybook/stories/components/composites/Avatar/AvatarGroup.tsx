@@ -3,7 +3,7 @@ import { Avatar } from 'native-base';
 
 export const Example = () => {
   return (
-    <Avatar.Group size="lg" max={4}>
+    <Avatar.Group size="lg" max={3}>
       <Avatar
         source={{
           uri:
@@ -44,6 +44,22 @@ export const Example = () => {
         }}
       >
         GG
+      </Avatar>
+      <Avatar
+        source={{
+          uri:
+            'https://pbs.twimg.com/profile_images/1352844693151731713/HKO7cnlW_400x400.jpg',
+        }}
+      >
+        RS
+      </Avatar>
+      <Avatar
+        source={{
+          uri:
+            'https://pbs.twimg.com/profile_images/1320985200663293952/lE_Kg6vr_400x400.jpg',
+        }}
+      >
+        MR
       </Avatar>
     </Avatar.Group>
   );
