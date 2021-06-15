@@ -22,6 +22,7 @@ const Button = (
     _hover,
     _pressed,
     _focus,
+    _focusVisible,
     _stack,
     ...resolvedProps
   } = usePropsResolution('Button', props);
@@ -31,6 +32,7 @@ const Button = (
     _hover,
     _pressed,
     _focus,
+    _focusVisible,
   };
 
   const { isDisabled, isLoading } = props;

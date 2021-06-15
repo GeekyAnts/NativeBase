@@ -5,6 +5,7 @@ import merge from 'lodash.merge';
 import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { usePlatformProps } from '../usePlatformProps';
+import { useColorModeProps } from '../useColorModeProps';
 import { useColorMode } from '../../core/color-mode';
 import {
   resolveValueWithBreakpoint,
@@ -239,7 +240,7 @@ export function usePropsResolution(component: string, incomingProps: any) {
   const { theme } = useNativeBase();
   const colorModeProps = useColorMode();
 
-  const componentTheme = get(theme, `components.${component}`);
+  const componentTheme = get(theme, `components.${component}`, {});
   const notComponentTheme = omit(theme, ['components']);
   const windowWidth = useWindowDimensions()?.width;
 
@@ -249,39 +250,39 @@ export function usePropsResolution(component: string, incomingProps: any) {
   );
 
   // TODO: using usePlatformProps here to simplify the component theme. So that on on component level it shouldn't have to maintain the Specificity.
-  const componentThemeObject = usePlatformProps(
-    simplifyComponentTheme(
-      notComponentTheme,
-      componentTheme,
-      cleanIncomingProps,
-      colorModeProps,
-      currentBreakpoint
-    )
+  const componentThemeObject = simplifyComponentTheme(
+    notComponentTheme,
+    componentTheme,
+    cleanIncomingProps,
+    colorModeProps,
+    currentBreakpoint
   );
   const componentThemeIntegratedProps = merge(
     {},
-    componentThemeObject,
-    cleanIncomingProps
+    useColorModeProps(usePlatformProps(componentThemeObject)),
+    useColorModeProps(usePlatformProps(cleanIncomingProps))
   );
-  const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
+  // const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
 
   // NOTE: sperating removing props while should be translated
   let ignore: any = [];
   if (
-    platformSpecificProps.bg?.linearGradient ||
-    platformSpecificProps.background?.linearGradient ||
-    platformSpecificProps.bgColor?.linearGradient ||
-    platformSpecificProps.backgroundColor?.linearGradient
+    componentThemeIntegratedProps.bg?.linearGradient ||
+    componentThemeIntegratedProps.background?.linearGradient ||
+    componentThemeIntegratedProps.bgColor?.linearGradient ||
+    componentThemeIntegratedProps.backgroundColor?.linearGradient
   ) {
     let bgProp = 'bg';
-    if (platformSpecificProps.background?.linearGradient) {
+    if (componentThemeIntegratedProps.background?.linearGradient) {
       bgProp = 'background';
-    } else if (platformSpecificProps.bgColor?.linearGradient) {
+    } else if (componentThemeIntegratedProps.bgColor?.linearGradient) {
       bgProp = 'bgColor';
-    } else if (platformSpecificProps.backgroundColor?.linearGradient) {
+    } else if (componentThemeIntegratedProps.backgroundColor?.linearGradient) {
       bgProp = 'backgroundColor';
     }
-    platformSpecificProps[bgProp].linearGradient.colors = platformSpecificProps[
+    componentThemeIntegratedProps[
+      bgProp
+    ].linearGradient.colors = componentThemeIntegratedProps[
       bgProp
     ].linearGradient.colors.map((color: string) => {
       return get(theme.colors, color, color);
@@ -290,7 +291,7 @@ export function usePropsResolution(component: string, incomingProps: any) {
   }
   // NOTE: seprating bg props when linearGardiant is available
   const [gradientProps, nonGradientProps] = extractInObject(
-    platformSpecificProps,
+    componentThemeIntegratedProps,
     ignore
   );
 
