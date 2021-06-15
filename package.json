@@ -213,5 +213,10 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/NativeBase"
-  }
+  },
+  "files": [
+    "src",
+    "lib",
+    "cli.js"
+  ]
 }
