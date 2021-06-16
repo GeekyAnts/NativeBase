@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Heading, Box, SearchIcon } from 'native-base';
+import { List, SearchIcon } from 'native-base';
 
 export const Example = () => {
   return (

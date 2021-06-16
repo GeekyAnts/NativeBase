@@ -2,10 +2,7 @@ import React from 'react';
 import { Menu, Button, VStack, Select, CheckIcon } from 'native-base';
 
 export function Example() {
-  const [
-    shouldOverlapWithTrigger,
-    setShouldOverlapWithTrigger,
-  ] = React.useState(false);
+  const [shouldOverlapWithTrigger] = React.useState(false);
 
   const [position, setPosition] = React.useState('auto');
   return (

@@ -9,7 +9,7 @@ export const Example = () => {
         <Slider.Track bg="orange.100">
           <Slider.FilledTrack bg="green.400" />
         </Slider.Track>
-        <Slider.Thumb borderWidth={0} bg="gra.200">
+        <Slider.Thumb borderWidth={0} bg="gray.200">
           <Icon as={MaterialIcons} name="park" color="green.500" />
         </Slider.Thumb>
       </Slider>
