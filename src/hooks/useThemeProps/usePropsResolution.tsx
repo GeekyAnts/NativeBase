@@ -14,7 +14,7 @@ import {
   getClosestBreakpoint,
   omitUndefined,
   extractInObject,
-} from './../../theme/tools';
+} from './../../utils';
 import { themePropertyMap } from './../../theme/base';
 import { useContrastText } from '../useContrastText';
 import React from 'react';

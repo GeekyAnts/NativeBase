@@ -5,10 +5,10 @@ import type { IPinInputProps } from './types';
 import { useFormControlContext } from '../FormControl';
 import { Platform } from 'react-native';
 import { PinInputContext } from './Context';
-import { themeTools } from '../../../theme';
+import { extractInObject } from '../../../utils';
 
 const PinInput = ({ children, ...props }: IPinInputProps, ref?: any) => {
-  let [padding, remProps] = themeTools.extractInObject(props, [
+  let [padding, remProps] = extractInObject(props, [
     'p',
     'px',
     'py',

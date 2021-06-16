@@ -1,4 +1,4 @@
-import { hasValidBreakpointFormat } from './../../theme/tools/utils';
+import { hasValidBreakpointFormat } from './../../utils';
 describe('mode', () => {
   test('Empty array', () => {
     expect(hasValidBreakpointFormat([])).toBe(false);

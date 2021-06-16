@@ -7,7 +7,7 @@ import { useLink } from './useLink';
 import { mergeRefs } from '../../../utils';
 import { Pressable } from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import { extractInObject, stylingProps } from '../../../utils';
 
 const Link = (
   {

@@ -2,7 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import type { IInputGroupProps } from './types';
 import { getAttachedChildren } from '../../../utils';
 import Flex from '../Flex';
-import { themeTools } from '../../../theme';
+import { extractInObject } from '../../../utils/propsResolution';
 
 const supplyPropsToChildren = (children: any, props: any) => {
   return React.Children.map(children, (child: JSX.Element) => {
@@ -12,7 +12,7 @@ const supplyPropsToChildren = (children: any, props: any) => {
 
 export const InputGroup = memo(
   forwardRef(({ children, ...props }: IInputGroupProps, ref: any) => {
-    let [layoutProps, remProps] = themeTools.extractInObject(props, [
+    let [layoutProps, remProps] = extractInObject(props, [
       'w',
       'width',
       'm',

@@ -5,7 +5,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { mergeRefs } from '../../../utils';
 import { Pressable } from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
-import { extractInObject } from '../../../theme/tools';
+import { extractInObject } from '../../../utils';
 
 const ListItem = ({ children, ...props }: IListItemProps, ref: any) => {
   const {

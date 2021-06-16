@@ -4,7 +4,7 @@ import type { ITextFieldProps } from './types';
 import { Stack } from '../../primitives/Stack';
 import { Input } from '../../primitives/Input';
 import Text from '../../primitives/Text';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import { extractInObject, stylingProps } from '../../../utils';
 import Select from '../../primitives/Select';
 import TextArea from '../../primitives/TextArea';
 

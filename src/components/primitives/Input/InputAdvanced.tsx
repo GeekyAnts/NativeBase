@@ -3,7 +3,7 @@ import InputBase from './InputBase';
 import Box from '../Box';
 import type { IInputProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import { extractInObject, stylingProps } from '../../../utils/propsResolution';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 

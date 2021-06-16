@@ -10,7 +10,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import { useFormControl } from '../../composites/FormControl';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import { extractInObject, stylingProps } from '../../../utils';
 import { ChevronDownIcon } from '../Icon/Icons';
 import type { IButtonProps } from '../Button/types';
 

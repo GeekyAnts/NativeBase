@@ -1,4 +1,4 @@
-import { getClosestBreakpoint } from './../../theme/tools/utils';
+import { getClosestBreakpoint } from './../../utils';
 const defaultBreakpoints = {
   base: 0,
   sm: 480,

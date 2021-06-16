@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Box from './../../primitives/Box';
 import type { IDividerProps } from './types';
-import { extractInObject } from '../../../theme/tools';
+import { extractInObject } from '../../../utils/propsResolution';
 
 const Divider = (props: IDividerProps, ref?: any) => {
   const { orientation, ...newProps } = usePropsResolution('Divider', props);

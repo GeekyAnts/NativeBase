@@ -1,4 +1,4 @@
-import { themeTools } from '../../theme';
+import { omitUndefined, orderedExtractInObject } from '../../utils';
 import type { SafeAreaProps } from './../../components/types/ExtraProps';
 import isNil from 'lodash.isnil';
 
@@ -8,7 +8,7 @@ export function calculatePaddingProps(
   insets: any,
   sizes: any
 ) {
-  return themeTools.omitUndefined({
+  return omitUndefined({
     pt: calculatePaddingTop(safeAreaProps, paddingProps, insets, sizes),
     pb: calculatePaddingBottom(safeAreaProps, paddingProps, insets, sizes),
     pl: calculatePaddingLeft(safeAreaProps, paddingProps, insets, sizes),
@@ -57,7 +57,7 @@ export function calculatePaddingTop(
   }
 
   // DOC: Adding it for manual inset passed by the user
-  let [topSafeAreaProps] = themeTools.orderedExtractInObject(safeAreaProps, [
+  let [topSafeAreaProps] = orderedExtractInObject(safeAreaProps, [
     'safeArea',
     'safeAreaY',
     'safeAreaTop',
@@ -98,7 +98,7 @@ export function calculatePaddingBottom(
   ) {
     return;
   }
-  let [bottomSafeAreaProps] = themeTools.orderedExtractInObject(safeAreaProps, [
+  let [bottomSafeAreaProps] = orderedExtractInObject(safeAreaProps, [
     'safeArea',
     'safeAreaY',
     'safeAreaBottom',
@@ -141,7 +141,7 @@ export function calculatePaddingLeft(
   ) {
     return;
   }
-  let [leftSafeAreaProps] = themeTools.orderedExtractInObject(safeAreaProps, [
+  let [leftSafeAreaProps] = orderedExtractInObject(safeAreaProps, [
     'safeArea',
     'safeAreaLeft',
     'safeAreaX',
@@ -185,7 +185,7 @@ export function calculatePaddingRight(
     return;
   }
   // DOC: Adding it for manual inset passed by the user
-  let [rightSafeAreaProps] = themeTools.orderedExtractInObject(safeAreaProps, [
+  let [rightSafeAreaProps] = orderedExtractInObject(safeAreaProps, [
     'safeArea',
     'safeAreaX',
     'safeAreaRight',
@@ -220,10 +220,7 @@ function getRelatedPaddingProps(props: any, relatedKeys: Array<any>) {
   return Object.keys(props).filter((key) => relatedKeys.includes(key));
 }
 export function getSortedProps(props: any) {
-  let [
-    safeAreaProps,
-    sansSafeAreaProps,
-  ] = themeTools.orderedExtractInObject(props, [
+  let [safeAreaProps, sansSafeAreaProps] = orderedExtractInObject(props, [
     'safeArea',
     'safeAreaX',
     'safeAreaY',
@@ -235,7 +232,7 @@ export function getSortedProps(props: any) {
   let [
     paddingProps,
     sansPaddingProps,
-  ] = themeTools.orderedExtractInObject(sansSafeAreaProps, [
+  ] = orderedExtractInObject(sansSafeAreaProps, [
     'p',
     'padding',
     'pt',

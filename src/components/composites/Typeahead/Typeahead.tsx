@@ -8,7 +8,7 @@ import { Item } from '@react-stately/collections';
 import Box from '../../primitives/Box';
 import { Pressable } from '../../primitives/Pressable';
 import Text from '../../primitives/Text';
-import { extractInObject } from '../../../theme/tools';
+import { extractInObject } from '../../../utils';
 import { ITypeaheadProps, IComboBoxProps, layoutPropsList } from './types';
 import { Input } from '../../primitives/Input';
 import { useThemeProps } from '../../../hooks';

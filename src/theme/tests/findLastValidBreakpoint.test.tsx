@@ -1,4 +1,4 @@
-import { findLastValidBreakpoint } from './../../theme/tools/utils';
+import { findLastValidBreakpoint } from './../../utils';
 describe('mode', () => {
   test('First array value', () => {
     expect(findLastValidBreakpoint([1, 2], 0)).toBe(1);

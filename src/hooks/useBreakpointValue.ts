@@ -3,7 +3,7 @@ import {
   getClosestBreakpoint,
   hasValidBreakpointFormat,
   findLastValidBreakpoint,
-} from '../theme/tools';
+} from '../utils';
 import { useTheme } from './../hooks/useTheme';
 
 export function useBreakpointValue(values: any) {

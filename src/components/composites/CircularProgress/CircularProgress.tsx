@@ -7,7 +7,7 @@ import { useTheme, useThemeProps } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 import { default as Box, IBoxProps } from '../../primitives/Box';
 import type { ICircularProgressProps } from './types';
-import { themeTools } from '../../../theme';
+import { extractInObject } from '../../../utils';
 
 const StyleAnimatedView = styled(Animated.View)<IBoxProps>(color, border);
 
@@ -24,7 +24,7 @@ const CircularProgress = (
 
   let sizeProps;
   let newProps = useThemeProps('CircularProgress', props);
-  let [, remainingProps] = themeTools.extractInObject(props, ['size']); // removing size from props so that Box don't accept size passed for CircularProgress
+  let [, remainingProps] = extractInObject(props, ['size']); // removing size from props so that Box don't accept size passed for CircularProgress
 
   if (!newProps.size) {
     sizeProps = {

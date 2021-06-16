@@ -8,7 +8,7 @@ import {
   findLastValidBreakpoint,
   hasValidBreakpointFormat,
   extractInObject,
-} from './../../theme/tools';
+} from './../../utils';
 import { useContrastText } from '../useContrastText';
 
 /*

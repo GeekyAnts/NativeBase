@@ -3,12 +3,11 @@ import { Pressable } from '../../primitives/Pressable';
 import Box from '../../primitives/Box';
 import { TabsContext } from './Context';
 import type { ITabProps, ITabsContextProps } from './types';
-import { omitUndefined } from '../../../theme/tools/utils';
+import { omitUndefined, extractInObject } from '../../../utils';
 import { useTab } from '@react-native-aria/tabs';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import merge from 'lodash.merge';
-import { themeTools } from '../../../theme';
 
 export const TabContext = createContext({});
 
@@ -49,10 +48,7 @@ const Tab = (
   const tabStyle = isSelected ? activeTabStyle : inactiveTabStyle;
   const { _hover, ...remainingTabStyle } = tabStyle;
   const mergedProps = merge(remainingTabStyle, newProps);
-  const [
-    marginalProps,
-    remainingProps,
-  ] = themeTools.extractInObject(mergedProps, [
+  const [marginalProps, remainingProps] = extractInObject(mergedProps, [
     'margin',
     'm',
     'marginTop',
