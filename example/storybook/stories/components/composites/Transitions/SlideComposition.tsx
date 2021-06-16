@@ -2,15 +2,16 @@ import React from 'react';
 import { Slide, Button, Box, Center, Heading } from 'native-base';
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-
+  let btnStr = `Click Me to ${isOpen ? 'hide' : 'show'}`;
   return (
     <>
-      <Box width="90%" height="50%" alignItems="center" justifyContent="center">
+      <Box width="90%" alignItems="center" justifyContent="center">
+        {/* height="50%" */}
         <Heading fontSize="xs" my={3}>
           This is an example to show how slider can be used.
         </Heading>
         <Button my={4} onPress={() => setIsOpen(!isOpen)}>
-          Click Me to {isOpen ? 'hide' : 'show'}
+          {btnStr}
         </Button>
         <Center my={4}>
           The Force is strong with this one. I have you now. Look, I ain't in
@@ -27,7 +28,13 @@ export const Example = () => {
         </Center>
       </Box>
       <Slide in={isOpen}>
-        <Box p="40px" color="white" mt="4" bg="teal.500" rounded="md">
+        <Box
+          p="40px"
+          _text={{ color: 'white' }}
+          mt="4"
+          bg="teal.500"
+          rounded="md"
+        >
           Slide
         </Box>
       </Slide>

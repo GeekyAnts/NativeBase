@@ -3,7 +3,7 @@ import { Input } from 'native-base';
 
 export const Example = () => {
   const [value, setValue] = React.useState('');
-  const handleChange = (event) => setValue(event.target.value);
+  const handleChange = (event: any) => setValue(event.target.value);
   return (
     <Input
       width="100%"
