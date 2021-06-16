@@ -1,4 +1,4 @@
-export function getColorFormColorScheme(props: Record<string, any>) {
+export function getColorFromColorScheme(props: Record<string, any>) {
   const { theme, colorScheme, isDisabled } = props;
   const simpleColorScheme = colorScheme.split('.')[0];
   if (isDisabled) return 'gray.300';

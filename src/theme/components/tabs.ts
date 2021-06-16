@@ -1,7 +1,7 @@
-import { getColorFormColorScheme, getColorScheme, mode } from '../tools';
+import { getColorFromColorScheme, getColorScheme, mode } from '../tools';
 
 function baseStyle(props: Record<string, any>) {
-  const activeColor = getColorFormColorScheme(props);
+  const activeColor = getColorFromColorScheme(props);
   return {
     activeTabStyle: {
       justifyContent: 'center',
@@ -73,7 +73,7 @@ const sizes = {
 };
 
 function variantOutline(props: Record<string, any>) {
-  const activeColor = getColorFormColorScheme(props);
+  const activeColor = getColorFromColorScheme(props);
   let { colorScheme, status } = props;
   colorScheme = getColorScheme(
     props,
@@ -105,7 +105,7 @@ function variantOutline(props: Record<string, any>) {
 }
 
 function variantFilled(props: Record<string, any>) {
-  const activeColor = getColorFormColorScheme(props);
+  const activeColor = getColorFromColorScheme(props);
   let { colorScheme, status } = props;
   colorScheme = getColorScheme(
     props,
@@ -136,7 +136,7 @@ function variantFilled(props: Record<string, any>) {
 }
 
 // function variantEnclosed(props: Record<string, any>) {
-//   const activeColor = getColorFormColorScheme(props);
+//   const activeColor = getColorFromColorScheme(props);
 //   return {
 //     activeTabStyle: {
 //       borderTopWidth: 2,
@@ -153,7 +153,7 @@ function variantFilled(props: Record<string, any>) {
 // }
 
 function variantFilledOutline(props: Record<string, any>) {
-  const activeColor = getColorFormColorScheme(props);
+  const activeColor = getColorFromColorScheme(props);
   let { colorScheme, status } = props;
   colorScheme = getColorScheme(
     props,
@@ -184,7 +184,7 @@ function variantFilledOutline(props: Record<string, any>) {
 }
 
 // function varientSoftRounded(props: Record<string, any>) {
-//   const activeColor = getColorFormColorScheme(props);
+//   const activeColor = getColorFromColorScheme(props);
 //   return {
 //     activeTabStyle: {
 //       borderRadius: 'full',
@@ -197,7 +197,7 @@ function variantFilledOutline(props: Record<string, any>) {
 // }
 
 // function varientSolidRounded(props: Record<string, any>) {
-//   const activeColor = getColorFormColorScheme(props);
+//   const activeColor = getColorFromColorScheme(props);
 //   return {
 //     activeTabStyle: {
 //       borderRadius: 'full',
@@ -210,7 +210,7 @@ function variantFilledOutline(props: Record<string, any>) {
 // }
 
 // function varientSolidBox(props: Record<string, any>) {
-//   const activeColor = getColorFormColorScheme(props);
+//   const activeColor = getColorFromColorScheme(props);
 //   return {
 //     activeTabStyle: {
 //       bg: activeColor,
