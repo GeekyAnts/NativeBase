@@ -6,7 +6,8 @@ export const Example = () => {
   const handleChange = (event) => setValue(event.target.value);
   return (
     <Input
-      mx={3}
+      width="100%"
+      // mx={3}
       value={value}
       onChange={handleChange}
       placeholder="Value Controlled Input"

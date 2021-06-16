@@ -3,7 +3,7 @@ import { Box, Text, Button, Heading } from 'native-base';
 
 export function Example() {
   return (
-    <Box>
+    <Box alignSelf={{ base: 'center', md: 'flex-start' }}>
       <Heading mb={4}>
         Mobile first accessible components for React Native & Web.
       </Heading>
