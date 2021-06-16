@@ -2317,10 +2317,10 @@
     "@react-stately/radio" "^3.2.1"
     "@react-types/radio" "^3.1.1"
 
-"@react-native-aria/slider@^0.2.5-alpha.0":
-  version "0.2.5-alpha.0"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/slider/-/slider-0.2.5-alpha.0.tgz#1ee8918bd254bb73a16797f0e9042096adb40c09"
-  integrity sha512-+VGny075PUwI1n/RWDiTuymZW59/WQv6h8hB56Gsf7ga+Xd4ielCVr9yUEOrCN+0jxuc9F95YhsbvR4/Vr7XIw==
+"@react-native-aria/slider@^0.2.5-alpha.1":
+  version "0.2.5-alpha.1"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/slider/-/slider-0.2.5-alpha.1.tgz#59d14bf19b662fe339ba17b567cb8d155e345cde"
+  integrity sha512-4xdWdBiMJlA8onSybb/Py48wAk7+6CoQViYxeM9rnXZCpk6ltBcwjSo9znKme8cjOMhutV0h+W0lTiB3kQlEAA==
   dependencies:
     "@react-aria/focus" "^3.2.3"
     "@react-aria/label" "^3.1.1"
