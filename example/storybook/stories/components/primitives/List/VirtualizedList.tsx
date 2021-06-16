@@ -11,7 +11,7 @@ const getItem = (_data, index) => ({
 
 const getItemCount = (_data) => 500;
 
-const Item = ({ title }) => (
+const Item = ({ title }: { title: String }) => (
   <List.Item
     bg="emerald.200"
     borderRadius="md"

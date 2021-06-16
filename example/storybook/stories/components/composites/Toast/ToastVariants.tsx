@@ -13,11 +13,13 @@ export const Example = () => {
           onPress={() =>
             toast.show({
               title: `${variant} toast`,
+              // @ts-ignore
               variant: variant,
               isClosable: true,
             })
           }
           mr={2}
+          mb={2}
         >
           {`Show ${variant} toast`}
         </Button>

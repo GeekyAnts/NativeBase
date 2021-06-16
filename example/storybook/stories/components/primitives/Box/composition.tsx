@@ -77,8 +77,7 @@ export const Example = () => {
         <HStack alignItems="center" space={4} justifyContent="space-between">
           <HStack alignItems="center">
             <Icon
-              as={MaterialIcons}
-              name="access-time"
+              as={<MaterialIcons name="access-time" />}
               color="gray.500"
               size="sm"
             />
@@ -88,8 +87,7 @@ export const Example = () => {
           </HStack>
           <HStack alignItems="center">
             <Icon
-              as={Ionicons}
-              name="ios-chatbubbles"
+              as={<Ionicons name="ios-chatbubbles" />}
               color="gray.500"
               size="sm"
             />

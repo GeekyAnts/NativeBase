@@ -36,22 +36,6 @@ export const Example = () => {
       >
         AK
       </Avatar>
-      <Avatar
-        source={{
-          uri:
-            'https://pbs.twimg.com/profile_images/983582580372004864/h9ccP0Ea_400x400.jpg',
-        }}
-      >
-        SC
-      </Avatar>
-      <Avatar
-        source={{
-          uri:
-            'https://pbs.twimg.com/profile_images/1320985200663293952/lE_Kg6vr_400x400.jpg',
-        }}
-      >
-        MR
-      </Avatar>
     </HStack>
   );
 };

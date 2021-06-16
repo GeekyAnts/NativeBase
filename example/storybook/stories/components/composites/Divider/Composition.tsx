@@ -9,8 +9,6 @@ export const Example = () => {
       <Text>Easy</Text>
       <Divider bg="blue.500" size={3} mx={4} orientation="vertical" />
       <Text>Beautiful</Text>
-      <Divider bg="green.500" size={3} mx={4} orientation="vertical" />
-      <Text>Nativebase</Text>
     </Flex>
   );
 };

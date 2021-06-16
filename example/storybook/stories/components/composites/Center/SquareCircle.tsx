@@ -3,9 +3,9 @@ import { Circle, Square, Box, HStack, Icon } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 export function Example() {
   return (
-    <HStack>
+    <HStack space={3}>
       <Circle size={98} bg="secondary.400">
-        <Icon name="audiotrack" as={MaterialIcons} color="white" size={8} />
+        <Icon as={<MaterialIcons name="audiotrack" />} color="white" size={8} />
       </Circle>
       <Square size="lg" bg="primary.400">
         <Box _text={{ fontWeight: 'bold', fontSize: 'lg', color: 'white' }}>

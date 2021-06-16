@@ -1,10 +1,10 @@
 import React from 'react';
-import { HStack, Stack, Center, Heading } from 'native-base';
+import { HStack, Stack, Center } from 'native-base';
 
 export function Example() {
   return (
     <Stack space={3} alignItems="center">
-      <Heading>HStack</Heading>
+      {/* <Heading>HStack</Heading> */}
       <HStack space={3} alignItems="center">
         <Center
           size={16}

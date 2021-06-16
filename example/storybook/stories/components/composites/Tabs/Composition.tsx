@@ -1,11 +1,10 @@
 import React from 'react';
-import { Box, Heading, Tabs, Text } from 'native-base';
+import { Box, Tabs, Text } from 'native-base';
 
 export const Example = () => {
   return (
     <Box width="100%" p={3}>
-      <Heading>This is an example for Tabs</Heading>
-      <Tabs my={10}>
+      <Tabs>
         <Tabs.Bar>
           <Tabs.Tab>One</Tabs.Tab>
           <Tabs.Tab>Two</Tabs.Tab>
