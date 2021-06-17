@@ -5,7 +5,7 @@ export const Example = () => {
   return (
     <List mt={2} my={2}>
       <List.Item>
-        <List.Icon as={<SearchIcon />} />
+        {/* <List.Icon as={<SearchIcon />} /> */}
         Inbox
       </List.Item>
       <List.Item>

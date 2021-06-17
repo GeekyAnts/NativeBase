@@ -18,7 +18,7 @@ export const Example = () => {
           Box
         </Text>
       </Box>
-      <Text px={2} my={1}>
+      <Text px={2} my={1} flexShrink={1}>
         Clicking anywhere will trigger the link
       </Text>
       <Box p={4} bg="blue.300">
