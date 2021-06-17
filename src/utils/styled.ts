@@ -36,5 +36,5 @@ export const resolversForBox: any = [
   customTypography,
   customLayout,
 ];
-// ts-ignore
+// @ts-ignore
 export const makeStyledBox = (Comp: any) => styled(Comp)(...resolversForBox);

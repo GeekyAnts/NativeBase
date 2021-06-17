@@ -88,7 +88,6 @@
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
-    "react-native-linear-gradient": "*",
     "react-native-safe-area-context": "*",
     "react-native-svg": "*",
     "styled-components": "*",

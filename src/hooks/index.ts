@@ -4,6 +4,7 @@ export { useNativeBase } from './useNativeBase';
 export { useMediaQuery } from './useMediaQuery';
 export { useBreakpointValue } from './useBreakpointValue';
 export { usePlatformProps } from './usePlatformProps';
+export { useStyledSystemPropsResolver } from './useStyledSystemPropsResolver';
 export {
   useControllableProp,
   useControllableState,
