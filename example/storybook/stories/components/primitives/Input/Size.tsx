@@ -57,56 +57,6 @@ export const Example = () => {
             'blueGray.50'
           )}
         />
-        {/* ========== */}
-        <Input
-          size="xs"
-          placeholder="xs Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
-        />
-        <Input
-          size="sm"
-          placeholder="sm Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
-        />
-        <Input
-          size="md"
-          placeholder="md Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
-        />
-        <Input
-          size="lg"
-          placeholder="lg Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
-        />
-        <Input
-          size="xl"
-          placeholder="xl Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
-        />
-        <Input
-          size="2xl"
-          placeholder="2xl Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
-        />
-        {/*  */}
       </Stack>
     </ScrollView>
   );

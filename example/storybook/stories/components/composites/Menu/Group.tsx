@@ -1,7 +1,12 @@
 import React from 'react';
-import { Menu, Divider, HamburgerIcon } from 'native-base';
+import {
+  Menu,
+  Divider,
+  HamburgerIcon,
+  Box,
+  NativeBaseProvider,
+} from 'native-base';
 import { Pressable } from 'react-native';
-
 export function Example() {
   return (
     <Menu
@@ -28,3 +33,13 @@ export function Example() {
     </Menu>
   );
 }
+
+export default () => {
+  return (
+    <NativeBaseProvider>
+      <Box flex={1}>
+        <Example />
+      </Box>
+    </NativeBaseProvider>
+  );
+};

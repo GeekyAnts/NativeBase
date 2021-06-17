@@ -1,5 +1,7 @@
 import React from 'react';
 import { HStack, IconButton, Icon, Box } from 'native-base';
+import { AntDesign } from '@expo/vector-icons';
+
 export const Example = () => {
   return (
     <HStack space={2}>
@@ -8,7 +10,9 @@ export const Example = () => {
           <IconButton
             size={size}
             variant="solid"
-            icon={<Icon name={'menu'} color="white" size={size} />}
+            icon={
+              <Icon as={AntDesign} name="search1" color="white" size={size} />
+            }
           />
         </Box>
       ))}

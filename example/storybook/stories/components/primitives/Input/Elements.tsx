@@ -6,6 +6,7 @@ export const Example = () => {
   return (
     <Box w="100%">
       <Input
+        mx={2}
         InputLeftElement={
           <Icon
             as={<MaterialIcons name="phone" />}
