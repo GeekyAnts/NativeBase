@@ -9,7 +9,10 @@ const StyledKeyboardAvoidingView: any = makeStyledBox(RNKeyboardAvoidingView);
 export const KeyboardAvoidingView = ({
   ...props
 }: IKeyboardAvoidingViewProps) => {
-  const { ...resolvedProps } = usePropsResolution('View', props);
+  const { ...resolvedProps } = usePropsResolution(
+    'KeyboardAvoidingView',
+    props
+  );
 
   return <StyledKeyboardAvoidingView {...resolvedProps} />;
 };

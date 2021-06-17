@@ -7,7 +7,7 @@ import type { ISectionListProps } from './types';
 const StyledSectionList: any = makeStyledBox(RNSectionList);
 
 export const SectionList = (props: ISectionListProps) => {
-  const { ...resolvedProps } = usePropsResolution('View', props, {
+  const { ...resolvedProps } = usePropsResolution('SectionList', props, {
     ignoreProps: [
       'sections',
       'renderItem',

@@ -15,7 +15,7 @@ export const ScrollView = (props: IScrollViewProps) => {
     _contentContainerStyle,
     contentContainerStyle,
     ...resolvedProps
-  } = usePropsResolution('View', props, ['contentContainerStyle']);
+  } = usePropsResolution('ScrollView', props, ['contentContainerStyle']);
   const resolved_ContentContainerStyle = useStyledSystemPropsResolver(
     _contentContainerStyle
   );
