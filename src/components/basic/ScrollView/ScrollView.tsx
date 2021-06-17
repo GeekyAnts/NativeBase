@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { ScrollView as RNScrollView } from 'react-native';
 
 import {
@@ -10,7 +10,7 @@ import type { IScrollViewProps } from './types';
 
 const StyledScrollView: any = makeStyledBox(RNScrollView);
 
-export const ScrollView = (props: IScrollViewProps, ref: any) => {
+export const ScrollView = forwardRef((props: IScrollViewProps, ref: any) => {
   const {
     _contentContainerStyle,
     contentContainerStyle,
@@ -29,4 +29,4 @@ export const ScrollView = (props: IScrollViewProps, ref: any) => {
       ref={ref}
     />
   );
-};
+});

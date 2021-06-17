@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { SectionList as RNSectionList } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
 import { makeStyledBox } from '../../../utils/styled';
@@ -6,7 +6,7 @@ import type { ISectionListProps } from './types';
 
 const StyledSectionList: any = makeStyledBox(RNSectionList);
 
-export const SectionList = (props: ISectionListProps, ref: any) => {
+export const SectionList = forwardRef((props: ISectionListProps, ref: any) => {
   const { ...resolvedProps } = usePropsResolution('SectionList', props, {
     ignoreProps: [
       'sections',
@@ -17,4 +17,4 @@ export const SectionList = (props: ISectionListProps, ref: any) => {
   });
 
   return <StyledSectionList {...resolvedProps} ref={ref} />;
-};
+});
