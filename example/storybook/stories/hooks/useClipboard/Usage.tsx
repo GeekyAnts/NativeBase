@@ -16,7 +16,7 @@ export const Example = () => {
         />
         <Button onPress={() => onCopy(copyText)}>Copy</Button>
       </HStack>
-      <HStack space={3}>
+      <VStack space={3}>
         <Text>{hasCopied ? 'Copied' : 'Press here'}</Text>
         <Input
           w="60%"
@@ -25,7 +25,7 @@ export const Example = () => {
           value={pasteText}
         />
         <Button onPress={() => setPasteText(value)}>Paste</Button>
-      </HStack>
+      </VStack>
     </VStack>
   );
 };
