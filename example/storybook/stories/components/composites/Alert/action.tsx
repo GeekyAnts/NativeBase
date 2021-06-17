@@ -11,7 +11,7 @@ import {
 export function Example() {
   const [show, setShow] = React.useState(true);
   return (
-    <Box w="90%">
+    <Box w="100%">
       <Collapse isOpen={show}>
         <Alert
           status="error"
@@ -28,7 +28,7 @@ export function Example() {
           <Alert.Description>description goes here</Alert.Description>
         </Alert>
       </Collapse>
-      <Button size={'sm'} onPress={() => setShow(true)} my={1}>
+      <Button size={'sm'} onPress={() => setShow(true)} my={2} mx="auto">
         Re-Open
       </Button>
     </Box>

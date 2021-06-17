@@ -13,9 +13,12 @@ import { Feather, AntDesign } from '@expo/vector-icons';
 
 export const Example = () => {
   return (
-    <Box rounded="pill" w={64} shadow={4}>
+    // <Box rounded="pill" shadow={4} mx={{ base: 'auto', md: 0 }}>
+    <Box rounded="pill" w="100%" shadow={4} mx={{ base: 'auto', md: 0 }}>
       <Image
         h={64}
+        // w={200}
+        w="100%"
         rounded="pill"
         source={{
           uri:
@@ -23,15 +26,16 @@ export const Example = () => {
         }}
         alt="NativeBase Card"
       />
+
       <Center position="absolute" height="100%" width="100%">
         <Icon
-          as={AntDesign}
-          name="play"
+          as={<AntDesign name="play" />}
           color="gray.200"
           size={12}
           opacity={0.8}
         />
       </Center>
+
       <HStack
         position="absolute"
         bottom={4}
@@ -46,7 +50,7 @@ export const Example = () => {
           </Heading>
           <Text color="gray.200">Meghalaya</Text>
         </Stack>
-        <Icon as={Feather} name="more-horizontal" color="white" />
+        <Icon as={<Feather name="more-horizontal" />} color="white" />
       </HStack>
     </Box>
   );

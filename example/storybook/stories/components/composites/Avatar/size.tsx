@@ -1,9 +1,13 @@
 import React from 'react';
-import { Avatar, HStack } from 'native-base';
+import { Avatar, Stack } from 'native-base';
 
 export const Example = () => {
   return (
-    <HStack space={1}>
+    <Stack
+      direction={{ base: 'column', md: 'row' }}
+      space={1}
+      alignItems={{ base: 'center', md: 'flex-start' }}
+    >
       <Avatar
         size="xs"
         source={{
@@ -58,6 +62,6 @@ export const Example = () => {
       >
         RB
       </Avatar>
-    </HStack>
+    </Stack>
   );
 };

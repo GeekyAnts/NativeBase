@@ -4,8 +4,7 @@ export const Example = () => {
   return (
     <Box
       bg="primary.400"
-      p={12}
-      rounded="lg"
+      p={4}
       _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}
     >
       This is a Box

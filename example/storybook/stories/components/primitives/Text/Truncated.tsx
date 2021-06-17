@@ -3,9 +3,9 @@ import { Text, VStack, Heading } from 'native-base';
 
 export const Example = () => {
   return (
-    <VStack space={2} alignItems="center" width={350}>
+    <VStack space={2} alignItems="center" width="100%">
       <Heading mt={3}>Truncated </Heading>
-      <Text isTruncated>
+      <Text isTruncated w="80%">
         Lorem ipsum is placeholder text commonly used in the graphic, print, and
         publishing industries for previewing layouts and visual mockups.
       </Text>

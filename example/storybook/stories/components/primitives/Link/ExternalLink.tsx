@@ -9,7 +9,7 @@ export const Example = () => {
       isExternal
       mt={4}
     >
-      https://nativebase.io
+      NativeBase
     </Link>
   );
 };

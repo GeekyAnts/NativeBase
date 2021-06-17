@@ -1,10 +1,9 @@
 import React from 'react';
 import { VStack, Center, Heading } from 'native-base';
-import { number } from '@storybook/addon-knobs';
 
 export function Example() {
   return (
-    <VStack space={number('Space', 4)} alignItems="center">
+    <VStack space={4} alignItems="center">
       <Heading>VStack</Heading>
       <Center
         size={16}

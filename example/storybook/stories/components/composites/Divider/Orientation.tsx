@@ -8,9 +8,9 @@ export const Example = () => {
       <Heading mx="auto">Browser</Heading>
       <Divider my={2} />
       <Flex mx={3} direction="row" justify="space-evenly">
-        <Icon as={AntDesign} name="chrome" />
+        <Icon as={<AntDesign name="chrome" />} />
         <Divider orientation="vertical" />
-        <Icon as={FontAwesome} name="firefox" />
+        <Icon as={<FontAwesome name="firefox" />} />
       </Flex>
     </Box>
   );

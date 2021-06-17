@@ -3,8 +3,10 @@ import { Heading, VStack } from 'native-base';
 
 export function Example() {
   return (
-    <VStack>
+    <VStack alignSelf={{ base: 'center', md: 'flex-start' }}>
+      {/* @ts-ignore */}
       <Heading size="4xl">(4xl) Heading</Heading>
+      {/* @ts-ignore */}
       <Heading size="3xl">(3xl) Heading</Heading>
       <Heading size="2xl">(2xl) Heading</Heading>
       <Heading size="xl">(xl) Heading</Heading>

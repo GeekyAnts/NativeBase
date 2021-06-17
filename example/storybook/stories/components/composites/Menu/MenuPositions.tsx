@@ -1,219 +1,54 @@
 import React from 'react';
-import { Menu, Button, VStack, HStack, Checkbox } from 'native-base';
+import { Menu, Button, VStack, Select, CheckIcon } from 'native-base';
 
 export function Example() {
-  const [
-    shouldOverlapWithTrigger,
-    setShouldOverlapWithTrigger,
-  ] = React.useState(false);
+  const [shouldOverlapWithTrigger] = React.useState(false);
 
+  const [position, setPosition] = React.useState('auto');
   return (
-    <VStack space={6} alignItems="center">
-      <Checkbox
-        value="shouldOverlapWithTrigger"
-        isChecked={shouldOverlapWithTrigger}
-        onChange={() => setShouldOverlapWithTrigger(!shouldOverlapWithTrigger)}
+    <VStack space={6} alignSelf="flex-start" w="100%">
+      <Menu
+        shouldOverlapWithTrigger={shouldOverlapWithTrigger}
+        // @ts-ignore
+        placement={position == 'auto' ? undefined : position}
+        trigger={(triggerProps) => {
+          return (
+            <Button alignSelf="center" variant="solid" {...triggerProps}>
+              Menu
+            </Button>
+          );
+        }}
       >
-        Should overlap with trigger
-      </Checkbox>
-      <HStack space={6}>
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="top left"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Top Left
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu item 1</Menu.Item>
-          <Menu.Item>Large Menu item 2</Menu.Item>
-          <Menu.Item>Large Menu item 3</Menu.Item>
-        </Menu>
+        <Menu.Item>Large Menu item 1</Menu.Item>
+        <Menu.Item>Large Menu item 2</Menu.Item>
+        <Menu.Item>Large Menu item 3</Menu.Item>
+      </Menu>
 
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="top"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Top
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu item 1</Menu.Item>
-          <Menu.Item>Large Menu item 2</Menu.Item>
-          <Menu.Item>Large Menu item 3</Menu.Item>
-        </Menu>
-
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="top right"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Top right
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu Item 1</Menu.Item>
-          <Menu.Item>Large Menu Item 2</Menu.Item>
-          <Menu.Item>Large Menu Item 3</Menu.Item>
-        </Menu>
-      </HStack>
-
-      <HStack space={6}>
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="right top"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Right top
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu Item 1</Menu.Item>
-          <Menu.Item>Large Menu Item 2</Menu.Item>
-          <Menu.Item>Large Menu Item 3</Menu.Item>
-        </Menu>
-
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="right"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Right
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu Item 1</Menu.Item>
-          <Menu.Item>Large Menu Item 2</Menu.Item>
-          <Menu.Item>Large Menu Item 3</Menu.Item>
-        </Menu>
-
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="right bottom"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Right bottom
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu Item 1</Menu.Item>
-          <Menu.Item>Large Menu Item 2</Menu.Item>
-          <Menu.Item>Large Menu Item 3</Menu.Item>
-        </Menu>
-      </HStack>
-
-      <HStack space={6}>
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="bottom left"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Bottom left
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu Item 1</Menu.Item>
-          <Menu.Item>Large Menu Item 2</Menu.Item>
-          <Menu.Item>Large Menu Item 3</Menu.Item>
-        </Menu>
-
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="bottom"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Bottom
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu Item 1</Menu.Item>
-          <Menu.Item>Large Menu Item 2</Menu.Item>
-          <Menu.Item>Large Menu Item 3</Menu.Item>
-        </Menu>
-
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="bottom right"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Bottom right
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu Item 1</Menu.Item>
-          <Menu.Item>Large Menu Item 2</Menu.Item>
-          <Menu.Item>Large Menu Item 3</Menu.Item>
-        </Menu>
-      </HStack>
-
-      <HStack space={6}>
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="left top"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Left top
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu Item 1</Menu.Item>
-          <Menu.Item>Large Menu Item 2</Menu.Item>
-          <Menu.Item>Large Menu Item 3</Menu.Item>
-        </Menu>
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="left"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Left
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu Item 1</Menu.Item>
-          <Menu.Item>Large Menu Item 2</Menu.Item>
-          <Menu.Item>Large Menu Item 3</Menu.Item>
-        </Menu>
-
-        <Menu
-          shouldOverlapWithTrigger={shouldOverlapWithTrigger}
-          placement="left bottom"
-          trigger={(triggerProps) => {
-            return (
-              <Button variant="ghost" {...triggerProps}>
-                Left bottom
-              </Button>
-            );
-          }}
-        >
-          <Menu.Item>Large Menu Item 1</Menu.Item>
-          <Menu.Item>Large Menu Item 2</Menu.Item>
-          <Menu.Item>Large Menu Item 3</Menu.Item>
-        </Menu>
-      </HStack>
+      <Select
+        selectedValue={position}
+        mx={{ base: 0, md: 'auto' }}
+        accessibilityLabel="Select your favorite programming language"
+        placeholder="Select your favorite programming language"
+        onValueChange={(nextValue) => setPosition(nextValue)}
+        _selectedItem={{
+          bg: 'cyan.600',
+          endIcon: <CheckIcon size={4} />,
+        }}
+      >
+        <Select.Item label="auto" value="auto" />
+        <Select.Item label="Top Left" value="top left" />
+        <Select.Item label="Top" value="top" />
+        <Select.Item label="Top Right" value="top right" />
+        <Select.Item label="Right Top" value="right top" />
+        <Select.Item label="Right" value="right" />
+        <Select.Item label="Right Bottom" value="right bottom" />
+        <Select.Item label="Bottom Left" value="bottom left" />
+        <Select.Item label="Bottom" value="bottom" />
+        <Select.Item label="Bottom Right" value="bottom right" />
+        <Select.Item label="Left Top" value="left top" />
+        <Select.Item label="Left" value="left" />
+        <Select.Item label="Left Bottom" value="left bottom" />
+      </Select>
     </VStack>
   );
 }
