@@ -32,7 +32,7 @@ const Link = (
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
   const linkTextProps = {
-    textDecorationLine: isUnderlined || isHovered ? 'underline' : 'none',
+    textDecorationLine: isUnderlined ? 'underline' : 'none',
     ..._text,
   };
   const { linkProps } = useLink({ href, onPress, isExternal, _ref });
