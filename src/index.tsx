@@ -165,6 +165,7 @@ import {
   Pressable,
 } from './components/primitives';
 
+export * from './components/basic';
 export * from './components/primitives/Icon/Icons';
 export * from './theme';
 export * from './core';

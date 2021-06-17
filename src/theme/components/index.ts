@@ -23,6 +23,11 @@ import Button, { ButtonGroup } from './button';
 import Center from './center';
 import Checkbox from './checkbox';
 import Box from './box';
+import FlatList from './flatList';
+import KeyboardAvoidingView from './keyboardAvoidingView';
+import ScrollView from './scrollView';
+import SectionList from './sectionList';
+import StatusBar from './statusBar';
 import CircularProgress from './circular-progress';
 import Code from './code';
 import Container from './container';
@@ -82,6 +87,11 @@ import FAB from './fab';
 import { SliderTrack, Slider, SliderThumb, SliderFilledTrack } from './slider';
 
 export default {
+  FlatList,
+  KeyboardAvoidingView,
+  ScrollView,
+  SectionList,
+  StatusBar,
   Accordion,
   AccordionItem,
   AccordionIcon,

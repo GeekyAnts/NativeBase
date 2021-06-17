@@ -1,4 +1,11 @@
-// Components;
+// Components
+//Baisc
+export * from './components/basic/ScrollView';
+export * from './components/basic/FlatList';
+export * from './components/basic/SectionList';
+export * from './components/basic/StatusBar';
+export * from './components/basic/KeyboardAvoidingView';
+
 // export * from './components/composites/Accordion';
 export * from './components/composites/Actionsheet';
 export * from './components/composites/Alert';
