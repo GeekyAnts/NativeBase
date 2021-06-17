@@ -6,8 +6,8 @@ import type { IViewProps } from './types';
 
 const StyledView: any = makeStyledBox(RNView);
 
-export const View = (props: IViewProps) => {
+export const View = (props: IViewProps, ref: any) => {
   const { ...resolvedProps } = usePropsResolution('View', props);
 
-  return <StyledView {...resolvedProps} />;
+  return <StyledView {...resolvedProps} ref={ref} />;
 };

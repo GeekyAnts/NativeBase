@@ -6,10 +6,10 @@ import type { IFlatListProps } from './types';
 
 const StyledFlatList: any = makeStyledBox(RNFlatList);
 
-export const FlatList = (props: IFlatListProps) => {
+export const FlatList = (props: IFlatListProps, ref: any) => {
   const { ...resolvedProps } = usePropsResolution('FlatList', props, {
     ignoreProps: ['data', 'renderItem', 'keyExtractor'],
   });
 
-  return <StyledFlatList {...resolvedProps} />;
+  return <StyledFlatList {...resolvedProps} ref={ref} />;
 };

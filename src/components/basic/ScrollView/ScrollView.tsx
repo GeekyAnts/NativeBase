@@ -10,7 +10,7 @@ import type { IScrollViewProps } from './types';
 
 const StyledScrollView: any = makeStyledBox(RNScrollView);
 
-export const ScrollView = (props: IScrollViewProps) => {
+export const ScrollView = (props: IScrollViewProps, ref: any) => {
   const {
     _contentContainerStyle,
     contentContainerStyle,
@@ -26,6 +26,7 @@ export const ScrollView = (props: IScrollViewProps) => {
       contentContainerStyle={
         contentContainerStyle || resolved_ContentContainerStyle
       }
+      ref={ref}
     />
   );
 };

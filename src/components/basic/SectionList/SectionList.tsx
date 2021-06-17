@@ -6,7 +6,7 @@ import type { ISectionListProps } from './types';
 
 const StyledSectionList: any = makeStyledBox(RNSectionList);
 
-export const SectionList = (props: ISectionListProps) => {
+export const SectionList = (props: ISectionListProps, ref: any) => {
   const { ...resolvedProps } = usePropsResolution('SectionList', props, {
     ignoreProps: [
       'sections',
@@ -16,5 +16,5 @@ export const SectionList = (props: ISectionListProps) => {
     ],
   });
 
-  return <StyledSectionList {...resolvedProps} />;
+  return <StyledSectionList {...resolvedProps} ref={ref} />;
 };

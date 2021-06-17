@@ -6,13 +6,14 @@ import type { IKeyboardAvoidingViewProps } from './types';
 
 const StyledKeyboardAvoidingView: any = makeStyledBox(RNKeyboardAvoidingView);
 
-export const KeyboardAvoidingView = ({
-  ...props
-}: IKeyboardAvoidingViewProps) => {
+export const KeyboardAvoidingView = (
+  props: IKeyboardAvoidingViewProps,
+  ref: any
+) => {
   const { ...resolvedProps } = usePropsResolution(
     'KeyboardAvoidingView',
     props
   );
 
-  return <StyledKeyboardAvoidingView {...resolvedProps} />;
+  return <StyledKeyboardAvoidingView {...resolvedProps} ref={ref} />;
 };
