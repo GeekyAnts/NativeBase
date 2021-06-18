@@ -5,12 +5,12 @@ import { mergeRefs } from '../../../utils';
 import { useControllableState } from '../../../hooks';
 import { PopoverContext } from './PopoverContext';
 import Box from '../../primitives/Box';
-import { OverlayContainer } from '@react-native-aria/overlays';
 import Backdrop from '../Backdrop';
 import { FocusScope } from '@react-native-aria/focus';
 import { PresenceTransition } from '../Transitions';
 import { StyleSheet } from 'react-native';
 import { useId } from '@react-aria/utils';
+import { Overlay } from '../../primitives';
 
 const Popover = (
   {
@@ -68,7 +68,7 @@ const Popover = (
   return (
     <Box ref={ref}>
       {updatedTrigger()}
-      <OverlayContainer>
+      <Overlay isOpen={isOpen} onRequestClose={handleClose}>
         <PresenceTransition
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 150 } }}
@@ -76,7 +76,12 @@ const Popover = (
           visible={isOpen}
           style={StyleSheet.absoluteFill}
         >
-          <Popper onClose={handleClose} triggerRef={triggerRef} {...rest}>
+          <Popper
+            isChildOfNativeModal
+            onClose={handleClose}
+            triggerRef={triggerRef}
+            {...rest}
+          >
             <Backdrop onPress={handleClose} bg="transparent" />
             <PopoverContext.Provider
               value={{
@@ -98,7 +103,7 @@ const Popover = (
             </PopoverContext.Provider>
           </Popper>
         </PresenceTransition>
-      </OverlayContainer>
+      </Overlay>
     </Box>
   );
 };

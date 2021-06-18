@@ -30,6 +30,7 @@ export type IPopperProps = {
   shouldOverlapWithTrigger?: boolean;
   trigger?: ReactElement | RefObject<any>;
   placement?: IPlacement;
+  isChildOfNativeModal?: boolean;
 };
 
 export type IArrowStyles = {

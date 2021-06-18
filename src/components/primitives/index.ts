@@ -61,3 +61,5 @@ export type { IListProps, IListItemProps } from './List';
 export { VisuallyHidden } from './VisuallyHidden';
 
 export { default as ZStack } from './ZStack';
+
+export { Overlay } from './Overlay';

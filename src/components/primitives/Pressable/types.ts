@@ -63,6 +63,11 @@ export interface IPressableProps
    */
   _focusVisible?: IPressableProps;
 
+  /**
+   * Style props to be applied when disabled
+   */
+  _disabled?: IPressableProps;
+
   children?:
     | React.ReactNode
     | (({

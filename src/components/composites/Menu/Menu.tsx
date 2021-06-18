@@ -7,10 +7,10 @@ import { ScrollView } from 'react-native';
 import { useControllableState, useKeyboardDismissable } from '../../../hooks';
 import { useMenuTrigger, useMenu, useMenuTypeahead } from './useMenu';
 import Backdrop from '../Backdrop';
-import { OverlayContainer } from '@react-native-aria/overlays';
 import { PresenceTransition } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import { MenuContext } from './MenuContext';
+import { Overlay } from '../../primitives';
 
 const Menu = (
   {
@@ -68,12 +68,13 @@ const Menu = (
   return (
     <>
       {updatedTrigger()}
-      <OverlayContainer>
+      <Overlay isOpen={isOpen} onRequestClose={handleClose}>
         <PresenceTransition visible={isOpen} {...transition}>
           <Popper
             triggerRef={triggerRef}
             onClose={handleClose}
             placement={placement}
+            isChildOfNativeModal={true}
             {...restProps}
           >
             <Backdrop bg="transparent" onPress={handleClose} />
@@ -90,7 +91,7 @@ const Menu = (
             </Popper.Content>
           </Popper>
         </PresenceTransition>
-      </OverlayContainer>
+      </Overlay>
     </>
   );
 };

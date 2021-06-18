@@ -86,6 +86,7 @@ const Pressable = (
     _pressed,
     _focus,
     _focusVisible,
+    _disabled,
     ...themeProps
   } = usePropsResolution('Pressable', props);
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
@@ -114,6 +115,7 @@ const Pressable = (
       {...(isFocused && _focus)}
       {...(isFocusVisible && _focusVisible)}
       {...(isPressed && _pressed)}
+      {...(props.disabled && _disabled)}
     >
       {typeof children !== 'function'
         ? children

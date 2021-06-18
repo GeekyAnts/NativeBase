@@ -47,6 +47,7 @@ const PopperContent = React.forwardRef(
       offset,
       placement: placementProp,
       onClose,
+      isChildOfNativeModal,
       shouldOverlapWithTrigger,
       setOverlayRef,
     } = usePopperContext('PopperContent');
@@ -131,12 +132,15 @@ const PopperContent = React.forwardRef(
           overlay: {
             ...overlayProps.style,
             // To handle translucent android StatusBar
-            marginTop: Platform.select({ android: top, default: 0 }),
+            marginTop: Platform.select({
+              android: isChildOfNativeModal ? 0 : top,
+              default: 0,
+            }),
             opacity: rendered ? 1 : 0,
             position: 'absolute',
           },
         }),
-      [rendered, overlayProps.style, top]
+      [rendered, overlayProps.style, top, isChildOfNativeModal]
     );
 
     return (

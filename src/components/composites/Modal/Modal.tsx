@@ -1,5 +1,4 @@
 import React, { forwardRef, memo } from 'react';
-import { OverlayContainer } from '@react-native-aria/overlays';
 import { StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';
 import { Slide } from '../Transitions';
@@ -14,6 +13,7 @@ import Box from '../../primitives/Box';
 import type { IModalProps } from './types';
 import { Fade } from '../../composites/Transitions';
 import { useKeyboardBottomInset } from '../../../utils';
+import { Overlay } from '../../primitives';
 
 const Modal = (
   {
@@ -60,11 +60,13 @@ const Modal = (
     </Box>
   );
 
+  const handleClose = () => setVisible(false);
+
   return (
-    <OverlayContainer>
+    <Overlay isOpen={isOpen} onRequestClose={handleClose}>
       <ModalContext.Provider
         value={{
-          handleClose: () => setVisible(false),
+          handleClose,
           contentSize,
           initialFocusRef,
           finalFocusRef,
@@ -111,7 +113,7 @@ const Modal = (
           </Fade>
         )}
       </ModalContext.Provider>
-    </OverlayContainer>
+    </Overlay>
   );
 };
 
