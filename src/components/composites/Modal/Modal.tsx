@@ -1,6 +1,6 @@
 import React, { forwardRef, memo } from 'react';
 import { OverlayContainer } from '@react-native-aria/overlays';
-import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';
 import { Slide } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
@@ -13,8 +13,7 @@ import { ModalContext } from './Context';
 import Box from '../../primitives/Box';
 import type { IModalProps } from './types';
 import { Fade } from '../../composites/Transitions';
-import { Factory } from '../../../factory';
-const StyledKeyboardView = Factory(KeyboardAvoidingView);
+import { useKeyboardBottomInset } from '../../../utils';
 
 const Modal = (
   {
@@ -34,6 +33,7 @@ const Modal = (
   }: IModalProps,
   ref: any
 ) => {
+  const bottomInset = useKeyboardBottomInset();
   const { contentSize, ...restThemeProps } = usePropsResolution('Modal', rest);
 
   const [visible, setVisible] = useControllableState({
@@ -49,18 +49,13 @@ const Modal = (
     callback: () => setVisible(false),
   });
 
-  let child = avoidKeyboard ? (
-    <StyledKeyboardView
-      // Padding on android behaves weird
-      behavior={Platform.select({ ios: 'padding' })}
-      pointerEvents="box-none"
+  let child = (
+    <Box
+      bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
       {...restThemeProps}
       ref={ref}
+      pointerEvents="box-none"
     >
-      {children}
-    </StyledKeyboardView>
-  ) : (
-    <Box {...restThemeProps} ref={ref} pointerEvents="box-none">
       {children}
     </Box>
   );

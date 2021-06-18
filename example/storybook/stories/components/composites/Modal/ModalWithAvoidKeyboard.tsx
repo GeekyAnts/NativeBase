@@ -8,7 +8,7 @@ export function Example() {
       <Modal isOpen={modalVisible} onClose={setModalVisible} avoidKeyboard>
         <Modal.Content>
           <Modal.CloseButton />
-          <Modal.Header>Modal in keyboardAvoidView</Modal.Header>
+          <Modal.Header>KeyboardAvoidView Modal</Modal.Header>
           <Modal.Body>
             Try typing something in the Input.
             <Input mt={4} placeholder="Click here..." />
