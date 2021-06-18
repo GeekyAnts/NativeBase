@@ -8,13 +8,13 @@ A complete component library for React Native Ecosystem
 - **Consistent** : Make accurate predictions for web, Android & iOS.
 
 ## Documentation
-You can find the complete documentation [here](https://nativebase.github.io/).
+You can find the complete documentation [here](https://nativebase.io/).
 
 ## Table of Content
 
 1. [What is NativeBase 3.0?](#1-what-is-nativebase-30)
 2. [Why NativeBase 3.0?](#2-why-nativebase-30)
-3. [KitchenSink App](https://github.com/GeekyAnts/NativeBase-KitchenSink)
+3. [KitchenSink App](https://github.com/nativebase/kitchen-sink)
 4. [Compairing available options](#4-compairing-the-available-options)
 5. [Inspirations](#5-inspirations)
 6. [API](#6-api)
@@ -52,6 +52,7 @@ Declarative and Imperative. Declarative for components and Imperative for all th
 
 ## 7. Getting Started
 
+To get `NativeBase` running onto your native apps, install it using `npm` or `yarn`. 
 To have `NativeBase` components running onto your native apps, all you need to do is, create a fresh React Native project using whatever you want, [expo](https://docs.expo.io/get-started/installation/) is a really great starting point so we will start with that and install the NativeBase using `npm` or `yarn` and add all the peer dependencies.
 
 ## Setup with React Native
@@ -65,93 +66,46 @@ cd AwesomeNativeBase
 
 ```bash
 # using yarn
-yarn add native-base@next
+yarn add native-base@next react-native-svg styled-components styled-system react-native-safe-area-context
 ```
 
 ```bash
 # using npm
-npm i native-base@next
+npm install native-base@next react-native-svg styled-components styled-system react-native-safe-area-context
 ```
 
-*Install **Peer Dependencies***
-
-The peer dependencies included from any npm packages does not automatically get installed. Your application will not depend on it explicitly.
+*Run pod install*
 
 ```bash
-react-native link
+cd ios/
+pod install
 ```
 
 You've successfully setup [NativeBase](https://nativebase.io/) with your [React Native](https://reactnative.dev/) app. Your React Native app is ready to run on iOS and Android devices.
 
 ## Setup with Expo
 
-Expo helps you make React Native apps with no build configuration. It works on macOS, Windows, and Linux. Refer this link for additional information on [Expo](https://docs.expo.io/) and setting up an Expo starter app.
+Expo helps you to create universal (iOS, Android and Web) React Native apps with no build configuration.
 
 *Install **NativeBase***
 
 ```bash
 # using yarn
-yarn add native-base@next
+yarn add native-base@next styled-components styled-system
+expo install react-native-svg
+expo install react-native-safe-area-context
 ```
 
 ```bash
 # using npm
-npm i native-base@next
-```
-
-**We will also have to install these peer dependencies**
-
-*Install **react-native-svg***
-
-```bash
-# using yarn
-yarn add react-native-svg
-```
-
-```bash
-# using npm
-npm i react-native-svg
-```
-
-*Install **react-native-vector-icons***
-
-```bash
-# using yarn
-yarn add react-native-vector-icons
-```
-
-```bash
-# using npm
-npm i react-native-vector-icons
-```
-
-*Install **styled-components***
-
-```bash
-# using yarn
-yarn add styled-components
-```
-
-```bash
-# using npm
-npm i styled-components
-```
-
-*Install **styled-system***
-
-```bash
-# using yarn
-yarn add styled-system
-```
-
-```bash
-# using npm
-npm i styled-system
+npm install native-base@next styled-components styled-system
+expo install react-native-svg
+expo install react-native-safe-area-context
 ```
 
 ## 8. Components
 
-[NativeBase 3.0](https://nativebase.github.io/) is made from two types of components — Primitives and Composite.
+[NativeBase 3.0](https://nativebase.io/) is made from two types of components — Primitives and Composite.
 
 - **Primitive components** are the building blocks.
 - **Composite components** are made up of primitive components.
@@ -159,18 +113,18 @@ npm i styled-system
 
 ## 9. Documentation
 
-Go through [NativeBase Docs](https://nativebase.github.io/) to play with [NativeBase](https://nativebase.github.io/).
+Go through [NativeBase Docs](https://docs.nativebase.io/) to explore more.
 
 
 
 ## 10. Website
-[https://nativebase.github.io/](https://nativebase.github.io/)
+[https://nativebase.github.io/](https://nativebase.io/)
 
 
 
 ## 11. Quick Links to NativeBase
 
-*	[NativeBase Documentation](https://nativebase.github.io/docs/nativebase)
+*	[NativeBase Documentation](https://docs.nativebase.io)
 *	[NativeBase on Twitter](https://twitter.com/NativeBaseIO)
 *	[NativeBase on FaceBook](https://www.facebook.com/nativebaseio/)
 
