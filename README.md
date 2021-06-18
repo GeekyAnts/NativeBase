@@ -1,4 +1,6 @@
-# <img width="25px" src="https://github.com/nativebase/nativebase.github.io/blob/master/img/native-base-icon.png" alt="Nativebase Logo"> NativeBase 3.0 [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
+# <img src="https://github.com/nativebase/website/blob/fix/og-tags/static/img/58.png" alt="Nativebase Logo"> 
+
+[![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
 
 A complete component library for React Native Ecosystem
 
@@ -8,54 +10,76 @@ A complete component library for React Native Ecosystem
 - **Consistent** : Make accurate predictions for web, Android & iOS.
 
 ## Documentation
-You can find the complete documentation [here](https://nativebase.io/).
+You can find the complete documentation [here](https://docs.nativebase.io/).
 
 ## Table of Content
 
-1. [What is NativeBase 3.0?](#1-what-is-nativebase-30)
-2. [Why NativeBase 3.0?](#2-why-nativebase-30)
-3. [KitchenSink App](https://github.com/nativebase/kitchen-sink)
-4. [Compairing available options](#4-compairing-the-available-options)
-5. [Inspirations](#5-inspirations)
-6. [API](#6-api)
-7. [Getting Started](#7-getting-started)
-8. [Components](#8-components)
-9. [Documentation](#9-documentation)
-10. [Website](#10-website)
-11. [Quick Links to NativeBase](#11-quick-links-to-nativebase)
-12. [About the creators](#12-about-the-creators)
+1. [Introduction](#1-introduction)
+2. [Motivation](#2-motivation)
+3. [Features](#3-features)
+4. [Dependencies](#4-dependencies)
+5. [Installation & Setup](#5-installation-&-setup)
+6. [Components](#6-components)
+7. [Examples](#7-examples)
+8. [KitchenSink App](https://github.com/nativebase/kitchen-sink)
+9. [Tech Stack](#9-tech-stack)
+10. [Compatible Versions](#10-compatible-versions)
+11. [Quick Links](#11-quick-links)
+12. [Contributors](#12-contributors)
+13. [Changelog](#13-changelog)
+14. [Community](#14-community)
+15. [License](#15-license)
 
-## 1. What is NativeBase 3.0?
-[NativeBase](https://nativebase.github.io/) is a universal Design System for Mobile & Web built for React Native and React with the same API. Ships a bunch of components for most of the use-cases that includes Button, AppBar, Dialog, Modal and what not.
 
-## 2. Why NativeBase 3.0?
-We want to build and ship apps fast with the highest quality. We want to focus on the business logic and to solve real problems.<br />
+## 1. Introduction?
+[NativeBase](https://nativebase.github.io/) is a mobile-first, component library for React & React Native. Version 3.0 ships with complete ARIA integration, support for utility props and nearly 40 components that are consistent across Android, iOS and Web. Fast-track your dev process with NativeBase 3.0.
 
-## 4. Compairing the available options
+**Recommended by [Awesome React Native](https://github.com/jondot/awesome-react-native)**
 
-| Name                | Web | Mobile  | Design System | Customizable | Components               | Language   | Docs      | Popularity |
-| ------------------- | --- | ------- | ------------- | ------------ | ------------------------ | ---------- | --------- | ---------- |
-| Ant Design          | Yes | Partial | Yes           | Low          | Many                     | JavaScript | Very good |            |
-| Braid Design System | Yes | No      | Yes           | Medium       | Many                     | JavaScript | Good      |            |
-| Bootstrap           | Yes | No      | Yes           | Medium       | Limited                  | CSS        | Very good |            |
-| TailwindCSS         | Yes | Partial | Yes           | High         | Rich \(with TailwindUI\) | CSS        | Very good |            |
-| Flutter Material    | Yes | Yes     | Yes           | High         | Many                     | Dart       | Average   |            |
-| NativeBase 3\.0     | Yes | Yes     | Yes           | High         | Rich                     | JavaScript | Very good |            |
+NativeBase was added to the list of Frameworks of Awesome React Native and it is used by numerous React lovers across the world.
+## 2. Motivation
+Building with React Native from scratch is a tedious process with multiple steps such as adding styling, interactions, state management, responsiveness, accessibility, etc. We wanted to build and ship accessible, high-quality apps quickly.
+<br />
 
-## 5. Inspirations
+Our inspirations include Material UI, Chakra UI, Ant Design, Braid Design System, Bootstrap, TailwindCSS & Flutter.
 
-Ant Design, Braid Design System, Bootstrap, TailwindCSS, Flutter Material
+## 3. Features
+Integrated with React ARIA and React Native ARIA, which provides React hooks. This enables you to build accessible design systems in no time.
 
-## 6. API
 
-Declarative and Imperative. Declarative for components and Imperative for all the actions
+### **Supporting Utility Props**
 
-## 7. Getting Started
+Powered by [Styled System](https://styled-system.com) so you can rapidly build custom UI components with constraint-based utility style props.
 
-To get `NativeBase` running onto your native apps, install it using `npm` or `yarn`. 
-To have `NativeBase` components running onto your native apps, all you need to do is, create a fresh React Native project using whatever you want, [expo](https://docs.expo.io/get-started/installation/) is a really great starting point so we will start with that and install the NativeBase using `npm` or `yarn` and add all the peer dependencies.
+### **Rich Component Library**
 
-## Setup with React Native
+NativeBase offers around 40 components so you can build seamlessly. It includes button, checkbox, flex, stack and more.
+
+### **Highly Themeable**
+
+Themeability is one of the core elements of NativeBase. You can customise your app theme and component styles to your heart's content.
+
+### **Available for Both Mobile and Web**
+
+NativeBase 3.0 is powered by React Native Web so you can build consistent UIs across Web, Android and iOS.
+
+### **Responsiveness Made Easy**
+
+Instead of manually adding responsiveness, NativeBase 3.0 allows you to provide object and array values to add responsive styles.
+
+### **Now with** **Dark Mode**
+
+Building apps with a dark mode setting just got a whole lot easier. NativeBase is now optimised for light and dark modes.
+
+## 4. Dependencies
+
+React Native, Expo
+
+## 5. Installation & Setup
+
+To start using NativeBase components in your native apps, create a new React Native project. [Expo](https://docs.expo.io/get-started/installation/) is a great starting point so let's set it up, install NativeBase using yarn/npm and add all the peer dependencies. To get `NativeBase` running onto your native apps, install it using `npm` or `yarn`.
+
+### Setup with React Native
 
 ```bash
 react-native init AwesomeNativeBase
@@ -83,7 +107,7 @@ pod install
 
 You've successfully setup [NativeBase](https://nativebase.io/) with your [React Native](https://reactnative.dev/) app. Your React Native app is ready to run on iOS and Android devices.
 
-## Setup with Expo
+### Setup with Expo
 
 Expo helps you to create universal (iOS, Android and Web) React Native apps with no build configuration.
 
@@ -103,39 +127,69 @@ expo install react-native-svg
 expo install react-native-safe-area-context
 ```
 
-## 8. Components
+### Setup for Next.js with Expo for Web
 
-[NativeBase 3.0](https://nativebase.io/) is made from two types of components — Primitives and Composite.
+```bash
+# using yarn
+yarn add native-base@next react-native-svg @expo/vector-icons styled-components styled-system
+```
 
-- **Primitive components** are the building blocks.
-- **Composite components** are made up of primitive components.
+```bash
+# using npm
+npm i native-base@next react-native-svg @expo/vector-icons styled-components styled-system
+```
 
+By default Next.js doesn't support static assets like an Expo project. Because this is the intended functionality of Next.js, @expo/next-adapter doesn't add font support by default. If you want to use libraries like expo-font, @expo/vector-icons, you'll need to change a few things.
 
-## 9. Documentation
+```bash
+yarn add next-fonts
+```
+Wrap the font method with the Expo method in your next.config.js:
 
-Go through [NativeBase Docs](https://docs.nativebase.io/) to explore more.
+```js
+const { withExpo } = require('@expo/next-adapter');
+const withFonts = require('next-fonts');
 
+module.exports = withExpo(
+  withFonts({
+    projectRoot: __dirname,
+  })
+);
+```
+The order is important because Expo can mix in the location of vector icons to the existing font loader.Now restart your project and you should be able to load fonts!
 
+## 6. Components
+  
+- [**Layout**](https://docs.nativebase.io/box)   
+- [**Forms**](https://docs.nativebase.io/button)
+- [**Data Display**](https://docs.nativebase.io/badge)
+- [**Feedback**](https://docs.nativebase.io/alert)
+- [**Typography**](https://docs.nativebase.io/text)
+- [**Overlay** ](https://docs.nativebase.io/alertDialog)
+- [**Disclosure**](https://docs.nativebase.io/actionSheet)
+- [**Media & Icons**](https://docs.nativebase.io/avatar)
+- [**Transition**](https://docs.nativebase.io/presence-transition)
+- [**Other**](https://docs.nativebase.io/FAB)
+    
 
-## 10. Website
-[https://nativebase.github.io/](https://nativebase.io/)
+## 7. Examples
 
+Check out the Login Screen example [here](https://docs.nativebase.io/todo-example)
 
+## 9. Tech Stack
 
-## 11. Quick Links to NativeBase
+JavaScript, React Native, Styled System
 
-*	[NativeBase Documentation](https://docs.nativebase.io)
-*	[NativeBase on Twitter](https://twitter.com/NativeBaseIO)
-*	[NativeBase on FaceBook](https://www.facebook.com/nativebaseio/)
+## 10. Compatible Versions
 
+//needs to be updated
 
-## 12. About the creators
+## 11. Quick Links
 
-We are [GeekyAnts](https://geekyants.com/), a startup based in Bangalore, India with 200+ developers in strength. We have been very active in the React / React Native community where we have developed [StrapUI](https://www.strapui.com/) and [StartReact](https://startreact.com/). Our other products include [StartLaravel](http://startlaravel.com) and [StartAngular](http://startangular.com).
-
-Another major project by us is [BuilderX](https://builderx.io/?utm_source=github&utm_medium=nativebase&utm_campaign=nativebase), a screen design tool which codes React Native for you.
-
-## Contributors
+* [NativeBase Documentation](https://docs.nativebase.io)
+* [NativeBase on Twitter](https://twitter.com/NativeBaseIO)
+* [NativeBase on FaceBook](https://www.facebook.com/nativebaseio/)
+## 12. Contributors
 
 ### Code Contributors
 
@@ -164,3 +218,15 @@ Support this project with your organization. Your logo will show up here with a 
 <a href="https://opencollective.com/NativeBase/organization/7/website"><img src="https://opencollective.com/NativeBase/organization/7/avatar.svg"></a>
 <a href="https://opencollective.com/NativeBase/organization/8/website"><img src="https://opencollective.com/NativeBase/organization/8/avatar.svg"></a>
 <a href="https://opencollective.com/NativeBase/organization/9/website"><img src="https://opencollective.com/NativeBase/organization/9/avatar.svg"></a>
+
+## 13. Changelog
+
+## 14. Community
+- [Facebook](https://www.facebook.com/nativebaseio)
+- [Twitter](https://twitter.com/nativebaseio)
+- [Discord](https://discord.com/invite/TSgCw2UPmb)
+- [Stackoverflow](https://stackoverflow.com/questions/tagged/native-base)
+- [Medium](https://blog.nativebase.io/)
+- [YouTube](https://www.youtube.com/channel/UCoL_iTwpY07vDs91974z3xA/about)
+## 15. License
+Licensed under the MIT License, Copyright © 2020 GeekyAnts. See [LICENSE](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE) for more information.
