@@ -229,14 +229,18 @@ const propTranslator = ({
  * @arg {object} incomingProps - Props passed by the user.
  * @returns {object} Resolved props.
  */
-export function usePropsResolution(component: string, incomingProps: any) {
-  const [ignoredProps, cleanIncomingProps] = extractInObject(incomingProps, [
-    'children',
-    'onPress',
-    'icon',
-    'onOpen',
-    'onClose',
-  ]);
+export function usePropsResolution(
+  component: string,
+  incomingProps: any,
+  config?: any
+) {
+  const [ignoredProps, cleanIncomingProps] = extractInObject(
+    incomingProps,
+    ['children', 'onPress', 'icon', 'onOpen', 'onClose'].concat(
+      config?.ignoreProps || []
+    )
+  );
+
   const { theme } = useNativeBase();
   const colorModeProps = useColorMode();
 

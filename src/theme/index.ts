@@ -1,6 +1,7 @@
 import base from './base';
 import components from './components';
 import * as tools from './tools';
+//@ts-ignore
 import type { ColorModeOptions } from './../core/color-mode/types';
 export interface ComponentTheme {
   baseStyle?: Record<string, any>;

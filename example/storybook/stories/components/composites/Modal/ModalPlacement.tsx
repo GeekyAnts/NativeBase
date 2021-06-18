@@ -1,6 +1,6 @@
 //@ts-nocheck
 import React from 'react';
-import { Button, Modal, VStack } from 'native-base';
+import { Button, Modal, Stack } from 'native-base';
 import { useState } from 'react';
 
 export const Example = () => {
@@ -13,14 +13,14 @@ export const Example = () => {
 
   return (
     <>
-      <VStack space={2}>
+      <Stack direction={{ base: 'column', md: 'row' }} space={2}>
         <Button onPress={() => openModal('top')}>Top</Button>
         <Button onPress={() => openModal('bottom')}>Bottom</Button>
         <Button onPress={() => openModal('center')}>Center</Button>
         <Button onPress={() => openModal('left')}>Left</Button>
         <Button onPress={() => openModal('right')}>Right</Button>
-      </VStack>
-      <Modal isOpen={open} onClose={() => setOpen(false)}>
+      </Stack>
+      <Modal isOpen={open} onClose={() => setOpen(false)} mt={12}>
         <Modal.Content maxWidth="400px" {...styles[placement]}>
           <Modal.CloseButton />
           <Modal.Header>Modal Title</Modal.Header>

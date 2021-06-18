@@ -6,6 +6,7 @@ export const Example = () => {
   return (
     <VStack space={50}>
       <Switch
+        // @ts-ignore
         onColor="seagreen"
         // isChecked={boolean(
         //   'isChecked',
@@ -17,6 +18,7 @@ export const Example = () => {
       />
       <Switch
         size="md"
+        // @ts-ignore
         onColor="seagreen"
         offColor="red"
         name="switch-sample"
@@ -25,6 +27,7 @@ export const Example = () => {
       />
       <Switch
         size="lg"
+        // @ts-ignore
         onColor="seagreen"
         offColor="red"
         defaultIsChecked={true}

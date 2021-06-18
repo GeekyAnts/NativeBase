@@ -1,68 +1,40 @@
 import React from 'react';
-import { Tooltip, Button, VStack, HStack } from 'native-base';
+import { Tooltip, Button, VStack, Select, CheckIcon } from 'native-base';
 
 export function Example() {
+  const [position, setPosition] = React.useState('top left');
+
   return (
-    <VStack space={6}>
-      <Tooltip label="Auto">
-        <Button>Auto</Button>
+    <VStack space={6} alignSelf="flex-start" w="100%">
+      {/* @ts-ignore */}
+      <Tooltip label={position} placement={position}>
+        <Button alignSelf="center">ToolTip</Button>
       </Tooltip>
 
-      <HStack space={6}>
-        <Tooltip label="Top start" placement="top left">
-          <Button>Top-Start</Button>
-        </Tooltip>
-
-        <Tooltip label="Top" placement="top">
-          <Button>Top</Button>
-        </Tooltip>
-
-        <Tooltip label="Top end" placement="top right">
-          <Button>Top right</Button>
-        </Tooltip>
-      </HStack>
-
-      <HStack space={6}>
-        <Tooltip label="Right top" placement="right top">
-          <Button>Right top</Button>
-        </Tooltip>
-
-        <Tooltip label="Right" placement="right">
-          <Button>Right</Button>
-        </Tooltip>
-
-        <Tooltip label="Right bottom" placement="right bottom">
-          <Button>Right bottom</Button>
-        </Tooltip>
-      </HStack>
-
-      <HStack space={6}>
-        <Tooltip label="Bottom left" placement="bottom left">
-          <Button>Bottom left</Button>
-        </Tooltip>
-
-        <Tooltip label="Bottom" placement="bottom">
-          <Button>Bottom</Button>
-        </Tooltip>
-
-        <Tooltip label="Bottom right" placement="bottom right">
-          <Button>Bottom right</Button>
-        </Tooltip>
-      </HStack>
-
-      <HStack space={6}>
-        <Tooltip label="Left top" placement="left top">
-          <Button>Left top</Button>
-        </Tooltip>
-
-        <Tooltip label="Left" placement="left">
-          <Button>Left</Button>
-        </Tooltip>
-
-        <Tooltip label="Left bottom" placement="left bottom">
-          <Button>Left bottom</Button>
-        </Tooltip>
-      </HStack>
+      <Select
+        selectedValue={position}
+        mx={{ base: 0, md: 'auto' }}
+        accessibilityLabel="Select your favorite programming language"
+        placeholder="Select your favorite programming language"
+        onValueChange={(nextValue) => setPosition(nextValue)}
+        _selectedItem={{
+          bg: 'cyan.600',
+          endIcon: <CheckIcon size={4} />,
+        }}
+      >
+        <Select.Item label="Top Left" value="top left" />
+        <Select.Item label="Top" value="top" />
+        <Select.Item label="Top Right" value="top right" />
+        <Select.Item label="Right Top" value="right top" />
+        <Select.Item label="Right" value="right" />
+        <Select.Item label="Right Bottom" value="right bottom" />
+        <Select.Item label="Bottom Left" value="bottom left" />
+        <Select.Item label="Bottom" value="bottom" />
+        <Select.Item label="Bottom Right" value="bottom right" />
+        <Select.Item label="Left Top" value="left top" />
+        <Select.Item label="Left" value="left" />
+        <Select.Item label="Left Bottom" value="left bottom" />
+      </Select>
     </VStack>
   );
 }

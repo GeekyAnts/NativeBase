@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { Modal, Button, VStack } from 'native-base';
+import { Modal, Button, Stack } from 'native-base';
 
 export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -42,7 +42,7 @@ export function Example() {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-      <VStack space={2}>
+      <Stack direction={{ base: 'column', md: 'row' }} space={2}>
         {['sm', 'md', 'lg', 'full'].map((size) => {
           return (
             <Button
@@ -51,7 +51,7 @@ export function Example() {
             >{`Open ${size} Modal`}</Button>
           );
         })}
-      </VStack>
+      </Stack>
     </>
   );
 }

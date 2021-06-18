@@ -2,7 +2,7 @@ import React from 'react';
 import {
   FormControl,
   Select,
-  VStack,
+  HStack,
   Text,
   Container,
   CheckIcon,
@@ -41,12 +41,12 @@ export const Example = () => {
         <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>
       </FormControl>
 
-      <VStack mt={3} alignItems="baseline">
+      <HStack mt={3} alignItems="baseline">
         <Text fontSize="md">Selected Values: </Text>
         <Text fontSize="md" bold>
           {value}
         </Text>
-      </VStack>
+      </HStack>
     </Container>
   );
 };

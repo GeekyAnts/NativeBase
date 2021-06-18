@@ -117,7 +117,9 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
       fontStyle={italic ? 'italic' : fontStyle}
       bg={highlight ? 'warning.200' : reslovedProps.bg}
       textDecorationLine={
-        underline
+        underline && strikeThrough
+          ? 'underline line-through'
+          : underline
           ? 'underline'
           : strikeThrough
           ? 'line-through'

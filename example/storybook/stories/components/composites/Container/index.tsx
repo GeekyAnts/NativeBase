@@ -2,9 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Usage from './usage';
-import Playground from './Playground';
-import CenteringChildren from './centeringChildren';
+import { Example as Usage } from './usage';
+import { Example as Playground } from './Playground';
+import { Example as CenteringChildren } from './centeringChildren';
 
 storiesOf('Container', module)
   .addDecorator(withKnobs)
