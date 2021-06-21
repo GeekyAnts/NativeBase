@@ -72,8 +72,6 @@ const Menu = (
     callback: handleClose,
   });
 
-  console.log('*****', isOpen);
-
   return (
     <>
       {updatedTrigger()}
