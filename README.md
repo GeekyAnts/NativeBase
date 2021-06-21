@@ -1,4 +1,4 @@
-# <img src="https://github.com/nativebase/website/blob/fix/og-tags/static/img/58.png" alt="Nativebase Logo"> 
+# <img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/header.png" alt="Nativebase Logo"> 
 
 [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
 
@@ -24,11 +24,10 @@ You can find the complete documentation [here](https://docs.nativebase.io/).
 8. [KitchenSink App](https://github.com/nativebase/kitchen-sink)
 9. [Tech Stack](#9-tech-stack)
 10. [Compatible Versions](#10-compatible-versions)
-11. [Quick Links](#11-quick-links)
-12. [Contributors](#12-contributors)
-13. [Changelog](#13-changelog)
-14. [Community](#14-community)
-15. [License](#15-license)
+11. [Contributors](#11-contributors)
+12. [Changelog](#12-changelog)
+13. [Community](#13-community)
+14. [License](#14-license)
 
 
 ## 1. Introduction?
@@ -182,14 +181,21 @@ JavaScript, React Native, Styled System
 
 ## 10. Compatible Versions
 
-//needs to be updated
+| NativeBase          		    | React Native   	        |
+| --------------------------------|---------------------|
+| v0.1.1			                | v0.22 to v0.23          |					 
+| v0.2.0 to v0.3.1	  		    |	v0.24 to v0.25			 	  |
+| v0.4.6 to v0.4.9	  		    |	v0.26.0 - v0.27.1			 	|
+| v0.5.0 to v0.5.15	  		    |	v0.26.0 - v0.37.0			 	|
+| v0.5.16 to v0.5.20	  	    | v0.38.0 - v0.39.0				|
+| v2.0.0-alpha1 to v2.1.3	    |	v0.38.0 to v0.43.0			|	
+| v2.1.4 to v2.1.5	  		    |	v0.44.0 to v0.45.0			|
+| v2.2.0			  		          | v0.44.0 to v0.45.0			|
+| v2.2.1			  		          |	v0.46.0 and above				|
+| v2.3.0 to 2.6.1	  		      | v0.46.0 and above (does not support React 16.0.0-alpha.13) |
+| v2.7.0			  		          |	v0.56.0 and above			 	|
 
-## 11. Quick Links
-
-* [NativeBase Documentation](https://docs.nativebase.io)
-* [NativeBase on Twitter](https://twitter.com/NativeBaseIO)
-* [NativeBase on FaceBook](https://www.facebook.com/nativebaseio/)
-## 12. Contributors
+## 11. Contributors
 
 ### Code Contributors
 
@@ -219,14 +225,14 @@ Support this project with your organization. Your logo will show up here with a 
 <a href="https://opencollective.com/NativeBase/organization/8/website"><img src="https://opencollective.com/NativeBase/organization/8/avatar.svg"></a>
 <a href="https://opencollective.com/NativeBase/organization/9/website"><img src="https://opencollective.com/NativeBase/organization/9/avatar.svg"></a>
 
-## 13. Changelog
+## 12. Changelog
 
-## 14. Community
+## 13. Community
 - [Facebook](https://www.facebook.com/nativebaseio)
 - [Twitter](https://twitter.com/nativebaseio)
 - [Discord](https://discord.com/invite/TSgCw2UPmb)
 - [Stackoverflow](https://stackoverflow.com/questions/tagged/native-base)
 - [Medium](https://blog.nativebase.io/)
 - [YouTube](https://www.youtube.com/channel/UCoL_iTwpY07vDs91974z3xA/about)
-## 15. License
+## 14. License
 Licensed under the MIT License, Copyright © 2020 GeekyAnts. See [LICENSE](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE) for more information.
