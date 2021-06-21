@@ -21,7 +21,7 @@ You can find the complete documentation [here](https://docs.nativebase.io/).
 5. [Installation & Setup](#5-installation-&-setup)
 6. [Components](#6-components)
 7. [Examples](#7-examples)
-8. [KitchenSink App](https://github.com/nativebase/kitchen-sink)
+8. [KitchenSink App](#8-kitchensink-app)
 9. [Tech Stack](#9-tech-stack)
 10. [Compatible Versions](#10-compatible-versions)
 11. [Contributors](#11-contributors)
@@ -181,6 +181,10 @@ The order is important because Expo can mix in the location of vector icons to t
 
 Check out the Login Screen example [here](https://docs.nativebase.io/todo-example)
 
+## 8. Kitchen Sink
+
+Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
+# <img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/kitchensink.png" alt="gif"> # <img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/scan_kitchensink.png" alt="Nativebase Logo"> 
 ## 9. Tech Stack
 
 JavaScript, React Native, Styled System
