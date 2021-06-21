@@ -1,4 +1,4 @@
-# <img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/header.png" alt="Nativebase Logo"> 
+# <img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/header1.png" alt="Nativebase Logo"> 
 
 [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
 
@@ -43,8 +43,12 @@ Building with React Native from scratch is a tedious process with multiple steps
 Our inspirations include Material UI, Chakra UI, Ant Design, Braid Design System, Bootstrap, TailwindCSS & Flutter.
 
 ## 3. Features
+
+### **Out of the Box Accessibility**
+
 Integrated with React ARIA and React Native ARIA, which provides React hooks. This enables you to build accessible design systems in no time.
 
+<img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/feature.png" alt="Out of the box accessibility"> 
 
 ### **Supporting Utility Props**
 
@@ -57,6 +61,8 @@ NativeBase offers around 40 components so you can build seamlessly. It includes 
 ### **Highly Themeable**
 
 Themeability is one of the core elements of NativeBase. You can customise your app theme and component styles to your heart's content.
+
+<img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/theme.png" alt="Nativebase Logo"> 
 
 ### **Available for Both Mobile and Web**
 
