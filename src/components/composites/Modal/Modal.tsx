@@ -14,6 +14,7 @@ import type { IModalProps } from './types';
 import { Fade } from '../../composites/Transitions';
 import { useKeyboardBottomInset } from '../../../utils';
 import { Overlay } from '../../primitives';
+import { AnimatedPresence } from '../Transitions/AnimatedPresence';
 
 const Modal = (
   {
@@ -63,57 +64,59 @@ const Modal = (
   const handleClose = () => setVisible(false);
 
   return (
-    <Overlay isOpen={isOpen} onRequestClose={handleClose}>
-      <ModalContext.Provider
-        value={{
-          handleClose,
-          contentSize,
-          initialFocusRef,
-          finalFocusRef,
-        }}
-      >
-        <Fade
-          exitDuration={150}
-          entryDuration={200}
-          in={visible}
-          style={StyleSheet.absoluteFill}
-        >
-          {overlayVisible && (
-            <Backdrop
-              onPress={() => {
-                closeOnOverlayClick && setVisible(false);
-              }}
-            />
-          )}
-        </Fade>
-        {animationPreset === 'slide' ? (
-          <Slide in={visible} duration={200}>
-            <FocusScope
-              contain={visible}
-              autoFocus={visible && !initialFocusRef}
-              restoreFocus={visible && !finalFocusRef}
-            >
-              {child}
-            </FocusScope>
-          </Slide>
-        ) : (
-          <Fade
-            exitDuration={100}
-            entryDuration={200}
-            in={visible}
-            style={StyleSheet.absoluteFill}
+    <AnimatedPresence>
+      {isOpen && (
+        <Overlay onRequestClose={handleClose}>
+          <ModalContext.Provider
+            value={{
+              handleClose,
+              contentSize,
+              initialFocusRef,
+              finalFocusRef,
+            }}
           >
-            <FocusScope
-              contain={visible}
-              autoFocus={visible && !initialFocusRef}
-              restoreFocus={visible && !finalFocusRef}
+            <Fade
+              exitDuration={150}
+              entryDuration={200}
+              style={StyleSheet.absoluteFill}
             >
-              {child}
-            </FocusScope>
-          </Fade>
-        )}
-      </ModalContext.Provider>
-    </Overlay>
+              {overlayVisible && (
+                <Backdrop
+                  onPress={() => {
+                    closeOnOverlayClick && setVisible(false);
+                  }}
+                />
+              )}
+            </Fade>
+            {animationPreset === 'slide' ? (
+              <Slide duration={150}>
+                <FocusScope
+                  contain={visible}
+                  autoFocus={visible && !initialFocusRef}
+                  restoreFocus={visible && !finalFocusRef}
+                >
+                  {child}
+                </FocusScope>
+              </Slide>
+            ) : (
+              <Fade
+                exitDuration={150}
+                entryDuration={200}
+                style={StyleSheet.absoluteFill}
+              >
+                <FocusScope
+                  contain={visible}
+                  autoFocus={visible && !initialFocusRef}
+                  restoreFocus={visible && !finalFocusRef}
+                >
+                  {child}
+                </FocusScope>
+              </Fade>
+            )}
+          </ModalContext.Provider>
+        </Overlay>
+      )}
+    </AnimatedPresence>
   );
 };
 

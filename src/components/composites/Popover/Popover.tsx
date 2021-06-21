@@ -11,6 +11,7 @@ import { PresenceTransition } from '../Transitions';
 import { StyleSheet } from 'react-native';
 import { useId } from '@react-aria/utils';
 import { Overlay } from '../../primitives';
+import { AnimatedPresence } from '../Transitions/AnimatedPresence';
 
 const Popover = (
   {
@@ -68,42 +69,45 @@ const Popover = (
   return (
     <Box ref={ref}>
       {updatedTrigger()}
-      <Overlay isOpen={isOpen} onRequestClose={handleClose}>
-        <PresenceTransition
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 150 } }}
-          exit={{ opacity: 0, scale: 0.95, transition: { duration: 100 } }}
-          visible={isOpen}
-          style={StyleSheet.absoluteFill}
-        >
-          <Popper
-            isChildOfNativeModal
-            onClose={handleClose}
-            triggerRef={triggerRef}
-            {...rest}
-          >
-            <Backdrop onPress={handleClose} bg="transparent" />
-            <PopoverContext.Provider
-              value={{
-                onClose: handleClose,
-                initialFocusRef,
-                finalFocusRef,
-                popoverContentId,
-                bodyId,
-                headerId,
-                headerMounted,
-                bodyMounted,
-                setBodyMounted,
-                setHeaderMounted,
-              }}
+      <AnimatedPresence>
+        {isOpen && (
+          <Overlay onRequestClose={handleClose}>
+            <PresenceTransition
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 150 } }}
+              exit={{ opacity: 0, scale: 0.95, transition: { duration: 100 } }}
+              style={StyleSheet.absoluteFill}
             >
-              <FocusScope contain={trapFocus} restoreFocus autoFocus>
-                {children}
-              </FocusScope>
-            </PopoverContext.Provider>
-          </Popper>
-        </PresenceTransition>
-      </Overlay>
+              <Popper
+                isChildOfNativeModal
+                onClose={handleClose}
+                triggerRef={triggerRef}
+                {...rest}
+              >
+                <Backdrop onPress={handleClose} bg="transparent" />
+                <PopoverContext.Provider
+                  value={{
+                    onClose: handleClose,
+                    initialFocusRef,
+                    finalFocusRef,
+                    popoverContentId,
+                    bodyId,
+                    headerId,
+                    headerMounted,
+                    bodyMounted,
+                    setBodyMounted,
+                    setHeaderMounted,
+                  }}
+                >
+                  <FocusScope contain={trapFocus} restoreFocus autoFocus>
+                    {children}
+                  </FocusScope>
+                </PopoverContext.Provider>
+              </Popper>
+            </PresenceTransition>
+          </Overlay>
+        )}
+      </AnimatedPresence>
     </Box>
   );
 };

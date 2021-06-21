@@ -3,7 +3,7 @@ import type { IMenuProps } from './types';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Popper } from '../Popper';
-import { ScrollView } from 'react-native';
+import { AccessibilityInfo, ScrollView } from 'react-native';
 import { useControllableState, useKeyboardDismissable } from '../../../hooks';
 import { useMenuTrigger, useMenu, useMenuTypeahead } from './useMenu';
 import Backdrop from '../Backdrop';
@@ -11,6 +11,7 @@ import { PresenceTransition } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import { MenuContext } from './MenuContext';
 import { Overlay } from '../../primitives';
+import { AnimatedPresence } from '../Transitions/AnimatedPresence';
 
 const Menu = (
   {
@@ -60,38 +61,50 @@ const Menu = (
     );
   };
 
+  React.useEffect(() => {
+    if (isOpen) {
+      AccessibilityInfo.announceForAccessibility('Popup window');
+    }
+  }, [isOpen]);
+
   useKeyboardDismissable({
     enabled: isOpen,
     callback: handleClose,
   });
 
+  console.log('*****', isOpen);
+
   return (
     <>
       {updatedTrigger()}
-      <Overlay isOpen={isOpen} onRequestClose={handleClose}>
-        <PresenceTransition visible={isOpen} {...transition}>
-          <Popper
-            triggerRef={triggerRef}
-            onClose={handleClose}
-            placement={placement}
-            isChildOfNativeModal={true}
-            {...restProps}
-          >
-            <Backdrop bg="transparent" onPress={handleClose} />
-            <Popper.Content>
-              <MenuContext.Provider
-                value={{ closeOnSelect, onClose: handleClose }}
+      <AnimatedPresence>
+        {isOpen && (
+          <Overlay onRequestClose={handleClose}>
+            <PresenceTransition {...transition}>
+              <Popper
+                triggerRef={triggerRef}
+                onClose={handleClose}
+                placement={placement}
+                isChildOfNativeModal={true}
+                {...restProps}
               >
-                <FocusScope contain restoreFocus autoFocus>
-                  <MenuContent menuRef={ref} {...newProps}>
-                    {children}
-                  </MenuContent>
-                </FocusScope>
-              </MenuContext.Provider>
-            </Popper.Content>
-          </Popper>
-        </PresenceTransition>
-      </Overlay>
+                <Backdrop bg="transparent" onPress={handleClose} />
+                <Popper.Content>
+                  <MenuContext.Provider
+                    value={{ closeOnSelect, onClose: handleClose }}
+                  >
+                    <FocusScope contain restoreFocus autoFocus>
+                      <MenuContent menuRef={ref} {...newProps}>
+                        {children}
+                      </MenuContent>
+                    </FocusScope>
+                  </MenuContext.Provider>
+                </Popper.Content>
+              </Popper>
+            </PresenceTransition>
+          </Overlay>
+        )}
+      </AnimatedPresence>
     </>
   );
 };

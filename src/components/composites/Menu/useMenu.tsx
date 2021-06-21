@@ -19,6 +19,7 @@ export const useMenuTrigger = ({ handleOpen, isOpen }: IMenuTriggerProps) => {
     'aria-haspopup': 'menu',
     'aria-expanded': isOpen ? true : undefined,
     'nativeID': menuTriggerId,
+    'accessibilityRole': 'button',
   };
 };
 

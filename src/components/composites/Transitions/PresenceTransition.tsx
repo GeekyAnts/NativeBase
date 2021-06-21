@@ -1,24 +1,26 @@
 import React, { memo, forwardRef } from 'react';
 import { Transition } from './Transition';
+import { AnimatedPresenceContext } from './AnimatedPresence';
 import type { IPresenceTransitionProps } from './types';
 
 const PresenceTransition = (
-  { visible = false, onTransitionComplete, ...rest }: IPresenceTransitionProps,
+  {
+    visible: propVisible,
+    onTransitionComplete,
+    ...rest
+  }: IPresenceTransitionProps,
   ref: any
 ) => {
-  const [animationExited, setAnimationExited] = React.useState(true);
-  if (!visible && animationExited) {
-    return null;
-  }
+  const { setSafeToUnmount, visible } = React.useContext(
+    AnimatedPresenceContext
+  );
 
   return (
     <Transition
-      visible={visible}
+      visible={propVisible ?? visible}
       onTransitionComplete={(state) => {
         if (state === 'exited') {
-          setAnimationExited(true);
-        } else {
-          setAnimationExited(false);
+          setSafeToUnmount(true);
         }
         onTransitionComplete && onTransitionComplete(state);
       }}
