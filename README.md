@@ -187,10 +187,8 @@ Check out the Login Screen example [here](https://docs.nativebase.io/todo-exampl
 Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
 
 <p style="display: flex; align-items: flex-start;">
-<!-- <img style="display: inline-block;" src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/kitchensink.gif" alt="kitchensink" width="60%"><img style="display:inline-block;" src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/scan_kitchensink.png" alt="Nativebase Logo" width="50%">  -->
-<img src="./img/kitchensink.gif" width="30%" style="margin-right:50px">
-<img src="./img/scan_kitchensink.png" width="20%" style="align-self: center;">
-<!-- ![KichenSink App](./img/kitchensink.gif) | ![scan](./img/scan_kitchensink.png) -->
+<img src="./img/kitchensink.gif" width="30%" style="margin-right:50px" alt="Kitchensink App gif">
+<img src="./img/scan_kitchensink.png" width="20%" style="align-self: center;" alt="Kitchensink App QR code">
 </p>
 
 ## 9. Tech Stack
