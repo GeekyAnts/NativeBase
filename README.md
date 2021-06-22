@@ -193,8 +193,8 @@ Kitchen Sink is a comprehensive demo app showcasing all the NativeBase component
 
 <table>
   <tr>
-    <td> <img src="./img/kitchensink.gif" width="50%" style="margin-right:50px" alt="Kitchensink App gif"> </td>
-    <td> <img src="./img/scan_kitchensink.png" width="50%" style="align-self: center;" alt="Kitchensink App QR code"> </td>
+    <td style="border:0px;"><img src="./img/kitchensink.gif" width="50%" style="margin-right:50px" alt="Kitchensink App gif"></td>
+    <td style="border:0px;"><img src="./img/scan_kitchensink.png" width="50%" style="align-self: center;" alt="Kitchensink App QR code"></td>
   </tr>
 </table>
 
