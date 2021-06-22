@@ -1,0 +1,230 @@
+diff --git a/node_modules/react-native-modal-selector/index.js b/node_modules/react-native-modal-selector/index.js
+index 3982625..74ec667 100644
+--- a/node_modules/react-native-modal-selector/index.js
++++ b/node_modules/react-native-modal-selector/index.js
+@@ -1,8 +1,6 @@
+ 'use strict';
+-
+ import React from 'react';
+ import PropTypes from 'prop-types';
+-
+ import {
+     View,
+     Modal,
+@@ -12,13 +10,9 @@ import {
+     TouchableWithoutFeedback,
+     ViewPropTypes as RNViewPropTypes,
+ } from 'react-native';
+-
+ import styles from './style';
+-
+ const ViewPropTypes = RNViewPropTypes || View.propTypes;
+-
+ let componentIndex = 0;
+-
+ const propTypes = {
+     data:                           PropTypes.array,
+     onChange:                       PropTypes.func,
+@@ -30,23 +24,23 @@ const propTypes = {
+     closeOnChange:                  PropTypes.bool,
+     initValue:                      PropTypes.string,
+     animationType:                  PropTypes.oneOf(['none', 'slide', 'fade']),
+-    style:                          ViewPropTypes.style,
+-    selectStyle:                    ViewPropTypes.style,
+-    selectTextStyle:                Text.propTypes.style,
+-    optionStyle:                    ViewPropTypes.style,
+-    optionTextStyle:                Text.propTypes.style,
+-    optionContainerStyle:           ViewPropTypes.style,
+-    sectionStyle:                   ViewPropTypes.style,
+-    childrenContainerStyle:         ViewPropTypes.style,
+-    touchableStyle:                 ViewPropTypes.style,
++    style:                          PropTypes.any,
++    selectStyle:                    PropTypes.any,
++    selectTextStyle:                PropTypes.any,
++    optionStyle:                    PropTypes.any,
++    optionTextStyle:                PropTypes.any,
++    optionContainerStyle:           PropTypes.any,
++    sectionStyle:                   PropTypes.any,
++    childrenContainerStyle:         PropTypes.any,
++    touchableStyle:                 PropTypes.any,
+     touchableActiveOpacity:         PropTypes.number,
+-    sectionTextStyle:               Text.propTypes.style,
+-    selectedItemTextStyle:          Text.propTypes.style,
+-    cancelContainerStyle:           ViewPropTypes.style,
+-    cancelStyle:                    ViewPropTypes.style,
+-    cancelTextStyle:                Text.propTypes.style,
+-    overlayStyle:                   ViewPropTypes.style,
+-    initValueTextStyle:             Text.propTypes.style,
++    sectionTextStyle:               PropTypes.any,
++    selectedItemTextStyle:          PropTypes.any,
++    cancelContainerStyle:           PropTypes.any,
++    cancelStyle:                    PropTypes.any,
++    cancelTextStyle:                PropTypes.any,
++    overlayStyle:                   PropTypes.any,
++    initValueTextStyle:             PropTypes.any,
+     cancelText:                     PropTypes.string,
+     disabled:                       PropTypes.bool,
+     supportedOrientations:          PropTypes.arrayOf(
+@@ -78,7 +72,6 @@ const propTypes = {
+     enableLongPress:                PropTypes.bool,
+     optionsTestIDPrefix:            PropTypes.string,
+ };
+-
+ const defaultProps = {
+     data:                           [],
+     onChange:                       () => {},
+@@ -131,9 +124,7 @@ const defaultProps = {
+     enableLongPress:                false,
+     optionsTestIDPrefix:            'default',
+ };
+-
+ export default class ModalSelector extends React.Component {
+-
+     constructor(props) {
+         super(props);
+         let selectedItem = this.validateSelectedKey(props.selectedKey);
+@@ -144,7 +135,6 @@ export default class ModalSelector extends React.Component {
+             changedItem:   selectedItem.key,
+         };
+     }
+-
+     componentDidUpdate(prevProps, prevState) {
+         let newState = {};
+         let doUpdate = false;
+@@ -166,14 +156,12 @@ export default class ModalSelector extends React.Component {
+             this.setState(newState);
+         }
+     }
+-
+     validateSelectedKey = (key) => {
+         let selectedItem = this.props.data.filter((item) => this.props.keyExtractor(item) === key);
+         let selectedLabel = selectedItem.length > 0 ? this.props.labelExtractor(selectedItem[0]) : this.props.initValue;
+         let selectedKey = selectedItem.length > 0 ? key : undefined;
+         return {label: selectedLabel, key: selectedKey}
+     }
+-
+     onChange = (item) => {
+         this.props.onChange(item);
+         this.setState({ selected: this.props.labelExtractor(item), changedItem: item }, () => {
+@@ -181,18 +169,15 @@ export default class ModalSelector extends React.Component {
+             this.close(item);
+         });
+     }
+-
+     getSelectedItem() {
+       return this.state.changedItem;
+     }
+-
+     close = (item) => {
+         this.props.onModalClose(item);
+         this.setState({
+             modalVisible: false,
+         });
+     }
+-
+     open = (params = {}) => {
+         if (!params.longPress && !this.props.enableShortPress) {
+           return;
+@@ -206,31 +191,26 @@ export default class ModalSelector extends React.Component {
+             changedItem:  undefined,
+         });
+     }
+-
+     renderSection = (section) => {
+         const optionComponent = this.props.componentExtractor(section);
+         let component = optionComponent || (
+           <Text style={[styles.sectionTextStyle,this.props.sectionTextStyle]}>{this.props.labelExtractor(section)}</Text>
+         );
+-
+         return (
+             <View key={this.props.keyExtractor(section)} style={[styles.sectionStyle,this.props.sectionStyle]}>
+                 {component}
+             </View>
+         );
+     }
+-
+     renderOption = (option, isLastItem, isFirstItem) => {
+         const optionComponent = this.props.componentExtractor(option);
+         const optionLabel = this.props.labelExtractor(option);
+         const isSelectedItem = optionLabel === this.state.selected;
+-
+         let component = optionComponent || (
+           <Text style={[styles.optionTextStyle,this.props.optionTextStyle,isSelectedItem && this.props.selectedItemTextStyle]} {...this.props.optionTextPassThruProps}>
+               {optionLabel}
+           </Text>
+         );
+-
+         return (
+             <TouchableOpacity
+               key={this.props.keyExtractor(option)}
+@@ -247,7 +227,6 @@ export default class ModalSelector extends React.Component {
+                 </View>
+             </TouchableOpacity>);
+     }
+-
+     renderOptionList = () => {
+         const {
+             data,
+@@ -266,14 +245,12 @@ export default class ModalSelector extends React.Component {
+             cancelTextStyle,
+             cancelText,
+         } = this.props;
+-
+         let options = data.map((item, index) => {
+             if (item.section) {
+                 return this.renderSection(item);
+             }
+             return this.renderOption(item, index === data.length - 1, index === 0);
+         });
+-
+         let Overlay = View;
+         let overlayProps = {
+             style: {flex:1}
+@@ -287,12 +264,10 @@ export default class ModalSelector extends React.Component {
+               onPress: this.close
+           };
+         }
+-
+         const optionsContainerStyle = {paddingHorizontal: 10};
+         if (scrollViewPassThruProps && scrollViewPassThruProps.horizontal) {
+           optionsContainerStyle.flexDirection = 'row';
+         }
+-
+         return (
+             <Overlay {...overlayProps}>
+                 <View style={[styles.overlayStyle, overlayStyle]}>
+@@ -318,9 +293,7 @@ export default class ModalSelector extends React.Component {
+                 </View>
+             </Overlay>);
+     }
+-
+     renderChildren = () => {
+-
+         if(this.props.children) {
+             return this.props.children;
+         }
+@@ -332,9 +305,7 @@ export default class ModalSelector extends React.Component {
+             </View>
+         );
+     }
+-
+     render() {
+-
+         const dp = (
+             <Modal
+                 transparent={true}
+@@ -348,7 +319,6 @@ export default class ModalSelector extends React.Component {
+                 {this.renderOptionList()}
+             </Modal>
+         );
+-
+         return (
+             <View style={this.props.style} {...this.props.passThruProps}>
+                 {dp}
+@@ -373,6 +343,5 @@ export default class ModalSelector extends React.Component {
+         );
+     }
+ }
+-
+ ModalSelector.propTypes = propTypes;
+ ModalSelector.defaultProps = defaultProps;

@@ -1,6 +1,10 @@
 {
-  "printWidth": 80,
-  "singleQuote": true,
-  "tabWidth": 2,
-  "semi": true
+    "singleQuote": true,
+    "jsxBracketSameLine": false,
+    "useTabs": false,
+    "eslintIntegration": false,
+    "tslintIntegration": true,
+    "parser": "typescript",
+    "requireConfig": false,
+    "stylelintIntegration": false
 }

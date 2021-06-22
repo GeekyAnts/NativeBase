@@ -1,7 +1,7 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "parser": "babel-eslint",
+  "extends": ["@react-native-community", "prettier"],
   "rules": {
+<<<<<<< HEAD
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "react/require-extension": "off",
     "no-undef": "off",
@@ -17,6 +17,19 @@
     "react/no-did-update-set-state": "off",
     "react/no-multi-comp": "off",
     "react/prop-types": "off"
+=======
+    "prettier/prettier": [
+      "error",
+      {
+        "quoteProps": "preserve",
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "es5",
+        "useTabs": false
+      }
+    ],
+    "no-bitwise": 0
+>>>>>>> development
   },
-  "plugins": ["react", "jsx-a11y", "import", "react-native"]
+  "plugins": ["prettier"]
 }
