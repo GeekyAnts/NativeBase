@@ -1,4 +1,4 @@
-# <img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/header1.png" alt="Nativebase Logo"> 
+# <img src="./img/header1.png" alt="Nativebase Logo"> 
 
 [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
 
@@ -48,7 +48,7 @@ Our inspirations include Material UI, Chakra UI, Ant Design, Braid Design System
 
 Integrated with React ARIA and React Native ARIA, which provides React hooks. This enables you to build accessible design systems in no time.
 
-<img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/feature.png" alt="Out of the box accessibility"> 
+<img src="./img/feature.png" alt="Out of the box accessibility"> 
 
 ### **Supporting Utility Props**
 
@@ -62,7 +62,7 @@ NativeBase offers around 40 components so you can build seamlessly. It includes 
 
 Themeability is one of the core elements of NativeBase. You can customise your app theme and component styles to your heart's content.
 
-<img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/theme.png" alt="Nativebase Logo"> 
+<img src="./img/theme.png" alt="Nativebase Logo"> 
 
 ### **Available for Both Mobile and Web**
 
@@ -186,8 +186,11 @@ Check out the Login Screen example [here](https://docs.nativebase.io/todo-exampl
 
 Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
 
-<p style="display: flex;">
-<img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/kitchensink.gif" alt="kitchensink" width="60%">  | <img src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/scan_kitchensink.png" alt="Nativebase Logo" width="50%"> 
+<p style="display: flex; align-items: flex-start;">
+<!-- <img style="display: inline-block;" src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/kitchensink.gif" alt="kitchensink" width="60%"><img style="display:inline-block;" src="https://github.com/GeekyAnts/NativeBase/blob/README-updated/img/scan_kitchensink.png" alt="Nativebase Logo" width="50%">  -->
+<img src="./img/kitchensink.gif" width="30%" style="margin-right:50px">
+<img src="./img/scan_kitchensink.png" width="20%" style="align-self: center;">
+<!-- ![KichenSink App](./img/kitchensink.gif) | ![scan](./img/scan_kitchensink.png) -->
 </p>
 
 ## 9. Tech Stack
