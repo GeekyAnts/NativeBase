@@ -164,6 +164,8 @@ module.exports = withExpo(
 The order is important because Expo can mix in the location of vector icons to the existing font loader.Now restart your project and you should be able to load fonts!
 
 ## 6. Components
+
+NativeBase 3.0 is a rich component library with nearly 40 components.
   
 - [**Layout**](https://docs.nativebase.io/box)   
 - [**Forms**](https://docs.nativebase.io/button)
@@ -185,11 +187,6 @@ Check out the Login Screen example [here](https://docs.nativebase.io/todo-exampl
 ## 8. KitchenSink App
 
 Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
-
-<!-- <p style="display: flex; align-items: flex-start;">
-<img src="./img/kitchensink.gif" width="30%" style="margin-right:50px" alt="Kitchensink App gif">
-<img src="./img/scan_kitchensink.png" width="20%" style="align-self: center;" alt="Kitchensink App QR code">
-</p> -->
 
 <table>
   <tr style="border-top:0px;">
