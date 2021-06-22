@@ -31,8 +31,6 @@
 **Recommended by [Awesome React Native](https://github.com/jondot/awesome-react-native)**
 
 > NativeBase was added to the list of Frameworks of Awesome React Native and it is used by numerous React lovers across the world.
-
-NativeBase was added to the list of Frameworks of Awesome React Native and it is used by numerous React lovers across the world.
 ## 2. Motivation
 Building with React Native from scratch is a tedious process with multiple steps such as adding styling, interactions, state management, responsiveness, accessibility, etc. We wanted to build and ship accessible, high-quality apps quickly.
 <br />
