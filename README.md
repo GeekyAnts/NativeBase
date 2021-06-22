@@ -189,7 +189,7 @@ Check out the Login Screen example [here](https://docs.nativebase.io/todo-exampl
 Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
 
 <table>
-  <tr>
+  <tr style="border-width:0px;">
     <td style="border:0px;"><img src="./img/kitchensink.gif" width="50%" style="margin-right:50px" alt="Kitchensink App gif"></td>
     <td style="border:0px;"><img src="./img/scan_kitchensink.png" width="50%" style="align-self: center;" alt="Kitchensink App QR code"></td>
   </tr>
