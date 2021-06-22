@@ -7,7 +7,7 @@
 <br/>
 [**Documentation**](https://docs.nativebase.io/)
 
-## Table of Content
+## Table of Contents
 
 1. [Introduction](#1-introduction)
 2. [Motivation](#2-motivation)
