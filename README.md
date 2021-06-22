@@ -246,7 +246,7 @@ Check out the [changelog](https://docs.nativebase.io/changelog) in the official 
 - [Twitter](https://twitter.com/nativebaseio)
 - [Discord](https://discord.com/invite/TSgCw2UPmb)
 - [Stackoverflow](https://stackoverflow.com/questions/tagged/native-base)
-- [Medium](https://blog.nativebase.io/)
+- [Blog](https://techblog.nativebase.io/)
 - [YouTube](https://www.youtube.com/channel/UCoL_iTwpY07vDs91974z3xA/about)
 ## 14. License
 Licensed under the MIT License, Copyright © 2020 GeekyAnts. See [LICENSE](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE) for more information.
