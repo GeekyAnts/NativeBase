@@ -2,15 +2,10 @@
 
 [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
 
-A complete component library for React Native Ecosystem
-
-- **Accessible** : Maximise app usage with our accessible design.
-- **Responsive** : Create responsive apps with ease from the get-go.
-- **Themeable** : Customise your app theme and component styles.
-- **Consistent** : Make accurate predictions for web, Android & iOS.
-
-## Documentation
-You can find the complete documentation [here](https://docs.nativebase.io/).
+## NativeBase is a mobile-first, accessible component library for building a consistent design system across android, iOS & web.
+[**Website**](https://nativebase.io/)
+<br/>
+[**Documentation**](https://docs.nativebase.io/)
 
 ## Table of Content
 
@@ -35,7 +30,7 @@ You can find the complete documentation [here](https://docs.nativebase.io/).
 
 **Recommended by [Awesome React Native](https://github.com/jondot/awesome-react-native)**
 
-NativeBase was added to the list of Frameworks of Awesome React Native and it is used by numerous React lovers across the world.
+> NativeBase was added to the list of Frameworks of Awesome React Native and it is used by numerous React lovers across the world.
 ## 2. Motivation
 Building with React Native from scratch is a tedious process with multiple steps such as adding styling, interactions, state management, responsiveness, accessibility, etc. We wanted to build and ship accessible, high-quality apps quickly.
 <br />
@@ -164,6 +159,8 @@ module.exports = withExpo(
 The order is important because Expo can mix in the location of vector icons to the existing font loader.Now restart your project and you should be able to load fonts!
 
 ## 6. Components
+
+NativeBase 3.0 is a rich component library with nearly 40 components.
   
 - [**Layout**](https://docs.nativebase.io/box)   
 - [**Forms**](https://docs.nativebase.io/button)
@@ -179,25 +176,16 @@ The order is important because Expo can mix in the location of vector icons to t
 
 ## 7. Examples
 
-Check out the Login Screen example [here](https://docs.nativebase.io/todo-example)
+[Check out the Login Screen example](https://docs.nativebase.io/todo-example)
 
 
 ## 8. KitchenSink App
 
 Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
-
-<!-- <p style="display: flex; align-items: flex-start;">
-<img src="./img/kitchensink.gif" width="30%" style="margin-right:50px" alt="Kitchensink App gif">
-<img src="./img/scan_kitchensink.png" width="20%" style="align-self: center;" alt="Kitchensink App QR code">
-</p> -->
-
-<table>
-  <tr style="border-top:0px;">
-    <td style="border:0px;"><img src="./img/kitchensink.gif" width="50%" style="margin-right:50px" alt="Kitchensink App gif"></td>
-    <td style="border:0px;"><img src="./img/scan_kitchensink.png" width="50%" style="align-self: center;" alt="Kitchensink App QR code"></td>
-  </tr>
-</table>
-
+<div class="flexible">
+  <img src="./img/kitchensink.gif" height="500px" alt="Kitchensink App gif">  
+  <img src="./img/qr.png" height="500px"   alt="Kitchensink App QR code">
+</div>
 
 ## 9. Tech Stack
 
@@ -205,19 +193,20 @@ JavaScript, React Native, Styled System
 
 ## 10. Compatible Versions
 
-| NativeBase          		    | React Native   	        |
-| --------------------------------|---------------------|
-| v0.1.1			                | v0.22 to v0.23          |					 
-| v0.2.0 to v0.3.1	  		    |	v0.24 to v0.25			 	  |
-| v0.4.6 to v0.4.9	  		    |	v0.26.0 - v0.27.1			 	|
-| v0.5.0 to v0.5.15	  		    |	v0.26.0 - v0.37.0			 	|
-| v0.5.16 to v0.5.20	  	    | v0.38.0 - v0.39.0				|
-| v2.0.0-alpha1 to v2.1.3	    |	v0.38.0 to v0.43.0			|	
-| v2.1.4 to v2.1.5	  		    |	v0.44.0 to v0.45.0			|
-| v2.2.0			  		          | v0.44.0 to v0.45.0			|
-| v2.2.1			  		          |	v0.46.0 and above				|
-| v2.3.0 to 2.6.1	  		      | v0.46.0 and above (does not support React 16.0.0-alpha.13) |
-| v2.7.0			  		          |	v0.56.0 and above			 	|
+| NativeBase          		    | React Native   	            |
+| --------------------------------|-------------------------|
+| v0.1.1			                    | v0.22 to v0.23          |					 
+| v0.2.0 to v0.3.1	  		        |	v0.24 to v0.25			 	  |
+| v0.4.6 to v0.4.9	  		        |	v0.26.0 - v0.27.1			 	|
+| v0.5.0 to v0.5.15	  		        |	v0.26.0 - v0.37.0			 	|
+| v0.5.16 to v0.5.20	  	        | v0.38.0 - v0.39.0				|
+| v2.0.0-alpha1 to v2.1.3	        |	v0.38.0 to v0.43.0			|	
+| v2.1.4 to v2.1.5	  		        |	v0.44.0 to v0.45.0			|
+| v2.2.0			  		              | v0.44.0 to v0.45.0			|
+| v2.2.1			  		              |	v0.46.0 and above				|
+| v2.3.0 to 2.6.1	  		          | v0.46.0 and above (does not support React 16.0.0-alpha.13) |
+| v2.7.0			  		              |	v0.56.0 and above			 	|
+| v3.0.0-next.36 to v3.0.0-next-41 | v0.63.0 and above      | 
 
 ## 11. Contributors
 
@@ -251,12 +240,13 @@ Support this project with your organization. Your logo will show up here with a 
 
 ## 12. Changelog
 
+[Check out the changelog in the official documentation](https://docs.nativebase.io/changelog)
 ## 13. Community
 - [Facebook](https://www.facebook.com/nativebaseio)
 - [Twitter](https://twitter.com/nativebaseio)
 - [Discord](https://discord.com/invite/TSgCw2UPmb)
 - [Stackoverflow](https://stackoverflow.com/questions/tagged/native-base)
-- [Medium](https://blog.nativebase.io/)
+- [Blog](https://techblog.nativebase.io/)
 - [YouTube](https://www.youtube.com/channel/UCoL_iTwpY07vDs91974z3xA/about)
 ## 14. License
 Licensed under the MIT License, Copyright © 2020 GeekyAnts. See [LICENSE](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE) for more information.
