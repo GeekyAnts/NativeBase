@@ -1,0 +1,13 @@
+diff --git a/node_modules/@storybook/react-native/dist/preview/components/OnDeviceUI/index.js b/node_modules/@storybook/react-native/dist/preview/components/OnDeviceUI/index.js
+index bb73f6a..8e07fe4 100644
+--- a/node_modules/@storybook/react-native/dist/preview/components/OnDeviceUI/index.js
++++ b/node_modules/@storybook/react-native/dist/preview/components/OnDeviceUI/index.js
+@@ -99,7 +99,7 @@ var OnDeviceUI = /** @class */ (function (_super) {
+             animation_1.getPreviewPosition(this.animatedValue, previewWidth, previewHeight, slideBetweenAnimation),
+         ];
+         var previewStyles = [flex, animation_1.getPreviewScale(this.animatedValue, slideBetweenAnimation)];
+-        return (react_1.default.createElement(react_native_1.SafeAreaView, { style: flex },
++        return (react_1.default.createElement(react_native_1.View, { style: flex },
+             react_1.default.createElement(react_native_1.KeyboardAvoidingView, { enabled: !shouldDisableKeyboardAvoidingView || tabOpen !== constants_1.PREVIEW, behavior: IS_IOS ? 'padding' : null, keyboardVerticalOffset: keyboardAvoidingViewVerticalOffset, style: flex },
+                 react_1.default.createElement(absolute_positioned_keyboard_aware_view_1.default, { onLayout: this.onLayout, previewHeight: previewHeight, previewWidth: previewWidth },
+                     react_1.default.createElement(react_native_1.Animated.View, { style: previewWrapperStyles },

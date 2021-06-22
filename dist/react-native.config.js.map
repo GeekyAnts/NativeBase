@@ -1,1 +1,0 @@
-{"version":3,"sources":["../react-native.config.js"],"names":["module","exports","dependency","assets"],"mappings":"AAAAA,OAAOC,OAAP,CAAiB,CACfC,WAAY,CACVC,OAAQ,CAAC,OAAD,CADE,CADG,CAAjB","file":"react-native.config.js","sourcesContent":["module.exports = {\n  dependency: {\n    assets: ['Fonts']\n  }\n};\n"]}
