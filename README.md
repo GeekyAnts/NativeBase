@@ -176,7 +176,7 @@ NativeBase 3.0 is a rich component library with nearly 40 components.
 
 ## 7. Examples
 
-Check out the Login Screen example [here](https://docs.nativebase.io/todo-example)
+[Check out the Login Screen example](https://docs.nativebase.io/todo-example)
 
 
 ## 8. KitchenSink App
@@ -240,7 +240,7 @@ Support this project with your organization. Your logo will show up here with a 
 
 ## 12. Changelog
 
-Check out the [changelog](https://docs.nativebase.io/changelog) in the official documentation.
+[Check out the changelog in the official documentation](https://docs.nativebase.io/changelog)
 ## 13. Community
 - [Facebook](https://www.facebook.com/nativebaseio)
 - [Twitter](https://twitter.com/nativebaseio)
