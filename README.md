@@ -1,12 +1,5 @@
 # <img src="./img/header1.png" alt="Nativebase Logo"> 
 
-<style>
-  .flexible{
-    display: flex; 
-    align-items: flex-start;
-  }
-</style>
-
 [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
 
 ## NativeBase is a mobile-first, accessible component library for building a consistent design system across android, iOS & web.
@@ -190,8 +183,8 @@ Check out the Login Screen example [here](https://docs.nativebase.io/todo-exampl
 
 Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
 <div class="flexible">
-  <img src="./img/kitchensink.gif" width="25%" style="margin-right:50px" alt="Kitchensink App gif">  
-  <img src="./img/scan_kitchensink.png" width="20%"   alt="Kitchensink App QR code">
+  <img src="./img/kitchensink.gif" height="500px" alt="Kitchensink App gif">  
+  <img src="./img/qr.png" height="500px"   alt="Kitchensink App QR code">
 </div>
 
 ## 9. Tech Stack
