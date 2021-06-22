@@ -189,7 +189,7 @@ Check out the Login Screen example [here](https://docs.nativebase.io/todo-exampl
 Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
 
 <table>
-  <tr style="border-top:0px;">
+  <tr>
     <td style="border:0px;"><img src="./img/kitchensink.gif" width="50%" style="margin-right:50px" alt="Kitchensink App gif"></td>
     <td style="border:0px;"><img src="./img/scan_kitchensink.png" width="50%" style="align-self: center;" alt="Kitchensink App QR code"></td>
   </tr>
@@ -202,19 +202,20 @@ JavaScript, React Native, Styled System
 
 ## 10. Compatible Versions
 
-| NativeBase          		    | React Native   	        |
-| --------------------------------|---------------------|
-| v0.1.1			                | v0.22 to v0.23          |					 
-| v0.2.0 to v0.3.1	  		    |	v0.24 to v0.25			 	  |
-| v0.4.6 to v0.4.9	  		    |	v0.26.0 - v0.27.1			 	|
-| v0.5.0 to v0.5.15	  		    |	v0.26.0 - v0.37.0			 	|
-| v0.5.16 to v0.5.20	  	    | v0.38.0 - v0.39.0				|
-| v2.0.0-alpha1 to v2.1.3	    |	v0.38.0 to v0.43.0			|	
-| v2.1.4 to v2.1.5	  		    |	v0.44.0 to v0.45.0			|
-| v2.2.0			  		          | v0.44.0 to v0.45.0			|
-| v2.2.1			  		          |	v0.46.0 and above				|
-| v2.3.0 to 2.6.1	  		      | v0.46.0 and above (does not support React 16.0.0-alpha.13) |
-| v2.7.0			  		          |	v0.56.0 and above			 	|
+| NativeBase          		    | React Native   	            |
+| --------------------------------|-------------------------|
+| v0.1.1			                    | v0.22 to v0.23          |					 
+| v0.2.0 to v0.3.1	  		        |	v0.24 to v0.25			 	  |
+| v0.4.6 to v0.4.9	  		        |	v0.26.0 - v0.27.1			 	|
+| v0.5.0 to v0.5.15	  		        |	v0.26.0 - v0.37.0			 	|
+| v0.5.16 to v0.5.20	  	        | v0.38.0 - v0.39.0				|
+| v2.0.0-alpha1 to v2.1.3	        |	v0.38.0 to v0.43.0			|	
+| v2.1.4 to v2.1.5	  		        |	v0.44.0 to v0.45.0			|
+| v2.2.0			  		              | v0.44.0 to v0.45.0			|
+| v2.2.1			  		              |	v0.46.0 and above				|
+| v2.3.0 to 2.6.1	  		          | v0.46.0 and above (does not support React 16.0.0-alpha.13) |
+| v2.7.0			  		              |	v0.56.0 and above			 	|
+| v3.0.0-next.36 to v3.0.0-next-41 | v0.63.0 and above      | 
 
 ## 11. Contributors
 
