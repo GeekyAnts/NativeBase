@@ -34,9 +34,6 @@ const baseStyle = (props: any) => {
     _disabled: {
       opacity: 0.5,
     },
-    _loading: {
-      opacity: 0.5,
-    },
   };
 };
 

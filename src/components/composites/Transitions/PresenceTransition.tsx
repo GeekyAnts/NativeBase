@@ -15,12 +15,22 @@ const PresenceTransition = (
     AnimatedPresenceContext
   );
 
+  const trueVisible = propVisible ?? visible;
+
+  const [animationExited, setAnimationExited] = React.useState(true);
+  if (!trueVisible && animationExited) {
+    return null;
+  }
+
   return (
     <Transition
-      visible={propVisible ?? visible}
+      visible={trueVisible}
       onTransitionComplete={(state) => {
         if (state === 'exited') {
+          setAnimationExited(true);
           setSafeToUnmount(true);
+        } else {
+          setAnimationExited(false);
         }
         onTransitionComplete && onTransitionComplete(state);
       }}

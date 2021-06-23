@@ -56,11 +56,6 @@ export interface IButtonProps extends IPressableProps {
   _stack?: IStackProps;
 
   /**
-   * Props to be passed to the Button when state is loading.
-   */
-  _loading?: IButtonProps;
-
-  /**
    * Props to be passed to the Button when state is disabled.
    */
   _disabled?: IButtonProps;
