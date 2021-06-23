@@ -108,8 +108,8 @@ NativeBase 3.0 is a rich component library with nearly 40 components.
 Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
 
 <div class="flexible">
-  <img src="https://github.com/GeekyAnts/NativeBase/raw/development/img/kitchensink.gif" height="500px" alt="Kitchensink App gif">  
-  <img src="https://raw.githubusercontent.com/GeekyAnts/NativeBase/development/img/qr.png" height="500px"   alt="Kitchensink App QR code">
+  <img src="https://github.com/GeekyAnts/NativeBase/raw/development/img/kitchensink.gif" height="500px" alt="Kitchensink App gif"> 
+  <img src="https://github.com/GeekyAnts/NativeBase/blob/development/img/qr_new.png?raw=true" height="150px" style="margin-left: 10px; background: white"  alt="Kitchensink App QR code">
 </div>
 
 ## 9. Tech Stack
