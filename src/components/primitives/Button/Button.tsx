@@ -68,7 +68,6 @@ const Button = (
       ref={ref}
       {...pressableProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
-      opacity={isDisabled || isLoading ? 0.5 : undefined}
     >
       {/* TODO : Replace Render props with Context Hook */}
       {({ isPressed, isHovered, isFocusVisible }: any) => {

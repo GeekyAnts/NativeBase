@@ -1,19 +1,15 @@
 import React, { forwardRef, memo } from 'react';
-import { OverlayContainer } from '@react-native-aria/overlays';
 import { StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';
 import { Slide } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
-import {
-  useControllableState,
-  usePropsResolution,
-  useKeyboardDismissable,
-} from '../../../hooks';
+import { useControllableState, usePropsResolution } from '../../../hooks';
 import { ModalContext } from './Context';
 import Box from '../../primitives/Box';
 import type { IModalProps } from './types';
 import { Fade } from '../../composites/Transitions';
 import { useKeyboardBottomInset } from '../../../utils';
+import { Overlay } from '../../primitives/Overlay';
 
 const Modal = (
   {
@@ -44,10 +40,7 @@ const Modal = (
     },
   });
 
-  useKeyboardDismissable({
-    enabled: isKeyboardDismissable && visible,
-    callback: () => setVisible(false),
-  });
+  const handleClose = () => setVisible(false);
 
   let child = (
     <Box
@@ -61,10 +54,15 @@ const Modal = (
   );
 
   return (
-    <OverlayContainer>
+    <Overlay
+      isOpen={visible}
+      onRequestClose={handleClose}
+      isKeyboardDismissable={isKeyboardDismissable}
+      useRNModalOnAndroid
+    >
       <ModalContext.Provider
         value={{
-          handleClose: () => setVisible(false),
+          handleClose,
           contentSize,
           initialFocusRef,
           finalFocusRef,
@@ -79,7 +77,7 @@ const Modal = (
           {overlayVisible && (
             <Backdrop
               onPress={() => {
-                closeOnOverlayClick && setVisible(false);
+                closeOnOverlayClick && handleClose();
               }}
             />
           )}
@@ -111,7 +109,7 @@ const Modal = (
           </Fade>
         )}
       </ModalContext.Provider>
-    </OverlayContainer>
+    </Overlay>
   );
 };
 
