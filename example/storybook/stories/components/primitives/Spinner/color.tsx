@@ -6,7 +6,11 @@ export const Example = () => {
     <HStack space={2}>
       <Spinner color="danger.400" />
       <Spinner color="blue.500" />
-      <Spinner color={useColorModeValue('gray.900', 'gray.100')} />
+      <Spinner
+        // color={useColorModeValue('gray.900', 'gray.100')}
+        _light={{ color: 'gray.900' }}
+        _dark={{ color: 'gray.100' }}
+      />
       <Spinner color="warning.500" />
     </HStack>
   );

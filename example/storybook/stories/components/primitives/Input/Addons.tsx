@@ -6,7 +6,6 @@ import {
   InputLeftAddon,
   InputRightAddon,
   Stack,
-  useColorModeValue,
 } from 'native-base';
 
 export const Example = () => {
@@ -17,10 +16,8 @@ export const Example = () => {
         <Input
           w={{ base: '50%', md: '100%' }}
           placeholder="nativebase"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <InputRightAddon children={'.io'} />
       </InputGroup>

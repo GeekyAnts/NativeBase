@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Stack,
-  Heading,
-  Icon,
-  Text,
-  HStack,
-  Avatar,
-  useColorModeValue,
-} from 'native-base';
+import { Box, Stack, Heading, Icon, Text, HStack, Avatar } from 'native-base';
 import { MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
 export const Example = () => {
   return (
@@ -24,12 +15,14 @@ export const Example = () => {
         <Stack space={3}>
           <Heading
             size="lg"
-            color={useColorModeValue('blueGray.700', 'blueGray.100')}
+            _light={{ color: 'blueGray.700' }}
+            _dark={{ color: 'blueGray.100' }}
           >
             Dressing room
           </Heading>
           <Text
-            color={useColorModeValue('blueGray.500', 'blueGray.200')}
+            _light={{ color: 'blueGray.500' }}
+            _dark={{ color: 'blueGray.200' }}
             fontWeight="medium"
             fontSize="xs"
           >
@@ -51,7 +44,8 @@ export const Example = () => {
               <Text
                 flexShrink={1}
                 fontWeight="medium"
-                color={useColorModeValue('blueGray.500', 'blueGray.200')}
+                _light={{ color: 'blueGray.500' }}
+                _dark={{ color: 'blueGray.200' }}
               >
                 Task: KitchenSink
               </Text>
@@ -63,7 +57,8 @@ export const Example = () => {
                 color="blueGray.700"
               />
               <Text
-                color={useColorModeValue('blueGray.500', 'blueGray.200')}
+                _light={{ color: 'blueGray.500' }}
+                _dark={{ color: 'blueGray.200' }}
                 fontWeight="medium"
               >
                 Date: 10.04.2021

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Stack, FormControl, useColorModeValue } from 'native-base';
+import { Input, Stack, FormControl } from 'native-base';
 
 export const Example = () => {
   return (
@@ -9,10 +9,8 @@ export const Example = () => {
         <Input
           placeholder="FormControl is providing me isInvalid prop"
           my={2}
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <FormControl.HelperText>I am a Helper text 😊</FormControl.HelperText>
         <FormControl.ErrorMessage>
