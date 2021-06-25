@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Input, useColorModeValue } from 'native-base';
+import { Modal, Button, Input } from 'native-base';
 
 export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -50,7 +50,8 @@ export function Example() {
         mt={4}
         ref={finalRef}
         placeholder="I'll receive focus on close"
-        placeholderTextColor={useColorModeValue('blueGray.700', 'blueGray.100')}
+        _light={{ placeholderTextColor: 'blueGray.700' }}
+        _dark={{ placeholderTextColor: 'blueGray.100' }}
       />
     </>
   );
