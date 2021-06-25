@@ -7,7 +7,7 @@ const PresenceTransition = (
   { visible = false, onTransitionComplete, ...rest }: IPresenceTransitionProps,
   ref: any
 ) => {
-  const [animationExited, setAnimationExited] = React.useState(true);
+  const [animationExited, setAnimationExited] = React.useState(!visible);
 
   const { setExited } = React.useContext(ExitAnimationContext);
 
