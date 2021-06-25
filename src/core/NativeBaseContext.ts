@@ -1,4 +1,4 @@
-import { createContext } from '../utils';
+import { createContext } from '../utils/createContext';
 import { ThemeConsumer, ThemeContext } from 'styled-components/native';
 import type { ITheme } from './../theme';
 
