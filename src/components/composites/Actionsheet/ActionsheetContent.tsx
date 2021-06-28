@@ -62,7 +62,7 @@ const ActionsheetContent = (
       {/* To increase the draggable area */}
       <Box py={5} {...panResponder.panHandlers} collapsable={false} />
 
-      <Modal.Content {...newProps} ref={ref}>
+      <Modal.Content {...newProps} ref={ref} safeAreaBottom>
         {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}
         <Box
           py={5}
