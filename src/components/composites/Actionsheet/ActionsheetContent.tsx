@@ -56,9 +56,10 @@ const ActionsheetContent = (
         const { height } = event.nativeEvent.layout;
         sheetHeight.current = height;
       }}
+      pointerEvents="box-none"
     >
       {/* To increase the draggable area */}
-      <Box py={5} {...panResponder.panHandlers} />
+      <Box py={5} {...panResponder.panHandlers} collapsable={false} />
 
       <Modal.Content {...newProps} ref={ref}>
         {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}
@@ -68,6 +69,7 @@ const ActionsheetContent = (
           {...panResponder.panHandlers}
           width="100%"
           alignItems="center"
+          collapsable={false}
         >
           <Box bg="coolGray.400" height={1} width={9} borderRadius={2} />
         </Box>
