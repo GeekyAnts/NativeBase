@@ -17,7 +17,7 @@ const RadioGroup = (
 
   let state = useRadioGroupState(props);
   let { radioGroupProps } = useRadioGroup(
-    { ...formControlContext, ...props },
+    { ...formControlContext, ...props, 'aria-label': props.accessibilityLabel },
     state
   );
   return (

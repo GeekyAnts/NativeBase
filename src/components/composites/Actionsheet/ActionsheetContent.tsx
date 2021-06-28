@@ -17,6 +17,7 @@ const ActionsheetContent = (
 
   const panResponder = React.useRef(
     PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: (_evt, gestureState) => {
         return gestureState.dy > 15;
       },
