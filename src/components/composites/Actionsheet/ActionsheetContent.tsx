@@ -51,17 +51,24 @@ const ActionsheetContent = (
       style={{
         transform: [{ translateY: pan.y }],
         width: '100%',
-        paddingTop: 40,
       }}
       onLayout={(event) => {
         const { height } = event.nativeEvent.layout;
         sheetHeight.current = height;
       }}
-      {...panResponder.panHandlers}
     >
+      {/* To increase the draggable area */}
+      <Box py={5} {...panResponder.panHandlers} />
+
       <Modal.Content {...newProps} ref={ref}>
         {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}
-        <Box py={5} mt={-2}>
+        <Box
+          py={5}
+          mt={-2}
+          {...panResponder.panHandlers}
+          width="100%"
+          alignItems="center"
+        >
           <Box bg="coolGray.400" height={1} width={9} borderRadius={2} />
         </Box>
         {children}
