@@ -13,6 +13,17 @@ const config: Config = {
     property: 'stroke',
     scale: 'colors',
   },
+  color: {
+    property: 'color',
+    scale: 'colors',
+  },
+  backgroundColor: {
+    property: 'backgroundColor',
+    scale: 'colors',
+  },
+  opacity: true,
 };
+
+config.bg = config.backgroundColor;
 
 export const customColor = system(config);

@@ -2,15 +2,6 @@ import React, { memo, forwardRef, useRef } from 'react';
 import { Text as NativeText } from 'react-native';
 import { useTheme } from '../../../hooks';
 import styled from 'styled-components/native';
-import {
-  color,
-  position,
-  space,
-  typography,
-  layout,
-  flexbox,
-  border,
-} from 'styled-system';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import {
   customBorder,
@@ -21,6 +12,9 @@ import {
   customShadow,
   customTypography,
   customPosition,
+  customSpace,
+  customFlexBox,
+  customColor,
 } from '../../../utils/customProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
@@ -55,22 +49,17 @@ function useResolvedFontFamily(props: IUseResolvedFontFamily) {
 }
 
 const StyledText = styled(NativeText)<ITextProps>(
-  color,
-  space,
-  position,
-  layout,
-  flexbox,
-  border,
-  typography,
-  position,
+  customColor,
+  customSpace,
   customPosition,
+  customLayout,
+  customFlexBox,
   customBorder,
+  customTypography,
   customBackground,
   customOutline,
   customShadow,
-  customExtra,
-  customLayout,
-  customTypography
+  customExtra
 );
 
 const Text = ({ children, ...props }: ITextProps, ref: any) => {

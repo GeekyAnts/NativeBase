@@ -1,40 +1,30 @@
 import styled from 'styled-components/native';
 import {
-  border,
-  color,
-  flexbox,
-  layout,
-  position,
-  space,
-  typography,
-} from 'styled-system';
-import {
   customBackground,
   customBorder,
+  customColor,
   customExtra,
+  customFlexBox,
   customLayout,
   customOutline,
   customPosition,
   customShadow,
+  customSpace,
   customTypography,
 } from './customProps';
 
 export const resolversForBox: any = [
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  typography,
-  customPosition,
+  customColor,
+  customSpace,
+  customLayout,
+  customFlexBox,
   customBorder,
+  customPosition,
+  customTypography,
   customBackground,
   customOutline,
   customShadow,
   customExtra,
-  customTypography,
-  customLayout,
 ];
 // @ts-ignore
 export const makeStyledBox = (Comp: any) => styled(Comp)(...resolversForBox);
