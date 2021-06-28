@@ -2,17 +2,70 @@ import React, { memo, forwardRef } from 'react';
 import { Modal } from '../../composites/Modal';
 import type { IActionsheetContentProps } from './types';
 import { usePropsResolution } from '../../../hooks';
+import { Animated, PanResponder } from 'react-native';
+import { ModalContext } from '../Modal/Context';
+import Box from '../../primitives/Box';
 
 const ActionsheetContent = (
   { children, ...props }: IActionsheetContentProps,
   ref?: any
 ) => {
   const newProps = usePropsResolution('ActionsheetContent', props);
+  const { handleClose } = React.useContext(ModalContext);
+  let pan = React.useRef(new Animated.ValueXY()).current;
+  let sheetHeight = React.useRef(0);
+
+  const panResponder = React.useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: (_evt, gestureState) => {
+        return gestureState.dy > 15;
+      },
+      onPanResponderMove: (e, gestureState) => {
+        if (gestureState.dy > 0) {
+          Animated.event([null, { dy: pan.y }], {
+            useNativeDriver: false,
+          })(e, gestureState);
+        }
+      },
+      onPanResponderRelease: (_e, gestureState) => {
+        // If sheet is dragged 1/4th of it's height, close it
+        if (sheetHeight.current / 4 - gestureState.dy < 0) {
+          Animated.timing(pan, {
+            toValue: { x: 0, y: sheetHeight.current },
+            duration: 150,
+            useNativeDriver: true,
+          }).start(handleClose);
+        } else {
+          Animated.spring(pan, {
+            toValue: { x: 0, y: 0 },
+            overshootClamping: true,
+            useNativeDriver: true,
+          }).start();
+        }
+      },
+    })
+  ).current;
 
   return (
-    <Modal.Content {...newProps} ref={ref}>
-      {children}
-    </Modal.Content>
+    <Animated.View
+      style={{
+        transform: [{ translateY: pan.y }],
+        width: '100%',
+        paddingTop: 40,
+      }}
+      onLayout={(event) => {
+        const { height } = event.nativeEvent.layout;
+        sheetHeight.current = height;
+      }}
+      {...panResponder.panHandlers}
+    >
+      <Modal.Content {...newProps} ref={ref}>
+        <Box py={5} mt={-2}>
+          <Box bg="coolGray.400" height={1} width={9} borderRadius={2} />
+        </Box>
+        {children}
+      </Modal.Content>
+    </Animated.View>
   );
 };
 
