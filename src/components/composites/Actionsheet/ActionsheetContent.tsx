@@ -60,6 +60,7 @@ const ActionsheetContent = (
       {...panResponder.panHandlers}
     >
       <Modal.Content {...newProps} ref={ref}>
+        {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}
         <Box py={5} mt={-2}>
           <Box bg="coolGray.400" height={1} width={9} borderRadius={2} />
         </Box>
