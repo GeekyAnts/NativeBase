@@ -19,21 +19,13 @@ const Button = (
 ) => {
   const {
     _text,
+    _disabled,
+    _focus,
     _hover,
     _pressed,
-    _focus,
-    _focusVisible,
     _stack,
-    ...resolvedProps
+    ...pressableProps
   } = usePropsResolution('Button', props);
-
-  const pressableProps = {
-    ...resolvedProps,
-    _hover,
-    _pressed,
-    _focus,
-    _focusVisible,
-  };
 
   const { isDisabled, isLoading } = props;
 
@@ -66,10 +58,15 @@ const Button = (
     <Pressable
       disabled={isDisabled || isLoading}
       ref={ref}
+      {..._disabled}
+      {..._focus}
+      {..._hover}
+      {..._pressed}
       {...pressableProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
-      {/* TODO : Replace Render props with Context Hook */}
+      {/* TODO: Replace Render props with Context Hook */}
+      {/* TODO: Can look for a simpler wat to do this */}
       {({ isPressed, isHovered, isFocusVisible }: any) => {
         const focusTextProps = isFocusVisible &&
           _focus?._text && { ..._focus._text };
@@ -77,6 +74,8 @@ const Button = (
           _hover?._text && { ..._hover._text };
         const pressedTextProps = isPressed &&
           _pressed?._text && { ..._pressed._text };
+        const disabledTextProps = isDisabled &&
+          _disabled?._text && { ..._disabled._text };
 
         const boxChildren =
           isLoading && isLoadingText ? isLoadingText : children;
@@ -95,6 +94,7 @@ const Button = (
               <Box
                 _text={{
                   ..._text,
+                  ...disabledTextProps,
                   ...hoverTextProps,
                   ...focusTextProps,
                   ...pressedTextProps,

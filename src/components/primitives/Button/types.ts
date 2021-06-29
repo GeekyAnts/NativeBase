@@ -49,16 +49,13 @@ export interface IButtonProps extends IPressableProps {
    * Props to style the child text
    */
   _text?: ITextProps;
-
   /**
    * Props to be passed to the HStack used inside of Button.
    */
   _stack?: IStackProps;
-
   /**
-   * Props to be passed to the Button when state is disabled.
+   * Passed props will be applied on hovered state.
    */
-  _disabled?: IButtonProps;
 }
 
 export interface IButtonGroupProps extends IStackProps {
@@ -93,18 +90,6 @@ export interface IButtonGroupProps extends IStackProps {
    * If true, button will be atttached together.
    */
   isAttached?: boolean;
-  /**
-   * Passed props will be applied on hovered state.
-   */
-  _hover?: IButtonProps;
-  /**
-   * Passed props will be applied on pressed state.
-   */
-  _pressed?: IButtonProps;
-  /**
-   * Passed props will be applied on focused state.
-   */
-  _focus?: IButtonProps;
 }
 
 export type IButtonComponentType = ((

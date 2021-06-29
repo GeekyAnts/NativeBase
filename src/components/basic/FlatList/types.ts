@@ -12,6 +12,7 @@ import type {
   BackgroundProps,
   SafeAreaProps,
   TransformProps,
+  PlatformProps,
 } from '../../types';
 
 export interface IFlatListProps
@@ -27,4 +28,5 @@ export interface IFlatListProps
     ShadowProps,
     BackgroundProps,
     SafeAreaProps,
-    TransformProps {}
+    TransformProps,
+    PlatformProps {}

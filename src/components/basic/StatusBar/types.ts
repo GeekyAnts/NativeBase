@@ -12,6 +12,7 @@ import type {
   BackgroundProps,
   SafeAreaProps,
   TransformProps,
+  PlatformProps,
 } from '../../types';
 
 export interface IStatusBarProps
@@ -27,4 +28,5 @@ export interface IStatusBarProps
     ShadowProps,
     Omit<BackgroundProps, 'backgroundColor'>,
     SafeAreaProps,
-    TransformProps {}
+    TransformProps,
+    PlatformProps {}

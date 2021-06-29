@@ -12,6 +12,7 @@ import type {
   BackgroundProps,
   SafeAreaProps,
   TransformProps,
+  PlatformProps,
 } from '../../types';
 
 // TODO: any need to fixed
@@ -28,4 +29,5 @@ export interface ISectionListProps
     ShadowProps,
     BackgroundProps,
     SafeAreaProps,
-    TransformProps {}
+    TransformProps,
+    PlatformProps {}
