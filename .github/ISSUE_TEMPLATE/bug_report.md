@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: ''
+labels: v3
 assignees: ''
 
 ---
@@ -27,6 +27,9 @@ Steps to reproduce the behaviour:
 
 **Expected behaviour**
 A clear and concise description of what you expected to happen.
+
+**CodeSandBox/Snack link**
+It would be easier for us to debug if you can reproduce the error in a codesandbox link or a snack link. You can use the [codesandbox template](https://codesandbox.io/s/native-base-v3-template-mq6ox)/[snack template](https://snack.expo.io/@mdrehman/nativebase-template).
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
