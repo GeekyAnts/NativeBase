@@ -3,14 +3,14 @@ import type { IMenuProps } from './types';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Popper } from '../Popper';
-import { ScrollView } from 'react-native';
-import { useControllableState, useKeyboardDismissable } from '../../../hooks';
+import { AccessibilityInfo, ScrollView } from 'react-native';
+import { useControllableState } from '../../../hooks';
 import { useMenuTrigger, useMenu, useMenuTypeahead } from './useMenu';
 import Backdrop from '../Backdrop';
-import { OverlayContainer } from '@react-native-aria/overlays';
 import { PresenceTransition } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import { MenuContext } from './MenuContext';
+import { Overlay } from '../../primitives/Overlay';
 
 const Menu = (
   {
@@ -60,15 +60,16 @@ const Menu = (
     );
   };
 
-  useKeyboardDismissable({
-    enabled: isOpen,
-    callback: handleClose,
-  });
+  React.useEffect(() => {
+    if (isOpen) {
+      AccessibilityInfo.announceForAccessibility('Popup window');
+    }
+  }, [isOpen]);
 
   return (
     <>
       {updatedTrigger()}
-      <OverlayContainer>
+      <Overlay isOpen={isOpen} onRequestClose={handleClose} useRNModalOnAndroid>
         <PresenceTransition visible={isOpen} {...transition}>
           <Popper
             triggerRef={triggerRef}
@@ -90,7 +91,7 @@ const Menu = (
             </Popper.Content>
           </Popper>
         </PresenceTransition>
-      </OverlayContainer>
+      </Overlay>
     </>
   );
 };

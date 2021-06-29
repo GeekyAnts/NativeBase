@@ -31,6 +31,9 @@ const baseStyle = (props: any) => {
       space: 2,
       alignItems: 'center',
     },
+    _disabled: {
+      opacity: 0.5,
+    },
   };
 };
 

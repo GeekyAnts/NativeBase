@@ -54,6 +54,11 @@ export interface IButtonProps extends IPressableProps {
    * Props to be passed to the HStack used inside of Button.
    */
   _stack?: IStackProps;
+
+  /**
+   * Props to be passed to the Button when state is disabled.
+   */
+  _disabled?: IButtonProps;
 }
 
 export interface IButtonGroupProps extends IStackProps {
