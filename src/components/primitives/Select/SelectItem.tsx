@@ -34,7 +34,11 @@ export const Item = (
       </Actionsheet.Item>
     );
   } else {
-    return <option ref={ref} label={label} value={value} />;
+    return (
+      <option ref={ref} value={value}>
+        {label}
+      </option>
+    );
   }
 };
 
