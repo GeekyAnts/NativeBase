@@ -7,13 +7,13 @@ export function Example() {
     <Menu
       trigger={(triggerProps) => {
         return (
-          <Pressable {...triggerProps}>
+          <Pressable accessibilityLabel="More options menu" {...triggerProps}>
             <HamburgerIcon />
           </Pressable>
         );
       }}
     >
-      <Menu.Item>Aria</Menu.Item>
+      <Menu.Item>Arial</Menu.Item>
       <Menu.Item>Nunito Sans</Menu.Item>
       <Menu.Item isDisabled>Tahoma</Menu.Item>
       <Divider />

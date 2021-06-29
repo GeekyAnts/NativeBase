@@ -1,6 +1,6 @@
 import React from 'react';
 import { useOverlayPosition } from '@react-native-aria/overlays';
-import { Platform, StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleSheet, View, ViewStyle } from 'react-native';
 import type {
   IPopperProps,
   IScrollContentStyle,
@@ -9,7 +9,7 @@ import type {
 } from './types';
 import { createContext } from '../../../utils';
 import Box, { IBoxProps } from '../../primitives/Box';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+// import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const defaultArrowHeight = 15;
 const defaultArrowWidth = 15;
@@ -51,7 +51,7 @@ const PopperContent = React.forwardRef(
       setOverlayRef,
     } = usePopperContext('PopperContent');
     const overlayRef = React.useRef(null);
-    const { top } = useSafeAreaInsets();
+    // const { top } = useSafeAreaInsets();
     const {
       overlayProps,
       rendered,
@@ -131,12 +131,12 @@ const PopperContent = React.forwardRef(
           overlay: {
             ...overlayProps.style,
             // To handle translucent android StatusBar
-            marginTop: Platform.select({ android: top, default: 0 }),
+            // marginTop: Platform.select({ android: top, default: 0 }),
             opacity: rendered ? 1 : 0,
             position: 'absolute',
           },
         }),
-      [rendered, overlayProps.style, top]
+      [rendered, overlayProps.style]
     );
 
     return (
