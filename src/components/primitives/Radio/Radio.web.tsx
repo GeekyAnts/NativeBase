@@ -38,7 +38,11 @@ const Radio = (
   });
 
   const inputRef = React.useRef(null);
-  const { inputProps } = useRadio(props, contextState.state, inputRef);
+  const { inputProps } = useRadio(
+    { ...props, 'aria-label': props.accessibilityLabel, children },
+    contextState.state,
+    inputRef
+  );
   const { disabled, checked } = inputProps;
 
   const _ref = React.useRef(null);

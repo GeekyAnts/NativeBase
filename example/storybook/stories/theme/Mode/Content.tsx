@@ -7,7 +7,6 @@ import {
   HStack,
   Avatar,
   Center,
-  useColorModeValue,
 } from 'native-base';
 
 export const Content = () => {
@@ -16,7 +15,8 @@ export const Content = () => {
     <Center
       height="100%"
       width="100%"
-      bg={useColorModeValue('gray.200', 'gray.800')}
+      _light={{ bg: 'gray.200' }}
+      _dark={{ bg: 'gray.800' }}
     >
       <Heading>I'm a Heading</Heading>
       <Button

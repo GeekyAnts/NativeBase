@@ -1,22 +1,22 @@
 import React from 'react';
-import { ScaleFade, Button, Box } from 'native-base';
+import { PresenceTransition, Button, Box } from 'native-base';
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  let btnStr = `Click Me to ${isOpen ? 'hide' : 'show'}`;
+
   return (
     <>
-      <Button onPress={() => setIsOpen(!isOpen)}>{btnStr}</Button>
-      <ScaleFade in={isOpen}>
-        <Box
-          p="40px"
-          _text={{ color: 'white' }}
-          mt="4"
-          bg="teal.500"
-          rounded="md"
-        >
+      <Button onPress={() => setIsOpen(!isOpen)}>
+        Click Me to {isOpen ? 'hide' : 'show'}
+      </Button>
+      <PresenceTransition
+        visible={isOpen}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1, transition: { duration: 250 } }}
+      >
+        <Box p="40px" mt="4" bg="teal.500" rounded="md">
           ScaleFade
         </Box>
-      </ScaleFade>
+      </PresenceTransition>
     </>
   );
 };

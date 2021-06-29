@@ -111,7 +111,6 @@ export const Transition = forwardRef(
             }),
           ]).start(() => {
             setAnimationState('entered');
-            onTransitionComplete && onTransitionComplete('entered');
           });
         }
       },
@@ -144,7 +143,6 @@ export const Transition = forwardRef(
             }),
           ]).start(() => {
             setAnimationState('exited');
-            onTransitionComplete && onTransitionComplete('exited');
           });
         }
       },
@@ -174,6 +172,14 @@ export const Transition = forwardRef(
         style,
       ];
     }, [animateValue, initial, animate, style]);
+
+    React.useEffect(() => {
+      if (animationState === 'exited') {
+        onTransitionComplete && onTransitionComplete('exited');
+      } else if (animationState === 'entered') {
+        onTransitionComplete && onTransitionComplete('entered');
+      }
+    }, [animationState, onTransitionComplete]);
 
     return (
       <Component

@@ -1,6 +1,6 @@
 import React, { forwardRef, memo } from 'react';
 import type { ISelectProps } from './types';
-import { Platform, View, Pressable, ScrollView } from 'react-native';
+import { Platform, View, Pressable } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
 import Box from '../Box';
 import { Input } from '../Input';
@@ -13,6 +13,7 @@ import { useFormControl } from '../../composites/FormControl';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { ChevronDownIcon } from '../Icon/Icons';
 import type { IButtonProps } from '../Button/types';
+import { ScrollView } from '../../basic/ScrollView';
 
 const unstyledSelecWebtStyles = {
   width: '100%',
@@ -132,6 +133,8 @@ const Select = (
     />
   );
 
+  const handleClose = () => setIsOpen(false);
+
   return (
     <Box
       borderWidth={1}
@@ -174,9 +177,9 @@ const Select = (
           >
             <View pointerEvents="none">{commonInput}</View>
           </Pressable>
-          <Actionsheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <Actionsheet isOpen={isOpen} onClose={handleClose}>
             <Actionsheet.Content {..._actionSheetContent}>
-              <ScrollView style={{ width: '100%' }}>
+              <ScrollView width="100%">
                 <SelectContext.Provider
                   value={{
                     onValueChange: setValue,

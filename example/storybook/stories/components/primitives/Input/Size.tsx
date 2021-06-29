@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Stack, Center, Heading, useColorModeValue } from 'native-base';
+import { Input, Stack, Center, Heading } from 'native-base';
 import { ScrollView } from 'react-native';
 
 export const Example = () => {
@@ -12,99 +12,75 @@ export const Example = () => {
         <Input
           size="xs"
           placeholder="xs Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <Input
           size="sm"
           placeholder="sm Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <Input
           size="md"
           placeholder="md Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <Input
           size="lg"
           placeholder="lg Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <Input
           size="xl"
           placeholder="xl Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <Input
           size="2xl"
           placeholder="2xl Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         {/* ========== */}
         <Input
           size="xs"
           placeholder="xs Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <Input
           size="sm"
           placeholder="sm Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <Input
           size="md"
           placeholder="md Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <Input
           size="lg"
           placeholder="lg Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <Input
           size="xl"
           placeholder="xl Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         <Input
           size="2xl"
           placeholder="2xl Input"
-          placeholderTextColor={useColorModeValue(
-            'blueGray.400',
-            'blueGray.50'
-          )}
+          _light={{ placeholderTextColor: 'blueGray.400' }}
+          _dark={{ placeholderTextColor: 'blueGray.50' }}
         />
         {/*  */}
       </Stack>

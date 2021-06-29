@@ -6,7 +6,6 @@ import {
   Button,
   HStack,
   Avatar,
-  useColorModeValue,
   VStack,
   Text,
   Box,
@@ -15,7 +14,7 @@ import {
 export const Content = () => {
   const { toggleColorMode } = useColorMode();
   return (
-    <Box bg={useColorModeValue('gray.50', 'gray.800')} flex={1}>
+    <Box _light={{ bg: 'gray.50' }} _dark={{ bg: 'gray.800' }} flex={1}>
       <VStack m={4} space={4} flex={1} justifyContent="center">
         <Heading justifyContent="center" color="custom.200">
           NativeBase Team
@@ -24,7 +23,8 @@ export const Content = () => {
           p={4}
           border={1}
           borderRadius="md"
-          borderColor={useColorModeValue('gray.800', 'gray.50')}
+          _light={{ borderColor: 'gray.800' }}
+          _dark={{ borderColor: 'gray.50' }}
         >
           <HStack alignItems="center" justifyContent="space-between">
             <Box flexDirection="row">
@@ -50,7 +50,8 @@ export const Content = () => {
           p={4}
           border={1}
           borderRadius="md"
-          borderColor={useColorModeValue('gray.800', 'gray.50')}
+          _light={{ borderColor: 'gray.800' }}
+          _dark={{ borderColor: 'gray.50' }}
         >
           <HStack alignItems="center" justifyContent="space-between">
             <Box flexDirection="row">
@@ -76,7 +77,8 @@ export const Content = () => {
           p={4}
           border={1}
           borderRadius="md"
-          borderColor={useColorModeValue('gray.800', 'gray.50')}
+          _light={{ borderColor: 'gray.800' }}
+          _dark={{ borderColor: 'gray.50' }}
         >
           <HStack alignItems="center" justifyContent="space-between">
             <Box flexDirection="row">

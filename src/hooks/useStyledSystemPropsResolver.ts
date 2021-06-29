@@ -1,4 +1,4 @@
-import { useTheme } from './';
+import { useTheme } from './useTheme';
 import { resolversForBox } from '../utils/styled';
 
 export const useStyledSystemPropsResolver = (props: any) => {

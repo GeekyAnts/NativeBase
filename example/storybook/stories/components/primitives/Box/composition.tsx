@@ -9,13 +9,17 @@ import {
   Center,
   HStack,
   Stack,
-  useColorModeValue,
 } from 'native-base';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 
 export const Example = () => {
   return (
-    <Box width={72} bg={useColorModeValue('gray.50', 'gray.700')} shadow={1}>
+    <Box
+      width={72}
+      shadow={1}
+      _light={{ backgroundColor: 'gray.50' }}
+      _dark={{ backgroundColor: 'gray.700' }}
+    >
       <Box>
         <AspectRatio ratio={16 / 9}>
           <Image
@@ -62,7 +66,8 @@ export const Example = () => {
           </Heading>
           <Heading
             size="xs"
-            color={useColorModeValue('red.500', 'red.300')}
+            _light={{ color: 'red.500' }}
+            _dark={{ color: 'red.300' }}
             fontWeight="500"
             ml={-0.5}
             mt={-1}

@@ -12,6 +12,7 @@ import type {
   BackgroundProps,
   SafeAreaProps,
   TransformProps,
+  PlatformProps,
 } from '../../types';
 
 export interface IKeyboardAvoidingViewProps
@@ -27,7 +28,8 @@ export interface IKeyboardAvoidingViewProps
     ShadowProps,
     BackgroundProps,
     SafeAreaProps,
-    TransformProps {
+    TransformProps,
+    PlatformProps {
   /**
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;

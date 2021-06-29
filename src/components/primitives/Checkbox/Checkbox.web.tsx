@@ -58,7 +58,8 @@ const Checkbox = (
       useCheckboxGroupItem(
         {
           ...themedProps,
-          value: themedProps.value,
+          'aria-label': themedProps.accessibilityLabel,
+          'value': themedProps.value,
         },
         groupState.state,
         //@ts-ignore
@@ -66,7 +67,7 @@ const Checkbox = (
       )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckbox(
-        themedProps,
+        { ...themedProps, 'aria-label': themedProps.accessibilityLabel },
         state,
         //@ts-ignore
         mergedRef

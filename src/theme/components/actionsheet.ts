@@ -12,6 +12,7 @@ export const ActionsheetContent = {
     alignItems: 'center',
     p: 2,
     borderRadius: 'none',
+    roundedTop: 10,
   },
 };
 

@@ -22,7 +22,7 @@ import {
 } from '../../../utils/customProps';
 import { Svg, G } from './nbSvg';
 import type { IIconProps } from './types';
-import { QuestionOutlineIcon } from './Icons';
+import { questionOutlineIconPath } from './Icons/questionIconPath';
 
 const SVG = styled(Svg)<IIconProps>(
   color,
@@ -85,7 +85,7 @@ const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
           ))}
         </G>
       ) : (
-        <QuestionOutlineIcon />
+        questionOutlineIconPath
       )}
     </SVG>
   );

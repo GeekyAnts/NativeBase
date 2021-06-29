@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, useColorModeValue } from 'native-base';
+import { Input } from 'native-base';
 
 export const Example = () => {
   return (
@@ -7,7 +7,8 @@ export const Example = () => {
       w="100%"
       mx={3}
       placeholder="Default Input"
-      placeholderTextColor={useColorModeValue('blueGray.400', 'blueGray.50')}
+      _light={{ placeholderTextColor: 'blueGray.400' }}
+      _dark={{ placeholderTextColor: 'blueGray.50' }}
     />
   );
 };
