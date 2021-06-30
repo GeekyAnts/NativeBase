@@ -52,14 +52,15 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
           y: lgrad.end[1],
         };
       }
-      const backgroundItems = [
+      const backgroundColorProps = [
         'bg',
         'bgColor',
         'background',
         'backgroundColor',
       ];
-      backgroundItems.forEach((item) => {
-        if (item in safeAreaProps) delete safeAreaProps[item];
+      backgroundColorProps.forEach((backgroundColorProp) => {
+        if (backgroundColorProp in safeAreaProps)
+          delete safeAreaProps[backgroundColorProp];
       });
 
       return (
