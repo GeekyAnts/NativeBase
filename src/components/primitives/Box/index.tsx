@@ -52,7 +52,15 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
           y: lgrad.end[1],
         };
       }
-      if ('bg' in safeAreaProps) delete safeAreaProps['bg'];
+      const backgroundItems = [
+        'bg',
+        'bgColor',
+        'background',
+        'backgroundColor',
+      ];
+      backgroundItems.forEach((item) => {
+        if (item in safeAreaProps) delete safeAreaProps[item];
+      });
 
       return (
         <Gradient
