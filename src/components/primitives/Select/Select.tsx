@@ -2,6 +2,7 @@ import React, { forwardRef, memo } from 'react';
 import type { ISelectProps } from './types';
 import { Platform, View, Pressable } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
+import { ActionSheetContentContext } from '../../composites/Actionsheet/ActionsheetContent';
 import Box from '../Box';
 import { Input } from '../Input';
 import { useFocusRing } from '@react-native-aria/focus';
@@ -179,18 +180,14 @@ const Select = (
           </Pressable>
           <Actionsheet isOpen={isOpen} onClose={handleClose}>
             <Actionsheet.Content {..._actionSheetContent}>
-              <ScrollView width="100%">
-                <SelectContext.Provider
-                  value={{
-                    onValueChange: setValue,
-                    selectedValue: value,
-                    _selectedItem: _selectedItem ?? {},
-                    _item: _item ?? {},
-                  }}
-                >
-                  {children}
-                </SelectContext.Provider>
-              </ScrollView>
+              <SelectContent
+                setValue={setValue}
+                value={value}
+                _selectedItem={_selectedItem}
+                _item={_item}
+              >
+                {children}
+              </SelectContent>
             </Actionsheet.Content>
           </Actionsheet>
         </>
@@ -199,4 +196,36 @@ const Select = (
   );
 };
 
+const SelectContent = ({
+  setValue,
+  value,
+  _selectedItem,
+  _item,
+  children,
+}: any) => {
+  const { setEnableResponder } = React.useContext(ActionSheetContentContext);
+  return (
+    <ScrollView
+      width="100%"
+      onScrollEndDrag={(e) => {
+        if (e.nativeEvent.contentOffset.y <= 0) {
+          setEnableResponder(true);
+        } else {
+          setEnableResponder(false);
+        }
+      }}
+    >
+      <SelectContext.Provider
+        value={{
+          onValueChange: setValue,
+          selectedValue: value,
+          _selectedItem: _selectedItem ?? {},
+          _item: _item ?? {},
+        }}
+      >
+        {children}
+      </SelectContext.Provider>
+    </ScrollView>
+  );
+};
 export default memo(forwardRef(Select));
