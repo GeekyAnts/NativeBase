@@ -52,6 +52,16 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
           y: lgrad.end[1],
         };
       }
+      const backgroundColorProps = [
+        'bg',
+        'bgColor',
+        'background',
+        'backgroundColor',
+      ];
+      backgroundColorProps.forEach((backgroundColorProp) => {
+        if (backgroundColorProp in safeAreaProps)
+          delete safeAreaProps[backgroundColorProp];
+      });
 
       return (
         <Gradient
