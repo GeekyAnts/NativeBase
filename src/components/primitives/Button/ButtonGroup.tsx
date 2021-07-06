@@ -9,7 +9,9 @@ export default memo(
       {
         children,
         divider,
-        _child,
+        variant,
+        size,
+        colorScheme,
         isDisabled,
         isAttached,
         ...props
@@ -20,6 +22,7 @@ export default memo(
         'ButtonGroup',
         props
       );
+      const { borderRadius } = usePropsResolution('Button', props);
       let computedChildren: JSX.Element | JSX.Element[];
 
       if (Array.isArray(children)) {
@@ -28,20 +31,22 @@ export default memo(
           (child: JSX.Element, index: number) => {
             return React.cloneElement(child, {
               key: `button-group-child-${index}`,
-              ..._child,
+              variant,
+              size,
+              colorScheme,
               isDisabled,
 
               // when buttons are attached, remove rounded corners of all buttons except extreme buttons
               ...(isAttached ? { borderRadius: 0 } : {}),
               ...(isAttached && index === 0
                 ? direction === 'column'
-                  ? { borderTopRadius: 'lg' }
-                  : { borderLeftRadius: 'lg' }
+                  ? { borderTopRadius: borderRadius }
+                  : { borderLeftRadius: borderRadius }
                 : {}),
               ...(isAttached && index === children?.length - 1
                 ? direction === 'column'
-                  ? { borderBottomRadius: 'lg' }
-                  : { borderRightRadius: 'lg' }
+                  ? { borderBottomRadius: borderRadius }
+                  : { borderRightRadius: borderRadius }
                 : {}),
 
               //when buttons are attached, remove double border from them, just keep borderRight in case for direction row and borderBottom in case of direction column for every component
@@ -60,7 +65,9 @@ export default memo(
           (child: JSX.Element, index: number) => {
             return React.cloneElement(child, {
               key: `button-group-child-${index}`,
-              ..._child,
+              variant,
+              size,
+              colorScheme,
               isDisabled,
               ...child.props,
             });

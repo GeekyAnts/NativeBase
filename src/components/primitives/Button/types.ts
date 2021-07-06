@@ -69,9 +69,19 @@ export interface IButtonGroupProps extends IStackProps {
    */
   children: JSX.Element | Array<JSX.Element>;
   /**
-    *
-    */
-  _child: IButtonProps;
+   * The variant of the button style to use.
+   * @default 'solid'
+   */
+  variant?: 'ghost' | 'outline' | 'solid' | 'link' | 'unstyled';
+  /**
+   * The start icon element to use in the button.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg';
+  /**
+   * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
+   * @default 'primary'
+   */
+  colorScheme?: string;
   /**
    * If true, the button will be disabled.
    */

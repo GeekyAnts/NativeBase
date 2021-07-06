@@ -4,7 +4,7 @@ import { Button } from 'native-base';
 export const Example = () => {
   return (
     <Button.Group
-      _child={{ variant: 'solid' }}
+      variant="solid"
       isAttached
       space={6}
       mx={{ base: 'auto', md: 0 }}
