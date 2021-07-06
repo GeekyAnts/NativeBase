@@ -27,7 +27,7 @@ export function Example() {
           textAlign="center"
           fontSize={12}
           _light={{ color: 'blueGray.500' }}
-          _dark={{ color: 'blueGray.200' }}
+          _dark={{ color: 'gray.50' }}
         >
           Far far away, behind the word mountains, far from the countries
           Vokalia and Consonantia, there live the blind texts. Separated they
