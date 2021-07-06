@@ -258,11 +258,9 @@ export const platformSpecificSpaceUnits = (theme: ITheme) => {
         const isPx = !isAbsolute && val.endsWith('px');
         const isRem = !isAbsolute && val.endsWith('rem');
 
-        // If platform is web, we need to convert px unit to rem and absolute unit to rem. e.g. 16px to 1rem and 16 to 1rem.
+        // If platform is web, we need to convert absolute unit to rem. e.g. 16 to 1rem
         if (isWeb) {
-          if (isPx) {
-            newScale[scaleKey] = convertAbsoluteToRem(parseFloat(val));
-          } else if (isAbsolute) {
+          if (isAbsolute) {
             newScale[scaleKey] = convertAbsoluteToRem(val);
           }
         }
