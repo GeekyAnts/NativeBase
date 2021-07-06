@@ -4,7 +4,7 @@ export type { IAspectRatioProps } from './AspectRatio';
 export { default as Badge } from './Badge';
 export type { IBadgeProps } from './Badge';
 
-export { default as Card } from "./Card";
+export { default as Card } from './Card';
 
 export { default as IconButton } from './IconButton';
 export type { IIconButtonProps } from './IconButton';
