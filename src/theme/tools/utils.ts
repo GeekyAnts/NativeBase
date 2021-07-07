@@ -245,11 +245,18 @@ const convertRemToAbsolute = (rem: number) => {
  * @description This function converts space, sizes and fontsizes to `rem` on web and numbers on native
  */
 export const platformSpecificSpaceUnits = (theme: ITheme) => {
-  const scales = ['space', 'sizes', 'typography.fontSizes'];
+  const scales = [
+    'space',
+    'sizes',
+    'fontSizes',
+    'lineHeights',
+    'letterSpacings',
+  ];
+
   const newTheme = { ...theme };
   const isWeb = Platform.OS === 'web';
   scales.forEach((key) => {
-    const scale = get(theme, key);
+    const scale = get(theme, key, {});
     const newScale = { ...scale };
     for (let scaleKey in scale) {
       const val = scale[scaleKey];
