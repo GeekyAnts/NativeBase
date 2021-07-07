@@ -242,8 +242,10 @@ const convertRemToAbsolute = (rem: number) => {
 /**
  *
  * @param theme
- * @description This function converts space, sizes and fontsizes to `rem` on web and numbers on native
- */
+ * @description 
+  - Converts space/sizes/lineHeights/letterSpacings/fontSizes to `rem` on web if the token value specified is an absolute number.
+  - Converts space/sizes/lineHeights/letterSpacings/fontSizes to absolute number on native if the token value specified is in `px` or `rem`
+*/
 export const platformSpecificSpaceUnits = (theme: ITheme) => {
   const scales = [
     'space',
