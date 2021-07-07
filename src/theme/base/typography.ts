@@ -79,9 +79,9 @@ const typography = {
     black: 900,
   },
   fonts: {
-    heading: '',
-    body: '',
-    mono: '',
+    heading: undefined,
+    body: undefined,
+    mono: undefined,
   },
   fontSizes: {
     'xxs': 10,

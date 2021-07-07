@@ -19,6 +19,7 @@ const baseStyle = (props: Record<string, any>) => {
         };
 
   return {
+    fontFamily: 'body',
     px: 4,
     py: 2,
     borderRadius: 'lg',

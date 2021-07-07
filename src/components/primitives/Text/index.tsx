@@ -1,6 +1,5 @@
 import React, { memo, forwardRef, useRef } from 'react';
 import { Text as NativeText } from 'react-native';
-import { useTheme } from '../../../hooks';
 import styled from 'styled-components/native';
 import {
   color,
@@ -25,34 +24,7 @@ import {
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
-
-type IUseResolvedFontFamily = {
-  fontFamily: string;
-  fontStyle: string;
-  fontWeight: string | number;
-};
-
-// Android doesn't support fontWeight or fontStyle properties. So, we pass fontFamily instead.
-function useResolvedFontFamily(props: IUseResolvedFontFamily) {
-  const { fontFamily, fontStyle, fontWeight } = props;
-
-  const { fontConfig, fontWeights, fonts } = useTheme();
-  const fontToken = fonts[fontFamily];
-
-  if (fontConfig && fontConfig[fontToken]) {
-    // fontWeights are also specified using "400"
-    const parsedFontWeight = parseInt(fontWeight as any);
-    let fontWeightNumber = Number.isNaN(parsedFontWeight)
-      ? fontWeights[fontWeight]
-      : fontWeight;
-    let fontVariants = fontConfig[fontToken][fontWeightNumber];
-    if (typeof fontVariants === 'object') {
-      if (fontVariants[fontStyle]) return fontVariants[fontStyle];
-    } else {
-      return fontVariants;
-    }
-  }
-}
+import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 
 const StyledText = styled(NativeText)<ITextProps>(
   color,
@@ -105,10 +77,6 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontStyle,
   });
 
-  if (resolvedFontFamily) {
-    fontFamily = resolvedFontFamily;
-  }
-
   return (
     <StyledText
       {...reslovedProps}
@@ -127,7 +95,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
       }
       fontSize={sub ? 10 : fontSize}
       ref={mergeRefs([ref, _ref])}
-      fontFamily={fontFamily}
+      fontFamily={resolvedFontFamily}
       {...(isHovered && _hover)}
     >
       {children}
