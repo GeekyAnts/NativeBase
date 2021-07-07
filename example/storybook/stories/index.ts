@@ -17,6 +17,7 @@ export * from './components/composites/Badge';
 export * from './components/primitives/Box';
 // export * from './components/composites/Breadcrumb';
 export * from './components/primitives/Button';
+export * from './components/primitives/ButtonGroup';
 export * from './components/composites/Center';
 export * from './components/primitives/Checkbox';
 // export * from './components/composites/CircularProgress';
