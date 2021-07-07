@@ -229,7 +229,7 @@ export function getClosestBreakpoint(
   return index;
 }
 
-const baseFontSize = 16;
+export const baseFontSize = 16;
 
 const convertAbsoluteToRem = (px: number) => {
   return `${px / baseFontSize}rem`;
