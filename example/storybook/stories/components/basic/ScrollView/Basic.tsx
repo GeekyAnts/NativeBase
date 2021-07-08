@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Center, Button } from 'native-base';
+import { Form, Input } from 'native-base';
 
 export const Example = () => {
   return (

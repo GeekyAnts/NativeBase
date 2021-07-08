@@ -102,21 +102,11 @@ const InputBase = (
   //   />
   // );
   const FormContextValues: any = useContext(FormContext);
+
   useEffect(() => {
-    debugger;
-    if (FormContextValues) {
-      FormContextValues.register(_ref, 123, 'Nahi chl ra');
-      FormContextValues.setCounter(FormContextValues.counter + 1);
-    }
-    console.log('inside input', FormContextValues);
-    // let temp: any = [];
-    // console.log(FormContextValues.refs.length, 'refs Length before');
-    // console.log(temp.length, 'temp length before');
-    // temp = [...FormContextValues.refs, { childRef: _ref, id: 123 }];
-    // console.log(temp.length, 'temp length');
-    // FormContextValues.setRefs(temp);
-    // console.log(FormContextValues.refs.length, 'refs Length');
-  }, []);
+    FormContextValues?.register(_ref);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [FormContextValues.register]);
 
   return (
     <>
@@ -144,7 +134,7 @@ const InputBase = (
           // }
           // console.log(e.nativeEvent);
         }}
-        onSubmitEditing={(e) => {
+        onSubmitEditing={() => {
           // console.log('onSubmitEditing = ', e.nativeEvent);
           FormContextValues.setCounter(100);
         }}
@@ -162,7 +152,6 @@ const InputBase = (
           : {})}
         ref={mergeRefs([ref, _ref, wrapperRef])}
       />
-      <TextInput value={`${FormContextValues.counter}`} />
     </>
   );
 };

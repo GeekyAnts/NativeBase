@@ -1,6 +1,6 @@
 import type { IBoxProps } from '../../primitives';
 
-const stubFunc = (e: any) => {};
+const stubFunc = () => {};
 export interface IFormContext {
   onSubmit?: typeof stubFunc;
   refs: Array<any>;
