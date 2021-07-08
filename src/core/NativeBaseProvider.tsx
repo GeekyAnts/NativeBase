@@ -16,6 +16,7 @@ import {
   NativeBaseConfigProvider,
 } from './NativeBaseContext';
 import { Platform } from 'react-native';
+import { platformSpecificSpaceUnits } from '../theme/tools/utils';
 
 // For SSR to work, we need to pass initial insets as 0 values on web.
 
@@ -49,8 +50,12 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
   } = props;
   const theme = config.theme ?? propsTheme;
 
+  const newTheme = React.useMemo(() => platformSpecificSpaceUnits(theme), [
+    theme,
+  ]);
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={newTheme}>
       <NativeBaseConfigProvider config={config}>
         <SafeAreaProvider
           initialMetrics={
