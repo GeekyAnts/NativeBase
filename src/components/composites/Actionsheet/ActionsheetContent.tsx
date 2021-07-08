@@ -71,7 +71,7 @@ const ActionsheetContent = (
         </>
       ) : null}
 
-      <Modal.Content {...newProps} ref={ref} safeAreaBottom>
+      <Modal.Content {...newProps} debug="1234" ref={ref} safeAreaBottom>
         {!hideDragIndicator ? (
           <>
             {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}

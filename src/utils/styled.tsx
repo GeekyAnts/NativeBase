@@ -43,7 +43,7 @@ export const resolversForBox: any = [
 // @ts-ignore
 export const makeStyledBox = (Comp: any) => {
   return React.forwardRef(
-    ({ style: propStyle, children, ...props }: any, ref: any) => {
+    ({ style: propStyle, children, debug, ...props }: any, ref: any) => {
       const theme = useTheme();
       const { style, restProps } = React.useMemo(() => {
         const { styleSheet, restProps } = getStyleAndFilteredProps({
@@ -53,6 +53,10 @@ export const makeStyledBox = (Comp: any) => {
 
         return { style: [styleSheet.box, propStyle], restProps };
       }, [props, theme, propStyle]);
+
+      if (debug) {
+        console.log('style ', style, props);
+      }
 
       return (
         <Comp {...restProps} style={style} ref={ref}>
