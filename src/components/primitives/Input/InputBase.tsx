@@ -1,46 +1,13 @@
 import React, { memo, forwardRef } from 'react';
 import { TextInput, Platform } from 'react-native';
-import styled from 'styled-components/native';
-import {
-  border,
-  flex,
-  space,
-  color,
-  flexbox,
-  layout,
-  typography,
-} from 'styled-system';
-import {
-  customBorder,
-  customBackground,
-  customOutline,
-  customLayout,
-  customExtra,
-  customShadow,
-  customTypography,
-} from '../../../utils/customProps';
 import type { IInputProps } from './types';
 import { useToken } from '../../../hooks';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
+import { makeStyledBox } from '../../../utils/styled';
 
-const StyledInput = styled(TextInput)<IInputProps>(
-  flex,
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  typography,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customTypography,
-  customLayout
-);
+const StyledInput = makeStyledBox(TextInput);
 
 const InputBase = (
   {

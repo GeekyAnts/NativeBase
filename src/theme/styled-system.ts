@@ -1,3 +1,4 @@
+import { StyleSheet } from 'react-native';
 import { get } from 'lodash';
 
 export const layout = {
@@ -481,10 +482,14 @@ const propConfig = {
   ...position,
   ...typography,
   ...background,
+
+  outline: true,
+  outlineWidth: true,
 };
 
 export const getStyleAndFilteredProps = ({ style, theme, ...props }: any) => {
   let styleFromProps: any = {};
+  let restProps: any = {};
   for (let key in props) {
     const rawValue = props[key];
     if (key in propConfig) {
@@ -510,8 +515,13 @@ export const getStyleAndFilteredProps = ({ style, theme, ...props }: any) => {
           };
         }
       }
+    } else {
+      restProps[key] = rawValue;
     }
   }
 
-  return styleFromProps;
+  return {
+    styleSheet: StyleSheet.create({ box: styleFromProps }),
+    restProps,
+  };
 };

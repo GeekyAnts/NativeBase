@@ -1,30 +1,11 @@
 import React, { memo, forwardRef, useRef } from 'react';
 import { Text as NativeText } from 'react-native';
 import { useTheme } from '../../../hooks';
-import styled from 'styled-components/native';
-import {
-  color,
-  position,
-  space,
-  typography,
-  layout,
-  flexbox,
-  border,
-} from 'styled-system';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import {
-  customBorder,
-  customBackground,
-  customOutline,
-  customLayout,
-  customExtra,
-  customShadow,
-  customTypography,
-  customPosition,
-} from '../../../utils/customProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
+import { makeStyledBox } from '../../../utils/styled';
 
 type IUseResolvedFontFamily = {
   fontFamily: string;
@@ -54,24 +35,7 @@ function useResolvedFontFamily(props: IUseResolvedFontFamily) {
   }
 }
 
-const StyledText = styled(NativeText)<ITextProps>(
-  color,
-  space,
-  position,
-  layout,
-  flexbox,
-  border,
-  typography,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout,
-  customTypography
-);
+const StyledText = makeStyledBox(NativeText);
 
 const Text = ({ children, ...props }: ITextProps, ref: any) => {
   const {
