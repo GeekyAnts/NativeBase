@@ -1,20 +1,10 @@
 import React, { forwardRef, memo } from 'react';
 import { Pressable as RNPressable } from 'react-native';
-import styled from 'styled-components/native';
 import { composeEventHandlers } from '../../../utils';
-import { border, color, flexbox, layout, position, space } from 'styled-system';
 import type { IPressableProps } from './types';
-import {
-  customBackground,
-  customBorder,
-  customExtra,
-  customLayout,
-  customOutline,
-  customPosition,
-  customShadow,
-} from '../../../utils/customProps';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
+import { makeStyledBox } from '../../../utils/styled';
 
 const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
@@ -49,21 +39,7 @@ const useIsPressed = () => {
   };
 };
 
-const StyledPressable = styled(RNPressable)<IPressableProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout
-);
+const StyledPressable = makeStyledBox(RNPressable);
 
 const Pressable = (
   {
