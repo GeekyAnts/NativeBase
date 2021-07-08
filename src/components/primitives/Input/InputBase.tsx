@@ -6,6 +6,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import { makeStyledBox } from '../../../utils/styled';
+import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 
 const StyledInput = makeStyledBox(TextInput);
 
@@ -52,6 +53,9 @@ const InputBase = (
     _focus,
     _disabled,
     _invalid,
+    fontFamily,
+    fontWeight,
+    fontStyle,
     ...themedProps
   } = usePropsResolution('Input', {
     ...inputThemeProps,
@@ -61,9 +65,18 @@ const InputBase = (
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
 
+  const resolvedFontFamily = useResolvedFontFamily({
+    fontFamily,
+    fontWeight,
+    fontStyle,
+  });
+
   return (
     <StyledInput
       {...inputProps}
+      fontFamily={resolvedFontFamily}
+      fontWeight={fontWeight}
+      fontStyle={fontStyle}
       secureTextEntry={type === 'password'}
       accessible
       accessibilityLabel={ariaLabel || accessibilityLabel}
