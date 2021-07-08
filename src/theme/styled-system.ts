@@ -452,6 +452,9 @@ export const typography = {
   fontWeight: {
     property: 'fontWeight',
     scale: 'fontWeights',
+    transformer: (val: any) => {
+      return val ? val.toString() : val;
+    },
   },
   lineHeight: {
     property: 'lineHeight',
@@ -498,8 +501,14 @@ export const getStyleAndFilteredProps = ({ style, theme, ...props }: any) => {
         styleFromProps = { ...styleFromProps, [key]: rawValue };
       } else if (config) {
         //@ts-ignore
-        const { property, scale, properties } = config;
+        const { property, scale, properties, transformer } = config;
         let val = get(theme[scale], rawValue, rawValue);
+        if (transformer) {
+          val = transformer(val);
+        }
+        if (typeof val === 'string' && val.endsWith('px')) {
+          val = parseInt(val, 10);
+        }
         if (properties) {
           //@ts-ignore
           properties.forEach((property) => {

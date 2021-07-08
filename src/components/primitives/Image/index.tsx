@@ -1,35 +1,11 @@
 import React, { useState, memo, forwardRef } from 'react';
 import { Image as RNImage } from 'react-native';
-import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space, position } from 'styled-system';
-import {
-  customBorder,
-  customBackground,
-  customOutline,
-  customLayout,
-  customExtra,
-  customShadow,
-  customPosition,
-} from '../../../utils/customProps';
 import Text from '../Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IImageProps } from './types';
+import { makeStyledBox } from '../../../utils/styled';
 
-const StyledImage = styled(RNImage)<IImageProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout
-);
+const StyledImage = makeStyledBox(RNImage);
 
 const Image = ({ source, ...props }: IImageProps, ref: any) => {
   const {
