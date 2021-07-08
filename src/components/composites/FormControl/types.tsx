@@ -1,5 +1,27 @@
 import type { IBoxProps } from '../../primitives';
 
+const stubFunc = (e: any) => {};
+export interface IFormContext {
+  onSubmit?: typeof stubFunc;
+  refs: Array<any>;
+  setRefs: Function;
+  register: Function;
+  unRegister: Function;
+}
+export interface IFormProps extends IBoxProps {
+  /**
+   * If provided, this prop is passed to its children.
+   */
+  nativeID?: string;
+  /**
+   * If true, this prop is passed to its children.
+   */
+  onSubmit?: typeof stubFunc;
+  /**
+   * If true, this prop is passed to its children.
+   */
+  children?: JSX.Element | JSX.Element[];
+}
 export interface IFormControlProps extends IBoxProps {
   /**
    * If provided, this prop is passed to its children.
