@@ -29,13 +29,7 @@ export function Hidden({ children, ...props }: IHiddenProps) {
   const [tillBreakPointValue] = useToken('breakpoints', [till]);
 
   //if no prop is passed, it will hide the element wrapped with hidden
-  if (
-    from === undefined &&
-    till === undefined &&
-    only === undefined &&
-    colorMode === undefined &&
-    platform === undefined
-  ) {
+  if (!from && !till && !only && !colorMode && !platform) {
     return null;
   }
 

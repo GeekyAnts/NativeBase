@@ -2,25 +2,26 @@ type LiteralUnion<T extends U, U = string> = T | (U & {});
 
 export interface IHiddenProps {
   /**
-   * The up of the hidden.
+   * The from prop takes breakpoint from which the wrapped component is hidden.
    */
   from?: LiteralUnion<'base' | 'sm' | 'md' | 'lg' | 'xl'>;
   /**
-   * The down of the hidden.
+   * The till prop takes breakpoint till which the wrapped component is hidden.
    */
   till?: LiteralUnion<'base' | 'sm' | 'md' | 'lg' | 'xl'>;
   /**
-   * The only of the hidden.
+   * The only prop takes array of breakpoints on which the wrapped component is hidden.
+   * It hides the component starting from that breakpoint to the next breakpoint.
    */
   only?:
     | LiteralUnion<'base' | 'sm' | 'md' | 'lg' | 'xl'>
     | Array<LiteralUnion<'base' | 'sm' | 'md' | 'lg' | 'xl'>>;
   /**
-   * The colormode of the hidden.
+   * The colormode takes the mode on which the wrapped component must be hidden.
    */
   colorMode?: 'light' | 'dark';
   /**
-   * The platform of the hidden.
+   * The platform takes the platform as string or array for the multiple on which the wrapped component must be hidden.
    */
   platform?:
     | LiteralUnion<'ios' | 'android' | 'web'>
