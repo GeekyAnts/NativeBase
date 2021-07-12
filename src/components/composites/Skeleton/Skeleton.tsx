@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Animated, Platform, View } from 'react-native';
 import { useThemeProps } from '../../../hooks';
 import { canUseDom } from '../../../utils';
@@ -11,7 +11,7 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   const newProps = useThemeProps('Skeleton', props);
   const { style, skeletonColor, baseColor } = newProps;
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
-  console.log(props, newProps, newProps.borderRadius);
+
   React.useEffect(() => {
     if (isDomUsable) {
       const blink = Animated.sequence([
@@ -60,4 +60,4 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(Skeleton));
+export default memo(forwardRef(Skeleton));

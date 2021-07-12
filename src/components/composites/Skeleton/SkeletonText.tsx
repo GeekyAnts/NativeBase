@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Animated, Platform } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
 import { canUseDom } from '../../../utils';
@@ -87,4 +87,4 @@ const SkeletonText = (allProps: ISkeletonTextProps, ref: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(SkeletonText));
+export default memo(forwardRef(SkeletonText));
