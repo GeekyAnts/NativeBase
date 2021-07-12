@@ -37,7 +37,7 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
       bottom: 0,
       height: '100%',
       width: '100%',
-      borderRadius: 3,
+      borderRadius: 999,
       backgroundColor: skeletonColor,
       opacity: blinkAnim, // Bind opacity to animated value
     },
@@ -46,10 +46,9 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   return newProps.isLoaded ? (
     children
   ) : (
-    <Box style={[style]} borderRadius={3} bg={baseColor} {...props} ref={ref}>
-      <Animated.View style={skeletonStyle.skeleton} />
-      {/* <Box h={fontSize}></Box> */}
+    <Box style={[style]} borderRadius={999} bg={baseColor} {...props} ref={ref}>
       {children ? <View style={{ opacity: 0 }}>{children}</View> : null}
+      <Animated.View style={skeletonStyle.skeleton} />
     </Box>
   );
 };

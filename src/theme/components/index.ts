@@ -64,7 +64,7 @@ import { default as NumberInput, NumberInputStepper } from './number-input';
 import PinInput from './pin-input';
 import Progress from './progress';
 import Radio from './radio';
-import Skeleton from './skeleton';
+import { Skeleton, SkeletonText } from './skeleton';
 import Spinner from './spinner';
 import Stat from './stat';
 import Switch from './switch';
@@ -160,6 +160,7 @@ export default {
   SelectItem,
   SimpleGrid,
   Skeleton,
+  SkeletonText,
   SliderFilledTrack,
   SliderThumb,
   SliderTrack,
