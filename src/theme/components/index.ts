@@ -20,6 +20,7 @@ import AvatarGroup from './avatar-group';
 import Badge from './badge';
 import Breadcrumb from './breadcrumb';
 import Button, { ButtonGroup } from './button';
+import Card from './card';
 import Center from './center';
 import Checkbox from './checkbox';
 import Box from './box';
@@ -114,6 +115,7 @@ export default {
   Breadcrumb,
   Button,
   ButtonGroup,
+  Card,
   Center,
   Checkbox,
   CircularProgress,

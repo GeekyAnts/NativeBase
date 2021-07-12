@@ -72,6 +72,8 @@ export * from './components/primitives/Pressable';
 export * from './components/primitives/VStack';
 // export * from './components/composites/Wrap';
 export * from './components/primitives/ZStack';
+// export * from './components/composites/Card';
+export * from './components/composites/Card';
 
 // Hooks
 export * from './hooks/useBreakpointValue';
