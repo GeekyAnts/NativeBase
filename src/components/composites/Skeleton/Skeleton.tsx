@@ -11,7 +11,7 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   const newProps = useThemeProps('Skeleton', props);
   const { style, skeletonColor, baseColor } = newProps;
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
-
+  console.log(props, newProps, newProps.borderRadius);
   React.useEffect(() => {
     if (isDomUsable) {
       const blink = Animated.sequence([
@@ -37,7 +37,7 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
       bottom: 0,
       height: '100%',
       width: '100%',
-      borderRadius: 3,
+      borderRadius: newProps.borderRadius ? newProps.borderRadius : 3,
       backgroundColor: skeletonColor,
       opacity: blinkAnim, // Bind opacity to animated value
     },
@@ -46,7 +46,13 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   return newProps.isLoaded ? (
     children
   ) : (
-    <Box style={[style]} borderRadius={3} bg={baseColor} {...props} ref={ref}>
+    <Box
+      style={[style]}
+      borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
+      bg={baseColor}
+      {...props}
+      ref={ref}
+    >
       <Animated.View style={skeletonStyle.skeleton} />
       {/* <Box h={fontSize}></Box> */}
       {children ? <View style={{ opacity: 0 }}>{children}</View> : null}

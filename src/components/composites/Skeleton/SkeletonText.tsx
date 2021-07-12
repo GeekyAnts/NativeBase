@@ -43,6 +43,7 @@ const SkeletonText = (allProps: ISkeletonTextProps, ref: any) => {
     if (i == newProps.noOfLines - 1 && newProps.noOfLines !== 1) {
       computedChildren.push(
         <Skeleton
+          borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
           endColor={endColor}
           startColor={startColor}
           h={`${lineHeight}` + 'px'}
@@ -52,6 +53,7 @@ const SkeletonText = (allProps: ISkeletonTextProps, ref: any) => {
     } else
       computedChildren.push(
         <Skeleton
+          borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
           endColor={endColor}
           startColor={startColor}
           h={`${lineHeight}` + 'px'}
@@ -61,7 +63,12 @@ const SkeletonText = (allProps: ISkeletonTextProps, ref: any) => {
   return newProps.isLoaded ? (
     children
   ) : (
-    <Box borderRadius={3} bg={baseColor} {...newProps} ref={ref}>
+    <Box
+      borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
+      bg={baseColor}
+      {...newProps}
+      ref={ref}
+    >
       <VStack
         top={0}
         left={0}
