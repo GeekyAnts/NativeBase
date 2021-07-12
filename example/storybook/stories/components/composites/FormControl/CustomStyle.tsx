@@ -1,6 +1,5 @@
 import React from 'react';
-import { FormControl, Input, Stack, Text } from 'native-base';
-import { ScrollView } from 'react-native';
+import { FormControl, Input, Stack, Text, ScrollView } from 'native-base';
 
 export const Example = () => {
   return (
