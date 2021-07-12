@@ -110,6 +110,9 @@ import {
   Backdrop,
   Drawer,
   Tooltip,
+  Table,
+  Tr,
+  Td,
 } from './components/composites';
 
 import {
@@ -256,6 +259,9 @@ export {
   Backdrop,
   Drawer,
   Tooltip,
+  Table,
+  Tr,
+  Td,
 };
 export type {
   IAlertProps,

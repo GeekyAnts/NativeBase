@@ -22,6 +22,7 @@ export type { IContainerProps } from './Container';
 
 export { Modal } from './Modal';
 export { default as Drawer } from './Drawer';
+export * from './Table';
 
 export { useToast, IToastProps } from './Toast';
 

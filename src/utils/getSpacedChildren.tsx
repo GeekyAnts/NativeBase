@@ -79,7 +79,8 @@ export default (
         </React.Fragment>
       );
     });
-  } else {
+    // Attach spacer component only when space value is passed
+  } else if (spaceValue !== undefined) {
     const spacingProp: object = {
       ...(axis === 'X' ? { width: spaceValue } : { height: spaceValue }),
     };
@@ -91,6 +92,8 @@ export default (
         </React.Fragment>
       );
     });
+  } else {
+    return childrenArray;
   }
 
   return childrenArray;
