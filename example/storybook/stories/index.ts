@@ -32,6 +32,7 @@ export * from './components/composites/Fab';
 export * from './components/primitives/Flex';
 export * from './components/composites/FormControl';
 export * from './components/primitives/Heading';
+export * from './components/primitives/Hidden';
 export * from './components/primitives/HStack';
 export * from './components/primitives/Icon';
 export * from './components/composites/IconButton';
