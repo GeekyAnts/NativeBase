@@ -51,10 +51,8 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
           }}
           ref={ref}
         />
-      ) : remainingChildren.length === 0 ? (
-        <Text {..._text}>--</Text> // default alternate
       ) : (
-        remainingChildren
+        remainingChildren.length !== 0 && remainingChildren
       )}
       {Badge}
     </Box>
