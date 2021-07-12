@@ -1,5 +1,5 @@
 import React, { memo, forwardRef, useRef } from 'react';
-import { Text as NativeText } from 'react-native';
+import { Text as NativeText, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../../hooks';
 import styled from 'styled-components/native';
 import {
@@ -25,6 +25,8 @@ import {
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
+import isNil from 'lodash.isnil';
+import { isResponsiveAnyProp } from '../../../theme/tools';
 
 type IUseResolvedFontFamily = {
   fontFamily: string;
@@ -107,6 +109,15 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
 
   if (resolvedFontFamily) {
     fontFamily = resolvedFontFamily;
+  }
+
+  //TODO: refactor for responsive prop
+  const windowDimensions = useWindowDimensions();
+  if (isNil(windowDimensions.width) || isNil(windowDimensions.height)) {
+    const responsivePropsExists = isResponsiveAnyProp(props);
+    if (responsivePropsExists) {
+      return null;
+    }
   }
 
   return (
