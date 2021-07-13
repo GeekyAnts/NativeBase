@@ -6,7 +6,6 @@ import Skeleton from './Skeleton';
 const SkeletonCircle = (allProps: ISkeletonProps) => {
   const { children, ...props } = allProps;
   const newProps = usePropsResolution('SkeletonCircle', props);
-
   return newProps.isLoaded ? children : <Skeleton {...newProps} />;
 };
 

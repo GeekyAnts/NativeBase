@@ -4,7 +4,7 @@ import typography from '../base/typography';
 const baseStyle = (props: Record<string, any>) => {
   return {
     startColor: mode('muted.200', 'muted.600')(props),
-    endColre: 'transparent',
+    endColor: 'transparent',
     fadeDuration: 0.1,
     speed: 1.0,
   };
@@ -12,18 +12,18 @@ const baseStyle = (props: Record<string, any>) => {
 const baseStyleCircle = (props: Record<string, any>) => {
   return {
     startColor: mode('muted.200', 'muted.600')(props),
-    endColre: 'transparent',
+    endColor: 'transparent',
     fadeDuration: 0.1,
+    borderRadius: 999,
     speed: 1.0,
   };
 };
 const baseStyleText = (props: Record<string, any>) => {
   return {
     startColor: mode('muted.200', 'muted.600')(props),
-    endColre: 'transparent',
+    endColor: 'transparent',
     fadeDuration: 0.1,
     speed: 1.0,
-    borderRadius: 'full',
   };
 };
 
