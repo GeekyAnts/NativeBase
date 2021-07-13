@@ -27,7 +27,7 @@ export const Example = () => {
         noOfLines={6}
         mt={5}
         h={120}
-        lineHeight={12}
+        lineHeight={'12px'}
         space={2}
         isLoaded={isLoaded}
       >

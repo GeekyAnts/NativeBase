@@ -1,15 +1,19 @@
 import React, { memo, forwardRef } from 'react';
 import { Animated, Platform, View } from 'react-native';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 import Box from '../../primitives/Box';
 import type { ISkeletonProps } from './types';
+import { useToken } from '../../../hooks/useToken';
 
 const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   const isDomUsable = canUseDom();
   const { children, ...props } = allProps;
-  const newProps = useThemeProps('Skeleton', props);
-  const { style, skeletonColor, baseColor } = newProps;
+  const { startColor, endColor, ...newProps } = usePropsResolution(
+    'Skeleton',
+    props
+  );
+  const { style } = newProps;
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
 
   React.useEffect(() => {
@@ -38,7 +42,7 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
       height: '100%',
       width: '100%',
       borderRadius: newProps.borderRadius ? newProps.borderRadius : 3,
-      backgroundColor: skeletonColor,
+      backgroundColor: useToken('colors', startColor),
       opacity: blinkAnim, // Bind opacity to animated value
     },
   };
@@ -49,12 +53,13 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
     <Box
       style={[style]}
       borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
-      bg={baseColor}
-      {...props}
+      bg={endColor}
+      {...newProps}
+      // startColor={useToken('colors', startColor)}
+
       ref={ref}
     >
       <Animated.View style={skeletonStyle.skeleton} />
-      {/* <Box h={fontSize}></Box> */}
       {children ? <View style={{ opacity: 0 }}>{children}</View> : null}
     </Box>
   );
