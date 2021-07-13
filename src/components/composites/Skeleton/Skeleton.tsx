@@ -17,6 +17,8 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   } = usePropsResolution('Skeleton', allProps);
   // Setting blink Animation
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
+  const tokenisedRadius = useToken('radii', newProps.borderRadius);
+  const tokenisedStartColor = useToken('colors', startColor);
 
   // Generating blink animation in a sequence
   React.useEffect(() => {
@@ -45,8 +47,8 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
       bottom: 0,
       height: '100%',
       width: '100%',
-      borderRadius: newProps.borderRadius ? newProps.borderRadius : 3,
-      backgroundColor: useToken('colors', startColor),
+      borderRadius: tokenisedRadius,
+      backgroundColor: tokenisedStartColor,
       opacity: blinkAnim, // Bind opacity to animated value
     },
   };
@@ -56,7 +58,7 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   ) : (
     <Box
       style={[style]}
-      borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
+      borderRadius={tokenisedRadius}
       bg={endColor}
       {...newProps}
       ref={ref}

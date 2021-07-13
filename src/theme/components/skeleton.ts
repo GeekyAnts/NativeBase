@@ -6,6 +6,7 @@ const baseStyle = (props: Record<string, any>) => {
     startColor: mode('muted.200', 'muted.600')(props),
     endColor: 'transparent',
     fadeDuration: 0.1,
+    borderRadius: 3,
     speed: 1.0,
   };
 };
@@ -14,7 +15,7 @@ const baseStyleCircle = (props: Record<string, any>) => {
     startColor: mode('muted.200', 'muted.600')(props),
     endColor: 'transparent',
     fadeDuration: 0.1,
-    borderRadius: 999,
+    borderRadius: 'full',
     speed: 1.0,
   };
 };
@@ -23,6 +24,7 @@ const baseStyleText = (props: Record<string, any>) => {
     startColor: mode('muted.200', 'muted.600')(props),
     endColor: 'transparent',
     fadeDuration: 0.1,
+    borderRadius: 3,
     speed: 1.0,
   };
 };
