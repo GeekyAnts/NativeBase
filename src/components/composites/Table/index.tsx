@@ -2,13 +2,16 @@ import { HStack } from '../../primitives/Stack';
 import React from 'react';
 import Box, { IBoxProps } from '../../primitives/Box';
 import type { IHStackProps } from '../../primitives/Stack/HStack';
+import { FlatList, FlatListProps } from 'react-native';
 
 type ITemplateProps = number[] | { [key: number]: any };
 
 interface ITableProps extends IBoxProps {
   templateColumns?: ITemplateProps;
   _column?: IBoxProps;
-  children?: any;
+  children?: any | (({ item }: any) => any);
+  ListHeaderComponent: Pick<FlatListProps<any>, 'ListHeaderComponent'>;
+  data: any[];
 }
 
 const TableContext = React.createContext({
@@ -17,14 +20,42 @@ const TableContext = React.createContext({
 });
 
 export const Table = React.forwardRef(
-  ({ templateColumns = {}, _column = {}, ...rest }: ITableProps, ref: any) => {
+  (
+    {
+      templateColumns = {},
+      _column = {},
+      data,
+      ListHeaderComponent,
+      ...rest
+    }: ITableProps,
+    ref: any
+  ) => {
     return (
       <TableContext.Provider value={{ templateColumns, _column }}>
-        <Box width="100%" ref={ref} {...rest} />
+        {data ? (
+          <VirtualizedTable
+            data={data}
+            ListHeaderComponent={ListHeaderComponent}
+            renderItem={rest.children}
+          />
+        ) : (
+          <Box width="100%" ref={ref} {...rest} />
+        )}
       </TableContext.Provider>
     );
   }
 );
+
+const VirtualizedTable = ({ data, renderItem, ListHeaderComponent }: any) => {
+  return (
+    <FlatList
+      data={data}
+      renderItem={renderItem}
+      ListHeaderComponent={ListHeaderComponent}
+      // keyExtractor={({ item }) => item.id}
+    />
+  );
+};
 
 interface ITdProps extends IBoxProps {
   flex?: number;

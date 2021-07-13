@@ -1,13 +1,28 @@
 import React from 'react';
-import { Box } from 'native-base';
+import { Box, Table, Tr, Td } from 'native-base';
+import { data } from './fakeData';
+
 export const Example = () => {
   return (
-    <Box
-      bg="primary.400"
-      p={4}
-      _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}
+    <Table
+      data={data}
+      ListHeaderComponent={() => {
+        return (
+          <Tr>
+            <Td>Job Title</Td>
+            <Td>Email</Td>
+          </Tr>
+        );
+      }}
     >
-      This is a Box
-    </Box>
+      {({ item }) => {
+        return (
+          <Tr>
+            <Td>{item.JobTitle}</Td>
+            <Td>{item.EmailAddress}</Td>
+          </Tr>
+        );
+      }}
+    </Table>
   );
 };
