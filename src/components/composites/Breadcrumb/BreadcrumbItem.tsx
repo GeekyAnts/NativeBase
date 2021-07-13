@@ -1,10 +1,11 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, memo } from 'react';
 import { Platform } from 'react-native';
 import Flex from '../../primitives/Flex';
 import type { IBreadcrumbItemProps } from './types';
 
 const BreadcrumbItem = (props: IBreadcrumbItemProps, ref?: any) => {
   const { children, isCurrentPage, _text, ...remainingProps } = props;
+  // console.log(isCurrentPage, _text, remainingProps, children);
   return (
     <Flex {...remainingProps} ref={ref}>
       {React.Children.map(children, (child: any, index: number) =>
@@ -26,4 +27,4 @@ const BreadcrumbItem = (props: IBreadcrumbItemProps, ref?: any) => {
   );
 };
 
-export default React.memo(forwardRef(BreadcrumbItem));
+export default memo(forwardRef(BreadcrumbItem));

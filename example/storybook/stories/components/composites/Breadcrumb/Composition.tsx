@@ -19,21 +19,22 @@ export const Example = () => {
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
-        <Breadcrumb.Item>
+        <Breadcrumb.Item isCurrentPage>
           <Breadcrumb.Link href="https://alpha.nativebase.io/" isExternal>
             <HStack>
               <Icon
+                fontWeight={'bold'}
                 as={MaterialCommunityIcons}
                 name="file-document"
                 mr={1}
                 size="xs"
               />
-              <Text>Docs</Text>
+              <Text fontWeight={'bold'}>Docs</Text>
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
 
-        <Breadcrumb.Item isCurrentPage>
+        <Breadcrumb.Item>
           <Breadcrumb.Link
             href="https://github.com/GeekyAnts/nativebase"
             isExternal
