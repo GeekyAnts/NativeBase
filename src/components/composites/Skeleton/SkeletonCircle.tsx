@@ -6,6 +6,7 @@ import Skeleton from './Skeleton';
 const SkeletonCircle = (allProps: ISkeletonProps) => {
   const { children, ...props } = allProps;
   const newProps = usePropsResolution('SkeletonCircle', props);
+  // Skeleton component with border Radius 999
   return newProps.isLoaded ? children : <Skeleton {...newProps} />;
 };
 

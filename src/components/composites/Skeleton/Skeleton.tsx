@@ -15,9 +15,12 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
     endColor,
     ...newProps
   } = usePropsResolution('Skeleton', allProps);
+  // Setting blink Animation
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
 
+  // Generating blink animation in a sequence
   React.useEffect(() => {
+    //Check if window is loaded
     if (isDomUsable) {
       const blink = Animated.sequence([
         Animated.timing(blinkAnim, {
@@ -59,6 +62,7 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
       ref={ref}
     >
       <Animated.View style={skeletonStyle.skeleton} />
+      {/* Rendering children with 0 opacity (takes height of children incase children are present) */}
       {children ? <View style={{ opacity: 0 }}>{children}</View> : null}
     </Box>
   );

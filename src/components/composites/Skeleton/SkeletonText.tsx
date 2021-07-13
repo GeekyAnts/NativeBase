@@ -16,9 +16,12 @@ const SkeletonText = (allProps: IBoxProps & ISkeletonTextProps, ref: any) => {
   } = usePropsResolution('SkeletonText', props);
 
   let computedChildren = [];
+  //generating an array of skeleton components (same length as noOfLines)
   for (let i = 0; i < newProps.noOfLines; i++) {
+    //check for last line (to change the width of last line)
     if (i == newProps.noOfLines - 1 && newProps.noOfLines !== 1) {
       computedChildren.push(
+        //Using Skeleton component with required props
         <Skeleton
           borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
           endColor={endColor}
@@ -46,6 +49,7 @@ const SkeletonText = (allProps: IBoxProps & ISkeletonTextProps, ref: any) => {
       {...newProps}
       ref={ref}
     >
+      {/* populating computed children with given space */}
       <VStack
         top={0}
         left={0}
@@ -54,6 +58,7 @@ const SkeletonText = (allProps: IBoxProps & ISkeletonTextProps, ref: any) => {
         position="absolute"
         justifyContent={space == undefined ? 'space-between' : 'flex-start'}
         space={space}
+        // spreading props specific for VStack
         {...props._stack}
         overflow="hidden"
       >
