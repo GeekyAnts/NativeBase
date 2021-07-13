@@ -9,12 +9,21 @@ const baseStyle = (props: Record<string, any>) => {
     speed: 1.0,
   };
 };
+const baseStyleCircle = (props: Record<string, any>) => {
+  return {
+    startColor: mode('muted.200', 'muted.600')(props),
+    endColre: 'transparent',
+    fadeDuration: 0.1,
+    speed: 1.0,
+  };
+};
 const baseStyleText = (props: Record<string, any>) => {
   return {
     startColor: mode('muted.200', 'muted.600')(props),
     endColre: 'transparent',
     fadeDuration: 0.1,
     speed: 1.0,
+    borderRadius: 'full',
   };
 };
 
@@ -52,6 +61,6 @@ export const Skeleton = {
 
 // SkeletonCircle
 export const SkeletonCircle = {
-  baseStyle,
+  baseStyle: baseStyleCircle,
   defaultProps,
 };

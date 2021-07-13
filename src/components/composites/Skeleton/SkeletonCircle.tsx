@@ -5,13 +5,9 @@ import Skeleton from './Skeleton';
 
 const SkeletonCircle = (allProps: ISkeletonProps) => {
   const { children, ...props } = allProps;
-  const newProps = usePropsResolution('Skeleton', props);
+  const newProps = usePropsResolution('SkeletonCircle', props);
 
-  return newProps.isLoaded ? (
-    children
-  ) : (
-    <Skeleton borderRadius={'full'} {...newProps} />
-  );
+  return newProps.isLoaded ? children : <Skeleton {...newProps} />;
 };
 
 export default memo(forwardRef(SkeletonCircle));
