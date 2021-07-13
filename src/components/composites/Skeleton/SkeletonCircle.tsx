@@ -10,7 +10,7 @@ const SkeletonCircle = (allProps: ISkeletonProps) => {
   return newProps.isLoaded ? (
     children
   ) : (
-    <Skeleton borderRadius={999} {...newProps} />
+    <Skeleton borderRadius={'full'} {...newProps} />
   );
 };
 

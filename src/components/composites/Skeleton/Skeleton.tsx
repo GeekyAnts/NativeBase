@@ -8,12 +8,13 @@ import { useToken } from '../../../hooks/useToken';
 
 const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   const isDomUsable = canUseDom();
-  const { children, ...props } = allProps;
-  const { startColor, endColor, ...newProps } = usePropsResolution(
-    'Skeleton',
-    props
-  );
-  const { style } = newProps;
+  const {
+    children,
+    startColor,
+    style,
+    endColor,
+    ...newProps
+  } = usePropsResolution('Skeleton', allProps);
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
 
   React.useEffect(() => {
@@ -55,8 +56,6 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
       borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
       bg={endColor}
       {...newProps}
-      // startColor={useToken('colors', startColor)}
-
       ref={ref}
     >
       <Animated.View style={skeletonStyle.skeleton} />
