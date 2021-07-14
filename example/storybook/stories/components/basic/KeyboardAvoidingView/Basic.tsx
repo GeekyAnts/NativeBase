@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Input,
   KeyboardAvoidingView,
-  View,
   Text,
   Button,
   VStack,
@@ -30,9 +29,7 @@ export const Example = () => {
             mb={9}
             mt="auto"
           />
-          <View bg="white" mt={3}>
-            <Button variant="solid">Submit</Button>
-          </View>
+          <Button variant="solid">Submit</Button>
         </VStack>
       )}
     </KeyboardAvoidingView>
