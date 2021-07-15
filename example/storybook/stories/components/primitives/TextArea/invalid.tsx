@@ -7,11 +7,21 @@ export const Example = () => {
       <Center>
         <Text>Invalid TextArea</Text>
       </Center>
-      <TextArea numberOfLines={4} placeholder="Invalid TextArea" isInvalid />
+      <TextArea
+        aria-label="t1"
+        numberOfLines={4}
+        placeholder="Invalid TextArea"
+        isInvalid
+        _dark={{ placeholderTextColor: 'gray.300' }}
+      />
       <Center>
         <Text>Disabled TextArea</Text>
       </Center>
-      <TextArea placeholder="Disabled TextArea" isDisabled />
+      <TextArea
+        aria-label="t1Disabled"
+        placeholder="Disabled TextArea"
+        isDisabled
+      />
     </Stack>
   );
 };
