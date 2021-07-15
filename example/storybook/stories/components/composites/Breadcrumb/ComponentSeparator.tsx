@@ -11,7 +11,7 @@ export const Example = () => {
           <Icon as={<Ionicons name="chevron-forward-outline" />} size={5} />
         }
       >
-        <Breadcrumb.Item isCurrentPage>
+        <Breadcrumb.Item isCurrent>
           <Breadcrumb.Link>Home (This is currently active)</Breadcrumb.Link>
         </Breadcrumb.Item>
         <Breadcrumb.Item>

@@ -5,7 +5,7 @@ export const Example = () => {
     <Box>
       <Heading mb={4}>Default Breadcrumb</Heading>
       <Breadcrumb>
-        <Breadcrumb.Item isCurrentPage>
+        <Breadcrumb.Item isCurrent>
           <Breadcrumb.Link href="https://github.com/GeekyAnts/nativebase">
             Home (This is currently active)
           </Breadcrumb.Link>
