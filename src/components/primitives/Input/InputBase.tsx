@@ -107,9 +107,7 @@ const InputBase = (
   return (
     <StyledInput
       {...inputProps}
-      fontFamily={resolvedFontFamily}
-      fontWeight={fontWeight}
-      fontStyle={fontStyle}
+      {...resolvedFontFamily}
       secureTextEntry={type === 'password'}
       accessible
       accessibilityLabel={ariaLabel || accessibilityLabel}
