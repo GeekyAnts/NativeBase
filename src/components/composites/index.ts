@@ -23,7 +23,7 @@ export type { IContainerProps } from './Container';
 export { Modal } from './Modal';
 export { default as Drawer } from './Drawer';
 
-export { useToast } from './Toast';
+export { useToast, IToastProps } from './Toast';
 
 export { default as Divider } from './Divider';
 export type { IDividerProps } from './Divider/types';

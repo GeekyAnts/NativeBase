@@ -13,6 +13,12 @@ export const ActionsheetContent = {
     p: 2,
     borderRadius: 'none',
     roundedTop: 10,
+    _dragIndicator: {
+      bg: 'coolGray.400',
+      height: 1,
+      width: 9,
+      borderRadius: 2,
+    },
   },
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import {
   SafeAreaProvider,
+  Metrics,
   initialWindowMetrics as defaultInitialWindowMetrics,
 } from 'react-native-safe-area-context';
 import { SSRProvider } from '@react-native-aria/utils';
@@ -14,6 +15,20 @@ import {
   INativebaseConfig,
   NativeBaseConfigProvider,
 } from './NativeBaseContext';
+import { Platform } from 'react-native';
+
+// For SSR to work, we need to pass initial insets as 0 values on web.
+
+// https://github.com/th3rdwave/react-native-safe-area-context/issues/132
+const defaultInitialWindowMetricsBasedOnPlatform: Metrics | null = Platform.select(
+  {
+    web: {
+      frame: { x: 0, y: 0, width: 0, height: 0 },
+      insets: { top: 0, left: 0, right: 0, bottom: 0 },
+    },
+    default: defaultInitialWindowMetrics,
+  }
+);
 
 export interface NativeBaseProviderProps {
   theme?: ITheme;
@@ -38,7 +53,9 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     <ThemeProvider theme={theme}>
       <NativeBaseConfigProvider config={config}>
         <SafeAreaProvider
-          initialMetrics={initialWindowMetrics ?? defaultInitialWindowMetrics}
+          initialMetrics={
+            initialWindowMetrics ?? defaultInitialWindowMetricsBasedOnPlatform
+          }
         >
           <HybridProvider
             colorModeManager={colorModeManager}

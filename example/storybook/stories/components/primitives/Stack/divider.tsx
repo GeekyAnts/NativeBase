@@ -17,7 +17,6 @@ export function Example() {
           <Box>Simple</Box>
           <Box>Easy</Box>
           <Box>Beautiful</Box>
-          <Box>NativeBase</Box>
         </Stack>
       </Box>
     </Stack>

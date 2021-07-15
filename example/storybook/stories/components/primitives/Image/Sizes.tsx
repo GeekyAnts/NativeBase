@@ -1,6 +1,5 @@
 import React from 'react';
-import { VStack, Image } from 'native-base';
-import { ScrollView } from 'react-native';
+import { VStack, Image, ScrollView } from 'native-base';
 export function Example() {
   return (
     <ScrollView>
