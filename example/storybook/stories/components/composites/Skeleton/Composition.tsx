@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Skeleton,
@@ -8,40 +8,44 @@ import {
   HStack,
   Image,
 } from 'native-base';
-function Composition({ loaded }: any) {
+
+function CompositionComponent() {
+  const [loaded, setLoaded] = useState(false);
+  setTimeout(() => {
+    setLoaded(true);
+  }, 5000);
   return (
     <VStack>
       <HStack alignItems="center">
-        {loaded ? (
+        <Skeleton.Circle size={12} isLoaded={loaded}>
           <Avatar
             source={{
               uri: 'https://nativebase.github.io/img/native-base-icon.png',
             }}
           />
-        ) : (
-          <Skeleton variant="circle" size={12} />
-        )}
-        <Text fontWeight="bold" fontSize="lg" ml={2}>
-          {loaded ? (
-            'Nativebase'
-          ) : (
-            <Skeleton>
-              <Box>Nativebase</Box>
-            </Skeleton>
-          )}
-        </Text>
+        </Skeleton.Circle>
+
+        <Skeleton.Text
+          isLoaded={loaded}
+          w="50%"
+          ml={2}
+          _stack={{ justifyContent: 'center' }}
+        >
+          <Text fontWeight="bold" fontSize="lg" my="auto" ml={2}>
+            Nativebase
+          </Text>
+        </Skeleton.Text>
       </HStack>
       <Box size={200} mt={1}>
-        {loaded ? (
+        <Skeleton height="100%" isLoaded={loaded}>
           <Image
             source={{
               uri: 'https://www.w3schools.com/css/img_lights.jpg',
             }}
             alt="NativeBase logo"
+            size={200}
           />
-        ) : (
-          <Skeleton variant="rect" height="100%" />
-        )}
+        </Skeleton>
       </Box>
     </VStack>
   );
@@ -50,8 +54,7 @@ function Composition({ loaded }: any) {
 export const Example = () => {
   return (
     <VStack space={4}>
-      <Composition />
-      <Composition loaded />
+      <CompositionComponent />
     </VStack>
   );
 };

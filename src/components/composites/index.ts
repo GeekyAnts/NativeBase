@@ -35,7 +35,7 @@ export { default as Progress } from './Progress';
 // export { default as Stat } from './Stat';
 
 export { Skeleton } from './Skeleton';
-export type { ISkeletonProps } from './Skeleton';
+export type { ISkeletonProps, ISkeletonTextProps } from './Skeleton';
 
 export { Accordion } from './Accordion';
 export type {

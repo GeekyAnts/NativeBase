@@ -51,7 +51,7 @@ export * from './components/primitives/Radio';
 export * from './components/primitives/Row';
 export * from './components/primitives/Select';
 // export * from './components/composites/SimpleGrid';
-// export * from './components/composites/Skeleton';
+export * from './components/composites/Skeleton';
 export * from './components/primitives/Slider';
 export * from './components/primitives/Spinner';
 export * from './components/primitives/Stack';
