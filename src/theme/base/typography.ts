@@ -12,20 +12,20 @@ const typography = {
     '5xl': 1.5,
   },
   lineHeights: {
-    'none': 16,
-    'shorter': 20,
-    'short': 22,
-    'base': 24,
-    'tall': 26,
-    'taller': 32,
-    '3': 12,
-    '4': 16,
-    '5': 20,
-    '6': 24,
-    '7': 28,
-    '8': 32,
-    '9': 36,
-    '10': 40,
+    'none': 1,
+    'shorter': 1.25,
+    'short': 1.375,
+    'base': 1.5,
+    'tall': 1.625,
+    'taller': '2',
+    '3': '12px',
+    '4': '16px',
+    '5': '20px',
+    '6': '24px',
+    '7': '28px',
+    '8': '32px',
+    '9': '36px',
+    '10': '40px',
   },
   // fontConfig: {
   //   Roboto: {
@@ -66,6 +66,45 @@ const typography = {
   //       italic: 'Roboto-BoldItalic',
   //     },
   //   },
+
+  //   Montserrat: {
+  //     100: {
+  //       normal: 'Montserrat-Light',
+  //       italic: 'Montserrat-LightItalic',
+  //     },
+  //     200: {
+  //       normal: 'Montserrat-Light',
+  //       italic: 'Montserrat-LightItalic',
+  //     },
+  //     300: {
+  //       normal: 'Montserrat-Light',
+  //       italic: 'Montserrat-LightItalic',
+  //     },
+  //     400: {
+  //       normal: 'Montserrat-Regular',
+  //       italic: 'Montserrat-Italic',
+  //     },
+  //     500: {
+  //       normal: 'Montserrat-Medium',
+  //       italic: 'Montserrat-MediumItalic',
+  //     },
+  //     600: {
+  //       normal: 'Montserrat-SemiBold',
+  //       italic: 'Montserrat-SemiBoldItalic',
+  //     },
+  //     700: {
+  //       normal: 'Montserrat-Bold',
+  //       italic: 'Montserrat-BoldItalic',
+  //     },
+  //     800: {
+  //       normal: 'Montserrat-ExtraBold',
+  //       italic: 'Montserrat-ExtraBoldItalic',
+  //     },
+  //     900: {
+  //       normal: 'Montserrat-Black',
+  //       italic: 'Montserrat-BlackItalic',
+  //     },
+  //   },
   // },
   fontWeights: {
     hairline: 100,
@@ -79,9 +118,9 @@ const typography = {
     black: 900,
   },
   fonts: {
-    heading: '',
-    body: '',
-    mono: '',
+    heading: undefined,
+    body: undefined,
+    mono: undefined,
   },
   fontSizes: {
     'xxs': 10,

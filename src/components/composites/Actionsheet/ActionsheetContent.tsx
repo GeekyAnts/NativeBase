@@ -5,13 +5,18 @@ import { usePropsResolution } from '../../../hooks';
 import { Animated, PanResponder } from 'react-native';
 import { ModalContext } from '../Modal/Context';
 import Box from '../../primitives/Box';
+import { ActionSheetContext } from './ActionSheetContext';
 
 const ActionsheetContent = (
   { children, ...props }: IActionsheetContentProps,
   ref?: any
 ) => {
-  const newProps = usePropsResolution('ActionsheetContent', props);
+  const { _dragIndicator, ...newProps } = usePropsResolution(
+    'ActionsheetContent',
+    props
+  );
   const { handleClose } = React.useContext(ModalContext);
+  const { hideDragIndicator } = React.useContext(ActionSheetContext);
   let pan = React.useRef(new Animated.ValueXY()).current;
   let sheetHeight = React.useRef(0);
 
@@ -59,21 +64,30 @@ const ActionsheetContent = (
       }}
       pointerEvents="box-none"
     >
-      {/* To increase the draggable area */}
-      <Box py={5} {...panResponder.panHandlers} collapsable={false} />
+      {!hideDragIndicator ? (
+        <>
+          {/* To increase the draggable area */}
+          <Box py={5} {...panResponder.panHandlers} collapsable={false} />
+        </>
+      ) : null}
 
       <Modal.Content {...newProps} ref={ref} safeAreaBottom>
-        {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}
-        <Box
-          py={5}
-          mt={-2}
-          {...panResponder.panHandlers}
-          width="100%"
-          alignItems="center"
-          collapsable={false}
-        >
-          <Box bg="coolGray.400" height={1} width={9} borderRadius={2} />
-        </Box>
+        {!hideDragIndicator ? (
+          <>
+            {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}
+            <Box
+              py={5}
+              mt={-2}
+              {...panResponder.panHandlers}
+              width="100%"
+              alignItems="center"
+              collapsable={false}
+            >
+              <Box {..._dragIndicator} />
+            </Box>
+          </>
+        ) : null}
+
         {children}
       </Modal.Content>
     </Animated.View>

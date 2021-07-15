@@ -19,6 +19,7 @@ const baseStyle = (props: Record<string, any>) => {
         };
 
   return {
+    fontFamily: 'body',
     px: 4,
     py: 2,
     borderRadius: 'lg',
@@ -41,7 +42,8 @@ const baseStyle = (props: Record<string, any>) => {
       borderColor: 'primary.400',
     },
     _android: {
-      p: 3,
+      px: 4,
+      py: 3,
       _focus: {
         borderColor: 'primary.400',
       },

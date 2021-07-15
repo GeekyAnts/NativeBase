@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, Box, Heading, HStack } from 'native-base';
+import { Breadcrumb, Box, Heading, HStack, Icon, Text } from 'native-base';
 import {
   MaterialCommunityIcons,
   MaterialIcons,
@@ -14,13 +14,8 @@ export const Example = () => {
         <Breadcrumb.Item isCurrent>
           <Breadcrumb.Link>
             <HStack>
-              <Breadcrumb.Icon
-                as={MaterialIcons}
-                name="home"
-                mr={1}
-                size="xs"
-              />
-              <Breadcrumb.Text>Home</Breadcrumb.Text>
+              <Icon as={<MaterialIcons name="home" />} mr={1} size="xs" />
+              <Text>Home</Text>
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
@@ -43,8 +38,12 @@ export const Example = () => {
             isExternal
           >
             <HStack>
-              <Breadcrumb.Icon as={AntDesign} name="github" mr={1} size="xs" />
-              <Breadcrumb.Text>Github</Breadcrumb.Text>
+              <Icon
+                as={<MaterialCommunityIcons name="file-document" />}
+                mr={1}
+                size="xs"
+              />
+              <Text>Docs</Text>
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
@@ -54,8 +53,8 @@ export const Example = () => {
             isExternal
           >
             <HStack>
-              <Breadcrumb.Icon as={AntDesign} name="github" mr={1} size="xs" />
-              <Breadcrumb.Text>Discord</Breadcrumb.Text>
+              <Icon as={<AntDesign name="github" />} mr={1} size="xs" />
+              <Text>Github (This is currently active)</Text>
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>

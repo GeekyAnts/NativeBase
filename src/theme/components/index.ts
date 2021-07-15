@@ -20,6 +20,7 @@ import AvatarGroup from './avatar-group';
 import Badge from './badge';
 import { Breadcrumb, BreadcrumbText } from './breadcrumb';
 import Button, { ButtonGroup } from './button';
+import Card from './card';
 import Center from './center';
 import Checkbox from './checkbox';
 import Box from './box';
@@ -64,7 +65,7 @@ import { default as NumberInput, NumberInputStepper } from './number-input';
 import PinInput from './pin-input';
 import Progress from './progress';
 import Radio from './radio';
-import { Skeleton, SkeletonText } from './skeleton';
+import { Skeleton, SkeletonText, SkeletonCircle } from './skeleton';
 import Spinner from './spinner';
 import Stat from './stat';
 import Switch from './switch';
@@ -115,6 +116,7 @@ export default {
   BreadcrumbText,
   Button,
   ButtonGroup,
+  Card,
   Center,
   Checkbox,
   CircularProgress,
@@ -162,6 +164,7 @@ export default {
   SimpleGrid,
   Skeleton,
   SkeletonText,
+  SkeletonCircle,
   SliderFilledTrack,
   SliderThumb,
   SliderTrack,

@@ -3,7 +3,12 @@ import { Pressable, Text } from 'native-base';
 
 export function Example() {
   return (
-    <Pressable p={4} borderWidth={1}>
+    <Pressable
+      p={4}
+      borderWidth={1}
+      _light={{ borderColor: 'dark.200' }}
+      _dark={{ borderColor: 'dark.600' }}
+    >
       {({ isHovered, isFocused, isPressed }) => {
         return (
           <Text>

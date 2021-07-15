@@ -1,5 +1,4 @@
-import type { IBoxProps } from '../../primitives';
-
+import type { IBoxProps, ITextProps } from '../../primitives';
 export interface ISkeletonProps extends IBoxProps {
   /**
    * The fadeIn duration in seconds
@@ -27,7 +26,7 @@ export interface ISkeletonProps extends IBoxProps {
   size?: string | number;
 }
 
-export interface ISkeletonTextProps extends IBoxProps {
+export interface ISkeletonTextProps extends ITextProps {
   /**
    * The fadeIn duration in seconds
    */

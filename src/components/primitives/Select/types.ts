@@ -8,6 +8,10 @@ export interface ISelectProps extends IBoxProps {
    */
   placeholder?: string;
   /**
+   * The Selected Item text color.
+   */
+  color?: string;
+  /**
    * The placeholder text color
    */
   placeholderTextColor?: string;

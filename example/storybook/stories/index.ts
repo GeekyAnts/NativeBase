@@ -17,6 +17,7 @@ export * from './components/composites/Badge';
 export * from './components/primitives/Box';
 export * from './components/composites/Breadcrumb';
 export * from './components/primitives/Button';
+export * from './components/primitives/ButtonGroup';
 export * from './components/composites/Center';
 export * from './components/primitives/Checkbox';
 // export * from './components/composites/CircularProgress';
@@ -31,6 +32,7 @@ export * from './components/composites/Fab';
 export * from './components/primitives/Flex';
 export * from './components/composites/FormControl';
 export * from './components/primitives/Heading';
+export * from './components/primitives/Hidden';
 export * from './components/primitives/HStack';
 export * from './components/primitives/Icon';
 export * from './components/composites/IconButton';
@@ -71,6 +73,8 @@ export * from './components/primitives/Pressable';
 export * from './components/primitives/VStack';
 // export * from './components/composites/Wrap';
 export * from './components/primitives/ZStack';
+// export * from './components/composites/Card';
+export * from './components/composites/Card';
 
 // Hooks
 export * from './hooks/useBreakpointValue';

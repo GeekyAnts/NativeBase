@@ -1,11 +1,13 @@
 import React, { memo, forwardRef } from 'react';
-import { View } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
 import Text from './../Text';
 import { makeStyledBox } from '../../../utils/styled';
 import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { isResponsiveAnyProp } from '../../../theme/tools';
+import isNil from 'lodash.isnil';
 
 const StyledBox = makeStyledBox(View);
 
@@ -18,6 +20,15 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
     .dependencies?.['linear-gradient'];
 
   const safeAreaProps = useSafeArea(resolvedProps);
+
+  //TODO: refactor for responsive prop
+  const windowDimensions = useWindowDimensions();
+  if (isNil(windowDimensions.width) || isNil(windowDimensions.height)) {
+    const responsivePropsExists = isResponsiveAnyProp(props);
+    if (responsivePropsExists) {
+      return null;
+    }
+  }
 
   if (
     resolvedProps.bg?.linearGradient ||
@@ -52,6 +63,16 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
           y: lgrad.end[1],
         };
       }
+      const backgroundColorProps = [
+        'bg',
+        'bgColor',
+        'background',
+        'backgroundColor',
+      ];
+      backgroundColorProps.forEach((backgroundColorProp) => {
+        if (backgroundColorProp in safeAreaProps)
+          delete safeAreaProps[backgroundColorProp];
+      });
 
       return (
         <Gradient
