@@ -37,7 +37,7 @@ export const Example = () => {
             cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim
           </Modal.Body>
           <Modal.Footer>
-            <Button.Group variant="ghost" space={2}>
+            <Button.Group variant="solid" space={2}>
               <Button>LEARN MORE</Button>
               <Button
                 onPress={() => {

@@ -42,8 +42,6 @@ export const ModalContent = {
   baseStyle: (props: Record<string, any>) => {
     return {
       bg: mode('gray.50', 'gray.700')(props),
-      pl: 6,
-      pt: 6,
       shadow: 3,
       rounded: 'lg',
       maxHeight: `${Dimensions.get('window').height - 150}px`,
@@ -67,27 +65,24 @@ export const ModalCloseButton = {
 };
 export const ModalHeader = {
   baseStyle: {
-    pb: 3,
-    pr: 6,
+    p: 6,
     _text: { fontSize: 'xl', fontWeight: 'bold' },
   },
 };
 export const ModalBody = {
   baseStyle: (props: Record<string, any>) => {
     return {
-      pb: 7,
-      pr: 6,
+      px: 6,
       _text: { fontSize: 'md', color: mode('gray.600', 'gray.300')(props) },
     };
   },
 };
 export const ModalFooter = {
   baseStyle: {
-    py: 2,
+    p: 6,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     flexWrap: 'wrap',
-    pr: 2,
   },
 };
 export const ModalOverlay = {
