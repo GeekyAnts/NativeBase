@@ -9,7 +9,12 @@ const defaultProps = {
   wrap: 'wrap',
 };
 
-export default {
+export const Breadcrumb = {
+  baseStyle,
+  defaultProps,
+};
+
+export const BreadcrumbText = {
   baseStyle,
   defaultProps,
 };

@@ -18,7 +18,7 @@ import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
 import AvatarGroup from './avatar-group';
 import Badge from './badge';
-import Breadcrumb from './breadcrumb';
+import { Breadcrumb, BreadcrumbText } from './breadcrumb';
 import Button, { ButtonGroup } from './button';
 import Center from './center';
 import Checkbox from './checkbox';
@@ -112,6 +112,7 @@ export default {
   Badge,
   Box,
   Breadcrumb,
+  BreadcrumbText,
   Button,
   ButtonGroup,
   Center,
