@@ -17,7 +17,7 @@ export function Example() {
           status="error"
           action={
             <IconButton
-              icon={<CloseIcon color="red.400" size="xs" />}
+              icon={<CloseIcon size="xs" />}
               onPress={() => setShow(false)}
             />
           }

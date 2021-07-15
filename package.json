@@ -24,7 +24,7 @@
     "build:web": "rollup --config",
     "bundle:analysis": "visualize-bundle"
   },
-  "version": "3.0.3",
+  "version": "3.0.4",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -71,7 +71,7 @@
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.0.5",
     "react": "16.11.0",
-    "react-native": "0.62.2",
+    "react-native": "0.63.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
     "react-test-renderer": "^16.9.0",
@@ -102,7 +102,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*)"
+      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"

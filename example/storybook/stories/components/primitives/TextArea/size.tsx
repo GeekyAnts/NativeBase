@@ -6,7 +6,15 @@ export const Example = () => {
   return (
     <Stack space={4} w="90%">
       {Sizes.map((value) => {
-        return <TextArea key={value} size={value} placeholder={value} />;
+        return (
+          <TextArea
+            aria-label="t2"
+            key={value}
+            size={value}
+            placeholder={value}
+            _dark={{ placeholderTextColor: 'white' }}
+          />
+        );
       })}
     </Stack>
   );

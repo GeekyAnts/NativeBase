@@ -1,6 +1,5 @@
 import React from 'react';
-import { Input, Stack, Center, Heading } from 'native-base';
-import { ScrollView } from 'react-native';
+import { Input, Stack, Center, Heading, ScrollView } from 'native-base';
 export const Example = () => {
   return (
     <ScrollView>
