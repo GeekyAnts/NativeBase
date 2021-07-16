@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, Box, Heading, HStack, Icon, Text } from 'native-base';
+import { Breadcrumb, Box, Heading, HStack } from 'native-base';
 import {
   MaterialCommunityIcons,
   MaterialIcons,
@@ -10,12 +10,18 @@ export const Example = () => {
   return (
     <Box>
       <Heading mb={4}>Breadcrumb Composition</Heading>
-      <Breadcrumb spacing={2} fontSize="lg" _button={{ bg: 'transparent' }}>
-        <Breadcrumb.Item isCurrent>
+      <Breadcrumb spacing={2} _button={{ bg: 'transparent' }}>
+        <Breadcrumb.Item>
           <Breadcrumb.Link>
             <HStack>
-              <Icon as={<MaterialIcons name="home" />} mr={1} size="xs" />
-              <Text>Home</Text>
+              <Breadcrumb.Icon
+                as={<MaterialIcons name="home" />}
+                mr={1}
+                size="xs"
+              />
+              <Breadcrumb.Text _current={{ color: 'blue.500' }}>
+                Home
+              </Breadcrumb.Text>
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
@@ -31,30 +37,20 @@ export const Example = () => {
             <Breadcrumb.Text>Docs</Breadcrumb.Text>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
-
-        <Breadcrumb.Item>
+        <Breadcrumb.Item isCurrent>
           <Breadcrumb.Link
             href="https://github.com/GeekyAnts/nativebase"
             isExternal
           >
             <HStack>
-              <Icon
-                as={<MaterialCommunityIcons name="file-document" />}
+              <Breadcrumb.Icon
+                as={<AntDesign name="github" />}
                 mr={1}
                 size="xs"
               />
-              <Text>Docs</Text>
-            </HStack>
-          </Breadcrumb.Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          <Breadcrumb.Link
-            href="https://github.com/GeekyAnts/nativebase"
-            isExternal
-          >
-            <HStack>
-              <Icon as={<AntDesign name="github" />} mr={1} size="xs" />
-              <Text>Github (This is currently active)</Text>
+              <Breadcrumb.Text>
+                Github (This is currently active)
+              </Breadcrumb.Text>
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>

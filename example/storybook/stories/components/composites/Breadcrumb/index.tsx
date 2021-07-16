@@ -15,4 +15,4 @@ storiesOf('Breadcrumb', module)
   .add('Separators', () => <Separators />)
   .add('ComponentSeparator', () => <ComponentSeparator />)
   .add('Composition', () => <Composition />)
-  .add('Composition', () => <Collapsible />);
+  .add('Collapsible', () => <Collapsible />);

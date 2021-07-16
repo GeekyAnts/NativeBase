@@ -1,36 +1,34 @@
 import type { ViewStyle } from 'react-native';
 import type {
   IBoxProps,
-  IFlexProps,
   ITextProps,
   ILinkProps,
   IIconProps,
 } from '../../primitives';
 
-export type IBreadcrumbItemContext = {
+export interface IBreadcrumbItemContext {
   isCurrent?: boolean;
   allChildren?: boolean;
-};
+}
 
-export type IBreadcrumbProps = IBoxProps &
-  IFlexProps &
-  ITextProps & {
-    style?: ViewStyle;
-    children?: JSX.Element[] | JSX.Element | any;
-    spacing?: number;
-    separator?: string | JSX.Element | JSX.Element[] | any;
-    maxItems?: number | number[];
-    _button?: any;
-  };
-export type IBreadcrumbItemProps = IBreadcrumbProps & {
+export interface IBreadcrumbProps extends IBoxProps {
+  style?: ViewStyle;
+  children?: JSX.Element[] | JSX.Element | any;
+  spacing?: number;
+  separator?: string | JSX.Element | JSX.Element[] | any;
+  maxItems?: number | number[];
+  _button?: any;
+  _current?: any;
+}
+export interface IBreadcrumbItemProps extends IBreadcrumbProps {
   isCurrent?: boolean;
-};
-export type IBreadcrumbIconProps = IIconProps & {
+}
+export interface IBreadcrumbIconProps extends IIconProps {
   _current?: any;
-};
-export type IBreadcrumbTextProps = ITextProps & {
+}
+export interface IBreadcrumbTextProps extends ITextProps {
   _current?: any;
-};
+}
 export type IBreadcrumbComponentType = ((
   props: IBreadcrumbProps & { ref?: any }
 ) => JSX.Element) & {
@@ -41,9 +39,9 @@ export type IBreadcrumbComponentType = ((
     (props: ILinkProps & { ref?: any }) => JSX.Element
   >;
   Icon: React.MemoExoticComponent<
-    (props: IIconProps & { ref?: any }) => JSX.Element
+    (props: IBreadcrumbIconProps & { ref?: any }) => JSX.Element
   >;
   Text: React.MemoExoticComponent<
-    (props: ITextProps & { ref?: any }) => JSX.Element
+    (props: IBreadcrumbTextProps & { ref?: any }) => JSX.Element
   >;
 };

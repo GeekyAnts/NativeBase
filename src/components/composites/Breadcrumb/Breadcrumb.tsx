@@ -6,6 +6,7 @@ import { Path, G } from 'react-native-svg';
 import type { IBreadcrumbProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps/usePropsResolution';
 import Text from '../../primitives/Text';
+import type { IFlexProps, ITextProps } from '../../primitives';
 
 const Breadcrumb = (
   {
@@ -17,10 +18,11 @@ const Breadcrumb = (
     maxItems,
     _button,
     ...props
-  }: IBreadcrumbProps,
+  }: IBreadcrumbProps & IFlexProps & ITextProps,
   ref: any
 ) => {
   const textProps = { ..._text };
+  // Maintaining state to show all children on press of collapse button
   const [showAllChildren, setShowAllChildren] = useState(
     maxItems ? false : true
   );
@@ -54,6 +56,7 @@ const Breadcrumb = (
       {...newProps}
       ref={ref}
       style={style}
+      // Custom Separator
       divider={separatorElement}
       space={spacing ?? 2}
       // @ts-ignore - Web only prop
@@ -74,6 +77,7 @@ const Breadcrumb = (
   );
 };
 
+// Returns children to be rendered
 const getBreadcrumbSeparator = (
   children: JSX.Element[] | JSX.Element | any,
   props: any,
@@ -90,6 +94,7 @@ const getBreadcrumbSeparator = (
     if (maxItems) {
       let buttonAdded = false;
       if (typeof maxItems == 'number') {
+        // When MaxItems is a number
         if (children.length > 2 * maxItems) {
           for (let i = 0; i < children.length; i++) {
             if (i < maxItems || i >= children.length - maxItems) {
@@ -108,13 +113,16 @@ const getBreadcrumbSeparator = (
           }
           buttonAdded = false;
         }
-      } else if (typeof maxItems == 'object') {
+      }
+      // Whem maxItems is an array
+      else if (typeof maxItems == 'object') {
         if (children.length > maxItems[0] + maxItems[1])
           for (let i = 0; i < children.length; i++) {
             if (i < maxItems[0] || i >= children.length - maxItems[1]) {
               result.push(children[i]);
             } else {
               if (!buttonAdded) {
+                // pushing Collapsible button as a child
                 result.push(
                   <CollapseButton
                     {..._button}
@@ -145,6 +153,7 @@ const getBreadcrumbSeparator = (
   }
 };
 
+// Collapse button
 const CollapseButton = (props: any) => {
   const { ...remainingProps } = props;
   const CustomIcon = createIcon({

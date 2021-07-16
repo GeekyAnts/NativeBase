@@ -7,14 +7,15 @@ import type { IBreadcrumbItemProps } from './types';
 const BreadcrumbItem = (props: IBreadcrumbItemProps, ref?: any) => {
   const { children, isCurrent, _text, ...remainingProps } = props;
   return (
-    <BreadcrumbItemContext.Provider value={{ isCurrent, allChildren: true }}>
+    // Provider wrapped to use isCurrent prop in children of breadcrumb Item
+    <BreadcrumbItemContext.Provider value={{ isCurrent }}>
       <Flex {...remainingProps} ref={ref}>
         {React.Children.map(children, (child: any, index: number) =>
           React.cloneElement(child, {
             'key': `breadcrumb-item-${index}`,
             '_text': {
               ..._text, //taken out empty _text prop from props
-              fontWeight: isCurrent ? 'bold' : undefined,
+              fontWeight: 700,
             },
             ...{
               isUnderlined: false,
