@@ -20,6 +20,9 @@ const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
     ...newProps
   } = usePropsResolution('NumberInput', props);
   const formControlContext = useFormControlContext();
+
+  // setting initial state of numberInputValue
+  // if value exists then value with precision , else default value, else empty string
   const [numberInputValue, setNumberInputValue] = React.useState(
     value
       ? parseFloat(value.toString()).toFixed(
@@ -31,13 +34,12 @@ const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
         )
       : ''
   );
-
   const [numberInputStepper, setNumberInputStepper] = React.useState('');
 
   const handleChange = (newValue: any) => {
     let temp = newValue.toString();
 
-    //Pseudo code for understanding purpose
+    //Pseudo code for understanding conditions
 
     //     if keepwithinrange
     //     if precision
@@ -145,11 +147,11 @@ const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
           max,
           step,
           precision,
-          defaultValue,
+          defaultValue: defaultValue ?? null,
           clampValueOnBlur,
           handleChange,
           handleChangeWithoutCheck,
-          numberInputValue,
+          numberInputValue: numberInputValue ?? '',
           numberInputStepper,
           setNumberInputStepper,
           isControlled: value !== undefined,

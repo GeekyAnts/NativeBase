@@ -9,7 +9,6 @@ const defaultProps = {
   step: 1,
   min: -Infinity,
   max: Infinity,
-  defaultValue: '0',
   keepWithinRange: true,
   clampValueOnBlur: true,
   focusInputOnChange: true,

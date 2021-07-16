@@ -1,13 +1,4 @@
-import {
-  VStack,
-  Button,
-  FormControl,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-} from 'native-base';
+import { VStack, Button, FormControl, NumberInput } from 'native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
@@ -31,11 +22,11 @@ export const Example = () => {
               onChange={(val: any) => onChange(val)}
               defaultValue={value}
             >
-              <NumberInputField />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
+              <NumberInput.Field />
+              <NumberInput.Stepper>
+                <NumberInput.IncrementStepper />
+                <NumberInput.DecrementStepper />
+              </NumberInput.Stepper>
             </NumberInput>
           )}
           name="version"

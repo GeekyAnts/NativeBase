@@ -11,7 +11,6 @@ const NumberIncrementStepper = (
   const {
     numberInputValue = '',
     step = 1,
-    defaultValue,
     max = +Infinity,
     precision,
     keepWithinRange = true,
@@ -20,13 +19,27 @@ const NumberIncrementStepper = (
   }: INumberInputContext = React.useContext(NumberInputContext);
 
   const isDisabled = pIsDisabled || context.isDisabled;
+
   const pressHandler = () => {
-    handleChange &&
-      handleChange(
-        (parseFloat(numberInputValue) + step).toFixed(
-          precision ?? numberOfDecimals(defaultValue, step)
-        )
-      );
+    //  if number is NaN for some reason ( e.g. only '-' without any digit)
+    //  then send 0 as input value with precision of step and input value
+    if (isNaN(numberInputValue)) {
+      handleChange &&
+        handleChange(
+          parseFloat('0').toFixed(
+            precision ?? numberOfDecimals(parseFloat(numberInputValue), step)
+          )
+        );
+    }
+    // else do calculation of step and prescision according to stepper type
+    else {
+      handleChange &&
+        handleChange(
+          (parseFloat(numberInputValue || '0') + step).toFixed(
+            precision ?? numberOfDecimals(parseFloat(numberInputValue), step)
+          )
+        );
+    }
   };
   return (
     <NBStepper
