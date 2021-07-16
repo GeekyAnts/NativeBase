@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
+// import { Example as ButtonGroup } from './ButtonGroup';
 import { Example as WithRef } from './WithRef';
 import { Example as Sizes } from './sizes';
 import { Example as Basic } from './basic';
@@ -18,5 +19,6 @@ storiesOf('Button', module)
   .add('Sizes', () => <Sizes />)
   .add('Loading', () => <Loading />)
   .add('Icons', () => <Icons />)
+  // .add('ButtonGroup', () => <ButtonGroup />)
   .add('Composition', () => <Composition />)
   .add('WithRef', () => <WithRef />);

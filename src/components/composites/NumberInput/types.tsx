@@ -1,38 +1,72 @@
-import type { IInputProps, IBoxProps, IStackProps } from '../../primitives';
+import type {
+  IInputProps,
+  IBoxProps,
+  IStackProps,
+  IButtonProps,
+} from '../../primitives';
+export interface INumberInputProps
+  extends Omit<IInputProps, 'defaultValue' | 'onChange' | 'value'>,
+    Omit<
+      IBoxProps,
+      | 'bgColor'
+      | 'background'
+      | 'bg'
+      | 'backgroundColor'
+      | 'shadow'
+      | 'style'
+      | 'size'
+    > {
+  onChange?: (value: string) => void;
+  min?: number;
+  max?: number;
+  step?: number;
+  defaultValue?: number;
+  value?: number;
+  precision?: number;
+  isReadOnly?: boolean;
+  isInvalid?: boolean;
+  isDisabled?: boolean;
+  keepWithinRange?: boolean;
+  clampValueOnBlur?: boolean;
+  focusInputOnChange?: boolean;
+  getAriaValueText?: boolean;
+  children?: JSX.Element[] | JSX.Element;
+}
 
-export type INumberInputProps = IInputProps &
-  IBoxProps & {
-    onChange?: (value: number) => void;
-    min?: number;
-    max?: number;
-    step?: number;
-    precision?: number;
-    isReadOnly?: boolean;
-    isInvalid?: boolean;
-    isDisabled?: boolean;
-    keepWithinRange?: boolean;
-    allowMouseWheel?: boolean;
-    clampValueOnBlur?: boolean;
-    focusInputOnChange?: boolean;
-    getAriaValueText?: boolean;
-    children?: JSX.Element[] | JSX.Element;
-  };
-
-export type INumberInputFieldProps = IInputProps & {};
-export type INumberInputSteppersProps = IStackProps & {
+export interface INumberInputFieldProps extends IInputProps {}
+export interface INumberInputSteppersProps extends IStackProps {
   children: JSX.Element[] | JSX.Element;
-};
-export type INumberInputStepperProps = IBoxProps & {
+}
+export interface INumberInputStepperProps extends IButtonProps {
   isDisabled?: boolean;
   _disabled?: any;
   _active?: any;
-};
-export type INumberInputContext = INumberInputProps & {
-  numberInputValue?: number;
-  value?: number;
-  handleChange?: (value: number) => void;
-  handleChangeWithoutCheck?: (value: number) => void;
-  numberInputStepper?: any;
-  setNumberInputStepper?: any;
-  isControlled?: boolean;
+}
+// export interface INumberInputContext extends INumberInputProps {
+//   numberInputValue?: string;
+//   value?: string;
+//   handleChange?: (value: string) => void;
+//   handleChangeWithoutCheck?: (value: string) => void;
+//   numberInputStepper?: any;
+//   setNumberInputStepper?: any;
+//   isControlled?: boolean;
+// }
+
+export type INumberInputContext = any;
+
+export type INumberInputComponentType = ((
+  props: INumberInputProps & { ref?: any }
+) => JSX.Element) & {
+  Field: React.MemoExoticComponent<
+    (props: INumberInputFieldProps & { ref?: any }) => JSX.Element
+  >;
+  Stepper: React.MemoExoticComponent<
+    (props: INumberInputSteppersProps & { ref?: any }) => JSX.Element
+  >;
+  DecrementStepper: React.MemoExoticComponent<
+    (props: INumberInputStepperProps & { ref?: any }) => JSX.Element
+  >;
+  IncrementStepper: React.MemoExoticComponent<
+    (props: INumberInputStepperProps & { ref?: any }) => JSX.Element
+  >;
 };

@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Stack,
-  FormControl,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-} from 'native-base';
+import { Stack, FormControl, NumberInput } from 'native-base';
 
 export const Example = () => {
   return (
@@ -15,11 +7,11 @@ export const Example = () => {
       <FormControl isRequired isInvalid>
         <FormControl.Label>How many components we have</FormControl.Label>
         <NumberInput>
-          <NumberInputField />
-          <NumberInputStepper>
-            <NumberIncrementStepper />
-            <NumberDecrementStepper />
-          </NumberInputStepper>
+          <NumberInput.Field />
+          <NumberInput.Stepper>
+            <NumberInput.IncrementStepper />
+            <NumberInput.DecrementStepper />
+          </NumberInput.Stepper>
         </NumberInput>
         <FormControl.HelperText>You can make a guess.</FormControl.HelperText>
         <FormControl.ErrorMessage>

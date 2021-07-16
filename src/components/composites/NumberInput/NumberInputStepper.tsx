@@ -1,13 +1,17 @@
 import React from 'react';
-import { TouchableOpacity, Platform } from 'react-native';
-import { VStack, Box } from '../../primitives';
-import { useThemeProps } from '../../../hooks';
+import { Platform } from 'react-native';
+import { VStack } from '../../primitives';
 import type { INumberInputSteppersProps, INumberInputContext } from './types';
 import { NumberInputContext } from './Context';
-import { ChevronUpIcon, ChevronDownIcon } from '../../primitives/Icon/Icons';
+import { TriangleDownIcon, TriangleUpIcon } from '../../primitives/Icon/Icons';
+import { IconButton } from '../../composites';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 export const NBStepper = React.forwardRef(
   ({ children, ...props }: any, ref?: any) => {
+    const {
+      _stepper: { _icon: c_icon, ..._stepper },
+    }: INumberInputContext = React.useContext(NumberInputContext);
     const {
       style,
       isIncrement,
@@ -17,39 +21,33 @@ export const NBStepper = React.forwardRef(
       isDisabled,
       accessibilityLabel,
       pressHandler,
-      iconColor,
+      _icon,
       ...newProps
-    } = useThemeProps('NumberInputStepper', props);
+    } = usePropsResolution('NumberInputStepper', props);
     return (
-      <TouchableOpacity
-        activeOpacity={0.2}
-        disabled={disablitityCheck || isDisabled}
+      <IconButton
+        ref={ref}
+        {...newProps}
+        {..._active}
+        {...(disablitityCheck || isDisabled ? _disabled : {})}
+        opacity={disablitityCheck || isDisabled ? 0.4 : 1}
+        style={style}
+        {...(Platform.OS === 'web'
+          ? {
+              disabled: disablitityCheck || isDisabled,
+              cursor: disablitityCheck || isDisabled ? 'not-allowed' : 'auto',
+            }
+          : {})}
         onPress={pressHandler}
+        disabled={disablitityCheck || isDisabled}
         accessible
         accessibilityLabel={accessibilityLabel}
-        ref={ref}
-      >
-        <Box
-          {...newProps}
-          {..._active}
-          {...(disablitityCheck || isDisabled ? _disabled : {})}
-          borderColor="transparent"
-          style={style}
-          opacity={disablitityCheck || isDisabled ? 0.4 : 1}
-          {...(Platform.OS === 'web'
-            ? {
-                disabled: disablitityCheck || isDisabled,
-                cursor: disablitityCheck || isDisabled ? 'not-allowed' : 'auto',
-              }
-            : {})}
-        >
-          {children || isIncrement ? (
-            <ChevronUpIcon color={iconColor} />
-          ) : (
-            <ChevronDownIcon color={iconColor} />
-          )}
-        </Box>
-      </TouchableOpacity>
+        {..._stepper}
+        _icon={{ ...c_icon, ..._icon }}
+        icon={
+          children || isIncrement ? <TriangleUpIcon /> : <TriangleDownIcon />
+        }
+      ></IconButton>
     );
   }
 );
@@ -62,7 +60,6 @@ const NumberInputStepper = (
     numberInputStepper,
     setNumberInputStepper,
   }: INumberInputContext = React.useContext(NumberInputContext);
-
   React.useEffect(() => {
     !numberInputStepper &&
       setNumberInputStepper(

@@ -57,20 +57,8 @@ export type {
   IFormControlContext,
 } from './FormControl';
 
-export {
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-} from './NumberInput';
-export type {
-  INumberInputProps,
-  INumberInputFieldProps,
-  INumberInputSteppersProps,
-  INumberInputStepperProps,
-  INumberInputContext,
-} from './NumberInput';
+export { NumberInput } from './NumberInput';
+export type { INumberInputProps } from './NumberInput';
 
 export { default as Tag } from './Tag';
 export type { ITagProps } from './Tag';

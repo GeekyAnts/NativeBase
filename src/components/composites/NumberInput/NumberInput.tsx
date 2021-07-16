@@ -1,38 +1,133 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks';
 import { useFormControlContext } from '../FormControl';
 import type { INumberInputProps } from './types';
 import { NumberInputContext } from './Context';
 import Box from '../../primitives/Box';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { numberOfDecimals } from './utils';
 
 const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
   const {
     defaultValue,
-    keepWithinRange,
+    keepWithinRange = true,
     value,
     min,
     max,
+    clampValueOnBlur,
+    precision,
     onChange,
+    step,
     ...newProps
-  } = useThemeProps('NumberInput', props);
+  } = usePropsResolution('NumberInput', props);
   const formControlContext = useFormControlContext();
-
   const [numberInputValue, setNumberInputValue] = React.useState(
-    parseInt(value || defaultValue, 10)
+    value
+      ? parseFloat(value.toString()).toFixed(
+          precision ?? numberOfDecimals(parseFloat(value), step)
+        )
+      : defaultValue
+      ? parseFloat(defaultValue).toFixed(
+          precision ?? numberOfDecimals(parseFloat(defaultValue), step)
+        )
+      : ''
   );
-  const [numberInputStepper, setNumberInputStepper] = React.useState(null);
-  const handleChange = (newValue: number) => {
-    const temp = newValue;
-    setNumberInputValue(temp);
+
+  const [numberInputStepper, setNumberInputStepper] = React.useState('');
+
+  const handleChange = (newValue: any) => {
+    let temp = newValue.toString();
+
+    //Pseudo code for understanding purpose
+
+    //     if keepwithinrange
+    //     if precision
+    //         if valueclamp == false
+    //             setNumberInputValue= parseFloat(stringvalue).toFixed(precision)
+
+    //         else
+    //             if inconditions
+    //                 setNumberInputValue= parseFloat(stringvalue).toFixed(precision)
+    //             else
+    //                 if less than min
+    //                     setNumberInputValue= minvalue.toFixed(precision));
+    //                 if less than min
+    //                     setNumberInputValue= maxvalue.toFixed(precision));
+
+    //     else
+    //         if valueclamp ==false
+    //             setNumberInputValue = stringvalue
+    //         else
+    //             if less than min
+    //                  setNumberInputValue= min
+    //             else if greater than max
+    //                  setNumberInputValue= max
+    //             else
+    //                 setNumberInputValue=value;
+
+    // else
+    //     if valueclamp== false
+    //         setNumberInputValue= value
+    //     else
+    //         if less than min
+    //                  setNumberInputValue= min
+    //             else if greater than max
+    //                  setNumberInputValue= max
+    //             else
+    //                 setNumberInputValue=value;
+
     if (keepWithinRange) {
-      if (newValue < min) setNumberInputValue(min);
-      else if (newValue > max) setNumberInputValue(max);
+      if (precision) {
+        if (clampValueOnBlur == false) {
+          setNumberInputValue(parseFloat(temp).toFixed(precision));
+        } else {
+          if (
+            parseFloat(temp) >= min &&
+            parseFloat(temp) <= max &&
+            parseFloat(parseFloat(temp).toFixed(precision)) >= min &&
+            parseFloat(parseFloat(temp).toFixed(precision)) <= max
+          ) {
+            setNumberInputValue(parseFloat(temp).toFixed(precision));
+          } else {
+            if (
+              temp < min ||
+              parseFloat(parseFloat(temp).toFixed(precision)) < min
+            )
+              setNumberInputValue(min.toFixed(precision));
+            else if (
+              temp > max ||
+              parseFloat(parseFloat(temp).toFixed(precision)) > max
+            )
+              setNumberInputValue(max.toFixed(precision));
+          }
+        }
+      } else {
+        if (clampValueOnBlur == false) {
+          setNumberInputValue(temp);
+        } else {
+          if (temp < min) setNumberInputValue(min.toString());
+          else if (temp > max) setNumberInputValue(max.toString());
+          else {
+            setNumberInputValue(temp);
+          }
+        }
+      }
+    } else {
+      if (clampValueOnBlur == false) {
+        setNumberInputValue(temp);
+      } else {
+        if (temp < min) setNumberInputValue(min.toString());
+        else if (temp > max) setNumberInputValue(max.toString());
+        else {
+          setNumberInputValue(temp);
+        }
+      }
     }
+
     //NOTE: only calling onChange on stepper click or blur event of input.
     onChange && onChange(temp);
   };
   const handleChangeWithoutCheck = (newValue: number) => {
-    const temp = newValue;
+    const temp = newValue.toString();
     setNumberInputValue(temp);
   };
 
@@ -48,6 +143,10 @@ const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
           ...newProps,
           min,
           max,
+          step,
+          precision,
+          defaultValue,
+          clampValueOnBlur,
           handleChange,
           handleChangeWithoutCheck,
           numberInputValue,

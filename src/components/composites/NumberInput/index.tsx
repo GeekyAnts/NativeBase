@@ -1,13 +1,25 @@
 export { NumberInputContext } from './Context';
-export { default as NumberDecrementStepper } from './NumberDecrementStepper';
-export { default as NumberIncrementStepper } from './NumberIncrementStepper';
-export { default as NumberInput } from './NumberInput';
-export { default as NumberInputField } from './NumberInputField';
-export { default as NumberInputStepper } from './NumberInputStepper';
+import NumberDecrementStepper from './NumberDecrementStepper';
+import NumberIncrementStepper from './NumberIncrementStepper';
+import NumberInputMain from './NumberInput';
+import NumberInputField from './NumberInputField';
+import NumberInputStepper from './NumberInputStepper';
+
+import type { INumberInputComponentType } from './types';
+
 export type {
-  INumberInputContext,
-  INumberInputFieldProps,
   INumberInputProps,
-  INumberInputStepperProps,
+  INumberInputFieldProps,
   INumberInputSteppersProps,
+  INumberInputStepperProps,
 } from './types';
+
+let NumberInputTemp: any = NumberInputMain;
+NumberInputTemp.Field = NumberInputField;
+NumberInputTemp.Stepper = NumberInputStepper;
+NumberInputTemp.IncrementStepper = NumberIncrementStepper;
+NumberInputTemp.DecrementStepper = NumberDecrementStepper;
+// To add typings
+
+const NumberInput = NumberInputTemp as INumberInputComponentType;
+export { NumberInput };
