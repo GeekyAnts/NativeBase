@@ -24,7 +24,7 @@
     "build:web": "rollup --config",
     "bundle:analysis": "visualize-bundle"
   },
-  "version": "3.0.5",
+  "version": "3.0.6",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
