@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { AccessibilityRole, Platform } from 'react-native';
 import { HStack } from '../../primitives/Stack';
 import { useControllableState } from '../../../hooks';
@@ -172,5 +172,5 @@ const CollapseButton = (props: any) => {
   );
 };
 
-export default React.memo(React.forwardRef(Breadcrumb));
+export default memo(forwardRef(Breadcrumb));
 export type { IBreadcrumbProps };
