@@ -1,28 +1,21 @@
-import type { ViewStyle } from 'react-native';
-import type {
-  IBoxProps,
-  ITextProps,
-  ILinkProps,
-  IIconProps,
-} from '../../primitives';
+import type { IHStackProps } from '../../primitives/Stack/HStack';
+import type { ITextProps, ILinkProps, IIconProps } from '../../primitives';
 
 export interface IBreadcrumbItemContext {
   isCurrent?: boolean;
   allChildren?: boolean;
 }
 
-export interface IBreadcrumbProps extends IBoxProps {
-  style?: ViewStyle;
-  children?: JSX.Element[] | JSX.Element | any;
+export interface IBreadcrumbProps extends IHStackProps {
   spacing?: number;
   separator?: string | JSX.Element | JSX.Element[] | any;
   maxItems?: number | number[];
   _button?: any;
-  _current?: any;
   isCollapsed?: boolean;
   onCollapseChange?: any;
 }
-export interface IBreadcrumbItemProps extends IBreadcrumbProps {
+export interface IBreadcrumbItemProps extends IHStackProps {
+  spacing?: number;
   isCurrent?: boolean;
 }
 export interface IBreadcrumbIconProps extends IIconProps {
