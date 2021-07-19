@@ -2,7 +2,6 @@ import React from 'react';
 import { useFormControlContext } from '../FormControl';
 import type { INumberInputProps } from './types';
 import { NumberInputContext } from './Context';
-import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { numberOfDecimals } from './utils';
 
@@ -13,14 +12,17 @@ const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
     value,
     min,
     max,
-    clampValueOnBlur,
+    clampValueOnBlur = true,
+    focusInputOnChange = true,
     precision,
+    isReadOnly,
     onChange,
     step,
     ...newProps
   } = usePropsResolution('NumberInput', props);
   const formControlContext = useFormControlContext();
 
+  const _ref = React.useRef();
   // setting initial state of numberInputValue
   // if value exists then value with precision , else default value, else empty string
   const [numberInputValue, setNumberInputValue] = React.useState(
@@ -35,7 +37,6 @@ const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
       : ''
   );
   const [numberInputStepper, setNumberInputStepper] = React.useState('');
-
   const handleChange = (newValue: any) => {
     let temp = newValue.toString();
 
@@ -138,28 +139,30 @@ const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
       setNumberInputValue(value);
   }, [value, numberInputValue, setNumberInputValue]);
   return (
-    <Box ref={ref}>
-      <NumberInputContext.Provider
-        value={{
-          ...formControlContext,
-          ...newProps,
-          min,
-          max,
-          step,
-          precision,
-          defaultValue: defaultValue ?? null,
-          clampValueOnBlur,
-          handleChange,
-          handleChangeWithoutCheck,
-          numberInputValue: numberInputValue ?? '',
-          numberInputStepper,
-          setNumberInputStepper,
-          isControlled: value !== undefined,
-        }}
-      >
-        {children}
-      </NumberInputContext.Provider>
-    </Box>
+    <NumberInputContext.Provider
+      value={{
+        ...formControlContext,
+        ...newProps,
+        ref,
+        _ref,
+        min,
+        max,
+        step,
+        precision,
+        defaultValue: defaultValue ?? null,
+        clampValueOnBlur,
+        isReadOnly,
+        handleChange,
+        handleChangeWithoutCheck,
+        numberInputValue: numberInputValue ?? '',
+        numberInputStepper,
+        setNumberInputStepper,
+        focusInputOnChange,
+        isControlled: value !== undefined,
+      }}
+    >
+      {children}
+    </NumberInputContext.Provider>
   );
 };
 

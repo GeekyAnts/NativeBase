@@ -1,9 +1,5 @@
 import { mode } from '../tools';
 
-// const numberInput = {
-//   _stepper: {},
-// };
-
 const defaultProps = {
   size: 'sm',
   step: 1,
@@ -37,9 +33,6 @@ const sizes = {
 export default {
   defaultProps,
   sizes,
-  // baseStyle: {
-  //   _stepper: { _icon: {} },
-  // },
 };
 
 //Steppers

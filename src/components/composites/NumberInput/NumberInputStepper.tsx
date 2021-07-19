@@ -9,9 +9,12 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 export const NBStepper = React.forwardRef(
   ({ children, ...props }: any, ref?: any) => {
-    const { _stepper }: INumberInputContext = React.useContext(
-      NumberInputContext
-    );
+    const {
+      _stepper,
+      isReadOnly,
+      _ref,
+      focusInputOnChange,
+    }: INumberInputContext = React.useContext(NumberInputContext);
     const {
       style,
       isIncrement,
@@ -24,7 +27,6 @@ export const NBStepper = React.forwardRef(
       _icon,
       ...newProps
     } = usePropsResolution('NumberInputStepper', props);
-
     return (
       <IconButton
         ref={ref}
@@ -39,7 +41,10 @@ export const NBStepper = React.forwardRef(
               cursor: disablitityCheck || isDisabled ? 'not-allowed' : 'auto',
             }
           : {})}
-        onPress={pressHandler}
+        onPress={() => {
+          if (focusInputOnChange) _ref.current.focus();
+          isReadOnly ? undefined : pressHandler();
+        }}
         disabled={disablitityCheck || isDisabled}
         accessible
         accessibilityLabel={accessibilityLabel}

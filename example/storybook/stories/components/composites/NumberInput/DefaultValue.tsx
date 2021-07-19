@@ -3,7 +3,7 @@ import { Stack, NumberInput } from 'native-base';
 export const Example = () => {
   return (
     <Stack w="90%">
-      <NumberInput defaultValue={5}>
+      <NumberInput>
         <NumberInput.Field />
         <NumberInput.Stepper>
           <NumberInput.IncrementStepper />

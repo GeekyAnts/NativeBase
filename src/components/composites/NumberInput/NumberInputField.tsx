@@ -2,17 +2,22 @@ import React from 'react';
 import { Input } from '../../primitives/Input';
 import type { INumberInputContext, INumberInputFieldProps } from './types';
 import { NumberInputContext } from './Context';
+import { mergeRefs } from '../../../utils';
 
 const NumberInputField = (
   { isDisabled, ...props }: INumberInputFieldProps,
   ref: any
 ) => {
   const {
+    min,
+    max,
     handleChange,
     handleChangeWithoutCheck,
     numberInputStepper,
     numberInputValue,
     isControlled,
+    ref: c_ref,
+    _ref,
     ...context
   }: INumberInputContext & {
     handleChange?: (value: string | number) => void;
@@ -64,9 +69,13 @@ const NumberInputField = (
   const blurHandler = () => {
     if (numberInputValue) handleChange && handleChange(numberInputValue);
   };
-
   return (
     <Input
+      accessibilityValue={{
+        min: min === -Infinity ? undefined : min,
+        max: max === Infinity ? undefined : max,
+        now: numberInputValue,
+      }}
       {...context}
       {...props}
       onBlur={() => blurHandler()}
@@ -77,7 +86,7 @@ const NumberInputField = (
       keyboardType="numeric"
       value={`${numberInputValue}`}
       InputRightElement={numberInputStepper}
-      ref={ref}
+      ref={mergeRefs([c_ref, ref, _ref])}
     />
   );
 };
