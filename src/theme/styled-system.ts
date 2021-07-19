@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { get } from 'lodash';
+import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
 
 export const layout = {
   width: {
@@ -490,19 +491,32 @@ const propConfig = {
   outlineWidth: true,
 };
 
-export const getStyleAndFilteredProps = ({ style, theme, ...props }: any) => {
+export const getStyleAndFilteredProps = ({
+  style,
+  theme,
+  debug,
+  currentBreakpoint,
+  ...props
+}: any) => {
   let styleFromProps: any = {};
   let restProps: any = {};
   for (let key in props) {
     const rawValue = props[key];
+
     if (key in propConfig) {
+      const value = resolveValueWithBreakpoint(
+        rawValue,
+        currentBreakpoint,
+        key
+      );
+
       const config = propConfig[key as keyof typeof propConfig];
       if (config === true) {
-        styleFromProps = { ...styleFromProps, [key]: rawValue };
+        styleFromProps = { ...styleFromProps, [key]: value };
       } else if (config) {
         //@ts-ignore
         const { property, scale, properties, transformer } = config;
-        let val = get(theme[scale], rawValue, rawValue);
+        let val = get(theme[scale], value, value);
         if (transformer) {
           val = transformer(val);
         }
@@ -527,6 +541,10 @@ export const getStyleAndFilteredProps = ({ style, theme, ...props }: any) => {
     } else {
       restProps[key] = rawValue;
     }
+  }
+
+  if (debug) {
+    console.log('style ', debug + ' :: ', styleFromProps, style, props);
   }
 
   return {

@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 import omit from 'lodash.omit';
-import isNil from 'lodash.isnil';
+// import isNil from 'lodash.isnil';
 import merge from 'lodash.merge';
 import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
@@ -9,14 +9,14 @@ import { useColorModeProps } from '../useColorModeProps';
 import { useColorMode } from '../../core/color-mode';
 import {
   resolveValueWithBreakpoint,
-  extractPropertyFromFunction,
+  // extractPropertyFromFunction,
 } from './utils';
 import {
   getClosestBreakpoint,
-  omitUndefined,
-  extractInObject,
+  // omitUndefined,
+  // extractInObject,
 } from './../../theme/tools';
-import { themePropertyMap } from './../../theme/base';
+// import { themePropertyMap } from './../../theme/base';
 import { useContrastText } from '../useContrastText';
 import React from 'react';
 
@@ -29,7 +29,7 @@ import React from 'react';
  * @arg {object} colorModeProps - `colorMode` object.
  * @returns {object} Resolved component specific theme.
  */
-const simplifyComponentTheme = (
+const useSimplifyComponentTheme = (
   theme: object,
   componentTheme: {
     defaultProps?: object;
@@ -41,8 +41,11 @@ const simplifyComponentTheme = (
   colorModeProps: object,
   currentBreakpoint: number
 ) => {
+  let hasSize = false;
+  let hasVariant = false;
   // Resolving component's defaultProps.
 
+  // Shallow merge defaultProps and incoming props to pass them in baseStyle, variants and sizes
   const combinedProps: any = {
     ...componentTheme.defaultProps,
     ...incomingProps,
@@ -61,6 +64,7 @@ const simplifyComponentTheme = (
           });
   }
 
+  // To handle responsive type variant. i.e. {sm:"x"} | [x, y]
   const variant = resolveValueWithBreakpoint(
     combinedProps.variant,
     currentBreakpoint,
@@ -79,11 +83,10 @@ const simplifyComponentTheme = (
             ...colorModeProps,
           });
 
-    // We remove variant from original props if we found it in the componentTheme
-    //@ts-ignore
-    incomingProps.variant = undefined;
+    hasVariant = true;
   }
 
+  // To handle responsive size prop. i.e. {sm:"x"} | [x, y]
   const size = resolveValueWithBreakpoint(
     combinedProps.size,
     currentBreakpoint,
@@ -108,15 +111,13 @@ const simplifyComponentTheme = (
         ...combinedProps,
         ...colorModeProps,
       });
+      hasSize = true;
     }
     // Type - sizes: {lg: {px: 1}}. Refer button theme
     else {
       componentSizeProps = componentTheme.sizes[size];
+      hasSize = true;
     }
-
-    // We remove size from original props if we found it in the componentTheme
-    //@ts-ignore
-    incomingProps.size = undefined;
   }
 
   const componentMergedTheme = merge(
@@ -127,7 +128,25 @@ const simplifyComponentTheme = (
     componentSizeProps
   );
 
-  return componentMergedTheme;
+  const componentThemeIntegratedProps = merge(
+    {},
+    useColorModeProps(usePlatformProps(componentMergedTheme)),
+    useColorModeProps(usePlatformProps(incomingProps))
+  );
+
+  if (hasSize) {
+    // We remove size from original props if we found it in the componentTheme
+    // @ts-ignore
+    delete componentThemeIntegratedProps.size;
+  }
+
+  if (hasVariant) {
+    // We remove variant from original props if we found it in the componentTheme
+    // @ts-ignore
+    delete componentThemeIntegratedProps.variant;
+  }
+
+  return componentThemeIntegratedProps;
 };
 
 /**
@@ -141,86 +160,86 @@ const simplifyComponentTheme = (
  * @returns {object} Translated props object.
  */
 // Todo - move responsive calculation in styled system
-const propTranslator = ({
-  props,
-  theme,
-  colorModeProps,
-  componentTheme,
-  currentBreakpoint,
-}: {
-  props: any;
-  theme: any;
-  colorModeProps: object;
-  componentTheme: object;
-  currentBreakpoint: number;
-}) => {
-  let translatedProps: any = {};
-  for (const property in props) {
-    // STEP 1 - Responsive prop check and resolve
-    if (property.startsWith('_')) {
-      // STEP 1.a - Resolving _ porps
-      const nestedTranslatedProps = propTranslator({
-        props: props[property],
-        theme,
-        colorModeProps,
-        componentTheme,
-        currentBreakpoint,
-      });
-      translatedProps[property] = nestedTranslatedProps;
-    } else if (themePropertyMap[property]) {
-      // STEP 1.b Resolving themed props
-      const propValues = extractPropertyFromFunction(
-        property,
-        props,
-        theme,
-        componentTheme
-      );
+// const propTranslator = ({
+//   props,
+//   theme,
+//   colorModeProps,
+//   componentTheme,
+//   currentBreakpoint,
+// }: {
+//   props: any;
+//   theme: any;
+//   colorModeProps: object;
+//   componentTheme: object;
+//   currentBreakpoint: number;
+// }) => {
+//   let translatedProps: any = {};
+//   for (const property in props) {
+//     // STEP 1 - Responsive prop check and resolve
+//     if (property.startsWith('_')) {
+//       // STEP 1.a - Resolving _ porps
+//       const nestedTranslatedProps = propTranslator({
+//         props: props[property],
+//         theme,
+//         colorModeProps,
+//         componentTheme,
+//         currentBreakpoint,
+//       });
+//       translatedProps[property] = nestedTranslatedProps;
+//     } else if (themePropertyMap[property]) {
+//       // STEP 1.b Resolving themed props
+//       const propValues = extractPropertyFromFunction(
+//         property,
+//         props,
+//         theme,
+//         componentTheme
+//       );
 
-      // NOTE: Direct value identified.
-      if (typeof propValues === 'string' || typeof propValues === 'number') {
-        translatedProps[property] = propValues;
-        // NOTE: Nested object (excluding _props) (To be specific, only for key exist in themePropertyMap)
-      } else if (!isNil(propValues)) {
-        // TODO: This setion new needs to handle stuff differently
-        for (let nestedProp in propValues) {
-          translatedProps[nestedProp] = get(
-            theme,
-            `${themePropertyMap[nestedProp]}.${propValues[nestedProp]}`,
-            propValues[nestedProp]
-          );
-        }
-        delete translatedProps[property];
-        // Manually handeling shadow props (example of Mapped tokens)
-      } else if (property === 'shadow') {
-        const resolveValueWithBreakpointValue = resolveValueWithBreakpoint(
-          props.shadow,
-          currentBreakpoint,
-          property
-        );
-        let shadowProps = theme[themePropertyMap[property]](colorModeProps)[
-          resolveValueWithBreakpointValue
-        ];
-        translatedProps.style = merge({}, shadowProps, props.style);
-        delete translatedProps[property];
-      } else {
-        translatedProps[property] = resolveValueWithBreakpoint(
-          props[property],
-          currentBreakpoint,
-          property
-        );
-      }
-    } else {
-      // STEP 1.d Resolving Direct Values
-      translatedProps[property] = resolveValueWithBreakpoint(
-        props[property],
-        currentBreakpoint,
-        property
-      );
-    }
-  }
+//       // NOTE: Direct value identified.
+//       if (typeof propValues === 'string' || typeof propValues === 'number') {
+//         translatedProps[property] = propValues;
+//         // NOTE: Nested object (excluding _props) (To be specific, only for key exist in themePropertyMap)
+//       } else if (!isNil(propValues)) {
+//         // TODO: This setion new needs to handle stuff differently
+//         for (let nestedProp in propValues) {
+//           translatedProps[nestedProp] = get(
+//             theme,
+//             `${themePropertyMap[nestedProp]}.${propValues[nestedProp]}`,
+//             propValues[nestedProp]
+//           );
+//         }
+//         delete translatedProps[property];
+//         // Manually handeling shadow props (example of Mapped tokens)
+//       } else if (property === 'shadow') {
+//         const resolveValueWithBreakpointValue = resolveValueWithBreakpoint(
+//           props.shadow,
+//           currentBreakpoint,
+//           property
+//         );
+//         let shadowProps = theme[themePropertyMap[property]](colorModeProps)[
+//           resolveValueWithBreakpointValue
+//         ];
+//         translatedProps.style = merge({}, shadowProps, props.style);
+//         delete translatedProps[property];
+//       } else {
+//         translatedProps[property] = resolveValueWithBreakpoint(
+//           props[property],
+//           currentBreakpoint,
+//           property
+//         );
+//       }
+//     } else {
+//       // STEP 1.d Resolving Direct Values
+//       translatedProps[property] = resolveValueWithBreakpoint(
+//         props[property],
+//         currentBreakpoint,
+//         property
+//       );
+//     }
+//   }
 
-  return translatedProps;
-};
+//   return translatedProps;
+// };
 
 /**
  * @summary Combines provided porps with component's theme props and resloves them.
@@ -229,18 +248,7 @@ const propTranslator = ({
  * @arg {object} incomingProps - Props passed by the user.
  * @returns {object} Resolved props.
  */
-export function usePropsResolution(
-  component: string,
-  incomingProps: any,
-  config?: any
-) {
-  const [ignoredProps, cleanIncomingProps] = extractInObject(
-    incomingProps,
-    ['children', 'onPress', 'icon', 'onOpen', 'onClose'].concat(
-      config?.ignoreProps || []
-    )
-  );
-
+export function usePropsResolution(component: string, incomingProps: any) {
   const { theme } = useNativeBase();
   const colorModeProps = useColorMode();
 
@@ -254,81 +262,51 @@ export function usePropsResolution(
   );
 
   // TODO: using usePlatformProps here to simplify the component theme. So that on on component level it shouldn't have to maintain the Specificity.
-  const componentThemeObject = simplifyComponentTheme(
+  const componentThemeObject = useSimplifyComponentTheme(
     notComponentTheme,
     componentTheme,
-    cleanIncomingProps,
+    incomingProps,
     colorModeProps,
     currentBreakpoint
   );
-  const componentThemeIntegratedProps = merge(
-    {},
-    useColorModeProps(usePlatformProps(componentThemeObject)),
-    useColorModeProps(usePlatformProps(cleanIncomingProps))
-  );
-  // const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
 
-  // NOTE: sperating removing props while should be translated
-  let ignore: any = [];
   if (
-    componentThemeIntegratedProps.bg?.linearGradient ||
-    componentThemeIntegratedProps.background?.linearGradient ||
-    componentThemeIntegratedProps.bgColor?.linearGradient ||
-    componentThemeIntegratedProps.backgroundColor?.linearGradient
+    componentThemeObject.bg?.linearGradient ||
+    componentThemeObject.background?.linearGradient ||
+    componentThemeObject.bgColor?.linearGradient ||
+    componentThemeObject.backgroundColor?.linearGradient
   ) {
     let bgProp = 'bg';
-    if (componentThemeIntegratedProps.background?.linearGradient) {
+    if (componentThemeObject.background?.linearGradient) {
       bgProp = 'background';
-    } else if (componentThemeIntegratedProps.bgColor?.linearGradient) {
+    } else if (componentThemeObject.bgColor?.linearGradient) {
       bgProp = 'bgColor';
-    } else if (componentThemeIntegratedProps.backgroundColor?.linearGradient) {
+    } else if (componentThemeObject.backgroundColor?.linearGradient) {
       bgProp = 'backgroundColor';
     }
-    componentThemeIntegratedProps[
-      bgProp
-    ].linearGradient.colors = componentThemeIntegratedProps[
+    componentThemeObject[bgProp].linearGradient.colors = componentThemeObject[
       bgProp
     ].linearGradient.colors.map((color: string) => {
       return get(theme.colors, color, color);
     });
-    ignore = ['bg', 'background', 'backgroundColor', 'bgColor'];
   }
-  // NOTE: seprating bg props when linearGardiant is available
-  const [gradientProps, nonGradientProps] = extractInObject(
-    componentThemeIntegratedProps,
-    ignore
-  );
-
-  const translatedProps = propTranslator({
-    props: nonGradientProps,
-    theme: notComponentTheme,
-    colorModeProps,
-    componentTheme,
-    currentBreakpoint,
-  });
 
   let bgColor =
-    translatedProps.bg ??
-    translatedProps.backgroundColor ??
-    translatedProps.bgColor;
+    componentThemeObject.bg ??
+    componentThemeObject.backgroundColor ??
+    componentThemeObject.bgColor;
 
   const contrastTextColor = useContrastText(
     bgColor,
-    translatedProps?._text?.color
+    componentThemeObject?._text?.color
   );
 
-  translatedProps._text = contrastTextColor
+  componentThemeObject._text = contrastTextColor
     ? {
         color: contrastTextColor,
-        ...translatedProps._text,
+        ...componentThemeObject._text,
       }
-    : translatedProps._text;
+    : componentThemeObject._text;
 
-  const resolvedProps = omitUndefined({
-    ...translatedProps,
-    ...ignoredProps,
-    ...gradientProps,
-  });
-
-  return resolvedProps;
+  return componentThemeObject;
 }
