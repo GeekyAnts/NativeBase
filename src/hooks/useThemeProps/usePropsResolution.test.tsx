@@ -90,6 +90,20 @@ describe('props resolution', () => {
     });
   });
 
+  it('resolves negative margins', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Box m={-5} testID="test">
+          hello world
+        </Box>
+      </Provider>
+    );
+    const box = getByTestId('test');
+    expect(box.props.style).toEqual({
+      margin: -defaultTheme.space['5'],
+    });
+  });
+
   it('resolves base style and variants with props', () => {
     const newTheme = extendTheme({
       components: {

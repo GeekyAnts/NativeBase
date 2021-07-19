@@ -1,6 +1,23 @@
 import { StyleSheet } from 'react-native';
-import { get } from 'lodash';
+import get from 'lodash.get';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
+
+const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
+
+// To handle negative margins
+const getMargin = (n: any, scale: any) => {
+  if (!isNumber(n)) {
+    return get(scale, n, n);
+  }
+
+  const isNegative = n < 0;
+  const absolute = Math.abs(n);
+  const value = get(scale, absolute, absolute);
+  if (!isNumber(value)) {
+    return isNegative ? '-' + value : value;
+  }
+  return value * (isNegative ? -1 : 1);
+};
 
 export const layout = {
   width: {
@@ -99,6 +116,14 @@ export const position = {
   },
   left: {
     property: 'left',
+    scale: 'space',
+  },
+  start: {
+    property: 'start',
+    scale: 'space',
+  },
+  end: {
+    property: 'end',
     scale: 'space',
   },
 };
@@ -328,57 +353,91 @@ export const background = {
 export const space = {
   margin: {
     property: 'margin',
+    transform: getMargin,
+    scale: 'space',
+  },
+  marginStart: {
+    property: 'marginStart',
+    transform: getMargin,
+    scale: 'space',
+  },
+  marginEnd: {
+    property: 'marginEnd',
+    transform: getMargin,
+    scale: 'space',
+  },
+  ms: {
+    property: 'marginStart',
+    transform: getMargin,
+    scale: 'space',
+  },
+  me: {
+    transform: getMargin,
+    property: 'marginEnd',
     scale: 'space',
   },
   m: {
+    transform: getMargin,
     property: 'margin',
     scale: 'space',
   },
   marginTop: {
+    transform: getMargin,
     property: 'marginTop',
     scale: 'space',
   },
   mt: {
+    transform: getMargin,
     property: 'marginTop',
     scale: 'space',
   },
   marginRight: {
+    transform: getMargin,
     property: 'marginRight',
     scale: 'space',
   },
   mr: {
+    transform: getMargin,
     property: 'marginRight',
     scale: 'space',
   },
   marginBottom: {
+    transform: getMargin,
     property: 'marginBottom',
     scale: 'space',
   },
   mb: {
+    transform: getMargin,
     property: 'marginBottom',
     scale: 'space',
   },
   marginLeft: {
+    transform: getMargin,
     property: 'marginLeft',
     scale: 'space',
   },
   ml: {
+    transform: getMargin,
     property: 'marginLeft',
     scale: 'space',
   },
   marginX: {
+    transform: getMargin,
     properties: ['marginLeft', 'marginRight'],
     scale: 'space',
   },
   mx: {
+    transform: getMargin,
     properties: ['marginLeft', 'marginRight'],
     scale: 'space',
   },
   marginY: {
+    transform: getMargin,
     properties: ['marginTop', 'marginBottom'],
     scale: 'space',
   },
   my: {
+    transform: getMargin,
     properties: ['marginTop', 'marginBottom'],
     scale: 'space',
   },
@@ -387,6 +446,23 @@ export const space = {
     property: 'padding',
     scale: 'space',
   },
+  paddingStart: {
+    property: 'paddingStart',
+    scale: 'space',
+  },
+  paddingEnd: {
+    property: 'paddingEnd',
+    scale: 'space',
+  },
+  ps: {
+    property: 'paddingStart',
+    scale: 'space',
+  },
+  pe: {
+    property: 'paddingEnd',
+    scale: 'space',
+  },
+
   p: {
     property: 'padding',
     scale: 'space',
@@ -453,8 +529,9 @@ export const typography = {
   fontWeight: {
     property: 'fontWeight',
     scale: 'fontWeights',
-    transformer: (val: any) => {
-      return val ? val.toString() : val;
+    transform: (val: any, scale: any) => {
+      const value = get(scale, val, val);
+      return value ? value.toString() : value;
     },
   },
   lineHeight: {
@@ -477,6 +554,11 @@ export const typography = {
   textDecorationLine: { property: 'textDecorationLine' },
 };
 
+const extraProps = {
+  outline: true,
+  outlineWidth: true,
+};
+
 const propConfig = {
   ...color,
   ...space,
@@ -486,9 +568,7 @@ const propConfig = {
   ...position,
   ...typography,
   ...background,
-
-  outline: true,
-  outlineWidth: true,
+  ...extraProps,
 };
 
 export const getStyleAndFilteredProps = ({
@@ -515,10 +595,12 @@ export const getStyleAndFilteredProps = ({
         styleFromProps = { ...styleFromProps, [key]: value };
       } else if (config) {
         //@ts-ignore
-        const { property, scale, properties, transformer } = config;
-        let val = get(theme[scale], value, value);
-        if (transformer) {
-          val = transformer(val);
+        const { property, scale, properties, transform } = config;
+        let val = value;
+        if (transform) {
+          val = transform(val, theme[scale]);
+        } else {
+          val = get(theme[scale], value, value);
         }
         if (typeof val === 'string' && val.endsWith('px')) {
           val = parseInt(val, 10);
