@@ -78,7 +78,6 @@ export const Example = () => {
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
-        ,
       </Breadcrumb>
       <Button
         onPress={() => {
