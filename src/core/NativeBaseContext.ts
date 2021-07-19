@@ -9,7 +9,7 @@ export {
 
 export interface INativebaseConfig {
   theme?: ITheme;
-  suppressAccessibilityWarning?: boolean;
+  suppressColorAccessibilityWarning?: boolean;
   dependencies?: {
     'linear-gradient': any;
   };

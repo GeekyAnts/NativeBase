@@ -18,9 +18,9 @@ export function useContrastText(bg: string, color?: string) {
     color ?? '',
   ]);
 
-  let suppressAccessibilityWarning = useNativeBaseConfig(
+  let suppressColorAccessibilityWarning = useNativeBaseConfig(
     'NativeBaseConfigProvider'
-  ).config.suppressAccessibilityWarning;
+  ).config.suppressColorAccessibilityWarning;
 
   let [accessibleColors] = useAccessibleColors();
 
@@ -43,7 +43,7 @@ export function useContrastText(bg: string, color?: string) {
           trueColor,
           bg,
           color,
-          suppressAccessibilityWarning
+          suppressColorAccessibilityWarning
         );
 
   return textColor;
@@ -69,7 +69,7 @@ function getAccessibleContrastColor(
   trueColor: string,
   bg: string,
   color?: string,
-  suppressAccessibilityWarning?: boolean
+  suppressColorAccessibilityWarning?: boolean
 ) {
   if (typeof trueBg !== 'string') {
     trueBg = bg;
@@ -95,7 +95,7 @@ function getAccessibleContrastColor(
       trueBg,
       trueColor ? trueColor : trueContrastColor
     );
-    if (contrast < 3 && !suppressAccessibilityWarning) {
+    if (contrast < 3 && !suppressColorAccessibilityWarning) {
       console.warn(
         [
           `NativeBase: The contrast ratio of ${contrast}:1 for ${

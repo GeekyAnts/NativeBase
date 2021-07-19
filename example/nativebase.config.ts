@@ -4,5 +4,5 @@ export default {
   dependencies: {
     'linear-gradient': require('expo-linear-gradient').LinearGradient,
   },
-  suppressAccessibilityWarning: true,
+  suppressColorAccessibilityWarning: true,
 } as INativebaseConfig;
