@@ -18,3 +18,8 @@ export const BreadcrumbText = {
   baseStyle: { ...baseStyle, _current: { fontWeight: 'bold' } },
   defaultProps,
 };
+
+export const BreadcrumbIcon = {
+  baseStyle: { ...baseStyle, _current: { fontWeight: 'bold' } },
+  defaultProps,
+};

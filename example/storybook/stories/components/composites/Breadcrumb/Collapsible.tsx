@@ -30,6 +30,7 @@ export const Example = () => {
                   as={<MaterialIcons name="home" />}
                   mr={1}
                   size="xs"
+                  _current={{ color: 'blue.500' }}
                 />
                 <Breadcrumb.Text _current={{ color: 'blue.500' }}>
                   Home
@@ -44,6 +45,7 @@ export const Example = () => {
                   as={<MaterialIcons name="home" />}
                   mr={1}
                   size="xs"
+                  _current={{ color: 'blue.500' }}
                 />
                 <Breadcrumb.Text _current={{ color: 'blue.500' }}>
                   Discord
@@ -73,6 +75,7 @@ export const Example = () => {
                   as={<AntDesign name="github" />}
                   mr={1}
                   size="xs"
+                  _current={{ color: 'red.500' }}
                 />
                 <Breadcrumb.Text _current={{ color: 'red.500' }}>
                   Github (This is currently active)
