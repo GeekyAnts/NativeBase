@@ -6,6 +6,7 @@ import shadows from './shadows';
 import sizes from './sizes';
 import { spacing } from './space';
 import typography from './typography';
+import opacity from './opacity';
 
 const theme = {
   borders,
@@ -16,6 +17,7 @@ const theme = {
   sizes,
   space: spacing,
   shadows,
+  opacity,
 };
 
 export type ITheme = typeof theme;

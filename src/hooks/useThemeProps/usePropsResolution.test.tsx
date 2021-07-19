@@ -220,4 +220,18 @@ describe('props resolution', () => {
       backgroundColor: newTheme.colors.cyan['500'],
     });
   });
+
+  it('tests alpha opacity resolution', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Box p={2} bg="primary.400:alpha.50" testID="test">
+          hello world
+        </Box>
+      </Provider>
+    );
+    const box = getByTestId('test');
+    expect(box.props.style.backgroundColor).toBe(
+      'rgba(34, 211, 238, ' + defaultTheme.opacity['50'] + ')'
+    );
+  });
 });

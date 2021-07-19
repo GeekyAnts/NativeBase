@@ -5,10 +5,10 @@ import { useToken } from '../../../hooks';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
-import { makeStyledBox } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 
-const StyledInput = makeStyledBox(TextInput);
+const StyledInput = makeStyledComponent(TextInput);
 
 const InputBase = (
   {
@@ -94,10 +94,10 @@ const InputBase = (
         e.persist();
         onKeyPress && onKeyPress(e);
       }}
-      onFocus={(e) => {
+      onFocus={(e: any) => {
         handleFocus(true, onFocus ? () => onFocus(e) : () => {});
       }}
-      onBlur={(e) => {
+      onBlur={(e: any) => {
         handleFocus(false, onBlur ? () => onBlur(e) : () => {});
       }}
       {...(Platform.OS === 'web'

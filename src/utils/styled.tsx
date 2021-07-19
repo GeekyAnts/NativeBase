@@ -42,7 +42,7 @@ export const resolversForBox: any = [
 ];
 
 // @ts-ignore
-export const makeStyledBox = (Comp: any) => {
+export const makeStyledComponent = (Comp: any) => {
   return React.forwardRef(
     ({ style: propStyle, children, debug, ...props }: any, ref: any) => {
       const theme = useTheme();

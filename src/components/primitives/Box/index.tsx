@@ -2,12 +2,12 @@ import React, { memo, forwardRef } from 'react';
 import { View } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
 import Text from './../Text';
-import { makeStyledBox } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/styled';
 import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
-const StyledBox = makeStyledBox(View);
+const StyledBox = makeStyledComponent(View);
 
 let MemoizedGradient: any = undefined;
 
@@ -33,7 +33,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 
     if (Gradient) {
       if (!MemoizedGradient) {
-        MemoizedGradient = makeStyledBox(Gradient);
+        MemoizedGradient = makeStyledComponent(Gradient);
       }
 
       Gradient = MemoizedGradient;
@@ -85,7 +85,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   }
 
   return (
-    <StyledBox ref={ref} {...safeAreaProps}>
+    <StyledBox debug ref={ref} {...safeAreaProps}>
       {React.Children.map(children, (child) =>
         typeof child === 'string' ? <Text {..._text}>{child}</Text> : child
       )}

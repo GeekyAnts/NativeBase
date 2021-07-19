@@ -1,15 +1,10 @@
 import React, { memo, forwardRef } from 'react';
 import { ActivityIndicator } from 'react-native';
-import styled from 'styled-components/native';
-import { color, space, position } from 'styled-system';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ISpinnerProps } from './types';
+import { makeStyledComponent } from '../../../utils/styled';
 
-const StyledSpinner = styled(ActivityIndicator)<ISpinnerProps>(
-  color,
-  space,
-  position
-);
+const StyledSpinner = makeStyledComponent(ActivityIndicator);
 const Spinner = (props: ISpinnerProps, ref: any) => {
   const resolvedProps = usePropsResolution('Spinner', props);
   return (

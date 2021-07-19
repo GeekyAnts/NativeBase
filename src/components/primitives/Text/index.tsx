@@ -4,10 +4,10 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
-import { makeStyledBox } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 
-const StyledText = makeStyledBox(NativeText);
+const StyledText = makeStyledComponent(NativeText);
 
 const Text = ({ children, ...props }: ITextProps, ref: any) => {
   const {

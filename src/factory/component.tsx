@@ -3,7 +3,7 @@ import type { AnyStyledComponent } from 'styled-components';
 import { usePropsWithComponentTheme } from '../hooks/useThemeProps/usePropsWithComponentTheme';
 import type { ComponentTheme } from '../theme';
 import type { FactoryComponentProps } from './types';
-import { makeStyledBox } from '../utils/styled';
+import { makeStyledComponent } from '../utils/styled';
 
 export default function <P>(
   Component: React.ComponentType<P>,
@@ -11,7 +11,9 @@ export default function <P>(
 ) {
   return React.forwardRef(
     ({ children, ...props }: P & FactoryComponentProps, ref: any) => {
-      const StyledComponent = makeStyledBox(Component as AnyStyledComponent);
+      const StyledComponent = makeStyledComponent(
+        Component as AnyStyledComponent
+      );
       const calculatedProps = usePropsWithComponentTheme(componentTheme, props);
       return (
         <StyledComponent {...(calculatedProps as P)} ref={ref}>
