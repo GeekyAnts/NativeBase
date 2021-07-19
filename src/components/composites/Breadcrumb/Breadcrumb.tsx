@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { AccessibilityRole, Platform } from 'react-native';
 import { HStack } from '../../primitives/Stack';
+import { useControllableState } from '../../../hooks';
 import { Pressable } from 'native-base';
 import type { IBreadcrumbProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps/usePropsResolution';
@@ -18,19 +19,22 @@ const Breadcrumb = (
     maxItems,
     _button,
     isCollapsed,
+    onCollapseChange,
     ...props
   }: IBreadcrumbProps & IFlexProps & ITextProps,
   ref: any
 ) => {
   const textProps = { ..._text };
-  useEffect(() => {
-    setCollapsed(isCollapsed !== undefined ? isCollapsed : true);
-  }, [isCollapsed]);
+
   // Maintaining state to show all children on press of collapse button
-  const [collapsed, setCollapsed] = useState(
-    (maxItems ? true : false) &&
-      (isCollapsed !== undefined ? isCollapsed : true)
-  );
+  const [collapsed, setCollapsed] = useControllableState({
+    value: isCollapsed,
+    defaultValue: false,
+    onChange: (value) => {
+      onCollapseChange && onCollapseChange(value);
+    },
+  });
+
   let separatorProps = {
     accessibilityRole: (Platform.OS === 'web'
       ? 'presentation'

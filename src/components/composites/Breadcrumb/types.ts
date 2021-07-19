@@ -20,6 +20,7 @@ export interface IBreadcrumbProps extends IBoxProps {
   _button?: any;
   _current?: any;
   isCollapsed?: boolean;
+  onCollapseChange?: any;
 }
 export interface IBreadcrumbItemProps extends IBreadcrumbProps {
   isCurrent?: boolean;
