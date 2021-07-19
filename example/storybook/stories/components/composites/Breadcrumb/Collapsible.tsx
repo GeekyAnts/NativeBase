@@ -1,16 +1,24 @@
 import React from 'react';
-import { Breadcrumb, Box, Heading, HStack } from 'native-base';
+import { Breadcrumb, Box, Heading, HStack, Button } from 'native-base';
 import {
   MaterialCommunityIcons,
   MaterialIcons,
   AntDesign,
 } from '@expo/vector-icons';
+import { useState } from 'react';
 
 export const Example = () => {
+  const [collapsed, setCollapse] = useState(true);
+
   return (
     <Box>
-      <Heading mb={4}>Breadcrumb Composition</Heading>
-      <Breadcrumb spacing={2} _button={{ bg: 'transparent' }} maxItems={1}>
+      <Heading mb={4}>Breadcrumb Collapsible</Heading>
+      <Breadcrumb
+        spacing={2}
+        _button={{ bg: 'transparent' }}
+        maxItems={1}
+        isCollapsed={collapsed}
+      >
         <Breadcrumb.Item isCurrent>
           <Breadcrumb.Link>
             <HStack>
@@ -23,6 +31,7 @@ export const Example = () => {
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
+        ,
         <Breadcrumb.Item>
           <Breadcrumb.Link href="https://alpha.nativebase.io/" isExternal>
             <Breadcrumb.Icon
@@ -35,7 +44,7 @@ export const Example = () => {
             <Breadcrumb.Text>Docs</Breadcrumb.Text>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
-
+        ,
         <Breadcrumb.Item>
           <Breadcrumb.Link
             href="https://github.com/GeekyAnts/nativebase"
@@ -51,6 +60,7 @@ export const Example = () => {
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
+        ,
         <Breadcrumb.Item isCurrent>
           <Breadcrumb.Link
             href="https://github.com/GeekyAnts/nativebase"
@@ -68,7 +78,15 @@ export const Example = () => {
             </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
+        ,
       </Breadcrumb>
+      <Button
+        onPress={() => {
+          setCollapse(false);
+        }}
+      >
+        Click
+      </Button>
     </Box>
   );
 };

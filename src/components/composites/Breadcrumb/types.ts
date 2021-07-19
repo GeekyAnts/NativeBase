@@ -19,6 +19,7 @@ export interface IBreadcrumbProps extends IBoxProps {
   maxItems?: number | number[];
   _button?: any;
   _current?: any;
+  isCollapsed?: boolean;
 }
 export interface IBreadcrumbItemProps extends IBreadcrumbProps {
   isCurrent?: boolean;
