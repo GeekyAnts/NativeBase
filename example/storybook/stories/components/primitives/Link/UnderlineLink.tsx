@@ -4,7 +4,13 @@ import { Link } from 'native-base';
 export const Example = () => {
   return (
     // @ts-ignore
-    <Link mt={4} fontSize="xl" href="https://nativebase.io" isUnderlined>
+    <Link
+      mt={4}
+      // fontSize="xl"
+      href="https://nativebase.io"
+      isUnderlined
+      _underline={{ _text: { color: 'gray.500' } }}
+    >
       Default Link
     </Link>
   );

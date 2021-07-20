@@ -4,9 +4,9 @@ import { Link } from 'native-base';
 export const Example = () => {
   return (
     <Link
-      _text={{ color: 'blue.700' }}
       href="https://nativebase.io"
       isExternal
+      _external={{ bg: 'pink.100', _text: { color: 'blue.700' }, ml: 10 }}
       mt={4}
     >
       NativeBase
