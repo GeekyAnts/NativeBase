@@ -1,6 +1,7 @@
 import Color from 'tinycolor2';
 import { useToken } from './useToken';
 import { useAccessibleColors } from '../core/color-mode/hooks';
+import { useNativeBaseConfig } from '../core/NativeBaseContext';
 
 export function useContrastText(bg: string, color?: string) {
   let [
@@ -16,6 +17,10 @@ export function useContrastText(bg: string, color?: string) {
     bg,
     color ?? '',
   ]);
+
+  let suppressColorAccessibilityWarning = useNativeBaseConfig(
+    'NativeBaseConfigProvider'
+  ).config.suppressColorAccessibilityWarning;
 
   let [accessibleColors] = useAccessibleColors();
 
@@ -37,7 +42,8 @@ export function useContrastText(bg: string, color?: string) {
           trueBg,
           trueColor,
           bg,
-          color
+          color,
+          suppressColorAccessibilityWarning
         );
 
   return textColor;
@@ -62,7 +68,8 @@ function getAccessibleContrastColor(
   trueBg: string,
   trueColor: string,
   bg: string,
-  color?: string
+  color?: string,
+  suppressColorAccessibilityWarning?: boolean
 ) {
   if (typeof trueBg !== 'string') {
     trueBg = bg;
@@ -88,7 +95,7 @@ function getAccessibleContrastColor(
       trueBg,
       trueColor ? trueColor : trueContrastColor
     );
-    if (contrast < 3) {
+    if (contrast < 3 && !suppressColorAccessibilityWarning) {
       console.warn(
         [
           `NativeBase: The contrast ratio of ${contrast}:1 for ${
