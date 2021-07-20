@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { get } from 'lodash';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
+import tinycolor from 'tinycolor2';
 
 export const layout = {
   width: {
@@ -490,7 +491,6 @@ const propConfig = {
   outline: true,
   outlineWidth: true,
 };
-
 export const getStyleAndFilteredProps = ({
   style,
   theme,
@@ -501,7 +501,7 @@ export const getStyleAndFilteredProps = ({
   let styleFromProps: any = {};
   let restProps: any = {};
   for (let key in props) {
-    const rawValue = props[key];
+    let rawValue = props[key];
 
     if (key in propConfig) {
       const value = resolveValueWithBreakpoint(
@@ -516,7 +516,26 @@ export const getStyleAndFilteredProps = ({
       } else if (config) {
         //@ts-ignore
         const { property, scale, properties, transformer } = config;
-        let val = get(theme[scale], value, value);
+        const originalRawValue = rawValue;
+        if (scale === 'colors') {
+          if (rawValue?.match(/^.*?(?=:alpha)/)) {
+            rawValue = rawValue?.match(/^.*?(?=:alpha)/)[0];
+          }
+        }
+        let val = get(theme[scale], rawValue, rawValue);
+        if (scale === 'colors') {
+        }
+        if (scale === 'colors') {
+          const alpha: string = originalRawValue?.match(/:alpha\.\d\d?\d?/)
+            ? originalRawValue?.match(/:alpha\.\d\d?\d?/)[0].split('.')[1]
+            : '1';
+          const resolvedAlpha = get(theme['opacity'], alpha, alpha);
+          let color = tinycolor(val);
+          val =
+            resolvedAlpha === '1'
+              ? val
+              : color.setAlpha(resolvedAlpha).toString();
+        }
         if (transformer) {
           val = transformer(val);
         }

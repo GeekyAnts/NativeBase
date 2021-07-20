@@ -3,9 +3,9 @@ import { Image as RNImage } from 'react-native';
 import Text from '../Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IImageProps } from './types';
-import { makeStyledBox } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/styled';
 
-const StyledImage = makeStyledBox(RNImage);
+const StyledImage = makeStyledComponent(RNImage);
 
 const Image = ({ source, ...props }: IImageProps, ref: any) => {
   const {
