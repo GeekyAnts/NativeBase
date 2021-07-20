@@ -7,7 +7,7 @@ export const Example = () => {
     baseStyle: (props: any) => {
       return {
         bg: themeTools.mode('rose.500', 'cyan.300')(props),
-        borderRadius: 'md',
+        borderRadius: 'sm',
       };
     },
   });

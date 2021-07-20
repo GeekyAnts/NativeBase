@@ -8,7 +8,7 @@ const baseStyle = {
     fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
     fontSize: 'sm',
   },
-  borderRadius: 'sm',
+  borderRadius: 'xs',
   px: 2,
   py: 1,
 };

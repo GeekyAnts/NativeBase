@@ -13,7 +13,7 @@ export const Example = () => {
         p={2}
         border={1}
         borderColor="cyan.400"
-        borderRadius="md"
+        borderRadius="sm"
       />
       <Button
         colorScheme="emerald"

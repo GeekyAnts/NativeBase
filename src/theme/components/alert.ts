@@ -118,7 +118,7 @@ export const Alert = {
     justifyContent: 'flex-start',
     p: 3,
     space: 3,
-    borderRadius: 'md',
+    borderRadius: 'sm',
     _actionProps: {
       alignSelf: 'center',
       ml: 'auto',

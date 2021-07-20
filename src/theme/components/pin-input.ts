@@ -12,7 +12,7 @@ const sizes = {
     width: '56px',
     height: '56px',
     textAlign: 'center',
-    borderRadius: 'lg',
+    borderRadius: 'md',
   },
   'xl': {
     fontSize: 'xl',
@@ -20,7 +20,7 @@ const sizes = {
     width: '52px',
     height: '52px',
     textAlign: 'center',
-    borderRadius: 'lg',
+    borderRadius: 'md',
   },
   'lg': {
     fontSize: 'lg',
@@ -28,7 +28,7 @@ const sizes = {
     width: '48px',
     height: '48px',
     textAlign: 'center',
-    borderRadius: 'md',
+    borderRadius: 'sm',
   },
   'md': {
     fontSize: 'md',
@@ -36,7 +36,7 @@ const sizes = {
     width: '40px',
     height: '40px',
     textAlign: 'center',
-    borderRadius: 'md',
+    borderRadius: 'sm',
   },
   'sm': {
     fontSize: 'sm',
@@ -44,7 +44,7 @@ const sizes = {
     width: '30px',
     height: '30px',
     textAlign: 'center',
-    borderRadius: 'md',
+    borderRadius: 'sm',
   },
   'xs': {
     fontSize: 'xs',
@@ -52,7 +52,7 @@ const sizes = {
     width: '24px',
     height: '24px',
     textAlign: 'center',
-    borderRadius: 'md',
+    borderRadius: 'sm',
   },
 };
 

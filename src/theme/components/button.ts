@@ -10,7 +10,7 @@ const baseStyle = (props: any) => {
       : {};
 
   return {
-    borderRadius: 'lg',
+    borderRadius: 'md',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

@@ -9,7 +9,7 @@ const baseStyle = (props: any) => {
       : {};
 
   return {
-    borderRadius: 'lg',
+    borderRadius: 'md',
     _web: {
       cursor: props.isDisabled
         ? 'not-allowed'

@@ -69,7 +69,7 @@ const Switch = (
   const offThumbColor = useToken('colors', _offThumbColor);
   const inValidPropFactors = {
     borderWidth: 1,
-    borderRadius: 16,
+    borderRadius: '2xl',
     borderColor: borderColorInvalid,
   };
 

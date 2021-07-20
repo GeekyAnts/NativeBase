@@ -17,7 +17,7 @@ export const ActionsheetContent = {
       bg: 'coolGray.400',
       height: 1,
       width: 9,
-      borderRadius: 2,
+      borderRadius: 'xs',
     },
   },
 };
