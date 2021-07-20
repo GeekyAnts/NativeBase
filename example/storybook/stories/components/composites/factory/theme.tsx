@@ -6,7 +6,7 @@ export const Example = () => {
   const FactoryView = Factory(View, {
     baseStyle: {
       bg: 'cyan.300',
-      borderRadius: 'md',
+      borderRadius: 'sm',
     },
   });
   return <FactoryView height={50} width={50} />;

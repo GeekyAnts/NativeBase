@@ -5,7 +5,7 @@ export function Example() {
   return (
     <Button
       endIcon={
-        <Badge colorScheme="secondary" ml={1} rounded="md">
+        <Badge colorScheme="secondary" ml={1} rounded="sm">
           10
         </Badge>
       }

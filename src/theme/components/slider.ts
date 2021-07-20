@@ -4,7 +4,7 @@ export const SliderTrack = {
     const simplifiedColorScheme = getColorScheme(props);
     return {
       bg: `${simplifiedColorScheme}.100`,
-      borderRadius: 'lg',
+      borderRadius: 'md',
       overflow: 'hidden',
     };
   },
@@ -14,7 +14,7 @@ export const SliderThumb = {
   baseStyle: (props: any) => {
     const simplifiedColorScheme = getColorScheme(props);
     return {
-      borderRadius: 99999,
+      borderRadius: 'full',
       zIndex: 999,
       bg: mode(
         `${simplifiedColorScheme}.500`,

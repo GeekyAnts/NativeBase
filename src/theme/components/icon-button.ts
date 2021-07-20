@@ -4,7 +4,7 @@ const baseStyle = {
 
 const defaultProps = {
   variant: 'ghost',
-  size: 'md',
+  size: 'sm',
 };
 
 const sizes = {

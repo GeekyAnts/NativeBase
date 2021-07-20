@@ -24,7 +24,7 @@ const baseStyle = (props: Record<string, any>) => {
     },
     _checkbox: {
       borderWidth: 2,
-      borderRadius: 'sm',
+      borderRadius: 'xs',
       borderColor: mode('muted.300', 'muted.600')(props),
       bg: mode('muted.50', 'muted.700')(props), // matching background color
       _checked: {

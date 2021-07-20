@@ -37,7 +37,7 @@ export function UsingComponentWithRenderItem() {
               backgroundColor="black"
               height={10}
               width={10}
-              borderRadius={9999}
+              borderRadius={'full'}
               justifyContent="center"
               alignItems="center"
             >

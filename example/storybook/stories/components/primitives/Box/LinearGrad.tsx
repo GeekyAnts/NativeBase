@@ -11,7 +11,7 @@ export const Example = () => {
         },
       }}
       p={12}
-      rounded="lg"
+      rounded="md"
       _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}
     >
       This is a Box with Linear Gradient

@@ -5,7 +5,7 @@ const baseStyle = (props: Record<string, any>) => {
     bg: mode(`gray.700`, `gray.300`)(props),
     py: 2,
     px: 3,
-    rounded: 'md',
+    rounded: 'sm',
     shadow: 1,
     _title: {
       color: mode(`gray.300`, `gray.700`)(props),

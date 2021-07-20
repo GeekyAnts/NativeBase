@@ -5,13 +5,13 @@ export const Example = () => {
   return (
     <Box h="40" mx="auto">
       <ZStack mt={3} ml={-20}>
-        <Box bg="primary.400" size={20} rounded="lg" shadow={3} />
+        <Box bg="primary.400" size={20} rounded="md" shadow={3} />
         <Box
           bg="secondary.400"
           mt={5}
           ml={5}
           size={20}
-          rounded="lg"
+          rounded="md"
           shadow={5}
         />
         <Box
@@ -19,7 +19,7 @@ export const Example = () => {
           mt={10}
           ml={10}
           size={20}
-          rounded="lg"
+          rounded="md"
           shadow={7}
         />
       </ZStack>

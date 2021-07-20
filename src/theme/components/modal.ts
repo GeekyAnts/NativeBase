@@ -45,7 +45,7 @@ export const ModalContent = {
       pl: 6,
       pt: 6,
       shadow: 3,
-      rounded: 'lg',
+      rounded: 'md',
       maxHeight: `${Dimensions.get('window').height - 150}px`,
     };
   },

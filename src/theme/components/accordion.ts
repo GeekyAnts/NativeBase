@@ -5,7 +5,7 @@ const accordionBaseStyle = (props: Record<string, any>) => {
   return {
     borderWidth: 1,
     borderColor: mode('gray.300', 'gray.600')(props),
-    borderRadius: 'lg',
+    borderRadius: 'md',
   };
 };
 export const Accordion = {

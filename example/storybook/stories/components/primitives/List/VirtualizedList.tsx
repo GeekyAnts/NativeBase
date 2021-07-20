@@ -14,7 +14,7 @@ const getItemCount = (_data) => 500;
 const Item = ({ title }: { title: String }) => (
   <List.Item
     bg="emerald.200"
-    borderRadius="md"
+    borderRadius="sm"
     justifyContent="center"
     _text={{ fontSize: '2xl' }}
     px={4}

@@ -22,7 +22,7 @@ export const Example = () => {
           'ten',
           'eleven',
         ].map((val) => (
-          <Center rounded="lg" p={7} bg="primary.400" my={5} mb={3}>
+          <Center rounded="md" p={7} bg="primary.400" my={5} mb={3}>
             {val}
           </Center>
         ))}

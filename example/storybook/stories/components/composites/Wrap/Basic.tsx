@@ -6,7 +6,7 @@ export const Example = () => {
       <Center
         size={16}
         bg="primary.400"
-        rounded="xl"
+        rounded="lg"
         _text={{ color: 'white' }}
       >
         Box 1
@@ -14,7 +14,7 @@ export const Example = () => {
       <Center
         bg="secondary.400"
         size={16}
-        rounded="xl"
+        rounded="lg"
         _text={{ color: 'white' }}
       >
         Box 2
@@ -22,12 +22,12 @@ export const Example = () => {
       <Center
         size={16}
         bg="emerald.400"
-        rounded="xl"
+        rounded="lg"
         _text={{ color: 'white' }}
       >
         Box 3
       </Center>
-      <Center size={16} bg="rose.400" rounded="xl" _text={{ color: 'white' }}>
+      <Center size={16} bg="rose.400" rounded="lg" _text={{ color: 'white' }}>
         Box 4
       </Center>
     </Wrap>

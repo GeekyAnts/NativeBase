@@ -18,7 +18,7 @@ export const Example = () => {
           _text={{ color: 'white' }}
           mt="4"
           bg="teal.500"
-          rounded="md"
+          rounded="sm"
         >
           PresenceTransition
         </Box>

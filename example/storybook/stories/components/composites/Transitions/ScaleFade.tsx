@@ -13,7 +13,7 @@ export const Example = () => {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1, transition: { duration: 250 } }}
       >
-        <Box p="40px" mt="4" bg="teal.500" rounded="md">
+        <Box p="40px" mt="4" bg="teal.500" rounded="sm">
           ScaleFade
         </Box>
       </PresenceTransition>

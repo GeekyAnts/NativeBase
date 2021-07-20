@@ -22,7 +22,7 @@ export const Content = () => {
         <Box
           p={4}
           border={1}
-          borderRadius="md"
+          borderRadius="sm"
           _light={{ borderColor: 'gray.800' }}
           _dark={{ borderColor: 'gray.50' }}
         >
@@ -49,7 +49,7 @@ export const Content = () => {
         <Box
           p={4}
           border={1}
-          borderRadius="md"
+          borderRadius="sm"
           _light={{ borderColor: 'gray.800' }}
           _dark={{ borderColor: 'gray.50' }}
         >
@@ -76,7 +76,7 @@ export const Content = () => {
         <Box
           p={4}
           border={1}
-          borderRadius="md"
+          borderRadius="sm"
           _light={{ borderColor: 'gray.800' }}
           _dark={{ borderColor: 'gray.50' }}
         >

@@ -25,7 +25,7 @@ export const Example = () => {
       sections={data}
       keyExtractor={(item, index) => item + index}
       renderItem={({ item }) => (
-        <Box px={5} py={2} rounded="md" my={2} bg="secondary.200">
+        <Box px={5} py={2} rounded="sm" my={2} bg="secondary.200">
           {item}
         </Box>
       )}
@@ -33,7 +33,7 @@ export const Example = () => {
         <Box
           px={5}
           py={2}
-          rounded="md"
+          rounded="sm"
           my={2}
           bg="primary.200"
           _text={{ fontWeight: 'bold' }}

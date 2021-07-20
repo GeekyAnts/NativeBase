@@ -3,7 +3,7 @@ import { Box, Stack, Heading, Icon, Text, HStack, Avatar } from 'native-base';
 import { MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
 export const Example = () => {
   return (
-    <Box p={5} rounded="xl" shadow={4} w="100%">
+    <Box p={5} rounded="lg" shadow={4} w="100%">
       <Stack space={6}>
         <Avatar
           size={'sm'}

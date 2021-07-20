@@ -23,7 +23,7 @@ export const Example = () => {
       <Box>
         <AspectRatio ratio={16 / 9}>
           <Image
-            roundedTop="lg"
+            roundedTop="md"
             source={{
               uri:
                 'https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg',

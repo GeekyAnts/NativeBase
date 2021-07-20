@@ -14,7 +14,7 @@ export const InputLeftAddon = memo(
       <Box
         {...addonsDefaultStyle}
         borderRightWidth={0}
-        roundedLeft={4}
+        roundedLeft={'sm'}
         bg={useColorModeValue('gray.50', 'gray.700')}
         {...props}
         ref={ref}
@@ -37,7 +37,7 @@ export const InputRightAddon = memo(
       <Box
         {...addonsDefaultStyle}
         borderLeftWidth={0}
-        roundedRight={4}
+        roundedRight={'sm'}
         bg={useColorModeValue('gray.50', 'gray.700')}
         {...props}
         ref={ref}

@@ -21,7 +21,7 @@ export const Example = () => {
     <FlatList
       data={data}
       renderItem={({ item }) => (
-        <Box px={5} py={2} rounded="md" my={2} bg="primary.300">
+        <Box px={5} py={2} rounded="sm" my={2} bg="primary.300">
           {item.title}
         </Box>
       )}

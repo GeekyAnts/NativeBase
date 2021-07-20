@@ -11,7 +11,7 @@ export function Example() {
         <Center
           size={16}
           bg="primary.400"
-          rounded="md"
+          rounded="sm"
           _text={{ color: 'white' }}
           shadow={3}
         >
@@ -20,7 +20,7 @@ export function Example() {
         <Center
           bg="secondary.400"
           size={16}
-          rounded="md"
+          rounded="sm"
           _text={{ color: 'white' }}
           shadow={3}
         >
@@ -29,7 +29,7 @@ export function Example() {
         <Center
           size={16}
           bg="emerald.400"
-          rounded="md"
+          rounded="sm"
           _text={{ color: 'white' }}
           shadow={3}
         >

@@ -5,7 +5,7 @@ export const Example = () => {
     <Box
       flexDirection={{ base: 'column', md: 'row' }}
       shadow={4}
-      rounded="xl"
+      rounded="lg"
       overflow="hidden"
     >
       <Box width={{ md: 24 }} height={{ base: 32, md: '100%' }}>

@@ -19,7 +19,7 @@ const sizes = {
       fontSize: 'xs',
     },
     p: 1,
-    borderRadius: 'sm',
+    borderRadius: 'xs',
   },
   md: {
     minH: 6,
@@ -27,7 +27,7 @@ const sizes = {
     _text: {
       fontSize: 'sm',
     },
-    borderRadius: 'md',
+    borderRadius: 'sm',
     p: 2,
   },
   lg: {
@@ -36,7 +36,7 @@ const sizes = {
     _text: {
       fontSize: 'md',
     },
-    borderRadius: 'md',
+    borderRadius: 'sm',
     p: 3,
   },
 };

@@ -8,7 +8,7 @@ function baseStyle(props: Record<string, any>) {
     borderWidth: 2,
     borderBottomWidth: 4,
     shadow: 1,
-    borderRadius: 'md',
+    borderRadius: 'sm',
     px: 2,
     _text: {
       fontSize: 'sm',

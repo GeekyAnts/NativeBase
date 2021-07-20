@@ -22,7 +22,7 @@ const baseStyle = (props: Record<string, any>) => {
     fontFamily: 'body',
     px: 4,
     py: 2,
-    borderRadius: 'lg',
+    borderRadius: 'sm',
     color: mode('black', 'white')(props),
     placeholderTextColor: mode('muted.400', 'muted.500')(props),
     background: 'transparent',
@@ -64,7 +64,7 @@ const baseStyle = (props: Record<string, any>) => {
 
 function roundedStyle() {
   return {
-    borderRadius: 'pill',
+    borderRadius: '3xl',
     borderWidth: 1,
   };
 }

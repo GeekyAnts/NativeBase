@@ -18,7 +18,7 @@ export const Example = () => {
           p="40px"
           mt="4"
           bg="teal.500"
-          rounded="md"
+          rounded="sm"
           _text={{ color: 'white' }}
         >
           Fade

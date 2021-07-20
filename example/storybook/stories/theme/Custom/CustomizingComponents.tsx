@@ -31,7 +31,7 @@ export const Example = () => {
       },
       Avatar: {
         baseStyle: {
-          borderRadius: 'md',
+          borderRadius: 'sm',
         },
       },
       Heading: {

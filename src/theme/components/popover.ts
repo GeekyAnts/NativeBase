@@ -25,7 +25,7 @@ export const PopoverContent = {
     backgroundColor: mode('gray.50', 'gray.600')(props),
     borderColor: mode('gray.200', 'gray.600')(props),
     borderWidth: 1,
-    rounded: 'md',
+    rounded: 'sm',
   }),
 };
 
