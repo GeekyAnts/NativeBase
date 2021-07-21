@@ -24,6 +24,7 @@ const Button = (
     _hover,
     _pressed,
     _focusVisible,
+    _loading,
     _stack,
     ...resolvedProps
   } = usePropsResolution('Button', props);
@@ -33,7 +34,6 @@ const Button = (
     _hover,
     _pressed,
     _focus,
-    _disabled,
     _focusVisible,
   };
 
@@ -69,6 +69,8 @@ const Button = (
       disabled={isDisabled || isLoading}
       ref={ref}
       {...pressableProps}
+      {...(isDisabled && _disabled)}
+      {...(isLoading && _loading)}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
       {/* TODO: Replace Render props with Context Hook */}
