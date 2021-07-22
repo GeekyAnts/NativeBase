@@ -41,7 +41,7 @@ export const resolversForBox: any = [
   customLayout,
 ];
 
-export let shouldEnableNewStyledSystemImplementation = false;
+export let shouldEnableNewStyledSystemImplementation = true;
 
 export const makeStyledComponent = (Comp: any) => {
   if (shouldEnableNewStyledSystemImplementation) {
