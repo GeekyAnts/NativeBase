@@ -114,6 +114,7 @@ const useSimplifyComponentTheme = (
         ...combinedProps,
         ...colorModeProps,
       });
+      sizeResolved = true;
     }
     // Type - sizes: {lg: {px: 1}}. Refer button theme
     else {
