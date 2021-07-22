@@ -10,30 +10,45 @@ import { useTheme } from './useTheme';
  * This function depends upon fontConfig token in typography for mapping.
  */
 export function useResolvedFontFamily(props: {
-  fontFamily: string;
-  fontStyle: string;
-  fontWeight: string | number;
+  fontFamily?: string;
+  fontStyle?: string;
+  fontWeight?: string | number;
 }) {
   const { fontFamily, fontStyle = 'normal', fontWeight = 400 } = props;
+  let newFontFamily = fontFamily;
+  let newFontStyle = fontStyle;
+  let newFontWeight = fontWeight;
 
   const { fontConfig, fontWeights, fonts } = useTheme();
-  if (fontFamily in fonts) {
+  if (fontFamily && fontFamily in fonts) {
     const fontToken = fonts[fontFamily];
+
     if (fontConfig && fontConfig[fontToken]) {
-      const parsedFontWeight = parseInt(fontWeight as any);
-      let fontWeightNumber = Number.isNaN(parsedFontWeight)
-        ? fontWeights[fontWeight]
-        : fontWeight;
+      // If a custom font family is resolved, set fontWeight and fontStyle to undefined.
+      // https://github.com/GeekyAnts/NativeBase/issues/3811
+      // On Android, If a fontFamily and fontWeight both are passed, it behaves in a weird way and applies system fonts with passed fontWeight. This happens only for some fontWeights e.g. '700' or 'bold'. So, if we find a custom fontFamily, we remove fontWeight and fontStyle
+      //@ts-ignore
+      newFontWeight = undefined;
+      //@ts-ignore
+      newFontStyle = undefined;
+
+      let fontWeightNumber =
+        fontWeight in fontWeights ? fontWeights[fontWeight] : fontWeight;
       let fontVariant = fontConfig[fontToken][fontWeightNumber];
 
       if (typeof fontVariant === 'object') {
-        if (fontVariant[fontStyle]) return fontVariant[fontStyle];
+        if (fontVariant[fontStyle]) newFontFamily = fontVariant[fontStyle];
       } else {
-        return fontVariant;
+        newFontFamily = fontVariant;
       }
+    } else {
+      newFontFamily = fonts[fontFamily];
     }
-    return fonts[fontFamily];
   }
 
-  return fontFamily;
+  return {
+    fontFamily: newFontFamily,
+    fontWeight: newFontWeight,
+    fontStyle: newFontStyle,
+  };
 }

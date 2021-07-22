@@ -3,12 +3,12 @@ import { ScrollView, VStack, Center } from 'native-base';
 export const Example = () => {
   return (
     <ScrollView
-      flex={1}
       px={90}
       _contentContainerStyle={{ bg: 'lime.300', px: '44px', w: '100%' }}
       // style={{ backgroundColor: 'blue' }}
+      height={400}
     >
-      <VStack flex={1}>
+      <VStack>
         {[
           'one',
           'two',
