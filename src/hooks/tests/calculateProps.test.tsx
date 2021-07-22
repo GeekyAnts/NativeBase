@@ -27,49 +27,4 @@ describe('useCalculateProps', () => {
     );
     expect(result.current).toEqual({});
   });
-
-  test('Only component theme(Badge) + no props', () => {
-    const componentTheme = (theme as any).components.Badge;
-    const { result } = renderHook(
-      () => calculateProps(theme, colorModeProps, componentTheme, {}, 750),
-      { wrapper }
-    );
-    expect(result.current).toEqual({
-      _text: {
-        color: 'gray.900',
-        fontSize: 'xs',
-        fontWeight: 'bold',
-        textTransform: 'uppercase',
-      },
-      px: 1,
-      py: 1,
-      borderRadius: 'lg',
-      bg: 'gray.100',
-      borderWidth: 1,
-      borderColor: 'transparent',
-    });
-  });
-
-  test('Component theme(Badge) + some props', () => {
-    const componentTheme = (theme as any).components.Badge;
-    const { result } = renderHook(
-      () =>
-        calculateProps(theme, colorModeProps, componentTheme, { py: 3 }, 750),
-      { wrapper }
-    );
-    expect(result.current).toEqual({
-      _text: {
-        color: 'gray.900',
-        fontSize: 'xs',
-        fontWeight: 'bold',
-        textTransform: 'uppercase',
-      },
-      px: 1,
-      py: 3,
-      borderRadius: 'lg',
-      bg: 'gray.100',
-      borderWidth: 1,
-      borderColor: 'transparent',
-    });
-  });
 });
