@@ -112,13 +112,13 @@ const useSimplifyComponentTheme = (
         ...combinedProps,
         ...colorModeProps,
       });
-      hasSize = true;
     }
     // Type - sizes: {lg: {px: 1}}. Refer button theme
     else {
       componentSizeProps = componentTheme.sizes[size];
-      hasSize = true;
     }
+
+    hasSize = true;
   }
 
   const componentMergedTheme = merge(
@@ -139,6 +139,8 @@ const useSimplifyComponentTheme = (
     // We remove size from original props if we found it in the componentTheme
     // @ts-ignore
     delete componentThemeIntegratedProps.size;
+    // @ts-ignore - Mutating incoming size for now. Fix it after new styled system is implemented
+    incomingProps.size = undefined;
   }
 
   if (hasVariant) {
