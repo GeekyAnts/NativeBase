@@ -504,11 +504,7 @@ export const getStyleAndFilteredProps = ({
     let rawValue = props[key];
 
     if (key in propConfig) {
-      const value = resolveValueWithBreakpoint(
-        rawValue,
-        currentBreakpoint,
-        key
-      );
+      let value = resolveValueWithBreakpoint(rawValue, currentBreakpoint, key);
 
       const config = propConfig[key as keyof typeof propConfig];
       if (config === true) {
@@ -516,13 +512,13 @@ export const getStyleAndFilteredProps = ({
       } else if (config) {
         //@ts-ignore
         const { property, scale, properties, transformer } = config;
-        const originalRawValue = rawValue;
+        const originalRawValue = value;
         if (scale === 'colors') {
-          if (rawValue?.match(/^.*?(?=:alpha)/)) {
-            rawValue = rawValue?.match(/^.*?(?=:alpha)/)[0];
+          if (value?.match(/^.*?(?=:alpha)/)) {
+            value = value?.match(/^.*?(?=:alpha)/)[0];
           }
         }
-        let val = get(theme[scale], rawValue, rawValue);
+        let val = get(theme[scale], value, value);
         if (scale === 'colors') {
         }
         if (scale === 'colors') {

@@ -42,7 +42,7 @@ const useSimplifyComponentTheme = (
   colorModeProps: object,
   currentBreakpoint: number
 ) => {
-  let hasSize = false;
+  let sizeResolved = false;
   let hasVariant = false;
   // Resolving component's defaultProps.
 
@@ -85,6 +85,8 @@ const useSimplifyComponentTheme = (
           });
 
     hasVariant = true;
+    //@ts-ignore
+    incomingProps.variant = undefined;
   }
 
   // To handle responsive size prop. i.e. {sm:"x"} | [x, y]
@@ -112,13 +114,15 @@ const useSimplifyComponentTheme = (
         ...combinedProps,
         ...colorModeProps,
       });
+      sizeResolved = true;
     }
     // Type - sizes: {lg: {px: 1}}. Refer button theme
     else {
       componentSizeProps = componentTheme.sizes[size];
+      sizeResolved = true;
     }
-
-    hasSize = true;
+    // @ts-ignore - Mutating incoming size for now. Fix it after new styled system is implemented
+    incomingProps.size = undefined;
   }
 
   const componentMergedTheme = merge(
@@ -129,25 +133,23 @@ const useSimplifyComponentTheme = (
     componentSizeProps
   );
 
-  const componentThemeIntegratedProps = merge(
-    {},
-    useColorModeProps(usePlatformProps(componentMergedTheme)),
-    useColorModeProps(usePlatformProps(incomingProps))
-  );
-
-  if (hasSize) {
+  if (sizeResolved) {
     // We remove size from original props if we found it in the componentTheme
     // @ts-ignore
-    delete componentThemeIntegratedProps.size;
-    // @ts-ignore - Mutating incoming size for now. Fix it after new styled system is implemented
-    incomingProps.size = undefined;
+    delete componentMergedTheme.size;
   }
 
   if (hasVariant) {
     // We remove variant from original props if we found it in the componentTheme
     // @ts-ignore
-    delete componentThemeIntegratedProps.variant;
+    delete componentMergedTheme.variant;
   }
+
+  const componentThemeIntegratedProps = merge(
+    {},
+    useColorModeProps(usePlatformProps(componentMergedTheme)),
+    useColorModeProps(usePlatformProps(incomingProps))
+  );
 
   return componentThemeIntegratedProps;
 };
@@ -276,17 +278,12 @@ export function usePropsResolution(
   );
 
   // TODO: using usePlatformProps here to simplify the component theme. So that on on component level it shouldn't have to maintain the Specificity.
-  const componentThemeObject = useSimplifyComponentTheme(
+  const componentThemeIntegratedProps = useSimplifyComponentTheme(
     notComponentTheme,
     componentTheme,
     cleanIncomingProps,
     colorModeProps,
     currentBreakpoint
-  );
-  const componentThemeIntegratedProps = merge(
-    {},
-    useColorModeProps(usePlatformProps(componentThemeObject)),
-    useColorModeProps(usePlatformProps(cleanIncomingProps))
   );
   // const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
 

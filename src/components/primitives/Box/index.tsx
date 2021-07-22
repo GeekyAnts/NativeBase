@@ -85,7 +85,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   }
 
   return (
-    <StyledBox debug ref={ref} {...safeAreaProps}>
+    <StyledBox ref={ref} {...safeAreaProps}>
       {React.Children.map(children, (child) =>
         typeof child === 'string' ? <Text {..._text}>{child}</Text> : child
       )}
