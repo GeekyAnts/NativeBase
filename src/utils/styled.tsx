@@ -1,5 +1,5 @@
 import { getStyleAndFilteredProps } from '../theme/styled-system';
-import { useTheme } from 'styled-components/native';
+import styled, { useTheme } from 'styled-components/native';
 import {
   border,
   color,
@@ -41,39 +41,45 @@ export const resolversForBox: any = [
   customLayout,
 ];
 
-// @ts-ignore
+export let shouldEnableNewStyledSystemImplementation = false;
+
 export const makeStyledComponent = (Comp: any) => {
-  return React.forwardRef(
-    ({ style: propStyle, children, debug, ...props }: any, ref: any) => {
-      const theme = useTheme();
-      const windowWidth = useWindowDimensions().width;
+  if (shouldEnableNewStyledSystemImplementation) {
+    return React.forwardRef(
+      ({ style: propStyle, children, debug, ...props }: any, ref: any) => {
+        const theme = useTheme();
+        const windowWidth = useWindowDimensions().width;
 
-      const currentBreakpoint = React.useMemo(
-        //@ts-ignore
-        () => getClosestBreakpoint(theme.breakpoints, windowWidth),
-        //@ts-ignore
-        [windowWidth, theme.breakpoints]
-      );
+        const currentBreakpoint = React.useMemo(
+          //@ts-ignore
+          () => getClosestBreakpoint(theme.breakpoints, windowWidth),
+          //@ts-ignore
+          [windowWidth, theme.breakpoints]
+        );
 
-      const { style, restProps } = React.useMemo(() => {
-        const { styleSheet, restProps } = getStyleAndFilteredProps({
-          ...props,
-          theme,
-          debug,
-          currentBreakpoint,
-        });
-        if (propStyle) {
-          return { style: [styleSheet.box, propStyle], restProps };
-        } else {
-          return { style: styleSheet.box, restProps };
-        }
-      }, [props, theme, propStyle, currentBreakpoint, debug]);
+        const { style, restProps } = React.useMemo(() => {
+          const { styleSheet, restProps } = getStyleAndFilteredProps({
+            ...props,
+            theme,
+            debug,
+            currentBreakpoint,
+          });
+          if (propStyle) {
+            return { style: [styleSheet.box, propStyle], restProps };
+          } else {
+            return { style: styleSheet.box, restProps };
+          }
+        }, [props, theme, propStyle, currentBreakpoint, debug]);
 
-      return (
-        <Comp {...restProps} style={style} ref={ref}>
-          {children}
-        </Comp>
-      );
-    }
-  );
+        return (
+          <Comp {...restProps} style={style} ref={ref}>
+            {children}
+          </Comp>
+        );
+      }
+    );
+  } else {
+    //@ts-ignore
+    return styled(Comp)(...resolversForBox);
+  }
 };

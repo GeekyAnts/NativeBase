@@ -14,12 +14,6 @@ export const Example = () => {
       >
         This is a Box
       </Box>
-      <Box
-        bg="primary.400:alpha.70"
-        _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}
-      >
-        This is a Box
-      </Box>
     </>
   );
 };
