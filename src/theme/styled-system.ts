@@ -1,7 +1,40 @@
 import { StyleSheet } from 'react-native';
 import { get } from 'lodash';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
-import tinycolor from 'tinycolor2';
+import { transparentize } from './tools';
+
+const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
+
+const getColor = (rawValue: any, scale: any, theme: any) => {
+  let alphaMatched = rawValue?.match(/:alpha\.\d\d?\d?/);
+
+  if (alphaMatched) {
+    let colorMatched = rawValue?.match(/^.*?(?=:alpha)/);
+    let color = colorMatched ? colorMatched[0] : colorMatched;
+    const alphaValue = alphaMatched[0].split('.')[1];
+    const alphaFromToken = get(theme['opacity'], alphaValue, alphaValue);
+    let alpha = alphaFromToken ? parseFloat(alphaFromToken) : 1;
+    const newColor = transparentize(color, alpha)(theme);
+    return newColor;
+  } else {
+    return get(scale, rawValue, rawValue);
+  }
+};
+
+// To handle negative margins
+const getMargin = (n: any, scale: any) => {
+  if (!isNumber(n)) {
+    return get(scale, n, n);
+  }
+
+  const isNegative = n < 0;
+  const absolute = Math.abs(n);
+  const value = get(scale, absolute, absolute);
+  if (!isNumber(value)) {
+    return isNegative ? '-' + value : value;
+  }
+  return value * (isNegative ? -1 : 1);
+};
 
 export const layout = {
   width: {
@@ -108,19 +141,23 @@ export const color = {
   color: {
     property: 'color',
     scale: 'colors',
+    transformer: getColor,
   },
   backgroundColor: {
     property: 'backgroundColor',
     scale: 'colors',
+    transformer: getColor,
   },
   opacity: true,
   bg: {
     property: 'backgroundColor',
     scale: 'colors',
+    transformer: getColor,
   },
   bgColor: {
     property: 'backgroundColor',
     scale: 'colors',
+    transformer: getColor,
   },
 };
 
@@ -140,6 +177,7 @@ export const border = {
   borderColor: {
     property: 'borderColor',
     scale: 'colors',
+    transformer: getColor,
   },
   borderRadius: {
     property: 'borderRadius',
@@ -204,6 +242,7 @@ export const border = {
   borderTopColor: {
     property: 'borderTopColor',
     scale: 'colors',
+    transformer: getColor,
   },
   borderTopStyle: {
     property: 'borderTopStyle',
@@ -216,6 +255,7 @@ export const border = {
   borderBottomColor: {
     property: 'borderBottomColor',
     scale: 'colors',
+    transformer: getColor,
   },
   borderBottomStyle: {
     property: 'borderBottomStyle',
@@ -228,6 +268,7 @@ export const border = {
   borderLeftColor: {
     property: 'borderLeftColor',
     scale: 'colors',
+    transformer: getColor,
   },
   borderLeftStyle: {
     property: 'borderLeftStyle',
@@ -240,6 +281,7 @@ export const border = {
   borderRightColor: {
     property: 'borderRightColor',
     scale: 'colors',
+    transformer: getColor,
   },
   borderRightStyle: {
     property: 'borderRightStyle',
@@ -330,58 +372,72 @@ export const space = {
   margin: {
     property: 'margin',
     scale: 'space',
+    transformer: getMargin,
   },
   m: {
     property: 'margin',
     scale: 'space',
+    transformer: getMargin,
   },
   marginTop: {
     property: 'marginTop',
     scale: 'space',
+    transformer: getMargin,
   },
   mt: {
     property: 'marginTop',
     scale: 'space',
+    transformer: getMargin,
   },
   marginRight: {
     property: 'marginRight',
     scale: 'space',
+    transformer: getMargin,
   },
   mr: {
     property: 'marginRight',
     scale: 'space',
+    transformer: getMargin,
   },
   marginBottom: {
     property: 'marginBottom',
     scale: 'space',
+    transformer: getMargin,
   },
   mb: {
     property: 'marginBottom',
     scale: 'space',
+    transformer: getMargin,
   },
   marginLeft: {
     property: 'marginLeft',
     scale: 'space',
+    transformer: getMargin,
   },
   ml: {
     property: 'marginLeft',
     scale: 'space',
+    transformer: getMargin,
   },
   marginX: {
     properties: ['marginLeft', 'marginRight'],
     scale: 'space',
+    transformer: getMargin,
   },
   mx: {
     properties: ['marginLeft', 'marginRight'],
     scale: 'space',
+    transformer: getMargin,
   },
   marginY: {
     properties: ['marginTop', 'marginBottom'],
     scale: 'space',
+    transformer: getMargin,
   },
   my: {
     properties: ['marginTop', 'marginBottom'],
     scale: 'space',
+    transformer: getMargin,
   },
 
   padding: {
@@ -454,8 +510,8 @@ export const typography = {
   fontWeight: {
     property: 'fontWeight',
     scale: 'fontWeights',
-    transformer: (val: any) => {
-      return val ? val.toString() : val;
+    transformer: (val: any, scale: any) => {
+      return val ? get(scale, val, val).toString() : val;
     },
   },
   lineHeight: {
@@ -491,6 +547,7 @@ const propConfig = {
   outline: true,
   outlineWidth: true,
 };
+
 export const getStyleAndFilteredProps = ({
   style,
   theme,
@@ -501,10 +558,14 @@ export const getStyleAndFilteredProps = ({
   let styleFromProps: any = {};
   let restProps: any = {};
   for (let key in props) {
-    let rawValue = props[key];
+    const rawValue = props[key];
 
     if (key in propConfig) {
-      let value = resolveValueWithBreakpoint(rawValue, currentBreakpoint, key);
+      const value = resolveValueWithBreakpoint(
+        rawValue,
+        currentBreakpoint,
+        key
+      );
 
       const config = propConfig[key as keyof typeof propConfig];
       if (config === true) {
@@ -512,28 +573,11 @@ export const getStyleAndFilteredProps = ({
       } else if (config) {
         //@ts-ignore
         const { property, scale, properties, transformer } = config;
-        const originalRawValue = value;
-        if (scale === 'colors') {
-          if (value?.match(/^.*?(?=:alpha)/)) {
-            value = value?.match(/^.*?(?=:alpha)/)[0];
-          }
-        }
-        let val = get(theme[scale], value, value);
-        if (scale === 'colors') {
-        }
-        if (scale === 'colors') {
-          const alpha: string = originalRawValue?.match(/:alpha\.\d\d?\d?/)
-            ? originalRawValue?.match(/:alpha\.\d\d?\d?/)[0].split('.')[1]
-            : '1';
-          const resolvedAlpha = get(theme['opacity'], alpha, alpha);
-          let color = tinycolor(val);
-          val =
-            resolvedAlpha === '1'
-              ? val
-              : color.setAlpha(resolvedAlpha).toString();
-        }
+        let val = value;
         if (transformer) {
-          val = transformer(val);
+          val = transformer(val, theme[scale], theme);
+        } else {
+          val = get(theme[scale], value, value);
         }
         if (typeof val === 'string' && val.endsWith('px')) {
           val = parseInt(val, 10);

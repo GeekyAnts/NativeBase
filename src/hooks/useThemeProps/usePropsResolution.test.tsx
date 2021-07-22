@@ -234,4 +234,18 @@ describe('props resolution', () => {
       'rgba(34, 211, 238, ' + defaultTheme.opacity['50'] + ')'
     );
   });
+
+  it('resolves negative margins', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Box m={-5} testID="test">
+          hello world
+        </Box>
+      </Provider>
+    );
+    const box = getByTestId('test');
+    expect(box.props.style).toEqual({
+      margin: -defaultTheme.space['5'],
+    });
+  });
 });
