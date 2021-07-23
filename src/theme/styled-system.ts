@@ -89,6 +89,10 @@ export const layout = {
     properties: ['width', 'height'],
     scale: 'sizes',
   },
+  boxSize: {
+    properties: ['width', 'height'],
+    scale: 'sizes',
+  },
   overflow: true,
   overflowX: true,
   overflowY: true,
