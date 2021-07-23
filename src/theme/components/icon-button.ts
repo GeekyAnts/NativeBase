@@ -9,13 +9,16 @@ const defaultProps = {
 
 const sizes = {
   lg: {
-    p: 3,
+    px: 3,
+    py: 3,
   },
   md: {
-    p: 2,
+    px: 2,
+    py: 2,
   },
   sm: {
-    p: 1,
+    px: 1,
+    py: 1,
   },
 };
 
