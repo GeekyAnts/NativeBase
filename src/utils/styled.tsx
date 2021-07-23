@@ -20,8 +20,7 @@ import {
   customTypography,
 } from './customProps';
 import React from 'react';
-import { useWindowDimensions } from 'react-native';
-import { getClosestBreakpoint } from '../theme/tools';
+import { useNativeBaseConfig } from '../core/NativeBaseContext';
 
 export const resolversForBox: any = [
   color,
@@ -48,14 +47,8 @@ export const makeStyledComponent = (Comp: any) => {
     return React.forwardRef(
       ({ style: propStyle, children, debug, ...props }: any, ref: any) => {
         const theme = useTheme();
-        const windowWidth = useWindowDimensions().width;
-
-        const currentBreakpoint = React.useMemo(
-          //@ts-ignore
-          () => getClosestBreakpoint(theme.breakpoints, windowWidth),
-          //@ts-ignore
-          [windowWidth, theme.breakpoints]
-        );
+        const currentBreakpoint = useNativeBaseConfig('makeStyledComponent')
+          .currentBreakpoint;
 
         const { style, restProps } = React.useMemo(() => {
           const { styleSheet, restProps } = getStyleAndFilteredProps({
