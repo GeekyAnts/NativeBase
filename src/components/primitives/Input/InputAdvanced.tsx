@@ -9,8 +9,8 @@ import { mergeRefs } from '../../../utils';
 
 const InputAdvance = (
   {
-    InputLeftElement,
-    InputRightElement,
+    InputLeftElement: BaseInputLeftElement,
+    InputRightElement: BaseInputRightElement,
     onFocus,
     onBlur,
     inputProps,
@@ -61,6 +61,20 @@ const InputAdvance = (
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
+
+  const InputLeftElement =
+    (isHovered && _hover.InputLeftElement) ||
+    (isFocused && _focus.InputLeftElement) ||
+    (isDisabled && _disabled.InputLeftElement) ||
+    (isInvalid && _invalid.InputLeftElement) ||
+    BaseInputLeftElement;
+
+  const InputRightElement =
+    (isHovered && _hover.InputRightElement) ||
+    (isFocused && _focus.InputRightElement) ||
+    (isDisabled && _disabled.InputRightElement) ||
+    (isInvalid && _invalid.InputRightElement) ||
+    BaseInputRightElement;
 
   return (
     <Box
