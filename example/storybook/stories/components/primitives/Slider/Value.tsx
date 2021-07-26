@@ -9,7 +9,7 @@ export const Example = () => {
       <Text>onChangeValue - {onChangeValue}</Text>
       <Text>onChangeEndValue - {onChangeEndValue}</Text>
 
-      <Box mx={5} w="250">
+      <Box mx={5} w={250}>
         <Slider
           defaultValue={70}
           colorScheme="cyan"

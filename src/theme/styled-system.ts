@@ -89,6 +89,10 @@ export const layout = {
     properties: ['width', 'height'],
     scale: 'sizes',
   },
+  boxSize: {
+    properties: ['width', 'height'],
+    scale: 'sizes',
+  },
   overflow: true,
   overflowX: true,
   overflowY: true,
@@ -534,6 +538,14 @@ export const typography = {
   textDecorationLine: { property: 'textDecorationLine' },
 };
 
+const extraProps = {
+  outline: true,
+  outlineWidth: true,
+  shadow: {
+    scale: 'shadows',
+  },
+};
+
 const propConfig = {
   ...color,
   ...space,
@@ -543,9 +555,7 @@ const propConfig = {
   ...position,
   ...typography,
   ...background,
-
-  outline: true,
-  outlineWidth: true,
+  ...extraProps,
 };
 
 export const getStyleAndFilteredProps = ({
@@ -590,10 +600,15 @@ export const getStyleAndFilteredProps = ({
               [property]: val,
             };
           });
-        } else {
+        } else if (property) {
           styleFromProps = {
             ...styleFromProps,
             [property]: val,
+          };
+        } else {
+          styleFromProps = {
+            ...styleFromProps,
+            ...val,
           };
         }
       }

@@ -274,4 +274,16 @@ describe('props resolution', () => {
       margin: -defaultTheme.space['5'],
     });
   });
+
+  it('resolves shadow from theme', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Box shadow={9} testID="test">
+          hello world
+        </Box>
+      </Provider>
+    );
+    const box = getByTestId('test');
+    expect(box.props.style).toEqual(defaultTheme.shadows[9]);
+  });
 });
