@@ -6,7 +6,6 @@ import React from 'react';
 
 export const useStyledSystemPropsResolver = ({
   style: propStyle,
-  children,
   debug,
   ...props
 }: any) => {
@@ -36,21 +35,6 @@ export const useStyledSystemPropsResolver = ({
   if (debug) {
     console.log('style,resprops', currentBreakpoint);
   }
-
-  // const propsWithTheme = { ...props, theme };
-  // let styleObject: any = {};
-  // resolversForBox.forEach((resolver: any) => {
-  //   styleObject = { ...styleObject, ...resolver(propsWithTheme) };
-  // });
-
-  // for (const property in styleObject) {
-  //   if (
-  //     typeof styleObject[property] === 'string' &&
-  //     styleObject[property].includes('px')
-  //   ) {
-  //     styleObject[property] = parseInt(styleObject[property]);
-  //   }
-  // }
 
   return [style, restProps];
 };

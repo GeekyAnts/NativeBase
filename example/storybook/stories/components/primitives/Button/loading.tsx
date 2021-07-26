@@ -9,7 +9,7 @@ export const Example = () => {
       alignItems={{ base: 'center', md: 'flex-start' }}
     >
       <Button isLoading>Button</Button>
-      <Button debug isLoading isLoadingText="Submitting">
+      <Button isLoading isLoadingText="Submitting">
         BUTTON
       </Button>
       <Button isLoading isLoadingText="Submitting" variant="outline">

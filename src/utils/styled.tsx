@@ -44,7 +44,7 @@ export const makeStyledComponent = (Comp: any) => {
   if (shouldEnableNewStyledSystemImplementation) {
     return React.forwardRef(({ debug, ...props }: any, ref: any) => {
       const [style, restProps] = useStyledSystemPropsResolver(props);
-      if (props.debug) {
+      if (debug) {
         console.log('style:: => ', style, ' restProps:: => ', restProps);
       }
       return (

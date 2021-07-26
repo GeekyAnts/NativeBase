@@ -196,11 +196,7 @@ describe('props resolution', () => {
     });
     console.log(spinner.props.style, 'spinner props');
 
-    expect(spinner.props.style).toEqual({
-      // height: 384,
-      // width: 384,
-      color: '#22d3ee',
-    });
+    expect(spinner.props.style).toEqual({});
   });
 
   it('resolves base style and variants, sizes and default props with props', () => {
