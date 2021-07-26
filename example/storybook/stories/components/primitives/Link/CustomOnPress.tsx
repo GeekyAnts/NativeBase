@@ -11,7 +11,7 @@ export const Example = () => {
       <Link onPress={toggleState} mt={4}>
         Click here to toggle the color of box.
       </Link>
-      <Box h="100" w="100" mt={4} bg={state ? 'orange.300' : 'blue.300'} />
+      <Box mt={4} size={20} bg={state ? 'orange.300' : 'blue.300'} />
     </>
   );
 };

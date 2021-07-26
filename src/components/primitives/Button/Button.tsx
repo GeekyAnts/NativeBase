@@ -95,7 +95,7 @@ const Button = (
               spinner ? (
                 spinner
               ) : (
-                <Spinner color={_text?.color} size="sm" />
+                <Spinner color={_text?.color} />
               )
             ) : null}
             {boxChildren ? (

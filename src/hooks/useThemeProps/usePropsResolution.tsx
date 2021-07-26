@@ -118,6 +118,9 @@ const useSimplifyComponentTheme = (
     }
     // Type - sizes: {lg: {px: 1}}. Refer button theme
     else {
+      if ('size' in componentTheme) {
+        sizeResolved = true;
+      }
       componentSizeProps = componentTheme.sizes[size];
       sizeResolved = true;
     }
