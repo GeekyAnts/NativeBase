@@ -17,4 +17,5 @@ export interface INativebaseConfig {
 
 export const [NativeBaseConfigProvider, useNativeBaseConfig] = createContext<{
   config: INativebaseConfig;
+  currentBreakpoint: number;
 }>('NativeBaseConfigProvider');

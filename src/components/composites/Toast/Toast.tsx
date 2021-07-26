@@ -226,7 +226,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
                 onPress={() => {
                   hideToast(id);
                 }}
-                icon={<CloseIcon size={themeProps._closeIcon} />}
+                icon={<CloseIcon {...themeProps._closeIcon} />}
               />
             ) : undefined
           }
