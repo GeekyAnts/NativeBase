@@ -1,5 +1,4 @@
-import { getStyleAndFilteredProps } from '../theme/styled-system';
-import styled, { useTheme } from 'styled-components/native';
+import styled from 'styled-components/native';
 import {
   border,
   color,
@@ -20,8 +19,7 @@ import {
   customTypography,
 } from './customProps';
 import React from 'react';
-import { useNativeBaseConfig } from '../core/NativeBaseContext';
-
+import { useStyledSystemPropsResolver } from '../hooks/';
 export const resolversForBox: any = [
   color,
   space,
@@ -44,33 +42,17 @@ export let shouldEnableNewStyledSystemImplementation = true;
 
 export const makeStyledComponent = (Comp: any) => {
   if (shouldEnableNewStyledSystemImplementation) {
-    return React.forwardRef(
-      ({ style: propStyle, children, debug, ...props }: any, ref: any) => {
-        const theme = useTheme();
-        const currentBreakpoint = useNativeBaseConfig('makeStyledComponent')
-          .currentBreakpoint;
-
-        const { style, restProps } = React.useMemo(() => {
-          const { styleSheet, restProps } = getStyleAndFilteredProps({
-            ...props,
-            theme,
-            debug,
-            currentBreakpoint,
-          });
-          if (propStyle) {
-            return { style: [styleSheet.box, propStyle], restProps };
-          } else {
-            return { style: styleSheet.box, restProps };
-          }
-        }, [props, theme, propStyle, currentBreakpoint, debug]);
-
-        return (
-          <Comp {...restProps} style={style} ref={ref}>
-            {children}
-          </Comp>
-        );
+    return React.forwardRef(({ debug, ...props }: any, ref: any) => {
+      const [style, restProps] = useStyledSystemPropsResolver(props);
+      if (debug) {
+        console.log('style:: => ', style, ' restProps:: => ', restProps);
       }
-    );
+      return (
+        <Comp {...restProps} style={style} ref={ref}>
+          {props.children}
+        </Comp>
+      );
+    });
   } else {
     //@ts-ignore
     return styled(Comp)(...resolversForBox);
