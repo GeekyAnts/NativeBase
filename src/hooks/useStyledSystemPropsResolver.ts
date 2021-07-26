@@ -1,22 +1,33 @@
+import { getStyleAndFilteredProps } from '../theme/styled-system';
 import { useTheme } from './useTheme';
-import { resolversForBox } from '../utils/styled';
+import React from 'react';
+import { useNativeBaseConfig } from '../core/NativeBaseContext';
 
-export const useStyledSystemPropsResolver = (props: any) => {
+export const useStyledSystemPropsResolver = ({
+  style: propStyle,
+  debug,
+  ...props
+}: any) => {
   const theme = useTheme();
-  const propsWithTheme = { ...props, theme };
-  let styleObject: any = {};
-  resolversForBox.forEach((resolver: any) => {
-    styleObject = { ...styleObject, ...resolver(propsWithTheme) };
-  });
+  const currentBreakpoint = useNativeBaseConfig('makeStyledComponent')
+    .currentBreakpoint;
 
-  for (const property in styleObject) {
-    if (
-      typeof styleObject[property] === 'string' &&
-      styleObject[property].includes('px')
-    ) {
-      styleObject[property] = parseInt(styleObject[property]);
+  const { style, restProps } = React.useMemo(() => {
+    const { styleSheet, restProps } = getStyleAndFilteredProps({
+      ...props,
+      theme,
+      debug,
+      currentBreakpoint,
+    });
+    if (propStyle) {
+      return { style: [styleSheet.box, propStyle], restProps };
+    } else {
+      return { style: styleSheet.box, restProps };
     }
+  }, [props, theme, propStyle, currentBreakpoint, debug]);
+  if (debug) {
+    console.log('style,resprops', currentBreakpoint);
   }
 
-  return styleObject;
+  return [style, restProps];
 };

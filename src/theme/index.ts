@@ -22,3 +22,5 @@ const theme = {
 
 export type ITheme = typeof theme;
 export { theme, tools as themeTools };
+
+export { getColor } from './styled-system';

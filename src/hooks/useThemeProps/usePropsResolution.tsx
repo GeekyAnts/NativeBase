@@ -2,7 +2,6 @@ import get from 'lodash.get';
 import omit from 'lodash.omit';
 import isNil from 'lodash.isnil';
 import merge from 'lodash.merge';
-import { useWindowDimensions } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { usePlatformProps } from '../usePlatformProps';
 import { useColorModeProps } from '../useColorModeProps';
@@ -11,15 +10,11 @@ import {
   resolveValueWithBreakpoint,
   extractPropertyFromFunction,
 } from './utils';
-import {
-  getClosestBreakpoint,
-  omitUndefined,
-  extractInObject,
-} from './../../theme/tools';
+import { omitUndefined, extractInObject } from './../../theme/tools';
 import { themePropertyMap } from './../../theme/base';
 import { useContrastText } from '../useContrastText';
-import React from 'react';
 import { shouldEnableNewStyledSystemImplementation } from '../../utils/styled';
+import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 
 /**
  * @summary Resolves, simplify and merge components specific theme.
@@ -96,7 +91,7 @@ const useSimplifyComponentTheme = (
     'size'
   );
 
-  let componentSizeProps = {};
+  let componentSizeProps: any = {};
   // Extracting props from size
   if (size && componentTheme.sizes && componentTheme.sizes[size]) {
     // Type - sizes: {lg: 1}. Refer icon theme
@@ -122,7 +117,10 @@ const useSimplifyComponentTheme = (
         sizeResolved = true;
       }
       componentSizeProps = componentTheme.sizes[size];
-      sizeResolved = true;
+      // Type - sizes: { size: 4 }. Refer Images
+      if (!componentSizeProps.size) {
+        sizeResolved = true;
+      }
     }
     // @ts-ignore - Mutating incoming size for now. Fix it after new styled system is implemented
     incomingProps.size = undefined;
@@ -273,12 +271,9 @@ export function usePropsResolution(
 
   const componentTheme = get(theme, `components.${component}`, {});
   const notComponentTheme = omit(theme, ['components']);
-  const windowWidth = useWindowDimensions()?.width;
 
-  const currentBreakpoint = React.useMemo(
-    () => getClosestBreakpoint(theme.breakpoints, windowWidth),
-    [windowWidth, theme.breakpoints]
-  );
+  const currentBreakpoint = useNativeBaseConfig('usePropsResolution')
+    .currentBreakpoint;
 
   // TODO: using usePlatformProps here to simplify the component theme. So that on on component level it shouldn't have to maintain the Specificity.
   const componentThemeIntegratedProps = useSimplifyComponentTheme(

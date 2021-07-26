@@ -10,7 +10,8 @@ export const Actionsheet = {
 export const ActionsheetContent = {
   baseStyle: {
     alignItems: 'center',
-    p: 2,
+    px: 2,
+    py: 2,
     borderRadius: 'none',
     roundedTop: 10,
     _dragIndicator: {
