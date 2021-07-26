@@ -3,6 +3,8 @@ import { render } from '@testing-library/react-native';
 import { theme as defaultTheme } from '../../theme';
 import { NativeBaseProvider } from '../../core/NativeBaseProvider';
 import Box from '../../components/primitives/Box';
+import Image from '../../components/primitives/Image';
+import Spinner from '../../components/primitives/Spinner';
 import { Platform } from 'react-native';
 import { extendTheme } from '../../core/extendTheme';
 
@@ -170,6 +172,34 @@ describe('props resolution', () => {
       padding: newTheme.space['5'],
       height: newTheme.sizes['10'],
       backgroundColor: newTheme.colors.cyan['500'],
+    });
+  });
+
+  it('tests component sizes resolution', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Image
+          source={{ uri: 'https://nativebase.io/img/nativebase-logo.svg' }}
+          alt="test-image"
+          size="md"
+          testID="image"
+        />
+        <Spinner size="sm" testID="spinner" />
+      </Provider>
+    );
+    const image = getByTestId('image');
+    const spinner = getByTestId('spinner');
+    expect(image.props.style).toEqual({
+      height: defaultTheme.space['20'],
+      maxWidth: '100%',
+      width: defaultTheme.space['20'],
+    });
+    console.log(spinner.props.style, 'spinner props');
+
+    expect(spinner.props.style).toEqual({
+      // height: 384,
+      // width: 384,
+      color: '#22d3ee',
     });
   });
 

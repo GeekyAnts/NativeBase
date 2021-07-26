@@ -96,7 +96,7 @@ const useSimplifyComponentTheme = (
     'size'
   );
 
-  let componentSizeProps = {};
+  let componentSizeProps: any = {};
   // Extracting props from size
   if (size && componentTheme.sizes && componentTheme.sizes[size]) {
     // Type - sizes: {lg: 1}. Refer icon theme
@@ -119,7 +119,10 @@ const useSimplifyComponentTheme = (
     // Type - sizes: {lg: {px: 1}}. Refer button theme
     else {
       componentSizeProps = componentTheme.sizes[size];
-      sizeResolved = true;
+      // Type - sizes: { size: 4 }. Refer Images
+      if (!componentSizeProps.size) {
+        sizeResolved = true;
+      }
     }
     // @ts-ignore - Mutating incoming size for now. Fix it after new styled system is implemented
     incomingProps.size = undefined;
