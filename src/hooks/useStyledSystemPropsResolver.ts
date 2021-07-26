@@ -1,8 +1,7 @@
 import { getStyleAndFilteredProps } from '../theme/styled-system';
 import { useTheme } from './useTheme';
-import { useWindowDimensions } from 'react-native';
-import { getClosestBreakpoint } from '../theme/tools';
 import React from 'react';
+import { useNativeBaseConfig } from '../core/NativeBaseContext';
 
 export const useStyledSystemPropsResolver = ({
   style: propStyle,
@@ -10,14 +9,8 @@ export const useStyledSystemPropsResolver = ({
   ...props
 }: any) => {
   const theme = useTheme();
-  const windowWidth = useWindowDimensions().width;
-
-  const currentBreakpoint = React.useMemo(
-    //@ts-ignore
-    () => getClosestBreakpoint(theme.breakpoints, windowWidth),
-    //@ts-ignore
-    [windowWidth, theme.breakpoints]
-  );
+  const currentBreakpoint = useNativeBaseConfig('makeStyledComponent')
+    .currentBreakpoint;
 
   const { style, restProps } = React.useMemo(() => {
     const { styleSheet, restProps } = getStyleAndFilteredProps({
