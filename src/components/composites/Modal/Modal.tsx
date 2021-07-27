@@ -30,7 +30,6 @@ const Modal = (
   }: IModalProps,
   ref: any
 ) => {
-  console.log(overlayVisible, rest, 'in MODQAL');
   const bottomInset = useKeyboardBottomInset();
   const { contentSize, _backdrop, ...restThemeProps } = usePropsResolution(
     'Modal',
