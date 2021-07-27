@@ -52,7 +52,7 @@ export interface IModalProps extends IBoxProps {
    */
   backdropVisible?: boolean;
   /**
-   * Props applies on Overlay.
+   * Props applied on Overlay.
    */
   _backdrop?: any;
 }

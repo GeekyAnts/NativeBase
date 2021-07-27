@@ -21,7 +21,7 @@ export interface IActionsheetProps extends IBoxProps {
    */
   hideDragIndicator?: boolean;
   /**
-   * Props applies on Overlay.
+   * Props applied on Overlay.
    */
   _backdrop?: any;
 }
