@@ -21,6 +21,7 @@ export interface IActionsheetProps extends IBoxProps {
    * @default false
    */
   hideDragIndicator?: boolean;
+  _backdrop?: any;
 }
 
 export interface IActionsheetContentProps extends IBoxProps {}
