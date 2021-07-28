@@ -157,7 +157,7 @@ The process of proposing a change to NativeBase can be summarized as follows:
 1. Fork the NativeBase repository and create your branch from `master`.
 2. Make the desired changes to NativeBase source. Use the `Storybook Testbed` app to test them out.
 3. If you've added code that should be tested, add tests.
-4. If you've changed APIs, update the documentation, which is available [here](https://github.com/nativebase/website/).
+4. If you've changed APIs, update the documentation, which is available [here](https://github.com/GeekyAnts/nativebase-docs).
 5. Ensure the test suite passes, either locally or on CI once you opened a pull request.
 6. Make sure your code lints. To keep project away from disputes we make use of **ESLint**, which is really a handy linting tool that enforces strict coding styles and makes sure your files are free from dead code. Each module of NativeBase has bundled ESLint as a dev dependency and checks your code everytime you commit.
 7. Push the changes to your fork.
@@ -168,5 +168,5 @@ If all goes well, your pull request will be merged. If it is not merged, maintai
 
 ## <a name="docs"></a> Helping with Documentation
 
-The NativeBase documentation is hosted as part of the NativeBase website repository at https://github.com/nativebase/website. The website itself is located at <https://alpha.nativebase.io/> and it is built using [Docusaurus V2](https://v2.docusaurus.io/). If there's anything you'd like to change in the docs, you can get started by clicking on the "Edit" button located on the bottom left of most pages on the website.
+The NativeBase documentation is hosted as part of the NativeBase website repository at https://github.com/GeekyAnts/nativebase-docs. The website itself is located at <https://alpha.nativebase.io/> and it is built using [Docusaurus V2](https://v2.docusaurus.io/). If there's anything you'd like to change in the docs, you can get started by clicking on the "Edit" button located on the bottom left of most pages on the website.
 

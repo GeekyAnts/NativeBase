@@ -21,17 +21,17 @@ export function useResolvedFontFamily(props: {
 
   const { fontConfig, fontWeights, fonts } = useTheme();
   if (fontFamily && fontFamily in fonts) {
-    // If a custom font family is resolved, set fontWeight and fontStyle to undefined.
-    // https://github.com/GeekyAnts/NativeBase/issues/3811
-    // On Android, If a fontFamily and fontWeight both are passed, it behaves in a weird way and applies system fonts with passed fontWeight. This happens only for some fontWeights e.g. '700' or 'bold'. So, if we find a custom fontFamily, we remove fontWeight and fontStyle
-    //@ts-ignore
-    newFontWeight = undefined;
-    //@ts-ignore
-    newFontStyle = undefined;
-
     const fontToken = fonts[fontFamily];
 
     if (fontConfig && fontConfig[fontToken]) {
+      // If a custom font family is resolved, set fontWeight and fontStyle to undefined.
+      // https://github.com/GeekyAnts/NativeBase/issues/3811
+      // On Android, If a fontFamily and fontWeight both are passed, it behaves in a weird way and applies system fonts with passed fontWeight. This happens only for some fontWeights e.g. '700' or 'bold'. So, if we find a custom fontFamily, we remove fontWeight and fontStyle
+      //@ts-ignore
+      newFontWeight = undefined;
+      //@ts-ignore
+      newFontStyle = undefined;
+
       let fontWeightNumber =
         fontWeight in fontWeights ? fontWeights[fontWeight] : fontWeight;
       let fontVariant = fontConfig[fontToken][fontWeightNumber];

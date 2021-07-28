@@ -35,10 +35,15 @@ It would be easier for us to debug if you can reproduce the error in a codesandb
 If applicable, add screenshots to help explain your problem.
 
 **Platform**
+ - NativeBase version [e.g. 3.0.1]
  - Device: [e.g. iPhone6]
  - OS: [e.g. iOS8.1]
  - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+ - Browser version [e.g. 22]
+ - React Native version [e.g. 0.64]
+ - Expo sdk version [e.g. 41]
+ - node [e.g. 14.16.1]
+ - yarn or npm [e.g. 6.1]
 
 **Additional information**
 1. Add any other context about the problem here.
