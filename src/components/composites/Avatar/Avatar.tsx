@@ -18,8 +18,8 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
   //  Pop Badge from children
   React.Children.map(children, (child, key) => {
     if (
-      typeof child.type === 'object' &&
-      child.type.displayName === 'AvatarBadge'
+      typeof child?.type === 'object' &&
+      child?.type.displayName === 'AvatarBadge'
     ) {
       Badge = child;
     } else {
