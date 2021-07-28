@@ -4,14 +4,14 @@ import { AntDesign } from '@expo/vector-icons';
 
 export const Example = () => {
   return (
-    <Box position="relative" w="100%" h={200}>
-      <NativeBaseProvider>
+    <NativeBaseProvider>
+      <Box position="relative" w="100%" h={200}>
         <Fab
           right={70}
           bottom={50}
           icon={<Icon color="white" as={<AntDesign name="plus" />} />}
         />
-      </NativeBaseProvider>
-    </Box>
+      </Box>
+    </NativeBaseProvider>
   );
 };
