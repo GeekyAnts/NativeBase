@@ -6,6 +6,7 @@ export const Example = () => {
   return (
     <NativeBaseProvider>
       <Box position="relative" h={100} w="100%">
+
         <Fab
           position="absolute"
           size="sm"

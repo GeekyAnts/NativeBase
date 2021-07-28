@@ -204,7 +204,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
     let component = null;
 
     if (render) {
-      component = render({ id: toastIndex.current });
+      component = render({ id });
     } else if (!status && !variant) {
       component = (
         <VStack space={1} {...themeProps} {...rest}>

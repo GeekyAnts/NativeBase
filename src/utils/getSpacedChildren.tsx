@@ -25,45 +25,10 @@ export default (
 
   const orientation = axis === 'X' ? 'vertical' : 'horizontal';
 
-  let spaceValue;
-  if (typeof space === 'string') {
-    switch (space) {
-      case 'gutter':
-        spaceValue = 0;
-        break;
-      case '2xs':
-        spaceValue = 1;
-        break;
-      case 'xs':
-        spaceValue = 2;
-        break;
-      case 'sm':
-        spaceValue = 3;
-        break;
-      case 'md':
-        spaceValue = 4;
-        break;
-      case 'lg':
-        spaceValue = 6;
-        break;
-      case 'xl':
-        spaceValue = 7;
-        break;
-      case '2xl':
-        spaceValue = 8;
-        break;
-
-      default:
-        spaceValue = 1;
-        break;
-    }
-  } else {
-    spaceValue = space;
-  }
   // If there's a divider, we wrap it with a Box and apply vertical and horizontal margins else we add a spacer Box with height or width
   if (divider) {
     const spacingProp: object = {
-      ...(axis === 'X' ? { mx: spaceValue } : { my: spaceValue }),
+      ...(axis === 'X' ? { mx: space } : { my: space }),
     };
 
     divider = React.cloneElement(divider, {
@@ -81,7 +46,7 @@ export default (
     });
   } else {
     const spacingProp: object = {
-      ...(axis === 'X' ? { width: spaceValue } : { height: spaceValue }),
+      ...(axis === 'X' ? { width: space } : { height: space }),
     };
     childrenArray = childrenArray.map((child: any, index: number) => {
       return (
