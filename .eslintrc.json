@@ -11,7 +11,9 @@
         "useTabs": false
       }
     ],
-    "no-bitwise": 0
+    "no-bitwise": 0,
+    "prefer-const": "warn",
+    "no-console": ["error", { "allow": ["warn", "error"] }]
   },
   "plugins": ["prettier"]
 }
