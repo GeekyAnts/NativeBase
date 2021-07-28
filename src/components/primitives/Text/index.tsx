@@ -60,6 +60,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontStyle: propFontStyle,
     _hover,
     fontSize = 'md',
+    numberOfLines,
     ...reslovedProps
   } = usePropsResolution('Text', props);
 
@@ -80,7 +81,13 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   return (
     <StyledText
       {...reslovedProps}
-      numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : undefined}
+      numberOfLines={
+        numberOfLines || noOfLines
+          ? numberOfLines || noOfLines
+          : isTruncated
+          ? 1
+          : undefined
+      }
       {...resolvedFontFamily}
       bg={highlight ? 'warning.200' : reslovedProps.bg}
       textDecorationLine={
