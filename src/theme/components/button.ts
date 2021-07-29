@@ -1,5 +1,6 @@
-import { Dict, mode, transparentize } from './../tools';
+import { Dict, getColorScheme, mode, transparentize } from './../tools';
 import { Platform } from 'react-native';
+import { getColor } from '../tools/colors';
 const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
 
 const baseStyle = (props: any) => {
@@ -31,8 +32,14 @@ const baseStyle = (props: any) => {
       space: 2,
       alignItems: 'center',
     },
+    _loading: {
+      opacity: 0.5,
+    },
     _disabled: {
       opacity: 0.5,
+    },
+    spinnerProps: {
+      size: 'sm',
     },
   };
 };
@@ -65,6 +72,9 @@ function variantGhost(props: Dict) {
     },
     _pressed: {
       bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.6)(props.theme),
+    },
+    spinnerProps: {
+      size: 'sm',
     },
   };
 }
@@ -123,6 +133,54 @@ function variantSolid(props: Dict) {
   return styleObject;
 }
 
+function getBg(props: Record<string, any>) {
+  let { theme, colorScheme, status, variant } = props;
+
+  colorScheme = getColorScheme(
+    props,
+    colorScheme !== 'primary' ? colorScheme : status
+  );
+  const lightBg =
+    variant === 'solid'
+      ? getColor(theme, `${colorScheme}.400`, colorScheme)
+      : getColor(theme, `${colorScheme}.100`, colorScheme);
+
+  const darkBg =
+    variant === 'solid'
+      ? getColor(theme, `${colorScheme}.700`, colorScheme)
+      : getColor(theme, `${colorScheme}.400`, colorScheme);
+  return mode(lightBg, darkBg)(props);
+}
+
+function variantSubtle(props: Dict) {
+  const { colorScheme: c } = props;
+  let { bg = `${c}.500` } = accessibleColorMap[c] || {};
+  let color;
+  bg = getBg(props);
+  if (props.isDisabled) {
+    bg = mode(`muted.300`, `muted.500`)(props);
+  } else {
+    color = mode(`${c}.500`, `${c}.200`)(props);
+  }
+  const styleObject = {
+    _text: {
+      color: color,
+    },
+    _web: {
+      outlineWidth: 0,
+    },
+    bg,
+    _hover: {
+      bg: mode(`${c}.200`, `${c}.500`)(props),
+    },
+    _pressed: {
+      bg: mode(`${c}.300`, `${c}.600`)(props),
+    },
+  };
+
+  return styleObject;
+}
+
 function variantLink(props: Dict) {
   const { colorScheme: c } = props;
 
@@ -163,6 +221,7 @@ const variants = {
   ghost: variantGhost,
   outline: variantOutline,
   solid: variantSolid,
+  subtle: variantSubtle,
   link: variantLink,
   unstyled: variantUnstyled,
 };
