@@ -14,6 +14,7 @@ import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
+import { NativeBaseProvider } from '../../../core/NativeBaseProvider';
 
 let INSET = 50;
 
@@ -298,4 +299,23 @@ export const useToast = () => {
   };
 
   return toast;
+};
+
+export const createStandaloneToast = () => {
+  // const { setToast, hideAll, isActive, hideToast } = React.useContext(
+  //   ToastContext
+  // );
+
+  // const toast = {
+  //   show: setToast,
+  //   close: hideToast,
+  //   closeAll: hideAll,
+  //   isActive,
+  // };
+
+  return (
+    <NativeBaseProvider>
+      <CustomToast />
+    </NativeBaseProvider>
+  );
 };

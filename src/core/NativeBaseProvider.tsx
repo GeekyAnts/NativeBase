@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import {
   SafeAreaProvider,
@@ -16,6 +16,7 @@ import {
   NativeBaseConfigProvider,
 } from './NativeBaseContext';
 import { Platform } from 'react-native';
+import { useToast } from 'native-base';
 
 // For SSR to work, we need to pass initial insets as 0 values on web.
 
@@ -48,7 +49,15 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     initialWindowMetrics,
   } = props;
   const theme = config.theme ?? propsTheme;
-
+  console.log(props);
+  const ToastInitializer = () => {
+    const toast = useToast();
+    useEffect(() => {
+      //@ts-ignore
+      props.toastRef(toast);
+    }, [toast]);
+    return null;
+  };
   return (
     <ThemeProvider theme={theme}>
       <NativeBaseConfigProvider config={config}>
@@ -63,6 +72,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
           >
             <OverlayProvider>
               <ToastProvider>
+                <ToastInitializer></ToastInitializer>
                 <SSRProvider>{children}</SSRProvider>
               </ToastProvider>
             </OverlayProvider>

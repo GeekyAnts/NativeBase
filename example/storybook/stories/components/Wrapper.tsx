@@ -14,6 +14,7 @@ import type { StorageManager } from 'native-base';
 import { Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Config from '../../../nativebase.config';
+export let toast;
 
 function MyWrapper({ children }: any) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -79,6 +80,7 @@ export default ({ children, theme }: any) => {
       theme={theme}
       config={Config}
       colorModeManager={colorModeManager}
+      toastRef={(T: any) => (toast = T)}
     >
       <MyWrapper>{children}</MyWrapper>
     </NativeBaseProvider>
