@@ -4,7 +4,6 @@ import { AntDesign } from '@expo/vector-icons';
 
 export const Example = () => {
   return (
-
     <NativeBaseProvider>
       <Box h={400} w="100%">
         <Fab

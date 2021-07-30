@@ -20,6 +20,7 @@ export const Example = () => {
     <KeyboardAvoidingView
       h={{ base: '600px', lg: 'auto' }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={192}
     >
       {isLargeScreen ? (
         <Text>Please see the example in your mobile to observe the effect</Text>
