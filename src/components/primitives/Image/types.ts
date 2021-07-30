@@ -22,6 +22,7 @@ export interface IImageProps
       | 'borderBottomRightRadius'
       | 'height'
       | 'width'
+      | 'source'
     >,
     LayoutProps,
     SpaceProps,
@@ -36,6 +37,10 @@ export interface IImageProps
     ShadowProps,
     LayoutProps,
     PositionProps {
+  /**
+   * specify a source for image.
+   */
+  source?: ImageSourcePropType;
   /**
    * The alt text that describes the image. This will be added as accessibilityLabel in android/iOS and alt on web
    */
@@ -52,4 +57,12 @@ export interface IImageProps
    * Text styling for alt.
    */
   _alt?: ITextProps;
+  /**
+   * In event there was an error loading the src, specify a fallback JSX Element.
+   */
+  fallbackElement?: any;
+  /**
+   * specify a source for image.
+   */
+  src?: any;
 }

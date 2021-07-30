@@ -1,4 +1,4 @@
-import React, { useState, memo, forwardRef } from 'react';
+import React, { useState, memo, forwardRef, useCallback, useRef } from 'react';
 import { Image as RNImage } from 'react-native';
 import styled from 'styled-components/native';
 import { border, color, flexbox, layout, space, position } from 'styled-system';
@@ -31,7 +31,10 @@ const StyledImage = styled(RNImage)<IImageProps>(
   customLayout
 );
 
-const Image = ({ source, ...props }: IImageProps, ref: any) => {
+const Image = (
+  { source, src, fallbackElement, ...props }: IImageProps,
+  ref: any
+) => {
   const {
     alt,
     fallbackSource,
@@ -39,21 +42,36 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
     _alt,
     ...newProps
   } = usePropsResolution('Image', props);
-  const [renderedSource, setSource] = useState(source);
+  const finalSource: any = useRef({});
+
+  const getSource = useCallback(() => {
+    if (source) {
+      finalSource.current = source;
+    } else if (src) {
+      finalSource.current = { uri: src };
+    }
+    return finalSource.current;
+  }, [source, src]);
+
+  const [renderedSource, setSource] = useState(getSource());
   const [alternate, setAlternate] = useState(false);
+  const [fallbackSourceFlag, setfallbackSourceFlag] = useState(true);
 
   React.useEffect(() => {
     setAlternate(false);
-    setSource(source);
-  }, [source]);
+    setSource(getSource());
+  }, [source, src, getSource]);
 
   const onImageLoadError = (event: any) => {
+    props.onError && props.onError(event);
     console.warn(event.nativeEvent.error);
     if (
       !ignoreFallback &&
       fallbackSource &&
-      fallbackSource !== renderedSource
+      fallbackSource !== renderedSource &&
+      fallbackSourceFlag
     ) {
+      setfallbackSourceFlag(false);
       setSource(fallbackSource);
     } else {
       setAlternate(true);
@@ -65,7 +83,22 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
   }
 
   if (alternate) {
-    return <Text {..._alt}>{alt}</Text>;
+    if (fallbackElement) {
+      if (React.isValidElement(fallbackElement)) {
+        fallbackElement = React.Children.map(
+          fallbackElement,
+          (child: JSX.Element, index: number) => {
+            return React.cloneElement(child, {
+              key: `button-end-icon-${index}`,
+              ...child.props,
+            });
+          }
+        );
+        return fallbackElement;
+      } else {
+        return <Text>{fallbackElement}</Text>;
+      }
+    } else return <Text {..._alt}>{alt}</Text>;
   }
   return (
     <StyledImage
@@ -73,7 +106,7 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
       accessibilityLabel={alt}
       alt={alt}
       {...newProps}
-      onError={props.onError ? props.onError : onImageLoadError}
+      onError={onImageLoadError}
       ref={ref}
     />
   );
