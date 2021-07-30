@@ -15,12 +15,15 @@ export interface IActionsheetProps extends IBoxProps {
    * @default false
    */
   disableOverlay?: boolean;
-
   /**
    * If true, hides the drag indicator.
    * @default false
    */
   hideDragIndicator?: boolean;
+  /**
+   * Props applied on Overlay.
+   */
+  _backdrop?: any;
 }
 
 export interface IActionsheetContentProps extends IBoxProps {}
