@@ -24,7 +24,9 @@ export interface IStackProps extends IBoxProps {
    * The direction of the Stack Items.
    * @default column
    */
-  direction?: ResponsiveValue<'column' | 'row'>;
+  direction?: ResponsiveValue<
+    'column' | 'row' | 'column-reverse' | 'row-reverse'
+  >;
 }
 
 const Stack = (props: IStackProps, ref?: any) => {
