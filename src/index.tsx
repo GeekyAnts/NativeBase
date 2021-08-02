@@ -166,6 +166,7 @@ import {
   Pressable,
 } from './components/primitives';
 
+import type { IScrollViewProps } from './components/basic';
 export * from './components/basic';
 export * from './components/primitives/Icon/Icons';
 export * from './theme';
@@ -332,4 +333,5 @@ export type {
   ISelectProps,
   ISelectItemProps,
   ITextFieldProps,
+  IScrollViewProps,
 };
