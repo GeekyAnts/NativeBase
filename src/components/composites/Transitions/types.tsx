@@ -17,7 +17,7 @@ export type ISlideProps = IBoxProps & {
   in?: boolean;
   duration?: number;
   delay?: number;
-  placement?: 'top' | 'bottom';
+  placement?: 'top' | 'bottom' | 'right' | 'left';
 };
 export type ISlideFadeProps = IBoxProps & {
   in?: boolean;

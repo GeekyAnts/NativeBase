@@ -83,12 +83,17 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
       );
     }
   }
-
   return (
     <StyledBox ref={ref} {...safeAreaProps}>
-      {React.Children.map(children, (child) =>
-        typeof child === 'string' ? <Text {..._text}>{child}</Text> : child
-      )}
+      {React.Children.map(children, (child) => {
+        return typeof child === 'string' ||
+          (child?.type === React.Fragment &&
+            typeof child.props?.children === 'string') ? (
+          <Text {..._text}>{child}</Text>
+        ) : (
+          child
+        );
+      })}
     </StyledBox>
   );
 };

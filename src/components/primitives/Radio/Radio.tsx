@@ -10,7 +10,7 @@ import { mergeRefs } from '../../../utils';
 import { CircleIcon } from '../Icon/Icons';
 
 const Radio = (
-  { icon, children, wrapperRef, ...props }: IRadioProps,
+  { icon, children, wrapperRef, size, ...props }: IRadioProps,
   ref: any
 ) => {
   const contextState = React.useContext(RadioContext);
@@ -28,6 +28,7 @@ const Radio = (
   } = usePropsResolution('Radio', {
     ...contextState,
     ...props,
+    size,
   });
 
   const inputRef = React.useRef(null);
