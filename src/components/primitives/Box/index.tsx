@@ -38,7 +38,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 
       Gradient = MemoizedGradient;
 
-      let startObj = { x: 1, y: 0 };
+      let startObj = { x: 0, y: 0 };
       let endObj = { x: 0, y: 1 };
       if (lgrad.start && lgrad.start.length === 2) {
         startObj = {
