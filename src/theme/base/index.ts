@@ -1,4 +1,4 @@
-import borders from './borders';
+import borderWidths from './borders';
 import breakpoints from './breakpoints';
 import colors from './colors';
 import radii from './radius';
@@ -9,7 +9,7 @@ import typography from './typography';
 import opacity from './opacity';
 
 const theme = {
-  borders,
+  borderWidths,
   breakpoints,
   colors,
   radii,
