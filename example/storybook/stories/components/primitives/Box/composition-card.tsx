@@ -7,6 +7,7 @@ export const Example = () => {
       <Stack space={6}>
         <Avatar
           size={'sm'}
+          bg="teal.500"
           source={{
             uri:
               'https://i.pinimg.com/originals/4d/72/97/4d7297dad94265c0acbc3b677d418935.jpg',
