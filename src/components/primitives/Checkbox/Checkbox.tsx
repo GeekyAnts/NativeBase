@@ -138,13 +138,7 @@ const Checkbox = (
     >
       {({ isPressed }: any) => {
         return (
-          <Center
-            {...layoutProps}
-            flexDirection="row"
-            justifyContent="center "
-            alignItems="center"
-            borderRadius="full"
-          >
+          <Center {...layoutProps} flexDirection="row" borderRadius="full">
             <Center>
               {/* Interaction Wrapper */}
               <Box
