@@ -9,7 +9,7 @@ import { makeStyledComponent } from '../../../utils/styled';
 const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
   return {
-    pressableProps: {
+    hoverProps: {
       onHoverIn: () => setHovered(true),
       onHoverOut: () => setHovered(false),
     },
@@ -54,28 +54,28 @@ const Pressable = (
   }: IPressableProps,
   ref: any
 ) => {
-  const { pressableProps, isHovered } = useHover();
-  const { pressableProps: isPressedProps, isPressed } = useIsPressed();
+  const { hoverProps, isHovered } = useHover();
+  const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
-  const {
-    _hover,
-    _pressed,
-    _focus,
-    _focusVisible,
-    _disabled,
-    ...themeProps
-  } = usePropsResolution('Pressable', props);
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+
+  const { ...resolvedProps } = usePropsResolution('Pressable', props, {
+    isHovered,
+    isPressed,
+    isFocused,
+    isFocusVisible,
+  });
+
   // TODO : Replace Render props with Context Hook
   return (
     <StyledPressable
       ref={ref}
-      onPressIn={composeEventHandlers(onPressIn, isPressedProps.onPressIn)}
-      onPressOut={composeEventHandlers(onPressOut, isPressedProps.onPressOut)}
+      onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
+      onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
       // @ts-ignore - web only
-      onHoverIn={composeEventHandlers(onHoverIn, pressableProps.onHoverIn)}
+      onHoverIn={composeEventHandlers(onHoverIn, hoverProps.onHoverIn)}
       // @ts-ignore - web only
-      onHoverOut={composeEventHandlers(onHoverOut, pressableProps.onHoverOut)}
+      onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
       // @ts-ignore - web only
       onFocus={composeEventHandlers(
         composeEventHandlers(onFocus, focusProps.onFocus),
@@ -86,12 +86,7 @@ const Pressable = (
         composeEventHandlers(onBlur, focusProps.onBlur),
         focusRingProps.onBlur
       )}
-      {...themeProps}
-      {...(isHovered && _hover)}
-      {...(isFocused && _focus)}
-      {...(isFocusVisible && _focusVisible)}
-      {...(isPressed && _pressed)}
-      {...(props.disabled && _disabled)}
+      {...resolvedProps}
     >
       {typeof children !== 'function'
         ? children
