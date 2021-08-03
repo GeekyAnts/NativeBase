@@ -12,7 +12,7 @@
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
     "postinstall": "patch-package",
-    "test": "rm -fR node_modules/react node_modules/react-native && jest && yarn install  --check-files"
+    "test": "rm -fR node_modules/react node_modules/react-native && jest --silent && yarn install  --check-files"
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.2",
