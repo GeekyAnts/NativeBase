@@ -5,6 +5,7 @@ import { NativeBaseProvider } from '../../core/NativeBaseProvider';
 import Box from '../../components/primitives/Box';
 import Image from '../../components/primitives/Image';
 import Spinner from '../../components/primitives/Spinner';
+import Text from '../../components/primitives/Text';
 import { Platform } from 'react-native';
 import { extendTheme } from '../../core/extendTheme';
 
@@ -285,5 +286,40 @@ describe('props resolution', () => {
     );
     const box = getByTestId('test');
     expect(box.props.style).toEqual(defaultTheme.shadows[9]);
+  });
+  it('tests lineHeight from token in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text lineHeight="md" testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(22);
+  });
+
+  it('tests absolute lineHeight in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text lineHeight={5} testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(80);
+  });
+
+  it('tests letterSpacing from token in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text letterSpacing="2xl" testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.letterSpacing).toBe(6.4);
   });
 });
