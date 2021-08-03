@@ -111,7 +111,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint && yarn prepare"
+      "pre-commit": "yarn lint && yarn prepare && cd example && yarn test && cd .."
     }
   },
   "commitlint": {
