@@ -1,9 +1,11 @@
 import React, { forwardRef, memo } from 'react';
-import { Pressable as RNPressable } from 'react-native';
+import { Pressable as RNPressable, useWindowDimensions } from 'react-native';
 import styled from 'styled-components/native';
 import { composeEventHandlers } from '../../../utils';
 import { border, color, flexbox, layout, position, space } from 'styled-system';
 import type { IPressableProps } from './types';
+import { isResponsiveAnyProp } from '../../../theme/tools';
+
 import {
   customBackground,
   customBorder,
@@ -15,6 +17,7 @@ import {
 } from '../../../utils/customProps';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
+import isNil from 'lodash.isnil';
 
 const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
@@ -90,6 +93,16 @@ const Pressable = (
     ...themeProps
   } = usePropsResolution('Pressable', props);
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+
+  //TODO: refactor for responsive prop
+  const windowDimensions = useWindowDimensions();
+  if (isNil(windowDimensions.width) || isNil(windowDimensions.height)) {
+    const responsivePropsExists = isResponsiveAnyProp(props);
+    if (responsivePropsExists) {
+      return null;
+    }
+  }
+
   // TODO : Replace Render props with Context Hook
   return (
     <StyledPressable

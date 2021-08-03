@@ -2,8 +2,12 @@ import React, { memo, forwardRef } from 'react';
 import { Modal } from '../../composites/Modal';
 import type { IActionsheetProps } from './types';
 import { usePropsResolution } from '../../../hooks';
+import { ActionSheetContext } from './ActionSheetContext';
 
-const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
+const Actionsheet = (
+  { children, hideDragIndicator = false, ...props }: IActionsheetProps,
+  ref: any
+) => {
   const { isOpen, disableOverlay, onClose, ...newProps } = usePropsResolution(
     'Actionsheet',
     props
@@ -21,7 +25,9 @@ const Actionsheet = ({ children, ...props }: IActionsheetProps, ref: any) => {
       closeOnOverlayClick={disableOverlay ? false : true}
       ref={ref}
     >
-      {children}
+      <ActionSheetContext.Provider value={{ hideDragIndicator }}>
+        {children}
+      </ActionSheetContext.Provider>
     </Modal>
   );
 };

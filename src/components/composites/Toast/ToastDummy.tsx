@@ -2,5 +2,5 @@
 import type { IToastProps } from './types';
 
 export const Toast = (props: IToastProps) => {
-  console.log(props);
+  props; // no-op
 };

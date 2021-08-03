@@ -1,6 +1,7 @@
 import Color from 'tinycolor2';
 import { useToken } from './useToken';
 import { useAccessibleColors } from '../core/color-mode/hooks';
+import { useNativeBaseConfig } from '../core/NativeBaseContext';
 
 export function useContrastText(bg: string, color?: string) {
   let [
@@ -16,6 +17,10 @@ export function useContrastText(bg: string, color?: string) {
     bg,
     color ?? '',
   ]);
+
+  let suppressColorAccessibilityWarning = useNativeBaseConfig(
+    'NativeBaseConfigProvider'
+  ).config.suppressColorAccessibilityWarning;
 
   let [accessibleColors] = useAccessibleColors();
 
@@ -37,7 +42,8 @@ export function useContrastText(bg: string, color?: string) {
           trueBg,
           trueColor,
           bg,
-          color
+          color,
+          suppressColorAccessibilityWarning
         );
 
   return textColor;
@@ -62,7 +68,8 @@ function getAccessibleContrastColor(
   trueBg: string,
   trueColor: string,
   bg: string,
-  color?: string
+  color?: string,
+  suppressColorAccessibilityWarning?: boolean
 ) {
   if (typeof trueBg !== 'string') {
     trueBg = bg;
@@ -88,7 +95,7 @@ function getAccessibleContrastColor(
       trueBg,
       trueColor ? trueColor : trueContrastColor
     );
-    if (contrast < 3) {
+    if (contrast < 3 && !suppressColorAccessibilityWarning) {
       console.warn(
         [
           `NativeBase: The contrast ratio of ${contrast}:1 for ${
@@ -109,8 +116,8 @@ function getContrastRatio(foreground: string, background: string) {
 }
 
 const themeColorsThresholdShades: any = {
-  rose: 900,
-  pink: 900,
+  rose: 500,
+  pink: 500,
   fuchsia: 800,
   purple: 700,
   violet: 600,
@@ -123,19 +130,19 @@ const themeColorsThresholdShades: any = {
   green: 400,
   lime: 600,
   yellow: 800,
-  amber: 900,
-  orange: 900,
-  red: 900,
+  amber: 500,
+  orange: 500,
+  red: 500,
   warmGray: 500,
   trueGray: 500,
   gray: 500,
   coolGray: 500,
   blueGray: 500,
   dark: 500,
-  danger: 900,
-  error: 900,
+  danger: 500,
+  error: 500,
   success: 400,
-  warning: 900,
+  warning: 500,
   muted: 500,
   primary: 500,
   info: 400,

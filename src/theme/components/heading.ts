@@ -4,6 +4,7 @@ const baseStyle = (props: Record<string, any>) => {
   return {
     color: mode('muted.700', 'white')(props),
     fontWeight: 'bold',
+    fontFamily: 'heading',
   };
 };
 
