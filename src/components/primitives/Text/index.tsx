@@ -34,29 +34,32 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   const [lineHeightValue] = useToken('lineHeights', [lineHeight]);
   const [fontSizeValue] = useToken('fontSizes', [fontSize]);
   const [letterSpacingValue] = useToken('letterSpacings', [letterSpacing]);
-  //lineheight calculations
-  let calculatedLineHeight =
-    parseFloat(lineHeightValue) * parseFloat(fontSizeValue);
-  let calculatedLineHeightWithUnits =
-    typeof fontSizeValue === 'string'
+
+  const calculatedLineHeightWithUnits = React.useMemo(() => {
+    //lineheight calculations
+    let calculatedLineHeight =
+      parseFloat(lineHeightValue) * parseFloat(fontSizeValue);
+    return typeof fontSizeValue === 'string'
       ? fontSizeValue.includes('rem')
         ? calculatedLineHeight + 'rem'
         : fontSizeValue.includes('px')
         ? calculatedLineHeight + 'px'
         : calculatedLineHeight
       : calculatedLineHeight;
+  }, [fontSizeValue, lineHeightValue]);
 
-  //letter-spacing calculations
-  let calculatedLetterSpacing =
-    parseFloat(letterSpacingValue) * parseFloat(fontSizeValue);
-  let calculatedLetterSpacingWithUnits =
-    typeof fontSizeValue === 'string'
+  const calculatedLetterSpacingWithUnits = React.useMemo(() => {
+    //letter-spacing calculations
+    let calculatedLetterSpacing =
+      parseFloat(letterSpacingValue) * parseFloat(fontSizeValue);
+    return typeof fontSizeValue === 'string'
       ? fontSizeValue.includes('rem')
         ? calculatedLetterSpacing + 'rem'
         : fontSizeValue.includes('px')
         ? calculatedLetterSpacing + 'px'
         : calculatedLetterSpacing
       : calculatedLetterSpacing;
+  }, [fontSizeValue, letterSpacingValue]);
 
   // TODO: might have to add this condition
   const { isHovered } = useHover({}, _hover ? _ref : null);
@@ -76,10 +79,8 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
       {...reslovedProps}
       numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : undefined}
       {...resolvedFontFamily}
-      fontWeight={bold ? 'bold' : fontWeight}
       lineHeight={calculatedLineHeightWithUnits}
       letterSpacing={calculatedLetterSpacingWithUnits}
-      fontStyle={italic ? 'italic' : fontStyle}
       bg={highlight ? 'warning.200' : reslovedProps.bg}
       textDecorationLine={
         underline && strikeThrough
