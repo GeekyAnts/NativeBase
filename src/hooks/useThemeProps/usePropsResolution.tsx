@@ -1,16 +1,11 @@
-import React from 'react';
 import get from 'lodash.get';
 import merge from 'lodash.merge';
-import { useWindowDimensions, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { useColorMode } from '../../core/color-mode';
-import { resolveValueWithBreakpoint } from './utils';
-import {
-  getClosestBreakpoint,
-  omitUndefined,
-  extractInObject,
-} from '../../theme/tools';
+import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
+import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
 
 // TODO: have to remove as many ts-ignore as possible.
 
@@ -41,6 +36,14 @@ const pseudoPropsMap = {
   _indeterminate: 'isIndeterminate',
 };
 
+/**
+ * @summary Check weather provided property should be resolved or not. based on plaform, colormode and state
+ * @arg {string} property - .
+ * @arg {object} platform - .
+ * @arg {object} colormode - .
+ * @arg {object} state - .
+ * @returns {object} Resolved and flattened props.
+ */
 const shouldResolve = ({ property, state, platform, colormode }: any) => {
   if (platformPropsMap.includes(property)) {
     // @ts-ignore
@@ -58,6 +61,16 @@ const shouldResolve = ({ property, state, platform, colormode }: any) => {
 
 let flattenProps: any = {};
 let propertyDepth: any = {};
+
+/**
+ * @summary Resolved pseudo props and returns a flattened object.
+ * @arg {string} props - .
+ * @arg {object} platform - .
+ * @arg {object} colormode - .
+ * @arg {object} state - .
+ * @arg {object} currentDepth - .
+ * @returns {object} Resolved and flattened props.
+ */
 const pseudoPropsResolver = ({
   props,
   platform,
@@ -77,12 +90,20 @@ const pseudoPropsResolver = ({
           currentDepth: currentDepth++,
         });
       }
-    } else if (!property.startsWith('_')) {
+    } else {
       if (
         !(propertyDepth[property] && propertyDepth[property] > currentDepth)
       ) {
         propertyDepth[property] = currentDepth;
-        flattenProps[property] = props[property];
+        if (property.startsWith('_')) {
+          flattenProps[property] = merge(
+            {},
+            flattenProps[property],
+            props[property]
+          );
+        } else {
+          flattenProps[property] = props[property];
+        }
       }
     }
   }
@@ -91,11 +112,10 @@ const pseudoPropsResolver = ({
 
 /**
  * @summary Combines provided porps with component's theme props and resloves them.
- * @description NOTE: Avoid passing JSX and functions.
  * @arg {string} component - Name of the component.
  * @arg {object} incomingProps - Props passed by the user.
  * @arg {object} state - dependent states.
- * @arg {object} config - configuration for resolution.
+ * @arg {object} config - configuration for resolution. Accepts key like ignoreProps, resolveResponsively.
  * @returns {object} Resolved and flattened props.
  */
 export function usePropsResolution(
@@ -110,16 +130,22 @@ export function usePropsResolution(
       config?.ignoreProps || []
     )
   );
+  const resolveResponsively = [
+    'colorScheme',
+    'size',
+    'variant',
+    ...(config?.resolveResponsively || []),
+  ];
 
   const { theme } = useNativeBase();
   const colorModeProps = useColorMode();
 
   const componentTheme = get(theme, `components.${component}`, {});
-  const windowWidth = useWindowDimensions()?.width;
-  const currentBreakpoint = React.useMemo(
-    () => getClosestBreakpoint(theme.breakpoints, windowWidth),
-    [windowWidth, theme.breakpoints]
-  );
+  // const windowWidth = useWindowDimensions()?.width;
+  // const currentBreakpoint = React.useMemo(
+  //   () => getClosestBreakpoint(theme.breakpoints, windowWidth),
+  //   [windowWidth, theme.breakpoints]
+  // );
 
   // STEP 1: combine default props and incoming props
 
@@ -135,6 +161,19 @@ export function usePropsResolution(
     colormode: colorModeProps.colorMode,
     state: state || {},
   });
+
+  // STEP 2.5: resolving responsive props
+  const responsiveProps = {};
+  resolveResponsively.map((propsName) => {
+    if (flattenProps[propsName]) {
+      // @ts-ignore
+      responsiveProps[propsName] = flattenProps[propsName];
+    }
+  });
+
+  const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
+
+  flattenProps = { ...flattenProps, ...responsivelyResolvedProps };
   // STEP 3: Pass it to baseStyle, then variant and then size and resolve them.
 
   // NOTE: Resoloving baseStyle
@@ -158,11 +197,12 @@ export function usePropsResolution(
   }
 
   // NOTE: Resolving variants
-  const variant = resolveValueWithBreakpoint(
-    flattenProps.variant,
-    currentBreakpoint,
-    'variant'
-  );
+  // const variant = resolveValueWithBreakpoint(
+  //   flattenProps.variant,
+  //   currentBreakpoint,
+  //   'variant'
+  // );
+  const variant = flattenProps.variant;
 
   let componentVariantProps = {};
   // Extracting props from variant
@@ -189,11 +229,13 @@ export function usePropsResolution(
   }
 
   // NOTE: Resolving size
-  const size = resolveValueWithBreakpoint(
-    flattenProps.size,
-    currentBreakpoint,
-    'size'
-  );
+  // const size = resolveValueWithBreakpoint(
+  //   flattenProps.size,
+  //   currentBreakpoint,
+  //   'size'
+  // );
+
+  const size = flattenProps.size;
 
   let componentSizeProps = {};
   // Extracting props from size
@@ -279,6 +321,7 @@ export function usePropsResolution(
     ...gradientProps,
   });
   // STEP 6: Return
+
   flattenProps = {};
   propertyDepth = {};
 
