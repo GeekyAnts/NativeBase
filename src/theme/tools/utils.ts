@@ -247,13 +247,7 @@ const convertRemToAbsolute = (rem: number) => {
   - Converts space/sizes/lineHeights/letterSpacings/fontSizes to absolute number on native if the token value specified is in `px` or `rem`
 */
 export const platformSpecificSpaceUnits = (theme: ITheme) => {
-  const scales = [
-    'space',
-    'sizes',
-    'fontSizes',
-    'lineHeights',
-    'letterSpacings',
-  ];
+  const scales = ['space', 'sizes', 'fontSizes'];
 
   const newTheme = { ...theme };
   const isWeb = Platform.OS === 'web';
