@@ -43,6 +43,30 @@ export interface ISliderProps extends IBoxProps {
    * @default 1
    */
   step?: number;
+  /** Whether the whole Slider is readonly. */
+  isReadOnly?: boolean;
+  /** Props applied if isDisabled is true. */
+  _disabled?: any;
+  /** Props applied if isReadOnly is true. */
+  _readOnly?: any;
+}
+
+export interface ISliderTrackProps extends IBoxProps {
+  /** Whether the whole Slider is readonly. */
+  isReadOnly?: boolean;
+  /** Props applied if isDisabled is true. */
+  _disabled?: any;
+  /** Props applied if isReadOnly is true. */
+  _readOnly?: any;
+}
+
+export interface ISliderTrackFilledProps extends IBoxProps {
+  /** Whether the whole Slider is readonly. */
+  isReadOnly?: boolean;
+  /** Props applied if isDisabled is true. */
+  _disabled?: any;
+  /** Props applied if isReadOnly is true. */
+  _readOnly?: any;
 }
 
 export interface ISliderThumbProps extends IBoxProps {
@@ -53,6 +77,12 @@ export interface ISliderThumbProps extends IBoxProps {
   orientation?: 'horizontal' | 'vertical';
   /** Whether the Thumb is disabled. */
   isDisabled?: boolean;
+  /** Whether the whole Slider is readonly. */
+  isReadOnly?: boolean;
+  /** Props applied if isDisabled is true. */
+  _disabled?: any;
+  /** Props applied if isReadOnly is true. */
+  _readOnly?: any;
 }
 
 export type ISliderComponentType = ((
@@ -62,9 +92,9 @@ export type ISliderComponentType = ((
     (props: ISliderThumbProps & { ref?: any }) => JSX.Element
   >;
   Track: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: ISliderTrackProps & { ref?: any }) => JSX.Element
   >;
   FilledTrack: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: ISliderTrackFilledProps & { ref?: any }) => JSX.Element
   >;
 };
