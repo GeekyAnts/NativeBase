@@ -130,6 +130,7 @@ const Select = (
       {...(isHovered ? themeProps._hover : {})}
       {...nonLayoutProps}
       {...borderProps}
+      isDisabled={isDisabled}
     />
   );
 
@@ -158,9 +159,14 @@ const Select = (
               onChange={(e) => {
                 setValue(e.target.value);
               }}
-              value={value}
+              value={
+                selectedItem === null ? '__NativebasePlaceholder__' : value
+              }
               aria-label={placeholder}
             >
+              <option disabled value="__NativebasePlaceholder__">
+                {placeholder}
+              </option>
               {children}
             </select>
           </Box>
