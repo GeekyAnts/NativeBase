@@ -5,13 +5,16 @@ export const Example = () => {
   return (
     // @ts-ignore
     <Link
+      _text={{
+        fontSize: 'xl',
+        color: 'purple.400',
+      }}
       mt={4}
-      // fontSize="xl"
       href="https://nativebase.io"
       isUnderlined
-      _underline={{ _text: { color: 'gray.500' } }}
+      _hover={{ _text: { color: 'blue.300' } }}
     >
-      Default Link
+      Click me to open NativeBase website.
     </Link>
   );
 };

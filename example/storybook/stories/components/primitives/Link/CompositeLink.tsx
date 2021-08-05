@@ -1,36 +1,43 @@
 import React from 'react';
-import { Link, Box, Text } from 'native-base';
+import { Link, Text, Card, VStack, Avatar, Heading } from 'native-base';
 
 export const Example = () => {
   return (
     <Link
       href="https://nativebase.io"
       _hover={{ bg: 'primary.100' }}
-      justifyContent="center"
-      alignItems="center"
       isExternal
-      mt={4}
-      mx={4}
-      flexWrap="wrap"
     >
-      <Box p={4} bg="seagreen">
-        <Text color="white" fontSize={16}>
-          Box
-        </Text>
-      </Box>
-      <Text
-        px={2}
-        my={1}
-        _light={{ color: 'blue.700' }}
-        _dark={{ color: 'blue.500' }}
-      >
-        Clicking anywhere will trigger the link
-      </Text>
-      <Box p={4} bg="emerald.700">
-        <Text color="white" fontSize={16}>
-          Box
-        </Text>
-      </Box>
+      <Card width={64} p={6} py={8}>
+        <VStack alignItems="center" space={5}>
+          <Avatar
+            source={{
+              uri: 'https://docs.nativebase.io/img/nativebaselogo.svg',
+            }}
+            size="lg"
+          >
+            NB
+          </Avatar>
+          <Heading
+            size="lg"
+            fontWeight={700}
+            _light={{ color: 'blueGray.700' }}
+            _dark={{ color: 'blueGray.100' }}
+          >
+            NativeBase
+          </Heading>
+          <Text
+            textAlign="center"
+            fontSize={12}
+            _light={{ color: 'blueGray.500' }}
+            _dark={{ color: 'gray.50' }}
+          >
+            NativeBase is a component library that enables devs to build
+            universal design systems. It is built on top of React Native,
+            allowing you to develop apps for Android, iOS and the Web.
+          </Text>
+        </VStack>
+      </Card>
     </Link>
   );
 };

@@ -29,14 +29,6 @@ export interface ILinkProps extends IBoxProps {
    * Ref to be attached to the Link wrapper
    */
   wrapperRef?: any;
-  /**
-   * Pseudo props applied when isExternal prop is true
-   */
-  _external?: any;
-  /**
-   * Pseudo props applied when isUnderline prop is true
-   */
-  _underline?: any;
 }
 
 export type IUseLinkProp = {

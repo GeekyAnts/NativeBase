@@ -13,37 +13,40 @@ const Link = (
   { href, isUnderlined = false, onPress, isExternal, ...props }: ILinkProps,
   ref: any
 ) => {
-  let {
-    _hover,
-    _underline,
-    children,
-    _external,
-    ...remainingProps
-  } = usePropsResolution('Link', props);
+  let { _hover, children, _text, ...remainingProps } = usePropsResolution(
+    'Link',
+    props
+  );
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
   const { linkProps } = useLink({ href, onPress, isExternal, _ref });
-  if (_external == undefined) {
-    _external = {};
+
+  const linkTextProps = {
+    textDecorationLine: isUnderlined ? 'underline' : 'none',
+    ..._text,
+  };
+  function getHoverProps() {
+    let hoverTextProps = {
+      ...linkTextProps,
+      ..._hover?._text,
+    };
+    return {
+      ...hoverTextProps,
+    };
   }
   return (
     <>
-      {/* <Box {...layoutProps} ref={wrapperRef}> */}
       {/* On web we render Link in anchor tag */}
       {Platform.OS === 'web' ? (
         <Box
           {...linkProps}
-          {...(isExternal && _external)}
           {...remainingProps}
-          {...(isUnderlined && _underline)}
-          {...(isExternal && _external)}
-          {...(isHovered && _hover)}
+          _text={linkTextProps}
+          {...(isHovered && getHoverProps())}
           ref={mergeRefs([ref, _ref])}
           flexDirection="row"
         >
-          {/* <a {...linkProps}> */}
           {children}
-          {/* </a> */}
         </Box>
       ) : (
         <Pressable
@@ -51,16 +54,10 @@ const Link = (
           {...remainingProps}
           ref={ref}
           flexDirection="row"
-          {...(isExternal && _external)}
-          {...(isUnderlined && _underline)}
         >
           {React.Children.map(children, (child) =>
             typeof child === 'string' ? (
-              <Text
-                {...remainingProps._text}
-                {...(isExternal && _external._text)}
-                {...(isUnderlined && _underline._text)}
-              >
+              <Text {...remainingProps._text} {...linkTextProps}>
                 {child}
               </Text>
             ) : (
@@ -69,7 +66,6 @@ const Link = (
           )}
         </Pressable>
       )}
-      {/* </Box> */}
     </>
   );
 };
