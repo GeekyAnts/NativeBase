@@ -6,14 +6,20 @@ import { makeStyledComponent } from '../../../utils/styled';
 import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils';
 
 const StyledBox = makeStyledComponent(View);
 
 let MemoizedGradient: any = undefined;
 
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
   // const { _text, ...resolvedProps } = useThemeProps('Box', props);
-  const { _text, ...resolvedProps } = usePropsResolution('Box', props);
+  const { _text, ...resolvedProps } = usePropsResolution('Box', props, {
+    isHovered,
+  });
   let Gradient = useNativeBaseConfig('NativeBaseConfigProvider').config
     .dependencies?.['linear-gradient'];
 
@@ -85,7 +91,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   }
 
   return (
-    <StyledBox ref={ref} {...safeAreaProps}>
+    <StyledBox ref={mergeRefs([ref, _ref])} {...safeAreaProps}>
       {React.Children.map(children, (child) =>
         typeof child === 'string' ? <Text {..._text}>{child}</Text> : child
       )}

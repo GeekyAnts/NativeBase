@@ -2,6 +2,8 @@ import React, { memo, forwardRef } from 'react';
 import Box from '../Box';
 import type { IFlexProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils';
 const Flex = (
   {
     style,
@@ -16,10 +18,11 @@ const Flex = (
   }: IFlexProps,
   ref: any
 ) => {
-  const newProps = usePropsResolution('Flex', props);
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+  const newProps = usePropsResolution('Flex', props, { isHovered });
   return (
     <Box
-      {...props}
       {...newProps}
       display="flex"
       flexDirection={direction || newProps.flexDirection}
@@ -30,7 +33,7 @@ const Flex = (
       flexShrink={shrink || newProps.flexShrink}
       flexWrap={wrap || newProps.flexWrap}
       style={style}
-      ref={ref}
+      ref={mergeRefs([ref, _ref])}
     />
   );
 };
