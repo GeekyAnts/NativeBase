@@ -13,7 +13,7 @@
     ],
     "no-bitwise": 0,
     "prefer-const": "warn",
-    "no-console": ["error", { "allow": ["warn", "error"] }]
+    "no-console": "off"
   },
   "plugins": ["prettier"]
 }

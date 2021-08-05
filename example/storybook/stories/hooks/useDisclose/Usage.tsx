@@ -5,8 +5,7 @@ export const Example = () => {
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
     <>
-      <Modal isCentered isOpen={isOpen} onClose={onClose}>
-        <Modal.Overlay />
+      <Modal isOpen={isOpen} onClose={onClose}>
         <Modal.Content>
           <Modal.CloseButton />
           <Modal.Header fontSize="4xl" fontWeight="bold">

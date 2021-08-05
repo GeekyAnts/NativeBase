@@ -3,15 +3,15 @@
 We'd love for you to contribute to our source code and to make NativeBase even better than it is
 today! Here are some guidelines we'd like you to follow:
 
-* [Code of Conduct](#coc)
-* [Ways to Contribute](#wtc)
-* [Questions and Problems](#question)
-* [Issues and Bugs](#issue)
-* [Feature Requests](#feature)
-* [Issue Submission Guidelines](#submit)
-* [Setting Up Development Environment ](#dev-env)
-* [Pull Request Submission Guidelines](#submit-pr)
-* [Improving Documentation](#docs)
+- [Code of Conduct](#coc)
+- [Ways to Contribute](#wtc)
+- [Questions and Problems](#question)
+- [Issues and Bugs](#issue)
+- [Feature Requests](#feature)
+- [Issue Submission Guidelines](#submit)
+- [Setting Up Development Environment ](#dev-env)
+- [Pull Request Submission Guidelines](#submit-pr)
+- [Improving Documentation](#docs)
 
 ## <a name="coc"></a> Code of Conduct
 
@@ -60,12 +60,13 @@ You can request a new feature by submitting an issue to our [GitHub Repository](
 
 If you would like to implement a new feature then consider what kind of change it is:
 
-* **Major Changes** that you wish to contribute to the project should be discussed first in an
+- **Major Changes** that you wish to contribute to the project should be discussed first in an
   [GitHub issue](https://github.com/GeekyAnts/NativeBase/issues) that clearly outlines the changes and benefits of the feature.
-* **Small Changes** can directly be crafted and submitted to the [GitHub Repository](https://github.com/GeekyAnts/NativeBase)
+- **Small Changes** can directly be crafted and submitted to the [GitHub Repository](https://github.com/GeekyAnts/NativeBase)
   as a Pull Request. See the section about [Contributing Code](#submit-pr).
 
 ## <a name="submit"></a> Issue Submission Guidelines
+
 Before you submit your issue search the archive, maybe your question was already answered.
 
 If your issue appears to be a bug, and hasn't been reported, open a new issue. Help us to maximize
@@ -77,13 +78,13 @@ make it easier to understand and categorize the issue.
 In general, providing the following information will increase the chances of your issue being dealt
 with quickly:
 
-* **Issue Description** - if an error is being thrown a non-minified stack trace helps
-* **Motivation for or Use Case** - explain why this is a bug for you
-* **NativeBase Version(s)** - is it a regression?
-* **Browsers and Operating System** - is this a problem with all browsers or only specific ones?
-* **Reproduce the Error** - provide a live example (using [expo snack](https://snack.expo.io/) or an unambiguous set of steps.
-* **Related Issues** - has a similar issue been reported before?
-* **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
+- **Issue Description** - if an error is being thrown a non-minified stack trace helps
+- **Motivation for or Use Case** - explain why this is a bug for you
+- **NativeBase Version(s)** - is it a regression?
+- **Browsers and Operating System** - is this a problem with all browsers or only specific ones?
+- **Reproduce the Error** - provide a live example (using [expo snack](https://snack.expo.io/) or an unambiguous set of steps.
+- **Related Issues** - has a similar issue been reported before?
+- **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
   causing the problem (line of code or commit)
 
 ## <a name="dev-env"></a> Setting Up your Development Environment
@@ -157,7 +158,7 @@ The process of proposing a change to NativeBase can be summarized as follows:
 1. Fork the NativeBase repository and create your branch from `master`.
 2. Make the desired changes to NativeBase source. Use the `Storybook Testbed` app to test them out.
 3. If you've added code that should be tested, add tests.
-4. If you've changed APIs, update the documentation, which is available [here](https://github.com/nativebase/website/).
+4. If you've changed APIs, update the documentation, which is available [here](https://github.com/GeekyAnts/nativebase-docs).
 5. Ensure the test suite passes, either locally or on CI once you opened a pull request.
 6. Make sure your code lints. To keep project away from disputes we make use of **ESLint**, which is really a handy linting tool that enforces strict coding styles and makes sure your files are free from dead code. Each module of NativeBase has bundled ESLint as a dev dependency and checks your code everytime you commit.
 7. Push the changes to your fork.
@@ -168,5 +169,4 @@ If all goes well, your pull request will be merged. If it is not merged, maintai
 
 ## <a name="docs"></a> Helping with Documentation
 
-The NativeBase documentation is hosted as part of the NativeBase website repository at https://github.com/nativebase/website. The website itself is located at <https://alpha.nativebase.io/> and it is built using [Docusaurus V2](https://v2.docusaurus.io/). If there's anything you'd like to change in the docs, you can get started by clicking on the "Edit" button located on the bottom left of most pages on the website.
-
+The NativeBase documentation is hosted as part of the NativeBase website repository at https://github.com/GeekyAnts/nativebase-docs. The website itself is located at <https://alpha.nativebase.io/> and it is built using [Docusaurus V2](https://v2.docusaurus.io/). If there's anything you'd like to change in the docs, you can get started by clicking on the "Edit" button located on the bottom left of most pages on the website.
