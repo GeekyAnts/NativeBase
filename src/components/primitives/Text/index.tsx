@@ -1,4 +1,4 @@
-import React, { memo, forwardRef, useRef } from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Text as NativeText } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ITextProps } from './types';
@@ -10,6 +10,8 @@ import { useToken } from '../../../hooks/useToken';
 const StyledText = makeStyledComponent(NativeText);
 
 const Text = ({ children, ...props }: ITextProps, ref: any) => {
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
   const {
     isTruncated,
     noOfLines,
@@ -22,14 +24,11 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontFamily: propFontFamily,
     fontWeight: propFontWeight,
     fontStyle: propFontStyle,
-    _hover,
     fontSize = 'md',
     lineHeight = '2xs',
     letterSpacing = 'sm',
     ...reslovedProps
-  } = usePropsResolution('Text', props);
-
-  const _ref = useRef(null);
+  } = usePropsResolution('Text', props, { isHovered });
 
   const [lineHeightValue] = useToken('lineHeights', [lineHeight]);
   const [fontSizeValue] = useToken('fontSizes', [fontSize]);
@@ -62,7 +61,6 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   }, [fontSizeValue, letterSpacingValue]);
 
   // TODO: might have to add this condition
-  const { isHovered } = useHover({}, _hover ? _ref : null);
   // const { isHovered } = useHover({}, _ref);
   let fontFamily = propFontFamily;
   let fontStyle = italic ? 'italic' : propFontStyle;
@@ -93,7 +91,6 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
       }
       fontSize={sub ? 10 : fontSize}
       ref={mergeRefs([ref, _ref])}
-      {...(isHovered && _hover)}
     >
       {children}
     </StyledText>

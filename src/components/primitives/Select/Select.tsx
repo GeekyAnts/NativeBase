@@ -57,11 +57,16 @@ const Select = (
   const isDisabled = selectProps.disabled;
 
   const _ref = React.useRef(null);
-  const themeProps = usePropsResolution('Input', { ...props, size });
+
+  const { isHovered } = useHover({}, _ref);
+  const themeProps = usePropsResolution(
+    'Input',
+    { ...props, size },
+    { isHovered }
+  );
   let [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const { focusProps, isFocusVisible } = useFocusRing();
-  const { hoverProps, isHovered } = useHover({ isDisabled }, _ref);
 
   const [value, setValue] = useControllableState({
     value: selectedValue,
@@ -134,7 +139,7 @@ const Select = (
   );
 
   const handleClose = () => setIsOpen(false);
-
+  console.log(nonLayoutProps, newProps);
   return (
     <Box
       borderWidth={1}
@@ -143,6 +148,7 @@ const Select = (
       borderRadius={themeProps.borderRadius}
       {...(isFocusVisible ? themeProps._focus : {})}
       ref={wrapperRef}
+      s
     >
       {Platform.OS === 'web' ? (
         <>
@@ -151,7 +157,7 @@ const Select = (
               {...selectProps}
               disabled={isDisabled}
               {...focusProps}
-              {...hoverProps}
+              // {...hoverProps}
               ref={mergeRefs([ref, _ref])}
               //@ts-ignore
               style={unstyledSelecWebtStyles}

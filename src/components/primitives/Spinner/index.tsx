@@ -4,11 +4,16 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { getColor } from '../../../theme';
 import type { ISpinnerProps } from './types';
 import { useStyledSystemPropsResolver, useTheme } from '../../../hooks';
+import { mergeRefs } from '../../../utils';
+import { useHover } from '@react-native-aria/interactions';
 
 const Spinner = ({ ...props }: ISpinnerProps, ref: any) => {
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
   const { color, size, ...resolvedProps } = usePropsResolution(
     'Spinner',
-    props
+    props,
+    { isHovered }
   );
   const resolvedColor = getColor(color, useTheme().colors, useTheme());
   const [style, restProps] = useStyledSystemPropsResolver(resolvedProps);
@@ -18,7 +23,7 @@ const Spinner = ({ ...props }: ISpinnerProps, ref: any) => {
       accessibilityLabel="loading"
       {...restProps}
       color={resolvedColor}
-      ref={ref}
+      ref={mergeRefs([ref, _ref])}
       size={size}
       style={style}
     />

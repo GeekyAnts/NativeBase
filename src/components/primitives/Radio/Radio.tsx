@@ -8,12 +8,16 @@ import { useRadio } from '@react-native-aria/radio';
 import { RadioContext } from './RadioGroup';
 import { mergeRefs } from '../../../utils';
 import { CircleIcon } from '../Icon/Icons';
+import { useHover } from '@react-native-aria/interactions';
 
 const Radio = (
   { icon, children, wrapperRef, ...props }: IRadioProps,
   ref: any
 ) => {
   const contextState = React.useContext(RadioContext);
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+
   const {
     _interactionBox: { _pressed: _iterationBoxPressed, ..._interactionBox },
     _radio: {
@@ -25,10 +29,14 @@ const Radio = (
     _icon,
     isInvalid,
     ...themedProps
-  } = usePropsResolution('Radio', {
-    ...contextState,
-    ...props,
-  });
+  } = usePropsResolution(
+    'Radio',
+    {
+      ...contextState,
+      ...props,
+    },
+    { isHovered }
+  );
 
   const inputRef = React.useRef(null);
   const { inputProps } = useRadio(props, contextState.state, inputRef);
@@ -44,7 +52,7 @@ const Radio = (
   return (
     <Pressable
       {...(inputProps as IPressableProps)}
-      ref={mergeRefs([ref, wrapperRef])}
+      ref={mergeRefs([ref, wrapperRef, _ref])}
       accessibilityRole="radio"
     >
       {({ isPressed }: any) => {

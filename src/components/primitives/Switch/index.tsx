@@ -28,15 +28,17 @@ const Switch = (
   const state = useToggleState({
     defaultSelected: !isNil(defaultIsChecked) ? defaultIsChecked : false,
   });
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+
   const {
     onTrackColor: _onTrackColor,
     offTrackColor: _offTrackColor,
     onThumbColor: _onThumbColor,
     offThumbColor: _offThumbColor,
     style: themeStyle,
-    _hover,
     ...newProps
-  } = usePropsResolution('Switch', props);
+  } = usePropsResolution('Switch', props, { isHovered });
   const borderColorInvalid = useToken('colors', 'danger.600');
   const checked = !isNil(isChecked) ? isChecked : state.isSelected;
   const onTrackColor = useToken('colors', _onTrackColor);
@@ -55,9 +57,6 @@ const Switch = (
     isInvalid ? inValidPropFactors : {},
   ]);
 
-  const _ref = React.useRef(null);
-  const { isHovered } = useHover({}, _ref);
-
   return (
     <StyledNBSwitch
       accessibilityLabel={accessibilityLabel}
@@ -66,14 +65,14 @@ const Switch = (
       thumbColor={checked ? onThumbColor : offThumbColor}
       activeThumbColor={onThumbColor} // react-native-web prop for active thumbColor
       ios_backgroundColor={offTrackColor}
-      {...(isHovered && _hover)}
-      {...newProps}
+      // {...(isHovered && _hover)}
       disabled={isDisabled}
       onValueChange={onToggle ? onToggle : state.toggle}
       value={checked}
       style={computedStyle}
       ref={mergeRefs([ref, _ref])}
       opacity={isDisabled ? 0.4 : 1}
+      {...newProps}
     />
   );
 };

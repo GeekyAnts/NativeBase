@@ -5,7 +5,8 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../types';
 import { useBreakpointResolvedProps } from '../../../hooks';
-
+import { mergeRefs } from '../../../utils';
+import { useHover } from '@react-native-aria/interactions';
 export interface IStackProps extends IBoxProps {
   /**
    * The divider element to use between elements.
@@ -37,7 +38,11 @@ const Stack = (props: IStackProps, ref?: any) => {
     reversed,
     ...remainingProps
   } = props;
-  const newProps: any = usePropsResolution('Stack', remainingProps);
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+  const newProps: any = usePropsResolution('Stack', remainingProps, {
+    isHovered,
+  });
 
   const {
     space: resolvedSpace,
@@ -45,7 +50,11 @@ const Stack = (props: IStackProps, ref?: any) => {
   } = useBreakpointResolvedProps({ space, direction });
 
   return (
-    <Box flexDirection={resolvedDirection} {...newProps} ref={ref}>
+    <Box
+      flexDirection={resolvedDirection}
+      {...newProps}
+      ref={mergeRefs([ref, _ref])}
+    >
       {getSpacedChildren(
         children,
         resolvedSpace,

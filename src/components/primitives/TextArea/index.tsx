@@ -1,5 +1,7 @@
 import React, { memo, forwardRef } from 'react';
 import { Input, IInputProps } from '../Input';
+import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils/mergeRefs';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 export interface ITextAreaProps extends IInputProps {
   /**
@@ -9,13 +11,17 @@ export interface ITextAreaProps extends IInputProps {
 }
 
 const TextArea = ({ wrapperRef, ...props }: ITextAreaProps, ref: any) => {
-  const { totalLines, ...newProps } = usePropsResolution('TextArea', props);
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+  const { totalLines, ...newProps } = usePropsResolution('TextArea', props, {
+    isHovered,
+  });
   return (
     <Input
       {...newProps}
       numberOfLines={totalLines}
       wrapperRef={wrapperRef}
-      ref={ref}
+      ref={mergeRefs([ref, _ref])}
     />
   );
 };
