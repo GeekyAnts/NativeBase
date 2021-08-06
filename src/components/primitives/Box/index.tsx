@@ -6,6 +6,7 @@ import { makeStyledBox } from '../../../utils/styled';
 import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledBox = makeStyledBox(View);
 
@@ -18,6 +19,11 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
     .dependencies?.['linear-gradient'];
 
   const safeAreaProps = useSafeArea(resolvedProps);
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   if (
     resolvedProps.bg?.linearGradient ||

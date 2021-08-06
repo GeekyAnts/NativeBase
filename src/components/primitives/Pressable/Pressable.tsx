@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import { composeEventHandlers } from '../../../utils';
 import { border, color, flexbox, layout, position, space } from 'styled-system';
 import type { IPressableProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import {
   customBackground,
   customBorder,
@@ -90,6 +91,12 @@ const Pressable = (
     ...themeProps
   } = usePropsResolution('Pressable', props);
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
+
   // TODO : Replace Render props with Context Hook
   return (
     <StyledPressable
