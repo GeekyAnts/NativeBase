@@ -2,6 +2,7 @@ import type { CheckboxGroupState } from '@react-stately/checkbox';
 import type { TouchableOpacityProps } from 'react-native';
 import type { IFormControlContext } from '../../composites/FormControl';
 import type { IBoxProps } from '../Box';
+import type { IIconProps } from '../Icon';
 
 export type ICheckboxValue = string;
 
@@ -35,14 +36,18 @@ export interface ICheckboxProps extends IBoxProps {
    */
   isIndeterminate?: boolean;
   /**
-   * If true, the checkbox will be disabled
+   * If true, the checkbox will be disabled.
    */
   // isFullWidth?: boolean;
   isDisabled?: boolean;
   /**
-   * If true, the checkbox is marked as invalid. Changes style of unchecked state.
+   * If true, the checkbox is marked as invalid.
    */
   isInvalid?: boolean;
+  /**
+   * If true, the checkbox is marked as readonly.
+   */
+  isReadOnly?: boolean;
   /**
    * The size (width and height) of the checkbox.
    * @default 'md'
@@ -52,6 +57,46 @@ export interface ICheckboxProps extends IBoxProps {
    * If given, will use this icon instead of the default.
    */
   icon?: JSX.Element;
+  /**
+   * Passed props will be applied on disabled state.
+   */
+  _disabled?: any;
+  /**
+   * Passed props will be applied on checked state.
+   */
+  _checked?: any;
+  /**
+   * Passed props will be applied on unchecked state.
+   */
+  _unchecked?: any;
+  /**
+   * Passed props will be applied on focus state.
+   */
+  _focus?: any;
+  /**
+   * Passed props will be applied on hover state.
+   */
+  _hover?: any;
+  /**
+   * Passed props will be applied on invalid state.
+   */
+  _invalid?: any;
+  /**
+   * Passed props will be applied on pressed state on native.
+   */
+  _pressed?: any;
+  /**
+   * Passed props will be applied on readonly state.
+   */
+  _readOnly?: any;
+  /**
+   * Icon related props can be passed in _icon.
+   */
+  _icon?: IIconProps;
+  /**
+   * You can style interaction box around the checkbox using this.
+   */
+  _interactionBox?: any;
   /**
    * Function called when the state of the checkbox changes.
    */
