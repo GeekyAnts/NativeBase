@@ -7,7 +7,9 @@ export interface IHStackProps extends IStackProps {
    * The direction of the Stack Items.
    * @default row
    */
-  direction?: ResponsiveValue<'column' | 'row'>;
+  direction?: ResponsiveValue<
+    'column' | 'row' | 'column-reverse' | 'row-reverse'
+  >;
 }
 
 const HStack = (props: IHStackProps, ref?: any) => {
