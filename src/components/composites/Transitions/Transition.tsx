@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import { Animated } from 'react-native';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type {
   ISupportedTransitions,
   ITransitionConfig,
@@ -32,7 +33,6 @@ const getAnimatedStyles = (animateValue: any) => (
   const styles: any = {
     transform: [],
   };
-
   for (let key in initial) {
     if (key === 'transition') {
       continue;
@@ -180,6 +180,10 @@ export const Transition = forwardRef(
         onTransitionComplete && onTransitionComplete('entered');
       }
     }, [animationState, onTransitionComplete]);
+    //TODO: refactor for responsive prop
+    if (useHasResponsiveProps(rest)) {
+      return null;
+    }
 
     return (
       <Component

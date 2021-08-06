@@ -5,6 +5,7 @@ import { color, space, position } from 'styled-system';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useToken } from '../../../hooks';
 import type { ISpinnerProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledSpinner = styled(ActivityIndicator)<ISpinnerProps>(
   color,
@@ -14,7 +15,10 @@ const StyledSpinner = styled(ActivityIndicator)<ISpinnerProps>(
 const Spinner = (props: ISpinnerProps, ref: any) => {
   const { color, ...resolvedProps } = usePropsResolution('Spinner', props);
   const resolvedColor = useToken('colors', color);
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <StyledSpinner
       accessible

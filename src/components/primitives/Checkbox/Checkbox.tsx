@@ -10,6 +10,7 @@ import { useToggleState } from '@react-stately/toggle';
 import { CheckboxGroupContext } from './CheckboxGroup';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { CheckIcon } from '../Icon/Icons';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Checkbox = (
   { icon, children, wrapperRef, ...props }: ICheckboxProps,
@@ -70,6 +71,10 @@ const Checkbox = (
           icon.props.children
         )
     : null;
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Pressable
       {...(inputProps as IPressableProps)}

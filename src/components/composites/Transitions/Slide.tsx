@@ -3,6 +3,7 @@ import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { ISlideProps } from './types';
 import PresenceTransition from './PresenceTransition';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const holderStyle: any = {
   top: {
@@ -82,6 +83,11 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
       },
     },
   };
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   return (
     <PresenceTransition

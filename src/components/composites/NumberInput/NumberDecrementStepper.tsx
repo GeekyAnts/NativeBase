@@ -2,6 +2,7 @@ import React from 'react';
 import type { INumberInputContext, INumberInputStepperProps } from './types';
 import { NBStepper } from './NumberInputStepper';
 import { NumberInputContext } from './Context';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const NumberDecrementStepper = (
   { children, isDisabled: pIsDisabled, ...props }: INumberInputStepperProps,
@@ -19,6 +20,10 @@ const NumberDecrementStepper = (
   const pressHandler = () => {
     handleChange && handleChange(numberInputValue - step);
   };
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <NBStepper
       isIncrement={false}

@@ -1,6 +1,7 @@
 import React, { memo, forwardRef } from 'react';
 import { Box, IBoxProps } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export interface IProgressProps extends IBoxProps {
   /**
@@ -69,6 +70,11 @@ const Progress = (props: IProgressProps, ref?: any) => {
     justifyContent: 'center',
     color: 'white',
   };
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   return (
     <Box

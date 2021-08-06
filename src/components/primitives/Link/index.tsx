@@ -8,6 +8,7 @@ import { mergeRefs } from '../../../utils';
 import { Pressable } from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Link = (
   {
@@ -27,14 +28,20 @@ const Link = (
     ...stylingProps.position,
     ...stylingProps.layout,
   ]);
+
   let { _hover, _text, ...newProps } = usePropsResolution('Link', remProps);
   const _ref = React.useRef(null);
+
   const { isHovered } = useHover({}, _ref);
   const linkTextProps = {
     textDecorationLine: isUnderlined ? 'underline' : 'none',
     ..._text,
   };
   const { linkProps } = useLink({ href, onPress, isExternal, _ref });
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box {...layoutProps} ref={wrapperRef}>
       {/* On web we render Link in anchor tag */}

@@ -7,6 +7,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ISliderThumbProps } from './types';
 import Box from '../Box';
 import { SliderContext } from './Context';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 function SliderThumb(props: ISliderThumbProps, ref: any) {
   let {
@@ -52,6 +53,10 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
   thumbStyles.transform.push({
     scale: state.isThumbDragging(0) ? themeProps.scaleOnPressed : 1,
   });
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   return (
     <Box

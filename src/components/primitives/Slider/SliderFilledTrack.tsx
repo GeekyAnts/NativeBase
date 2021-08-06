@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import Box from '../Box';
 import type { ISliderProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const SliderFilledTrack = ({ style, ...props }: ISliderProps, ref?: any) => {
   const {
@@ -37,6 +38,10 @@ const SliderFilledTrack = ({ style, ...props }: ISliderProps, ref?: any) => {
       height: sliderSize,
     },
   });
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   return (
     <Box

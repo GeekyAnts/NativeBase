@@ -4,6 +4,7 @@ import { getSpacedChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export interface IStackProps extends IBoxProps {
   /**
@@ -33,7 +34,10 @@ const Stack = (props: IStackProps, ref?: any) => {
     'Stack',
     remainingProps
   );
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box flexDirection={direction} {...newProps} ref={ref}>
       {getSpacedChildren(

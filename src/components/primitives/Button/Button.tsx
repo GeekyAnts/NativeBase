@@ -5,6 +5,7 @@ import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import { Pressable } from '../Pressable';
 import type { IButtonProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
   {
@@ -36,6 +37,11 @@ const Button = (
     _disabled,
     _focusVisible,
   };
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   const { isDisabled, isLoading } = props;
 

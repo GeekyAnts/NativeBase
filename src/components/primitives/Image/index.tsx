@@ -14,6 +14,7 @@ import {
 import Text from '../Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IImageProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledImage = styled(RNImage)<IImageProps>(
   color,
@@ -59,7 +60,10 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
       setAlternate(true);
     }
   };
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   if (!alt) {
     console.warn('Please pass alt prop to Image component');
   }

@@ -18,6 +18,7 @@ import {
 import type { ISwitchProps } from './types';
 import { mergeRefs } from '../../../utils';
 import { useHover } from '@react-native-aria/interactions';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledNBSwitch = styled(RNSwitch)<ISwitchProps>(
   color,
@@ -81,7 +82,10 @@ const Switch = (
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <StyledNBSwitch
       accessibilityLabel={accessibilityLabel}

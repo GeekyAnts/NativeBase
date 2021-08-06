@@ -4,6 +4,7 @@ import { useThemeProps } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 import Box from '../../primitives/Box';
 import type { ISkeletonProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   const isDomUsable = canUseDom();
@@ -42,7 +43,10 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
       opacity: blinkAnim, // Bind opacity to animated value
     },
   };
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box
       style={[
