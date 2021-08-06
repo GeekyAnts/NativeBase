@@ -36,7 +36,6 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
   });
 
   const imageFitStyle = { height: '100%', width: '100%' };
-
   return (
     <Box {...newProps} style={style} ref={wrapperRef}>
       {source && !error ? (
@@ -45,7 +44,7 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
           source={source}
           alt={'--'}
           _alt={_text}
-          style={[style, imageFitStyle]}
+          style={imageFitStyle}
           onError={() => {
             setError(true);
           }}

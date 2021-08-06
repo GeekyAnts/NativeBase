@@ -1,21 +1,11 @@
-import type { ITextProps } from '../../primitives/Text';
 import type { IBoxProps } from '../../primitives/Box';
 import type { ImageSourcePropType } from 'react-native';
 
 export interface IAvatarProps extends IBoxProps {
   /**
-   * Text styling for fallback text
-   */
-  _text?: ITextProps;
-  /**
-   * Style to be passed in rendered Image component
-   */
-  style?: any;
-  /**
    * The image source of the avatar.
    */
   source?: ImageSourcePropType;
-
   /**
    * The size of the avatar
    * @default md
