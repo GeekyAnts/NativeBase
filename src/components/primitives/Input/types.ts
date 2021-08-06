@@ -49,7 +49,7 @@ export interface IInputProps
    */
   size?: string;
   /**
-   *
+   * This will set aria-required="true" on web when passed in formcontrol.
    */
   isRequired?: boolean;
   /**
@@ -65,9 +65,17 @@ export interface IInputProps
    */
   InputLeftElement?: JSX.Element | JSX.Element[];
   /**
+   * If given, adds the provided element to the left of the input.
+   */
+  leftElement?: JSX.Element | JSX.Element[];
+  /**
    * If given, adds the provided element to the right of the input.
    */
   InputRightElement?: JSX.Element | JSX.Element[];
+  /**
+   * If given, adds the provided element to the right of the input.
+   */
+  rightElement?: JSX.Element | JSX.Element[];
   /**
    * Using the type password, user can mask the input.
    */
@@ -90,6 +98,10 @@ export interface IInputProps
    * Passed props will be applied on disabled state.
    */
   _disabled?: IInputProps;
+  /**
+   * Passed props will be applied on readOnly state.
+   */
+  _readOnly?: IInputProps;
   /**
    * Passed props will be applied on invalid state.
    */
