@@ -10,6 +10,8 @@ import { Example as Value } from './Value';
 import { Example as FormControlled } from './FormControlled';
 import { Example as Customized } from './Customized';
 import { Example as Playground } from './Playground';
+import { Example as Disabled } from './isDisabled';
+import { Example as ReadOnly } from './isReadOnly';
 
 storiesOf('Slider', module)
   .addDecorator(withKnobs)
@@ -21,4 +23,6 @@ storiesOf('Slider', module)
   .add('Vertical', () => <Vertical />)
   .add('Value', () => <Value />)
   .add('Customized', () => <Customized />)
+  .add('Disabled', () => <Disabled />)
+  .add('ReadOnly', () => <ReadOnly />)
   .add('Form Controlled', () => <FormControlled />);
