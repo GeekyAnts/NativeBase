@@ -1,5 +1,6 @@
 import type { IBoxProps } from '../../primitives/Box';
 import type { IButtonProps } from 'native-base';
+import type { MutableRefObject } from 'react';
 
 export interface IModalProps extends IBoxProps {
   /**
@@ -9,7 +10,7 @@ export interface IModalProps extends IBoxProps {
   /**
    * Callback invoked when the modal is closed
    */
-  onClose?: any;
+  onClose?: () => any;
   /**
    * If true, the modal will be opened by default
    */
@@ -21,11 +22,11 @@ export interface IModalProps extends IBoxProps {
   /**
    * The ref of element to receive focus when the modal opens.
    */
-  initialFocusRef?: any;
+  initialFocusRef: React.RefObject<any>;
   /**
    * The ref of element to receive focus when the modal closes.
    */
-  finalFocusRef?: any;
+  finalFocusRef: React.RefObject<any>;
   /**
    * If true and the keyboard is opened, the modal will move up equvivalent to the keyboard height.
    * @default false
@@ -49,21 +50,21 @@ export interface IModalProps extends IBoxProps {
 }
 
 export type IModalComponentType = ((
-  props: IModalProps & { ref?: any }
+  props: IModalProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Body: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
-    (props: IButtonProps & { ref?: any }) => JSX.Element
+    (props: IButtonProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Content: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Footer: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Header: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

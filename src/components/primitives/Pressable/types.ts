@@ -32,41 +32,41 @@ export interface IPressableProps
   /**
    * Called when a mouse enters the Pressable
    */
-  onHoverIn?: any;
+  onHoverIn?: () => void;
   /**
    * Called when a mouse leaves the Pressable
    */
-  onHoverOut?: any;
+  onHoverOut?: () => void;
   /**
    * Called when Pressable receives focus
    */
-  onFocus?: any;
+  onFocus?: () => void;
   /**
    * Called when Pressable loses focus
    */
-  onBlur?: any;
+  onBlur?: () => void;
   /**
    * Style props to be applied when hovered
    */
-  _hover?: IPressableProps;
+  _hover?: Omit<IPressableProps, '_hover'>;
   /**
    * Style props to be applied when pressed
    */
-  _pressed?: IPressableProps;
+  _pressed?: Omit<IPressableProps, '_pressed'>;
   /**
    * Style props to be applied when focus
    */
-  _focus?: IPressableProps;
+  _focus?: Omit<IPressableProps, '_focus'>;
 
   /**
    * Style props to be applied when disabled
    */
-  _disabled?: IPressableProps;
+  _disabled?: Omit<IPressableProps, '_disabled'>;
 
   /**
    * Style props to be applied when focus visible. These styles will be only applied when user is interacting the app using a keyboard. (Web only)
    */
-  _focusVisible?: IPressableProps;
+  _focusVisible?: Omit<IPressableProps, '_focusVisible'>;
 
   children?:
     | React.ReactNode

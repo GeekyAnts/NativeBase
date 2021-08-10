@@ -24,8 +24,8 @@ export type INumberInputSteppersProps = IStackProps & {
 };
 export type INumberInputStepperProps = IBoxProps & {
   isDisabled?: boolean;
-  _disabled?: any;
-  _active?: any;
+  _disabled?: Omit<INumberInputStepperProps, '_disabled'>;
+  _active?: Omit<INumberInputStepperProps, '_active'>;
 };
 export type INumberInputContext = INumberInputProps & {
   numberInputValue?: number;

@@ -1,4 +1,5 @@
 import type { CheckboxGroupState } from '@react-stately/checkbox';
+import type { MutableRefObject } from 'react';
 import type { TouchableOpacityProps } from 'react-native';
 import type { IFormControlContext } from '../../composites/FormControl';
 import type { IBoxProps } from '../Box';
@@ -60,35 +61,35 @@ export interface ICheckboxProps extends IBoxProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: any;
+  _disabled?: Omit<ICheckboxProps, '_disabled'>;
   /**
    * Passed props will be applied on checked state.
    */
-  _checked?: any;
+  _checked?: Omit<ICheckboxProps, '_checked'>;
   /**
    * Passed props will be applied on unchecked state.
    */
-  _unchecked?: any;
+  _unchecked?: Omit<ICheckboxProps, '_unchecked'>;
   /**
    * Passed props will be applied on focus state.
    */
-  _focus?: any;
+  _focus?: Omit<ICheckboxProps, '_focus'>;
   /**
    * Passed props will be applied on hover state.
    */
-  _hover?: any;
+  _hover?: Omit<ICheckboxProps, '_hover'>;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: any;
+  _invalid?: Omit<ICheckboxProps, '_invalid'>;
   /**
    * Passed props will be applied on pressed state on native.
    */
-  _pressed?: any;
+  _pressed?: Omit<ICheckboxProps, '_pressed'>;
   /**
    * Passed props will be applied on readonly state.
    */
-  _readOnly?: any;
+  _readOnly?: Omit<ICheckboxProps, '_readOnly'>;
   /**
    * Icon related props can be passed in _icon.
    */
@@ -96,7 +97,7 @@ export interface ICheckboxProps extends IBoxProps {
   /**
    * You can style interaction box around the checkbox using this.
    */
-  _interactionBox?: any;
+  _interactionBox?: Omit<ICheckboxProps, '_interactionBox'>;
   /**
    * Function called when the state of the checkbox changes.
    */
@@ -108,6 +109,7 @@ export interface ICheckboxProps extends IBoxProps {
    * Ref to be passed to Icon's wrapper Box
    */
   wrapperRef?: any;
+  ref?: MutableRefObject<any>;
 }
 export interface ICheckboxGroupProps extends IBoxProps {
   /**
@@ -117,11 +119,11 @@ export interface ICheckboxGroupProps extends IBoxProps {
   /**
    * The value of the checkbox group.
    */
-  value?: Array<any>;
+  value?: Array<string>;
   /**
    * The initial value of the checkbox group.
    */
-  defaultValue?: Array<any>;
+  defaultValue?: Array<string>;
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    */
@@ -138,7 +140,6 @@ export interface ICheckboxGroupProps extends IBoxProps {
 export interface ICheckboxContext extends IFormControlContext {
   colorScheme?: string;
   size?: 'sm' | 'md' | 'lg';
-  style?: any;
   state: CheckboxGroupState;
 }
 
@@ -159,6 +160,6 @@ export type ICheckboxComponentType = ((
   props: ICheckboxProps
 ) => JSX.Element) & {
   Group: React.MemoExoticComponent<
-    (props: ICheckboxGroupProps, ref?: any) => JSX.Element
+    (props: ICheckboxGroupProps, ref?: MutableRefObject<any>) => JSX.Element
   >;
 };

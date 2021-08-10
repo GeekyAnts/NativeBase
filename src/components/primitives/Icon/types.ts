@@ -15,7 +15,6 @@ import type {
   PlatformProps,
 } from '../../types';
 import type { SvgProps } from 'react-native-svg';
-
 export interface IIconProps
   extends Omit<
       SvgProps,
