@@ -51,6 +51,7 @@ const Checkbox = (
     ...stylingProps.layout,
     ...stylingProps.flexbox,
     ...stylingProps.position,
+    '_text',
   ]);
 
   // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.

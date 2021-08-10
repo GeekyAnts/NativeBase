@@ -11,6 +11,7 @@ export const Example = () => {
       <Card width={64} p={6} py={8}>
         <VStack alignItems="center" space={5}>
           <Avatar
+            bg="gray.600"
             source={{
               uri: 'https://docs.nativebase.io/img/nativebaselogo.svg',
             }}
