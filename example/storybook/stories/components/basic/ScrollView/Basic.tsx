@@ -1,5 +1,6 @@
 import React from 'react';
-import { ScrollView, VStack, Center } from 'native-base';
+import { ScrollView } from 'native-base';
+import { View } from 'react-native-web';
 export const Example = () => {
   return (
     <ScrollView
@@ -8,7 +9,7 @@ export const Example = () => {
       // style={{ backgroundColor: 'blue' }}
       height={400}
     >
-      <VStack>
+      {/* <VStack>
         {[
           'one',
           'two',
@@ -26,7 +27,8 @@ export const Example = () => {
             {val}
           </Center>
         ))}
-      </VStack>
+      </VStack> */}
+      <View onClick={() => alert('hello')}>This is demo view</View>
     </ScrollView>
   );
 };

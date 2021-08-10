@@ -195,6 +195,7 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
+    "react-native-web": "file:/Users/amars/Sites/projects/react-native/react-native-web/packages/react-native-web",
     "tinycolor2": "^1.4.2"
   },
   "directories": {
