@@ -62,21 +62,29 @@ const Image = (
     setSource(getSource());
   }, [source, src, getSource]);
 
-  const onImageLoadError = (event: any) => {
-    props.onError && props.onError(event);
-    console.warn(event.nativeEvent.error);
-    if (
-      !ignoreFallback &&
-      fallbackSource &&
-      fallbackSource !== renderedSource &&
-      fallbackSourceFlag
-    ) {
-      setfallbackSourceFlag(false);
-      setSource(fallbackSource);
-    } else {
-      setAlternate(true);
-    }
-  };
+  const onImageLoadError = useCallback(() => {
+    (event: any) => {
+      props.onError && props.onError(event);
+      console.warn(event.nativeEvent.error);
+      if (
+        !ignoreFallback &&
+        fallbackSource &&
+        fallbackSource !== renderedSource &&
+        fallbackSourceFlag
+      ) {
+        setfallbackSourceFlag(false);
+        setSource(fallbackSource);
+      } else {
+        setAlternate(true);
+      }
+    };
+  }, [
+    fallbackSourceFlag,
+    fallbackSource,
+    ignoreFallback,
+    props,
+    renderedSource,
+  ]);
 
   if (!alt) {
     console.warn('Please pass alt prop to Image component');
