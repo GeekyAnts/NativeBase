@@ -42,8 +42,7 @@ const Image = (
     _alt,
     ...newProps
   } = usePropsResolution('Image', props);
-  const finalSource: any = useRef({});
-
+  const finalSource: any = useRef(null);
   const getSource = useCallback(() => {
     if (source) {
       finalSource.current = source;
@@ -60,9 +59,13 @@ const Image = (
   React.useEffect(() => {
     setAlternate(false);
     setSource(getSource());
+    return () => {
+      setfallbackSourceFlag(true);
+      finalSource.current = null;
+    };
   }, [source, src, getSource]);
 
-  const onImageLoadError = useCallback(() => {
+  const onImageLoadError = useCallback(
     (event: any) => {
       props.onError && props.onError(event);
       console.warn(event.nativeEvent.error);
@@ -77,15 +80,9 @@ const Image = (
       } else {
         setAlternate(true);
       }
-    };
-  }, [
-    fallbackSourceFlag,
-    fallbackSource,
-    ignoreFallback,
-    props,
-    renderedSource,
-  ]);
-
+    },
+    [fallbackSource, fallbackSourceFlag, ignoreFallback, props, renderedSource]
+  );
   if (!alt) {
     console.warn('Please pass alt prop to Image component');
   }
