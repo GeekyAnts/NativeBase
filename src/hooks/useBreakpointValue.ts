@@ -6,7 +6,11 @@ import {
 } from '../theme/tools';
 import { useTheme } from './../hooks/useTheme';
 
-export function useBreakpointValue(values: any) {
+type values = Object;
+
+export function useBreakpointValue(
+  values: Object | Array<string | number | Object>
+) {
   let windowWidth = useWindowDimensions()?.width;
   const theme = useTheme();
   if (hasValidBreakpointFormat(values)) {

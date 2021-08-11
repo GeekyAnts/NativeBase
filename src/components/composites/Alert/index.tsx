@@ -6,7 +6,7 @@ import AlertMain from './Alert';
 export type { IAlertProps, IAlertContext } from './types';
 import type { IAlertComponentType } from './types';
 
-let AlertTemp: any = AlertMain;
+const AlertTemp: any = AlertMain;
 AlertTemp.Description = AlertDescription;
 AlertTemp.Icon = AlertIcon;
 AlertTemp.Title = AlertTitle;

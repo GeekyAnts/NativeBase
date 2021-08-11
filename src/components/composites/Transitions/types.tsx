@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { ViewProps } from 'react-native';
 import type { IBoxProps } from '../../primitives';
 
@@ -105,9 +106,9 @@ export interface IPresenceTransitionProps extends ViewProps {
    * Determines whether to start the animation
    */
   visible?: boolean;
-  children?: any;
+  children?: ReactNode;
   /**
    * Accepts a Component to be rendered as Wrapper. Defaults to `View`
    */
-  as?: any;
+  as?: ReactNode;
 }

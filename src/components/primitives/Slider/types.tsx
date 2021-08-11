@@ -1,3 +1,4 @@
+import type { MutableRefObject } from 'react';
 import type { IBoxProps } from '../Box';
 
 export interface ISliderProps extends IBoxProps {
@@ -86,15 +87,15 @@ export interface ISliderThumbProps extends IBoxProps {
 }
 
 export type ISliderComponentType = ((
-  props: ISliderProps & { ref?: any }
+  props: ISliderProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Thumb: React.MemoExoticComponent<
-    (props: ISliderThumbProps & { ref?: any }) => JSX.Element
+    (props: ISliderThumbProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Track: React.MemoExoticComponent<
-    (props: ISliderTrackProps & { ref?: any }) => JSX.Element
+    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   FilledTrack: React.MemoExoticComponent<
-    (props: ISliderTrackFilledProps & { ref?: any }) => JSX.Element
+    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
