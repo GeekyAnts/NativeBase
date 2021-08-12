@@ -10502,9 +10502,10 @@ react-native-svg@^12.1.0:
     css-select "^2.1.0"
     css-tree "^1.0.0-alpha.39"
 
-"react-native@https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz":
+react-native@0.63.2:
   version "0.63.2"
-  resolved "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz#5a545ad0b464824817ad699bb104d031d6ff6c39"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.63.2.tgz#eaebf3430577b37fbd66ef228a86b3408259ef8e"
+  integrity sha512-MkxHeJorUDzmQwKJrTfrFYMDRLyu9GSBpsFFMDX7X+HglVnaZi3CTzW2mRv1eIcazoseBOP2eJe+bnkyLl8Y2A==
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@react-native-community/cli" "^4.7.0"
