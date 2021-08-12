@@ -31,7 +31,6 @@ const Checkbox = (
     _readOnly,
     isInvalid,
     isReadOnly,
-    isIndeterminate,
     ...themedProps
   } = usePropsResolution('Checkbox', {
     ...checkboxGroupContext,
@@ -122,7 +121,7 @@ const Checkbox = (
         } else {
           return <CheckIcon name="check" {..._icon} opacity={1} />;
         }
-      } else if (isIndeterminate && _indeterminate?.icon) {
+      } else if (themedProps.isIndeterminate && _indeterminate?.icon) {
         return sizedIcon(_indeterminate?.icon, {
           ..._icon,
           ..._indeterminate?._icon,
@@ -146,7 +145,8 @@ const Checkbox = (
                 {..._interactionBox}
                 {...(!isChecked && _unchecked?._interactionBox)}
                 {...(isChecked && _checked?._interactionBox)}
-                {...(isIndeterminate && _indeterminate?._interactionBox)}
+                {...(themedProps.isIndeterminate &&
+                  _indeterminate?._interactionBox)}
                 {...(isPressed && _pressed._interactionBox)}
                 {...(isInvalid && _invalid?._interactionBox)}
                 {...(isReadOnly && _readOnly?._interactionBox)}
@@ -162,7 +162,7 @@ const Checkbox = (
                 {...(!isChecked && _unchecked)}
                 {...(isChecked && _checked)}
                 {...(isPressed && _pressed)}
-                {...(isIndeterminate && _indeterminate)}
+                {...(themedProps.isIndeterminate && _indeterminate)}
                 {...(isInvalid && _invalid)}
                 {...(isReadOnly && _readOnly)}
                 {...(isDisabled && _disabled)}

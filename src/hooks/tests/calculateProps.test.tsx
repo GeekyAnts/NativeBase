@@ -36,15 +36,12 @@ describe('useCalculateProps', () => {
     );
     expect(result.current).toEqual({
       _text: {
-        color: 'gray.900',
+        color: 'muted.900',
         fontSize: 'xs',
         fontWeight: 'bold',
-        textTransform: 'uppercase',
       },
       px: 1,
-      py: 1,
-      borderRadius: 'lg',
-      bg: 'gray.100',
+      bg: 'muted.300',
       borderWidth: 1,
       borderColor: 'transparent',
     });
@@ -59,15 +56,13 @@ describe('useCalculateProps', () => {
     );
     expect(result.current).toEqual({
       _text: {
-        color: 'gray.900',
+        color: 'muted.900',
         fontSize: 'xs',
         fontWeight: 'bold',
-        textTransform: 'uppercase',
       },
       px: 1,
       py: 3,
-      borderRadius: 'lg',
-      bg: 'gray.100',
+      bg: 'muted.300',
       borderWidth: 1,
       borderColor: 'transparent',
     });
