@@ -1,3 +1,4 @@
+import type { MutableRefObject } from 'react';
 import type { IBoxProps } from '../Box';
 
 export interface ISliderProps extends IBoxProps {
@@ -43,6 +44,30 @@ export interface ISliderProps extends IBoxProps {
    * @default 1
    */
   step?: number;
+  /** Whether the whole Slider is readonly. */
+  isReadOnly?: boolean;
+  /** Props applied if isDisabled is true. */
+  _disabled?: any;
+  /** Props applied if isReadOnly is true. */
+  _readOnly?: any;
+}
+
+export interface ISliderTrackProps extends IBoxProps {
+  /** Whether the whole Slider is readonly. */
+  isReadOnly?: boolean;
+  /** Props applied if isDisabled is true. */
+  _disabled?: any;
+  /** Props applied if isReadOnly is true. */
+  _readOnly?: any;
+}
+
+export interface ISliderTrackFilledProps extends IBoxProps {
+  /** Whether the whole Slider is readonly. */
+  isReadOnly?: boolean;
+  /** Props applied if isDisabled is true. */
+  _disabled?: any;
+  /** Props applied if isReadOnly is true. */
+  _readOnly?: any;
 }
 
 export interface ISliderThumbProps extends IBoxProps {
@@ -53,18 +78,24 @@ export interface ISliderThumbProps extends IBoxProps {
   orientation?: 'horizontal' | 'vertical';
   /** Whether the Thumb is disabled. */
   isDisabled?: boolean;
+  /** Whether the whole Slider is readonly. */
+  isReadOnly?: boolean;
+  /** Props applied if isDisabled is true. */
+  _disabled?: any;
+  /** Props applied if isReadOnly is true. */
+  _readOnly?: any;
 }
 
 export type ISliderComponentType = ((
-  props: ISliderProps & { ref?: any }
+  props: ISliderProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Thumb: React.MemoExoticComponent<
-    (props: ISliderThumbProps & { ref?: any }) => JSX.Element
+    (props: ISliderThumbProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Track: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   FilledTrack: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

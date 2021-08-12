@@ -1,6 +1,7 @@
 import type { ITextProps } from '../../primitives/Text';
 import type { IBoxProps } from '../../primitives/Box';
 import type { ImageSourcePropType } from 'react-native';
+import type { MutableRefObject } from 'react';
 
 export interface IAvatarProps extends IBoxProps {
   /**
@@ -45,12 +46,12 @@ export interface IAvatarGroupProps extends IAvatarProps {
 }
 
 export type IAvatarComponentType = ((
-  props: IAvatarProps & { ref?: any }
+  props: IAvatarProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Group: React.MemoExoticComponent<
-    (props: IAvatarGroupProps & { ref?: any }) => JSX.Element
+    (props: IAvatarGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Badge: React.MemoExoticComponent<
-    (props: IAvatarBadgeProps & { ref?: any }) => JSX.Element
+    (props: IAvatarBadgeProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

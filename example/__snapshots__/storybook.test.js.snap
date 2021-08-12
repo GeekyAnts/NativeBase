@@ -73176,21 +73176,21 @@ exports[`Storyshots Slider Customized 1`] = `
         >
           <Text
             allowFontScaling={false}
-            fontSize="32px"
-            lineHeight="32px"
+            fontSize="24px"
+            lineHeight="24px"
             style={
               Array [
                 Object {
                   "color": "green.500",
-                  "fontSize": 8,
+                  "fontSize": 6,
                 },
                 Array [
                   Object {
                     "color": "#22c55e",
-                    "fontSize": 32,
-                    "height": 32,
-                    "lineHeight": 32,
-                    "width": 32,
+                    "fontSize": 24,
+                    "height": 24,
+                    "lineHeight": 24,
+                    "width": 24,
                   },
                 ],
                 Object {
@@ -73205,6 +73205,316 @@ exports[`Storyshots Slider Customized 1`] = `
             
           </Text>
         </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Storyshots Slider Disabled 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    alignItems="center"
+    bg="gray.50"
+    flex={1}
+    justifyContent="center"
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fafafa",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      _text={
+        Object {
+          "color": "lightText",
+        }
+      }
+      accessible={true}
+      bg="transparent"
+      borderRadius="lg"
+      colorScheme="primary"
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      p={2}
+      position="absolute"
+      right={8}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderRadius": 6,
+            "paddingBottom": 8,
+            "paddingLeft": 8,
+            "paddingRight": 8,
+            "paddingTop": 8,
+            "position": "absolute",
+            "right": 32,
+            "top": 48,
+          },
+        ]
+      }
+      top={12}
+      variant="ghost"
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={32}
+        bbWidth={32}
+        color={4280690214}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        size={8}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Array [
+              Object {
+                "color": "#262626",
+                "height": 32,
+                "width": 32,
+              },
+            ],
+            Object {
+              "flex": 0,
+              "height": 32,
+              "width": 32,
+            },
+          ]
+        }
+        tintColor={4280690214}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      mx={5}
+      style={
+        Array [
+          Object {
+            "marginLeft": 20,
+            "marginRight": 20,
+            "width": "80%",
+          },
+        ]
+      }
+      width="80%"
+    >
+      <View
+        alignItems="center"
+        aria-label="Slider"
+        defaultValue={50}
+        isDisabled={true}
+        justifyContent="center"
+        maxValue={100}
+        minValue={0}
+        opacity={0.6}
+        sliderSize={4}
+        step={1}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "opacity": 0.6,
+              "width": "100%",
+            },
+          ]
+        }
+        thumbSize={4}
+        width="100%"
+      >
+        <View
+          accessible={true}
+          alignItems="center"
+          focusable={true}
+          height={4}
+          justifyContent="center"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onLayout={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          paddingY="12px"
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 16,
+                "justifyContent": "center",
+                "paddingBottom": 12,
+                "paddingTop": 12,
+                "width": "100%",
+              },
+            ]
+          }
+          width="100%"
+        >
+          <View
+            bg="red.200"
+            borderRadius="lg"
+            overflow="hidden"
+            size={4}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fecaca",
+                  "borderRadius": 6,
+                  "height": 16,
+                  "overflow": "hidden",
+                  "width": 16,
+                },
+                Object {
+                  "height": 4,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <View
+              _disabled={
+                Object {
+                  "bg": "red.600",
+                }
+              }
+              bg="red.600"
+              left={0}
+              position="absolute"
+              size={4}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#dc2626",
+                    "height": 16,
+                    "left": 0,
+                    "position": "absolute",
+                    "width": 16,
+                  },
+                  undefined,
+                  Object {
+                    "height": 4,
+                    "width": "50%",
+                  },
+                ]
+              }
+            />
+          </View>
+        </View>
+        <View
+          bg="blue.600"
+          borderRadius={99999}
+          onMoveShouldSetResponder={[Function]}
+          onMoveShouldSetResponderCapture={[Function]}
+          onResponderEnd={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderReject={[Function]}
+          onResponderRelease={[Function]}
+          onResponderStart={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onStartShouldSetResponderCapture={[Function]}
+          position="absolute"
+          scaleOnPressed={1.2}
+          size={4}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#2563eb",
+                "borderRadius": 99999,
+                "height": 16,
+                "position": "absolute",
+                "width": 16,
+                "zIndex": 999,
+              },
+              Object {
+                "bottom": undefined,
+                "left": "50%",
+                "transform": Array [
+                  Object {
+                    "translateX": -8,
+                  },
+                  Object {
+                    "scale": 1,
+                  },
+                ],
+              },
+              undefined,
+            ]
+          }
+          zIndex={999}
+        />
       </View>
     </View>
   </View>
@@ -73911,6 +74221,316 @@ exports[`Storyshots Slider Playground 1`] = `
             Array [
               Object {
                 "backgroundColor": "#06b6d4",
+                "borderRadius": 99999,
+                "height": 16,
+                "position": "absolute",
+                "width": 16,
+                "zIndex": 999,
+              },
+              Object {
+                "bottom": undefined,
+                "left": "50%",
+                "transform": Array [
+                  Object {
+                    "translateX": -8,
+                  },
+                  Object {
+                    "scale": 1,
+                  },
+                ],
+              },
+              undefined,
+            ]
+          }
+          zIndex={999}
+        />
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Storyshots Slider ReadOnly 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    alignItems="center"
+    bg="gray.50"
+    flex={1}
+    justifyContent="center"
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fafafa",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      _text={
+        Object {
+          "color": "lightText",
+        }
+      }
+      accessible={true}
+      bg="transparent"
+      borderRadius="lg"
+      colorScheme="primary"
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      p={2}
+      position="absolute"
+      right={8}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderRadius": 6,
+            "paddingBottom": 8,
+            "paddingLeft": 8,
+            "paddingRight": 8,
+            "paddingTop": 8,
+            "position": "absolute",
+            "right": 32,
+            "top": 48,
+          },
+        ]
+      }
+      top={12}
+      variant="ghost"
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={32}
+        bbWidth={32}
+        color={4280690214}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        size={8}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Array [
+              Object {
+                "color": "#262626",
+                "height": 32,
+                "width": 32,
+              },
+            ],
+            Object {
+              "flex": 0,
+              "height": 32,
+              "width": 32,
+            },
+          ]
+        }
+        tintColor={4280690214}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      mx={5}
+      style={
+        Array [
+          Object {
+            "marginLeft": 20,
+            "marginRight": 20,
+            "width": "80%",
+          },
+        ]
+      }
+      width="80%"
+    >
+      <View
+        alignItems="center"
+        aria-label="Slider"
+        defaultValue={50}
+        isReadOnly={true}
+        justifyContent="center"
+        maxValue={100}
+        minValue={0}
+        opacity={0.6}
+        sliderSize={4}
+        step={1}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "opacity": 0.6,
+              "width": "100%",
+            },
+          ]
+        }
+        thumbSize={4}
+        width="100%"
+      >
+        <View
+          accessible={true}
+          alignItems="center"
+          focusable={true}
+          height={4}
+          justifyContent="center"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onLayout={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          paddingY="12px"
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 16,
+                "justifyContent": "center",
+                "paddingBottom": 12,
+                "paddingTop": 12,
+                "width": "100%",
+              },
+            ]
+          }
+          width="100%"
+        >
+          <View
+            bg="green.100"
+            borderRadius="lg"
+            overflow="hidden"
+            size={4}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#dcfce7",
+                  "borderRadius": 6,
+                  "height": 16,
+                  "overflow": "hidden",
+                  "width": 16,
+                },
+                Object {
+                  "height": 4,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <View
+              _readOnly={
+                Object {
+                  "bg": "green.600",
+                }
+              }
+              bg="green.600"
+              left={0}
+              position="absolute"
+              size={4}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#16a34a",
+                    "height": 16,
+                    "left": 0,
+                    "position": "absolute",
+                    "width": 16,
+                  },
+                  undefined,
+                  Object {
+                    "height": 4,
+                    "width": "50%",
+                  },
+                ]
+              }
+            />
+          </View>
+        </View>
+        <View
+          bg="pink.600"
+          borderRadius={99999}
+          onMoveShouldSetResponder={[Function]}
+          onMoveShouldSetResponderCapture={[Function]}
+          onResponderEnd={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderReject={[Function]}
+          onResponderRelease={[Function]}
+          onResponderStart={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onStartShouldSetResponderCapture={[Function]}
+          position="absolute"
+          scaleOnPressed={1.2}
+          size={4}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#db2777",
                 "borderRadius": 99999,
                 "height": 16,
                 "position": "absolute",

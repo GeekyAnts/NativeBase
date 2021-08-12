@@ -2,6 +2,7 @@ import type { ITextProps } from './../Text/types';
 import type { IPressableProps } from '../Pressable';
 import type { IStackProps } from '../Stack';
 import type { ResponsiveValue } from '../../types';
+import type { MutableRefObject } from 'react';
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
 export interface IButtonProps extends IPressableProps {
@@ -20,7 +21,7 @@ export interface IButtonProps extends IPressableProps {
   /**
    * If true, the button will show a spinner.
    */
-  isLoading?: any;
+  isLoading?: boolean;
   /**
    * The size of the button.
    */
@@ -93,9 +94,9 @@ export interface IButtonGroupProps extends IStackProps {
 }
 
 export type IButtonComponentType = ((
-  props: IButtonProps & { ref?: any }
+  props: IButtonProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Group: React.MemoExoticComponent<
-    (props: IButtonGroupProps & { ref?: any }) => JSX.Element
+    (props: IButtonGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

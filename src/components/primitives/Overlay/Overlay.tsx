@@ -10,7 +10,7 @@ interface IOverlayProps {
   children?: any;
   // We use RN modal on android if needed as it supports shifting accessiblity focus to the opened view. IOS automatically shifts focus if an absolutely placed view appears in front.
   useRNModalOnAndroid?: boolean;
-  onRequestClose?: any;
+  onRequestClose?: (() => any) | undefined;
   isKeyboardDismissable?: boolean;
 }
 
@@ -25,7 +25,7 @@ export function Overlay({
 
   useKeyboardDismissable({
     enabled: isOpen && isKeyboardDismissable,
-    callback: onRequestClose,
+    callback: onRequestClose ? onRequestClose : () => {},
   });
 
   if (exited && !isOpen) {

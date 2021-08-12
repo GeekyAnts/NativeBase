@@ -1,3 +1,4 @@
+import type { MutableRefObject } from 'react';
 import type { IBoxProps, IIconProps } from '../../primitives';
 
 export interface IAlertProps extends IBoxProps {
@@ -35,19 +36,19 @@ export type IAlertContext = {
 export interface IAlertIconProps extends IIconProps {
   /** Ref to be passed to Icon's wrapper Box
    */
-  wrapperRef?: any;
+  wrapperRef?: MutableRefObject<any>;
 }
 
 export type IAlertComponentType = ((
-  props: IAlertProps & { ref?: any }
+  props: IAlertProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Description: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Icon: React.MemoExoticComponent<
-    (props: IAlertIconProps & { ref?: any }) => JSX.Element
+    (props: IAlertIconProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Title: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: any }) => JSX.Element
+    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

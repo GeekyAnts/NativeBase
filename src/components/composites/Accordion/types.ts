@@ -1,5 +1,6 @@
 import type { IBoxProps, IIconProps } from '../../primitives';
 import type { ICollapseProps } from '../../composites/Collapse';
+import type { MutableRefObject } from 'react';
 
 export type IAccordionProps = ICollapseProps & {
   allowMultiple?: boolean;
@@ -15,10 +16,9 @@ export type IAccordionItemProps = IBoxProps & {
   id?: number;
 };
 export type IAccordionSummaryProps = IBoxProps & {
-  style?: any;
-  _expanded?: any;
-  _disabled?: any;
-  _hover?: any;
+  _expanded?: Omit<IAccordionSummaryProps, '_expanded'>;
+  _disabled?: Omit<IAccordionSummaryProps, '_disabled'>;
+  _hover?: Omit<IAccordionSummaryProps, '_hover'>;
 };
 export type IAccordionDetailsProps = ICollapseProps & {};
 export type IAccordionContextProps = {
@@ -33,23 +33,29 @@ export type IAccordionItemContextProps = {
   onClose?: () => void;
   onOpen?: () => void;
 };
-export type IAccordionIconProps = IIconProps & {
-  style?: any;
-};
+export type IAccordionIconProps = IIconProps;
 
 export type IAccordionComponentType = ((
-  props: IAccordionProps & { ref?: any }
+  props: IAccordionProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Item: React.MemoExoticComponent<
-    (props: IAccordionItemProps & { ref?: any }) => JSX.Element
+    (
+      props: IAccordionItemProps & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   Summary: React.MemoExoticComponent<
-    (props: IAccordionSummaryProps & { ref?: any }) => JSX.Element
+    (
+      props: IAccordionSummaryProps & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   Details: React.MemoExoticComponent<
-    (props: IAccordionDetailsProps & { ref?: any }) => JSX.Element
+    (
+      props: IAccordionDetailsProps & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   Icon: React.MemoExoticComponent<
-    (props: IAccordionIconProps & { ref?: any }) => JSX.Element
+    (
+      props: IAccordionIconProps & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
 };

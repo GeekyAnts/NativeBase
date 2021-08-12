@@ -4,7 +4,7 @@ import { useAccessibleColors } from '../core/color-mode/hooks';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 
 export function useContrastText(bg: string, color?: string) {
-  let [
+  const [
     contrastThreshold,
     trueDarkText,
     trueLightText,
@@ -18,11 +18,11 @@ export function useContrastText(bg: string, color?: string) {
     color ?? '',
   ]);
 
-  let suppressColorAccessibilityWarning = useNativeBaseConfig(
+  const suppressColorAccessibilityWarning = useNativeBaseConfig(
     'NativeBaseConfigProvider'
   ).config.suppressColorAccessibilityWarning;
 
-  let [accessibleColors] = useAccessibleColors();
+  const [accessibleColors] = useAccessibleColors();
 
   if (typeof bg !== 'string') {
     return;
@@ -50,7 +50,7 @@ export function useContrastText(bg: string, color?: string) {
 }
 
 function getContrastThemeColor(bgThemeColorVariant: string, bgShade: string) {
-  let shadeThreshold = themeColorsThresholdShades[bgThemeColorVariant];
+  const shadeThreshold = themeColorsThresholdShades[bgThemeColorVariant];
   if (
     bgShade &&
     shadeThreshold &&
