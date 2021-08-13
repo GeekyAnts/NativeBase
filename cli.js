@@ -2,6 +2,7 @@ const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
+// Copy directory
 function copyDir(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
   let entries = fs.readdirSync(src, { withFileTypes: true });

@@ -15,7 +15,6 @@
   "scripts": {
     "test": "node_modules/.bin/jest",
     "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
@@ -24,7 +23,18 @@
     "build:web": "rollup --config",
     "bundle:analysis": "visualize-bundle"
   },
-  "version": "3.0.6",
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx}": [
+      "eslint"
+    ],
+    "example/**/*.{js,ts,tsx}": [
+      "eslint"
+    ],
+    "*.{json,md,html}": [
+      "prettier --write"
+    ]
+  },
+  "version": "3.0.7",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -66,6 +76,7 @@
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "jest-expo": "^40.0.1",
+    "lint-staged": "^11.1.1",
     "metro-react-native-babel-preset": "^0.64.0",
     "pod-install": "^0.1.0",
     "postinstall-postinstall": "^2.1.0",
@@ -111,7 +122,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint && yarn prepare"
+      "pre-commit": "yarn lint-staged && yarn prepare"
     }
   },
   "commitlint": {
@@ -139,6 +150,7 @@
   "eslintIgnore": [
     "node_modules/",
     "lib/",
+    "cli.js",
     "example/webpack.config.js",
     "example/babel.config.js",
     "example/metro.config.js"

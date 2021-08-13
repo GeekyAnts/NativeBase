@@ -17,7 +17,6 @@ const Link = (
     onPress,
     isExternal,
     children,
-    _text,
     wrapperRef,
     ...props
   }: ILinkProps,
@@ -28,7 +27,7 @@ const Link = (
     ...stylingProps.position,
     ...stylingProps.layout,
   ]);
-  let { _hover, ...newProps } = usePropsResolution('Link', remProps);
+  let { _hover, _text, ...newProps } = usePropsResolution('Link', remProps);
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
   const linkTextProps = {
