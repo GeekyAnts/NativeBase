@@ -99,7 +99,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
       {React.Children.map(children, (child) => {
         return typeof child === 'string' ||
           (child?.type === React.Fragment &&
-            typeof child.props.children === 'string') ? (
+            typeof child.props?.children === 'string') ? (
           <Text {..._text}>{child}</Text>
         ) : (
           child

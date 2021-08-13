@@ -12,7 +12,7 @@
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
     "postinstall": "patch-package",
-    "test": "rm -fR node_modules/react node_modules/react-native && jest --silent && yarn install  --check-files"
+    "test": "bash scripts/test.sh"
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.2",
@@ -30,7 +30,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
-    "react-native-web": "^0.15.0",
+    "react-native-web": "^0.16.5",
     "styled-components": "^5.2.1",
     "styled-system": "^5.1.5"
   },

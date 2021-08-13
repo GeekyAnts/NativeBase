@@ -4,6 +4,9 @@ import { Pressable, IPressableProps } from '../../primitives/Pressable';
 const Backdrop = (props: IPressableProps) => {
   return (
     <Pressable
+      _web={{
+        cursor: 'default',
+      }}
       position="absolute"
       top={0}
       bottom={0}
@@ -11,7 +14,8 @@ const Backdrop = (props: IPressableProps) => {
       right={0}
       accessible={false}
       importantForAccessibility="no"
-      bg={props.bg || 'rgba(0, 0, 0, 0.3)'}
+      bg={props.bg || 'rgb(0, 0, 0)'}
+      opacity="0.3"
       {...props}
     ></Pressable>
   );

@@ -6,8 +6,6 @@ import {
 } from '../theme/tools';
 import { useTheme } from './../hooks/useTheme';
 
-type values = Object;
-
 export function useBreakpointValue(
   values: Object | Array<string | number | Object>
 ) {

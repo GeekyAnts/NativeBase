@@ -34,7 +34,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.0.6",
+  "version": "3.0.7",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -82,7 +82,7 @@
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.0.5",
     "react": "16.11.0",
-    "react-native": "^0.64.2",
+    "react-native": "0.63.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
     "react-test-renderer": "^16.9.0",
@@ -109,7 +109,7 @@
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
     "modulePathIgnorePatterns": [
-      "<rootDir>/example/node_modules",
+      "<rootDir>/example/*",
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [

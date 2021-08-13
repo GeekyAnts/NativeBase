@@ -1,6 +1,5 @@
 import React, { memo, forwardRef, useRef } from 'react';
 import { Text as NativeText, useWindowDimensions } from 'react-native';
-import { useTheme } from '../../../hooks';
 import styled from 'styled-components/native';
 import {
   color,
@@ -12,6 +11,7 @@ import {
   border,
 } from 'styled-system';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import {
   customBorder,
   customBackground,
@@ -27,34 +27,6 @@ import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
 import isNil from 'lodash.isnil';
 import { isResponsiveAnyProp } from '../../../theme/tools';
-
-type IUseResolvedFontFamily = {
-  fontFamily: string;
-  fontStyle: string;
-  fontWeight: string | number;
-};
-
-// Android doesn't support fontWeight or fontStyle properties. So, we pass fontFamily instead.
-function useResolvedFontFamily(props: IUseResolvedFontFamily) {
-  const { fontFamily, fontStyle, fontWeight } = props;
-
-  const { fontConfig, fontWeights, fonts } = useTheme();
-  const fontToken = fonts[fontFamily];
-
-  if (fontConfig && fontConfig[fontToken]) {
-    // fontWeights are also specified using "400"
-    const parsedFontWeight = parseInt(fontWeight as any);
-    let fontWeightNumber = Number.isNaN(parsedFontWeight)
-      ? fontWeights[fontWeight]
-      : fontWeight;
-    let fontVariants = fontConfig[fontToken][fontWeightNumber];
-    if (typeof fontVariants === 'object') {
-      if (fontVariants[fontStyle]) return fontVariants[fontStyle];
-    } else {
-      return fontVariants;
-    }
-  }
-}
 
 const StyledText = styled(NativeText)<ITextProps>(
   color,

@@ -28,7 +28,7 @@ const baseStyle = (props: Record<string, any>) => {
     },
     _disabled: {
       _interactionBox: {
-        bg: 'transaprarent',
+        bg: 'transparent',
       },
       opacity: 0.4,
     },
