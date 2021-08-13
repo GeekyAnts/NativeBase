@@ -32,6 +32,7 @@ export function Example() {
           bg: 'cyan.600',
           endIcon: <CheckIcon size={4} />,
         }}
+        accessibilityLabel="Select a position for Menu"
       >
         <Select.Item label="auto" value="auto" />
         <Select.Item label="Top Left" value="top left" />
