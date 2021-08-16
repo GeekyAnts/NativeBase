@@ -13,7 +13,10 @@ function CheckboxGroup(
 ) {
   let { children } = props;
   let state = useCheckboxGroupState(props);
-  let { groupProps } = useCheckboxGroup(props, state);
+  let { groupProps } = useCheckboxGroup(
+    { 'aria-label': props.accessibilityLabel, ...props },
+    state
+  );
   const formControlContext = useFormControlContext();
   return (
     <CheckboxGroupContext.Provider

@@ -8,7 +8,12 @@ export const Example = () => {
 
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center">
-      <Radio.Group value={value} onChange={setValue} name="exampleGroup">
+      <Radio.Group
+        value={value}
+        onChange={setValue}
+        name="exampleGroup"
+        accessibilityLabel="pick an option from below"
+      >
         <Radio
           colorScheme={text('colorScheme', 'primary')}
           size={select('size', ['sm', 'md', 'lg'], 'md')}

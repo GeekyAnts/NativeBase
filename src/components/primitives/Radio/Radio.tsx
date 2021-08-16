@@ -9,10 +9,7 @@ import { RadioContext } from './RadioGroup';
 import { mergeRefs } from '../../../utils';
 import { CircleIcon } from '../Icon/Icons';
 
-const Radio = (
-  { icon, children, wrapperRef, size, ...props }: IRadioProps,
-  ref: any
-) => {
+const Radio = ({ icon, wrapperRef, size, ...props }: IRadioProps, ref: any) => {
   const contextState = React.useContext(RadioContext);
   const {
     _interactionBox: { _pressed: _iterationBoxPressed, ..._interactionBox },
@@ -81,7 +78,7 @@ const Radio = (
               </Center>
             </Center>
             {/* Label */}
-            {children}
+            {props.children}
           </Center>
         );
       }}
