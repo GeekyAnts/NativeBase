@@ -3,8 +3,8 @@ import Box from '../Box';
 import type { IFlexProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-const Flex = (
-  {
+const Flex = (props: IFlexProps, ref: any) => {
+  const {
     style,
     align,
     justify,
@@ -13,11 +13,8 @@ const Flex = (
     grow,
     shrink,
     direction,
-    ...props
-  }: IFlexProps,
-  ref: any
-) => {
-  const newProps = usePropsResolution('Flex', props);
+    ...newProps
+  } = usePropsResolution('Flex', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;

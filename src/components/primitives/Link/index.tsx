@@ -11,16 +11,7 @@ import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Link = (
-  {
-    style,
-    href,
-    isUnderlined = false,
-    onPress,
-    isExternal,
-    children,
-    wrapperRef,
-    ...props
-  }: ILinkProps,
+  { style, onPress, children, wrapperRef, ...props }: ILinkProps,
   ref: any
 ) => {
   const [layoutProps, remProps] = extractInObject(props, [
@@ -29,7 +20,14 @@ const Link = (
     ...stylingProps.layout,
   ]);
 
-  let { _hover, _text, ...newProps } = usePropsResolution('Link', remProps);
+  let {
+    _hover,
+    _text,
+    href,
+    isExternal,
+    isUnderlined,
+    ...newProps
+  } = usePropsResolution('Link', remProps);
   const _ref = React.useRef(null);
 
   const { isHovered } = useHover({}, _ref);

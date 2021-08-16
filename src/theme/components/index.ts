@@ -85,7 +85,8 @@ import View from './view';
 import ZStack from './zstack';
 import FAB from './fab';
 import { SliderTrack, Slider, SliderThumb, SliderFilledTrack } from './slider';
-
+import InputLeftAddon from './inputleftaddon';
+import InputRightAddon from './inputrightaddon';
 export default {
   FlatList,
   KeyboardAvoidingView,
@@ -134,6 +135,8 @@ export default {
   IconButton,
   Image,
   Input,
+  InputLeftAddon,
+  InputRightAddon,
   Kbd,
   Link,
   List,

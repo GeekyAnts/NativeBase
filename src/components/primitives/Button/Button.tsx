@@ -8,17 +8,10 @@ import type { IButtonProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
-  {
-    children,
-    isLoadingText,
-    startIcon,
-    endIcon,
-    spinner,
-    ...props
-  }: IButtonProps & IBoxProps,
+  { children, startIcon, endIcon, spinner, ...props }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  const {
+  let {
     _text,
     _disabled,
     _focus,
@@ -26,6 +19,7 @@ const Button = (
     _pressed,
     _focusVisible,
     _stack,
+    isLoadingText,
     ...resolvedProps
   } = usePropsResolution('Button', props);
 

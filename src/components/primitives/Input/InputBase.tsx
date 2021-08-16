@@ -25,6 +25,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledInput = styled(TextInput)<IInputProps>(
   flex,
@@ -103,7 +104,25 @@ const InputBase = (
     fontWeight,
     fontStyle,
   });
-
+  const resolvedPlaceholderTextColor = useToken('colors', placeholderTextColor);
+  const resolvedSelectionColor = useToken('colors', selectionColor);
+  const resolvedUnderlineColorAndroid = useToken(
+    'colors',
+    underlineColorAndroid
+  );
+  //TODO: refactor for responsive prop
+  if (
+    useHasResponsiveProps({
+      ...props,
+      onKeyPress,
+      onFocus,
+      onBlur,
+      disableFocusHandling,
+      inputProps,
+    })
+  ) {
+    return null;
+  }
   return (
     <StyledInput
       {...inputProps}
@@ -118,9 +137,9 @@ const InputBase = (
       {...(isFocused && _focus)}
       {...(isDisabled && _disabled)}
       {...(isInvalid && _invalid)}
-      placeholderTextColor={useToken('colors', placeholderTextColor)}
-      selectionColor={useToken('colors', selectionColor)}
-      underlineColorAndroid={useToken('colors', underlineColorAndroid)}
+      placeholderTextColor={resolvedPlaceholderTextColor}
+      selectionColor={resolvedSelectionColor}
+      underlineColorAndroid={resolvedUnderlineColorAndroid}
       onKeyPress={(e: any) => {
         e.persist();
         onKeyPress && onKeyPress(e);

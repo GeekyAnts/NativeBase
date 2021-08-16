@@ -2,23 +2,21 @@ import React, { memo, forwardRef } from 'react';
 import type { IButtonGroupProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Stack } from '../Stack';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export default memo(
   forwardRef(
-    (
-      {
-        children,
-        divider,
+    ({ children, divider, ...props }: IButtonGroupProps, ref?: any) => {
+      const {
+        space,
+
         variant,
         size,
         colorScheme,
         isDisabled,
         isAttached,
-        ...props
-      }: IButtonGroupProps,
-      ref?: any
-    ) => {
-      const { space, ...newProps } = usePropsResolution('ButtonGroup', props);
+        ...newProps
+      } = usePropsResolution('ButtonGroup', props);
       const computedChildren = React.Children.map(
         children,
         (child: JSX.Element, index: number) => {
@@ -32,6 +30,10 @@ export default memo(
           });
         }
       );
+      //TODO: refactor for responsive prop
+      if (useHasResponsiveProps(props)) {
+        return null;
+      }
       return (
         <Stack
           divider={divider}

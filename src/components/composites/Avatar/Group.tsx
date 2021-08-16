@@ -58,8 +58,8 @@ const getAvatarGroupChildren = (
 };
 
 const AvatarGroup = (allProps: IAvatarGroupProps, ref: any) => {
-  const { children, max, ...props } = allProps;
-  const { borderColor, borderWidth, bg, space } = usePropsResolution(
+  const { children, ...props } = allProps;
+  const { borderColor, borderWidth, bg, space, max } = usePropsResolution(
     'AvatarGroup',
     props
   );

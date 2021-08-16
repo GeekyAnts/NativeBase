@@ -23,6 +23,7 @@ import {
 import { Svg, G } from './nbSvg';
 import type { IIconProps } from './types';
 import { questionOutlineIconPath } from './Icons/questionIconPath';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const SVG = styled(Svg)<IIconProps>(
   color,
@@ -52,7 +53,10 @@ const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
   } = usePropsResolution('Icon', props);
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <SVG
       {...resolvedProps}

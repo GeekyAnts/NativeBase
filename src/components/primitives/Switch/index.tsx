@@ -83,7 +83,17 @@ const Switch = (
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
   //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
+  if (
+    useHasResponsiveProps({
+      ...props,
+      isDisabled,
+      isInvalid,
+      isChecked,
+      defaultIsChecked,
+      accessibilityLabel,
+      accessibilityHint,
+    })
+  ) {
     return null;
   }
   return (
