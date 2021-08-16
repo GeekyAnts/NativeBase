@@ -9,6 +9,9 @@ const Backdrop = (props: IPressableProps) => {
   }
   return (
     <Pressable
+      _web={{
+        cursor: 'default',
+      }}
       position="absolute"
       top={0}
       bottom={0}

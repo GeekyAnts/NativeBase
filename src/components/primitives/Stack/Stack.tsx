@@ -28,12 +28,12 @@ export interface IStackProps extends IBoxProps {
   direction?: ResponsiveValue<'column' | 'row'>;
 }
 
-const Stack = (props: IStackProps, ref?: any) => {
+const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
   const { children, divider, reversed, ...remainingProps } = props;
-  const { space, direction, ...newProps }: any = usePropsResolution(
-    'Stack',
-    remainingProps
-  );
+  const { size, direction, ...newProps }: any = usePropsResolution('Stack', {
+    ...remainingProps,
+    size: space, // Passing space as size of spacer elements.
+  });
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -42,7 +42,7 @@ const Stack = (props: IStackProps, ref?: any) => {
     <Box flexDirection={direction} {...newProps} ref={ref}>
       {getSpacedChildren(
         children,
-        space,
+        size,
         direction === 'row' ? 'X' : 'Y',
         reversed ? 'reverse' : 'normal',
         divider

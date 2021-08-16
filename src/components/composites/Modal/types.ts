@@ -46,6 +46,15 @@ export interface IModalProps extends IBoxProps {
    * @default true
    */
   overlayVisible?: boolean;
+  /**
+   * If true, a backdrop element is visible
+   * @default true
+   */
+  backdropVisible?: boolean;
+  /**
+   * Props applied on Overlay.
+   */
+  _backdrop?: any;
 }
 
 export type IModalComponentType = ((

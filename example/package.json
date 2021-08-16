@@ -29,7 +29,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
-    "react-native-web": "^0.15.0",
+    "react-native-web": "^0.16.5",
     "styled-components": "^5.2.1",
     "styled-system": "^5.1.5"
   },

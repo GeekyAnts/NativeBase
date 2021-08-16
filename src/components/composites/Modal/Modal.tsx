@@ -24,6 +24,7 @@ const Modal = (
     closeOnOverlayClick = true,
     isKeyboardDismissable = true,
     overlayVisible = true,
+    backdropVisible = true,
     //@ts-ignore - internal purpose only
     animationPreset = 'fade',
     ...rest
@@ -31,7 +32,10 @@ const Modal = (
   ref: any
 ) => {
   const bottomInset = useKeyboardBottomInset();
-  const { contentSize, ...restThemeProps } = usePropsResolution('Modal', rest);
+  const { contentSize, _backdrop, ...restThemeProps } = usePropsResolution(
+    'Modal',
+    rest
+  );
 
   const [visible, setVisible] = useControllableState({
     value: isOpen,
@@ -78,11 +82,12 @@ const Modal = (
           in={visible}
           style={StyleSheet.absoluteFill}
         >
-          {overlayVisible && (
+          {overlayVisible && backdropVisible && (
             <Backdrop
               onPress={() => {
                 closeOnOverlayClick && handleClose();
               }}
+              {..._backdrop}
             />
           )}
         </Fade>

@@ -111,6 +111,7 @@ import {
   Drawer,
   Tooltip,
 } from './components/composites';
+import type { IScrollViewProps } from './components/basic';
 
 import {
   // View,
@@ -332,4 +333,5 @@ export type {
   ISelectProps,
   ISelectItemProps,
   ITextFieldProps,
+  IScrollViewProps,
 };
