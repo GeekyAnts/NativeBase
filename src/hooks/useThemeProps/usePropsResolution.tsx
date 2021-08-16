@@ -34,6 +34,7 @@ const pseudoPropsMap = {
   _disabled: 'isDisabled',
   _invalid: 'isInvalid',
   _indeterminate: 'isIndeterminate',
+  _checked: 'isChecked',
 };
 
 /**
@@ -64,35 +65,32 @@ let propertyDepth: any = {};
 
 /**
  * @summary Resolved pseudo props and returns a flattened object.
- * @arg {string} props - .
- * @arg {object} platform - .
- * @arg {object} colormode - .
- * @arg {object} state - .
- * @arg {object} currentDepth - .
+ * @arg {object} {props, platform, colorMode, state} - .
+ * @arg {number} currentDepth - .
  * @returns {object} Resolved and flattened props.
  */
-const pseudoPropsResolver = ({
-  props,
-  platform,
-  colormode,
-  state,
-  currentDepth = 0,
-}: any) => {
+const pseudoPropsResolver = (
+  { props, platform, colormode, state }: any,
+  currentDepth: number
+) => {
   for (const property in props) {
     // @ts-ignore
     if (pseudoPropsMap[property]) {
       if (shouldResolve({ property: property, state, platform, colormode })) {
-        pseudoPropsResolver({
-          props: props[property],
-          platform,
-          colormode,
-          state,
-          currentDepth: currentDepth++,
-        });
+        pseudoPropsResolver(
+          {
+            props: props[property],
+            platform,
+            colormode,
+            state,
+          },
+          currentDepth + 1
+        );
       }
     } else {
       if (
-        !(propertyDepth[property] && propertyDepth[property] > currentDepth)
+        flattenProps[property] === undefined ||
+        propertyDepth[property] <= currentDepth
       ) {
         propertyDepth[property] = currentDepth;
         if (property.startsWith('_')) {
@@ -102,6 +100,7 @@ const pseudoPropsResolver = ({
             props[property]
           );
         } else {
+          delete flattenProps[property];
           flattenProps[property] = props[property];
         }
       }
@@ -155,12 +154,16 @@ export function usePropsResolution(
     cleanIncomingProps
   );
   // STEP 2: flatten them
-  pseudoPropsResolver({
-    props: incomingWithDefaultProps,
-    platform: Platform.OS,
-    colormode: colorModeProps.colorMode,
-    state: state || {},
-  });
+  pseudoPropsResolver(
+    {
+      props: incomingWithDefaultProps,
+      platform: Platform.OS,
+      colormode: colorModeProps.colorMode,
+      state: state || {},
+    },
+    // some high value
+    2
+  );
 
   // STEP 2.5: resolving responsive props
   const responsiveProps = {};
@@ -188,12 +191,15 @@ export function usePropsResolution(
             ...colorModeProps,
           });
 
-    pseudoPropsResolver({
-      props: componentBaseStyle,
-      platform: Platform.OS,
-      colormode: colorModeProps.colorMode,
-      state: state || {},
-    });
+    pseudoPropsResolver(
+      {
+        props: componentBaseStyle,
+        platform: Platform.OS,
+        colormode: colorModeProps.colorMode,
+        state: state || {},
+      },
+      1
+    );
   }
 
   // NOTE: Resolving variants
@@ -216,12 +222,15 @@ export function usePropsResolution(
             ...colorModeProps,
           });
 
-    pseudoPropsResolver({
-      props: componentVariantProps,
-      platform: Platform.OS,
-      colormode: colorModeProps.colorMode,
-      state: state || {},
-    });
+    pseudoPropsResolver(
+      {
+        props: componentVariantProps,
+        platform: Platform.OS,
+        colormode: colorModeProps.colorMode,
+        state: state || {},
+      },
+      1
+    );
 
     // We remove variant from original props if we found it in the componentTheme
     //@ts-ignore
@@ -264,12 +273,15 @@ export function usePropsResolution(
       componentSizeProps = componentTheme.sizes[size];
     }
 
-    pseudoPropsResolver({
-      props: componentSizeProps,
-      platform: Platform.OS,
-      colormode: colorModeProps.colorMode,
-      state: state || {},
-    });
+    pseudoPropsResolver(
+      {
+        props: componentSizeProps,
+        platform: Platform.OS,
+        colormode: colorModeProps.colorMode,
+        state: state || {},
+      },
+      1
+    );
   }
 
   // STEP 4: Merge
@@ -308,12 +320,13 @@ export function usePropsResolution(
     flattenProps?._text?.color
   );
 
-  flattenProps._text = contrastTextColor
-    ? {
-        color: contrastTextColor,
-        ...flattenProps._text,
-      }
-    : flattenProps._text;
+  flattenProps._text =
+    contrastTextColor && flattenProps?._text?.color === undefined
+      ? {
+          color: contrastTextColor,
+          ...flattenProps._text,
+        }
+      : flattenProps._text;
 
   const resolvedProps = omitUndefined({
     ...flattenProps,

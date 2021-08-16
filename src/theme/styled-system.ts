@@ -6,8 +6,8 @@ import { transparentize } from './tools';
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
 export const getColor = (rawValue: any, scale: any, theme: any) => {
-  let alphaMatched = rawValue?.match(/:alpha\.\d\d?\d?/);
-
+  let alphaMatched =
+    typeof rawValue === 'string' ? rawValue?.match(/:alpha\.\d\d?\d?/) : false;
   if (alphaMatched) {
     let colorMatched = rawValue?.match(/^.*?(?=:alpha)/);
     let color = colorMatched ? colorMatched[0] : colorMatched;

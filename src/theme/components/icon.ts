@@ -20,5 +20,5 @@ const sizes = {
   '6xl': 64,
 };
 
-const defaultProps = { size: 'md', color: 'primary' };
+const defaultProps = { size: 'md' };
 export default { baseStyle, sizes, defaultProps };
