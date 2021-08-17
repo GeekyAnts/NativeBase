@@ -2281,17 +2281,18 @@
     "@react-aria/utils" "^3.6.0"
     "@react-native-aria/utils" "^0.2.6"
 
-"@react-native-aria/listbox@^0.2.4-alpha.0":
-  version "0.2.4-alpha.0"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/listbox/-/listbox-0.2.4-alpha.0.tgz#4e5ef8feeda9688cb488f5720fd95c0a0d5d7fcb"
-  integrity sha512-pYOdijJ76mIvp6ZdwTDk++JYYRFPq1FUOI4WfsIgF8qVhlA5ICyUhrkOXI42K8N+bdiEky+sKGgNJCdSxWOxoA==
+"@react-native-aria/listbox@^0.2.4-alpha.3":
+  version "0.2.4-alpha.3"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/listbox/-/listbox-0.2.4-alpha.3.tgz#1a8df0de6c932c8143ea73e43713a5d37070203c"
+  integrity sha512-e/y+Wdoyy/PbpFj4DVYDYMsKI+uUqnZ/0yLByqHQvzs8Ys8o69CQkyEYzHhxvFT5lCLegkLbuQN2cJd8bYNQsA==
   dependencies:
+    "@react-aria/interactions" "^3.3.2"
     "@react-aria/label" "^3.1.1"
     "@react-aria/listbox" "^3.2.4"
     "@react-aria/selection" "^3.3.2"
     "@react-aria/utils" "^3.6.0"
     "@react-native-aria/interactions" "^0.2.2"
-    "@react-native-aria/utils" "^0.2.4"
+    "@react-native-aria/utils" "^0.2.6"
     "@react-types/listbox" "^3.1.1"
     "@react-types/shared" "^3.4.0"
 
