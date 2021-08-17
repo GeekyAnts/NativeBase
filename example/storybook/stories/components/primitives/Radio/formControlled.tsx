@@ -6,7 +6,11 @@ export const Example = () => {
     <Container>
       <FormControl isRequired isInvalid>
         <FormControl.Label>Select One</FormControl.Label>
-        <Radio.Group defaultValue="1" name="exampleGroup">
+        <Radio.Group
+          defaultValue="1"
+          name="exampleGroup"
+          accessibilityLabel="select prize"
+        >
           <Radio value="1" my={1}>
             First
           </Radio>

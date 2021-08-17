@@ -10,12 +10,13 @@ import { theme as defaultTheme, ITheme } from './../theme';
 import type { IColorModeProviderProps } from './color-mode';
 import HybridProvider from './hybrid-overlay/HybridProvider';
 import { OverlayProvider } from '@react-native-aria/overlays';
-import { ToastProvider } from '../components/composites/Toast';
+import { ToastProvider, ToastRef } from '../components/composites/Toast';
 import {
   INativebaseConfig,
   NativeBaseConfigProvider,
 } from './NativeBaseContext';
 import { Platform } from 'react-native';
+import { useToast } from '../components/composites/Toast';
 
 // For SSR to work, we need to pass initial insets as 0 values on web.
 
@@ -63,6 +64,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
           >
             <OverlayProvider>
               <ToastProvider>
+                <InitializeToastRef />
                 <SSRProvider>{children}</SSRProvider>
               </ToastProvider>
             </OverlayProvider>
@@ -71,6 +73,12 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
       </NativeBaseConfigProvider>
     </ThemeProvider>
   );
+};
+
+const InitializeToastRef = () => {
+  const toast = useToast();
+  ToastRef.current = toast;
+  return null;
 };
 
 export { NativeBaseProvider };

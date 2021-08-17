@@ -21,6 +21,7 @@ export const Example = () => {
       <Checkbox.Group
         colorScheme="green"
         defaultValue={groupValue}
+        accessibilityLabel="pick an item"
         onChange={(values) => {
           setGroupValue(values || []);
         }}
