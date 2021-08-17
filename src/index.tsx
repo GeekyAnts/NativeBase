@@ -165,6 +165,7 @@ import {
   ISelectProps,
   ISelectItemProps,
   Pressable,
+  IPressableProps,
 } from './components/primitives';
 
 export * from './components/basic';
@@ -303,6 +304,7 @@ export type {
   IWrapProps,
   IPinInputProps,
   IPinInputFieldProps,
+  IPressableProps,
   IFadeProps,
   IScaleFadeProps,
   ISlideProps,
