@@ -61,9 +61,9 @@ function Slider(props: ISliderProps, ref?: any) {
       value={{
         trackLayout,
         state,
-        orientation: props.orientation,
-        isReversed: props.isReversed,
-        colorScheme: props.colorScheme,
+        orientation: themeProps.orientation,
+        isReversed: themeProps.isReversed,
+        colorScheme: themeProps.colorScheme,
         trackProps,
         onTrackLayout: onLayout,
         thumbSize: themeProps.thumbSize,
