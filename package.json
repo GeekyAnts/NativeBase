@@ -34,7 +34,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.0.7",
+  "version": "3.1.0-rc.1",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -182,6 +182,8 @@
     ]
   },
   "dependencies": {
+    "@react-aria/focus": "^3.2.3",
+    "@react-aria/utils": "^3.6.0",
     "@react-aria/visually-hidden": "^3.2.1",
     "@react-native-aria/button": "^0.2.4",
     "@react-native-aria/checkbox": "^0.2.2",
@@ -194,8 +196,6 @@
     "@react-native-aria/slider": "^0.2.5-alpha.1",
     "@react-native-aria/tabs": "^0.2.7",
     "@react-native-aria/utils": "^0.2.7",
-    "@react-aria/utils": "^3.6.0",
-    "@react-aria/focus": "^3.2.3",
     "@react-stately/combobox": "^3.0.0-alpha.1",
     "@react-stately/radio": "^3.2.1",
     "@types/styled-system": "^5.1.9",
