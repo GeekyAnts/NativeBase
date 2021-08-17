@@ -16,7 +16,7 @@ export interface IButtonProps extends IPressableProps {
    * @default 'solid'
    */
   variant?: ResponsiveValue<
-    'ghost' | 'outline' | 'solid' | 'link' | 'unstyled'
+    'ghost' | 'outline' | 'solid' | 'link' | 'unstyled' | 'subtle'
   >;
   /**
    * If true, the button will show a spinner.
@@ -55,8 +55,29 @@ export interface IButtonProps extends IPressableProps {
    */
   _stack?: IStackProps;
   /**
-   * Passed props will be applied on hovered state.
+   * Prop to decide placement of spinner.
    */
+  spinnerPlacement?: 'start' | 'end';
+  /**
+   * Props to be passed to the button when isLoading is true.
+   */
+  _loading?: any;
+  /**
+   * Props to be passed to the button when button is disabled.
+   */
+  _disabled?: any;
+  /**
+   * Props to be passed to the spinner when isLoading is true.
+   */
+  _spinner?: any;
+  /**
+   * The right icon element to use in the button.
+   */
+  rightIcon?: JSX.Element | Array<JSX.Element>;
+  /**
+   * The left icon element to use in the button.
+   */
+  leftIcon?: JSX.Element | Array<JSX.Element>;
 }
 
 export interface IButtonGroupProps extends IStackProps {

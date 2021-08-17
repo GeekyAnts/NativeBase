@@ -11,8 +11,11 @@ const Button = (
     children,
     isLoadingText,
     startIcon,
+    rightIcon,
+    leftIcon,
     endIcon,
     spinner,
+    spinnerPlacement = 'start',
     ...props
   }: IButtonProps & IBoxProps,
   ref: any
@@ -25,18 +28,25 @@ const Button = (
     _pressed,
     _focusVisible,
     _stack,
+    _loading,
+    _spinner,
+    spinnerProps,
     ...resolvedProps
-  } = usePropsResolution('Button', props);
+  } = usePropsResolution('Button', props, { ignoreProps: ['_spinner'] });
 
   const pressableProps = {
     ...resolvedProps,
     _hover,
     _pressed,
     _focus,
-    _disabled,
     _focusVisible,
   };
-
+  if (leftIcon) {
+    startIcon = leftIcon;
+  }
+  if (rightIcon) {
+    endIcon = rightIcon;
+  }
   const { isDisabled, isLoading } = props;
 
   if (endIcon && React.isValidElement(endIcon)) {
@@ -63,12 +73,13 @@ const Button = (
       }
     );
   }
-
   return (
     <Pressable
       disabled={isDisabled || isLoading}
       ref={ref}
       {...pressableProps}
+      {...(isLoading && _loading)}
+      {...(isDisabled && _disabled)}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
       {/* TODO: Replace Render props with Context Hook */}
@@ -84,20 +95,26 @@ const Button = (
           _disabled?._text && { ..._disabled._text };
         const focusVisibleTextProps = isFocused &&
           _focusVisible?._text && { ..._focusVisible._text };
+        const loadingTextProps = isLoading &&
+          _loading?._text && { ..._loading._text };
 
         const boxChildren =
           isLoading && isLoadingText ? isLoadingText : children;
 
+        const spinnerElement = spinner ? (
+          spinner
+        ) : (
+          <Spinner
+            color={loadingTextProps?.color || _text?.color}
+            {...spinnerProps}
+            {..._spinner}
+          />
+        );
+
         return (
           <HStack {..._stack}>
             {startIcon && !isLoading ? startIcon : null}
-            {isLoading ? (
-              spinner ? (
-                spinner
-              ) : (
-                <Spinner color={_text?.color} size="sm" />
-              )
-            ) : null}
+            {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
             {boxChildren ? (
               <Box
                 _text={{
@@ -106,13 +123,16 @@ const Button = (
                   ...focusTextProps,
                   ...focusVisibleTextProps,
                   ...pressedTextProps,
+                  ...loadingTextProps,
                   ...disabledTextProps,
                 }}
               >
                 {isLoading && isLoadingText ? isLoadingText : children}
               </Box>
             ) : null}
+
             {endIcon && !isLoading ? endIcon : null}
+            {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
           </HStack>
         );
       }}
