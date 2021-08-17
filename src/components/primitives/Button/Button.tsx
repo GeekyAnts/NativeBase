@@ -101,20 +101,20 @@ const Button = (
         const boxChildren =
           isLoading && isLoadingText ? isLoadingText : children;
 
+        const spinnerElement = spinner ? (
+          spinner
+        ) : (
+          <Spinner
+            color={loadingTextProps?.color || _text?.color}
+            {...spinnerProps}
+            {..._spinner}
+          />
+        );
+
         return (
           <HStack {..._stack}>
             {startIcon && !isLoading ? startIcon : null}
-            {isLoading && spinnerPlacement === 'start' ? (
-              spinner ? (
-                spinner
-              ) : (
-                <Spinner
-                  color={loadingTextProps?.color || _text?.color}
-                  {...spinnerProps}
-                  {..._spinner}
-                />
-              )
-            ) : null}
+            {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
             {boxChildren ? (
               <Box
                 _text={{
@@ -132,17 +132,7 @@ const Button = (
             ) : null}
 
             {endIcon && !isLoading ? endIcon : null}
-            {isLoading && spinnerPlacement === 'end' ? (
-              spinner ? (
-                spinner
-              ) : (
-                <Spinner
-                  color={loadingTextProps?.color || _text?.color}
-                  {...spinnerProps}
-                  {..._spinner}
-                />
-              )
-            ) : null}
+            {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
           </HStack>
         );
       }}

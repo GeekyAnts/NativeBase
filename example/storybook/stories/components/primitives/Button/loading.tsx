@@ -8,6 +8,8 @@ export const Example = () => {
       space={2}
       alignItems={{ base: 'center', md: 'flex-start' }}
     >
+      <Button isLoading>Button</Button>
+      <Button isLoading isLoadingText="Submitting" />
       <Button
         isLoading
         spinnerPlacement="end"
@@ -25,9 +27,7 @@ export const Example = () => {
       >
         BUTTON
       </Button>
-      <Button isLoading isLoadingText="Submitting" variant="outline">
-        BUTTON
-      </Button>
+      <Button isLoading isLoadingText="Submitting" variant="outline" />
     </Stack>
   );
 };
