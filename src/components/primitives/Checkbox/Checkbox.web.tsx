@@ -13,10 +13,7 @@ import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
 import { CheckIcon } from '../Icon/Icons';
 
-const Checkbox = (
-  { children, icon, wrapperRef, ...props }: ICheckboxProps,
-  ref: any
-) => {
+const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext = useFormControlContext();
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
   const {
@@ -125,7 +122,7 @@ const Checkbox = (
           )}
         </Center>
       </Center>
-      {children}
+      {props.children}
     </Box>
   );
 

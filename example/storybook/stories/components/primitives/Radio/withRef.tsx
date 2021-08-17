@@ -8,6 +8,7 @@ export const Example = () => {
     <Radio.Group
       name="exampleGroup"
       colorScheme="success"
+      accessibilityLabel="pick an option"
       onChange={(value) => {
         if (value === '2')
           myRef?.current?.setNativeProps({ backgroundColor: '#00de0050' });
