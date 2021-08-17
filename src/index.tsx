@@ -106,6 +106,7 @@ import {
   useTypeahead,
   Modal,
   useToast,
+  Toast,
   IToastProps,
   Backdrop,
   Drawer,
@@ -165,6 +166,7 @@ import {
   ISelectProps,
   ISelectItemProps,
   Pressable,
+  IPressableProps,
 } from './components/primitives';
 
 export * from './components/basic';
@@ -253,7 +255,7 @@ export {
   Select,
   Modal,
   useToast,
-  IToastProps,
+  Toast,
   Backdrop,
   Drawer,
   Tooltip,
@@ -303,6 +305,7 @@ export type {
   IWrapProps,
   IPinInputProps,
   IPinInputFieldProps,
+  IPressableProps,
   IFadeProps,
   IScaleFadeProps,
   ISlideProps,
@@ -326,6 +329,7 @@ export type {
   ITabViewsProps,
   ITabViewProps,
   ITabsContextProps,
+  IToastProps,
   IActionsheetProps,
   IActionsheetContentProps,
   IActionsheetItemProps,

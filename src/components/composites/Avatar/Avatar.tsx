@@ -15,7 +15,7 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
   });
 
   let Badge = <></>;
-  let remainingChildren: JSX.Element[] = [];
+  const remainingChildren: JSX.Element[] = [];
   //  Pop Badge from children
   React.Children.map(children, (child, key) => {
     if (
@@ -55,10 +55,8 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
           }}
           ref={ref}
         />
-      ) : remainingChildren.length === 0 ? (
-        <Text {..._text}>--</Text> // default alternate
       ) : (
-        remainingChildren
+        remainingChildren.length !== 0 && remainingChildren
       )}
       {Badge}
     </Box>

@@ -12,10 +12,7 @@ import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { CheckIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Checkbox = (
-  { icon, children, wrapperRef, ...props }: ICheckboxProps,
-  ref: any
-) => {
+const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext = useFormControlContext();
 
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
@@ -115,7 +112,7 @@ const Checkbox = (
               </Center>
             </Center>
             {/* Label */}
-            {children}
+            {props.children}
           </Center>
         );
       }}

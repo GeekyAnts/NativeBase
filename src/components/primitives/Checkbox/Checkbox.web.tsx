@@ -14,10 +14,7 @@ import { useFocusRing } from '@react-native-aria/focus';
 import { CheckIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Checkbox = (
-  { children, icon, wrapperRef, ...props }: ICheckboxProps,
-  ref: any
-) => {
+const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext = useFormControlContext();
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
   const {
@@ -127,7 +124,7 @@ const Checkbox = (
           )}
         </Center>
       </Center>
-      {children}
+      {props.children}
     </Box>
   );
   //TODO: refactor for responsive prop

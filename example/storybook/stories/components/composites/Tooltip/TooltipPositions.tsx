@@ -14,8 +14,7 @@ export function Example() {
       <Select
         selectedValue={position}
         mx={{ base: 0, md: 'auto' }}
-        accessibilityLabel="Select your favorite programming language"
-        placeholder="Select your favorite programming language"
+        accessibilityLabel="Select a position for Tooltip"
         onValueChange={(nextValue) => setPosition(nextValue)}
         _selectedItem={{
           bg: 'cyan.600',
