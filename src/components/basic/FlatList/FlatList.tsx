@@ -8,7 +8,7 @@ const StyledFlatList: any = makeStyledBox(RNFlatList);
 
 export const FlatList = forwardRef((props: IFlatListProps, ref: any) => {
   const { ...resolvedProps } = usePropsResolution('FlatList', props, {
-    ignoreProps: ['data', 'renderItem', 'keyExtractor'],
+    ignoreProps: ['data', 'renderItem', 'keyExtractor', 'stickyHeaderIndices'],
   });
 
   return <StyledFlatList {...resolvedProps} ref={ref} />;
