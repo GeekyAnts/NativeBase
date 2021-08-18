@@ -31,11 +31,11 @@ const StyledImage = styled(RNImage)<IImageProps>(
   customLayout
 );
 
-const Image = (
-  { source, src, fallbackElement, ...props }: IImageProps,
-  ref: any
-) => {
+const Image = (props: IImageProps, ref: any) => {
   const {
+    source,
+    src,
+    fallbackElement,
     alt,
     fallbackSource,
     ignoreFallback,
@@ -90,18 +90,7 @@ const Image = (
   if (alternate) {
     if (fallbackElement) {
       if (React.isValidElement(fallbackElement)) {
-        fallbackElement = React.Children.map(
-          fallbackElement,
-          (child: JSX.Element, index: number) => {
-            return React.cloneElement(child, {
-              key: `button-end-icon-${index}`,
-              ...child.props,
-            });
-          }
-        );
         return fallbackElement;
-      } else {
-        return <Text>{fallbackElement}</Text>;
       }
     } else return <Text {..._alt}>{alt}</Text>;
   }
