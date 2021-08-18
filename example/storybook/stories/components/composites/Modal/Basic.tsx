@@ -8,7 +8,11 @@ export const Example = () => {
   return (
     <>
       <Button onPress={() => setShowModal(true)}>Button</Button>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        animationPreset="fade"
+      >
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
           <Modal.Header>Modal Title</Modal.Header>

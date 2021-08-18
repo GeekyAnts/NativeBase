@@ -30,6 +30,7 @@ export type IAlertDialogComponentType = ((
 const AlertDialog = React.memo(
   React.forwardRef((props: IAlertDialogProps, ref?: any) => {
     const { leastDestructiveRef, ...rest } = props;
+
     return (
       <Modal
         {...rest}

@@ -87,10 +87,15 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
     <PresenceTransition
       visible={visible}
       {...animationStyle[placement]}
-      style={[{ position: 'absolute' }, holderStyle[placement]]}
+      style={[
+        { position: 'absolute' },
+        holderStyle[placement],
+        { height: '100%' },
+      ]}
     >
       <Box
         {...props}
+        h="100%"
         opacity={containerOpacity}
         ref={ref}
         onLayout={(e) => provideSize(e.nativeEvent.layout)}
