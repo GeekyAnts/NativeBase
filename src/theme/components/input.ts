@@ -20,8 +20,6 @@ const baseStyle = (props: Record<string, any>) => {
 
   return {
     fontFamily: 'body',
-    px: 4,
-    py: 2,
     borderRadius: 'lg',
     color: mode('black', 'white')(props),
     placeholderTextColor: mode('muted.400', 'muted.500')(props),
@@ -41,24 +39,26 @@ const baseStyle = (props: Record<string, any>) => {
       style: { ...focusRing },
       borderColor: 'primary.400',
     },
-    _android: {
-      px: 4,
-      py: 3,
-      _focus: {
-        borderColor: 'primary.400',
-      },
-    },
-    _ios: {
-      px: 4,
-      py: 3,
-      _focus: {
-        borderColor: 'primary.400',
-      },
-    },
+    px: 4,
+    py: 3,
     _web: {
       outlineWidth: 0,
-      lineHeight: 6, // Todo: Move to _web inside size so that sm and xs don't have this much height
     },
+
+    // _android: {
+    //   px: 4,
+    //   py: 3,
+    //   _focus: {
+    //     borderColor: 'primary.400',
+    //   },
+    // },
+    // _ios: {
+
+    // },
+    // _web: {
+    //   outlineWidth: 0,
+    //   lineHeight: 6, // Todo: Move to _web inside size so that sm and xs don't have this much height
+    // },
   };
 };
 

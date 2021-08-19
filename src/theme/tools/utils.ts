@@ -231,18 +231,43 @@ export function getClosestBreakpoint(
 
 export const baseFontSize = 16;
 
-const convertAbsoluteToRem = (px: number) => {
+export const convertAbsoluteToRem = (px: number) => {
   return `${px / baseFontSize}rem`;
 };
 
-const convertRemToAbsolute = (rem: number) => {
+export const convertRemToAbsolute = (rem: number) => {
   return rem * baseFontSize;
+};
+
+export const convertToDp = (value: number | string): number => {
+  const numberRegex = /^\d+$/;
+
+  if (typeof value === 'number') {
+    return value;
+  } else {
+    const isAbsolute = numberRegex.test(value);
+    const isPx = !isAbsolute && value.endsWith('px');
+    const isRem = !isAbsolute && value.endsWith('rem');
+    const isEm = !isAbsolute && value.endsWith('em');
+
+    let finalDpValue = 0;
+
+    if (isAbsolute || isPx) {
+      finalDpValue = parseFloat(value);
+    } else if (isEm) {
+      finalDpValue = convertRemToAbsolute(parseFloat(value));
+    } else if (isRem) {
+      finalDpValue = convertRemToAbsolute(parseFloat(value));
+    }
+
+    return finalDpValue;
+  }
 };
 
 /**
  *
  * @param theme
- * @description 
+ * @description
   - Converts space/sizes/lineHeights/letterSpacings/fontSizes to `rem` on web if the token value specified is an absolute number.
   - Converts space/sizes/lineHeights/letterSpacings/fontSizes to absolute number on native if the token value specified is in `px` or `rem`
 */
