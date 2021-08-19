@@ -1,21 +1,31 @@
 import React, { memo, forwardRef } from 'react';
-import { Button, IButtonProps } from '../../primitives/Button';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { Pressable } from '../../primitives/Pressable';
+import { Icon } from '../../primitives/Icon';
+import { usePropsResolutionTest } from '../../../hooks/useThemeProps';
+import type { IIconButtonProps } from './types';
 
-export interface IIconButtonProps extends IButtonProps {
-  /**
-   * The icon to be used. Refer to the Icon section of the docs for the available icon options.
-   */
-  icon: JSX.Element;
-}
+const IconButton = (
+  { icon, children, ...props }: IIconButtonProps,
+  ref: any
+) => {
+  const { _icon, ...resolvedProps } = usePropsResolutionTest(
+    'IconButton',
+    props
+  );
 
-const IconButton = ({ icon, ...props }: IIconButtonProps, ref: any) => {
-  const newProps = usePropsResolution('IconButton', props);
+  let clonedIcon;
+  if (icon) {
+    clonedIcon = React.cloneElement(icon, {
+      ..._icon,
+    });
+  }
+
   return (
-    <Button ref={ref} {...newProps}>
-      {icon}
-    </Button>
+    <Pressable ref={ref} {...resolvedProps}>
+      {clonedIcon || <Icon {..._icon}>{children}</Icon>}
+    </Pressable>
   );
 };
 
 export default memo(forwardRef(IconButton));
+export type { IIconButtonProps };

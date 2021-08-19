@@ -1,6 +1,9 @@
 import React, { memo, forwardRef, useRef } from 'react';
 import { Text as NativeText } from 'react-native';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+import {
+  usePropsResolutionTest,
+  usePropsResolution,
+} from '../../../hooks/useThemeProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';

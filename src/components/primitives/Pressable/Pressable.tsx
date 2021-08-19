@@ -2,7 +2,10 @@ import React, { forwardRef, memo } from 'react';
 import { Pressable as RNPressable } from 'react-native';
 import { composeEventHandlers } from '../../../utils';
 import type { IPressableProps } from './types';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+import {
+  usePropsResolution,
+  usePropsResolutionTest,
+} from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
 import { makeStyledComponent } from '../../../utils/styled';
 
@@ -59,7 +62,7 @@ const Pressable = (
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
 
-  const { ...resolvedProps } = usePropsResolution('Pressable', props, {
+  const { ...resolvedProps } = usePropsResolutionTest('Pressable', props, {
     isHovered,
     isPressed,
     isFocused,
