@@ -217,7 +217,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
     } else if (status || variant) {
       component = (
         <Alert
-          maxWidth="90%"
+          mx="5%"
           alignSelf="center"
           status={status ?? 'info'}
           variant={variant as any}
