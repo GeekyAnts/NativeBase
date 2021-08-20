@@ -9,7 +9,7 @@ import {
 import { useFocusRing } from '@react-native-aria/focus';
 import { makeStyledComponent } from '../../../utils/styled';
 
-const useHover = () => {
+export const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
   return {
     hoverProps: {
@@ -20,7 +20,7 @@ const useHover = () => {
   };
 };
 
-const useFocus = () => {
+export const useFocus = () => {
   const [isFocused, setFocused] = React.useState(false);
   return {
     focusProps: {
@@ -31,7 +31,7 @@ const useFocus = () => {
   };
 };
 
-const useIsPressed = () => {
+export const useIsPressed = () => {
   const [isPressed, setIsPressed] = React.useState(false);
   return {
     pressableProps: {
@@ -44,32 +44,28 @@ const useIsPressed = () => {
 
 const StyledPressable = makeStyledComponent(RNPressable);
 
-const Pressable = (
-  {
-    children,
+const Pressable = ({ children, ...props }: IPressableProps, ref: any) => {
+  const { hoverProps, isHovered } = useHover();
+  const { pressableProps, isPressed } = useIsPressed();
+  const { focusProps, isFocused } = useFocus();
+  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+
+  const {
     onPressIn,
     onPressOut,
     onHoverIn,
     onHoverOut,
     onFocus,
     onBlur,
-    ...props
-  }: IPressableProps,
-  ref: any
-) => {
-  const { hoverProps, isHovered } = useHover();
-  const { pressableProps, isPressed } = useIsPressed();
-  const { focusProps, isFocused } = useFocus();
-  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
-
-  const { ...resolvedProps } = usePropsResolutionTest('Pressable', props, {
+    ...resolvedProps
+  } = usePropsResolutionTest('Pressable', props, {
     isHovered,
     isPressed,
     isFocused,
     isFocusVisible,
   });
 
-  // TODO : Replace Render props with Context Hook
+  // TODO: Replace Render props with Context Hook
   return (
     <StyledPressable
       ref={ref}
