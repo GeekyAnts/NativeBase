@@ -53,9 +53,12 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
   } = props;
   const theme = config.theme ?? propsTheme;
 
-  const newTheme = React.useMemo(() => platformSpecificSpaceUnits(theme), [
-    theme,
-  ]);
+  const newTheme = React.useMemo(() => {
+    if (config.enableRem) {
+      return platformSpecificSpaceUnits(theme);
+    }
+    return theme;
+  }, [config.enableRem, theme]);
 
   const windowWidth = useWindowDimensions()?.width;
 
