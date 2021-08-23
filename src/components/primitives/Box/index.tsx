@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import { View } from 'react-native';
-import { usePropsResolutionTest } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Text from './../Text';
 import { makeStyledComponent } from '../../../utils/styled';
 import type { IBoxProps } from './types';
@@ -13,7 +13,7 @@ let MemoizedGradient: any = undefined;
 
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   // const { _text, ...resolvedProps } = useThemeProps('Box', props);
-  const { _text, ...resolvedProps } = usePropsResolutionTest('Box', props);
+  const { _text, ...resolvedProps } = usePropsResolution('Box', props);
   let Gradient = useNativeBaseConfig('NativeBaseConfigProvider').config
     .dependencies?.['linear-gradient'];
 

@@ -1,7 +1,7 @@
 import React, { memo, forwardRef } from 'react';
 import { Pressable } from '../../primitives/Pressable';
 import { Icon } from '../../primitives/Icon';
-import { usePropsResolutionTest } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { composeEventHandlers } from '../../../utils';
 import type { IIconButtonProps } from './types';
 import {
@@ -27,12 +27,11 @@ const IconButton = (
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolutionTest('IconButton', props, {
+  } = usePropsResolution('IconButton', props, {
     isHovered,
     isPressed,
     isFocused,
   });
-  
 
   let clonedIcon;
   if (icon) {

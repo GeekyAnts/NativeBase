@@ -6,108 +6,98 @@ import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
+import { useFlattenProps } from './useFlattenProps';
 
-// TODO: have to remove as many ts-ignore as possible.
-
-const platformPropsMap = ['_ios', '_android', '_web'];
-const colorModePropsMap = ['_light', '_dark'];
-const statePropsMap = [
-  '_invalid',
-  '_disabled',
-  '_checked',
-  '_hover',
-  '_pressed',
-  '_focused',
+const specificityOrder = [
+  'p',
+  'padding',
+  'px',
+  'py',
+  'pt',
+  'pb',
+  'pl',
+  'pr',
+  'paddingTop',
+  'paddingBottom',
+  'paddingLeft',
+  'paddingRight',
+  'm',
+  'margin',
+  'mx',
+  'my',
+  'mt',
+  'mb',
+  'ml',
+  'mr',
+  'marginTop',
+  'marginBottom',
+  'marginLeft',
+  'marginRight',
 ];
-const pseudoPropsMap = {
-  _web: 'web',
-  _ios: 'ios',
-  _android: 'android',
 
-  _light: 'light',
-  _dark: 'dark',
-
-  // TODO: have to add more interactionProps and stateProps
-  _hover: 'isHovered',
-  _pressed: 'isPressed',
-  _focused: 'isFocused',
-  _disabled: 'isDisabled',
-  _invalid: 'isInvalid',
-  _indeterminate: 'isIndeterminate',
-  _checked: 'isChecked',
+let marginMap: any = {
+  mx: ['marginRight', 'marginLeft'],
+  my: ['marginTop', 'marginBottom'],
+  mt: ['marginTop'],
+  mb: ['marginBottom'],
+  mr: ['marginRight'],
+  ml: ['marginLeft'],
 };
 
-/**
- * @summary Check weather provided property should be resolved or not. based on plaform, colormode and state
- * @arg {string} property - .
- * @arg {object} platform - .
- * @arg {object} colormode - .
- * @arg {object} state - .
- * @returns {object} Resolved and flattened props.
- */
-const shouldResolve = ({ property, state, platform, colormode }: any) => {
-  if (platformPropsMap.includes(property)) {
-    // @ts-ignore
-    return pseudoPropsMap[property] === platform;
-  } else if (colorModePropsMap.includes(property)) {
-    // @ts-ignore
-    return pseudoPropsMap[property] === colormode;
-  } else if (statePropsMap.includes(property)) {
-    // @ts-ignore
-    return state[pseudoPropsMap[property]];
-  } else {
-    return false;
-  }
+marginMap.margin = [...marginMap.mx, ...marginMap.my];
+marginMap.m = marginMap.margin;
+marginMap.marginTop = marginMap.mt;
+marginMap.marginBottom = marginMap.mb;
+marginMap.marginLeft = marginMap.ml;
+marginMap.marginRight = marginMap.mr;
+
+let paddingMap: any = {
+  px: ['paddingRight', 'paddingLeft'],
+  py: ['paddingTop', 'paddingBottom'],
+  pt: ['paddingTop'],
+  pb: ['paddingBottom'],
+  pr: ['paddingRight'],
+  pl: ['paddingLeft'],
 };
 
-let flattenProps: any = {};
-let propertyDepth: any = {};
+paddingMap.padding = [...paddingMap.px, ...paddingMap.py];
+paddingMap.p = paddingMap.padding;
+paddingMap.paddingTop = paddingMap.pt;
+paddingMap.paddingBottom = paddingMap.pb;
+paddingMap.paddingLeft = paddingMap.pl;
+paddingMap.paddingRight = paddingMap.pr;
 
-/**
- * @summary Resolved pseudo props and returns a flattened object.
- * @arg {object} {props, platform, colorMode, state} - .
- * @arg {number} currentDepth - .
- * @returns {object} Resolved and flattened props.
- */
-const pseudoPropsResolver = (
-  { props, platform, colormode, state }: any,
-  currentDepth: number
-) => {
-  for (const property in props) {
-    // @ts-ignore
-    if (pseudoPropsMap[property]) {
-      if (shouldResolve({ property: property, state, platform, colormode })) {
-        pseudoPropsResolver(
-          {
-            props: props[property],
-            platform,
-            colormode,
-            state,
-          },
-          currentDepth + 1
-        );
-      }
-    } else {
-      if (
-        flattenProps[property] === undefined ||
-        propertyDepth[property] <= currentDepth
-      ) {
-        propertyDepth[property] = currentDepth;
-        if (property.startsWith('_')) {
-          flattenProps[property] = merge(
-            {},
-            flattenProps[property],
-            props[property]
-          );
-        } else {
-          delete flattenProps[property];
-          flattenProps[property] = props[property];
-        }
-      }
+const specificityMaps: any = {
+  ...paddingMap,
+  ...marginMap,
+};
+
+function overrideDefaultProps(userProps: any, defaultProps: any) {
+  const flattenedUserProps: any = { ...userProps };
+  const flattenedDefaultProps: any = { ...defaultProps };
+
+  specificityOrder.forEach((prop) => {
+    if (prop in flattenedUserProps) {
+      const val = flattenedUserProps[prop];
+      delete flattenedUserProps[prop];
+
+      specificityMaps[prop].forEach((newProp: string) => {
+        flattenedUserProps[newProp] = val;
+      });
     }
-  }
-  return flattenProps;
-};
+
+    if (prop in flattenedDefaultProps) {
+      const val = flattenedDefaultProps[prop];
+      delete flattenedDefaultProps[prop];
+
+      specificityMaps[prop].forEach((newProp: string) => {
+        flattenedDefaultProps[newProp] = val;
+      });
+    }
+  });
+
+  return merge(flattenedDefaultProps, flattenedUserProps);
+}
 
 /**
  * @summary Combines provided porps with component's theme props and resloves them.
@@ -140,6 +130,7 @@ export function usePropsResolution(
   const colorModeProps = useColorMode();
 
   const componentTheme = get(theme, `components.${component}`, {});
+
   // const windowWidth = useWindowDimensions()?.width;
   // const currentBreakpoint = React.useMemo(
   //   () => getClosestBreakpoint(theme.breakpoints, windowWidth),
@@ -154,14 +145,14 @@ export function usePropsResolution(
     cleanIncomingProps
   );
   // STEP 2: flatten them
-  pseudoPropsResolver(
+
+  let [flattenProps, specificityMap] = useFlattenProps(
     {
       props: incomingWithDefaultProps,
       platform: Platform.OS,
       colormode: colorModeProps.colorMode,
       state: state || {},
     },
-    // some high value
     2
   );
 
@@ -176,11 +167,16 @@ export function usePropsResolution(
 
   const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
 
-  flattenProps = { ...flattenProps, ...responsivelyResolvedProps };
+  flattenProps = {
+    ...flattenProps,
+    ...responsivelyResolvedProps,
+  };
   // STEP 3: Pass it to baseStyle, then variant and then size and resolve them.
 
   // NOTE: Resoloving baseStyle
-  let componentBaseStyle = {};
+  let componentBaseStyle = {},
+    flattenBaseStyle,
+    baseSpecificityMap;
   if (componentTheme.baseStyle) {
     componentBaseStyle =
       typeof componentTheme.baseStyle !== 'function'
@@ -191,26 +187,25 @@ export function usePropsResolution(
             ...colorModeProps,
           });
 
-    pseudoPropsResolver(
+    [flattenBaseStyle, baseSpecificityMap] = useFlattenProps(
       {
         props: componentBaseStyle,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
+        currentSpecificityMap: specificityMap,
       },
       1
     );
   }
 
   // NOTE: Resolving variants
-  // const variant = resolveValueWithBreakpoint(
-  //   flattenProps.variant,
-  //   currentBreakpoint,
-  //   'variant'
-  // );
+
   const variant = flattenProps.variant;
 
-  let componentVariantProps = {};
+  let componentVariantProps = {},
+    flattenVariantStyle,
+    variantSpecificityMap;
   // Extracting props from variant
   if (variant && componentTheme.variants && componentTheme.variants[variant]) {
     componentVariantProps =
@@ -222,12 +217,13 @@ export function usePropsResolution(
             ...colorModeProps,
           });
 
-    pseudoPropsResolver(
+    [flattenVariantStyle, variantSpecificityMap] = useFlattenProps(
       {
         props: componentVariantProps,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
+        currentSpecificityMap: baseSpecificityMap || specificityMap,
       },
       1
     );
@@ -238,15 +234,11 @@ export function usePropsResolution(
   }
 
   // NOTE: Resolving size
-  // const size = resolveValueWithBreakpoint(
-  //   flattenProps.size,
-  //   currentBreakpoint,
-  //   'size'
-  // );
 
   const size = flattenProps.size;
 
-  let componentSizeProps = {};
+  let componentSizeProps = {},
+    flattenSizeStyle;
   // Extracting props from size
   if (size && componentTheme.sizes && componentTheme.sizes[size]) {
     // Type - sizes: {lg: 1}. Refer icon theme
@@ -254,9 +246,9 @@ export function usePropsResolution(
       typeof componentTheme.sizes[size] === 'string' ||
       typeof componentTheme.sizes[size] === 'number'
     ) {
-      flattenProps.size = undefined;
+      flattenProps.size = componentTheme.sizes[size];
       //@ts-ignore
-      componentSizeProps.size = componentTheme.sizes[size];
+      // componentSizeProps.size = componentTheme.sizes[size];
     }
     // Type - sizes: (props) => ({lg: {px: 1}}). Refer heading theme
     else if (typeof componentTheme.sizes[size] === 'function') {
@@ -273,20 +265,29 @@ export function usePropsResolution(
       componentSizeProps = componentTheme.sizes[size];
     }
 
-    pseudoPropsResolver(
+    [flattenSizeStyle] = useFlattenProps(
       {
         props: componentSizeProps,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
+        currentSpecificityMap:
+          variantSpecificityMap || baseSpecificityMap || specificityMap,
       },
       1
     );
   }
 
-  // STEP 4: Merge
+  // // STEP 4: merge
+  const defaultStyles = merge(
+    flattenBaseStyle,
+    flattenVariantStyle,
+    flattenSizeStyle
+  );
 
-  // STEP 5: linear Grad and contrastText
+  flattenProps = overrideDefaultProps(flattenProps, defaultStyles);
+
+  // // STEP 5: linear Grad and contrastText
   let ignore: any = [];
   if (
     flattenProps.bg?.linearGradient ||
@@ -309,7 +310,7 @@ export function usePropsResolution(
     });
     ignore = ['bg', 'background', 'backgroundColor', 'bgColor'];
   }
-  // NOTE: seprating bg props when linearGardiant is available
+  // // NOTE: seprating bg props when linearGardiant is available
   const [gradientProps] = extractInObject(flattenProps, ignore);
 
   let bgColor =
@@ -335,8 +336,8 @@ export function usePropsResolution(
   });
   // STEP 6: Return
 
-  flattenProps = {};
-  propertyDepth = {};
+  // flattenProps = {};
+  // propertyDepth = {};
 
   return resolvedProps;
 }

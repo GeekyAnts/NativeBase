@@ -1,9 +1,6 @@
 import React, { memo, forwardRef, useRef } from 'react';
 import { Text as NativeText } from 'react-native';
-import {
-  usePropsResolutionTest,
-  usePropsResolution,
-} from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
@@ -28,7 +25,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     _hover,
     fontSize = 'md',
     ...reslovedProps
-  } = usePropsResolutionTest('Text', props);
+  } = usePropsResolution('Text', props);
 
   const _ref = useRef(null);
   // TODO: might have to add this condition

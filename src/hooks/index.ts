@@ -14,6 +14,7 @@ export {
 export { useThemeProps, usePropsWithComponentTheme } from './useThemeProps';
 // TODO: instead export only this.
 export { usePropsResolution } from './useThemeProps';
+export { usePropsResolutionTest } from './useThemeProps/usePropsResolutionTest';
 export { useTheme } from './useTheme';
 export { useToken } from './useToken';
 export { useSafeArea } from './useSafeArea';

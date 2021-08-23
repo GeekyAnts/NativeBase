@@ -236,7 +236,6 @@ export function usePropsResolutionTest(
   // NOTE: Resolving size
 
   const size = flattenProps.size;
-
   let componentSizeProps = {},
     flattenSizeStyle;
   // Extracting props from size
@@ -246,9 +245,9 @@ export function usePropsResolutionTest(
       typeof componentTheme.sizes[size] === 'string' ||
       typeof componentTheme.sizes[size] === 'number'
     ) {
-      flattenProps.size = undefined;
+      flattenProps.size = componentTheme.sizes[size];
       //@ts-ignore
-      componentSizeProps.size = componentTheme.sizes[size];
+      // componentSizeProps.size = componentTheme.sizes[size];
     }
     // Type - sizes: (props) => ({lg: {px: 1}}). Refer heading theme
     else if (typeof componentTheme.sizes[size] === 'function') {
@@ -288,51 +287,51 @@ export function usePropsResolutionTest(
   flattenProps = overrideDefaultProps(flattenProps, defaultStyles);
 
   // // STEP 5: linear Grad and contrastText
-  // let ignore: any = [];
-  // if (
-  //   flattenProps.bg?.linearGradient ||
-  //   flattenProps.background?.linearGradient ||
-  //   flattenProps.bgColor?.linearGradient ||
-  //   flattenProps.backgroundColor?.linearGradient
-  // ) {
-  //   let bgProp = 'bg';
-  //   if (flattenProps.background?.linearGradient) {
-  //     bgProp = 'background';
-  //   } else if (flattenProps.bgColor?.linearGradient) {
-  //     bgProp = 'bgColor';
-  //   } else if (flattenProps.backgroundColor?.linearGradient) {
-  //     bgProp = 'backgroundColor';
-  //   }
-  //   flattenProps[bgProp].linearGradient.colors = flattenProps[
-  //     bgProp
-  //   ].linearGradient.colors.map((color: string) => {
-  //     return get(theme.colors, color, color);
-  //   });
-  //   ignore = ['bg', 'background', 'backgroundColor', 'bgColor'];
-  // }
+  let ignore: any = [];
+  if (
+    flattenProps.bg?.linearGradient ||
+    flattenProps.background?.linearGradient ||
+    flattenProps.bgColor?.linearGradient ||
+    flattenProps.backgroundColor?.linearGradient
+  ) {
+    let bgProp = 'bg';
+    if (flattenProps.background?.linearGradient) {
+      bgProp = 'background';
+    } else if (flattenProps.bgColor?.linearGradient) {
+      bgProp = 'bgColor';
+    } else if (flattenProps.backgroundColor?.linearGradient) {
+      bgProp = 'backgroundColor';
+    }
+    flattenProps[bgProp].linearGradient.colors = flattenProps[
+      bgProp
+    ].linearGradient.colors.map((color: string) => {
+      return get(theme.colors, color, color);
+    });
+    ignore = ['bg', 'background', 'backgroundColor', 'bgColor'];
+  }
   // // NOTE: seprating bg props when linearGardiant is available
-  // const [gradientProps] = extractInObject(flattenProps, ignore);
+  const [gradientProps] = extractInObject(flattenProps, ignore);
 
-  // let bgColor =
-  //   flattenProps.bg ?? flattenProps.backgroundColor ?? flattenProps.bgColor;
+  let bgColor =
+    flattenProps.bg ?? flattenProps.backgroundColor ?? flattenProps.bgColor;
 
-  // const contrastTextColor = useContrastText(
-  //   bgColor,
-  //   flattenProps?._text?.color
-  // );
+  const contrastTextColor = useContrastText(
+    bgColor,
+    flattenProps?._text?.color
+  );
 
-  // flattenProps._text =
-  //   contrastTextColor && flattenProps?._text?.color === undefined
-  //     ? {
-  //         color: contrastTextColor,
-  //         ...flattenProps._text,
-  //       }
-  //     : flattenProps._text;
+  flattenProps._text =
+    contrastTextColor && flattenProps?._text?.color === undefined
+      ? {
+          color: contrastTextColor,
+          ...flattenProps._text,
+        }
+      : flattenProps._text;
 
   const resolvedProps = omitUndefined({
     ...flattenProps,
     ...ignoredProps,
-    // ...gradientProps,
+    ...gradientProps,
   });
   // STEP 6: Return
 
