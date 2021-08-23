@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import Spinner from '../Spinner';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { usePropsResolutionTest } from '../../../hooks/useThemeProps';
 import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import { Pressable } from '../Pressable';
@@ -26,7 +26,7 @@ const Button = (
     _focusVisible,
     _stack,
     ...resolvedProps
-  } = usePropsResolution('Button', props);
+  } = usePropsResolutionTest('Button', props);
 
   const pressableProps = {
     ...resolvedProps,

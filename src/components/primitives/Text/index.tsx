@@ -30,7 +30,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     lineHeight = '2xs',
     letterSpacing = 'sm',
     ...reslovedProps
-  } = usePropsResolution('Text', props);
+  } = usePropsResolutionTest('Text', props);
 
   const _ref = useRef(null);
 
