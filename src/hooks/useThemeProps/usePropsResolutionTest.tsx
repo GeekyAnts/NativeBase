@@ -77,20 +77,22 @@ function overrideDefaultProps(userProps: any, defaultProps: any) {
   const flattenedDefaultProps: any = { ...defaultProps };
 
   specificityOrder.forEach((prop) => {
-    if (prop in userProps) {
-      specificityMaps[prop].forEach((newProp: string) => {
-        flattenedUserProps[newProp] = userProps[prop];
-      });
-
+    if (prop in flattenedUserProps) {
+      const val = flattenedUserProps[prop];
       delete flattenedUserProps[prop];
+
+      specificityMaps[prop].forEach((newProp: string) => {
+        flattenedUserProps[newProp] = val;
+      });
     }
 
-    if (prop in defaultProps) {
-      specificityMaps[prop].forEach((newProp: string) => {
-        flattenedDefaultProps[newProp] = defaultProps[prop];
-      });
-
+    if (prop in flattenedDefaultProps) {
+      const val = flattenedDefaultProps[prop];
       delete flattenedDefaultProps[prop];
+
+      specificityMaps[prop].forEach((newProp: string) => {
+        flattenedDefaultProps[newProp] = val;
+      });
     }
   });
 
