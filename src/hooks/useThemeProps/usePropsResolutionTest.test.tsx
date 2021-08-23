@@ -32,7 +32,10 @@ describe('props resolution', () => {
       </Provider>
     );
     const box = getByTestId('test');
-    expect(box.props.style.padding).toBe(defaultTheme.space['2']);
+    expect(box.props.style.paddingTop).toBe(defaultTheme.space['2']);
+    expect(box.props.style.paddingBottom).toBe(defaultTheme.space['2']);
+    expect(box.props.style.paddingLeft).toBe(defaultTheme.space['2']);
+    expect(box.props.style.paddingRight).toBe(defaultTheme.space['2']);
   });
 
   it('tests simple resolution with responsive props', () => {
@@ -48,9 +51,15 @@ describe('props resolution', () => {
     );
 
     const box = getByTestId('test');
-    expect(box.props.style.padding).toBe(defaultTheme.space['4']);
+    expect(box.props.style.paddingTop).toBe(defaultTheme.space['4']);
+    expect(box.props.style.paddingBottom).toBe(defaultTheme.space['4']);
+    expect(box.props.style.paddingRight).toBe(defaultTheme.space['4']);
+    expect(box.props.style.paddingLeft).toBe(defaultTheme.space['4']);
     const box2 = getByTestId('test2');
-    expect(box2.props.style.padding).toBe(defaultTheme.space['5']);
+    expect(box2.props.style.paddingTop).toBe(defaultTheme.space['5']);
+    expect(box2.props.style.paddingBottom).toBe(defaultTheme.space['5']);
+    expect(box2.props.style.paddingLeft).toBe(defaultTheme.space['5']);
+    expect(box2.props.style.paddingRight).toBe(defaultTheme.space['5']);
   });
 
   it('resolves platform props', () => {
@@ -63,7 +72,10 @@ describe('props resolution', () => {
       </Provider>
     );
     const box = getByTestId('test');
-    expect(box.props.style.padding).toBe(defaultTheme.space['10']);
+    expect(box.props.style.paddingTop).toBe(defaultTheme.space['10']);
+    expect(box.props.style.paddingBottom).toBe(defaultTheme.space['10']);
+    expect(box.props.style.paddingLeft).toBe(defaultTheme.space['10']);
+    expect(box.props.style.paddingRight).toBe(defaultTheme.space['10']);
   });
 
   it('resolves base style with props', () => {
@@ -86,9 +98,10 @@ describe('props resolution', () => {
     );
     const box = getByTestId('test');
     expect(box.props.style).toEqual({
-      paddingTop: newTheme.space['10'],
-      paddingBottom: newTheme.space['10'],
-      padding: newTheme.space['5'],
+      paddingTop: newTheme.space['5'],
+      paddingBottom: newTheme.space['5'],
+      paddingRight: newTheme.space['5'],
+      paddingLeft: newTheme.space['5'],
       backgroundColor: newTheme.colors.cyan['500'],
     });
   });
@@ -124,9 +137,10 @@ describe('props resolution', () => {
     const box = getByTestId('test');
     expect(box.props.style).toEqual({
       marginTop: newTheme.space['10'],
-      paddingTop: newTheme.space['10'],
-      paddingBottom: newTheme.space['10'],
-      padding: newTheme.space['5'],
+      paddingTop: newTheme.space['5'],
+      paddingBottom: newTheme.space['5'],
+      paddingLeft: newTheme.space['5'],
+      paddingRight: newTheme.space['5'],
       backgroundColor: newTheme.colors.cyan['500'],
     });
   });
@@ -168,9 +182,10 @@ describe('props resolution', () => {
     const box = getByTestId('test');
     expect(box.props.style).toEqual({
       marginTop: newTheme.space['10'],
-      paddingTop: newTheme.space['10'],
-      paddingBottom: newTheme.space['10'],
-      padding: newTheme.space['5'],
+      paddingTop: newTheme.space['5'],
+      paddingBottom: newTheme.space['5'],
+      paddingLeft: newTheme.space['5'],
+      paddingRight: newTheme.space['5'],
       height: newTheme.sizes['10'],
       backgroundColor: newTheme.colors.cyan['500'],
     });
@@ -240,9 +255,10 @@ describe('props resolution', () => {
     const box = getByTestId('test');
     expect(box.props.style).toEqual({
       marginTop: newTheme.space['10'],
-      paddingTop: newTheme.space['10'],
-      paddingBottom: newTheme.space['10'],
-      padding: newTheme.space['5'],
+      paddingTop: newTheme.space['5'],
+      paddingBottom: newTheme.space['5'],
+      paddingLeft: newTheme.space['5'],
+      paddingRight: newTheme.space['5'],
       height: newTheme.sizes['10'],
       backgroundColor: newTheme.colors.cyan['500'],
     });
@@ -272,7 +288,10 @@ describe('props resolution', () => {
     );
     const box = getByTestId('test');
     expect(box.props.style).toEqual({
-      margin: -defaultTheme.space['5'],
+      marginTop: -defaultTheme.space['5'],
+      marginLeft: -defaultTheme.space['5'],
+      marginRight: -defaultTheme.space['5'],
+      marginBottom: -defaultTheme.space['5'],
     });
   });
 
@@ -321,5 +340,46 @@ describe('props resolution', () => {
     );
     const text = getByTestId('test');
     expect(text.props.style.letterSpacing).toBe(6.4);
+  });
+
+  it('tests user props overrides baseStyle padding ', () => {
+    const newTheme = extendTheme({
+      components: {
+        Box: {
+          baseStyle: {
+            px: 10,
+            py: 10,
+          },
+        },
+      },
+    });
+
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Box testID="test" px={0}>
+          This is a text
+        </Box>
+      </Provider>
+    );
+    const box = getByTestId('test');
+    expect(box.props.style.paddingTop).toBe(newTheme.space['10']);
+    expect(box.props.style.paddingBottom).toBe(newTheme.space['10']);
+    expect(box.props.style.paddingLeft).toBe(0);
+    expect(box.props.style.paddingRight).toBe(0);
+  });
+
+  it('resolves more specific prop in user props', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Box testID="test" pr={20} p={10} px={0}>
+          This is a text
+        </Box>
+      </Provider>
+    );
+    const box = getByTestId('test');
+    expect(box.props.style.paddingTop).toBe(defaultTheme.space['10']);
+    expect(box.props.style.paddingBottom).toBe(defaultTheme.space['10']);
+    expect(box.props.style.paddingLeft).toBe(defaultTheme.space['0']);
+    expect(box.props.style.paddingRight).toBe(defaultTheme.space['20']);
   });
 });

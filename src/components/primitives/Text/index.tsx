@@ -28,7 +28,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     _hover,
     fontSize = 'md',
     ...reslovedProps
-  } = usePropsResolution('Text', props);
+  } = usePropsResolutionTest('Text', props);
 
   const _ref = useRef(null);
   // TODO: might have to add this condition

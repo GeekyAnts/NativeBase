@@ -8,6 +8,95 @@ import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
 import { useFlattenProps } from './useFlattenProps';
 
+const specificityOrder = [
+  'p',
+  'padding',
+  'px',
+  'py',
+  'pt',
+  'pb',
+  'pl',
+  'pr',
+  'paddingTop',
+  'paddingBottom',
+  'paddingLeft',
+  'paddingRight',
+  'm',
+  'margin',
+  'mx',
+  'my',
+  'mt',
+  'mb',
+  'ml',
+  'mr',
+  'marginTop',
+  'marginBottom',
+  'marginLeft',
+  'marginRight',
+];
+
+let marginMap: any = {
+  mx: ['marginRight', 'marginLeft'],
+  my: ['marginTop', 'marginBottom'],
+  mt: ['marginTop'],
+  mb: ['marginBottom'],
+  mr: ['marginRight'],
+  ml: ['marginLeft'],
+};
+
+marginMap.margin = [...marginMap.mx, ...marginMap.my];
+marginMap.m = marginMap.margin;
+marginMap.marginTop = marginMap.mt;
+marginMap.marginBottom = marginMap.mb;
+marginMap.marginLeft = marginMap.ml;
+marginMap.marginRight = marginMap.mr;
+
+let paddingMap: any = {
+  px: ['paddingRight', 'paddingLeft'],
+  py: ['paddingTop', 'paddingBottom'],
+  pt: ['paddingTop'],
+  pb: ['paddingBottom'],
+  pr: ['paddingRight'],
+  pl: ['paddingLeft'],
+};
+
+paddingMap.padding = [...paddingMap.px, ...paddingMap.py];
+paddingMap.p = paddingMap.padding;
+paddingMap.paddingTop = paddingMap.pt;
+paddingMap.paddingBottom = paddingMap.pb;
+paddingMap.paddingLeft = paddingMap.pl;
+paddingMap.paddingRight = paddingMap.pr;
+
+const specificityMaps: any = {
+  ...paddingMap,
+  ...marginMap,
+};
+
+function overrideDefaultProps(userProps: any, defaultProps: any) {
+  const flattenedUserProps: any = { ...userProps };
+  const flattenedDefaultProps: any = { ...defaultProps };
+
+  specificityOrder.forEach((prop) => {
+    if (prop in userProps) {
+      specificityMaps[prop].forEach((newProp: string) => {
+        flattenedUserProps[newProp] = userProps[prop];
+      });
+
+      delete flattenedUserProps[prop];
+    }
+
+    if (prop in defaultProps) {
+      specificityMaps[prop].forEach((newProp: string) => {
+        flattenedDefaultProps[newProp] = defaultProps[prop];
+      });
+
+      delete flattenedDefaultProps[prop];
+    }
+  });
+
+  return merge(flattenedDefaultProps, flattenedUserProps);
+}
+
 /**
  * @summary Combines provided porps with component's theme props and resloves them.
  * @arg {string} component - Name of the component.
@@ -188,13 +277,13 @@ export function usePropsResolutionTest(
   }
 
   // // STEP 4: merge
-
-  flattenProps = merge(
-    flattenProps,
+  const defaultStyles = merge(
     flattenBaseStyle,
     flattenVariantStyle,
     flattenSizeStyle
   );
+
+  flattenProps = overrideDefaultProps(flattenProps, defaultStyles);
 
   // // STEP 5: linear Grad and contrastText
   // let ignore: any = [];
