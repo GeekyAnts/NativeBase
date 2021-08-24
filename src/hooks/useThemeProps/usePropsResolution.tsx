@@ -6,7 +6,7 @@ import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
-import { useFlattenProps } from './useFlattenProps';
+import { propsFlattener } from './propsFlattener';
 
 const specificityOrder = [
   'p',
@@ -146,7 +146,7 @@ export function usePropsResolution(
   );
   // STEP 2: flatten them
 
-  let [flattenProps, specificityMap] = useFlattenProps(
+  let [flattenProps, specificityMap] = propsFlattener(
     {
       props: incomingWithDefaultProps,
       platform: Platform.OS,
@@ -187,7 +187,7 @@ export function usePropsResolution(
             ...colorModeProps,
           });
 
-    [flattenBaseStyle, baseSpecificityMap] = useFlattenProps(
+    [flattenBaseStyle, baseSpecificityMap] = propsFlattener(
       {
         props: componentBaseStyle,
         platform: Platform.OS,
@@ -217,7 +217,7 @@ export function usePropsResolution(
             ...colorModeProps,
           });
 
-    [flattenVariantStyle, variantSpecificityMap] = useFlattenProps(
+    [flattenVariantStyle, variantSpecificityMap] = propsFlattener(
       {
         props: componentVariantProps,
         platform: Platform.OS,
@@ -262,10 +262,13 @@ export function usePropsResolution(
     // Type - sizes: {lg: {px: 1}}. Refer button theme
     else {
       flattenProps.size = undefined;
+      // HACK: Doing a temp fix
+      if (component === 'Image')
+        flattenProps.size = componentTheme.sizes[size].size;
       componentSizeProps = componentTheme.sizes[size];
     }
 
-    [flattenSizeStyle] = useFlattenProps(
+    [flattenSizeStyle] = propsFlattener(
       {
         props: componentSizeProps,
         platform: Platform.OS,

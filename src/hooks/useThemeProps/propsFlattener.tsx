@@ -1,5 +1,3 @@
-//TODO: remove ts-ignore
-
 import merge from 'lodash.merge';
 
 const SPECIFICITY_100 = 100;
@@ -23,7 +21,7 @@ const specificityPrecedence = [
   SPECIFICITY_1,
 ];
 
-const pseudoPropsMap = {
+const pseudoPropsMap: any = {
   _web: { dependentOn: 'platform', priority: SPECIFICITY_10 },
   _ios: { dependentOn: 'platform', priority: SPECIFICITY_10 },
   _android: { dependentOn: 'platform', priority: SPECIFICITY_10 },
@@ -74,7 +72,7 @@ const pseudoPropsMap = {
   },
 };
 
-const compareSpecificity = (exisiting: any, upcoming: any, property: any) => {
+const compareSpecificity = (exisiting: any, upcoming: any) => {
   if (!exisiting) return true;
   for (let index = 0; index < specificityPrecedence.length; index++) {
     if (
@@ -98,29 +96,21 @@ const shouldResolvePseudoProp = ({
   platform,
   colormode,
 }: any) => {
-  if (
-    // @ts-ignore
-    pseudoPropsMap[property].dependentOn === 'platform'
-  ) {
+  if (pseudoPropsMap[property].dependentOn === 'platform') {
     return property === `_${platform}`;
-  } else if (
-    // @ts-ignore
-    pseudoPropsMap[property].dependentOn === 'colormode'
-  ) {
+  } else if (pseudoPropsMap[property].dependentOn === 'colormode') {
     return property === `_${colormode}`;
-    // @ts-ignore
   } else if (pseudoPropsMap[property].dependentOn === 'state') {
-    // @ts-ignore
     return state[pseudoPropsMap[property].respondTo];
   } else {
     return false;
   }
 };
 
-const pleaseDoThisForMe = (
+const simplifyProps = (
   { props, colormode, platform, state, currentSpecificity }: any,
-  flattenProps = {},
-  specificityMap = {},
+  flattenProps: any = {},
+  specificityMap: any = {},
   priority: number
 ) => {
   for (const property in props) {
@@ -139,20 +129,15 @@ const pleaseDoThisForMe = (
           [SPECIFICITY_1]: priority,
         };
 
-    // @ts-ignore
-    // if (state[pseudoPropsMap[property]?.respondTo]) {
     if (
       pseudoPropsMap[property] &&
       (state[pseudoPropsMap[property]?.respondTo] ||
         ['_dark', '_light', '_web', '_ios', '_android'].includes(property)) // array of state independent props
     ) {
-      // @ts-ignore
-
       if (shouldResolvePseudoProp({ property, state, platform, colormode })) {
-        // @ts-ignore
         propertySpecity[pseudoPropsMap[property].priority]++;
 
-        pleaseDoThisForMe(
+        simplifyProps(
           {
             props: props[property],
             colormode,
@@ -165,36 +150,27 @@ const pleaseDoThisForMe = (
           priority
         );
       }
-
-      // @ts-ignore
-    } else if (
-      // @ts-ignore
-      compareSpecificity(specificityMap[property], propertySpecity, property)
-    ) {
+    } else if (compareSpecificity(specificityMap[property], propertySpecity)) {
       // STEP : update specificity
 
-      // @ts-ignore
       specificityMap[property] = propertySpecity;
       if (property.startsWith('_')) {
         // merging internal props (like, _text, _checked, ...)
-        // @ts-ignore
         flattenProps[property] = merge(
           {},
-          // @ts-ignore
           flattenProps[property],
           props[property]
         );
       } else {
         // replacing simple props (like, p, m, bg, color, ...)
 
-        // @ts-ignore
         flattenProps[property] = props[property];
       }
     }
   }
 };
 
-export const useFlattenProps = (
+export const propsFlattener = (
   { props, colormode, platform, state, currentSpecificityMap }: any,
   priority: number
 ) => {
@@ -209,8 +185,7 @@ export const useFlattenProps = (
   // NOTE: (when true) Merge it.
   // NOTE: (when false) Replace it.
 
-  // Checking weather it should be recursively resolved
-  pleaseDoThisForMe(
+  simplifyProps(
     {
       props,
       colormode,

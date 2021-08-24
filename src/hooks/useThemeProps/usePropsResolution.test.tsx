@@ -39,10 +39,10 @@ describe('props resolution', () => {
       </Provider>
     );
     const box = getByTestId('test');
-    expect(box.props.style.paddingLeft).toBe(defaultTheme.space['8']);
-    expect(box.props.style.paddingRight).toBe(defaultTheme.space['8']);
-    expect(box.props.style.paddingTop).toBe(defaultTheme.space['8']);
-    expect(box.props.style.paddingBottom).toBe(defaultTheme.space['8']);
+    expect(box.props.style.paddingLeft).toBe(defaultTheme.space['2']);
+    expect(box.props.style.paddingRight).toBe(defaultTheme.space['2']);
+    expect(box.props.style.paddingTop).toBe(defaultTheme.space['2']);
+    expect(box.props.style.paddingBottom).toBe(defaultTheme.space['2']);
   });
 
   it('tests simple resolution with responsive props', () => {
@@ -295,7 +295,10 @@ describe('props resolution', () => {
     );
     const box = getByTestId('test');
     expect(box.props.style).toEqual({
-      margin: -defaultTheme.space['5'],
+      marginTop: -defaultTheme.space['5'],
+      marginRight: -defaultTheme.space['5'],
+      marginBottom: -defaultTheme.space['5'],
+      marginLeft: -defaultTheme.space['5'],
     });
   });
 
