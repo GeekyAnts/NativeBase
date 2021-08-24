@@ -1,5 +1,6 @@
 import React from 'react';
-import { HStack, IconButton, Icon, Box } from 'native-base';
+import { HStack, IconButton, Box } from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 export const Example = () => {
   return (
     <HStack space={2}>
@@ -8,7 +9,10 @@ export const Example = () => {
           <IconButton
             size={size}
             variant="solid"
-            icon={<Icon name={'menu'} color="white" size={size} />}
+            _icon={{
+              as: MaterialIcons,
+              name: 'menu',
+            }}
           />
         </Box>
       ))}
