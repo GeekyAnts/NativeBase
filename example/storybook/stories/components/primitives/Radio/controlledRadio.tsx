@@ -7,6 +7,7 @@ export const Example = () => {
   return (
     <Radio.Group
       name="myRadioGroup"
+      accessibilityLabel="favorite number"
       value={value}
       onChange={(nextValue) => {
         setValue(nextValue);

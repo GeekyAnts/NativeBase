@@ -38,13 +38,14 @@ export const resolversForBox: any = [
   customLayout,
 ];
 
-export let shouldEnableNewStyledSystemImplementation = true;
+export const shouldEnableNewStyledSystemImplementation = true;
 
 export const makeStyledComponent = (Comp: any) => {
   if (shouldEnableNewStyledSystemImplementation) {
     return React.forwardRef(({ debug, ...props }: any, ref: any) => {
       const [style, restProps] = useStyledSystemPropsResolver(props);
       if (debug) {
+        /* eslint-disable-next-line */
         console.log('style:: => ', style, ' restProps:: => ', restProps);
       }
       return (

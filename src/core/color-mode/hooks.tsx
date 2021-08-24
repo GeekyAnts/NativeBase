@@ -6,6 +6,7 @@ import type {
 } from './types';
 import { HybridContext } from './../hybrid-overlay/Context';
 import type { IHybridContextProps } from './../hybrid-overlay/types';
+import { useColorScheme } from 'react-native';
 
 export const useColorMode = (): IColorModeContextProps => {
   const {
@@ -26,8 +27,15 @@ export function useColorModeValue(light: any, dark: any) {
 
 export function useModeManager(
   initialColorMode: ColorMode,
+  useSystemColorMode: boolean | undefined,
   colorModeManager?: StorageManager
 ) {
+  const systemColorMode = useColorScheme();
+
+  if (useSystemColorMode) {
+    initialColorMode = systemColorMode;
+  }
+
   const [colorMode, setRawMode] = useState<ColorMode>(initialColorMode);
   async function setColorMode(val: ColorMode) {
     if (colorModeManager) {
@@ -46,6 +54,13 @@ export function useModeManager(
       })();
     }
   }, [colorMode, initialColorMode, colorModeManager]);
+
+  // Set system color mode only when user has not passed a colorModeManager
+  useEffect(() => {
+    if (!colorModeManager && useSystemColorMode) {
+      setRawMode(systemColorMode);
+    }
+  }, [systemColorMode, colorModeManager, useSystemColorMode, setRawMode]);
 
   return { colorMode, setColorMode };
 }

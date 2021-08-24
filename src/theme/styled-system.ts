@@ -6,14 +6,14 @@ import { transparentize } from './tools';
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
 export const getColor = (rawValue: any, scale: any, theme: any) => {
-  let alphaMatched =
+  const alphaMatched =
     typeof rawValue === 'string' ? rawValue?.match(/:alpha\.\d\d?\d?/) : false;
   if (alphaMatched) {
-    let colorMatched = rawValue?.match(/^.*?(?=:alpha)/);
-    let color = colorMatched ? colorMatched[0] : colorMatched;
+    const colorMatched = rawValue?.match(/^.*?(?=:alpha)/);
+    const color = colorMatched ? colorMatched[0] : colorMatched;
     const alphaValue = alphaMatched[0].split('.')[1];
-    const alphaFromToken = get(theme['opacity'], alphaValue, alphaValue);
-    let alpha = alphaFromToken ? parseFloat(alphaFromToken) : 1;
+    const alphaFromToken = get(theme.opacity, alphaValue, alphaValue);
+    const alpha = alphaFromToken ? parseFloat(alphaFromToken) : 1;
     const newColor = transparentize(color, alpha)(theme);
     return newColor;
   } else {
@@ -566,8 +566,8 @@ export const getStyleAndFilteredProps = ({
   ...props
 }: any) => {
   let styleFromProps: any = {};
-  let restProps: any = {};
-  for (let key in props) {
+  const restProps: any = {};
+  for (const key in props) {
     const rawValue = props[key];
 
     if (key in propConfig) {
@@ -618,6 +618,7 @@ export const getStyleAndFilteredProps = ({
   }
 
   if (debug) {
+    /* eslint-disable-next-line */
     console.log('style ', debug + ' :: ', styleFromProps, style, props);
   }
 

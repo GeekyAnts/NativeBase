@@ -14,7 +14,7 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
   });
 
   let Badge = <></>;
-  let remainingChildren: JSX.Element[] = [];
+  const remainingChildren: JSX.Element[] = [];
   //  Pop Badge from children
   React.Children.map(children, (child, key) => {
     if (

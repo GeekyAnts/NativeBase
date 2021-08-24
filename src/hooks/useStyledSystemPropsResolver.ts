@@ -26,6 +26,7 @@ export const useStyledSystemPropsResolver = ({
     }
   }, [props, theme, propStyle, currentBreakpoint, debug]);
   if (debug) {
+    /* eslint-disable-next-line */
     console.log('style,resprops', currentBreakpoint);
   }
 

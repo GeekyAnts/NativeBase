@@ -10,11 +10,12 @@ import { theme as defaultTheme, ITheme } from './../theme';
 import type { IColorModeProviderProps } from './color-mode';
 import HybridProvider from './hybrid-overlay/HybridProvider';
 import { OverlayProvider } from '@react-native-aria/overlays';
-import { ToastProvider } from '../components/composites/Toast';
+import { ToastProvider, ToastRef } from '../components/composites/Toast';
 import {
   INativebaseConfig,
   NativeBaseConfigProvider,
 } from './NativeBaseContext';
+import { useToast } from '../components/composites/Toast';
 import { Platform, useWindowDimensions } from 'react-native';
 import {
   getClosestBreakpoint,
@@ -84,6 +85,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
           >
             <OverlayProvider>
               <ToastProvider>
+                <InitializeToastRef />
                 <SSRProvider>{children}</SSRProvider>
               </ToastProvider>
             </OverlayProvider>
@@ -92,6 +94,12 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
       </NativeBaseConfigProvider>
     </ThemeProvider>
   );
+};
+
+const InitializeToastRef = () => {
+  const toast = useToast();
+  ToastRef.current = toast;
+  return null;
 };
 
 export { NativeBaseProvider };

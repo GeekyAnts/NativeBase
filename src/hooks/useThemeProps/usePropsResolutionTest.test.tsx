@@ -211,13 +211,11 @@ describe('props resolution', () => {
       </Provider>
     );
     const image = getByTestId('image');
-    const spinner = getByTestId('spinner');
     // expect(image.props.style).toEqual({
     //   height: defaultTheme.sizes['20'],
     //   // maxWidth: '100%',
     //   width: defaultTheme.space['20'],
     // });
-    console.log(spinner.props.style, 'spinner props');
 
     expect(image.props.style.maxWidth).toBe('100%');
   });
@@ -363,7 +361,7 @@ describe('props resolution', () => {
               pl: 2,
               borderColor: 'gray.400',
             }}
-          ></FormControl.HelperText>
+          />
         </FormControl>
       </Provider>
     );
@@ -536,7 +534,7 @@ describe('props resolution', () => {
               size: ['sm', 'md', 'xl'],
             },
           }}
-        ></Image>
+        />
       </Provider>
     );
     const imageElement = getByTestId('test');

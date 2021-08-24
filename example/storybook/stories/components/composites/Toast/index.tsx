@@ -10,6 +10,7 @@ import { Example as CustomComponent } from './CustomComponent';
 import { Example as CustomComponentWithCustomId } from './CustomComponentWithCustomId';
 import { Example as PreventDuplicate } from './PreventDuplicate';
 import { Example as ToastStatus } from './ToastStatus';
+import { Example as StandaloneToast } from './StandaloneToast';
 
 storiesOf('Toast', module)
   .addDecorator(withKnobs)
@@ -21,4 +22,5 @@ storiesOf('Toast', module)
   .add('CloseToast', () => <CloseToast />)
   .add('Prevent Duplicate', () => <PreventDuplicate />)
   .add('Status', () => <ToastStatus />)
-  .add('Toast Variants', () => <ToastVariants />);
+  .add('Toast Variants', () => <ToastVariants />)
+  .add('Toast Ref', () => <StandaloneToast />);

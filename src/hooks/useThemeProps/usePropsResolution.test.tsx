@@ -217,7 +217,6 @@ describe('props resolution', () => {
       maxWidth: '100%',
       width: defaultTheme.space['20'],
     });
-    console.log(spinner.props.style, 'spinner props');
 
     expect(spinner.props.style).toEqual({});
   });
