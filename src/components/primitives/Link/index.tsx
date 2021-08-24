@@ -2,67 +2,71 @@ import React, { memo, forwardRef } from 'react';
 import { Platform } from 'react-native';
 import type { ILinkProps } from './types';
 import Box from '../Box';
+import Text from '../Text';
 import { usePropsResolution } from '../../../hooks';
 import { useLink } from './useLink';
 import { mergeRefs } from '../../../utils';
 import { Pressable } from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 
 const Link = (
-  {
-    style,
-    href,
-    isUnderlined = false,
-    onPress,
-    isExternal,
-    children,
-    wrapperRef,
-    ...props
-  }: ILinkProps,
+  { href, isUnderlined = false, onPress, isExternal, ...props }: ILinkProps,
   ref: any
 ) => {
-  const [layoutProps, remProps] = extractInObject(props, [
-    ...stylingProps.margin,
-    ...stylingProps.position,
-    ...stylingProps.layout,
-  ]);
-  let { _hover, _text, ...newProps } = usePropsResolution('Link', remProps);
+  let { _hover, children, _text, ...remainingProps } = usePropsResolution(
+    'Link',
+    props
+  );
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
+  const { linkProps } = useLink({ href, onPress, isExternal, _ref });
+
   const linkTextProps = {
     textDecorationLine: isUnderlined ? 'underline' : 'none',
     ..._text,
   };
-  const { linkProps } = useLink({ href, onPress, isExternal, _ref });
+  function getHoverProps() {
+    let hoverTextProps = {
+      ...linkTextProps,
+      ..._hover?._text,
+    };
+    return {
+      ...hoverTextProps,
+    };
+  }
   return (
-    <Box {...layoutProps} ref={wrapperRef}>
+    <>
       {/* On web we render Link in anchor tag */}
       {Platform.OS === 'web' ? (
         <Box
           {...linkProps}
-          {...newProps}
+          {...remainingProps}
           _text={linkTextProps}
-          {...(isHovered && _hover)}
+          {...(isHovered && getHoverProps())}
           ref={mergeRefs([ref, _ref])}
           flexDirection="row"
-          style={style}
         >
           {children}
         </Box>
       ) : (
-        <Pressable {...linkProps} {...newProps} ref={ref}>
-          <Box
-            _text={linkTextProps}
-            {...newProps}
-            flexDirection="row"
-            style={style}
-          >
-            {children}
-          </Box>
+        <Pressable
+          {...linkProps}
+          {...remainingProps}
+          ref={ref}
+          flexDirection="row"
+        >
+          {React.Children.map(children, (child) =>
+            typeof child === 'string' ? (
+              <Text {...remainingProps._text} {...linkTextProps}>
+                {child}
+              </Text>
+            ) : (
+              child
+            )
+          )}
         </Pressable>
       )}
-    </Box>
+    </>
   );
 };
 

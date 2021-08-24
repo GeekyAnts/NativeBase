@@ -9,7 +9,7 @@ import {
 import { withKnobs } from '@storybook/addon-knobs';
 
 import './rn-addons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AsyncStorage } from 'react-native';
 
 // enables knobs for all stories
 addDecorator(withKnobs);

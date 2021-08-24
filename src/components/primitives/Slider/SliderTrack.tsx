@@ -3,22 +3,27 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Pressable } from '../Pressable';
 import Box from '../Box';
 import { SliderContext } from './Context';
-import type { ISliderProps } from './types';
+import type { ISliderTrackProps } from './types';
 
-const SliderTrack = ({ children, ...props }: ISliderProps, ref?: any) => {
+const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
   const {
     orientation,
     trackProps,
     onTrackLayout,
     colorScheme,
     sliderSize,
+    isReadOnly,
+    isDisabled,
   } = React.useContext(SliderContext);
 
-  const themeProps = usePropsResolution('SliderTrack', {
-    size: sliderSize,
-    colorScheme,
-    ...props,
-  });
+  const { _readOnly, _disabled, ...themeProps } = usePropsResolution(
+    'SliderTrack',
+    {
+      size: sliderSize,
+      colorScheme,
+      ...props,
+    }
+  );
 
   const isVertical = orientation === 'vertical';
 
@@ -41,7 +46,12 @@ const SliderTrack = ({ children, ...props }: ISliderProps, ref?: any) => {
       justifyContent="center"
       alignItems="center"
     >
-      <Box {...themeProps} style={trackStyle}>
+      <Box
+        {...themeProps}
+        style={trackStyle}
+        {...(isDisabled && _disabled)}
+        {...(isReadOnly && _readOnly)}
+      >
         {children}
       </Box>
     </Pressable>

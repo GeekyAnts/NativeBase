@@ -2,7 +2,7 @@ import { mode } from '../tools';
 
 export const PopoverCloseButton = {
   baseStyle: (props: any) => ({
-    size: 'xs',
+    size: 'sm',
     p: 2,
     mt: 'auto',
     _icon: {

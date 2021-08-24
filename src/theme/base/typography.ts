@@ -1,6 +1,6 @@
 const typography = {
   letterSpacings: {
-    'xxs': -1.5,
+    '2xs': -1.5,
     'xs': -0.5,
     'sm': 0,
     'md': 0.1,
@@ -12,20 +12,16 @@ const typography = {
     '5xl': 1.5,
   },
   lineHeights: {
-    'none': 1,
-    'shorter': 1.25,
-    'short': 1.375,
-    'base': 1.5,
-    'tall': 1.625,
-    'taller': '2',
-    '3': '12px',
-    '4': '16px',
-    '5': '20px',
-    '6': '24px',
-    '7': '28px',
-    '8': '32px',
-    '9': '36px',
-    '10': '40px',
+    '2xs': 16,
+    'xs': 18,
+    'sm': 20,
+    'md': 22,
+    'lg': 24,
+    'xl': 28,
+    '2xl': 32,
+    '3xl': 40,
+    '4xl': 48,
+    '5xl': 64,
   },
   // fontConfig: {
   //   Roboto: {
@@ -116,6 +112,7 @@ const typography = {
     bold: 700,
     extrabold: 800,
     black: 900,
+    extraBlack: 950,
   },
   fonts: {
     heading: undefined,
@@ -123,7 +120,7 @@ const typography = {
     mono: undefined,
   },
   fontSizes: {
-    'xxs': 10,
+    '2xs': 10,
     'xs': 12,
     'sm': 14,
     'md': 16,

@@ -4,6 +4,8 @@ export type { IAspectRatioProps } from './AspectRatio';
 export { default as Badge } from './Badge';
 export type { IBadgeProps } from './Badge';
 
+export { default as Card } from './Card';
+
 export { default as IconButton } from './IconButton';
 export type { IIconButtonProps } from './IconButton';
 
@@ -33,7 +35,7 @@ export { default as Progress } from './Progress';
 // export { default as Stat } from './Stat';
 
 export { Skeleton } from './Skeleton';
-export type { ISkeletonProps } from './Skeleton';
+export type { ISkeletonProps, ISkeletonTextProps } from './Skeleton';
 
 export { Accordion } from './Accordion';
 export type {
@@ -140,7 +142,6 @@ export type {
 } from './Actionsheet';
 
 // export { AppBar } from './AppBar';
-
 export { Fab } from './Fab';
 export type { IFabProps } from './Fab';
 export { Typeahead, useTypeahead } from './Typeahead';

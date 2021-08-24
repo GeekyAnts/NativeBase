@@ -2,6 +2,7 @@ import type { IStackProps } from '../Stack';
 import type { IPressableProps } from '../Pressable';
 import type { IIconProps } from '../Icon/types';
 import type { ITextProps } from '../Text';
+import type { MutableRefObject } from 'react';
 
 export interface IListProps extends IStackProps {
   /**
@@ -72,21 +73,21 @@ export interface IListItemProps extends IPressableProps {
   /**
    * Props to style the child text.
    */
-  _text?: ITextProps;
+  _text?: Omit<ITextProps, '_text'>;
 }
 export type IListComponentType = ((
   props: IListProps & { ref?: any }
 ) => JSX.Element) & {
   Item: React.MemoExoticComponent<
-    (props: IListItemProps & { ref?: any }) => JSX.Element
+    (props: IListItemProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Icon: React.MemoExoticComponent<
-    (props: IIconProps & { ref?: any }) => JSX.Element
+    (props: IIconProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Ordered: React.MemoExoticComponent<
-    (props: IListProps & { ref?: any }) => JSX.Element
+    (props: IListProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Unordered: React.MemoExoticComponent<
-    (props: IListProps & { ref?: any }) => JSX.Element
+    (props: IListProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

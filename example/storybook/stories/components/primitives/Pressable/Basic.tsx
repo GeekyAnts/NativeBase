@@ -7,9 +7,13 @@ export function Example() {
     <Pressable
       onPress={() => Alert.alert('hello')}
       p={2}
+      bg="red.200"
       borderWidth={1}
-      _light={{ borderColor: 'dark.200' }}
-      _dark={{ borderColor: 'dark.600' }}
+      _dark={{
+        bg: 'red.500',
+        _pressed: { bg: 'teal.300', _focus: { bg: 'amber.200' } },
+      }}
+      _focus={{ bg: 'white', _pressed: { bg: 'lime.400' } }}
     >
       <Text>hello world</Text>
     </Pressable>

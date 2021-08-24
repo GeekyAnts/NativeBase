@@ -40,7 +40,7 @@ export interface ISwitchProps
   /**
    * Function called when the state of the Switch changes.
    */
-  onToggle?: any;
+  onToggle?: () => any;
   /**
    * If true, set the Switch to the checked state.
    */
@@ -76,5 +76,5 @@ export interface ISwitchProps
   /**
    * Props when Switch is hovered. Accepts all the Switch props.
    */
-  _hover?: any;
+  _hover?: Omit<ISwitchProps, '_hover'>;
 }

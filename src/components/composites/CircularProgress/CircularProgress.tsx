@@ -1,15 +1,14 @@
 import get from 'lodash.get';
 import React from 'react';
 import { Animated, Easing, StyleSheet } from 'react-native';
-import styled from 'styled-components/native';
-import { border, color } from 'styled-system';
+import { makeStyledComponent } from '../../../utils/styled';
 import { useTheme, useThemeProps } from '../../../hooks';
 import { canUseDom } from '../../../utils';
-import { default as Box, IBoxProps } from '../../primitives/Box';
+import { default as Box } from '../../primitives/Box';
 import type { ICircularProgressProps } from './types';
 import { themeTools } from '../../../theme';
 
-const StyleAnimatedView = styled(Animated.View)<IBoxProps>(color, border);
+const StyleAnimatedView = makeStyledComponent(Animated.View);
 
 const CircularProgress = (
   { value, isIndeterminate, max, min, ...props }: ICircularProgressProps,
