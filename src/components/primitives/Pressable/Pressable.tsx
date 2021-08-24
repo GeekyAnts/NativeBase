@@ -1,28 +1,18 @@
 import React, { forwardRef, memo } from 'react';
 import { Pressable as RNPressable, useWindowDimensions } from 'react-native';
-import styled from 'styled-components/native';
 import { composeEventHandlers } from '../../../utils';
-import { border, color, flexbox, layout, position, space } from 'styled-system';
 import type { IPressableProps } from './types';
+import { makeStyledComponent } from '../../../utils/styled';
 import { isResponsiveAnyProp } from '../../../theme/tools';
 
-import {
-  customBackground,
-  customBorder,
-  customExtra,
-  customLayout,
-  customOutline,
-  customPosition,
-  customShadow,
-} from '../../../utils/customProps';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
 import isNil from 'lodash.isnil';
 
-const useHover = () => {
+export const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
   return {
-    pressableProps: {
+    hoverProps: {
       onHoverIn: () => setHovered(true),
       onHoverOut: () => setHovered(false),
     },
@@ -30,7 +20,7 @@ const useHover = () => {
   };
 };
 
-const useFocus = () => {
+export const useFocus = () => {
   const [isFocused, setFocused] = React.useState(false);
   return {
     focusProps: {
@@ -41,7 +31,7 @@ const useFocus = () => {
   };
 };
 
-const useIsPressed = () => {
+export const useIsPressed = () => {
   const [isPressed, setIsPressed] = React.useState(false);
   return {
     pressableProps: {
@@ -52,47 +42,30 @@ const useIsPressed = () => {
   };
 };
 
-const StyledPressable = styled(RNPressable)<IPressableProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout
-);
+const StyledPressable = makeStyledComponent(RNPressable);
 
-const Pressable = (
-  {
-    children,
+const Pressable = ({ children, ...props }: IPressableProps, ref: any) => {
+  const { hoverProps, isHovered } = useHover();
+  const { pressableProps, isPressed } = useIsPressed();
+  const { focusProps, isFocused } = useFocus();
+  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+
+  const {
     onPressIn,
     onPressOut,
     onHoverIn,
     onHoverOut,
     onFocus,
     onBlur,
-    ...props
-  }: IPressableProps,
-  ref: any
-) => {
-  const { pressableProps, isHovered } = useHover();
-  const { pressableProps: isPressedProps, isPressed } = useIsPressed();
-  const { focusProps, isFocused } = useFocus();
-  const {
-    _hover,
-    _pressed,
-    _focus,
-    _focusVisible,
-    _disabled,
-    ...themeProps
-  } = usePropsResolution('Pressable', props);
-  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+    ...resolvedProps
+  } = usePropsResolution('Pressable', props, {
+    isHovered,
+    isPressed,
+    isFocused,
+    isFocusVisible,
+  });
+
+  // TODO: Replace Render props with Context Hook
 
   //TODO: refactor for responsive prop
   const windowDimensions = useWindowDimensions();
@@ -107,12 +80,12 @@ const Pressable = (
   return (
     <StyledPressable
       ref={ref}
-      onPressIn={composeEventHandlers(onPressIn, isPressedProps.onPressIn)}
-      onPressOut={composeEventHandlers(onPressOut, isPressedProps.onPressOut)}
+      onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
+      onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
       // @ts-ignore - web only
-      onHoverIn={composeEventHandlers(onHoverIn, pressableProps.onHoverIn)}
+      onHoverIn={composeEventHandlers(onHoverIn, hoverProps.onHoverIn)}
       // @ts-ignore - web only
-      onHoverOut={composeEventHandlers(onHoverOut, pressableProps.onHoverOut)}
+      onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
       // @ts-ignore - web only
       onFocus={composeEventHandlers(
         composeEventHandlers(onFocus, focusProps.onFocus),
@@ -123,12 +96,7 @@ const Pressable = (
         composeEventHandlers(onBlur, focusProps.onBlur),
         focusRingProps.onBlur
       )}
-      {...themeProps}
-      {...(isHovered && _hover)}
-      {...(isFocused && _focus)}
-      {...(isFocusVisible && _focusVisible)}
-      {...(isPressed && _pressed)}
-      {...(props.disabled && _disabled)}
+      {...resolvedProps}
     >
       {typeof children !== 'function'
         ? children

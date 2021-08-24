@@ -1,28 +1,26 @@
 import React, { memo, forwardRef } from 'react';
 import { ActivityIndicator } from 'react-native';
-import styled from 'styled-components/native';
-import { color, space, position } from 'styled-system';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { useToken } from '../../../hooks';
+import { getColor } from '../../../theme';
 import type { ISpinnerProps } from './types';
+import { useStyledSystemPropsResolver, useTheme } from '../../../hooks';
 
-const StyledSpinner = styled(ActivityIndicator)<ISpinnerProps>(
-  color,
-  space,
-  position
-);
-const Spinner = (props: ISpinnerProps, ref: any) => {
-  const { color, ...resolvedProps } = usePropsResolution('Spinner', props);
-  const resolvedColor = useToken('colors', color);
-
+const Spinner = ({ ...props }: ISpinnerProps, ref: any) => {
+  const { color, size, ...resolvedProps } = usePropsResolution(
+    'Spinner',
+    props
+  );
+  const resolvedColor = getColor(color, useTheme().colors, useTheme());
+  const [style, restProps] = useStyledSystemPropsResolver(resolvedProps);
   return (
-    <StyledSpinner
+    <ActivityIndicator
       accessible
       accessibilityLabel="loading"
-      {...resolvedProps}
-      // TODO: Fix color resolution issue in styled component.
+      {...restProps}
       color={resolvedColor}
       ref={ref}
+      size={size}
+      style={style}
     />
   );
 };

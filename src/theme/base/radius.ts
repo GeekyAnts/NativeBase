@@ -1,11 +1,13 @@
 const radii = {
-  none: 0,
-  sm: 2,
-  md: 4,
-  lg: 6,
-  xl: 8,
-  pill: 25,
-  full: 9999,
+  'none': 0,
+  'xs': 2,
+  'sm': 4,
+  'md': 6,
+  'lg': 8,
+  'xl': 12,
+  '2xl': 16,
+  '3xl': 24,
+  'full': 9999,
 };
 
 export type IRadii = typeof radii;

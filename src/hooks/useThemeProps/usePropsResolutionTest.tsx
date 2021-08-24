@@ -107,7 +107,7 @@ function overrideDefaultProps(userProps: any, defaultProps: any) {
  * @arg {object} config - configuration for resolution. Accepts key like ignoreProps, resolveResponsively.
  * @returns {object} Resolved and flattened props.
  */
-export function usePropsResolution(
+export function usePropsResolutionTest(
   component: string,
   incomingProps: any,
   state?: any,
@@ -262,9 +262,6 @@ export function usePropsResolution(
     // Type - sizes: {lg: {px: 1}}. Refer button theme
     else {
       flattenProps.size = undefined;
-      // HACK: Doing a temp fix
-      if (component === 'Image')
-        flattenProps.size = componentTheme.sizes[size].size;
       componentSizeProps = componentTheme.sizes[size];
     }
 

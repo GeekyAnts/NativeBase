@@ -2,6 +2,9 @@ import omitBy from 'lodash.omitby';
 import isNil from 'lodash.isnil';
 import pick from 'lodash.pick';
 import omit from 'lodash.omit';
+import get from 'lodash.get';
+import type { ITheme } from '../base';
+import { Platform } from 'react-native';
 
 export const stylingProps = {
   margin: [
@@ -226,6 +229,60 @@ export function getClosestBreakpoint(
   return index;
 }
 
+export const baseFontSize = 16;
+
+const convertAbsoluteToRem = (px: number) => {
+  return `${px / baseFontSize}rem`;
+};
+
+const convertRemToAbsolute = (rem: number) => {
+  return rem * baseFontSize;
+};
+
+/**
+ *
+ * @param theme
+ * @description 
+  - Converts space/sizes/lineHeights/letterSpacings/fontSizes to `rem` on web if the token value specified is an absolute number.
+  - Converts space/sizes/lineHeights/letterSpacings/fontSizes to absolute number on native if the token value specified is in `px` or `rem`
+*/
+export const platformSpecificSpaceUnits = (theme: ITheme) => {
+  const scales = ['space', 'sizes', 'fontSizes'];
+
+  const newTheme = { ...theme };
+  const isWeb = Platform.OS === 'web';
+  scales.forEach((key) => {
+    const scale = get(theme, key, {});
+    const newScale = { ...scale };
+    for (let scaleKey in scale) {
+      const val = scale[scaleKey];
+      if (typeof val !== 'object') {
+        const isAbsolute = typeof val === 'number';
+        const isPx = !isAbsolute && val.endsWith('px');
+        const isRem = !isAbsolute && val.endsWith('rem');
+
+        // If platform is web, we need to convert absolute unit to rem. e.g. 16 to 1rem
+        if (isWeb) {
+          if (isAbsolute) {
+            newScale[scaleKey] = convertAbsoluteToRem(val);
+          }
+        }
+        // If platform is not web, we need to convert px unit to absolute and rem unit to absolute. e.g. 16px to 16. 1rem to 16.
+        else {
+          if (isRem) {
+            newScale[scaleKey] = convertRemToAbsolute(parseFloat(val));
+          } else if (isPx) {
+            newScale[scaleKey] = parseFloat(val);
+          }
+        }
+      }
+    }
+    //@ts-ignore
+    newTheme[key] = newScale;
+  });
+
+  return newTheme;
+};
 export function isResponsiveAnyProp(props: Record<string, any>) {
   const keys = Object.keys(props);
   for (let i = 0; i < keys.length; i++) {

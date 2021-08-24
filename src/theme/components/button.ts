@@ -83,7 +83,7 @@ function variantOutline(props: Dict) {
   const { colorScheme: c } = props;
   const borderColor = mode(`muted.200`, `muted.500`)(props);
   return {
-    border: '1px solid',
+    borderWidth: 1,
     borderColor:
       c === 'muted'
         ? borderColor

@@ -10,6 +10,7 @@ type SpaceType =
   | 'lg'
   | 'xl'
   | '2xl'
+  | string
   | number;
 
 export default (
