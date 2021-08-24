@@ -56,7 +56,7 @@ describe('Text component', () => {
       </Provider>
     );
     let text = getByTestId('my-text');
-    expect(text.props.fontFamily).toBe('Roboto-Regular');
+    expect(text.props.style.fontFamily).toBe('Roboto-Regular');
   });
 
   it('resolves custom font variants', () => {
@@ -68,7 +68,7 @@ describe('Text component', () => {
       </Provider>
     );
     let text = getByTestId('my-text');
-    expect(text.props.fontFamily).toBe('Roboto-Italic');
+    expect(text.props.style.fontFamily).toBe('Roboto-Italic');
   });
 
   it('resolves to bold italic font', () => {
@@ -80,7 +80,7 @@ describe('Text component', () => {
       </Provider>
     );
     let text = getByTestId('my-text');
-    expect(text.props.fontFamily).toBe('Roboto-BoldItalic');
+    expect(text.props.style.fontFamily).toBe('Roboto-BoldItalic');
   });
 
   it('resolves to medium font when fontWeight is 500', () => {
@@ -92,7 +92,7 @@ describe('Text component', () => {
       </Provider>
     );
     let text = getByTestId('my-text');
-    expect(text.props.fontFamily).toBe('Roboto-Medium');
+    expect(text.props.style.fontFamily).toBe('Roboto-Medium');
   });
 
   it('resolves to medium font when fontWeight is medium', () => {
@@ -104,7 +104,7 @@ describe('Text component', () => {
       </Provider>
     );
     let text = getByTestId('my-text');
-    expect(text.props.fontFamily).toBe('Roboto-Medium');
+    expect(text.props.style.fontFamily).toBe('Roboto-Medium');
   });
 
   it('respects fontFamily property', () => {
@@ -116,7 +116,7 @@ describe('Text component', () => {
       </Provider>
     );
     let text = getByTestId('my-text');
-    expect(text.props.fontFamily).toBe('Merriweather-Italic');
+    expect(text.props.style.fontFamily).toBe('Merriweather-Italic');
   });
 
   it("doesn't break if custom font is not specified", () => {
@@ -130,12 +130,10 @@ describe('Text component', () => {
       </Provider>
     );
     let text = getByTestId('my-text');
-    expect(text.props.fontFamily).toBe(undefined);
+    expect(text.props.style.fontFamily).toBe(undefined);
   });
 
   it("doesn't pass fontWeight and fontStyle if a custom fontFamily is resolved", () => {
-    let newTheme = JSON.parse(JSON.stringify(defaultTheme));
-    delete newTheme.fontConfig;
     let { getByTestId } = render(
       <Provider>
         <Text testID="my-text" fontWeight={400}>
@@ -144,8 +142,8 @@ describe('Text component', () => {
       </Provider>
     );
     let text = getByTestId('my-text');
-    expect(text.props.fontWeight).toBe(undefined);
-    expect(text.props.fontStyle).toBe(undefined);
-    expect(text.props.fontFamily).toBe('Roboto-Regular');
+    expect(text.props.style.fontWeight).toBe(undefined);
+    expect(text.props.style.fontStyle).toBe(undefined);
+    expect(text.props.style.fontFamily).toBe('Roboto-Regular');
   });
 });

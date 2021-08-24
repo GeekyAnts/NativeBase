@@ -1,4 +1,5 @@
 import { themeTools } from '../../theme';
+import { baseFontSize } from '../../theme/tools/utils';
 import type { SafeAreaProps } from './../../components/types/ExtraProps';
 import isNil from 'lodash.isnil';
 
@@ -37,6 +38,19 @@ function getValueInPixels(
     // DOC: Handles case of auto inset
     appliedInset = inset;
   }
+
+  if (typeof originalValue === 'string') {
+    if (originalValue.endsWith('px')) {
+      return parseInt(originalValue, 10) + parseInt(appliedInset, 10) + 'px';
+    } else if (originalValue.endsWith('rem')) {
+      return (
+        parseFloat(originalValue) * baseFontSize +
+        parseInt(appliedInset, 10) +
+        'px'
+      );
+    }
+  }
+
   return originalValue
     ? parseInt(originalValue, 10) + parseInt(appliedInset, 10) + 'px'
     : parseInt(appliedInset, 10) + 'px';

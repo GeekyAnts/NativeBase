@@ -4,6 +4,7 @@ import { getSpacedChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../types';
+import { useBreakpointResolvedProps } from '../../../hooks';
 
 export interface IStackProps extends IBoxProps {
   /**
@@ -29,19 +30,28 @@ export interface IStackProps extends IBoxProps {
   >;
 }
 
-const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
-  const { children, divider, reversed, ...remainingProps } = props;
-  const { size, direction, ...newProps }: any = usePropsResolution('Stack', {
-    ...remainingProps,
-    size: space, // Passing space as size of spacer elements.
-  });
+const Stack = (props: IStackProps, ref?: any) => {
+  const {
+    children,
+    space,
+    direction,
+    divider,
+    reversed,
+    ...remainingProps
+  } = props;
+  const newProps: any = usePropsResolution('Stack', remainingProps);
+
+  const {
+    space: resolvedSpace,
+    direction: resolvedDirection,
+  } = useBreakpointResolvedProps({ space, direction });
 
   return (
-    <Box flexDirection={direction} {...newProps} ref={ref}>
+    <Box flexDirection={resolvedDirection} {...newProps} ref={ref}>
       {getSpacedChildren(
         children,
-        size,
-        direction === 'row' ? 'X' : 'Y',
+        resolvedSpace,
+        resolvedDirection === 'row' ? 'X' : 'Y',
         reversed ? 'reverse' : 'normal',
         divider
       )}

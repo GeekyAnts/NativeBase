@@ -1,15 +1,15 @@
 import React, { memo, forwardRef } from 'react';
-import { useWindowDimensions, View } from 'react-native';
-import { usePropsResolution } from '../../../hooks';
+import { View, useWindowDimensions } from 'react-native';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Text from './../Text';
-import { makeStyledBox } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/styled';
 import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 import { isResponsiveAnyProp } from '../../../theme/tools';
 import isNil from 'lodash.isnil';
 
-const StyledBox = makeStyledBox(View);
+const StyledBox = makeStyledComponent(View);
 
 let MemoizedGradient: any = undefined;
 
@@ -44,7 +44,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 
     if (Gradient) {
       if (!MemoizedGradient) {
-        MemoizedGradient = makeStyledBox(Gradient);
+        MemoizedGradient = makeStyledComponent(Gradient);
       }
 
       Gradient = MemoizedGradient;
