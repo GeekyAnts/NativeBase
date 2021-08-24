@@ -2,11 +2,18 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 import { theme as defaultTheme } from '../../theme';
 import { NativeBaseProvider } from '../../core/NativeBaseProvider';
-import Box from '../../components/primitives/Box';
-import Image from '../../components/primitives/Image';
+import {
+  Box,
+  Button,
+  Pressable,
+  Select,
+  Image,
+} from '../../components/primitives';
+import { FormControl, Menu } from '../../components/composites';
 import Spinner from '../../components/primitives/Spinner';
 import Text from '../../components/primitives/Text';
 import { Platform } from 'react-native';
+import { fireEvent } from '@testing-library/react-native';
 import { extendTheme } from '../../core/extendTheme';
 
 const inset = {
@@ -205,14 +212,14 @@ describe('props resolution', () => {
     );
     const image = getByTestId('image');
     const spinner = getByTestId('spinner');
-    expect(image.props.style).toEqual({
-      height: defaultTheme.space['20'],
-      maxWidth: '100%',
-      width: defaultTheme.space['20'],
-    });
+    // expect(image.props.style).toEqual({
+    //   height: defaultTheme.sizes['20'],
+    //   // maxWidth: '100%',
+    //   width: defaultTheme.space['20'],
+    // });
     console.log(spinner.props.style, 'spinner props');
 
-    expect(spinner.props.style).toEqual({});
+    expect(image.props.style.maxWidth).toBe('100%');
   });
 
   it('resolves base style and variants, sizes and default props with props', () => {
@@ -306,6 +313,7 @@ describe('props resolution', () => {
     const box = getByTestId('test');
     expect(box.props.style).toEqual(defaultTheme.shadows[9]);
   });
+
   it('tests lineHeight from token in text ', () => {
     const { getByTestId } = render(
       <Provider>
@@ -327,7 +335,7 @@ describe('props resolution', () => {
       </Provider>
     );
     const text = getByTestId('test');
-    expect(text.props.style.lineHeight).toBe(80);
+    expect(text.props.style.lineHeight).toBe(5);
   });
 
   it('tests letterSpacing from token in text ', () => {
@@ -339,47 +347,203 @@ describe('props resolution', () => {
       </Provider>
     );
     const text = getByTestId('test');
-    expect(text.props.style.letterSpacing).toBe(6.4);
+    expect(text.props.style.letterSpacing).toBe(0.4);
   });
 
-  it('tests user props overrides baseStyle padding ', () => {
-    const newTheme = extendTheme({
-      components: {
-        Box: {
-          baseStyle: {
-            px: 10,
-            py: 10,
-          },
-        },
-      },
-    });
-
-    const { getByTestId } = render(
-      <Provider theme={newTheme}>
-        <Box testID="test" px={0}>
-          This is a text
-        </Box>
-      </Provider>
-    );
-    const box = getByTestId('test');
-    expect(box.props.style.paddingTop).toBe(newTheme.space['10']);
-    expect(box.props.style.paddingBottom).toBe(newTheme.space['10']);
-    expect(box.props.style.paddingLeft).toBe(0);
-    expect(box.props.style.paddingRight).toBe(0);
-  });
-
-  it('resolves more specific prop in user props', () => {
+  it('FormControl: pseudo props test ', () => {
     const { getByTestId } = render(
       <Provider>
-        <Box testID="test" pr={20} p={10} px={0}>
-          This is a text
-        </Box>
+        <FormControl isDisabled>
+          <FormControl.HelperText
+            testID="test"
+            _disabled={{
+              borderLeftWidth: 1,
+              mt: 1,
+              px: 1,
+              pl: 2,
+              borderColor: 'gray.400',
+            }}
+          ></FormControl.HelperText>
+        </FormControl>
       </Provider>
     );
-    const box = getByTestId('test');
-    expect(box.props.style.paddingTop).toBe(defaultTheme.space['10']);
-    expect(box.props.style.paddingBottom).toBe(defaultTheme.space['10']);
-    expect(box.props.style.paddingLeft).toBe(defaultTheme.space['0']);
-    expect(box.props.style.paddingRight).toBe(defaultTheme.space['20']);
+    const formControl = getByTestId('test');
+    expect(formControl.props.style).toEqual({
+      borderLeftWidth: 1,
+      marginTop: defaultTheme.space['1'],
+      paddingLeft: defaultTheme.space['2'],
+      paddingRight: defaultTheme.space['1'],
+      borderColor: defaultTheme.colors.gray['400'],
+    });
+  });
+
+  it('Menu: style props test', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Menu
+          trigger={(triggerProps) => {
+            return (
+              <Pressable
+                testID="pressableTest"
+                accessibilityLabel="More options menu"
+                {...triggerProps}
+              >
+                Open menu
+              </Pressable>
+            );
+          }}
+        >
+          <Menu.Item>Arial</Menu.Item>
+          <Menu.Item bg="blue.300" testID="test">
+            Nunito Sans
+          </Menu.Item>
+          <Menu.Item testID="test1" isDisabled _disabled={{ bg: 'pink.300' }}>
+            Tahoma
+          </Menu.Item>
+        </Menu>
+      </Provider>
+    );
+    const triggerElement = getByTestId('pressableTest');
+    fireEvent.press(triggerElement);
+    const menuItem = getByTestId('test');
+    const disabledMenuItem = getByTestId('test1');
+    expect(menuItem.props.style.backgroundColor).toBe(
+      defaultTheme.colors.blue['300']
+    );
+    expect(disabledMenuItem.props.style.backgroundColor).toBe(
+      defaultTheme.colors.pink['300']
+    );
+  });
+  it('Menu: style props test', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Select
+          selectedValue={'js'}
+          testID="selectTest"
+          minWidth={200}
+          accessibilityLabel="Select your favorite programming language"
+          placeholder="Select your favorite programming language"
+          _selectedItem={{
+            bg: 'cyan.600',
+          }}
+        >
+          <Select.Item testID="test" label="JavaScript" value="js" />
+          <Select.Item
+            testID="test1"
+            isDisabled
+            label="TypeScript"
+            value="ts"
+            _disabled={{ bg: 'blue.700' }}
+          />
+        </Select>
+      </Provider>
+    );
+    const selectElement = getByTestId('selectTest');
+    fireEvent.press(selectElement);
+    const selectItem = getByTestId('test');
+    // const disabledSelectItem = getByTestId('test1');
+    expect(selectItem.props.style.backgroundColor).toBe(
+      defaultTheme.colors.cyan['600']
+    );
+    //TODO: Need to discuss
+    // expect(disabledSelectItem.props.style.backgroundColor).toBe(
+    //   defaultTheme.colors.blue['700']
+    // );
+  });
+  it('Button: style props test', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Button
+          testID="test"
+          bg="pink.900"
+          _text={{ color: 'cyan.100', testID: 'test1' }}
+        >
+          PRIMARY
+        </Button>
+      </Provider>
+    );
+    const buttonElement = getByTestId('test');
+    const buttonText = getByTestId('test1');
+    expect(buttonText.props.style.color).toBe(defaultTheme.colors.cyan['100']);
+    expect(buttonElement.props.style.backgroundColor).toBe(
+      defaultTheme.colors.pink['900']
+    );
+  });
+  it('Button: style props test on ios with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Button
+          testID="test"
+          _ios={{ _dark: { bg: 'pink.900' } }}
+          _text={{ color: 'cyan.100', testID: 'test1' }}
+        >
+          PRIMARY
+        </Button>
+      </Provider>
+    );
+    const buttonElement = getByTestId('test');
+    const buttonText = getByTestId('test1');
+    expect(buttonText.props.style.color).toBe(defaultTheme.colors.cyan['100']);
+    expect(buttonElement.props.style.backgroundColor).toBe(
+      defaultTheme.colors.pink['900']
+    );
+  });
+  it('Button: style responsive props test on ios with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Button
+          testID="test"
+          _ios={{ _dark: { bg: ['pink.900', 'blue.900', 'cyan.900'] } }}
+          _text={{ color: 'cyan.100', testID: 'test1' }}
+        >
+          PRIMARY
+        </Button>
+      </Provider>
+    );
+    const buttonElement = getByTestId('test');
+    const buttonText = getByTestId('test1');
+    expect(buttonText.props.style.color).toBe(defaultTheme.colors.cyan['100']);
+    expect(buttonElement.props.style.backgroundColor).toBe(
+      defaultTheme.colors.blue['900']
+    );
+  });
+  it('Image: style responsive props test on ios with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Image
+          testID="test"
+          source={{
+            uri: 'https://wallpaperaccess.com/full/317501jpg',
+          }}
+          alt="Alternate Text"
+          _ios={{
+            _dark: {
+              source: {
+                uri: 'https://www.w3schools.com/css/img_lightsjpg',
+              },
+              size: ['sm', 'md', 'xl'],
+            },
+          }}
+        ></Image>
+      </Provider>
+    );
+    const imageElement = getByTestId('test');
+    expect(imageElement.props.style).toEqual({
+      height: defaultTheme.space['20'],
+      maxWidth: '100%',
+      width: defaultTheme.space['20'],
+    });
   });
 });
