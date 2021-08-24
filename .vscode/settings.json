@@ -1,7 +1,8 @@
 {
   "javascript.validate.enable": true,
-  "eslint.enable": false,
-  "tslint.enable": true,
+  "eslint.format.enable": false,
+  "eslint.run": "onType",
+  "tslint.enable": false,
   "tslint.autoFixOnSave": true,
   "flow.enabled": false,
   "editor.tabSize": 2,
@@ -11,9 +12,6 @@
   "editor.formatOnPaste": false,
   "prettier.jsxSingleQuote": true,
   "prettier.singleQuote": true,
-
-  // A list of languages IDs to disable this extension on
-  "prettier.disableLanguages": ["vue"],
 
   // Path to a .prettierignore or similar file
   "prettier.ignorePath": ".prettierignore",

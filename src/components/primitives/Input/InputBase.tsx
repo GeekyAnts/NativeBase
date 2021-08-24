@@ -52,6 +52,7 @@ const InputBase = (
     _hover,
     _focus,
     _disabled,
+    _readOnly,
     _invalid,
     fontFamily,
     fontWeight,
@@ -83,8 +84,9 @@ const InputBase = (
       {...themedProps}
       {...(isHovered && _hover)}
       {...(isFocused && _focus)}
-      {...(isDisabled && _disabled)}
+      {...(isReadOnly && _readOnly)}
       {...(isInvalid && _invalid)}
+      {...(isDisabled && _disabled)}
       placeholderTextColor={useToken('colors', placeholderTextColor)}
       selectionColor={useToken('colors', selectionColor)}
       underlineColorAndroid={useToken('colors', underlineColorAndroid)}

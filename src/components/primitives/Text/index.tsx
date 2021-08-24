@@ -1,11 +1,14 @@
 import React, { memo, forwardRef, useRef } from 'react';
-import { Text as NativeText } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
 import { makeStyledComponent } from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
+import { Text as NativeText, useWindowDimensions } from 'react-native';
+
+import isNil from 'lodash.isnil';
+import { isResponsiveAnyProp } from '../../../theme/tools';
 
 const StyledText = makeStyledComponent(NativeText);
 
@@ -24,6 +27,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontStyle: propFontStyle,
     _hover,
     fontSize = 'md',
+    numberOfLines,
     ...reslovedProps
   } = usePropsResolution('Text', props);
 
@@ -41,10 +45,29 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontStyle,
   });
 
+  if (resolvedFontFamily) {
+    fontFamily = resolvedFontFamily;
+  }
+
+  //TODO: refactor for responsive prop
+  const windowDimensions = useWindowDimensions();
+  if (isNil(windowDimensions.width) || isNil(windowDimensions.height)) {
+    const responsivePropsExists = isResponsiveAnyProp(props);
+    if (responsivePropsExists) {
+      return null;
+    }
+  }
+
   return (
     <StyledText
       {...reslovedProps}
-      numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : undefined}
+      numberOfLines={
+        numberOfLines || noOfLines
+          ? numberOfLines || noOfLines
+          : isTruncated
+          ? 1
+          : undefined
+      }
       {...resolvedFontFamily}
       bg={highlight ? 'warning.200' : reslovedProps.bg}
       textDecorationLine={

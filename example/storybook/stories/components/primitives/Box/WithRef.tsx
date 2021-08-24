@@ -1,15 +1,23 @@
 //@ts-nocheck
 import React from 'react';
 import { Box } from 'native-base';
+import { Platform } from 'react-native';
 
 export const Example = () => {
   const myRef = React.useRef({});
   React.useEffect(() => {
-    myRef?.current.setNativeProps({
+    let styleObj = {
       borderWidth: 10,
       opacity: 0.5,
       borderRadius: 10,
-    });
+    };
+    if (Platform.OS === 'web') {
+      myRef?.current.setNativeProps({
+        style: styleObj,
+      });
+    } else {
+      myRef?.current.setNativeProps(styleObj);
+    }
   }, [myRef]);
   return (
     <Box

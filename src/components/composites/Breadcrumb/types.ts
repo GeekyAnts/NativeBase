@@ -1,3 +1,4 @@
+import type { MutableRefObject } from 'react';
 import type { ViewStyle } from 'react-native';
 import type {
   IBoxProps,
@@ -18,12 +19,14 @@ export type IBreadcrumbItemProps = IBreadcrumbProps & {
   isCurrentPage?: boolean;
 };
 export type IBreadcrumbComponentType = ((
-  props: IBreadcrumbProps & { ref?: any }
+  props: IBreadcrumbProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Item: React.MemoExoticComponent<
-    (props: IBreadcrumbItemProps & { ref?: any }) => JSX.Element
+    (
+      props: IBreadcrumbItemProps & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   Link: React.MemoExoticComponent<
-    (props: ILinkProps & { ref?: any }) => JSX.Element
+    (props: ILinkProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

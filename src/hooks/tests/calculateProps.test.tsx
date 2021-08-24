@@ -27,4 +27,44 @@ describe('useCalculateProps', () => {
     );
     expect(result.current).toEqual({});
   });
+
+  test('Only component theme(Badge) + no props', () => {
+    const componentTheme = (theme as any).components.Badge;
+    const { result } = renderHook(
+      () => calculateProps(theme, colorModeProps, componentTheme, {}, 750),
+      { wrapper }
+    );
+    expect(result.current).toEqual({
+      _text: {
+        color: 'muted.900',
+        fontSize: 'xs',
+        fontWeight: 'bold',
+      },
+      px: 1,
+      bg: 'muted.300',
+      borderWidth: 1,
+      borderColor: 'transparent',
+    });
+  });
+
+  test('Component theme(Badge) + some props', () => {
+    const componentTheme = (theme as any).components.Badge;
+    const { result } = renderHook(
+      () =>
+        calculateProps(theme, colorModeProps, componentTheme, { py: 3 }, 750),
+      { wrapper }
+    );
+    expect(result.current).toEqual({
+      _text: {
+        color: 'muted.900',
+        fontSize: 'xs',
+        fontWeight: 'bold',
+      },
+      px: 1,
+      py: 3,
+      bg: 'muted.300',
+      borderWidth: 1,
+      borderColor: 'transparent',
+    });
+  });
 });

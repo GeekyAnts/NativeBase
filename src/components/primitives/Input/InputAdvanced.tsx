@@ -11,6 +11,8 @@ const InputAdvance = (
   {
     InputLeftElement,
     InputRightElement,
+    leftElement,
+    rightElement,
     onFocus,
     onBlur,
     inputProps,
@@ -32,7 +34,9 @@ const InputAdvance = (
     isInvalid,
     isDisabled,
     _hover,
+    isReadOnly,
     _disabled,
+    _readOnly,
     _invalid,
     _focus,
     ...themedProps
@@ -40,6 +44,13 @@ const InputAdvance = (
     ...inputThemeProps,
     ...props,
   });
+
+  if (InputLeftElement) {
+    leftElement = InputLeftElement;
+  }
+  if (InputRightElement) {
+    rightElement = InputRightElement;
+  }
 
   const [isFocused, setIsFocused] = React.useState(false);
   const handleFocus = (focusState: boolean, callback: any) => {
@@ -72,11 +83,12 @@ const InputAdvance = (
       {...layoutProps}
       {...(isHovered && _hover)}
       {...(isFocused && _focus)}
-      {...(isDisabled && _disabled)}
       {...(isInvalid && _invalid)}
+      {...(isReadOnly && _readOnly)}
+      {...(isDisabled && _disabled)}
       ref={mergeRefs([_ref, wrapperRef])}
     >
-      {InputLeftElement ? InputLeftElement : null}
+      {InputLeftElement || leftElement ? InputLeftElement || leftElement : null}
       <InputBase
         inputProps={inputProps}
         {...baseInputProps}
@@ -91,7 +103,9 @@ const InputAdvance = (
           handleFocus(false, onBlur ? () => onBlur(e) : () => {});
         }}
       />
-      {InputRightElement ? InputRightElement : null}
+      {InputRightElement || rightElement
+        ? InputRightElement || rightElement
+        : null}
     </Box>
   );
 };

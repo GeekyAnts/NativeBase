@@ -18,7 +18,7 @@ import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
 let INSET = 50;
 
 const POSITIONS = {
-  'top': {
+  top: {
     top: INSET,
     left: 0,
     right: 0,
@@ -31,7 +31,7 @@ const POSITIONS = {
     top: INSET,
     left: 0,
   },
-  'bottom': {
+  bottom: {
     bottom: INSET,
     left: 0,
     right: 0,
@@ -49,8 +49,8 @@ const POSITIONS = {
 const initialAnimationOffset = 24;
 
 const transitionConfig: any = {
-  'bottom': initialAnimationOffset,
-  'top': -initialAnimationOffset,
+  bottom: initialAnimationOffset,
+  top: -initialAnimationOffset,
   'top-right': -initialAnimationOffset,
   'top-left': -initialAnimationOffset,
   'bottom-left': initialAnimationOffset,
@@ -204,7 +204,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
     let component = null;
 
     if (render) {
-      component = render({ id: toastIndex.current });
+      component = render({ id });
     } else if (!status && !variant) {
       component = (
         <VStack space={1} {...themeProps} {...rest}>
@@ -217,6 +217,8 @@ export const ToastProvider = ({ children }: { children: any }) => {
     } else if (status || variant) {
       component = (
         <Alert
+          maxWidth="90%"
+          alignSelf="center"
           status={status ?? 'info'}
           variant={variant as any}
           accessibilityLiveRegion={accessibilityLiveRegion}
@@ -233,7 +235,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
           {...rest}
         >
           <Alert.Icon />
-          <VStack>
+          <VStack flexShrink={1}>
             <Alert.Title>{title}</Alert.Title>
             {description ? (
               <Alert.Description>{description}</Alert.Description>

@@ -25,6 +25,7 @@ const Tab = (
   ref?: any
 ) => {
   const newProps = omitUndefined(props);
+
   const {
     inactiveTabStyle,
     activeTabStyle,

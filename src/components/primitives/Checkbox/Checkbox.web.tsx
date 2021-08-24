@@ -12,6 +12,7 @@ import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
 import { CheckIcon } from '../Icon/Icons';
+import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 
 const Checkbox = (
   { children, icon, wrapperRef, ...props }: ICheckboxProps,
@@ -20,20 +21,19 @@ const Checkbox = (
   const formControlContext = useFormControlContext();
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
   const {
-    _interactionBox: {
-      _hover: _iterationBoxHover,
-      _focus: _iterationBoxFocus,
-      _disabled: _iterationBoxDisabled,
-      ..._interactionBox
-    },
-    _checkbox: {
-      _checked: _checkboxChecked,
-      _disabled: _checkboxDisabled,
-      _invalid: _checkboxInvalid,
-      ..._checkbox
-    },
+    _interactionBox,
+    _disabled,
+    _invalid,
+    _focus,
+    _hover,
+    _checked,
+    _unchecked,
+    _indeterminate,
     _icon,
+    _readOnly,
     isInvalid,
+    isReadOnly,
+    isIndeterminate,
     ...themedProps
   } = usePropsResolution('Checkbox', {
     ...checkboxGroupContext,
@@ -42,6 +42,7 @@ const Checkbox = (
   });
   const _ref = React.useRef();
   const mergedRef = mergeRefs([ref, _ref]);
+
   const state = useToggleState({
     ...props,
     defaultSelected: props.defaultIsChecked,
@@ -50,6 +51,14 @@ const Checkbox = (
   const groupState = useContext(CheckboxGroupContext);
   const { isHovered } = useHover({}, _ref);
 
+  const [layoutProps, nonLayoutProps] = extractInObject(themedProps, [
+    ...stylingProps.margin,
+    ...stylingProps.layout,
+    ...stylingProps.flexbox,
+    ...stylingProps.position,
+    '_text',
+  ]);
+
   // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.
   // This is a bit unorthodox. Typically, hooks cannot be called in a conditional,
   // but since the checkbox won't move in and out of a group, it should be safe.
@@ -57,7 +66,7 @@ const Checkbox = (
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckboxGroupItem(
         {
-          ...themedProps,
+          ...nonLayoutProps,
           'aria-label': themedProps.accessibilityLabel,
           'value': themedProps.value,
         },
@@ -67,64 +76,123 @@ const Checkbox = (
       )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckbox(
-        { ...themedProps, 'aria-label': themedProps.accessibilityLabel },
+        {
+          ...nonLayoutProps,
+          'aria-label': themedProps.accessibilityLabel,
+        },
         state,
         //@ts-ignore
         mergedRef
       );
 
-  const { checked, disabled } = inputProps;
+  const { checked: isChecked, disabled: isDisabled } = inputProps;
+  const sizedIcon = (icon: JSX.Element, _icon: any) =>
+    React.cloneElement(
+      icon,
+      {
+        ..._icon,
+      },
+      icon.props.children
+    );
 
-  const sizedIcon = icon
-    ? () =>
-        React.cloneElement(
-          icon,
-          {
-            ..._icon,
-          },
-          icon.props.children
-        )
-    : null;
+  function iconResolver() {
+    if (sizedIcon && isDisabled && _disabled?.icon) {
+      return sizedIcon(_disabled?.icon, {
+        ..._icon,
+        ..._disabled?._icon,
+      });
+    } else if (sizedIcon && isReadOnly && _readOnly?.icon) {
+      return sizedIcon(_readOnly?.icon, {
+        ..._icon,
+        ..._readOnly?._icon,
+      });
+    } else if (sizedIcon && isInvalid && _invalid?.icon) {
+      return sizedIcon(_invalid?.icon, {
+        ..._icon,
+        ..._invalid?._icon,
+      });
+    } else if (sizedIcon && isHovered && _hover?.icon) {
+      return sizedIcon(_hover?.icon, {
+        ..._icon,
+        ..._hover?._icon,
+      });
+    } else if (sizedIcon && !isChecked && _unchecked?.icon) {
+      return sizedIcon(_unchecked?.icon, { ..._icon, ..._unchecked?._icon });
+    } else if (sizedIcon && isChecked) {
+      if (_checked?.icon) {
+        return sizedIcon(_checked?.icon, { ..._icon, ..._checked?._icon });
+      } else if (icon) {
+        return sizedIcon(icon, { ..._icon });
+      } else {
+        return <CheckIcon name="check" {..._icon} opacity={1} />;
+      }
+    } else if (sizedIcon && isIndeterminate && _indeterminate?.icon) {
+      return sizedIcon(_indeterminate?.icon, {
+        ..._icon,
+        ..._indeterminate?._icon,
+      });
+    } else if (sizedIcon && isFocusVisible && _focus?.icon) {
+      return sizedIcon(_focus?.icon, {
+        ..._icon,
+        ..._focus?._icon,
+      });
+    }
+    return <CheckIcon name="check" {..._icon} opacity={isChecked ? 1 : 0} />;
+  }
+
   const { focusProps, isFocusVisible } = useFocusRing();
-
   const component = (
     <Box
+      {...layoutProps}
       flexDirection="row"
       alignItems="center"
-      {...themedProps}
-      opacity={disabled ? 0.4 : 1}
-      cursor={disabled ? 'not-allowed' : 'pointer'}
+      opacity={isDisabled ? 0.4 : 1}
+      cursor={isDisabled ? 'not-allowed' : 'pointer'}
     >
       <Center>
         {/* Interaction Box */}
         <Box
           {..._interactionBox}
-          {...(isFocusVisible && _iterationBoxFocus)}
-          {...(isHovered && _iterationBoxHover)}
-          {...(disabled && _iterationBoxDisabled)}
-          {...(disabled && _iterationBoxDisabled)}
+          {...(!isChecked && _unchecked?._interactionBox)}
+          {...(isChecked && _checked?._interactionBox)}
+          {...(isIndeterminate && _indeterminate?._interactionBox)}
+          {...(isFocusVisible && _focus?._interactionBox)}
+          {...(isHovered && _hover?._interactionBox)}
+          {...(isInvalid && _invalid?._interactionBox)}
+          {...(isReadOnly && _readOnly?._interactionBox)}
+          {...(isDisabled && _disabled?._interactionBox)}
           style={{
             // @ts-ignore - only for web"
             transition: 'height 200ms, width 200ms',
           }}
-          h={isFocusVisible || isHovered ? '200%' : '100%'}
-          w={isFocusVisible || isHovered ? '200%' : '100%'}
+          h={
+            isFocusVisible || isHovered || isChecked || isInvalid
+              ? '200%'
+              : '100%'
+          }
+          w={
+            isFocusVisible || isHovered || isChecked || isInvalid
+              ? '200%'
+              : '100%'
+          }
           zIndex={-1}
         />
         {/* Checkbox */}
         <Center
-          {..._checkbox}
-          {...(checked && _checkboxChecked)}
-          {...(disabled && _checkboxDisabled)}
-          {...(isInvalid && _checkboxInvalid)}
+          {...nonLayoutProps}
+          {...(!isChecked && _unchecked)}
+          {...(isChecked && _checked)}
+          {...(isIndeterminate && _indeterminate)}
+          {...(isFocusVisible && _focus)}
+          {...(isHovered && _hover)}
+          {...(isInvalid && _invalid)}
+          {...(isReadOnly && _readOnly)}
+          {...(isDisabled && _disabled)}
         >
-          {icon && sizedIcon && checked ? (
-            sizedIcon()
-          ) : (
-            <CheckIcon name="check" {..._icon} opacity={checked ? 1 : 0} />
-          )}
+          {iconResolver()}
         </Center>
       </Center>
+      {/* Label */}
       {children}
     </Box>
   );

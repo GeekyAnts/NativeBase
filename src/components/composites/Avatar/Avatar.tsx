@@ -18,8 +18,8 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
   //  Pop Badge from children
   React.Children.map(children, (child, key) => {
     if (
-      typeof child.type === 'object' &&
-      child.type.displayName === 'AvatarBadge'
+      typeof child?.type === 'object' &&
+      child?.type.displayName === 'AvatarBadge'
     ) {
       Badge = child;
     } else {
@@ -51,10 +51,8 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
           }}
           ref={ref}
         />
-      ) : remainingChildren.length === 0 ? (
-        <Text {..._text}>--</Text> // default alternate
       ) : (
-        remainingChildren
+        remainingChildren.length !== 0 && remainingChildren
       )}
       {Badge}
     </Box>
