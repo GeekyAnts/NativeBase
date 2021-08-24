@@ -1,4 +1,4 @@
-export type ColorMode = 'light' | 'dark';
+export type ColorMode = 'light' | 'dark' | null | undefined;
 export interface StorageManager {
   get(init?: ColorMode): Promise<ColorMode | undefined>;
   set(value: ColorMode): void;
