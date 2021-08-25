@@ -34,7 +34,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.1.0-rc.1",
+  "version": "3.1.0",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -109,7 +109,7 @@
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
     "modulePathIgnorePatterns": [
-      "<rootDir>/example/node_modules",
+      "<rootDir>/example/*",
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
@@ -122,7 +122,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint-staged && yarn prepare"
+      "pre-commit": "yarn lint-staged && yarn prepare && cd example && yarn test && cd .."
     }
   },
   "commitlint": {

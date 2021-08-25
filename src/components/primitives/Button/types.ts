@@ -2,6 +2,7 @@ import type { ITextProps } from './../Text/types';
 import type { IPressableProps } from '../Pressable';
 import type { IStackProps } from '../Stack';
 import type { ResponsiveValue } from '../../types';
+import type { MutableRefObject } from 'react';
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
 export interface IButtonProps extends IPressableProps {
@@ -15,12 +16,12 @@ export interface IButtonProps extends IPressableProps {
    * @default 'solid'
    */
   variant?: ResponsiveValue<
-    'ghost' | 'outline' | 'solid' | 'link' | 'unstyled'
+    'ghost' | 'outline' | 'solid' | 'link' | 'unstyled' | 'subtle'
   >;
   /**
    * If true, the button will show a spinner.
    */
-  isLoading?: any;
+  isLoading?: boolean;
   /**
    * The size of the button.
    */
@@ -54,8 +55,29 @@ export interface IButtonProps extends IPressableProps {
    */
   _stack?: IStackProps;
   /**
-   * Passed props will be applied on hovered state.
+   * Prop to decide placement of spinner.
    */
+  spinnerPlacement?: 'start' | 'end';
+  /**
+   * Props to be passed to the button when isLoading is true.
+   */
+  _loading?: any;
+  /**
+   * Props to be passed to the button when button is disabled.
+   */
+  _disabled?: any;
+  /**
+   * Props to be passed to the spinner when isLoading is true.
+   */
+  _spinner?: any;
+  /**
+   * The right icon element to use in the button.
+   */
+  rightIcon?: JSX.Element | Array<JSX.Element>;
+  /**
+   * The left icon element to use in the button.
+   */
+  leftIcon?: JSX.Element | Array<JSX.Element>;
 }
 
 export interface IButtonGroupProps extends IStackProps {
@@ -93,9 +115,9 @@ export interface IButtonGroupProps extends IStackProps {
 }
 
 export type IButtonComponentType = ((
-  props: IButtonProps & { ref?: any }
+  props: IButtonProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Group: React.MemoExoticComponent<
-    (props: IButtonGroupProps & { ref?: any }) => JSX.Element
+    (props: IButtonGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

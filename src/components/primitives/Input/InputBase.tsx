@@ -1,48 +1,15 @@
 import React, { memo, forwardRef } from 'react';
 import { TextInput, Platform } from 'react-native';
-import styled from 'styled-components/native';
-import {
-  border,
-  flex,
-  space,
-  color,
-  flexbox,
-  layout,
-  typography,
-} from 'styled-system';
-import {
-  customBorder,
-  customBackground,
-  customOutline,
-  customLayout,
-  customExtra,
-  customShadow,
-  customTypography,
-} from '../../../utils/customProps';
 import type { IInputProps } from './types';
 import { useToken } from '../../../hooks';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
+import { makeStyledComponent } from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledInput = styled(TextInput)<IInputProps>(
-  flex,
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  typography,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customTypography,
-  customLayout
-);
+const StyledInput = makeStyledComponent(TextInput);
 
 const InputBase = (
   {
@@ -86,6 +53,7 @@ const InputBase = (
     _hover,
     _focus,
     _disabled,
+    _readOnly,
     _invalid,
     fontFamily,
     fontWeight,
@@ -135,8 +103,9 @@ const InputBase = (
       {...themedProps}
       {...(isHovered && _hover)}
       {...(isFocused && _focus)}
-      {...(isDisabled && _disabled)}
+      {...(isReadOnly && _readOnly)}
       {...(isInvalid && _invalid)}
+      {...(isDisabled && _disabled)}
       placeholderTextColor={resolvedPlaceholderTextColor}
       selectionColor={resolvedSelectionColor}
       underlineColorAndroid={resolvedUnderlineColorAndroid}
@@ -144,10 +113,10 @@ const InputBase = (
         e.persist();
         onKeyPress && onKeyPress(e);
       }}
-      onFocus={(e) => {
+      onFocus={(e: any) => {
         handleFocus(true, onFocus ? () => onFocus(e) : () => {});
       }}
-      onBlur={(e) => {
+      onBlur={(e: any) => {
         handleFocus(false, onBlur ? () => onBlur(e) : () => {});
       }}
       {...(Platform.OS === 'web'

@@ -40,7 +40,7 @@ export const Item = (
     );
   } else {
     return (
-      <option ref={ref} value={value}>
+      <option ref={ref} value={value} disabled={isDisabled}>
         {label}
       </option>
     );

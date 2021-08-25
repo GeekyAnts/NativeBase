@@ -23,7 +23,7 @@ export interface IProgressProps extends IBoxProps {
    * Whether progress is indeterminate
    * @default false
    */
-  isIndeterminate?: any;
+  isIndeterminate?: boolean;
   /**
    * Min progress value
    * @default 0

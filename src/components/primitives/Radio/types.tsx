@@ -2,6 +2,7 @@ import type { IBoxProps } from '../../primitives';
 import type { IFormControlContext } from '../../composites';
 import type { AccessibilityRole } from 'react-native';
 import type { RadioGroupState } from '@react-stately/radio';
+import type { MutableRefObject } from 'react';
 
 export type IRadioValue = string;
 
@@ -75,7 +76,6 @@ export interface IRadioGroupProps extends IBoxProps {
 export interface IRadioContext extends IFormControlContext {
   colorScheme?: string;
   size?: 'sm' | 'md' | 'lg';
-  style?: any;
   state: RadioGroupState;
 }
 
@@ -90,6 +90,6 @@ export type IUseRadioGroupReturnType = {
 
 export type IRadioComponentType = ((props: IRadioProps) => JSX.Element) & {
   Group: React.MemoExoticComponent<
-    (props: IRadioGroupProps & { ref?: any }) => JSX.Element
+    (props: IRadioGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

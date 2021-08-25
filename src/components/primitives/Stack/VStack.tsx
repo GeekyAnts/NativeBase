@@ -8,7 +8,9 @@ export interface IVStackProps extends IStackProps {
    * The direction of the Stack Items.
    * @default column
    */
-  direction?: ResponsiveValue<'column' | 'row'>;
+  direction?: ResponsiveValue<
+    'column' | 'row' | 'column-reverse' | 'row-reverse'
+  >;
 }
 
 const VStack = (props: IVStackProps, ref?: any) => {

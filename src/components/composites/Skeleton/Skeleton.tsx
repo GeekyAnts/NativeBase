@@ -1,35 +1,47 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Animated, Platform, View } from 'react-native';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 import Box from '../../primitives/Box';
 import type { ISkeletonProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useToken } from '../../../hooks/useToken';
 
-const Skeleton = (allProps: ISkeletonProps, ref: any) => {
+const Skeleton = (props: ISkeletonProps, ref: any) => {
   const isDomUsable = canUseDom();
-  const { variant, children, ...props } = allProps;
-  const newProps = useThemeProps('Skeleton', props);
-  const { style, skeletonColor, baseColor } = newProps;
+  const {
+    children,
+    startColor,
+    style,
+    endColor,
+    ...resolvedProps
+  } = usePropsResolution('Skeleton', props);
+  // Setting blink Animation
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
+  const tokenisedRadius = useToken('radii', resolvedProps.borderRadius);
+  const tokenisedStartColor = useToken('colors', startColor);
 
+  // Generating blink animation in a sequence
   React.useEffect(() => {
+    //Check if window is loaded
     if (isDomUsable) {
       const blink = Animated.sequence([
         Animated.timing(blinkAnim, {
           toValue: 1,
-          duration: 1000,
+          duration:
+            resolvedProps.fadeDuration * 10000 * (1 / resolvedProps.speed),
           useNativeDriver: Platform.OS !== 'web',
         }),
         Animated.timing(blinkAnim, {
           toValue: 0,
-          duration: 1000,
+          duration:
+            resolvedProps.fadeDuration * 10000 * (1 / resolvedProps.speed),
           useNativeDriver: Platform.OS !== 'web',
         }),
       ]);
       Animated.loop(blink).start();
     }
-  }, [blinkAnim, isDomUsable]);
+  }, [blinkAnim, isDomUsable, resolvedProps]);
 
   const skeletonStyle: any = {
     skeleton: {
@@ -38,8 +50,8 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
       bottom: 0,
       height: '100%',
       width: '100%',
-      borderRadius: variant === 'circle' ? 999 : 3,
-      backgroundColor: skeletonColor,
+      borderRadius: tokenisedRadius,
+      backgroundColor: tokenisedStartColor,
       opacity: blinkAnim, // Bind opacity to animated value
     },
   };
@@ -47,26 +59,21 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return (
+  return resolvedProps.isLoaded ? (
+    children
+  ) : (
     <Box
-      style={[
-        style,
-        {
-          transform:
-            props.transform ?? variant === 'text'
-              ? [{ scaleY: 0.6 }]
-              : undefined,
-        },
-      ]}
-      borderRadius={variant === 'circle' ? 999 : 3}
-      bg={baseColor}
-      {...props}
+      style={[style]}
+      borderRadius={tokenisedRadius}
+      bg={endColor}
+      {...resolvedProps}
       ref={ref}
     >
       <Animated.View style={skeletonStyle.skeleton} />
+      {/* Rendering children with 0 opacity (takes height of children incase children are present) */}
       {children ? <View style={{ opacity: 0 }}>{children}</View> : null}
     </Box>
   );
 };
 
-export default React.memo(React.forwardRef(Skeleton));
+export default memo(forwardRef(Skeleton));

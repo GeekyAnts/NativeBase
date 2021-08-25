@@ -1,11 +1,13 @@
 import React, { forwardRef } from 'react';
 import { KeyboardAvoidingView as RNKeyboardAvoidingView } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
-import { makeStyledBox } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/styled';
 import type { IKeyboardAvoidingViewProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledKeyboardAvoidingView: any = makeStyledBox(RNKeyboardAvoidingView);
+const StyledKeyboardAvoidingView: any = makeStyledComponent(
+  RNKeyboardAvoidingView
+);
 
 export const KeyboardAvoidingView = forwardRef(
   (props: IKeyboardAvoidingViewProps, ref: any) => {

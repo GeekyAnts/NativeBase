@@ -10,20 +10,25 @@ import { SliderContext } from './Context';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 function SliderThumb(props: ISliderThumbProps, ref: any) {
-  let {
+  const {
     state,
     trackLayout,
     orientation,
     colorScheme,
     thumbSize,
+    isReadOnly,
+    isDisabled,
   } = React.useContext(SliderContext);
-  const themeProps = usePropsResolution('SliderThumb', {
-    size: thumbSize,
-    colorScheme,
-    ...props,
-  });
-  let inputRef = React.useRef(null);
-  let { thumbProps, inputProps } = useSliderThumb(
+  const { _readOnly, _disabled, ...themeProps } = usePropsResolution(
+    'SliderThumb',
+    {
+      size: thumbSize,
+      colorScheme,
+      ...props,
+    }
+  );
+  const inputRef = React.useRef(null);
+  const { thumbProps, inputProps } = useSliderThumb(
     {
       index: 0,
       trackLayout,
@@ -34,6 +39,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
   );
 
   const thumbAbsoluteSize = useToken('sizes', themeProps.size);
+  // console.log(themeProps, thumbProps);
 
   const thumbStyles: any = {
     bottom:
@@ -65,6 +71,8 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
       {...themeProps}
       ref={ref}
       style={[thumbStyles, props.style]}
+      {...(isReadOnly && _readOnly)}
+      {...(isDisabled && _disabled)}
     >
       {props.children}
       {Platform.OS === 'web' && (

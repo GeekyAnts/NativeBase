@@ -58,6 +58,9 @@ export type { ILinkProps } from './Link';
 export { List } from './List';
 export type { IListProps, IListItemProps } from './List';
 
+export { Hidden } from './Hidden';
+export type { IHiddenProps } from './Hidden';
+
 export { VisuallyHidden } from './VisuallyHidden';
 
 export { default as ZStack } from './ZStack';

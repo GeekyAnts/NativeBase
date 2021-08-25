@@ -11,7 +11,7 @@ export type ICircularProgressProps = IBoxProps & {
   colorScheme?: string;
   color?: string;
   trackColor?: string;
-  isIndeterminate?: any;
+  isIndeterminate?: boolean;
   max?: number;
   min?: number;
   _text?: ITextProps;

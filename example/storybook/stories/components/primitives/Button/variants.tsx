@@ -13,23 +13,64 @@ export const Example = () => {
         space={2}
         mx={{ base: 'auto', md: 0 }}
       >
-        <Button size="sm" onPress={() => console.log('hello world')}>
+        <Button
+          size="sm"
+          //  onPress={() => console.log('hello world')}
+        >
           PRIMARY
         </Button>
         <Button
           size="sm"
           colorScheme="secondary"
-          onPress={() => console.log('hello world')}
+          // onPress={() => console.log('hello world')}
         >
           SECONDARY
         </Button>
-        <Button size="sm" isDisabled onPress={() => console.log('hello world')}>
+        <Button
+          size="sm"
+          isDisabled
+          // onPress={() => console.log('hello world')}
+          _disabled={{ _text: { color: 'blue.500' } }}
+        >
           DISABLED
         </Button>
       </Stack>
 
       <Divider />
 
+      <Heading size="xs">Subtle</Heading>
+
+      {/* Subtle */}
+      <Stack
+        direction={{ base: 'column', md: 'row' }}
+        space={2}
+        mx={{ base: 'auto', md: 0 }}
+      >
+        <Button
+          size="sm"
+          variant="subtle"
+          // onPress={() => console.log('hello world')}
+        >
+          PRIMARY
+        </Button>
+        <Button
+          size="sm"
+          variant="subtle"
+          colorScheme="secondary"
+          // onPress={() => console.log('hello world')}
+        >
+          SECONDARY
+        </Button>
+        <Button
+          size="sm"
+          variant="subtle"
+          isDisabled
+          // onPress={() => console.log('hello world')}
+        >
+          DISABLED
+        </Button>
+      </Stack>
+      <Divider />
       <Heading size="xs">Outline</Heading>
 
       {/* Outline */}
@@ -41,7 +82,7 @@ export const Example = () => {
         <Button
           size="sm"
           variant="outline"
-          onPress={() => console.log('hello world')}
+          // onPress={() => console.log('hello world')}
         >
           PRIMARY
         </Button>
@@ -49,7 +90,7 @@ export const Example = () => {
           size="sm"
           variant="outline"
           colorScheme="secondary"
-          onPress={() => console.log('hello world')}
+          // onPress={() => console.log('hello world')}
         >
           SECONDARY
         </Button>
@@ -57,7 +98,7 @@ export const Example = () => {
           size="sm"
           variant="outline"
           isDisabled
-          onPress={() => console.log('hello world')}
+          // onPress={() => console.log('hello world')}
         >
           DISABLED
         </Button>
@@ -75,7 +116,7 @@ export const Example = () => {
         <Button
           size="sm"
           variant="link"
-          onPress={() => console.log('hello world')}
+          // onPress={() => console.log('hello world')}
         >
           PRIMARY
         </Button>
@@ -83,7 +124,7 @@ export const Example = () => {
           size="sm"
           variant="link"
           colorScheme="secondary"
-          onPress={() => console.log('hello world')}
+          // onPress={() => console.log('hello world')}
         >
           SECONDARY
         </Button>
@@ -91,7 +132,7 @@ export const Example = () => {
           size="sm"
           variant="link"
           isDisabled
-          onPress={() => console.log('hello world')}
+          // onPress={() => console.log('hello world')}
         >
           DISABLED
         </Button>
@@ -109,7 +150,7 @@ export const Example = () => {
         <Button
           size="sm"
           variant="ghost"
-          onPress={() => console.log('hello world')}
+          // onPress={() => console.log('hello world')}
         >
           PRIMARY
         </Button>
@@ -117,7 +158,7 @@ export const Example = () => {
           size="sm"
           variant="ghost"
           colorScheme="secondary"
-          onPress={() => console.log('hello world')}
+          // onPress={() => console.log('hello world')}
         >
           SECONDARY
         </Button>
@@ -125,7 +166,7 @@ export const Example = () => {
           size="sm"
           variant="ghost"
           isDisabled
-          onPress={() => console.log('hello world')}
+          // onPress={() => console.log('hello world')}
         >
           DISABLED
         </Button>
@@ -141,7 +182,10 @@ export const Example = () => {
         space={2}
         mx={{ base: 'auto', md: 0 }}
       >
-        <Button variant="unstyled" onPress={() => console.log('hello world')}>
+        <Button
+          variant="unstyled"
+          // onPress={() => console.log('hello world')}
+        >
           Unstyled
         </Button>
       </Stack>

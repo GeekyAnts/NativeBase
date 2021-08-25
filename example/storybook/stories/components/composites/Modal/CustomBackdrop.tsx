@@ -11,8 +11,7 @@ export const Example = () => {
       <Modal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        overlayVisible={false}
-        _backdrop={{ opacity: 0.8, bg: 'pink.100' }}
+        _backdrop={{ bg: 'pink.100' }}
       >
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />

@@ -20,6 +20,7 @@ import AvatarGroup from './avatar-group';
 import Badge from './badge';
 import Breadcrumb from './breadcrumb';
 import Button, { ButtonGroup } from './button';
+import Card from './card';
 import Center from './center';
 import Checkbox from './checkbox';
 import Box from './box';
@@ -62,9 +63,10 @@ import {
 import * as PopoverComponentTheme from './popover';
 import { default as NumberInput, NumberInputStepper } from './number-input';
 import PinInput from './pin-input';
+import Pressable from './pressable';
 import Progress from './progress';
 import Radio from './radio';
-import Skeleton from './skeleton';
+import { Skeleton, SkeletonText, SkeletonCircle } from './skeleton';
 import Spinner from './spinner';
 import Stat from './stat';
 import Switch from './switch';
@@ -115,6 +117,7 @@ export default {
   Breadcrumb,
   Button,
   ButtonGroup,
+  Card,
   Center,
   Checkbox,
   CircularProgress,
@@ -155,6 +158,7 @@ export default {
   NumberInput,
   NumberInputStepper,
   PinInput,
+  Pressable,
   ...PopoverComponentTheme,
   Progress,
   Radio,
@@ -163,6 +167,8 @@ export default {
   SelectItem,
   SimpleGrid,
   Skeleton,
+  SkeletonText,
+  SkeletonCircle,
   SliderFilledTrack,
   SliderThumb,
   SliderTrack,

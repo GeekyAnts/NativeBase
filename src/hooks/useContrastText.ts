@@ -4,7 +4,7 @@ import { useAccessibleColors } from '../core/color-mode/hooks';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 
 export function useContrastText(bg: string, color?: string) {
-  let [
+  const [
     contrastThreshold,
     trueDarkText,
     trueLightText,
@@ -18,11 +18,11 @@ export function useContrastText(bg: string, color?: string) {
     color ?? '',
   ]);
 
-  let suppressColorAccessibilityWarning = useNativeBaseConfig(
+  const suppressColorAccessibilityWarning = useNativeBaseConfig(
     'NativeBaseConfigProvider'
   ).config.suppressColorAccessibilityWarning;
 
-  let [accessibleColors] = useAccessibleColors();
+  const [accessibleColors] = useAccessibleColors();
 
   if (typeof bg !== 'string') {
     return;
@@ -50,7 +50,7 @@ export function useContrastText(bg: string, color?: string) {
 }
 
 function getContrastThemeColor(bgThemeColorVariant: string, bgShade: string) {
-  let shadeThreshold = themeColorsThresholdShades[bgThemeColorVariant];
+  const shadeThreshold = themeColorsThresholdShades[bgThemeColorVariant];
   if (
     bgShade &&
     shadeThreshold &&
@@ -116,8 +116,8 @@ function getContrastRatio(foreground: string, background: string) {
 }
 
 const themeColorsThresholdShades: any = {
-  rose: 900,
-  pink: 900,
+  rose: 500,
+  pink: 500,
   fuchsia: 800,
   purple: 700,
   violet: 600,
@@ -130,19 +130,19 @@ const themeColorsThresholdShades: any = {
   green: 400,
   lime: 600,
   yellow: 800,
-  amber: 900,
-  orange: 900,
-  red: 900,
+  amber: 500,
+  orange: 500,
+  red: 500,
   warmGray: 500,
   trueGray: 500,
   gray: 500,
   coolGray: 500,
   blueGray: 500,
   dark: 500,
-  danger: 900,
-  error: 900,
+  danger: 500,
+  error: 500,
   success: 400,
-  warning: 900,
+  warning: 500,
   muted: 500,
   primary: 500,
   info: 400,

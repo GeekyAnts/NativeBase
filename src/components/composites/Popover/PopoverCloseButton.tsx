@@ -23,7 +23,6 @@ const PopoverCloseButton = (
     <Box position="absolute" right={1} top={1} zIndex={1} ref={ref}>
       <IconButton
         {...newProps}
-        {...props}
         icon={<CloseIcon {..._icon} />}
         onPress={onClose}
       />
