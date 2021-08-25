@@ -8,10 +8,12 @@ const Actionsheet = (
   { children, hideDragIndicator = false, ...props }: IActionsheetProps,
   ref: any
 ) => {
-  const { isOpen, disableOverlay, onClose, ...newProps } = usePropsResolution(
-    'Actionsheet',
-    props
-  );
+  const {
+    isOpen,
+    disableOverlay,
+    onClose,
+    ...remainingProps
+  } = usePropsResolution('Actionsheet', props);
 
   return (
     <Modal
@@ -20,7 +22,7 @@ const Actionsheet = (
       justifyContent="flex-end"
       //@ts-ignore - internal use only
       animationPreset="slide"
-      {...newProps}
+      {...remainingProps}
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}
       ref={ref}

@@ -12,7 +12,8 @@ export const KeyboardAvoidingView = forwardRef(
   (props: IKeyboardAvoidingViewProps, ref: any) => {
     const { ...resolvedProps } = usePropsResolution(
       'KeyboardAvoidingView',
-      props
+      props,
+      {}
     );
 
     return <StyledKeyboardAvoidingView {...resolvedProps} ref={ref} />;

@@ -14,7 +14,7 @@ const Alert = ({ children, action, ...props }: IAlertProps, ref?: any) => {
     _text,
     _actionProps,
     ...newProps
-  } = usePropsResolution('Alert', props);
+  } = usePropsResolution('Alert', props, {});
 
   return (
     <AlertContext.Provider
