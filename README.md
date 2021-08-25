@@ -178,4 +178,4 @@ Support this project with your organization. Your logo will show up here with a 
 
 ## 14. License
 
-Licensed under the MIT License, Copyright © 2020 GeekyAnts. See [LICENSE](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE) for more information.
+Licensed under the MIT License, Copyright © 2021 GeekyAnts. See [LICENSE](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE) for more information.
