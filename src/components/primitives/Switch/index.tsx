@@ -8,6 +8,7 @@ import { makeStyledComponent } from '../../../utils/styled';
 import type { ISwitchProps } from './types';
 import { mergeRefs } from '../../../utils';
 import { useHover } from '@react-native-aria/interactions';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledNBSwitch = makeStyledComponent(RNSwitch);
 
@@ -57,7 +58,20 @@ const Switch = (
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
-
+  //TODO: refactor for responsive prop
+  if (
+    useHasResponsiveProps({
+      ...props,
+      isDisabled,
+      isInvalid,
+      isChecked,
+      defaultIsChecked,
+      accessibilityLabel,
+      accessibilityHint,
+    })
+  ) {
+    return null;
+  }
   return (
     <StyledNBSwitch
       accessibilityLabel={accessibilityLabel}

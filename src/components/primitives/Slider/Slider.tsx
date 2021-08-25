@@ -6,6 +6,7 @@ import type { ISliderProps } from './types';
 import Box from '../Box';
 import { SliderContext } from './Context';
 import { useSlider } from '@react-native-aria/slider';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 function Slider(props: ISliderProps, ref?: any) {
   let newProps = {
@@ -57,15 +58,19 @@ function Slider(props: ISliderProps, ref?: any) {
     width: props.orientation !== 'vertical' ? '100%' : undefined,
   };
 
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
+
   return (
     <SliderContext.Provider
       value={{
         trackLayout,
         state,
-        orientation: props.orientation,
-        isDisabled: props.isDisabled,
-        isReversed: props.isReversed,
-        colorScheme: props.colorScheme,
+        orientation: themeProps.orientation,
+        isReversed: themeProps.isReversed,
+        colorScheme: themeProps.colorScheme,
         trackProps,
         isReadOnly: props.isReadOnly,
         onTrackLayout: onLayout,

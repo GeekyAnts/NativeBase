@@ -8,16 +8,19 @@ import { useLink } from './useLink';
 import { mergeRefs } from '../../../utils';
 import { Pressable } from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Link = (
-  { href, isUnderlined = false, onPress, isExternal, ...props }: ILinkProps,
-  ref: any
-) => {
-  let { _hover, children, _text, ...remainingProps } = usePropsResolution(
-    'Link',
-    props
-  );
+const Link = ({ onPress, children, ...props }: ILinkProps, ref: any) => {
+  let {
+    _hover,
+    _text,
+    href,
+    isExternal,
+    isUnderlined,
+    ...resolvedProps
+  } = usePropsResolution('Link', props);
   const _ref = React.useRef(null);
+
   const { isHovered } = useHover({}, _ref);
   const { linkProps } = useLink({ href, onPress, isExternal, _ref });
 
@@ -34,13 +37,17 @@ const Link = (
       ...hoverTextProps,
     };
   }
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <>
       {/* On web we render Link in anchor tag */}
       {Platform.OS === 'web' ? (
         <Box
           {...linkProps}
-          {...remainingProps}
+          {...resolvedProps}
           _text={linkTextProps}
           {...(isHovered && getHoverProps())}
           ref={mergeRefs([ref, _ref])}
@@ -51,13 +58,13 @@ const Link = (
       ) : (
         <Pressable
           {...linkProps}
-          {...remainingProps}
+          {...resolvedProps}
           ref={ref}
           flexDirection="row"
         >
           {React.Children.map(children, (child) =>
             typeof child === 'string' ? (
-              <Text {...remainingProps._text} {...linkTextProps}>
+              <Text {...resolvedProps._text} {...linkTextProps}>
                 {child}
               </Text>
             ) : (

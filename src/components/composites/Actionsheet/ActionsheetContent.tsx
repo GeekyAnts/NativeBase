@@ -6,6 +6,7 @@ import { Animated, PanResponder } from 'react-native';
 import { ModalContext } from '../Modal/Context';
 import Box from '../../primitives/Box';
 import { ActionSheetContext } from './ActionSheetContext';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const ActionsheetContent = (
   { children, ...props }: IActionsheetContentProps,
@@ -51,7 +52,10 @@ const ActionsheetContent = (
       },
     })
   ).current;
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Animated.View
       style={{

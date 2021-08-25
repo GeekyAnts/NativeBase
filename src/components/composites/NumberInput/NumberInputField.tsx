@@ -2,6 +2,7 @@ import React from 'react';
 import { Input } from '../../primitives/Input';
 import type { INumberInputContext, INumberInputFieldProps } from './types';
 import { NumberInputContext } from './Context';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const NumberInputFiled = (
   { isDisabled, ...props }: INumberInputFieldProps,
@@ -32,6 +33,10 @@ const NumberInputFiled = (
   const blurHandler = () => {
     if (numberInputValue) handleChange && handleChange(numberInputValue);
   };
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Input
       p={0}

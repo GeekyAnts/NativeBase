@@ -4,6 +4,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import isNil from 'lodash.isnil';
 import type { IAvatarGroupProps } from './types';
 import { default as Avatar } from './Avatar';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 // Todo: Try using HStack instead
 
@@ -57,11 +58,15 @@ const getAvatarGroupChildren = (
 };
 
 const AvatarGroup = (allProps: IAvatarGroupProps, ref: any) => {
-  const { children, max, ...props } = allProps;
-  const { borderColor, borderWidth, bg, space } = usePropsResolution(
+  const { children, ...props } = allProps;
+  const { borderColor, borderWidth, bg, space, max } = usePropsResolution(
     'AvatarGroup',
     props
   );
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Flex direction="row-reverse" ref={ref}>
       {getAvatarGroupChildren(children, space, max, bg, {

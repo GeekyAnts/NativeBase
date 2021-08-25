@@ -7,6 +7,7 @@ import { canUseDom } from '../../../utils';
 import { default as Box } from '../../primitives/Box';
 import type { ICircularProgressProps } from './types';
 import { themeTools } from '../../../theme';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyleAnimatedView = makeStyledComponent(Animated.View);
 
@@ -149,7 +150,10 @@ const CircularProgress = (
   } else {
     firstProgressLayerStyle = propStyle(value, -135);
   }
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box
       {...sizeProps}

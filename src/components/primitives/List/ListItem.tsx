@@ -6,6 +6,7 @@ import { mergeRefs } from '../../../utils';
 import { Pressable } from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
 import { extractInObject } from '../../../theme/tools';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const ListItem = ({ children, ...props }: IListItemProps, ref: any) => {
   const {
@@ -24,7 +25,10 @@ const ListItem = ({ children, ...props }: IListItemProps, ref: any) => {
   } = usePropsResolution('ListItem', props);
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   // Extracting Pressable Props from newProps
   const [pressableProps, remainingProps] = extractInObject(newProps, [
     'onPress',
