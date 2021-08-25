@@ -6,7 +6,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps/usePropsResolut
 
 export const InputLeftAddon = memo(
   forwardRef((props: IBoxProps & IInputProps, ref?: any) => {
-    const { resolvedProps } = usePropsResolution('InputLeftAddon', props);
+    const resolvedProps = usePropsResolution('InputLeftAddon', props);
     //TODO: refactor for responsive prop
     if (useHasResponsiveProps(props)) {
       return null;
@@ -22,7 +22,7 @@ export const InputLeftAddon = memo(
 );
 export const InputRightAddon = memo(
   forwardRef((props: IBoxProps & IInputProps, ref?: any) => {
-    const { resolvedProps } = usePropsResolution('InputRightAddon', props);
+    const resolvedProps = usePropsResolution('InputRightAddon', props);
     //TODO: refactor for responsive prop
     if (useHasResponsiveProps(props)) {
       return null;
