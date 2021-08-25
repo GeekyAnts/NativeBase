@@ -13,6 +13,7 @@ export interface INativebaseConfig {
   dependencies?: {
     'linear-gradient': any;
   };
+  enableRem?: boolean;
 }
 
 export const [NativeBaseConfigProvider, useNativeBaseConfig] = createContext<{
