@@ -3,9 +3,16 @@ import React from 'react';
 import Flex from '../../primitives/Flex';
 import type { IWrapProps } from './types';
 import { useThemeProps } from '../../../hooks';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Wrap = ({ children, ...props }: IWrapProps, ref?: any) => {
   const { space, ...newProps } = useThemeProps('Wrap', props);
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
+
   return (
     <Flex wrap="wrap" {...newProps} ref={ref}>
       {isNil(space)

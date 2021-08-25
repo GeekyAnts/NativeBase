@@ -8,6 +8,7 @@ import { Platform, StyleSheet } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
 import Box, { IBoxProps } from '../../primitives/Box';
 import { useId } from '@react-aria/utils';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 interface ITooltipProps extends IBoxProps {
   /**
@@ -110,6 +111,7 @@ export const Tooltip = ({
   }
 
   const themeProps = usePropsResolution('Tooltip', rest);
+
   const [isOpen, setIsOpen] = useControllableState({
     value: isOpenProp,
     defaultValue: defaultIsOpen,
@@ -185,7 +187,10 @@ export const Tooltip = ({
     enabled: isOpen,
     callback: () => setIsOpen(false),
   });
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(rest)) {
+    return null;
+  }
   return (
     <>
       {newChildren}

@@ -57,7 +57,7 @@ const baseStyle = (props: Record<string, any>) => {
     },
     _web: {
       outlineWidth: 0,
-      lineHeight: 6, // Todo: Move to _web inside size so that sm and xs don't have this much height
+      lineHeight: 'lg', // Todo: Move to _web inside size so that sm and xs don't have this much height
     },
   };
 };
