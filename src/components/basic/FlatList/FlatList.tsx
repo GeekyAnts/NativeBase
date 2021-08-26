@@ -7,7 +7,7 @@ import type { IFlatListProps } from './types';
 const StyledFlatList: any = makeStyledComponent(RNFlatList);
 
 export const FlatList = forwardRef((props: IFlatListProps, ref: any) => {
-  const { ...resolvedProps } = usePropsResolution('FlatList', props);
+  const { ...resolvedProps } = usePropsResolution('FlatList', props, {});
 
   return <StyledFlatList {...resolvedProps} ref={ref} />;
 });
