@@ -4,9 +4,9 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
+const Avatar = ({ wrapperRef, style, ...props }: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
-  const { size, style, source, children, ...remainingProps } = props;
+  const { size, source, children, ...remainingProps } = props;
 
   const { _text, ...newProps } = usePropsResolution('Avatar', {
     ...remainingProps,
@@ -36,7 +36,7 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
     }
   });
 
-  const imageFitStyle = { height: '100%', width: '100%' };
+  const imageFitStyle: any = { height: '100%', width: '100%' };
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
