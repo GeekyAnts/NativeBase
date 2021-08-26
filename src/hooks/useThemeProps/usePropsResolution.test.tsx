@@ -9,7 +9,6 @@ import {
   Select,
   Image,
   Spinner,
-  Text,
 } from '../../components/primitives';
 import { FormControl, Menu } from '../../components/composites';
 import { Platform } from 'react-native';
@@ -311,41 +310,6 @@ describe('props resolution', () => {
     );
     const box = getByTestId('test');
     expect(box.props.style).toEqual(defaultTheme.shadows[9]);
-  });
-  it('tests lineHeight from token in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text lineHeight="md" testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.lineHeight).toBe(22);
-  });
-
-  it('tests absolute lineHeight in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text lineHeight={5} testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.lineHeight).toBe(5);
-  });
-
-  it('tests letterSpacing from token in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text letterSpacing="2xl" testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.letterSpacing).toBe(0.4);
   });
 
   it('FormControl: pseudo props test ', () => {
