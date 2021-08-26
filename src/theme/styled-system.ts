@@ -558,6 +558,20 @@ const propConfig = {
   ...extraProps,
 };
 
+// For backward compatibility with 3.0 of props like string numbers `<Box mt={"39"} />`
+const convertStringNumberToNumber = (key: string, value: string) => {
+  if (
+    typeof value === 'string' &&
+    key !== 'fontWeight' &&
+    value &&
+    !isNaN(Number(value))
+  ) {
+    return parseFloat(value);
+  }
+
+  return value;
+};
+
 export const getStyleAndFilteredProps = ({
   style,
   theme,
@@ -578,8 +592,12 @@ export const getStyleAndFilteredProps = ({
       );
 
       const config = propConfig[key as keyof typeof propConfig];
+
       if (config === true) {
-        styleFromProps = { ...styleFromProps, [key]: value };
+        styleFromProps = {
+          ...styleFromProps,
+          [key]: convertStringNumberToNumber(key, value),
+        };
       } else if (config) {
         //@ts-ignore
         const { property, scale, properties, transformer } = config;
@@ -590,8 +608,11 @@ export const getStyleAndFilteredProps = ({
           val = get(theme[scale], value, value);
         }
         if (typeof val === 'string' && val.endsWith('px')) {
-          val = parseInt(val, 10);
+          val = parseFloat(val);
         }
+
+        val = convertStringNumberToNumber(key, val);
+
         if (properties) {
           //@ts-ignore
           properties.forEach((property) => {

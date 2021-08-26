@@ -218,7 +218,7 @@ describe('props resolution', () => {
       width: defaultTheme.space['20'],
     });
 
-    expect(spinner.props.style).toEqual({});
+    expect(spinner.props.style).toEqual(undefined);
   });
 
   it('resolves base style and variants, sizes and default props with props', () => {
@@ -542,6 +542,20 @@ describe('props resolution', () => {
       height: defaultTheme.space['20'],
       maxWidth: '100%',
       width: defaultTheme.space['20'],
+    });
+  });
+
+  it('verifies string numbers', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Box testID="123" mt={'29'} />
+      </Provider>
+    );
+
+    const box = getByTestId('123');
+
+    expect(box.props.style).toEqual({
+      marginTop: 29,
     });
   });
 });
