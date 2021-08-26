@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeProps, usePlatformProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import type { ITextFieldProps } from './types';
 import { Stack } from '../../primitives/Stack';
 import { Input } from '../../primitives/Input';
@@ -20,17 +20,15 @@ const TextField = (mainProps: ITextFieldProps, ref?: any) => {
     ...props
   }: any = mainProps;
 
-  const { divider, ...themedProps } = useThemeProps('TextField', props);
-
-  // usePlatformProps is merging Platform specific props to themedProps
   const {
+    divider,
     _errorMessageProps,
     _helperTextProps,
     component,
-    ...platformProps
-  } = usePlatformProps(themedProps);
+    ...resolvedProps
+  } = usePropsResolution('TextField', props);
 
-  const [layoutProps, componentProps] = extractInObject(platformProps, [
+  const [layoutProps, componentProps] = extractInObject(resolvedProps, [
     'space',
     'reversed',
     ...stylingProps.margin,

@@ -11,9 +11,9 @@ export interface IZStackProps extends IBoxProps {
 }
 
 const ZStack = ({ children, reversed, ...props }: IZStackProps, ref?: any) => {
-  const newProps = usePropsResolution('ZStack', props);
+  const resolvedProps = usePropsResolution('ZStack', props);
   return (
-    <Box {...newProps} ref={ref}>
+    <Box {...resolvedProps} ref={ref}>
       {getAbsoluteChildren(children, reversed)}
     </Box>
   );

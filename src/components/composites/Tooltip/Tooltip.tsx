@@ -101,7 +101,7 @@ export const Tooltip = ({
   hasArrow,
   arrowSize = 12,
   isOpen: isOpenProp,
-  ...rest
+  ...props
 }: ITooltipProps) => {
   if (hasArrow && offset === undefined) {
     offset = 0;
@@ -109,7 +109,7 @@ export const Tooltip = ({
     offset = 6;
   }
 
-  const themeProps = usePropsResolution('Tooltip', rest);
+  const resolvedProps = usePropsResolution('Tooltip', props);
   const [isOpen, setIsOpen] = useControllableState({
     value: isOpenProp,
     defaultValue: defaultIsOpen,
@@ -119,7 +119,7 @@ export const Tooltip = ({
   });
 
   const arrowBg =
-    rest.backgroundColor ?? rest.bgColor ?? rest.bg ?? themeProps.bg;
+    props.backgroundColor ?? props.bgColor ?? props.bg ?? resolvedProps.bg;
 
   const targetRef = React.useRef(null);
 
@@ -214,7 +214,7 @@ export const Tooltip = ({
                   />
                 )}
                 <Box
-                  {...themeProps}
+                  {...resolvedProps}
                   //@ts-ignore
                   accessibilityRole={
                     Platform.OS === 'web' ? 'tooltip' : undefined

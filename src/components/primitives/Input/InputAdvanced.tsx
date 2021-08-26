@@ -30,21 +30,6 @@ const InputAdvance = (
     isRequired: inputProps.required,
   };
 
-  const {
-    isInvalid,
-    isDisabled,
-    _hover,
-    isReadOnly,
-    _disabled,
-    _readOnly,
-    _invalid,
-    _focus,
-    ...themedProps
-  } = usePropsResolution('Input', {
-    ...inputThemeProps,
-    ...props,
-  });
-
   if (InputLeftElement) {
     leftElement = InputLeftElement;
   }
@@ -58,7 +43,25 @@ const InputAdvance = (
     callback();
   };
 
-  const [layoutProps, nonLayoutProps] = extractInObject(themedProps, [
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+
+  const resolvedProps = usePropsResolution(
+    'Input',
+    {
+      ...inputThemeProps,
+      ...props,
+    },
+    {
+      isDisabled: inputThemeProps.isDisabled,
+      isHovered,
+      isFocused,
+      isInvalid: inputThemeProps.isInvalid,
+      isReadOnly: inputThemeProps.isReadOnly,
+    }
+  );
+
+  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
     ...stylingProps.margin,
     ...stylingProps.border,
     ...stylingProps.layout,
@@ -70,9 +73,6 @@ const InputAdvance = (
   // Extracting baseInputProps from remaining props
   const [, baseInputProps] = extractInObject(nonLayoutProps, ['variant']);
 
-  const _ref = React.useRef(null);
-  const { isHovered } = useHover({}, _ref);
-
   return (
     <Box
       display="flex"
@@ -81,16 +81,12 @@ const InputAdvance = (
       justifyContent="space-between"
       overflow="hidden"
       {...layoutProps}
-      {...(isHovered && _hover)}
-      {...(isFocused && _focus)}
-      {...(isInvalid && _invalid)}
-      {...(isReadOnly && _readOnly)}
-      {...(isDisabled && _disabled)}
       ref={mergeRefs([_ref, wrapperRef])}
     >
       {InputLeftElement || leftElement ? InputLeftElement || leftElement : null}
       <InputBase
         inputProps={inputProps}
+        bg={layoutProps.bg}
         {...baseInputProps}
         flex={1}
         disableFocusHandling

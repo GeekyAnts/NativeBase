@@ -13,8 +13,8 @@ export interface IVStackProps extends IStackProps {
 }
 
 const VStack = (props: IVStackProps, ref?: any) => {
-  const newProps = usePropsResolution('VStack', props);
-  return <StackMain ref={ref} {...newProps} />;
+  const resolvedProps = usePropsResolution('VStack', props);
+  return <StackMain ref={ref} {...resolvedProps} />;
 };
 
 export default memo(forwardRef(VStack));

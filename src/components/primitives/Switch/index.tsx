@@ -11,6 +11,7 @@ import { useHover } from '@react-native-aria/interactions';
 
 const StyledNBSwitch = makeStyledComponent(RNSwitch);
 
+// TODO: Needs proper refactor
 const Switch = (
   {
     style,
@@ -28,35 +29,37 @@ const Switch = (
   const state = useToggleState({
     defaultSelected: !isNil(defaultIsChecked) ? defaultIsChecked : false,
   });
-  const {
-    onTrackColor: _onTrackColor,
-    offTrackColor: _offTrackColor,
-    onThumbColor: _onThumbColor,
-    offThumbColor: _offThumbColor,
-    style: themeStyle,
-    _hover,
-    ...newProps
-  } = usePropsResolution('Switch', props);
+
   const borderColorInvalid = useToken('colors', 'danger.600');
   const checked = !isNil(isChecked) ? isChecked : state.isSelected;
-  const onTrackColor = useToken('colors', _onTrackColor);
-  const offTrackColor = useToken('colors', _offTrackColor);
-  const onThumbColor = useToken('colors', _onThumbColor);
-  const offThumbColor = useToken('colors', _offThumbColor);
   const inValidPropFactors = {
     borderWidth: 1,
     borderRadius: 16,
     borderColor: borderColorInvalid,
   };
 
-  let computedStyle: ViewStyle = StyleSheet.flatten([
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+
+  const {
+    onTrackColor: _onTrackColor,
+    offTrackColor: _offTrackColor,
+    onThumbColor: _onThumbColor,
+    offThumbColor: _offThumbColor,
+    style: themeStyle,
+    ...resolvedProps
+  } = usePropsResolution('Switch', props, { isHovered, isDisabled });
+
+  const computedStyle: ViewStyle = StyleSheet.flatten([
     themeStyle,
     style,
     isInvalid ? inValidPropFactors : {},
   ]);
 
-  const _ref = React.useRef(null);
-  const { isHovered } = useHover({}, _ref);
+  const onTrackColor = useToken('colors', _onTrackColor);
+  const offTrackColor = useToken('colors', _offTrackColor);
+  const onThumbColor = useToken('colors', _onThumbColor);
+  const offThumbColor = useToken('colors', _offThumbColor);
 
   return (
     <StyledNBSwitch
@@ -66,8 +69,7 @@ const Switch = (
       thumbColor={checked ? onThumbColor : offThumbColor}
       activeThumbColor={onThumbColor} // react-native-web prop for active thumbColor
       ios_backgroundColor={offTrackColor}
-      {...(isHovered && _hover)}
-      {...newProps}
+      {...resolvedProps}
       disabled={isDisabled}
       onValueChange={onToggle ? onToggle : state.toggle}
       value={checked}

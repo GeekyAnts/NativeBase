@@ -4,7 +4,6 @@ import { getSpacedChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../types';
-import { useBreakpointResolvedProps } from '../../../hooks';
 
 export interface IStackProps extends IBoxProps {
   /**
@@ -35,23 +34,22 @@ const Stack = (props: IStackProps, ref?: any) => {
     children,
     space,
     direction,
-    divider,
     reversed,
-    ...remainingProps
-  } = props;
-  const newProps: any = usePropsResolution('Stack', remainingProps);
-
-  const {
-    space: resolvedSpace,
-    direction: resolvedDirection,
-  } = useBreakpointResolvedProps({ space, direction });
+    divider,
+    ...resolvedProps
+  }: any = usePropsResolution(
+    'Stack',
+    props,
+    {},
+    { resolveResponsively: ['space', 'direction'] }
+  );
 
   return (
-    <Box flexDirection={resolvedDirection} {...newProps} ref={ref}>
+    <Box flexDirection={direction} {...resolvedProps} ref={ref}>
       {getSpacedChildren(
         children,
-        resolvedSpace,
-        resolvedDirection === 'row' ? 'X' : 'Y',
+        space,
+        direction === 'row' ? 'X' : 'Y',
         reversed ? 'reverse' : 'normal',
         divider
       )}

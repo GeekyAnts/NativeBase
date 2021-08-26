@@ -38,10 +38,12 @@ const InputBase = (
     isRequired: inputProps.required,
   };
 
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+
   const {
     isFullWidth,
     isDisabled,
-    isInvalid,
     isReadOnly,
     ariaLabel,
     accessibilityLabel,
@@ -49,22 +51,24 @@ const InputBase = (
     selectionColor,
     underlineColorAndroid,
     type,
-    _hover,
-    _focus,
-    _disabled,
-    _readOnly,
-    _invalid,
     fontFamily,
     fontWeight,
     fontStyle,
-    ...themedProps
-  } = usePropsResolution('Input', {
-    ...inputThemeProps,
-    ...props,
-  });
-
-  const _ref = React.useRef(null);
-  const { isHovered } = useHover({}, _ref);
+    ...resolvedProps
+  } = usePropsResolution(
+    'Input',
+    {
+      ...inputThemeProps,
+      ...props,
+    },
+    {
+      isDisabled: inputThemeProps.isDisabled,
+      isHovered,
+      isFocused,
+      isInvalid: inputThemeProps.isInvalid,
+      isReadOnly: inputThemeProps.isReadOnly,
+    }
+  );
 
   const resolvedFontFamily = useResolvedFontFamily({
     fontFamily,
@@ -81,12 +85,7 @@ const InputBase = (
       accessibilityLabel={ariaLabel || accessibilityLabel}
       editable={isDisabled || isReadOnly ? false : true}
       w={isFullWidth ? '100%' : undefined}
-      {...themedProps}
-      {...(isHovered && _hover)}
-      {...(isFocused && _focus)}
-      {...(isReadOnly && _readOnly)}
-      {...(isInvalid && _invalid)}
-      {...(isDisabled && _disabled)}
+      {...resolvedProps}
       placeholderTextColor={useToken('colors', placeholderTextColor)}
       selectionColor={useToken('colors', selectionColor)}
       underlineColorAndroid={useToken('colors', underlineColorAndroid)}
@@ -100,6 +99,7 @@ const InputBase = (
       onBlur={(e: any) => {
         handleFocus(false, onBlur ? () => onBlur(e) : () => {});
       }}
+      // TODO: this can be moved to baseStyle using _web
       {...(Platform.OS === 'web'
         ? {
             disabled: isDisabled,

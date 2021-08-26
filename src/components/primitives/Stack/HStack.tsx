@@ -13,8 +13,8 @@ export interface IHStackProps extends IStackProps {
 }
 
 const HStack = (props: IHStackProps, ref?: any) => {
-  const newProps = usePropsResolution('HStack', props);
-  return <StackMain ref={ref} direction="row" {...newProps} />;
+  const resolvedProps = usePropsResolution('HStack', props);
+  return <StackMain ref={ref} direction="row" {...resolvedProps} />;
 };
 
 export default memo(forwardRef(HStack));
