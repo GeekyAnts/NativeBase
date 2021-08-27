@@ -9,7 +9,6 @@ import {
   Select,
   Image,
   Spinner,
-  Text,
 } from '../../components/primitives';
 import { FormControl, Menu } from '../../components/composites';
 import { Platform } from 'react-native';
@@ -218,7 +217,7 @@ describe('props resolution', () => {
       width: defaultTheme.space['20'],
     });
 
-    expect(spinner.props.style).toEqual({});
+    expect(spinner.props.style).toEqual(undefined);
   });
 
   it('resolves base style and variants, sizes and default props with props', () => {
@@ -311,41 +310,6 @@ describe('props resolution', () => {
     );
     const box = getByTestId('test');
     expect(box.props.style).toEqual(defaultTheme.shadows[9]);
-  });
-  it('tests lineHeight from token in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text lineHeight="md" testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.lineHeight).toBe(22);
-  });
-
-  it('tests absolute lineHeight in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text lineHeight={5} testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.lineHeight).toBe(5);
-  });
-
-  it('tests letterSpacing from token in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text letterSpacing="2xl" testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.letterSpacing).toBe(0.4);
   });
 
   it('FormControl: pseudo props test ', () => {
@@ -542,6 +506,20 @@ describe('props resolution', () => {
       height: defaultTheme.space['20'],
       maxWidth: '100%',
       width: defaultTheme.space['20'],
+    });
+  });
+
+  it('verifies string numbers', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Box testID="123" mt={'29'} />
+      </Provider>
+    );
+
+    const box = getByTestId('123');
+
+    expect(box.props.style).toEqual({
+      marginTop: 29,
     });
   });
 });
