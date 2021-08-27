@@ -1,13 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { get } from 'lodash';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
-import { transparentize } from './tools';
+import { transparentize, convertRemToAbsolute, convertToDp } from './tools';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
 export const getColor = (rawValue: any, scale: any, theme: any) => {
   const alphaMatched =
     typeof rawValue === 'string' ? rawValue?.match(/:alpha\.\d\d?\d?/) : false;
+
   if (alphaMatched) {
     const colorMatched = rawValue?.match(/^.*?(?=:alpha)/);
     const color = colorMatched ? colorMatched[0] : colorMatched;
@@ -34,6 +35,40 @@ const getMargin = (n: any, scale: any) => {
     return isNegative ? '-' + value : value;
   }
   return value * (isNegative ? -1 : 1);
+};
+
+const getLetterspacingOrLineHeight = (inputValue: any, fontSizeValue: any) => {
+  //lineheight calculations
+
+  const isWeb = Platform.OS === 'web';
+  let finalValue = inputValue;
+
+  const numberRegex = /^\d+$/;
+  const isAbsolute =
+    typeof inputValue === 'number' || numberRegex.test(inputValue);
+  const isPx = !isAbsolute && inputValue.endsWith('px');
+  const isRem = !isAbsolute && inputValue.endsWith('rem');
+
+  // If platform is web, we need to convert absolute unit to em
+  if (isWeb && isAbsolute) {
+    finalValue = parseFloat(inputValue) + 'em';
+  }
+  // If platform is not web, we need to convert px unit to absolute and rem unit to absolute. e.g. 16px to 16. 1rem to 16.
+  else {
+    let ownFontSize = convertToDp(fontSizeValue);
+
+    if (isAbsolute || isPx) {
+      finalValue = parseFloat(inputValue);
+    } else if (isRem) {
+      finalValue = convertRemToAbsolute(inputValue);
+    }
+
+    if (isAbsolute) {
+      finalValue = ownFontSize * finalValue;
+    }
+  }
+
+  return finalValue;
 };
 
 export const layout = {
@@ -521,10 +556,30 @@ export const typography = {
   lineHeight: {
     property: 'lineHeight',
     scale: 'lineHeights',
+    transformer: (val: any, scale: any, theme: any, fontSize: any) => {
+      const lineHeightValue = get(scale, val, val);
+      const fontSizeValue = get(theme.fontSizes, fontSize, fontSize);
+      const newVal = getLetterspacingOrLineHeight(
+        lineHeightValue,
+        fontSizeValue
+      );
+
+      return newVal;
+    },
   },
   letterSpacing: {
     property: 'letterSpacing',
     scale: 'letterSpacings',
+    transformer: (val: any, scale: any, theme: any, fontSize: any) => {
+      const letterSpacingValue = get(scale, val, val);
+      const fontSizeValue = get(theme.fontSizes, fontSize, fontSize);
+      const newVal = getLetterspacingOrLineHeight(
+        letterSpacingValue,
+        fontSizeValue
+      );
+
+      return newVal;
+    },
   },
   textAlign: true,
   fontStyle: true,
@@ -558,6 +613,20 @@ const propConfig = {
   ...extraProps,
 };
 
+// For backward compatibility with 3.0 of props like string numbers `<Box mt={"39"} />`
+const convertStringNumberToNumber = (key: string, value: string) => {
+  if (
+    typeof value === 'string' &&
+    key !== 'fontWeight' &&
+    value &&
+    !isNaN(Number(value))
+  ) {
+    return parseFloat(value);
+  }
+
+  return value;
+};
+
 export const getStyleAndFilteredProps = ({
   style,
   theme,
@@ -578,20 +647,27 @@ export const getStyleAndFilteredProps = ({
       );
 
       const config = propConfig[key as keyof typeof propConfig];
+
       if (config === true) {
-        styleFromProps = { ...styleFromProps, [key]: value };
+        styleFromProps = {
+          ...styleFromProps,
+          [key]: convertStringNumberToNumber(key, value),
+        };
       } else if (config) {
         //@ts-ignore
         const { property, scale, properties, transformer } = config;
         let val = value;
         if (transformer) {
-          val = transformer(val, theme[scale], theme);
+          val = transformer(val, theme[scale], theme, props.fontSize);
         } else {
           val = get(theme[scale], value, value);
         }
         if (typeof val === 'string' && val.endsWith('px')) {
-          val = parseInt(val, 10);
+          val = parseFloat(val);
         }
+
+        val = convertStringNumberToNumber(key, val);
+
         if (properties) {
           //@ts-ignore
           properties.forEach((property) => {
