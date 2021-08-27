@@ -212,4 +212,17 @@ describe('Text component', () => {
       Platform.OS = 'ios';
     }
   });
+
+  it('tests lineHeight and letterSpacing in px', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text lineHeight="24px" letterSpacing="12px" testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(24);
+    expect(text.props.style.letterSpacing).toBe(12);
+  });
 });

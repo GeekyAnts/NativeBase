@@ -63,7 +63,9 @@ const getLetterspacingOrLineHeight = (inputValue: any, fontSizeValue: any) => {
       finalValue = convertRemToAbsolute(inputValue);
     }
 
-    finalValue = ownFontSize * finalValue;
+    if (isAbsolute) {
+      finalValue = ownFontSize * finalValue;
+    }
   }
 
   return finalValue;
