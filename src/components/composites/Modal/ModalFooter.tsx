@@ -3,8 +3,8 @@ import Box, { IBoxProps } from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks';
 
 const ModalFooter = (props: IBoxProps, ref?: any) => {
-  const newProps = usePropsResolution('ModalFooter', props);
-  return <Box {...newProps} ref={ref} />;
+  const resolvedProps = usePropsResolution('ModalFooter', props);
+  return <Box {...resolvedProps} ref={ref} />;
 };
 
 export default memo(forwardRef(ModalFooter));

@@ -5,7 +5,7 @@ import { ModalContext } from './Context';
 import { Platform } from 'react-native';
 
 const ModalContent = (props: IBoxProps, ref?: any) => {
-  const { ...newProps } = usePropsResolution('ModalContent', props);
+  const resolvedProps = usePropsResolution('ModalContent', props);
   const {
     contentSize,
     initialFocusRef,
@@ -13,7 +13,7 @@ const ModalContent = (props: IBoxProps, ref?: any) => {
     handleClose,
   } = React.useContext(ModalContext);
   React.useEffect(() => {
-    let finalRefVal = finalFocusRef ? finalFocusRef.current : null;
+    const finalRefVal = finalFocusRef ? finalFocusRef.current : null;
     if (initialFocusRef && initialFocusRef.current) {
       //@ts-ignore
       initialFocusRef.current.focus();
@@ -30,7 +30,7 @@ const ModalContent = (props: IBoxProps, ref?: any) => {
   return (
     <Box
       {...contentSize}
-      {...newProps}
+      {...resolvedProps}
       ref={ref}
       onAccessibilityEscape={handleClose}
       //@ts-ignore - web only
