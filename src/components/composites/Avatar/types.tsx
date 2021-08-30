@@ -25,7 +25,7 @@ export interface IAvatarProps extends IBoxProps {
   /**
    * ref to be attached to Avatar wrapper
    */
-  wrapperRef?: any;
+  wrapperRef?: MutableRefObject<any>;
 }
 
 export interface IAvatarBadgeProps extends IBoxProps {}
