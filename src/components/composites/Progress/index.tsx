@@ -47,16 +47,19 @@ const Progress = (props: IProgressProps, ref?: any) => {
   //   ).start();
   // });
 
-  const { min, max, value, isIndeterminate, ...newProps } = usePropsResolution(
-    'Progress',
-    props
-  );
-  const { innerBg } = newProps;
+  const {
+    min,
+    max,
+    value,
+    isIndeterminate,
+    ...resolvedProps
+  } = usePropsResolution('Progress', props);
+  const { innerBg } = resolvedProps;
 
   const innerProps = {
     bg: innerBg,
     shadow: 0,
-    rounded: newProps.rounded,
+    rounded: resolvedProps.rounded,
     height: '100%',
     w:
       value < max && value > min
@@ -72,8 +75,8 @@ const Progress = (props: IProgressProps, ref?: any) => {
 
   return (
     <Box
-      {...newProps}
-      style={newProps.style}
+      {...resolvedProps}
+      style={resolvedProps.style}
       ref={ref}
       accessible
       accessibilityRole="progressbar"
@@ -101,9 +104,9 @@ const Progress = (props: IProgressProps, ref?: any) => {
         //   ]}
         // >
         // </Animated.View>
-        <Box {...innerProps} children={newProps.children} />
+        <Box {...innerProps} children={resolvedProps.children} />
       ) : (
-        <Box {...innerProps} children={newProps.children} />
+        <Box {...innerProps} children={resolvedProps.children} />
       )}
     </Box>
   );
