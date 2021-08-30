@@ -6,7 +6,7 @@ import Box from '../../primitives/Box';
 import type { ISkeletonProps } from './types';
 import { useToken } from '../../../hooks/useToken';
 
-const Skeleton = (allProps: ISkeletonProps, ref: any) => {
+const Skeleton = (props: ISkeletonProps, ref: any) => {
   const isDomUsable = canUseDom();
   const {
     children,
@@ -14,7 +14,7 @@ const Skeleton = (allProps: ISkeletonProps, ref: any) => {
     style,
     endColor,
     ...newProps
-  } = usePropsResolution('Skeleton', allProps);
+  } = usePropsResolution('Skeleton', props);
   // Setting blink Animation
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
   const tokenisedRadius = useToken('radii', newProps.borderRadius);
