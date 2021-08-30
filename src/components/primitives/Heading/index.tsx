@@ -4,8 +4,8 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IHeadingProps } from './types';
 
 const Heading = (props: IHeadingProps, ref: any) => {
-  const newProps = usePropsResolution('Heading', props);
-  return <Text {...newProps} ref={ref} />;
+  const resolvedProps = usePropsResolution('Heading', props);
+  return <Text {...resolvedProps} ref={ref} />;
 };
 
 export default memo(forwardRef(Heading));
