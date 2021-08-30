@@ -108,7 +108,7 @@ export interface ICheckboxProps extends IBoxProps {
   /**
    * Ref to be passed to Icon's wrapper Box
    */
-  wrapperRef?: any;
+  wrapperRef?: MutableRefObject<any>;
   ref?: MutableRefObject<any>;
 }
 export interface ICheckboxGroupProps extends IBoxProps {

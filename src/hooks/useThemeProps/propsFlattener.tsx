@@ -159,7 +159,7 @@ const simplifyProps = (
       }
     } else if (compareSpecificity(specificityMap[property], propertySpecity)) {
       // STEP : update specificity
-
+      // TODO: Need to find a fix
       specificityMap[property] = propertySpecity;
       if (property.startsWith('_')) {
         // merging internal props (like, _text, _checked, ...)
@@ -170,7 +170,6 @@ const simplifyProps = (
         );
       } else {
         // replacing simple props (like, p, m, bg, color, ...)
-
         flattenProps[property] = props[property];
       }
     }

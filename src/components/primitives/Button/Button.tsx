@@ -32,7 +32,13 @@ const Button = (
     _spinner,
     spinnerProps,
     ...resolvedProps
-  } = usePropsResolution('Button', props, { ignoreProps: ['_spinner'] });
+  } = usePropsResolution(
+    'Button',
+    props,
+    // { isDisabled, isLoading, isHovered, isFocusVisible, isFocused },
+    {},
+    { ignoreProps: ['_spinner'] }
+  );
 
   const pressableProps = {
     ...resolvedProps,
