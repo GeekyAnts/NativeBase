@@ -7,7 +7,9 @@ export const Example = () => {
   return (
     <Stack direction={{ base: 'column', md: 'row' }} space={8}>
       <MoonIcon />
+      {/* Not Recommended */}
       <Icon as={<Ionicons name="md-checkmark-circle" />} />
+      {/* Recommended */} <Icon as={Ionicons} name="md-checkmark-circle" />
       <Icon viewBox="0 0 870 873">
         <G fillRule="nonzero" stroke="none" strokeWidth={1} fill="none">
           <Path
