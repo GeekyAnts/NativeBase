@@ -11,7 +11,7 @@ import isNil from 'lodash.isnil';
 
 const StyledBox = makeStyledComponent(View);
 
-let MemoizedGradient: any = undefined;
+let MemoizedGradient: any;
 
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   // const { _text, ...resolvedProps } = useThemeProps('Box', props);
