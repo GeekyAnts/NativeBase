@@ -23,8 +23,8 @@ export const useMenuTrigger = ({ handleOpen, isOpen }: IMenuTriggerProps) => {
 };
 
 export const useMenu = () => {
-  let focusManager = useFocusManager();
-  let onKeyDown = (e: KeyboardEvent) => {
+  const focusManager = useFocusManager();
+  const onKeyDown = (e: KeyboardEvent) => {
     switch (e.key) {
       case 'ArrowDown': {
         e.preventDefault();

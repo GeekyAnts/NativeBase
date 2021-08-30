@@ -12,18 +12,18 @@ const MenuOptionGroup = (
   { type, defaultValue, value, onChange, ...props }: IMenuOptionGroupProps,
   ref?: any
 ) => {
-  let internalDefaultValue = defaultValue
+  const internalDefaultValue = defaultValue
     ? Array.isArray(defaultValue)
       ? defaultValue
       : [defaultValue]
     : [];
 
-  let [internalValues, setValues] = React.useState<Array<string | number>>(
+  const [internalValues, setValues] = React.useState<Array<string | number>>(
     internalDefaultValue
   );
   onChange = (newValue: string | number) => {
     if (type === 'checkbox') {
-      let newValues = [...internalValues];
+      const newValues = [...internalValues];
       if (internalValues.includes(newValue)) {
         newValues.splice(newValues.indexOf(newValue), 1);
         setValues(newValues);
