@@ -4,9 +4,9 @@ import { Popper } from '../Popper';
 import type { IBoxProps } from '../../primitives/Box';
 
 const PopoverArrow = React.forwardRef((props: IBoxProps, ref: any) => {
-  const themeProps = usePropsResolution('PopoverArrow', props);
+  const resolvedProps = usePropsResolution('PopoverArrow', props);
 
-  return <Popper.Arrow {...props} {...themeProps} ref={ref} />;
+  return <Popper.Arrow {...props} {...resolvedProps} ref={ref} />;
 });
 
 PopoverArrow.displayName = 'PopperArrow';
