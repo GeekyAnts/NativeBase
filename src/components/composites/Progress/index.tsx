@@ -18,11 +18,15 @@ export interface IProgressProps extends IBoxProps {
    * @default primary
    */
   colorScheme?: string;
+  // /**
+  //  * Whether progress is indeterminate
+  //  * @default false
+  //  */
+  // isIndeterminate?: boolean;
   /**
-   * Whether progress is indeterminate
-   * @default false
+   * Pseudo prop to give Prop to filled track
    */
-  isIndeterminate?: boolean;
+  _filledTrack?: IBoxProps;
   /**
    * Min progress value
    * @default 0
@@ -36,47 +40,18 @@ export interface IProgressProps extends IBoxProps {
 }
 
 const Progress = (props: IProgressProps, ref?: any) => {
-  // const width = new Animated.Value(0);
-  // useEffect(() => {
-  //   Animated.loop(
-  //     Animated.timing(width, {
-  //       toValue: 270,
-  //       duration: 1000,
-  //       useNativeDriver: true,
-  //     })
-  //   ).start();
-  // });
-
   const {
     min,
     max,
     value,
-    isIndeterminate,
+    _filledTrack,
+    children,
     ...resolvedProps
   } = usePropsResolution('Progress', props);
-  const { innerBg } = resolvedProps;
-
-  const innerProps = {
-    bg: innerBg,
-    shadow: 0,
-    rounded: resolvedProps.rounded,
-    height: '100%',
-    w:
-      value < max && value > min
-        ? ((value - min) / (max - min)) * 100 + '%'
-        : value > min
-        ? '100%'
-        : '0%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'white',
-  };
 
   return (
     <Box
       {...resolvedProps}
-      style={resolvedProps.style}
       ref={ref}
       accessible
       accessibilityRole="progressbar"
@@ -91,23 +66,19 @@ const Progress = (props: IProgressProps, ref?: any) => {
             : 0,
       }}
     >
-      {isIndeterminate ? (
-        // <Animated.View
-        //   style={[
-        //     {
-        //       transform: [
-        //         {
-        //           translateX: width,
-        //         },
-        //       ],
-        //     },
-        //   ]}
-        // >
-        // </Animated.View>
-        <Box {...innerProps} children={resolvedProps.children} />
-      ) : (
-        <Box {...innerProps} children={resolvedProps.children} />
-      )}
+      <Box
+        // {...resolvedProps}
+        {..._filledTrack}
+        w={
+          value < max && value > min
+            ? ((value - min) / (max - min)) * 100 + '%'
+            : value > min
+            ? '100%'
+            : '0%'
+        }
+      >
+        {children}
+      </Box>
     </Box>
   );
 };
