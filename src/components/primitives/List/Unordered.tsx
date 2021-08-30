@@ -1,13 +1,10 @@
 import React from 'react';
 import { VStack } from '../Stack';
 import type { IListProps } from './types';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 
-const UnorderedList = (
-  { style, children, ...props }: IListProps,
-  ref?: any
-) => {
-  const { _text, _hover, ...newProps } = useThemeProps('List', props);
+const UnorderedList = ({ children, ...props }: IListProps, ref?: any) => {
+  const { _text, _hover, ...resolvedProps } = usePropsResolution('List', props);
   // add props to children
   children = React.Children.map(children, (child: any, ind: number) => {
     return React.cloneElement(
@@ -24,7 +21,7 @@ const UnorderedList = (
   });
 
   return (
-    <VStack style={style} {...newProps} ref={ref}>
+    <VStack {...resolvedProps} ref={ref}>
       {children}
     </VStack>
   );
