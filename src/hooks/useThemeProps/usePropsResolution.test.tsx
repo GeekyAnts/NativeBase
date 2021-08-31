@@ -10,11 +10,17 @@ import {
   Image,
   Spinner,
   Text,
+  Input,
+  Checkbox,
+  Slider,
+  Icon,
+  HStack,
 } from '../../components/primitives';
-import { FormControl, Menu } from '../../components/composites';
+import { FormControl, Menu, Modal } from '../../components/composites';
 import { Platform } from 'react-native';
 import { extendTheme } from '../../core/extendTheme';
 import { fireEvent } from '@testing-library/react-native';
+import { InfoIcon } from '../../components/primitives/Icon/Icons';
 
 const inset = {
   frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -28,6 +34,32 @@ const Provider = ({ children, theme = defaultTheme }: any) => {
     </NativeBaseProvider>
   );
 };
+
+function CheckBoxGroup() {
+  const [groupValue, setGroupValue] = React.useState(['Item 1 ', 'Item 3 ']);
+  return (
+    <Checkbox.Group
+      colorScheme="green"
+      defaultValue={groupValue}
+      onChange={(values) => {
+        setGroupValue(values || []);
+      }}
+    >
+      <Checkbox value="Item 1 ">
+        <Text mx={2}>Item 1</Text>
+      </Checkbox>
+      <Checkbox value="Item 2 ">
+        <Text mx={2}>Item 2</Text>
+      </Checkbox>
+      <Checkbox value="Item 3 ">
+        <Text mx={2}>Item 3</Text>
+      </Checkbox>
+      <Checkbox colorScheme="orange" value="Indeterminate Item ">
+        <Text mx={2}>Indeterminate Item</Text>
+      </Checkbox>
+    </Checkbox.Group>
+  );
+}
 
 describe('props resolution', () => {
   it('tests simple resolution', () => {
@@ -544,4 +576,296 @@ describe('props resolution', () => {
       width: defaultTheme.space['20'],
     });
   });
+
+  it('Input: Basic check', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Input
+          testID="test"
+          w="100%"
+          mx={3}
+          placeholder="Default Input"
+          placeholderTextColor="blueGray.400"
+        />
+      </Provider>
+    );
+    const inputElement = getByTestId('test');
+    expect(inputElement.props.style.width).toBe('100%');
+
+    expect(inputElement.props.placeholderTextColor).toBe(
+      defaultTheme.colors.blueGray['400']
+    );
+    expect(inputElement.props.style.marginLeft).toBe(defaultTheme.space['3']);
+    expect(inputElement.props.style.marginRight).toBe(defaultTheme.space['3']);
+  });
+
+  it('Input: color mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Input
+          testID="test"
+          _light={{
+            placeholderTextColor: 'blueGray.400',
+          }}
+          _dark={{
+            placeholderTextColor: 'blueGray.50',
+          }}
+        />
+      </Provider>
+    );
+    const inputElement = getByTestId('test');
+    expect(inputElement.props.placeholderTextColor).toBe(
+      defaultTheme.colors.blueGray['50']
+    );
+  });
+
+  it('Input: size', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Input
+          testID="test"
+          size="sm"
+          variant="outline"
+          _dark={{
+            size: 'md',
+          }}
+        />
+      </Provider>
+    );
+    const inputElement = getByTestId('test');
+    expect(inputElement.props.style.fontSize).toBe(16);
+  });
+
+  it('Input: variant', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Input testID="test" variant="underlined" />
+      </Provider>
+    );
+    const inputElement = getByTestId('test');
+    expect(inputElement.props.style.borderBottomWidth).toBe(1);
+  });
+
+  it('Input: variant', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Input testID="test" variant="filled" />
+      </Provider>
+    );
+    const inputElement = getByTestId('test');
+    expect(inputElement.props.style.backgroundColor).toBe('#e5e5e5');
+  });
+
+  it('Input: inputElemets', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Input
+          testID="test1"
+          InputLeftElement={<Button testID="test2">leftIcon</Button>}
+          placeholder="Input"
+        />
+      </Provider>
+    );
+    const inputElement = getByTestId('test1');
+    const iconElement = getByTestId('test2');
+    console.log(inputElement, '!!!!!');
+    console.log('===========');
+    console.log(inputElement.props, '!!!!!');
+    expect(inputElement.props.InputLeftElement).toBe(iconElement);
+  });
+
+  it('Input: disabled', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Input
+          testID="test"
+          type="password"
+          isDisabled={true}
+          isRequired={true}
+        />
+      </Provider>
+    );
+    const inputElement = getByTestId('test');
+    expect(inputElement.props.disabled).toBe(true);
+  });
+
+  // ==========================================
+
+  it('handles defaults and onChange on checkBoxGroup', () => {
+    let { getAllByRole } = render(
+      <Provider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
+        <CheckBoxGroup />
+      </Provider>
+    );
+    let checkbox = getAllByRole('checkbox');
+    expect(checkbox.length).toBe(4);
+    expect(checkbox[0].props.accessibilityState.checked).toBe(true);
+    expect(checkbox[1].props.accessibilityState.checked).toBe(false);
+    expect(checkbox[2].props.accessibilityState.checked).toBe(true);
+    expect(checkbox[3].props.accessibilityState.checked).toBe(false);
+    fireEvent.press(checkbox[1]);
+    expect(checkbox[1].props.accessibilityState.checked).toBe(true);
+  });
+
+  it('checkBox: disabled, checked', () => {
+    let { getAllByRole } = render(
+      <Provider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
+        <Checkbox value="Item 1 ">
+          <Text mx={2}>Item 1</Text>
+        </Checkbox>
+        <Checkbox value="Item 2 " isDisabled>
+          <Text mx={2}>Item 2</Text>
+        </Checkbox>
+        <Checkbox value="Item 3" isChecked>
+          <Text mx={2}>Item 3</Text>
+        </Checkbox>
+        <Checkbox colorScheme="orange" value="Indeterminate Item" isInvalid>
+          <Text mx={2}>Indeterminate Item</Text>
+        </Checkbox>
+      </Provider>
+    );
+    let checkbox = getAllByRole('checkbox');
+    expect(checkbox.length).toBe(4);
+    expect(checkbox[1].props.accessibilityState.disabled).toBe(true);
+    expect(checkbox[2].props.accessibilityState.checked).toBe(true);
+    // expect(checkbox[3].props.accessibilityState.invalid).toBe(true);
+  });
+
+  it('onChange on checkBox', () => {
+    let { getAllByRole } = render(
+      <Provider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
+        <Checkbox value="item 1" />
+      </Provider>
+    );
+    let checkbox = getAllByRole('checkbox');
+    expect(checkbox.length).toBe(1);
+    fireEvent.press(checkbox[0]);
+    expect(checkbox[0].props.accessibilityState.checked).toBe(true);
+  });
+
+  // it('CustomIcon checkBox', () => {
+  //   let { getAllByRole, getByTestId } = render(
+  //     <Provider>
+  //       <Checkbox
+  //         value="orange"
+  //         colorScheme="orange"
+  //         size="md"
+  //         icon={<Icon testID="icon" as={<InfoIcon />} />}
+  //         defaultIsChecked
+  //       >
+  //         Info
+  //       </Checkbox>
+  //     </Provider>
+  //   );
+  //   let checkbox = getAllByRole('checkbox');
+  //   let nestedIcon = getByTestId('icon');
+
+  //   expect(checkbox[0].props.icon).toBe(nestedIcon);
+  // });
+
+  //  ==========================================
+  it('Slider: basic', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Slider
+          testID="slider"
+          // Need to test
+          // defaultValue={70}
+          minValue={0}
+          maxValue={100}
+          accessibilityLabel="hello world"
+          step={10}
+          colorScheme="red"
+          size="md"
+        >
+          <Slider.Track>
+            <Slider.FilledTrack />
+          </Slider.Track>
+          <Slider.Thumb />
+        </Slider>
+      </Provider>
+    );
+    const sliderElement = getByTestId('slider');
+    expect(sliderElement.props.minValue).toBe(0);
+    expect(sliderElement.props.maxValue).toBe(100);
+    expect(sliderElement.props.step).toBe(10);
+  });
+
+  //  ==========================================
+  // it('Modal: size', () => {
+  //   const { getByTestId } = render(
+  //     <Provider>
+  //       <Modal isOpen={true} size="sm">
+  //         <Modal.Content testID="size">
+  //           <Modal.Header>Modal Title</Modal.Header>
+  //           <Modal.Body>
+  //             Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
+  //             ullamco deserunt aute id consequat veniam incididunt duis in sint
+  //             irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+  //             officia tempor esse quis. Sunt ad dolore quis aute consequat.
+  //             Magna exercitation reprehenderit magna aute tempor cupidatat
+  //             consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
+  //             incididunt cillum quis. Velit duis sit officia eiusmod Lorem
+  //             aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi
+  //             consectetur esse laborum eiusmod pariatur
+  //           </Modal.Body>
+  //         </Modal.Content>
+  //       </Modal>
+  //     </Provider>
+  //   );
+  //   const modalElement = getByTestId('size');
+
+  //   expect(modalElement.props.style.width).toBe('60%');
+  // });
+
+  it('HStack: basic', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <HStack testID="hstack">
+          <Box>1</Box>
+          <Box>2</Box>
+          <Box>3</Box>
+        </HStack>
+      </Provider>
+    );
+    const hstackElement = getByTestId('hstack');
+    expect(hstackElement.props.style.flexDirection).toBe('row');
+  });
+
+  it('HStack: direction', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <HStack testID="hstack" direction="column">
+          <Box>1</Box>
+          <Box>2</Box>
+          <Box>3</Box>
+        </HStack>
+      </Provider>
+    );
+    const hstackElement = getByTestId('hstack');
+    expect(hstackElement.props.style.flexDirection).toBe('column');
+  });
 });
+
+// =========================================================
