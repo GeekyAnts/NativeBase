@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon, MoonIcon, Stack } from 'native-base';
-import { G, Path } from 'react-native-svg';
 import { Ionicons } from '@expo/vector-icons';
+import { G, Path } from 'react-native-svg';
 
 export const Example = () => {
   return (

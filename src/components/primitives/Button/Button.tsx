@@ -5,12 +5,9 @@ import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import { Pressable } from '../Pressable';
 import type { IButtonProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useHover, useIsPressed, useFocus } from '../Pressable/Pressable';
 import { composeEventHandlers } from '../../../utils';
-import {
-  useHover,
-  useFocus,
-  useIsPressed,
-} from '../../primitives/Pressable/Pressable';
 
 const Button = (
   {
@@ -48,7 +45,10 @@ const Button = (
     { isDisabled, isLoading, isHovered, isFocused, isPressed },
     { ignoreProps: ['_spinner'] }
   );
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   // const pressableProps = {
   //   ...resolvedProps,
   //   _hover,

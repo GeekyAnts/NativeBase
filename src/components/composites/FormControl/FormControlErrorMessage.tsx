@@ -3,6 +3,7 @@ import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFormControlContext } from './useFormControl';
 import type { IFormControlErrorMessageProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const FormControlErrorMessage = (
   { children, _disabled, ...props }: IFormControlErrorMessageProps,
@@ -18,7 +19,10 @@ const FormControlErrorMessage = (
       formControlContext?.setHasFeedbackText(false);
     };
   });
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return formControlContext?.isInvalid ? (
     <Box
       _text={{ fontSize: 'xs', color: 'red.400' }}

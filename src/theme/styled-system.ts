@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { get } from 'lodash';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
 import { transparentize } from './tools';
@@ -8,6 +8,7 @@ const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 export const getColor = (rawValue: any, scale: any, theme: any) => {
   const alphaMatched =
     typeof rawValue === 'string' ? rawValue?.match(/:alpha\.\d\d?\d?/) : false;
+
   if (alphaMatched) {
     const colorMatched = rawValue?.match(/^.*?(?=:alpha)/);
     const color = colorMatched ? colorMatched[0] : colorMatched;
@@ -558,6 +559,20 @@ const propConfig = {
   ...extraProps,
 };
 
+// For backward compatibility with 3.0 of props like string numbers `<Box mt={"39"} />`
+const convertStringNumberToNumber = (key: string, value: string) => {
+  if (
+    typeof value === 'string' &&
+    key !== 'fontWeight' &&
+    value &&
+    !isNaN(Number(value))
+  ) {
+    return parseFloat(value);
+  }
+
+  return value;
+};
+
 export const getStyleAndFilteredProps = ({
   style,
   theme,
@@ -578,20 +593,34 @@ export const getStyleAndFilteredProps = ({
       );
 
       const config = propConfig[key as keyof typeof propConfig];
+
       if (config === true) {
-        styleFromProps = { ...styleFromProps, [key]: value };
+        styleFromProps = {
+          ...styleFromProps,
+          [key]: convertStringNumberToNumber(key, value),
+        };
       } else if (config) {
         //@ts-ignore
         const { property, scale, properties, transformer } = config;
         let val = value;
         if (transformer) {
-          val = transformer(val, theme[scale], theme);
+          val = transformer(val, theme[scale], theme, props.fontSize);
         } else {
           val = get(theme[scale], value, value);
         }
-        if (typeof val === 'string' && val.endsWith('px')) {
-          val = parseInt(val, 10);
+
+        if (typeof val === 'string') {
+          if (val.endsWith('px')) {
+            val = parseFloat(val);
+          } else if (val.endsWith('em') && Platform.OS !== 'web') {
+            val =
+              parseFloat(val) *
+              parseFloat(get(theme.fontSizes, props.fontSize, props.fontSize));
+          }
         }
+
+        val = convertStringNumberToNumber(key, val);
+
         if (properties) {
           //@ts-ignore
           properties.forEach((property) => {

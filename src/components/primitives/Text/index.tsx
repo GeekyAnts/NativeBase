@@ -5,10 +5,8 @@ import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
 import { makeStyledComponent } from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
-import { Text as NativeText, useWindowDimensions } from 'react-native';
-
-import isNil from 'lodash.isnil';
-import { isResponsiveAnyProp } from '../../../theme/tools';
+import { Text as NativeText } from 'react-native';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledText = makeStyledComponent(NativeText);
 
@@ -50,12 +48,8 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   }
 
   //TODO: refactor for responsive prop
-  const windowDimensions = useWindowDimensions();
-  if (isNil(windowDimensions.width) || isNil(windowDimensions.height)) {
-    const responsivePropsExists = isResponsiveAnyProp(props);
-    if (responsivePropsExists) {
-      return null;
-    }
+  if (useHasResponsiveProps(props)) {
+    return null;
   }
 
   return (

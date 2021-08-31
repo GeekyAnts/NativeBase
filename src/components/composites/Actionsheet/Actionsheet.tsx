@@ -3,6 +3,7 @@ import { Modal } from '../../composites/Modal';
 import type { IActionsheetProps } from './types';
 import { usePropsResolution } from '../../../hooks';
 import { ActionSheetContext } from './ActionSheetContext';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Actionsheet = (
   { children, hideDragIndicator = false, ...props }: IActionsheetProps,
@@ -14,7 +15,10 @@ const Actionsheet = (
     onClose,
     ...remainingProps
   } = usePropsResolution('Actionsheet', props);
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Modal
       isOpen={isOpen}

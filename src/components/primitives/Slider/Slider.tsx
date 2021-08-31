@@ -6,6 +6,7 @@ import type { ISliderProps } from './types';
 import Box from '../Box';
 import { SliderContext } from './Context';
 import { useSlider } from '@react-native-aria/slider';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
   const newProps = {
@@ -60,6 +61,11 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
     height: props.orientation === 'vertical' ? '100%' : undefined,
     width: props.orientation !== 'vertical' ? '100%' : undefined,
   };
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   return (
     <SliderContext.Provider

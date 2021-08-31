@@ -4,6 +4,7 @@ import { useFormControlContext } from '../../composites/FormControl';
 import type { IRadioContext, IRadioGroupProps } from './types';
 import { useRadioGroupState } from '@react-stately/radio';
 import { useRadioGroup } from '@react-native-aria/radio';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export let RadioContext = React.createContext<IRadioContext>(
   {} as IRadioContext
@@ -20,6 +21,10 @@ const RadioGroup = (
     { ...formControlContext, ...props, 'aria-label': props.accessibilityLabel },
     state
   );
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps({ ...props, size, colorScheme })) {
+    return null;
+  }
   return (
     <Box ref={ref}>
       <RadioContext.Provider

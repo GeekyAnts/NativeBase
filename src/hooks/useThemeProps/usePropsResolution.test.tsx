@@ -17,7 +17,7 @@ import {
   HStack,
 } from '../../components/primitives';
 // import { Ionicons } from '@expo/vector-icons';
-import { FormControl, Menu } from '../../components/composites';
+import { FormControl, Menu, Modal } from '../../components/composites';
 import { Platform } from 'react-native';
 import { extendTheme } from '../../core/extendTheme';
 import { fireEvent } from '@testing-library/react-native';
@@ -251,7 +251,7 @@ describe('props resolution', () => {
       width: defaultTheme.space['20'],
     });
 
-    expect(spinner.props.style).toEqual({});
+    expect(spinner.props.style).toEqual(undefined);
   });
 
   it('resolves base style and variants, sizes and default props with props', () => {
@@ -344,41 +344,6 @@ describe('props resolution', () => {
     );
     const box = getByTestId('test');
     expect(box.props.style).toEqual(defaultTheme.shadows[9]);
-  });
-  it('tests lineHeight from token in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text lineHeight="md" testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.lineHeight).toBe(22);
-  });
-
-  it('tests absolute lineHeight in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text lineHeight={5} testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.lineHeight).toBe(5);
-  });
-
-  it('tests letterSpacing from token in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text letterSpacing="2xl" testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.letterSpacing).toBe(0.4);
   });
 
   it('FormControl: pseudo props test ', () => {
@@ -1123,82 +1088,95 @@ describe('props resolution', () => {
   //     defaultTheme.colors.blue['900']
   //   );
   // });
-});
-it('HStack: style props test with dark mode', () => {
-  const newTheme = extendTheme({
-    config: { initialColorMode: 'dark' },
+  it('HStack: style props test with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <HStack
+          testID="test"
+          direction="column"
+          _dark={{
+            direction: 'row',
+          }}
+        >
+          <Box>1</Box>
+          <Box>2</Box>
+          <Box>3</Box>
+        </HStack>
+      </Provider>
+    );
+
+    const hstackElement = getByTestId('test');
+    expect(hstackElement.props.style.flexDirection).toBe('row');
   });
-  const { getByTestId } = render(
-    <Provider theme={newTheme}>
-      <HStack
-        testID="test"
-        direction="column"
-        _dark={{
-          direction: 'row',
-        }}
-      >
-        <Box>1</Box>
-        <Box>2</Box>
-        <Box>3</Box>
-      </HStack>
-    </Provider>
-  );
 
-  const hstackElement = getByTestId('test');
-  expect(hstackElement.props.style.flexDirection).toBe('row');
-});
+  it('HStack: style props test on ios & dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <HStack
+          testID="test"
+          direction="column"
+          _dark={{
+            direction: 'row',
+          }}
+          _ios={{
+            direction: 'column',
+          }}
+        >
+          <Box>1</Box>
+          <Box>2</Box>
+          <Box>3</Box>
+        </HStack>
+      </Provider>
+    );
 
-it('HStack: style props test on ios & dark mode', () => {
-  const newTheme = extendTheme({
-    config: { initialColorMode: 'dark' },
+    const hstackElement = getByTestId('test');
+    expect(hstackElement.props.style.flexDirection).toBe('column');
   });
-  Platform.OS = 'ios';
-  const { getByTestId } = render(
-    <Provider theme={newTheme}>
-      <HStack
-        testID="test"
-        direction="column"
-        _dark={{
-          direction: 'row',
-        }}
-        _ios={{
-          direction: 'column',
-        }}
-      >
-        <Box>1</Box>
-        <Box>2</Box>
-        <Box>3</Box>
-      </HStack>
-    </Provider>
-  );
 
-  const hstackElement = getByTestId('test');
-  expect(hstackElement.props.style.flexDirection).toBe('column');
+  it('verifies string numbers', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Box testID="123" mt={'29'} />
+      </Provider>
+    );
+
+    const box = getByTestId('123');
+
+    expect(box.props.style).toEqual({
+      marginTop: 29,
+    });
+  });
+
+  it('Modal: size', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Modal isOpen={true} size="sm">
+          <Modal.Content testID="size">
+            <Modal.Header>Modal Title</Modal.Header>
+            <Modal.Body>
+              Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
+              ullamco deserunt aute id consequat veniam incididunt duis in sint
+              irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+              officia tempor esse quis. Sunt ad dolore quis aute consequat.
+              Magna exercitation reprehenderit magna aute tempor cupidatat
+              consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
+              incididunt cillum quis. Velit duis sit officia eiusmod Lorem
+              aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi
+              consectetur esse laborum eiusmod pariatur
+            </Modal.Body>
+          </Modal.Content>
+        </Modal>
+      </Provider>
+    );
+    const modalElement = getByTestId('size');
+
+    expect(modalElement.props.style.width).toBe('60%');
+  });
 });
-
-// =========================================================
-// it('Modal: size', () => {
-//   const { getByTestId } = render(
-//     <Provider>
-//       <Modal isOpen={true} size="sm">
-//         <Modal.Content testID="size">
-//           <Modal.Header>Modal Title</Modal.Header>
-//           <Modal.Body>
-//             Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
-//             ullamco deserunt aute id consequat veniam incididunt duis in sint
-//             irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
-//             officia tempor esse quis. Sunt ad dolore quis aute consequat.
-//             Magna exercitation reprehenderit magna aute tempor cupidatat
-//             consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-//             incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-//             aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi
-//             consectetur esse laborum eiusmod pariatur
-//           </Modal.Body>
-//         </Modal.Content>
-//       </Modal>
-//     </Provider>
-//   );
-//   const modalElement = getByTestId('size');
-
-//   expect(modalElement.props.style.width).toBe('60%');
-// });

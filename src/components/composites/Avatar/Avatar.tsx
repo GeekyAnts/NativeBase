@@ -2,6 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import { Box, Image, Text } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
@@ -33,8 +34,11 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
     }
   });
 
-  const imageFitStyle = { height: '100%', width: '100%' };
-
+  const imageFitStyle: any = { height: '100%', width: '100%' };
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box {...resolvedProps}>
       {source && !error ? (

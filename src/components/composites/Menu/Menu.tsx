@@ -11,6 +11,7 @@ import { PresenceTransition } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import { MenuContext } from './MenuContext';
 import { Overlay } from '../../primitives/Overlay';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Menu = (
   {
@@ -66,6 +67,10 @@ const Menu = (
     }
   }, [isOpen]);
 
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(resolvedProps)) {
+    return null;
+  }
   return (
     <>
       {updatedTrigger()}

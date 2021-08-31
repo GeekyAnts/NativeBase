@@ -6,6 +6,7 @@ import type { IMenuItemProps } from './types';
 import { MenuContext } from './MenuContext';
 import { useMenuItem } from './useMenu';
 import { mergeRefs } from '../../../utils';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const MenuItem = (
   { children, isDisabled, onPress, style, textValue, ...props }: IMenuItemProps,
@@ -30,6 +31,10 @@ const MenuItem = (
     ref: menuItemRef,
   });
 
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Pressable
       {...menuItemProps}

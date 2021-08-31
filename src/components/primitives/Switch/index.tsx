@@ -8,6 +8,7 @@ import { makeStyledComponent } from '../../../utils/styled';
 import type { ISwitchProps } from './types';
 import { mergeRefs } from '../../../utils';
 import { useHover } from '@react-native-aria/interactions';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledNBSwitch = makeStyledComponent(RNSwitch);
 
@@ -60,6 +61,21 @@ const Switch = (
   const offTrackColor = useToken('colors', _offTrackColor);
   const onThumbColor = useToken('colors', _onThumbColor);
   const offThumbColor = useToken('colors', _offThumbColor);
+
+  //TODO: refactor for responsive prop
+  if (
+    useHasResponsiveProps({
+      ...props,
+      isDisabled,
+      isInvalid,
+      isChecked,
+      defaultIsChecked,
+      accessibilityLabel,
+      accessibilityHint,
+    })
+  ) {
+    return null;
+  }
 
   return (
     <StyledNBSwitch

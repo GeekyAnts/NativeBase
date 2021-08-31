@@ -8,6 +8,7 @@ import { Platform } from 'react-native';
 import type { IPopoverContentProps } from './types';
 import { Popper } from '../Popper';
 import { PopoverContext } from './PopoverContext';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export const PopoverContent = React.forwardRef(
   (props: IPopoverContentProps, ref: any) => {
@@ -68,6 +69,11 @@ export const PopoverContent = React.forwardRef(
             'aria-describedby': bodyMounted ? bodyId : undefined,
           } as any)
         : {};
+
+    //TODO: refactor for responsive prop
+    if (useHasResponsiveProps(props)) {
+      return null;
+    }
 
     return (
       <Popper.Content

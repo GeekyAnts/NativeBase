@@ -1,5 +1,5 @@
 import React from 'react';
-export const ModalContext = React.createContext({
+export const ModalContext: any = React.createContext({
   handleClose: () => {},
   contentSize: {},
   initialFocusRef: { current: null },

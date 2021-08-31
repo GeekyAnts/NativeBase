@@ -2,6 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import { Pressable } from '../../primitives/Pressable';
 import { Icon } from '../../primitives/Icon';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { composeEventHandlers } from '../../../utils';
 import type { IIconButtonProps } from './types';
 import {
@@ -38,6 +39,11 @@ const IconButton = (
     clonedIcon = React.cloneElement(icon, {
       ..._icon,
     });
+  }
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
   }
 
   return (

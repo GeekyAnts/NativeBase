@@ -3,6 +3,7 @@ import { default as Box } from '../Box';
 import { getSpacedChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ResponsiveValue } from '../../types';
 
 export interface IStackProps extends IBoxProps {
@@ -32,10 +33,10 @@ export interface IStackProps extends IBoxProps {
 const Stack = (props: IStackProps, ref?: any) => {
   const {
     children,
-    space,
     direction,
     reversed,
     divider,
+    space,
     ...resolvedProps
   }: any = usePropsResolution(
     'Stack',
@@ -44,6 +45,10 @@ const Stack = (props: IStackProps, ref?: any) => {
     { resolveResponsively: ['space', 'direction'] }
   );
 
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box flexDirection={direction} {...resolvedProps} ref={ref}>
       {getSpacedChildren(

@@ -14,6 +14,7 @@ import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { ChevronDownIcon } from '../Icon/Icons';
 import type { IButtonProps } from '../Button/types';
 import { ScrollView } from '../../basic/ScrollView';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const unstyledSelecWebtStyles = {
   width: '100%',
@@ -106,6 +107,10 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
     ...stylingProps.position,
     ...stylingProps.background,
   ]);
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   const rightIcon =
     isOpen && dropdownOpenIcon ? (
