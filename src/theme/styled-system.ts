@@ -1,7 +1,7 @@
 import { Platform, StyleSheet } from 'react-native';
 import { get } from 'lodash';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
-import { transparentize, convertRemToAbsolute, convertToDp } from './tools';
+import { transparentize } from './tools';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
@@ -35,40 +35,6 @@ const getMargin = (n: any, scale: any) => {
     return isNegative ? '-' + value : value;
   }
   return value * (isNegative ? -1 : 1);
-};
-
-const getLetterspacingOrLineHeight = (inputValue: any, fontSizeValue: any) => {
-  //lineheight calculations
-
-  const isWeb = Platform.OS === 'web';
-  let finalValue = inputValue;
-
-  const numberRegex = /^\d+$/;
-  const isAbsolute =
-    typeof inputValue === 'number' || numberRegex.test(inputValue);
-  const isPx = !isAbsolute && inputValue.endsWith('px');
-  const isRem = !isAbsolute && inputValue.endsWith('rem');
-
-  // If platform is web, we need to convert absolute unit to em
-  if (isWeb && isAbsolute) {
-    finalValue = parseFloat(inputValue) + 'em';
-  }
-  // If platform is not web, we need to convert px unit to absolute and rem unit to absolute. e.g. 16px to 16. 1rem to 16.
-  else {
-    let ownFontSize = convertToDp(fontSizeValue);
-
-    if (isAbsolute || isPx) {
-      finalValue = parseFloat(inputValue);
-    } else if (isRem) {
-      finalValue = convertRemToAbsolute(inputValue);
-    }
-
-    if (isAbsolute) {
-      finalValue = ownFontSize * finalValue;
-    }
-  }
-
-  return finalValue;
 };
 
 export const layout = {
@@ -556,30 +522,10 @@ export const typography = {
   lineHeight: {
     property: 'lineHeight',
     scale: 'lineHeights',
-    transformer: (val: any, scale: any, theme: any, fontSize: any) => {
-      const lineHeightValue = get(scale, val, val);
-      const fontSizeValue = get(theme.fontSizes, fontSize, fontSize);
-      const newVal = getLetterspacingOrLineHeight(
-        lineHeightValue,
-        fontSizeValue
-      );
-
-      return newVal;
-    },
   },
   letterSpacing: {
     property: 'letterSpacing',
     scale: 'letterSpacings',
-    transformer: (val: any, scale: any, theme: any, fontSize: any) => {
-      const letterSpacingValue = get(scale, val, val);
-      const fontSizeValue = get(theme.fontSizes, fontSize, fontSize);
-      const newVal = getLetterspacingOrLineHeight(
-        letterSpacingValue,
-        fontSizeValue
-      );
-
-      return newVal;
-    },
   },
   textAlign: true,
   fontStyle: true,
@@ -662,8 +608,15 @@ export const getStyleAndFilteredProps = ({
         } else {
           val = get(theme[scale], value, value);
         }
-        if (typeof val === 'string' && val.endsWith('px')) {
-          val = parseFloat(val);
+
+        if (typeof val === 'string') {
+          if (val.endsWith('px')) {
+            val = parseFloat(val);
+          } else if (val.endsWith('em') && Platform.OS !== 'web') {
+            val =
+              parseFloat(val) *
+              parseFloat(get(theme.fontSizes, props.fontSize, props.fontSize));
+          }
         }
 
         val = convertStringNumberToNumber(key, val);
