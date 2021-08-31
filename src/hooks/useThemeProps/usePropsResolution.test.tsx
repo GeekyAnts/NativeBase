@@ -13,14 +13,15 @@ import {
   Input,
   Checkbox,
   Slider,
-  Icon,
+  // Icon,
   HStack,
 } from '../../components/primitives';
-import { FormControl, Menu, Modal } from '../../components/composites';
+// import { Ionicons } from '@expo/vector-icons';
+import { FormControl, Menu } from '../../components/composites';
 import { Platform } from 'react-native';
 import { extendTheme } from '../../core/extendTheme';
 import { fireEvent } from '@testing-library/react-native';
-import { InfoIcon } from '../../components/primitives/Icon/Icons';
+// import { InfoIcon } from '../../components/primitives/Icon/Icons';
 
 const inset = {
   frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -444,6 +445,7 @@ describe('props resolution', () => {
       defaultTheme.colors.pink['300']
     );
   });
+
   it('Menu: style props test', () => {
     const { getByTestId } = render(
       <Provider>
@@ -662,23 +664,23 @@ describe('props resolution', () => {
     expect(inputElement.props.style.backgroundColor).toBe('#e5e5e5');
   });
 
-  it('Input: inputElemets', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Input
-          testID="test1"
-          InputLeftElement={<Button testID="test2">leftIcon</Button>}
-          placeholder="Input"
-        />
-      </Provider>
-    );
-    const inputElement = getByTestId('test1');
-    const iconElement = getByTestId('test2');
-    console.log(inputElement, '!!!!!');
-    console.log('===========');
-    console.log(inputElement.props, '!!!!!');
-    expect(inputElement.props.InputLeftElement).toBe(iconElement);
-  });
+  // it('Input: inputElements', () => {
+  //   const { getByTestId } = render(
+  //     <Provider>
+  //       <Input
+  //         testID="test1"
+  //         InputLeftElement={<Button testID="test2">leftIcon</Button>}
+  //         placeholder="Input"
+  //       />
+  //     </Provider>
+  //   );
+  //   const inputElement = getByTestId('test1');
+  //   const iconElement = getByTestId('test2');
+  //   console.log(inputElement, '!!!!!');
+  //   console.log('===========');
+  //   console.log(inputElement.props, '!!!!!');
+  //   expect(inputElement.props.InputLeftElement).toBe(iconElement);
+  // });
 
   it('Input: disabled', () => {
     const { getByTestId } = render(
@@ -835,7 +837,7 @@ describe('props resolution', () => {
   //     </Provider>
   //   );
   //   const modalElement = getByTestId('size');
-
+  //   // console.log(modalElement, 'jdj');
   //   expect(modalElement.props.style.width).toBe('60%');
   // });
 
@@ -866,6 +868,82 @@ describe('props resolution', () => {
     const hstackElement = getByTestId('hstack');
     expect(hstackElement.props.style.flexDirection).toBe('column');
   });
-});
 
-// =========================================================
+  // it('Icon: basic', () => {
+  //   const { getByTestId } = render(
+  //     <Provider>
+  //       <Icon as={<Ionicons name="md-checkmark-circle" />} />
+  //     </Provider>
+  //   );
+  //   const iconElement = getByTestId('test123');
+  //   expect(iconElement.props.style.backgroundColor).toBe(
+  //     defaultTheme.colors.red['200']
+  //   );
+  // });
+
+  // it('Icon: Nativebase icons', () => {
+  //   const { getByTestId } = render(
+  //     <Provider>
+  //       <MoonIcon testId="test" />
+  //     </Provider>
+  //   );
+  //   const iconElement = getByTestId('test');
+  //   expect(pressableElement.props.style.backgroundColor).toBe(
+  //     defaultTheme.colors.red['200']
+  //   );
+  // });
+
+  it('Pressable: style props test', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Pressable testID="test" bg="red.200" _hover={{ bg: 'teal.300' }}>
+          <Text>hello world</Text>
+        </Pressable>
+      </Provider>
+    );
+    const pressableElement = getByTestId('test');
+    expect(pressableElement.props.style.backgroundColor).toBe(
+      defaultTheme.colors.red['200']
+    );
+  });
+
+  // it('Pressable: style props test on ios with dark mode', () => {
+  //   const newTheme = extendTheme({
+  //     config: { initialColorMode: 'dark' },
+  //   });
+
+  //   Platform.OS = 'ios';
+  //   const { getByTestId } = render(
+  //     <Provider theme={newTheme}>
+  //       <Pressable testID="test" _ios={{ _dark: { bg: 'pink.900' } }}>
+  //         PRIMARY
+  //       </Pressable>
+  //     </Provider>
+  //   );
+  //   const buttonElement = getByTestId('test');
+  //   expect(buttonElement.props.style.backgroundColor).toBe(
+  //     defaultTheme.colors.pink['900']
+  //   );
+  // });
+
+  // it('Pressable: style responsive props test on ios with dark mode', () => {
+  //   const newTheme = extendTheme({
+  //     config: { initialColorMode: 'dark' },
+  //   });
+  //   Platform.OS = 'ios';
+  //   const { getByTestId } = render(
+  //     <Provider theme={newTheme}>
+  //       <Pressable
+  //         testID="test"
+  //         _ios={{ _dark: { bg: ['pink.900', 'blue.900', 'cyan.900'] } }}
+  //       >
+  //         PRIMARY
+  //       </Pressable>
+  //     </Provider>
+  //   );
+  //   const buttonElement = getByTestId('test');
+  //   expect(buttonElement.props.style.backgroundColor).toBe(
+  //     defaultTheme.colors.blue['900']
+  //   );
+  // });
+});
