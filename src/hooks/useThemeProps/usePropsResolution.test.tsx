@@ -681,6 +681,44 @@ describe('props resolution', () => {
   //   console.log(inputElement.props, '!!!!!');
   //   expect(inputElement.props.InputLeftElement).toBe(iconElement);
   // });
+  it('Input: style props test on ios with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Input
+          testID="test"
+          _ios={{ _dark: { variant: 'underlined', size: 'sm' } }}
+          variant="outline"
+          size="lg"
+        />
+      </Provider>
+    );
+
+    const inputElement = getByTestId('test');
+    expect(inputElement.props.style.borderBottomWidth).toBe(1);
+    expect(inputElement.props.style.fontSize).toBe(14);
+  });
+
+  // it('Input: inputElemets', () => {
+  //   const { getByTestId } = render(
+  //     <Provider>
+  //       <Input
+  //         testID="test1"
+  //         InputLeftElement={<Button testID="test2">leftIcon</Button>}
+  //         placeholder="Input"
+  //       />
+  //     </Provider>
+  //   );
+  //   const inputElement = getByTestId('test1');
+  //   const iconElement = getByTestId('test2');
+  //   console.log(inputElement, '!!!!!');
+  //   console.log('===========');
+  //   console.log(inputElement.props, '!!!!!');
+  //   expect(inputElement.props.InputLeftElement).toBe(iconElement);
+  // });
 
   it('Input: disabled', () => {
     const { getByTestId } = render(
@@ -695,6 +733,7 @@ describe('props resolution', () => {
     );
     const inputElement = getByTestId('test');
     expect(inputElement.props.disabled).toBe(true);
+    expect(inputElement.props.required).toBe(true);
   });
 
   // ==========================================
@@ -749,6 +788,61 @@ describe('props resolution', () => {
     // expect(checkbox[3].props.accessibilityState.invalid).toBe(true);
   });
 
+  // it('Checkbox: style props test with dark mode', () => {
+  //   const newTheme = extendTheme({
+  //     config: { initialColorMode: 'dark' },
+  //   });
+  //   const { getAllByRole } = render(
+  //     <Provider theme={newTheme}>
+  //       <Checkbox
+  //         value="Item 1"
+  //         isChecked={true}
+  //         isDisabled={false}
+  //         _dark={{
+  //           isChecked: false,
+  //           isDisabled: true,
+  //         }}
+  //       >
+  //         <Text mx={2}>Item 1</Text>
+  //       </Checkbox>
+  //     </Provider>
+  //   );
+
+  //   let checkbox = getAllByRole('checkbox');
+  //   console.log(checkbox[0].props.accessibilityState, '@@@@');
+  //   expect(checkbox[0].props.accessibilityState.checked).toBe(false);
+  //   expect(checkbox[0].props.accessibilityState.disabled).toBe(true);
+  // });
+
+  // it('Checkbox: style props test on ios with dark mode', () => {
+  //   const newTheme = extendTheme({
+  //     config: { initialColorMode: 'dark' },
+  //   });
+  //   Platform.OS = 'ios';
+  //   const { getAllByRole } = render(
+  //     <Provider theme={newTheme}>
+  //       <Checkbox
+  //         value="Item 1"
+  //         isChecked={true}
+  //         isDisabled={false}
+  //         _ios={{
+  //           _dark: {
+  //             isChecked: false,
+  //             isDisabled: true,
+  //           },
+  //         }}
+  //       >
+  //         <Text mx={2}>Item 1</Text>
+  //       </Checkbox>
+  //     </Provider>
+  //   );
+
+  //   let checkbox = getAllByRole('checkbox');
+  //   console.log(checkbox[0].props.accessibilityState, '@@@@');
+  //   expect(checkbox[0].props.accessibilityState.checked).toBe(false);
+  //   expect(checkbox[0].props.accessibilityState.disabled).toBe(true);
+  // });
+
   it('onChange on checkBox', () => {
     let { getAllByRole } = render(
       <Provider
@@ -799,7 +893,7 @@ describe('props resolution', () => {
           accessibilityLabel="hello world"
           step={10}
           colorScheme="red"
-          size="md"
+          size="sm"
         >
           <Slider.Track>
             <Slider.FilledTrack />
@@ -812,6 +906,9 @@ describe('props resolution', () => {
     expect(sliderElement.props.minValue).toBe(0);
     expect(sliderElement.props.maxValue).toBe(100);
     expect(sliderElement.props.step).toBe(10);
+    expect(sliderElement.props.thumbSize).toBe(4);
+    expect(sliderElement.props.sliderSize).toBe(4);
+    expect(sliderElement.props.colorScheme).toBe('red');
   });
 
   //  ==========================================
@@ -840,6 +937,86 @@ describe('props resolution', () => {
   //   // console.log(modalElement, 'jdj');
   //   expect(modalElement.props.style.width).toBe('60%');
   // });
+  it('Slider: style props test with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Slider
+          testID="test"
+          _dark={{
+            minValue: 20,
+            maxValue: 120,
+            step: 25,
+            colorScheme: 'blue',
+            size: 'md',
+          }}
+          minValue={0}
+          maxValue={100}
+          accessibilityLabel="hello world"
+          step={10}
+          colorScheme="red"
+          size="sm"
+        >
+          <Slider.Track>
+            <Slider.FilledTrack />
+          </Slider.Track>
+          <Slider.Thumb />
+        </Slider>
+      </Provider>
+    );
+
+    const sliderElement = getByTestId('test');
+    expect(sliderElement.props.minValue).toBe(20);
+    expect(sliderElement.props.maxValue).toBe(120);
+    expect(sliderElement.props.step).toBe(25);
+    expect(sliderElement.props.thumbSize).toBe(5);
+    expect(sliderElement.props.sliderSize).toBe(5);
+    expect(sliderElement.props.colorScheme).toBe('blue');
+  });
+
+  it('Slider: style props test on ios with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Slider
+          testID="test"
+          _ios={{
+            _dark: {
+              minValue: 10,
+              maxValue: 110,
+              step: 15,
+              colorScheme: 'green',
+              size: 'md',
+            },
+          }}
+          minValue={0}
+          maxValue={100}
+          accessibilityLabel="hello world"
+          step={10}
+          colorScheme="red"
+          size="sm"
+        >
+          <Slider.Track>
+            <Slider.FilledTrack />
+          </Slider.Track>
+          <Slider.Thumb />
+        </Slider>
+      </Provider>
+    );
+
+    const sliderElement = getByTestId('test');
+    expect(sliderElement.props.minValue).toBe(10);
+    expect(sliderElement.props.maxValue).toBe(110);
+    expect(sliderElement.props.step).toBe(15);
+    expect(sliderElement.props.thumbSize).toBe(5);
+    expect(sliderElement.props.sliderSize).toBe(5);
+    expect(sliderElement.props.colorScheme).toBe('green');
+  });
 
   it('HStack: basic', () => {
     const { getByTestId } = render(
@@ -858,14 +1035,14 @@ describe('props resolution', () => {
   it('HStack: direction', () => {
     const { getByTestId } = render(
       <Provider>
-        <HStack testID="hstack" direction="column">
+        <HStack testID="test" direction="column">
           <Box>1</Box>
           <Box>2</Box>
           <Box>3</Box>
         </HStack>
       </Provider>
     );
-    const hstackElement = getByTestId('hstack');
+    const hstackElement = getByTestId('test');
     expect(hstackElement.props.style.flexDirection).toBe('column');
   });
 
@@ -947,3 +1124,81 @@ describe('props resolution', () => {
   //   );
   // });
 });
+it('HStack: style props test with dark mode', () => {
+  const newTheme = extendTheme({
+    config: { initialColorMode: 'dark' },
+  });
+  const { getByTestId } = render(
+    <Provider theme={newTheme}>
+      <HStack
+        testID="test"
+        direction="column"
+        _dark={{
+          direction: 'row',
+        }}
+      >
+        <Box>1</Box>
+        <Box>2</Box>
+        <Box>3</Box>
+      </HStack>
+    </Provider>
+  );
+
+  const hstackElement = getByTestId('test');
+  expect(hstackElement.props.style.flexDirection).toBe('row');
+});
+
+it('HStack: style props test on ios & dark mode', () => {
+  const newTheme = extendTheme({
+    config: { initialColorMode: 'dark' },
+  });
+  Platform.OS = 'ios';
+  const { getByTestId } = render(
+    <Provider theme={newTheme}>
+      <HStack
+        testID="test"
+        direction="column"
+        _dark={{
+          direction: 'row',
+        }}
+        _ios={{
+          direction: 'column',
+        }}
+      >
+        <Box>1</Box>
+        <Box>2</Box>
+        <Box>3</Box>
+      </HStack>
+    </Provider>
+  );
+
+  const hstackElement = getByTestId('test');
+  expect(hstackElement.props.style.flexDirection).toBe('column');
+});
+
+// =========================================================
+// it('Modal: size', () => {
+//   const { getByTestId } = render(
+//     <Provider>
+//       <Modal isOpen={true} size="sm">
+//         <Modal.Content testID="size">
+//           <Modal.Header>Modal Title</Modal.Header>
+//           <Modal.Body>
+//             Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
+//             ullamco deserunt aute id consequat veniam incididunt duis in sint
+//             irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+//             officia tempor esse quis. Sunt ad dolore quis aute consequat.
+//             Magna exercitation reprehenderit magna aute tempor cupidatat
+//             consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
+//             incididunt cillum quis. Velit duis sit officia eiusmod Lorem
+//             aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi
+//             consectetur esse laborum eiusmod pariatur
+//           </Modal.Body>
+//         </Modal.Content>
+//       </Modal>
+//     </Provider>
+//   );
+//   const modalElement = getByTestId('size');
+
+//   expect(modalElement.props.style.width).toBe('60%');
+// });
