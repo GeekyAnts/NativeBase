@@ -1,14 +1,14 @@
 import React, { forwardRef } from 'react';
 import { useSliderState } from '@react-stately/slider';
 import { useLayout } from '../../../hooks';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks';
 import type { ISliderProps } from './types';
 import Box from '../Box';
 import { SliderContext } from './Context';
 import { useSlider } from '@react-native-aria/slider';
 
-function Slider(props: ISliderProps, ref?: any) {
-  let newProps = {
+function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
+  const newProps = {
     ...props,
     'aria-label': props.accessibilityLabel ?? 'Slider',
   };
@@ -26,8 +26,8 @@ function Slider(props: ISliderProps, ref?: any) {
   props = newProps;
 
   const { onLayout, layout: trackLayout } = useLayout();
-  const updatedProps = Object.assign({}, props);
-  if (props?.isReadOnly) {
+  const updatedProps: ISliderProps = Object.assign({}, props);
+  if (isReadOnly) {
     updatedProps.isDisabled = true;
   }
 
@@ -45,12 +45,16 @@ function Slider(props: ISliderProps, ref?: any) {
     },
   });
 
-  const { _disabled, _readOnly, ...themeProps } = usePropsResolution(
-    'Slider',
-    props
-  );
+  const resolvedProps = usePropsResolution('Slider', props, {
+    isDisabled,
+    isReadOnly,
+  });
 
-  let { trackProps } = useSlider((props as unknown) as any, state, trackLayout);
+  const { trackProps } = useSlider(
+    (props as unknown) as any,
+    state,
+    trackLayout
+  );
 
   const wrapperStyle = {
     height: props.orientation === 'vertical' ? '100%' : undefined,
@@ -63,14 +67,14 @@ function Slider(props: ISliderProps, ref?: any) {
         trackLayout,
         state,
         orientation: props.orientation,
-        isDisabled: props.isDisabled,
+        isDisabled: isDisabled,
         isReversed: props.isReversed,
         colorScheme: props.colorScheme,
         trackProps,
-        isReadOnly: props.isReadOnly,
+        isReadOnly: isReadOnly,
         onTrackLayout: onLayout,
-        thumbSize: themeProps.thumbSize,
-        sliderSize: themeProps.sliderSize,
+        thumbSize: resolvedProps.thumbSize,
+        sliderSize: resolvedProps.sliderSize,
       }}
     >
       <Box
@@ -78,9 +82,7 @@ function Slider(props: ISliderProps, ref?: any) {
         justifyContent="center"
         ref={ref}
         alignItems="center"
-        {...(props.isReadOnly && _readOnly)}
-        {...(props.isDisabled && _disabled)}
-        {...themeProps}
+        {...resolvedProps}
       >
         {React.Children.map(props.children, (child, index) => {
           if (child.displayName === 'SliderThumb') {

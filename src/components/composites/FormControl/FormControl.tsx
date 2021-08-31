@@ -6,11 +6,11 @@ import { useFormControlProvider, FormControlContext } from './useFormControl';
 
 const FormControl = (props: IFormControlProps, ref: any) => {
   const { htmlProps, ...context } = useFormControlProvider(props);
-  const themedProps = usePropsResolution('FormControl', props);
+  const resolvedProps = usePropsResolution('FormControl', props);
 
   return (
     <FormControlContext.Provider value={context}>
-      <Box width="100%" {...themedProps} {...htmlProps} ref={ref} />
+      <Box width="100%" {...resolvedProps} {...htmlProps} ref={ref} />
     </FormControlContext.Provider>
   );
 };

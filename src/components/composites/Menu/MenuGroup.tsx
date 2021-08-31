@@ -5,11 +5,11 @@ import Box from '../../primitives/Box';
 import type { IMenuGroupProps } from './types';
 
 const MenuGroup = ({ title, children }: IMenuGroupProps, ref: any) => {
-  const { _title, ...newProps } = usePropsResolution('MenuGroup', {});
+  const { _title, ...resolvedProps } = usePropsResolution('MenuGroup', {});
 
   return (
     <>
-      <Box {...newProps} ref={ref}>
+      <Box {...resolvedProps} ref={ref}>
         <Text {..._title}>{title}</Text>
       </Box>
       {children}

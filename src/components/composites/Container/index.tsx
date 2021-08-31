@@ -7,13 +7,14 @@ const Container = (
   { children, centerContent, ...props }: IContainerProps,
   ref?: any
 ) => {
-  const newProps = usePropsResolution('Container', props);
+  const resolvedProps = usePropsResolution('Container', props);
   return (
     <Box
       ref={ref}
+      // TODO: these style's should be on theme.
       alignItems={centerContent ? 'center' : 'flex-start'}
       _text={{ textAlign: centerContent ? 'center' : 'left' }}
-      {...newProps}
+      {...resolvedProps}
     >
       {children}
     </Box>

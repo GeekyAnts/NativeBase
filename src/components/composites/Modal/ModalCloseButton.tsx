@@ -6,13 +6,15 @@ import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IButtonProps } from '../../primitives/Button';
 
 const ModalCloseButton = (props: IButtonProps, ref?: any) => {
-  const newProps = usePropsResolution('ModalCloseButton', props);
-  const { _icon, ...rest } = newProps;
+  const { _icon, ...resolvedProps } = usePropsResolution(
+    'ModalCloseButton',
+    props
+  );
   const { handleClose } = React.useContext(ModalContext);
   return (
     <Button
       variant="ghost"
-      {...rest}
+      {...resolvedProps}
       onPress={handleClose}
       accessibilityLabel="Close dialog"
       ref={ref}

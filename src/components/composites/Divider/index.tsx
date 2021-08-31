@@ -3,14 +3,15 @@ import { Platform } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Box from './../../primitives/Box';
 import type { IDividerProps } from './types';
-import { extractInObject } from '../../../theme/tools';
 
 const Divider = (props: IDividerProps, ref?: any) => {
-  const { orientation, ...newProps } = usePropsResolution('Divider', props);
-  const [, remainingProps] = extractInObject(newProps, ['size']);
+  const { orientation, ...resolvedProps } = usePropsResolution(
+    'Divider',
+    props
+  );
   return (
     <Box
-      {...remainingProps}
+      {...resolvedProps}
       ref={ref}
       aria-orientation={orientation}
       //@ts-ignore web only role

@@ -13,7 +13,7 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
     fallbackSource,
     ignoreFallback,
     _alt,
-    ...newProps
+    ...resolvedProps
   } = usePropsResolution('Image', props);
   const [renderedSource, setSource] = useState(source);
   const [alternate, setAlternate] = useState(false);
@@ -48,7 +48,7 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
       source={renderedSource}
       accessibilityLabel={alt}
       alt={alt}
-      {...newProps}
+      {...resolvedProps}
       onError={props.onError ? props.onError : onImageLoadError}
       ref={ref}
     />

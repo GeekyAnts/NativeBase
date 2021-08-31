@@ -10,7 +10,7 @@ const FormControlHelperText = (
 ) => {
   const formControlContext = useFormControlContext();
 
-  const themedProps = usePropsResolution('FormControlHelperText', props);
+  const resolvedProps = usePropsResolution('FormControlHelperText', props);
 
   React.useEffect(() => {
     formControlContext?.setHasHelpText(true);
@@ -21,7 +21,7 @@ const FormControlHelperText = (
 
   return (
     <Box
-      {...themedProps}
+      {...resolvedProps}
       nativeID={formControlContext?.feedbackId}
       {...props}
       ref={ref}

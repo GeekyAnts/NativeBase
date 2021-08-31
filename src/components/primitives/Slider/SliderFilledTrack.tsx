@@ -3,7 +3,7 @@ import { SliderContext } from './Context';
 import { StyleSheet } from 'react-native';
 import Box from '../Box';
 import type { ISliderTrackFilledProps } from './types';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { usePropsResolution } from '../../../hooks';
 
 const SliderFilledTrack = (
   { style, ...props }: ISliderTrackFilledProps,
@@ -26,13 +26,14 @@ const SliderFilledTrack = (
       : trackLayout.width - trackLayout.width * state.getThumbPercent(0)
     : state.getThumbPercent(0) * 100 + '%';
 
-  const { _readOnly, _disabled, ...themeProps } = usePropsResolution(
+  const resolvedProps = usePropsResolution(
     'SliderFilledTrack',
     {
       size: sliderSize,
       colorScheme,
       ...props,
-    }
+    },
+    { isDisabled, isReadOnly }
   );
   // NOTE: Required for WEB compatibility
   const customStyle = StyleSheet.create({
@@ -49,12 +50,11 @@ const SliderFilledTrack = (
   return (
     <Box
       position="absolute"
-      {...themeProps}
+      {...resolvedProps}
       left={orientation !== 'vertical' && !isReversed ? 0 : undefined}
       bottom={orientation === 'vertical' && !isReversed ? 0 : undefined}
       right={orientation !== 'vertical' && isReversed ? 0 : undefined}
       top={orientation === 'vertical' && isReversed ? 0 : undefined}
-      {...props}
       style={[
         style,
         orientation === 'vertical'
@@ -62,8 +62,8 @@ const SliderFilledTrack = (
           : customStyle.horizontalStyle,
       ]}
       ref={ref}
-      {...(isReadOnly && _readOnly)}
-      {...(isDisabled && _disabled)}
+      // {...(isReadOnly && _readOnly)}
+      // {...(isDisabled && _disabled)}
     />
   );
 };

@@ -16,23 +16,24 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     isDisabled,
   } = React.useContext(SliderContext);
 
-  const { _readOnly, _disabled, ...themeProps } = usePropsResolution(
+  const resolvedProps = usePropsResolution(
     'SliderTrack',
     {
       size: sliderSize,
       colorScheme,
       ...props,
-    }
+    },
+    { isReadOnly, isDisabled }
   );
 
   const isVertical = orientation === 'vertical';
 
   const trackStyle = React.useMemo(
     () => ({
-      height: isVertical ? '100%' : themeProps.size,
-      width: !isVertical ? '100%' : themeProps.size,
+      height: isVertical ? '100%' : resolvedProps.size,
+      width: !isVertical ? '100%' : resolvedProps.size,
     }),
-    [isVertical, themeProps.size]
+    [isVertical, resolvedProps.size]
   );
 
   return (
@@ -46,12 +47,7 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
       justifyContent="center"
       alignItems="center"
     >
-      <Box
-        {...themeProps}
-        style={trackStyle}
-        {...(isDisabled && _disabled)}
-        {...(isReadOnly && _readOnly)}
-      >
+      <Box {...resolvedProps} style={trackStyle}>
         {children}
       </Box>
     </Pressable>

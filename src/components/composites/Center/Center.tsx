@@ -4,11 +4,11 @@ import Box from '../../primitives/Box';
 import type { ICenterProps } from './types';
 
 const Center = (props: ICenterProps, ref: any) => {
-  let newProps = usePropsResolution('Center', props);
+  const reslovedProps = usePropsResolution('Center', props);
   return (
     <Box
       ref={ref}
-      {...newProps}
+      {...reslovedProps}
       display="flex"
       alignItems="center"
       justifyContent="center"

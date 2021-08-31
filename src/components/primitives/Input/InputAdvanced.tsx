@@ -86,7 +86,7 @@ const InputAdvance = (
       {InputLeftElement || leftElement ? InputLeftElement || leftElement : null}
       <InputBase
         inputProps={inputProps}
-        bg={layoutProps.bg}
+        bg="transparent"
         {...baseInputProps}
         flex={1}
         disableFocusHandling
