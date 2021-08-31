@@ -37,7 +37,7 @@ export interface IRadioProps extends IBoxProps {
   /**
    * Ref to be passed to Icon's wrapper Box
    */
-  wrapperRef?: MutableRefObject<any>;
+  wrapperRef?: any;
 }
 export interface IRadioGroupProps extends IBoxProps {
   /**
