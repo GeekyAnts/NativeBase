@@ -4,9 +4,11 @@ import mergeWith from 'lodash.mergewith';
 function isFunction(value: any): boolean {
   return typeof value === 'function';
 }
+type IExtendThemeParam = ITheme | Record<string, any>;
 
-export function extendTheme<T extends ITheme | Record<string, any>>(
-  overrides: T
+export function extendTheme(
+  overrides: IExtendThemeParam,
+  ...restOverrides: IExtendThemeParam[]
 ) {
   function customizer(source: any, override: any) {
     if (isFunction(source)) {
@@ -21,5 +23,12 @@ export function extendTheme<T extends ITheme | Record<string, any>>(
     return undefined;
   }
 
-  return mergeWith({}, defaultTheme, overrides, customizer);
+  const finalOverrides = [overrides, ...restOverrides].reduce(
+    (prevValue, currentValue) => {
+      return mergeWith({}, prevValue, currentValue, customizer);
+    },
+    defaultTheme
+  );
+
+  return finalOverrides as ITheme;
 }
