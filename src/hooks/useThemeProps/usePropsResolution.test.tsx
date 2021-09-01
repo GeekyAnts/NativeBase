@@ -9,6 +9,7 @@ import {
   Select,
   Image,
   Spinner,
+  Text,
 } from '../../components/primitives';
 import { FormControl, Menu } from '../../components/composites';
 import { Platform } from 'react-native';
@@ -521,5 +522,61 @@ describe('props resolution', () => {
     expect(box.props.style).toEqual({
       marginTop: 29,
     });
+  });
+
+  it('tests absolute em lineHeight in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text lineHeight="3em" testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(48);
+  });
+
+  it('tests relative em lineHeight in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        {/* @ts-ignore */}
+        <Text fontSize="20px" lineHeight="3em" testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+
+    expect(text.props.style.lineHeight).toBe(60);
+  });
+
+  it('tests letterSpacing from token in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Box>
+          <Text letterSpacing="2xl" testID="test">
+            This is a text
+          </Text>
+        </Box>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.letterSpacing).toBe(1.6);
+  });
+
+  it('tests letterSpacing from token in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Box>
+          {/* @ts-ignore */}
+          <Text fontSize="12px" letterSpacing="2xl" testID="test">
+            This is a text
+          </Text>
+        </Box>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    let letterSpacing = Math.round(text.props.style.letterSpacing * 10) / 10;
+    expect(letterSpacing).toBe(1.2);
   });
 });
