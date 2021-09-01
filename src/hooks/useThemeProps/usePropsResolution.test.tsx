@@ -13,15 +13,18 @@ import {
   Input,
   Checkbox,
   Slider,
-  // Icon,
   HStack,
 } from '../../components/primitives';
-// import { Ionicons } from '@expo/vector-icons';
-import { FormControl, Menu, Modal } from '../../components/composites';
+import {
+  FormControl,
+  Menu,
+  IconButton,
+  Modal,
+} from '../../components/composites';
 import { Platform } from 'react-native';
 import { extendTheme } from '../../core/extendTheme';
 import { fireEvent } from '@testing-library/react-native';
-// import { InfoIcon } from '../../components/primitives/Icon/Icons';
+import { MoonIcon } from '../../components/primitives/Icon/Icons';
 
 const inset = {
   frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -411,7 +414,7 @@ describe('props resolution', () => {
     );
   });
 
-  it('Menu: style props test', () => {
+  it('Select: style props test', () => {
     const { getByTestId } = render(
       <Provider>
         <Select
@@ -447,6 +450,7 @@ describe('props resolution', () => {
     //   defaultTheme.colors.blue['700']
     // );
   });
+
   it('Button: style props test', () => {
     const { getByTestId } = render(
       <Provider>
@@ -466,6 +470,7 @@ describe('props resolution', () => {
       defaultTheme.colors.pink['900']
     );
   });
+
   it('Button: style props test on ios with dark mode', () => {
     const newTheme = extendTheme({
       config: { initialColorMode: 'dark' },
@@ -489,6 +494,7 @@ describe('props resolution', () => {
       defaultTheme.colors.pink['900']
     );
   });
+
   it('Button: style responsive props test on ios with dark mode', () => {
     const newTheme = extendTheme({
       config: { initialColorMode: 'dark' },
@@ -512,6 +518,7 @@ describe('props resolution', () => {
       defaultTheme.colors.blue['900']
     );
   });
+
   it('Image: style responsive props test on ios with dark mode', () => {
     const newTheme = extendTheme({
       config: { initialColorMode: 'dark' },
@@ -609,7 +616,7 @@ describe('props resolution', () => {
     expect(inputElement.props.style.fontSize).toBe(16);
   });
 
-  it('Input: variant', () => {
+  it('Input: variant underline', () => {
     const { getByTestId } = render(
       <Provider>
         <Input testID="test" variant="underlined" />
@@ -619,7 +626,7 @@ describe('props resolution', () => {
     expect(inputElement.props.style.borderBottomWidth).toBe(1);
   });
 
-  it('Input: variant', () => {
+  it('Input: variant filled', () => {
     const { getByTestId } = render(
       <Provider>
         <Input testID="test" variant="filled" />
@@ -667,24 +674,6 @@ describe('props resolution', () => {
     expect(inputElement.props.style.fontSize).toBe(14);
   });
 
-  // it('Input: inputElemets', () => {
-  //   const { getByTestId } = render(
-  //     <Provider>
-  //       <Input
-  //         testID="test1"
-  //         InputLeftElement={<Button testID="test2">leftIcon</Button>}
-  //         placeholder="Input"
-  //       />
-  //     </Provider>
-  //   );
-  //   const inputElement = getByTestId('test1');
-  //   const iconElement = getByTestId('test2');
-  //   console.log(inputElement, '!!!!!');
-  //   console.log('===========');
-  //   console.log(inputElement.props, '!!!!!');
-  //   expect(inputElement.props.InputLeftElement).toBe(iconElement);
-  // });
-
   it('Input: disabled', () => {
     const { getByTestId } = render(
       <Provider>
@@ -700,8 +689,6 @@ describe('props resolution', () => {
     expect(inputElement.props.disabled).toBe(true);
     expect(inputElement.props.required).toBe(true);
   });
-
-  // ==========================================
 
   it('handles defaults and onChange on checkBoxGroup', () => {
     let { getAllByRole } = render(
@@ -876,32 +863,6 @@ describe('props resolution', () => {
     expect(sliderElement.props.colorScheme).toBe('red');
   });
 
-  //  ==========================================
-  // it('Modal: size', () => {
-  //   const { getByTestId } = render(
-  //     <Provider>
-  //       <Modal isOpen={true} size="sm">
-  //         <Modal.Content testID="size">
-  //           <Modal.Header>Modal Title</Modal.Header>
-  //           <Modal.Body>
-  //             Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
-  //             ullamco deserunt aute id consequat veniam incididunt duis in sint
-  //             irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
-  //             officia tempor esse quis. Sunt ad dolore quis aute consequat.
-  //             Magna exercitation reprehenderit magna aute tempor cupidatat
-  //             consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-  //             incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-  //             aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi
-  //             consectetur esse laborum eiusmod pariatur
-  //           </Modal.Body>
-  //         </Modal.Content>
-  //       </Modal>
-  //     </Provider>
-  //   );
-  //   const modalElement = getByTestId('size');
-  //   // console.log(modalElement, 'jdj');
-  //   expect(modalElement.props.style.width).toBe('60%');
-  // });
   it('Slider: style props test with dark mode', () => {
     const newTheme = extendTheme({
       config: { initialColorMode: 'dark' },
@@ -997,77 +958,6 @@ describe('props resolution', () => {
     expect(hstackElement.props.style.flexDirection).toBe('row');
   });
 
-  it('HStack: direction', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <HStack testID="test" direction="column">
-          <Box>1</Box>
-          <Box>2</Box>
-          <Box>3</Box>
-        </HStack>
-      </Provider>
-    );
-    const hstackElement = getByTestId('test');
-    expect(hstackElement.props.style.flexDirection).toBe('column');
-  });
-
-  // it('Icon: basic', () => {
-  //   const { getByTestId } = render(
-  //     <Provider>
-  //       <Icon as={<Ionicons name="md-checkmark-circle" />} />
-  //     </Provider>
-  //   );
-  //   const iconElement = getByTestId('test123');
-  //   expect(iconElement.props.style.backgroundColor).toBe(
-  //     defaultTheme.colors.red['200']
-  //   );
-  // });
-
-  // it('Icon: Nativebase icons', () => {
-  //   const { getByTestId } = render(
-  //     <Provider>
-  //       <MoonIcon testId="test" />
-  //     </Provider>
-  //   );
-  //   const iconElement = getByTestId('test');
-  //   expect(pressableElement.props.style.backgroundColor).toBe(
-  //     defaultTheme.colors.red['200']
-  //   );
-  // });
-
-  it('Pressable: style props test', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Pressable testID="test" bg="red.200" _hover={{ bg: 'teal.300' }}>
-          <Text>hello world</Text>
-        </Pressable>
-      </Provider>
-    );
-    const pressableElement = getByTestId('test');
-    expect(pressableElement.props.style.backgroundColor).toBe(
-      defaultTheme.colors.red['200']
-    );
-  });
-
-  // it('Pressable: style props test on ios with dark mode', () => {
-  //   const newTheme = extendTheme({
-  //     config: { initialColorMode: 'dark' },
-  //   });
-
-  //   Platform.OS = 'ios';
-  //   const { getByTestId } = render(
-  //     <Provider theme={newTheme}>
-  //       <Pressable testID="test" _ios={{ _dark: { bg: 'pink.900' } }}>
-  //         PRIMARY
-  //       </Pressable>
-  //     </Provider>
-  //   );
-  //   const buttonElement = getByTestId('test');
-  //   expect(buttonElement.props.style.backgroundColor).toBe(
-  //     defaultTheme.colors.pink['900']
-  //   );
-  // });
-
   // it('Pressable: style responsive props test on ios with dark mode', () => {
   //   const newTheme = extendTheme({
   //     config: { initialColorMode: 'dark' },
@@ -1088,28 +978,33 @@ describe('props resolution', () => {
   //     defaultTheme.colors.blue['900']
   //   );
   // });
-  it('HStack: style props test with dark mode', () => {
-    const newTheme = extendTheme({
-      config: { initialColorMode: 'dark' },
-    });
+
+  it('HStack: direction', () => {
     const { getByTestId } = render(
-      <Provider theme={newTheme}>
-        <HStack
-          testID="test"
-          direction="column"
-          _dark={{
-            direction: 'row',
-          }}
-        >
+      <Provider>
+        <HStack testID="test" direction="column">
           <Box>1</Box>
           <Box>2</Box>
           <Box>3</Box>
         </HStack>
       </Provider>
     );
-
     const hstackElement = getByTestId('test');
-    expect(hstackElement.props.style.flexDirection).toBe('row');
+    expect(hstackElement.props.style.flexDirection).toBe('column');
+  });
+
+  it('Pressable: style props test', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Pressable testID="test" bg="red.200" _hover={{ bg: 'teal.300' }}>
+          <Text>hello world</Text>
+        </Pressable>
+      </Provider>
+    );
+    const pressableElement = getByTestId('test');
+    expect(pressableElement.props.style.backgroundColor).toBe(
+      defaultTheme.colors.red['200']
+    );
   });
 
   it('HStack: style props test on ios & dark mode', () => {
@@ -1140,6 +1035,33 @@ describe('props resolution', () => {
     expect(hstackElement.props.style.flexDirection).toBe('column');
   });
 
+  it('HStack: style props test on ios & dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <HStack
+          testID="test"
+          direction="column"
+          _dark={{
+            direction: 'row',
+          }}
+          _ios={{
+            direction: 'column',
+          }}
+        >
+          <Box>1</Box>
+          <Box>2</Box>
+          <Box>3</Box>
+        </HStack>
+      </Provider>
+    );
+    const hstackElement = getByTestId('test');
+    expect(hstackElement.props.style.flexDirection).toBe('column');
+  });
+
   it('verifies string numbers', () => {
     const { getByTestId } = render(
       <Provider>
@@ -1152,6 +1074,77 @@ describe('props resolution', () => {
     expect(box.props.style).toEqual({
       marginTop: 29,
     });
+  });
+
+  it('Icon: size in units', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <MoonIcon
+          _ios={{ size: 'md' }}
+          _android={{ size: 'sm' }}
+          testID="test"
+        />
+      </Provider>
+    );
+    const iconElement = getByTestId('test');
+    expect(iconElement.props.style[2].height).toBe(defaultTheme.sizes['8']);
+    expect(iconElement.props.style[2].width).toBe(defaultTheme.sizes['8']);
+  });
+
+  it('Icon: size in px', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <MoonIcon _ios={{ size: '10px' }} testID="test" />
+      </Provider>
+    );
+    const iconElement = getByTestId('test');
+    expect(iconElement.props.style[2].height).toBe(10);
+    expect(iconElement.props.style[2].width).toBe(10);
+  });
+
+  it('IconButton:crazy nesting tests', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <IconButton
+          testID="iconButton"
+          icon={<MoonIcon testID="icon" />}
+          borderRadius="full"
+          _icon={{
+            color: 'red.500',
+            size: 'md',
+          }}
+          _dark={{
+            _ios: {
+              _icon: {
+                size: '2xl',
+              },
+            },
+          }}
+        />
+      </Provider>
+    );
+    const iconButtonElement = getByTestId('iconButton');
+    const iconElement = getByTestId('icon');
+    expect(iconElement.props.style[1].color).toBe(
+      defaultTheme.colors.red['500']
+    );
+    expect(iconElement.props.style[2].height).toBe(defaultTheme.sizes['16']);
+    expect(iconElement.props.style[2].width).toBe(defaultTheme.sizes['16']);
+    expect(iconButtonElement.props.style.borderRadius).toBe(
+      defaultTheme.radii['full']
+    );
   });
 
   it('Modal: size', () => {
