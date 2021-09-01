@@ -10,6 +10,7 @@ import {
   Image,
   Spinner,
   Text,
+  Heading,
 } from '../../components/primitives';
 import { FormControl, Menu } from '../../components/composites';
 import { Platform } from 'react-native';
@@ -554,7 +555,7 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider>
         <Box>
-          <Text letterSpacing="2xl" testID="test">
+          <Text letterSpacing="0.1em" testID="test">
             This is a text
           </Text>
         </Box>
@@ -569,14 +570,116 @@ describe('props resolution', () => {
       <Provider>
         <Box>
           {/* @ts-ignore */}
-          <Text fontSize="12px" letterSpacing="2xl" testID="test">
+          <Text fontSize="12px" letterSpacing="2em" testID="test">
             This is a text
           </Text>
         </Box>
       </Provider>
     );
     const text = getByTestId('test');
-    let letterSpacing = Math.round(text.props.style.letterSpacing * 10) / 10;
-    expect(letterSpacing).toBe(1.2);
+    expect(text.props.style.letterSpacing).toBe(24);
+  });
+
+  it('Text: style props test on ios with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Box>
+          <Text
+            // @ts-ignore
+            fontSize="12px"
+            testID="test"
+            letterSpacing="3em"
+            _ios={{
+              _dark: {
+                fontSize: '15px',
+              },
+            }}
+          >
+            This is a text
+          </Text>
+        </Box>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.letterSpacing).toBe(45);
+  });
+
+  it('tests absolute em lineHeight in Heading ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Heading lineHeight="3em" testID="test">
+          This is a Heading.
+        </Heading>
+      </Provider>
+    );
+    const heading = getByTestId('test');
+    expect(heading.props.style.lineHeight).toBe(9);
+  });
+
+  it('tests relative em lineHeight in Heading ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        {/* @ts-ignore */}
+        <Heading fontSize="20px" lineHeight="3em" testID="test">
+          This is a Heading.
+        </Heading>
+      </Provider>
+    );
+    const heading = getByTestId('test');
+
+    expect(heading.props.style.lineHeight).toBe(60);
+  });
+
+  it('tests letterSpacing from token in Heading ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Heading letterSpacing="2em" testID="test">
+          This is a Heading.
+        </Heading>
+      </Provider>
+    );
+    const heading = getByTestId('test');
+    expect(heading.props.style.letterSpacing).toBe(6);
+  });
+
+  it('tests letterSpacing from token in Heading ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        {/* @ts-ignore */}
+        <Heading fontSize="12px" letterSpacing="1em" testID="test">
+          This is a Heading.
+        </Heading>
+      </Provider>
+    );
+    const heading = getByTestId('test');
+    expect(heading.props.style.letterSpacing).toBe(12);
+  });
+
+  it('tests letterSpacing from token in Heading ', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        {/* @ts-ignore */}
+        <Heading
+          letterSpacing="1em"
+          testID="test"
+          //@ts-ignore
+          fontSize="12px"
+          _dark={{
+            fontSize: '6px',
+          }}
+        >
+          This is a Heading.
+        </Heading>
+      </Provider>
+    );
+    const heading = getByTestId('test');
+    expect(heading.props.style.letterSpacing).toBe(6);
   });
 });
