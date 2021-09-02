@@ -17,7 +17,7 @@
   "dependencies": {
     "@expo/vector-icons": "^12.0.2",
     "@react-native-aria/overlays": "^0.2.9",
-    "@react-native-async-storage/async-storage": "^1.13.2",
+    "@react-native-async-storage/async-storage": "^1.15.7",
     "expo": "~40.0.0",
     "expo-font": "~8.4.0",
     "expo-linear-gradient": "^9.1.0",
