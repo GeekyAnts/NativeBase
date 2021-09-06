@@ -41,6 +41,11 @@ const pseudoPropsMap: any = {
     priority: SPECIFICITY_30,
   },
   // Add new pseudeo props in between -------
+  _unchecked: {
+    dependentOn: 'state',
+    respondTo: 'isChecked',
+    priority: SPECIFICITY_30,
+  },
   _readOnly: {
     dependentOn: 'state',
     respondTo: 'isReadOnly',

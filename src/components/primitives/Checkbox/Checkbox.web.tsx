@@ -11,63 +11,43 @@ import { CheckboxGroupContext } from './CheckboxGroup';
 import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
-import { CheckIcon } from '../Icon/Icons';
+import { CheckIcon, MoonIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 
-const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
-  const formControlContext = useFormControlContext();
-  const checkboxGroupContext = React.useContext(CheckboxGroupContext);
-  const {
-    _interactionBox,
-    _disabled,
-    _invalid,
-    _focus,
-    _hover,
-    _checked,
-    _unchecked,
-    _indeterminate,
-    _icon,
-    _readOnly,
+const Checkbox = (
+  {
+    icon,
+    wrapperRef,
     isInvalid,
     isReadOnly,
     isIndeterminate,
-    ...themedProps
-  } = usePropsResolution('Checkbox', {
-    ...checkboxGroupContext,
-    ...formControlContext,
-    ...props,
-  });
 
+    ...props
+  }: ICheckboxProps,
+  ref: any
+) => {
+  const formControlContext = useFormControlContext();
+  const checkboxGroupContext = React.useContext(CheckboxGroupContext);
+
+  const groupState = useContext(CheckboxGroupContext);
   const _ref = React.useRef();
   const mergedRef = mergeRefs([ref, _ref]);
+  const { isHovered } = useHover({}, _ref);
+  const { focusProps: isFocusVisibleProps, isFocusVisible } = useFocusRing();
 
   const state = useToggleState({
     ...props,
     defaultSelected: props.defaultIsChecked,
     isSelected: props.isChecked,
   });
-  const groupState = useContext(CheckboxGroupContext);
-  const { isHovered } = useHover({}, _ref);
 
-  const [layoutProps, nonLayoutProps] = extractInObject(themedProps, [
-    ...stylingProps.margin,
-    ...stylingProps.layout,
-    ...stylingProps.flexbox,
-    ...stylingProps.position,
-    '_text',
-  ]);
-
-  // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.
-  // This is a bit unorthodox. Typically, hooks cannot be called in a conditional,
-  // but since the checkbox won't move in and out of a group, it should be safe.
   const { inputProps } = groupState
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckboxGroupItem(
         {
-          ...nonLayoutProps,
-          'aria-label': themedProps.accessibilityLabel,
-          'value': themedProps.value,
+          ...props,
+          'aria-label': props.accessibilityLabel,
+          'value': props.value,
         },
         groupState.state,
         //@ts-ignore
@@ -76,8 +56,8 @@ const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
     : // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckbox(
         {
-          ...nonLayoutProps,
-          'aria-label': themedProps.accessibilityLabel,
+          ...props,
+          'aria-label': props.accessibilityLabel,
         },
         state,
         //@ts-ignore
@@ -85,64 +65,37 @@ const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       );
 
   const { checked: isChecked, disabled: isDisabled } = inputProps;
-  const sizedIcon = (icon: JSX.Element, _icon: any) =>
-    React.cloneElement(
-      icon,
-      {
-        ..._icon,
-      },
-      icon.props.children
-    );
-
-  function iconResolver() {
-    if (isDisabled && _disabled?.icon) {
-      return sizedIcon(_disabled?.icon, {
-        ..._icon,
-        ..._disabled?._icon,
-      });
-    } else if (isReadOnly && _readOnly?.icon) {
-      return sizedIcon(_readOnly?.icon, {
-        ..._icon,
-        ..._readOnly?._icon,
-      });
-    } else if (isInvalid && _invalid?.icon) {
-      return sizedIcon(_invalid?.icon, {
-        ..._icon,
-        ..._invalid?._icon,
-      });
-    } else if (isHovered && _hover?.icon) {
-      return sizedIcon(_hover?.icon, {
-        ..._icon,
-        ..._hover?._icon,
-      });
-    } else if (!isChecked && _unchecked?.icon) {
-      return sizedIcon(_unchecked?.icon, { ..._icon, ..._unchecked?._icon });
-    } else if (isChecked) {
-      if (_checked?.icon) {
-        return sizedIcon(_checked?.icon, { ..._icon, ..._checked?._icon });
-      } else if (icon) {
-        return sizedIcon(icon, { ..._icon });
-      } else {
-        return <CheckIcon name="check" {..._icon} opacity={1} />;
-      }
-    } else if (isIndeterminate && _indeterminate?.icon) {
-      return sizedIcon(_indeterminate?.icon, {
-        ..._icon,
-        ..._indeterminate?._icon,
-      });
-    } else if (isFocusVisible && _focus?.icon) {
-      return sizedIcon(_focus?.icon, {
-        ..._icon,
-        ..._focus?._icon,
-      });
+  const { _interactionBox, _icon, ...resolvedProps } = usePropsResolution(
+    'Checkbox',
+    {
+      ...checkboxGroupContext,
+      ...formControlContext,
+      ...props,
+    },
+    {
+      isDisabled,
+      isChecked,
+      isReadOnly,
+      isFocused: isFocusVisible,
+      isInvalid,
+      isHovered,
+      isIndeterminate,
     }
-    return <CheckIcon name="check" {..._icon} opacity={isChecked ? 1 : 0} />;
-  }
+  );
+  const { children, ...remainingProps } = resolvedProps;
 
-  const { focusProps, isFocusVisible } = useFocusRing();
+  // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.
+  // This is a bit unorthodox. Typically, hooks cannot be called in a conditional,
+  // but since the checkbox won't move in and out of a group, it should be safe.
+
+  const sizedIcon = () =>
+    //@ts-ignore
+    React.cloneElement(icon, {
+      ..._icon,
+    });
   const component = (
     <Box
-      {...layoutProps}
+      {...remainingProps}
       flexDirection="row"
       alignItems="center"
       opacity={isDisabled ? 0.4 : 1}
@@ -152,14 +105,6 @@ const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
         {/* Interaction Box */}
         <Box
           {..._interactionBox}
-          {...(!isChecked && _unchecked?._interactionBox)}
-          {...(isChecked && _checked?._interactionBox)}
-          {...(isIndeterminate && _indeterminate?._interactionBox)}
-          {...(isFocusVisible && _focus?._interactionBox)}
-          {...(isHovered && _hover?._interactionBox)}
-          {...(isInvalid && _invalid?._interactionBox)}
-          {...(isReadOnly && _readOnly?._interactionBox)}
-          {...(isDisabled && _disabled?._interactionBox)}
           style={{
             // @ts-ignore - only for web"
             transition: 'height 200ms, width 200ms',
@@ -177,22 +122,18 @@ const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
           zIndex={-1}
         />
         {/* Checkbox */}
-        <Center
-          {...nonLayoutProps}
-          {...(!isChecked && _unchecked)}
-          {...(isChecked && _checked)}
-          {...(isIndeterminate && _indeterminate)}
-          {...(isFocusVisible && _focus)}
-          {...(isHovered && _hover)}
-          {...(isInvalid && _invalid)}
-          {...(isReadOnly && _readOnly)}
-          {...(isDisabled && _disabled)}
-        >
-          {iconResolver()}
+        <Center>
+          {icon && sizedIcon && isChecked ? (
+            sizedIcon()
+          ) : isChecked ? (
+            <CheckIcon name="check" {..._icon} />
+          ) : (
+            <MoonIcon {..._icon}></MoonIcon>
+          )}
         </Center>
       </Center>
       {/* Label */}
-      {props.children}
+      {children}
     </Box>
   );
   //TODO: refactor for responsive prop
@@ -206,7 +147,7 @@ const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       ref={mergeRefs([wrapperRef, _ref])}
     >
       <VisuallyHidden>
-        <input {...inputProps} {...focusProps} ref={mergedRef} />
+        <input {...inputProps} {...isFocusVisibleProps} ref={mergedRef} />
       </VisuallyHidden>
 
       {component}

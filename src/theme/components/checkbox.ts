@@ -4,11 +4,7 @@ const baseStyle = (props: Record<string, any>) => {
   const { colorScheme, theme } = props;
 
   return {
-    borderWidth: 2,
-    borderRadius: 'sm',
-    borderColor: mode('muted.300', 'muted.600')(props),
     bg: mode('muted.50', 'muted.700')(props), // matching background color
-
     _text: {
       ml: 3,
     },
@@ -38,13 +34,23 @@ const baseStyle = (props: Record<string, any>) => {
       },
     },
     _checked: {
-      borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
-      bg: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
+      _icon: {
+        borderRadius: 'sm',
+        bg: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
+        color: mode(`muted.50`, `muted.800`)(props),
+      },
     },
     _invalid: {
-      borderColor: mode('error.600', 'error.400')(props),
+      _icon: {
+        borderColor: mode('error.600', 'error.400')(props),
+        borderWidth: 2,
+        borderRadius: 'sm',
+      },
     },
     _icon: {
+      borderColor: mode('muted.300', 'muted.600')(props),
+      borderWidth: 2,
+      borderRadius: 'sm',
       color: mode(`muted.50`, `muted.800`)(props), // matching background color
     },
   };
