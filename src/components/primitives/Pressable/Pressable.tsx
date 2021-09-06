@@ -4,7 +4,8 @@ import { composeEventHandlers } from '../../../utils';
 import type { IPressableProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { makeStyledComponent } from '../../../utils/styled';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+// import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { usePropsResolutionTest } from '../../../hooks/useThemeProps/usePropsResolutionTest';
 import { useFocusRing } from '@react-native-aria/focus';
 
 export const useHover = () => {
@@ -56,10 +57,10 @@ const Pressable = ({ children, ...props }: IPressableProps, ref: any) => {
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('Pressable', props, {
-    isHovered,
+  } = usePropsResolutionTest('Pressable', props, {
     isPressed,
     isFocused,
+    isHovered,
     isFocusVisible,
   });
 

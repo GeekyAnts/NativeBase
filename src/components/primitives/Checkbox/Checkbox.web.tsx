@@ -1,6 +1,6 @@
 import React, { useContext, memo, forwardRef } from 'react';
 import { mergeRefs } from './../../../utils';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+// import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
 import { useFormControlContext } from '../../composites/FormControl';
 import Box from '../Box';
@@ -13,6 +13,7 @@ import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
 import { CheckIcon, MoonIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { usePropsResolutionTest } from '../../../hooks/useThemeProps/usePropsResolutionTest';
 
 const Checkbox = (
   {
@@ -65,7 +66,7 @@ const Checkbox = (
       );
 
   const { checked: isChecked, disabled: isDisabled } = inputProps;
-  const { _interactionBox, _icon, ...resolvedProps } = usePropsResolution(
+  const { _interactionBox, _icon, ...resolvedProps } = usePropsResolutionTest(
     'Checkbox',
     {
       ...checkboxGroupContext,
