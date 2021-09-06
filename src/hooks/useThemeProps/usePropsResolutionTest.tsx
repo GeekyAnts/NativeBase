@@ -6,7 +6,7 @@ import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
-import { propsFlattener } from './propsFlattener';
+import { propsFlattenerTest } from './propsFlattenerTest';
 
 const specificityOrder = [
   'p',
@@ -146,7 +146,7 @@ export function usePropsResolutionTest(
   );
   // STEP 2: flatten them
 
-  let [flattenProps, specificityMap] = propsFlattener(
+  let [flattenProps, specificityMap] = propsFlattenerTest(
     {
       props: incomingWithDefaultProps,
       platform: Platform.OS,
@@ -187,7 +187,7 @@ export function usePropsResolutionTest(
             ...colorModeProps,
           });
 
-    [flattenBaseStyle, baseSpecificityMap] = propsFlattener(
+    [flattenBaseStyle, baseSpecificityMap] = propsFlattenerTest(
       {
         props: componentBaseStyle,
         platform: Platform.OS,
@@ -217,7 +217,7 @@ export function usePropsResolutionTest(
             ...colorModeProps,
           });
 
-    [flattenVariantStyle, variantSpecificityMap] = propsFlattener(
+    [flattenVariantStyle, variantSpecificityMap] = propsFlattenerTest(
       {
         props: componentVariantProps,
         platform: Platform.OS,
@@ -265,7 +265,7 @@ export function usePropsResolutionTest(
       componentSizeProps = componentTheme.sizes[size];
     }
 
-    [flattenSizeStyle] = propsFlattener(
+    [flattenSizeStyle] = propsFlattenerTest(
       {
         props: componentSizeProps,
         platform: Platform.OS,

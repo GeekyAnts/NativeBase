@@ -4,8 +4,8 @@ import { composeEventHandlers } from '../../../utils';
 import type { IPressableProps } from './types';
 import { makeStyledComponent } from '../../../utils/styled';
 import { isResponsiveAnyProp } from '../../../theme/tools';
-
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+// import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { usePropsResolutionTest } from '../../../hooks/useThemeProps/usePropsResolutionTest';
 import { useFocusRing } from '@react-native-aria/focus';
 import isNil from 'lodash.isnil';
 
@@ -58,10 +58,10 @@ const Pressable = ({ children, ...props }: IPressableProps, ref: any) => {
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('Pressable', props, {
-    isHovered,
+  } = usePropsResolutionTest('Pressable', props, {
     isPressed,
     isFocused,
+    isHovered,
     isFocusVisible,
   });
 
