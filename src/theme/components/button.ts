@@ -11,7 +11,7 @@ const baseStyle = (props: any) => {
       : {};
 
   return {
-    borderRadius: 'lg',
+    borderRadius: 'sm',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -23,7 +23,7 @@ const baseStyle = (props: any) => {
         : 'pointer',
     },
     _text: {
-      fontWeight: 600,
+      fontWeight: 'medium',
     },
     _focusVisible: {
       style: props.variant !== 'unstyled' ? { ...focusRing } : {},
@@ -33,10 +33,10 @@ const baseStyle = (props: any) => {
       alignItems: 'center',
     },
     _loading: {
-      opacity: 0.5,
+      opacity: '80',
     },
     _disabled: {
-      opacity: 0.5,
+      opacity: '50',
     },
     spinnerProps: {
       size: 'sm',
@@ -62,7 +62,7 @@ function variantGhost(props: Dict) {
     },
     bg: 'transparent',
     _web: {
-      outlineWidth: 0,
+      outlineWidth: '0',
     },
     _hover: {
       bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
@@ -83,7 +83,7 @@ function variantOutline(props: Dict) {
   const { colorScheme: c } = props;
   const borderColor = mode(`muted.200`, `muted.500`)(props);
   return {
-    borderWidth: 1,
+    borderWidth: '1',
     borderColor:
       c === 'muted'
         ? borderColor
@@ -119,7 +119,7 @@ function variantSolid(props: Dict) {
 
   const styleObject = {
     _web: {
-      outlineWidth: 0,
+      outlineWidth: '0',
     },
     bg,
     _hover: {
@@ -167,7 +167,7 @@ function variantSubtle(props: Dict) {
       color: color,
     },
     _web: {
-      outlineWidth: 0,
+      outlineWidth: '0',
     },
     bg,
     _hover: {
@@ -228,31 +228,31 @@ const variants = {
 
 const sizes = {
   lg: {
-    px: 6,
-    py: 3,
-    _text: {
-      fontSize: 'lg',
-    },
-  },
-  md: {
-    px: 4,
-    py: 3,
+    px: '4',
+    py: '2',
     _text: {
       fontSize: 'md',
     },
   },
-  sm: {
-    px: 4,
-    py: 2,
+  md: {
+    px: '3',
+    py: '2',
     _text: {
       fontSize: 'sm',
     },
   },
-  xs: {
-    px: 2,
-    py: 1,
+  sm: {
+    px: '2',
+    py: '2',
     _text: {
       fontSize: 'xs',
+    },
+  },
+  xs: {
+    px: '2',
+    py: '2',
+    _text: {
+      fontSize: '2xs',
     },
   },
 };

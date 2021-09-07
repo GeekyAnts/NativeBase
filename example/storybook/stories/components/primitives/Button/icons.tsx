@@ -6,14 +6,16 @@ export const Example = () => {
   return (
     <Stack direction={{ base: 'column', md: 'row' }} space={4}>
       <Button
-        rightIcon={<Icon as={Ionicons} name="refresh-outline" size={5} />}
+        rightIcon={
+          <Icon as={Ionicons} name="reload-circle-outline" size="sm" />
+        }
       >
         Reset
       </Button>
       <Button
         variant="outline"
         endIcon={
-          <Icon as={Ionicons} name="checkmark-done-circle-outline" size={5} />
+          <Icon as={Ionicons} name="checkmark-done-circle-outline" size="sm" />
         }
       >
         Confirm

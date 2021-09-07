@@ -2,19 +2,34 @@ import { Dimensions } from 'react-native';
 import { mode } from '../tools';
 
 const sizes = {
+  xs: {
+    contentSize: {
+      width: '55%',
+      maxWidth: '280',
+    },
+  },
   sm: {
     contentSize: {
       width: '60%',
+      maxWidth: '320',
     },
   },
   md: {
     contentSize: {
       width: '75%',
+      maxWidth: '380',
     },
   },
   lg: {
     contentSize: {
+      width: '80%',
+      maxWidth: '520',
+    },
+  },
+  xl: {
+    contentSize: {
       width: '90%',
+      maxWidth: '580',
     },
   },
   full: {
@@ -33,7 +48,7 @@ export const Modal = {
   },
   sizes,
   defaultProps: {
-    size: 'lg',
+    size: 'md',
     closeOnOverlayClick: true,
   },
 };
@@ -41,12 +56,11 @@ export const Modal = {
 export const ModalContent = {
   baseStyle: (props: Record<string, any>) => {
     return {
-      bg: mode('gray.50', 'gray.700')(props),
-      pl: 6,
-      pt: 6,
-      shadow: 3,
+      bg: mode('white', 'gray.700')(props),
+      shadow: 1,
       rounded: 'lg',
       maxHeight: `${Dimensions.get('window').height - 150}px`,
+      overflow: 'hidden',
     };
   },
 };
@@ -54,40 +68,45 @@ export const ModalCloseButton = {
   baseStyle: (props: Record<string, any>) => {
     return {
       position: 'absolute',
-      right: 4,
-      top: 4,
+      right: 3,
+      top: 3,
       zIndex: 1,
-      size: 9,
+      colorScheme: 'coolGray',
+      p: 2,
       _icon: {
-        size: 4,
-        color: mode('gray.500', 'gray.100')(props),
+        size: 3,
+        color: mode('gray.400', 'gray.100')(props),
       },
     };
   },
 };
 export const ModalHeader = {
   baseStyle: {
-    pb: 3,
-    pr: 6,
-    _text: { fontSize: 'xl', fontWeight: 'bold' },
+    p: '3',
+    px: '4',
+    borderBottomWidth: '1',
+    borderColor: 'coolGray.100',
+    _text: { fontSize: 'md', fontWeight: 'semibold', color: 'coolGray.800' },
   },
 };
 export const ModalBody = {
   baseStyle: (props: Record<string, any>) => {
     return {
-      pb: 7,
-      pr: 6,
-      _text: { fontSize: 'md', color: mode('gray.600', 'gray.300')(props) },
+      p: '3',
+      px: '4',
+      _text: {
+        color: mode('coolGray.600', 'coolGray.300')(props),
+      },
     };
   },
 };
 export const ModalFooter = {
   baseStyle: {
-    py: 2,
+    p: '3',
+    bg: 'coolGray.100',
     flexDirection: 'row',
     justifyContent: 'flex-end',
     flexWrap: 'wrap',
-    pr: 2,
   },
 };
 export const ModalOverlay = {

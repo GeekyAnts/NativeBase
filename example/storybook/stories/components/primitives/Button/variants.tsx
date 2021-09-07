@@ -3,15 +3,13 @@ import { Button, Divider, Heading, VStack, Stack } from 'native-base';
 
 export const Example = () => {
   return (
-    <VStack space={4} px={2} w="100%">
+    <VStack space={4} px="2" w="100%" alignItems="center">
       {/* Solid */}
-      <Heading size="xs" textAlign="left">
-        Solid
-      </Heading>
+      <Heading size="sm">Solid</Heading>
       <Stack
         direction={{ base: 'column', md: 'row' }}
         space={2}
-        mx={{ base: 'auto', md: 0 }}
+        mx={{ base: 'auto', md: '0' }}
       >
         <Button
           size="sm"
@@ -38,13 +36,13 @@ export const Example = () => {
 
       <Divider />
 
-      <Heading size="xs">Subtle</Heading>
+      <Heading size="sm">Subtle</Heading>
 
       {/* Subtle */}
       <Stack
         direction={{ base: 'column', md: 'row' }}
         space={2}
-        mx={{ base: 'auto', md: 0 }}
+        mx={{ base: 'auto', md: '0' }}
       >
         <Button
           size="sm"
@@ -71,13 +69,13 @@ export const Example = () => {
         </Button>
       </Stack>
       <Divider />
-      <Heading size="xs">Outline</Heading>
+      <Heading size="sm">Outline</Heading>
 
       {/* Outline */}
       <Stack
         direction={{ base: 'column', md: 'row' }}
         space={2}
-        mx={{ base: 'auto', md: 0 }}
+        mx={{ base: 'auto', md: '0' }}
       >
         <Button
           size="sm"
@@ -105,13 +103,13 @@ export const Example = () => {
       </Stack>
       <Divider />
 
-      <Heading size="xs">Link</Heading>
+      <Heading size="sm">Link</Heading>
 
       {/* Link */}
       <Stack
         direction={{ base: 'column', md: 'row' }}
         space={2}
-        mx={{ base: 'auto', md: 0 }}
+        mx={{ base: 'auto', md: '0' }}
       >
         <Button
           size="sm"
@@ -139,13 +137,13 @@ export const Example = () => {
       </Stack>
       <Divider />
 
-      <Heading size="xs">Ghost</Heading>
+      <Heading size="sm">Ghost</Heading>
 
       {/* Ghost */}
       <Stack
         direction={{ base: 'column', md: 'row' }}
         space={2}
-        mx={{ base: 'auto', md: 0 }}
+        mx={{ base: 'auto', md: '0' }}
       >
         <Button
           size="sm"
@@ -174,13 +172,13 @@ export const Example = () => {
 
       <Divider />
 
-      <Heading size="xs">Unstyled</Heading>
+      <Heading size="sm">Unstyled</Heading>
 
       {/* Unstyled */}
       <Stack
         direction={{ base: 'column', md: 'row' }}
         space={2}
-        mx={{ base: 'auto', md: 0 }}
+        mx={{ base: 'auto', md: '0' }}
       >
         <Button
           variant="unstyled"

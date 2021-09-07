@@ -5,6 +5,7 @@ const baseStyle = (props: Record<string, any>) => {
     color: mode('muted.700', 'white')(props),
     fontWeight: 'bold',
     fontFamily: 'heading',
+    lineHeight: 'sm',
   };
 };
 
@@ -30,7 +31,7 @@ const sizes = {
 };
 
 const defaultProps = {
-  size: 'xl',
+  size: 'lg',
 };
 
 export default {

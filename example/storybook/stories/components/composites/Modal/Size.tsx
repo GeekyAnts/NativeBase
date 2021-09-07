@@ -43,7 +43,7 @@ export function Example() {
         </Modal.Content>
       </Modal>
       <Stack direction={{ base: 'column', md: 'row' }} space={2}>
-        {['sm', 'md', 'lg', 'full'].map((size) => {
+        {['xs', 'sm', 'md', 'lg', 'xl', 'full'].map((size) => {
           return (
             <Button
               onPress={() => handleSizeClick(size)}

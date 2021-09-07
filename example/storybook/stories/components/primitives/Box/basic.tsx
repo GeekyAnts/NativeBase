@@ -5,11 +5,13 @@ export const Example = () => {
     <>
       <Box
         bg="primary.400"
+        p="3"
+        w="72"
         _text={{
           fontSize: 'md',
           fontWeight: 'bold',
           color: 'white',
-          letterSpacing: '5xl',
+          letterSpacing: 'lg',
         }}
       >
         This is a Box
