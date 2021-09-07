@@ -60,9 +60,9 @@ export interface IImageProps
   /**
    * In event there was an error loading the src, specify a fallback JSX Element.
    */
-  fallbackElement?: any;
+  fallbackElement?: JSX.Element | JSX.Element[];
   /**
    * specify a source for image.
    */
-  src?: any;
+  src?: string;
 }
