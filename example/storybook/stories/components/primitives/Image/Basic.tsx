@@ -7,7 +7,7 @@ export function Example() {
         uri: 'https://wallpaperaccess.com/full/317501.jpg',
       }}
       alt="Alternate Text"
-      size={'xl'}
+      size="xl"
     />
   );
 }

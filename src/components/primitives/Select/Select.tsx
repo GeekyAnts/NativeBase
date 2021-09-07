@@ -14,6 +14,7 @@ import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { ChevronDownIcon } from '../Icon/Icons';
 import type { IButtonProps } from '../Button/types';
 import { ScrollView } from '../../basic/ScrollView';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const unstyledSelecWebtStyles = {
   width: '100%',
@@ -55,7 +56,7 @@ const Select = (
   });
 
   const isDisabled = selectProps.disabled;
-
+  const tempFix = '__NativebasePlaceholder__';
   const _ref = React.useRef(null);
   const themeProps = usePropsResolution('Input', { ...props, size });
   let [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -104,6 +105,10 @@ const Select = (
     ...stylingProps.position,
     ...stylingProps.background,
   ]);
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   const rightIcon =
     isOpen && dropdownOpenIcon ? (
@@ -130,6 +135,7 @@ const Select = (
       {...(isHovered ? themeProps._hover : {})}
       {...nonLayoutProps}
       {...borderProps}
+      isDisabled={isDisabled}
     />
   );
 
@@ -158,9 +164,12 @@ const Select = (
               onChange={(e) => {
                 setValue(e.target.value);
               }}
-              value={value}
+              value={selectedItem === null ? tempFix : value}
               aria-label={placeholder}
             >
+              <option disabled value={tempFix}>
+                {placeholder}
+              </option>
               {children}
             </select>
           </Box>

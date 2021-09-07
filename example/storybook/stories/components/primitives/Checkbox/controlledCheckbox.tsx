@@ -5,7 +5,11 @@ export const Example = () => {
   const [groupValues, setGroupValues] = React.useState([]);
 
   return (
-    <Checkbox.Group onChange={setGroupValues} value={groupValues}>
+    <Checkbox.Group
+      onChange={setGroupValues}
+      value={groupValues}
+      accessibilityLabel="choose numbers"
+    >
       <Checkbox value="one" my={2}>
         One
       </Checkbox>

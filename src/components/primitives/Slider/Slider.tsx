@@ -6,6 +6,7 @@ import type { ISliderProps } from './types';
 import Box from '../Box';
 import { SliderContext } from './Context';
 import { useSlider } from '@react-native-aria/slider';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 function Slider(props: ISliderProps, ref?: any) {
   let newProps = {
@@ -26,9 +27,13 @@ function Slider(props: ISliderProps, ref?: any) {
   props = newProps;
 
   const { onLayout, layout: trackLayout } = useLayout();
+  const updatedProps = Object.assign({}, props);
+  if (props?.isReadOnly) {
+    updatedProps.isDisabled = true;
+  }
 
   const state = useSliderState({
-    ...props,
+    ...updatedProps,
     //@ts-ignore
     numberFormatter: { format: (e) => e },
     minValue: props.minValue,
@@ -41,7 +46,10 @@ function Slider(props: ISliderProps, ref?: any) {
     },
   });
 
-  const themeProps = usePropsResolution('Slider', props);
+  const { _disabled, _readOnly, ...themeProps } = usePropsResolution(
+    'Slider',
+    props
+  );
 
   let { trackProps } = useSlider((props as unknown) as any, state, trackLayout);
 
@@ -50,15 +58,21 @@ function Slider(props: ISliderProps, ref?: any) {
     width: props.orientation !== 'vertical' ? '100%' : undefined,
   };
 
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
+
   return (
     <SliderContext.Provider
       value={{
         trackLayout,
         state,
-        orientation: props.orientation,
-        isReversed: props.isReversed,
-        colorScheme: props.colorScheme,
+        orientation: themeProps.orientation,
+        isReversed: themeProps.isReversed,
+        colorScheme: themeProps.colorScheme,
         trackProps,
+        isReadOnly: props.isReadOnly,
         onTrackLayout: onLayout,
         thumbSize: themeProps.thumbSize,
         sliderSize: themeProps.sliderSize,
@@ -69,6 +83,8 @@ function Slider(props: ISliderProps, ref?: any) {
         justifyContent="center"
         ref={ref}
         alignItems="center"
+        {...(props.isReadOnly && _readOnly)}
+        {...(props.isDisabled && _disabled)}
         {...themeProps}
       >
         {React.Children.map(props.children, (child, index) => {

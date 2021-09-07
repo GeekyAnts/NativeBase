@@ -75,7 +75,7 @@ export const Example = () => {
             The Silicon Valley of India.
           </Heading>
         </Stack>
-        <Text lineHeight={6} fontWeight={400}>
+        <Text fontWeight={400}>
           Bengaluru (also called Bangalore) is the center of India's high-tech
           industry. The city is also known for its parks and nightlife.
         </Text>

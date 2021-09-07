@@ -63,6 +63,7 @@ import {
 import * as PopoverComponentTheme from './popover';
 import { default as NumberInput, NumberInputStepper } from './number-input';
 import PinInput from './pin-input';
+import Pressable from './pressable';
 import Progress from './progress';
 import Radio from './radio';
 import { Skeleton, SkeletonText, SkeletonCircle } from './skeleton';
@@ -86,7 +87,8 @@ import View from './view';
 import ZStack from './zstack';
 import FAB from './fab';
 import { SliderTrack, Slider, SliderThumb, SliderFilledTrack } from './slider';
-
+import InputLeftAddon from './inputleftaddon';
+import InputRightAddon from './inputrightaddon';
 export default {
   FlatList,
   KeyboardAvoidingView,
@@ -136,6 +138,8 @@ export default {
   IconButton,
   Image,
   Input,
+  InputLeftAddon,
+  InputRightAddon,
   Kbd,
   Link,
   List,
@@ -154,6 +158,7 @@ export default {
   NumberInput,
   NumberInputStepper,
   PinInput,
+  Pressable,
   ...PopoverComponentTheme,
   Progress,
   Radio,

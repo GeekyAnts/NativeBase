@@ -7,8 +7,10 @@ import { Example as ToastVariants } from './ToastVariants';
 import { Example as Basic } from './Basic';
 import { Example as CloseToast } from './CloseToast';
 import { Example as CustomComponent } from './CustomComponent';
+import { Example as CustomComponentWithCustomId } from './CustomComponentWithCustomId';
 import { Example as PreventDuplicate } from './PreventDuplicate';
 import { Example as ToastStatus } from './ToastStatus';
+import { Example as StandaloneToast } from './StandaloneToast';
 
 storiesOf('Toast', module)
   .addDecorator(withKnobs)
@@ -16,7 +18,9 @@ storiesOf('Toast', module)
   .add('Basic', () => <Basic />)
   .add('Toast Positions', () => <ToastPositions />)
   .add('Custom Component', () => <CustomComponent />)
+  .add('Custom Component with custom Id', () => <CustomComponentWithCustomId />)
   .add('CloseToast', () => <CloseToast />)
   .add('Prevent Duplicate', () => <PreventDuplicate />)
   .add('Status', () => <ToastStatus />)
-  .add('Toast Variants', () => <ToastVariants />);
+  .add('Toast Variants', () => <ToastVariants />)
+  .add('Toast Ref', () => <StandaloneToast />);

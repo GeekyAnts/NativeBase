@@ -1,6 +1,5 @@
 import React from 'react';
 import { Stack, Heading, Divider, Box } from 'native-base';
-import { number } from '@storybook/addon-knobs';
 
 export function Example() {
   return (
@@ -9,8 +8,8 @@ export function Example() {
       <Box>
         <Stack
           direction="row"
-          space={number('space', 3)}
-          mb={number('mb', 3)}
+          space={3}
+          mb={3}
           alignItems="center"
           divider={<Divider bg="red.200" />}
         >

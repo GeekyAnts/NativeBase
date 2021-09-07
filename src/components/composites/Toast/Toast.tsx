@@ -2,7 +2,7 @@ import { OverlayContainer } from '@react-native-aria/overlays';
 import { PresenceTransition } from '../Transitions';
 import VStack from '../../primitives/Stack/VStack';
 import { Alert } from '../../composites/Alert';
-import React, { createContext, useState } from 'react';
+import React, { createContext, MutableRefObject, useState } from 'react';
 import {
   AccessibilityInfo,
   Easing,
@@ -204,7 +204,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
     let component = null;
 
     if (render) {
-      component = render({ id: toastIndex.current });
+      component = render({ id });
     } else if (!status && !variant) {
       component = (
         <VStack space={1} {...themeProps} {...rest}>
@@ -217,6 +217,8 @@ export const ToastProvider = ({ children }: { children: any }) => {
     } else if (status || variant) {
       component = (
         <Alert
+          maxWidth="90%"
+          alignSelf="center"
           status={status ?? 'info'}
           variant={variant as any}
           accessibilityLiveRegion={accessibilityLiveRegion}
@@ -226,14 +228,14 @@ export const ToastProvider = ({ children }: { children: any }) => {
                 onPress={() => {
                   hideToast(id);
                 }}
-                icon={<CloseIcon size={themeProps._closeIcon} />}
+                icon={<CloseIcon {...themeProps._closeIcon} />}
               />
             ) : undefined
           }
           {...rest}
         >
           <Alert.Icon />
-          <VStack>
+          <VStack flexShrink={1}>
             <Alert.Title>{title}</Alert.Title>
             {description ? (
               <Alert.Description>{description}</Alert.Description>
@@ -298,4 +300,15 @@ export const useToast = () => {
   };
 
   return toast;
+};
+
+export type IToastService = ReturnType<typeof useToast>;
+
+export const ToastRef = React.createRef<IToastService>() as MutableRefObject<IToastService>;
+
+export const Toast: IToastService = {
+  show: (props: IToastProps) => ToastRef.current?.show(props),
+  close: (id: any) => ToastRef.current?.close(id),
+  closeAll: () => ToastRef.current?.closeAll(),
+  isActive: (id: any) => ToastRef.current?.isActive(id),
 };

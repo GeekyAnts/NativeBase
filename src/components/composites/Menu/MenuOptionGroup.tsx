@@ -1,6 +1,7 @@
 import React, { forwardRef, memo } from 'react';
 import MenuGroup from './MenuGroup';
 import type { IMenuOptionGroupProps, IMenuOptionContextProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export const MenuOptionContext = React.createContext<IMenuOptionContextProps>({
   values: [],
@@ -35,6 +36,10 @@ const MenuOptionGroup = (
       setValues([newValue]);
     }
   };
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <MenuOptionContext.Provider
       value={{

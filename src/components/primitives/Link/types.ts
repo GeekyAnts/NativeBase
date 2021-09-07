@@ -1,3 +1,5 @@
+import type { MutableRefObject } from 'react';
+import type { GestureResponderEvent } from 'react-native';
 import type { IBoxProps } from '../Box';
 
 export interface ILinkProps extends IBoxProps {
@@ -16,7 +18,7 @@ export interface ILinkProps extends IBoxProps {
   /**
    * Callback that will be invoked on Link press
    */
-  onPress?: any;
+  onPress?: ((event?: GestureResponderEvent) => any) | null | undefined;
   /**
    * If true, link will be opened in new tab on web. It uses _target property to achieve this
    */
@@ -24,16 +26,16 @@ export interface ILinkProps extends IBoxProps {
   /**
    * Hover props. Accepts all styled system props.
    */
-  _hover?: any;
+  _hover?: Omit<ILinkProps, '_hover'>;
   /**
    * Ref to be attached to the Link wrapper
    */
-  wrapperRef?: any;
+  wrapperRef?: MutableRefObject<any>;
 }
 
 export type IUseLinkProp = {
   href?: string;
   isExternal?: boolean;
-  onPress: any;
-  _ref: any;
+  onPress: ((event?: GestureResponderEvent) => any) | null | undefined;
+  _ref: MutableRefObject<any>;
 };

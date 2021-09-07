@@ -5,6 +5,7 @@ import { useFormControlContext } from './useFormControl';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IFormControlLabelProps } from './types';
 import { mergeRefs } from '../../../utils';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const FormControlLabel = (
   { children, _disabled, _invalid, ...props }: IFormControlLabelProps,
@@ -16,6 +17,7 @@ const FormControlLabel = (
     'FormControlLabel',
     props
   );
+
   const requiredAsterisk = () => (
     <Text
       _web={{
@@ -38,6 +40,10 @@ const FormControlLabel = (
       }
     }
   }, [formControlContext?.nativeID, props.htmlFor]);
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box
       flexDirection="row"

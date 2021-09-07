@@ -1,3 +1,4 @@
+import type { MutableRefObject } from 'react';
 import type { IInputProps } from '../../primitives';
 
 export type IPinInputProps = IInputProps & {
@@ -8,13 +9,15 @@ export type IPinInputProps = IInputProps & {
 
 export type IPinInputFieldProps = IInputProps & {
   fieldIndex?: number;
-  inputSize?: any;
+  inputSize?: number | string;
 };
 export type IPinInputComponentType = ((
-  props: IPinInputProps & { ref?: any }
+  props: IPinInputProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Field: React.MemoExoticComponent<
-    (props: IPinInputFieldProps & { ref?: any }) => JSX.Element
+    (
+      props: IPinInputFieldProps & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
 };
 export type IPinInputContext = IPinInputProps & {

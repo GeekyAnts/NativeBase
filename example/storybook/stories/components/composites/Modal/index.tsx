@@ -8,6 +8,7 @@ import { Example as ModalRefEg } from './ModalRefEg';
 import { Example as MultipleModal } from './MultipleModal';
 import { Example as Size } from './Size';
 import { Example as ModalPlacement } from './ModalPlacement';
+import { Example as CustomBackdrop } from './CustomBackdrop';
 
 storiesOf('Modal', module)
   .addDecorator(withKnobs)
@@ -17,4 +18,5 @@ storiesOf('Modal', module)
   .add('Modal Ref Examples', () => <ModalRefEg />)
   .add('Modal Placement', () => <ModalPlacement />)
   .add('Modal with Keyboard Avoid view', () => <ModalWithAvoidKeyboard />)
-  .add('Modal Size Examples', () => <Size />);
+  .add('Modal Size Examples', () => <Size />)
+  .add('Modal Custom Backdrop', () => <CustomBackdrop />);

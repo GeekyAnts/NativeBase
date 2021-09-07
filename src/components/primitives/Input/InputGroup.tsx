@@ -3,6 +3,7 @@ import type { IInputGroupProps } from './types';
 import { getAttachedChildren } from '../../../utils';
 import Flex from '../Flex';
 import { themeTools } from '../../../theme';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const supplyPropsToChildren = (children: any, props: any) => {
   return React.Children.map(children, (child: JSX.Element) => {
@@ -23,7 +24,10 @@ export const InputGroup = memo(
       'mx',
       'my',
     ]);
-
+    //TODO: refactor for responsive prop
+    if (useHasResponsiveProps(props)) {
+      return null;
+    }
     return (
       <Flex direction="row" {...layoutProps} ref={ref}>
         {supplyPropsToChildren(getAttachedChildren(children), remProps)}

@@ -4,6 +4,7 @@ import { HStack } from '../../primitives/Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAlertProps } from './types';
 import { AlertContext } from './Context';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Alert = ({ children, action, ...props }: IAlertProps, ref?: any) => {
   const {
@@ -15,7 +16,10 @@ const Alert = ({ children, action, ...props }: IAlertProps, ref?: any) => {
     _actionProps,
     ...newProps
   } = usePropsResolution('Alert', props);
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <AlertContext.Provider
       value={{

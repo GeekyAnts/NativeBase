@@ -8,11 +8,9 @@ import { useRadio } from '@react-native-aria/radio';
 import { RadioContext } from './RadioGroup';
 import { mergeRefs } from '../../../utils';
 import { CircleIcon } from '../Icon/Icons';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Radio = (
-  { icon, children, wrapperRef, ...props }: IRadioProps,
-  ref: any
-) => {
+const Radio = ({ icon, wrapperRef, size, ...props }: IRadioProps, ref: any) => {
   const contextState = React.useContext(RadioContext);
   const {
     _interactionBox: { _pressed: _iterationBoxPressed, ..._interactionBox },
@@ -28,11 +26,16 @@ const Radio = (
   } = usePropsResolution('Radio', {
     ...contextState,
     ...props,
+    size,
   });
 
   const inputRef = React.useRef(null);
   const { inputProps } = useRadio(props, contextState.state, inputRef);
   const { disabled, checked } = inputProps;
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   // only calling below function when icon exist.
   const sizedIcon = () =>
@@ -80,7 +83,7 @@ const Radio = (
               </Center>
             </Center>
             {/* Label */}
-            {children}
+            {props.children}
           </Center>
         );
       }}

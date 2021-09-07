@@ -1,23 +1,29 @@
 import React, { memo, forwardRef } from 'react';
 import { ActivityIndicator } from 'react-native';
-import styled from 'styled-components/native';
-import { color, space, position } from 'styled-system';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { getColor } from '../../../theme';
 import type { ISpinnerProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useTheme } from '../../../hooks';
 
-const StyledSpinner = styled(ActivityIndicator)<ISpinnerProps>(
-  color,
-  space,
-  position
-);
 const Spinner = (props: ISpinnerProps, ref: any) => {
-  const resolvedProps = usePropsResolution('Spinner', props);
+  const { color, size, ...resolvedProps } = usePropsResolution(
+    'Spinner',
+    props
+  );
+  const resolvedColor = getColor(color, useTheme().colors, useTheme());
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
-    <StyledSpinner
+    <ActivityIndicator
       accessible
       accessibilityLabel="loading"
       {...resolvedProps}
+      color={resolvedColor}
       ref={ref}
+      size={size}
     />
   );
 };
