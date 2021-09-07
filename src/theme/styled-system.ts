@@ -108,6 +108,9 @@ export const flexbox = {
   justifyContent: true,
   flexWrap: true,
   flexDirection: true,
+  flexDir: {
+    property: 'flexDirection',
+  },
   // item
   flex: true,
   flexGrow: true,
