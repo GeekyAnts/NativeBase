@@ -5,11 +5,11 @@ import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import { Pressable } from '../Pressable';
 import type { IButtonProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
   {
     children,
-    isLoadingText,
     startIcon,
     rightIcon,
     leftIcon,
@@ -20,7 +20,7 @@ const Button = (
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  const {
+  let {
     _text,
     _disabled,
     _focus,
@@ -31,8 +31,9 @@ const Button = (
     _loading,
     _spinner,
     spinnerProps,
+    isLoadingText,
     ...resolvedProps
-  } = usePropsResolution('Button', props, { ignoreProps: ['_spinner'] });
+  } = usePropsResolution('Button', props);
 
   const pressableProps = {
     ...resolvedProps,
@@ -41,6 +42,12 @@ const Button = (
     _focus,
     _focusVisible,
   };
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
+
   if (leftIcon) {
     startIcon = leftIcon;
   }

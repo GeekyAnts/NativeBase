@@ -3,7 +3,11 @@ import { Radio } from 'native-base';
 
 export const Example = () => {
   return (
-    <Radio.Group name="exampleGroup" defaultValue="1">
+    <Radio.Group
+      name="exampleGroup"
+      defaultValue="1"
+      accessibilityLabel="pick a size"
+    >
       <Radio value="1" colorScheme="red" size="sm" my={1}>
         Small
       </Radio>

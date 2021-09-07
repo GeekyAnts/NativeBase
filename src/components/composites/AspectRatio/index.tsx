@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, ViewStyle, Platform } from 'react-native';
 import { default as Box, IBoxProps } from '../../primitives/Box';
 import isNil from 'lodash.isnil';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export type IAspectRatioProps = IBoxProps & {
   style?: ViewStyle;
@@ -21,6 +22,7 @@ const AspectView = React.forwardRef((props: any, ref?: any) => {
       inputStyle.push({ width, height: width / props.aspectRatio });
     }
   }
+
   return (
     <Box
       {...props}
@@ -47,7 +49,10 @@ const AspectRatio = (
     children.props.children
   );
   let aspectRatio = !isNil(ratio) ? ratio : 4 / 3;
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   // DOC:  It uses a aspectRatio property of React Native and manually calculate on Web
   if (Platform.OS === 'web') {
     return (

@@ -10,12 +10,14 @@ const HybridProvider = ({
   options: {
     initialColorMode = 'light',
     accessibleColors: isTextColorAccessible = false,
+    useSystemColorMode,
   },
   colorModeManager,
 }: IColorModeProviderProps) => {
   // Color-mode content
   const { colorMode, setColorMode } = useModeManager(
     initialColorMode,
+    useSystemColorMode,
     colorModeManager
   );
 

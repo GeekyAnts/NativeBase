@@ -2,7 +2,7 @@ import { OverlayContainer } from '@react-native-aria/overlays';
 import { PresenceTransition } from '../Transitions';
 import VStack from '../../primitives/Stack/VStack';
 import { Alert } from '../../composites/Alert';
-import React, { createContext, useState } from 'react';
+import React, { createContext, MutableRefObject, useState } from 'react';
 import {
   AccessibilityInfo,
   Easing,
@@ -18,7 +18,7 @@ import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
 let INSET = 50;
 
 const POSITIONS = {
-  top: {
+  'top': {
     top: INSET,
     left: 0,
     right: 0,
@@ -31,7 +31,7 @@ const POSITIONS = {
     top: INSET,
     left: 0,
   },
-  bottom: {
+  'bottom': {
     bottom: INSET,
     left: 0,
     right: 0,
@@ -49,8 +49,8 @@ const POSITIONS = {
 const initialAnimationOffset = 24;
 
 const transitionConfig: any = {
-  bottom: initialAnimationOffset,
-  top: -initialAnimationOffset,
+  'bottom': initialAnimationOffset,
+  'top': -initialAnimationOffset,
   'top-right': -initialAnimationOffset,
   'top-left': -initialAnimationOffset,
   'bottom-left': initialAnimationOffset,
@@ -228,7 +228,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
                 onPress={() => {
                   hideToast(id);
                 }}
-                icon={<CloseIcon size={themeProps._closeIcon} />}
+                icon={<CloseIcon {...themeProps._closeIcon} />}
               />
             ) : undefined
           }
@@ -300,4 +300,15 @@ export const useToast = () => {
   };
 
   return toast;
+};
+
+export type IToastService = ReturnType<typeof useToast>;
+
+export const ToastRef = React.createRef<IToastService>() as MutableRefObject<IToastService>;
+
+export const Toast: IToastService = {
+  show: (props: IToastProps) => ToastRef.current?.show(props),
+  close: (id: any) => ToastRef.current?.close(id),
+  closeAll: () => ToastRef.current?.closeAll(),
+  isActive: (id: any) => ToastRef.current?.isActive(id),
 };

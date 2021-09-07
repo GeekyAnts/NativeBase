@@ -1,15 +1,14 @@
 import React, { memo, forwardRef } from 'react';
-import { useWindowDimensions, View } from 'react-native';
-import { usePropsResolution } from '../../../hooks';
+import { View } from 'react-native';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Text from './../Text';
-import { makeStyledBox } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/styled';
 import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
-import { isResponsiveAnyProp } from '../../../theme/tools';
-import isNil from 'lodash.isnil';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledBox = makeStyledBox(View);
+const StyledBox = makeStyledComponent(View);
 
 let MemoizedGradient: any = undefined;
 
@@ -22,12 +21,8 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   const safeAreaProps = useSafeArea(resolvedProps);
 
   //TODO: refactor for responsive prop
-  const windowDimensions = useWindowDimensions();
-  if (isNil(windowDimensions.width) || isNil(windowDimensions.height)) {
-    const responsivePropsExists = isResponsiveAnyProp(props);
-    if (responsivePropsExists) {
-      return null;
-    }
+  if (useHasResponsiveProps(props)) {
+    return null;
   }
 
   if (
@@ -44,7 +39,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 
     if (Gradient) {
       if (!MemoizedGradient) {
-        MemoizedGradient = makeStyledBox(Gradient);
+        MemoizedGradient = makeStyledComponent(Gradient);
       }
 
       Gradient = MemoizedGradient;

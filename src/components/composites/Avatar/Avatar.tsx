@@ -2,10 +2,11 @@ import React, { memo, forwardRef } from 'react';
 import { Box, Image, Text } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
+const Avatar = ({ wrapperRef, style, ...props }: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
-  const { size, style, source, children, ...remainingProps } = props;
+  const { size, source, children, ...remainingProps } = props;
 
   const { _text, ...newProps } = usePropsResolution('Avatar', {
     ...remainingProps,
@@ -14,7 +15,7 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
   });
 
   let Badge = <></>;
-  let remainingChildren: JSX.Element[] = [];
+  const remainingChildren: JSX.Element[] = [];
   //  Pop Badge from children
   React.Children.map(children, (child, key) => {
     if (
@@ -35,8 +36,11 @@ const Avatar = ({ wrapperRef, ...props }: IAvatarProps, ref: any) => {
     }
   });
 
-  const imageFitStyle = { height: '100%', width: '100%' };
-
+  const imageFitStyle: any = { height: '100%', width: '100%' };
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box {...newProps} style={style} ref={wrapperRef}>
       {source && !error ? (

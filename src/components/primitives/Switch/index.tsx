@@ -1,39 +1,16 @@
 import React, { memo, forwardRef } from 'react';
 import { useToggleState } from '@react-stately/toggle';
 import { StyleSheet, ViewStyle, Switch as RNSwitch } from 'react-native';
-import styled from 'styled-components/native';
 import isNil from 'lodash.isnil';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useToken } from '../../../hooks';
-import { border, color, flexbox, layout, space, position } from 'styled-system';
-import {
-  customBorder,
-  customBackground,
-  customOutline,
-  customLayout,
-  customExtra,
-  customShadow,
-  customPosition,
-} from '../../../utils/customProps';
+import { makeStyledComponent } from '../../../utils/styled';
 import type { ISwitchProps } from './types';
 import { mergeRefs } from '../../../utils';
 import { useHover } from '@react-native-aria/interactions';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledNBSwitch = styled(RNSwitch)<ISwitchProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout
-);
+const StyledNBSwitch = makeStyledComponent(RNSwitch);
 
 const Switch = (
   {
@@ -81,7 +58,20 @@ const Switch = (
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
-
+  //TODO: refactor for responsive prop
+  if (
+    useHasResponsiveProps({
+      ...props,
+      isDisabled,
+      isInvalid,
+      isChecked,
+      defaultIsChecked,
+      accessibilityLabel,
+      accessibilityHint,
+    })
+  ) {
+    return null;
+  }
   return (
     <StyledNBSwitch
       accessibilityLabel={accessibilityLabel}

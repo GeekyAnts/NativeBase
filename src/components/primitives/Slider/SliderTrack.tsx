@@ -3,6 +3,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Pressable } from '../Pressable';
 import Box from '../Box';
 import { SliderContext } from './Context';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ISliderTrackProps } from './types';
 
 const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
@@ -34,6 +35,11 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     }),
     [isVertical, themeProps.size]
   );
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   return (
     <Pressable

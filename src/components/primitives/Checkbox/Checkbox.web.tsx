@@ -12,12 +12,10 @@ import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
 import { CheckIcon } from '../Icon/Icons';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 
-const Checkbox = (
-  { children, icon, wrapperRef, ...props }: ICheckboxProps,
-  ref: any
-) => {
+const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext = useFormControlContext();
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
   const {
@@ -40,6 +38,7 @@ const Checkbox = (
     ...formControlContext,
     ...props,
   });
+
   const _ref = React.useRef();
   const mergedRef = mergeRefs([ref, _ref]);
 
@@ -96,29 +95,29 @@ const Checkbox = (
     );
 
   function iconResolver() {
-    if (sizedIcon && isDisabled && _disabled?.icon) {
+    if (isDisabled && _disabled?.icon) {
       return sizedIcon(_disabled?.icon, {
         ..._icon,
         ..._disabled?._icon,
       });
-    } else if (sizedIcon && isReadOnly && _readOnly?.icon) {
+    } else if (isReadOnly && _readOnly?.icon) {
       return sizedIcon(_readOnly?.icon, {
         ..._icon,
         ..._readOnly?._icon,
       });
-    } else if (sizedIcon && isInvalid && _invalid?.icon) {
+    } else if (isInvalid && _invalid?.icon) {
       return sizedIcon(_invalid?.icon, {
         ..._icon,
         ..._invalid?._icon,
       });
-    } else if (sizedIcon && isHovered && _hover?.icon) {
+    } else if (isHovered && _hover?.icon) {
       return sizedIcon(_hover?.icon, {
         ..._icon,
         ..._hover?._icon,
       });
-    } else if (sizedIcon && !isChecked && _unchecked?.icon) {
+    } else if (!isChecked && _unchecked?.icon) {
       return sizedIcon(_unchecked?.icon, { ..._icon, ..._unchecked?._icon });
-    } else if (sizedIcon && isChecked) {
+    } else if (isChecked) {
       if (_checked?.icon) {
         return sizedIcon(_checked?.icon, { ..._icon, ..._checked?._icon });
       } else if (icon) {
@@ -126,12 +125,12 @@ const Checkbox = (
       } else {
         return <CheckIcon name="check" {..._icon} opacity={1} />;
       }
-    } else if (sizedIcon && isIndeterminate && _indeterminate?.icon) {
+    } else if (isIndeterminate && _indeterminate?.icon) {
       return sizedIcon(_indeterminate?.icon, {
         ..._icon,
         ..._indeterminate?._icon,
       });
-    } else if (sizedIcon && isFocusVisible && _focus?.icon) {
+    } else if (isFocusVisible && _focus?.icon) {
       return sizedIcon(_focus?.icon, {
         ..._icon,
         ..._focus?._icon,
@@ -193,10 +192,13 @@ const Checkbox = (
         </Center>
       </Center>
       {/* Label */}
-      {children}
+      {props.children}
     </Box>
   );
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box
       // @ts-ignore - RN web supports accessibilityRole="label"

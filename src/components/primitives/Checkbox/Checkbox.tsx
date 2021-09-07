@@ -10,12 +10,10 @@ import { useToggleState } from '@react-stately/toggle';
 import { CheckboxGroupContext } from './CheckboxGroup';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { CheckIcon } from '../Icon/Icons';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 
-const Checkbox = (
-  { icon, children, wrapperRef, ...props }: ICheckboxProps,
-  ref: any
-) => {
+const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext = useFormControlContext();
 
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
@@ -130,6 +128,10 @@ const Checkbox = (
     }
     return <CheckIcon name="check" {..._icon} opacity={isChecked ? 1 : 0} />;
   }
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Pressable
       {...(pressableProps as IPressableProps)}
@@ -171,7 +173,7 @@ const Checkbox = (
               </Center>
             </Center>
             {/* Label */}
-            {children}
+            {props.children}
           </Center>
         );
       }}

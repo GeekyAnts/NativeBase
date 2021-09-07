@@ -3,9 +3,7 @@ import InputBase from './InputBase';
 import InputAdvanced from './InputAdvanced';
 import type { IInputProps } from './types';
 import { useFormControl } from '../../composites/FormControl';
-import { isResponsiveAnyProp } from '../../../theme/tools';
-import { useWindowDimensions } from 'react-native';
-import isNil from 'lodash.isnil';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Input = (props: IInputProps, ref: any) => {
   const inputProps = useFormControl({
@@ -17,12 +15,8 @@ const Input = (props: IInputProps, ref: any) => {
   });
 
   //TODO: refactor for responsive prop
-  const windowDimensions = useWindowDimensions();
-  if (isNil(windowDimensions.width) || isNil(windowDimensions.height)) {
-    const responsivePropsExists = isResponsiveAnyProp(props);
-    if (responsivePropsExists) {
-      return null;
-    }
+  if (useHasResponsiveProps(props)) {
+    return null;
   }
 
   if (props.InputLeftElement || props.InputRightElement)
