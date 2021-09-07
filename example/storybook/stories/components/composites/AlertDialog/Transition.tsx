@@ -9,11 +9,10 @@ export const Example = () => {
   return (
     <Center>
       <AlertDialog
-        motionPreset="slide"
+        animationPreset="slide"
         leastDestructiveRef={cancelRef}
         onClose={onClose}
         isOpen={isOpen}
-        isCentered
       >
         <AlertDialog.Content>
           <AlertDialog.Header _text={{ fontSize: 'lg', fontWeight: 'bold' }}>

@@ -22,11 +22,11 @@ export interface IModalProps extends IBoxProps {
   /**
    * The ref of element to receive focus when the modal opens.
    */
-  initialFocusRef: React.RefObject<any>;
+  initialFocusRef?: React.RefObject<any>;
   /**
    * The ref of element to receive focus when the modal closes.
    */
-  finalFocusRef: React.RefObject<any>;
+  finalFocusRef?: React.RefObject<any>;
   /**
    * If true and the keyboard is opened, the modal will move up equvivalent to the keyboard height.
    * @default false
@@ -56,6 +56,11 @@ export interface IModalProps extends IBoxProps {
    * Props applied on Overlay.
    */
   _backdrop?: any;
+  /**
+   * Sets the animation type
+   * @default "fade"
+   */
+  animationPreset?: 'fade' | 'slide';
 }
 
 export type IModalComponentType = ((
