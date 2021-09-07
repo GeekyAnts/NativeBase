@@ -4,6 +4,7 @@ import { useThemeProps } from '../../../hooks/useThemeProps';
 import { Animated, Platform } from 'react-native';
 import type { ISlideFadeProps } from './types';
 import { canUseDom } from '../../../utils';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const SlideFade = ({ children, ...props }: ISlideFadeProps, ref?: any) => {
   const isDomUsable = canUseDom();
@@ -57,6 +58,10 @@ const SlideFade = ({ children, ...props }: ISlideFadeProps, ref?: any) => {
     }
   };
   animationState ? animIn() : animOut();
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   return (
     <Animated.View

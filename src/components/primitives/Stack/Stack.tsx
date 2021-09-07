@@ -3,6 +3,7 @@ import { default as Box } from '../Box';
 import { getSpacedChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ResponsiveValue } from '../../types';
 
 export interface IStackProps extends IBoxProps {
@@ -24,21 +25,35 @@ export interface IStackProps extends IBoxProps {
    * The direction of the Stack Items.
    * @default column
    */
-  direction?: ResponsiveValue<'column' | 'row'>;
+  direction?: ResponsiveValue<
+    'column' | 'row' | 'column-reverse' | 'row-reverse'
+  >;
 }
 
-const Stack = (props: IStackProps, ref?: any) => {
-  const { children, divider, reversed, ...remainingProps } = props;
-  const { space, direction, ...newProps }: any = usePropsResolution(
+const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
+  const {
+    children,
+    direction,
+    reversed,
+    divider,
+    size,
+    ...resolvedProps
+  }: any = usePropsResolution(
     'Stack',
-    remainingProps
+    { ...props, size: space },
+    {},
+    { resolveResponsively: ['direction'] }
   );
 
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
-    <Box flexDirection={direction} {...newProps} ref={ref}>
+    <Box flexDirection={direction} {...resolvedProps} ref={ref}>
       {getSpacedChildren(
         children,
-        space,
+        size,
         direction === 'row' ? 'X' : 'Y',
         reversed ? 'reverse' : 'normal',
         divider

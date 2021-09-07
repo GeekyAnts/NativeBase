@@ -4,7 +4,6 @@ about: Create a feature request
 title: ''
 labels: v3
 assignees: ''
-
 ---
 
 Thanks for filing an issue 😄!

@@ -1,5 +1,5 @@
 // Components
-//Baisc
+//Basic
 export * from './components/basic/ScrollView';
 export * from './components/basic/FlatList';
 export * from './components/basic/SectionList';

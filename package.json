@@ -34,7 +34,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.0.6",
+  "version": "3.2.0-alpha.0",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/commonjs/index",
@@ -109,7 +109,7 @@
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
     "modulePathIgnorePatterns": [
-      "<rootDir>/example/node_modules",
+      "<rootDir>/example/*",
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
@@ -122,7 +122,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint-staged && yarn prepare"
+      "pre-commit": "yarn lint-staged && yarn prepare && cd example && yarn test && cd .."
     }
   },
   "commitlint": {
@@ -182,13 +182,15 @@
     ]
   },
   "dependencies": {
+    "@react-aria/focus": "^3.2.3",
+    "@react-aria/utils": "^3.6.0",
     "@react-aria/visually-hidden": "^3.2.1",
     "@react-native-aria/button": "^0.2.4",
     "@react-native-aria/checkbox": "^0.2.2",
     "@react-native-aria/combobox": "^0.2.4-alpha.0",
     "@react-native-aria/focus": "^0.2.4",
     "@react-native-aria/interactions": "^0.2.2",
-    "@react-native-aria/listbox": "^0.2.4-alpha.0",
+    "@react-native-aria/listbox": "^0.2.4-alpha.3",
     "@react-native-aria/overlays": "^0.2.9",
     "@react-native-aria/radio": "^0.2.4",
     "@react-native-aria/slider": "^0.2.5-alpha.1",

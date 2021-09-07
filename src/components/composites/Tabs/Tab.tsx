@@ -9,6 +9,7 @@ import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import merge from 'lodash.merge';
 import { themeTools } from '../../../theme';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export const TabContext = createContext({});
 
@@ -25,6 +26,7 @@ const Tab = (
   ref?: any
 ) => {
   const newProps = omitUndefined(props);
+
   const {
     inactiveTabStyle,
     activeTabStyle,
@@ -68,6 +70,10 @@ const Tab = (
     'marginY',
     'my',
   ]);
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <TabContext.Provider
       value={{

@@ -10,12 +10,17 @@ import { theme as defaultTheme, ITheme } from './../theme';
 import type { IColorModeProviderProps } from './color-mode';
 import HybridProvider from './hybrid-overlay/HybridProvider';
 import { OverlayProvider } from '@react-native-aria/overlays';
-import { ToastProvider } from '../components/composites/Toast';
+import { ToastProvider, ToastRef } from '../components/composites/Toast';
 import {
   INativebaseConfig,
   NativeBaseConfigProvider,
 } from './NativeBaseContext';
-import { Platform } from 'react-native';
+import { useToast } from '../components/composites/Toast';
+import { Platform, useWindowDimensions } from 'react-native';
+import {
+  getClosestBreakpoint,
+  platformSpecificSpaceUnits,
+} from '../theme/tools/utils';
 
 // For SSR to work, we need to pass initial insets as 0 values on web.
 
@@ -49,9 +54,26 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
   } = props;
   const theme = config.theme ?? propsTheme;
 
+  const newTheme = React.useMemo(() => {
+    if (config.enableRem) {
+      return platformSpecificSpaceUnits(theme);
+    }
+    return theme;
+  }, [config.enableRem, theme]);
+
+  const windowWidth = useWindowDimensions()?.width;
+
+  const currentBreakpoint = React.useMemo(
+    () => getClosestBreakpoint(newTheme.breakpoints, windowWidth),
+    [windowWidth, newTheme.breakpoints]
+  );
+
   return (
-    <ThemeProvider theme={theme}>
-      <NativeBaseConfigProvider config={config}>
+    <ThemeProvider theme={newTheme}>
+      <NativeBaseConfigProvider
+        config={config}
+        currentBreakpoint={currentBreakpoint}
+      >
         <SafeAreaProvider
           initialMetrics={
             initialWindowMetrics ?? defaultInitialWindowMetricsBasedOnPlatform
@@ -63,6 +85,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
           >
             <OverlayProvider>
               <ToastProvider>
+                <InitializeToastRef />
                 <SSRProvider>{children}</SSRProvider>
               </ToastProvider>
             </OverlayProvider>
@@ -71,6 +94,12 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
       </NativeBaseConfigProvider>
     </ThemeProvider>
   );
+};
+
+const InitializeToastRef = () => {
+  const toast = useToast();
+  ToastRef.current = toast;
+  return null;
 };
 
 export { NativeBaseProvider };

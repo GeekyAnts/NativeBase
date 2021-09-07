@@ -1,4 +1,6 @@
+import type { MutableRefObject } from 'react';
 import type { IBoxProps, ITextProps } from '../../primitives';
+import type { IStackProps } from '../../primitives/Stack/Stack';
 export interface ISkeletonProps extends IBoxProps {
   /**
    * The fadeIn duration in seconds
@@ -58,16 +60,16 @@ export interface ISkeletonTextProps extends ITextProps {
   /**
    * VStack props
    */
-  _stack?: any;
+  _stack?: IStackProps;
 }
 
 export type ISkeletonComponentType = ((
-  props: ISkeletonProps & { ref?: any }
+  props: ISkeletonProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Circle: React.MemoExoticComponent<
-    (props: ISkeletonProps & { ref?: any }) => JSX.Element
+    (props: ISkeletonProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Text: React.MemoExoticComponent<
-    (props: ISkeletonTextProps & { ref?: any }) => JSX.Element
+    (props: ISkeletonTextProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

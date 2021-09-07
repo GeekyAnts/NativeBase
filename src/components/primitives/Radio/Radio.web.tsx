@@ -10,6 +10,7 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { RadioContext } from './RadioGroup';
 import { useFocusRing } from '@react-native-aria/focus';
 import { CircleIcon } from '../Icon/Icons';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Radio = (
   { icon, children, wrapperRef, ...props }: IRadioProps,
@@ -96,7 +97,10 @@ const Radio = (
       {children}
     </Box>
   );
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box
       // @ts-ignore - RN web supports accessibilityRole="label"

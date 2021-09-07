@@ -4,7 +4,12 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const Example = () => {
   return (
-    <Radio.Group defaultValue="1" size="lg" name="exampleGroup">
+    <Radio.Group
+      defaultValue="1"
+      size="lg"
+      name="exampleGroup"
+      accessibilityLabel="pick a choice"
+    >
       <Radio
         _text={{ mx: 2 }}
         colorScheme="green"

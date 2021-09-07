@@ -1,35 +1,12 @@
 import React, { useState, memo, forwardRef, useCallback, useRef } from 'react';
 import { Image as RNImage } from 'react-native';
-import styled from 'styled-components/native';
-import { border, color, flexbox, layout, space, position } from 'styled-system';
-import {
-  customBorder,
-  customBackground,
-  customOutline,
-  customLayout,
-  customExtra,
-  customShadow,
-  customPosition,
-} from '../../../utils/customProps';
 import Text from '../Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IImageProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { makeStyledComponent } from '../../../utils/styled';
 
-const StyledImage = styled(RNImage)<IImageProps>(
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customLayout
-);
+const StyledImage = makeStyledComponent(RNImage);
 
 const Image = (props: IImageProps, ref: any) => {
   const {
@@ -83,6 +60,11 @@ const Image = (props: IImageProps, ref: any) => {
     },
     [fallbackSource, fallbackSourceFlag, ignoreFallback, props, renderedSource]
   );
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   if (!alt) {
     console.warn('Please pass alt prop to Image component');
   }

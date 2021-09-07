@@ -11,12 +11,13 @@
     "eject": "expo eject",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "test": "bash scripts/test.sh"
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.2",
     "@react-native-aria/overlays": "^0.2.9",
-    "@react-native-async-storage/async-storage": "^1.13.2",
+    "@react-native-async-storage/async-storage": "^1.15.7",
     "expo": "~40.0.0",
     "expo-font": "~8.4.0",
     "expo-linear-gradient": "^9.1.0",
@@ -29,7 +30,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
-    "react-native-web": "^0.15.0",
+    "react-native-web": "^0.16.5",
     "styled-components": "^5.2.1",
     "styled-system": "^5.1.5"
   },
@@ -42,6 +43,7 @@
     "@storybook/addon-links": "^5.3",
     "@storybook/addon-ondevice-actions": "^5.3.23",
     "@storybook/addon-ondevice-knobs": "^5.3.23",
+    "@storybook/addon-storyshots": "^6.3.4",
     "@storybook/react-native": "^5.3.23",
     "@storybook/react-native-server": "^5.3.23",
     "@types/react": "~16.9.35",
@@ -50,10 +52,19 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.0.0",
     "core-js": "3.6.5",
+    "jest": "^27.0.6",
+    "jest-expo": "^42.0.1",
     "metro-react-native-babel-preset": "^0.64.0",
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0",
+    "react-test-renderer": "^17.0.2",
     "typescript": "~4.0.0"
   },
-  "private": false
+  "private": false,
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "<rootDir>/../node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
+    ]
+  }
 }

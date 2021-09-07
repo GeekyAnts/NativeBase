@@ -42,4 +42,16 @@ export interface IIconButtonProps
    * Props to be passed to the icon used inside of IconButton.
    */
   _icon?: IIconProps;
+  /**
+   *
+   */
+  _hover?: IIconButtonProps;
+  /**
+   *
+   */
+  _pressed?: IIconButtonProps;
+  /**
+   *
+   */
+  _focus?: IIconButtonProps;
 }

@@ -1,6 +1,7 @@
 import type { IBoxProps } from '../Box';
 import type { IButtonProps } from '../Button';
 import type { IActionsheetContentProps } from '../../composites/Actionsheet/types';
+import type { MutableRefObject } from 'react';
 
 export interface ISelectProps extends IBoxProps {
   /**
@@ -63,7 +64,7 @@ export interface ISelectProps extends IBoxProps {
   /**
    * Ref to be attached to the Select wrapper
    */
-  wrapperRef?: any;
+  wrapperRef?: MutableRefObject<any>;
 }
 
 export interface ISelectItemProps extends IButtonProps {
@@ -78,9 +79,9 @@ export interface ISelectItemProps extends IButtonProps {
 }
 
 export type ISelectComponentType = ((
-  props: ISelectProps & { ref?: any }
+  props: ISelectProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Item: React.MemoExoticComponent<
-    (props: ISelectItemProps & { ref?: any }) => JSX.Element
+    (props: ISelectItemProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };

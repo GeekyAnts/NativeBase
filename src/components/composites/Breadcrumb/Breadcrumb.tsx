@@ -4,12 +4,17 @@ import { useThemeProps } from '../../../hooks';
 import Flex from '../../primitives/Flex';
 import { getBreadcrumbSeparator } from './BreadcrumbSeparator';
 import type { IBreadcrumbProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 const Breadcrumb = (
   { style, children, separator, spacing, _text, ...props }: IBreadcrumbProps,
   ref: any
 ) => {
   const textProps = { ..._text };
   let newProps = useThemeProps('Breadcrumb', props);
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Flex
       {...newProps}

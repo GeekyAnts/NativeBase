@@ -3,6 +3,7 @@ import { Button } from '../../primitives/Button';
 import type { IFabProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { OverlayContainer } from '@react-native-aria/overlays';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Fab = (
   { label, icon, renderInPortal = true, ...props }: IFabProps,
@@ -21,6 +22,10 @@ const Fab = (
       {label}
     </Button>
   );
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   return renderInPortal ? (
     <OverlayContainer>{fabComponent}</OverlayContainer>

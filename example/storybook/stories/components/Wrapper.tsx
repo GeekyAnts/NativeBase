@@ -13,6 +13,7 @@ import {
 import type { StorageManager } from 'native-base';
 import { Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import Config from '../../../nativebase.config';
 
 function MyWrapper({ children }: any) {
@@ -79,6 +80,10 @@ export default ({ children, theme }: any) => {
       theme={theme}
       config={Config}
       colorModeManager={colorModeManager}
+      initialWindowMetrics={{
+        frame: { x: 0, y: 0, width: 0, height: 0 },
+        insets: { top: 0, left: 0, right: 0, bottom: 0 },
+      }}
     >
       <MyWrapper>{children}</MyWrapper>
     </NativeBaseProvider>

@@ -1,237 +1,116 @@
 import get from 'lodash.get';
-import omit from 'lodash.omit';
-import isNil from 'lodash.isnil';
 import merge from 'lodash.merge';
-import { useWindowDimensions } from 'react-native';
+import { Platform } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
-import { usePlatformProps } from '../usePlatformProps';
-import { useColorModeProps } from '../useColorModeProps';
 import { useColorMode } from '../../core/color-mode';
-import {
-  resolveValueWithBreakpoint,
-  extractPropertyFromFunction,
-} from './utils';
-import {
-  getClosestBreakpoint,
-  omitUndefined,
-  extractInObject,
-} from './../../theme/tools';
-import { themePropertyMap } from './../../theme/base';
+import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
-import React from 'react';
+import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
+import { propsFlattener } from './propsFlattener';
 
-/**
- * @summary Resolves, simplify and merge components specific theme.
- * @description The function extract and execute component specifc theme (i.e., `defaultProps`, `baseStyle` and `variants`) and returns a merged and simplified object.
- * @arg {string} theme - Theme object of NativeBase (without component theme).
- * @arg {object} componentTheme - Theme for specific components.
- * @arg {object} incomingProps - Props passed by the user.
- * @arg {object} colorModeProps - `colorMode` object.
- * @returns {object} Resolved component specific theme.
- */
-const simplifyComponentTheme = (
-  theme: object,
-  componentTheme: {
-    defaultProps?: object;
-    baseStyle?: object | Function;
-    variants?: any | Function;
-    sizes?: any | Function;
-  },
-  incomingProps: object,
-  colorModeProps: object,
-  currentBreakpoint: number
-) => {
-  // Resolving component's defaultProps.
+const specificityOrder = [
+  'p',
+  'padding',
+  'px',
+  'py',
+  'pt',
+  'pb',
+  'pl',
+  'pr',
+  'paddingTop',
+  'paddingBottom',
+  'paddingLeft',
+  'paddingRight',
+  'm',
+  'margin',
+  'mx',
+  'my',
+  'mt',
+  'mb',
+  'ml',
+  'mr',
+  'marginTop',
+  'marginBottom',
+  'marginLeft',
+  'marginRight',
+];
 
-  const combinedProps: any = {
-    ...componentTheme.defaultProps,
-    ...incomingProps,
-  };
-
-  // Resolving component's baseStyle
-  let componentBaseStyle = {};
-  if (componentTheme.baseStyle) {
-    componentBaseStyle =
-      typeof componentTheme.baseStyle !== 'function'
-        ? componentTheme.baseStyle
-        : componentTheme.baseStyle({
-            theme,
-            ...combinedProps,
-            ...colorModeProps,
-          });
-  }
-
-  const variant = resolveValueWithBreakpoint(
-    combinedProps.variant,
-    currentBreakpoint,
-    'variant'
-  );
-
-  let componentVariantProps = {};
-  // Extracting props from variant
-  if (variant && componentTheme.variants && componentTheme.variants[variant]) {
-    componentVariantProps =
-      typeof componentTheme.variants[variant] !== 'function'
-        ? componentTheme.variants[variant]
-        : componentTheme.variants[variant]({
-            theme,
-            ...combinedProps,
-            ...colorModeProps,
-          });
-
-    // We remove variant from original props if we found it in the componentTheme
-    //@ts-ignore
-    incomingProps.variant = undefined;
-  }
-
-  const size = resolveValueWithBreakpoint(
-    combinedProps.size,
-    currentBreakpoint,
-    'size'
-  );
-
-  let componentSizeProps = {};
-  // Extracting props from size
-  if (size && componentTheme.sizes && componentTheme.sizes[size]) {
-    // Type - sizes: {lg: 1}. Refer icon theme
-    if (
-      typeof componentTheme.sizes[size] === 'string' ||
-      typeof componentTheme.sizes[size] === 'number'
-    ) {
-      //@ts-ignore
-      componentSizeProps.size = componentTheme.sizes[size];
-    }
-    // Type - sizes: (props) => ({lg: {px: 1}}). Refer heading theme
-    else if (typeof componentTheme.sizes[size] === 'function') {
-      componentSizeProps = componentTheme.sizes[size]({
-        theme,
-        ...combinedProps,
-        ...colorModeProps,
-      });
-    }
-    // Type - sizes: {lg: {px: 1}}. Refer button theme
-    else {
-      componentSizeProps = componentTheme.sizes[size];
-    }
-
-    // We remove size from original props if we found it in the componentTheme
-    //@ts-ignore
-    incomingProps.size = undefined;
-  }
-
-  const componentMergedTheme = merge(
-    {},
-    componentTheme.defaultProps,
-    componentBaseStyle,
-    componentVariantProps,
-    componentSizeProps
-  );
-
-  return componentMergedTheme;
+let marginMap: any = {
+  mx: ['marginRight', 'marginLeft'],
+  my: ['marginTop', 'marginBottom'],
+  mt: ['marginTop'],
+  mb: ['marginBottom'],
+  mr: ['marginRight'],
+  ml: ['marginLeft'],
 };
 
-/**
- * @summary Translates the prop with it's appropriate value.
- * @description NOTE: Avoid passo  JSX and functions.
- * @arg {any} props - Props object with should be translated.
- * @arg {any} theme - Theme based on which props will be translated.
- * @arg {object} colorModeProps - `colorMode` object.
- * @arg {object} componentTheme - Theme for specific components.
- * @arg {object} windowWidth - Current width of the window / screen.
- * @returns {object} Translated props object.
- */
-// Todo - move responsive calculation in styled system
-const propTranslator = ({
-  props,
-  theme,
-  colorModeProps,
-  componentTheme,
-  currentBreakpoint,
-}: {
-  props: any;
-  theme: any;
-  colorModeProps: object;
-  componentTheme: object;
-  currentBreakpoint: number;
-}) => {
-  let translatedProps: any = {};
-  for (const property in props) {
-    // STEP 1 - Responsive prop check and resolve
-    if (property.startsWith('_')) {
-      // STEP 1.a - Resolving _ porps
-      const nestedTranslatedProps = propTranslator({
-        props: props[property],
-        theme,
-        colorModeProps,
-        componentTheme,
-        currentBreakpoint,
-      });
-      translatedProps[property] = nestedTranslatedProps;
-    } else if (themePropertyMap[property]) {
-      // STEP 1.b Resolving themed props
-      const propValues = extractPropertyFromFunction(
-        property,
-        props,
-        theme,
-        componentTheme
-      );
+marginMap.margin = [...marginMap.mx, ...marginMap.my];
+marginMap.m = marginMap.margin;
+marginMap.marginTop = marginMap.mt;
+marginMap.marginBottom = marginMap.mb;
+marginMap.marginLeft = marginMap.ml;
+marginMap.marginRight = marginMap.mr;
 
-      // NOTE: Direct value identified.
-      if (typeof propValues === 'string' || typeof propValues === 'number') {
-        translatedProps[property] = propValues;
-        // NOTE: Nested object (excluding _props) (To be specific, only for key exist in themePropertyMap)
-      } else if (!isNil(propValues)) {
-        // TODO: This setion new needs to handle stuff differently
-        for (let nestedProp in propValues) {
-          translatedProps[nestedProp] = get(
-            theme,
-            `${themePropertyMap[nestedProp]}.${propValues[nestedProp]}`,
-            propValues[nestedProp]
-          );
-        }
-        delete translatedProps[property];
-        // Manually handeling shadow props (example of Mapped tokens)
-      } else if (property === 'shadow') {
-        const resolveValueWithBreakpointValue = resolveValueWithBreakpoint(
-          props.shadow,
-          currentBreakpoint,
-          property
-        );
-        let shadowProps = theme[themePropertyMap[property]](colorModeProps)[
-          resolveValueWithBreakpointValue
-        ];
-        translatedProps.style = merge({}, shadowProps, props.style);
-        delete translatedProps[property];
-      } else {
-        translatedProps[property] = resolveValueWithBreakpoint(
-          props[property],
-          currentBreakpoint,
-          property
-        );
-      }
-    } else {
-      // STEP 1.d Resolving Direct Values
-      translatedProps[property] = resolveValueWithBreakpoint(
-        props[property],
-        currentBreakpoint,
-        property
-      );
-    }
-  }
-
-  return translatedProps;
+let paddingMap: any = {
+  px: ['paddingRight', 'paddingLeft'],
+  py: ['paddingTop', 'paddingBottom'],
+  pt: ['paddingTop'],
+  pb: ['paddingBottom'],
+  pr: ['paddingRight'],
+  pl: ['paddingLeft'],
 };
+
+paddingMap.padding = [...paddingMap.px, ...paddingMap.py];
+paddingMap.p = paddingMap.padding;
+paddingMap.paddingTop = paddingMap.pt;
+paddingMap.paddingBottom = paddingMap.pb;
+paddingMap.paddingLeft = paddingMap.pl;
+paddingMap.paddingRight = paddingMap.pr;
+
+const specificityMaps: any = {
+  ...paddingMap,
+  ...marginMap,
+};
+
+function overrideDefaultProps(userProps: any, defaultProps: any) {
+  const flattenedUserProps: any = { ...userProps };
+  const flattenedDefaultProps: any = { ...defaultProps };
+
+  specificityOrder.forEach((prop) => {
+    if (prop in flattenedUserProps) {
+      const val = flattenedUserProps[prop];
+      delete flattenedUserProps[prop];
+
+      specificityMaps[prop].forEach((newProp: string) => {
+        flattenedUserProps[newProp] = val;
+      });
+    }
+
+    if (prop in flattenedDefaultProps) {
+      const val = flattenedDefaultProps[prop];
+      delete flattenedDefaultProps[prop];
+
+      specificityMaps[prop].forEach((newProp: string) => {
+        flattenedDefaultProps[newProp] = val;
+      });
+    }
+  });
+
+  return merge(flattenedDefaultProps, flattenedUserProps);
+}
 
 /**
  * @summary Combines provided porps with component's theme props and resloves them.
- * @description NOTE: Avoid passing JSX and functions.
  * @arg {string} component - Name of the component.
  * @arg {object} incomingProps - Props passed by the user.
- * @returns {object} Resolved props.
+ * @arg {object} state - dependent states.
+ * @arg {object} config - configuration for resolution. Accepts key like ignoreProps, resolveResponsively.
+ * @returns {object} Resolved and flattened props.
  */
 export function usePropsResolution(
   component: string,
   incomingProps: any,
+  state?: any,
   config?: any
 ) {
   const [ignoredProps, cleanIncomingProps] = extractInObject(
@@ -240,95 +119,228 @@ export function usePropsResolution(
       config?.ignoreProps || []
     )
   );
+  const resolveResponsively = [
+    'colorScheme',
+    'size',
+    'variant',
+    ...(config?.resolveResponsively || []),
+  ];
 
   const { theme } = useNativeBase();
   const colorModeProps = useColorMode();
 
   const componentTheme = get(theme, `components.${component}`, {});
-  const notComponentTheme = omit(theme, ['components']);
-  const windowWidth = useWindowDimensions()?.width;
 
-  const currentBreakpoint = React.useMemo(
-    () => getClosestBreakpoint(theme.breakpoints, windowWidth),
-    [windowWidth, theme.breakpoints]
-  );
+  // const windowWidth = useWindowDimensions()?.width;
+  // const currentBreakpoint = React.useMemo(
+  //   () => getClosestBreakpoint(theme.breakpoints, windowWidth),
+  //   [windowWidth, theme.breakpoints]
+  // );
 
-  // TODO: using usePlatformProps here to simplify the component theme. So that on on component level it shouldn't have to maintain the Specificity.
-  const componentThemeObject = simplifyComponentTheme(
-    notComponentTheme,
-    componentTheme,
-    cleanIncomingProps,
-    colorModeProps,
-    currentBreakpoint
-  );
-  const componentThemeIntegratedProps = merge(
+  // STEP 1: combine default props and incoming props
+
+  const incomingWithDefaultProps = merge(
     {},
-    useColorModeProps(usePlatformProps(componentThemeObject)),
-    useColorModeProps(usePlatformProps(cleanIncomingProps))
+    componentTheme.defaultProps || {},
+    cleanIncomingProps
   );
-  // const platformSpecificProps = usePlatformProps(componentThemeIntegratedProps);
+  // STEP 2: flatten them
 
-  // NOTE: sperating removing props while should be translated
+  let [flattenProps, specificityMap] = propsFlattener(
+    {
+      props: incomingWithDefaultProps,
+      platform: Platform.OS,
+      colormode: colorModeProps.colorMode,
+      state: state || {},
+    },
+    2
+  );
+
+  // STEP 2.5: resolving responsive props
+  const responsiveProps = {};
+  resolveResponsively.map((propsName) => {
+    if (flattenProps[propsName]) {
+      // @ts-ignore
+      responsiveProps[propsName] = flattenProps[propsName];
+    }
+  });
+
+  const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
+
+  flattenProps = {
+    ...flattenProps,
+    ...responsivelyResolvedProps,
+  };
+  // STEP 3: Pass it to baseStyle, then variant and then size and resolve them.
+
+  // NOTE: Resoloving baseStyle
+  let componentBaseStyle = {},
+    flattenBaseStyle,
+    baseSpecificityMap;
+  if (componentTheme.baseStyle) {
+    componentBaseStyle =
+      typeof componentTheme.baseStyle !== 'function'
+        ? componentTheme.baseStyle
+        : componentTheme.baseStyle({
+            theme,
+            ...flattenProps,
+            ...colorModeProps,
+          });
+
+    [flattenBaseStyle, baseSpecificityMap] = propsFlattener(
+      {
+        props: componentBaseStyle,
+        platform: Platform.OS,
+        colormode: colorModeProps.colorMode,
+        state: state || {},
+        currentSpecificityMap: specificityMap,
+      },
+      1
+    );
+  }
+
+  // NOTE: Resolving variants
+
+  const variant = flattenProps.variant;
+
+  let componentVariantProps = {},
+    flattenVariantStyle,
+    variantSpecificityMap;
+  // Extracting props from variant
+  if (variant && componentTheme.variants && componentTheme.variants[variant]) {
+    componentVariantProps =
+      typeof componentTheme.variants[variant] !== 'function'
+        ? componentTheme.variants[variant]
+        : componentTheme.variants[variant]({
+            theme,
+            ...flattenProps,
+            ...colorModeProps,
+          });
+
+    [flattenVariantStyle, variantSpecificityMap] = propsFlattener(
+      {
+        props: componentVariantProps,
+        platform: Platform.OS,
+        colormode: colorModeProps.colorMode,
+        state: state || {},
+        currentSpecificityMap: baseSpecificityMap || specificityMap,
+      },
+      1
+    );
+
+    // We remove variant from original props if we found it in the componentTheme
+    //@ts-ignore
+    flattenProps.variant = undefined;
+  }
+
+  // NOTE: Resolving size
+
+  const size = flattenProps.size;
+
+  let componentSizeProps = {},
+    flattenSizeStyle;
+  // Extracting props from size
+  if (size && componentTheme.sizes && componentTheme.sizes[size]) {
+    // Type - sizes: {lg: 1}. Refer icon theme
+    if (
+      typeof componentTheme.sizes[size] === 'string' ||
+      typeof componentTheme.sizes[size] === 'number'
+    ) {
+      flattenProps.size = componentTheme.sizes[size];
+      //@ts-ignore
+      // componentSizeProps.size = componentTheme.sizes[size];
+    }
+    // Type - sizes: (props) => ({lg: {px: 1}}). Refer heading theme
+    else if (typeof componentTheme.sizes[size] === 'function') {
+      flattenProps.size = undefined;
+      componentSizeProps = componentTheme.sizes[size]({
+        theme,
+        ...flattenProps,
+        ...colorModeProps,
+      });
+    }
+    // Type - sizes: {lg: {px: 1}}. Refer button theme
+    else {
+      flattenProps.size = undefined;
+      // HACK: Doing a temp fix
+      if (component === 'Image')
+        flattenProps.size = componentTheme.sizes[size].size;
+      componentSizeProps = componentTheme.sizes[size];
+    }
+
+    [flattenSizeStyle] = propsFlattener(
+      {
+        props: componentSizeProps,
+        platform: Platform.OS,
+        colormode: colorModeProps.colorMode,
+        state: state || {},
+        currentSpecificityMap:
+          variantSpecificityMap || baseSpecificityMap || specificityMap,
+      },
+      1
+    );
+  }
+
+  // // STEP 4: merge
+  const defaultStyles = merge(
+    flattenBaseStyle,
+    flattenVariantStyle,
+    flattenSizeStyle
+  );
+
+  flattenProps = overrideDefaultProps(flattenProps, defaultStyles);
+
+  // // STEP 5: linear Grad and contrastText
   let ignore: any = [];
   if (
-    componentThemeIntegratedProps.bg?.linearGradient ||
-    componentThemeIntegratedProps.background?.linearGradient ||
-    componentThemeIntegratedProps.bgColor?.linearGradient ||
-    componentThemeIntegratedProps.backgroundColor?.linearGradient
+    flattenProps.bg?.linearGradient ||
+    flattenProps.background?.linearGradient ||
+    flattenProps.bgColor?.linearGradient ||
+    flattenProps.backgroundColor?.linearGradient
   ) {
     let bgProp = 'bg';
-    if (componentThemeIntegratedProps.background?.linearGradient) {
+    if (flattenProps.background?.linearGradient) {
       bgProp = 'background';
-    } else if (componentThemeIntegratedProps.bgColor?.linearGradient) {
+    } else if (flattenProps.bgColor?.linearGradient) {
       bgProp = 'bgColor';
-    } else if (componentThemeIntegratedProps.backgroundColor?.linearGradient) {
+    } else if (flattenProps.backgroundColor?.linearGradient) {
       bgProp = 'backgroundColor';
     }
-    componentThemeIntegratedProps[
-      bgProp
-    ].linearGradient.colors = componentThemeIntegratedProps[
+    flattenProps[bgProp].linearGradient.colors = flattenProps[
       bgProp
     ].linearGradient.colors.map((color: string) => {
       return get(theme.colors, color, color);
     });
     ignore = ['bg', 'background', 'backgroundColor', 'bgColor'];
   }
-  // NOTE: seprating bg props when linearGardiant is available
-  const [gradientProps, nonGradientProps] = extractInObject(
-    componentThemeIntegratedProps,
-    ignore
-  );
-
-  const translatedProps = propTranslator({
-    props: nonGradientProps,
-    theme: notComponentTheme,
-    colorModeProps,
-    componentTheme,
-    currentBreakpoint,
-  });
+  // // NOTE: seprating bg props when linearGardiant is available
+  const [gradientProps] = extractInObject(flattenProps, ignore);
 
   let bgColor =
-    translatedProps.bg ??
-    translatedProps.backgroundColor ??
-    translatedProps.bgColor;
+    flattenProps.bg ?? flattenProps.backgroundColor ?? flattenProps.bgColor;
 
   const contrastTextColor = useContrastText(
     bgColor,
-    translatedProps?._text?.color
+    flattenProps?._text?.color
   );
 
-  translatedProps._text = contrastTextColor
-    ? {
-        color: contrastTextColor,
-        ...translatedProps._text,
-      }
-    : translatedProps._text;
+  flattenProps._text =
+    contrastTextColor && flattenProps?._text?.color === undefined
+      ? {
+          color: contrastTextColor,
+          ...flattenProps._text,
+        }
+      : flattenProps._text;
 
   const resolvedProps = omitUndefined({
-    ...translatedProps,
+    ...flattenProps,
     ...ignoredProps,
     ...gradientProps,
   });
+  // STEP 6: Return
+
+  // flattenProps = {};
+  // propertyDepth = {};
 
   return resolvedProps;
 }
