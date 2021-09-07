@@ -92,6 +92,7 @@ const CustomToast = () => {
               space={2}
               alignItems="center"
               justifyContent="center"
+              pointerEvents="box-none"
             >
               {
                 // @ts-ignore
@@ -99,6 +100,7 @@ const CustomToast = () => {
                   <PresenceTransition
                     key={toast.id}
                     visible={visibleToasts[toast.id]}
+                    pointerEvents="box-none"
                     onTransitionComplete={(status: any) => {
                       if (status === 'exited') {
                         removeToast(toast.id);
@@ -120,7 +122,9 @@ const CustomToast = () => {
                       transition: { easing: Easing.ease, duration: 100 },
                     }}
                   >
-                    <SafeAreaView>{toast.component}</SafeAreaView>
+                    <SafeAreaView pointerEvents="box-none">
+                      {toast.component}
+                    </SafeAreaView>
                   </PresenceTransition>
                 ))
               }
