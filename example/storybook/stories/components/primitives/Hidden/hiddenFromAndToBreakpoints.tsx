@@ -13,8 +13,8 @@ export function Example() {
         </Box>
       </Hidden>
       <Hidden from="sm">
-        <Box bg="red.400" p={2}>
-          <Text>hello</Text>
+        <Box bg="blue.400" p={2}>
+          <Text>This will be hidden from sm to all screen sizes.</Text>
         </Box>
       </Hidden>
     </Stack>

@@ -167,10 +167,10 @@ export const resolveValueWithBreakpoint = (
   currentBreakpoint: number,
   property: any
 ) => {
-  if (hasValidBreakpointFormat(values, property)) {
+  if (hasValidBreakpointFormat(values, {}, property)) {
     // Check the last valid breakpoint value from all values
     // If current breakpoint is `md` and we have `base` then `lg`, then last value will be taken(`base` in this case)
-    return findLastValidBreakpoint(values, currentBreakpoint);
+    return findLastValidBreakpoint(values, {}, currentBreakpoint);
   } else {
     return values;
   }
