@@ -537,9 +537,9 @@ export const typography = {
   textOverflow: true,
   textTransform: true,
   whiteSpace: true,
-  textDecoration: true,
-  txtDecor: { property: 'textDecoration' },
-  textDecorationLine: { property: 'textDecorationLine' },
+  textDecoration: { property: 'textDecorationLine' },
+  txtDecor: { property: 'textDecorationLine' },
+  textDecorationLine: true,
 };
 
 const extraProps = {
