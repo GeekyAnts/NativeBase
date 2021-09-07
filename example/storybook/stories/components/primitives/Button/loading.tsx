@@ -8,7 +8,9 @@ export const Example = () => {
       space={2}
       alignItems={{ base: 'center', md: 'flex-start' }}
     >
-      <Button isLoading>Button</Button>
+      <Button isLoading colorScheme="primary">
+        Button
+      </Button>
       <Button isLoading isLoadingText="Submitting" />
       <Button
         isLoading
