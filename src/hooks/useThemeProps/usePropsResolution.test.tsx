@@ -525,59 +525,24 @@ describe('props resolution', () => {
     });
   });
 
-  it('tests absolute em lineHeight in text ', () => {
+  it('tests lineHeight & letterspacing in text ', () => {
     const { getByTestId } = render(
       <Provider>
-        <Text lineHeight="3em" testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.lineHeight).toBe(48);
-  });
-
-  it('tests relative em lineHeight in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        {/* @ts-ignore */}
-        <Text fontSize="20px" lineHeight="3em" testID="test">
+        <Text
+          /* @ts-ignore */
+          fontSize="20px"
+          lineHeight="5xl"
+          letterSpacing="xl"
+          testID="test"
+        >
           This is a text
         </Text>
       </Provider>
     );
     const text = getByTestId('test');
 
-    expect(text.props.style.lineHeight).toBe(60);
-  });
-
-  it('tests letterSpacing from token in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Box>
-          <Text letterSpacing="0.1em" testID="test">
-            This is a text
-          </Text>
-        </Box>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.letterSpacing).toBe(1.6);
-  });
-
-  it('tests letterSpacing from token in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Box>
-          {/* @ts-ignore */}
-          <Text fontSize="12px" letterSpacing="2em" testID="test">
-            This is a text
-          </Text>
-        </Box>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.letterSpacing).toBe(24);
+    expect(text.props.style.lineHeight).toBe(80);
+    expect(text.props.style.letterSpacing).toBe(1);
   });
 
   it('Text: style props test on ios with dark mode', () => {
@@ -592,10 +557,13 @@ describe('props resolution', () => {
             // @ts-ignore
             fontSize="12px"
             testID="test"
-            letterSpacing="3em"
+            lineHeight="4xl"
+            letterSpacing="xl"
             _ios={{
               _dark: {
                 fontSize: '15px',
+                letterSpacing: 'lg',
+                lineHeight: '3xl',
               },
             }}
           >
@@ -605,81 +573,60 @@ describe('props resolution', () => {
       </Provider>
     );
     const text = getByTestId('test');
-    expect(text.props.style.letterSpacing).toBe(45);
+    expect(text.props.style.lineHeight).toBe(37.5);
+    expect(text.props.style.letterSpacing).toBe(0.375);
   });
 
-  it('tests absolute em lineHeight in Heading ', () => {
+  it('tests lineHeight & letterspacing in text ', () => {
+    // Platform.OS = 'web';
     const { getByTestId } = render(
       <Provider>
-        <Heading lineHeight="3em" testID="test">
-          This is a Heading.
-        </Heading>
-      </Provider>
-    );
-    const heading = getByTestId('test');
-    expect(heading.props.style.lineHeight).toBe(9);
-  });
-
-  it('tests relative em lineHeight in Heading ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        {/* @ts-ignore */}
-        <Heading fontSize="20px" lineHeight="3em" testID="test">
-          This is a Heading.
+        <Heading
+          /* @ts-ignore */
+          fontSize="20px"
+          lineHeight="5xl"
+          letterSpacing="xl"
+          testID="test"
+        >
+          This is a Heading
         </Heading>
       </Provider>
     );
     const heading = getByTestId('test');
 
-    expect(heading.props.style.lineHeight).toBe(60);
+    expect(heading.props.style.lineHeight).toBe(80);
+    expect(heading.props.style.letterSpacing).toBe(1);
   });
 
-  it('tests letterSpacing from token in Heading ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Heading letterSpacing="2em" testID="test">
-          This is a Heading.
-        </Heading>
-      </Provider>
-    );
-    const heading = getByTestId('test');
-    expect(heading.props.style.letterSpacing).toBe(6);
-  });
-
-  it('tests letterSpacing from token in Heading ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        {/* @ts-ignore */}
-        <Heading fontSize="12px" letterSpacing="1em" testID="test">
-          This is a Heading.
-        </Heading>
-      </Provider>
-    );
-    const heading = getByTestId('test');
-    expect(heading.props.style.letterSpacing).toBe(12);
-  });
-
-  it('tests letterSpacing from token in Heading ', () => {
+  it('Heading: style props test on ios with dark mode', () => {
     const newTheme = extendTheme({
       config: { initialColorMode: 'dark' },
     });
+    Platform.OS = 'web';
     const { getByTestId } = render(
       <Provider theme={newTheme}>
-        {/* @ts-ignore */}
-        <Heading
-          letterSpacing="1em"
-          testID="test"
-          //@ts-ignore
-          fontSize="12px"
-          _dark={{
-            fontSize: '6px',
-          }}
-        >
-          This is a Heading.
-        </Heading>
+        <Box>
+          <Heading
+            // @ts-ignore
+            fontSize="12px"
+            testID="test"
+            lineHeight="4xl"
+            letterSpacing="xl"
+            _ios={{
+              _dark: {
+                fontSize: '15px',
+                letterSpacing: 'lg',
+                lineHeight: '3xl',
+              },
+            }}
+          >
+            This is a Heading
+          </Heading>
+        </Box>
       </Provider>
     );
     const heading = getByTestId('test');
-    expect(heading.props.style.letterSpacing).toBe(6);
+    expect(heading.props.style.lineHeight).toBe(37.5);
+    expect(heading.props.style.letterSpacing).toBe(0.375);
   });
 });
