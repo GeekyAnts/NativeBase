@@ -602,7 +602,7 @@ describe('props resolution', () => {
     const newTheme = extendTheme({
       config: { initialColorMode: 'dark' },
     });
-    Platform.OS = 'web';
+    Platform.OS = 'ios';
     const { getByTestId } = render(
       <Provider theme={newTheme}>
         <Box>
