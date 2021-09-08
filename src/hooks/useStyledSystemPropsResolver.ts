@@ -9,8 +9,10 @@ export const useStyledSystemPropsResolver = ({
   ...props
 }: any) => {
   const theme = useTheme();
-  const currentBreakpoint = useNativeBaseConfig('makeStyledComponent')
-    .currentBreakpoint;
+  const { currentBreakpoint, config } = useNativeBaseConfig(
+    'makeStyledComponent'
+  );
+  const strictMode = config.strictMode;
 
   const { style, restProps } = React.useMemo(() => {
     const { styleSheet, restProps } = getStyleAndFilteredProps({
@@ -18,13 +20,14 @@ export const useStyledSystemPropsResolver = ({
       theme,
       debug,
       currentBreakpoint,
+      strictMode,
     });
     if (propStyle) {
       return { style: [styleSheet.box, propStyle], restProps };
     } else {
       return { style: styleSheet.box, restProps };
     }
-  }, [props, theme, propStyle, currentBreakpoint, debug]);
+  }, [props, theme, debug, currentBreakpoint, strictMode, propStyle]);
   if (debug) {
     /* eslint-disable-next-line */
     console.log('style,resprops', currentBreakpoint);
