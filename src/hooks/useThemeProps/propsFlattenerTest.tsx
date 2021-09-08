@@ -83,6 +83,7 @@ const compareSpecificity = (
   exisiting: any,
   upcoming: any,
   ignorebaseTheme?: boolean
+  // property?: any
 ) => {
   if (!exisiting) return true;
   const condition = ignorebaseTheme
@@ -144,101 +145,52 @@ const simplifyProps = (
         };
 
     if (
-      pseudoPropsMap[property] &&
-      (state[pseudoPropsMap[property]?.respondTo] ||
-        ['_dark', '_light', '_web', '_ios', '_android'].includes(property)) &&
-      shouldResolvePseudoProp({ property, state, platform, colormode })
+      state[pseudoPropsMap[property]?.respondTo] ||
+      ['_dark', '_light', '_web', '_ios', '_android'].includes(property)
     ) {
-      console.log(
-        '%c MYLOG: property',
-        'background: #374151; color: #22D3EE; font-weight: 700; padding: 2px 8px;',
-        property
-      );
+      if (shouldResolvePseudoProp({ property, state, platform, colormode })) {
+        propertySpecity[pseudoPropsMap[property].priority]++;
 
-      // if (shouldResolvePseudoProp({ property, state, platform, colormode })) {
-      propertySpecity[pseudoPropsMap[property].priority]++;
-
-      simplifyProps(
-        {
-          props: props[property],
-          colormode,
-          platform,
-          state,
-          currentSpecificity: propertySpecity,
-        },
-        flattenProps,
-        specificityMap,
-        priority
-      );
-      // }
-      // } else if (compareSpecificity(specificityMap[property], propertySpecity)) {
-      //   // STEP : update specificity
-      //   // TODO: Need to find a fix
-      //   specificityMap[property] = propertySpecity;
-      //   if (property.startsWith('_')) {
-      //     // merging internal props (like, _text, _checked, ...)
-      //     flattenProps[property] = merge(
-      //       {},
-      //       flattenProps[property],
-      //       props[property]
-      //     );
-      //   } else {
-      //     // replacing simple props (like, p, m, bg, color, ...)
-      //     flattenProps[property] = props[property];
-      //   }
-      // }
-    } else if (property.startsWith('_')) {
-      specificityMap[property] = propertySpecity;
-      console.log(
-        '%c MYLOG: property',
-        'background: #374151; color: #fff; font-weight: 700; padding: 2px 8px;',
-        property,
-        compareSpecificity(specificityMap[property], propertySpecity)
-      );
-      if (compareSpecificity(specificityMap[property], propertySpecity)) {
-        console.log(
-          '%c MYLOG: property',
-          'background: #374151; color: #FBBF24; font-weight: 700; padding: 2px 8px;',
-          specificityMap[property],
-          propertySpecity
-        );
-
-        // merging internal props (like, _text, _checked, ...)
-        flattenProps[property] = merge(
-          {},
-          flattenProps[property],
-          props[property]
-        );
-      } else {
-        console.log(
-          '%c MYLOG: property',
-          'background: #374151; color: #dead; font-weight: 700; padding: 2px 8px;',
-          property,
-          specificityMap[property],
-          propertySpecity
-        );
-        flattenProps[property] = merge(
-          {},
-          props[property],
-          flattenProps[property]
+        simplifyProps(
+          {
+            props: props[property],
+            colormode,
+            platform,
+            state,
+            currentSpecificity: propertySpecity,
+          },
+          flattenProps,
+          specificityMap,
+          priority
         );
       }
-    } else {
-      // STEP : update specificity
-      // TODO: Need to find a fix
-
-      console.log(
-        '%c MYLOG: property',
-        'background: #374151; color: #faa; font-weight: 700; padding: 2px 8px;',
-        property,
-        compareSpecificity(specificityMap[property], propertySpecity),
-        specificityMap[property],
-        propertySpecity
-      );
-      specificityMap[property] = propertySpecity;
-      if (compareSpecificity(specificityMap[property], propertySpecity)) {
-        // replacing simple props (like, p, m, bg, color, ...)
-        flattenProps[property] = props[property];
+    } else if (state[pseudoPropsMap[property]?.respondTo] === undefined) {
+      if (property.startsWith('_')) {
+        if (
+          compareSpecificity(specificityMap[property], propertySpecity, false)
+        ) {
+          specificityMap[property] = propertySpecity;
+          // merging internal props (like, _text, _checked, ...)
+          flattenProps[property] = merge(
+            {},
+            flattenProps[property],
+            props[property]
+          );
+        } else {
+          flattenProps[property] = merge(
+            {},
+            props[property],
+            flattenProps[property]
+          );
+        }
+      } else {
+        if (
+          compareSpecificity(specificityMap[property], propertySpecity, false)
+        ) {
+          specificityMap[property] = propertySpecity;
+          // replacing simple props (like, p, m, bg, color, ...)
+          flattenProps[property] = props[property];
+        }
       }
     }
   }
@@ -271,13 +223,5 @@ export const propsFlattenerTest = (
     specificityMap,
     priority
   );
-
-  console.log(
-    '%c MYLOG: flattenProps',
-    'background: #374151; color: #10b981; font-weight: 700; padding: 2px 8px;',
-    flattenProps,
-    specificityMap
-  );
-
   return [flattenProps, specificityMap];
 };

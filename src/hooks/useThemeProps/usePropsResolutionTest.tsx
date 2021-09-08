@@ -35,7 +35,7 @@ const specificityOrder = [
   'marginRight',
 ];
 
-let marginMap: any = {
+const marginMap: any = {
   mx: ['marginRight', 'marginLeft'],
   my: ['marginTop', 'marginBottom'],
   mt: ['marginTop'],
@@ -51,7 +51,7 @@ marginMap.marginBottom = marginMap.mb;
 marginMap.marginLeft = marginMap.ml;
 marginMap.marginRight = marginMap.mr;
 
-let paddingMap: any = {
+const paddingMap: any = {
   px: ['paddingRight', 'paddingLeft'],
   py: ['paddingTop', 'paddingBottom'],
   pt: ['paddingTop'],
@@ -96,7 +96,7 @@ function overrideDefaultProps(userProps: any, defaultProps: any) {
     }
   });
 
-  return merge(flattenedDefaultProps, flattenedUserProps);
+  return merge({}, flattenedUserProps, flattenedDefaultProps);
 }
 
 /**
@@ -313,7 +313,7 @@ export function usePropsResolutionTest(
   // // NOTE: seprating bg props when linearGardiant is available
   const [gradientProps] = extractInObject(flattenProps, ignore);
 
-  let bgColor =
+  const bgColor =
     flattenProps.bg ?? flattenProps.backgroundColor ?? flattenProps.bgColor;
 
   const contrastTextColor = useContrastText(
