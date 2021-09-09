@@ -578,7 +578,6 @@ describe('props resolution', () => {
   });
 
   it('tests lineHeight & letterspacing in text ', () => {
-    // Platform.OS = 'web';
     const { getByTestId } = render(
       <Provider>
         <Heading
