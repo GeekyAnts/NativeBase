@@ -12,3 +12,4 @@ export * from './Question';
 export * from './Search';
 export * from './Sun';
 export * from './Warning';
+export * from './ThreeDots';
