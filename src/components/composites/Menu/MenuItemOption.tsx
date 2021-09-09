@@ -7,6 +7,7 @@ import type { IMenuItemOptionProps, IMenuOptionContextProps } from './types';
 import { MenuOptionContext } from './MenuOptionGroup';
 import { useMenuOptionItem } from './useMenu';
 import { HStack } from '../../primitives/Stack';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const MenuItemOption = (props: IMenuItemOptionProps, ref: any) => {
   const { value, children, onPress, ...resolvedProps } = usePropsResolution(
@@ -24,6 +25,10 @@ const MenuItemOption = (props: IMenuItemOptionProps, ref: any) => {
   const isChecked = values.includes(value);
   const menuOptionProps = useMenuOptionItem({ isChecked, type });
 
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <MenuItem
       {...resolvedProps}

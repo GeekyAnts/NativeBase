@@ -3,11 +3,18 @@ import { Button } from 'native-base';
 
 export const Example = () => {
   return (
-    <Button
-      _pressed={{ bg: 'red.400' }}
-      onPress={() => console.log('hello world')}
-    >
-      PRIMARY
-    </Button>
+    <>
+      <Button onPress={() => console.log('hello world')} variant="outline">
+        Primary
+      </Button>
+      <Button
+        mt={5}
+        onPress={() => console.log('hello world')}
+        variant="outline"
+        colorScheme="secondary"
+      >
+        Secondary
+      </Button>
+    </>
   );
 };

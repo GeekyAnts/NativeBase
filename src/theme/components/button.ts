@@ -7,7 +7,7 @@ const baseStyle = (props: any) => {
   const { primary } = props.theme.colors;
   const focusRing =
     Platform.OS === 'web'
-      ? { boxShadow: `${primary[400]} 0px 0px 0px 3px` }
+      ? { boxShadow: `${primary[400]} 0px 0px 0px 2px`, zIndex: 1 }
       : {};
 
   return {
@@ -58,20 +58,26 @@ function variantGhost(props: Dict) {
     _text: {
       color: props.isDisabled
         ? disabledTextColor(props)
-        : mode(`${c}.500`, `${c}.200`)(props),
+        : mode(`${c}.600`, `${c}.300`)(props),
     },
     bg: 'transparent',
     _web: {
       outlineWidth: 0,
     },
     _hover: {
-      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
+      _text: { color: mode(`${c}.700`, `${c}.200`)(props) },
+      borderColor: mode(`${c}.700`, `${c}.200`)(props),
+      bg: transparentize(mode(`${c}.200`, `${c}.700`)(props), 0.5)(props.theme),
     },
     _focusVisible: {
-      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.5)(props.theme),
+      _text: { color: mode(`${c}.700`, `${c}.200`)(props) },
+      borderColor: mode(`${c}.700`, `${c}.200`)(props),
+      bg: transparentize(mode(`${c}.200`, `${c}.700`)(props), 0.5)(props.theme),
     },
     _pressed: {
-      bg: transparentize(mode(`${c}.200`, `${c}.500`)(props), 0.6)(props.theme),
+      _text: { color: mode(`${c}.800`, `${c}.100`)(props) },
+      borderColor: mode(`${c}.700`, `${c}.200`)(props),
+      bg: transparentize(mode(`${c}.300`, `${c}.600`)(props), 0.5)(props.theme),
     },
     _spinner: {
       size: 'sm',
@@ -89,7 +95,7 @@ function variantOutline(props: Dict) {
         ? borderColor
         : props.isDisabled
         ? disabledTextColor(props)
-        : mode(`${c}.300`, `${c}.600`)(props),
+        : mode(`${c}.600`, `${c}.300`)(props),
     ...variantGhost(props),
   };
 }
@@ -111,11 +117,21 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
 
 function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
-  let { bg = `${c}.500` } = accessibleColorMap[c] || {};
-  bg = mode(bg, `${c}.400`)(props);
+  let { bg = `${c}.600` } = accessibleColorMap[c] || {};
+  bg = mode(bg, `${c}.300`)(props);
+  // let _disabled;
   if (props.isDisabled) {
     bg = mode(`muted.300`, `muted.500`)(props);
   }
+  // if (props.isLoading) {
+  //   _disabled = {
+  //     bg: bg,
+  //   };
+  // } else {
+  //   _disabled = {
+  //     bg: mode(`trueGray.300`, `trueGray.600`)(props),
+  //   };
+  // }
 
   const styleObject = {
     _web: {
@@ -123,11 +139,20 @@ function variantSolid(props: Dict) {
     },
     bg,
     _hover: {
-      bg: mode(`${c}.600`, `${c}.500`)(props),
+      bg: mode(`${c}.700`, `${c}.200`)(props),
     },
     _pressed: {
-      bg: mode(`${c}.700`, `${c}.600`)(props),
+      bg: mode(`${c}.800`, `${c}.100`)(props),
     },
+    // TODO: Confirm before merging
+    _focus: {
+      bg: mode(`${c}.700`, `${c}.200`)(props),
+    },
+    _loading: {
+      bg: mode(bg, `${c}.300`)(props),
+      opacity: 0.5,
+    },
+    _disabled: { bg: mode(`trueGray.300`, `trueGray.600`)(props) },
   };
 
   return styleObject;
@@ -194,12 +219,22 @@ function variantLink(props: Dict) {
           ? mode(`muted.800`, `${c}.200`)(props)
           : props.isDisabled
           ? disabledTextColor(props)
-          : mode(`${c}.500`, `${c}.200`)(props),
+          : mode(`${c}.600`, `${c}.300`)(props),
     },
     _hover: {
       _text: {
+        color: mode(`${c}.700`, `${c}.200`)(props),
         textDecorationLine: 'underline',
       },
+    },
+    _focusVisible: {
+      _text: {
+        color: mode(`${c}.700`, `${c}.200`)(props),
+        textDecorationLine: 'underline',
+      },
+    },
+    _pressed: {
+      _text: { color: mode(`${c}.800`, `${c}.100`)(props) },
     },
     _ios: {
       _text: {
@@ -231,13 +266,15 @@ const sizes = {
   lg: {
     px: 6,
     py: 3,
+    rounded: 'lg',
     _text: {
       fontSize: 'lg',
     },
   },
   md: {
-    px: 4,
-    py: 3,
+    px: 5,
+    py: 2.5,
+    rounded: 'md',
     _text: {
       fontSize: 'md',
     },
@@ -245,6 +282,7 @@ const sizes = {
   sm: {
     px: 4,
     py: 2,
+    rounded: 'sm',
     _text: {
       fontSize: 'sm',
     },
@@ -252,6 +290,7 @@ const sizes = {
   xs: {
     px: 2,
     py: 1,
+    rounded: 'xs',
     _text: {
       fontSize: 'xs',
     },

@@ -5,6 +5,7 @@ import { useThemeProps } from '../../../hooks';
 import type { INumberInputSteppersProps, INumberInputContext } from './types';
 import { NumberInputContext } from './Context';
 import { ChevronUpIcon, ChevronDownIcon } from '../../primitives/Icon/Icons';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export const NBStepper = React.forwardRef(
   ({ children, ...props }: any, ref?: any) => {
@@ -20,6 +21,10 @@ export const NBStepper = React.forwardRef(
       iconColor,
       ...newProps
     } = useThemeProps('NumberInputStepper', props);
+    //TODO: refactor for responsive prop
+    if (useHasResponsiveProps(props)) {
+      return null;
+    }
     return (
       <TouchableOpacity
         activeOpacity={0.2}

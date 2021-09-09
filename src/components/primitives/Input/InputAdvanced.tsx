@@ -6,6 +6,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const InputAdvance = (
   {
@@ -72,6 +73,21 @@ const InputAdvance = (
 
   // Extracting baseInputProps from remaining props
   const [, baseInputProps] = extractInObject(nonLayoutProps, ['variant']);
+
+  //TODO: refactor for responsive prop
+  if (
+    useHasResponsiveProps({
+      ...props,
+      InputLeftElement,
+      InputRightElement,
+      onFocus,
+      onBlur,
+      inputProps,
+      wrapperRef,
+    })
+  ) {
+    return null;
+  }
 
   return (
     <Box

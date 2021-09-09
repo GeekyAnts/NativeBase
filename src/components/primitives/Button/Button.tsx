@@ -11,11 +11,11 @@ import {
   useFocus,
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
   {
     children,
-    isLoadingText,
     startIcon,
     rightIcon,
     leftIcon,
@@ -41,11 +41,12 @@ const Button = (
     _text,
     _stack,
     _spinner,
+    isLoadingText,
     ...resolvedProps
   } = usePropsResolution(
     'Button',
     props,
-    { isDisabled, isLoading, isHovered, isFocused, isPressed },
+    { isDisabled, isHovered, isFocused, isPressed },
     { ignoreProps: ['_spinner'] }
   );
 
@@ -56,6 +57,34 @@ const Button = (
   //   _focus,
   //   _focusVisible,
   // };
+  // let {
+  //   _text,
+  //   _disabled,
+  //   _focus,
+  //   _hover,
+  //   _pressed,
+  //   _focusVisible,
+  //   _loading,
+  //   _stack,
+  //   _spinner,
+  //   spinnerProps,
+  //   isLoadingText,
+  //   ...resolvedProps
+  // } = usePropsResolution('Button', props);
+
+  // const pressableProps = {
+  //   ...resolvedProps,
+  //   _hover,
+  //   _pressed,
+  //   _focus,
+  //   _focusVisible,
+  // };
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
+
   if (leftIcon) {
     startIcon = leftIcon;
   }
@@ -112,6 +141,9 @@ const Button = (
         // focusRingProps.onBlur
       )}
       {...resolvedProps}
+      // {...pressableProps}
+      // {...(isDisabled && _disabled)}
+      // {...(isLoading && _loading)}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
       <HStack {..._stack}>

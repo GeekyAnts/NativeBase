@@ -15,6 +15,7 @@ import {
   Slider,
   // Icon,
   HStack,
+  // Heading,
 } from '../../components/primitives';
 // import { Ionicons } from '@expo/vector-icons';
 import { FormControl, Menu } from '../../components/composites';
@@ -251,7 +252,7 @@ describe('props resolution', () => {
       width: defaultTheme.space['20'],
     });
 
-    expect(spinner.props.style).toEqual({});
+    expect(spinner.props.style).toEqual(undefined);
   });
 
   it('resolves base style and variants, sizes and default props with props', () => {
@@ -345,41 +346,6 @@ describe('props resolution', () => {
     const box = getByTestId('test');
     expect(box.props.style).toEqual(defaultTheme.shadows[9]);
   });
-  it('tests lineHeight from token in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text lineHeight="md" testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.lineHeight).toBe(22);
-  });
-
-  it('tests absolute lineHeight in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text lineHeight={5} testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.lineHeight).toBe(5);
-  });
-
-  it('tests letterSpacing from token in text ', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Text letterSpacing="2xl" testID="test">
-          This is a text
-        </Text>
-      </Provider>
-    );
-    const text = getByTestId('test');
-    expect(text.props.style.letterSpacing).toBe(0.4);
-  });
 
   it('FormControl: pseudo props test ', () => {
     const { getByTestId } = render(
@@ -394,7 +360,7 @@ describe('props resolution', () => {
               pl: 2,
               borderColor: 'gray.400',
             }}
-          ></FormControl.HelperText>
+          />
         </FormControl>
       </Provider>
     );
@@ -568,7 +534,7 @@ describe('props resolution', () => {
               size: ['sm', 'md', 'xl'],
             },
           }}
-        ></Image>
+        />
       </Provider>
     );
     const imageElement = getByTestId('test');
@@ -739,7 +705,7 @@ describe('props resolution', () => {
   // ==========================================
 
   it('handles defaults and onChange on checkBoxGroup', () => {
-    let { getAllByRole } = render(
+    const { getAllByRole } = render(
       <Provider
         initialWindowMetrics={{
           frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -749,7 +715,7 @@ describe('props resolution', () => {
         <CheckBoxGroup />
       </Provider>
     );
-    let checkbox = getAllByRole('checkbox');
+    const checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(4);
     expect(checkbox[0].props.accessibilityState.checked).toBe(true);
     expect(checkbox[1].props.accessibilityState.checked).toBe(false);
@@ -760,7 +726,7 @@ describe('props resolution', () => {
   });
 
   it('checkBox: disabled, checked', () => {
-    let { getAllByRole } = render(
+    const { getAllByRole } = render(
       <Provider
         initialWindowMetrics={{
           frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -781,7 +747,7 @@ describe('props resolution', () => {
         </Checkbox>
       </Provider>
     );
-    let checkbox = getAllByRole('checkbox');
+    const checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(4);
     expect(checkbox[1].props.accessibilityState.disabled).toBe(true);
     expect(checkbox[2].props.accessibilityState.checked).toBe(true);
@@ -844,7 +810,7 @@ describe('props resolution', () => {
   // });
 
   it('onChange on checkBox', () => {
-    let { getAllByRole } = render(
+    const { getAllByRole } = render(
       <Provider
         initialWindowMetrics={{
           frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -854,7 +820,7 @@ describe('props resolution', () => {
         <Checkbox value="item 1" />
       </Provider>
     );
-    let checkbox = getAllByRole('checkbox');
+    const checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(1);
     fireEvent.press(checkbox[0]);
     expect(checkbox[0].props.accessibilityState.checked).toBe(true);
@@ -1123,57 +1089,58 @@ describe('props resolution', () => {
   //     defaultTheme.colors.blue['900']
   //   );
   // });
-});
-it('HStack: style props test with dark mode', () => {
-  const newTheme = extendTheme({
-    config: { initialColorMode: 'dark' },
+  // });
+  it('HStack: style props test with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <HStack
+          testID="test"
+          direction="column"
+          _dark={{
+            direction: 'row',
+          }}
+        >
+          <Box>1</Box>
+          <Box>2</Box>
+          <Box>3</Box>
+        </HStack>
+      </Provider>
+    );
+
+    const hstackElement = getByTestId('test');
+    expect(hstackElement.props.style.flexDirection).toBe('row');
   });
-  const { getByTestId } = render(
-    <Provider theme={newTheme}>
-      <HStack
-        testID="test"
-        direction="column"
-        _dark={{
-          direction: 'row',
-        }}
-      >
-        <Box>1</Box>
-        <Box>2</Box>
-        <Box>3</Box>
-      </HStack>
-    </Provider>
-  );
 
-  const hstackElement = getByTestId('test');
-  expect(hstackElement.props.style.flexDirection).toBe('row');
-});
+  it('HStack: style props test on ios & dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <HStack
+          testID="test"
+          direction="column"
+          _dark={{
+            direction: 'row',
+          }}
+          _ios={{
+            direction: 'column',
+          }}
+        >
+          <Box>1</Box>
+          <Box>2</Box>
+          <Box>3</Box>
+        </HStack>
+      </Provider>
+    );
 
-it('HStack: style props test on ios & dark mode', () => {
-  const newTheme = extendTheme({
-    config: { initialColorMode: 'dark' },
+    const hstackElement = getByTestId('test');
+    expect(hstackElement.props.style.flexDirection).toBe('column');
   });
-  Platform.OS = 'ios';
-  const { getByTestId } = render(
-    <Provider theme={newTheme}>
-      <HStack
-        testID="test"
-        direction="column"
-        _dark={{
-          direction: 'row',
-        }}
-        _ios={{
-          direction: 'column',
-        }}
-      >
-        <Box>1</Box>
-        <Box>2</Box>
-        <Box>3</Box>
-      </HStack>
-    </Provider>
-  );
-
-  const hstackElement = getByTestId('test');
-  expect(hstackElement.props.style.flexDirection).toBe('column');
 });
 
 // =========================================================

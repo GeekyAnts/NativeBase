@@ -12,6 +12,7 @@ import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
 import { CheckIcon } from '../Icon/Icons';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 
 const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
@@ -37,6 +38,7 @@ const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
     ...formControlContext,
     ...props,
   });
+
   const _ref = React.useRef();
   const mergedRef = mergeRefs([ref, _ref]);
 
@@ -193,7 +195,10 @@ const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       {props.children}
     </Box>
   );
-
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   return (
     <Box
       // @ts-ignore - RN web supports accessibilityRole="label"

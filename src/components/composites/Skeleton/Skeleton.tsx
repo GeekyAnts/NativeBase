@@ -4,6 +4,7 @@ import { usePropsResolution } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 import Box from '../../primitives/Box';
 import type { ISkeletonProps } from './types';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useToken } from '../../../hooks/useToken';
 
 const Skeleton = (props: ISkeletonProps, ref: any) => {
@@ -13,11 +14,11 @@ const Skeleton = (props: ISkeletonProps, ref: any) => {
     startColor,
     style,
     endColor,
-    ...newProps
+    ...resolvedProps
   } = usePropsResolution('Skeleton', props);
   // Setting blink Animation
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
-  const tokenisedRadius = useToken('radii', newProps.borderRadius);
+  const tokenisedRadius = useToken('radii', resolvedProps.borderRadius);
   const tokenisedStartColor = useToken('colors', startColor);
 
   // Generating blink animation in a sequence
@@ -27,18 +28,20 @@ const Skeleton = (props: ISkeletonProps, ref: any) => {
       const blink = Animated.sequence([
         Animated.timing(blinkAnim, {
           toValue: 1,
-          duration: newProps.fadeDuration * 10000 * (1 / newProps.speed),
+          duration:
+            resolvedProps.fadeDuration * 10000 * (1 / resolvedProps.speed),
           useNativeDriver: Platform.OS !== 'web',
         }),
         Animated.timing(blinkAnim, {
           toValue: 0,
-          duration: newProps.fadeDuration * 10000 * (1 / newProps.speed),
+          duration:
+            resolvedProps.fadeDuration * 10000 * (1 / resolvedProps.speed),
           useNativeDriver: Platform.OS !== 'web',
         }),
       ]);
       Animated.loop(blink).start();
     }
-  }, [blinkAnim, isDomUsable, newProps]);
+  }, [blinkAnim, isDomUsable, resolvedProps]);
 
   const skeletonStyle: any = {
     skeleton: {
@@ -52,15 +55,18 @@ const Skeleton = (props: ISkeletonProps, ref: any) => {
       opacity: blinkAnim, // Bind opacity to animated value
     },
   };
-
-  return newProps.isLoaded ? (
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
+  return resolvedProps.isLoaded ? (
     children
   ) : (
     <Box
       style={[style]}
       borderRadius={tokenisedRadius}
       bg={endColor}
-      {...newProps}
+      {...resolvedProps}
       ref={ref}
     >
       <Animated.View style={skeletonStyle.skeleton} />

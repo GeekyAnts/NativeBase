@@ -174,7 +174,11 @@ export function getColorScheme(
 }
 export const breakpoints = Object.freeze(['base', 'sm', 'md', 'lg', 'xl']);
 export const inValidBreakpointProps = ['style', 'children', 'shadowOffset'];
-export function hasValidBreakpointFormat(breaks: any, property?: string) {
+export function hasValidBreakpointFormat(
+  breaks: any,
+  themeBreakpoints?: any,
+  property?: string
+) {
   if (property && inValidBreakpointProps.indexOf(property) !== -1) {
     return false;
   } else if (Array.isArray(breaks)) {
@@ -182,7 +186,7 @@ export function hasValidBreakpointFormat(breaks: any, property?: string) {
   } else if (typeof breaks === 'object') {
     const keys = Object.keys(breaks);
     for (let i = 0; i < keys.length; i++) {
-      if (breakpoints.indexOf(keys[i]) === -1) {
+      if (Object.keys(themeBreakpoints).indexOf(keys[i]) === -1) {
         return false;
       }
     }
@@ -193,11 +197,12 @@ export function hasValidBreakpointFormat(breaks: any, property?: string) {
 }
 export function findLastValidBreakpoint(
   values: any,
+  themeBreakpoints: any,
   currentBreakpoint: number
 ) {
   let valArray = Array.isArray(values)
     ? values
-    : breakpoints.map((bPoint: string) => values[bPoint]);
+    : Object.keys(themeBreakpoints).map((bPoint: string) => values[bPoint]);
   return (
     valArray[currentBreakpoint] ??
     valArray
@@ -231,18 +236,43 @@ export function getClosestBreakpoint(
 
 export const baseFontSize = 16;
 
-const convertAbsoluteToRem = (px: number) => {
+export const convertAbsoluteToRem = (px: number) => {
   return `${px / baseFontSize}rem`;
 };
 
-const convertRemToAbsolute = (rem: number) => {
+export const convertRemToAbsolute = (rem: number) => {
   return rem * baseFontSize;
+};
+
+export const convertToDp = (value: number | string): number => {
+  const numberRegex = /^\d+$/;
+
+  if (typeof value === 'number') {
+    return value;
+  } else {
+    const isAbsolute = numberRegex.test(value);
+    const isPx = !isAbsolute && value.endsWith('px');
+    const isRem = !isAbsolute && value.endsWith('rem');
+    const isEm = !isAbsolute && value.endsWith('em');
+
+    let finalDpValue = 0;
+
+    if (isAbsolute || isPx) {
+      finalDpValue = parseFloat(value);
+    } else if (isEm) {
+      finalDpValue = convertRemToAbsolute(parseFloat(value));
+    } else if (isRem) {
+      finalDpValue = convertRemToAbsolute(parseFloat(value));
+    }
+
+    return finalDpValue;
+  }
 };
 
 /**
  *
  * @param theme
- * @description 
+ * @description
   - Converts space/sizes/lineHeights/letterSpacings/fontSizes to `rem` on web if the token value specified is an absolute number.
   - Converts space/sizes/lineHeights/letterSpacings/fontSizes to absolute number on native if the token value specified is in `px` or `rem`
 */

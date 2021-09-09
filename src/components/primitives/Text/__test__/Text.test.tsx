@@ -4,6 +4,7 @@ import { render } from '@testing-library/react-native';
 import Text from '../../Text';
 import { NativeBaseProvider } from '../../../../core/NativeBaseProvider';
 import { theme as defaultTheme } from '../../../../theme';
+import { Platform } from 'react-native';
 
 jest.useFakeTimers();
 
@@ -145,5 +146,83 @@ describe('Text component', () => {
     expect(text.props.style.fontWeight).toBe(undefined);
     expect(text.props.style.fontStyle).toBe(undefined);
     expect(text.props.style.fontFamily).toBe('Roboto-Regular');
+  });
+
+  it('tests lineHeight from token in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text lineHeight="md" testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(22);
+  });
+
+  it('tests absolute lineHeight in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text lineHeight={5} testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(80);
+  });
+
+  it('tests absolute non token lineHeight in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text lineHeight={'13'} testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(208);
+  });
+
+  it('tests letterSpacing from token in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text letterSpacing="2xl" testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.letterSpacing).toBe(6.4);
+  });
+
+  it('tests letterSpacing in em from token in text ', () => {
+    Platform.OS = 'web';
+    try {
+      render(
+        <Provider>
+          <Text letterSpacing="2xl" testID="test">
+            This is a text
+          </Text>
+        </Provider>
+      );
+    } catch (e) {
+      expect(e.message).toContain(`"letterSpacing": "0.4em"`);
+    } finally {
+      Platform.OS = 'ios';
+    }
+  });
+
+  it('tests lineHeight and letterSpacing in px', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text lineHeight="24px" letterSpacing="12px" testID="test">
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(24);
+    expect(text.props.style.letterSpacing).toBe(12);
   });
 });
