@@ -9,17 +9,7 @@ const defaultProps = {
   wrap: 'wrap',
 };
 
-export const Breadcrumb = {
+export default {
   baseStyle,
-  defaultProps,
-};
-
-export const BreadcrumbText = {
-  baseStyle: { ...baseStyle, _current: { fontWeight: 'bold' } },
-  defaultProps,
-};
-
-export const BreadcrumbIcon = {
-  baseStyle: { ...baseStyle },
   defaultProps,
 };
