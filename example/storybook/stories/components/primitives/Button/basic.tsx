@@ -8,7 +8,7 @@ export const Example = () => {
         Primary
       </Button>
       <Button
-        mt={5}
+        mt={'5'}
         onPress={() => console.log('hello world')}
         variant="outline"
         colorScheme="secondary"

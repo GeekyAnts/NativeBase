@@ -12,6 +12,7 @@ import HybridProvider from './hybrid-overlay/HybridProvider';
 import { OverlayProvider } from '@react-native-aria/overlays';
 import { ToastProvider, ToastRef } from '../components/composites/Toast';
 import {
+  defaultConfig,
   INativebaseConfig,
   NativeBaseConfigProvider,
 } from './NativeBaseContext';
@@ -47,7 +48,7 @@ export interface NativeBaseProviderProps {
 const NativeBaseProvider = (props: NativeBaseProviderProps) => {
   const {
     colorModeManager,
-    config = {},
+    config = defaultConfig,
     children,
     theme: propsTheme = defaultTheme,
     initialWindowMetrics,
