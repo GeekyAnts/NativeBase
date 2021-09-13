@@ -11,32 +11,20 @@ import { RadioContext } from './RadioGroup';
 import { useFocusRing } from '@react-native-aria/focus';
 import { CircleIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { combineContextAndProps } from '../../../utils';
 
 const Radio = (
   { icon, children, wrapperRef, ...props }: IRadioProps,
   ref: any
 ) => {
   const contextState = React.useContext(RadioContext);
+
   const {
-    _interactionBox: {
-      _hover: _iterationBoxHover,
-      _focus: _iterationBoxFocus,
-      _disabled: _iterationBoxDisabled,
-      ..._interactionBox
-    },
-    _radio: {
-      _checked: _radioChecked,
-      _disabled: _radioDisabled,
-      _invalid: _radioInvalid,
-      ..._radio
-    },
-    _icon,
     isInvalid,
-    ...themedProps
-  } = usePropsResolution('Radio', {
-    ...contextState,
-    ...props,
-  });
+    isReadOnly,
+    isIndeterminate,
+    ...combinedProps
+  } = combineContextAndProps(contextState, props);
 
   const inputRef = React.useRef(null);
   const { inputProps } = useRadio(
@@ -44,7 +32,7 @@ const Radio = (
     contextState.state,
     inputRef
   );
-  const { disabled, checked } = inputProps;
+  const { disabled: isDisabled, checked: isChecked } = inputProps;
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
@@ -58,21 +46,36 @@ const Radio = (
       ..._icon,
     });
 
+  const {
+    _interactionBox,
+    _radio,
+    _icon,
+    ...resolvedProps
+  } = usePropsResolution('Radio', combinedProps, {
+    isInvalid,
+    isReadOnly,
+    isFocusVisible,
+    isDisabled,
+    isIndeterminate,
+    isChecked,
+    isHovered,
+  });
+
   const component = (
     <Box
       flexDirection="row"
       alignItems="center"
-      {...themedProps}
-      opacity={disabled ? 0.4 : 1}
-      cursor={disabled ? 'not-allowed' : 'pointer'}
+      {...resolvedProps}
+      opacity={isDisabled ? 0.4 : 1}
+      cursor={isDisabled ? 'not-allowed' : 'pointer'}
     >
       <Center>
         {/* Interaction Box */}
         <Box
           {..._interactionBox}
-          {...(isFocusVisible && _iterationBoxFocus)}
-          {...(isHovered && _iterationBoxHover)}
-          {...(disabled && _iterationBoxDisabled)}
+          // {...(isFocusVisible && _iterationBoxFocus)}
+          // {...(isHovered && _iterationBoxHover)}
+          // {...(isDisabled && _iterationBoxDisabled)}
           style={{
             // @ts-ignore - only for web"
             transition: 'height 200ms, width 200ms',
@@ -83,14 +86,14 @@ const Radio = (
         {/* Radio */}
         <Center
           {..._radio}
-          {...(checked && _radioChecked)}
-          {...(disabled && _radioDisabled)}
-          {...(isInvalid && _radioInvalid)}
+          // {...(isChecked && _radioChecked)}
+          // {...(isDisabled && _radioDisabled)}
+          // {...(isInvalid && _radioInvalid)}
         >
-          {icon && sizedIcon && checked ? (
+          {icon && sizedIcon && isChecked ? (
             sizedIcon()
           ) : (
-            <CircleIcon {..._icon} opacity={checked ? 1 : 0} />
+            <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
           )}
         </Center>
       </Center>
