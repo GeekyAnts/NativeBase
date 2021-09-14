@@ -7,8 +7,12 @@ export const FormControl = {};
 export const FormControlErrorMessage = {
   baseStyle: {
     mt: '2',
-    _text: { fontSize: 'sm', color: 'error.500' },
-    _stack: { space: 2, alignItems: 'center' },
+    _text: {
+      fontSize: 'xs',
+      _light: { color: 'error.600' },
+      _dark: { color: 'error.200' },
+    },
+    _stack: { space: 1, alignItems: 'center' },
   },
 };
 
@@ -16,7 +20,8 @@ export const FormControlErrorMessage = {
 export const FormControlLabel = {
   baseStyle: {
     _text: {
-      fontSize: 'md',
+      fontSize: 'sm',
+      fontWeight: 'medium',
     },
     astrickColor: 'error.400',
     mb: '2',
@@ -30,7 +35,7 @@ export const FormControlHelperText = {
     return {
       mt: '2',
       _text: {
-        fontSize: 'sm',
+        fontSize: 'xs',
         color: mode('muted.500', 'muted.400')(props),
       },
     };

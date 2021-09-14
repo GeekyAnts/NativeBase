@@ -8,11 +8,11 @@ import {
 } from 'native-base';
 
 export const Example = () => {
-  const [groupValue, setGroupValue] = React.useState(['Phone', 'Message']);
+  const [groupValue, setGroupValue] = React.useState(['Phone', 'Email']);
 
   return (
     <Container>
-      <FormControl isRequired isInvalid>
+      <FormControl isInvalid>
         <FormControl.Label _text={{ fontSize: 'lg', bold: true }}>
           Preferred contact method
         </FormControl.Label>

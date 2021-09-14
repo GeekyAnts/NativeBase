@@ -23,6 +23,7 @@ function MyWrapper({ children }: any) {
   return (
     <Box
       flex={1}
+      px="3"
       justifyContent="center"
       alignItems="center"
       bg={bgColor}

@@ -8,6 +8,9 @@ const baseStyle = (props: Record<string, any>) => {
     p: 3,
     borderColor: mode('gray.300', 'gray.600')(props),
     borderWidth: 1,
+    _text: {
+      color: mode('muted.400', 'muted.500')(props),
+    },
   };
 };
 
