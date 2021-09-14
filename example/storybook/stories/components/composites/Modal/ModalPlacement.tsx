@@ -1,6 +1,6 @@
 //@ts-nocheck
 import React from 'react';
-import { Button, Modal, Stack } from 'native-base';
+import { Button, Modal, Stack, FormControl, Input } from 'native-base';
 import { useState } from 'react';
 
 export const Example = () => {
@@ -21,23 +21,36 @@ export const Example = () => {
         <Button onPress={() => openModal('right')}>Right</Button>
       </Stack>
       <Modal isOpen={open} onClose={() => setOpen(false)} mt={12}>
-        <Modal.Content maxWidth="400px" {...styles[placement]}>
+        <Modal.Content maxWidth="350" {...styles[placement]}>
           <Modal.CloseButton />
-          <Modal.Header>Modal Title</Modal.Header>
+          <Modal.Header>Contact Us</Modal.Header>
           <Modal.Body>
-            Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
-            ullamco deserunt aute id consequat veniam incididunt duis in sint
-            irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+            <FormControl>
+              <FormControl.Label>Name</FormControl.Label>
+              <Input />
+            </FormControl>
+            <FormControl mt="3">
+              <FormControl.Label>Email</FormControl.Label>
+              <Input />
+            </FormControl>
           </Modal.Body>
           <Modal.Footer>
-            <Button.Group variant="ghost" space={2}>
-              <Button>LEARN MORE</Button>
+            <Button.Group space={2}>
+              <Button
+                variant="ghost"
+                colorScheme="blueGray"
+                onPress={() => {
+                  setOpen(false);
+                }}
+              >
+                Cancel
+              </Button>
               <Button
                 onPress={() => {
                   setOpen(false);
                 }}
               >
-                ACCEPT
+                Save
               </Button>
             </Button.Group>
           </Modal.Footer>

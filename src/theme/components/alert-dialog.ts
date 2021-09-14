@@ -39,7 +39,7 @@ const sizes = {
   },
 };
 
-export const Modal = {
+export const AlertDialog = {
   baseStyle: {
     width: '100%',
     height: '100%',
@@ -53,7 +53,7 @@ export const Modal = {
   },
 };
 
-export const ModalContent = {
+export const AlertDialogContent = {
   baseStyle: (props: Record<string, any>) => {
     return {
       bg: mode('white', 'gray.700')(props),
@@ -64,37 +64,32 @@ export const ModalContent = {
     };
   },
 };
-export const ModalCloseButton = {
+export const AlertDialogCloseButton = {
   baseStyle: (props: Record<string, any>) => {
     return {
       position: 'absolute',
-      right: '3',
-      top: '3',
-      zIndex: '1',
+      right: 3,
+      top: 3,
+      zIndex: 1,
       colorScheme: 'coolGray',
-      p: '2',
+      p: 2,
       _icon: {
-        size: '3',
+        size: 3,
         color: mode('coolGray.600', 'coolGray.100')(props),
       },
     };
   },
 };
-export const ModalHeader = {
+export const AlertDialogHeader = {
   baseStyle: {
     py: '4',
     px: '3',
     borderBottomWidth: '1',
     borderColor: 'coolGray.200',
-    _text: {
-      fontSize: 'md',
-      fontWeight: 'semibold',
-      color: 'coolGray.800',
-      lineHeight: 'sm',
-    },
+    _text: { fontSize: 'md', fontWeight: 'semibold', color: 'coolGray.800' },
   },
 };
-export const ModalBody = {
+export const AlertDialogBody = {
   baseStyle: (props: Record<string, any>) => {
     return {
       pt: '2',
@@ -105,7 +100,7 @@ export const ModalBody = {
     };
   },
 };
-export const ModalFooter = {
+export const AlertDialogFooter = {
   baseStyle: {
     p: '3',
     bg: 'coolGray.100',
@@ -114,7 +109,7 @@ export const ModalFooter = {
     flexWrap: 'wrap',
   },
 };
-export const ModalOverlay = {
+export const AlertDialogOverlay = {
   baseStyle: {
     position: 'absolute',
     left: 0,

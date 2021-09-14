@@ -3,11 +3,9 @@ import { Button, Divider, Heading, VStack } from 'native-base';
 
 export const Example = () => {
   return (
-    <VStack space={4} px={2} w="100%">
+    <VStack space={4} px={2} w="100%" alignItems="center">
       {/* Row */}
-      <Heading size="xs" textAlign="left">
-        Row
-      </Heading>
+      <Heading size="sm">Row</Heading>
       <Button.Group
         variant="solid"
         direction="row"
@@ -21,9 +19,7 @@ export const Example = () => {
 
       {/* Column */}
 
-      <Heading size="xs" textAlign="left">
-        Column
-      </Heading>
+      <Heading size="sm">Column</Heading>
       <Button.Group
         variant="solid"
         direction="column"

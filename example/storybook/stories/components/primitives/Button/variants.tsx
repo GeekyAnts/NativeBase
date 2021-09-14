@@ -28,7 +28,6 @@ export const Example = () => {
           size="sm"
           isDisabled
           // onPress={() => console.log('hello world')}
-          _disabled={{ _text: { color: 'blue.500' } }}
         >
           DISABLED
         </Button>

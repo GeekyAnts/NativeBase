@@ -42,11 +42,11 @@ export interface IPopoverProps {
   /**
    * The ref of element to receive focus when the popover opens.
    */
-  initialFocusRef: React.RefObject<any>;
+  initialFocusRef?: React.RefObject<any>;
   /**
    * The ref of element to receive focus when the modal closes.
    */
-  finalFocusRef: React.RefObject<any>;
+  finalFocusRef?: React.RefObject<any>;
   /**
    * Function that returns a React Element. This element will be used as a Trigger for the popover
    */

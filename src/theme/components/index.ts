@@ -60,6 +60,15 @@ import {
   ModalOverlay,
   ModalCloseButton,
 } from './modal';
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogOverlay,
+  AlertDialogCloseButton,
+} from './alert-dialog';
 import * as PopoverComponentTheme from './popover';
 import { default as NumberInput, NumberInputStepper } from './number-input';
 import PinInput from './pin-input';
@@ -155,6 +164,13 @@ export default {
   ModalFooter,
   ModalOverlay,
   ModalCloseButton,
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogOverlay,
+  AlertDialogCloseButton,
   NumberInput,
   NumberInputStepper,
   PinInput,

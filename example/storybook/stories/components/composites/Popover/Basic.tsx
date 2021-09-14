@@ -5,22 +5,27 @@ export function Example() {
   return (
     <Popover
       trigger={(triggerProps) => {
-        return <Button {...triggerProps}>Trigger</Button>;
+        return (
+          <Button {...triggerProps} colorScheme="danger">
+            Delete Customer
+          </Button>
+        );
       }}
     >
-      <Popover.Content accessibilityLabel="hello world" borderRadius={'xl'}>
+      <Popover.Content accessibilityLabel="Delete Customerd" w="56">
         <Popover.Arrow />
         <Popover.CloseButton />
-        <Popover.Header>Confirmation</Popover.Header>
+        <Popover.Header>Delete Customer</Popover.Header>
         <Popover.Body>
-          Are you sure you want to continue with your action?
+          This will remove all data relating to Alex. This action cannot be
+          reversed. Deleted data can not be recovered.
         </Popover.Body>
         <Popover.Footer justifyContent="flex-end">
-          <Button.Group>
-            <Button size="sm" variant="ghost">
+          <Button.Group space={2}>
+            <Button colorScheme="coolGray" variant="ghost">
               Cancel
             </Button>
-            <Button size="sm">Apply</Button>
+            <Button colorScheme="danger">Delete</Button>
           </Button.Group>
         </Popover.Footer>
       </Popover.Content>

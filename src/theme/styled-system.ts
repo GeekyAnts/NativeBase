@@ -153,7 +153,10 @@ export const color = {
     scale: 'colors',
     transformer: getColor,
   },
-  opacity: true,
+  opacity: {
+    property: 'opacity',
+    scale: 'opacity',
+  },
   bg: {
     property: 'backgroundColor',
     scale: 'colors',

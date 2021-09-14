@@ -1,44 +1,48 @@
 import type { IBoxProps } from '../../primitives/Box';
-import type { IIconButtonProps } from '../../composites/IconButton';
+import type { IIconButtonProps } from '../IconButton';
 import type { MutableRefObject } from 'react';
 
-export interface IModalProps extends IBoxProps {
+export interface IAlertDialogProps extends IBoxProps {
   /**
-   * If true, the modal will open. Useful for controllable state behaviour
+   * If true, the AlertDialog will open. Useful for controllable state behaviour
    */
   isOpen?: boolean;
   /**
-   * Callback invoked when the modal is closed
+   * Callback invoked when the AlertDialog is closed
    */
   onClose?: () => any;
   /**
-   * If true, the modal will be opened by default
+   * If true, the AlertDialog will be opened by default
    */
   defaultIsOpen?: boolean;
   /**
-   * The size of the modal
+   * The size of the AlertDialog
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full' | number | string;
   /**
-   * The ref of element to receive focus when the modal opens.
+   * The ref of element that is least destructive child of the AlertDialog.
    */
-  initialFocusRef?: React.RefObject<any>;
+  leastDestructiveRef: React.RefObject<any>;
   /**
-   * The ref of element to receive focus when the modal closes.
+   * The ref of element to receive focus when the AlertDialog opens.
    */
-  finalFocusRef?: React.RefObject<any>;
+  initialFocusRef?: React.RefObject<any> | any;
   /**
-   * If true and the keyboard is opened, the modal will move up equvivalent to the keyboard height.
+   * The ref of element to receive focus when the AlertDialog closes.
+   */
+  finalFocusRef?: React.RefObject<any> | any;
+  /**
+   * If true and the keyboard is opened, the AlertDialog will move up equvivalent to the keyboard height.
    * @default false
    */
   avoidKeyboard?: boolean;
   /**
-   * If true, the modal will close when the overlay is clicked
+   * If true, the AlertDialog will close when the overlay is clicked
    * @default true
    */
   closeOnOverlayClick?: boolean;
   /**
-   * If true, the modal will close when Escape key is pressed
+   * If true, the AlertDialog will close when Escape key is pressed
    * @default true
    */
   isKeyboardDismissable?: boolean;
@@ -58,8 +62,8 @@ export interface IModalProps extends IBoxProps {
   _backdrop?: any;
 }
 
-export type IModalComponentType = ((
-  props: IModalProps & { ref?: MutableRefObject<any> }
+export type IAlertDialogComponentType = ((
+  props: IAlertDialogProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Body: React.MemoExoticComponent<
     (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
