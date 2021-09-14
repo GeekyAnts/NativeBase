@@ -48,7 +48,7 @@ const Radio = (
 
   const {
     _interactionBox,
-    _radio,
+    _iconWrapper,
     _icon,
     ...resolvedProps
   } = usePropsResolution('Radio', combinedProps, {
@@ -85,7 +85,7 @@ const Radio = (
         />
         {/* Radio */}
         <Center
-          {..._radio}
+          {..._iconWrapper}
           // {...(isChecked && _radioChecked)}
           // {...(isDisabled && _radioDisabled)}
           // {...(isInvalid && _radioInvalid)}

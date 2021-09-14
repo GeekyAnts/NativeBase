@@ -11,7 +11,7 @@ const baseStyle = (props: Record<string, any>) => {
       zIndex: -1,
       borderRadius: 'full',
     },
-    _radio: {
+    _iconWrapper: {
       borderWidth: 2,
       borderRadius: 'full',
       p: '2px',
@@ -40,7 +40,7 @@ const baseStyle = (props: Record<string, any>) => {
       _interactionBox: {
         borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
       },
-      _radio: {
+      _iconWrapper: {
         borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
       },
     },
@@ -48,7 +48,7 @@ const baseStyle = (props: Record<string, any>) => {
       _interactionBox: {
         bg: 'transaprarent',
       },
-      _radio: {
+      _iconWrapper: {
         opacity: 0.4,
       },
       _icon: {
@@ -56,7 +56,7 @@ const baseStyle = (props: Record<string, any>) => {
       },
     },
     _invalid: {
-      _radio: {
+      _iconWrapper: {
         borderColor: mode('error.600', 'error.400')(props),
       },
     },
