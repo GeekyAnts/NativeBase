@@ -2,11 +2,21 @@ import React from 'react';
 import { Container, FormControl, Radio, WarningIcon } from 'native-base';
 
 export const Example = () => {
+  const [groupValue, setGroupValue] = React.useState('1');
   return (
     <Container>
-      <FormControl isRequired isInvalid>
-        <FormControl.Label>Select Prize</FormControl.Label>
-        <Radio.Group name="exampleGroup" accessibilityLabel="select prize">
+      <FormControl isInvalid>
+        <FormControl.Label _text={{ fontSize: 'lg', bold: true }}>
+          Select Prize
+        </FormControl.Label>
+        <Radio.Group
+          name="exampleGroup"
+          accessibilityLabel="select prize"
+          defaultValue={groupValue}
+          onChange={(value) => {
+            setGroupValue(value || '');
+          }}
+        >
           <Radio value="1" my="1">
             First
           </Radio>

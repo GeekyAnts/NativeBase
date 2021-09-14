@@ -4,7 +4,7 @@ const baseStyle = (props: Record<string, any>) => {
   const { colorScheme, theme } = props;
   return {
     _text: {
-      ml: 3,
+      ml: 2,
     },
     _interactionBox: {
       position: 'absolute',

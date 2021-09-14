@@ -20,10 +20,9 @@ const baseStyle = (props: Record<string, any>) => {
 
   return {
     fontFamily: 'body',
-    px: 4,
-    py: 2,
-    borderRadius: 'lg',
-    color: mode('black', 'white')(props),
+    p: 2,
+    borderRadius: 'sm',
+    color: mode('muted.900', 'muted.50')(props),
     placeholderTextColor: mode('muted.400', 'muted.500')(props),
     background: 'transparent',
     borderColor: mode('muted.200', 'muted.600')(props),
@@ -64,7 +63,7 @@ const baseStyle = (props: Record<string, any>) => {
 
 function roundedStyle() {
   return {
-    borderRadius: 'pill',
+    borderRadius: 25,
     borderWidth: 1,
   };
 }
@@ -104,12 +103,12 @@ const variants = {
 };
 
 const sizes = {
-  '2xl': { fontSize: '2xl' },
-  'xl': { fontSize: 'xl' },
-  'lg': { fontSize: 'lg' },
-  'md': { fontSize: 'md' },
-  'sm': { fontSize: 'sm' },
-  'xs': { fontSize: 'xs' },
+  '2xl': { fontSize: 'xl' },
+  'xl': { fontSize: 'lg' },
+  'lg': { fontSize: 'md' },
+  'md': { fontSize: 'sm' },
+  'sm': { fontSize: 'xs' },
+  'xs': { fontSize: '2xs' },
 };
 
 const defaultProps = {

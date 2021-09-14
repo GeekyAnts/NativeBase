@@ -1,25 +1,31 @@
 import React from 'react';
-import { FormControl, Input, Stack, Text, ScrollView } from 'native-base';
+import {
+  FormControl,
+  Input,
+  Stack,
+  Text,
+  ScrollView,
+  Divider,
+  WarningIcon,
+} from 'native-base';
 
 export const Example = () => {
   return (
     <ScrollView>
       <Stack space={4} px={4} safeArea mt={6}>
-        <Text bold underline>
-          Default:
+        <Text bold fontSize="lg">
+          Default
         </Text>
         <FormControl>
-          <FormControl.Label>Favorite framework</FormControl.Label>
+          <FormControl.Label>Project Title</FormControl.Label>
           <Input />
           <FormControl.HelperText>
-            We'll keep this between us.
+            Give your project a title.
           </FormControl.HelperText>
-          <FormControl.ErrorMessage>
-            Something is wrong.
-          </FormControl.ErrorMessage>
         </FormControl>
-        <Text bold underline>
-          Custom style for disable:
+        <Divider />
+        <Text bold fontSize="lg">
+          Disabled
         </Text>
         <FormControl isDisabled>
           <FormControl.Label
@@ -30,50 +36,21 @@ export const Example = () => {
               },
             }}
           >
-            Favorite framework
+            Project Title
           </FormControl.Label>
-          <Input />
-          <FormControl.HelperText
-            _disabled={{
-              borderLeftWidth: 1,
-              mt: 1,
-              px: 1,
-              pl: 2,
-              borderColor: 'gray.400',
-            }}
-          >
-            We'll keep this between us.
+          <Input placeholder="Title" />
+          <FormControl.HelperText>
+            Give your project a title.
           </FormControl.HelperText>
-          <FormControl.ErrorMessage>
-            Something is wrong.
-          </FormControl.ErrorMessage>
         </FormControl>
-        <Text bold underline>
-          Custom style for invalid:
+        <Divider />
+        <Text bold fontSize="lg">
+          Invalid
         </Text>
-        <FormControl isRequired isInvalid>
-          <FormControl.Label
-            _invalid={{
-              _text: {
-                color: 'rose.500',
-                fontWeight: 'bold',
-              },
-            }}
-          >
-            Favorite framework
-          </FormControl.Label>
-          <Input />
-          <FormControl.HelperText
-            _invalid={{
-              _text: {
-                color: 'red.400',
-                underline: true,
-              },
-            }}
-          >
-            We'll keep this between us.
-          </FormControl.HelperText>
-          <FormControl.ErrorMessage>
+        <FormControl isInvalid>
+          <FormControl.Label>Project Title</FormControl.Label>
+          <Input placeholder="Title" />
+          <FormControl.ErrorMessage leftIcon={<WarningIcon size="xs" />}>
             Something is wrong.
           </FormControl.ErrorMessage>
         </FormControl>
