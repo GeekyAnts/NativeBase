@@ -594,6 +594,7 @@ export const getStyleAndFilteredProps = ({
     if (key in propConfig) {
       const value = resolveValueWithBreakpoint(
         rawValue,
+        theme.breakpoints,
         currentBreakpoint,
         key
       );
