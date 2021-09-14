@@ -27,8 +27,8 @@ const Button = (
     _hover,
     _pressed,
     _focusVisible,
-    _stack,
     _loading,
+    _stack,
     _spinner,
     spinnerProps,
     isLoadingText,
@@ -85,8 +85,8 @@ const Button = (
       disabled={isDisabled || isLoading}
       ref={ref}
       {...pressableProps}
-      {...(isLoading && _loading)}
       {...(isDisabled && _disabled)}
+      {...(isLoading && _loading)}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
       {/* TODO: Replace Render props with Context Hook */}

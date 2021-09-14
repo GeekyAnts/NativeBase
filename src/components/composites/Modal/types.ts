@@ -56,6 +56,11 @@ export interface IModalProps extends IBoxProps {
    * Props applied on Overlay.
    */
   _backdrop?: any;
+  /**
+   * Sets the animation type
+   * @default "fade"
+   */
+  animationPreset?: 'fade' | 'slide';
 }
 
 export type IModalComponentType = ((

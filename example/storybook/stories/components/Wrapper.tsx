@@ -12,7 +12,8 @@ import {
 } from 'native-base';
 import type { StorageManager } from 'native-base';
 import { Button } from 'react-native';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import Config from '../../../nativebase.config';
 
 function MyWrapper({ children }: any) {

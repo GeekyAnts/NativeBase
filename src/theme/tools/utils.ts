@@ -174,7 +174,11 @@ export function getColorScheme(
 }
 export const breakpoints = Object.freeze(['base', 'sm', 'md', 'lg', 'xl']);
 export const inValidBreakpointProps = ['style', 'children', 'shadowOffset'];
-export function hasValidBreakpointFormat(breaks: any, property?: string) {
+export function hasValidBreakpointFormat(
+  breaks: any,
+  themeBreakpoints?: any,
+  property?: string
+) {
   if (property && inValidBreakpointProps.indexOf(property) !== -1) {
     return false;
   } else if (Array.isArray(breaks)) {
@@ -182,7 +186,7 @@ export function hasValidBreakpointFormat(breaks: any, property?: string) {
   } else if (typeof breaks === 'object') {
     const keys = Object.keys(breaks);
     for (let i = 0; i < keys.length; i++) {
-      if (breakpoints.indexOf(keys[i]) === -1) {
+      if (Object.keys(themeBreakpoints).indexOf(keys[i]) === -1) {
         return false;
       }
     }
@@ -193,11 +197,12 @@ export function hasValidBreakpointFormat(breaks: any, property?: string) {
 }
 export function findLastValidBreakpoint(
   values: any,
+  themeBreakpoints: any,
   currentBreakpoint: number
 ) {
   let valArray = Array.isArray(values)
     ? values
-    : breakpoints.map((bPoint: string) => values[bPoint]);
+    : Object.keys(themeBreakpoints).map((bPoint: string) => values[bPoint]);
   return (
     valArray[currentBreakpoint] ??
     valArray

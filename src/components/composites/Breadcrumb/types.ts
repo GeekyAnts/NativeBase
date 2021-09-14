@@ -1,23 +1,29 @@
+import type { IHStackProps } from '../../primitives/Stack/HStack';
+import type { ITextProps, ILinkProps, IIconProps } from '../../primitives';
 import type { MutableRefObject } from 'react';
-import type { ViewStyle } from 'react-native';
-import type {
-  IBoxProps,
-  IFlexProps,
-  ITextProps,
-  ILinkProps,
-} from '../../primitives';
+export interface IBreadcrumbItemContext {
+  isCurrent?: boolean;
+  allChildren?: boolean;
+}
 
-export type IBreadcrumbProps = IBoxProps &
-  IFlexProps &
-  ITextProps & {
-    style?: ViewStyle;
-    children?: JSX.Element[] | JSX.Element | any;
-    spacing?: number;
-    separator?: string | JSX.Element | JSX.Element[];
-  };
-export type IBreadcrumbItemProps = IBreadcrumbProps & {
-  isCurrentPage?: boolean;
-};
+export interface IBreadcrumbProps extends IHStackProps {
+  spacing?: number;
+  separator?: string | JSX.Element | JSX.Element[] | any;
+  maxItems?: number | number[];
+  _button?: any;
+  isCollapsed?: boolean;
+  onCollapseChange?: any;
+}
+export interface IBreadcrumbItemProps extends IHStackProps {
+  spacing?: number;
+  isCurrent?: boolean;
+}
+export interface IBreadcrumbIconProps extends IIconProps {
+  _current?: any;
+}
+export interface IBreadcrumbTextProps extends ITextProps {
+  _current?: any;
+}
 export type IBreadcrumbComponentType = ((
   props: IBreadcrumbProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
@@ -28,5 +34,11 @@ export type IBreadcrumbComponentType = ((
   >;
   Link: React.MemoExoticComponent<
     (props: ILinkProps & { ref?: MutableRefObject<any> }) => JSX.Element
+  >;
+  Icon: React.MemoExoticComponent<
+    (props: IBreadcrumbIconProps & { ref?: any }) => JSX.Element
+  >;
+  Text: React.MemoExoticComponent<
+    (props: IBreadcrumbTextProps & { ref?: any }) => JSX.Element
   >;
 };
