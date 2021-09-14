@@ -13117,6 +13117,2242 @@ exports[`Storyshots Box With Ref 1`] = `
 </RNCSafeAreaProvider>
 `;
 
+exports[`Storyshots Breadcrumb Basic 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      _disabled={
+        Object {
+          "opacity": 0.5,
+        }
+      }
+      _focusVisible={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+          "style": Object {},
+        }
+      }
+      _hover={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+        }
+      }
+      _pressed={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.6)",
+        }
+      }
+      _text={
+        Object {
+          "color": "lightText",
+        }
+      }
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 8,
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={32}
+        bbWidth={32}
+        color={4280690214}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#262626",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "flex": 0,
+              "height": 32,
+              "width": 32,
+            },
+          ]
+        }
+        tintColor={4280690214}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      style={Object {}}
+    >
+      <Text
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "color": "#404040",
+            "fontFamily": undefined,
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "700",
+            "letterSpacing": 0,
+            "lineHeight": 2.5,
+            "marginBottom": 16,
+            "textDecorationLine": undefined,
+          }
+        }
+      >
+        Default Breadcrumb
+      </Text>
+      <View
+        accessibilityLabel="Breadcrumb"
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "height": "auto",
+            "width": "auto",
+          }
+        }
+        wrap="wrap"
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <Text
+              direction="row"
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#ef4444",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "height": "auto",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": undefined,
+                  "width": "auto",
+                }
+              }
+              wrap="wrap"
+            >
+              Home (This is currently active)
+            </Text>
+          </View>
+        </View>
+        <Text
+          orientation="vertical"
+          style={
+            Object {
+              "backgroundColor": undefined,
+              "color": "#1f2937",
+              "fontFamily": undefined,
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 21,
+              "marginLeft": 8,
+              "marginRight": 8,
+              "textDecorationLine": undefined,
+            }
+          }
+        >
+          /
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <Text
+              direction="row"
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#1f2937",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "height": "auto",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": undefined,
+                  "width": "auto",
+                }
+              }
+              wrap="wrap"
+            >
+              Docs
+            </Text>
+          </View>
+        </View>
+        <Text
+          orientation="vertical"
+          style={
+            Object {
+              "backgroundColor": undefined,
+              "color": "#1f2937",
+              "fontFamily": undefined,
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 21,
+              "marginLeft": 8,
+              "marginRight": 8,
+              "textDecorationLine": undefined,
+            }
+          }
+        >
+          /
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <Text
+              direction="row"
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#1f2937",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "height": "auto",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": undefined,
+                  "width": "auto",
+                }
+              }
+              wrap="wrap"
+            >
+              Github
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Storyshots Breadcrumb Collapsible 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      _disabled={
+        Object {
+          "opacity": 0.5,
+        }
+      }
+      _focusVisible={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+          "style": Object {},
+        }
+      }
+      _hover={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+        }
+      }
+      _pressed={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.6)",
+        }
+      }
+      _text={
+        Object {
+          "color": "lightText",
+        }
+      }
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 8,
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={32}
+        bbWidth={32}
+        color={4280690214}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#262626",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "flex": 0,
+              "height": 32,
+              "width": 32,
+            },
+          ]
+        }
+        tintColor={4280690214}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      style={Object {}}
+    >
+      <Text
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "color": "#404040",
+            "fontFamily": undefined,
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "700",
+            "letterSpacing": 0,
+            "lineHeight": 2.5,
+            "marginBottom": 16,
+            "textDecorationLine": undefined,
+          }
+        }
+      >
+        Breadcrumb Collapsible
+      </Text>
+      <View
+        accessibilityLabel="Breadcrumb"
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "height": "auto",
+            "marginTop": 12,
+            "width": "auto",
+          }
+        }
+        wrap="wrap"
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                direction="row"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "color": "#262626",
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "fontSize": 16,
+                      "height": 16,
+                      "lineHeight": 16,
+                      "marginRight": 4,
+                      "width": 16,
+                    },
+                    Object {
+                      "fontFamily": "material",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+                wrap="wrap"
+              >
+                
+              </Text>
+              <View
+                style={Object {}}
+              />
+              <Text
+                direction="row"
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#1f2937",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "height": "auto",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                    "width": "auto",
+                  }
+                }
+                wrap="wrap"
+              >
+                Home
+              </Text>
+            </View>
+          </View>
+        </View>
+        <Text
+          orientation="vertical"
+          style={
+            Object {
+              "backgroundColor": undefined,
+              "color": "#1f2937",
+              "fontFamily": undefined,
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 21,
+              "marginLeft": 8,
+              "marginRight": 8,
+              "textDecorationLine": undefined,
+            }
+          }
+        >
+          /
+        </Text>
+        <View
+          _text={
+            Object {
+              "color": "lightText",
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          setCollapsed={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          <RNSVGSvgView
+            accessibilityRole="image"
+            align="xMidYMid"
+            bbHeight={16}
+            bbWidth={16}
+            color={4280690214}
+            focusable={false}
+            meetOrSlice={0}
+            minX={0}
+            minY={0}
+            stroke=""
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                Object {
+                  "color": "#262626",
+                  "height": 16,
+                  "width": 16,
+                },
+                Object {
+                  "flex": 0,
+                  "height": 16,
+                  "width": 16,
+                },
+              ]
+            }
+            tintColor={4280690214}
+            vbHeight={32.055}
+            vbWidth={32.055}
+          >
+            <RNSVGGroup
+              propList={
+                Array [
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            >
+              <RNSVGGroup>
+                <RNSVGGroup
+                  fill={
+                    Array [
+                      2,
+                    ]
+                  }
+                  propList={
+                    Array [
+                      "fill",
+                      "stroke",
+                    ]
+                  }
+                  stroke={null}
+                >
+                  <RNSVGPath
+                    d="M3.968,12.061C1.775,12.061,0,13.835,0,16.027c0,2.192,1.773,3.967,3.968,3.967c2.189,0,3.966-1.772,3.966-3.967   C7.934,13.835,6.157,12.061,3.968,12.061z M16.233,12.061c-2.188,0-3.968,1.773-3.968,3.965c0,2.192,1.778,3.967,3.968,3.967   s3.97-1.772,3.97-3.967C20.201,13.835,18.423,12.061,16.233,12.061z M28.09,12.061c-2.192,0-3.969,1.774-3.969,3.967   c0,2.19,1.774,3.965,3.969,3.965c2.188,0,3.965-1.772,3.965-3.965S30.278,12.061,28.09,12.061z"
+                  />
+                </RNSVGGroup>
+              </RNSVGGroup>
+            </RNSVGGroup>
+          </RNSVGSvgView>
+        </View>
+        <Text
+          orientation="vertical"
+          style={
+            Object {
+              "backgroundColor": undefined,
+              "color": "#1f2937",
+              "fontFamily": undefined,
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 21,
+              "marginLeft": 8,
+              "marginRight": 8,
+              "textDecorationLine": undefined,
+            }
+          }
+        >
+          /
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                direction="row"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "color": "#ef4444",
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "fontSize": 16,
+                      "height": 16,
+                      "lineHeight": 16,
+                      "marginRight": 4,
+                      "width": 16,
+                    },
+                    Object {
+                      "fontFamily": "anticon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+                wrap="wrap"
+              >
+                
+              </Text>
+              <View
+                style={Object {}}
+              />
+              <Text
+                direction="row"
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#ef4444",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "height": "auto",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                    "width": "auto",
+                  }
+                }
+                wrap="wrap"
+              >
+                Github (This is currently active)
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 12,
+        }
+      }
+    >
+      <View
+        _focusVisible={
+          Object {
+            "_text": Object {
+              "color": "gray.700",
+            },
+            "bg": "rgba(228, 228, 231, 0.5)",
+            "borderColor": "gray.700",
+            "style": Object {},
+          }
+        }
+        _hover={
+          Object {
+            "_text": Object {
+              "color": "gray.700",
+            },
+            "bg": "rgba(228, 228, 231, 0.5)",
+            "borderColor": "gray.700",
+          }
+        }
+        _pressed={
+          Object {
+            "_text": Object {
+              "color": "gray.800",
+            },
+            "bg": "rgba(212, 212, 216, 0.5)",
+            "borderColor": "gray.700",
+          }
+        }
+        _text={
+          Object {
+            "color": "lightText",
+          }
+        }
+        accessibilityRole="button"
+        accessible={true}
+        colorScheme="gray"
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onHoverIn={[Function]}
+        onHoverOut={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderColor": "#52525b",
+            "borderRadius": 4,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingBottom": 12,
+            "paddingLeft": 12,
+            "paddingRight": 12,
+            "paddingTop": 12,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#52525b",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "500",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": undefined,
+                }
+              }
+            >
+              Expand
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Storyshots Breadcrumb ComponentSeparator 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      _disabled={
+        Object {
+          "opacity": 0.5,
+        }
+      }
+      _focusVisible={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+          "style": Object {},
+        }
+      }
+      _hover={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+        }
+      }
+      _pressed={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.6)",
+        }
+      }
+      _text={
+        Object {
+          "color": "lightText",
+        }
+      }
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 8,
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={32}
+        bbWidth={32}
+        color={4280690214}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#262626",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "flex": 0,
+              "height": 32,
+              "width": 32,
+            },
+          ]
+        }
+        tintColor={4280690214}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      style={Object {}}
+    >
+      <Text
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "color": "#404040",
+            "fontFamily": undefined,
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "700",
+            "letterSpacing": 0,
+            "lineHeight": 2.5,
+            "marginBottom": 16,
+            "textDecorationLine": undefined,
+          }
+        }
+      >
+        Breadcrumb with Custom Separator
+      </Text>
+      <View
+        accessibilityLabel="Breadcrumb"
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "height": "auto",
+            "width": "auto",
+          }
+        }
+        wrap="wrap"
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#1f2937",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "700",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": "none",
+                }
+              }
+            >
+              Home (This is currently active)
+            </Text>
+          </View>
+        </View>
+        <Text
+          allowFontScaling={false}
+          orientation="vertical"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Object {
+                "color": "#262626",
+                "fontSize": 20,
+                "height": 20,
+                "lineHeight": 20,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "width": 20,
+              },
+              Object {
+                "fontFamily": "ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#1f2937",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "700",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": "none",
+                }
+              }
+            >
+              Docs
+            </Text>
+          </View>
+        </View>
+        <Text
+          allowFontScaling={false}
+          orientation="vertical"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Object {
+                "color": "#262626",
+                "fontSize": 20,
+                "height": 20,
+                "lineHeight": 20,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "width": 20,
+              },
+              Object {
+                "fontFamily": "ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#1f2937",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "700",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": "none",
+                }
+              }
+            >
+              Github
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Storyshots Breadcrumb Composition 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      _disabled={
+        Object {
+          "opacity": 0.5,
+        }
+      }
+      _focusVisible={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+          "style": Object {},
+        }
+      }
+      _hover={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+        }
+      }
+      _pressed={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.6)",
+        }
+      }
+      _text={
+        Object {
+          "color": "lightText",
+        }
+      }
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 8,
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={32}
+        bbWidth={32}
+        color={4280690214}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#262626",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "flex": 0,
+              "height": 32,
+              "width": 32,
+            },
+          ]
+        }
+        tintColor={4280690214}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      style={Object {}}
+    >
+      <Text
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "color": "#404040",
+            "fontFamily": undefined,
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "700",
+            "letterSpacing": 0,
+            "lineHeight": 2.5,
+            "marginBottom": 16,
+            "textDecorationLine": undefined,
+          }
+        }
+      >
+        Breadcrumb Composition
+      </Text>
+      <View
+        accessibilityLabel="Breadcrumb"
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "height": "auto",
+            "width": "auto",
+          }
+        }
+        wrap="wrap"
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                direction="row"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Object {
+                      "color": "#262626",
+                      "display": "flex",
+                      "flexDirection": "row",
+                      "fontSize": 16,
+                      "height": 16,
+                      "lineHeight": 16,
+                      "marginRight": 4,
+                      "width": 16,
+                    },
+                    Object {
+                      "fontFamily": "material",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+                wrap="wrap"
+              >
+                
+              </Text>
+              <View
+                style={Object {}}
+              />
+              <Text
+                direction="row"
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#1f2937",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "height": "auto",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                    "width": "auto",
+                  }
+                }
+                wrap="wrap"
+              >
+                Home
+              </Text>
+            </View>
+          </View>
+        </View>
+        <Text
+          orientation="vertical"
+          style={
+            Object {
+              "backgroundColor": undefined,
+              "color": "#1f2937",
+              "fontFamily": undefined,
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 21,
+              "marginLeft": 8,
+              "marginRight": 8,
+              "textDecorationLine": undefined,
+            }
+          }
+        >
+          /
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              direction="row"
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "color": "#262626",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "fontSize": 16,
+                    "fontWeight": "700",
+                    "height": 16,
+                    "lineHeight": 16,
+                    "marginRight": 4,
+                    "width": 16,
+                  },
+                  Object {
+                    "fontFamily": "material-community",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              wrap="wrap"
+            >
+              󰈙
+            </Text>
+            <Text
+              direction="row"
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#1f2937",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "height": "auto",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": undefined,
+                  "width": "auto",
+                }
+              }
+              wrap="wrap"
+            >
+              Docs
+            </Text>
+          </View>
+        </View>
+        <Text
+          orientation="vertical"
+          style={
+            Object {
+              "backgroundColor": undefined,
+              "color": "#1f2937",
+              "fontFamily": undefined,
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 21,
+              "marginLeft": 8,
+              "marginRight": 8,
+              "textDecorationLine": undefined,
+            }
+          }
+        >
+          /
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text />
+              <View
+                style={Object {}}
+              />
+              <Text
+                direction="row"
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#1f2937",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "height": "auto",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                    "width": "auto",
+                  }
+                }
+                wrap="wrap"
+              >
+                Github (This is currently active)
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Storyshots Breadcrumb Separators 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      _disabled={
+        Object {
+          "opacity": 0.5,
+        }
+      }
+      _focusVisible={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+          "style": Object {},
+        }
+      }
+      _hover={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+        }
+      }
+      _pressed={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.6)",
+        }
+      }
+      _text={
+        Object {
+          "color": "lightText",
+        }
+      }
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 8,
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={32}
+        bbWidth={32}
+        color={4280690214}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#262626",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "flex": 0,
+              "height": 32,
+              "width": 32,
+            },
+          ]
+        }
+        tintColor={4280690214}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      style={Object {}}
+    >
+      <Text
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "color": "#404040",
+            "fontFamily": undefined,
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "700",
+            "letterSpacing": 0,
+            "lineHeight": 2.5,
+            "marginBottom": 16,
+            "textDecorationLine": undefined,
+          }
+        }
+      >
+        Breadcrumb with String Separator
+      </Text>
+      <View
+        accessibilityLabel="Breadcrumb"
+        bold={true}
+        italic={true}
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "height": "auto",
+            "width": "auto",
+          }
+        }
+        wrap="wrap"
+      >
+        <View
+          isCurrentPage={true}
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            isCurrentPage={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#1f2937",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "700",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": "none",
+                }
+              }
+            >
+              Home (This is currently active)
+            </Text>
+          </View>
+        </View>
+        <Text
+          orientation="vertical"
+          style={
+            Object {
+              "backgroundColor": undefined,
+              "color": "#1f2937",
+              "fontFamily": undefined,
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 21,
+              "marginLeft": 8,
+              "marginRight": 8,
+              "textDecorationLine": undefined,
+            }
+          }
+        >
+          -
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#1f2937",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "700",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": "none",
+                }
+              }
+            >
+              Docs
+            </Text>
+          </View>
+        </View>
+        <Text
+          orientation="vertical"
+          style={
+            Object {
+              "backgroundColor": undefined,
+              "color": "#1f2937",
+              "fontFamily": undefined,
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 21,
+              "marginLeft": 8,
+              "marginRight": 8,
+              "textDecorationLine": undefined,
+            }
+          }
+        >
+          -
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityRole="link"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onHoverIn={[Function]}
+            onHoverOut={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexDirection": "row",
+                "height": "auto",
+                "width": "auto",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "color": "#1f2937",
+                  "fontFamily": undefined,
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "700",
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                  "textDecorationLine": "none",
+                }
+              }
+            >
+              Github
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
 exports[`Storyshots Button Basic 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -43980,6 +46216,171 @@ exports[`Storyshots Image BorderRadius 1`] = `
             "width": 150,
           },
         ]
+      }
+    />
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Storyshots Image FallbackElement 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      _disabled={
+        Object {
+          "opacity": 0.5,
+        }
+      }
+      _focusVisible={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+          "style": Object {},
+        }
+      }
+      _hover={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.5)",
+        }
+      }
+      _pressed={
+        Object {
+          "bg": "rgba(165, 243, 252, 0.6)",
+        }
+      }
+      _text={
+        Object {
+          "color": "lightText",
+        }
+      }
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 8,
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={32}
+        bbWidth={32}
+        color={4280690214}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#262626",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "flex": 0,
+              "height": 32,
+              "width": 32,
+            },
+          ]
+        }
+        tintColor={4280690214}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <Image
+      accessibilityLabel="fallback text"
+      alt="fallback text"
+      onError={[Function]}
+      source={
+        Object {
+          "uri": "https://cdn.pixaba.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 2,
+          "height": 150,
+          "maxWidth": "100%",
+          "width": 150,
+        }
       }
     />
   </View>
