@@ -11868,7 +11868,7 @@ exports[`Storyshots Box CompositionCard1 1`] = `
     </View>
     <View
       mx="auto"
-      rounded="pill"
+      rounded="25"
       style={
         Array [
           Object {
@@ -11897,7 +11897,7 @@ exports[`Storyshots Box CompositionCard1 1`] = `
         h={56}
         maxWidth="100%"
         onError={[Function]}
-        roundedTop="pill"
+        roundedTop="25"
         source={
           Object {
             "uri": "https://image.freepik.com/free-photo/clown-anemonefish-amphiprion-swimming-among-tentacles-its-anemone-home_211453-2.jpg",
@@ -12327,7 +12327,7 @@ exports[`Storyshots Box CompositionCard2 1`] = `
     </View>
     <View
       mx="auto"
-      rounded="pill"
+      rounded="25"
       style={
         Array [
           Object {
@@ -12356,7 +12356,7 @@ exports[`Storyshots Box CompositionCard2 1`] = `
         h={64}
         maxWidth="100%"
         onError={[Function]}
-        roundedTop="pill"
+        roundedTop="25"
         source={
           Object {
             "uri": "https://image.freepik.com/free-photo/silhouette-person-standing-top-hill-beautiful-colorful-sky-morning_181624-24501.jpg",
@@ -12597,7 +12597,7 @@ exports[`Storyshots Box CompositionCard3 1`] = `
     </View>
     <View
       mx="auto"
-      rounded="pill"
+      rounded="25"
       style={
         Array [
           Object {
@@ -12626,7 +12626,7 @@ exports[`Storyshots Box CompositionCard3 1`] = `
         h={64}
         maxWidth="100%"
         onError={[Function]}
-        rounded="pill"
+        rounded="25"
         source={
           Object {
             "uri": "https://image.freepik.com/free-photo/pathway-middle-green-leafed-trees-with-sun-shining-through-branches_181624-4539.jpg",
@@ -49599,7 +49599,7 @@ exports[`Storyshots Input Variants 1`] = `
         allowFontScaling={true}
         background="transparent"
         borderColor="muted.200"
-        borderRadius="pill"
+        borderRadius="25"
         borderWidth={1}
         color="black"
         editable={true}
