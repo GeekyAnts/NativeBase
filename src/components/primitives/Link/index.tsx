@@ -63,7 +63,7 @@ const Link = ({ onPress, children, ...props }: ILinkProps, ref: any) => {
           flexDirection="row"
         >
           {React.Children.map(children, (child) =>
-            typeof child === 'string' ? (
+            typeof child === 'string' || typeof child === 'number' ? (
               <Text {...resolvedProps._text} {...linkTextProps}>
                 {child}
               </Text>
