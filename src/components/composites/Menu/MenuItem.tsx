@@ -57,7 +57,7 @@ const MenuItem = (
     >
       <>
         {React.Children.map(children, (child, index: any) => {
-          if (typeof child === 'string') {
+          if (typeof child === 'string' || typeof child === 'number') {
             return (
               <Text {..._text} key={`menu-item-${index}`}>
                 {child}

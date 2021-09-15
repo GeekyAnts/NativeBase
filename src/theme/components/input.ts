@@ -64,7 +64,7 @@ const baseStyle = (props: Record<string, any>) => {
 
 function roundedStyle() {
   return {
-    borderRadius: 'pill',
+    borderRadius: '25',
     borderWidth: 1,
   };
 }

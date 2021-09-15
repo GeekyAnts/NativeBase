@@ -2,9 +2,9 @@ import React from 'react';
 import { Box, Heading, Image, Text, HStack, Stack, Button } from 'native-base';
 export const Example = () => {
   return (
-    <Box rounded="pill" w="100%" shadow={4} mx={{ base: 'auto', md: 0 }}>
+    <Box rounded="25" w="100%" shadow={4} mx={{ base: 'auto', md: 0 }}>
       <Image
-        roundedTop="pill"
+        roundedTop="25"
         h={56}
         source={{
           uri:

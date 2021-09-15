@@ -13,13 +13,13 @@ import { Feather, AntDesign } from '@expo/vector-icons';
 
 export const Example = () => {
   return (
-    // <Box rounded="pill" shadow={4} mx={{ base: 'auto', md: 0 }}>
-    <Box rounded="pill" w="100%" shadow={4} mx={{ base: 'auto', md: 0 }}>
+    // <Box rounded="25" shadow={4} mx={{ base: 'auto', md: 0 }}>
+    <Box rounded="25" w="100%" shadow={4} mx={{ base: 'auto', md: 0 }}>
       <Image
         h={64}
         // w={200}
         w="100%"
-        rounded="pill"
+        rounded="25"
         source={{
           uri:
             'https://image.freepik.com/free-photo/pathway-middle-green-leafed-trees-with-sun-shining-through-branches_181624-4539.jpg',

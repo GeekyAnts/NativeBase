@@ -22,7 +22,7 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
       Badge = child;
     } else {
       remainingChildren.push(
-        typeof child === 'string' ? (
+        typeof child === 'string' || typeof child === 'number' ? (
           <Text key={'avatar-children-' + key} {..._text}>
             {child}
           </Text>
