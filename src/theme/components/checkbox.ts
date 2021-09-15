@@ -11,6 +11,7 @@ const baseStyle = (props: Record<string, any>) => {
 
     _text: {
       ml: 3,
+      color: mode('darkText', 'lightText')(props),
     },
     _interactionBox: {
       position: 'absolute',
@@ -22,6 +23,11 @@ const baseStyle = (props: Record<string, any>) => {
       },
     },
     _focus: {
+      _interactionBox: {
+        bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+      },
+    },
+    _focusVisible: {
       _interactionBox: {
         bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
       },
