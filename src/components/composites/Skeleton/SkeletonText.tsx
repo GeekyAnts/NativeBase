@@ -5,25 +5,31 @@ import Box, { IBoxProps } from '../../primitives/Box';
 import Skeleton from './Skeleton';
 import type { ISkeletonTextProps } from './types';
 
-const SkeletonText = (allProps: IBoxProps & ISkeletonTextProps, ref: any) => {
-  const { children, ...props } = allProps;
+const SkeletonText = (
+  { children, ...props }: IBoxProps & ISkeletonTextProps,
+  ref: any
+) => {
+  // const { children, ...props } = allProps;
   const {
     space,
     lineHeight,
     startColor,
     endColor,
-    ...newProps
+    _stack,
+    ...resolvedProps
   } = usePropsResolution('SkeletonText', props);
 
-  let computedChildren = [];
+  const computedChildren = [];
   //generating an array of skeleton components (same length as noOfLines)
-  for (let i = 0; i < newProps.noOfLines; i++) {
+  for (let i = 0; i < resolvedProps.noOfLines; i++) {
     //check for last line (to change the width of last line)
-    if (i == newProps.noOfLines - 1 && newProps.noOfLines !== 1) {
+    if (i === resolvedProps.noOfLines - 1 && resolvedProps.noOfLines !== 1) {
       computedChildren.push(
         //Using Skeleton component with required props
         <Skeleton
-          borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
+          borderRadius={
+            resolvedProps.borderRadius ? resolvedProps.borderRadius : 3
+          }
           endColor={endColor}
           startColor={startColor}
           h={lineHeight}
@@ -33,20 +39,22 @@ const SkeletonText = (allProps: IBoxProps & ISkeletonTextProps, ref: any) => {
     } else
       computedChildren.push(
         <Skeleton
-          borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
+          borderRadius={
+            resolvedProps.borderRadius ? resolvedProps.borderRadius : 3
+          }
           endColor={endColor}
           startColor={startColor}
           h={lineHeight}
         />
       );
   }
-  return newProps.isLoaded ? (
+  return resolvedProps.isLoaded ? (
     children
   ) : (
     <Box
-      borderRadius={newProps.borderRadius ? newProps.borderRadius : 3}
+      borderRadius={resolvedProps.borderRadius ? resolvedProps.borderRadius : 3}
       bg={'transparent'}
-      {...newProps}
+      {...resolvedProps}
       ref={ref}
     >
       {/* populating computed children with given space */}
@@ -56,15 +64,15 @@ const SkeletonText = (allProps: IBoxProps & ISkeletonTextProps, ref: any) => {
         right={0}
         bottom={0}
         position="absolute"
-        justifyContent={space == undefined ? 'space-between' : 'flex-start'}
+        justifyContent={space === undefined ? 'space-between' : 'flex-start'}
         space={space}
         // spreading props specific for VStack
-        {...props._stack}
+        {..._stack}
         overflow="hidden"
       >
         {computedChildren}
       </VStack>
-      {children ? <Box style={{ opacity: 0 }}>{children}</Box> : null}
+      {children ? <Box opacity={0}>{children}</Box> : null}
     </Box>
   );
 };

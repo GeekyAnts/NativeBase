@@ -14,6 +14,7 @@ import type {
   TransformProps,
   PlatformProps,
 } from '../../types';
+import type { ResponsiveValue } from '../../types/responsiveValue';
 import type { SvgProps } from 'react-native-svg';
 export interface IIconProps
   extends Omit<
@@ -47,7 +48,7 @@ export interface IIconProps
   /**
    * The size of the icon.
    */
-  size?: string | number;
+  size?: ResponsiveValue<string | number>;
   /**
    * The color of the icon.
    */

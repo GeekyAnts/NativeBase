@@ -22,17 +22,17 @@ export const PopoverContent = React.forwardRef(
       bodyId,
       headerId,
     } = React.useContext(PopoverContext);
-    let newProps = usePropsResolution('PopoverContent', props);
+    const resolvedProps = usePropsResolution('PopoverContent', props);
 
     const arrowDefaultColor =
       props.bgColor ??
       props.bg ??
       props.backgroundColor ??
-      newProps.backgroundColor;
+      resolvedProps.backgroundColor;
     const color = useToken('colors', arrowDefaultColor);
 
     React.useEffect(() => {
-      let finalFocusRefCurrentVal = finalFocusRef?.current;
+      const finalFocusRefCurrentVal = finalFocusRef?.current;
       if (initialFocusRef && initialFocusRef.current) {
         initialFocusRef.current.focus();
       }
@@ -50,7 +50,7 @@ export const PopoverContent = React.forwardRef(
     });
 
     let arrowElement = null;
-    let restChildren: any = [];
+    const restChildren: any = [];
     React.Children.forEach(props.children, (child) => {
       if (child.type.displayName === 'PopperArrow') {
         arrowElement = React.cloneElement(child, {
@@ -79,7 +79,7 @@ export const PopoverContent = React.forwardRef(
       <Popper.Content
         nativeID={popoverContentId}
         {...accessibilityProps}
-        {...newProps}
+        {...resolvedProps}
         {...props}
         ref={ref}
       >

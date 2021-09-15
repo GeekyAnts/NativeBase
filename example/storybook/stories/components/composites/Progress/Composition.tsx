@@ -9,9 +9,7 @@ export const Example = () => {
       </Center>
       <Text mb={2}>Add Label inside Progress</Text>
       <Progress size="xl" mb={4} value={45}>
-        <Text color="white" bold>
-          45%
-        </Text>
+        45%
       </Progress>
       <Text mb={2}>Add Label outside Progress</Text>
       <Flex direction="row">

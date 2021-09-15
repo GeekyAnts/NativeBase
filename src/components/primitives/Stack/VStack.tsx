@@ -14,12 +14,12 @@ export interface IVStackProps extends IStackProps {
 }
 
 const VStack = (props: IVStackProps, ref?: any) => {
-  const newProps = usePropsResolution('VStack', props);
+  const resolvedProps = usePropsResolution('VStack', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return <StackMain ref={ref} {...newProps} />;
+  return <StackMain ref={ref} {...resolvedProps} />;
 };
 
 export default memo(forwardRef(VStack));

@@ -23,7 +23,7 @@ const Menu = (
     isOpen: isOpenProp,
     defaultIsOpen,
     placement = 'bottom left',
-    ...restProps
+    ...props
   }: IMenuProps,
   ref?: any
 ) => {
@@ -36,7 +36,7 @@ const Menu = (
     },
   });
 
-  const { transition, ...newProps } = usePropsResolution('Menu', restProps);
+  const { transition, ...resolvedProps } = usePropsResolution('Menu', props);
   const handleOpen = React.useCallback(() => {
     setIsOpen(true);
   }, [setIsOpen]);
@@ -50,7 +50,7 @@ const Menu = (
     isOpen,
   });
 
-  let updatedTrigger = () => {
+  const updatedTrigger = () => {
     return trigger(
       {
         ...triggerProps,
@@ -68,7 +68,7 @@ const Menu = (
   }, [isOpen]);
 
   //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(restProps)) {
+  if (useHasResponsiveProps(resolvedProps)) {
     return null;
   }
   return (
@@ -80,7 +80,7 @@ const Menu = (
             triggerRef={triggerRef}
             onClose={handleClose}
             placement={placement}
-            {...restProps}
+            {...props}
           >
             <Backdrop bg="transparent" onPress={handleClose} />
             <Popper.Content>
@@ -88,7 +88,7 @@ const Menu = (
                 value={{ closeOnSelect, onClose: handleClose }}
               >
                 <FocusScope contain restoreFocus autoFocus>
-                  <MenuContent menuRef={ref} {...newProps}>
+                  <MenuContent menuRef={ref} {...resolvedProps}>
                     {children}
                   </MenuContent>
                 </FocusScope>
@@ -103,14 +103,15 @@ const Menu = (
 
 const MenuContent = ({
   menuRef,
-  ...restProps
+  children,
+  ...props
 }: Omit<IMenuProps, 'trigger'> & { menuRef: any }) => {
   const menuProps = useMenu();
   const typeaheadProps = useMenuTypeahead(menuProps);
 
   return (
-    <Box {...restProps} {...menuProps} {...typeaheadProps} ref={menuRef}>
-      <ScrollView>{restProps.children}</ScrollView>
+    <Box {...props} {...menuProps} {...typeaheadProps} ref={menuRef}>
+      <ScrollView>{children}</ScrollView>
     </Box>
   );
 };

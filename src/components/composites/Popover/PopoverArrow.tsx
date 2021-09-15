@@ -5,12 +5,12 @@ import type { IBoxProps } from '../../primitives/Box';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const PopoverArrow = React.forwardRef((props: IBoxProps, ref: any) => {
-  const themeProps = usePropsResolution('PopoverArrow', props);
+  const resolvedProps = usePropsResolution('PopoverArrow', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return <Popper.Arrow {...props} {...themeProps} ref={ref} />;
+  return <Popper.Arrow {...props} {...resolvedProps} ref={ref} />;
 });
 
 PopoverArrow.displayName = 'PopperArrow';

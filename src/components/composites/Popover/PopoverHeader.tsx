@@ -6,7 +6,7 @@ import { PopoverContext } from './PopoverContext';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const PopoverHeader = (props: IBoxProps, ref?: any) => {
-  const newProps = usePropsResolution('PopoverHeader', props);
+  const resolvedProps = usePropsResolution('PopoverHeader', props);
   const { setHeaderMounted, headerId } = React.useContext(PopoverContext);
 
   React.useEffect(() => {
@@ -24,8 +24,7 @@ const PopoverHeader = (props: IBoxProps, ref?: any) => {
       //@ts-ignore
       accessibilityRole={Platform.OS === 'web' ? 'banner' : undefined}
       nativeID={headerId}
-      {...newProps}
-      {...props}
+      {...resolvedProps}
       ref={ref}
     />
   );

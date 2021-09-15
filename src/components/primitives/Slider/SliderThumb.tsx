@@ -19,13 +19,14 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     isReadOnly,
     isDisabled,
   } = React.useContext(SliderContext);
-  const { _readOnly, _disabled, ...themeProps } = usePropsResolution(
+  const resolvedProps = usePropsResolution(
     'SliderThumb',
     {
       size: thumbSize,
       colorScheme,
       ...props,
-    }
+    },
+    { isDisabled, isReadOnly }
   );
   const inputRef = React.useRef(null);
   const { thumbProps, inputProps } = useSliderThumb(
@@ -38,8 +39,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     state
   );
 
-  const thumbAbsoluteSize = useToken('sizes', themeProps.size);
-  // console.log(themeProps, thumbProps);
+  const thumbAbsoluteSize = useToken('sizes', resolvedProps.size);
 
   const thumbStyles: any = {
     bottom:
@@ -57,7 +57,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
   };
 
   thumbStyles.transform.push({
-    scale: state.isThumbDragging(0) ? themeProps.scaleOnPressed : 1,
+    scale: state.isThumbDragging(0) ? resolvedProps.scaleOnPressed : 1,
   });
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -68,11 +68,11 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     <Box
       position="absolute"
       {...thumbProps}
-      {...themeProps}
+      {...resolvedProps}
       ref={ref}
       style={[thumbStyles, props.style]}
-      {...(isReadOnly && _readOnly)}
-      {...(isDisabled && _disabled)}
+      // {...(isReadOnly && _readOnly)}
+      // {...(isDisabled && _disabled)}
     >
       {props.children}
       {Platform.OS === 'web' && (

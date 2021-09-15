@@ -12,9 +12,22 @@ const defaultProps = {
 
 function baseStyle(props: Record<string, any>) {
   const colorScheme = getColorScheme(props);
+
   return {
-    innerBg: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
     bg: mode(`${colorScheme}.200`, `${colorScheme}.800`)(props),
+    overflow: 'hidden',
+    _filledTrack: {
+      bg: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
+      shadow: 0,
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      _text: {
+        color: 'white',
+        fontWeight: 'bold',
+      },
+    },
   };
 }
 

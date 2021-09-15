@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import { ScrollView as RNScrollView } from 'react-native';
-
 import {
   usePropsResolution,
   useStyledSystemPropsResolver,
@@ -16,7 +15,7 @@ export const ScrollView = forwardRef((props: IScrollViewProps, ref: any) => {
     _contentContainerStyle,
     contentContainerStyle,
     ...resolvedProps
-  } = usePropsResolution('ScrollView', props);
+  } = usePropsResolution('ScrollView', props, {});
   const resolved_ContentContainerStyle = useStyledSystemPropsResolver(
     _contentContainerStyle || {}
   );
