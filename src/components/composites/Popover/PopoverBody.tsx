@@ -5,7 +5,7 @@ import { PopoverContext } from './PopoverContext';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const PopoverBody = (props: IBoxProps, ref?: any) => {
-  const newProps = usePropsResolution('PopoverBody', props);
+  const resolvedProps = usePropsResolution('PopoverBody', props);
   const { setBodyMounted, bodyId } = React.useContext(PopoverContext);
 
   React.useEffect(() => {
@@ -18,7 +18,7 @@ const PopoverBody = (props: IBoxProps, ref?: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return <Box nativeID={bodyId} {...newProps} {...props} ref={ref} />;
+  return <Box nativeID={bodyId} {...resolvedProps} {...props} ref={ref} />;
 };
 
 export default React.memo(React.forwardRef(PopoverBody));

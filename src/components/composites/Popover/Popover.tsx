@@ -24,7 +24,7 @@ const Popover = (
     initialFocusRef,
     finalFocusRef,
     trapFocus = true,
-    ...rest
+    ...props
   }: IPopoverProps,
   ref: any
 ) => {
@@ -49,7 +49,7 @@ const Popover = (
     setIsOpen(true);
   }, [setIsOpen]);
 
-  let updatedTrigger = () => {
+  const updatedTrigger = () => {
     return trigger(
       {
         'ref': mergedRef,
@@ -66,7 +66,7 @@ const Popover = (
     setIsOpen(false);
   };
   //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(rest)) {
+  if (useHasResponsiveProps(props)) {
     return null;
   }
 
@@ -81,7 +81,7 @@ const Popover = (
           visible={isOpen}
           style={StyleSheet.absoluteFill}
         >
-          <Popper onClose={handleClose} triggerRef={triggerRef} {...rest}>
+          <Popper onClose={handleClose} triggerRef={triggerRef} {...props}>
             <Backdrop onPress={handleClose} bg="transparent" />
             <PopoverContext.Provider
               value={{

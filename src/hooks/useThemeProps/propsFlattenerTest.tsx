@@ -20,17 +20,6 @@ const specificityPrecedence = [
   SPECIFICITY_10,
   SPECIFICITY_1,
 ];
-const INITIAL_PROP_SPECIFICITY = {
-  [SPECIFICITY_100]: 0,
-  [SPECIFICITY_70]: 0,
-  [SPECIFICITY_60]: 0,
-  [SPECIFICITY_50]: 0,
-  [SPECIFICITY_55]: 0,
-  [SPECIFICITY_40]: 0,
-  [SPECIFICITY_30]: 0,
-  [SPECIFICITY_10]: 0,
-  [SPECIFICITY_1]: 0,
-};
 
 const pseudoPropsMap: any = {
   _web: { dependentOn: 'platform', priority: SPECIFICITY_10 },
@@ -90,14 +79,13 @@ const pseudoPropsMap: any = {
   },
 };
 
-export const compareSpecificity = (
+const compareSpecificity = (
   exisiting: any,
   upcoming: any,
   ignorebaseTheme?: boolean
   // property?: any
 ) => {
   if (!exisiting) return true;
-  if (!upcoming) return false;
   const condition = ignorebaseTheme
     ? specificityPrecedence.length - 1
     : specificityPrecedence.length;
@@ -145,7 +133,14 @@ const simplifyProps = (
     const propertySpecity = currentSpecificity
       ? { ...currentSpecificity }
       : {
-          ...INITIAL_PROP_SPECIFICITY,
+          [SPECIFICITY_100]: 0,
+          [SPECIFICITY_70]: 0,
+          [SPECIFICITY_60]: 0,
+          [SPECIFICITY_50]: 0,
+          [SPECIFICITY_55]: 0,
+          [SPECIFICITY_40]: 0,
+          [SPECIFICITY_30]: 0,
+          [SPECIFICITY_10]: 0,
           [SPECIFICITY_1]: priority,
         };
 
@@ -201,7 +196,7 @@ const simplifyProps = (
   }
 };
 
-export const propsFlattener = (
+export const propsFlattenerTest = (
   { props, colormode, platform, state, currentSpecificityMap }: any,
   priority: number
 ) => {

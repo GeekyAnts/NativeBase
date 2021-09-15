@@ -8,7 +8,7 @@ const Container = (
   { children, centerContent, ...props }: IContainerProps,
   ref?: any
 ) => {
-  const newProps = usePropsResolution('Container', props);
+  const resolvedProps = usePropsResolution('Container', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -16,9 +16,10 @@ const Container = (
   return (
     <Box
       ref={ref}
+      // TODO: these style's should be on theme.
       alignItems={centerContent ? 'center' : 'flex-start'}
       _text={{ textAlign: centerContent ? 'center' : 'left' }}
-      {...newProps}
+      {...resolvedProps}
     >
       {children}
     </Box>

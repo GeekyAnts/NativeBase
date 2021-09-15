@@ -9,11 +9,7 @@ export function Example() {
       p={2}
       bg="red.200"
       borderWidth={1}
-      _dark={{
-        bg: 'red.500',
-        _pressed: { bg: 'teal.300', _focus: { bg: 'amber.200' } },
-      }}
-      _focus={{ bg: 'white', _pressed: { bg: 'lime.400' } }}
+      _pressed={{ bg: 'teal.300', borderColor: 'red.500' }}
     >
       <Text>hello world</Text>
     </Pressable>

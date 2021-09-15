@@ -5,6 +5,12 @@ import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import { Pressable } from '../Pressable';
 import type { IButtonProps } from './types';
+import { composeEventHandlers } from '../../../utils';
+import {
+  useHover,
+  useFocus,
+  useIsPressed,
+} from '../../primitives/Pressable/Pressable';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
@@ -15,33 +21,64 @@ const Button = (
     leftIcon,
     endIcon,
     spinner,
+    isDisabled,
+    isLoading,
     spinnerPlacement = 'start',
     ...props
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  let {
+  const { hoverProps, isHovered } = useHover();
+  const { pressableProps, isPressed } = useIsPressed();
+  const { focusProps, isFocused } = useFocus();
+  const {
+    onPressIn,
+    onPressOut,
+    onHoverIn,
+    onHoverOut,
+    onFocus,
+    onBlur,
     _text,
-    _disabled,
-    _focus,
-    _hover,
-    _pressed,
-    _focusVisible,
-    _loading,
     _stack,
     _spinner,
-    spinnerProps,
     isLoadingText,
     ...resolvedProps
-  } = usePropsResolution('Button', props);
+  } = usePropsResolution(
+    'Button',
+    props,
+    { isDisabled, isHovered, isFocused, isPressed },
+    { ignoreProps: ['_spinner'] }
+  );
 
-  const pressableProps = {
-    ...resolvedProps,
-    _hover,
-    _pressed,
-    _focus,
-    _focusVisible,
-  };
+  // const pressableProps = {
+  //   ...resolvedProps,
+  //   _hover,
+  //   _pressed,
+  //   _focus,
+  //   _focusVisible,
+  // };
+  // let {
+  //   _text,
+  //   _disabled,
+  //   _focus,
+  //   _hover,
+  //   _pressed,
+  //   _focusVisible,
+  //   _loading,
+  //   _stack,
+  //   _spinner,
+  //   spinnerProps,
+  //   isLoadingText,
+  //   ...resolvedProps
+  // } = usePropsResolution('Button', props);
+
+  // const pressableProps = {
+  //   ...resolvedProps,
+  //   _hover,
+  //   _pressed,
+  //   _focus,
+  //   _focusVisible,
+  // };
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -54,8 +91,6 @@ const Button = (
   if (rightIcon) {
     endIcon = rightIcon;
   }
-  const { isDisabled, isLoading } = props;
-
   if (endIcon && React.isValidElement(endIcon)) {
     endIcon = React.Children.map(
       endIcon,
@@ -80,69 +115,59 @@ const Button = (
       }
     );
   }
+
+  const boxChildren = isLoading && isLoadingText ? isLoadingText : children;
+
+  const spinnerElement = spinner ? spinner : <Spinner {..._spinner} />;
+
   return (
     <Pressable
       disabled={isDisabled || isLoading}
       ref={ref}
-      {...pressableProps}
-      {...(isDisabled && _disabled)}
-      {...(isLoading && _loading)}
+      onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
+      onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
+      // @ts-ignore - web only
+      onHoverIn={composeEventHandlers(onHoverIn, hoverProps.onHoverIn)}
+      // @ts-ignore - web only
+      onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
+      // @ts-ignore - web only
+      onFocus={composeEventHandlers(
+        composeEventHandlers(onFocus, focusProps.onFocus)
+        // focusRingProps.onFocu
+      )}
+      // @ts-ignore - web only
+      onBlur={composeEventHandlers(
+        composeEventHandlers(onBlur, focusProps.onBlur)
+        // focusRingProps.onBlur
+      )}
+      {...resolvedProps}
+      // {...pressableProps}
+      // {...(isDisabled && _disabled)}
+      // {...(isLoading && _loading)}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
-      {/* TODO: Replace Render props with Context Hook */}
-      {/* TODO: Can look for a simpler wat to do this */}
-      {({ isPressed, isHovered, isFocused }) => {
-        const focusTextProps = isFocused &&
-          _focus?._text && { ..._focus._text };
-        const hoverTextProps = isHovered &&
-          _hover?._text && { ..._hover._text };
-        const pressedTextProps = isPressed &&
-          _pressed?._text && { ..._pressed._text };
-        const disabledTextProps = isDisabled &&
-          _disabled?._text && { ..._disabled._text };
-        const focusVisibleTextProps = isFocused &&
-          _focusVisible?._text && { ..._focusVisible._text };
-        const loadingTextProps = isLoading &&
-          _loading?._text && { ..._loading._text };
+      <HStack {..._stack}>
+        {startIcon && !isLoading ? startIcon : null}
+        {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
+        {boxChildren ? (
+          <Box
+            _text={{
+              ..._text,
+              // ...hoverTextProps,
+              // ...focusTextProps,
+              // ...focusVisibleTextProps,
+              // ...pressedTextProps,
+              // ...loadingTextProps,
+              // ...disabledTextProps,
+            }}
+          >
+            {isLoading && isLoadingText ? isLoadingText : children}
+          </Box>
+        ) : null}
 
-        const boxChildren =
-          isLoading && isLoadingText ? isLoadingText : children;
-
-        const spinnerElement = spinner ? (
-          spinner
-        ) : (
-          <Spinner
-            color={loadingTextProps?.color || _text?.color}
-            {...spinnerProps}
-            {..._spinner}
-          />
-        );
-
-        return (
-          <HStack {..._stack}>
-            {startIcon && !isLoading ? startIcon : null}
-            {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
-            {boxChildren ? (
-              <Box
-                _text={{
-                  ..._text,
-                  ...hoverTextProps,
-                  ...focusTextProps,
-                  ...focusVisibleTextProps,
-                  ...pressedTextProps,
-                  ...loadingTextProps,
-                  ...disabledTextProps,
-                }}
-              >
-                {isLoading && isLoadingText ? isLoadingText : children}
-              </Box>
-            ) : null}
-
-            {endIcon && !isLoading ? endIcon : null}
-            {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
-          </HStack>
-        );
-      }}
+        {endIcon && !isLoading ? endIcon : null}
+        {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
+      </HStack>
     </Pressable>
   );
 };

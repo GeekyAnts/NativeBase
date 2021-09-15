@@ -42,7 +42,7 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
     'Stack',
     { ...props, size: space },
     {},
-    { resolveResponsively: ['direction'] }
+    { resolveResponsively: ['space', 'direction'] }
   );
 
   //TODO: refactor for responsive prop
