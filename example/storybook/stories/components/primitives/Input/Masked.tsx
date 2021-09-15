@@ -8,8 +8,9 @@ export const Example = () => {
   return (
     <Input
       type={show ? 'text' : 'password'}
+      overflow="visible"
       InputRightElement={
-        <Button ml={1} roundedLeft={0} roundedRight="md" onPress={handleClick}>
+        <Button roundedLeft="0" onPress={handleClick}>
           {show ? 'Hide' : 'Show'}
         </Button>
       }
