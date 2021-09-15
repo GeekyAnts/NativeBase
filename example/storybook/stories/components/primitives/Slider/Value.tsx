@@ -5,11 +5,11 @@ export const Example = () => {
   const [onChangeValue, setOnChangeValue] = React.useState(70);
   const [onChangeEndValue, setOnChangeEndValue] = React.useState(70);
   return (
-    <Stack mx={5} space={4} alignItems="center" w="100%">
-      <Text>onChangeValue - {onChangeValue}</Text>
-      <Text>onChangeEndValue - {onChangeEndValue}</Text>
+    <Stack mx="5" space={4} alignItems="center" w="80%">
+      <Text textAlign="center">onChangeValue - {onChangeValue}</Text>
+      <Text textAlign="center">onChangeEndValue - {onChangeEndValue}</Text>
 
-      <Box mx={5} w={250}>
+      <Box mx="5" w="80%">
         <Slider
           defaultValue={70}
           colorScheme="cyan"
