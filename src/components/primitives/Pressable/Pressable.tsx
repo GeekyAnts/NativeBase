@@ -57,9 +57,9 @@ const Pressable = ({ children, ...props }: IPressableProps, ref: any) => {
     onBlur,
     ...resolvedProps
   } = usePropsResolution('Pressable', props, {
-    isHovered,
     isPressed,
     isFocused,
+    isHovered,
     isFocusVisible,
   });
 

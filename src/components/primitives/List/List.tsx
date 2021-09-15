@@ -5,10 +5,13 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const List = ({ children, divider, ...props }: IListProps, ref?: any) => {
-  const { _text, _hover, _focus, _pressed, ...newProps } = usePropsResolution(
-    'List',
-    props
-  );
+  const {
+    _text,
+    _hover,
+    _focus,
+    _pressed,
+    ...resolvedProps
+  } = usePropsResolution('List', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -25,7 +28,7 @@ const List = ({ children, divider, ...props }: IListProps, ref?: any) => {
   });
 
   return (
-    <VStack divider={divider} ref={ref} {...newProps}>
+    <VStack divider={divider} ref={ref} {...resolvedProps}>
       {children}
     </VStack>
   );

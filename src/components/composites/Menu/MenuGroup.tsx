@@ -9,7 +9,7 @@ const MenuGroup = (
   { title, children, ...props }: IMenuGroupProps,
   ref: any
 ) => {
-  const { _title, ...newProps } = usePropsResolution('MenuGroup', props);
+  const { _title, ...resolvedProps } = usePropsResolution('MenuGroup', props);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps({ ...props, title })) {
@@ -17,7 +17,7 @@ const MenuGroup = (
   }
   return (
     <>
-      <Box {...newProps} ref={ref}>
+      <Box {...resolvedProps} ref={ref}>
         <Text {..._title}>{title}</Text>
       </Box>
       {children}

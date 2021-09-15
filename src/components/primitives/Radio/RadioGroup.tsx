@@ -6,7 +6,7 @@ import { useRadioGroupState } from '@react-stately/radio';
 import { useRadioGroup } from '@react-native-aria/radio';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-export let RadioContext = React.createContext<IRadioContext>(
+export const RadioContext = React.createContext<IRadioContext>(
   {} as IRadioContext
 );
 
@@ -16,8 +16,8 @@ const RadioGroup = (
 ) => {
   const formControlContext = useFormControlContext();
 
-  let state = useRadioGroupState(props);
-  let { radioGroupProps } = useRadioGroup(
+  const state = useRadioGroupState(props);
+  const { radioGroupProps } = useRadioGroup(
     { ...formControlContext, ...props, 'aria-label': props.accessibilityLabel },
     state
   );

@@ -7,14 +7,14 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const FormControl = (props: IFormControlProps, ref: any) => {
   const { htmlProps, ...context } = useFormControlProvider(props);
-  const themedProps = usePropsResolution('FormControl', props);
+  const resolvedProps = usePropsResolution('FormControl', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
   return (
     <FormControlContext.Provider value={context}>
-      <Box width="100%" {...themedProps} {...htmlProps} ref={ref} />
+      <Box width="100%" {...resolvedProps} {...htmlProps} ref={ref} />
     </FormControlContext.Provider>
   );
 };

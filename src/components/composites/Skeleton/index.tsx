@@ -3,7 +3,7 @@ import SkeletonMain from './Skeleton';
 import SkeletonCircle from './SkeletonCircle';
 import SkeletonText from './SkeletonText';
 
-let SkeletonTemp: any = SkeletonMain;
+const SkeletonTemp: any = SkeletonMain;
 SkeletonTemp.Circle = SkeletonCircle;
 SkeletonTemp.Text = SkeletonText;
 

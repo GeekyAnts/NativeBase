@@ -9,7 +9,7 @@ const FormControlErrorMessage = (
   { children, _disabled, ...props }: IFormControlErrorMessageProps,
   ref: any
 ) => {
-  const themedProps = usePropsResolution('FormControlErrorMessage', props);
+  const resolvedProps = usePropsResolution('FormControlErrorMessage', props);
 
   const formControlContext = useFormControlContext();
 
@@ -27,7 +27,7 @@ const FormControlErrorMessage = (
     <Box
       _text={{ fontSize: 'xs', color: 'red.400' }}
       nativeID={formControlContext?.helpTextId}
-      {...themedProps}
+      {...resolvedProps}
       {...props}
       {...(formControlContext?.isDisabled && _disabled)}
       ref={ref}

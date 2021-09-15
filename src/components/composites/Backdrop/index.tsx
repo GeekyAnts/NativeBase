@@ -20,7 +20,7 @@ const Backdrop = (props: IPressableProps) => {
       accessible={false}
       importantForAccessibility="no"
       bg={props.bg || 'rgb(0, 0, 0)'}
-      opacity="0.3"
+      opacity={0.3}
       {...props}
     ></Pressable>
   );

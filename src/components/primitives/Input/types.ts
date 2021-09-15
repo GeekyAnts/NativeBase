@@ -88,7 +88,6 @@ export interface IInputProps
   /**
    * Passed props will be applied on hovered state.
    */
-
   _hover?: Omit<IInputProps, '_hover'>;
   /**
    * Passed props will be applied on focused state.

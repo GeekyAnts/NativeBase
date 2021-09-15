@@ -10,33 +10,33 @@ import { Pressable } from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Link = ({ onPress, children, ...props }: ILinkProps, ref: any) => {
-  let {
-    _hover,
+const Link = (props: ILinkProps, ref: any) => {
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+  const {
+    isUnderlined,
+    children,
     _text,
     href,
+    onPress,
     isExternal,
-    isUnderlined,
     ...resolvedProps
-  } = usePropsResolution('Link', props);
-  const _ref = React.useRef(null);
-
-  const { isHovered } = useHover({}, _ref);
+  } = usePropsResolution('Link', props, { isHovered });
   const { linkProps } = useLink({ href, onPress, isExternal, _ref });
 
   const linkTextProps = {
     textDecorationLine: isUnderlined ? 'underline' : 'none',
     ..._text,
   };
-  function getHoverProps() {
-    let hoverTextProps = {
-      ...linkTextProps,
-      ..._hover?._text,
-    };
-    return {
-      ...hoverTextProps,
-    };
-  }
+  // function getHoverProps() {
+  //   let hoverTextProps = {
+  //     ...linkTextProps,
+  //     ..._hover?._text,
+  //   };
+  //   return {
+  //     ...hoverTextProps,
+  //   };
+  // }
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -49,7 +49,6 @@ const Link = ({ onPress, children, ...props }: ILinkProps, ref: any) => {
           {...linkProps}
           {...resolvedProps}
           _text={linkTextProps}
-          {...(isHovered && getHoverProps())}
           ref={mergeRefs([ref, _ref])}
           flexDirection="row"
         >
