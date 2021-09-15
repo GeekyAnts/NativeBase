@@ -3,6 +3,7 @@ const baseStyle = {
   height: 'auto',
   display: 'flex',
   flexDirection: 'row',
+  spacing: '2',
 };
 const defaultProps = {
   direction: 'row',
