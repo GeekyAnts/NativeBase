@@ -6,7 +6,7 @@ import {
   Box,
   Button,
   Pressable,
-  Select,
+  // Select,
   Image,
   Spinner,
   Text,
@@ -15,7 +15,7 @@ import {
   Slider,
   // Icon,
   HStack,
-  // Heading,
+  Heading,
 } from '../../components/primitives';
 // import { Ionicons } from '@expo/vector-icons';
 import { FormControl, Menu } from '../../components/composites';
@@ -412,42 +412,6 @@ describe('props resolution', () => {
     );
   });
 
-  it('Menu: style props test', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Select
-          selectedValue={'js'}
-          testID="selectTest"
-          minWidth={200}
-          accessibilityLabel="Select your favorite programming language"
-          placeholder="Select your favorite programming language"
-          _selectedItem={{
-            bg: 'cyan.600',
-          }}
-        >
-          <Select.Item testID="test" label="JavaScript" value="js" />
-          <Select.Item
-            testID="test1"
-            isDisabled
-            label="TypeScript"
-            value="ts"
-            _disabled={{ bg: 'blue.700' }}
-          />
-        </Select>
-      </Provider>
-    );
-    const selectElement = getByTestId('selectTest');
-    fireEvent.press(selectElement);
-    const selectItem = getByTestId('test');
-    // const disabledSelectItem = getByTestId('test1');
-    expect(selectItem.props.style.backgroundColor).toBe(
-      defaultTheme.colors.cyan['600']
-    );
-    //TODO: Need to discuss
-    // expect(disabledSelectItem.props.style.backgroundColor).toBe(
-    //   defaultTheme.colors.blue['700']
-    // );
-  });
   it('Button: style props test', () => {
     const { getByTestId } = render(
       <Provider>
@@ -620,16 +584,6 @@ describe('props resolution', () => {
     expect(inputElement.props.style.borderBottomWidth).toBe(1);
   });
 
-  it('Input: variant', () => {
-    const { getByTestId } = render(
-      <Provider>
-        <Input testID="test" variant="filled" />
-      </Provider>
-    );
-    const inputElement = getByTestId('test');
-    expect(inputElement.props.style.backgroundColor).toBe('#e5e5e5');
-  });
-
   // it('Input: inputElements', () => {
   //   const { getByTestId } = render(
   //     <Provider>
@@ -662,7 +616,6 @@ describe('props resolution', () => {
         />
       </Provider>
     );
-
     const inputElement = getByTestId('test');
     expect(inputElement.props.style.borderBottomWidth).toBe(1);
     expect(inputElement.props.style.fontSize).toBe(14);
@@ -941,6 +894,25 @@ describe('props resolution', () => {
     expect(sliderElement.props.sliderSize).toBe(5);
     expect(sliderElement.props.colorScheme).toBe('blue');
   });
+  it('tests lineHeight & letterspacing in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text
+          /* @ts-ignore */
+          fontSize="20px"
+          lineHeight="5xl"
+          letterSpacing="xl"
+          testID="test"
+        >
+          This is a text
+        </Text>
+      </Provider>
+    );
+
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(80);
+    expect(text.props.style.letterSpacing).toBe(1);
+  });
 
   it('Slider: style props test on ios with dark mode', () => {
     const newTheme = extendTheme({
@@ -1118,28 +1090,63 @@ describe('props resolution', () => {
     const newTheme = extendTheme({
       config: { initialColorMode: 'dark' },
     });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Box>
+          <Text
+            // @ts-ignore
+            fontSize="12px"
+            testID="test"
+            lineHeight="4xl"
+            letterSpacing="xl"
+            _ios={{
+              _dark: {
+                fontSize: '15px',
+                letterSpacing: 'lg',
+                lineHeight: '3xl',
+              },
+            }}
+          >
+            This is a text
+          </Text>
+        </Box>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(37.5);
+    expect(text.props.style.letterSpacing).toBe(0.375);
+  });
+
+  it('Heading: style props test on ios with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
     Platform.OS = 'ios';
     const { getByTestId } = render(
       <Provider theme={newTheme}>
-        <HStack
-          testID="test"
-          direction="column"
-          _dark={{
-            direction: 'row',
-          }}
-          _ios={{
-            direction: 'column',
-          }}
-        >
-          <Box>1</Box>
-          <Box>2</Box>
-          <Box>3</Box>
-        </HStack>
+        <Box>
+          <Heading
+            // @ts-ignore
+            fontSize="12px"
+            testID="test"
+            lineHeight="4xl"
+            letterSpacing="xl"
+            _ios={{
+              _dark: {
+                fontSize: '15px',
+                letterSpacing: 'lg',
+                lineHeight: '3xl',
+              },
+            }}
+          >
+            This is a Heading
+          </Heading>
+        </Box>
       </Provider>
     );
-
-    const hstackElement = getByTestId('test');
-    expect(hstackElement.props.style.flexDirection).toBe('column');
+    const heading = getByTestId('test');
+    expect(heading.props.style.lineHeight).toBe(37.5);
+    expect(heading.props.style.letterSpacing).toBe(0.375);
   });
 });
 
