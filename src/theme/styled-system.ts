@@ -1,7 +1,9 @@
 import { Platform, StyleSheet } from 'react-native';
-import { get } from 'lodash';
+import get from 'lodash.get';
+import has from 'lodash.has';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
 import { transparentize } from './tools';
+import { strictModeLogger } from '../core/StrictMode';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
@@ -108,6 +110,9 @@ export const flexbox = {
   justifyContent: true,
   flexWrap: true,
   flexDirection: true,
+  flexDir: {
+    property: 'flexDirection',
+  },
   // item
   flex: true,
   flexGrow: true,
@@ -153,7 +158,10 @@ export const color = {
     scale: 'colors',
     transformer: getColor,
   },
-  opacity: true,
+  opacity: {
+    property: 'opacity',
+    scale: 'opacity',
+  },
   bg: {
     property: 'backgroundColor',
     scale: 'colors',
@@ -534,9 +542,9 @@ export const typography = {
   textOverflow: true,
   textTransform: true,
   whiteSpace: true,
-  textDecoration: true,
-  txtDecor: { property: 'textDecoration' },
-  textDecorationLine: { property: 'textDecorationLine' },
+  textDecoration: { property: 'textDecorationLine' },
+  txtDecor: { property: 'textDecorationLine' },
+  textDecorationLine: true,
 };
 
 const extraProps = {
@@ -578,6 +586,7 @@ export const getStyleAndFilteredProps = ({
   theme,
   debug,
   currentBreakpoint,
+  strictMode,
   ...props
 }: any) => {
   let styleFromProps: any = {};
@@ -588,6 +597,7 @@ export const getStyleAndFilteredProps = ({
     if (key in propConfig) {
       const value = resolveValueWithBreakpoint(
         rawValue,
+        theme.breakpoints,
         currentBreakpoint,
         key
       );
@@ -603,9 +613,31 @@ export const getStyleAndFilteredProps = ({
         //@ts-ignore
         const { property, scale, properties, transformer } = config;
         let val = value;
+        const strictModeProps = {
+          token: value,
+          scale,
+          mode: strictMode,
+          type: 'tokenNotFound' as any,
+        };
+
         if (transformer) {
-          val = transformer(val, theme[scale], theme, props.fontSize);
+          val = transformer(
+            val,
+            theme[scale],
+            theme,
+            props.fontSize,
+            strictModeProps
+          );
         } else {
+          // If a token is not found in the theme
+          if (
+            __DEV__ &&
+            !has(theme[scale], value) &&
+            typeof value !== 'undefined'
+          ) {
+            strictModeLogger(strictModeProps);
+          }
+
           val = get(theme[scale], value, value);
         }
 
@@ -617,6 +649,17 @@ export const getStyleAndFilteredProps = ({
               parseFloat(val) *
               parseFloat(get(theme.fontSizes, props.fontSize, props.fontSize));
           }
+        }
+
+        if (
+          __DEV__ &&
+          typeof value !== 'string' &&
+          typeof value !== 'undefined'
+        ) {
+          strictModeLogger({
+            ...strictModeProps,
+            type: 'tokenNotString',
+          });
         }
 
         val = convertStringNumberToNumber(key, val);

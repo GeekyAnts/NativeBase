@@ -9,6 +9,8 @@ import {
   Select,
   Image,
   Spinner,
+  Text,
+  Heading,
 } from '../../components/primitives';
 import { FormControl, Menu } from '../../components/composites';
 import { Platform } from 'react-native';
@@ -521,5 +523,109 @@ describe('props resolution', () => {
     expect(box.props.style).toEqual({
       marginTop: 29,
     });
+  });
+
+  it('tests lineHeight & letterspacing in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Text
+          /* @ts-ignore */
+          fontSize="20px"
+          lineHeight="5xl"
+          letterSpacing="xl"
+          testID="test"
+        >
+          This is a text
+        </Text>
+      </Provider>
+    );
+    const text = getByTestId('test');
+
+    expect(text.props.style.lineHeight).toBe(80);
+    expect(text.props.style.letterSpacing).toBe(1);
+  });
+
+  it('Text: style props test on ios with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Box>
+          <Text
+            // @ts-ignore
+            fontSize="12px"
+            testID="test"
+            lineHeight="4xl"
+            letterSpacing="xl"
+            _ios={{
+              _dark: {
+                fontSize: '15px',
+                letterSpacing: 'lg',
+                lineHeight: '3xl',
+              },
+            }}
+          >
+            This is a text
+          </Text>
+        </Box>
+      </Provider>
+    );
+    const text = getByTestId('test');
+    expect(text.props.style.lineHeight).toBe(37.5);
+    expect(text.props.style.letterSpacing).toBe(0.375);
+  });
+
+  it('tests lineHeight & letterspacing in text ', () => {
+    const { getByTestId } = render(
+      <Provider>
+        <Heading
+          /* @ts-ignore */
+          fontSize="20px"
+          lineHeight="5xl"
+          letterSpacing="xl"
+          testID="test"
+        >
+          This is a Heading
+        </Heading>
+      </Provider>
+    );
+    const heading = getByTestId('test');
+
+    expect(heading.props.style.lineHeight).toBe(80);
+    expect(heading.props.style.letterSpacing).toBe(1);
+  });
+
+  it('Heading: style props test on ios with dark mode', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+    });
+    Platform.OS = 'ios';
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Box>
+          <Heading
+            // @ts-ignore
+            fontSize="12px"
+            testID="test"
+            lineHeight="4xl"
+            letterSpacing="xl"
+            _ios={{
+              _dark: {
+                fontSize: '15px',
+                letterSpacing: 'lg',
+                lineHeight: '3xl',
+              },
+            }}
+          >
+            This is a Heading
+          </Heading>
+        </Box>
+      </Provider>
+    );
+    const heading = getByTestId('test');
+    expect(heading.props.style.lineHeight).toBe(37.5);
+    expect(heading.props.style.letterSpacing).toBe(0.375);
   });
 });

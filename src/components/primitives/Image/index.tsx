@@ -1,4 +1,4 @@
-import React, { useState, memo, forwardRef } from 'react';
+import React, { useState, memo, forwardRef, useCallback, useRef } from 'react';
 import { Image as RNImage } from 'react-native';
 import Text from '../Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -8,34 +8,56 @@ import { makeStyledComponent } from '../../../utils/styled';
 
 const StyledImage = makeStyledComponent(RNImage);
 
-const Image = ({ source, ...props }: IImageProps, ref: any) => {
+const Image = (props: IImageProps, ref: any) => {
   const {
+    source,
+    src,
+    fallbackElement,
     alt,
     fallbackSource,
     ignoreFallback,
     _alt,
     ...newProps
   } = usePropsResolution('Image', props);
-  const [renderedSource, setSource] = useState(source);
+
+  const finalSource: any = useRef(null);
+  const getSource = useCallback(() => {
+    if (source) {
+      finalSource.current = source;
+    } else if (src) {
+      finalSource.current = { uri: src };
+    }
+    return finalSource.current;
+  }, [source, src]);
+
+  const [renderedSource, setSource] = useState(getSource());
   const [alternate, setAlternate] = useState(false);
+  const [fallbackSourceFlag, setfallbackSourceFlag] = useState(true);
 
   React.useEffect(() => {
-    setAlternate(false);
-    setSource(source);
-  }, [source]);
+    return () => {
+      finalSource.current = null;
+    };
+  }, [source, src, getSource]);
 
-  const onImageLoadError = (event: any) => {
-    console.warn(event.nativeEvent.error);
-    if (
-      !ignoreFallback &&
-      fallbackSource &&
-      fallbackSource !== renderedSource
-    ) {
-      setSource(fallbackSource);
-    } else {
-      setAlternate(true);
-    }
-  };
+  const onImageLoadError = useCallback(
+    (event: any) => {
+      props.onError && props.onError(event);
+      console.warn(event.nativeEvent.error);
+      if (
+        !ignoreFallback &&
+        fallbackSource &&
+        fallbackSource !== renderedSource &&
+        fallbackSourceFlag
+      ) {
+        setfallbackSourceFlag(false);
+        setSource(fallbackSource);
+      } else {
+        setAlternate(true);
+      }
+    },
+    [fallbackSource, fallbackSourceFlag, ignoreFallback, props, renderedSource]
+  );
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -45,7 +67,11 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
   }
 
   if (alternate) {
-    return <Text {..._alt}>{alt}</Text>;
+    if (fallbackElement) {
+      if (React.isValidElement(fallbackElement)) {
+        return fallbackElement;
+      }
+    } else return <Text {..._alt}>{alt}</Text>;
   }
   return (
     <StyledImage
@@ -53,7 +79,7 @@ const Image = ({ source, ...props }: IImageProps, ref: any) => {
       accessibilityLabel={alt}
       alt={alt}
       {...newProps}
-      onError={props.onError ? props.onError : onImageLoadError}
+      onError={onImageLoadError}
       ref={ref}
     />
   );
