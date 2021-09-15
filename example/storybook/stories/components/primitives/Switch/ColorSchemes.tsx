@@ -4,7 +4,7 @@ import { Switch, VStack, Heading } from 'native-base';
 export const Example = () => {
   return (
     <VStack space={4} alignItems="center">
-      <Heading textAlign="center" mb={10}>
+      <Heading textAlign="center" mb="10">
         Color Scheme
       </Heading>
       <Switch isChecked colorScheme="primary" />
