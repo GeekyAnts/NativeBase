@@ -41,10 +41,9 @@ const baseStyle = (props: Record<string, any>) => {
       style: { ...focusRing },
       borderColor: 'primary.400',
     },
-    _web: {
-      outlineWidth: 0,
-      lineHeight: 'lg', // Todo: Move to _web inside size so that sm and xs don't have this much height
-    },
+    ...Platform.select({
+      web: { outlineWidth: 0, lineHeight: 'lg' },
+    }),
   };
 };
 
