@@ -3,6 +3,11 @@ import { mode, transparentize } from '../tools';
 const baseStyle = (props: Record<string, any>) => {
   const { colorScheme, theme } = props;
   return {
+    borderWidth: 2,
+    borderRadius: 'full',
+    p: '2px',
+    borderColor: mode('muted.300', 'muted.600')(props),
+    bg: mode('muted.50', 'muted.700')(props), // matching background color
     _text: {
       ml: 3,
     },
@@ -10,13 +15,6 @@ const baseStyle = (props: Record<string, any>) => {
       position: 'absolute',
       zIndex: -1,
       borderRadius: 'full',
-    },
-    _iconWrapper: {
-      borderWidth: 2,
-      borderRadius: 'full',
-      p: '2px',
-      borderColor: mode('muted.300', 'muted.600')(props),
-      bg: mode('muted.50', 'muted.700')(props), // matching background color
     },
     _icon: {
       color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props), // matching background color
@@ -40,25 +38,19 @@ const baseStyle = (props: Record<string, any>) => {
       _interactionBox: {
         borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
       },
-      _iconWrapper: {
-        borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
-      },
+      borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
     },
     _disabled: {
+      opacity: 0.4,
       _interactionBox: {
-        bg: 'transaprarent',
-      },
-      _iconWrapper: {
-        opacity: 0.4,
+        bg: 'transparent',
       },
       _icon: {
-        bg: 'transaprarent',
+        bg: 'transparent',
       },
     },
     _invalid: {
-      _iconWrapper: {
-        borderColor: mode('error.600', 'error.400')(props),
-      },
+      borderColor: mode('error.600', 'error.400')(props),
     },
     _pressed: {
       _interactionBox: {
