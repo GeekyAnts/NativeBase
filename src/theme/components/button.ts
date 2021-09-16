@@ -100,24 +100,9 @@ function variantOutline(props: Dict) {
   };
 }
 
-type AccessibleColor = {
-  bg?: string;
-  color?: string;
-};
-
-/** Accessible color overrides for less accessible colors. */
-const accessibleColorMap: { [key: string]: AccessibleColor } = {
-  yellow: {
-    bg: 'yellow.400',
-  },
-  cyan: {
-    bg: 'cyan.400',
-  },
-};
-
 function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
-  let { bg = `${c}.500` } = accessibleColorMap[c] || {};
+  let bg = `${c}.500`;
   bg = mode(bg, `${c}.300`)(props);
   // let _disabled;
   if (props.isDisabled) {
@@ -180,7 +165,7 @@ function getBg(props: Record<string, any>) {
 
 function variantSubtle(props: Dict) {
   const { colorScheme: c } = props;
-  let { bg = `${c}.500` } = accessibleColorMap[c] || {};
+  let bg = `${c}.500`;
   let color;
   bg = getBg(props);
   if (props.isDisabled) {
