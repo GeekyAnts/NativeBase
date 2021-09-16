@@ -16,6 +16,7 @@ export type ITypeaheadProps = IBoxProps & {
 };
 
 export type IComboBoxProps = {
+  menuTrigger?: 'focus' | 'input' | 'manual',
   items: any[];
   renderItem?: (item: any) => any;
   onInputChange?: (value: string) => void;
