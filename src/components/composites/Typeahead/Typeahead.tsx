@@ -212,14 +212,16 @@ function Option({ item, state }: { item: any; state: ComboBoxState<any> }) {
   );
 
   let backgroundColor = searchItemStyle.backgroundColor;
-  let opacity = 1;
+  let opacity = searchItemStyle.opacity ?? 0;
 
   if (isSelected) {
+    opacity = searchItemStyle._focus.opacity ?? opacity;
     backgroundColor = searchItemStyle._focus.backgroundColor;
   } else if (isFocused) {
+    opacity = searchItemStyle._focus.opacity ?? opacity;
     backgroundColor = searchItemStyle._focus.backgroundColor;
   } else if (isDisabled) {
-    opacity = 0.6;
+    opacity = searchItemStyle._focus.opacity ?? 0.6;
     backgroundColor = searchItemStyle._disabled.backgroundColor;
   }
 
