@@ -57,8 +57,8 @@ export const Typeahead = React.forwardRef(
           const optionKey = getOptionKey
             ? getOptionKey(item)
             : item.id !== undefined
-            ? item.id
-            : optionLabel;
+              ? item.id
+              : optionLabel;
 
           return (
             <Item textValue={optionLabel} key={optionKey}>
@@ -80,14 +80,14 @@ export const Typeahead = React.forwardRef(
 const ComboBoxImplementation = React.forwardRef(
   (props: IComboBoxProps, ref?: any) => {
     const [layoutProps] = extractInObject(props, layoutPropsList);
-    let state = useComboBoxState(props);
+    const state = useComboBoxState(props);
 
-    let triggerRef = React.useRef(null);
-    let inputRef = React.useRef(null);
-    let listBoxRef = React.useRef(null);
-    let popoverRef = React.useRef(null);
+    const triggerRef = React.useRef(null);
+    const inputRef = React.useRef(null);
+    const listBoxRef = React.useRef(null);
+    const popoverRef = React.useRef(null);
 
-    let {
+    const {
       buttonProps: triggerProps,
       inputProps,
       listBoxProps,
@@ -111,7 +111,7 @@ const ComboBoxImplementation = React.forwardRef(
       return props.toggleIcon;
     };
 
-    let { buttonProps } = useButton(triggerProps);
+    const { buttonProps } = useButton(triggerProps);
 
     return (
       <Box flexDirection="row" {...layoutProps} ref={ref}>
@@ -156,9 +156,9 @@ type IListBoxProps = {
 };
 
 function ListBoxPopup(props: IListBoxProps) {
-  let { popoverRef, listBoxRef, state, dropdownHeight, label } = props;
+  const { popoverRef, listBoxRef, state, dropdownHeight, label } = props;
 
-  let { listBoxProps } = useListBox(
+  const { listBoxProps } = useListBox(
     {
       label,
       autoFocus: state.focusStrategy,
@@ -194,12 +194,12 @@ function ListBoxPopup(props: IListBoxProps) {
 function Option({ item, state }: { item: any; state: ComboBoxState<any> }) {
   const searchItemStyle = useThemeProps('TypeAheadSearchItem', {});
 
-  let ref = React.useRef(null);
-  let isDisabled = state.disabledKeys.has(item.key);
-  let isSelected = state.selectionManager.isSelected(item.key);
-  let isFocused = state.selectionManager.focusedKey === item.key;
+  const ref = React.useRef(null);
+  const isDisabled = state.disabledKeys.has(item.key);
+  const isSelected = state.selectionManager.isSelected(item.key);
+  const isFocused = state.selectionManager.focusedKey === item.key;
 
-  let { optionProps } = useOption(
+  const { optionProps } = useOption(
     {
       key: item.key,
       isDisabled,
