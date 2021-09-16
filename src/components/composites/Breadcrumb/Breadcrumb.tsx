@@ -15,7 +15,6 @@ const Breadcrumb = (
     style,
     children,
     separator,
-    spacing,
     _text,
     maxItems,
     _button,
@@ -35,30 +34,29 @@ const Breadcrumb = (
       onCollapseChange && onCollapseChange(value);
     },
   });
+  const { spacing, ...newProps } = usePropsResolution('Breadcrumb', props);
 
-  let separatorProps = {
+  const separatorProps = {
     accessibilityRole: (Platform.OS === 'web'
       ? 'presentation'
       : undefined) as AccessibilityRole,
   };
   const separatorElement = separator ? (
     typeof separator === 'string' ? (
-      <Text {...separatorProps} mx={spacing ?? 2}>
+      <Text {...separatorProps} mx={spacing}>
         {separator}
       </Text>
     ) : (
       React.cloneElement(separator, {
-        mx: spacing ?? 2,
+        mx: spacing,
         ...separatorProps,
       })
     )
   ) : (
-    <Text mx={spacing ?? 2} {...separatorProps}>
+    <Text mx={spacing} {...separatorProps}>
       {'/'}
     </Text>
   );
-
-  let newProps = usePropsResolution('Breadcrumb', props);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -73,7 +71,7 @@ const Breadcrumb = (
       style={style}
       // Custom Separator
       divider={separatorElement}
-      space={spacing ?? 2}
+      space={spacing}
       // @ts-ignore - Web only prop
       accessibilityRole={Platform.OS === 'web' ? 'navigation' : undefined}
       accessibilityLabel="Breadcrumb"

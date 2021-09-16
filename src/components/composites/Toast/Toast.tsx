@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import IconButton from '../IconButton';
 import Box from '../../primitives/Box';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
 
@@ -137,7 +137,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
   const [visibleToasts, setVisibleToasts] = useState<
     { [key in string]: boolean }
   >({});
-  const themeProps = useThemeProps('Toast', {});
+  const themeProps = usePropsResolution('Toast', {});
   let toastIndex = React.useRef(1);
 
   const hideAll = () => {

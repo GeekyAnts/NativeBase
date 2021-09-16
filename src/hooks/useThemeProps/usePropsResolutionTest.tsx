@@ -6,7 +6,7 @@ import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
-import { propsFlattener } from './propsFlattener';
+import { propsFlattenerTest } from './propsFlattenerTest';
 
 const specificityOrder = [
   'p',
@@ -35,7 +35,7 @@ const specificityOrder = [
   'marginRight',
 ];
 
-let marginMap: any = {
+const marginMap: any = {
   mx: ['marginRight', 'marginLeft'],
   my: ['marginTop', 'marginBottom'],
   mt: ['marginTop'],
@@ -51,7 +51,7 @@ marginMap.marginBottom = marginMap.mb;
 marginMap.marginLeft = marginMap.ml;
 marginMap.marginRight = marginMap.mr;
 
-let paddingMap: any = {
+const paddingMap: any = {
   px: ['paddingRight', 'paddingLeft'],
   py: ['paddingTop', 'paddingBottom'],
   pt: ['paddingTop'],
@@ -96,7 +96,7 @@ function overrideDefaultProps(userProps: any, defaultProps: any) {
     }
   });
 
-  return merge(flattenedDefaultProps, flattenedUserProps);
+  return merge({}, flattenedUserProps, flattenedDefaultProps);
 }
 
 /**
@@ -146,7 +146,7 @@ export function usePropsResolutionTest(
   );
   // STEP 2: flatten them
 
-  let [flattenProps, specificityMap] = propsFlattener(
+  let [flattenProps, specificityMap] = propsFlattenerTest(
     {
       props: incomingWithDefaultProps,
       platform: Platform.OS,
@@ -187,7 +187,7 @@ export function usePropsResolutionTest(
             ...colorModeProps,
           });
 
-    [flattenBaseStyle, baseSpecificityMap] = propsFlattener(
+    [flattenBaseStyle, baseSpecificityMap] = propsFlattenerTest(
       {
         props: componentBaseStyle,
         platform: Platform.OS,
@@ -217,7 +217,7 @@ export function usePropsResolutionTest(
             ...colorModeProps,
           });
 
-    [flattenVariantStyle, variantSpecificityMap] = propsFlattener(
+    [flattenVariantStyle, variantSpecificityMap] = propsFlattenerTest(
       {
         props: componentVariantProps,
         platform: Platform.OS,
@@ -265,7 +265,7 @@ export function usePropsResolutionTest(
       componentSizeProps = componentTheme.sizes[size];
     }
 
-    [flattenSizeStyle] = propsFlattener(
+    [flattenSizeStyle] = propsFlattenerTest(
       {
         props: componentSizeProps,
         platform: Platform.OS,
@@ -313,7 +313,7 @@ export function usePropsResolutionTest(
   // // NOTE: seprating bg props when linearGardiant is available
   const [gradientProps] = extractInObject(flattenProps, ignore);
 
-  let bgColor =
+  const bgColor =
     flattenProps.bg ?? flattenProps.backgroundColor ?? flattenProps.bgColor;
 
   const contrastTextColor = useContrastText(

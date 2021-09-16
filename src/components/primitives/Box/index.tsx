@@ -10,7 +10,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledBox = makeStyledComponent(View);
 
-let MemoizedGradient: any = undefined;
+let MemoizedGradient: any;
 
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   // const { _text, ...resolvedProps } = useThemeProps('Box', props);
@@ -79,7 +79,11 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
           locations={lgrad.locations}
         >
           {React.Children.map(children, (child) =>
-            typeof child === 'string' ? <Text {..._text}>{child}</Text> : child
+            typeof child === 'string' || typeof child === 'number' ? (
+              <Text {..._text}>{child}</Text>
+            ) : (
+              child
+            )
           )}
         </Gradient>
       );
@@ -93,8 +97,10 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
     <StyledBox ref={ref} {...safeAreaProps}>
       {React.Children.map(children, (child) => {
         return typeof child === 'string' ||
+          typeof child === 'number' ||
           (child?.type === React.Fragment &&
-            typeof child.props?.children === 'string') ? (
+            (typeof child.props?.children === 'string' ||
+              typeof child.props?.children === 'number')) ? (
           <Text {..._text}>{child}</Text>
         ) : (
           child

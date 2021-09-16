@@ -12,7 +12,6 @@ export const Example = () => {
     <>
       <Box>
         <Heading mb={4}>Breadcrumb Collapsible</Heading>
-
         <Breadcrumb
           mt={3}
           spacing={2}

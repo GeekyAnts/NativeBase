@@ -38,7 +38,7 @@ const baseStyle = (props: any) => {
     _disabled: {
       opacity: '50',
     },
-    spinnerProps: {
+    _spinner: {
       size: 'sm',
     },
   };
@@ -79,7 +79,7 @@ function variantGhost(props: Dict) {
       borderColor: mode(`${c}.600`, `${c}.200`)(props),
       bg: transparentize(mode(`${c}.300`, `${c}.600`)(props), 0.5)(props.theme),
     },
-    spinnerProps: {
+    _spinner: {
       size: 'sm',
     },
   };
@@ -159,7 +159,8 @@ function variantSolid(props: Dict) {
 }
 
 function getBg(props: Record<string, any>) {
-  let { theme, colorScheme, status, variant } = props;
+  const { theme, status, variant } = props;
+  let { colorScheme } = props;
 
   colorScheme = getColorScheme(
     props,

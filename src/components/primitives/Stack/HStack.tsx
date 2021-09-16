@@ -14,12 +14,12 @@ export interface IHStackProps extends IStackProps {
 }
 
 const HStack = (props: IHStackProps, ref?: any) => {
-  const newProps = usePropsResolution('HStack', props);
+  const resolvedProps = usePropsResolution('HStack', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return <StackMain ref={ref} direction="row" {...newProps} />;
+  return <StackMain ref={ref} direction="row" {...resolvedProps} />;
 };
 
 export default memo(forwardRef(HStack));

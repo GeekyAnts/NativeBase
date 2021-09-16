@@ -18,7 +18,7 @@ const FormControlErrorMessage = (
   }: IFormControlErrorMessageProps,
   ref: any
 ) => {
-  const { _text, _stack, ...themedProps } = usePropsResolution(
+  const { _text, _stack, ...resolvedProps } = usePropsResolution(
     'FormControlErrorMessage',
     props
   );
@@ -68,7 +68,7 @@ const FormControlErrorMessage = (
   return formControlContext?.isInvalid ? (
     <Box
       nativeID={formControlContext?.helpTextId}
-      {...themedProps}
+      {...resolvedProps}
       {...props}
       {...(formControlContext?.isDisabled && _disabled)}
       ref={ref}

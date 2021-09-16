@@ -5,12 +5,12 @@ import type { IHeadingProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Heading = (props: IHeadingProps, ref: any) => {
-  const newProps = usePropsResolution('Heading', props);
+  const resolvedProps = usePropsResolution('Heading', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return <Text {...newProps} ref={ref} />;
+  return <Text {...resolvedProps} ref={ref} />;
 };
 
 export default memo(forwardRef(Heading));

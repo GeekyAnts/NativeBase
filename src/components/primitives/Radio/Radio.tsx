@@ -14,11 +14,11 @@ const Radio = ({ icon, wrapperRef, size, ...props }: IRadioProps, ref: any) => {
   const contextState = React.useContext(RadioContext);
   const {
     _interactionBox: { _pressed: _iterationBoxPressed, ..._interactionBox },
-    _radio: {
+    _iconWrapper: {
       _checked: _radioChecked,
       _disabled: _radioDisabled,
       _invalid: _radioInvalid,
-      ..._radio
+      ..._iconWrapper
     },
     _icon,
     isInvalid,
@@ -70,7 +70,7 @@ const Radio = ({ icon, wrapperRef, size, ...props }: IRadioProps, ref: any) => {
               />
               {/* radio */}
               <Center
-                {..._radio}
+                {..._iconWrapper}
                 {...(checked && _radioChecked)}
                 {...(disabled && _radioDisabled)}
                 {...(isInvalid && _radioInvalid)}

@@ -4,7 +4,7 @@ import SliderTrack from './SliderTrack';
 import SliderFilledTrack from './SliderFilledTrack';
 import type { ISliderComponentType } from './types';
 
-let SliderTemp: any = SliderMain;
+const SliderTemp: any = SliderMain;
 SliderTemp.Thumb = SliderThumb;
 SliderTemp.Track = SliderTrack;
 SliderTemp.FilledTrack = SliderFilledTrack;

@@ -9,13 +9,15 @@ import { mergeRefs } from '../../../utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const MenuItem = (
-  { children, onPress, style, textValue, ...props }: IMenuItemProps,
+  { children, isDisabled, onPress, style, textValue, ...props }: IMenuItemProps,
   ref: any
 ) => {
   const { closeOnSelect, onClose } = React.useContext(MenuContext);
   const menuItemRef = React.useRef<any>(null);
   const mergedRef = mergeRefs([menuItemRef, ref]);
-  const newProps = usePropsResolution('MenuItem', props);
+  const { _text, ...resolvedProps } = usePropsResolution('MenuItem', props, {
+    isDisabled,
+  });
   const [textContent, setTextContent] = React.useState('');
   React.useEffect(() => {
     const menuItem = menuItemRef.current;
@@ -23,12 +25,6 @@ const MenuItem = (
       setTextContent((menuItem.textContent ?? '').trim());
     }
   }, [children]);
-
-  let allProps = {
-    ...newProps,
-    ...(newProps.isDisabled ? newProps._disabled : {}),
-  };
-  const { _text, _pressed, _focus, ...touchProps } = allProps;
 
   const menuItemProps = useMenuItem({
     textValue: textValue ?? textContent,
@@ -41,19 +37,17 @@ const MenuItem = (
   }
   return (
     <Pressable
-      _pressed={_pressed}
-      _focus={_focus}
       {...menuItemProps}
-      {...touchProps}
+      {...resolvedProps}
       ref={mergedRef}
       style={style}
-      disabled={props.isDisabled}
+      disabled={isDisabled}
       // TouchableHighlight doesn't announce disabled, even if disabled prop is set
       accessibilityState={{
-        disabled: props.isDisabled,
+        disabled: isDisabled,
       }}
       onPress={(e: any) => {
-        if (!props.isDisabled) {
+        if (!isDisabled) {
           onPress && onPress(e);
           if (closeOnSelect) {
             onClose && onClose();
@@ -63,7 +57,7 @@ const MenuItem = (
     >
       <>
         {React.Children.map(children, (child, index: any) => {
-          if (typeof child === 'string') {
+          if (typeof child === 'string' || typeof child === 'number') {
             return (
               <Text {..._text} key={`menu-item-${index}`}>
                 {child}

@@ -2,10 +2,10 @@ import React from 'react';
 import { Box, Heading, Image, Text, Stack } from 'native-base';
 export const Example = () => {
   return (
-    <Box rounded="pill" w="100%" shadow={4} mx={{ base: 'auto', md: 0 }}>
+    <Box rounded="25" w="100%" shadow={4} mx={{ base: 'auto', md: 0 }}>
       <Image
         h={64}
-        roundedTop="pill"
+        roundedTop="25"
         source={{
           uri:
             'https://image.freepik.com/free-photo/silhouette-person-standing-top-hill-beautiful-colorful-sky-morning_181624-24501.jpg',

@@ -1,14 +1,11 @@
 import React from 'react';
 import { VStack } from '../Stack';
 import type { IListProps } from './types';
-import { useThemeProps } from '../../../hooks';
+import { usePropsResolution } from '../../../hooks';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const UnorderedList = (
-  { style, children, ...props }: IListProps,
-  ref?: any
-) => {
-  const { _text, _hover, ...newProps } = useThemeProps('List', props);
+const UnorderedList = ({ children, ...props }: IListProps, ref?: any) => {
+  const { _text, _hover, ...resolvedProps } = usePropsResolution('List', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -29,7 +26,7 @@ const UnorderedList = (
   });
 
   return (
-    <VStack style={style} {...newProps} ref={ref}>
+    <VStack {...resolvedProps} ref={ref}>
       {children}
     </VStack>
   );

@@ -32,7 +32,7 @@ const Modal = (
   ref: any
 ) => {
   const bottomInset = useKeyboardBottomInset();
-  const { contentSize, _backdrop, ...restThemeProps } = usePropsResolution(
+  const { contentSize, _backdrop, ...resolvedProps } = usePropsResolution(
     'Modal',
     rest
   );
@@ -47,10 +47,10 @@ const Modal = (
 
   const handleClose = () => setVisible(false);
 
-  let child = (
+  const child = (
     <Box
       bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
-      {...restThemeProps}
+      {...resolvedProps}
       ref={ref}
       pointerEvents="box-none"
     >

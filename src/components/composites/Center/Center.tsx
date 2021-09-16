@@ -5,7 +5,7 @@ import type { ICenterProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Center = (props: ICenterProps, ref: any) => {
-  let newProps = usePropsResolution('Center', props);
+  const reslovedProps = usePropsResolution('Center', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -13,7 +13,7 @@ const Center = (props: ICenterProps, ref: any) => {
   return (
     <Box
       ref={ref}
-      {...newProps}
+      {...reslovedProps}
       display="flex"
       alignItems="center"
       justifyContent="center"

@@ -13,7 +13,7 @@ const FormControlLabel = (
 ) => {
   const formControlContext = useFormControlContext();
   const _ref = React.useRef<HTMLLabelElement>(null);
-  const { astrickColor, ...themedProps } = usePropsResolution(
+  const { astrickColor, ...reslovedProps } = usePropsResolution(
     'FormControlLabel',
     props
   );
@@ -51,7 +51,7 @@ const FormControlLabel = (
       _web={{
         accessibilityRole: 'label',
       }}
-      {...themedProps}
+      {...reslovedProps}
       nativeID={formControlContext?.labelId}
       {...props}
       ref={mergedRef}

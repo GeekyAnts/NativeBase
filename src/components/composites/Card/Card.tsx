@@ -4,9 +4,9 @@ import { usePropsResolution } from '../../../hooks/useThemeProps/usePropsResolut
 import type { ICardProps } from './types';
 
 const Card = ({ children, ...props }: ICardProps, ref: any) => {
-  let newProps = usePropsResolution('Card', props);
+  const resolvedProps = usePropsResolution('Card', props);
   return (
-    <Box {...newProps} ref={ref}>
+    <Box {...resolvedProps} ref={ref}>
       {children}
     </Box>
   );

@@ -17,8 +17,9 @@ const Image = (props: IImageProps, ref: any) => {
     fallbackSource,
     ignoreFallback,
     _alt,
-    ...newProps
+    ...resolvedProps
   } = usePropsResolution('Image', props);
+
   const finalSource: any = useRef(null);
   const getSource = useCallback(() => {
     if (source) {
@@ -34,10 +35,7 @@ const Image = (props: IImageProps, ref: any) => {
   const [fallbackSourceFlag, setfallbackSourceFlag] = useState(true);
 
   React.useEffect(() => {
-    setAlternate(false);
-    setSource(getSource());
     return () => {
-      setfallbackSourceFlag(true);
       finalSource.current = null;
     };
   }, [source, src, getSource]);
@@ -60,7 +58,6 @@ const Image = (props: IImageProps, ref: any) => {
     },
     [fallbackSource, fallbackSourceFlag, ignoreFallback, props, renderedSource]
   );
-
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -81,7 +78,7 @@ const Image = (props: IImageProps, ref: any) => {
       source={renderedSource}
       accessibilityLabel={alt}
       alt={alt}
-      {...newProps}
+      {...resolvedProps}
       onError={onImageLoadError}
       ref={ref}
     />
