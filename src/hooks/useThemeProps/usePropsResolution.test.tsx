@@ -321,14 +321,14 @@ describe('props resolution', () => {
   it('resolves negative margins', () => {
     const { getByTestId } = render(
       <Provider>
-        <Box m={-5} testID="test">
+        <Box m={-5} mt={'-10'} testID="test">
           hello world
         </Box>
       </Provider>
     );
     const box = getByTestId('test');
     expect(box.props.style).toEqual({
-      marginTop: -defaultTheme.space['5'],
+      marginTop: -defaultTheme.space['10'],
       marginRight: -defaultTheme.space['5'],
       marginBottom: -defaultTheme.space['5'],
       marginLeft: -defaultTheme.space['5'],
