@@ -4,11 +4,9 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
 import { Example as Usage } from './usage';
 import { Example as Playground } from './Playground';
-import { Example as CenteringChildren } from './centeringChildren';
 
 storiesOf('Container', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Playground', () => <Playground />)
-  .add('Usage', () => <Usage />)
-  .add('CenteringChildren', () => <CenteringChildren />);
+  .add('Usage', () => <Usage />);
