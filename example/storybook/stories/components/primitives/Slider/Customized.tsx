@@ -4,13 +4,13 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export const Example = () => {
   return (
-    <Box mx={5} width="80%">
-      <Slider defaultValue={70} size="lg" colorScheme="orange">
-        <Slider.Track bg="orange.100">
-          <Slider.FilledTrack bg="green.400" />
+    <Box mx="5" width="80%">
+      <Slider defaultValue={70} size="sm" colorScheme="green">
+        <Slider.Track bg="green.100">
+          <Slider.FilledTrack bg="green.600" />
         </Slider.Track>
-        <Slider.Thumb borderWidth={0} bg="gray.200">
-          <Icon as={MaterialIcons} name="park" color="green.500" size={6} />
+        <Slider.Thumb borderWidth="0" bg="transparent">
+          <Icon as={MaterialIcons} name="park" color="green.600" size="sm" />
         </Slider.Thumb>
       </Slider>
     </Box>

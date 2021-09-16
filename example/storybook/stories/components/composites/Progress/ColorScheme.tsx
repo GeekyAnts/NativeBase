@@ -4,9 +4,11 @@ import { Box, Progress, VStack, Heading } from 'native-base';
 export const Example = () => {
   return (
     <Box w="90%">
-      <VStack space={4}>
-        <Heading textAlign="center">Progress ColorScheme</Heading>
-        <VStack mx={4} space={4}>
+      <VStack space="md">
+        <Heading textAlign="center" mb="10">
+          Progress Color Scheme
+        </Heading>
+        <VStack mx="4" space="md">
           <Progress colorScheme="primary" value={35} />
           <Progress colorScheme="secondary" value={45} />
           <Progress colorScheme="emerald" value={55} />

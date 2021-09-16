@@ -1,12 +1,12 @@
 export default {
   baseStyle: {
-    color: 'primary.400',
+    color: 'primary.500',
   },
   sizes: {
     sm: 'small',
     lg: 'large',
   },
   defaultProps: {
-    size: 'large',
+    size: 'small',
   },
 };
