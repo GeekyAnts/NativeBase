@@ -13,7 +13,7 @@ export function Example() {
   return (
     <>
       <Modal isOpen={modalVisible} onClose={setModalVisible} size={size}>
-        <Modal.Content maxWidth="350" maxH="212">
+        <Modal.Content maxH="212">
           <Modal.CloseButton />
           <Modal.Header>Return Policy</Modal.Header>
           <Modal.Body>

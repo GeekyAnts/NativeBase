@@ -8,10 +8,18 @@ export const Example = () => {
   };
   return (
     <>
-      <Link onPress={toggleState} mt={4}>
-        Click here to toggle the color of box.
+      <Box h="100" w="100" bg={state ? 'orange.300' : 'blue.300'} />
+      <Link onPress={toggleState} mt="8">
+        <Box
+          px="3"
+          py="2"
+          bg="primary.400"
+          rounded="sm"
+          _text={{ color: 'white', fontWeight: 'medium' }}
+        >
+          Change Color
+        </Box>
       </Link>
-      <Box h={100} w={100} mt={4} bg={state ? 'orange.300' : 'blue.300'} />
     </>
   );
 };

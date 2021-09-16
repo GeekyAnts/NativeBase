@@ -58,15 +58,15 @@ function variantGhost(props: Dict) {
     _text: {
       color: props.isDisabled
         ? disabledTextColor(props)
-        : mode(`${c}.600`, `${c}.300`)(props),
+        : mode(`${c}.500`, `${c}.300`)(props),
     },
     bg: 'transparent',
     _web: {
       outlineWidth: '0',
     },
     _hover: {
-      _text: { color: mode(`${c}.700`, `${c}.200`)(props) },
-      borderColor: mode(`${c}.700`, `${c}.200`)(props),
+      _text: { color: mode(`${c}.600`, `${c}.200`)(props) },
+      borderColor: mode(`${c}.500`, `${c}.200`)(props),
       bg: transparentize(mode(`${c}.200`, `${c}.700`)(props), 0.5)(props.theme),
     },
     _focusVisible: {
@@ -76,7 +76,7 @@ function variantGhost(props: Dict) {
     },
     _pressed: {
       _text: { color: mode(`${c}.800`, `${c}.100`)(props) },
-      borderColor: mode(`${c}.700`, `${c}.200`)(props),
+      borderColor: mode(`${c}.600`, `${c}.200`)(props),
       bg: transparentize(mode(`${c}.300`, `${c}.600`)(props), 0.5)(props.theme),
     },
     spinnerProps: {
@@ -95,7 +95,7 @@ function variantOutline(props: Dict) {
         ? borderColor
         : props.isDisabled
         ? disabledTextColor(props)
-        : mode(`${c}.600`, `${c}.300`)(props),
+        : mode(`${c}.300`, `${c}.600`)(props),
     ...variantGhost(props),
   };
 }
@@ -117,7 +117,7 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
 
 function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
-  let { bg = `${c}.600` } = accessibleColorMap[c] || {};
+  let { bg = `${c}.500` } = accessibleColorMap[c] || {};
   bg = mode(bg, `${c}.300`)(props);
   // let _disabled;
   if (props.isDisabled) {
@@ -139,10 +139,10 @@ function variantSolid(props: Dict) {
     },
     bg,
     _hover: {
-      bg: mode(`${c}.700`, `${c}.200`)(props),
+      bg: mode(`${c}.600`, `${c}.200`)(props),
     },
     _pressed: {
-      bg: mode(`${c}.800`, `${c}.100`)(props),
+      bg: mode(`${c}.700`, `${c}.100`)(props),
     },
     // TODO: Confirm before merging
     _focus: {
@@ -150,7 +150,7 @@ function variantSolid(props: Dict) {
     },
     _loading: {
       bg: mode(bg, `${c}.300`)(props),
-      opacity: 0.5,
+      opacity: '50',
     },
     _disabled: { bg: mode(`trueGray.300`, `trueGray.600`)(props) },
   };
@@ -218,11 +218,11 @@ function variantLink(props: Dict) {
           ? mode(`muted.800`, `${c}.200`)(props)
           : props.isDisabled
           ? disabledTextColor(props)
-          : mode(`${c}.600`, `${c}.300`)(props),
+          : mode(`${c}.500`, `${c}.300`)(props),
     },
     _hover: {
       _text: {
-        color: mode(`${c}.700`, `${c}.200`)(props),
+        color: mode(`${c}.600`, `${c}.200`)(props),
         textDecorationLine: 'underline',
       },
     },
@@ -233,7 +233,7 @@ function variantLink(props: Dict) {
       },
     },
     _pressed: {
-      _text: { color: mode(`${c}.800`, `${c}.100`)(props) },
+      _text: { color: mode(`${c}.700`, `${c}.100`)(props) },
     },
     _ios: {
       _text: {

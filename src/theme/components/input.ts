@@ -20,7 +20,7 @@ const baseStyle = (props: Record<string, any>) => {
 
   return {
     fontFamily: 'body',
-    p: 2,
+    p: '2',
     borderRadius: 'sm',
     color: mode('muted.900', 'muted.50')(props),
     placeholderTextColor: mode('muted.400', 'muted.500')(props),
@@ -41,15 +41,15 @@ const baseStyle = (props: Record<string, any>) => {
       borderColor: 'primary.400',
     },
     _android: {
-      px: 4,
-      py: 3,
+      px: '4',
+      py: '3',
       _focus: {
         borderColor: 'primary.400',
       },
     },
     _ios: {
-      px: 4,
-      py: 3,
+      px: '4',
+      py: '3',
       _focus: {
         borderColor: 'primary.400',
       },
@@ -63,19 +63,19 @@ const baseStyle = (props: Record<string, any>) => {
 
 function roundedStyle() {
   return {
-    borderRadius: 25,
-    borderWidth: 1,
+    borderRadius: '25',
+    borderWidth: '1',
   };
 }
 function outlineStyle() {
   return {
-    borderWidth: 1,
+    borderWidth: '1',
   };
 }
 function filledStyle(props: Record<string, any>) {
   return {
     bg: props.bg || mode('muted.200', 'muted.600')(props),
-    borderWidth: 1,
+    borderWidth: '1',
     borderColor: 'transparent',
     _hover: {
       bg: mode('muted.300', 'muted.500')(props),
@@ -84,13 +84,13 @@ function filledStyle(props: Record<string, any>) {
 }
 function unstyledStyle() {
   return {
-    borderWidth: 0,
+    borderWidth: '0',
   };
 }
 function underlinedStyle() {
   return {
-    borderRadius: 0,
-    borderBottomWidth: 1,
+    borderRadius: '0',
+    borderBottomWidth: '1',
   };
 }
 
@@ -112,7 +112,7 @@ const sizes = {
 };
 
 const defaultProps = {
-  size: 'md',
+  size: 'sm',
   variant: 'outline',
 };
 

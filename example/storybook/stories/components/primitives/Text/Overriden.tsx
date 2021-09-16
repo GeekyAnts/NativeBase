@@ -4,7 +4,6 @@ import { Text, VStack } from 'native-base';
 export const Example = () => {
   return (
     <VStack space={2} alignItems="center">
-      <Text fontSize={20}>Custom font-size value for this text</Text>
       <Text bold>Bold</Text>
       <Text italic>Italic</Text>
       <Text underline>Underline</Text>

@@ -56,7 +56,7 @@ export const Modal = {
 export const ModalContent = {
   baseStyle: (props: Record<string, any>) => {
     return {
-      bg: mode('white', 'gray.700')(props),
+      bg: mode('coolGray.50', 'gray.700')(props),
       shadow: 1,
       rounded: 'lg',
       maxHeight: `${Dimensions.get('window').height - 150}px`,
@@ -117,10 +117,10 @@ export const ModalFooter = {
 export const ModalOverlay = {
   baseStyle: {
     position: 'absolute',
-    left: 0,
-    top: 0,
-    opacity: 0.5,
-    right: 0,
-    bottom: 0,
+    left: '0',
+    top: '0',
+    opacity: '50',
+    right: '0',
+    bottom: '0',
   },
 };

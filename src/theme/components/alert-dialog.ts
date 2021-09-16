@@ -56,7 +56,7 @@ export const AlertDialog = {
 export const AlertDialogContent = {
   baseStyle: (props: Record<string, any>) => {
     return {
-      bg: mode('white', 'gray.700')(props),
+      bg: mode('coolGray.50', 'gray.700')(props),
       shadow: 1,
       rounded: 'lg',
       maxHeight: `${Dimensions.get('window').height - 150}px`,

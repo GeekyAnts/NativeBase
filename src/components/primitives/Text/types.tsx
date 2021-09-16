@@ -36,7 +36,7 @@ export interface ITextProps
    * The size of font
    */
   fontSize?:
-    | 'xxs'
+    | '2xs'
     | 'xs'
     | 'sm'
     | 'md'
