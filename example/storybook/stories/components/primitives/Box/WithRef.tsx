@@ -7,8 +7,8 @@ export const Example = () => {
   const myRef = React.useRef({});
   React.useEffect(() => {
     let styleObj = {
-      borderWidth: 4,
-      borderRadius: 4,
+      borderWidth: '4',
+      borderRadius: '4',
       borderColor: '#22D3EE',
     };
     if (Platform.OS === 'web') {
