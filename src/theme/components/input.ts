@@ -22,54 +22,42 @@ const baseStyle = (props: Record<string, any>) => {
     fontFamily: 'body',
     p: '2',
     borderRadius: 'sm',
-    color: mode('muted.900', 'muted.50')(props),
+    color: mode('coolGray.800', 'warmGray.50')(props),
     placeholderTextColor: 'muted.400',
     background: 'transparent',
     borderColor: mode('muted.200', 'gray.500')(props),
     _disabled: {
-      opacity: 0.8,
+      opacity: '0.8',
       bg: mode('muted.100', 'muted.700')(props),
-    },
-    _hover: {
-      borderColor: mode('muted.300', 'gray.600')(props),
     },
     _invalid: {
       borderColor: mode('danger.600', 'danger.300')(props),
     },
     _focus: {
-      // style: { ...focusRing },
       borderColor: mode('primary.400', 'primary.500')(props),
     },
-    _android: {
-      px: '4',
-      py: '3',
-      _focus: {
-        borderColor: 'primary.400',
-      },
-    },
-    _ios: {
-      px: '4',
-      py: '3',
-      _focus: {
-        borderColor: 'primary.400',
-      },
-    },
     _web: {
-      outlineWidth: 0,
+      outlineWidth: '0',
       lineHeight: 'lg', // Todo: Move to _web inside size so that sm and xs don't have this much height
     },
   };
 };
 
-function roundedStyle() {
+function roundedStyle(props: Record<string, any>) {
   return {
     borderRadius: '25',
     borderWidth: '1',
+    _hover: {
+      bg: mode('gray.100', 'gray.700')(props),
+    },
   };
 }
-function outlineStyle() {
+function outlineStyle(props: Record<string, any>) {
   return {
     borderWidth: '1',
+    _hover: {
+      bg: mode('gray.100', 'gray.700')(props),
+    },
   };
 }
 function filledStyle(props: Record<string, any>) {
@@ -78,7 +66,7 @@ function filledStyle(props: Record<string, any>) {
     borderWidth: '1',
     borderColor: 'transparent',
     _hover: {
-      bg: mode('muted.300', 'muted.500')(props),
+      bg: mode('muted.300', 'muted.700')(props),
     },
   };
 }

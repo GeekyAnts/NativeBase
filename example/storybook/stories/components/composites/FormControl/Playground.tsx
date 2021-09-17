@@ -9,6 +9,7 @@ export const Example = () => {
       isDisabled={boolean('isDisabled', false)}
       isInvalid={boolean('isInvalid', false)}
       isReadOnly={boolean('isReadOnly', false)}
+      w={{ base: '70%', md: '25%' }}
     >
       <Stack mx={4}>
         <FormControl.Label _invalid={{ backgroundColor: '#FED7D7' }}>

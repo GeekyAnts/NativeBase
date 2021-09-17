@@ -9,6 +9,7 @@ export const Example = () => {
     <Input
       type={show ? 'text' : 'password'}
       overflow="visible"
+      w={{ base: '70%', md: '25%' }}
       InputRightElement={
         <Button roundedLeft="0" onPress={handleClick}>
           {show ? 'Hide' : 'Show'}
