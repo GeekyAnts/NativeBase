@@ -9,10 +9,6 @@ export const FormControlErrorMessage = {
     return {
       mt: '2',
       _text: {
-        // // wordBreak: 'break-all',
-        // overflow: 'hidden',
-        // whiteSpace: 'nowrap',
-        flexWrap: 'wrap',
         fontSize: 'xs',
         color: mode('danger.600', 'danger.300')(props),
       },

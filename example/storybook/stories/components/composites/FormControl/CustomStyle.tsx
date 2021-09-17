@@ -22,10 +22,10 @@ export const Example = () => {
         w={{ base: '100%', md: '25%' }}
       >
         <Box>
-          <Text bold fontSize="xl" mb={4}>
+          <Text bold fontSize="xl" mb="4">
             Default
           </Text>
-          <FormControl mb={5}>
+          <FormControl mb="5">
             <FormControl.Label>Project Title</FormControl.Label>
             <Input />
             <FormControl.HelperText>
@@ -35,10 +35,10 @@ export const Example = () => {
           <Divider />
         </Box>
         <Box>
-          <Text bold fontSize="xl" mb={4}>
+          <Text bold fontSize="xl" mb="4">
             Disabled
           </Text>
-          <FormControl isDisabled mb={5}>
+          <FormControl isDisabled mb="5">
             <FormControl.Label
               _disabled={{
                 _text: {
@@ -57,7 +57,7 @@ export const Example = () => {
           <Divider />
         </Box>
         <Box>
-          <Text bold fontSize="xl" mb={4}>
+          <Text bold fontSize="xl" mb="4">
             Invalid
           </Text>
           <FormControl isInvalid>

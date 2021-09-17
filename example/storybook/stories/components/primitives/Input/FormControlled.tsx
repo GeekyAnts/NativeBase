@@ -7,7 +7,7 @@ export const Example = () => {
       <FormControl.Label>Password</FormControl.Label>
       <Input placeholder="Enter password" />
       <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
-        Try different from previous used passwords.jhgjhgjgj
+        Try different from previous used passwords.
       </FormControl.ErrorMessage>
     </FormControl>
   );
