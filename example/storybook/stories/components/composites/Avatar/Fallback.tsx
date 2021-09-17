@@ -3,10 +3,10 @@ import { Avatar, HStack } from 'native-base';
 
 export const Example = () => {
   return (
-    <HStack mx={{ base: 'auto', md: 0 }} space={2}>
+    <HStack mx={{ base: 'auto', md: '0' }} space={2}>
       <Avatar
         bg="green.500"
-        mr={1}
+        mr='1'
         source={{ uri: 'https://bit.ly/broken-link' }}
       >
         RS
