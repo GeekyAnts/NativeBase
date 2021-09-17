@@ -6,54 +6,70 @@ import {
   Text,
   ScrollView,
   Divider,
-  WarningIcon,
+  Box,
+  WarningOutlineIcon,
 } from 'native-base';
 
 export const Example = () => {
   return (
-    <ScrollView>
-      <Stack space={4} px={4} safeArea mt={6}>
-        <Text bold fontSize="lg">
-          Default
-        </Text>
-        <FormControl>
-          <FormControl.Label>Project Title</FormControl.Label>
-          <Input />
-          <FormControl.HelperText>
-            Give your project a title.
-          </FormControl.HelperText>
-        </FormControl>
-        <Divider />
-        <Text bold fontSize="lg">
-          Disabled
-        </Text>
-        <FormControl isDisabled>
-          <FormControl.Label
-            _disabled={{
-              _text: {
-                color: 'gray.400',
-                fontWeight: 'bold',
-              },
-            }}
-          >
-            Project Title
-          </FormControl.Label>
-          <Input placeholder="Title" />
-          <FormControl.HelperText>
-            Give your project a title.
-          </FormControl.HelperText>
-        </FormControl>
-        <Divider />
-        <Text bold fontSize="lg">
-          Invalid
-        </Text>
-        <FormControl isInvalid>
-          <FormControl.Label>Project Title</FormControl.Label>
-          <Input placeholder="Title" />
-          <FormControl.ErrorMessage leftIcon={<WarningIcon size="xs" />}>
-            Something is wrong.
-          </FormControl.ErrorMessage>
-        </FormControl>
+    <ScrollView w={{ base: '75%', md: '90%' }}>
+      <Stack
+        space={2.5}
+        alignSelf="center"
+        px="4"
+        safeArea
+        mt="4"
+        w={{ base: '100%', md: '25%' }}
+      >
+        <Box>
+          <Text bold fontSize="xl" mb="4">
+            Default
+          </Text>
+          <FormControl mb="5">
+            <FormControl.Label>Project Title</FormControl.Label>
+            <Input />
+            <FormControl.HelperText>
+              Give your project a title.
+            </FormControl.HelperText>
+          </FormControl>
+          <Divider />
+        </Box>
+        <Box>
+          <Text bold fontSize="xl" mb="4">
+            Disabled
+          </Text>
+          <FormControl isDisabled mb="5">
+            <FormControl.Label
+              _disabled={{
+                _text: {
+                  color: 'gray.400',
+                  fontWeight: 'bold',
+                },
+              }}
+            >
+              Project Title
+            </FormControl.Label>
+            <Input placeholder="Title" />
+            <FormControl.HelperText>
+              Give your project a title.
+            </FormControl.HelperText>
+          </FormControl>
+          <Divider />
+        </Box>
+        <Box>
+          <Text bold fontSize="xl" mb="4">
+            Invalid
+          </Text>
+          <FormControl isInvalid>
+            <FormControl.Label>Project Title</FormControl.Label>
+            <Input placeholder="Title" />
+            <FormControl.ErrorMessage
+              leftIcon={<WarningOutlineIcon size="xs" />}
+            >
+              Something is wrong.
+            </FormControl.ErrorMessage>
+          </FormControl>
+        </Box>
       </Stack>
     </ScrollView>
   );

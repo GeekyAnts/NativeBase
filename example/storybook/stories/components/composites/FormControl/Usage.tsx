@@ -1,9 +1,15 @@
 import React from 'react';
-import { FormControl, Input, Stack, WarningIcon, Box } from 'native-base';
+import {
+  FormControl,
+  Input,
+  Stack,
+  WarningOutlineIcon,
+  Box,
+} from 'native-base';
 
 export const Example = () => {
   return (
-    <Box>
+    <Box w={{ base: '70%', md: '25%' }}>
       <FormControl isRequired>
         <Stack mx="4">
           <FormControl.Label>Password</FormControl.Label>
@@ -11,7 +17,7 @@ export const Example = () => {
           <FormControl.HelperText>
             Must be atleast 6 characters.
           </FormControl.HelperText>
-          <FormControl.ErrorMessage leftIcon={<WarningIcon size="xs" />}>
+          <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
             Atleast 6 characters are required.
           </FormControl.ErrorMessage>
         </Stack>

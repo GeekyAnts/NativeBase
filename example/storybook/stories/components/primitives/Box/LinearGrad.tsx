@@ -15,8 +15,8 @@ export const Example = () => {
       rounded="xl"
       _text={{
         fontSize: 'md',
-        fontWeight: 'bold',
-        color: 'white',
+        fontWeight: 'medium',
+        color: 'warmGray.50',
         textAlign: 'center',
       }}
     >
