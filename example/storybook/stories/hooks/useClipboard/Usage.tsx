@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button, HStack, VStack, Text, Input, useClipboard } from 'native-base';
+import { Button, HStack, VStack, Input, useClipboard } from 'native-base';
 
 export const Example = () => {
-  const [copyText, setCopyText] = React.useState('Copy Me');
+  const [copyText, setCopyText] = React.useState('Hello');
   const [pasteText, setPasteText] = React.useState('');
-  const { value, onCopy, hasCopied } = useClipboard();
+  const { value, onCopy } = useClipboard();
   return (
     <VStack space={2}>
       <HStack space={3}>
@@ -16,16 +16,15 @@ export const Example = () => {
         />
         <Button onPress={() => onCopy(copyText)}>Copy</Button>
       </HStack>
-      <VStack space={3}>
-        <Text>{hasCopied ? 'Copied' : 'Press here'}</Text>
+      <HStack space={3}>
         <Input
           w="60%"
-          placeholder="Paste To"
+          placeholder="Paste Here"
           onChangeText={(v) => setPasteText(v)}
           value={pasteText}
         />
         <Button onPress={() => setPasteText(value)}>Paste</Button>
-      </VStack>
+      </HStack>
     </VStack>
   );
 };
