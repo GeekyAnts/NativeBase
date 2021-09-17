@@ -321,7 +321,7 @@ const colors = {
 };
 
 colors.danger = colors.red;
-colors.error = colors.red;
+colors.error = colors.rose;
 colors.success = colors.emerald;
 colors.warning = colors.orange;
 colors.muted = colors.trueGray;

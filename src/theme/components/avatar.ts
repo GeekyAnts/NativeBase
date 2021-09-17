@@ -23,19 +23,19 @@ function getSize(size: any, fontSize: string) {
   return {
     width: size,
     height: size,
-    fontSize: fontSize,
+    _text: {
+      fontSize: fontSize,
+    },
   };
 }
 
 const sizes = {
-  '2xs': getSize('4', 'xs'),
-  'xs': getSize('6', 'sm'),
-  'sm': getSize('8', 'md'),
-  'md': getSize('12', 'lg'),
+  'xs': getSize('6', '2xs'),
+  'sm': getSize('8', 'xs'),
+  'md': getSize('12', 'md'),
   'lg': getSize('16', 'xl'),
-  'xl': getSize('24', '2xl'),
-  '2xl': getSize('32', '3xl'),
-  'full': getSize('100%', '4xl'),
+  'xl': getSize('24', '3xl'),
+  '2xl': getSize('32', '5xl'),
 };
 
 const defaultProps = {

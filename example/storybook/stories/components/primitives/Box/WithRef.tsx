@@ -7,9 +7,9 @@ export const Example = () => {
   const myRef = React.useRef({});
   React.useEffect(() => {
     let styleObj = {
-      borderWidth: 10,
-      opacity: 0.5,
-      borderRadius: 10,
+      borderWidth: 4,
+      borderRadius: 4,
+      borderColor: '#22D3EE',
     };
     if (Platform.OS === 'web') {
       myRef?.current.setNativeProps({
@@ -22,8 +22,8 @@ export const Example = () => {
   return (
     <Box
       width="90%"
-      bg="primary.400"
-      p={4}
+      bg="primary.500"
+      p="4"
       shadow={2}
       _text={{ fontSize: 'md', fontWeight: 'bold', color: 'white' }}
       ref={myRef}
