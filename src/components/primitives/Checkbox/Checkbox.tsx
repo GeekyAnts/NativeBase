@@ -11,20 +11,13 @@ import { CheckboxGroupContext } from './CheckboxGroup';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { CheckIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { composeEventHandlers } from '../../../utils';
+import { composeEventHandlers, combineContextAndProps } from '../../../utils';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import {
   useHover,
   useFocus,
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
-
-const combineContextAndProps = (context: any, props: any) => {
-  return {
-    ...context,
-    ...props,
-  };
-};
 
 const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const { hoverProps, isHovered } = useHover();
@@ -45,9 +38,9 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const mergedRef = mergeRefs([ref, _ref]);
 
   const state = useToggleState({
-    ...props,
-    defaultSelected: props.defaultIsChecked,
-    isSelected: props.isChecked,
+    ...combinedProps,
+    defaultSelected: combinedProps.defaultIsChecked,
+    isSelected: combinedProps.isChecked,
   });
   const groupState = useContext(CheckboxGroupContext);
 
@@ -78,6 +71,7 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       );
 
   const { checked: isChecked, disabled: isDisabled } = inputProps;
+
   const sizedIcon = (icon: JSX.Element, _icon: any) =>
     icon ? (
       React.cloneElement(icon, {
@@ -131,6 +125,7 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   return (
     <Pressable
       {...(pressableProps as IPressableProps)}
+      {...inputProps}
       ref={mergeRefs([ref, wrapperRef])}
       accessibilityRole="checkbox"
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
@@ -153,37 +148,12 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       <Center {...layoutProps} flexDirection="row" borderRadius="full">
         <Center>
           {/* Interaction Wrapper */}
-          <Box
-            {..._interactionBox}
-            // {...(!isChecked && _unchecked?._interactionBox)}
-            // {...(isChecked && _checked?._interactionBox)}
-            // {...(themedProps.isIndeterminate &&
-            //   _indeterminate?._interactionBox)}
-            // {...(isPressed && _pressed._interactionBox)}
-            // {...(isInvalid && _invalid?._interactionBox)}
-            // {...(isReadOnly && _readOnly?._interactionBox)}
-            // {...(isDisabled && _disabled?._interactionBox)}
-            p={5}
-            w="100%"
-            height="100%"
-            zIndex={-1}
-          />
+          <Box {..._interactionBox} p={5} w="100%" height="100%" zIndex={-1} />
           {/* Checkbox */}
-          <Center
-            {...nonLayoutProps}
-            // {...(!isChecked && _unchecked)}
-            // {...(isChecked && _checked)}
-            // {...(isPressed && _pressed)}
-            // {...(themedProps.isIndeterminate && _indeterminate)}
-            // {...(isInvalid && _invalid)}
-            // {...(isReadOnly && _readOnly)}
-            // {...(isDisabled && _disabled)}
-          >
-            {sizedIcon(icon, _icon)}
-          </Center>
+          <Center {...nonLayoutProps}>{sizedIcon(icon, _icon)}</Center>
         </Center>
         {/* Label */}
-        {props.children}
+        {combinedProps.children}
       </Center>
     </Pressable>
   );

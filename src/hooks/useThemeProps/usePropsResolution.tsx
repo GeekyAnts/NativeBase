@@ -66,7 +66,7 @@ MARGIN_MAP.marginRight = MARGIN_MAP.mr;
 const PADDING_MAP: any = {
   px: ['paddingRight', 'paddingLeft'],
   py: ['paddingTop', 'paddingBottom'],
-  pt: [''],
+  pt: ['paddingTop'],
   pb: ['paddingBottom'],
   pr: ['paddingRight'],
   pl: ['paddingLeft'],
