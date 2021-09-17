@@ -11,15 +11,15 @@ import {
 export function Example() {
   return (
     <ScrollView>
-      <Center mt={4}>
+      <Center mt="4">
         <VStack space={2.5}>
           {/* flexDirection -> row */}
           <Heading size="md">row</Heading>
 
           <Flex
             direction="row"
-            mb={'2.5'}
-            mt={1.5}
+            mb="2.5"
+            mt="1.5"
             _text={{ color: 'coolGray.800' }}
           >
             <Center size="16" bg="primary.100">
@@ -41,8 +41,8 @@ export function Example() {
 
           <Flex
             direction="column"
-            mb={'2.5'}
-            mt={1.5}
+            mb="2.5"
+            mt="1.5"
             _text={{ color: 'coolGray.800' }}
           >
             <Center size="16" bg="primary.100">
@@ -63,8 +63,8 @@ export function Example() {
           <Heading size="md">row-reverse</Heading>
           <Flex
             direction="row-reverse"
-            mb={'2.5'}
-            mt={1.5}
+            mb="2.5"
+            mt="1.5"
             _text={{ color: 'coolGray.800' }}
           >
             <Center size="16" bg="primary.100">
@@ -85,8 +85,8 @@ export function Example() {
           <Heading size="md">column-reverse</Heading>
           <Flex
             direction="column-reverse"
-            mb={'2.5'}
-            mt={1.5}
+            mb="2.5"
+            mt="1.5"
             _text={{ color: 'coolGray.800' }}
           >
             <Center size="16" bg="primary.100">
