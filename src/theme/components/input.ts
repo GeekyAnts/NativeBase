@@ -19,6 +19,8 @@ const baseStyle = (props: Record<string, any>) => {
   //       };
 
   return {
+    _ios: { selectionColor: mode('coolGray.800', 'warmGray.50')(props) },
+    _android: { selectionColor: mode('coolGray.800', 'warmGray.50')(props) },
     fontFamily: 'body',
     p: '2',
     borderRadius: 'sm',
