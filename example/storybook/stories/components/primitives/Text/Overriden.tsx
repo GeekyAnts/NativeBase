@@ -7,7 +7,9 @@ export const Example = () => {
       <Text bold>Bold</Text>
       <Text italic>Italic</Text>
       <Text underline>Underline</Text>
-      <Text highlight>Highlighted</Text>
+      <Text highlight _dark={{ color: 'coolgray.800' }}>
+        Highlighted
+      </Text>
       <Text>
         H<Text sub>2</Text>O
       </Text>
