@@ -645,9 +645,15 @@ export const getStyleAndFilteredProps = ({
           if (val.endsWith('px')) {
             val = parseFloat(val);
           } else if (val.endsWith('em') && Platform.OS !== 'web') {
+            const fontSize = resolveValueWithBreakpoint(
+              props.fontSize,
+              theme.breakpoints,
+              currentBreakpoint,
+              key
+            );
             val =
               parseFloat(val) *
-              parseFloat(get(theme.fontSizes, props.fontSize, props.fontSize));
+              parseFloat(get(theme.fontSizes, fontSize, fontSize));
           }
         }
 
