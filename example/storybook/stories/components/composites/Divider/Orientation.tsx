@@ -7,9 +7,9 @@ export const Example = () => {
       <Heading mx="auto">Shoes</Heading>
       <Divider my="2" />
       <Flex mx="3" direction="row" justify="space-evenly">
-        <Heading>Girls</Heading>
-        <Divider orientation="vertical" mx="2" />
-        <Heading>Boys</Heading>
+        <Heading py="2">Girls</Heading>
+        <Divider orientation="vertical" mx="3" />
+        <Heading py="2">Boys</Heading>
       </Flex>
     </Box>
   );

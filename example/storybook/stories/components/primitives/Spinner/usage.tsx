@@ -5,7 +5,7 @@ export const Example = () => {
   return (
     <HStack space={2} alignItems="center">
       <Spinner accessibilityLabel="Loading posts" />
-      <Heading color="primary.600" fontSize="md">
+      <Heading color="primary.500" fontSize="md">
         Loading
       </Heading>
     </HStack>

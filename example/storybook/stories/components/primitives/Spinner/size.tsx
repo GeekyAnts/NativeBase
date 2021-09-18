@@ -1,11 +1,14 @@
 import React from 'react';
-import { Spinner, HStack } from 'native-base';
+import { Spinner, VStack, Heading } from 'native-base';
 
 export const Example = () => {
   return (
-    <HStack space={3}>
+    <VStack space={4} alignItems="center">
+      <Heading textAlign="center" mb="10">
+        Sizes
+      </Heading>
       <Spinner size="sm" />
       <Spinner size="lg" />
-    </HStack>
+    </VStack>
   );
 };
