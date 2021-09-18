@@ -1,191 +1,219 @@
 import React from 'react';
-import { Button, Divider, Heading, VStack, Stack } from 'native-base';
+import {
+  Button,
+  Divider,
+  Heading,
+  VStack,
+  Stack,
+  ScrollView,
+} from 'native-base';
 
 export const Example = () => {
   return (
-    <VStack space={4} px="2" w="100%" alignItems="center">
-      {/* Solid */}
-      <Heading size="sm">Solid</Heading>
-      <Stack
-        direction={{ base: 'column', md: 'row' }}
-        space={2}
-        mx={{ base: 'auto', md: '0' }}
+    <ScrollView px="32">
+      <VStack
+        w="100%"
+        space={2.5}
+        px="2"
+        mt="4"
+        alignItems="center"
+        justifyContent="center"
       >
-        <Button
-          size="sm"
-          //  onPress={() => console.log('hello world')}
+        {/* Solid */}
+        <Heading size="md">Solid</Heading>
+        <Stack
+          mb="2.5"
+          mt="1.5"
+          direction={{ base: 'column', md: 'row' }}
+          space={2}
+          mx={{ base: 'auto', md: '0' }}
         >
-          PRIMARY
-        </Button>
-        <Button
-          size="sm"
-          colorScheme="secondary"
-          // onPress={() => console.log('hello world')}
-        >
-          SECONDARY
-        </Button>
-        <Button
-          size="sm"
-          isDisabled
-          // onPress={() => console.log('hello world')}
-        >
-          DISABLED
-        </Button>
-      </Stack>
+          <Button
+            size="sm"
+            //  onPress={() => console.log('hello world')}
+          >
+            PRIMARY
+          </Button>
+          <Button
+            size="sm"
+            colorScheme="secondary"
+            // onPress={() => console.log('hello world')}
+          >
+            SECONDARY
+          </Button>
+          <Button
+            size="sm"
+            isDisabled
+            // onPress={() => console.log('hello world')}
+          >
+            DISABLED
+          </Button>
+        </Stack>
 
-      <Divider />
+        <Divider />
 
-      <Heading size="sm">Subtle</Heading>
+        <Heading size="md">Subtle</Heading>
 
-      {/* Subtle */}
-      <Stack
-        direction={{ base: 'column', md: 'row' }}
-        space={2}
-        mx={{ base: 'auto', md: '0' }}
-      >
-        <Button
-          size="sm"
-          variant="subtle"
-          // onPress={() => console.log('hello world')}
+        {/* Subtle */}
+        <Stack
+          mb="2.5"
+          mt="1.5"
+          direction={{ base: 'column', md: 'row' }}
+          space={2}
+          mx={{ base: 'auto', md: '0' }}
         >
-          PRIMARY
-        </Button>
-        <Button
-          size="sm"
-          variant="subtle"
-          colorScheme="secondary"
-          // onPress={() => console.log('hello world')}
-        >
-          SECONDARY
-        </Button>
-        <Button
-          size="sm"
-          variant="subtle"
-          isDisabled
-          // onPress={() => console.log('hello world')}
-        >
-          DISABLED
-        </Button>
-      </Stack>
-      <Divider />
-      <Heading size="sm">Outline</Heading>
+          <Button
+            size="sm"
+            variant="subtle"
+            // onPress={() => console.log('hello world')}
+          >
+            PRIMARY
+          </Button>
+          <Button
+            size="sm"
+            variant="subtle"
+            colorScheme="secondary"
+            // onPress={() => console.log('hello world')}
+          >
+            SECONDARY
+          </Button>
+          <Button
+            size="sm"
+            variant="subtle"
+            isDisabled
+            // onPress={() => console.log('hello world')}
+          >
+            DISABLED
+          </Button>
+        </Stack>
+        <Divider />
+        <Heading size="md">Outline</Heading>
 
-      {/* Outline */}
-      <Stack
-        direction={{ base: 'column', md: 'row' }}
-        space={2}
-        mx={{ base: 'auto', md: '0' }}
-      >
-        <Button
-          size="sm"
-          variant="outline"
-          // onPress={() => console.log('hello world')}
+        {/* Outline */}
+        <Stack
+          mb="2.5"
+          mt="1.5"
+          direction={{ base: 'column', md: 'row' }}
+          space={2}
+          mx={{ base: 'auto', md: '0' }}
         >
-          PRIMARY
-        </Button>
-        <Button
-          size="sm"
-          variant="outline"
-          colorScheme="secondary"
-          // onPress={() => console.log('hello world')}
-        >
-          SECONDARY
-        </Button>
-        <Button
-          size="sm"
-          variant="outline"
-          isDisabled
-          // onPress={() => console.log('hello world')}
-        >
-          DISABLED
-        </Button>
-      </Stack>
-      <Divider />
+          <Button
+            size="sm"
+            variant="outline"
+            // onPress={() => console.log('hello world')}
+          >
+            PRIMARY
+          </Button>
+          <Button
+            size="sm"
+            variant="outline"
+            colorScheme="secondary"
+            // onPress={() => console.log('hello world')}
+          >
+            SECONDARY
+          </Button>
+          <Button
+            size="sm"
+            variant="outline"
+            isDisabled
+            // onPress={() => console.log('hello world')}
+          >
+            DISABLED
+          </Button>
+        </Stack>
+        <Divider />
 
-      <Heading size="sm">Link</Heading>
+        <Heading size="md">Link</Heading>
 
-      {/* Link */}
-      <Stack
-        direction={{ base: 'column', md: 'row' }}
-        space={2}
-        mx={{ base: 'auto', md: '0' }}
-      >
-        <Button
-          size="sm"
-          variant="link"
-          // onPress={() => console.log('hello world')}
+        {/* Link */}
+        <Stack
+          mb="2.5"
+          mt="1.5"
+          direction={{ base: 'column', md: 'row' }}
+          space={2}
+          mx={{ base: 'auto', md: '0' }}
         >
-          PRIMARY
-        </Button>
-        <Button
-          size="sm"
-          variant="link"
-          colorScheme="secondary"
-          // onPress={() => console.log('hello world')}
-        >
-          SECONDARY
-        </Button>
-        <Button
-          size="sm"
-          variant="link"
-          isDisabled
-          // onPress={() => console.log('hello world')}
-        >
-          DISABLED
-        </Button>
-      </Stack>
-      <Divider />
+          <Button
+            size="sm"
+            variant="link"
+            // onPress={() => console.log('hello world')}
+          >
+            PRIMARY
+          </Button>
+          <Button
+            size="sm"
+            variant="link"
+            colorScheme="secondary"
+            // onPress={() => console.log('hello world')}
+          >
+            SECONDARY
+          </Button>
+          <Button
+            size="sm"
+            variant="link"
+            isDisabled
+            // onPress={() => console.log('hello world')}
+          >
+            DISABLED
+          </Button>
+        </Stack>
+        <Divider />
 
-      <Heading size="sm">Ghost</Heading>
+        <Heading size="md">Ghost</Heading>
 
-      {/* Ghost */}
-      <Stack
-        direction={{ base: 'column', md: 'row' }}
-        space={2}
-        mx={{ base: 'auto', md: '0' }}
-      >
-        <Button
-          size="sm"
-          variant="ghost"
-          // onPress={() => console.log('hello world')}
+        {/* Ghost */}
+        <Stack
+          mb="2.5"
+          mt="1.5"
+          direction={{ base: 'column', md: 'row' }}
+          space={2}
+          mx={{ base: 'auto', md: '0' }}
         >
-          PRIMARY
-        </Button>
-        <Button
-          size="sm"
-          variant="ghost"
-          colorScheme="secondary"
-          // onPress={() => console.log('hello world')}
-        >
-          SECONDARY
-        </Button>
-        <Button
-          size="sm"
-          variant="ghost"
-          isDisabled
-          // onPress={() => console.log('hello world')}
-        >
-          DISABLED
-        </Button>
-      </Stack>
+          <Button
+            size="sm"
+            variant="ghost"
+            // onPress={() => console.log('hello world')}
+          >
+            PRIMARY
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            colorScheme="secondary"
+            // onPress={() => console.log('hello world')}
+          >
+            SECONDARY
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            isDisabled
+            // onPress={() => console.log('hello world')}
+          >
+            DISABLED
+          </Button>
+        </Stack>
 
-      <Divider />
+        <Divider />
 
-      <Heading size="sm">Unstyled</Heading>
+        <Heading size="md">Unstyled</Heading>
 
-      {/* Unstyled */}
-      <Stack
-        direction={{ base: 'column', md: 'row' }}
-        space={2}
-        mx={{ base: 'auto', md: '0' }}
-      >
-        <Button
-          variant="unstyled"
-          // onPress={() => console.log('hello world')}
+        {/* Unstyled */}
+        <Stack
+          mb="2.5"
+          mt="1.5"
+          direction={{ base: 'column', md: 'row' }}
+          space={2}
+          mx={{ base: 'auto', md: '0' }}
         >
-          Unstyled
-        </Button>
-      </Stack>
-    </VStack>
+          <Button
+            variant="unstyled"
+            // onPress={() => console.log('hello world')}
+          >
+            Unstyled
+          </Button>
+        </Stack>
+      </VStack>
+    </ScrollView>
   );
 };

@@ -6,12 +6,13 @@ export const Example = () => {
     <Button
       size="md"
       height="48px"
-      width="200px"
-      borderWidth="2px"
-      borderColor="green.500"
+      px="5"
+      variant="outline"
+      borderRadius="999"
+      borderWidth="2"
       mx={{ base: 'auto', md: 0 }}
     >
-      BUTTON
+      SHOP NOW
     </Button>
   );
 };

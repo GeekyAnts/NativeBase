@@ -10,9 +10,9 @@ import {
 
 export function Example() {
   return (
-    <ScrollView>
+    <ScrollView pr="32" pl="4">
       <Center mt="4">
-        <VStack space={2.5}>
+        <VStack space={2.5} w="100%">
           {/* flexDirection -> row */}
           <Heading size="md">row</Heading>
 
@@ -35,7 +35,7 @@ export function Example() {
               400
             </Center>
           </Flex>
-          <Divider />
+          <Divider size={1} />
           {/* flexDirection -> column */}
           <Heading size="md">column</Heading>
 

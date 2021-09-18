@@ -1,13 +1,15 @@
-import { Dict, getColorScheme, mode, transparentize } from './../tools';
+import { Dict, mode, transparentize } from './../tools';
 import { Platform } from 'react-native';
-import { getColor } from '../tools/colors';
 const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
 
 const baseStyle = (props: any) => {
   const { primary } = props.theme.colors;
   const focusRing =
     Platform.OS === 'web'
-      ? { boxShadow: `${primary[400]} 0px 0px 0px 2px`, zIndex: 1 }
+      ? mode(
+          { boxShadow: `${primary[400]} 0px 0px 0px 2px`, zIndex: 1 },
+          { boxShadow: `${primary[500]} 0px 0px 0px 2px`, zIndex: 1 }
+        )(props)
       : {};
 
   return {
@@ -65,19 +67,16 @@ function variantGhost(props: Dict) {
       outlineWidth: '0',
     },
     _hover: {
-      _text: { color: mode(`${c}.600`, `${c}.200`)(props) },
       borderColor: mode(`${c}.500`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.200`, `${c}.700`)(props), 0.5)(props.theme),
+      bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
     },
     _focusVisible: {
-      _text: { color: mode(`${c}.700`, `${c}.200`)(props) },
       borderColor: mode(`${c}.700`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.200`, `${c}.700`)(props), 0.5)(props.theme),
+      bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
     },
     _pressed: {
-      _text: { color: mode(`${c}.800`, `${c}.100`)(props) },
       borderColor: mode(`${c}.600`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.300`, `${c}.600`)(props), 0.5)(props.theme),
+      bg: transparentize(mode(`${c}.300`, `${c}.500`)(props), 0.5)(props.theme),
     },
     _spinner: {
       size: 'sm',
@@ -95,7 +94,7 @@ function variantOutline(props: Dict) {
         ? borderColor
         : props.isDisabled
         ? disabledTextColor(props)
-        : mode(`${c}.300`, `${c}.600`)(props),
+        : mode(`${c}.300`, `${c}.300`)(props),
     ...variantGhost(props),
   };
 }
@@ -103,20 +102,9 @@ function variantOutline(props: Dict) {
 function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
   let bg = `${c}.500`;
-  bg = mode(bg, `${c}.300`)(props);
-  // let _disabled;
   if (props.isDisabled) {
     bg = mode(`muted.300`, `muted.500`)(props);
   }
-  // if (props.isLoading) {
-  //   _disabled = {
-  //     bg: bg,
-  //   };
-  // } else {
-  //   _disabled = {
-  //     bg: mode(`trueGray.300`, `trueGray.600`)(props),
-  //   };
-  // }
 
   const styleObject = {
     _web: {
@@ -124,17 +112,16 @@ function variantSolid(props: Dict) {
     },
     bg,
     _hover: {
-      bg: mode(`${c}.600`, `${c}.200`)(props),
+      bg: `${c}.600`,
     },
     _pressed: {
-      bg: mode(`${c}.700`, `${c}.100`)(props),
+      bg: `${c}.700`,
     },
-    // TODO: Confirm before merging
     _focus: {
-      bg: mode(`${c}.700`, `${c}.200`)(props),
+      bg: `${c}.600`,
     },
     _loading: {
-      bg: mode(bg, `${c}.300`)(props),
+      bg: mode(`warmGray.50`, `${c}.300`)(props),
       opacity: '50',
     },
     _disabled: { bg: mode(`trueGray.300`, `trueGray.600`)(props) },
@@ -143,35 +130,35 @@ function variantSolid(props: Dict) {
   return styleObject;
 }
 
-function getBg(props: Record<string, any>) {
-  const { theme, status, variant } = props;
-  let { colorScheme } = props;
+// function getBg(props: Record<string, any>) {
+//   const { theme, status, variant } = props;
+//   let { colorScheme } = props;
 
-  colorScheme = getColorScheme(
-    props,
-    colorScheme !== 'primary' ? colorScheme : status
-  );
-  const lightBg =
-    variant === 'solid'
-      ? getColor(theme, `${colorScheme}.400`, colorScheme)
-      : getColor(theme, `${colorScheme}.100`, colorScheme);
+//   colorScheme = getColorScheme(
+//     props,
+//     colorScheme !== 'primary' ? colorScheme : status
+//   );
+//   const lightBg =
+//     variant === 'solid'
+//       ? getColor(theme, `${colorScheme}.400`, colorScheme)
+//       : getColor(theme, `${colorScheme}.100`, colorScheme);
 
-  const darkBg =
-    variant === 'solid'
-      ? getColor(theme, `${colorScheme}.700`, colorScheme)
-      : getColor(theme, `${colorScheme}.400`, colorScheme);
-  return mode(lightBg, darkBg)(props);
-}
+//   const darkBg =
+//     variant === 'solid'
+//       ? getColor(theme, `${colorScheme}.700`, colorScheme)
+//       : getColor(theme, `${colorScheme}.400`, colorScheme);
+//   return mode(lightBg, darkBg)(props);
+// }
 
 function variantSubtle(props: Dict) {
   const { colorScheme: c } = props;
-  let bg = `${c}.500`;
+  let bg = `${c}.100`;
+  bg = mode(bg, `${c}.200`)(props);
   let color;
-  bg = getBg(props);
   if (props.isDisabled) {
     bg = mode(`muted.300`, `muted.500`)(props);
   } else {
-    color = mode(`${c}.500`, `${c}.200`)(props);
+    color = mode(`${c}.500`, `${c}.600`)(props);
   }
   const styleObject = {
     _text: {
@@ -182,10 +169,12 @@ function variantSubtle(props: Dict) {
     },
     bg,
     _hover: {
-      bg: mode(`${c}.200`, `${c}.500`)(props),
+      _text: { color: mode(`${c}.600`, `${c}.700`)(props) },
+      bg: mode(`${c}.200`, `${c}.300`)(props),
     },
     _pressed: {
-      bg: mode(`${c}.300`, `${c}.600`)(props),
+      _text: { color: mode(`${c}.700`, `${c}.800`)(props) },
+      bg: mode(`${c}.300`, `${c}.400`)(props),
     },
   };
 
@@ -208,18 +197,18 @@ function variantLink(props: Dict) {
     },
     _hover: {
       _text: {
-        color: mode(`${c}.600`, `${c}.200`)(props),
+        color: mode(`${c}.600`, `${c}.400`)(props),
         textDecorationLine: 'underline',
       },
     },
     _focusVisible: {
       _text: {
-        color: mode(`${c}.700`, `${c}.200`)(props),
+        color: mode(`${c}.600`, `${c}.400`)(props),
         textDecorationLine: 'underline',
       },
     },
     _pressed: {
-      _text: { color: mode(`${c}.700`, `${c}.100`)(props) },
+      _text: { color: mode(`${c}.700`, `${c}.500`)(props) },
     },
     _ios: {
       _text: {
