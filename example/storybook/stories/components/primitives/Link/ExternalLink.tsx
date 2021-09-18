@@ -3,7 +3,7 @@ import { Link, Text } from 'native-base';
 
 export const Example = () => {
   return (
-    <Text mx={16}>
+    <Text mx="16">
       NativeBase is a component library that enables devs to build universal
       design systems. It is built on top of React Native, allowing you to
       develop apps for Android, iOS and the Web.{' '}

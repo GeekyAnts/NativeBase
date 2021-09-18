@@ -13,16 +13,11 @@ export const Example = () => {
       }}
       _hover={{
         bg: 'orange.600:alpha.20',
-        // _icon: {
-        //   color: 'red.500',
-        //   name: 'smileo',
-        // },
       }}
       _pressed={{
         bg: 'orange.600:alpha.20',
         _icon: {
           name: 'emoji-flirt',
-          // color: 'lime.500',
         },
       }}
       _ios={{
