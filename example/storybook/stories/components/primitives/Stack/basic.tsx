@@ -12,9 +12,9 @@ import {
 export function Example() {
   return (
     <ScrollView>
-      <VStack space="6">
+      <VStack space="2.5" mt="4">
         <Heading>row</Heading>
-        <Stack direction="row" space={3}>
+        <Stack direction="row" mb="2.5" mt="1.5" space={3}>
           <Center
             size="16"
             bg="primary.400"
@@ -45,7 +45,7 @@ export function Example() {
         </Stack>
         <Divider />
         <Heading>column</Heading>
-        <Stack direction="column" space={3}>
+        <Stack mb="2.5" mt="1.5" direction="column" space={3}>
           <Center
             size="16"
             bg="primary.400"
@@ -76,7 +76,7 @@ export function Example() {
         </Stack>
         <Divider />
         <Heading>row-reverse</Heading>
-        <Stack direction="row" reversed space={3}>
+        <Stack mb="2.5" mt="1.5" direction="row" reversed space={3}>
           <Center
             size="16"
             bg="primary.400"
@@ -107,7 +107,7 @@ export function Example() {
         </Stack>
         <Divider />
         <Heading>column-reverse</Heading>
-        <Stack direction="column-reverse" space={3}>
+        <Stack mb="2.5" mt="1.5" direction="column-reverse" space={3}>
           <Center
             size="16"
             bg="primary.400"
