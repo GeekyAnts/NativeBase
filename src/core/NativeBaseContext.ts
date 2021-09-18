@@ -25,4 +25,5 @@ export const defaultConfig: INativebaseConfig = {
 export const [NativeBaseConfigProvider, useNativeBaseConfig] = createContext<{
   config: INativebaseConfig;
   currentBreakpoint: number;
+  isSSR?: boolean;
 }>('NativeBaseConfigProvider');
