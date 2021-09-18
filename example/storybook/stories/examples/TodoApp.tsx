@@ -1,22 +1,23 @@
 import React from 'react';
 import {
   Input,
-  Button,
   IconButton,
   Checkbox,
   Text,
+  Box,
   VStack,
   HStack,
   Heading,
   Icon,
 } from 'native-base';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { Feather, Entypo } from '@expo/vector-icons';
 
 export const Example = () => {
   const instState = [
-    { title: 'code', isCompleted: true },
-    { title: 'sleep', isCompleted: false },
-    { title: 'repeat', isCompleted: false },
+    { title: 'Code', isCompleted: true },
+    { title: 'Meeting with team at 9', isCompleted: false },
+    { title: 'Check Emails', isCompleted: false },
+    { title: 'Write an article', isCompleted: false },
   ];
   const [list, setList] = React.useState(instState);
   const [inputValue, setInputValue] = React.useState('');
@@ -45,52 +46,72 @@ export const Example = () => {
     setList(temp);
   };
   return (
-    <VStack space={4} flex={1} w="90%" mt={4}>
-      <Heading color="emerald.400">Todo App</Heading>
-      <Input
-        variant="filled"
-        w="100%"
-        InputRightElement={
-          <Button
-            colorScheme="emerald"
-            ml={1}
+    <Box my="12" mx="16">
+      <Heading mb="5">Wednesday</Heading>
+      <VStack space={4} flex="1" maxW="400">
+        <HStack space={2}>
+          <Input
+            w="400"
+            flex="1"
+            onChangeText={(v) => setInputValue(v)}
+            value={inputValue}
+            placeholder="Add Task"
+          />
+          <IconButton
+            borderRadius="sm"
+            variant="solid"
+            icon={
+              <Icon as={Feather} name="plus" size="sm" color="trueGray.400" />
+            }
             onPress={() => {
               addItem(inputValue);
               setInputValue('');
             }}
-          >
-            <Icon as={FontAwesome5} name="plus" />
-          </Button>
-        }
-        onChangeText={(v) => setInputValue(v)}
-        value={inputValue}
-        placeholder="Add Item"
-      />
-      <VStack>
-        {list.map((item, itemI) => (
-          <HStack
-            w="100%"
-            justifyContent="space-between"
-            key={item.title + itemI.toString()}
-          >
-            <Checkbox
-              colorScheme="emerald"
-              isChecked={item.isCompleted}
-              onChange={() => handleStatusChange(itemI)}
-              value={item.title}
+          />
+        </HStack>
+        <VStack space={2}>
+          {list.map((item, itemI) => (
+            <HStack
+              w="100%"
+              justifyContent="space-between"
+              alignItems="center"
+              key={item.title + itemI.toString()}
             >
-              <Text mx={2} strikeThrough={item.isCompleted}>
-                {item.title}
-              </Text>
-            </Checkbox>
-            <IconButton
-              colorScheme="emerald"
-              icon={<Icon as={FontAwesome5} name="trash" />}
-              onPress={() => handleDelete(itemI)}
-            />
-          </HStack>
-        ))}
+              <Checkbox
+                isChecked={item.isCompleted}
+                onChange={() => handleStatusChange(itemI)}
+                value={item.title}
+              >
+                <Text
+                  mx="2"
+                  strikeThrough={item.isCompleted}
+                  _light={{
+                    color: item.isCompleted ? 'gray.400' : 'coolGray.800',
+                  }}
+                  _dark={{
+                    color: item.isCompleted ? 'gray.400' : 'coolGray.50',
+                  }}
+                >
+                  {item.title}
+                </Text>
+              </Checkbox>
+              <IconButton
+                size="sm"
+                colorScheme="trueGray"
+                icon={
+                  <Icon
+                    as={Entypo}
+                    name="minus"
+                    size="xs"
+                    color="trueGray.400"
+                  />
+                }
+                onPress={() => handleDelete(itemI)}
+              />
+            </HStack>
+          ))}
+        </VStack>
       </VStack>
-    </VStack>
+    </Box>
   );
 };
