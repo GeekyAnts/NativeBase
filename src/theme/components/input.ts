@@ -29,7 +29,7 @@ const baseStyle = (props: Record<string, any>) => {
     background: 'transparent',
     borderColor: mode('muted.200', 'gray.500')(props),
     _disabled: {
-      opacity: '0.8',
+      opacity: '80',
       bg: mode('muted.100', 'muted.700')(props),
     },
     _invalid: {

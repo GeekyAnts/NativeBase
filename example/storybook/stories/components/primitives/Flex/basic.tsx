@@ -35,7 +35,7 @@ export function Example() {
               400
             </Center>
           </Flex>
-          <Divider size={1} />
+          <Divider />
           {/* flexDirection -> column */}
           <Heading size="md">column</Heading>
 

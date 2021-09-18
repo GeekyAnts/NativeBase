@@ -10,7 +10,7 @@ export const Example = () => {
       variant="outline"
       borderRadius="999"
       borderWidth="2"
-      mx={{ base: 'auto', md: 0 }}
+      mx={{ base: 'auto', md: '0' }}
     >
       SHOP NOW
     </Button>
