@@ -9,8 +9,8 @@ export const Example = () => {
     const styleObj = {
       backgroundColor: '#facc15',
       borderColor: '#CA8A04',
-      borderWidth: 1,
-      borderRadius: 4,
+      borderWidth: '1',
+      borderRadius: '4',
     };
     if (Platform.OS === 'web') {
       //@ts-ignore
