@@ -1,13 +1,10 @@
 import React from 'react';
-import { Button, Stack, Box } from 'native-base';
+import { Button, Box, Heading, VStack } from 'native-base';
 
 export const Example = () => {
   return (
-    <Stack
-      direction={{ base: 'column', md: 'row' }}
-      space={1}
-      alignItems={{ base: 'center', md: 'flex-start' }}
-    >
+    <VStack space={4} alignItems="center">
+      <Heading mb="10">Sizes</Heading>
       {['xs', 'sm', 'md', 'lg'].map((size) => (
         <Box>
           {/* @ts-ignore */}
@@ -16,6 +13,6 @@ export const Example = () => {
           </Button>
         </Box>
       ))}
-    </Stack>
+    </VStack>
   );
 };

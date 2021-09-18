@@ -1,13 +1,16 @@
 import React from 'react';
-import { Spinner, HStack } from 'native-base';
+import { Spinner, VStack, Heading } from 'native-base';
 
 export const Example = () => {
   return (
-    <HStack space={2}>
-      <Spinner color="danger.600" />
-      <Spinner color="cyan.600" />
-      <Spinner color="indigo.600" />
-      <Spinner color="warning.600" />
-    </HStack>
+    <VStack space={4} alignItems="center">
+      <Heading textAlign="center" mb="10">
+        Color Scheme
+      </Heading>
+      <Spinner color="emerald.500" />
+      <Spinner color="warning.500" />
+      <Spinner color="indigo.500" />
+      <Spinner color="cyan.500" />
+    </VStack>
   );
 };
