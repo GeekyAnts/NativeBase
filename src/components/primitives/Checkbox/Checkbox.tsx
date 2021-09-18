@@ -9,7 +9,6 @@ import type { ICheckboxProps } from './types';
 import { useToggleState } from '@react-stately/toggle';
 import { CheckboxGroupContext } from './CheckboxGroup';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
-import { CheckIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { composeEventHandlers, combineContextAndProps } from '../../../utils';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
@@ -18,6 +17,7 @@ import {
   useFocus,
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
+import SizedIcon from './SizedIcon';
 
 const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const { hoverProps, isHovered } = useHover();
@@ -71,15 +71,6 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       );
 
   const { checked: isChecked, disabled: isDisabled } = inputProps;
-
-  const sizedIcon = (icon: JSX.Element, _icon: any) =>
-    icon ? (
-      React.cloneElement(icon, {
-        ..._icon,
-      })
-    ) : (
-      <CheckIcon {..._icon} />
-    );
 
   const {
     icon,
@@ -150,7 +141,9 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
           {/* Interaction Wrapper */}
           <Box {..._interactionBox} p={5} w="100%" height="100%" zIndex={-1} />
           {/* Checkbox */}
-          <Center {...nonLayoutProps}>{sizedIcon(icon, _icon)}</Center>
+          <Center {...nonLayoutProps}>
+            <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
+          </Center>
         </Center>
         {/* Label */}
         {combinedProps.children}
