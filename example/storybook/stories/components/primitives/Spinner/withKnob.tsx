@@ -1,11 +1,10 @@
 import React from 'react';
-import { Spinner, Box, Heading } from 'native-base';
+import { Spinner, Box } from 'native-base';
 import { select } from '@storybook/addon-knobs';
 
 export const Example = () => {
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center">
-      <Heading mb={3}>Playaround with Knobs</Heading>
       <Spinner
         size={select('size', ['sm', 'lg'], 'lg')}
         color={

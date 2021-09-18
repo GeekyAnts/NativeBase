@@ -17,7 +17,8 @@ export const Example = () => {
       overflow="hidden"
       width="72"
       shadow={1}
-      _light={{ backgroundColor: 'gray.50' }}
+      borderRadius="lg"
+      _light={{ backgroundColor: 'coolGray.50' }}
       _dark={{ backgroundColor: 'gray.700' }}
     >
       <Box>
@@ -32,9 +33,10 @@ export const Example = () => {
         </AspectRatio>
         <Center
           bg="violet.500"
-          _text={{ color: 'white', fontWeight: '700', fontSize: 'xs' }}
+          _dark={{ bg: 'violet.400' }}
+          _text={{ color: 'warmGray.50', fontWeight: '700', fontSize: 'xs' }}
           position="absolute"
-          bottom={0}
+          bottom="0"
           px="3"
           py="1.5"
         >
@@ -49,7 +51,7 @@ export const Example = () => {
           <Text
             fontSize="xs"
             _light={{ color: 'violet.500' }}
-            _dark={{ color: 'violet.300' }}
+            _dark={{ color: 'violet.400' }}
             fontWeight="500"
             ml="-0.5"
             mt="-1"
@@ -63,7 +65,11 @@ export const Example = () => {
         </Text>
         <HStack alignItems="center" space={4} justifyContent="space-between">
           <HStack alignItems="center">
-            <Text color="gray.500" fontWeight="400">
+            <Text
+              color="coolGray.600"
+              _dark={{ color: 'warmGray.200' }}
+              fontWeight="400"
+            >
               6 mins ago
             </Text>
           </HStack>

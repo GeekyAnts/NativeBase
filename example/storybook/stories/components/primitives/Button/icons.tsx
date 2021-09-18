@@ -6,19 +6,15 @@ export const Example = () => {
   return (
     <Stack direction={{ base: 'column', md: 'row' }} space={4}>
       <Button
-        rightIcon={
-          <Icon as={Ionicons} name="reload-circle-outline" size="sm" />
-        }
+        leftIcon={<Icon as={Ionicons} name="cloud-upload-outline" size="sm" />}
       >
-        Reset
+        Upload
       </Button>
       <Button
-        variant="outline"
-        endIcon={
-          <Icon as={Ionicons} name="checkmark-done-circle-outline" size="sm" />
-        }
+        variant="subtle"
+        endIcon={<Icon as={Ionicons} name="cloud-download-outline" size="sm" />}
       >
-        Confirm
+        Download
       </Button>
     </Stack>
   );

@@ -2,9 +2,11 @@ import React from 'react';
 import { Input, Stack, Center, Heading } from 'native-base';
 export const Example = () => {
   return (
-    <Stack space={4}>
-      <Center mb="4">
-        <Heading>Input Variants</Heading>
+    <Stack space={4} w={{ base: '70%', md: '20%' }}>
+      <Center>
+        <Heading textAlign="center" mb="10">
+          Input Variants
+        </Heading>
       </Center>
       <Input variant="outline" placeholder="Outline" />
       <Input variant="filled" placeholder="Filled" />

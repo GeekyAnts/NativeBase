@@ -57,6 +57,7 @@ export const ModalContent = {
   baseStyle: (props: Record<string, any>) => {
     return {
       bg: mode('coolGray.50', 'gray.700')(props),
+      _text: { color: mode('coolGray.800', 'warmGray.50')(props) },
       shadow: 1,
       rounded: 'lg',
       maxHeight: `${Dimensions.get('window').height - 150}px`,
@@ -81,17 +82,19 @@ export const ModalCloseButton = {
   },
 };
 export const ModalHeader = {
-  baseStyle: {
-    py: '4',
-    px: '3',
-    borderBottomWidth: '1',
-    borderColor: 'coolGray.200',
-    _text: {
-      fontSize: 'md',
-      fontWeight: 'semibold',
-      color: 'coolGray.800',
-      lineHeight: 'sm',
-    },
+  baseStyle: (props: Record<string, any>) => {
+    return {
+      py: '4',
+      px: '3',
+      borderBottomWidth: '1',
+      borderColor: mode('coolGray.200', 'gray.600')(props),
+      _text: {
+        fontSize: 'md',
+        fontWeight: 'semibold',
+        color: mode('coolGray.800', 'warmGray.50')(props),
+        lineHeight: 'sm',
+      },
+    };
   },
 };
 export const ModalBody = {
@@ -106,12 +109,14 @@ export const ModalBody = {
   },
 };
 export const ModalFooter = {
-  baseStyle: {
-    p: '3',
-    bg: 'coolGray.100',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    flexWrap: 'wrap',
+  baseStyle: (props: Record<string, any>) => {
+    return {
+      p: '3',
+      bg: mode('coolGray.100', 'gray.600')(props),
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+      flexWrap: 'wrap',
+    };
   },
 };
 export const ModalOverlay = {

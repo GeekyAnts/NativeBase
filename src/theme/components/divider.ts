@@ -14,7 +14,7 @@ function baseStyle(props: Record<string, any>) {
         };
 
   return {
-    bg: mode('muted.200', 'muted.500')(props),
+    bg: mode('coolGray.200', 'gray.600')(props),
     ...orientationProps,
   };
 }

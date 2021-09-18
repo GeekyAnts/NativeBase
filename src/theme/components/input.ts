@@ -1,75 +1,65 @@
 import { mode } from '../tools';
-import { Platform } from 'react-native';
+// import { Platform } from 'react-native';
 
 const baseStyle = (props: Record<string, any>) => {
-  const { primary } = props.theme.colors;
+  // const { primary } = props.theme.colors;
   // Todo: Resolve boxShadow Color or Provide some alternatiove prop for user to change focusRing color
-  // Todo: Update to support similar focusRing on iOS , Android and Web
-  const focusRing =
-    Platform.OS === 'web'
-      ? {
-          boxShadow:
-            props.variant !== 'underlined'
-              ? `${primary[400]} 0px 0px 0px 1px`
-              : `${primary[400]} 0px 1px 0px 0px`,
-          zIndex: 1,
-        }
-      : {
-          // boxShadow: `${useToken('colors', ['primary.400'])} 0px 0px 0px 1px`,
-        };
+  // // Todo: Update to support similar focusRing on iOS , Android and Web
+  // const focusRing =
+  //   Platform.OS === 'web'
+  //     ? {
+  //         boxShadow:
+  //           props.variant !== 'underlined'
+  //             ? `${primary[400]} 0px 0px 0px 1px`
+  //             : `${primary[400]} 0px 1px 0px 0px`,
+  //         zIndex: 1,
+  //       }
+  //     : {
+  //         // boxShadow: `${useToken('colors', ['primary.400'])} 0px 0px 0px 1px`,
+  //       };
 
   return {
+    _ios: { selectionColor: mode('coolGray.800', 'warmGray.50')(props) },
+    _android: { selectionColor: mode('coolGray.800', 'warmGray.50')(props) },
     fontFamily: 'body',
     p: '2',
     borderRadius: 'sm',
-    color: mode('muted.900', 'muted.50')(props),
-    placeholderTextColor: mode('muted.400', 'muted.500')(props),
+    color: mode('coolGray.800', 'warmGray.50')(props),
+    placeholderTextColor: 'muted.400',
     background: 'transparent',
-    borderColor: mode('muted.200', 'muted.600')(props),
+    borderColor: mode('muted.200', 'gray.500')(props),
     _disabled: {
-      opacity: 0.8,
+      opacity: '80',
       bg: mode('muted.100', 'muted.700')(props),
     },
-    _hover: {
-      borderColor: mode('muted.300', 'muted.500')(props),
-    },
     _invalid: {
-      borderColor: mode('error.600', 'error.200')(props),
+      borderColor: mode('danger.600', 'danger.300')(props),
     },
     _focus: {
-      style: { ...focusRing },
-      borderColor: 'primary.400',
-    },
-    _android: {
-      px: '4',
-      py: '3',
-      _focus: {
-        borderColor: 'primary.400',
-      },
-    },
-    _ios: {
-      px: '4',
-      py: '3',
-      _focus: {
-        borderColor: 'primary.400',
-      },
+      borderColor: mode('primary.400', 'primary.500')(props),
     },
     _web: {
-      outlineWidth: 0,
+      outlineWidth: '0',
       lineHeight: 'lg', // Todo: Move to _web inside size so that sm and xs don't have this much height
     },
   };
 };
 
-function roundedStyle() {
+function roundedStyle(props: Record<string, any>) {
   return {
     borderRadius: '25',
     borderWidth: '1',
+    _hover: {
+      bg: mode('gray.100', 'gray.700')(props),
+    },
   };
 }
-function outlineStyle() {
+function outlineStyle(props: Record<string, any>) {
   return {
     borderWidth: '1',
+    _hover: {
+      bg: mode('gray.100', 'gray.700')(props),
+    },
   };
 }
 function filledStyle(props: Record<string, any>) {
@@ -78,7 +68,7 @@ function filledStyle(props: Record<string, any>) {
     borderWidth: '1',
     borderColor: 'transparent',
     _hover: {
-      bg: mode('muted.300', 'muted.500')(props),
+      bg: mode('muted.300', 'muted.700')(props),
     },
   };
 }
