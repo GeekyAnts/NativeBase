@@ -49,7 +49,12 @@ const Switch = (
     offThumbColor: _offThumbColor,
     style: themeStyle,
     ...resolvedProps
-  } = usePropsResolution('Switch', props, { isHovered, isDisabled });
+  } = usePropsResolution('Switch', props, {
+    isHovered,
+    isDisabled,
+    isInvalid,
+    isChecked: checked,
+  });
 
   const computedStyle: ViewStyle = StyleSheet.flatten([
     themeStyle,

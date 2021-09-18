@@ -1,17 +1,30 @@
 import React from 'react';
-import { Badge, Button } from 'native-base';
+import { Badge, Button, VStack } from 'native-base';
 
 export function Example() {
   return (
-    <Button
-      endIcon={
-        <Badge colorScheme="secondary" ml={1} rounded="md">
-          10
-        </Badge>
-      }
-      mx={{ base: 'auto', md: 0 }}
-    >
-      Notifications
-    </Button>
+    <VStack>
+      <Badge
+        // bg="red.400"
+        colorScheme="danger"
+        rounded="999px"
+        mb={-4}
+        mr={-4}
+        zIndex={1}
+        variant="solid"
+        alignSelf="flex-end"
+        _text={{ fontSize: 12 }}
+      >
+        2
+      </Badge>
+      <Button
+        mx={{ base: 'auto', md: 0 }}
+        p="2"
+        bg="cyan.500"
+        _text={{ fontSize: 14 }}
+      >
+        Notifications
+      </Button>
+    </VStack>
   );
 }
