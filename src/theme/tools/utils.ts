@@ -122,7 +122,7 @@ export function getRandomString(length: number) {
 }
 // Inefficient way for pick, but retains order of props.
 function orderedPick(obj: any, values: any) {
-  let ret: any = {};
+  const ret: any = {};
   Object.keys(obj).forEach((key: string) => {
     if (values.includes(key)) {
       ret[key] = obj[key];
@@ -200,7 +200,7 @@ export function findLastValidBreakpoint(
   themeBreakpoints: any,
   currentBreakpoint: number
 ) {
-  let valArray = Array.isArray(values)
+  const valArray = Array.isArray(values)
     ? values
     : Object.keys(themeBreakpoints).map((bPoint: string) => values[bPoint]);
   return (
@@ -215,7 +215,7 @@ export function getClosestBreakpoint(
   values: Record<string, any>,
   point: number
 ) {
-  let dimValues = Object.values(values);
+  const dimValues = Object.values(values);
   let index = -1;
   for (let i = 0; i < dimValues.length; i++) {
     if (dimValues[i] === point) {
@@ -284,7 +284,7 @@ export const platformSpecificSpaceUnits = (theme: ITheme) => {
   scales.forEach((key) => {
     const scale = get(theme, key, {});
     const newScale = { ...scale };
-    for (let scaleKey in scale) {
+    for (const scaleKey in scale) {
       const val = scale[scaleKey];
       if (typeof val !== 'object') {
         const isAbsolute = typeof val === 'number';

@@ -2,8 +2,8 @@ import { mode, getColorScheme } from '../tools';
 import { Platform } from 'react-native';
 
 const baseStyle = (props: Record<string, any>) => {
-  let { onTrackColor, offTrackColor, onThumbColor, offThumbColor } = props;
-  let colorScheme = getColorScheme(props);
+  const { onTrackColor, offTrackColor, onThumbColor, offThumbColor } = props;
+  const colorScheme = getColorScheme(props);
 
   return {
     offTrackColor:
