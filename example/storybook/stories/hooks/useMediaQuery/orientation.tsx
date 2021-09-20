@@ -121,7 +121,12 @@ export const Example = () => {
               justifyContent="space-between"
             >
               <HStack alignItems="center">
-                <Text fontSize="xs" color="gray.500" fontWeight="400">
+                <Text
+                  _dark={{ color: 'warmGray.200' }}
+                  fontSize="xs"
+                  color="gray.500"
+                  fontWeight="400"
+                >
                   6 mins ago
                 </Text>
               </HStack>

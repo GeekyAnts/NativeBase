@@ -14,6 +14,7 @@ import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
+import { HStack, Text, useColorMode } from 'native-base';
 
 let INSET = 50;
 
@@ -138,6 +139,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
     { [key in string]: boolean }
   >({});
   const themeProps = usePropsResolution('Toast', {});
+  const { colorMode } = useColorMode();
   let toastIndex = React.useRef(1);
 
   const hideAll = () => {
@@ -183,6 +185,30 @@ export const ToastProvider = ({ children }: { children: any }) => {
     });
   };
 
+  const getTextColor = (
+    variant:
+      | 'solid'
+      | 'left-accent'
+      | 'top-accent'
+      | 'outline'
+      | 'subtle'
+      | 'outline-light',
+    type: 'title' | 'description'
+  ): any => {
+    switch (variant) {
+      case 'left-accent':
+      case 'top-accent':
+      case 'subtle':
+        return type === 'title' ? 'coolGray.800' : 'coolGray.600';
+      case 'solid':
+        return type === 'title' ? 'coolGray.800' : 'coolGray.600';
+      case 'outline' || 'outline-light':
+        return colorMode === 'light' ? 'coolGray.800' : 'warmGray.50';
+      default:
+        return 'black';
+    }
+  };
+
   const setToast = (props: IToastProps): number => {
     const {
       placement = 'bottom',
@@ -198,6 +224,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       accessibilityLiveRegion = 'polite',
       ...rest
     } = props;
+
     let positionToastArray = toastInfo[placement];
     if (!positionToastArray) positionToastArray = [];
 
@@ -222,24 +249,39 @@ export const ToastProvider = ({ children }: { children: any }) => {
           status={status ?? 'info'}
           variant={variant as any}
           accessibilityLiveRegion={accessibilityLiveRegion}
-          action={
-            isClosable ? (
-              <IconButton
-                onPress={() => {
-                  hideToast(id);
-                }}
-                icon={<CloseIcon {...themeProps._closeIcon} />}
-              />
-            ) : undefined
-          }
-          {...rest}
         >
-          <Alert.Icon />
-          <VStack flexShrink={1}>
-            <Alert.Title>{title}</Alert.Title>
-            {description ? (
-              <Alert.Description>{description}</Alert.Description>
-            ) : null}
+          <VStack space={1} flexShrink={1} w="100%">
+            <HStack
+              flexShrink={1}
+              space={2}
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <HStack space={2} alignItems="center">
+                <Alert.Icon />
+                <Text
+                  fontSize="md"
+                  fontWeight="medium"
+                  color={getTextColor(variant ?? 'solid', 'title')}
+                >
+                  {title}
+                </Text>
+              </HStack>
+              {isClosable ? (
+                <IconButton
+                  variant="unstyled"
+                  icon={<CloseIcon size="3" color="coolGray.600" />}
+                  onPress={() => hideToast(id)}
+                />
+              ) : null}
+            </HStack>
+            <Box
+              pl="6"
+              // @ts-ignore
+              color={getTextColor(variant ?? 'solid', 'title')}
+            >
+              {description}
+            </Box>
           </VStack>
         </Alert>
       );

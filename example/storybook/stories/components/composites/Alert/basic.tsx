@@ -1,14 +1,40 @@
 import React from 'react';
-import { Alert } from 'native-base';
+import {
+  Alert,
+  VStack,
+  HStack,
+  IconButton,
+  CloseIcon,
+  Box,
+  Heading,
+} from 'native-base';
 
 export const Example = () => {
   return (
-    <Alert w="100%">
-      <Alert.Icon />
-      <Alert.Title>Alert Title</Alert.Title>
-      <Alert.Description>
-        Alert Description should be a brief about the Alert Message.
-      </Alert.Description>
+    <Alert w="100%" colorScheme="info">
+      <VStack space={1} flexShrink={1} w="100%">
+        <HStack
+          flexShrink={1}
+          space={2}
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <HStack space={2} alignItems="center">
+            <Alert.Icon />
+            <Heading fontSize="md" fontWeight="medium" color="coolGray.800">
+              We are going live in July!
+            </Heading>
+          </HStack>
+          <IconButton
+            variant="unstyled"
+            icon={<CloseIcon size="3" color="coolGray.600" />}
+          />
+        </HStack>
+        <Box pl="6" _text={{ color: 'coolGray.600' }}>
+          We are happy to announce that we are going live on July 28th. Get
+          ready!
+        </Box>
+      </VStack>
     </Alert>
   );
 };
