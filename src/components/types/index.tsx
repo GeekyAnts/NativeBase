@@ -5,7 +5,7 @@ export * from './ExtraProps';
 export * from './FlexboxProps';
 export * from './GridLayoutProps';
 export * from './LayoutProps';
-export * from './PlafromProps';
+export * from './PlatformProps';
 export * from './PositionProps';
 export * from './ShdaowProps';
 export * from './SpaceProps';

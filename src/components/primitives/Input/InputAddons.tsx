@@ -1,11 +1,11 @@
 import React, { memo, forwardRef } from 'react';
 import { default as Box, IBoxProps } from '../Box';
-import type { IInputProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { usePropsResolution } from '../../../hooks/useThemeProps/usePropsResolution';
 
 export const InputLeftAddon = memo(
-  forwardRef((props: IBoxProps & IInputProps, ref?: any) => {
+  //@r
+  forwardRef((props: IBoxProps, ref?: any) => {
     const resolvedProps = usePropsResolution('InputLeftAddon', props);
     //TODO: refactor for responsive prop
     if (useHasResponsiveProps(props)) {
@@ -21,7 +21,7 @@ export const InputLeftAddon = memo(
   })
 );
 export const InputRightAddon = memo(
-  forwardRef((props: IBoxProps & IInputProps, ref?: any) => {
+  forwardRef((props: IBoxProps, ref?: any) => {
     const resolvedProps = usePropsResolution('InputRightAddon', props);
     //TODO: refactor for responsive prop
     if (useHasResponsiveProps(props)) {

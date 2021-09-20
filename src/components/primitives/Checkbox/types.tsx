@@ -4,10 +4,11 @@ import type { TouchableOpacityProps } from 'react-native';
 import type { IFormControlContext } from '../../composites/FormControl';
 import type { IBoxProps } from '../Box';
 import type { IIconProps } from '../Icon';
+import type { ResponsiveValue } from '../../../components/types';
 
 export type ICheckboxValue = string;
 
-export interface ICheckboxProps extends IBoxProps {
+export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
   /**
    * assign id to checkbox
    */
@@ -53,13 +54,13 @@ export interface ICheckboxProps extends IBoxProps {
    * The size (width and height) of the checkbox.
    * @default 'md'
    */
-  size?: 'sm' | 'md' | 'lg';
+  size?: ResponsiveValue<'sm' | 'md' | 'lg'>;
   /**
    * If given, will use this icon instead of the default.
    */
   icon?: JSX.Element;
   /**
-   * Passed props will be applied on disabled state.
+   * Passed props wilICheckboxGroupPropsl be applied on disabled state.
    */
   _disabled?: Omit<ICheckboxProps, '_disabled'>;
   /**
@@ -111,7 +112,7 @@ export interface ICheckboxProps extends IBoxProps {
   wrapperRef?: any;
   ref?: MutableRefObject<any>;
 }
-export interface ICheckboxGroupProps extends IBoxProps {
+export interface ICheckboxGroupProps extends IBoxProps<ICheckboxGroupProps> {
   /**
    * assign id to checkbox group
    */
@@ -131,7 +132,7 @@ export interface ICheckboxGroupProps extends IBoxProps {
   /**
    * The size (width and height) of the checkbox.
    */
-  size?: 'sm' | 'md' | 'lg';
+  size?: ResponsiveValue<'sm' | 'md' | 'lg'>;
   /**
    * The callback fired when any children Checkbox is checked or unchecked.
    */
@@ -139,7 +140,7 @@ export interface ICheckboxGroupProps extends IBoxProps {
 }
 export interface ICheckboxContext extends IFormControlContext {
   colorScheme?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: ResponsiveValue<'sm' | 'md' | 'lg'>;
   state: CheckboxGroupState;
 }
 

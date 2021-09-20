@@ -6,7 +6,7 @@ import { Pressable } from 'native-base';
 import type { IBreadcrumbProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps/usePropsResolution';
 import Text from '../../primitives/Text';
-import type { IFlexProps, ITextProps } from '../../primitives';
+import type { IFlexProps } from '../../primitives';
 import { ThreeDotsIcon } from '../../primitives/Icon/Icons';
 
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
@@ -21,7 +21,7 @@ const Breadcrumb = (
     isCollapsed,
     onCollapseChange,
     ...props
-  }: IBreadcrumbProps & IFlexProps & ITextProps,
+  }: IBreadcrumbProps & IFlexProps,
   ref: any
 ) => {
   const textProps = { ..._text };

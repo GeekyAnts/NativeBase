@@ -1,7 +1,7 @@
 import type * as CSS from 'csstype';
 import type { IBoxProps } from '../Box';
 
-export type IFlexProps = IBoxProps & {
+export type IFlexProps = IBoxProps<IFlexProps> & {
   direction?: CSS.Property.FlexDirection;
   align?: CSS.Property.AlignItems;
   justify?: CSS.Property.JustifyContent;

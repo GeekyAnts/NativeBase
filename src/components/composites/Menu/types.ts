@@ -3,7 +3,7 @@ import type { IBoxProps } from '../../primitives/Box';
 import type { IPressableProps } from '../../primitives/Pressable';
 import type { MutableRefObject } from 'react';
 
-export interface IMenuProps extends IBoxProps {
+export interface IMenuProps extends IBoxProps<IMenuProps> {
   /**
    * Function that returns a React Element. This element will be used as a Trigger for the menu
    */

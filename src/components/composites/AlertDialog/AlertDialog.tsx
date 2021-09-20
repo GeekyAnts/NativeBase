@@ -12,7 +12,9 @@ export type IAlertDialogComponentType = ((
   props: IAlertDialogProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Body: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (
+      props: IBoxProps<IAlertDialogProps> & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
     (props: IIconButtonProps & { ref?: MutableRefObject<any> }) => JSX.Element

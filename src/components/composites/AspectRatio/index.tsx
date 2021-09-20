@@ -4,7 +4,7 @@ import { default as Box, IBoxProps } from '../../primitives/Box';
 import isNil from 'lodash.isnil';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-export type IAspectRatioProps = IBoxProps & {
+export type IAspectRatioProps = IBoxProps<IAspectRatioProps> & {
   style?: ViewStyle;
   ratio?: number;
   children: JSX.Element;

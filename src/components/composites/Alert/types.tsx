@@ -1,7 +1,9 @@
 import type { MutableRefObject } from 'react';
+import type { ResponsiveValue } from '../../../components/types';
+import type { IColors } from '../../../theme/base/colors';
 import type { IBoxProps, IIconProps } from '../../primitives';
 
-export interface IAlertProps extends IBoxProps {
+export interface IAlertProps extends IBoxProps<IAlertProps> {
   /** The status of the alert
    *  @default info
    */
@@ -24,13 +26,13 @@ export interface IAlertProps extends IBoxProps {
   action?: JSX.Element;
   /** Props to be passed to the action Wrapper Box
    */
-  actionProps?: IBoxProps;
+  actionProps?: IBoxProps<IAlertProps>;
 }
 export type IAlertContext = {
   status?: string;
   variant?: string;
-  iconColor?: string;
-  textColor?: string;
+  iconColor?: ResponsiveValue<IColors | (string & {})>;
+  textColor?: ResponsiveValue<IColors | (string & {})>;
 };
 
 export interface IAlertIconProps extends IIconProps {

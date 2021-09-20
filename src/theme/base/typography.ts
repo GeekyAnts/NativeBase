@@ -134,5 +134,15 @@ const typography = {
 };
 
 export type ITypography = typeof typography;
+export type IFontSize = keyof typeof typography.fontSizes;
+export type ILetterSpacing = keyof typeof typography.letterSpacings;
+export type ILineHeight = keyof typeof typography.lineHeights;
+export type IFontWeight = keyof typeof typography.fontWeights;
+// export type IFont = typeof typography.fonts;
+export interface IFont {
+  heading?: string;
+  body?: string;
+  mono?: string;
+}
 
 export default typography;

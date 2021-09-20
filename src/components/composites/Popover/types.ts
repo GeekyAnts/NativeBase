@@ -124,13 +124,15 @@ export type IScrollContentStyle = {
   arrowWidth: number;
 };
 
-export interface IPopoverContentProps extends IBoxProps {}
+export interface IPopoverContentProps extends IBoxProps<IPopoverContentProps> {}
 
 export type IPopoverComponentType = ((
   props: IPopoverProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element & { ref?: MutableRefObject<any> }) & {
   Body: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (
+      props: IBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
     (
@@ -143,12 +145,18 @@ export type IPopoverComponentType = ((
     ) => JSX.Element
   >;
   Footer: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (
+      props: IBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   Header: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (
+      props: IBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   Arrow: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (
+      props: IBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
 };
