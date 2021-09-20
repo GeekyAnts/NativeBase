@@ -1,6 +1,6 @@
 import type { IBoxProps } from 'native-base';
 
-export type ISimpleGridProps = IBoxProps & {
+export type ISimpleGridProps = IBoxProps<ISimpleGridProps> & {
   space?: number;
   columns?: number;
   minChildWidth?: number;

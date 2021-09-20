@@ -1,7 +1,9 @@
 import type { MutableRefObject } from 'react';
+import type { ResponsiveValue } from '../../../components/types';
+import type { IColors } from '../../../theme/base/colors';
 import type { IBoxProps, IIconProps } from '../../primitives';
 
-export interface IAlertProps extends IBoxProps {
+export interface IAlertProps extends IBoxProps<IAlertProps> {
   /** The status of the alert
    *  @default info
    */
@@ -21,13 +23,6 @@ export interface IAlertProps extends IBoxProps {
   /** The colorScheme of the Alert.
    */
   colorScheme?: string;
-  /** The action to display. It renders after the message, at the end of the alert.
-   */
-  // action?: JSX.Element;
-  //remove
-  /** Props to be passed to the action Wrapper Box
-   */
-  // actionProps?: IBoxProps;
 }
 export type IAlertContext = {
   status?: string;

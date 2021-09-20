@@ -15,6 +15,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
   {
+    //@ts-ignore
     children,
     startIcon,
     rightIcon,
@@ -31,6 +32,7 @@ const Button = (
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
+
   const {
     onPressIn,
     onPressOut,
@@ -46,7 +48,7 @@ const Button = (
   } = usePropsResolution(
     'Button',
     props,
-    { isDisabled, isHovered, isFocused, isPressed },
+    { isDisabled, isHovered, isFocused, isPressed, isLoading },
     { ignoreProps: ['_spinner'] }
   );
 
@@ -137,7 +139,7 @@ const Button = (
       // @ts-ignore - web only
       onFocus={composeEventHandlers(
         composeEventHandlers(onFocus, focusProps.onFocus)
-        // focusRingProps.onFocu
+        // focusRingProps.onFocus
       )}
       // @ts-ignore - web only
       onBlur={composeEventHandlers(

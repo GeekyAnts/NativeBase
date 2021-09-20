@@ -2,8 +2,10 @@ import type { IBoxProps } from '../Box';
 import type { IButtonProps } from '../Button';
 import type { IActionsheetContentProps } from '../../composites/Actionsheet/types';
 import type { MutableRefObject } from 'react';
+import type { ResponsiveValue } from '../../../components/types';
+import type { IColors } from '../../../theme/base/colors';
 
-export interface ISelectProps extends IBoxProps {
+export interface ISelectProps extends IBoxProps<ISelectProps> {
   /**
    * The placeholder that describes the Select.
    */
@@ -11,11 +13,11 @@ export interface ISelectProps extends IBoxProps {
   /**
    * The Selected Item text color.
    */
-  color?: string;
+  color?: ResponsiveValue<IColors | (string & {})>;
   /**
    * The placeholder text color
    */
-  placeholderTextColor?: string;
+  placeholderTextColor?: ResponsiveValue<IColors | (string & {})>;
   /**
    * Item props passed here will be passed to each Select.Item component.
    */

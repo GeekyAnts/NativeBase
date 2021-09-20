@@ -12,7 +12,7 @@ export const Example = () => {
       <Heading>Why us?</Heading>
       <View style={{ flexDirection: flexDir }}>
         <VStack
-          m="1.5"
+          m="3"
           w="140"
           borderRadius="xl"
           p="3"
@@ -37,7 +37,7 @@ export const Example = () => {
           </Text>
         </VStack>
         <VStack
-          m="1.5"
+          m="3"
           w="140"
           borderRadius="xl"
           p="3"
@@ -62,7 +62,7 @@ export const Example = () => {
           </Text>
         </VStack>
         <VStack
-          m="1.5"
+          m="3"
           w="140"
           borderRadius="xl"
           p="3"

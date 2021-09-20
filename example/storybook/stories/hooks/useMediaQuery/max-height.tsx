@@ -20,9 +20,10 @@ export const Example = () => {
           rounded="lg"
           overflow="hidden"
           width="72"
+          borderWidth="1"
           shadow={1}
-          _light={{ backgroundColor: 'gray.50' }}
-          _dark={{ backgroundColor: 'gray.700' }}
+          _light={{ backgroundColor: 'gray.50', borderColor: 'coolGray.200' }}
+          _dark={{ borderColor: 'coolGray.600', backgroundColor: 'gray.700' }}
         >
           <Box>
             <AspectRatio ratio={16 / 9}>

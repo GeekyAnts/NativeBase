@@ -26,6 +26,7 @@ export const getColor = (rawValue: any, scale: any, theme: any) => {
 
 // To handle negative margins
 const getMargin = (n: any, scale: any) => {
+  n = convertStringNumberToNumber('margin', n);
   if (!isNumber(n)) {
     return get(scale, n, n);
   }
@@ -567,7 +568,8 @@ const propConfig = {
   ...extraProps,
 };
 
-// For backward compatibility with 3.0 of props like string numbers `<Box mt={"39"} />`
+// For backward compatibility with 3.0 of props like non token string numbers `<Box mt={"39"} />` => used to get applied as 39px. RN expects fontWeight to be string and crashes with numbers
+// https://reactnative.dev/docs/text-style-props#fontweight
 const convertStringNumberToNumber = (key: string, value: string) => {
   if (
     typeof value === 'string' &&

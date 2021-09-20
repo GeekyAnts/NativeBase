@@ -1,7 +1,7 @@
 import type { MutableRefObject } from 'react';
 import type { IBoxProps } from '../Box';
 
-export interface ISliderProps extends IBoxProps {
+export interface ISliderProps extends IBoxProps<ISliderProps> {
   /** The current value of the Slider */
   value?: number;
   /** The default value (uncontrolled). */
@@ -52,7 +52,7 @@ export interface ISliderProps extends IBoxProps {
   _readOnly?: any;
 }
 
-export interface ISliderTrackProps extends IBoxProps {
+export interface ISliderTrackProps extends IBoxProps<ISliderTrackProps> {
   /** Whether the whole Slider is readonly. */
   isReadOnly?: boolean;
   /** Props applied if isDisabled is true. */
@@ -61,7 +61,8 @@ export interface ISliderTrackProps extends IBoxProps {
   _readOnly?: any;
 }
 
-export interface ISliderTrackFilledProps extends IBoxProps {
+export interface ISliderTrackFilledProps
+  extends IBoxProps<ISliderTrackFilledProps> {
   /** Whether the whole Slider is readonly. */
   isReadOnly?: boolean;
   /** Props applied if isDisabled is true. */
@@ -70,7 +71,7 @@ export interface ISliderTrackFilledProps extends IBoxProps {
   _readOnly?: any;
 }
 
-export interface ISliderThumbProps extends IBoxProps {
+export interface ISliderThumbProps extends IBoxProps<ISliderThumbProps> {
   /**
    * The orientation of the Slider.
    * @default 'horizontal'

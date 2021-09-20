@@ -3,7 +3,7 @@ import { Menu, Divider, HamburgerIcon, Box, Pressable } from 'native-base';
 
 export function Example() {
   return (
-    <Box h="80%" w="90%">
+    <Box h="80%" w="90%" alignItems="flex-start">
       <Menu
         w="190"
         closeOnSelect={false}
@@ -22,7 +22,7 @@ export function Example() {
           <Menu.Item>Nunito Sans</Menu.Item>
           <Menu.Item>Roboto</Menu.Item>
         </Menu.Group>
-        <Divider my="3" />
+        <Divider mt="3" w="100%" />
         <Menu.Group title="Paid">
           <Menu.Item>SF Pro</Menu.Item>
           <Menu.Item>Helvetica</Menu.Item>

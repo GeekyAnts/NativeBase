@@ -1,7 +1,10 @@
 import type { MutableRefObject } from 'react';
 import type { IBoxProps, ITextProps } from '../../primitives';
 import type { IStackProps } from '../../primitives/Stack/Stack';
-export interface ISkeletonProps extends IBoxProps {
+import type { ResponsiveValue } from '../../../components/types';
+import type { ISizes } from '../../../theme/base/sizes';
+import type { IColors } from '../../../theme/base/colors';
+export interface ISkeletonProps extends IBoxProps<ISkeletonProps> {
   /**
    * The fadeIn duration in seconds
    */
@@ -17,15 +20,16 @@ export interface ISkeletonProps extends IBoxProps {
   /**
    * The color at the animation start
    */
-  startColor?: string;
+  startColor?: ResponsiveValue<IColors | (string & {})>;
   /**
    * The color at the animation end
    */
-  endColor?: string;
+  endColor?: ResponsiveValue<IColors | (string & {})>;
   /**
    * Sizes for Skeleton
    */
-  size?: string | number;
+
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
 }
 
 export interface ISkeletonTextProps extends ITextProps {
@@ -44,11 +48,11 @@ export interface ISkeletonTextProps extends ITextProps {
   /**
    * The color at the animation start
    */
-  startColor?: string;
+  startColor?: ResponsiveValue<IColors | (string & {})>;
   /**
    * The color at the animation end
    */
-  endColor?: string;
+  endColor?: ResponsiveValue<IColors | (string & {})>;
   /**
    * No of Lines in text
    */

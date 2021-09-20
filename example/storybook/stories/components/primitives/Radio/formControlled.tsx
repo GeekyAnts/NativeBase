@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, FormControl, Radio, WarningIcon } from 'native-base';
+import { Container, FormControl, Radio, WarningOutlineIcon } from 'native-base';
 
 export const Example = () => {
   const [groupValue, setGroupValue] = React.useState('1');
@@ -27,7 +27,7 @@ export const Example = () => {
             Third
           </Radio>
         </Radio.Group>
-        <FormControl.ErrorMessage leftIcon={<WarningIcon size="xs" />}>
+        <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
           You must select a Prize.
         </FormControl.ErrorMessage>
       </FormControl>

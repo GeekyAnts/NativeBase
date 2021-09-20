@@ -9,7 +9,7 @@ export const Example = () => {
       overflow="hidden"
       width={['72', '72', '4/6']}
       shadow={1}
-      _light={{ backgroundColor: 'gray.50' }}
+      _light={{ backgroundColor: 'coolGray.50' }}
       _dark={{ backgroundColor: 'gray.700' }}
     >
       <Box>
@@ -40,8 +40,7 @@ export const Example = () => {
           </Heading>
           <Text
             fontSize="xs"
-            _light={{ color: 'violet.500' }}
-            _dark={{ color: 'violet.300' }}
+            color="violet.500"
             fontWeight="500"
             ml="-0.5"
             mt="-1"
@@ -55,7 +54,11 @@ export const Example = () => {
         </Text>
         <HStack alignItems="center" space={4} justifyContent="space-between">
           <HStack alignItems="center">
-            <Text color="gray.500" fontWeight="400">
+            <Text
+              color="coolGray.600"
+              _dark={{ color: 'warmGray.200' }}
+              fontWeight="400"
+            >
               6 mins ago
             </Text>
           </HStack>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio, Text, Box } from 'native-base';
+import { Radio, Box } from 'native-base';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { useState } from 'react';
 
@@ -22,7 +22,7 @@ export const Example = () => {
           value={'cool'}
           my={1}
         >
-          Are you Awesome?
+          UX Research
         </Radio>
         <Radio
           colorScheme={text('colorScheme', 'primary')}
@@ -32,10 +32,9 @@ export const Example = () => {
           value={'awesome'}
           my={1}
         >
-          Are you Cool?
+          Software Development
         </Radio>
       </Radio.Group>
-      <Text mt={2}>{'Yes, you are ' + value}</Text>
     </Box>
   );
 };

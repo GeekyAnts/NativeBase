@@ -4,7 +4,7 @@ import { getAbsoluteChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-export interface IZStackProps extends IBoxProps {
+export interface IZStackProps extends IBoxProps<IZStackProps> {
   /**
    * The direction to stack the elements.
    */

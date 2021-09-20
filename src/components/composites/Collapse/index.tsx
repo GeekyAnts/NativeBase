@@ -4,7 +4,7 @@ import { ViewStyle, LayoutAnimation, UIManager, Platform } from 'react-native';
 import { Box, IBoxProps } from '../../primitives';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-export type ICollapseProps = IBoxProps & {
+export type ICollapseProps = IBoxProps<ICollapseProps> & {
   style?: ViewStyle;
   endingHeight?: number;
   startingHeight?: number;

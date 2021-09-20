@@ -56,6 +56,7 @@ export function Example() {
         Open Modal
       </Button>
       <Input
+        w={{ base: '70%', md: '25%' }}
         mt={4}
         ref={finalRef}
         placeholder="Enter the OTP"

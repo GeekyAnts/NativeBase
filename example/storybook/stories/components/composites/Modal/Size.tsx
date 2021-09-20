@@ -1,6 +1,14 @@
 // @ts-nocheck
 import React from 'react';
-import { Modal, Button, Stack, ScrollView, Text } from 'native-base';
+import {
+  Modal,
+  Button,
+  ScrollView,
+  Text,
+  Heading,
+  Center,
+  VStack,
+} from 'native-base';
 
 export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -49,16 +57,19 @@ export function Example() {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-      <Stack direction={{ base: 'column', md: 'row' }} space={2}>
-        {['xs', 'sm', 'md', 'lg', 'xl', 'full'].map((size) => {
-          return (
-            <Button
-              onPress={() => handleSizeClick(size)}
-              key={size}
-            >{`Open ${size} Modal`}</Button>
-          );
-        })}
-      </Stack>
+      <Center>
+        <Heading mb="10">Sizes</Heading>
+        <VStack space={2}>
+          {['xs', 'sm', 'md', 'lg', 'xl', 'full'].map((size) => {
+            return (
+              <Button
+                onPress={() => handleSizeClick(size)}
+                key={size}
+              >{`Open ${size} Modal`}</Button>
+            );
+          })}
+        </VStack>
+      </Center>
     </>
   );
 }

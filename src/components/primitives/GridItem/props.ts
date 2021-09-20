@@ -1,7 +1,7 @@
 import type * as CSS from 'csstype';
 import type { IBoxProps } from '../Box';
 
-export type IGridItemProps = IBoxProps & {
+export type IGridItemProps = IBoxProps<IGridItemProps> & {
   gap?: CSS.Property.Gap;
   rowSpan?: number;
   colSpan?: number;

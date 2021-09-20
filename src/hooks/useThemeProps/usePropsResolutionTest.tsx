@@ -6,9 +6,9 @@ import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
-import { propsFlattenerTest } from './propsFlattenerTest';
+import { propsFlattener, compareSpecificity } from './propsFlattenerTest';
 
-const specificityOrder = [
+const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
   'padding',
   'px',
@@ -35,7 +35,18 @@ const specificityOrder = [
   'marginRight',
 ];
 
-const marginMap: any = {
+const FINAL_SPREAD_PROPS = [
+  'paddingTop',
+  'paddingBottom',
+  'paddingLeft',
+  'paddingRight',
+  'marginTop',
+  'marginBottom',
+  'marginLeft',
+  'marginRight',
+];
+
+const MARGIN_MAP: any = {
   mx: ['marginRight', 'marginLeft'],
   my: ['marginTop', 'marginBottom'],
   mt: ['marginTop'],
@@ -44,14 +55,14 @@ const marginMap: any = {
   ml: ['marginLeft'],
 };
 
-marginMap.margin = [...marginMap.mx, ...marginMap.my];
-marginMap.m = marginMap.margin;
-marginMap.marginTop = marginMap.mt;
-marginMap.marginBottom = marginMap.mb;
-marginMap.marginLeft = marginMap.ml;
-marginMap.marginRight = marginMap.mr;
+MARGIN_MAP.margin = [...MARGIN_MAP.mx, ...MARGIN_MAP.my];
+MARGIN_MAP.m = MARGIN_MAP.margin;
+MARGIN_MAP.marginTop = MARGIN_MAP.mt;
+MARGIN_MAP.marginBottom = MARGIN_MAP.mb;
+MARGIN_MAP.marginLeft = MARGIN_MAP.ml;
+MARGIN_MAP.marginRight = MARGIN_MAP.mr;
 
-const paddingMap: any = {
+const PADDING_MAP: any = {
   px: ['paddingRight', 'paddingLeft'],
   py: ['paddingTop', 'paddingBottom'],
   pt: ['paddingTop'],
@@ -60,43 +71,40 @@ const paddingMap: any = {
   pl: ['paddingLeft'],
 };
 
-paddingMap.padding = [...paddingMap.px, ...paddingMap.py];
-paddingMap.p = paddingMap.padding;
-paddingMap.paddingTop = paddingMap.pt;
-paddingMap.paddingBottom = paddingMap.pb;
-paddingMap.paddingLeft = paddingMap.pl;
-paddingMap.paddingRight = paddingMap.pr;
+PADDING_MAP.padding = [...PADDING_MAP.px, ...PADDING_MAP.py];
+PADDING_MAP.p = PADDING_MAP.padding;
+PADDING_MAP.paddingTop = PADDING_MAP.pt;
+PADDING_MAP.paddingBottom = PADDING_MAP.pb;
+PADDING_MAP.paddingLeft = PADDING_MAP.pl;
+PADDING_MAP.paddingRight = PADDING_MAP.pr;
 
-const specificityMaps: any = {
-  ...paddingMap,
-  ...marginMap,
+const SPREAD_PROP_SPECIFICITY_MAP: any = {
+  ...PADDING_MAP,
+  ...MARGIN_MAP,
 };
 
-function overrideDefaultProps(userProps: any, defaultProps: any) {
-  const flattenedUserProps: any = { ...userProps };
-  const flattenedDefaultProps: any = { ...defaultProps };
+function propsSpreader(incomingProps: any, incomingSpecifity: any) {
+  const flattenedDefaultProps: any = { ...incomingProps };
+  const specificity: any = {};
 
-  specificityOrder.forEach((prop) => {
-    if (prop in flattenedUserProps) {
-      const val = flattenedUserProps[prop];
-      delete flattenedUserProps[prop];
-
-      specificityMaps[prop].forEach((newProp: string) => {
-        flattenedUserProps[newProp] = val;
-      });
-    }
-
+  SPREAD_PROP_SPECIFICITY_ORDER.forEach((prop) => {
     if (prop in flattenedDefaultProps) {
-      const val = flattenedDefaultProps[prop];
-      delete flattenedDefaultProps[prop];
+      const val = incomingProps[prop] || flattenedDefaultProps[prop];
+      if (!FINAL_SPREAD_PROPS.includes(prop)) {
+        delete flattenedDefaultProps[prop];
+        specificity[prop] = incomingSpecifity[prop];
+      }
 
-      specificityMaps[prop].forEach((newProp: string) => {
-        flattenedDefaultProps[newProp] = val;
+      SPREAD_PROP_SPECIFICITY_MAP[prop].forEach((newProp: string) => {
+        if (compareSpecificity(specificity[newProp], specificity[prop])) {
+          specificity[newProp] = incomingSpecifity[prop];
+          flattenedDefaultProps[newProp] = val;
+        }
       });
     }
   });
 
-  return merge({}, flattenedUserProps, flattenedDefaultProps);
+  return merge({}, flattenedDefaultProps);
 }
 
 /**
@@ -131,12 +139,6 @@ export function usePropsResolutionTest(
 
   const componentTheme = get(theme, `components.${component}`, {});
 
-  // const windowWidth = useWindowDimensions()?.width;
-  // const currentBreakpoint = React.useMemo(
-  //   () => getClosestBreakpoint(theme.breakpoints, windowWidth),
-  //   [windowWidth, theme.breakpoints]
-  // );
-
   // STEP 1: combine default props and incoming props
 
   const incomingWithDefaultProps = merge(
@@ -146,12 +148,13 @@ export function usePropsResolutionTest(
   );
   // STEP 2: flatten them
 
-  let [flattenProps, specificityMap] = propsFlattenerTest(
+  let [flattenProps, specificityMap] = propsFlattener(
     {
       props: incomingWithDefaultProps,
       platform: Platform.OS,
       colormode: colorModeProps.colorMode,
       state: state || {},
+      previouslyFlattenProps: {},
     },
     2
   );
@@ -187,13 +190,14 @@ export function usePropsResolutionTest(
             ...colorModeProps,
           });
 
-    [flattenBaseStyle, baseSpecificityMap] = propsFlattenerTest(
+    [flattenBaseStyle, baseSpecificityMap] = propsFlattener(
       {
         props: componentBaseStyle,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
         currentSpecificityMap: specificityMap,
+        previouslyFlattenProps: flattenProps,
       },
       1
     );
@@ -217,13 +221,14 @@ export function usePropsResolutionTest(
             ...colorModeProps,
           });
 
-    [flattenVariantStyle, variantSpecificityMap] = propsFlattenerTest(
+    [flattenVariantStyle, variantSpecificityMap] = propsFlattener(
       {
         props: componentVariantProps,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
         currentSpecificityMap: baseSpecificityMap || specificityMap,
+        previouslyFlattenProps: flattenBaseStyle || flattenProps,
       },
       1
     );
@@ -238,7 +243,8 @@ export function usePropsResolutionTest(
   const size = flattenProps.size;
 
   let componentSizeProps = {},
-    flattenSizeStyle;
+    flattenSizeStyle,
+    sizeSpecificityMap;
   // Extracting props from size
   if (size && componentTheme.sizes && componentTheme.sizes[size]) {
     // Type - sizes: {lg: 1}. Refer icon theme
@@ -265,7 +271,7 @@ export function usePropsResolutionTest(
       componentSizeProps = componentTheme.sizes[size];
     }
 
-    [flattenSizeStyle] = propsFlattenerTest(
+    [flattenSizeStyle, sizeSpecificityMap] = propsFlattener(
       {
         props: componentSizeProps,
         platform: Platform.OS,
@@ -273,6 +279,8 @@ export function usePropsResolutionTest(
         state: state || {},
         currentSpecificityMap:
           variantSpecificityMap || baseSpecificityMap || specificityMap,
+        previouslyFlattenProps:
+          flattenVariantStyle || flattenBaseStyle || flattenProps,
       },
       1
     );
@@ -280,12 +288,28 @@ export function usePropsResolutionTest(
 
   // // STEP 4: merge
   const defaultStyles = merge(
+    {},
     flattenBaseStyle,
     flattenVariantStyle,
     flattenSizeStyle
   );
 
-  flattenProps = overrideDefaultProps(flattenProps, defaultStyles);
+  for (const prop in defaultStyles) {
+    delete flattenProps[prop];
+  }
+
+  const defaultSpecificity = merge(
+    {},
+    specificityMap,
+    baseSpecificityMap,
+    variantSpecificityMap,
+    sizeSpecificityMap
+  );
+
+  flattenProps = propsSpreader(
+    { ...defaultStyles, ...flattenProps },
+    defaultSpecificity
+  );
 
   // // STEP 5: linear Grad and contrastText
   let ignore: any = [];
