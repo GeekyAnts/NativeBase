@@ -1109,12 +1109,21 @@ describe('props resolution', () => {
           >
             This is a text
           </Text>
+          <Text
+            testID="responsiveLineHeight"
+            lineHeight="3xl"
+            fontSize={['12px', '13px']}
+          >
+            hello world
+          </Text>
         </Box>
       </Provider>
     );
     const text = getByTestId('test');
+    const responsiveLineHeight = getByTestId('responsiveLineHeight');
     expect(text.props.style.lineHeight).toBe(37.5);
     expect(text.props.style.letterSpacing).toBe(0.375);
+    expect(responsiveLineHeight.props.style.lineHeight).toBe(32.5);
   });
 
   it('Heading: style props test on ios with dark mode', () => {
