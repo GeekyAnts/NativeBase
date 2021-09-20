@@ -28,7 +28,8 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
 
   const { onLayout, layout: trackLayout } = useLayout();
   const updatedProps: ISliderProps = Object.assign({}, props);
-  if (isReadOnly) {
+
+  if (isReadOnly || isDisabled) {
     updatedProps.isDisabled = true;
   }
 
