@@ -31,7 +31,7 @@ export interface ITextProps
     LayoutProps,
     OutlineProps,
     ExtraProps,
-    PlatformProps,
+    PlatformProps<ITextProps>,
     ShadowProps,
     FlexboxProps,
     TypographyProps,

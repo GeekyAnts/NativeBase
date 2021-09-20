@@ -1,4 +1,5 @@
-export interface PlatformProps {
+//@ts-ignore
+export interface PlatformProps<T> {
   /**
    * Props only for web
    */

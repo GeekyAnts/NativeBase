@@ -5,6 +5,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { usePropsResolution } from '../../../hooks/useThemeProps/usePropsResolution';
 
 export const InputLeftAddon = memo(
+  //@ts-ignore
   forwardRef((props: IBoxProps & IInputProps, ref?: any) => {
     const resolvedProps = usePropsResolution('InputLeftAddon', props);
     //TODO: refactor for responsive prop

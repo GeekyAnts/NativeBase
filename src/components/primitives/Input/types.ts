@@ -17,7 +17,7 @@ import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 
 export interface IInputProps
-  extends PlatformProps,
+  extends PlatformProps<IInputProps>,
     ColorProps,
     Omit<TextInputProps, 'textAlign'>,
     SpaceProps,

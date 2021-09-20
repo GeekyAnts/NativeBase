@@ -15,6 +15,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
   {
+    //@ts-ignore
     children,
     startIcon,
     rightIcon,

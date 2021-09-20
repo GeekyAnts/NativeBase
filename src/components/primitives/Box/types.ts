@@ -42,7 +42,7 @@ export interface IBoxProps
     Omit<BackgroundProps, 'bgColor' | 'background' | 'bg' | 'backgroundColor'>,
     SafeAreaProps,
     TransformProps,
-    PlatformProps {
+    PlatformProps<IBoxProps> {
   /**
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;

@@ -36,7 +36,7 @@ export interface IIconProps
     BackgroundProps,
     SafeAreaProps,
     TransformProps,
-    PlatformProps {
+    PlatformProps<IIconProps> {
   // name?: IconNameType;
   // type?: IconType;
   /**

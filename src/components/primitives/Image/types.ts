@@ -12,7 +12,7 @@ import type {
 } from '../../types';
 
 export interface IImageProps
-  extends PlatformProps,
+  extends PlatformProps<IImageProps>,
     Omit<
       ImageProps,
       | 'borderRadius'
