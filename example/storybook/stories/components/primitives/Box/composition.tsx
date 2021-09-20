@@ -13,6 +13,8 @@ import {
 export const Example = () => {
   return (
     <Box
+      rounded="lg"
+      overflow="hidden"
       width="72"
       shadow={1}
       borderRadius="lg"
@@ -22,7 +24,6 @@ export const Example = () => {
       <Box>
         <AspectRatio ratio={16 / 9}>
           <Image
-            roundedTop="lg"
             source={{
               uri:
                 'https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg',

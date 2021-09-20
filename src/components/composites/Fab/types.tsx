@@ -9,7 +9,7 @@ export interface IFabProps extends IButtonProps {
   /**
    * Text to be displayed in Fab
    */
-  label?: JSX.Element;
+  label?: JSX.Element | string;
   /**
    * Icon to be displayed in Fab
    */
