@@ -33,7 +33,7 @@ export const Example = () => {
           PHOTOS
         </Center>
       </Box>
-      <Stack flex="1" p="4" space={[3, 3, 1.5]}>
+      <Stack p="4" space={[3, 3, 1.5]}>
         <Stack space={2}>
           <Heading size="md" ml="-1">
             The Garden City
