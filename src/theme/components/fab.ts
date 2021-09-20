@@ -1,6 +1,6 @@
 const placementProps: any = {
-  'top-right': { top: 12, right: 4, position: 'absolute' },
-  'top-left': { top: 12, left: 4, position: 'absolute' },
+  'top-right': { top: 4, right: 4, position: 'absolute' },
+  'top-left': { top: 4, left: 4, position: 'absolute' },
   'bottom-right': { bottom: 4, right: 4, position: 'absolute' },
   'bottom-left': { bottom: 4, left: 4, position: 'absolute' },
 };

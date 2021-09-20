@@ -8,28 +8,27 @@ export const Example = () => {
       space={2}
       alignItems={{ base: 'center', md: 'flex-start' }}
     >
-      <Button isLoading colorScheme="primary">
+      <Button isLoading>Button</Button>
+      <Button isLoading isLoadingText="Submitting">
         Button
       </Button>
-      <Button isLoading isLoadingText="Submitting" />
-      <Button
-        isLoading
-        spinnerPlacement="end"
-        _loading={{ bg: 'red.100', _text: { color: 'green.500' }, opacity: 1 }}
-        _spinner={{ color: 'blue.900', size: 'lg' }}
-      >
+      <Button isLoading spinnerPlacement="end" isLoadingText="Submitting">
         Button
       </Button>
       <Button
         isLoading
-        spinnerPlacement="start"
+        _loading={{
+          bg: 'amber.400:alpha.70',
+          _text: { color: 'coolGray.700' },
+        }}
+        _spinner={{ color: 'white' }}
         isLoadingText="Submitting"
-        _text={{ color: 'green.500' }}
-        _loading={{ _text: { color: 'red.500' } }}
       >
-        BUTTON
+        Button
       </Button>
-      <Button isLoading isLoadingText="Submitting" variant="outline" />
+      <Button isLoading isLoadingText="Submitting" variant="outline">
+        Button
+      </Button>
     </Stack>
   );
 };

@@ -1,15 +1,20 @@
-import AlertDialogMain, { IAlertDialogComponentType } from './AlertDialog';
+import AlertDialog from './AlertDialog';
 import AlertDialogContent from './AlertDialogContent';
-export type { IAlertDialogProps } from './AlertDialog';
-import { Modal } from '../../composites/Modal';
+import AlertDialogBody from './AlertDialogBody';
+import AlertDialogCloseButton from './AlertDialogCloseButton';
+import AlertDialogFooter from './AlertDialogFooter';
+import AlertDialogHeader from './AlertDialogHeader';
+import type { IAlertDialogComponentType } from './types';
 
-let AlertDialogTemp: any = AlertDialogMain;
+let AlertDialogTemp: any = AlertDialog;
+
 AlertDialogTemp.Content = AlertDialogContent;
-AlertDialogTemp.CloseButton = Modal.CloseButton;
-AlertDialogTemp.Header = Modal.Header;
-AlertDialogTemp.Footer = Modal.Footer;
-AlertDialogTemp.Body = Modal.Body;
+AlertDialogTemp.CloseButton = AlertDialogCloseButton;
+AlertDialogTemp.Header = AlertDialogHeader;
+AlertDialogTemp.Footer = AlertDialogFooter;
+AlertDialogTemp.Body = AlertDialogBody;
 
-// To add typings
-const AlertDialog = AlertDialogTemp as IAlertDialogComponentType;
-export { AlertDialog };
+const AlertDialogMain = AlertDialogTemp as IAlertDialogComponentType;
+
+export { AlertDialogMain as AlertDialog };
+export { IAlertDialogProps } from './types';

@@ -8,7 +8,7 @@ export const Example = () => {
     <Button
       onPress={() =>
         toast.show({
-          title: 'Hello world',
+          description: 'Hello world',
         })
       }
     >

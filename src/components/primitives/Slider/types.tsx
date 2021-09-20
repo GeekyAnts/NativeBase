@@ -94,13 +94,11 @@ export type ISliderComponentType = ((
     (props: ISliderThumbProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Track: React.MemoExoticComponent<
-    (
-      props: IBoxProps<ISliderProps> & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    (props: ISliderTrackProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   FilledTrack: React.MemoExoticComponent<
     (
-      props: IBoxProps<ISliderProps> & { ref?: MutableRefObject<any> }
+      props: ISliderTrackFilledProps & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
 };

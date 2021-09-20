@@ -9,7 +9,7 @@ const baseStyle = (props: any) => {
       : {};
 
   return {
-    borderRadius: 'lg',
+    borderRadius: 'sm',
     _web: {
       cursor: props.isDisabled
         ? 'not-allowed'
@@ -35,13 +35,13 @@ function variantGhost(props: Dict) {
     },
     _hover: {
       bg: transparentize(
-        mode(`${colorScheme}.200`, `${colorScheme}.500`)(props),
+        mode(`${colorScheme}.200`, `${colorScheme}.400`)(props),
         0.5
       )(props.theme),
     },
     _focusVisible: {
       bg: transparentize(
-        mode(`${colorScheme}.200`, `${colorScheme}.500`)(props),
+        mode(`${colorScheme}.200`, `${colorScheme}.400`)(props),
         0.5
       )(props.theme),
     },
@@ -57,29 +57,29 @@ function variantGhost(props: Dict) {
 function variantOutline(props: Dict) {
   const { colorScheme } = props;
   return {
-    borderWidth: 1,
-    borderColor: `${colorScheme}.500`,
+    borderWidth: '1',
+    borderColor: `${colorScheme}.300`,
     _icon: {
-      color: `${colorScheme}.500`,
+      color: mode(`${colorScheme}.500`, `${colorScheme}.300`)(props),
     },
     _web: {
       outlineWidth: 0,
     },
     _hover: {
       bg: transparentize(
-        mode(`${colorScheme}.200`, `${colorScheme}.500`)(props),
+        mode(`${colorScheme}.200`, `${colorScheme}.400`)(props),
         0.5
       )(props.theme),
     },
     _focusVisible: {
       bg: transparentize(
-        mode(`${colorScheme}.200`, `${colorScheme}.500`)(props),
+        mode(`${colorScheme}.200`, `${colorScheme}.400`)(props),
         0.5
       )(props.theme),
     },
     _pressed: {
       bg: transparentize(
-        mode(`${colorScheme}.200`, `${colorScheme}.500`)(props),
+        mode(`${colorScheme}.300`, `${colorScheme}.500`)(props),
         0.6
       )(props.theme),
     },
@@ -89,18 +89,21 @@ function variantOutline(props: Dict) {
 function variantSolid(props: Dict) {
   const { colorScheme } = props;
   return {
-    bg: mode(`${colorScheme}.500`, `${colorScheme}.400`)(props),
+    bg: `${colorScheme}.500`,
     _web: {
       outlineWidth: 0,
     },
     _disabled: {
-      bg: mode(`muted.300`, `muted.500`)(props),
+      bg: mode(`trueGray.300`, `trueGray.600`)(props),
     },
     _hover: {
-      bg: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
+      bg: `${colorScheme}.600`,
     },
     _pressed: {
-      bg: mode(`${colorScheme}.700`, `${colorScheme}.600`)(props),
+      bg: `${colorScheme}.700`,
+    },
+    _focus: {
+      bg: `${colorScheme}.600`,
     },
     _icon: {
       color: mode('gray.50', 'gray.800')(props),

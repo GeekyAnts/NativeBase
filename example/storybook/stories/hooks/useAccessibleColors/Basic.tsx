@@ -7,15 +7,16 @@ import {
 } from 'native-base';
 
 const ButtonTemplate = ({ shade }: any) => {
-  const colorContrast = useContrastText(`teal.${shade}`);
+  const colorContrast = useContrastText(`yellow.${shade}`);
   return (
     <Button
-      key={`primary.${shade}`}
-      bg={`primary.${shade}`}
+      colorScheme="yellow"
+      key={`yellow.${shade}`}
+      bg={`yellow.${shade}`}
       _text={{ color: colorContrast }}
       mb={1}
     >
-      NativeBase
+      Save Changes
     </Button>
   );
 };
@@ -26,10 +27,10 @@ export const Example = () => {
 
   return (
     <>
-      {Object.keys(colors.primary).map((key) => (
-        <ButtonTemplate shade={key} />
-      ))}
-      <Button mt={2} onPress={toggleAccessibleColors} colorScheme="secondary">
+      {Object.keys(colors.yellow).map((key, index) => {
+        if (index > 1 && index < 9) return <ButtonTemplate shade={key} />;
+      })}
+      <Button mt="10" onPress={toggleAccessibleColors} colorScheme="primary">
         Toggle Accessible Colors
       </Button>
     </>

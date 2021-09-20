@@ -9,7 +9,7 @@ const baseStyle = (props: Record<string, any>) => {
     borderColor: mode('muted.300', 'muted.600')(props),
     bg: mode('muted.50', 'muted.700')(props), // matching background color
     _text: {
-      ml: 3,
+      ml: 2,
     },
     _interactionBox: {
       position: 'absolute',

@@ -24,6 +24,7 @@ function MyWrapper({ children }: any) {
   return (
     <Box
       flex={1}
+      px="3"
       justifyContent="center"
       alignItems="center"
       bg={bgColor}
@@ -39,6 +40,7 @@ function MyWrapper({ children }: any) {
           position="absolute"
           top={12}
           right={8}
+          zIndex={4}
           onPress={toggleColorMode}
           icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
         />

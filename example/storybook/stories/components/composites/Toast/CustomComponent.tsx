@@ -10,8 +10,8 @@ export const Example = () => {
         toast.show({
           render: () => {
             return (
-              <Box bg="teal.500" px={4} py={3} rounded="md" mb={5}>
-                Hi, Nice to see you ( ´ ∀ ` )ﾉ
+              <Box bg="indigo.500" px="2" py="1" rounded="sm" mb={5}>
+                Hello! Have a nice day
               </Box>
             );
           },

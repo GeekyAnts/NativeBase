@@ -1,58 +1,64 @@
 import React from 'react';
-import { Button, Divider, Heading, VStack } from 'native-base';
+import { Button, Divider, Heading, VStack, ScrollView } from 'native-base';
 
 export const Example = () => {
   return (
-    <VStack space={4} px={2} w="100%">
-      {/* Solid */}
+    <ScrollView>
+      <VStack
+        w="100%"
+        space={2.5}
+        mt="4"
+        alignItems="center"
+        justifyContent="center"
+      >
+        {/* Solid */}
 
-      <Heading size="xs" textAlign="left">
-        Solid
-      </Heading>
-      <Button.Group variant="solid" mx={{ base: 'auto', md: 0 }}>
-        <Button colorScheme="teal">Save</Button>
-        <Button colorScheme="danger">Cancel</Button>
-      </Button.Group>
+        <Heading size="md">Solid</Heading>
+        <Button.Group variant="solid" mb="2.5" mt="1.5">
+          <Button colorScheme="teal">Save</Button>
+          <Button colorScheme="danger">Cancel</Button>
+        </Button.Group>
 
-      <Divider />
+        <Divider />
 
-      <Heading size="xs">Outline</Heading>
+        <Heading size="md">Outline</Heading>
 
-      {/* Outline */}
-      <Button.Group variant="outline" mx={{ base: 'auto', md: 0 }}>
-        <Button colorScheme="teal">Save</Button>
-        <Button colorScheme="danger">Cancel</Button>
-      </Button.Group>
+        {/* Outline */}
+        <Button.Group mb="2.5" mt="1.5" variant="outline">
+          <Button colorScheme="teal">Save</Button>
+          <Button colorScheme="danger">Cancel</Button>
+        </Button.Group>
 
-      <Divider />
+        <Divider />
 
-      <Heading size="xs">Link</Heading>
+        <Heading size="md">Link</Heading>
 
-      {/* Link */}
-      <Button.Group variant="link" mx={{ base: 'auto', md: 0 }}>
-        <Button colorScheme="teal">Save</Button>
-        <Button colorScheme="danger">Cancel</Button>
-      </Button.Group>
+        {/* Link */}
+        <Button.Group mb="2.5" mt="1.5" variant="link">
+          <Button colorScheme="teal">Save</Button>
+          <Button colorScheme="danger">Cancel</Button>
+        </Button.Group>
 
-      <Divider />
+        <Divider />
 
-      <Heading size="xs">Ghost</Heading>
+        <Heading size="md">Ghost</Heading>
 
-      {/* Ghost */}
-      <Button.Group variant="ghost" mx={{ base: 'auto', md: 0 }}>
-        <Button colorScheme="teal">Save</Button>
-        <Button colorScheme="danger">Cancel</Button>
-      </Button.Group>
+        {/* Ghost */}
+        <Button.Group mb="2.5" mt="1.5" variant="ghost">
+          <Button colorScheme="teal">Save</Button>
+          <Button colorScheme="danger">Cancel</Button>
+        </Button.Group>
 
-      <Divider />
+        <Divider />
 
-      <Heading size="xs">Unstyled</Heading>
+        <Heading size="md">Unstyled</Heading>
 
-      {/* Unstyled */}
-      <Button.Group variant="unstyled" mx={{ base: 'auto', md: 0 }}>
-        <Button colorScheme="teal">Save</Button>
-        <Button colorScheme="danger">Cancel</Button>
-      </Button.Group>
-    </VStack>
+        {/* Unstyled */}
+        <Button.Group mb="2.5" mt="1.5" variant="unstyled">
+          <Button colorScheme="teal">Save</Button>
+          <Button colorScheme="danger">Cancel</Button>
+        </Button.Group>
+      </VStack>
+    </ScrollView>
   );
 };

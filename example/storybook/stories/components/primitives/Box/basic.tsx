@@ -4,12 +4,14 @@ export const Example = () => {
   return (
     <>
       <Box
-        bg="primary.400"
+        bg="primary.500"
+        p="3"
+        w="72"
         _text={{
           fontSize: 'md',
-          fontWeight: 'bold',
-          color: 'white',
-          letterSpacing: '5xl',
+          fontWeight: 'medium',
+          color: 'warmGray.50',
+          letterSpacing: 'lg',
         }}
       >
         This is a Box

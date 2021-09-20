@@ -45,7 +45,7 @@ export * from './components/composites/Menu';
 export * from './components/composites/Modal';
 // export * from './components/composites/NumberInput';
 // export * from './components/composites/PinInput';
-export * from './components/composites/Popover';
+// export * from './components/composites/Popover';
 export * from './components/composites/Progress';
 export * from './components/primitives/Radio';
 export * from './components/primitives/Row';
@@ -69,7 +69,7 @@ export * from './components/composites/Transitions';
 export * from './components/primitives/Pressable';
 // export * from './components/composites/Typeahead';
 
-// export * from './components/primitives/View';
+export * from './components/primitives/View';
 export * from './components/primitives/VStack';
 // export * from './components/composites/Wrap';
 export * from './components/primitives/ZStack';
@@ -88,13 +88,13 @@ export * from './hooks/useContrastText';
 export * from './hooks/useAccessibleColors';
 
 // // Theme
-// export * from './theme/Custom';
-// export * from './theme/Mode';
-// export * from './theme/Responsive';
+export * from './theme/Custom';
+export * from './theme/Mode';
+export * from './theme/Responsive';
 
 // // Community integrations
 // export * from './community-integrations/Formik';
 // export * from './community-integrations/ReactHookForm';
 
 // // Examples
-// export * from './examples';
+export * from './examples';

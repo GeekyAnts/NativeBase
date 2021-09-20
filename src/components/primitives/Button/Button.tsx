@@ -120,7 +120,11 @@ const Button = (
 
   const boxChildren = isLoading && isLoadingText ? isLoadingText : children;
 
-  const spinnerElement = spinner ? spinner : <Spinner {..._spinner} />;
+  const spinnerElement = spinner ? (
+    spinner
+  ) : (
+    <Spinner color={_text?.color} {..._spinner} />
+  );
 
   return (
     <Pressable

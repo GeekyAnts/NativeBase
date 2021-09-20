@@ -108,7 +108,7 @@ const Radio = ({ icon, wrapperRef, size, ...props }: IRadioProps, ref: any) => {
     >
       <Center
         flexDirection="row"
-        justifyContent="center "
+        justifyContent="center"
         alignItems="center"
         borderRadius="full"
         {...layoutProps}

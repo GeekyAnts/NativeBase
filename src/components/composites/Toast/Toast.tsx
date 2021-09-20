@@ -207,7 +207,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       component = render({ id });
     } else if (!status && !variant) {
       component = (
-        <VStack space={1} {...themeProps} {...rest}>
+        <VStack space={title && description ? 1 : 0} {...themeProps} {...rest}>
           <Box _text={themeProps._title}>{title}</Box>
           {description && (
             <Box _text={themeProps._description}>{description}</Box>

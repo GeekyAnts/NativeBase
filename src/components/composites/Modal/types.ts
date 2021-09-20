@@ -1,5 +1,5 @@
 import type { IBoxProps } from '../../primitives/Box';
-import type { IButtonProps } from 'native-base';
+import type { IIconButtonProps } from '../../composites/IconButton';
 import type { MutableRefObject } from 'react';
 
 import type { ResponsiveValue } from '../../../components/types';
@@ -75,7 +75,7 @@ export type IModalComponentType = ((
     ) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
-    (props: IButtonProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IIconButtonProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Content: React.MemoExoticComponent<
     (
