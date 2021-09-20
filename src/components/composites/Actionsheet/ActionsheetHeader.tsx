@@ -4,19 +4,19 @@ import type { IActionsheetHeaderProps } from './types';
 import { usePropsResolution } from '../../../hooks';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const ActionsheetHeader = (
-  { children, ...props }: IActionsheetHeaderProps,
-  ref?: any
-) => {
-  const newProps = usePropsResolution('ActionsheetHeader', props);
+const ActionsheetHeader = (props: IActionsheetHeaderProps, ref?: any) => {
+  const resolvedProps = usePropsResolution('ActionsheetHeader', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
   return (
-    <Box justifyContent="center" alignItems="center" {...newProps} ref={ref}>
-      {children}
-    </Box>
+    <Box
+      justifyContent="center"
+      alignItems="center"
+      {...resolvedProps}
+      ref={ref}
+    />
   );
 };
 

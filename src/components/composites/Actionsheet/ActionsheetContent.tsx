@@ -12,14 +12,14 @@ const ActionsheetContent = (
   { children, ...props }: IActionsheetContentProps,
   ref?: any
 ) => {
-  const { _dragIndicator, ...newProps } = usePropsResolution(
+  const { _dragIndicator, ...resolvedProps } = usePropsResolution(
     'ActionsheetContent',
     props
   );
   const { handleClose } = React.useContext(ModalContext);
   const { hideDragIndicator } = React.useContext(ActionSheetContext);
-  let pan = React.useRef(new Animated.ValueXY()).current;
-  let sheetHeight = React.useRef(0);
+  const pan = React.useRef(new Animated.ValueXY()).current;
+  const sheetHeight = React.useRef(0);
 
   const panResponder = React.useRef(
     PanResponder.create({
@@ -75,7 +75,7 @@ const ActionsheetContent = (
         </>
       ) : null}
 
-      <Modal.Content {...newProps} ref={ref} safeAreaBottom>
+      <Modal.Content {...resolvedProps} ref={ref} safeAreaBottom>
         {!hideDragIndicator ? (
           <>
             {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}

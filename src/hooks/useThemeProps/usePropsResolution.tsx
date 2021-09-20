@@ -89,11 +89,12 @@ function propsSpreader(incomingProps: any, incomingSpecifity: any) {
 
   SPREAD_PROP_SPECIFICITY_ORDER.forEach((prop) => {
     if (prop in flattenedDefaultProps) {
-      const val = flattenedDefaultProps[prop];
-      if (!FINAL_SPREAD_PROPS.includes(prop))
+      const val = incomingProps[prop] || flattenedDefaultProps[prop];
+      if (!FINAL_SPREAD_PROPS.includes(prop)) {
         delete flattenedDefaultProps[prop];
+        specificity[prop] = incomingSpecifity[prop];
+      }
 
-      specificity[prop] = incomingSpecifity[prop];
       SPREAD_PROP_SPECIFICITY_MAP[prop].forEach((newProp: string) => {
         if (compareSpecificity(specificity[newProp], specificity[prop])) {
           specificity[newProp] = incomingSpecifity[prop];
@@ -283,11 +284,15 @@ export function usePropsResolution(
   // // STEP 4: merge
   const defaultStyles = merge(
     {},
-    flattenProps,
     flattenBaseStyle,
     flattenVariantStyle,
     flattenSizeStyle
   );
+
+  for (const prop in defaultStyles) {
+    delete flattenProps[prop];
+  }
+
   const defaultSpecificity = merge(
     {},
     specificityMap,
@@ -296,7 +301,10 @@ export function usePropsResolution(
     sizeSpecificityMap
   );
 
-  flattenProps = propsSpreader(defaultStyles, defaultSpecificity);
+  flattenProps = propsSpreader(
+    { ...defaultStyles, ...flattenProps },
+    defaultSpecificity
+  );
 
   // // STEP 5: linear Grad and contrastText
   let ignore: any = [];
