@@ -7,6 +7,7 @@ import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
 import { propsFlattener, compareSpecificity } from './propsFlattener';
+import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
@@ -120,8 +121,10 @@ export function usePropsResolution(
   state?: any,
   config?: any
 ) {
+  const modifiedPropsForSSR = useResponsiveSSRProps(incomingProps);
+
   const [ignoredProps, cleanIncomingProps] = extractInObject(
-    incomingProps,
+    modifiedPropsForSSR,
     ['children', 'onPress', 'icon', 'onOpen', 'onClose'].concat(
       config?.ignoreProps || []
     )

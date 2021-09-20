@@ -88,9 +88,9 @@ export * from './hooks/useContrastText';
 export * from './hooks/useAccessibleColors';
 
 // // Theme
-// export * from './theme/Custom';
-// export * from './theme/Mode';
-// export * from './theme/Responsive';
+export * from './theme/Custom';
+export * from './theme/Mode';
+export * from './theme/Responsive';
 
 // // Community integrations
 // export * from './community-integrations/Formik';
