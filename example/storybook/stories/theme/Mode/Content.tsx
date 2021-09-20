@@ -27,7 +27,6 @@ export const Content = () => {
       </Button>
       <HStack space={2} mt={3}>
         <Avatar
-          borderWidth={2}
           source={{
             uri:
               'https://pbs.twimg.com/profile_images/1309797238651060226/18cm6VhQ_400x400.jpg',
@@ -36,7 +35,6 @@ export const Content = () => {
           Ankur
         </Avatar>
         <Avatar
-          borderWidth={2}
           source={{
             uri:
               'https://pbs.twimg.com/profile_images/1260766060401188864/ySJfMIbZ_400x400.jpg',
