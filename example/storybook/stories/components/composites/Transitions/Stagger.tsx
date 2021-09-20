@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, useDisclose, IconButton, Stagger, HStack } from 'native-base';
+import {
+  Box,
+  useDisclose,
+  IconButton,
+  Stagger,
+  HStack,
+  Icon,
+} from 'native-base';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 export const Example = () => {
@@ -43,10 +50,18 @@ export const Example = () => {
           <IconButton
             mb="4"
             variant="solid"
-            bg="indigo.400"
+            bg="indigo.500"
             colorScheme="indigo"
             borderRadius="full"
-            icon={<MaterialIcons size={24} name="location-pin" color="white" />}
+            icon={
+              <Icon
+                as={MaterialIcons}
+                size="6"
+                name="location-pin"
+                _dark={{ color: 'warmGray.50' }}
+                color="warmGray.50"
+              />
+            }
           />
           <IconButton
             mb="4"
@@ -55,10 +70,12 @@ export const Example = () => {
             colorScheme="yellow"
             borderRadius="full"
             icon={
-              <MaterialCommunityIcons
-                size={24}
+              <Icon
+                as={MaterialCommunityIcons}
+                _dark={{ color: 'warmGray.50' }}
+                size="6"
                 name="microphone"
-                color="white"
+                color="warmGray.50"
               />
             }
           />
@@ -69,17 +86,29 @@ export const Example = () => {
             colorScheme="teal"
             borderRadius="full"
             icon={
-              <MaterialCommunityIcons size={24} name="video" color="white" />
+              <Icon
+                as={MaterialCommunityIcons}
+                _dark={{ color: 'warmGray.50' }}
+                size="6"
+                name="video"
+                color="warmGray.50"
+              />
             }
           />
           <IconButton
             mb="4"
             variant="solid"
-            bg="red.400"
+            bg="red.500"
             colorScheme="red"
             borderRadius="full"
             icon={
-              <MaterialIcons size={24} name="photo-library" color="white" />
+              <Icon
+                as={MaterialIcons}
+                size="6"
+                name="photo-library"
+                _dark={{ color: 'warmGray.50' }}
+                color="warmGray.50"
+              />
             }
           />
         </Stagger>
@@ -92,10 +121,12 @@ export const Example = () => {
           onPress={onToggle}
           bg="cyan.400"
           icon={
-            <MaterialCommunityIcons
-              size={24}
+            <Icon
+              as={MaterialCommunityIcons}
+              size="6"
               name="dots-horizontal"
-              color="white"
+              color="warmGray.50"
+              _dark={{ color: 'warmGray.50' }}
             />
           }
         />

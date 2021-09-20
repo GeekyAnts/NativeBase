@@ -14,7 +14,7 @@ export const Example = () => {
   const data = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      fullName: 'Aafreen Rahman Khan',
+      fullName: 'Aafreen  Khan',
       timeStamp: '12:47 PM',
       recentText: 'Good Day!',
       avatarUrl:

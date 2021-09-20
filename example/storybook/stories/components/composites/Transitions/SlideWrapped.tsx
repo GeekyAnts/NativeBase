@@ -8,25 +8,21 @@ import {
   VStack,
   HStack,
   Text,
-  WarningIcon,
-  Spacer,
+  CheckIcon,
 } from 'native-base';
 
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <Box width="100%" h="100%" alignItems="flex-start" justifyContent="center">
-      <Slide in={isOpen} placement="top">
-        <Box p="2" _text={{ color: 'orange.600' }} mx={-3} bg="orange.200">
-          Due to government restrictions around COVID- 19, you may experience a
-          delay in your delivery.
-        </Box>
-      </Slide>
+    <Box
+      width={{ base: '75%', md: '50%' }}
+      h="100%"
+      // alignItems="flex-start"
+      justifyContent="center"
+    >
       <VStack space={3} w="100%">
         <HStack alignItems="flex-end">
           <Heading>Order</Heading>
-          <Spacer />
-          <WarningIcon color="orange.600" size="xs" mb="1.5" />
         </HStack>
         <HStack alignItems="center" justifyContent="space-between">
           <Text fontWeight="medium">Sub Total</Text>
@@ -38,7 +34,7 @@ export const Example = () => {
         </HStack>
         <HStack alignItems="center" justifyContent="space-between">
           <Text fontWeight="medium">Total Amount</Text>
-          <Text color="green.500">$337.61</Text>
+          <Text color="emerald.600">$337.61</Text>
         </HStack>
         <VStack space={2} mt="2">
           <Text bold>Promo Code</Text>
@@ -51,6 +47,37 @@ export const Example = () => {
           Place Order
         </Button>
       </VStack>
+      <Slide in={isOpen} placement="bottom">
+        <Box
+          w="100%"
+          position="absolute"
+          bottom="2"
+          p="2"
+          mx={-3}
+          borderRadius="xs"
+          bg="emerald.100"
+          alignItems="center"
+          justifyContent="center"
+          _dark={{ bg: 'emerald.200' }}
+        >
+          <HStack space={2}>
+            <CheckIcon
+              size="4"
+              color="emerald.600"
+              mt="1"
+              _dark={{ color: 'emerald.700' }}
+            />
+            <Text
+              color="emerald.600"
+              textAlign="center"
+              _dark={{ color: 'emerald.700' }}
+              fontWeight="medium"
+            >
+              Order Placed Successfully.
+            </Text>
+          </HStack>
+        </Box>
+      </Slide>
     </Box>
   );
 };
