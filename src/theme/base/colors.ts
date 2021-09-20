@@ -1,3 +1,5 @@
+import type { Leaves } from './types';
+
 export interface IColorHues {
   50: string;
   100: string;
@@ -332,4 +334,4 @@ colors.info = colors.lightBlue;
 colors.light = colors.warmGray;
 
 export default colors;
-export type IColors = typeof colors;
+export type IColors = Leaves<typeof colors>;

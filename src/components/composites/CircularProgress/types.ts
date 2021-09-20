@@ -1,16 +1,18 @@
 import type { IBoxProps, ITextProps } from '../../primitives';
 import type { ViewStyle } from 'react-native';
+import type { ResponsiveValue } from '../../../components/types';
+import type { ISizes } from '../../../theme/base/sizes';
+import type { IColors } from '../../../theme/base/colors';
 
-type sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 export type ICircularProgressProps = IBoxProps & {
   style?: ViewStyle;
   children?: JSX.Element | JSX.Element[] | string;
   value: number;
-  size?: number | sizes;
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
   thickness?: number;
   colorScheme?: string;
-  color?: string;
-  trackColor?: string;
+  color?: ResponsiveValue<IColors | (string & {})>;
+  trackColor?: ResponsiveValue<IColors | (string & {})>;
   isIndeterminate?: boolean;
   max?: number;
   min?: number;

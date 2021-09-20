@@ -13,6 +13,8 @@ import type {
   TypographyProps,
 } from '../../types';
 import type { IBoxProps } from '../Box';
+import type { ResponsiveValue } from '../../../components/types';
+import type { ISizes } from '../../../theme/base/sizes';
 
 export interface IInputProps
   extends PlatformProps,
@@ -47,7 +49,7 @@ export interface IInputProps
    * The size of the input.
    * @default <code>md</code>
    */
-  size?: string;
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * This will set aria-required="true" on web when passed in formcontrol.
    */
@@ -120,5 +122,5 @@ export interface IInputGroupProps extends IBoxProps {
    * The size of the input.
    * @default <code>md</code>
    */
-  size?: string;
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
 }

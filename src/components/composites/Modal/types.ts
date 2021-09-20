@@ -2,6 +2,9 @@ import type { IBoxProps } from '../../primitives/Box';
 import type { IButtonProps } from 'native-base';
 import type { MutableRefObject } from 'react';
 
+import type { ResponsiveValue } from '../../../components/types';
+import type { ISizes } from '../../../theme/base/sizes';
+
 export interface IModalProps extends IBoxProps {
   /**
    * If true, the modal will open. Useful for controllable state behaviour
@@ -18,7 +21,7 @@ export interface IModalProps extends IBoxProps {
   /**
    * The size of the modal
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full' | number | string;
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * The ref of element to receive focus when the modal opens.
    */

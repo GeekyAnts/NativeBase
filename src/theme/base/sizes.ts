@@ -22,6 +22,5 @@ const sizes = {
   container,
 };
 
-export type Sizes = typeof sizes;
-
+export type ISizes = keyof typeof sizes;
 export default sizes;

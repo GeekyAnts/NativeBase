@@ -1,6 +1,7 @@
 import type { IPressableProps } from '../../primitives/Pressable';
 import type { IIconProps } from '../../primitives/Icon';
 import type { ResponsiveValue } from '../../types';
+import type { ISizes } from '../../../theme/base/sizes';
 
 export interface IIconButtonProps
   extends Omit<IPressableProps, 'children' | 'color'>,
@@ -29,7 +30,7 @@ export interface IIconButtonProps
   /**
    * The size of the button.
    */
-  size?: ResponsiveValue<'sm' | 'md' | 'lg'>;
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * If true, the button will be disabled.
    */

@@ -15,11 +15,13 @@ import type {
   PlatformProps,
 } from '../../types';
 import type { ResponsiveValue } from '../../types/responsiveValue';
+import type { ISizes } from '../../../theme/base/sizes';
 import type { SvgProps } from 'react-native-svg';
+import type { IColors } from '../../../theme/base/colors';
 export interface IIconProps
   extends Omit<
       SvgProps,
-      'opacity' | 'fill' | 'stroke' | 'height' | 'width' | 'transform'
+      'opacity' | 'fill' | 'stroke' | 'height' | 'width' | 'transform' | 'color'
     >,
     BorderProps,
     ColorProps,
@@ -48,11 +50,13 @@ export interface IIconProps
   /**
    * The size of the icon.
    */
-  size?: ResponsiveValue<string | number>;
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+
   /**
    * The color of the icon.
    */
-  color?: string;
+  // color?: string;
+  color?: ResponsiveValue<IColors | (string & {})>;
   /**
    *
    */

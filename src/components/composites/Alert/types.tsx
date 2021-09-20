@@ -1,4 +1,6 @@
 import type { MutableRefObject } from 'react';
+import type { ResponsiveValue } from '../../../components/types';
+import type { IColors } from '../../../theme/base/colors';
 import type { IBoxProps, IIconProps } from '../../primitives';
 
 export interface IAlertProps extends IBoxProps {
@@ -29,8 +31,8 @@ export interface IAlertProps extends IBoxProps {
 export type IAlertContext = {
   status?: string;
   variant?: string;
-  iconColor?: string;
-  textColor?: string;
+  iconColor?: ResponsiveValue<IColors | (string & {})>;
+  textColor?: ResponsiveValue<IColors | (string & {})>;
 };
 
 export interface IAlertIconProps extends IIconProps {

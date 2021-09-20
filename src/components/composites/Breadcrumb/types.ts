@@ -2,15 +2,14 @@ import type { IHStackProps } from '../../primitives/Stack/HStack';
 import type { ITextProps, ILinkProps, IIconProps } from '../../primitives';
 import type { MutableRefObject } from 'react';
 import type { ResponsiveValue } from '../../types';
+import type { ISpacing } from '../../../theme/base/space';
 export interface IBreadcrumbItemContext {
   isCurrent?: boolean;
   allChildren?: boolean;
 }
 
 export interface IBreadcrumbProps extends IHStackProps {
-  spacing?: ResponsiveValue<
-    'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number
-  >;
+  spacing?: ResponsiveValue<ISpacing | (string & {}) | number>;
   separator?: string | JSX.Element | JSX.Element[] | any;
   maxItems?: number | number[];
   _button?: any;
@@ -18,7 +17,7 @@ export interface IBreadcrumbProps extends IHStackProps {
   onCollapseChange?: any;
 }
 export interface IBreadcrumbItemProps extends IHStackProps {
-  spacing?: number;
+  spacing?: ResponsiveValue<ISpacing | (string & {}) | number>;
   isCurrent?: boolean;
 }
 export interface IBreadcrumbIconProps extends IIconProps {

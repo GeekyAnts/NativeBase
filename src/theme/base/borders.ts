@@ -6,4 +6,6 @@ const borderWidths = {
   8: '8px',
 };
 
+export type IBorderWidth = keyof typeof borderWidths;
+
 export default borderWidths;

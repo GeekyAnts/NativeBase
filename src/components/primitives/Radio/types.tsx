@@ -3,7 +3,8 @@ import type { IFormControlContext } from '../../composites';
 import type { AccessibilityRole } from 'react-native';
 import type { RadioGroupState } from '@react-stately/radio';
 import type { MutableRefObject } from 'react';
-
+import type { ResponsiveValue } from '../../../components/types';
+import type { ISizes } from '../../../theme/base/sizes';
 export type IRadioValue = string;
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
@@ -29,7 +30,9 @@ export interface IRadioProps extends IBoxProps {
   /**
    * 	The size (width and height) of the radio.
    */
-  size?: 'sm' | 'md' | 'lg';
+
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+
   /**
    * If given, will use this icon instead of the default.
    */
@@ -60,7 +63,7 @@ export interface IRadioGroupProps extends IBoxProps {
   /**
    * 	The size (width and height) of the radio.
    */
-  size?: 'sm' | 'md' | 'lg';
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    *
    */
@@ -75,7 +78,7 @@ export interface IRadioGroupProps extends IBoxProps {
 }
 export interface IRadioContext extends IFormControlContext {
   colorScheme?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
   state: RadioGroupState;
 }
 
