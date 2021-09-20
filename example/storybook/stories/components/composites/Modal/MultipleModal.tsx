@@ -52,14 +52,14 @@ export const Example = () => {
               <VStack space={3}>
                 <Radio
                   alignItems="flex-start"
-                  _text={{ mt: '-3', ml: '2', fontSize: 'sm' }}
+                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
                   value="address1"
                 >
                   4140 Parker Rd. Allentown, New Mexico 31134
                 </Radio>
                 <Radio
                   alignItems="flex-start"
-                  _text={{ mt: '-3', ml: '2', fontSize: 'sm' }}
+                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
                   value="address2"
                 >
                   6391 Elign St. Celina, Delaware 10299
@@ -89,21 +89,21 @@ export const Example = () => {
               <VStack space={3}>
                 <Radio
                   alignItems="flex-start"
-                  _text={{ mt: '-3', ml: '2', fontSize: 'sm' }}
+                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
                   value="payment1"
                 >
                   Cash on delivery
                 </Radio>
                 <Radio
                   alignItems="flex-start"
-                  _text={{ mt: '-3', ml: '2', fontSize: 'sm' }}
+                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
                   value="payment2"
                 >
                   Credit/ Debit/ ATM Card
                 </Radio>
                 <Radio
                   alignItems="flex-start"
-                  _text={{ mt: '-3', ml: '2', fontSize: 'sm' }}
+                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
                   value="payment3"
                 >
                   UPI

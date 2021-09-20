@@ -5,10 +5,10 @@ export const Example = () => {
   return (
     <VStack space={2}>
       <Checkbox isDisabled value="one">
-        Checkbox
+        Under 500
       </Checkbox>
       <Checkbox isDisabled defaultIsChecked value="two">
-        Checkbox
+        Under 1000
       </Checkbox>
     </VStack>
   );
