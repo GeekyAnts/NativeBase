@@ -13,7 +13,7 @@ import {
   ActionsheetItem,
 } from './actionsheet';
 import { Select, SelectItem } from './select';
-import { Alert, AlertDescription, AlertTitle, AlertIcon } from './alert';
+import { Alert, AlertIcon } from './alert';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
 import AvatarGroup from './avatar-group';
@@ -115,8 +115,8 @@ export default {
   // ActionsheetFooter,
   ActionsheetItem,
   Alert,
-  AlertDescription,
-  AlertTitle,
+  // AlertDescription,
+  // AlertTitle,
   AlertIcon,
   Avatar,
   AvatarBadge,
