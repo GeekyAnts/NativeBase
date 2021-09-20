@@ -4,7 +4,7 @@ import {
   Checkbox,
   Text,
   Container,
-  WarningIcon,
+  WarningOutlineIcon,
 } from 'native-base';
 
 export const Example = () => {
@@ -40,7 +40,7 @@ export const Example = () => {
             Fax
           </Checkbox>
         </Checkbox.Group>
-        <FormControl.ErrorMessage leftIcon={<WarningIcon size="xs" />}>
+        <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
           You must select at least three methods
         </FormControl.ErrorMessage>
       </FormControl>

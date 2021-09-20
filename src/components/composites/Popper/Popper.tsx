@@ -174,7 +174,7 @@ const PopperArrow = React.forwardRef(
       borderColor = '#52525b',
       backgroundColor = 'black',
       ...rest
-    }: IPopoverArrowProps & IBoxProps,
+    }: IPopoverArrowProps & IBoxProps<IPopoverArrowProps>,
     ref: any
   ) => {
     const additionalStyles = React.useMemo(

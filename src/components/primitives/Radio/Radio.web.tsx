@@ -12,6 +12,7 @@ import { useFocusRing } from '@react-native-aria/focus';
 import { CircleIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps } from '../../../utils';
+import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 
 const Radio = (
   { icon, children, wrapperRef, ...props }: IRadioProps,
@@ -46,26 +47,33 @@ const Radio = (
       ..._icon,
     });
 
-  const {
-    _interactionBox,
-    _iconWrapper,
-    _icon,
-    ...resolvedProps
-  } = usePropsResolution('Radio', combinedProps, {
-    isInvalid,
-    isReadOnly,
-    isFocusVisible,
-    isDisabled,
-    isIndeterminate,
-    isChecked,
-    isHovered,
-  });
+  const { _interactionBox, _icon, ...resolvedProps } = usePropsResolution(
+    'Radio',
+    combinedProps,
+    {
+      isInvalid,
+      isReadOnly,
+      isFocusVisible,
+      isDisabled,
+      isIndeterminate,
+      isChecked,
+      isHovered,
+    }
+  );
+
+  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+    ...stylingProps.margin,
+    ...stylingProps.layout,
+    ...stylingProps.flexbox,
+    ...stylingProps.position,
+    '_text',
+  ]);
 
   const component = (
     <Box
       flexDirection="row"
       alignItems="center"
-      {...resolvedProps}
+      {...layoutProps}
       opacity={isDisabled ? 0.4 : 1}
       cursor={isDisabled ? 'not-allowed' : 'pointer'}
     >
@@ -73,9 +81,6 @@ const Radio = (
         {/* Interaction Box */}
         <Box
           {..._interactionBox}
-          // {...(isFocusVisible && _iterationBoxFocus)}
-          // {...(isHovered && _iterationBoxHover)}
-          // {...(isDisabled && _iterationBoxDisabled)}
           style={{
             // @ts-ignore - only for web"
             transition: 'height 200ms, width 200ms',
@@ -84,12 +89,7 @@ const Radio = (
           w={isFocusVisible || isHovered ? '200%' : '100%'}
         />
         {/* Radio */}
-        <Center
-          {..._iconWrapper}
-          // {...(isChecked && _radioChecked)}
-          // {...(isDisabled && _radioDisabled)}
-          // {...(isInvalid && _radioInvalid)}
-        >
+        <Center {...nonLayoutProps}>
           {icon && sizedIcon && isChecked ? (
             sizedIcon()
           ) : (

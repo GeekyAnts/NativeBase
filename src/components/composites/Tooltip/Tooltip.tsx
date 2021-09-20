@@ -10,7 +10,7 @@ import Box, { IBoxProps } from '../../primitives/Box';
 import { useId } from '@react-aria/utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-interface ITooltipProps extends IBoxProps {
+interface ITooltipProps extends IBoxProps<ITooltipProps> {
   /**
    * Text to be placed in the tooltip
    */

@@ -35,12 +35,12 @@ export const Example = () => {
       sections={data}
       keyExtractor={(item, index) => item + index}
       renderItem={({ item }) => (
-        <Center py="4" px="32" bg={item}>
+        <Center py="4" minW="64" bg={item}>
           {item.split('.')[1]}
         </Center>
       )}
       renderSectionHeader={({ section: { title } }) => (
-        <Center bg="gray.50">
+        <Center bg="gray.50" _dark={{ bg: 'gray.800' }}>
           <Heading fontSize="xl" mt="8" pb="4">
             {title}
           </Heading>

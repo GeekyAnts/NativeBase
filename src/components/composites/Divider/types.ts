@@ -1,6 +1,6 @@
 import type { IBoxProps } from '../../primitives/Box/types';
 
-export interface IDividerProps extends IBoxProps {
+export interface IDividerProps extends IBoxProps<IDividerProps> {
   /**
    * The orientation of the divider.
    */

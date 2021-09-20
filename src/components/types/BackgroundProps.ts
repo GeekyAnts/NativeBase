@@ -1,13 +1,16 @@
 import type * as CSS from 'csstype';
+import type { IColors } from '../../theme/base/colors';
 
 import type { BackgroundColorProps as ssBackgroundColorProps } from 'styled-system';
+import type { ResponsiveValue } from './responsiveValue';
 
 export interface BackgroundProps extends ssBackgroundColorProps {
   // Both exist on ssColorProps
   // bg?: CSS.Property.BackgroundColor;
   // backgroundColor?: CSS.Property.BackgroundColor;
-
-  bgColor?: CSS.Property.BackgroundColor;
+  bgColor?: ResponsiveValue<
+    IColors | CSS.Property.BackgroundColor | (string & {})
+  >;
 
   backgroundImage?: CSS.Property.BackgroundImage;
 

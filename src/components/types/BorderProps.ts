@@ -2,6 +2,7 @@ import type * as CSS from 'csstype';
 import type { ResponsiveValue } from './responsiveValue';
 // TODO: More BorderProps exists
 import type { BorderProps as ssBorderProps } from 'styled-system';
+import type { IBorderWidth } from '../../theme/base/borders';
 
 export interface BorderProps extends ssBorderProps {
   rounded?: ResponsiveValue<CSS.Property.BorderRadius<string | number>>;
@@ -39,4 +40,20 @@ export interface BorderProps extends ssBorderProps {
     CSS.Property.BorderRadius<string | number>
   >;
   roundedRight?: ResponsiveValue<CSS.Property.BorderRadius<string | number>>;
+
+  borderWidth?: ResponsiveValue<
+    IBorderWidth | CSS.Property.BorderWidth<(string & {}) | number>
+  >;
+  borderTopWidth?: ResponsiveValue<
+    IBorderWidth | CSS.Property.BorderWidth<(string & {}) | number>
+  >;
+  borderBottomWidth?: ResponsiveValue<
+    IBorderWidth | CSS.Property.BorderWidth<(string & {}) | number>
+  >;
+  borderLeftWidth?: ResponsiveValue<
+    IBorderWidth | CSS.Property.BorderWidth<(string & {}) | number>
+  >;
+  borderRightWidth?: ResponsiveValue<
+    IBorderWidth | CSS.Property.BorderWidth<(string & {}) | number>
+  >;
 }

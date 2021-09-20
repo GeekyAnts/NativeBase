@@ -1,6 +1,6 @@
 import colors from './colors';
-export default {
-  0: {
+const shadow = {
+  '0': {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -10,7 +10,7 @@ export default {
     shadowRadius: 1.0,
     elevation: 1,
   },
-  1: {
+  '1': {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -20,7 +20,7 @@ export default {
     shadowRadius: 1.41,
     elevation: 2,
   },
-  2: {
+  '2': {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -30,7 +30,7 @@ export default {
     shadowRadius: 2.22,
     elevation: 3,
   },
-  3: {
+  '3': {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -40,7 +40,7 @@ export default {
     shadowRadius: 2.62,
     elevation: 4,
   },
-  4: {
+  '4': {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -50,7 +50,7 @@ export default {
     shadowRadius: 3.84,
     elevation: 5,
   },
-  5: {
+  '5': {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -60,7 +60,7 @@ export default {
     shadowRadius: 4.65,
     elevation: 6,
   },
-  6: {
+  '6': {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -70,7 +70,7 @@ export default {
     shadowRadius: 4.65,
     elevation: 7,
   },
-  7: {
+  '7': {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -80,7 +80,7 @@ export default {
     shadowRadius: 4.65,
     elevation: 8,
   },
-  8: {
+  '8': {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -90,7 +90,7 @@ export default {
     shadowRadius: 5.46,
     elevation: 9,
   },
-  9: {
+  '9': {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -101,3 +101,6 @@ export default {
     elevation: 10,
   },
 };
+
+export type IShadow = keyof typeof shadow;
+export default shadow;

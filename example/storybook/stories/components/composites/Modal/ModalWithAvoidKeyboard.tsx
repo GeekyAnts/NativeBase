@@ -35,8 +35,9 @@ export function Example() {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-      <VStack space={2}>
+      <VStack space={2} alignItems="center">
         <Button
+          w="104"
           onPress={() => {
             setModalVisible(!modalVisible);
           }}

@@ -9,13 +9,13 @@ export type IAccordionProps = ICollapseProps & {
   defaultIndex?: number[];
   onChange?: (index?: number[]) => void;
 };
-export type IAccordionItemProps = IBoxProps & {
+export type IAccordionItemProps = IBoxProps<IAccordionItemProps> & {
   index?: number;
   defaultIsOpen?: boolean;
   isDisabled?: boolean;
   id?: number;
 };
-export type IAccordionSummaryProps = IBoxProps & {
+export type IAccordionSummaryProps = IBoxProps<IAccordionSummaryProps> & {
   _expanded?: Omit<IAccordionSummaryProps, '_expanded'>;
   _disabled?: Omit<IAccordionSummaryProps, '_disabled'>;
   _hover?: Omit<IAccordionSummaryProps, '_hover'>;

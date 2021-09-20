@@ -18,7 +18,7 @@ export const Example = () => {
           setToggleCheckBox(!toggleCheckBox);
         }}
       >
-        Are you Awesome?
+        Yes
       </Checkbox>
     </Box>
   );

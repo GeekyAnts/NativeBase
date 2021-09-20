@@ -321,14 +321,14 @@ describe('props resolution', () => {
   it('resolves negative margins', () => {
     const { getByTestId } = render(
       <Provider>
-        <Box m={-5} testID="test">
+        <Box m={-5} mt={'-10'} testID="test">
           hello world
         </Box>
       </Provider>
     );
     const box = getByTestId('test');
     expect(box.props.style).toEqual({
-      marginTop: -defaultTheme.space['5'],
+      marginTop: -defaultTheme.space['10'],
       marginRight: -defaultTheme.space['5'],
       marginBottom: -defaultTheme.space['5'],
       marginLeft: -defaultTheme.space['5'],
@@ -1109,12 +1109,21 @@ describe('props resolution', () => {
           >
             This is a text
           </Text>
+          <Text
+            testID="responsiveLineHeight"
+            lineHeight="3xl"
+            fontSize={['12px', '13px']}
+          >
+            hello world
+          </Text>
         </Box>
       </Provider>
     );
     const text = getByTestId('test');
+    const responsiveLineHeight = getByTestId('responsiveLineHeight');
     expect(text.props.style.lineHeight).toBe(37.5);
     expect(text.props.style.letterSpacing).toBe(0.375);
+    expect(responsiveLineHeight.props.style.lineHeight).toBe(32.5);
   });
 
   it('Heading: style props test on ios with dark mode', () => {

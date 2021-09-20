@@ -2,8 +2,10 @@ import React, { memo, forwardRef } from 'react';
 import { Box, IBoxProps } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import type { ResponsiveValue } from '../../../components/types';
+import type { ISizes } from '../../../theme/base/sizes';
 
-export interface IProgressProps extends IBoxProps {
+export interface IProgressProps extends IBoxProps<IProgressProps> {
   /**
    * Value of Progress.
    * @default 0
@@ -13,7 +15,8 @@ export interface IProgressProps extends IBoxProps {
    * Defines height of Progress
    * @default sm
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | string;
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+
   /**
    * The color scheme of the progress. This should be one of the color keys in the theme (e.g."green", "red").
    * @default primary
@@ -27,7 +30,7 @@ export interface IProgressProps extends IBoxProps {
   /**
    * Pseudo prop to give Prop to filled track
    */
-  _filledTrack?: IBoxProps;
+  _filledTrack?: IBoxProps<IProgressProps>;
   /**
    * Min progress value
    * @default 0

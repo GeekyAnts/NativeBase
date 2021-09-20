@@ -1,22 +1,23 @@
-export interface PlatformProps {
+//@ts-ignore
+export interface PlatformProps<T> {
   /**
    * Props only for web
    */
-  _web?: any;
+  _web?: T;
   /**
    * Props only for ios
    */
-  _ios?: any;
+  _ios?: T;
   /**
    * Props only for android
    */
-  _android?: any;
+  _android?: T;
   /**
    * Props only for light mode
    */
-  _light?: any;
+  _light?: T;
   /**
    * Props only for dark mode
    */
-  _dark?: any;
+  _dark?: T;
 }

@@ -187,7 +187,10 @@ function variantLink(props: Dict) {
   return {
     ...variantGhost(props),
     _text: {
-      // textDecorationLine: 'underline',
+      textDecorationLine: Platform.select({
+        ios: 'underline',
+        web: 'underline',
+      }),
       color:
         c === 'muted'
           ? mode(`muted.800`, `${c}.200`)(props)
@@ -209,16 +212,6 @@ function variantLink(props: Dict) {
     },
     _pressed: {
       _text: { color: mode(`${c}.700`, `${c}.500`)(props) },
-    },
-    _ios: {
-      _text: {
-        textDecorationLine: 'underline',
-      },
-    },
-    _android: {
-      _text: {
-        textDecorationLine: 'underline',
-      },
     },
   };
 }

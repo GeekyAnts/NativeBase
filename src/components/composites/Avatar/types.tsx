@@ -1,8 +1,10 @@
 import type { IBoxProps } from '../../primitives/Box';
 import type { ImageSourcePropType } from 'react-native';
 import type { MutableRefObject } from 'react';
+import type { ResponsiveValue } from '../../../components/types';
+import type { ISizes } from '../../../theme/base/sizes';
 
-export interface IAvatarProps extends IBoxProps {
+export interface IAvatarProps extends IBoxProps<IAvatarProps> {
   /**
    * The image source of the avatar.
    */
@@ -11,14 +13,14 @@ export interface IAvatarProps extends IBoxProps {
    * The size of the avatar
    * @default md
    */
-  size?: '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | string | number;
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * ref to be attached to Avatar wrapper
    */
   wrapperRef?: MutableRefObject<any>;
 }
 
-export interface IAvatarBadgeProps extends IBoxProps {}
+export interface IAvatarBadgeProps extends IBoxProps<IAvatarBadgeProps> {}
 
 export interface IAvatarGroupProps extends IAvatarProps {
   /**

@@ -11,7 +11,7 @@ export const Example = () => {
       <Modal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        _backdrop={{ bg: 'pink.100' }}
+        _backdrop={{ _dark: { bg: 'coolGray.800' }, bg: 'warmGray.50' }}
       >
         <Modal.Content maxWidth="350" maxH="212">
           <Modal.CloseButton />

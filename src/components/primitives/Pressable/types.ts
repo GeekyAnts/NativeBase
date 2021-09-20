@@ -28,7 +28,7 @@ export interface IPressableProps
     BackgroundProps,
     SafeAreaProps,
     TransformProps,
-    PlatformProps {
+    PlatformProps<IPressableProps> {
   /**
    * Called when a mouse enters the Pressable
    */
