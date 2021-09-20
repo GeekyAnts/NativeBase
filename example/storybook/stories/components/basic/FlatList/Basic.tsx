@@ -54,7 +54,7 @@ export const Example = () => {
   ];
 
   return (
-    <Box>
+    <Box w={{ base: '100%', md: '25%' }}>
       <Heading fontSize="xl" p="4" pb="3">
         Inbox
       </Heading>
@@ -63,21 +63,33 @@ export const Example = () => {
         renderItem={({ item }) => (
           <Box
             borderBottomWidth="1"
+            _dark={{ borderColor: 'gray.600' }}
             borderColor="coolGray.200"
             pl="4"
             pr="5"
             py="2"
           >
             <HStack alignItems="center" space={3}>
-              <Avatar size="50" source={{ uri: item.avatarUrl }} />
+              <Avatar size="48px" source={{ uri: item.avatarUrl }} />
               <VStack>
-                <Text color="coolGray.800" bold>
+                <Text
+                  _dark={{ color: 'warmGray.50' }}
+                  color="coolGray.800"
+                  bold
+                >
                   {item.fullName}
                 </Text>
-                <Text color="coolGray.500">{item.recentText}</Text>
+                <Text color="coolGray.600" _dark={{ color: 'warmGray.200' }}>
+                  {item.recentText}
+                </Text>
               </VStack>
               <Spacer />
-              <Text fontSize="xs" color="coolGray.800" alignSelf="flex-start">
+              <Text
+                fontSize="xs"
+                _dark={{ color: 'warmGray.50' }}
+                color="coolGray.800"
+                alignSelf="flex-start"
+              >
                 {item.timeStamp}
               </Text>
             </HStack>
