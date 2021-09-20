@@ -8,12 +8,13 @@ export const Example = () => {
       // Add new color
       custom: {
         100: '#f7c',
-        200: '#faa',
+        200: '#333',
         300: '#1ac',
       },
       // Update existing colors
       amber: {
-        400: '#d97706',
+        400: '#4B5563',
+        500: '#E7E5E4',
       },
     },
     fonts: {
