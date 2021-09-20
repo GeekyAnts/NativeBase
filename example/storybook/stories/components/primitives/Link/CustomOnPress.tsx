@@ -8,7 +8,7 @@ export const Example = () => {
   };
   return (
     <>
-      <Box h="100" w="100" bg={state ? 'orange.300' : 'blue.300'} />
+      <Box h="100" w="100" bg={state ? 'emerald.500' : 'indigo.500'} />
       <Link onPress={toggleState} mt="8">
         <Box
           px="3"

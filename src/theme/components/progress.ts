@@ -14,7 +14,7 @@ function baseStyle(props: Record<string, any>) {
   const colorScheme = getColorScheme(props);
 
   return {
-    bg: mode(`${colorScheme}.200`, `${colorScheme}.800`)(props),
+    bg: `${colorScheme}.200`,
     overflow: 'hidden',
     _filledTrack: {
       bg: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),

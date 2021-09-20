@@ -5,7 +5,7 @@ export const Example = () => {
   return (
     <Box w="90%">
       <VStack space="md">
-        <Heading textAlign="center" mb="10">
+        <Heading textAlign="center" mb="10" size="md">
           Progress Color Scheme
         </Heading>
         <VStack mx="4" space="md">

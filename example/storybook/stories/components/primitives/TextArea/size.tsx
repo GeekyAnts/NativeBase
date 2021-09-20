@@ -1,11 +1,14 @@
 import React from 'react';
-import { TextArea, Stack, ScrollView, Center } from 'native-base';
+import { TextArea, Stack, ScrollView, Center, Heading } from 'native-base';
 
 export const Example = () => {
   const Sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
   return (
-    <Center>
-      <ScrollView>
+    <ScrollView w={{ base: '70%', md: '20%' }}>
+      <Center mt="4">
+        <Heading textAlign="center" mb="10">
+          Sizes
+        </Heading>
         <Stack space={4} w="90%">
           {Sizes.map((value) => {
             return (
@@ -19,7 +22,7 @@ export const Example = () => {
             );
           })}
         </Stack>
-      </ScrollView>
-    </Center>
+      </Center>
+    </ScrollView>
   );
 };
