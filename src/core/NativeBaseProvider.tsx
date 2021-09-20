@@ -12,6 +12,7 @@ import HybridProvider from './hybrid-overlay/HybridProvider';
 import { OverlayProvider } from '@react-native-aria/overlays';
 import { ToastProvider, ToastRef } from '../components/composites/Toast';
 import {
+  defaultConfig,
   INativebaseConfig,
   NativeBaseConfigProvider,
 } from './NativeBaseContext';
@@ -41,16 +42,18 @@ export interface NativeBaseProviderProps {
   children?: React.ReactNode;
   initialWindowMetrics?: any;
   config?: INativebaseConfig;
+  isSSR?: boolean;
   // Refer https://github.com/th3rdwave/react-native-safe-area-context#testing
 }
 
 const NativeBaseProvider = (props: NativeBaseProviderProps) => {
   const {
     colorModeManager,
-    config = {},
+    config = defaultConfig,
     children,
     theme: propsTheme = defaultTheme,
     initialWindowMetrics,
+    isSSR,
   } = props;
   const theme = config.theme ?? propsTheme;
 
@@ -73,6 +76,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
       <NativeBaseConfigProvider
         config={config}
         currentBreakpoint={currentBreakpoint}
+        isSSR={isSSR}
       >
         <SafeAreaProvider
           initialMetrics={

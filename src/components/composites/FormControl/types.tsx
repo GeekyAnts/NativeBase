@@ -1,6 +1,6 @@
-import type { IBoxProps } from '../../primitives';
+import type { IBoxProps, IStackProps } from '../../primitives';
 
-export interface IFormControlProps extends IBoxProps {
+export interface IFormControlProps extends IBoxProps<IFormControlProps> {
   /**
    * If provided, this prop is passed to its children.
    */
@@ -27,12 +27,12 @@ export interface IFormControlLabelProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps;
+  _disabled?: IBoxProps<IFormControlLabelProps>;
   // _focus?: any;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: IBoxProps;
+  _invalid?: IBoxProps<IFormControlLabelProps>;
   /**
    * Reflects the value of the 'for' content property.
    */
@@ -42,18 +42,38 @@ export interface IFormControlErrorMessageProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps;
+  _disabled?: IBoxProps<IFormControlLabelProps>;
+  /**
+   * The right icon element to use in the FormControl.ErrorMessage.
+   */
+  rightIcon?: JSX.Element | Array<JSX.Element>;
+  /**
+   * The left icon element to use in the FormControl.ErrorMessage.
+   */
+  leftIcon?: JSX.Element | Array<JSX.Element>;
+  /**
+   * The start icon element to use in the FormControl.ErrorMessage.
+   */
+  startIcon?: JSX.Element | Array<JSX.Element>;
+  /**
+   * The end icon element to use in the FormControl.ErrorMessage.
+   */
+  endIcon?: JSX.Element | Array<JSX.Element>;
+  /**
+   * Props to be passed to the HStack used inside of FormControl.ErrorMessage.
+   */
+  _stack?: IStackProps;
 }
 export interface IFormControlHelperTextProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps;
+  _disabled?: IBoxProps<IFormControlLabelProps>;
   // _focus?: any;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: IBoxProps;
+  _invalid?: IBoxProps<IFormControlLabelProps>;
 }
 
 export type FormControlComponentType = ((
@@ -63,7 +83,7 @@ export type FormControlComponentType = ((
     (props: IFormControlLabelProps) => JSX.Element
   >;
   ErrorMessage: React.MemoExoticComponent<
-    (props: IFormControlProps) => JSX.Element
+    (props: IFormControlErrorMessageProps) => JSX.Element
   >;
   HelperText: React.MemoExoticComponent<
     (props: IFormControlHelperTextProps) => JSX.Element

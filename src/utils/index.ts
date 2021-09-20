@@ -13,6 +13,7 @@ export {
   mergeRefs,
   composeEventHandlers,
 };
+export { combineContextAndProps } from './combineContextAndProps';
 export type { IAccessibilityProps } from './accessibilityTypes';
 export { ariaAttr } from './accessibilityUtils';
 export { createContext } from './createContext';

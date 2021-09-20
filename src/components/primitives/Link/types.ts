@@ -2,7 +2,7 @@ import type { MutableRefObject } from 'react';
 import type { GestureResponderEvent } from 'react-native';
 import type { IBoxProps } from '../Box';
 
-export interface ILinkProps extends IBoxProps {
+export interface ILinkProps extends IBoxProps<ILinkProps> {
   /**
    * URL that should be opened on Link press
    */

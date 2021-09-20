@@ -17,19 +17,24 @@ export const Example = () => {
         onClose={onClose}
       >
         <AlertDialog.Content>
-          <AlertDialog.Header _text={{ fontSize: 'lg', fontWeight: 'bold' }}>
-            Delete Customer
-          </AlertDialog.Header>
+          <AlertDialog.CloseButton />
+          <AlertDialog.Header>Delete Customer</AlertDialog.Header>
           <AlertDialog.Body>
-            Are you sure? You can't undo this action afterwards.
+            This will remove all data relating to Alex. This action cannot be
+            reversed. Deleted data can not be recovered.
           </AlertDialog.Body>
           <AlertDialog.Footer>
-            <Button.Group variant="ghost" space={2}>
-              <Button onPress={onClose} ref={cancelRef}>
-                CANCEL
+            <Button.Group space={2}>
+              <Button
+                variant="ghost"
+                colorScheme="coolGray"
+                onPress={onClose}
+                ref={cancelRef}
+              >
+                Cancel
               </Button>
-              <Button colorScheme="red" onPress={onClose}>
-                DELETE
+              <Button colorScheme="danger" onPress={onClose}>
+                Delete
               </Button>
             </Button.Group>
           </AlertDialog.Footer>

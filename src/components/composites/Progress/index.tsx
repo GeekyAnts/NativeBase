@@ -2,8 +2,10 @@ import React, { memo, forwardRef } from 'react';
 import { Box, IBoxProps } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import type { ResponsiveValue } from '../../../components/types';
+import type { ISizes } from '../../../theme/base/sizes';
 
-export interface IProgressProps extends IBoxProps {
+export interface IProgressProps extends IBoxProps<IProgressProps> {
   /**
    * Value of Progress.
    * @default 0
@@ -13,17 +15,22 @@ export interface IProgressProps extends IBoxProps {
    * Defines height of Progress
    * @default sm
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | string;
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+
   /**
    * The color scheme of the progress. This should be one of the color keys in the theme (e.g."green", "red").
    * @default primary
    */
   colorScheme?: string;
+  // /**
+  //  * Whether progress is indeterminate
+  //  * @default false
+  //  */
+  // isIndeterminate?: boolean;
   /**
-   * Whether progress is indeterminate
-   * @default false
+   * Pseudo prop to give Prop to filled track
    */
-  isIndeterminate?: boolean;
+  _filledTrack?: IBoxProps<IProgressProps>;
   /**
    * Min progress value
    * @default 0
@@ -37,39 +44,14 @@ export interface IProgressProps extends IBoxProps {
 }
 
 const Progress = (props: IProgressProps, ref?: any) => {
-  // const width = new Animated.Value(0);
-  // useEffect(() => {
-  //   Animated.loop(
-  //     Animated.timing(width, {
-  //       toValue: 270,
-  //       duration: 1000,
-  //       useNativeDriver: true,
-  //     })
-  //   ).start();
-  // });
-
-  const { min, max, value, isIndeterminate, ...newProps } = usePropsResolution(
-    'Progress',
-    props
-  );
-  const { innerBg } = newProps;
-
-  const innerProps = {
-    bg: innerBg,
-    shadow: 0,
-    rounded: newProps.rounded,
-    height: '100%',
-    w:
-      value < max && value > min
-        ? ((value - min) / (max - min)) * 100 + '%'
-        : value > min
-        ? '100%'
-        : '0%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'white',
-  };
+  const {
+    min,
+    max,
+    value,
+    _filledTrack,
+    children,
+    ...resolvedProps
+  } = usePropsResolution('Progress', props);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -78,8 +60,7 @@ const Progress = (props: IProgressProps, ref?: any) => {
 
   return (
     <Box
-      {...newProps}
-      style={newProps.style}
+      {...resolvedProps}
       ref={ref}
       accessible
       accessibilityRole="progressbar"
@@ -94,23 +75,19 @@ const Progress = (props: IProgressProps, ref?: any) => {
             : 0,
       }}
     >
-      {isIndeterminate ? (
-        // <Animated.View
-        //   style={[
-        //     {
-        //       transform: [
-        //         {
-        //           translateX: width,
-        //         },
-        //       ],
-        //     },
-        //   ]}
-        // >
-        // </Animated.View>
-        <Box {...innerProps} children={newProps.children} />
-      ) : (
-        <Box {...innerProps} children={newProps.children} />
-      )}
+      <Box
+        // {...resolvedProps}
+        {..._filledTrack}
+        w={
+          value < max && value > min
+            ? ((value - min) / (max - min)) * 100 + '%'
+            : value > min
+            ? '100%'
+            : '0%'
+        }
+      >
+        {children}
+      </Box>
     </Box>
   );
 };

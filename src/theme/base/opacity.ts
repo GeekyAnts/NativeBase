@@ -1,6 +1,6 @@
 const opacity = {
   0: 0,
-  5: 0.5,
+  5: 0.05,
   10: 0.1,
   20: 0.2,
   25: 0.25,
@@ -15,4 +15,6 @@ const opacity = {
   95: 0.95,
   100: 1,
 };
+export type IOpacity = keyof typeof opacity;
+
 export default opacity;

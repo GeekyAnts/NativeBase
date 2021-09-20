@@ -11,7 +11,7 @@ const PopoverCloseButton = (
   ref: any
 ) => {
   const { onClose }: any = React.useContext(PopoverContext);
-  const { _icon, ...newProps } = usePropsResolution(
+  const { _icon, ...resolvedPorps } = usePropsResolution(
     'PopoverCloseButton',
     props
   );
@@ -22,7 +22,7 @@ const PopoverCloseButton = (
   return (
     <Box position="absolute" right={1} top={1} zIndex={1} ref={ref}>
       <IconButton
-        {...newProps}
+        {...resolvedPorps}
         icon={<CloseIcon {..._icon} />}
         onPress={onClose}
       />

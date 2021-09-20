@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Input } from 'native-base';
+import { Modal, Button, Input, FormControl } from 'native-base';
 
 export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -9,31 +9,40 @@ export function Example() {
     <>
       <Modal
         isOpen={modalVisible}
-        onClose={setModalVisible}
+        onClose={() => setModalVisible(false)}
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
       >
         <Modal.Content>
           <Modal.CloseButton />
-          <Modal.Header>Want to set focus somewhere?</Modal.Header>
+          <Modal.Header>Contact Us</Modal.Header>
           <Modal.Body>
-            The below input will get focus upon opening of the Modal
-            <Input
-              mt={4}
-              ref={initialRef}
-              placeholder="I'll recieve focus on Modal's opening"
-            />
+            <FormControl>
+              <FormControl.Label>Name</FormControl.Label>
+              <Input ref={initialRef} />
+            </FormControl>
+            <FormControl mt="3">
+              <FormControl.Label>Email</FormControl.Label>
+              <Input />
+            </FormControl>
           </Modal.Body>
           <Modal.Footer>
-            <Button.Group variant="ghost" space={2}>
-              <Button>SAVE</Button>
+            <Button.Group space={2}>
+              <Button
+                variant="ghost"
+                colorScheme="blueGray"
+                onPress={() => {
+                  setModalVisible(false);
+                }}
+              >
+                Cancel
+              </Button>
               <Button
                 onPress={() => {
-                  setModalVisible(!modalVisible);
+                  setModalVisible(false);
                 }}
-                colorScheme="secondary"
               >
-                CLOSE
+                Save
               </Button>
             </Button.Group>
           </Modal.Footer>
@@ -47,9 +56,10 @@ export function Example() {
         Open Modal
       </Button>
       <Input
+        w={{ base: '70%', md: '25%' }}
         mt={4}
         ref={finalRef}
-        placeholder="I'll receive focus on close"
+        placeholder="Enter the OTP"
         _light={{ placeholderTextColor: 'blueGray.700' }}
         _dark={{ placeholderTextColor: 'blueGray.100' }}
       />

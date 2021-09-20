@@ -4,7 +4,7 @@ import { getAbsoluteChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-export interface IZStackProps extends IBoxProps {
+export interface IZStackProps extends IBoxProps<IZStackProps> {
   /**
    * The direction to stack the elements.
    */
@@ -12,13 +12,13 @@ export interface IZStackProps extends IBoxProps {
 }
 
 const ZStack = ({ children, reversed, ...props }: IZStackProps, ref?: any) => {
-  const newProps = usePropsResolution('ZStack', props);
+  const resolvedProps = usePropsResolution('ZStack', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
   return (
-    <Box {...newProps} ref={ref}>
+    <Box {...resolvedProps} ref={ref}>
       {getAbsoluteChildren(children, reversed)}
     </Box>
   );

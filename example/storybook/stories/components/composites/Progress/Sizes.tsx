@@ -5,10 +5,10 @@ export const Example = () => {
   return (
     <Box w="90%">
       <VStack space="md">
-        <Heading textAlign="center" mb={8}>
+        <Heading textAlign="center" size="md" mb="10">
           Progress Sizes
         </Heading>
-        <VStack mx={4} space="md">
+        <VStack mx="4" space="md">
           <Progress size="xs" mb={4} value={25} />
           <Progress size="sm" mb={4} value={35} />
           <Progress size="md" mb={4} value={45} />

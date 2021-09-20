@@ -3,9 +3,9 @@ import Box from '../Box';
 import type { IFlexProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+
 const Flex = (props: IFlexProps, ref: any) => {
   const {
-    style,
     align,
     justify,
     wrap,
@@ -13,25 +13,26 @@ const Flex = (props: IFlexProps, ref: any) => {
     grow,
     shrink,
     direction,
-    ...newProps
+    ...resolvedProps
   } = usePropsResolution('Flex', props);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
   return (
     <Box
       {...props}
-      {...newProps}
+      {...resolvedProps}
       display="flex"
-      flexDirection={direction || newProps.flexDirection}
-      alignItems={align || newProps.alignItems}
-      justifyContent={justify || newProps.justifyContent}
-      flexGrow={grow || newProps.flexGrow}
-      flexBasis={basis || newProps.flexBasis}
-      flexShrink={shrink || newProps.flexShrink}
-      flexWrap={wrap || newProps.flexWrap}
-      style={style}
+      flexDirection={direction || resolvedProps.flexDirection}
+      alignItems={align || resolvedProps.alignItems}
+      justifyContent={justify || resolvedProps.justifyContent}
+      flexGrow={grow || resolvedProps.flexGrow}
+      flexBasis={basis || resolvedProps.flexBasis}
+      flexShrink={shrink || resolvedProps.flexShrink}
+      flexWrap={wrap || resolvedProps.flexWrap}
       ref={ref}
     />
   );

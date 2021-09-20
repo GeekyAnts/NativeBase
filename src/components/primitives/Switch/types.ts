@@ -12,6 +12,10 @@ import type {
   PositionProps,
 } from '../../types';
 
+import type { ResponsiveValue } from '../../../components/types';
+import type { ISizes } from '../../../theme/base/sizes';
+import type { IColors } from '../../../theme/base/colors';
+
 export interface ISwitchProps
   extends SwitchProps,
     ColorProps,
@@ -28,7 +32,7 @@ export interface ISwitchProps
    * The size (width and height) of the switch.
    * @default md
    */
-  size?: 'lg' | 'md' | 'sm';
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * If true, set the disabled to the invalid state.
    */
@@ -56,19 +60,19 @@ export interface ISwitchProps
   /**
    * The track color of the Switch when on.
    */
-  onTrackColor?: string;
+  onTrackColor?: ResponsiveValue<IColors | (string & {})>;
   /**
    * The track color of the Switch when off.
    */
-  offTrackColor?: string;
+  offTrackColor?: ResponsiveValue<IColors | (string & {})>;
   /**
    * The thumb color of the Switch when on.
    */
-  onThumbColor?: string;
+  onThumbColor?: ResponsiveValue<IColors | (string & {})>;
   /**
    * The thumb color of the Switch when off.
    */
-  offThumbColor?: string;
+  offThumbColor?: ResponsiveValue<IColors | (string & {})>;
   /**
    * Color scheme to be used for the Switch
    */

@@ -31,8 +31,22 @@ export const SelectContext = React.createContext({
   _item: {} as IButtonProps,
 });
 
-const Select = (
-  {
+const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
+  const selectProps = useFormControl({
+    isDisabled: props.isDisabled,
+    nativeID: props.nativeID,
+  });
+
+  const isDisabled = selectProps.disabled;
+  const tempFix = '__NativebasePlaceholder__';
+  const _ref = React.useRef(null);
+
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+
+  const { focusProps, isFocusVisible } = useFocusRing();
+  const { hoverProps, isHovered } = useHover({ isDisabled }, _ref);
+
+  const {
     onValueChange,
     selectedValue,
     children,
@@ -42,27 +56,15 @@ const Select = (
     placeholder,
     accessibilityLabel,
     defaultValue,
-    size,
     _item,
     _selectedItem,
-    wrapperRef,
-    ...props
-  }: ISelectProps,
-  ref: any
-) => {
-  const selectProps = useFormControl({
-    isDisabled: props.isDisabled,
-    nativeID: props.nativeID,
+    size,
+    ...resolvedProps
+  } = usePropsResolution('Input', props, {
+    isDisabled,
+    isHovered,
+    isFocusVisible,
   });
-
-  const isDisabled = selectProps.disabled;
-  const tempFix = '__NativebasePlaceholder__';
-  const _ref = React.useRef(null);
-  const themeProps = usePropsResolution('Input', { ...props, size });
-  let [isOpen, setIsOpen] = React.useState<boolean>(false);
-
-  const { focusProps, isFocusVisible } = useFocusRing();
-  const { hoverProps, isHovered } = useHover({ isDisabled }, _ref);
 
   const [value, setValue] = useControllableState({
     value: selectedValue,
@@ -73,7 +75,7 @@ const Select = (
     },
   });
 
-  let itemsList: Array<{ label: string; value: string }> = React.Children.map(
+  const itemsList: Array<{ label: string; value: string }> = React.Children.map(
     children,
     (child: any) => {
       return {
@@ -104,7 +106,9 @@ const Select = (
     ...stylingProps.flexbox,
     ...stylingProps.position,
     ...stylingProps.background,
+    'children',
   ]);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -132,7 +136,6 @@ const Select = (
       size={size}
       variant={variant}
       InputRightElement={rightIcon}
-      {...(isHovered ? themeProps._hover : {})}
       {...nonLayoutProps}
       {...borderProps}
       isDisabled={isDisabled}
@@ -146,8 +149,7 @@ const Select = (
       borderWidth={1}
       borderColor="transparent"
       {...layoutProps}
-      borderRadius={themeProps.borderRadius}
-      {...(isFocusVisible ? themeProps._focus : {})}
+      borderRadius={resolvedProps.borderRadius}
       ref={wrapperRef}
     >
       {Platform.OS === 'web' ? (

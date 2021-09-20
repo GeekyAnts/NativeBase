@@ -1,3 +1,5 @@
+import type { Leaves } from './types';
+
 export interface IColorHues {
   50: string;
   100: string;
@@ -320,16 +322,16 @@ const colors = {
   tertiary: {},
 };
 
-colors.danger = colors.rose;
-colors.error = colors.red;
-colors.success = colors.green;
+colors.danger = colors.red;
+colors.error = colors.rose;
+colors.success = colors.emerald;
 colors.warning = colors.orange;
 colors.muted = colors.trueGray;
 colors.primary = colors.cyan;
 colors.secondary = colors.pink;
-colors.tertiary = colors.emerald;
+colors.tertiary = colors.green;
 colors.info = colors.lightBlue;
 colors.light = colors.warmGray;
 
 export default colors;
-export type IColors = typeof colors;
+export type IColors = Leaves<typeof colors>;

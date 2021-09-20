@@ -60,6 +60,7 @@ export function extractProps(
       } else {
         newProps[property] = resolveValueWithBreakpoint(
           props[property],
+          theme.breakpoints,
           currentBreakpoint,
           property
         );
@@ -67,6 +68,7 @@ export function extractProps(
     } else {
       newProps[property] = resolveValueWithBreakpoint(
         props[property],
+        theme.breakpoints,
         currentBreakpoint,
         property
       );
@@ -164,13 +166,14 @@ export function mergeUnderscoreProps(newProps: any, props: any) {
  */
 export const resolveValueWithBreakpoint = (
   values: any,
+  breakpointTheme: any,
   currentBreakpoint: number,
   property: any
 ) => {
-  if (hasValidBreakpointFormat(values, property)) {
+  if (hasValidBreakpointFormat(values, breakpointTheme, property)) {
     // Check the last valid breakpoint value from all values
     // If current breakpoint is `md` and we have `base` then `lg`, then last value will be taken(`base` in this case)
-    return findLastValidBreakpoint(values, currentBreakpoint);
+    return findLastValidBreakpoint(values, breakpointTheme, currentBreakpoint);
   } else {
     return values;
   }

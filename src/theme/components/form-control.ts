@@ -5,21 +5,30 @@ export const FormControl = {};
 
 // FormControlErrorMessage
 export const FormControlErrorMessage = {
-  baseStyle: {
-    mt: 2,
-    _text: { fontSize: 'xs', color: 'error.400' },
+  baseStyle: (props: Record<string, any>) => {
+    return {
+      mt: '2',
+      _text: {
+        fontSize: 'xs',
+        color: mode('danger.600', 'danger.300')(props),
+      },
+      _stack: { space: 1, alignItems: 'center' },
+    };
   },
 };
 
 // FormControlLabel
 export const FormControlLabel = {
-  baseStyle: {
-    _text: {
-      fontSize: 'md',
-    },
-    astrickColor: 'error.400',
-    mb: 2,
-    mr: 3,
+  baseStyle: (props: Record<string, any>) => {
+    return {
+      _text: {
+        fontSize: 'sm',
+        fontWeight: 'medium',
+      },
+      astrickColor: mode('danger.600', 'danger.300')(props),
+      mb: '2',
+      mr: '3',
+    };
   },
 };
 
@@ -27,9 +36,9 @@ export const FormControlLabel = {
 export const FormControlHelperText = {
   baseStyle: (props: Record<string, any>) => {
     return {
-      mt: 2,
+      mt: '2',
       _text: {
-        fontSize: 'sm',
+        fontSize: 'xs',
         color: mode('muted.500', 'muted.400')(props),
       },
     };

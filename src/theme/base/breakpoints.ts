@@ -6,4 +6,6 @@ const breakpoints = {
   'xl': 1280,
   '2xl': 1536,
 };
+export type IBreakpoint = keyof typeof breakpoints;
+
 export default breakpoints;

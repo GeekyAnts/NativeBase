@@ -1,17 +1,27 @@
 import React from 'react';
-import { FormControl, Input, Stack } from 'native-base';
+import {
+  FormControl,
+  Input,
+  Stack,
+  WarningOutlineIcon,
+  Box,
+} from 'native-base';
 
 export const Example = () => {
   return (
-    <FormControl isRequired isInvalid>
-      <Stack mx={4}>
-        <FormControl.Label>Favorite framework</FormControl.Label>
-        <Input p={2} placeholder="Is it react?" />
-        <FormControl.HelperText>
-          We'll keep this between us.
-        </FormControl.HelperText>
-        <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>
-      </Stack>
-    </FormControl>
+    <Box w={{ base: '70%', md: '25%' }}>
+      <FormControl isRequired>
+        <Stack mx="4">
+          <FormControl.Label>Password</FormControl.Label>
+          <Input type="password" value="12345" placeholder="password" />
+          <FormControl.HelperText>
+            Must be atleast 6 characters.
+          </FormControl.HelperText>
+          <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
+            Atleast 6 characters are required.
+          </FormControl.ErrorMessage>
+        </Stack>
+      </FormControl>
+    </Box>
   );
 };

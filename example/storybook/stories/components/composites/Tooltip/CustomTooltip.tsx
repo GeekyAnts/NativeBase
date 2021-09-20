@@ -6,7 +6,7 @@ export function Example() {
     <Tooltip
       label="Hey, I'm here!"
       openDelay={500}
-      bg="secondary.500"
+      bg="indigo.500"
       _text={{ color: '#fff' }}
     >
       <Button>More</Button>

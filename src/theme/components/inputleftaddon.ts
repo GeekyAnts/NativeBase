@@ -2,12 +2,15 @@ import { mode } from './../tools';
 
 const baseStyle = (props: Record<string, any>) => {
   return {
-    borderRightWidth: 0,
-    roundedLeft: 4,
+    borderRightWidth: '0',
+    roundedLeft: '4',
     bg: mode('gray.50', 'gray.700')(props),
-    p: 3,
+    p: '2',
     borderColor: mode('gray.300', 'gray.600')(props),
-    borderWidth: 1,
+    borderWidth: '1',
+    _text: {
+      color: mode('muted.400', 'muted.500')(props),
+    },
   };
 };
 

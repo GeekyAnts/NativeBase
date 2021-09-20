@@ -122,7 +122,7 @@ export function getRandomString(length: number) {
 }
 // Inefficient way for pick, but retains order of props.
 function orderedPick(obj: any, values: any) {
-  let ret: any = {};
+  const ret: any = {};
   Object.keys(obj).forEach((key: string) => {
     if (values.includes(key)) {
       ret[key] = obj[key];
@@ -174,7 +174,11 @@ export function getColorScheme(
 }
 export const breakpoints = Object.freeze(['base', 'sm', 'md', 'lg', 'xl']);
 export const inValidBreakpointProps = ['style', 'children', 'shadowOffset'];
-export function hasValidBreakpointFormat(breaks: any, property?: string) {
+export function hasValidBreakpointFormat(
+  breaks: any,
+  themeBreakpoints?: any,
+  property?: string
+) {
   if (property && inValidBreakpointProps.indexOf(property) !== -1) {
     return false;
   } else if (Array.isArray(breaks)) {
@@ -182,7 +186,7 @@ export function hasValidBreakpointFormat(breaks: any, property?: string) {
   } else if (typeof breaks === 'object') {
     const keys = Object.keys(breaks);
     for (let i = 0; i < keys.length; i++) {
-      if (breakpoints.indexOf(keys[i]) === -1) {
+      if (Object.keys(themeBreakpoints).indexOf(keys[i]) === -1) {
         return false;
       }
     }
@@ -193,11 +197,12 @@ export function hasValidBreakpointFormat(breaks: any, property?: string) {
 }
 export function findLastValidBreakpoint(
   values: any,
+  themeBreakpoints: any,
   currentBreakpoint: number
 ) {
-  let valArray = Array.isArray(values)
+  const valArray = Array.isArray(values)
     ? values
-    : breakpoints.map((bPoint: string) => values[bPoint]);
+    : Object.keys(themeBreakpoints).map((bPoint: string) => values[bPoint]);
   return (
     valArray[currentBreakpoint] ??
     valArray
@@ -210,7 +215,7 @@ export function getClosestBreakpoint(
   values: Record<string, any>,
   point: number
 ) {
-  let dimValues = Object.values(values);
+  const dimValues = Object.values(values);
   let index = -1;
   for (let i = 0; i < dimValues.length; i++) {
     if (dimValues[i] === point) {
@@ -279,7 +284,7 @@ export const platformSpecificSpaceUnits = (theme: ITheme) => {
   scales.forEach((key) => {
     const scale = get(theme, key, {});
     const newScale = { ...scale };
-    for (let scaleKey in scale) {
+    for (const scaleKey in scale) {
       const val = scale[scaleKey];
       if (typeof val !== 'object') {
         const isAbsolute = typeof val === 'number';

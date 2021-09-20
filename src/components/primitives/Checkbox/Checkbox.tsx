@@ -9,47 +9,40 @@ import type { ICheckboxProps } from './types';
 import { useToggleState } from '@react-stately/toggle';
 import { CheckboxGroupContext } from './CheckboxGroup';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
-import { CheckIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { composeEventHandlers, combineContextAndProps } from '../../../utils';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import {
+  useHover,
+  useFocus,
+  useIsPressed,
+} from '../../primitives/Pressable/Pressable';
+import SizedIcon from './SizedIcon';
 
-const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
+const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
+  const { hoverProps, isHovered } = useHover();
+  const { pressableProps, isPressed } = useIsPressed();
+  const { focusProps, isFocused } = useFocus();
   const formControlContext = useFormControlContext();
 
-  const checkboxGroupContext = React.useContext(CheckboxGroupContext);
   const {
-    _interactionBox,
-    _disabled,
-    _invalid,
-    _pressed,
-    _checked,
-    _unchecked,
-    _indeterminate,
-    _icon,
-    _readOnly,
     isInvalid,
     isReadOnly,
-    ...themedProps
-  } = usePropsResolution('Checkbox', {
-    ...checkboxGroupContext,
-    ...formControlContext,
-    ...props,
-  });
+    isIndeterminate,
+    ...combinedProps
+  } = combineContextAndProps(formControlContext, props);
+
+  const checkboxGroupContext = React.useContext(CheckboxGroupContext);
+
+  const _ref = React.useRef();
+  const mergedRef = mergeRefs([ref, _ref]);
 
   const state = useToggleState({
-    ...props,
-    defaultSelected: props.defaultIsChecked,
-    isSelected: props.isChecked,
+    ...combinedProps,
+    defaultSelected: combinedProps.defaultIsChecked,
+    isSelected: combinedProps.isChecked,
   });
   const groupState = useContext(CheckboxGroupContext);
-
-  const [layoutProps, nonLayoutProps] = extractInObject(themedProps, [
-    ...stylingProps.margin,
-    ...stylingProps.layout,
-    ...stylingProps.flexbox,
-    ...stylingProps.position,
-    '_text',
-  ]);
 
   // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.
   // This is a bit unorthodox. Typically, hooks cannot be called in a conditional,
@@ -58,125 +51,103 @@ const Checkbox = ({ icon, wrapperRef, ...props }: ICheckboxProps, ref: any) => {
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckboxGroupItem(
         {
-          ...nonLayoutProps,
-          value: themedProps.value,
+          ...combinedProps,
+          'aria-label': combinedProps.accessibilityLabel,
+          'value': combinedProps.value,
         },
         groupState.state,
-        ref
+        //@ts-ignore
+        mergedRef
       )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
-      useCheckbox(nonLayoutProps, state, ref);
-
-  const [, pressableProps] = extractInObject(inputProps, [
-    ...stylingProps.border,
-    ...stylingProps.background,
-    ...stylingProps.flexbox,
-    ...stylingProps.layout,
-    ...stylingProps.padding,
-    ...stylingProps.margin,
-  ]);
-
-  const sizedIcon = (icon: JSX.Element, _icon: any) =>
-    React.cloneElement(
-      icon,
-      {
-        ..._icon,
-      },
-      icon.props.children
-    );
+      useCheckbox(
+        {
+          ...combinedProps,
+          'aria-label': combinedProps.accessibilityLabel,
+        },
+        state,
+        //@ts-ignore
+        mergedRef
+      );
 
   const { checked: isChecked, disabled: isDisabled } = inputProps;
 
-  function iconResolver(isPressed?: any) {
-    if (sizedIcon) {
-      if (isDisabled && _disabled?.icon) {
-        return sizedIcon(_disabled?.icon, {
-          ..._icon,
-          ..._disabled?._icon,
-        });
-      } else if (isReadOnly && _readOnly?.icon) {
-        return sizedIcon(_readOnly?.icon, {
-          ..._icon,
-          ..._readOnly?._icon,
-        });
-      } else if (isInvalid && _invalid?.icon) {
-        return sizedIcon(_invalid?.icon, {
-          ..._icon,
-          ..._invalid?._icon,
-        });
-      } else if (isPressed && _pressed?.icon) {
-        return sizedIcon(_pressed?.icon, {
-          ..._icon,
-          ..._pressed?._icon,
-        });
-      } else if (!isChecked && _unchecked?.icon) {
-        return sizedIcon(_unchecked?.icon, { ..._icon, ..._unchecked?._icon });
-      } else if (isChecked) {
-        if (_checked?.icon) {
-          return sizedIcon(_checked?.icon, { ..._icon, ..._checked?._icon });
-        } else if (icon) {
-          return sizedIcon(icon, { ..._icon });
-        } else {
-          return <CheckIcon name="check" {..._icon} opacity={1} />;
-        }
-      } else if (themedProps.isIndeterminate && _indeterminate?.icon) {
-        return sizedIcon(_indeterminate?.icon, {
-          ..._icon,
-          ..._indeterminate?._icon,
-        });
-      }
+  const {
+    icon,
+    _interactionBox,
+    _icon,
+    onPressIn,
+    onPressOut,
+    onHoverIn,
+    onHoverOut,
+    onFocus,
+    onBlur,
+    ...resolvedProps
+  } = usePropsResolution(
+    'Checkbox',
+    {
+      ...checkboxGroupContext,
+      ...combinedProps,
+    },
+    {
+      isInvalid,
+      isReadOnly,
+      isDisabled,
+      isIndeterminate,
+      isChecked,
+      isHovered,
+      isPressed,
+      isFocused,
     }
-    return <CheckIcon name="check" {..._icon} opacity={isChecked ? 1 : 0} />;
-  }
+  );
+
+  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+    ...stylingProps.margin,
+    ...stylingProps.layout,
+    ...stylingProps.flexbox,
+    ...stylingProps.position,
+    '_text',
+  ]);
+
   //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
+  if (useHasResponsiveProps(resolvedProps)) {
     return null;
   }
   return (
     <Pressable
       {...(pressableProps as IPressableProps)}
+      {...inputProps}
       ref={mergeRefs([ref, wrapperRef])}
       accessibilityRole="checkbox"
+      onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
+      onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
+      // @ts-ignore - web only
+      onHoverIn={composeEventHandlers(onHoverIn, hoverProps.onHoverIn)}
+      // @ts-ignore - web only
+      onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
+      // @ts-ignore - web only
+      onFocus={composeEventHandlers(
+        composeEventHandlers(onFocus, focusProps.onFocus)
+        // focusRingProps.onFocu
+      )}
+      // @ts-ignore - web only
+      onBlur={composeEventHandlers(
+        composeEventHandlers(onBlur, focusProps.onBlur)
+        // focusRingProps.onBlur
+      )}
     >
-      {({ isPressed }: any) => {
-        return (
-          <Center {...layoutProps} flexDirection="row" borderRadius="full">
-            <Center>
-              {/* Interaction Wrapper */}
-              <Box
-                {..._interactionBox}
-                {...(!isChecked && _unchecked?._interactionBox)}
-                {...(isChecked && _checked?._interactionBox)}
-                {...(themedProps.isIndeterminate &&
-                  _indeterminate?._interactionBox)}
-                {...(isPressed && _pressed._interactionBox)}
-                {...(isInvalid && _invalid?._interactionBox)}
-                {...(isReadOnly && _readOnly?._interactionBox)}
-                {...(isDisabled && _disabled?._interactionBox)}
-                p={5}
-                w="100%"
-                height="100%"
-                zIndex={-1}
-              />
-              {/* Checkbox */}
-              <Center
-                {...nonLayoutProps}
-                {...(!isChecked && _unchecked)}
-                {...(isChecked && _checked)}
-                {...(isPressed && _pressed)}
-                {...(themedProps.isIndeterminate && _indeterminate)}
-                {...(isInvalid && _invalid)}
-                {...(isReadOnly && _readOnly)}
-                {...(isDisabled && _disabled)}
-              >
-                {iconResolver(isPressed)}
-              </Center>
-            </Center>
-            {/* Label */}
-            {props.children}
+      <Center {...layoutProps} flexDirection="row" borderRadius="full">
+        <Center>
+          {/* Interaction Wrapper */}
+          <Box {..._interactionBox} p={5} w="100%" height="100%" zIndex={-1} />
+          {/* Checkbox */}
+          <Center {...nonLayoutProps}>
+            <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
           </Center>
-        );
-      }}
+        </Center>
+        {/* Label */}
+        {combinedProps.children}
+      </Center>
     </Pressable>
   );
 };

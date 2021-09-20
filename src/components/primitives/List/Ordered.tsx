@@ -5,7 +5,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const OrderedList = ({ style, children, ...props }: IListProps, ref?: any) => {
-  const { _text, start, _hover, ...newProps } = usePropsResolution(
+  const { _text, start, _hover, ...resolvedProps } = usePropsResolution(
     'List',
     props
   );
@@ -29,7 +29,7 @@ const OrderedList = ({ style, children, ...props }: IListProps, ref?: any) => {
     );
   });
   return (
-    <VStack style={style} {...newProps} ref={ref}>
+    <VStack style={style} {...resolvedProps} ref={ref}>
       {children}
     </VStack>
   );

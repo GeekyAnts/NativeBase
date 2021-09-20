@@ -1,39 +1,69 @@
 import React from 'react';
-import { Box, Text, Image, Heading, Stack } from 'native-base';
+import { Box, HStack, Image, Text, Center, Stack, Heading } from 'native-base';
+
 export const Example = () => {
   return (
-    <Box
-      flexDirection={{ base: 'column', md: 'row' }}
-      shadow={4}
-      rounded="xl"
+    <Stack
+      direction={['column', 'column', 'row']}
+      rounded="lg"
       overflow="hidden"
+      width={['72', '72', '4/6']}
+      shadow={1}
+      _light={{ backgroundColor: 'coolGray.50' }}
+      _dark={{ backgroundColor: 'gray.700' }}
     >
-      <Box width={{ md: 24 }} height={{ base: 32, md: '100%' }}>
+      <Box>
         <Image
+          w={['100%', '100%', '40']}
+          h="40"
           source={{
             uri:
-              'https://static.nike.com/a/images/f_auto/dpr_2.0/w_1328,c_limit/b56d1e9b-3861-4c89-995d-b8fb6240a762/nike-just-do-it.jpg',
+              'https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg',
           }}
-          alt="Shoes"
+          alt="image"
         />
+        <Center
+          bg="violet.500"
+          _text={{ color: 'white', fontWeight: '700', fontSize: 'xs' }}
+          position="absolute"
+          bottom={0}
+          px="3"
+          py="1.5"
+        >
+          PHOTOS
+        </Center>
       </Box>
-      <Stack p={3} space={2} minW={32}>
-        <Text fontSize="xs" color="red.400" fontWeight="semibold">
-          Just In
-        </Text>
-        <Stack space={1}>
-          <Heading size="sm">Jordan MA2</Heading>
-          <Text fontWeight="medium" color="blueGray.600">
-            Older Kids' Shoe
-          </Text>
-          <Text fontWeight="medium" color="blueGray.600">
-            2 colors
+      <Stack flex="1" p="4" space={[3, 3, 1.5]}>
+        <Stack space={2}>
+          <Heading size="md" ml="-1">
+            The Garden City
+          </Heading>
+          <Text
+            fontSize="xs"
+            color="violet.500"
+            fontWeight="500"
+            ml="-0.5"
+            mt="-1"
+          >
+            The Silicon Valley of India.
           </Text>
         </Stack>
-        <Text fontSize="md" fontWeight="semibold" color="blueGray.600">
-          $ 150
+        <Text fontWeight="400">
+          Bengaluru (also called Bangalore) is the center of India's high-tech
+          industry. The city is also known for its parks and nightlife.
         </Text>
+        <HStack alignItems="center" space={4} justifyContent="space-between">
+          <HStack alignItems="center">
+            <Text
+              color="coolGray.600"
+              _dark={{ color: 'warmGray.200' }}
+              fontWeight="400"
+            >
+              6 mins ago
+            </Text>
+          </HStack>
+        </HStack>
       </Stack>
-    </Box>
+    </Stack>
   );
 };

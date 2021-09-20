@@ -1,41 +1,30 @@
 import React from 'react';
-import { Card, Avatar, VStack, Heading, Text } from 'native-base';
+import { Card, HStack, Heading, Text, Spacer, Flex } from 'native-base';
 
 export function Example() {
   return (
-    <Card width={64} p={6} py={8}>
-      <VStack alignItems="center" space={5}>
-        <Avatar
-          source={{
-            uri:
-              'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-          }}
-          bg="teal.600"
-          size="2xl"
-        >
-          SS
-        </Avatar>
-        <Heading
-          mx="auto"
-          size="lg"
-          fontWeight={500}
-          _light={{ color: 'blueGray.700' }}
-          _dark={{ color: 'blueGray.100' }}
-        >
-          About Me
-        </Heading>
-        <Text
-          textAlign="center"
-          fontSize={12}
-          _light={{ color: 'blueGray.500' }}
-          _dark={{ color: 'gray.50' }}
-        >
-          Far far away, behind the word mountains, far from the countries
-          Vokalia and Consonantia, there live the blind texts. Separated they
-          live in Bookmarksgrove right at the coast of the Semantics, a large
-          language ocean.
+    <Card bg="cyan.700" w="296">
+      <HStack alignItems="flex-start">
+        <Text fontSize="xs" color="cyan.50" fontWeight="medium">
+          Open Source
         </Text>
-      </VStack>
+        <Spacer />
+        <Text fontSize="2xs" color="cyan.100">
+          1 month ago
+        </Text>
+      </HStack>
+      <Heading color="cyan.50" mt="2" fontWeight="medium" fontSize="lg">
+        NativeBase
+      </Heading>
+      <Text mt="1" fontSize="sm" color="white">
+        NativeBase is a component library that enables devs to build universal
+        design systems.
+      </Text>
+      <Flex>
+        <Text mt="2" fontSize="xs" fontWeight="medium" color="cyan.400">
+          Read More
+        </Text>
+      </Flex>
     </Card>
   );
 }

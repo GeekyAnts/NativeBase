@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal } from 'native-base';
+import { Button, Modal, VStack, HStack, Text, Radio } from 'native-base';
 import { useState } from 'react';
 
 export const Example = () => {
@@ -10,102 +10,118 @@ export const Example = () => {
   return (
     <>
       <Button onPress={() => setShowModal(true)}>Button</Button>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-        <Modal.Content maxWidth="400px">
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)} size="lg">
+        <Modal.Content maxWidth="350">
           <Modal.CloseButton />
-          <Modal.Header>Modal Title</Modal.Header>
-          <Modal.Body>First Modal</Modal.Body>
-          <Modal.Footer>
-            <Button.Group variant="ghost" space={2}>
-              <Button
-                onPress={() => {
-                  setShowModal2(true);
-                }}
-              >
-                Open
-              </Button>
-              <Button
-                onPress={() => {
-                  setShowModal(false);
-                }}
-              >
-                Close modal
-              </Button>
-            </Button.Group>
-          </Modal.Footer>
-        </Modal.Content>
-      </Modal>
-
-      <Modal isOpen={showModal2} onClose={() => setShowModal2(false)}>
-        <Modal.Content maxWidth="400px">
-          <Modal.CloseButton />
-          <Modal.Header>Modal Title</Modal.Header>
+          <Modal.Header>Order</Modal.Header>
           <Modal.Body>
-            Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
-            ullamco deserunt aute id consequat veniam incididunt duis in sint
-            irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
-            officia tempor esse quis. Sunt ad dolore quis aute consequat. Magna
-            exercitation reprehenderit magna aute tempor cupidatat consequat
-            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
-            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim
-            ullamco deserunt aute id consequat veniam incididunt duis in sint
-            irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
-            officia tempor esse quis. Sunt ad dolore quis aute consequat. Magna
-            exercitation reprehenderit magna aute tempor cupidatat consequat
-            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
-            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim cillum
-            quis. Velit duis sit officia eiusmod Lorem aliqua enim ullamco
-            deserunt aute id consequat veniam incididunt duis in sint irure
-            nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia
-            tempor esse quis. Sunt ad dolore quis aute consequat. Magna
-            exercitation reprehenderit magna aute tempor cupidatat consequat
-            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
-            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim cillum
-            quis. Velit duis sit officia eiusmod Lorem aliqua enim ullamco
-            deserunt aute id consequat veniam incididunt duis in sint irure
-            nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia
-            tempor esse quis. Sunt ad dolore quis aute consequat. Magna
-            exercitation reprehenderit magna aute tempor cupidatat consequat
-            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
-            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim
+            <VStack space={3}>
+              <HStack alignItems="center" justifyContent="space-between">
+                <Text fontWeight="medium">Sub Total</Text>
+                <Text color="blueGray.400">$298.77</Text>
+              </HStack>
+              <HStack alignItems="center" justifyContent="space-between">
+                <Text fontWeight="medium">Tax</Text>
+                <Text color="blueGray.400">$38.84</Text>
+              </HStack>
+              <HStack alignItems="center" justifyContent="space-between">
+                <Text fontWeight="medium">Total Amount</Text>
+                <Text color="green.500">$337.61</Text>
+              </HStack>
+            </VStack>
           </Modal.Body>
           <Modal.Footer>
-            <Button.Group variant="ghost" space={2}>
-              <Button
-                onPress={() => {
-                  setShowModal3(true);
-                }}
-              >
-                Open nested modal
-              </Button>
-
-              <Button
-                onPress={() => {
-                  setShowModal2(false);
-                }}
-              >
-                Close modal
-              </Button>
-            </Button.Group>
+            <Button
+              flex="1"
+              onPress={() => {
+                setShowModal2(true);
+              }}
+            >
+              Continue
+            </Button>
           </Modal.Footer>
         </Modal.Content>
       </Modal>
 
-      <Modal isOpen={showModal3} onClose={() => setShowModal3(false)}>
-        <Modal.Content maxWidth="400px">
+      <Modal isOpen={showModal2} onClose={() => setShowModal2(false)} size="lg">
+        <Modal.Content maxWidth="350">
           <Modal.CloseButton />
-          <Modal.Header>Third Modal</Modal.Header>
-          <Modal.Body>Last modal</Modal.Body>
+          <Modal.Header>Select Address</Modal.Header>
+          <Modal.Body>
+            <Radio.Group defaultValue="address1" name="address" size="sm">
+              <VStack space={3}>
+                <Radio
+                  alignItems="flex-start"
+                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
+                  value="address1"
+                >
+                  4140 Parker Rd. Allentown, New Mexico 31134
+                </Radio>
+                <Radio
+                  alignItems="flex-start"
+                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
+                  value="address2"
+                >
+                  6391 Elign St. Celina, Delaware 10299
+                </Radio>
+              </VStack>
+            </Radio.Group>
+          </Modal.Body>
           <Modal.Footer>
-            <Button.Group variant="ghost" space={2}>
-              <Button
-                onPress={() => {
-                  setShowModal3(false);
-                }}
-              >
-                Close modal
-              </Button>
-            </Button.Group>
+            <Button
+              flex="1"
+              onPress={() => {
+                setShowModal3(true);
+              }}
+            >
+              Continue
+            </Button>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal>
+
+      <Modal isOpen={showModal3} size="lg" onClose={() => setShowModal3(false)}>
+        <Modal.Content maxWidth="350">
+          <Modal.CloseButton />
+          <Modal.Header>Payment Options</Modal.Header>
+          <Modal.Body>
+            <Radio.Group name="payment" size="sm">
+              <VStack space={3}>
+                <Radio
+                  alignItems="flex-start"
+                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
+                  value="payment1"
+                >
+                  Cash on delivery
+                </Radio>
+                <Radio
+                  alignItems="flex-start"
+                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
+                  value="payment2"
+                >
+                  Credit/ Debit/ ATM Card
+                </Radio>
+                <Radio
+                  alignItems="flex-start"
+                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
+                  value="payment3"
+                >
+                  UPI
+                </Radio>
+              </VStack>
+            </Radio.Group>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              flex="1"
+              onPress={() => {
+                setShowModal(false);
+                setShowModal2(false);
+                setShowModal3(false);
+              }}
+            >
+              Checkout
+            </Button>
           </Modal.Footer>
         </Modal.Content>
       </Modal>

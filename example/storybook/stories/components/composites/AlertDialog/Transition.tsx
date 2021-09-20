@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertDialog, Button, Center, Input } from 'native-base';
+import { AlertDialog, Button, Center } from 'native-base';
 import type { TouchableOpacity } from 'react-native';
 
 export const Example = () => {
@@ -9,30 +9,28 @@ export const Example = () => {
   return (
     <Center>
       <AlertDialog
-        motionPreset="slide"
+        height="100%"
+        // @ts-ignore
+        animationPreset="slide"
         leastDestructiveRef={cancelRef}
         onClose={onClose}
         isOpen={isOpen}
         isCentered
       >
         <AlertDialog.Content>
-          <AlertDialog.Header _text={{ fontSize: 'lg', fontWeight: 'bold' }}>
-            Discard Changes?
-          </AlertDialog.Header>
+          <AlertDialog.CloseButton />
+          <AlertDialog.Header>Discard Changes?</AlertDialog.Header>
           <AlertDialog.Body>
-            Please type Confirm to discard your changes.
-            <Input
-              placeholder="Confirm"
-              ref={cancelRef}
-              variant="underlined"
-              mt={3}
-            />
+            Are you sure you want to discard all of your notes? 44 words will be
+            deleted.
           </AlertDialog.Body>
           <AlertDialog.Footer>
-            <Button.Group variant="ghost" space={2}>
-              <Button onPress={onClose}>SUBMIT</Button>
-              <Button colorScheme="red" onPress={onClose}>
-                CANCEL
+            <Button.Group space={2}>
+              <Button colorScheme="blueGray" variant="ghost" onPress={onClose}>
+                Cancel
+              </Button>
+              <Button colorScheme="danger" onPress={onClose}>
+                Discard
               </Button>
             </Button.Group>
           </AlertDialog.Footer>

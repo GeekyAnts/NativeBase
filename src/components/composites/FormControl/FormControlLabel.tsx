@@ -5,7 +5,6 @@ import { useFormControlContext } from './useFormControl';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IFormControlLabelProps } from './types';
 import { mergeRefs } from '../../../utils';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const FormControlLabel = (
   { children, _disabled, _invalid, ...props }: IFormControlLabelProps,
@@ -13,7 +12,7 @@ const FormControlLabel = (
 ) => {
   const formControlContext = useFormControlContext();
   const _ref = React.useRef<HTMLLabelElement>(null);
-  const { astrickColor, ...themedProps } = usePropsResolution(
+  const { astrickColor, ...reslovedProps } = usePropsResolution(
     'FormControlLabel',
     props
   );
@@ -22,6 +21,7 @@ const FormControlLabel = (
     <Text
       _web={{
         accessibilityHidden: true,
+        //@ts-ignore
         accessibilityRole: 'presentation',
       }}
       color={astrickColor}
@@ -40,18 +40,16 @@ const FormControlLabel = (
       }
     }
   }, [formControlContext?.nativeID, props.htmlFor]);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <Box
       flexDirection="row"
       justifyContent="flex-start"
       _web={{
+        //@ts-ignore
         accessibilityRole: 'label',
       }}
-      {...themedProps}
+      {...reslovedProps}
       nativeID={formControlContext?.labelId}
       {...props}
       ref={mergedRef}

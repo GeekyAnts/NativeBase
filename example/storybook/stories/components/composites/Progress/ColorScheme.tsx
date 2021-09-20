@@ -5,10 +5,10 @@ export const Example = () => {
   return (
     <Box w="90%">
       <VStack space="md">
-        <Heading textAlign="center" mb={8}>
-          Progress ColorScheme
+        <Heading textAlign="center" mb="10" size="md">
+          Progress Color Scheme
         </Heading>
-        <VStack mx={4} space="md">
+        <VStack mx="4" space="md">
           <Progress colorScheme="primary" value={35} />
           <Progress colorScheme="secondary" value={45} />
           <Progress colorScheme="emerald" value={55} />
