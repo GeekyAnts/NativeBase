@@ -135,7 +135,14 @@ const shouldResolvePseudoProp = ({
 };
 
 const simplifyProps = (
-  { props, colormode, platform, state, currentSpecificity }: any,
+  {
+    props,
+    colormode,
+    platform,
+    state,
+    currentSpecificity,
+    previouslyFlattenProps,
+  }: any,
   flattenProps: any = {},
   specificityMap: any = {},
   priority: number
@@ -163,6 +170,7 @@ const simplifyProps = (
             platform,
             state,
             currentSpecificity: propertySpecity,
+            previouslyFlattenProps: previouslyFlattenProps,
           },
           flattenProps,
           specificityMap,
@@ -202,10 +210,26 @@ const simplifyProps = (
 };
 
 export const propsFlattener = (
-  { props, colormode, platform, state, currentSpecificityMap }: any,
+  {
+    props,
+    colormode,
+    platform,
+    state,
+    currentSpecificityMap,
+    previouslyFlattenProps,
+  }: any,
   priority: number
 ) => {
-  const flattenProps = {};
+  const flattenProps: any = {};
+
+  for (const property in props) {
+    if (
+      state[pseudoPropsMap[property]?.respondTo] === undefined &&
+      property.startsWith('_')
+    ) {
+      flattenProps[property] = previouslyFlattenProps[property];
+    }
+  }
 
   const specificityMap = currentSpecificityMap || {};
 
@@ -223,10 +247,12 @@ export const propsFlattener = (
       platform,
       state,
       currentSpecificityMap,
+      previouslyFlattenProps,
     },
     flattenProps,
     specificityMap,
     priority
   );
+
   return [flattenProps, specificityMap];
 };
