@@ -6,7 +6,7 @@ import type { IBoxProps } from '../Box';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ResponsiveValue } from '../../types';
 
-export interface IStackProps extends IBoxProps {
+export interface IStackProps extends IBoxProps<IStackProps> {
   /**
    * The divider element to use between elements.
    */

@@ -9,7 +9,7 @@ import type { ISizes } from '../../../theme/base/sizes';
 
 export type ICheckboxValue = string;
 
-export interface ICheckboxProps extends IBoxProps {
+export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
   /**
    * assign id to checkbox
    */
@@ -113,7 +113,7 @@ export interface ICheckboxProps extends IBoxProps {
   wrapperRef?: any;
   ref?: MutableRefObject<any>;
 }
-export interface ICheckboxGroupProps extends IBoxProps {
+export interface ICheckboxGroupProps extends IBoxProps<ICheckboxGroupProps> {
   /**
    * assign id to checkbox group
    */

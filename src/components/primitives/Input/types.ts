@@ -112,7 +112,7 @@ export interface IInputProps
   // _label?: ITextProps;
 }
 
-export interface IInputGroupProps extends IBoxProps {
+export interface IInputGroupProps extends IBoxProps<IInputGroupProps> {
   /**
    * The variant of the input style to use.
    * @default <code>outline</code>

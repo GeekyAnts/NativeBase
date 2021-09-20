@@ -1,6 +1,6 @@
 import type { IBoxProps } from '../../primitives';
 
-export interface IFormControlProps extends IBoxProps {
+export interface IFormControlProps extends IBoxProps<IFormControlProps> {
   /**
    * If provided, this prop is passed to its children.
    */
@@ -27,12 +27,12 @@ export interface IFormControlLabelProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps;
+  _disabled?: IBoxProps<IFormControlLabelProps>;
   // _focus?: any;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: IBoxProps;
+  _invalid?: IBoxProps<IFormControlLabelProps>;
   /**
    * Reflects the value of the 'for' content property.
    */
@@ -42,18 +42,18 @@ export interface IFormControlErrorMessageProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps;
+  _disabled?: IBoxProps<IFormControlLabelProps>;
 }
 export interface IFormControlHelperTextProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps;
+  _disabled?: IBoxProps<IFormControlLabelProps>;
   // _focus?: any;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: IBoxProps;
+  _invalid?: IBoxProps<IFormControlLabelProps>;
 }
 
 export type FormControlComponentType = ((

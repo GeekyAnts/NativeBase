@@ -28,7 +28,7 @@ export interface ILinearGradientProps {
   };
 }
 
-export interface IBoxProps
+export interface IBoxProps<T = null>
   extends ViewProps,
     Omit<ColorProps, 'backgroundColor' | 'bg' | 'color' | 'fill' | 'stroke'>,
     SpaceProps,
@@ -42,7 +42,7 @@ export interface IBoxProps
     Omit<BackgroundProps, 'bgColor' | 'background' | 'bg' | 'backgroundColor'>,
     SafeAreaProps,
     TransformProps,
-    PlatformProps<IBoxProps> {
+    PlatformProps<T extends null ? IBoxProps<any> : T> {
   /**
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;

@@ -4,7 +4,7 @@ import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IColors } from '../../../theme/base/colors';
 
-export type ICircularProgressProps = IBoxProps & {
+export type ICircularProgressProps = IBoxProps<ICircularProgressProps> & {
   style?: ViewStyle;
   children?: JSX.Element | JSX.Element[] | string;
   value: number;

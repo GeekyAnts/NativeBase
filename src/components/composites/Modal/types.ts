@@ -5,7 +5,7 @@ import type { MutableRefObject } from 'react';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 
-export interface IModalProps extends IBoxProps {
+export interface IModalProps extends IBoxProps<IModalProps> {
   /**
    * If true, the modal will open. Useful for controllable state behaviour
    */
@@ -70,18 +70,26 @@ export type IModalComponentType = ((
   props: IModalProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element) & {
   Body: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (
+      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
     (props: IButtonProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Content: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (
+      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   Footer: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (
+      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
   Header: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (
+      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
 };

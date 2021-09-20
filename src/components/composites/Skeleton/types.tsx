@@ -4,7 +4,7 @@ import type { IStackProps } from '../../primitives/Stack/Stack';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IColors } from '../../../theme/base/colors';
-export interface ISkeletonProps extends IBoxProps {
+export interface ISkeletonProps extends IBoxProps<ISkeletonProps> {
   /**
    * The fadeIn duration in seconds
    */

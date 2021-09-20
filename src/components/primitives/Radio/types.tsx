@@ -9,7 +9,7 @@ export type IRadioValue = string;
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
 
-export interface IRadioProps extends IBoxProps {
+export interface IRadioProps extends IBoxProps<IRadioProps> {
   /**
    * The value to be used in the radio input. This is the value that will be returned on form submission
    */
@@ -42,7 +42,7 @@ export interface IRadioProps extends IBoxProps {
    */
   wrapperRef?: any;
 }
-export interface IRadioGroupProps extends IBoxProps {
+export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
   /**
    * The value of the radio group.
    */

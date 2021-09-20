@@ -5,7 +5,7 @@ import type { MutableRefObject } from 'react';
 import type { ResponsiveValue } from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
 
-export interface ISelectProps extends IBoxProps {
+export interface ISelectProps extends IBoxProps<ISelectProps> {
   /**
    * The placeholder that describes the Select.
    */

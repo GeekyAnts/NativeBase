@@ -4,7 +4,7 @@ import type { MutableRefObject } from 'react';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 
-export interface IAvatarProps extends IBoxProps {
+export interface IAvatarProps extends IBoxProps<IAvatarProps> {
   /**
    * The image source of the avatar.
    */
@@ -20,7 +20,7 @@ export interface IAvatarProps extends IBoxProps {
   wrapperRef?: MutableRefObject<any>;
 }
 
-export interface IAvatarBadgeProps extends IBoxProps {}
+export interface IAvatarBadgeProps extends IBoxProps<IAvatarBadgeProps> {}
 
 export interface IAvatarGroupProps extends IAvatarProps {
   /**

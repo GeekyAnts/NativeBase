@@ -4,11 +4,6 @@ export const Example = () => {
   return (
     <>
       <Box
-        _web={{
-          _web: {
-            backgroundColor: 'red',
-          },
-        }}
         bg="primary.400"
         _text={{
           fontSize: 'md',

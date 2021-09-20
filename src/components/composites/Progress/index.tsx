@@ -5,7 +5,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 
-export interface IProgressProps extends IBoxProps {
+export interface IProgressProps extends IBoxProps<IProgressProps> {
   /**
    * Value of Progress.
    * @default 0
@@ -30,7 +30,7 @@ export interface IProgressProps extends IBoxProps {
   /**
    * Pseudo prop to give Prop to filled track
    */
-  _filledTrack?: IBoxProps;
+  _filledTrack?: IBoxProps<IProgressProps>;
   /**
    * Min progress value
    * @default 0

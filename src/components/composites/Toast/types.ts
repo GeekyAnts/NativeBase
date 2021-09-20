@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import type { IBoxProps } from '../../primitives/Box';
 
-export interface IToastProps extends IBoxProps {
+export interface IToastProps extends IBoxProps<IToastProps> {
   /**
    * The title to be rendered in the Toast
    */
