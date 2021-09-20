@@ -4,26 +4,13 @@ import type { IActionsheetItemProps } from './types';
 import { usePropsResolution } from '../../../hooks';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const ActionsheetItem = (
-  { children, startIcon, endIcon, spinner, ...props }: IActionsheetItemProps,
-  ref?: any
-) => {
-  const newProps = usePropsResolution('ActionsheetItem', props);
+const ActionsheetItem = (props: IActionsheetItemProps, ref?: any) => {
+  const resolvedProps = usePropsResolution('ActionsheetItem', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return (
-    <Button
-      startIcon={startIcon}
-      endIcon={endIcon}
-      spinner={spinner}
-      {...newProps}
-      ref={ref}
-    >
-      {children}
-    </Button>
-  );
+  return <Button {...resolvedProps} ref={ref} />;
 };
 
 export default memo(forwardRef(ActionsheetItem));

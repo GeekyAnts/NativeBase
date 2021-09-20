@@ -13,7 +13,7 @@ const Actionsheet = (
     isOpen,
     disableOverlay,
     onClose,
-    ...remainingProps
+    ...resolvedProps
   } = usePropsResolution('Actionsheet', props);
 
   //TODO: refactor for responsive prop
@@ -27,7 +27,7 @@ const Actionsheet = (
       justifyContent="flex-end"
       //@ts-ignore - internal use only
       animationPreset="slide"
-      {...remainingProps}
+      {...resolvedProps}
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}
       ref={ref}
