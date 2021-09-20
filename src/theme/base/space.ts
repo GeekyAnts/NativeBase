@@ -45,4 +45,4 @@ export const spacing = {
   'full': '100%',
 };
 
-export type Spacing = typeof spacing;
+export type ISpacing = keyof typeof spacing;

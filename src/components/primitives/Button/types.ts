@@ -3,6 +3,9 @@ import type { IPressableProps } from '../Pressable';
 import type { IStackProps } from '../Stack';
 import type { ResponsiveValue } from '../../types';
 import type { MutableRefObject } from 'react';
+
+import type { ISizes } from '../../../theme/base/sizes';
+
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
 export interface IButtonProps extends IPressableProps {
@@ -25,7 +28,7 @@ export interface IButtonProps extends IPressableProps {
   /**
    * The size of the button.
    */
-  size?: ResponsiveValue<'xs' | 'sm' | 'md' | 'lg'>;
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * The start icon element to use in the button.
    */
@@ -98,7 +101,9 @@ export interface IButtonGroupProps extends IStackProps {
   /**
    * The start icon element to use in the button.
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg';
+
+  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'

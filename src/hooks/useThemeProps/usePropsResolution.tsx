@@ -157,6 +157,7 @@ export function usePropsResolution(
       platform: Platform.OS,
       colormode: colorModeProps.colorMode,
       state: state || {},
+      previouslyFlattenProps: {},
     },
     2
   );
@@ -199,6 +200,7 @@ export function usePropsResolution(
         colormode: colorModeProps.colorMode,
         state: state || {},
         currentSpecificityMap: specificityMap,
+        previouslyFlattenProps: flattenProps,
       },
       1
     );
@@ -229,6 +231,7 @@ export function usePropsResolution(
         colormode: colorModeProps.colorMode,
         state: state || {},
         currentSpecificityMap: baseSpecificityMap || specificityMap,
+        previouslyFlattenProps: flattenBaseStyle || flattenProps,
       },
       1
     );
@@ -279,6 +282,8 @@ export function usePropsResolution(
         state: state || {},
         currentSpecificityMap:
           variantSpecificityMap || baseSpecificityMap || specificityMap,
+        previouslyFlattenProps:
+          flattenVariantStyle || flattenBaseStyle || flattenProps,
       },
       1
     );

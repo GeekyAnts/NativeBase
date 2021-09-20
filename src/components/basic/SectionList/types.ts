@@ -30,4 +30,4 @@ export interface ISectionListProps
     BackgroundProps,
     SafeAreaProps,
     TransformProps,
-    PlatformProps {}
+    PlatformProps<ISectionListProps> {}

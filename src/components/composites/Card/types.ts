@@ -1,3 +1,3 @@
 import type { IBoxProps } from '../../primitives';
 
-export interface ICardProps extends IBoxProps {}
+export interface ICardProps extends IBoxProps<ICardProps> {}

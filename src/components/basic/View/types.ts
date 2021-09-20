@@ -29,7 +29,7 @@ export interface IViewProps
     BackgroundProps,
     SafeAreaProps,
     TransformProps,
-    PlatformProps {
+    PlatformProps<IViewProps> {
   /**
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;

@@ -47,7 +47,7 @@ const Accordion = (
         indexCopy.push(activeIndex);
         allowMultiple ? setIndex(indexCopy) : setIndex([activeIndex]);
       } else {
-        indexCopy = indexCopy.filter((n) => n !== activeIndex);
+        indexCopy = indexCopy.filter((n: any) => n !== activeIndex);
         setIndex(indexCopy);
       }
     }

@@ -106,7 +106,9 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
     ...stylingProps.flexbox,
     ...stylingProps.position,
     ...stylingProps.background,
+    'children',
   ]);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;

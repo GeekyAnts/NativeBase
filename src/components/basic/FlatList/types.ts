@@ -29,4 +29,4 @@ export interface IFlatListProps
     BackgroundProps,
     SafeAreaProps,
     TransformProps,
-    PlatformProps {}
+    PlatformProps<IFlatListProps> {}

@@ -1,2 +1,2 @@
 import type { IBoxProps } from '../../primitives';
-export type IKbdProps = IBoxProps;
+export type IKbdProps = IBoxProps<IKbdProps>;

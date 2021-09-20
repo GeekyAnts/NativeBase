@@ -6,7 +6,7 @@ import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
-import { propsFlattener, compareSpecificity } from './propsFlattener';
+import { propsFlattener, compareSpecificity } from './propsFlattenerTest';
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
@@ -154,6 +154,7 @@ export function usePropsResolutionTest(
       platform: Platform.OS,
       colormode: colorModeProps.colorMode,
       state: state || {},
+      previouslyFlattenProps: {},
     },
     2
   );
@@ -196,6 +197,7 @@ export function usePropsResolutionTest(
         colormode: colorModeProps.colorMode,
         state: state || {},
         currentSpecificityMap: specificityMap,
+        previouslyFlattenProps: flattenProps,
       },
       1
     );
@@ -226,6 +228,7 @@ export function usePropsResolutionTest(
         colormode: colorModeProps.colorMode,
         state: state || {},
         currentSpecificityMap: baseSpecificityMap || specificityMap,
+        previouslyFlattenProps: flattenBaseStyle || flattenProps,
       },
       1
     );
@@ -276,6 +279,8 @@ export function usePropsResolutionTest(
         state: state || {},
         currentSpecificityMap:
           variantSpecificityMap || baseSpecificityMap || specificityMap,
+        previouslyFlattenProps:
+          flattenVariantStyle || flattenBaseStyle || flattenProps,
       },
       1
     );

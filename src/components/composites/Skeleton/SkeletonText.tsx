@@ -6,6 +6,7 @@ import Skeleton from './Skeleton';
 import type { ISkeletonTextProps } from './types';
 
 const SkeletonText = (
+  //@ts-ignore
   { children, ...props }: IBoxProps & ISkeletonTextProps,
   ref: any
 ) => {

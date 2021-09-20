@@ -1,5 +1,12 @@
 import type { TextProps } from 'react-native';
 import type {
+  IFont,
+  IFontSize,
+  IFontWeight,
+  ILetterSpacing,
+  ILineHeight,
+} from '../../../theme/base/typography';
+import type {
   BorderProps,
   ColorProps,
   BackgroundProps,
@@ -12,6 +19,7 @@ import type {
   PositionProps,
   SpaceProps,
   TypographyProps,
+  ResponsiveValue,
 } from '../../types';
 
 export interface ITextProps
@@ -23,7 +31,7 @@ export interface ITextProps
     LayoutProps,
     OutlineProps,
     ExtraProps,
-    PlatformProps,
+    PlatformProps<ITextProps>,
     ShadowProps,
     FlexboxProps,
     TypographyProps,
@@ -35,22 +43,31 @@ export interface ITextProps
   /**
    * The size of font
    */
-  fontSize?:
-    | '2xs'
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | '6xl'
-    | number
-    | Array<number>
-    | Array<string>
-    | Record<string, string>;
+
+  fontSize?: ResponsiveValue<IFontSize | number | (string & {})>;
+
+  /**
+   * Letter spacing
+   */
+
+  letterSpacing?: ResponsiveValue<ILetterSpacing | number | (string & {})>;
+
+  /**
+   * Line height
+   */
+
+  lineHeight?: ResponsiveValue<ILineHeight | number | (string & {})>;
+  /**
+   * Font weight
+   */
+
+  fontWeight?: ResponsiveValue<IFontWeight | number | (string & {})>;
+  /**
+   * Fonts
+   */
+
+  font?: ResponsiveValue<IFont>;
+
   /**
    * Used to truncate text at a specific number of lines
    */

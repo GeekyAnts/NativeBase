@@ -10,6 +10,6 @@ const radii = {
   'full': 9999,
 };
 
-export type IRadii = typeof radii;
+export type IRadii = keyof typeof radii;
 
 export default radii;

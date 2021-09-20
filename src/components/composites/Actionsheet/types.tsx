@@ -2,7 +2,7 @@ import type { IButtonProps } from '../../primitives/Button';
 import type { IBoxProps } from '../../primitives/Box';
 import type { MutableRefObject } from 'react';
 
-export interface IActionsheetProps extends IBoxProps {
+export interface IActionsheetProps extends IBoxProps<IActionsheetProps> {
   /**
    * If true, the ActionSheet will open. Useful for controllable state behaviour
    */
@@ -27,9 +27,12 @@ export interface IActionsheetProps extends IBoxProps {
   _backdrop?: any;
 }
 
-export interface IActionsheetContentProps extends IBoxProps {}
-export interface IActionsheetFooterProps extends IBoxProps {}
-export interface IActionsheetHeaderProps extends IBoxProps {}
+export interface IActionsheetContentProps
+  extends IBoxProps<IActionsheetContentProps> {}
+export interface IActionsheetFooterProps
+  extends IBoxProps<IActionsheetFooterProps> {}
+export interface IActionsheetHeaderProps
+  extends IBoxProps<IActionsheetHeaderProps> {}
 export interface IActionsheetItemProps extends IButtonProps {}
 
 export type IActionsheetComponentType = ((
