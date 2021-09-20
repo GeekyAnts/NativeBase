@@ -36,7 +36,7 @@ export * from './components/primitives/Hidden';
 export * from './components/primitives/HStack';
 export * from './components/primitives/Icon';
 export * from './components/composites/IconButton';
-// export * from './components/primitives/Image';
+export * from './components/primitives/Image';
 export * from './components/primitives/Input';
 // export * from './components/composites/Kbd';
 export * from './components/primitives/Link';

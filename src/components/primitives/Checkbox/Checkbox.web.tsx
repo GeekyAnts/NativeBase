@@ -11,10 +11,10 @@ import { CheckboxGroupContext } from './CheckboxGroup';
 import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
-import { CheckIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
+import SizedIcon from './SizedIcon';
 
 const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const formControlContext = useFormControlContext();
@@ -66,14 +66,6 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       );
 
   const { checked: isChecked, disabled: isDisabled } = inputProps;
-  const sizedIcon = (icon: JSX.Element, _icon: any) =>
-    icon ? (
-      React.cloneElement(icon, {
-        ..._icon,
-      })
-    ) : (
-      <CheckIcon {..._icon} />
-    );
 
   const { focusProps, isFocusVisible } = useFocusRing();
 
@@ -133,7 +125,7 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
         {/* Checkbox */}
         <Center {...nonLayoutProps}>
           {/* {iconResolver()} */}
-          {sizedIcon(icon, _icon)}
+          <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
         </Center>
       </Center>
       {/* Label */}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, MoonIcon, Stack, HStack } from 'native-base';
+import { Icon, Heading, Center, VStack } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 
 export const Example = () => {
@@ -19,17 +19,18 @@ export const Example = () => {
     // '6xl',
   ];
   return (
-    <Stack space={8}>
-      <HStack space={4}>
+    <Center>
+      <Heading mb="10">Sizes</Heading>
+      <VStack space={4} justifyContent="center">
         {sizes.map((size) => (
-          <MoonIcon size={size} />
+          <Icon
+            as={Ionicons}
+            name="md-checkmark-circle"
+            alignSelf="center"
+            size={size}
+          />
         ))}
-      </HStack>
-      <HStack space={4}>
-        {sizes.map((size) => (
-          <Icon as={Ionicons} name="md-checkmark-circle" size={size} />
-        ))}
-      </HStack>
-    </Stack>
+      </VStack>
+    </Center>
   );
 };

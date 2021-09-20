@@ -23,6 +23,6 @@ export default {
   baseStyle,
   defaultProps: {
     orientation: 'horizontal',
-    size: 1,
+    size: '1px',
   },
 };

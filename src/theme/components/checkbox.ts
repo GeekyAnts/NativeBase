@@ -10,7 +10,7 @@ const baseStyle = (props: Record<string, any>) => {
     bg: mode('muted.50', 'muted.700')(props), // matching background color
 
     _text: {
-      ml: 3,
+      ml: 2,
       color: mode('darkText', 'lightText')(props),
     },
     _interactionBox: {
@@ -45,7 +45,7 @@ const baseStyle = (props: Record<string, any>) => {
     },
     _checked: {
       borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
-      bg: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
+      bg: mode(`${colorScheme}.600`, `${colorScheme}.300`)(props),
     },
     _invalid: {
       borderColor: mode('error.600', 'error.400')(props),
