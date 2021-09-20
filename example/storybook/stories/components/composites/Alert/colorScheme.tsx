@@ -24,7 +24,7 @@ export function Example() {
             >
               <HStack space={2} alignItems="center">
                 <Alert.Icon />
-                <Text fontSize="md" fontWeight="medium">
+                <Text fontSize="md" fontWeight="medium" color="coolGray.800">
                   Please try again later!
                 </Text>
               </HStack>
@@ -33,7 +33,9 @@ export function Example() {
                 icon={<CloseIcon size="3" color="coolGray.600" />}
               />
             </HStack>
-            <Box pl="6">Your coupon could not be processed at this time.</Box>
+            <Box pl="6" _text={{ color: 'coolGray.600' }}>
+              Your coupon could not be processed at this time.
+            </Box>
           </VStack>
         </Alert>
       ))}

@@ -20,7 +20,7 @@ export function Example() {
         >
           <HStack space={2} alignItems="center">
             <Alert.Icon />
-            <Text fontSize="md" fontWeight="medium">
+            <Text fontSize="md" fontWeight="medium" color="coolGray.800">
               We are going live in July!
             </Text>
           </HStack>
@@ -29,7 +29,7 @@ export function Example() {
             icon={<CloseIcon size="3" color="coolGray.600" />}
           />
         </HStack>
-        <Box pl="6">
+        <Box pl="6" _text={{ color: 'coolGray.600' }}>
           We are happy to announce that we are going live on July 28th. Get
           ready!
         </Box>

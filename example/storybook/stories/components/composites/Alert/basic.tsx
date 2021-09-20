@@ -21,7 +21,7 @@ export const Example = () => {
         >
           <HStack space={2} alignItems="center">
             <Alert.Icon />
-            <Heading fontSize="md" fontWeight="medium">
+            <Heading fontSize="md" fontWeight="medium" color="coolGray.800">
               We are going live in July!
             </Heading>
           </HStack>
@@ -30,7 +30,7 @@ export const Example = () => {
             icon={<CloseIcon size="3" color="coolGray.600" />}
           />
         </HStack>
-        <Box pl="6">
+        <Box pl="6" _text={{ color: 'coolGray.600' }}>
           We are happy to announce that we are going live on July 28th. Get
           ready!
         </Box>

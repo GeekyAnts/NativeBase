@@ -2,18 +2,35 @@ import React from 'react';
 import {
   Stack,
   Alert,
-  IconButton,
   HStack,
   VStack,
-  CloseIcon,
   Text,
   Divider,
   ScrollView,
 } from 'native-base';
 
 export function Example() {
+  const getTextColor = (
+    variant:
+      | 'solid'
+      | 'left-accent'
+      | 'top-accent'
+      | 'outline'
+      | 'subtle'
+      | 'outline-light'
+  ) => {
+    switch (variant) {
+      case 'left-accent':
+      case 'top-accent':
+      case 'subtle':
+        return 'coolGray.800';
+      case 'solid':
+        return 'warmGray.50';
+    }
+  };
+
   return (
-    <ScrollView px="30" my="3">
+    <ScrollView px="30" my="3" showsVerticalScrollIndicator={false}>
       <Stack space={3} w="100%">
         {[
           'solid',
@@ -22,7 +39,7 @@ export function Example() {
           'outline',
           'subtle',
           'outline-light',
-        ].map((key) => {
+        ].map((key: any) => {
           return (
             <>
               <Text bold fontSize="xl" mb="4" textAlign="center">
@@ -43,7 +60,9 @@ export function Example() {
                   >
                     <HStack space={2} alignItems="center">
                       <Alert.Icon />
-                      <Text>Selection successfully moved!</Text>
+                      <Text color={getTextColor(key)}>
+                        Selection successfully moved!
+                      </Text>
                     </HStack>
                   </HStack>
                 </VStack>

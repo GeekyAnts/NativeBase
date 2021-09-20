@@ -42,7 +42,9 @@ export function Example() {
               >
                 <HStack space={2} alignItems="center">
                   <Alert.Icon />
-                  <Text fontSize="md">{status.title}</Text>
+                  <Text fontSize="md" color="coolGray.800">
+                    {status.title}
+                  </Text>
                 </HStack>
                 <IconButton
                   variant="unstyled"

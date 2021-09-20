@@ -1,6 +1,4 @@
 import type { MutableRefObject } from 'react';
-import type { ResponsiveValue } from '../../../components/types';
-import type { IColors } from '../../../theme/base/colors';
 import type { IBoxProps, IIconProps } from '../../primitives';
 
 export interface IAlertProps extends IBoxProps<IAlertProps> {
