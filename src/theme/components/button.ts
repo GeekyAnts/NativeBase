@@ -102,8 +102,6 @@ function variantOutline(props: Dict) {
 function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
   let bg = `${c}.500`;
-  bg = mode(bg, `${c}.300`)(props);
-  // let _disabled;
   if (props.isDisabled) {
     bg = mode(`muted.300`, `muted.500`)(props);
   }

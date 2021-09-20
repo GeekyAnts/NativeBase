@@ -14,10 +14,21 @@ import {
 export const Example = () => {
   return (
     <Box safeArea p="2" py="8" w="90%" maxW="290">
-      <Heading size="lg" fontWeight="600" color="coolGray.800">
+      <Heading
+        size="lg"
+        fontWeight="600"
+        color="coolGray.800"
+        _dark={{ color: 'warmGray.50' }}
+      >
         Welcome
       </Heading>
-      <Heading mt="1" color="coolGray.600" fontWeight="medium" size="xs">
+      <Heading
+        mt="1"
+        _dark={{ color: 'warmGray.200' }}
+        color="coolGray.600"
+        fontWeight="medium"
+        size="xs"
+      >
         Sign in to continue!
       </Heading>
 
@@ -41,7 +52,11 @@ export const Example = () => {
           Sign in
         </Button>
         <HStack mt="6" justifyContent="center">
-          <Text fontSize="sm" color="muted.700">
+          <Text
+            fontSize="sm"
+            color="coolGray.600"
+            _dark={{ color: 'warmGray.200' }}
+          >
             I'm a new user.{' '}
           </Text>
           <Link

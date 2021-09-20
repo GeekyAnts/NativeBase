@@ -1,12 +1,13 @@
 import React from 'react';
-import { Icon, MoonIcon, Stack } from 'native-base';
-import { Ionicons } from '@expo/vector-icons';
+import { CheckIcon, HStack, Text } from 'native-base';
 
 export const Example = () => {
   return (
-    <Stack direction={{ base: 'column', md: 'row' }} space={8}>
-      <MoonIcon />
-      <Icon as={Ionicons} name="md-checkmark-circle" />
-    </Stack>
+    <HStack space={2}>
+      <CheckIcon size="5" mt="0.5" color="emerald.500" />
+      <Text color="emerald.500" fontSize="md">
+        Order Placed Successfully
+      </Text>
+    </HStack>
   );
 };
