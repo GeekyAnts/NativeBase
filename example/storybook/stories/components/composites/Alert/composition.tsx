@@ -1,70 +1,67 @@
 import React from 'react';
-import { Alert, Box, VStack, IconButton, CloseIcon } from 'native-base';
-import { ScrollView } from 'react-native';
+import {
+  Alert,
+  Box,
+  IconButton,
+  CloseIcon,
+  HStack,
+  VStack,
+  Text,
+} from 'native-base';
+import { textAlign } from 'styled-system';
 
 export function Example() {
   return (
-    <ScrollView>
-      <VStack my={3} space={5} w="100%">
-        <Alert
-          status="success"
-          display="flex"
-          variant="outline"
-          borderColor="gray.200"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Alert.Icon boxSize="40px" mr={0} />
-          <Alert.Title mt={2} mb={2}>
-            This is a success alert
-          </Alert.Title>
-          <Alert.Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Alert.Description>
-        </Alert>
-
-        <Alert
-          status="success"
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Alert.Icon boxSize="40px" mr={0} />
-          <Alert.Title mt={2} mb={2}>
-            This is a success alert
-          </Alert.Title>
-          <Alert.Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Alert.Description>
-        </Alert>
-
-        <Alert status="success">
-          <Alert.Icon />
-          <Box flex={1} ml={2}>
-            <Alert.Title>This is a success alert</Alert.Title>
-            <Alert.Description mt={2}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </Alert.Description>
+    <VStack space={5} maxW="400">
+      <Alert w="100%" status="success">
+        <VStack space={2} flexShrink={1} w="100%">
+          <HStack
+            flexShrink={1}
+            space={1}
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <HStack space={2} alignItems="center">
+              <Alert.Icon />
+              <Text
+                fontSize="md"
+                fontWeight="medium"
+                _dark={{ color: 'coolGray.800' }}
+              >
+                Application received!
+              </Text>
+            </HStack>
+            <IconButton
+              variant="unstyled"
+              icon={<CloseIcon size="3" color="coolGray.600" />}
+            />
+          </HStack>
+          <Box pl="6" _dark={{ _text: { color: 'coolGray.600' } }}>
+            Your application has been received. We will review your application
+            and respond within the next 48 hours.
           </Box>
-          <IconButton
-            icon={<CloseIcon color="success.500" size="xs" />}
-            position="absolute"
-            top={0.5}
-            right={1}
-          />
-        </Alert>
-      </VStack>
-    </ScrollView>
+        </VStack>
+      </Alert>
+      <Alert w="100%" status="success">
+        <VStack space={1} flexShrink={1} w="100%" alignItems="center">
+          <Alert.Icon size="md" />
+          <Text
+            fontSize="md"
+            fontWeight="medium"
+            _dark={{ color: 'coolGray.800' }}
+          >
+            Application received!
+          </Text>
+
+          <Box
+            _text={{ textAlign: 'center' }}
+            _dark={{ _text: { color: 'coolGray.600' } }}
+          >
+            Your application has been received. We will review your application
+            and respond within the next 48 hours.
+          </Box>
+        </VStack>
+      </Alert>
+    </VStack>
   );
 }

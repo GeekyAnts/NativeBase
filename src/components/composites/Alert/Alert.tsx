@@ -1,19 +1,17 @@
 import React, { memo, forwardRef } from 'react';
 import Box from '../../primitives/Box';
-import { HStack } from '../../primitives/Stack';
+// import { HStack } from '../../primitives/Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAlertProps } from './types';
 import { AlertContext } from './Context';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Alert = ({ children, action, ...props }: IAlertProps, ref?: any) => {
+const Alert = ({ children, ...props }: IAlertProps, ref?: any) => {
   const {
     status,
     variant,
-    iconColor,
+    _icon,
     colorScheme,
-    _text,
-    _actionProps,
     ...newProps
   } = usePropsResolution('Alert', props);
   //TODO: refactor for responsive prop
@@ -25,14 +23,13 @@ const Alert = ({ children, action, ...props }: IAlertProps, ref?: any) => {
       value={{
         status,
         variant,
-        iconColor,
+        _icon,
         colorScheme,
       }}
     >
-      <HStack _text={_text} {...newProps} ref={ref}>
+      <Box {...newProps} ref={ref}>
         {children}
-        {action ? <Box {..._actionProps}>{action}</Box> : null}
-      </HStack>
+      </Box>
     </AlertContext.Provider>
   );
 };

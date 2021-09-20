@@ -12,29 +12,26 @@ import { AlertContext } from './Context';
 import { omitUndefined } from '../../../theme/tools/utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const AlertIcon = (
-  { children, wrapperRef, ...props }: IAlertIconProps,
-  ref?: any
-) => {
+const AlertIcon = ({ children, ...props }: IAlertIconProps, ref?: any) => {
   let newProps = usePropsResolution('AlertIcon', props);
   newProps = omitUndefined(newProps);
-  const { status, iconColor }: IAlertContext = React.useContext(AlertContext);
+  const { status, _icon }: IAlertContext = React.useContext(AlertContext);
   const getIcon = () => {
     switch (status) {
       case 'error':
-        return <WarningTwoIcon color={iconColor} {...newProps} ref={ref} />;
+        return <WarningTwoIcon {..._icon} {...newProps} ref={ref} />;
       case 'warning':
-        return <WarningIcon color={iconColor} {...newProps} ref={ref} />;
+        return <WarningIcon {..._icon} {...newProps} ref={ref} />;
       case 'success':
-        return <CheckCircleIcon color={iconColor} {...newProps} ref={ref} />;
+        return <CheckCircleIcon {..._icon} {...newProps} ref={ref} />;
       default:
-        return <InfoIcon color={iconColor} {...newProps} ref={ref} />;
+        return <InfoIcon {..._icon} {...newProps} ref={ref} />;
     }
   };
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return <Box ref={wrapperRef}>{children || getIcon()}</Box>;
+  return <Box>{children || getIcon()}</Box>;
 };
 export default memo(forwardRef(AlertIcon));
