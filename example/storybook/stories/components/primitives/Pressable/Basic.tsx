@@ -6,12 +6,15 @@ export function Example() {
   return (
     <Pressable
       onPress={() => Alert.alert('hello')}
-      p={2}
-      bg="red.200"
-      borderWidth={1}
-      _pressed={{ bg: 'teal.300', borderColor: 'red.500' }}
+      p="2"
+      rounded="sm"
+      bg="primary.500"
+      _pressed={{ bg: 'primary.700' }}
+      _hover={{ bg: 'primary.600' }}
     >
-      <Text>hello world</Text>
+      <Text color="white" fontWeight="medium">
+        hello world
+      </Text>
     </Pressable>
   );
 }
