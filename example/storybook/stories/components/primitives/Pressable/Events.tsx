@@ -9,7 +9,6 @@ export function Example() {
           <Box
             bg={isPressed ? 'cyan.900' : isHovered ? 'cyan.800' : 'cyan.700'}
             p="5"
-            w="296"
             rounded="8"
             style={{ transform: [{ scale: isPressed ? 0.96 : 1 }] }}
           >

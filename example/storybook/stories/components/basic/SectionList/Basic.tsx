@@ -40,7 +40,7 @@ export const Example = () => {
         </Center>
       )}
       renderSectionHeader={({ section: { title } }) => (
-        <Center bg="gray.50" _dark={{ bg: 'gray.800' }}>
+        <Center>
           <Heading fontSize="xl" mt="8" pb="4">
             {title}
           </Heading>

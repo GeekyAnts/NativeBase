@@ -10,7 +10,7 @@ export function Example() {
       <Actionsheet
         isOpen={isOpen}
         onClose={onClose}
-        _backdrop={{ bg: 'red.100', opacity: 0.8 }}
+        _backdrop={{ bg: 'primary.100', _dark: { bg: 'primary.900' } }}
       >
         <Actionsheet.Content>
           <Divider borderColor="gray.300" />

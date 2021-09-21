@@ -26,7 +26,7 @@ export const Example = () => {
           <AlertDialog.Footer>
             <Button.Group space={2}>
               <Button
-                variant="ghost"
+                variant="unstyled"
                 colorScheme="coolGray"
                 onPress={onClose}
                 ref={cancelRef}

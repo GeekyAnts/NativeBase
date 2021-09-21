@@ -24,7 +24,7 @@ export function Example() {
               alignItems="center"
               justifyContent="space-between"
             >
-              <HStack space={2} alignItems="center">
+              <HStack flexShrink={1} space={2} alignItems="center">
                 <Alert.Icon />
                 <Text
                   fontSize="md"

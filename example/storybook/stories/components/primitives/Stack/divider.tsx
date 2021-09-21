@@ -10,7 +10,7 @@ export function Example() {
           space={2}
           mb="3"
           alignItems="center"
-          divider={<Divider size="2" bg="coolGray.200" />}
+          divider={<Divider thickness="2" bg="coolGray.200" />}
         >
           <Box>Simple</Box>
           <Box>Easy</Box>

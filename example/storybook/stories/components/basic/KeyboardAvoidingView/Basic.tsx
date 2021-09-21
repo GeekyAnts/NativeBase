@@ -19,7 +19,7 @@ export const Example = () => {
   });
   return (
     <KeyboardAvoidingView
-      h={{ base: '600px', lg: 'auto' }}
+      h={{ base: '400px', lg: 'auto' }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <VStack p="6" flex="1" justifyContent="flex-end">

@@ -10,7 +10,7 @@ import {
 
 export function Example() {
   return (
-    <ScrollView pr="32" pl="4">
+    <ScrollView>
       <Center mt="4">
         <VStack space={2.5} w="100%">
           {/* flexDirection -> row */}

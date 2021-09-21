@@ -8,7 +8,7 @@ export function Example() {
         console.log('Hello world');
       }}
     >
-      <Box p="5" w="296" rounded="8" bg="cyan.700">
+      <Box p="5" rounded="8" bg="cyan.700">
         <HStack alignItems="flex-start">
           <Text fontSize={12} color="cyan.50" fontWeight="medium">
             Business

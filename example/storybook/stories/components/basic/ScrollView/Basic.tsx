@@ -37,7 +37,7 @@ export const Example = () => {
         {Object.keys(colors.violet).map((key, index) => {
           if (index >= 1 && index <= 5)
             return (
-              <Center py="4" px="40" bg={`violet.${key}`}>
+              <Center py="4" px="32" bg={`violet.${key}`}>
                 {key}
               </Center>
             );

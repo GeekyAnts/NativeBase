@@ -15,11 +15,14 @@ export const Example = () => {
     <Box
       rounded="lg"
       overflow="hidden"
-      width="72"
-      shadow={1}
-      borderRadius="lg"
-      _light={{ backgroundColor: 'coolGray.50' }}
-      _dark={{ backgroundColor: 'gray.700' }}
+      borderColor="coolGray.200"
+      borderWidth="1"
+      _dark={{ borderColor: 'coolGray.600', backgroundColor: 'gray.700' }}
+      _web={{
+        shadow: 2,
+        borderWidth: 0,
+      }}
+      _light={{ backgroundColor: 'gray.50' }}
     >
       <Box>
         <AspectRatio ratio={16 / 9}>

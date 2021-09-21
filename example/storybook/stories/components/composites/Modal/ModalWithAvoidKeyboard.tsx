@@ -35,7 +35,7 @@ export function Example() {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-      <VStack space={2} alignItems="center">
+      <VStack space={8} alignItems="center">
         <Button
           w="104"
           onPress={() => {
@@ -44,7 +44,7 @@ export function Example() {
         >
           Open Modal
         </Button>
-        <Text>
+        <Text textAlign="center">
           Open modal and focus on the input element to see the effect.
         </Text>
       </VStack>
