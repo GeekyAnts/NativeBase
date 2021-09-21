@@ -20,18 +20,13 @@ export function Example() {
             <FormControl.Label _text={{ fontSize: 'xs', fontWeight: 'medium' }}>
               First Name
             </FormControl.Label>
-            <Input
-              rounded="sm"
-              fontSize="xs"
-              backgroundColor="white"
-              ref={initialFocusRef}
-            />
+            <Input rounded="sm" fontSize="xs" ref={initialFocusRef} />
           </FormControl>
           <FormControl mt="3">
             <FormControl.Label _text={{ fontSize: 'xs', fontWeight: 'medium' }}>
               Last Name
             </FormControl.Label>
-            <Input rounded="sm" fontSize="xs" backgroundColor="white" />
+            <Input rounded="sm" fontSize="xs" />
           </FormControl>
         </Popover.Body>
         <Popover.Footer>
