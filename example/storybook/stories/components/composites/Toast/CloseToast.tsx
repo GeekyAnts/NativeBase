@@ -17,7 +17,7 @@ export const Example = () => {
 
   function addToast() {
     toastIdRef.current = toast.show({
-      title: 'Hi, Nice to see you ( ´ ∀ ` )ﾉ',
+      title: 'Hi, Nice to see you',
     });
   }
 
