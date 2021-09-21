@@ -3,7 +3,7 @@ import { Input, FormControl, WarningOutlineIcon } from 'native-base';
 
 export const Example = () => {
   return (
-    <FormControl isInvalid w={{ base: '70%', md: '25%' }}>
+    <FormControl isInvalid>
       <FormControl.Label>Password</FormControl.Label>
       <Input placeholder="Enter password" />
       <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
