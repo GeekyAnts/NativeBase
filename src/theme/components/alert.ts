@@ -52,7 +52,7 @@ const variantOutlineLight = (props: Record<string, any>) => {
   return {
     borderWidth: 1,
     borderColor: transparentize(
-      mode(`${colorScheme}.600`, `${colorScheme}.700`)(props),
+      mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
       0.2
     )(theme),
     _icon: { color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props) },
