@@ -192,17 +192,17 @@ export const ToastProvider = ({ children }: { children: any }) => {
       | 'top-accent'
       | 'outline'
       | 'subtle'
-      | 'outline-light',
-    type: 'title' | 'description'
+      | 'outline-light'
   ): any => {
     switch (variant) {
       case 'left-accent':
       case 'top-accent':
       case 'subtle':
-        return type === 'title' ? 'coolGray.800' : 'coolGray.600';
+        return 'coolGray.800';
       case 'solid':
-        return type === 'title' ? 'coolGray.800' : 'coolGray.600';
-      case 'outline' || 'outline-light':
+        return 'warmGray.50';
+      case 'outline':
+      case 'outline-light':
         return colorMode === 'light' ? 'coolGray.800' : 'warmGray.50';
       default:
         return 'black';
@@ -244,7 +244,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
     } else if (status || variant) {
       component = (
         <Alert
-          maxWidth="90%"
+          maxWidth="100%"
           alignSelf="center"
           status={status ?? 'info'}
           variant={variant as any}
@@ -262,7 +262,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
                 <Text
                   fontSize="md"
                   fontWeight="medium"
-                  color={getTextColor(variant ?? 'solid', 'title')}
+                  color={getTextColor(variant ?? 'subtle')}
                 >
                   {title}
                 </Text>
@@ -270,15 +270,22 @@ export const ToastProvider = ({ children }: { children: any }) => {
               {isClosable ? (
                 <IconButton
                   variant="unstyled"
-                  icon={<CloseIcon size="3" color="coolGray.600" />}
+                  icon={
+                    <CloseIcon
+                      size="3"
+                      color={getTextColor(variant ?? 'subtle')}
+                    />
+                  }
                   onPress={() => hideToast(id)}
                 />
               ) : null}
             </HStack>
             <Box
-              pl="6"
+              px="6"
               // @ts-ignore
-              color={getTextColor(variant ?? 'solid', 'title')}
+              _text={{
+                color: getTextColor(variant ?? 'subtle'),
+              }}
             >
               {description}
             </Box>

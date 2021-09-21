@@ -13,8 +13,8 @@ export const Example = () => {
             id,
             render: () => {
               return (
-                <Box bg="teal.500" px={4} py={3} rounded="md" mb={5}>
-                  Hi, Nice to see you ( ´ ∀ ` )ﾉ
+                <Box bg="teal.500" p={2} rounded="md" mb={5}>
+                  Hi, Nice to see you
                 </Box>
               );
             },
