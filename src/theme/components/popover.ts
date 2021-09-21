@@ -27,8 +27,9 @@ export const PopoverBody = {
 
 export const PopoverContent = {
   baseStyle: (props: any) => ({
-    backgroundColor: mode('coolGray.50', 'coolGray.600')(props),
+    backgroundColor: mode('coolGray.50', 'gray.700')(props),
     borderColor: mode('coolGray.200', 'coolGray.600')(props),
+    _text: { color: mode('coolGray.800', 'warmGray.50')(props) },
     borderWidth: 1,
     rounded: 'md',
     overflow: 'hidden',
@@ -36,13 +37,18 @@ export const PopoverContent = {
 };
 
 export const PopoverHeader = {
-  baseStyle: {
+  baseStyle: (props: any) => ({
     py: '4',
     px: '3',
     borderBottomWidth: '1',
-    borderColor: 'coolGray.200',
-    _text: { fontSize: 'md', fontWeight: 'semibold', color: 'coolGray.800' },
-  },
+    borderColor: mode('coolGray.200', 'gray.600')(props),
+    _text: {
+      fontSize: 'md',
+      fontWeight: 'semibold',
+      color: mode('coolGray.800', 'warmGray.50')(props),
+      lineHeight: 'sm',
+    },
+  }),
 };
 
 export const PopoverArrow = {
@@ -52,11 +58,13 @@ export const PopoverArrow = {
 };
 
 export const PopoverFooter = {
-  baseStyle: {
-    p: '3',
-    bg: 'coolGray.100',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    flexWrap: 'wrap',
+  baseStyle: (props: Record<string, any>) => {
+    return {
+      p: '3',
+      bg: mode('coolGray.100', 'gray.600')(props),
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+      flexWrap: 'wrap',
+    };
   },
 };
