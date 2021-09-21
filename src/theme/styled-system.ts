@@ -632,11 +632,7 @@ export const getStyleAndFilteredProps = ({
           );
         } else {
           // If a token is not found in the theme
-          if (
-            __DEV__ &&
-            !has(theme[scale], value) &&
-            typeof value !== 'undefined'
-          ) {
+          if (!has(theme[scale], value) && typeof value !== 'undefined') {
             strictModeLogger(strictModeProps);
           }
 
@@ -659,11 +655,7 @@ export const getStyleAndFilteredProps = ({
           }
         }
 
-        if (
-          __DEV__ &&
-          typeof value !== 'string' &&
-          typeof value !== 'undefined'
-        ) {
+        if (typeof value !== 'string' && typeof value !== 'undefined') {
           strictModeLogger({
             ...strictModeProps,
             type: 'tokenNotString',
