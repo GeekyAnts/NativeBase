@@ -7,7 +7,7 @@ export const Example = () => {
       <Heading mx="3" d="flex" alignItems="center" flexDirection="row">
         Chrome
       </Heading>
-      <Divider my="2" w="100%" />
+      <Divider my="2" />
       <Heading mx="3" d="flex" alignItems="center" flexDirection="row">
         Firefox
       </Heading>

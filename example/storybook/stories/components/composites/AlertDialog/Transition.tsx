@@ -26,7 +26,11 @@ export const Example = () => {
           </AlertDialog.Body>
           <AlertDialog.Footer>
             <Button.Group space={2}>
-              <Button colorScheme="blueGray" variant="ghost" onPress={onClose}>
+              <Button
+                colorScheme="blueGray"
+                variant="unstyled"
+                onPress={onClose}
+              >
                 Cancel
               </Button>
               <Button colorScheme="danger" onPress={onClose}>

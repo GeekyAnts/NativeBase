@@ -8,7 +8,9 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 const Divider = (props: IDividerProps, ref?: any) => {
   const { orientation, ...resolvedProps } = usePropsResolution(
     'Divider',
-    props
+    props,
+    {},
+    { resolveResponsively: ['thickness'] }
   );
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

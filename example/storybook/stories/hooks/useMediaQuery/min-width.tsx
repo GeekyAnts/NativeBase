@@ -23,7 +23,10 @@ export const Example = () => {
           borderColor="coolGray.200"
           borderWidth="1"
           _dark={{ borderColor: 'coolGray.600', backgroundColor: 'gray.700' }}
-          shadow={2}
+          _web={{
+            shadow: 2,
+            borderWidth: 0,
+          }}
           _light={{ backgroundColor: 'gray.50' }}
         >
           <Box>

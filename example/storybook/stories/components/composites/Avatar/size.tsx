@@ -1,13 +1,16 @@
 import React from 'react';
-import { Avatar, Stack } from 'native-base';
+import { Avatar, Stack, Heading } from 'native-base';
 
 export const Example = () => {
   return (
     <Stack
       direction={{ base: 'column', md: 'row' }}
-      space={1}
+      space={2}
       alignItems={{ base: 'center', md: 'flex-start' }}
     >
+      <Heading mt={3} mb={8}>
+        Sizes
+      </Heading>
       <Avatar
         bg="green.500"
         size="xs"
