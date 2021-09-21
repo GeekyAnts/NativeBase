@@ -3,7 +3,7 @@ import { Heading, Text, VStack } from 'native-base';
 
 export const Example = () => {
   return (
-    <VStack space={1} alignItems="center">
+    <VStack space={1} alignItems="center" mt={3}>
       <Heading textAlign="center" mb="10">
         Sizes
       </Heading>

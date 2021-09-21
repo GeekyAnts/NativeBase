@@ -15,7 +15,6 @@ export const Example = () => {
     <Box
       rounded="lg"
       overflow="hidden"
-      width="72"
       borderColor="coolGray.200"
       borderWidth="1"
       _dark={{ borderColor: 'coolGray.600', backgroundColor: 'gray.700' }}

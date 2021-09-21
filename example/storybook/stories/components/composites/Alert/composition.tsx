@@ -8,7 +8,6 @@ import {
   VStack,
   Text,
 } from 'native-base';
-import { textAlign } from 'styled-system';
 
 export function Example() {
   return (
@@ -21,7 +20,7 @@ export function Example() {
             alignItems="center"
             justifyContent="space-between"
           >
-            <HStack space={2} alignItems="center">
+            <HStack space={2} flexShrink={1} alignItems="center">
               <Alert.Icon />
               <Text
                 fontSize="md"

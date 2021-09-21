@@ -9,7 +9,7 @@ import {
 
 export const Example = () => {
   return (
-    <Box w={{ base: '70%', md: '25%' }}>
+    <Box w={{ base: '90%', md: '25%' }}>
       <FormControl isRequired>
         <Stack mx="4">
           <FormControl.Label>Password</FormControl.Label>

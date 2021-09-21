@@ -50,7 +50,7 @@ export const Example = () => {
           </Button>
         </Stack>
 
-        <Divider />
+        <Divider w="100%" />
 
         <Heading size="md">Subtle</Heading>
 
@@ -121,7 +121,7 @@ export const Example = () => {
             DISABLED
           </Button>
         </Stack>
-        <Divider />
+        <Divider w="100%" />
 
         <Heading size="md">Link</Heading>
 
@@ -157,7 +157,7 @@ export const Example = () => {
             DISABLED
           </Button>
         </Stack>
-        <Divider />
+        <Divider w="100%" />
 
         <Heading size="md">Ghost</Heading>
 
@@ -194,7 +194,7 @@ export const Example = () => {
           </Button>
         </Stack>
 
-        <Divider />
+        <Divider w="100%" />
 
         <Heading size="md">Unstyled</Heading>
 

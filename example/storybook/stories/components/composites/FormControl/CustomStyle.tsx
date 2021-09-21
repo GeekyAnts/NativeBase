@@ -12,7 +12,7 @@ import {
 
 export const Example = () => {
   return (
-    <ScrollView w={{ base: '75%', md: '90%' }}>
+    <ScrollView w={{ base: '90%', md: '90%' }}>
       <Stack
         space={2.5}
         alignSelf="center"

@@ -7,7 +7,7 @@ export function Example() {
     <>
       <HStack space={{ base: '2', md: '4' }} mx={{ base: 'auto', md: '0' }}>
         {['solid', 'outline', 'subtle'].map((key) => (
-          <VStack key={key} space={{ base: 1, md: 4 }}>
+          <VStack key={key} space={4}>
             <Badge variant={key} alignSelf="center">
               DEFAULT
             </Badge>
