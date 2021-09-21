@@ -87,10 +87,6 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
           )}
         </Gradient>
       );
-    } else if (__DEV__) {
-      console.error(
-        'To enable gradient props support please provide linear gradient dependency in NativeBaseConfig'
-      );
     }
   }
   return (
