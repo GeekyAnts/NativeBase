@@ -228,7 +228,8 @@ export function usePropsResolutionTest(
         colormode: colorModeProps.colorMode,
         state: state || {},
         currentSpecificityMap: baseSpecificityMap || specificityMap,
-        previouslyFlattenProps: flattenBaseStyle || flattenProps,
+        // NOTE: Ideally flattenBaseStyle and flattenProps should be deeply merged to create previouslyFlattenProps.
+        previouslyFlattenProps: flattenProps,
       },
       1
     );
@@ -279,8 +280,7 @@ export function usePropsResolutionTest(
         state: state || {},
         currentSpecificityMap:
           variantSpecificityMap || baseSpecificityMap || specificityMap,
-        previouslyFlattenProps:
-          flattenVariantStyle || flattenBaseStyle || flattenProps,
+        previouslyFlattenProps: flattenProps,
       },
       1
     );
