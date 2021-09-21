@@ -1,4 +1,5 @@
-import { Box, CheckIcon } from 'native-base';
+import { Box } from '../../primitives';
+import { CheckIcon } from '../../primitives/Icon/Icons';
 import React from 'react';
 
 const SizedIcon = ({
