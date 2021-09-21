@@ -3,7 +3,7 @@ import { Button, useToast, Wrap } from 'native-base';
 
 export const Example = () => {
   const toast = useToast();
-  const variants = ['solid', 'subtle', 'left-accent', 'top-accent'];
+  const variants = ['solid', 'subtle', 'left-accent', 'top-accent', 'outline'];
 
   return (
     <Wrap>
