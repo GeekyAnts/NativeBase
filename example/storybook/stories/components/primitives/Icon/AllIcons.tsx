@@ -29,8 +29,6 @@ import {
   VStack,
   FlatList,
   useBreakpointValue,
-  Center,
-  NativeBaseProvider,
 } from 'native-base';
 export const Example = () => {
   const cols = useBreakpointValue({
@@ -158,15 +156,5 @@ export const Example = () => {
         numColumns={cols}
       />
     </Box>
-  );
-};
-
-export default () => {
-  return (
-    <NativeBaseProvider>
-      <Center flex="1" px="3">
-        <Example />
-      </Center>
-    </NativeBaseProvider>
   );
 };
