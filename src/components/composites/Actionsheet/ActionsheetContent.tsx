@@ -80,7 +80,8 @@ const ActionsheetContent = (
           <>
             {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}
             <Box
-              py={5}
+              pt={3}
+              pb={3}
               mt={-2}
               {...panResponder.panHandlers}
               width="100%"
