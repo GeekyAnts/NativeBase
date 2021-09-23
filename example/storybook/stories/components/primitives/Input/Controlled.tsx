@@ -7,7 +7,7 @@ export const Example = () => {
   return (
     <Input
       value={value}
-      w={{ base: '70%', md: '25%' }}
+      w={{ base: '75%', md: '25%' }}
       onChange={handleChange}
       placeholder="Value Controlled Input"
     />

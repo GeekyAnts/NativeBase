@@ -9,18 +9,18 @@ export const Example = () => {
       </Heading>
       <VStack space={3}>
         <Checkbox value="red" colorScheme="red" size="sm" defaultIsChecked>
-          Checkbox
+          UX Research
         </Checkbox>
         <Checkbox colorScheme="green" size="md" defaultIsChecked value="green">
-          Checkbox
+          Development
         </Checkbox>
         <Checkbox
-          colorScheme="yellow"
+          colorScheme="purple"
           value="yellow"
           size="lg"
           defaultIsChecked
         >
-          Checkbox
+          Devops
         </Checkbox>
       </VStack>
     </Center>
