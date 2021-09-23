@@ -8,7 +8,6 @@ export function Example() {
   return (
     <>
       <Button onPress={onOpen}>Actionsheet</Button>
-
       <Actionsheet isOpen={isOpen} onClose={onClose} size="full">
         <Actionsheet.Content>
           <Box w="100%" h={60} px={4} justifyContent="center">

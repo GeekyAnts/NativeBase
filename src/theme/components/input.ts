@@ -1,5 +1,13 @@
 import { mode } from '../tools';
-// import { Platform } from 'react-native';
+import { Platform } from 'react-native';
+
+function getSelectionColor(props: Record<string, any>) {
+  if (Platform.OS === 'ios') {
+    return mode('coolGray.800', 'warmGray.50')(props);
+  } else if (Platform.OS === 'android') {
+    return mode('coolGray.800', 'warmGray.50')(props);
+  }
+}
 
 const baseStyle = (props: Record<string, any>) => {
   // const { primary } = props.theme.colors;
@@ -19,8 +27,7 @@ const baseStyle = (props: Record<string, any>) => {
   //       };
 
   return {
-    _ios: { selectionColor: mode('coolGray.800', 'warmGray.50')(props) },
-    _android: { selectionColor: mode('coolGray.800', 'warmGray.50')(props) },
+    selectionColor: getSelectionColor(props),
     fontFamily: 'body',
     p: '2',
     borderRadius: 'sm',
