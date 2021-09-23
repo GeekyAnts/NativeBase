@@ -7,7 +7,6 @@ export function Example() {
   return (
     <>
       <Button onPress={onOpen}>Actionsheet</Button>
-
       <Actionsheet isOpen={isOpen} onClose={onClose} size="full">
         <Actionsheet.Content>
           <Actionsheet.Item
