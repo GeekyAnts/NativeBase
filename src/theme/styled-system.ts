@@ -173,6 +173,11 @@ export const color = {
     scale: 'colors',
     transformer: getColor,
   },
+  background: {
+    property: 'backgroundColor',
+    scale: 'colors',
+    transformer: getColor,
+  },
 };
 
 export const border = {
