@@ -3,10 +3,14 @@ import { usePropsResolution } from '../../../hooks';
 import type { ISkeletonProps } from './types';
 import Skeleton from './Skeleton';
 
-const SkeletonCircle = ({ children, ...props }: ISkeletonProps) => {
+const SkeletonCircle = ({ children, ...props }: ISkeletonProps, ref: any) => {
   const resolvedProps = usePropsResolution('SkeletonCircle', props);
   // Skeleton component with border Radius 999
-  return resolvedProps.isLoaded ? children : <Skeleton {...resolvedProps} />;
+  return resolvedProps.isLoaded ? (
+    children
+  ) : (
+    <Skeleton ref={ref} {...resolvedProps} />
+  );
 };
 
 export default memo(forwardRef(SkeletonCircle));
