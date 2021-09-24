@@ -7,6 +7,7 @@ import {
   Text,
   Divider,
   ScrollView,
+  Box,
 } from 'native-base';
 
 export function Example() {
@@ -41,7 +42,7 @@ export function Example() {
           'outline-light',
         ].map((key: any) => {
           return (
-            <>
+            <Box key={key}>
               <Text bold fontSize="xl" mb="4" textAlign="center">
                 {key}
               </Text>
@@ -68,7 +69,7 @@ export function Example() {
                 </VStack>
               </Alert>
               <Divider mt="5" mb="2.5" />
-            </>
+            </Box>
           );
         })}
       </Stack>

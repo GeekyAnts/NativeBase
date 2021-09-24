@@ -32,7 +32,7 @@ export function Example() {
     <Stack space={3} w="100%">
       {statusArray.map((status) => {
         return (
-          <Alert w="100%" status={status.status}>
+          <Alert key={status.status} w="100%" status={status.status}>
             <VStack space={2} flexShrink={1} w="100%">
               <HStack flexShrink={1} space={2} justifyContent="space-between">
                 <HStack space={2} flexShrink={1}>

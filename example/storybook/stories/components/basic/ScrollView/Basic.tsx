@@ -11,7 +11,7 @@ export const Example = () => {
         {Object.keys(colors.cyan).map((key, index) => {
           if (index >= 1 && index <= 5)
             return (
-              <Center py="4" px="32" bg={`cyan.${key}`}>
+              <Center py="4" px="32" bg={`cyan.${key}`} key={`cyan.${key}`}>
                 {key}
               </Center>
             );
@@ -24,7 +24,7 @@ export const Example = () => {
         {Object.keys(colors.cyan).map((key, index) => {
           if (index >= 1 && index <= 5)
             return (
-              <Center py="4" px="32" bg={`yellow.${key}`}>
+              <Center py="4" px="32" bg={`yellow.${key}`} key={`yellow.${key}`}>
                 {key}
               </Center>
             );
@@ -37,7 +37,7 @@ export const Example = () => {
         {Object.keys(colors.violet).map((key, index) => {
           if (index >= 1 && index <= 5)
             return (
-              <Center py="4" px="32" bg={`violet.${key}`}>
+              <Center py="4" px="32" bg={`violet.${key}`} key={`violet.${key}`}>
                 {key}
               </Center>
             );
