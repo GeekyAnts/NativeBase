@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import type { IHiddenProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useBreakpointValue, useTheme, useToken } from '../../../hooks';
@@ -76,5 +76,5 @@ export function Hidden({ children, ...props }: IHiddenProps) {
   return children;
 }
 
-export default Hidden;
+export default memo(Hidden);
 export type { IHiddenProps };
