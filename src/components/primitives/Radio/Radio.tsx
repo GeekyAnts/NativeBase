@@ -9,7 +9,11 @@ import { RadioContext } from './RadioGroup';
 import { mergeRefs } from '../../../utils';
 import { CircleIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { composeEventHandlers, combineContextAndProps } from '../../../utils';
+import {
+  composeEventHandlers,
+  combineContextAndProps,
+  isEmptyObj,
+} from '../../../utils';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import {
   useHover,
@@ -32,7 +36,7 @@ const Radio = ({ icon, wrapperRef, size, ...props }: IRadioProps, ref: any) => {
   } = combineContextAndProps(contextState, props);
 
   const inputRef = React.useRef(null);
-  const { inputProps } = useRadio(props, contextState.state, inputRef);
+  const { inputProps } = useRadio(props, contextState.state ?? {}, inputRef);
   const { disabled: isDisabled, checked: isChecked } = inputProps;
 
   const {
@@ -83,6 +87,10 @@ const Radio = ({ icon, wrapperRef, size, ...props }: IRadioProps, ref: any) => {
     '_text',
   ]);
 
+  if (isEmptyObj(contextState)) {
+    console.error('Error: Radio must be wrapped inside a Radio.Group');
+    return <></>;
+  }
   return (
     <Pressable
       {...pressableProps}
