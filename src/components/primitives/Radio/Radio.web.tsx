@@ -11,7 +11,7 @@ import { RadioContext } from './RadioGroup';
 import { useFocusRing } from '@react-native-aria/focus';
 import { CircleIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { combineContextAndProps } from '../../../utils';
+import { combineContextAndProps, isEmptyObj } from '../../../utils';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 
 const Radio = (
@@ -30,7 +30,7 @@ const Radio = (
   const inputRef = React.useRef(null);
   const { inputProps } = useRadio(
     { ...props, 'aria-label': props.accessibilityLabel, children },
-    contextState.state,
+    contextState.state ?? {},
     inputRef
   );
   const { disabled: isDisabled, checked: isChecked } = inputProps;
@@ -104,6 +104,12 @@ const Radio = (
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
+  if (isEmptyObj(contextState)) {
+    console.error('Error: Radio must be wrapped inside a Radio.Group');
+    return <></>;
+  }
+
   return (
     <Box
       // @ts-ignore - RN web supports accessibilityRole="label"
