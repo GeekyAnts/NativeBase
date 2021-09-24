@@ -4,7 +4,7 @@ import { Checkbox } from 'native-base';
 export const Example = () => {
   return (
     <Checkbox isInvalid value="invalid">
-      Under 500
+      Software Development
     </Checkbox>
   );
 };

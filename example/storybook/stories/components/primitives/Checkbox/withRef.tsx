@@ -23,7 +23,7 @@ export const Example = () => {
         }
       }}
     >
-      Label
+      Archery
     </Checkbox>
   );
 };
