@@ -4,8 +4,9 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export const Example = () => {
   return (
-    <Stack space={4} w="100%" maxWidth="300">
+    <Stack space={4} w="100%" alignItems="center">
       <Input
+        w={{ base: '75%', md: '25%' }}
         InputLeftElement={
           <Icon
             as={<MaterialIcons name="person" />}
@@ -17,6 +18,7 @@ export const Example = () => {
         placeholder="Name"
       />
       <Input
+        w={{ base: '75%', md: '25%' }}
         InputRightElement={
           <Icon
             as={<MaterialIcons name="visibility-off" />}

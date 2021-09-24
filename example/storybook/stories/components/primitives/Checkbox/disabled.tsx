@@ -5,10 +5,10 @@ export const Example = () => {
   return (
     <VStack space={2}>
       <Checkbox isDisabled value="one">
-        Under 500
+        UX Research
       </Checkbox>
       <Checkbox isDisabled defaultIsChecked value="two">
-        Under 1000
+        Software Development
       </Checkbox>
     </VStack>
   );

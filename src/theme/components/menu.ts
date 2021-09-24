@@ -7,7 +7,6 @@ function baseStyle(props: Record<string, any>) {
     py: 2,
     borderWidth: 1,
     borderColor: mode(`coolGray.200`, `gray.600`)(props),
-    shadow: 1,
     borderRadius: 'sm',
     transition: {
       initial: { opacity: 0, translateY: -10 },
