@@ -16,7 +16,7 @@ export interface IRadioProps extends IBoxProps<IRadioProps> {
   value: IRadioValue;
   /**
    * The color of the radio. This should be one of the color keys in the theme (e.g."green", "red").
-   * @default 'priamry'
+   * @default 'primary'
    */
   colorScheme?: string | 'default';
   /**
@@ -57,7 +57,7 @@ export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
   defaultValue?: IRadioValue;
   /**
    * The color of the radios. This should be one of the color keys in the theme (e.g."green", "red").
-   * @default 'priamry'
+   * @default 'primary'
    */
   colorScheme?: string;
   /**
