@@ -1181,6 +1181,9 @@ declare module "native-base" {
 				cancelButtonIndex?: number;
 				destructiveButtonIndex?: number;
 				title?: string;
+				style?: RnViewStyleProp;
+				fontStyle?: RnTextStyleProp;
+				titleStyle?: RnTextStyleProp;
 			},
 			onSelect: (index: number) => void
 		) => void;

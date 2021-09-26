@@ -73,6 +73,7 @@ class ActionSheetContainer extends Component {
         callback,
         style: config.style,
         fontStyle: config.fontStyle,
+        titleStyle: config.titleStyle,
       });
     }
   }
@@ -105,7 +106,7 @@ class ActionSheetContainer extends Component {
             style={[styles.innerTouchable, this.state.style]}
           >
             {this.state.title ? (
-              <Text style={styles.touchableText}>{this.state.title}</Text>
+              <Text style={[styles.touchableText, this.state.titleStyle]}>{this.state.title}</Text>
             ) : null}
             <FlatList
               style={[
