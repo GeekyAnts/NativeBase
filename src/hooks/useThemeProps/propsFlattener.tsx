@@ -51,6 +51,11 @@ const pseudoPropsMap: any = {
     respondTo: 'isChecked',
     priority: SPECIFICITY_30,
   },
+  _loading: {
+    dependentOn: 'state',
+    respondTo: 'isLoading',
+    priority: SPECIFICITY_30,
+  },
   // Add new pseudeo props in between -------
   _readOnly: {
     dependentOn: 'state',

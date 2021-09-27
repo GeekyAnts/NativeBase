@@ -68,7 +68,7 @@ function CheckBox(group: any) {
 
 describe('CheckBoxGroup', () => {
   it('handles defaults and onChange on checkBoxGroup', () => {
-    let { getAllByRole } = render(
+    const { getAllByRole } = render(
       <NativeBaseProvider
         initialWindowMetrics={{
           frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -78,7 +78,7 @@ describe('CheckBoxGroup', () => {
         <CheckBoxGroup />
       </NativeBaseProvider>
     );
-    let checkbox = getAllByRole('checkbox');
+    const checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(4);
     expect(checkbox[0].props.accessibilityState.checked).toBe(true);
     expect(checkbox[1].props.accessibilityState.checked).toBe(false);
@@ -88,7 +88,7 @@ describe('CheckBoxGroup', () => {
     expect(checkbox[1].props.accessibilityState.checked).toBe(true);
   });
   it('can be disabled on checkBox', () => {
-    let { getAllByRole } = render(
+    const { getAllByRole } = render(
       <NativeBaseProvider
         initialWindowMetrics={{
           frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -109,12 +109,12 @@ describe('CheckBoxGroup', () => {
         </Checkbox>
       </NativeBaseProvider>
     );
-    let checkbox = getAllByRole('checkbox');
+    const checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(4);
     expect(checkbox[1].props.accessibilityState.disabled).toBe(true);
   });
   it('is checked on checkBox', () => {
-    let { getAllByRole } = render(
+    const { getAllByRole } = render(
       <NativeBaseProvider
         initialWindowMetrics={{
           frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -135,13 +135,13 @@ describe('CheckBoxGroup', () => {
         </Checkbox>
       </NativeBaseProvider>
     );
-    let checkbox = getAllByRole('checkbox');
+    const checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(4);
     expect(checkbox[0].props.accessibilityState.checked).toBe(true);
   });
 
   it('inDeterminant on checkBoxGroup', () => {
-    let { getAllByRole } = render(
+    const { getAllByRole } = render(
       <NativeBaseProvider
         initialWindowMetrics={{
           frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -151,13 +151,13 @@ describe('CheckBoxGroup', () => {
         <CheckBox group={true} />
       </NativeBaseProvider>
     );
-    let checkbox = getAllByRole('checkbox');
+    const checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(2);
     expect(checkbox[1].props.accessibilityState.checked).toBe('mixed');
   });
 
   it('inDeterminant on checkBox', () => {
-    let { getAllByRole } = render(
+    const { getAllByRole } = render(
       <NativeBaseProvider
         initialWindowMetrics={{
           frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -167,14 +167,14 @@ describe('CheckBoxGroup', () => {
         <CheckBox group={false} />
       </NativeBaseProvider>
     );
-    let checkbox = getAllByRole('checkbox');
+    const checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(2);
     fireEvent.press(checkbox[1]);
     expect(checkbox[1].props.accessibilityState.checked).toBe('mixed');
   });
 
   it('onChange on checkBox', () => {
-    let { getAllByRole } = render(
+    const { getAllByRole } = render(
       <NativeBaseProvider
         initialWindowMetrics={{
           frame: { x: 0, y: 0, width: 0, height: 0 },
@@ -184,7 +184,7 @@ describe('CheckBoxGroup', () => {
         <CheckBox />
       </NativeBaseProvider>
     );
-    let checkbox = getAllByRole('checkbox');
+    const checkbox = getAllByRole('checkbox');
     expect(checkbox.length).toBe(2);
     fireEvent.press(checkbox[0]);
     expect(checkbox[0].props.accessibilityState.checked).toBe(true);
