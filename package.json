@@ -35,7 +35,7 @@
     ]
   },
   "version": "3.2.1-rc.1",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
   "module": "dist/bundle.web.js",
