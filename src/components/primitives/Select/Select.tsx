@@ -136,6 +136,7 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
       size={size}
       variant={variant}
       InputRightElement={rightIcon}
+      height={layoutProps.height ?? layoutProps.h}
       {...nonLayoutProps}
       {...borderProps}
       isDisabled={isDisabled}
@@ -156,7 +157,8 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
         <>
           <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}>
             <select
-              {...selectProps}
+              aria-readonly={selectProps.readOnly}
+              required={selectProps.required}
               disabled={isDisabled}
               {...focusProps}
               {...hoverProps}
