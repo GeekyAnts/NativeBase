@@ -4,19 +4,29 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFormControlContext } from './useFormControl';
 import type { IFormControlHelperTextProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { combineContextAndProps } from '../../../utils';
 
 const FormControlHelperText = (
-  { children, _disabled, _invalid, ...props }: IFormControlHelperTextProps,
+  props: IFormControlHelperTextProps,
   ref: any
 ) => {
   const formControlContext = useFormControlContext();
-
-  const resolvedProps = usePropsResolution('FormControlHelperText', props);
+  const combinedProps = combineContextAndProps(formControlContext, props);
+  const resolvedProps = usePropsResolution(
+    'FormControlHelperText',
+    combinedProps,
+    {
+      isDisabled: combinedProps.isDisabled,
+      isReadOnly: combinedProps.isReadOnly,
+      isInvalid: combinedProps.isInvalid,
+      // isRequired: combinedProps.isRequired,
+    }
+  );
 
   React.useEffect(() => {
-    formControlContext?.setHasHelpText(true);
+    resolvedProps?.setHasHelpText(true);
     return () => {
-      formControlContext?.setHasHelpText(false);
+      resolvedProps?.setHasHelpText(false);
     };
   });
   //TODO: refactor for responsive prop
@@ -25,16 +35,7 @@ const FormControlHelperText = (
   }
 
   return (
-    <Box
-      {...resolvedProps}
-      nativeID={formControlContext?.feedbackId}
-      {...props}
-      ref={ref}
-      {...(formControlContext?.isInvalid && _invalid)}
-      {...(formControlContext?.isDisabled && _disabled)}
-    >
-      {children}
-    </Box>
+    <Box {...resolvedProps} nativeID={resolvedProps?.feedbackId} ref={ref} />
   );
 };
 

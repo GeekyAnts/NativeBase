@@ -5,25 +5,29 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFormControlContext } from './useFormControl';
 import type { IFormControlErrorMessageProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { combineContextAndProps } from '../../../utils';
 
 const FormControlErrorMessage = (
-  {
-    children,
-    _disabled,
-    rightIcon,
-    startIcon,
-    leftIcon,
-    endIcon,
-    ...props
-  }: IFormControlErrorMessageProps,
+  props: IFormControlErrorMessageProps,
   ref: any
 ) => {
-  const { _text, _stack, ...resolvedProps } = usePropsResolution(
-    'FormControlErrorMessage',
-    props
-  );
-
   const formControlContext = useFormControlContext();
+  const combinedProps = combineContextAndProps(formControlContext, props);
+  const {
+    leftIcon,
+    rightIcon,
+    children,
+    _text,
+    _stack,
+    ...resolvedProps
+  } = usePropsResolution('FormControlErrorMessage', combinedProps, {
+    isDisabled: combinedProps.isDisabled,
+    isReadOnly: combinedProps.isReadOnly,
+    isInvalid: combinedProps.isInvalid,
+    // isRequired: combinedProps.isRequired,
+  });
+  let { startIcon, endIcon } = resolvedProps;
+
   if (rightIcon) {
     endIcon = rightIcon;
   }
@@ -56,23 +60,17 @@ const FormControlErrorMessage = (
   }
 
   React.useEffect(() => {
-    formControlContext?.setHasFeedbackText(true);
+    resolvedProps?.setHasFeedbackText(true);
     return () => {
-      formControlContext?.setHasFeedbackText(false);
+      resolvedProps?.setHasFeedbackText(false);
     };
   });
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return formControlContext?.isInvalid ? (
-    <Box
-      nativeID={formControlContext?.helpTextId}
-      {...resolvedProps}
-      {...props}
-      {...(formControlContext?.isDisabled && _disabled)}
-      ref={ref}
-    >
+  return resolvedProps?.isInvalid ? (
+    <Box nativeID={resolvedProps?.helpTextId} {...resolvedProps} ref={ref}>
       <HStack {..._stack}>
         {startIcon}
         <Box _text={_text}>{children}</Box>
