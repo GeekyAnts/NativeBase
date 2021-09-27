@@ -26,7 +26,7 @@ import { useContrastText } from '../useContrastText';
 export function extractProps(
   props: any,
   theme: any,
-  colorModeProps: any,
+  {},
   componentTheme: any,
   currentBreakpoint: number
 ) {
@@ -51,9 +51,7 @@ export function extractProps(
           );
         }
       } else if (property === 'shadow') {
-        let shadowProps = theme[themePropertyMap[property]](colorModeProps)[
-          props[property]
-        ];
+        let shadowProps = theme[themePropertyMap[property]][props[property]];
         if (!isNil(shadowProps)) {
           newProps = { ...newProps, ...shadowProps };
         }
