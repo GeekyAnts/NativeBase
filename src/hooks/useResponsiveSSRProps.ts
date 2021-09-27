@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useTheme } from '../hooks';
+import { useTheme } from '../hooks/useTheme';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { isResponsiveAnyProp } from '../theme/tools';
 
