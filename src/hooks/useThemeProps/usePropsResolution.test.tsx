@@ -571,7 +571,7 @@ describe('props resolution', () => {
       </Provider>
     );
     const inputElement = getByTestId('test');
-    expect(inputElement.props.style.fontSize).toBe(16);
+    expect(inputElement.props.style.fontSize).toBe(defaultTheme.fontSizes.sm);
   });
 
   it('Input: variant', () => {
@@ -618,7 +618,8 @@ describe('props resolution', () => {
     );
     const inputElement = getByTestId('test');
     expect(inputElement.props.style.borderBottomWidth).toBe(1);
-    expect(inputElement.props.style.fontSize).toBe(14);
+    // as input of 'sm' size is mapped to 'xs' fontsize
+    expect(inputElement.props.style.fontSize).toBe(defaultTheme.fontSizes.xs);
   });
 
   // it('Input: inputElemets', () => {

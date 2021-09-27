@@ -52,6 +52,9 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       useCheckboxGroupItem(
         {
           ...combinedProps,
+          isInvalid,
+          isReadOnly,
+          isIndeterminate,
           'aria-label': combinedProps.accessibilityLabel,
           'value': combinedProps.value,
         },
@@ -63,6 +66,9 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       useCheckbox(
         {
           ...combinedProps,
+          isInvalid,
+          isReadOnly,
+          isIndeterminate,
           'aria-label': combinedProps.accessibilityLabel,
         },
         state,

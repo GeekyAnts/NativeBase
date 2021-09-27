@@ -3,7 +3,7 @@ import { ScrollView, VStack, Center, useTheme, Heading } from 'native-base';
 export const Example = () => {
   const { colors } = useTheme();
   return (
-    <ScrollView _contentContainerStyle={{ px: '20px', mb: '4' }}>
+    <ScrollView _contentContainerStyle={{ px: '20px', mb: '4', minW: '72' }}>
       <Center mt="3" mb="4">
         <Heading fontSize="xl">Cyan</Heading>
       </Center>
@@ -11,7 +11,7 @@ export const Example = () => {
         {Object.keys(colors.cyan).map((key, index) => {
           if (index >= 1 && index <= 5)
             return (
-              <Center py="4" px="32" bg={`cyan.${key}`}>
+              <Center py="4" bg={`cyan.${key}`}>
                 {key}
               </Center>
             );
@@ -24,7 +24,7 @@ export const Example = () => {
         {Object.keys(colors.cyan).map((key, index) => {
           if (index >= 1 && index <= 5)
             return (
-              <Center py="4" px="32" bg={`yellow.${key}`}>
+              <Center py="4" bg={`yellow.${key}`}>
                 {key}
               </Center>
             );
@@ -37,7 +37,7 @@ export const Example = () => {
         {Object.keys(colors.violet).map((key, index) => {
           if (index >= 1 && index <= 5)
             return (
-              <Center py="4" px="32" bg={`violet.${key}`}>
+              <Center py="4" bg={`violet.${key}`}>
                 {key}
               </Center>
             );

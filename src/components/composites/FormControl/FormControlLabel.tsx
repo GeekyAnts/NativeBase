@@ -5,16 +5,24 @@ import { useFormControlContext } from './useFormControl';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IFormControlLabelProps } from './types';
 import { mergeRefs } from '../../../utils';
+import { combineContextAndProps } from '../../../utils';
 
 const FormControlLabel = (
-  { children, _disabled, _invalid, ...props }: IFormControlLabelProps,
+  { children, ...props }: IFormControlLabelProps,
   ref: any
 ) => {
   const formControlContext = useFormControlContext();
+  const combinedProps = combineContextAndProps(formControlContext, props);
   const _ref = React.useRef<HTMLLabelElement>(null);
   const { astrickColor, ...reslovedProps } = usePropsResolution(
     'FormControlLabel',
-    props
+    combinedProps,
+    {
+      isDisabled: combinedProps.isDisabled,
+      isReadOnly: combinedProps.isReadOnly,
+      isInvalid: combinedProps.isInvalid,
+      // isRequired: combinedProps.isRequired,
+    }
   );
 
   const requiredAsterisk = () => (
@@ -35,11 +43,11 @@ const FormControlLabel = (
       // RN web doesn't support htmlFor for Label element yet
       if (props.htmlFor) {
         _ref.current.htmlFor = props.htmlFor;
-      } else if (formControlContext?.nativeID) {
-        _ref.current.htmlFor = formControlContext.nativeID;
+      } else if (reslovedProps?.nativeID) {
+        _ref.current.htmlFor = reslovedProps.nativeID;
       }
     }
-  }, [formControlContext?.nativeID, props.htmlFor]);
+  }, [reslovedProps?.nativeID, props.htmlFor]);
 
   return (
     <Box
@@ -50,14 +58,11 @@ const FormControlLabel = (
         accessibilityRole: 'label',
       }}
       {...reslovedProps}
-      nativeID={formControlContext?.labelId}
-      {...props}
+      nativeID={reslovedProps?.labelId}
       ref={mergedRef}
-      {...(formControlContext?.isInvalid && _invalid)}
-      {...(formControlContext?.isDisabled && _disabled)}
     >
       {children}
-      {formControlContext?.isRequired && requiredAsterisk()}
+      {reslovedProps?.isRequired && requiredAsterisk()}
     </Box>
   );
 };

@@ -103,6 +103,7 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
         {...props}
         h="100%"
         opacity={containerOpacity}
+        pointerEvents="box-none"
         ref={ref}
         onLayout={(e) => provideSize(e.nativeEvent.layout)}
       >

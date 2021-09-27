@@ -1,7 +1,8 @@
 import { findLastValidBreakpoint } from './../../theme/tools/utils';
-import { useTheme } from '../../hooks/useTheme';
+import { theme } from '../../theme';
+
 describe('mode', () => {
-  const theme = useTheme();
+  // const theme = useTheme();
   test('First array value', () => {
     expect(findLastValidBreakpoint([1, 2], theme.breakpoints, 0)).toBe(1);
   });
