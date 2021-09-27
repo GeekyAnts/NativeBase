@@ -27,15 +27,20 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontSize = 'md',
     numberOfLines,
     ...reslovedProps
-  } = usePropsResolution('Text', props);
+  } = usePropsResolution(
+    'Text',
+    props,
+    {},
+    { resolveResponsively: ['noOfLines', 'numberOfLines'] }
+  );
 
   const _ref = useRef(null);
   // TODO: might have to add this condition
   const { isHovered } = useHover({}, _hover ? _ref : null);
   // const { isHovered } = useHover({}, _ref);
   let fontFamily = propFontFamily;
-  let fontStyle = italic ? 'italic' : propFontStyle;
-  let fontWeight = bold ? 'bold' : propFontWeight;
+  const fontStyle = italic ? 'italic' : propFontStyle;
+  const fontWeight = bold ? 'bold' : propFontWeight;
 
   const resolvedFontFamily = useResolvedFontFamily({
     fontFamily,
