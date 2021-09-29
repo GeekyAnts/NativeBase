@@ -20,8 +20,8 @@ const Input = (props: IInputProps, ref: any) => {
   }
 
   if (props.InputLeftElement || props.InputRightElement)
-    return <InputAdvanced {...props} ref={ref} inputProps={inputProps} />;
-  else return <InputBase {...props} ref={ref} inputProps={inputProps} />;
+    return <InputAdvanced {...props} ref={ref || props.ref} inputProps={inputProps} />;
+  else return <InputBase {...props} ref={ref || props.ref} inputProps={inputProps} />;
 };
 
 export default memo(forwardRef(Input));
