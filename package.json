@@ -211,7 +211,8 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
-    "tinycolor2": "^1.4.2"
+    "tinycolor2": "^1.4.2",
+    "@react-native-clipboard/clipboard":"^1.8.4"
   },
   "directories": {
     "example": "example",
