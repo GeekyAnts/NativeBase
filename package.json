@@ -21,7 +21,8 @@
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
     "build:web": "rollup --config",
-    "bundle:analysis": "visualize-bundle"
+    "bundle:analysis": "visualize-bundle",
+    "commit-test": "yarn prepare && cd example && yarn test && cd .."
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
@@ -34,8 +35,8 @@
       "prettier --write"
     ]
   },
-  "version": "3.2.1-rc.1",
-  "license": "Apache-2.0",
+  "version": "3.2.1-rc.2",
+  "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
   "module": "dist/bundle.web.js",
@@ -122,7 +123,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint-staged && yarn prepare && cd example && yarn test && cd .."
+      "pre-commit": "yarn lint-staged"
     }
   },
   "commitlint": {

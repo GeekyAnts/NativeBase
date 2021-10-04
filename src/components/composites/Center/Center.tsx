@@ -10,15 +10,7 @@ const Center = (props: ICenterProps, ref: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return (
-    <Box
-      ref={ref}
-      {...reslovedProps}
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    />
-  );
+  return <Box ref={ref} {...reslovedProps} />;
 };
 
 export default memo(forwardRef(Center));
