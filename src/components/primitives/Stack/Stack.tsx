@@ -24,7 +24,7 @@ export interface IStackProps extends IBoxProps<IStackProps> {
     | 'xl'
     | '2xl'
     | number
-    | string
+    | (string & {})
   >;
   /**
    * Determines whether to reverse the direction of Stack Items.
