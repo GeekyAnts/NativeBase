@@ -97,8 +97,6 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const component = (
     <Box
       {...layoutProps}
-      flexDirection="row"
-      alignItems="center"
       opacity={isDisabled ? 0.4 : 1}
       cursor={isDisabled ? 'not-allowed' : 'pointer'}
     >

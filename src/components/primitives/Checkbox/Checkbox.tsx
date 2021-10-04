@@ -25,14 +25,7 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const { focusProps, isFocused } = useFocus();
   const formControlContext = useFormControlContext();
 
-  const {
-    isInvalid,
-    isReadOnly,
-    isIndeterminate,
-    ...combinedProps
-  } = combineContextAndProps(formControlContext, props);
-
-  const checkboxGroupContext = React.useContext(CheckboxGroupContext);
+  const combinedProps = combineContextAndProps(formControlContext, props);
 
   const _ref = React.useRef();
   const mergedRef = mergeRefs([ref, _ref]);
@@ -50,38 +43,33 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   const { inputProps } = groupState
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckboxGroupItem(
-        {
-          ...combinedProps,
-          isInvalid,
-          isReadOnly,
-          isIndeterminate,
-          'aria-label': combinedProps.accessibilityLabel,
-          'value': combinedProps.value,
-        },
+        combinedProps,
         groupState.state,
         //@ts-ignore
         mergedRef
       )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckbox(
-        {
-          ...combinedProps,
-          isInvalid,
-          isReadOnly,
-          isIndeterminate,
-          'aria-label': combinedProps.accessibilityLabel,
-        },
+        combinedProps,
         state,
         //@ts-ignore
         mergedRef
       );
 
-  const { checked: isChecked, disabled: isDisabled } = inputProps;
+  const {
+    checked: isChecked,
+    disabled: isDisabled,
+    isInvalid,
+    isReadOnly,
+    isIndeterminate,
+  } = inputProps;
 
   const {
     icon,
     _interactionBox,
     _icon,
+    // destructuring pressable props and passing it manually
+    onPress,
     onPressIn,
     onPressOut,
     onHoverIn,
@@ -89,23 +77,16 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution(
-    'Checkbox',
-    {
-      ...checkboxGroupContext,
-      ...combinedProps,
-    },
-    {
-      isInvalid,
-      isReadOnly,
-      isDisabled,
-      isIndeterminate,
-      isChecked,
-      isHovered,
-      isPressed,
-      isFocused,
-    }
-  );
+  } = usePropsResolution('Checkbox', inputProps, {
+    isInvalid,
+    isReadOnly,
+    isIndeterminate,
+    isDisabled,
+    isChecked,
+    isHovered,
+    isPressed,
+    isFocused,
+  });
 
   const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
     ...stylingProps.margin,
@@ -122,7 +103,9 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   return (
     <Pressable
       {...(pressableProps as IPressableProps)}
-      {...inputProps}
+      onPress={onPress}
+      // alignItems="flex-start"
+      //some input props
       ref={mergeRefs([ref, wrapperRef])}
       accessibilityRole="checkbox"
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
@@ -142,7 +125,7 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
         // focusRingProps.onBlur
       )}
     >
-      <Center {...layoutProps} flexDirection="row" borderRadius="full">
+      <Box {...layoutProps}>
         <Center>
           {/* Interaction Wrapper */}
           <Box {..._interactionBox} p={5} w="100%" height="100%" zIndex={-1} />
@@ -153,7 +136,7 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
         </Center>
         {/* Label */}
         {combinedProps.children}
-      </Center>
+      </Box>
     </Pressable>
   );
 };

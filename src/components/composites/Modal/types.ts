@@ -13,7 +13,7 @@ export interface IModalProps extends IBoxProps<IModalProps> {
   /**
    * Callback invoked when the modal is closed
    */
-  onClose?: () => any;
+  onClose?: any;
   /**
    * If true, the modal will be opened by default
    */

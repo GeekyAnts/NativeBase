@@ -4,6 +4,8 @@ const baseStyle = (props: Record<string, any>) => {
   const { colorScheme, theme } = props;
 
   return {
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
     borderWidth: 2,
     borderRadius: 'sm',
     borderColor: mode('muted.300', 'muted.600')(props),
