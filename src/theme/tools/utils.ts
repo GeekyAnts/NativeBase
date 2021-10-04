@@ -183,7 +183,7 @@ export function hasValidBreakpointFormat(
     return false;
   } else if (Array.isArray(breaks)) {
     return breaks.length ? true : false;
-  } else if (typeof breaks === 'object') {
+  } else if (typeof breaks === 'object' && breaks !== null) {
     const keys = Object.keys(breaks);
     for (let i = 0; i < keys.length; i++) {
       if (Object.keys(themeBreakpoints).indexOf(keys[i]) === -1) {
@@ -314,12 +314,16 @@ export const platformSpecificSpaceUnits = (theme: ITheme) => {
   return newTheme;
 };
 export function isResponsiveAnyProp(props: Record<string, any>, theme: any) {
-  const keys = Object.keys(props);
-
-  for (let i = 0; i < keys.length; i++) {
-    if (hasValidBreakpointFormat(props[keys[i]], theme.breakpoints, keys[i])) {
-      return true;
+  if (props) {
+    const keys = Object.keys(props);
+    for (let i = 0; i < keys.length; i++) {
+      if (
+        hasValidBreakpointFormat(props[keys[i]], theme.breakpoints, keys[i])
+      ) {
+        return true;
+      }
     }
   }
+
   return false;
 }
