@@ -2,8 +2,10 @@ import { Platform, StyleSheet } from 'react-native';
 import get from 'lodash.get';
 import has from 'lodash.has';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
-import { transparentize } from './tools';
+import { hasValidBreakpointFormat, transparentize } from './tools';
 import { strictModeLogger } from '../core/StrictMode';
+import type { AnyStyledComponent } from 'styled-components';
+import { injectMediaQuery } from './injectMediaQuery';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
@@ -588,6 +590,88 @@ const convertStringNumberToNumber = (key: string, value: string) => {
   return value;
 };
 
+const getTransformedValueFromToken = (config: any) => {};
+const isWeb = Platform.OS === 'web';
+
+const getPropertyForValue = ({
+  config,
+  value,
+  key,
+  strictMode,
+  theme,
+  props,
+  currentBreakpoint,
+}: any) => {
+  let rule: any = {};
+  if (config === true) {
+    rule[key] = convertStringNumberToNumber(key, value);
+  } else if (config) {
+    const { property, scale, properties, transformer } = config;
+    let val = value;
+
+    const strictModeProps = {
+      token: value,
+      scale,
+      mode: strictMode,
+      type: 'tokenNotFound' as any,
+    };
+
+    if (transformer) {
+      val = transformer(
+        val,
+        theme[scale],
+        theme,
+        props.fontSize,
+        strictModeProps
+      );
+    } else {
+      // If a token is not found in the theme
+      if (!has(theme[scale], value) && typeof value !== 'undefined') {
+        strictModeLogger(strictModeProps);
+      }
+
+      val = get(theme[scale], value, value);
+    }
+
+    if (typeof val === 'string') {
+      if (val.endsWith('px')) {
+        val = parseFloat(val);
+      } else if (val.endsWith('em') && Platform.OS !== 'web') {
+        const fontSize = resolveValueWithBreakpoint(
+          props.fontSize,
+          theme.breakpoints,
+          currentBreakpoint,
+          key
+        );
+        val =
+          parseFloat(val) *
+          parseFloat(get(theme.fontSizes, fontSize, fontSize));
+      }
+    }
+
+    if (typeof value !== 'string' && typeof value !== 'undefined') {
+      strictModeLogger({
+        ...strictModeProps,
+        type: 'tokenNotString',
+      });
+    }
+
+    val = convertStringNumberToNumber(key, val);
+    if (properties) {
+      //@ts-ignore
+      properties.forEach((property) => {
+        rule[property] = val;
+      });
+    } else if (property) {
+      rule[property] = val;
+    } else {
+      rule = val;
+    }
+  }
+
+  return rule;
+};
+
 export const getStyleAndFilteredProps = ({
   style,
   theme,
@@ -598,97 +682,71 @@ export const getStyleAndFilteredProps = ({
 }: any) => {
   let styleFromProps: any = {};
   const restProps: any = {};
+  let dataSet = {};
   for (const key in props) {
     const rawValue = props[key];
 
+    let value: any;
+
     if (key in propConfig) {
-      const value = resolveValueWithBreakpoint(
+      const config = propConfig[key as keyof typeof propConfig];
+      const hasValidBreakpointFormatBool = hasValidBreakpointFormat(
         rawValue,
         theme.breakpoints,
-        currentBreakpoint,
         key
       );
 
-      const config = propConfig[key as keyof typeof propConfig];
+      // We'll add base or array's first element in web stylesheet, rest other responsive will be injected via data-attrs and media queries
+      if (hasValidBreakpointFormatBool && isWeb) {
+        if (Array.isArray(rawValue)) {
+          value = rawValue.shift();
+        } else {
+          value = rawValue.base;
+          delete rawValue.base;
+        }
 
-      if (config === true) {
-        styleFromProps = {
-          ...styleFromProps,
-          [key]: convertStringNumberToNumber(key, value),
-        };
-      } else if (config) {
-        //@ts-ignore
-        const { property, scale, properties, transformer } = config;
-        let val = value;
-        const strictModeProps = {
-          token: value,
-          scale,
-          mode: strictMode,
-          type: 'tokenNotFound' as any,
-        };
-
-        if (transformer) {
-          val = transformer(
-            val,
-            theme[scale],
+        // Construct style object like. {minWidth: Style}
+        // {
+        // 480: {backgroundColor: "black"}
+        // }
+        for (const breakpoint in rawValue) {
+          const rule = getPropertyForValue({
+            config,
+            value: rawValue[breakpoint],
+            key,
+            strictMode,
             theme,
-            props.fontSize,
-            strictModeProps
-          );
-        } else {
-          // If a token is not found in the theme
-          if (!has(theme[scale], value) && typeof value !== 'undefined') {
-            strictModeLogger(strictModeProps);
-          }
-
-          val = get(theme[scale], value, value);
-        }
-
-        if (typeof val === 'string') {
-          if (val.endsWith('px')) {
-            val = parseFloat(val);
-          } else if (val.endsWith('em') && Platform.OS !== 'web') {
-            const fontSize = resolveValueWithBreakpoint(
-              props.fontSize,
-              theme.breakpoints,
-              currentBreakpoint,
-              key
-            );
-            val =
-              parseFloat(val) *
-              parseFloat(get(theme.fontSizes, fontSize, fontSize));
-          }
-        }
-
-        if (typeof value !== 'string' && typeof value !== 'undefined') {
-          strictModeLogger({
-            ...strictModeProps,
-            type: 'tokenNotString',
+            props,
+            currentBreakpoint,
           });
+          // console.log('rule ', rule, rawValue);
+          const widthForBreakpoint = theme.breakpoints[breakpoint];
+          const dataIds = injectMediaQuery({ [widthForBreakpoint]: rule });
+          dataSet = { ...dataSet, ...dataIds.dataSet };
         }
-
-        val = convertStringNumberToNumber(key, val);
-
-        if (properties) {
-          //@ts-ignore
-          properties.forEach((property) => {
-            styleFromProps = {
-              ...styleFromProps,
-              [property]: val,
-            };
-          });
-        } else if (property) {
-          styleFromProps = {
-            ...styleFromProps,
-            [property]: val,
-          };
-        } else {
-          styleFromProps = {
-            ...styleFromProps,
-            ...val,
-          };
-        }
+      } else {
+        value = resolveValueWithBreakpoint(
+          rawValue,
+          theme.breakpoints,
+          currentBreakpoint,
+          key
+        );
       }
+
+      const rule = getPropertyForValue({
+        config,
+        value,
+        key,
+        strictMode,
+        theme,
+        props,
+        currentBreakpoint,
+      });
+
+      styleFromProps = {
+        ...styleFromProps,
+        ...rule,
+      };
     } else {
       restProps[key] = rawValue;
     }
@@ -698,6 +756,8 @@ export const getStyleAndFilteredProps = ({
     /* eslint-disable-next-line */
     console.log('style ', debug + ' :: ', styleFromProps, style, props);
   }
+
+  restProps.dataSet = dataSet;
 
   return {
     styleSheet: StyleSheet.create({ box: styleFromProps }),
