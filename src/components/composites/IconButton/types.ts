@@ -1,6 +1,6 @@
 import type { IPressableProps } from '../../primitives/Pressable';
 import type { IIconProps } from '../../primitives/Icon';
-import type { ResponsiveValue } from '../../types';
+import type { ResponsiveValue, VariantType } from '../../types';
 import type { ISizes } from '../../../theme/base/sizes';
 
 export interface IIconButtonProps
@@ -31,7 +31,7 @@ export interface IIconButtonProps
    * The variant of the button style to use.
    * @default 'ghost'
    */
-  variant?: ResponsiveValue<'ghost' | 'outline' | 'solid' | 'unstyled'>;
+  variant?: VariantType<'IconButton'>;
   /**
    * The size of the button.
    */

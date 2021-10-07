@@ -11,6 +11,7 @@ import type {
   BackgroundProps,
   PlatformProps,
   TypographyProps,
+  VariantType,
 } from '../../types';
 import type { IBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../../components/types';
@@ -40,7 +41,7 @@ export interface IInputProps
    * The variant of the input style to use.
    * @default <code>outline</code>
    */
-  variant?: 'outline' | 'filled' | 'underlined' | 'unstyled' | 'rounded';
+  variant?: VariantType<'Input'>;
   /**
    * 	If true, the input will be disabled.
    */

@@ -13,7 +13,6 @@ export const Example = () => {
           onPress={() =>
             toast.show({
               title: `${variant} toast`,
-              // @ts-ignore
               variant: variant,
               isClosable: true,
             })

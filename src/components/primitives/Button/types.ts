@@ -1,7 +1,7 @@
 import type { ITextProps } from './../Text/types';
 import type { IPressableProps } from '../Pressable';
 import type { IStackProps } from '../Stack';
-import type { ResponsiveValue } from '../../types';
+import type { ResponsiveValue, VariantType } from '../../types';
 import type { MutableRefObject } from 'react';
 
 import type { ISizes } from '../../../theme/base/sizes';
