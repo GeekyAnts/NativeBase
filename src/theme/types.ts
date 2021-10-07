@@ -2,7 +2,7 @@ import get from 'lodash.get';
 import type { Properties as CSSProperties } from 'csstype';
 import { transparentize } from './tools';
 import type { ResponsiveValue } from '../components/types/responsiveValue';
-import type { SpaceType, SizeType, ColorType } from '../components/types';
+import type { SpaceType, SizeType, ColorType } from '../components/types/utils';
 import type { ViewStyle } from 'react-native';
 import type { ITheme } from './base';
 
@@ -564,35 +564,48 @@ type PropRule = {
   };
 };
 
-type PropConfig = { [key: string]: PropRule };
-
 const propConfig = {
   ...flexbox,
+  ...space,
+  ...color,
+  ...extraProps,
 } as const;
 
 type StyledProps = typeof propConfig;
 
-type GetRNStyles<key extends any> = key extends keyof RNStyles
+type GetThemeScaleValues<T extends keyof ITheme> = 'colors' extends T
+  ? ColorType
+  : ResponsiveValue<keyof ITheme[T] | (string & {}) | number>;
+
+type GetRNStyles<key, scale = null> = scale extends keyof ITheme
+  ? GetThemeScaleValues<scale>
+  : key extends keyof RNStyles
   ? RNStyles[key]
-  : any;
+  : key extends keyof CSSProperties
+  ? ResponsiveValue<CSSProperties[key]>
+  : unknown;
 
 type AllProps<T extends any> = {
   [key in Extract<keyof T, string>]?: T[key] extends boolean
     ? GetRNStyles<key>
-    : 'property' extends keyof T[key]
-    ? GetRNStyles<T[key]['property']>
-    : 'properties' extends keyof T[key]
-    ? T[key]['properties'] extends { '0': string }
-      ? GetRNStyles<T[key]['properties']['0']>
+    : T[key] extends PropRule
+    ? 'shadow' extends key
+      ? GetRNStyles<key, T[key]['scale']>
+      : 'property' extends keyof T[key]
+      ? GetRNStyles<T[key]['property'], T[key]['scale']>
+      : 'properties' extends keyof T[key]
+      ? T[key]['properties'] extends { '0': string }
+        ? //@ts-ignore
+          GetRNStyles<T[key]['properties']['0'], T[key]['scale']>
+        : unknown
       : unknown
     : unknown;
 };
 
 const a: AllProps<StyledProps> = {
   flexDir: 'column',
+  shadow: '1',
 };
-
-console.log('hhf ', a);
 
 // type SpaceProps = {
 //   [key in keyof typeof space]?: SpaceType;
