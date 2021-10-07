@@ -2,7 +2,7 @@ import get from 'lodash.get';
 import type { Properties as CSSProperties } from 'csstype';
 import { transparentize } from './tools';
 import type { ResponsiveValue } from '../components/types/responsiveValue';
-import type { SpaceType, SizeType, ColorType } from '../components/types/utils';
+import type { ColorType } from '../components/types/utils';
 import type { ViewStyle } from 'react-native';
 import type { ITheme } from './base';
 
@@ -557,7 +557,7 @@ const extraProps = {
 type PropRule = {
   property?: string;
   properties?: string[];
-  scale?: string;
+  scale: string;
   transformer?: (rawValue: any, scale: any, theme: ITheme) => any;
   shadow?: {
     scale?: string;
@@ -588,24 +588,27 @@ type GetRNStyles<key, scale = null> = scale extends keyof ITheme
 type AllProps<T extends any> = {
   [key in Extract<keyof T, string>]?: T[key] extends boolean
     ? GetRNStyles<key>
-    : T[key] extends PropRule
-    ? 'shadow' extends key
-      ? GetRNStyles<key, T[key]['scale']>
-      : 'property' extends keyof T[key]
-      ? GetRNStyles<T[key]['property'], T[key]['scale']>
-      : 'properties' extends keyof T[key]
-      ? T[key]['properties'] extends { '0': string }
-        ? //@ts-ignore
-          GetRNStyles<T[key]['properties']['0'], T[key]['scale']>
-        : unknown
+    : key extends 'shadow'
+    ? GetRNStyles<null, 'shadows'>
+    : 'property' extends keyof T[key]
+    ? GetRNStyles<T[key]['property'], T[key]['scale']>
+    : 'properties' extends keyof T[key]
+    ? T[key]['properties'] extends { '0': string }
+      ? //@ts-ignore
+        GetRNStyles<T[key]['properties']['0'], T[key]['scale']>
       : unknown
     : unknown;
 };
 
 const a: AllProps<StyledProps> = {
   flexDir: 'column',
-  shadow: '1',
+  backgroundColor: 'amber.200',
+  margin: '1/2',
+  mt: '1/4',
+  mx: '10',
 };
+
+console.log('Efef', a);
 
 // type SpaceProps = {
 //   [key in keyof typeof space]?: SpaceType;
