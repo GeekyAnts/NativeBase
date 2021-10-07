@@ -102,7 +102,7 @@ export const layout = {
   overflowY: true,
   display: true,
   verticalAlign: true,
-};
+} as const;
 
 export const flexbox = {
   alignItems: true,
@@ -122,7 +122,7 @@ export const flexbox = {
   justifySelf: true,
   alignSelf: true,
   order: true,
-};
+} as const;
 
 export const position = {
   position: true,
@@ -146,7 +146,7 @@ export const position = {
     property: 'left',
     scale: 'space',
   },
-};
+} as const;
 
 export const color = {
   color: {
@@ -178,13 +178,9 @@ export const color = {
     scale: 'colors',
     transformer: getColor,
   },
-};
+} as const;
 
 export const border = {
-  border: {
-    property: 'border',
-    scale: 'borders',
-  },
   borderWidth: {
     property: 'borderWidth',
     scale: 'borderWidths',
@@ -353,7 +349,7 @@ export const border = {
     properties: ['borderTopRightRadius', 'borderBottomRightRadius'],
     scale: 'radii',
   },
-};
+} as const;
 
 export const background = {
   backgroundSize: true,
@@ -385,7 +381,7 @@ export const background = {
   bgAttachment: {
     property: 'backgroundAttachment',
   },
-};
+} as const;
 
 export const space = {
   margin: {
@@ -515,7 +511,7 @@ export const space = {
     properties: ['paddingTop', 'paddingBottom'],
     scale: 'space',
   },
-};
+} as const;
 
 export const typography = {
   fontFamily: {
@@ -551,7 +547,7 @@ export const typography = {
   textDecoration: { property: 'textDecorationLine' },
   txtDecor: { property: 'textDecorationLine' },
   textDecorationLine: true,
-};
+} as const;
 
 const extraProps = {
   outline: true,
@@ -559,7 +555,7 @@ const extraProps = {
   shadow: {
     scale: 'shadows',
   },
-};
+} as const;
 
 const propConfig = {
   ...color,
@@ -571,7 +567,7 @@ const propConfig = {
   ...typography,
   ...background,
   ...extraProps,
-};
+} as const;
 
 // For backward compatibility with 3.0 of props like non token string numbers `<Box mt={"39"} />` => used to get applied as 39px. RN expects fontWeight to be string and crashes with numbers
 // https://reactnative.dev/docs/text-style-props#fontweight
@@ -704,3 +700,5 @@ export const getStyleAndFilteredProps = ({
     restProps,
   };
 };
+
+export type StyledPropConfig = typeof propConfig;
