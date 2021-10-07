@@ -5,7 +5,6 @@ export const Example = () => {
     <>
       <Box
         bg="primary.500"
-        p="3"
         _text={{
           fontSize: 'md',
           fontWeight: 'medium',

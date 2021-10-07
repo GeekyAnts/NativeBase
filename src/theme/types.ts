@@ -2,7 +2,7 @@ import type { Properties as CSSProperties } from 'csstype';
 import type { ResponsiveValue } from '../components/types/responsiveValue';
 import type { ColorType } from '../components/types/utils';
 import type { ViewStyle } from 'react-native';
-import type { ITheme } from './base';
+import type { ITheme } from './index';
 import type { StyledPropConfig } from './styled-system';
 
 type RNStyles = ViewStyle;

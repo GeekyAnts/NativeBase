@@ -20,7 +20,12 @@ const theme = {
   config,
 };
 
-export type ITheme = typeof theme;
+export type Theme = typeof theme;
+
+export interface ICustomTheme {}
+
+export interface ITheme extends ICustomTheme, Theme {}
+
 export { theme, tools as themeTools };
 
 export { getColor } from './styled-system';

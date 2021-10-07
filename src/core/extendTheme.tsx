@@ -1,14 +1,15 @@
-import { theme as defaultTheme, ITheme } from './../theme';
+import { theme as defaultTheme, Theme } from './../theme';
 import mergeWith from 'lodash.mergewith';
 
 function isFunction(value: any): boolean {
   return typeof value === 'function';
 }
-type IExtendThemeParam = ITheme | Record<string, any>;
 
-export function extendTheme(
-  overrides: IExtendThemeParam,
-  ...restOverrides: IExtendThemeParam[]
+type ThemeUtil = Theme | (Record<string, any> & {});
+
+export function extendTheme<T extends ThemeUtil>(
+  overrides: T,
+  ...restOverrides: T[]
 ) {
   function customizer(source: any, override: any) {
     if (isFunction(source)) {
@@ -30,5 +31,5 @@ export function extendTheme(
     defaultTheme
   );
 
-  return finalOverrides as ITheme;
+  return finalOverrides as T & Theme;
 }

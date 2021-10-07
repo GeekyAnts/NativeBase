@@ -1,20 +1,9 @@
 import type { ViewProps } from 'react-native';
+import type { StyledProps } from '../../../theme/types';
 import type { IColors } from '../../../theme/base/colors';
-
 import type {
-  BorderProps,
-  ColorProps,
-  FlexboxProps,
-  LayoutProps,
-  PositionProps,
-  SpaceProps,
-  ExtraProps,
-  OutlineProps,
-  ShadowProps,
-  BackgroundProps,
   SafeAreaProps,
   PlatformProps,
-  TransformProps,
   ResponsiveValue,
 } from '../../types';
 import type { ITextProps } from './../Text/types';
@@ -30,19 +19,9 @@ export interface ILinearGradientProps {
 
 export interface IBoxProps<T = null>
   extends ViewProps,
-    Omit<ColorProps, 'backgroundColor' | 'bg' | 'color' | 'fill' | 'stroke'>,
-    SpaceProps,
-    LayoutProps,
-    FlexboxProps,
-    PositionProps,
-    BorderProps,
-    ExtraProps,
-    OutlineProps,
-    ShadowProps,
-    Omit<BackgroundProps, 'bgColor' | 'background' | 'bg' | 'backgroundColor'>,
     SafeAreaProps,
-    TransformProps,
-    PlatformProps<T extends null ? IBoxProps<any> : T> {
+    PlatformProps<T extends null ? IBoxProps<any> : T>,
+    Omit<StyledProps, 'bgColor' | 'background' | 'bg' | 'backgroundColor'> {
   /**
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;

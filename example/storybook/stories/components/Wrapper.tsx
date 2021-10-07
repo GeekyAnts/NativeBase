@@ -9,12 +9,33 @@ import {
   useColorModeValue,
   Tooltip,
   SunIcon,
+  extendTheme,
+  Button,
 } from 'native-base';
 import type { StorageManager } from 'native-base';
-import { Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Config from '../../../nativebase.config';
+
+const myTheme = extendTheme({
+  space: {
+    mySpace: '29px',
+  },
+  components: {
+    Button: {
+      variants: {
+        myBtn: {
+          padding: 10,
+        },
+      },
+    },
+  },
+});
+
+type MyThemeType = typeof myTheme;
+declare module 'native-base' {
+  interface ICustomTheme extends MyThemeType {}
+}
 
 function MyWrapper({ children }: any) {
   const { colorMode, toggleColorMode } = useColorMode();
