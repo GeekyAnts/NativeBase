@@ -11,3 +11,4 @@ export * from './ShdaowProps';
 export * from './SpaceProps';
 export * from './TypographyProps';
 export * from './responsiveValue';
+export * from './utils';

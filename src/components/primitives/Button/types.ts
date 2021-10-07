@@ -1,7 +1,7 @@
 import type { ITextProps } from './../Text/types';
 import type { IPressableProps } from '../Pressable';
 import type { IStackProps } from '../Stack';
-import type { ResponsiveValue } from '../../types';
+import type { ResponsiveValue, VariantType } from '../../types';
 import type { MutableRefObject } from 'react';
 
 import type { ISizes } from '../../../theme/base/sizes';
@@ -18,9 +18,7 @@ export interface IButtonProps extends IPressableProps {
    * The variant of the button style to use.
    * @default 'solid'
    */
-  variant?: ResponsiveValue<
-    'ghost' | 'outline' | 'solid' | 'link' | 'unstyled' | 'subtle'
-  >;
+  variant?: VariantType<'Button'>;
   /**
    * If true, the button will show a spinner.
    */
