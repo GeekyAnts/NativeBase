@@ -8,7 +8,7 @@ import type { ISizes } from '../../../theme/base/sizes';
 
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
-export interface IButtonProps extends IPressableProps {
+export interface IButtonProps extends IPressableProps<IButtonProps> {
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'

@@ -13,7 +13,7 @@ export interface IRadioProps extends IBoxProps<IRadioProps> {
   /**
    * The value to be used in the radio input. This is the value that will be returned on form submission
    */
-  value: IRadioValue;
+  value?: IRadioValue;
   /**
    * The color of the radio. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'priamry'

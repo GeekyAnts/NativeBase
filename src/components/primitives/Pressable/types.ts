@@ -14,7 +14,7 @@ import type {
   TransformProps,
   PlatformProps,
 } from '../../types';
-export interface IPressableProps
+export interface IPressableProps<T = IPressableProps<unknown>>
   extends PressableProps,
     ColorProps,
     SpaceProps,
@@ -28,7 +28,7 @@ export interface IPressableProps
     BackgroundProps,
     SafeAreaProps,
     TransformProps,
-    PlatformProps<IPressableProps> {
+    PlatformProps<T> {
   /**
    * Called when a mouse enters the Pressable
    */

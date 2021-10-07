@@ -1,6 +1,5 @@
+import type { SpaceType } from '../../../components/types';
 import type { IBoxProps } from '../../primitives/Box/types';
-import type { ResponsiveValue } from '../../types/responsiveValue';
-import type { ISpacing } from '../../../theme/base/space';
 
 export interface IDividerProps extends IBoxProps<IDividerProps> {
   /**
@@ -10,5 +9,5 @@ export interface IDividerProps extends IBoxProps<IDividerProps> {
   /**
    * The thickness of the divider.
    */
-  thickness?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  thickness?: SpaceType;
 }

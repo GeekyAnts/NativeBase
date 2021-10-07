@@ -1,61 +1,60 @@
-import type { ISpacing } from '../../theme/base/space';
-import type { ResponsiveValue } from './responsiveValue';
+import type { SpaceType } from './utils';
 
 export interface SpaceProps {
   /** Margin on top, left, bottom and right */
-  m?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  m?: SpaceType;
   /** Margin on top, left, bottom and right */
-  margin?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  margin?: SpaceType;
   /** Margin on top */
-  mt?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  mt?: SpaceType;
   /** Margin on top */
-  marginTop?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  marginTop?: SpaceType;
   /** Margin on right */
-  mr?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  mr?: SpaceType;
   /** Margin on right */
-  marginRight?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  marginRight?: SpaceType;
   /** Margin on bottom */
-  mb?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  mb?: SpaceType;
   /** Margin on bottom */
-  marginBottom?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  marginBottom?: SpaceType;
   /** Margin on left */
-  ml?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  ml?: SpaceType;
   /** Margin on left */
-  marginLeft?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  marginLeft?: SpaceType;
   /** Margin on left and right */
-  mx?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  mx?: SpaceType;
   /** Margin on left and right */
-  marginX?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  marginX?: SpaceType;
   /** Margin on top and bottom */
-  my?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  my?: SpaceType;
   /** Margin on top and bottom */
-  marginY?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  marginY?: SpaceType;
   /** Padding on top, left, bottom and right */
-  p?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  p?: SpaceType;
   /** Padding on top, left, bottom and right */
-  padding?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  padding?: SpaceType;
   /** Padding on top */
-  pt?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  pt?: SpaceType;
   /** Padding on top */
-  paddingTop?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  paddingTop?: SpaceType;
   /** Padding on right */
-  pr?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  pr?: SpaceType;
   /** Padding on right */
-  paddingRight?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  paddingRight?: SpaceType;
   /** Padding on bottom */
-  pb?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  pb?: SpaceType;
   /** Padding on bottom */
-  paddingBottom?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  paddingBottom?: SpaceType;
   /** Padding on left */
-  pl?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  pl?: SpaceType;
   /** Padding on left */
-  paddingLeft?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  paddingLeft?: SpaceType;
   /** Padding on left and right */
-  px?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  px?: SpaceType;
   /** Padding on left and right */
-  paddingX?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  paddingX?: SpaceType;
   /** Padding on top and bottom */
-  py?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  py?: SpaceType;
   /** Padding on top and bottom */
-  paddingY?: ResponsiveValue<ISpacing | (string & {}) | number>;
+  paddingY?: SpaceType;
 }
