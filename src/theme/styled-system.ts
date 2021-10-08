@@ -555,6 +555,8 @@ const extraProps = {
   shadow: {
     scale: 'shadows',
   },
+  cursor: true,
+  overflow: true,
 } as const;
 
 const propConfig = {
