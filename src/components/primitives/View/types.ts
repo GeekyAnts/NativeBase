@@ -1,37 +1,9 @@
 import type { ViewProps } from 'react-native';
-import type {
-  ColorProps,
-  SpaceProps,
-  BorderProps,
-  BackgroundProps,
-  OutlineProps,
-  LayoutProps,
-  ExtraProps,
-  ShadowProps,
-  TypographyProps,
-  TransformProps,
-  FlexboxProps,
-  PositionProps,
-  SafeAreaProps,
-} from '../../../components/types';
+import type { SafeAreaProps } from '../../../components/types';
+import type { StyledProps } from '../../../theme/types';
 
 export type IViewProps = ViewProps &
-  ColorProps &
-  SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  PositionProps &
-  BorderProps &
-  ExtraProps &
-  OutlineProps &
-  ShadowProps &
-  LayoutProps &
-  TypographyProps &
-  BackgroundProps &
-  TransformProps &
-  FlexboxProps &
-  PositionProps &
-  BorderProps &
+  StyledProps &
   SafeAreaProps & {
     children?: any;
   };

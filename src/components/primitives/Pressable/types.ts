@@ -1,33 +1,9 @@
 import type { PressableProps } from 'react-native';
-import type {
-  BorderProps,
-  ColorProps,
-  FlexboxProps,
-  LayoutProps,
-  PositionProps,
-  SpaceProps,
-  ExtraProps,
-  OutlineProps,
-  ShadowProps,
-  BackgroundProps,
-  SafeAreaProps,
-  TransformProps,
-  PlatformProps,
-} from '../../types';
+import type { StyledProps } from '../../../theme/types';
+import type { PlatformProps } from '../../types';
 export interface IPressableProps<T = IPressableProps<unknown>>
   extends PressableProps,
-    ColorProps,
-    SpaceProps,
-    LayoutProps,
-    FlexboxProps,
-    PositionProps,
-    BorderProps,
-    ExtraProps,
-    OutlineProps,
-    ShadowProps,
-    BackgroundProps,
-    SafeAreaProps,
-    TransformProps,
+    StyledProps,
     PlatformProps<T> {
   /**
    * Called when a mouse enters the Pressable
