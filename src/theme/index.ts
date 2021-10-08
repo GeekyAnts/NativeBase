@@ -24,7 +24,7 @@ export type Theme = typeof theme;
 
 export interface ICustomTheme {}
 
-export interface ITheme extends ICustomTheme, Theme {}
+export interface ITheme extends ICustomTheme, Omit<Theme, keyof ICustomTheme> {}
 
 export { theme, tools as themeTools };
 
