@@ -14,9 +14,7 @@ import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
-import Text from '../../primitives/Text';
-import HStack from '../../primitives/Stack/HStack';
-import { useColorMode } from '../../../core/color-mode/hooks';
+import { HStack, Text, useColorMode } from 'native-base';
 
 let INSET = 50;
 
