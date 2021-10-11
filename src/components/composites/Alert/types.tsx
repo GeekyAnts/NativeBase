@@ -1,5 +1,6 @@
 import type { MutableRefObject } from 'react';
 import type { IBoxProps, IIconProps } from '../../primitives';
+import type { VariantType } from '../../types';
 
 export interface IAlertProps extends IBoxProps<IAlertProps> {
   /** The status of the alert
@@ -9,14 +10,7 @@ export interface IAlertProps extends IBoxProps<IAlertProps> {
   /** The variant of the alert style to use.
    *  @default subtle
    */
-  variant?:
-    | 'subtle'
-    | 'solid'
-    | 'left-accent'
-    | 'top-accent'
-    | 'outline'
-    | 'outline-light'
-    | (string & {});
+  variant?: VariantType<'Alert'>;
 
   /** The colorScheme of the Alert.
    */

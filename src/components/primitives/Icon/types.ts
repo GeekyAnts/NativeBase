@@ -1,19 +1,5 @@
-import type {
-  BorderProps,
-  ColorProps,
-  FlexboxProps,
-  LayoutProps,
-  PositionProps,
-  SpaceProps,
-  TypographyProps,
-  ExtraProps,
-  OutlineProps,
-  ShadowProps,
-  BackgroundProps,
-  SafeAreaProps,
-  TransformProps,
-  PlatformProps,
-} from '../../types';
+import type { PlatformProps } from '../../types';
+import type { StyledProps } from '../../../theme/types';
 import type { ResponsiveValue } from '../../types/responsiveValue';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { SvgProps } from 'react-native-svg';
@@ -23,19 +9,7 @@ export interface IIconProps
       SvgProps,
       'opacity' | 'fill' | 'stroke' | 'height' | 'width' | 'transform' | 'color'
     >,
-    BorderProps,
-    ColorProps,
-    FlexboxProps,
-    LayoutProps,
-    PositionProps,
-    SpaceProps,
-    TypographyProps,
-    ExtraProps,
-    OutlineProps,
-    ShadowProps,
-    BackgroundProps,
-    SafeAreaProps,
-    TransformProps,
+    StyledProps,
     PlatformProps<IIconProps> {
   // name?: IconNameType;
   // type?: IconType;

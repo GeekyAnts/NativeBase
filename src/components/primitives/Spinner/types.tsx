@@ -1,11 +1,9 @@
 import type { ActivityIndicatorProps } from 'react-native';
-import type { SpaceProps, LayoutProps, PositionProps } from '../../types';
+import type { StyledProps } from '../../../theme/types';
 import type { ResponsiveValue } from '../../../components/types';
 export interface ISpinnerProps
   extends Omit<ActivityIndicatorProps, 'size'>,
-    SpaceProps,
-    LayoutProps,
-    PositionProps {
+    Omit<StyledProps, 'size' | 'color'> {
   /**
    * Size of Spinner
    */

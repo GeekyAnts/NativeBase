@@ -1,15 +1,7 @@
 import type { ImageProps, ImageSourcePropType } from 'react-native';
+import type { StyledProps } from '../../../theme/types';
 import type { ITextProps } from '../../primitives';
-import type {
-  FlexboxProps,
-  SpaceProps,
-  LayoutProps,
-  ExtraProps,
-  ShadowProps,
-  BorderProps,
-  PositionProps,
-  PlatformProps,
-} from '../../types';
+import type { PlatformProps } from '../../types';
 
 export interface IImageProps
   extends PlatformProps<IImageProps>,
@@ -24,19 +16,7 @@ export interface IImageProps
       | 'width'
       | 'source'
     >,
-    LayoutProps,
-    SpaceProps,
-    FlexboxProps,
-    SpaceProps,
-    LayoutProps,
-    PositionProps,
-    PositionProps,
-    FlexboxProps,
-    ExtraProps,
-    BorderProps,
-    ShadowProps,
-    LayoutProps,
-    PositionProps {
+    StyledProps {
   /**
    * specify a source for image.
    */

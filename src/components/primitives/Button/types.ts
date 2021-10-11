@@ -5,10 +5,11 @@ import type { ResponsiveValue } from '../../types';
 import type { MutableRefObject } from 'react';
 
 import type { ISizes } from '../../../theme/base/sizes';
+import type { VariantType } from '../../../components/types/utils';
 
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
-export interface IButtonProps extends IPressableProps {
+export interface IButtonProps extends IPressableProps<IButtonProps> {
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
@@ -18,9 +19,7 @@ export interface IButtonProps extends IPressableProps {
    * The variant of the button style to use.
    * @default 'solid'
    */
-  variant?: ResponsiveValue<
-    'ghost' | 'outline' | 'solid' | 'link' | 'unstyled' | 'subtle'
-  >;
+  variant?: VariantType<'Button'>;
   /**
    * If true, the button will show a spinner.
    */

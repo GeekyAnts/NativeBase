@@ -1,4 +1,5 @@
 import type { TextProps } from 'react-native';
+import type { StyledProps } from '../../../theme/types';
 import type {
   IFont,
   IFontSize,
@@ -6,35 +7,11 @@ import type {
   ILetterSpacing,
   ILineHeight,
 } from '../../../theme/base/typography';
-import type {
-  BorderProps,
-  ColorProps,
-  BackgroundProps,
-  OutlineProps,
-  ExtraProps,
-  PlatformProps,
-  ShadowProps,
-  FlexboxProps,
-  LayoutProps,
-  PositionProps,
-  SpaceProps,
-  TypographyProps,
-  ResponsiveValue,
-} from '../../types';
+import type { PlatformProps, ResponsiveValue } from '../../types';
 
 export interface ITextProps
-  extends Omit<ColorProps, 'fill' | 'stroke'>,
-    SpaceProps,
-    BorderProps,
-    BackgroundProps,
-    PositionProps,
-    LayoutProps,
-    OutlineProps,
-    ExtraProps,
-    PlatformProps<ITextProps>,
-    ShadowProps,
-    FlexboxProps,
-    TypographyProps,
+  extends PlatformProps<ITextProps>,
+    StyledProps,
     TextProps {
   /**
    *  Renders components as Text children. Accepts a JSX.Element or an array of JSX.Element.

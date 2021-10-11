@@ -193,6 +193,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
       | 'outline'
       | 'subtle'
       | 'outline-light'
+      | any
   ): any => {
     switch (variant) {
       case 'left-accent':
