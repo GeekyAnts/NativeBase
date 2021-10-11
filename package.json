@@ -35,7 +35,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.2.1-rc.2",
+  "version": "3.2.1-rc.3",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -197,6 +197,7 @@
     "@react-native-aria/slider": "^0.2.5-alpha.1",
     "@react-native-aria/tabs": "^0.2.7",
     "@react-native-aria/utils": "^0.2.7",
+    "@react-native-clipboard/clipboard": "^1.8.4",
     "@react-stately/combobox": "^3.0.0-alpha.1",
     "@react-stately/radio": "^3.2.1",
     "@types/lodash.has": "^4.5.6",
@@ -212,8 +213,7 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
-    "tinycolor2": "^1.4.2",
-    "@react-native-clipboard/clipboard":"^1.8.4"
+    "tinycolor2": "^1.4.2"
   },
   "directories": {
     "example": "example",
