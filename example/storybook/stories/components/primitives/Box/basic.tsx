@@ -11,7 +11,6 @@ export const Example = () => {
           color: 'warmGray.50',
           letterSpacing: 'lg',
         }}
-        display={{ md: 'none' }}
       >
         This is a Box
       </Box>
