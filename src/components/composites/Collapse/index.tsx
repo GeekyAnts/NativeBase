@@ -94,6 +94,7 @@ const Collapse = (
       ref={ref}
     >
       <Box
+        //@ts-ignore
         overflow={Platform.OS === 'web' ? 'auto' : 'scroll'}
         onLayout={(e) => provideSize(e.nativeEvent.layout)}
         {...props}

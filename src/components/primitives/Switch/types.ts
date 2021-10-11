@@ -1,33 +1,11 @@
 import type { SwitchProps } from 'react-native';
-import type {
-  ColorProps,
-  FlexboxProps,
-  SpaceProps,
-  BorderProps,
-  BackgroundProps,
-  OutlineProps,
-  LayoutProps,
-  ExtraProps,
-  ShadowProps,
-  PositionProps,
-} from '../../types';
+import type { StyledProps } from '../../../theme/types';
 
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IColors } from '../../../theme/base/colors';
 
-export interface ISwitchProps
-  extends SwitchProps,
-    ColorProps,
-    SpaceProps,
-    FlexboxProps,
-    PositionProps,
-    ExtraProps,
-    OutlineProps,
-    ShadowProps,
-    LayoutProps,
-    BackgroundProps,
-    BorderProps {
+export interface ISwitchProps extends SwitchProps, StyledProps {
   /**
    * The size (width and height) of the switch.
    * @default md

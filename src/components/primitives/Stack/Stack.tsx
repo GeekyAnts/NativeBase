@@ -4,7 +4,7 @@ import { getSpacedChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import type { ResponsiveValue } from '../../types';
+import type { ResponsiveValue, SpaceType } from '../../types';
 
 export interface IStackProps extends IBoxProps<IStackProps> {
   /**
@@ -15,16 +15,7 @@ export interface IStackProps extends IBoxProps<IStackProps> {
    * The space between each stack item. Accepts Responsive values
    */
   space?: ResponsiveValue<
-    | 'gutter'
-    | '2xs'
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | number
-    | (string & {})
+    'gutter' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | SpaceType
   >;
   /**
    * Determines whether to reverse the direction of Stack Items.

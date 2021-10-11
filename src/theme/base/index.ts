@@ -20,8 +20,6 @@ const theme = {
   opacity,
 };
 
-export type ITheme = typeof theme;
-
 export const themePropertyMap: any = {
   borderRadius: 'radii',
   color: 'colors',

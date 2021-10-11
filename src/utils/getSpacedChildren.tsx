@@ -1,5 +1,6 @@
 import React from 'react';
 import { default as Box } from '../components/primitives/Box';
+import type { SpaceType as ThemeSpaceType } from '../components/types';
 
 type SpaceType =
   | 'gutter'
@@ -10,8 +11,7 @@ type SpaceType =
   | 'lg'
   | 'xl'
   | '2xl'
-  | string
-  | number;
+  | ThemeSpaceType;
 
 export default (
   children: JSX.Element[] | JSX.Element,

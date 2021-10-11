@@ -1,37 +1,14 @@
 import type { TextInputProps } from 'react-native';
-import type {
-  ColorProps,
-  SpaceProps,
-  FlexboxProps,
-  BorderProps,
-  ExtraProps,
-  OutlineProps,
-  ShadowProps,
-  LayoutProps,
-  BackgroundProps,
-  PlatformProps,
-  TypographyProps,
-} from '../../types';
+import type { StyledProps } from '../../../theme/types';
+import type { PlatformProps, VariantType } from '../../types';
 import type { IBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 
 export interface IInputProps
   extends PlatformProps<IInputProps>,
-    ColorProps,
     Omit<TextInputProps, 'textAlign'>,
-    SpaceProps,
-    LayoutProps,
-    FlexboxProps,
-    TypographyProps,
-    BorderProps,
-    ExtraProps,
-    OutlineProps,
-    ShadowProps,
-    LayoutProps,
-    TypographyProps,
-    BackgroundProps,
-    BorderProps {
+    StyledProps {
   /**
    * If true, the input will indicate an error.
    */
@@ -40,7 +17,7 @@ export interface IInputProps
    * The variant of the input style to use.
    * @default <code>outline</code>
    */
-  variant?: 'outline' | 'filled' | 'underlined' | 'unstyled' | 'rounded';
+  variant?: VariantType<'Input'>;
   /**
    * 	If true, the input will be disabled.
    */

@@ -346,3 +346,5 @@ export type {
   ITextFieldProps,
   IScrollViewProps,
 };
+
+export { ITheme, ICustomTheme } from './theme';

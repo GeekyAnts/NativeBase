@@ -3,7 +3,7 @@ import isNil from 'lodash.isnil';
 import pick from 'lodash.pick';
 import omit from 'lodash.omit';
 import get from 'lodash.get';
-import type { ITheme } from '../base';
+import type { ITheme } from '../index';
 import { Platform } from 'react-native';
 
 export const stylingProps = {
