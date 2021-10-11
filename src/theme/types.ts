@@ -1,11 +1,11 @@
 import type { Properties as CSSProperties } from 'csstype';
 import type { ResponsiveValue } from '../components/types/responsiveValue';
 import type { ColorType } from '../components/types/utils';
-import type { ViewStyle } from 'react-native';
+import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import type { ITheme } from './index';
 import type { StyledPropConfig } from './styled-system';
 
-type RNStyles = ViewStyle;
+type RNStyles = ViewStyle & ImageStyle & TextStyle;
 
 type GetThemeScaleValues<T extends keyof ITheme> = 'colors' extends T
   ? ColorType
@@ -13,10 +13,10 @@ type GetThemeScaleValues<T extends keyof ITheme> = 'colors' extends T
 
 type GetRNStyles<key, scale = null> = scale extends keyof ITheme
   ? GetThemeScaleValues<scale>
-  : key extends keyof RNStyles
-  ? RNStyles[key]
   : key extends keyof CSSProperties
   ? ResponsiveValue<CSSProperties[key]>
+  : key extends keyof RNStyles
+  ? ResponsiveValue<RNStyles[key]>
   : unknown;
 
 type AllProps<T extends StyledPropConfig> = {
