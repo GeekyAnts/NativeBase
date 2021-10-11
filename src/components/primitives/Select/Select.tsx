@@ -1,6 +1,6 @@
 import React, { forwardRef, memo } from 'react';
 import type { ISelectProps } from './types';
-import { Platform, View, Pressable } from 'react-native';
+import { Platform, View, Pressable, Keyboard } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
 import Box from '../Box';
 import { Input } from '../Input';
@@ -182,7 +182,10 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
       ) : (
         <>
           <Pressable
-            onPress={() => setIsOpen(true)}
+            onPress={() => {
+              Keyboard.dismiss();
+              setIsOpen(true);
+            }}
             disabled={isDisabled}
             accessibilityLabel={accessibilityLabel}
             accessibilityRole="button"
