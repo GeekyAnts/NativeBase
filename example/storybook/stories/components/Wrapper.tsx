@@ -11,6 +11,8 @@ import {
   SunIcon,
   extendTheme,
   Button,
+  FactoryV2,
+  FlatList,
 } from 'native-base';
 import type { StorageManager } from 'native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -29,8 +31,19 @@ const myTheme = extendTheme({
         },
       },
     },
+    FlatList: {
+      variants: {
+        fl: {
+          padding: 10,
+        },
+      },
+    },
   },
 });
+
+const Fl = FactoryV2(FlatList, 'FlatList');
+
+<Fl variant="" margin="" />;
 
 type MyThemeType = typeof myTheme;
 declare module 'native-base' {

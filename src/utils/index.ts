@@ -19,3 +19,4 @@ export { ariaAttr } from './accessibilityUtils';
 export { createContext } from './createContext';
 export { useKeyboardBottomInset } from './useKeyboardBottomInset';
 export { isEmptyObj } from './isEmptyObj';
+export { FactoryV2 } from './styled';

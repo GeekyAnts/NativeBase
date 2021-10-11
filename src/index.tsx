@@ -348,3 +348,4 @@ export type {
 };
 
 export { ITheme, ICustomTheme } from './theme';
+export { FactoryV2 } from './utils';

@@ -19,7 +19,10 @@ import {
   customTypography,
 } from './customProps';
 import React from 'react';
-import { useStyledSystemPropsResolver } from '../hooks/';
+import { usePropsResolution, useStyledSystemPropsResolver } from '../hooks/';
+import type { StyledProps } from '../theme/types';
+import type { PlatformProps, VariantType } from '../components/types';
+import type { ITheme } from 'lib/typescript';
 export const resolversForBox: any = [
   color,
   space,
@@ -59,3 +62,22 @@ export const makeStyledComponent = (Comp: any) => {
     return styled(Comp)(...resolversForBox);
   }
 };
+
+export function FactoryV2<T, K extends keyof ITheme['components']>(
+  Comp: React.ComponentType<T>,
+  name: K
+) {
+  const StyledComponent = makeStyledComponent(Comp);
+  return React.forwardRef(
+    (
+      props: React.ComponentProps<typeof Comp> &
+        StyledProps &
+        PlatformProps<StyledProps> & { variant: VariantType<K> },
+
+      ref
+    ) => {
+      const resolvedProps = usePropsResolution(name, props);
+      return <StyledComponent {...resolvedProps} ref={ref} />;
+    }
+  );
+}

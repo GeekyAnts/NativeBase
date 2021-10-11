@@ -5,7 +5,7 @@ import { makeStyledComponent } from '../../../utils/styled';
 import type { IFlatListProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledFlatList: any = makeStyledComponent(RNFlatList);
+const StyledFlatList = makeStyledComponent(RNFlatList);
 
 export const FlatList = forwardRef((props: IFlatListProps, ref: any) => {
   const { ...resolvedProps } = usePropsResolution('FlatList', props);
