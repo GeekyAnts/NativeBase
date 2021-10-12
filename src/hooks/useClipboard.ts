@@ -1,5 +1,5 @@
 import React from 'react';
-import Clipboard from '@react-native-clipboard/clipboard';
+import { Clipboard } from 'react-native';
 
 export function useClipboard() {
   const [hasCopied, setHasCopied] = React.useState(false);
