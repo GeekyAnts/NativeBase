@@ -107,7 +107,6 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       // alignItems="flex-start"
       //some input props
       ref={mergeRefs([ref, wrapperRef])}
-      accessibilityRole="checkbox"
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
       onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
       // @ts-ignore - web only
