@@ -122,6 +122,22 @@ export function usePropsResolution(
   state?: any,
   config?: any
 ) {
+  const { theme } = useNativeBase();
+  const componentTheme = get(theme, `components.${component}`, {});
+  return usePropsResolutionWithComponentTheme(
+    componentTheme,
+    incomingProps,
+    state,
+    config
+  );
+}
+
+export const usePropsResolutionWithComponentTheme = (
+  componentTheme: any,
+  incomingProps: any,
+  state?: any,
+  config?: any
+) => {
   const modifiedPropsForSSR = useResponsiveSSRProps(incomingProps);
 
   const [ignoredProps, cleanIncomingProps] = extractInObject(
@@ -139,8 +155,6 @@ export function usePropsResolution(
 
   const { theme } = useNativeBase();
   const colorModeProps = useColorMode();
-
-  const componentTheme = get(theme, `components.${component}`, {});
 
   // STEP 1: combine default props and incoming props
 
@@ -367,4 +381,4 @@ export function usePropsResolution(
   // propertyDepth = {};
 
   return resolvedProps;
-}
+};
