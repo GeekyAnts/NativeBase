@@ -172,7 +172,6 @@ export function getColorScheme(
     if (typeof theme.colors[colorScheme] === 'object') return colorScheme;
   }
 }
-export const breakpoints = Object.freeze(['base', 'sm', 'md', 'lg', 'xl']);
 export const inValidBreakpointProps = ['style', 'children', 'shadowOffset'];
 export function hasValidBreakpointFormat(
   breaks: any,
@@ -185,8 +184,9 @@ export function hasValidBreakpointFormat(
     return breaks.length ? true : false;
   } else if (typeof breaks === 'object' && breaks !== null) {
     const keys = Object.keys(breaks);
+    const themeBreakPointKeys = Object.keys(themeBreakpoints);
     for (let i = 0; i < keys.length; i++) {
-      if (Object.keys(themeBreakpoints).indexOf(keys[i]) === -1) {
+      if (themeBreakPointKeys.indexOf(keys[i]) === -1) {
         return false;
       }
     }
