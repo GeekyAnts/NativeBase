@@ -9,8 +9,12 @@ import { Text as NativeText } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledText = makeStyledComponent(NativeText);
+// To have a RN compatible behaviour, we'll inherit parent text styles as base style
+const TextAncestorContext = React.createContext(false);
 
 const Text = ({ children, ...props }: ITextProps, ref: any) => {
+  const hasTextAncestor = React.useContext(TextAncestorContext);
+
   const {
     isTruncated,
     noOfLines,
@@ -24,14 +28,18 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontWeight: propFontWeight,
     fontStyle: propFontStyle,
     _hover,
-    fontSize = 'md',
+    fontSize,
     numberOfLines,
     ...reslovedProps
   } = usePropsResolution(
     'Text',
     props,
     {},
-    { resolveResponsively: ['noOfLines', 'numberOfLines'] }
+    {
+      resolveResponsively: ['noOfLines', 'numberOfLines'],
+      // We override the component base theme if text has an ancestor.
+      componentTheme: hasTextAncestor ? {} : undefined,
+    }
   );
 
   const _ref = useRef(null);
@@ -44,8 +52,8 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
 
   const resolvedFontFamily = useResolvedFontFamily({
     fontFamily,
-    fontWeight,
-    fontStyle,
+    fontWeight: fontWeight ?? (hasTextAncestor ? undefined : 400),
+    fontStyle: fontStyle ?? (hasTextAncestor ? undefined : 'normal'),
   });
 
   if (resolvedFontFamily) {
@@ -57,33 +65,35 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     return null;
   }
 
-  return (
-    <StyledText
-      {...reslovedProps}
-      numberOfLines={
-        numberOfLines || noOfLines
-          ? numberOfLines || noOfLines
-          : isTruncated
-          ? 1
-          : undefined
-      }
-      {...resolvedFontFamily}
-      bg={highlight ? 'warning.300' : reslovedProps.bg}
-      textDecorationLine={
-        underline && strikeThrough
-          ? 'underline line-through'
-          : underline
-          ? 'underline'
-          : strikeThrough
-          ? 'line-through'
-          : reslovedProps.textDecorationLine
-      }
-      fontSize={sub ? 10 : fontSize}
-      ref={mergeRefs([ref, _ref])}
-      {...(isHovered && _hover)}
-    >
-      {children}
-    </StyledText>
+  const propsToSpread = {
+    ...reslovedProps,
+    numberOfLines:
+      numberOfLines || noOfLines
+        ? numberOfLines || noOfLines
+        : isTruncated
+        ? 1
+        : undefined,
+    ...resolvedFontFamily,
+    bg: highlight ? 'warning.300' : reslovedProps.bg,
+    textDecorationLine:
+      underline && strikeThrough
+        ? 'underline line-through'
+        : underline
+        ? 'underline'
+        : strikeThrough
+        ? 'line-through'
+        : reslovedProps.textDecorationLine,
+    fontSize: sub ? 10 : fontSize,
+    ref: mergeRefs([ref, _ref]),
+    ...(isHovered && _hover),
+  };
+
+  return hasTextAncestor ? (
+    <StyledText {...propsToSpread}>{children}</StyledText>
+  ) : (
+    <TextAncestorContext.Provider value={true}>
+      <StyledText {...propsToSpread}>{children}</StyledText>
+    </TextAncestorContext.Provider>
   );
 };
 

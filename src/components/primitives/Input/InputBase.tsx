@@ -73,8 +73,8 @@ const InputBase = (
 
   const resolvedFontFamily = useResolvedFontFamily({
     fontFamily,
-    fontWeight,
-    fontStyle,
+    fontWeight: fontWeight ?? 400,
+    fontStyle: fontStyle ?? 'normal',
   });
   const resolvedPlaceholderTextColor = useToken('colors', placeholderTextColor);
   const resolvedSelectionColor = useToken('colors', selectionColor);

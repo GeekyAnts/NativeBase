@@ -123,7 +123,9 @@ export function usePropsResolution(
   config?: any
 ) {
   const { theme } = useNativeBase();
-  const componentTheme = get(theme, `components.${component}`, {});
+  const componentTheme =
+    config?.componentTheme ?? get(theme, `components.${component}`, {});
+
   return usePropsResolutionWithComponentTheme(
     componentTheme,
     incomingProps,
