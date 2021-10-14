@@ -140,7 +140,8 @@ export function usePropsResolution(
   const { theme } = useNativeBase();
   const colorModeProps = useColorMode();
 
-  const componentTheme = get(theme, `components.${component}`, {});
+  const componentTheme =
+    config?.componentTheme ?? get(theme, `components.${component}`, {});
 
   // STEP 1: combine default props and incoming props
 
