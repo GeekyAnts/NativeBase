@@ -7,7 +7,9 @@ import {
 import { useTheme } from './../hooks/useTheme';
 import type { ITheme } from '../theme/index';
 
-type UseBreakpointValueParam = { [key in keyof ITheme['breakpoints']]?: any };
+type UseBreakpointValueParam =
+  | { [key in keyof ITheme['breakpoints']]?: any }
+  | Array<any>;
 
 export function useBreakpointValue(values: UseBreakpointValueParam) {
   let windowWidth = useWindowDimensions()?.width;
