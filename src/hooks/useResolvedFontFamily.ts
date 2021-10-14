@@ -14,13 +14,13 @@ export function useResolvedFontFamily(props: {
   fontStyle?: string;
   fontWeight?: string | number;
 }) {
-  const { fontFamily, fontStyle = 'normal', fontWeight = 400 } = props;
+  const { fontFamily, fontStyle, fontWeight } = props;
   let newFontFamily = fontFamily;
   let newFontStyle = fontStyle;
   let newFontWeight = fontWeight;
 
   const { fontConfig, fontWeights, fonts } = useTheme();
-  if (fontFamily && fontFamily in fonts) {
+  if (fontWeight && fontStyle && fontFamily && fontFamily in fonts) {
     const fontToken = fonts[fontFamily];
 
     if (fontConfig && fontConfig[fontToken]) {

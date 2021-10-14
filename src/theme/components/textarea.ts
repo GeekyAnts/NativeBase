@@ -5,6 +5,7 @@ const baseStyle = {
   p: '2',
   totalLines: 4,
   h: Platform.select({ ios: 20 }),
+  textAlignVertical: 'top',
 };
 
 export default { baseStyle };

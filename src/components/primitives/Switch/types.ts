@@ -5,7 +5,9 @@ import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IColors } from '../../../theme/base/colors';
 
-export interface ISwitchProps extends SwitchProps, StyledProps {
+export interface ISwitchProps
+  extends Omit<SwitchProps, 'tintColor'>,
+    StyledProps {
   /**
    * The size (width and height) of the switch.
    * @default md
