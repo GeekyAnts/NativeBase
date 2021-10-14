@@ -154,6 +154,11 @@ export const color = {
     scale: 'colors',
     transformer: getColor,
   },
+  tintColor: {
+    property: 'tintColor',
+    scale: 'colors',
+    transformer: getColor,
+  },
   backgroundColor: {
     property: 'backgroundColor',
     scale: 'colors',
