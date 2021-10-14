@@ -347,4 +347,4 @@ export type {
   IScrollViewProps,
 };
 
-export { ITheme, ICustomTheme } from './theme';
+export { ITheme, ICustomTheme, StyledProps } from './theme';

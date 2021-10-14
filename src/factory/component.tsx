@@ -5,7 +5,7 @@ import type { ComponentTheme } from '../theme';
 import type { FactoryComponentProps } from './types';
 import { makeStyledComponent } from '../utils/styled';
 
-export default function <P>(
+export default function Factory<P>(
   Component: React.ComponentType<P>,
   componentTheme?: ComponentTheme
 ) {

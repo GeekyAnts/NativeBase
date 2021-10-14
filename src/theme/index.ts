@@ -1,12 +1,13 @@
 import base from './base';
 import components from './components';
 import * as tools from './tools';
+import type { StyledProps } from '../theme/types';
 //@ts-ignore
 import type { ColorModeOptions } from './../core/color-mode/types';
 export interface ComponentTheme {
-  baseStyle?: Record<string, any>;
-  sizes?: Record<string, any>;
-  variants?: Record<string, any>;
+  baseStyle?: (props: any) => StyledProps | StyledProps;
+  sizes?: Record<string, StyledProps>;
+  variants?: Record<string, ((props: any) => StyledProps) | StyledProps>;
   defaultProps?: Record<string, any>;
 }
 const config: ColorModeOptions = {
@@ -29,3 +30,4 @@ export interface ITheme extends ICustomTheme, Omit<Theme, keyof ICustomTheme> {}
 export { theme, tools as themeTools };
 
 export { getColor } from './styled-system';
+export { StyledProps } from './types';
