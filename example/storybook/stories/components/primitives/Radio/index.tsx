@@ -12,10 +12,11 @@ import { Example as FormControlled } from './formControlled';
 import { Example as WithRef } from './withRef';
 import { Example as ControlledRadio } from './controlledRadio';
 import { Example as UncontrolledRadio } from './uncontrolledRadio';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Radio', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Controlled Radio', () => <ControlledRadio />)
   .add('Uncontrolled Radio', () => <UncontrolledRadio />)
   .add('Playground', () => <Playground />)

@@ -7,10 +7,11 @@ import { Example as Sizes } from './Sizes';
 import { Example as SwitchBgColor } from './SwitchBgColor';
 import { Example as Accessibility } from './Accessibility';
 import { Example as ColorSchemes } from './ColorSchemes';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Switch', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Sizes', () => <Sizes />)
   .add('Switch bgColor', () => <SwitchBgColor />)

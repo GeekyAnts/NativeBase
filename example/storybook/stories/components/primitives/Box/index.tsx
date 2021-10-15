@@ -11,10 +11,11 @@ import { Example as Composition } from './composition';
 // import { Example as CompositionCard3 } from './composition-card3';
 // import { Example as CompositionShoesCard } from './composition-shoes-card';
 import Wrapper from './../../Wrapper';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Box', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic Box', () => <Basic />)
   .add('LinearGradient Box', () => <LinearGrad />)
   .add('Composition', () => <Composition />)

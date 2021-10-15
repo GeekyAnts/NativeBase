@@ -10,10 +10,11 @@ import { Example as Elements } from './Elements';
 import { Example as Masked } from './Masked';
 import { Example as Controlled } from './Controlled';
 import { Example as FormControlled } from './FormControlled';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Input', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Primary', () => <Basic />)
   .add('Size ', () => <Size />)
   .add('Variants', () => <Variant />)

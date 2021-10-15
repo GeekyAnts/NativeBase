@@ -6,10 +6,11 @@ import Wrapper from './../../Wrapper';
 import Basic from './Basic';
 import Callback from './Callback';
 import Duration from './Duration';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Collapse', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Animation Duration', () => <Duration />)
   .add('onAnimationStart and onAnimationEnd', () => <Callback />);

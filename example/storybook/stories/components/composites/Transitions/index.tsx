@@ -8,10 +8,11 @@ import { Example as Slide } from './Slide';
 import { Example as SlideWrapped } from './SlideWrapped';
 import { Example as SlideFade } from './SlideFade';
 import { Example as Stagger } from './Stagger';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Transitions', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Fade', () => <Fade />)
   .add('ScaleFade', () => <ScaleFade />)
   .add('Slide', () => <Slide />)

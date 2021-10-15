@@ -7,10 +7,11 @@ import { UsingComponentWithRenderItem } from './UsingComponentWithRenderItem';
 import { UsingControlledInput } from './UsingControlledInput';
 import { UsingWithAPI } from './UsingWithAPI';
 import { UsingHook } from './UsingHook';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Typeahead', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <UsingComponent />)
   .add('Using render item', () => <UsingComponentWithRenderItem />)
   .add('Using Controlled input', () => <UsingControlledInput />)

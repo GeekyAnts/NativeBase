@@ -9,10 +9,11 @@ import AccessingInternalState from './AccessingInternalState';
 import ExpandedStyle from './ExpandedStyle';
 import Toggle from './Toggle';
 import DefaultIndex from './DefaultIndex';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Accordion', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Playground', () => <Playground />)
   .add('Usage', () => <Usage />)
   .add('Multiple', () => <Multiple />)

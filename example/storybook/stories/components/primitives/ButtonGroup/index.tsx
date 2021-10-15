@@ -7,10 +7,11 @@ import { Example as Variants } from './variants';
 import { Example as IsAttached } from './isAttached';
 import { Example as Direction } from './direction';
 import Wrapper from './../../Wrapper';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('ButtonGroup', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Variants', () => <Variants />)
   .add('Sizes', () => <Sizes />)

@@ -14,10 +14,11 @@ import { Example as FormControlled } from './FormControlled';
 import { Example as CheckboxGroup } from './checkboxGroup';
 import { Example as ControlledCheckbox } from './controlledCheckbox';
 import { Example as UnControlledCheckbox } from './uncontrolledCheckbox';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Checkbox', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Playground', () => <Playground />)
   .add('Controlled checkbox', () => <ControlledCheckbox />)

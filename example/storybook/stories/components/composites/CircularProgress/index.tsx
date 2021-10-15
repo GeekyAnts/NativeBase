@@ -11,10 +11,11 @@ import Indeterminate from './Indeterminate';
 import TrackColor from './TrackColor';
 import MinMax from './MinMax';
 import ColorScheme from './ColorScheme';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('CircularProgress', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('ColorScheme', () => <ColorScheme />)
   .add('Colors', () => <Colors />)

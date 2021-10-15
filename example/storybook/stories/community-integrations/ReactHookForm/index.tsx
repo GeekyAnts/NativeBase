@@ -11,10 +11,11 @@ import { Example as Switch } from './Switch';
 import { Example as Slider } from './Slider';
 import { Example as DemoForm } from './DemoForm';
 import { Example as Usage } from './Usage';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('React Hook Form', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Usage', () => <Usage />)
   .add('DemoForm', () => <DemoForm />) // Todo: Remove to somewhere else
   .add('Radio And Checkbox', () => <RadioAndCheckbox />)

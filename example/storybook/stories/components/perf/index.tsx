@@ -5,10 +5,11 @@ import { RNButtons } from './RNButton';
 import { NBButtons } from './NBButton';
 import { NativeBaseProvider, View as NBView } from 'native-base';
 import { View } from 'react-native';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Button Perf', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => (
+  .addDecorator((getStory: StoryFn) => (
     <NativeBaseProvider>{getStory()}</NativeBaseProvider>
   ))
   .add('Empty', () => <></>)

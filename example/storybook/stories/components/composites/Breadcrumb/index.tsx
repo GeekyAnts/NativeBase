@@ -7,10 +7,11 @@ import { Example as Separators } from './Separators';
 import { Example as ComponentSeparator } from './ComponentSeparator';
 import { Example as Composition } from './Composition';
 import { Example as Collapsible } from './Collapsible';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Breadcrumb', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Separators', () => <Separators />)
   .add('ComponentSeparator', () => <ComponentSeparator />)

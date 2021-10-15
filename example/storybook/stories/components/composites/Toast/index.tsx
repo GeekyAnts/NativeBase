@@ -11,10 +11,11 @@ import { Example as CustomComponentWithCustomId } from './CustomComponentWithCus
 import { Example as PreventDuplicate } from './PreventDuplicate';
 import { Example as ToastStatus } from './ToastStatus';
 import { Example as StandaloneToast } from './StandaloneToast';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Toast', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Toast Positions', () => <ToastPositions />)
   .add('Custom Component', () => <CustomComponent />)

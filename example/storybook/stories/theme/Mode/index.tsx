@@ -5,10 +5,11 @@ import { View, StyleSheet } from 'react-native';
 import { Example as Basic } from './Basic';
 import { Example as DefaultMode } from './DefaultMode';
 import { Example as Persistence } from './Persistence';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Mode', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => (
+  .addDecorator((getStory: StoryFn) => (
     <View style={styles.wrapper}>{getStory()}</View>
   ))
   .add('Basic', () => <Basic />)

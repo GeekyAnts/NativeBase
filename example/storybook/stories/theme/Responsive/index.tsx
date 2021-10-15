@@ -7,10 +7,11 @@ import { Example as FontSize } from './FontSize';
 import { Example as Direction } from './Direction';
 import { Example as More } from './More';
 import { Example as Demo } from './Demo';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Responsive', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('FontSize', () => <FontSize />)
   .add('More', () => <More />)

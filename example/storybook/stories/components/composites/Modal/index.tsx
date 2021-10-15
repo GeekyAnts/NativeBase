@@ -9,10 +9,11 @@ import { Example as MultipleModal } from './MultipleModal';
 import { Example as Size } from './Size';
 import { Example as ModalPlacement } from './ModalPlacement';
 import { Example as CustomBackdrop } from './CustomBackdrop';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Modal', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Multiple modal', () => <MultipleModal />)
   .add('Modal Ref Examples', () => <ModalRefEg />)

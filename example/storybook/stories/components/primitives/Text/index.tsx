@@ -7,10 +7,11 @@ import { Example as ChangingFontSize } from './ChangingFontSize';
 import { Example as Overriden } from './Overriden';
 import { Example as Truncated } from './Truncated';
 import { Example as Nested } from './Nested';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Text', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Changing Font Size', () => <ChangingFontSize />)
   .add('Truncated', () => <Truncated />)

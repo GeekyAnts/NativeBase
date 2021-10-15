@@ -7,10 +7,11 @@ import { Example as Color } from './Color';
 import { Example as Composition } from './Composition';
 import { Example as IsLoaded } from './isLoaded';
 import { Example as FadeDuration } from './FadeDuration';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Skeleton', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Color', () => <Color />)
   .add('Composition', () => <Composition />)

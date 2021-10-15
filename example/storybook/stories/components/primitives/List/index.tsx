@@ -9,10 +9,11 @@ import { Example as Basic } from './Basic';
 import { Example as ListWithIcon } from './ListWithIcon';
 import { Example as PressableList } from './PressableList';
 import { Example as VirtualizedList } from './VirtualizedList';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('List', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('OrderedList', () => <OrderedList />)
   .add('UnorderedList', () => <UnorderedList />)

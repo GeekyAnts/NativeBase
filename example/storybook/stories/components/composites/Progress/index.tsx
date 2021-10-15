@@ -8,10 +8,11 @@ import { Example as Flat } from './Flat';
 import { Example as Size } from './Sizes';
 import { Example as CustomBgColor } from './CustomBgColor';
 import { Example as ColorScheme } from './ColorScheme';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Progress', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Default Progress Bar', () => <Basic />)
   .add('ColorSchemes', () => <ColorScheme />)
   .add('Flat', () => <Flat />)

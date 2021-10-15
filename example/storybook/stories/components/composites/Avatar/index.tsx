@@ -8,10 +8,11 @@ import { Example as Size } from './size';
 import { Example as Fallback } from './Fallback';
 import { Example as AvatarBadge } from './AvatarBadge';
 import { Example as AvatarGroup } from './AvatarGroup';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Avatar', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Playground', () => <Playground />)
   .add('Usage', () => <Usage />)
   .add('Size', () => <Size />)

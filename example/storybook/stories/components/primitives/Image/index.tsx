@@ -8,10 +8,11 @@ import { Example as BorderRadius } from './BorderRadius';
 import { Example as WithRef } from './WithRef';
 import { Example as FallbackSupport } from './FallbackSupport';
 import { Example as FallbackElement } from './FallbackElement';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Image', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Sizes', () => <Sizes />)
   .add('BorderRadius', () => <BorderRadius />)

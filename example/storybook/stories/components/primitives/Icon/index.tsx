@@ -8,10 +8,11 @@ import { Example as AllIcons } from './AllIcons';
 import { Example as CustomIcon } from './CustomIcon';
 import { Example as CreateIcon } from './CreateIcon';
 import { Example as ThirdPartyIcons } from './ThirdPartyIcons';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Icon', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('All Icons', () => <AllIcons />)
   .add('Basic', () => <Basic />)
   .add('Sizes', () => <Sizes />)

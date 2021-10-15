@@ -8,10 +8,11 @@ import { Example as Size } from './size';
 import { Example as Playground } from './withKnob';
 // import {Example as Variant} from './variant';
 // import {Example as Duration} from './duration';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Spinner', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Playground', () => <Playground />)
   .add('Usage', () => <Usage />)
   .add('Color', () => <Color />)

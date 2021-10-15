@@ -12,10 +12,11 @@ import { Example as Customized } from './Customized';
 import { Example as Playground } from './Playground';
 import { Example as Disabled } from './isDisabled';
 import { Example as ReadOnly } from './isReadOnly';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Slider', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Playground', () => <Playground />)
   .add('Usage', () => <Usage />)
   .add('Size', () => <Size />)

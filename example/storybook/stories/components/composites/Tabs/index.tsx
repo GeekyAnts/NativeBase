@@ -12,10 +12,11 @@ import { Example as Size } from './Size';
 import { Example as Colors } from './Colors';
 import { Example as Composition } from './Composition';
 import { Example as Variants } from './Variants';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Tabs', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Usage />)
   .add('Colors', () => <Colors />)
   .add('Size', () => <Size />)

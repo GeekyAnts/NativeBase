@@ -6,10 +6,11 @@ import { Example as CustomizingBase } from './CustomizingBase';
 import { Example as CustomizingTheme } from './CustomizingTheme';
 import { Example as CustomizingVariant } from './CustomizingVariant';
 import { Example as CustomizingComponents } from './CustomizingComponents';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Custom Theme', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => getStory())
+  .addDecorator((getStory: StoryFn) => getStory())
   .add('Basic', () => <Basic />)
   .add('CustomizingTheme', () => <CustomizingTheme />)
   .add('CustomizingComponents', () => <CustomizingComponents />)

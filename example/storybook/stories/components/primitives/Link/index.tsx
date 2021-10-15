@@ -7,10 +7,11 @@ import { Example as ExternalLink } from './ExternalLink';
 import { Example as CustomOnPress } from './CustomOnPress';
 import { Example as UnderlineLink } from './UnderlineLink';
 import { Example as CompositeLink } from './CompositeLink';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Link', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Default Link', () => <DefaultLink />)
   .add('External Link', () => <ExternalLink />)
   .add('Custom Function onPress Link', () => <CustomOnPress />)

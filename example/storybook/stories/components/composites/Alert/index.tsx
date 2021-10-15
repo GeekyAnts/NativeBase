@@ -10,10 +10,11 @@ import { Example as Variant } from './variant';
 import { Example as Status } from './status';
 import { Example as ColorScheme } from './colorScheme';
 import { Example as Action } from './action';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Alert', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   // .add('Playground', () => <Playground />)
   .add('Basic', () => <Basic />)
   .add('Usage', () => <Usage />)

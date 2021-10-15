@@ -7,10 +7,11 @@ import { Example as HiddenFromAndToBreakpoints } from './hiddenFromAndToBreakpoi
 import { Example as HiddenOnColorModes } from './hiddenOnColorModes';
 import { Example as HiddenOnlyOnBreakPoints } from './hiddenOnlyOnBreakPoints';
 import { Example as HiddenOnPlatforms } from './hiddenOnPlatforms';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Hidden', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('HiddenOnColorModes', () => <HiddenOnColorModes />)
   .add('HiddenFromAndToBreakpoints', () => <HiddenFromAndToBreakpoints />)

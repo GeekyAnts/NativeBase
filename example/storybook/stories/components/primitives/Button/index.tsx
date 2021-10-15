@@ -9,10 +9,11 @@ import { Example as Loading } from './loading';
 import { Example as Icons } from './icons';
 import { Example as Composition } from './Composition';
 import Wrapper from './../../Wrapper';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Button', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Variants', () => <Variants />)
   .add('Sizes', () => <Sizes />)

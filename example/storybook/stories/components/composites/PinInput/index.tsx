@@ -10,10 +10,11 @@ import Playground from './Playground';
 import Variants from './Variants';
 import FormControlled from './FormControlled';
 import Placeholder from './Placeholder';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('PinInput', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Playground', () => <Playground />)
   .add('Usage', () => <Usage />)
   .add('Size', () => <Size />)

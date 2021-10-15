@@ -9,10 +9,11 @@ import DefaultValue from './DefaultValue';
 import Playground from './Playground';
 // import Combination from './Combination';
 import MinMax from './MinMax';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('NumberInput', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Playground', () => <Playground />)
   .add('Usage', () => <Usage />)
   .add('DefaultValue', () => <DefaultValue />)

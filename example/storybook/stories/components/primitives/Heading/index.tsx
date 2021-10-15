@@ -7,10 +7,11 @@ import { Example as Sizes } from './Sizes';
 import { Example as Truncate } from './Truncate';
 import { Example as OverridenStyle } from './OverridenStyle';
 import { Example as Composition } from './Composition';
+import type { StoryFn } from '@storybook/addons';
 
 storiesOf('Heading', module)
   .addDecorator(withKnobs)
-  .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
+  .addDecorator((getStory: StoryFn) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic', () => <Basic />)
   .add('Sizes', () => <Sizes />)
   .add('Truncate', () => <Truncate />)
