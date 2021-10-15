@@ -1,11 +1,11 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
-import React from 'react';
+import * as React from 'react';
 import Backdrop from '../Backdrop';
-import Box from '../../primitives/Box';
+import Box, { IBoxProps } from '../../primitives/Box';
 
 type DrawerProps = {
   placement?: 'top' | 'left' | 'right' | 'bottom';
-  children?: any;
+  children?: React.ReactNode;
   isOpen: boolean;
   onClose?: () => void;
 };
@@ -16,8 +16,11 @@ const Drawer = ({
   onClose,
   placement = 'right',
 }: DrawerProps) => {
-  let placementStyles = React.useMemo(() => {
-    let styles: any = {
+  const placementStyles = React.useMemo(() => {
+    const styles: Pick<
+      IBoxProps,
+      'position' | 'top' | 'left' | 'right' | 'bottom' | 'height' | 'width'
+    > = {
       position: 'absolute',
     };
 
