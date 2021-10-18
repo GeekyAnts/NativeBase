@@ -4,6 +4,7 @@ import type { MutableRefObject } from 'react';
 
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
+import type { IScrollViewProps } from '../../basic/ScrollView';
 
 export interface IModalProps extends IBoxProps<IModalProps> {
   /**
@@ -71,7 +72,9 @@ export type IModalComponentType = ((
 ) => JSX.Element) & {
   Body: React.MemoExoticComponent<
     (
-      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+      props: IBoxProps<IModalProps> & { _scrollview?: IScrollViewProps } & {
+        ref?: MutableRefObject<any>;
+      }
     ) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
