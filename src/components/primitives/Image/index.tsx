@@ -76,6 +76,8 @@ const Image = (props: IImageProps, ref: any) => {
   return (
     <StyledImage
       source={renderedSource}
+      accessible={!!alt}
+      accessibilityRole="image"
       accessibilityLabel={alt}
       alt={alt}
       {...resolvedProps}
