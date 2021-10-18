@@ -28,6 +28,10 @@ export interface IRadioProps extends IBoxProps<IRadioProps> {
    */
   isInvalid?: boolean;
   /**
+   * Passed props will be applied on checked state.
+   */
+  _checked?: Omit<Partial<IRadioProps>, '_checked'>;
+  /**
    * 	The size (width and height) of the radio.
    */
 
