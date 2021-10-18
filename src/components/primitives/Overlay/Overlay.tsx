@@ -45,7 +45,7 @@ export function Overlay({
 
   // Since OverlayContainer mounts children in NativeBaseProvider  using Context, we need to pass the context by wrapping children
   return (
-    <OverlayContainer>
+    <OverlayContainer accessibilityViewIsModal>
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         {children}
       </ExitAnimationContext.Provider>
