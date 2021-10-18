@@ -44,6 +44,8 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
 
   return (
     <Pressable
+      accessible={false}
+      importantForAccessibility={'no-hide-descendants'}
       onLayout={onTrackLayout}
       ref={ref}
       {...trackProps}

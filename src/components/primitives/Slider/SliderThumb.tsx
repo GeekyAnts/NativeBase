@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { useSliderThumb } from '@react-native-aria/slider';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { useToken } from '../../../hooks';
@@ -54,6 +54,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
       orientation === 'vertical'
         ? [{ translateY: parseInt(thumbAbsoluteSize) / 2 }]
         : [{ translateX: -parseInt(thumbAbsoluteSize) / 2 }],
+    position: orientation === 'vertical' ? 'absolute' : undefined,
   };
 
   thumbStyles.transform.push({
@@ -64,22 +65,44 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     return null;
   }
 
+  const styles = StyleSheet.create({
+    wrapperHorizontal: {
+      width: '100%',
+    },
+    wrapperVertical: {
+      alignItems: 'center',
+      height: '100%',
+      width: thumbSize,
+    },
+  });
+
   return (
     <Box
+      accessible
+      {...inputProps}
       position="absolute"
-      {...thumbProps}
-      {...resolvedProps}
-      ref={ref}
-      style={[thumbStyles, props.style]}
-      // {...(isReadOnly && _readOnly)}
-      // {...(isDisabled && _disabled)}
+      pointerEvents="box-none"
+      style={
+        orientation !== 'vertical'
+          ? styles.wrapperHorizontal
+          : styles.wrapperVertical
+      }
     >
-      {props.children}
-      {Platform.OS === 'web' && (
-        <VisuallyHidden>
-          <input ref={inputRef} {...inputProps} />
-        </VisuallyHidden>
-      )}
+      <Box
+        {...thumbProps}
+        {...resolvedProps}
+        ref={ref}
+        style={[thumbStyles, props.style]}
+        // {...(isReadOnly && _readOnly)}
+        // {...(isDisabled && _disabled)}
+      >
+        {props.children}
+        {Platform.OS === 'web' && (
+          <VisuallyHidden>
+            <input ref={inputRef} {...inputProps} />
+          </VisuallyHidden>
+        )}
+      </Box>
     </Box>
   );
 }
