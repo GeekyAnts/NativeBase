@@ -1,5 +1,5 @@
 import React, { memo, forwardRef } from 'react';
-import { Box, IBoxProps } from '../../primitives';
+import Box, { IBoxProps } from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ResponsiveValue } from '../../../components/types';

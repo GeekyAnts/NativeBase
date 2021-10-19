@@ -6,7 +6,7 @@ import type { IAlertProps } from './types';
 import { AlertContext } from './Context';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Alert = ({ children, ...props }: IAlertProps, ref?: any) => {
+const Alert = ({ ...props }: IAlertProps, ref?: any) => {
   const {
     status,
     variant,
@@ -27,9 +27,7 @@ const Alert = ({ children, ...props }: IAlertProps, ref?: any) => {
         colorScheme,
       }}
     >
-      <Box {...newProps} ref={ref}>
-        {children}
-      </Box>
+      <Box {...newProps} ref={ref} />
     </AlertContext.Provider>
   );
 };

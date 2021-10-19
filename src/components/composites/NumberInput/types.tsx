@@ -1,4 +1,6 @@
-import type { IInputProps, IBoxProps, IStackProps } from '../../primitives';
+import type { IInputProps } from '../../primitives/Input';
+import type { IBoxProps } from '../../primitives/Box';
+import type { IStackProps } from '../../primitives/Stack';
 
 export type INumberInputProps = IInputProps &
   IBoxProps<INumberInputProps> & {

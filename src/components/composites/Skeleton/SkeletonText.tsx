@@ -40,9 +40,7 @@ const SkeletonText = (
     } else
       computedChildren.push(
         <Skeleton
-          borderRadius={
-            resolvedProps.borderRadius ? resolvedProps.borderRadius : 3
-          }
+          rounded={resolvedProps.borderRadius ? resolvedProps.borderRadius : 3}
           endColor={endColor}
           startColor={startColor}
           h={lineHeight}
@@ -53,7 +51,7 @@ const SkeletonText = (
     children
   ) : (
     <Box
-      borderRadius={resolvedProps.borderRadius ? resolvedProps.borderRadius : 3}
+      rounded={resolvedProps.borderRadius ? resolvedProps.borderRadius : 3}
       bg={'transparent'}
       {...resolvedProps}
       ref={ref}

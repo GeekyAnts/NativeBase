@@ -1,5 +1,7 @@
 import type { IHStackProps } from '../../primitives/Stack/HStack';
-import type { ITextProps, ILinkProps, IIconProps } from '../../primitives';
+import type { ITextProps } from '../../primitives/Text';
+import type { ILinkProps } from '../../primitives/Link';
+import type { IIconProps } from '../../primitives/Icon';
 import type { MutableRefObject } from 'react';
 import type { SpaceType } from '../../types';
 export interface IBreadcrumbItemContext {

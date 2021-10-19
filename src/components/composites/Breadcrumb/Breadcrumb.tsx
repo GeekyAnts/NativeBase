@@ -2,11 +2,11 @@ import React, { memo, forwardRef } from 'react';
 import { AccessibilityRole, Platform } from 'react-native';
 import { HStack } from '../../primitives/Stack';
 import { useControllableState } from '../../../hooks';
-import { Pressable } from 'native-base';
+import { Pressable } from '../../primitives/Pressable';
 import type { IBreadcrumbProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps/usePropsResolution';
 import Text from '../../primitives/Text';
-import type { IFlexProps } from '../../primitives';
+import type { IFlexProps } from '../../primitives/Flex';
 import { ThreeDotsIcon } from '../../primitives/Icon/Icons';
 
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
@@ -106,7 +106,7 @@ const getBreadcrumbSeparator = (
     let result: any = [];
     if (maxItems) {
       let buttonAdded = false;
-      if (typeof maxItems == 'number') {
+      if (typeof maxItems === 'number') {
         // When MaxItems is a number
         if (children.length > 2 * maxItems) {
           for (let i = 0; i < children.length; i++) {
@@ -125,7 +125,7 @@ const getBreadcrumbSeparator = (
         }
       }
       // Whem maxItems is an array
-      else if (typeof maxItems == 'object') {
+      else if (typeof maxItems === 'object') {
         if (children.length > maxItems[0] + maxItems[1])
           for (let i = 0; i < children.length; i++) {
             if (i < maxItems[0] || i >= children.length - maxItems[1]) {

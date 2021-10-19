@@ -1,4 +1,5 @@
-import type { IBoxProps, IStackProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives/Box';
+import type { IStackProps } from '../../primitives/Stack';
 
 export interface IFormControlProps extends IBoxProps<IFormControlProps> {
   /**

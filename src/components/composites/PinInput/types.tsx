@@ -1,5 +1,5 @@
 import type { MutableRefObject } from 'react';
-import type { IInputProps } from '../../primitives';
+import type { IInputProps } from '../../primitives/Input';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 

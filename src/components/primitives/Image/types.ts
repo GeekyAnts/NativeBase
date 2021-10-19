@@ -1,6 +1,6 @@
 import type { ImageProps, ImageSourcePropType } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { ITextProps } from '../../primitives';
+import type { ITextProps } from '../../primitives/Text';
 import type { PlatformProps } from '../../types';
 
 export interface IImageProps

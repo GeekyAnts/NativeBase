@@ -1,5 +1,5 @@
 import React, { memo, forwardRef } from 'react';
-import { Box } from '../../primitives';
+import Box from '../../primitives/Box';
 import {
   WarningIcon,
   WarningTwoIcon,

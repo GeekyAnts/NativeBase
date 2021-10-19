@@ -1,5 +1,6 @@
 import type { MutableRefObject } from 'react';
-import type { IBoxProps, IIconProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives/Box';
+import type { IIconProps } from '../../primitives/Icon';
 import type { VariantType } from '../../types';
 
 export interface IAlertProps extends IBoxProps<IAlertProps> {

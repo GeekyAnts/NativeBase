@@ -1,5 +1,5 @@
 import type { VariantType } from '../../types';
-import type { IBoxProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives/Box';
 
 export interface IBadgeProps extends IBoxProps<IBadgeProps> {
   /**

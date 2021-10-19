@@ -1,6 +1,7 @@
 import type { RefObject } from 'react';
 import type { ViewProps } from 'react-native';
-import type { IBoxProps, IIconProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives/Box';
+import type { IIconProps } from '../../primitives/Icon';
 
 export type ITabsProps = IBoxProps<ITabsProps> & {
   align?: 'center' | 'end' | 'start';

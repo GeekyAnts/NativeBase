@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
-import { VStack, Box } from '../../primitives';
+import Box from '../../primitives/Box';
+import { VStack } from '../../primitives/Stack';
 import { useThemeProps } from '../../../hooks';
 import type { INumberInputSteppersProps, INumberInputContext } from './types';
 import { NumberInputContext } from './Context';

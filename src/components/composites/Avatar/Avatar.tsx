@@ -1,5 +1,7 @@
 import React, { memo, forwardRef } from 'react';
-import { Box, Image, Text } from '../../primitives';
+import Box from '../../primitives/Box';
+import Image from '../../primitives/Image';
+import Text from '../../primitives/Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';

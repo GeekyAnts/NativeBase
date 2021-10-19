@@ -1,5 +1,6 @@
 import type { MutableRefObject } from 'react';
-import type { IBoxProps, ITextProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives/Box';
+import type { ITextProps } from '../../primitives/Text';
 import type { IStackProps } from '../../primitives/Stack/Stack';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';

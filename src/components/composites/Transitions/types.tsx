@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ViewProps } from 'react-native';
-import type { IBoxProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives/Box';
 
 export type IFadeProps = IBoxProps<IFadeProps> & {
   in?: boolean;

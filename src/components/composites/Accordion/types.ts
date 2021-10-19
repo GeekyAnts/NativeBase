@@ -1,4 +1,5 @@
-import type { IBoxProps, IIconProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives/Box';
+import type { IIconProps } from '../../primitives/Icon';
 import type { ICollapseProps } from '../../composites/Collapse';
 import type { MutableRefObject } from 'react';
 

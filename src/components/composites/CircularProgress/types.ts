@@ -1,4 +1,5 @@
-import type { IBoxProps, ITextProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives/Box';
+import type { ITextProps } from '../../primitives/Text';
 import type { ViewStyle } from 'react-native';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';

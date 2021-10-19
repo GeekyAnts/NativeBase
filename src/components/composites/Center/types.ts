@@ -1,4 +1,4 @@
-import type { IBoxProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives/Box';
 
 export interface ICenterProps extends IBoxProps<ICenterProps> {}
 export type ICircleProps = IBoxProps<ICircleProps> & { size?: number | string };

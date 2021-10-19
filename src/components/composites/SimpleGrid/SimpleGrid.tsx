@@ -1,5 +1,7 @@
 import React from 'react';
-import { Box, HStack, VStack } from '../../primitives';
+import Box from '../../primitives/Box';
+import { HStack } from '../../primitives/Stack';
+import { VStack } from '../../primitives/Stack';
 import type { ISimpleGridProps } from './types';
 // const isDebug = process.env.NODE_ENV !== 'production';
 import { useThemeProps } from '../../../hooks/useThemeProps';
@@ -33,14 +35,14 @@ const SimpleGrid = (props: ISimpleGridProps, ref?: any): JSX.Element => {
   if (useHasResponsiveProps(props)) {
     return <></>;
   }
-  let cellSpacing = space ?? 0;
-  let cellSpacingX = spacingX ?? cellSpacing;
-  let cellSpacingY = spacingY ?? cellSpacing;
+  const cellSpacing = space ?? 0;
+  const cellSpacingX = spacingX ?? cellSpacing;
+  const cellSpacingY = spacingY ?? cellSpacing;
 
   const childrenArray = React.Children.toArray(children);
 
   if (columns) {
-    let rowSlices = [];
+    const rowSlices = [];
     for (let i = 0; i < childrenArray.length; i = i + columns) {
       rowSlices.push(childrenArray.slice(i, i + columns));
     }

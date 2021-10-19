@@ -1,7 +1,7 @@
 import isNil from 'lodash.isnil';
 import React, { useEffect, useRef, forwardRef } from 'react';
 import { ViewStyle, LayoutAnimation, UIManager, Platform } from 'react-native';
-import { Box, IBoxProps } from '../../primitives';
+import Box, { IBoxProps } from '../../primitives/Box';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export type ICollapseProps = IBoxProps<ICollapseProps> & {
@@ -66,11 +66,11 @@ const Collapse = (
     animatedStyle = {
       height: isOpen ? endingHeight : defaultStartHeight,
     };
-    let callback = onAnimationEnd ? onAnimationEnd : () => {};
+    const callback = onAnimationEnd ? onAnimationEnd : () => {};
     LayoutAnimation.configureNext(CustomLayoutLinear, callback());
   };
 
-  let wasOpen = usePrevious(isOpen);
+  const wasOpen = usePrevious(isOpen);
   if (!isNil(wasOpen.value) && wasOpen.value !== isOpen) {
     animateView();
     wasOpen.updatePrevious(isOpen);
@@ -96,7 +96,7 @@ const Collapse = (
       <Box
         //@ts-ignore
         overflow={Platform.OS === 'web' ? 'auto' : 'scroll'}
-        onLayout={(e) => provideSize(e.nativeEvent.layout)}
+        onLayout={(e:any) => provideSize(e.nativeEvent.layout)}
         {...props}
       />
     </Box>

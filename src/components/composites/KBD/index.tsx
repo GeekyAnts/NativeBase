@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '../../primitives';
+import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks';
 import type { IKbdProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';

@@ -1,5 +1,5 @@
-import type { IBoxProps } from '../../primitives';
-import type { IFormControlContext } from '../../composites';
+import type { IBoxProps } from '../../primitives/Box';
+import type { IFormControlContext } from '../../composites/FormControl';
 import type { AccessibilityRole } from 'react-native';
 import type { RadioGroupState } from '@react-stately/radio';
 import type { MutableRefObject } from 'react';

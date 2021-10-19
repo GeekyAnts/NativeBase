@@ -1,4 +1,4 @@
-import { Box } from '../../primitives';
+import Box from '../../primitives/Box';
 import { CheckIcon } from '../../primitives/Icon/Icons';
 import React from 'react';
 
