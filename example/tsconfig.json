@@ -12,6 +12,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true
-  }
-  // "exclude": ["storybook"]
+  },
+  "extends": "expo/tsconfig.base"
 }
