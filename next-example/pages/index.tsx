@@ -1,6 +1,6 @@
 import React from 'react';
 import type { NextPage } from 'next';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { Box } from 'native-base';
 
 const Home: NextPage = () => {
