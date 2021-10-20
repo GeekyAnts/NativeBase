@@ -89,6 +89,9 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
       );
     }
   }
+
+  if (safeAreaProps?.flex?.base) { safeAreaProps.flex = 1 }
+
   return (
     <StyledBox ref={ref} {...safeAreaProps}>
       {React.Children.map(children, (child) => {
