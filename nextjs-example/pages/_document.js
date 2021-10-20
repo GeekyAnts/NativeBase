@@ -1,2 +1,2 @@
-// @generated: @expo/next-adapter@3.1.3
+// @generated: @expo/next-adapter@2.1.52
 export { default } from '@expo/next-adapter/document';

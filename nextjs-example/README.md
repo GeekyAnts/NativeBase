@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Next.js Example](https://www.nextjs.org/)
 
-## Getting Started
+<p>
+  <!-- Web -->
+  <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
+</p>
 
-First, run the development server:
+Using Next.js with Expo will enable you to [server side render](https://nextjs.org/features/server-side-rendering) the web part of your Expo app. This demo shows you how to setup your universal application to use use advanced universal modules from the Expo SDK like Camera, Gestures, Permissions, etc... with the Next.js tool-chain!
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+> 🚨 SSR is an experimental feature with Expo so modules might not be fully optimized for Next.js. If you find bugs please report them on the [Expo repo](https://github.com/expo/expo/issues) or [expo-cli repo](https://github.com/expo/expo-cli/issues) with the `[nextjs]` tag in the title.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### ⚽️ Running in the browser
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+For the most updated guide you should refer to the Expo docs: [Using Next.js](https://docs.expo.dev/versions/latest/guides/using-nextjs/). Here are the [latest docs on master](https://github.com/expo/expo/blob/master/docs/pages/guides/using-nextjs.md).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+In this approach you would be using SSR for web in your universal project. This is the recommended path because it gives you full access to the features of Expo and Next.js.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Bootstrap your project with Expo
+  - Install the CLI: `npm i -g expo-cli`
+  - Create a project: `expo init --template blank`
+  - `cd` into the project
+- Install the adapter:
+  - **yarn:** `yarn add @expo/next-adapter`
+  - npm: `npm i --save @expo/next-adapter`
+- Add Next.js support: `yarn next-expo`
+  - Always commit your changes first!
+  - You can optionally choose which customizations you want to do with `--customize or -c`
+  - Force reload changes with `--force or -f`
+- Start the project with `yarn next dev`
+  - Go to `http://localhost:3000/` to see your project!
 
-## Learn More
+### 🏁 New Commands
 
-To learn more about Next.js, take a look at the following resources:
+- **Starting web**
+  - 🚫 `expo start:web`
+  - ✅ `yarn next dev`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Building web**
+  - 🚫 `expo build:web`
+  - ✅ `yarn next build`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 👀 More Info
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Next Adapter repo](https://github.com/expo/expo-cli/tree/master/packages/next-adapter)
