@@ -347,14 +347,23 @@
 //   IScrollViewProps,
 // };
 
-export { ITheme, ICustomTheme } from './theme';
+// export * from './components/basic';
+// export * from './components/composites';
+// export * from './components/primitives';
+// export * from './components/';
 
 // export { NativeBaseProvider } from './core/NativeBaseProvider';
-export { View } from './components/basic/View';
+export { View } from './components/basic/View/View';
+export { FlatList } from './components/basic/FlatList/FlatList';
+export { ScrollView } from './components/basic/ScrollView/ScrollView';
+export { KeyboardAvoidingView } from './components/basic/KeyboardAvoidingView/KeyboardAvoidingView';
+export { SectionList } from './components/basic/SectionList/SectionList';
+export { StatusBar } from './components/basic/StatusBar/StatusBar';
 
-export * from './components/primitives/Icon/Icons';
+// export * from './components/primitives/Icon/Icons';
+export type { ITheme, ICustomTheme } from './theme';
 export * from './theme';
 export * from './core';
-// export * from './hooks';
+export * from './hooks';
 export * from './factory';
-// export * from './theme/v3-compatible-theme';
+export * from './theme/v3-compatible-theme';
