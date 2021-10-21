@@ -5,7 +5,7 @@ import { Box } from 'native-base';
 
 const Home: NextPage = () => {
   return (
-    <Box bg={{ base: 'gray.500', md: 'white', lg: 'pink.800' }}>
+    <Box bg={{ sm: 'black', md: 'pink.800' }} width={[10, 200]}>
       <Text>hi</Text>
     </Box>
   );

@@ -564,7 +564,7 @@ const extraProps = {
   overflow: true,
 } as const;
 
-const propConfig = {
+export const propConfig = {
   ...color,
   ...space,
   ...layout,
@@ -590,82 +590,13 @@ const convertStringNumberToNumber = (key: string, value: string) => {
 
   return value;
 };
-// [1, 2, 3]
-// {base: 1, md: 2}
-const generateResponsiveQuery = ({
-  value,
-  theme,
-
-  config,
-  key,
-  props,
-  currentBreakpoint,
-}: {
-  value: Record<string, any> | Array<any>;
-  theme: ITheme;
-
-  config: any;
-  key: any;
-  props: any;
-  currentBreakpoint: any;
-}) => {
-  let query: UseResponsiveQueryParams = { query: [] };
-  const orderedBreakPoints = Object.entries(theme.breakpoints).sort(
-    (a, b) => a[1] - b[1]
-  );
-
-  if (Array.isArray(value)) {
-    for (let i = 0; i < value.length; i++) {
-      const style = getRNKeyAndStyleValue({
-        config,
-        value: value[i],
-        key,
-        theme,
-        props,
-        currentBreakpoint,
-      });
-
-      if (i === 0) {
-        query.initial = style;
-      } else {
-        query.query.push({
-          minWidth: orderedBreakPoints[i][1],
-          style,
-        });
-      }
-    }
-  } else {
-    for (const [breakpointKey, width] of orderedBreakPoints) {
-      const style = getRNKeyAndStyleValue({
-        config,
-        value: value[breakpointKey],
-        key,
-        theme,
-        props,
-        currentBreakpoint,
-      });
-
-      if (breakpointKey === 'base' && 'base' in value) {
-        query.initial = style;
-      } else {
-        if (typeof width === 'number' && breakpointKey in value) {
-          query.query.push({
-            minWidth: width,
-            style,
-          });
-        }
-      }
-    }
-  }
-  return query;
-};
 
 const getRNKeyAndStyleValue = ({
   config,
   value,
   key,
   theme,
-  props,
+  styledSystemProps,
   currentBreakpoint,
 }: any) => {
   let style: any = {};
@@ -680,7 +611,7 @@ const getRNKeyAndStyleValue = ({
     let val = value;
 
     if (transformer) {
-      val = transformer(val, theme[scale], theme, props.fontSize);
+      val = transformer(val, theme[scale], theme, styledSystemProps.fontSize);
     } else {
       // If a token is not found in the theme
       val = get(theme[scale], value, value);
@@ -691,7 +622,7 @@ const getRNKeyAndStyleValue = ({
         val = parseFloat(val);
       } else if (val.endsWith('em') && Platform.OS !== 'web') {
         const fontSize = resolveValueWithBreakpoint(
-          props.fontSize,
+          styledSystemProps.fontSize,
           theme.breakpoints,
           currentBreakpoint,
           key
@@ -734,77 +665,97 @@ export const getStyleAndFilteredProps = ({
   debug,
   currentBreakpoint,
   getResponsiveStyles,
-  ...props
+  styledSystemProps,
 }: any) => {
   let styleFromProps: any = {};
-  let restProps: any = {};
-  for (const key in props) {
-    const rawValue = props[key];
+  let dataSet: any = {};
+  let responsiveStyles: null | Record<
+    keyof typeof theme.breakpoints,
+    Array<any>
+  > = null;
 
-    if (key in propConfig) {
-      const config = propConfig[key as keyof typeof propConfig];
+  const orderedBreakPoints = Object.entries(
+    theme.breakpoints as ITheme['breakpoints']
+  ).sort((a, b) => a[1] - b[1]);
 
-      if (
-        hasValidBreakpointFormat(rawValue, theme.breakpoints) &&
-        Platform.OS === 'web'
-      ) {
-        const value = rawValue;
-        const query = generateResponsiveQuery({
-          config,
-          value,
-          key,
-          props,
-          theme,
-          currentBreakpoint,
+  for (const key in styledSystemProps) {
+    const rawValue = styledSystemProps[key];
+
+    const config = propConfig[key as keyof typeof propConfig];
+
+    if (hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
+      if (!responsiveStyles) responsiveStyles = {};
+
+      const value = rawValue;
+      if (Array.isArray(value)) {
+        value.forEach((v, i) => {
+          if (!responsiveStyles[orderedBreakPoints[i][0]]) {
+            responsiveStyles[orderedBreakPoints[i][0]] = [];
+          }
+          const newStyle = getRNKeyAndStyleValue({
+            config,
+            value: v,
+            key,
+            styledSystemProps,
+            theme,
+            currentBreakpoint,
+          });
+          responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
         });
-        const { dataSet, styles } = getResponsiveStyles(query);
-        if (!restProps.dataSet) {
-          restProps.dataSet = dataSet;
-        } else {
-          let updated = false;
-
-          for (let key in restProps.dataSet) {
-            if (key in dataSet) {
-              updated = true;
-              restProps.dataSet[key] =
-                restProps.dataSet[key] + ' ' + dataSet[key];
-            }
-          }
-
-          if (!updated) {
-            restProps.dataSet = {
-              ...restProps.dataSet,
-              ...dataSet,
-            };
-          }
-        }
-
-        styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
       } else {
-        const value = resolveValueWithBreakpoint(
-          rawValue,
-          theme.breakpoints,
-          currentBreakpoint,
-          key
-        );
-
-        const newStyle = getRNKeyAndStyleValue({
-          config,
-          value,
-          key,
-          props,
-          theme,
-          currentBreakpoint,
-        });
-
-        styleFromProps = {
-          ...styleFromProps,
-          ...newStyle,
-        };
+        for (const k in value) {
+          const newStyle = getRNKeyAndStyleValue({
+            config,
+            value: value[k],
+            key,
+            styledSystemProps,
+            theme,
+            currentBreakpoint,
+          });
+          if (!responsiveStyles[k]) {
+            responsiveStyles[k] = [];
+          }
+          responsiveStyles[k].push(newStyle);
+        }
       }
     } else {
-      restProps[key] = rawValue;
+      const value = rawValue;
+      const newStyle = getRNKeyAndStyleValue({
+        config,
+        value,
+        key,
+        styledSystemProps,
+        theme,
+        currentBreakpoint,
+      });
+
+      styleFromProps = {
+        ...styleFromProps,
+        ...newStyle,
+      };
     }
+  }
+
+  if (responsiveStyles) {
+    const query: UseResponsiveQueryParams = { query: [] };
+    orderedBreakPoints.forEach((o) => {
+      const key = o[0];
+      if (key === 'base') {
+        if (responsiveStyles) query.initial = responsiveStyles.base;
+      } else {
+        if (responsiveStyles)
+          if (key in responsiveStyles) {
+            query.query.push({
+              minWidth: o[1],
+              style: responsiveStyles[key],
+            });
+          }
+      }
+    });
+
+    const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
+    dataSet = { ...dataSet, ...newDataSet };
+    styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
   }
 
   if (debug) {
@@ -812,14 +763,13 @@ export const getStyleAndFilteredProps = ({
     console.log('style ', debug + ' :: ', {
       styleFromProps,
       style,
-      props,
-      restProps,
+      styledSystemProps,
     });
   }
 
   return {
     styleSheet: StyleSheet.create({ box: styleFromProps }),
-    restProps,
+    dataSet,
   };
 };
 
