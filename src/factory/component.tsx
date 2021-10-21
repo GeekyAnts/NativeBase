@@ -14,7 +14,10 @@ export default function Factory<P>(
       const StyledComponent = makeStyledComponent(
         Component as AnyStyledComponent
       );
-      const calculatedProps = usePropsWithComponentTheme(componentTheme, props);
+      const calculatedProps = usePropsWithComponentTheme(
+        componentTheme ?? {},
+        props
+      );
       return (
         <StyledComponent {...(calculatedProps as P)} ref={ref}>
           {children}

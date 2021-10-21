@@ -6,7 +6,7 @@ import type { StyledProps } from '../theme/types';
 import type { ColorModeOptions } from './../core/color-mode/types';
 export interface ComponentTheme {
   baseStyle?: (props: any) => StyledProps | StyledProps;
-  sizes?: Record<string, StyledProps>;
+  sizes?: Record<string, ((props: any) => StyledProps) | StyledProps>;
   variants?: Record<string, ((props: any) => StyledProps) | StyledProps>;
   defaultProps?: Record<string, any>;
 }
