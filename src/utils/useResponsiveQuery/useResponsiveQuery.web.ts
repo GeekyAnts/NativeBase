@@ -128,47 +128,50 @@ const getResponsiveStyles = (
 
   let dataSet: DataSet = {};
 
-  queries.query.forEach((queryRule) => {
-    const queryHash = queriesHash + hash(stableHash(queryRule));
-    const dataAttribute = getDataAttribute(queryRule);
+  if (queries.query) {
+    queries.query.forEach((queryRule) => {
+      const queryHash = queriesHash + hash(stableHash(queryRule));
+      const dataAttribute = getDataAttribute(queryRule);
 
-    if (dataAttribute) {
-      const newIdentifier = `[data-${dataAttribute}*="${queryHash}"]`;
-      dataSet[dataAttribute] = queryHash;
+      if (dataAttribute) {
+        const newIdentifier = `[data-${dataAttribute}$="${queryHash}"]`;
+        dataSet[dataAttribute] = queryHash;
 
-      let mediaRules = '';
+        let mediaRules = '';
 
-      const flattenQueryStyle = StyleSheet.flatten(queryRule.style);
-      const newStyle = createCompileableStyle(i18nStyle(flattenQueryStyle));
-      const results = atomic(newStyle);
+        const flattenQueryStyle = StyleSheet.flatten(queryRule.style);
+        const newStyle = createCompileableStyle(i18nStyle(flattenQueryStyle));
+        const results = atomic(newStyle);
 
-      Object.keys(results).forEach((key) => {
-        const oldIdentifier = results[key].identifier;
+        Object.keys(results).forEach((key) => {
+          const oldIdentifier = results[key].identifier;
 
-        if (process.env.NODE_ENV !== 'production') {
-          dataSet[dataAttribute] = oldIdentifier + ' ' + dataSet[dataAttribute];
-        }
+          if (process.env.NODE_ENV !== 'production') {
+            dataSet[dataAttribute] =
+              oldIdentifier + ' ' + dataSet[dataAttribute];
+          }
 
-        results[key].rules.forEach((oldRule: string) => {
-          // Rule returned by atomic has css selectors, so we'll replace it with data-attr selector
-          const newRule = oldRule.replace('.' + oldIdentifier, newIdentifier);
-          mediaRules += newRule;
+          results[key].rules.forEach((oldRule: string) => {
+            // Rule returned by atomic has css selectors, so we'll replace it with data-attr selector
+            const newRule = oldRule.replace('.' + oldIdentifier, newIdentifier);
+            mediaRules += newRule;
+          });
         });
-      });
 
-      if (mediaRules) {
-        const mediaQueryRule = getMediaQueryRule(queryRule, mediaRules);
+        if (mediaRules) {
+          const mediaQueryRule = getMediaQueryRule(queryRule, mediaRules);
 
-        // Here by prepending the /*${queryHash}{}*/ comment, we're kind of tricking the regex used by rn-web to verify if a rule is inserted or not.
-        // Looks safe to me, just need to keep a check if there are any implementation changes in createStyleSheet file in rn-web in future.
-        // Second argument defines the order of the insertion. DataSet and class selectors have same CSS specificity so we need to make sure that media rules have higher precedence. Max precendence in RN web is around 2.2 so 3 ensures styles will be appended later
-        styleResolver.sheet.insert(
-          `/*${queryHash}{}*/${mediaQueryRule}`,
-          MEDIA_QUERY_STYLESHEET_GROUP
-        );
+          // Here by prepending the /*${queryHash}{}*/ comment, we're kind of tricking the regex used by rn-web to verify if a rule is inserted or not.
+          // Looks safe to me, just need to keep a check if there are any implementation changes in createStyleSheet file in rn-web in future.
+          // Second argument defines the order of the insertion. DataSet and class selectors have same CSS specificity so we need to make sure that media rules have higher precedence. Max precendence in RN web is around 2.2 so 3 ensures styles will be appended later
+          styleResolver.sheet.insert(
+            `/*${queryHash}{}*/${mediaQueryRule}`,
+            MEDIA_QUERY_STYLESHEET_GROUP
+          );
+        }
       }
-    }
-  });
+    });
+  }
 
   return { styles, dataSet };
 };

@@ -22,7 +22,7 @@ import {
   getClosestBreakpoint,
   platformSpecificSpaceUnits,
 } from '../theme/tools/utils';
-import { ResponsiveQueryProvider } from 'src/utils/useResponsiveQuery';
+import { ResponsiveQueryProvider } from '../utils/useResponsiveQuery';
 
 // For SSR to work, we need to pass initial insets as 0 values on web.
 

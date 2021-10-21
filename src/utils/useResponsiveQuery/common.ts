@@ -16,37 +16,39 @@ export const getResponsiveStylesImpl = (width: number) => (
         ]
       : [];
 
-    queries.query.forEach((queryRule) => {
-      if (queryRule.style) {
-        const flattenQueryStyle = StyleSheet.flatten(queryRule.style);
+    if (queries.query) {
+      queries.query.forEach((queryRule) => {
+        if (queryRule.style) {
+          const flattenQueryStyle = StyleSheet.flatten(queryRule.style);
 
-        if (
-          typeof queryRule.maxWidth === 'number' &&
-          typeof queryRule.minWidth === 'number'
-        ) {
-          if (width >= queryRule.minWidth && width <= queryRule.maxWidth) {
-            styles.push(
-              StyleSheet.create({ rangeStyle: flattenQueryStyle }).rangeStyle
-            );
-          }
-        } else if (typeof queryRule.minWidth === 'number') {
-          if (width >= queryRule.minWidth) {
-            styles.push(
-              StyleSheet.create({ minWidthStyle: flattenQueryStyle })
-                .minWidthStyle
-            );
-          }
-        } else if (typeof queryRule.maxWidth === 'number') {
-          if (width <= queryRule.maxWidth) {
-            styles.push(
-              StyleSheet.create({ maxWidthStyle: flattenQueryStyle })
-                .maxWidthStyle
-            );
+          if (
+            typeof queryRule.maxWidth === 'number' &&
+            typeof queryRule.minWidth === 'number'
+          ) {
+            if (width >= queryRule.minWidth && width <= queryRule.maxWidth) {
+              styles.push(
+                StyleSheet.create({ rangeStyle: flattenQueryStyle }).rangeStyle
+              );
+            }
+          } else if (typeof queryRule.minWidth === 'number') {
+            if (width >= queryRule.minWidth) {
+              styles.push(
+                StyleSheet.create({ minWidthStyle: flattenQueryStyle })
+                  .minWidthStyle
+              );
+            }
+          } else if (typeof queryRule.maxWidth === 'number') {
+            if (width <= queryRule.maxWidth) {
+              styles.push(
+                StyleSheet.create({ maxWidthStyle: flattenQueryStyle })
+                  .maxWidthStyle
+              );
+            }
           }
         }
-      }
-    });
-    return { styles };
+      });
+      return { styles };
+    }
   }
 
   return {};

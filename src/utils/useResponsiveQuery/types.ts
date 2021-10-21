@@ -10,13 +10,16 @@ export type Query = {
 
 export type UseResponsiveQueryParams = {
   initial?: StyleSheetStyle | StyleSheetStyle[];
-  query: Query[];
+  query?: Query[];
   disableCSSMediaQueries?: boolean;
 };
 
 export type DataSet = { [key: string]: string };
 
-export type GetResponsiveStylesParams = UseResponsiveQueryParams;
+export type GetResponsiveStylesParams = Omit<
+  UseResponsiveQueryParams,
+  'disableCSSMediaQueries'
+>;
 
 export type GetResponsiveStylesReturnType = {
   styles?: StyleSheetStyle[];

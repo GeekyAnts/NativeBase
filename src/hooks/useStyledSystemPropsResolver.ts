@@ -32,9 +32,7 @@ export const useStyledSystemPropsResolver = ({
   );
   const strictMode = config.strictMode;
 
-  const { getResponsiveStyles } = useResponsiveQuery({
-    disableCSSMediaQueries: true,
-  });
+  const { getResponsiveStyles } = useResponsiveQuery();
 
   const { styledSystemProps, restProps } = getStyledSystemPropsAndRestProps(
     props
