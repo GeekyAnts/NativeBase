@@ -2,7 +2,7 @@ import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
 import { useTheme } from './useTheme';
 import React from 'react';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
-import { useResponsiveQuery } from '../utils/react-native-responsive-query';
+import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 //@ts-ignore
 import stableHash from 'stable-hash';
 
@@ -32,7 +32,9 @@ export const useStyledSystemPropsResolver = ({
   );
   const strictMode = config.strictMode;
 
-  const { getResponsiveStyles } = useResponsiveQuery();
+  const { getResponsiveStyles } = useResponsiveQuery({
+    disableCSSMediaQueries: true,
+  });
 
   const { styledSystemProps, restProps } = getStyledSystemPropsAndRestProps(
     props

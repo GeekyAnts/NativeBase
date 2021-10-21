@@ -3,7 +3,7 @@ import get from 'lodash.get';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
 import { hasValidBreakpointFormat, transparentize } from './tools';
 import type { ITheme } from '.';
-import type { UseResponsiveQueryParams } from '../utils/react-native-responsive-query';
+import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
@@ -689,7 +689,9 @@ export const getStyleAndFilteredProps = ({
       const value = rawValue;
       if (Array.isArray(value)) {
         value.forEach((v, i) => {
+          //@ts-ignore
           if (!responsiveStyles[orderedBreakPoints[i][0]]) {
+            //@ts-ignore
             responsiveStyles[orderedBreakPoints[i][0]] = [];
           }
           const newStyle = getRNKeyAndStyleValue({
@@ -700,6 +702,7 @@ export const getStyleAndFilteredProps = ({
             theme,
             currentBreakpoint,
           });
+          //@ts-ignore
           responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
         });
       } else {
