@@ -1,9 +1,9 @@
 import { Platform, StyleSheet } from 'react-native';
 import get from 'lodash.get';
-import has from 'lodash.has';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
-import { transparentize } from './tools';
-import { strictModeLogger } from '../core/StrictMode';
+import { hasValidBreakpointFormat, transparentize } from './tools';
+import type { ITheme } from '.';
+import type { UseResponsiveQueryParams } from '../utils/react-native-responsive-query';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
@@ -590,107 +590,217 @@ const convertStringNumberToNumber = (key: string, value: string) => {
 
   return value;
 };
+// [1, 2, 3]
+// {base: 1, md: 2}
+const generateResponsiveQuery = ({
+  value,
+  theme,
+
+  config,
+  key,
+  props,
+  currentBreakpoint,
+}: {
+  value: Record<string, any> | Array<any>;
+  theme: ITheme;
+
+  config: any;
+  key: any;
+  props: any;
+  currentBreakpoint: any;
+}) => {
+  let query: UseResponsiveQueryParams = { query: [] };
+  const orderedBreakPoints = Object.entries(theme.breakpoints).sort(
+    (a, b) => a[1] - b[1]
+  );
+
+  if (Array.isArray(value)) {
+    for (let i = 0; i < value.length; i++) {
+      const style = getRNKeyAndStyleValue({
+        config,
+        value: value[i],
+        key,
+        theme,
+        props,
+        currentBreakpoint,
+      });
+
+      if (i === 0) {
+        query.initial = style;
+      } else {
+        query.query.push({
+          minWidth: orderedBreakPoints[i][1],
+          style,
+        });
+      }
+    }
+  } else {
+    for (const [breakpointKey, width] of orderedBreakPoints) {
+      const style = getRNKeyAndStyleValue({
+        config,
+        value: value[breakpointKey],
+        key,
+        theme,
+        props,
+        currentBreakpoint,
+      });
+
+      if (breakpointKey === 'base' && 'base' in value) {
+        query.initial = style;
+      } else {
+        if (typeof width === 'number' && breakpointKey in value) {
+          query.query.push({
+            minWidth: width,
+            style,
+          });
+        }
+      }
+    }
+  }
+  return query;
+};
+
+const getRNKeyAndStyleValue = ({
+  config,
+  value,
+  key,
+  theme,
+  props,
+  currentBreakpoint,
+}: any) => {
+  let style: any = {};
+  if (config === true) {
+    style = {
+      ...style,
+      [key]: convertStringNumberToNumber(key, value),
+    };
+  } else if (config) {
+    //@ts-ignore
+    const { property, scale, properties, transformer } = config;
+    let val = value;
+
+    if (transformer) {
+      val = transformer(val, theme[scale], theme, props.fontSize);
+    } else {
+      // If a token is not found in the theme
+      val = get(theme[scale], value, value);
+    }
+
+    if (typeof val === 'string') {
+      if (val.endsWith('px')) {
+        val = parseFloat(val);
+      } else if (val.endsWith('em') && Platform.OS !== 'web') {
+        const fontSize = resolveValueWithBreakpoint(
+          props.fontSize,
+          theme.breakpoints,
+          currentBreakpoint,
+          key
+        );
+        val =
+          parseFloat(val) *
+          parseFloat(get(theme.fontSizes, fontSize, fontSize));
+      }
+    }
+
+    val = convertStringNumberToNumber(key, val);
+
+    if (properties) {
+      //@ts-ignore
+      properties.forEach((property) => {
+        style = {
+          ...style,
+          [property]: val,
+        };
+      });
+    } else if (property) {
+      style = {
+        ...style,
+        [property]: val,
+      };
+    } else {
+      style = {
+        ...style,
+        ...val,
+      };
+    }
+  }
+
+  return style;
+};
 
 export const getStyleAndFilteredProps = ({
   style,
   theme,
   debug,
   currentBreakpoint,
-  strictMode,
+  getResponsiveStyles,
   ...props
 }: any) => {
   let styleFromProps: any = {};
-  const restProps: any = {};
+  let restProps: any = {};
   for (const key in props) {
     const rawValue = props[key];
 
     if (key in propConfig) {
-      const value = resolveValueWithBreakpoint(
-        rawValue,
-        theme.breakpoints,
-        currentBreakpoint,
-        key
-      );
-
       const config = propConfig[key as keyof typeof propConfig];
 
-      if (config === true) {
+      if (
+        hasValidBreakpointFormat(rawValue, theme.breakpoints) &&
+        Platform.OS === 'web'
+      ) {
+        const value = rawValue;
+        const query = generateResponsiveQuery({
+          config,
+          value,
+          key,
+          props,
+          theme,
+          currentBreakpoint,
+        });
+        const { dataSet, styles } = getResponsiveStyles(query);
+        if (!restProps.dataSet) {
+          restProps.dataSet = dataSet;
+        } else {
+          let updated = false;
+
+          for (let key in restProps.dataSet) {
+            if (key in dataSet) {
+              updated = true;
+              restProps.dataSet[key] =
+                restProps.dataSet[key] + ' ' + dataSet[key];
+            }
+          }
+
+          if (!updated) {
+            restProps.dataSet = {
+              ...restProps.dataSet,
+              ...dataSet,
+            };
+          }
+        }
+
+        styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
+      } else {
+        const value = resolveValueWithBreakpoint(
+          rawValue,
+          theme.breakpoints,
+          currentBreakpoint,
+          key
+        );
+
+        const newStyle = getRNKeyAndStyleValue({
+          config,
+          value,
+          key,
+          props,
+          theme,
+          currentBreakpoint,
+        });
+
         styleFromProps = {
           ...styleFromProps,
-          [key]: convertStringNumberToNumber(key, value),
+          ...newStyle,
         };
-      } else if (config) {
-        //@ts-ignore
-        const { property, scale, properties, transformer } = config;
-        let val = value;
-        const strictModeProps = {
-          token: value,
-          scale,
-          mode: strictMode,
-          type: 'tokenNotFound' as any,
-        };
-
-        if (transformer) {
-          val = transformer(
-            val,
-            theme[scale],
-            theme,
-            props.fontSize,
-            strictModeProps
-          );
-        } else {
-          // If a token is not found in the theme
-          if (!has(theme[scale], value) && typeof value !== 'undefined') {
-            strictModeLogger(strictModeProps);
-          }
-
-          val = get(theme[scale], value, value);
-        }
-
-        if (typeof val === 'string') {
-          if (val.endsWith('px')) {
-            val = parseFloat(val);
-          } else if (val.endsWith('em') && Platform.OS !== 'web') {
-            const fontSize = resolveValueWithBreakpoint(
-              props.fontSize,
-              theme.breakpoints,
-              currentBreakpoint,
-              key
-            );
-            val =
-              parseFloat(val) *
-              parseFloat(get(theme.fontSizes, fontSize, fontSize));
-          }
-        }
-
-        if (typeof value !== 'string' && typeof value !== 'undefined') {
-          strictModeLogger({
-            ...strictModeProps,
-            type: 'tokenNotString',
-          });
-        }
-
-        val = convertStringNumberToNumber(key, val);
-
-        if (properties) {
-          //@ts-ignore
-          properties.forEach((property) => {
-            styleFromProps = {
-              ...styleFromProps,
-              [property]: val,
-            };
-          });
-        } else if (property) {
-          styleFromProps = {
-            ...styleFromProps,
-            [property]: val,
-          };
-        } else {
-          styleFromProps = {
-            ...styleFromProps,
-            ...val,
-          };
-        }
       }
     } else {
       restProps[key] = rawValue;
@@ -699,7 +809,12 @@ export const getStyleAndFilteredProps = ({
 
   if (debug) {
     /* eslint-disable-next-line */
-    console.log('style ', debug + ' :: ', styleFromProps, style, props);
+    console.log('style ', debug + ' :: ', {
+      styleFromProps,
+      style,
+      props,
+      restProps,
+    });
   }
 
   return {
