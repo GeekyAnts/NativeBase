@@ -4,15 +4,15 @@ import {
   Input,
   Stack,
   Text,
-  ScrollView,
   Divider,
   Box,
   WarningOutlineIcon,
 } from 'native-base';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 export const Example = () => {
   return (
-    <ScrollView w={{ base: '90%', md: '90%' }}>
+    <KeyboardAwareScrollView style={{ width: '90%' }}>
       <Stack
         space={2.5}
         alignSelf="center"
@@ -71,6 +71,6 @@ export const Example = () => {
           </FormControl>
         </Box>
       </Stack>
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
