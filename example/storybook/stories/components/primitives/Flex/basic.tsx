@@ -6,21 +6,23 @@ import {
   ScrollView,
   VStack,
   Divider,
+  Box,
 } from 'native-base';
 
 export function Example() {
   return (
-    <ScrollView>
-      <Center mt="4">
-        <VStack space={2.5} w="100%">
+    <Box flex="1" safeAreaTop>
+      <ScrollView>
+        <VStack space={2.5} w="100%" px="3">
           {/* flexDirection -> row */}
           <Heading size="md">row</Heading>
-
           <Flex
             direction="row"
             mb="2.5"
             mt="1.5"
-            _text={{ color: 'coolGray.800' }}
+            _text={{
+              color: 'coolGray.800',
+            }}
           >
             <Center size="16" bg="primary.100">
               100
@@ -43,7 +45,9 @@ export function Example() {
             direction="column"
             mb="2.5"
             mt="1.5"
-            _text={{ color: 'coolGray.800' }}
+            _text={{
+              color: 'coolGray.800',
+            }}
           >
             <Center size="16" bg="primary.100">
               100
@@ -65,7 +69,9 @@ export function Example() {
             direction="row-reverse"
             mb="2.5"
             mt="1.5"
-            _text={{ color: 'coolGray.800' }}
+            _text={{
+              color: 'coolGray.800',
+            }}
           >
             <Center size="16" bg="primary.100">
               100
@@ -87,7 +93,9 @@ export function Example() {
             direction="column-reverse"
             mb="2.5"
             mt="1.5"
-            _text={{ color: 'coolGray.800' }}
+            _text={{
+              color: 'coolGray.800',
+            }}
           >
             <Center size="16" bg="primary.100">
               100
@@ -104,7 +112,7 @@ export function Example() {
           </Flex>
           <Divider />
         </VStack>
-      </Center>
-    </ScrollView>
+      </ScrollView>
+    </Box>
   );
 }
