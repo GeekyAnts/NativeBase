@@ -98,7 +98,7 @@ const ComboBoxImplementation = React.forwardRef(
         inputRef,
         buttonRef: triggerRef,
         listBoxRef,
-        popoverRef,
+        popoverRef, // @ts-ignore
         menuTrigger: 'input',
       },
       state
