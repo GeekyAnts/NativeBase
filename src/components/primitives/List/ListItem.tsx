@@ -80,6 +80,7 @@ const ListItem = ({ children, ...props }: IListItemProps, ref: any) => {
       flexDirection="row"
       alignItems="center"
       {...resolvedProps}
+      {...hoverProps}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
       onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
       // @ts-ignore - web only

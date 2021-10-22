@@ -48,6 +48,7 @@ const IconButton = (
 
   return (
     <Pressable
+      {...hoverProps}
       accessibilityRole="button"
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}

@@ -102,6 +102,7 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   }
   return (
     <Pressable
+      {...hoverProps}
       {...(pressableProps as IPressableProps)}
       onPress={onPress}
       // alignItems="flex-start"

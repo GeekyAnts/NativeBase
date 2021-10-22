@@ -93,6 +93,7 @@ const Radio = ({ icon, wrapperRef, size, ...props }: IRadioProps, ref: any) => {
   }
   return (
     <Pressable
+      {...hoverProps}
       {...pressableProps}
       {...(inputProps as IPressableProps)}
       ref={mergeRefs([ref, wrapperRef])}
