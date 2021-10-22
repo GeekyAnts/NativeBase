@@ -8,6 +8,7 @@ import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
 import { propsFlattener, compareSpecificity } from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
+import type { ComponentTheme } from '../../theme';
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
@@ -135,7 +136,7 @@ export function usePropsResolution(
 }
 
 export const usePropsResolutionWithComponentTheme = (
-  componentTheme: any,
+  componentTheme: ComponentTheme,
   incomingProps: any,
   state?: any,
   config?: any
@@ -223,7 +224,6 @@ export const usePropsResolutionWithComponentTheme = (
   }
 
   // NOTE: Resolving variants
-
   const variant = flattenProps.variant;
 
   let componentVariantProps = {},
@@ -234,7 +234,8 @@ export const usePropsResolutionWithComponentTheme = (
     componentVariantProps =
       typeof componentTheme.variants[variant] !== 'function'
         ? componentTheme.variants[variant]
-        : componentTheme.variants[variant]({
+        : //@ts-ignore
+          componentTheme.variants[variant]({
             theme,
             ...flattenProps,
             ...colorModeProps,
@@ -279,6 +280,7 @@ export const usePropsResolutionWithComponentTheme = (
     // Type - sizes: (props) => ({lg: {px: 1}}). Refer heading theme
     else if (typeof componentTheme.sizes[size] === 'function') {
       flattenProps.size = undefined;
+      //@ts-ignore
       componentSizeProps = componentTheme.sizes[size]({
         theme,
         ...flattenProps,
