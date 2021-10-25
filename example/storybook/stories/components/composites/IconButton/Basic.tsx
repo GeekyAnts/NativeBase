@@ -19,6 +19,11 @@ export const Example = () => {
         _icon: {
           name: 'emoji-flirt',
         },
+        _ios: {
+          _icon: {
+            size: '2xl',
+          },
+        },
       }}
       _ios={{
         _icon: {
