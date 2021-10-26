@@ -28,7 +28,7 @@ export const Example = () => {
   return (
     <>
       {Object.keys(colors.yellow).map((key, index) => {
-        if (index > 1 && index < 9) return <ButtonTemplate shade={key} />;
+        if (index > 2 && index < 9) return <ButtonTemplate shade={key} />;
       })}
       <Button mt="10" onPress={toggleAccessibleColors} colorScheme="primary">
         Toggle Accessible Colors
