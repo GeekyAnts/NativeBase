@@ -46,13 +46,12 @@ export const Example = () => {
     setList(temp);
   };
   return (
-    <Box my="12" mx="16">
+    <Box>
       <Heading mb="5">Wednesday</Heading>
-      <VStack space={4} flex="1" maxW="400">
+      <VStack space={4}>
         <HStack space={2}>
           <Input
-            w="400"
-            flex="1"
+            flex={1}
             onChangeText={(v) => setInputValue(v)}
             value={inputValue}
             placeholder="Add Task"
@@ -61,7 +60,7 @@ export const Example = () => {
             borderRadius="sm"
             variant="solid"
             icon={
-              <Icon as={Feather} name="plus" size="sm" color="trueGray.400" />
+              <Icon as={Feather} name="plus" size="sm" color="warmGray.50" />
             }
             onPress={() => {
               addItem(inputValue);
