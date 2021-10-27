@@ -21,7 +21,6 @@ export const Example = () => {
       >
         Sign up to continue!
       </Heading>
-
       <VStack space={3} mt="5">
         <FormControl>
           <FormControl.Label>Email</FormControl.Label>
