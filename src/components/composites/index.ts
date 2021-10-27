@@ -1,5 +1,5 @@
 export { default as AspectRatio } from './AspectRatio';
-export type { IAspectRatioProps } from './AspectRatio';
+export type { IAspectRatioProps } from './AspectRatio/types';
 
 export { default as Badge } from './Badge';
 export type { IBadgeProps } from './Badge';
