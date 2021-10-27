@@ -1,4 +1,4 @@
-import type { IBoxProps } from '../../primitives';
+import type { IBoxProps, IIconProps } from '../../primitives';
 import type { IFormControlContext } from '../../composites';
 import type { AccessibilityRole } from 'react-native';
 import type { RadioGroupState } from '@react-stately/radio';
@@ -31,6 +31,10 @@ export interface IRadioProps extends IBoxProps<IRadioProps> {
    * Passed props will be applied on checked state.
    */
   _checked?: Omit<Partial<IRadioProps>, '_checked'>;
+   /**
+   * Passed props will be applied to icon.
+   */
+  _icon?: IIconProps;
   /**
    * 	The size (width and height) of the radio.
    */
