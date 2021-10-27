@@ -2,7 +2,10 @@ import React from 'react';
 import { AspectRatio, Image } from 'native-base';
 const Example = () => {
   return (
-    <AspectRatio ratio={9 / 10} height={400}>
+    <AspectRatio
+      ratio={{ base: 3 / 4, md: 9 / 10 }}
+      height={{ base: 200, md: 400 }}
+    >
       <Image
         resizeMode="cover"
         source={{
