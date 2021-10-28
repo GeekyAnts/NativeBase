@@ -14,6 +14,7 @@ import {
 } from './actionsheet';
 import { Select, SelectItem } from './select';
 import { Alert, AlertIcon } from './alert';
+import AspectRatio from './aspect-ratio';
 import Avatar from './avatar';
 import AvatarBadge from './avatar-badge';
 import AvatarGroup from './avatar-group';
@@ -118,6 +119,7 @@ export default {
   // AlertDescription,
   // AlertTitle,
   AlertIcon,
+  AspectRatio,
   Avatar,
   AvatarBadge,
   AvatarGroup,
