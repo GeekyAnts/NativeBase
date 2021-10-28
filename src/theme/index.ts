@@ -16,16 +16,13 @@ const config: ColorModeOptions = {
   accessibleColors: false,
 };
 
-const fontConfig: any = {};
-
 const theme = {
   ...base,
   components,
   config,
-  fontConfig,
 };
 
-export type Theme = typeof theme;
+export type Theme = typeof theme & { fontConfig: any };
 
 export interface ICustomTheme {}
 
