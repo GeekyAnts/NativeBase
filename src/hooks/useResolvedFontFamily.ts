@@ -10,9 +10,21 @@ import { useTheme } from './useTheme';
  * This function depends upon fontConfig token in typography for mapping.
  */
 export function useResolvedFontFamily(props: {
-  fontFamily?: string;
+  fontFamily?: ('heading' | 'body' | 'mono') & string;
   fontStyle?: string;
-  fontWeight?: string | number;
+  fontWeight?: (
+    | 'hairline'
+    | 'thin'
+    | 'light'
+    | 'normal'
+    | 'medium'
+    | 'semibold'
+    | 'bold'
+    | 'extrabold'
+    | 'black'
+    | 'extraBlack'
+  ) &
+    (string | number);
 }) {
   const { fontFamily, fontStyle, fontWeight } = props;
   let newFontFamily = fontFamily;
@@ -21,8 +33,8 @@ export function useResolvedFontFamily(props: {
 
   const { fontConfig, fontWeights, fonts } = useTheme();
   if (fontWeight && fontStyle && fontFamily && fontFamily in fonts) {
-    const fontToken = fonts[fontFamily];
-
+    // TODO: Fix typing remove any.
+    const fontToken: any = fonts[fontFamily];
     if (fontConfig && fontConfig[fontToken]) {
       // If a custom font family is resolved, set fontWeight and fontStyle to undefined.
       // https://github.com/GeekyAnts/NativeBase/issues/3811

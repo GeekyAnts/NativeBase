@@ -15,10 +15,14 @@ const config: ColorModeOptions = {
   initialColorMode: 'light',
   accessibleColors: false,
 };
+
+const fontConfig: any = {};
+
 const theme = {
   ...base,
   components,
   config,
+  fontConfig,
 };
 
 export type Theme = typeof theme;
