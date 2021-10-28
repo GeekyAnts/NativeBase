@@ -15,13 +15,14 @@ const config: ColorModeOptions = {
   initialColorMode: 'light',
   accessibleColors: false,
 };
+
 const theme = {
   ...base,
   components,
   config,
 };
 
-export type Theme = typeof theme;
+export type Theme = typeof theme & { fontConfig: any };
 
 export interface ICustomTheme {}
 
