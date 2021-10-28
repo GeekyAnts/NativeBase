@@ -1,17 +1,24 @@
 import React, { memo, forwardRef } from 'react';
 import Box, { IBoxProps } from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks';
-import { ScrollView } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { ScrollView, IScrollViewProps } from '../../basic/ScrollView';
 
-const ModalBody = ({ children, ...props }: IBoxProps, ref?: any) => {
+const ModalBody = (
+  {
+    children,
+    _scrollview,
+    ...props
+  }: IBoxProps & { _scrollview?: IScrollViewProps },
+  ref?: any
+) => {
   const resolvedProps = usePropsResolution('ModalBody', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
   return (
-    <ScrollView>
+    <ScrollView {..._scrollview}>
       <Box {...resolvedProps} ref={ref}>
         {children}
       </Box>
