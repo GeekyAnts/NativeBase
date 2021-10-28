@@ -67,7 +67,6 @@
     "@types/lodash.pick": "^4.4.6",
     "@types/react": "^16.9.19",
     "@types/react-native": "~0.63.2",
-    "@types/styled-components-react-native": "^5.1.0",
     "@types/tinycolor2": "^1.4.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "commitlint": "^8.3.5",
@@ -90,8 +89,6 @@
     "release-it": "^13.5.8",
     "rollup": "^2.34.1",
     "rollup-plugin-flow": "^1.1.1",
-    "styled-components": "^5.2.1",
-    "styled-system": "^5.1.5",
     "typescript": "4.2",
     "visualize-bundle": "^1.4.0"
   },
@@ -100,9 +97,7 @@
     "react-dom": "*",
     "react-native": "*",
     "react-native-safe-area-context": "*",
-    "react-native-svg": "*",
-    "styled-components": "*",
-    "styled-system": "*"
+    "react-native-svg": "*"
   },
   "jest": {
     "preset": "jest-expo",
@@ -114,7 +109,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
+      "node_modules/(?!(react-native|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
@@ -200,7 +195,6 @@
     "@react-stately/combobox": "^3.0.0-alpha.1",
     "@react-stately/radio": "^3.2.1",
     "@types/lodash.has": "^4.5.6",
-    "@types/styled-system": "^5.1.9",
     "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2",
