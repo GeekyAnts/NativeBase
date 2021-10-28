@@ -68,7 +68,7 @@ const AvatarGroup = (allProps: IAvatarGroupProps, ref: any) => {
     return null;
   }
   return (
-    <Flex direction="row-reverse" ref={ref}>
+    <Flex flexDirection="row-reverse" ref={ref}>
       {getAvatarGroupChildren(children, space, max, bg, {
         borderColor,
         borderWidth,
