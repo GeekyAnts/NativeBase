@@ -1,5 +1,5 @@
 import { useTheme } from './useTheme';
-
+import type { ITheme } from '../theme';
 /**
  *
  * @param props
@@ -10,21 +10,9 @@ import { useTheme } from './useTheme';
  * This function depends upon fontConfig token in typography for mapping.
  */
 export function useResolvedFontFamily(props: {
-  fontFamily?: ('heading' | 'body' | 'mono') & string;
+  fontFamily?: keyof ITheme['fonts'];
   fontStyle?: string;
-  fontWeight?: (
-    | 'hairline'
-    | 'thin'
-    | 'light'
-    | 'normal'
-    | 'medium'
-    | 'semibold'
-    | 'bold'
-    | 'extrabold'
-    | 'black'
-    | 'extraBlack'
-  ) &
-    (string | number);
+  fontWeight?: keyof ITheme['fontWeights'];
 }) {
   const { fontFamily, fontStyle, fontWeight } = props;
   let newFontFamily = fontFamily;
