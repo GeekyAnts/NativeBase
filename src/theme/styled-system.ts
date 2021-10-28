@@ -102,6 +102,7 @@ export const layout = {
   overflowY: true,
   display: true,
   verticalAlign: true,
+  textAlign: true,
 } as const;
 
 export const flexbox = {
@@ -151,6 +152,11 @@ export const position = {
 export const color = {
   color: {
     property: 'color',
+    scale: 'colors',
+    transformer: getColor,
+  },
+  tintColor: {
+    property: 'tintColor',
     scale: 'colors',
     transformer: getColor,
   },

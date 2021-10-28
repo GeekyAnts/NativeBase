@@ -28,11 +28,10 @@
     "react-dom": "16.13.1",
     "react-hook-form": "^6.14.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native-keyboard-aware-scroll-view": "^0.9.4",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
-    "react-native-web": "^0.16.5",
-    "styled-components": "^5.2.1",
-    "styled-system": "^5.1.5"
+    "react-native-web": "^0.16.5"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",

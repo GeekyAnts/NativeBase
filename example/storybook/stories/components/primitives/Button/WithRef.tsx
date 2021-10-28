@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from 'native-base';
-import { Platform } from 'react-native';
 
 export const Example = () => {
   const myRef = React.useRef({});
@@ -9,16 +8,12 @@ export const Example = () => {
     const styleObj = {
       backgroundColor: '#facc15',
       borderColor: '#CA8A04',
-      borderWidth: '1',
-      borderRadius: '4',
+      borderWidth: 1,
+      borderRadius: 4,
     };
-    if (Platform.OS === 'web') {
-      //@ts-ignore
-      myRef?.current?.setNativeProps({ style: styleObj });
-    } else {
-      //@ts-ignore
-      myRef?.current?.setNativeProps({ styleObj });
-    }
+
+    //@ts-ignore
+    myRef?.current?.setNativeProps({ style: styleObj });
   }, [myRef]);
   return (
     <Button

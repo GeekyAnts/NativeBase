@@ -8,7 +8,7 @@ export const Example = () => {
       _hover={{ bg: 'primary.100' }}
       isExternal
     >
-      <Box bg="cyan.700" p="5" rounded="8">
+      <Box bg="cyan.700" p="5" rounded="8" flexShrink="1">
         <HStack alignItems="flex-start">
           <Text fontSize="xs" color="cyan.50" fontWeight="medium">
             Open Source
