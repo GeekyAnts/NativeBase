@@ -126,9 +126,9 @@ export function usePropsResolution(
   incomingProps: any,
   state?: IStateProps,
   config?: {
-    componentTheme: any;
-    resolveResponsively: Array<string>;
-    ignoreProps: Array<string>;
+    componentTheme?: any;
+    resolveResponsively?: string[];
+    ignoreProps?: string[];
   }
 ) {
   const { theme } = useNativeBase();
@@ -148,9 +148,9 @@ export const usePropsResolutionWithComponentTheme = (
   incomingProps: any,
   state?: IStateProps,
   config?: {
-    componentTheme: any;
-    resolveResponsively: Array<string>;
-    ignoreProps: Array<string>;
+    componentTheme?: any;
+    resolveResponsively?: string[];
+    ignoreProps?: string[];
   }
 ) => {
   const modifiedPropsForSSR = useResponsiveSSRProps(incomingProps);
