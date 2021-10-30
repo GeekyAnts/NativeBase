@@ -80,6 +80,7 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
     (child: any) => {
       return {
         label: child.props.label,
+        selectedLabel: child.props.label,
         value: child.props.value,
       };
     }
@@ -129,7 +130,7 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
     <Input
       aria-hidden={true}
       importantForAccessibility="no"
-      value={selectedItem?.label}
+      value={selectedItem?.selectedLabel ?? selectedItem?.label}
       placeholder={placeholder}
       editable={false}
       focusable={false}
