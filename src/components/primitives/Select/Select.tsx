@@ -80,7 +80,7 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
     (child: any) => {
       return {
         label: child.props.label,
-        selectedLabel: child.props.label,
+        selectedLabel: child.props.selectedLabel,
         value: child.props.value,
       };
     }
