@@ -6,7 +6,11 @@ import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
-import { propsFlattener, compareSpecificity } from './propsFlattener';
+import {
+  propsFlattener,
+  compareSpecificity,
+  IStateProps,
+} from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 import type { ComponentTheme } from '../../theme';
 
@@ -120,8 +124,12 @@ function propsSpreader(incomingProps: any, incomingSpecifity: any) {
 export function usePropsResolution(
   component: string,
   incomingProps: any,
-  state?: any,
-  config?: any
+  state?: IStateProps,
+  config?: {
+    componentTheme?: any;
+    resolveResponsively?: string[];
+    ignoreProps?: string[];
+  }
 ) {
   const { theme } = useNativeBase();
   const componentTheme =
@@ -138,8 +146,12 @@ export function usePropsResolution(
 export const usePropsResolutionWithComponentTheme = (
   componentTheme: ComponentTheme,
   incomingProps: any,
-  state?: any,
-  config?: any
+  state?: IStateProps,
+  config?: {
+    componentTheme?: any;
+    resolveResponsively?: string[];
+    ignoreProps?: string[];
+  }
 ) => {
   const modifiedPropsForSSR = useResponsiveSSRProps(incomingProps);
 
