@@ -9,6 +9,7 @@ export function Hidden({ children, ...props }: IHiddenProps) {
   const { from, till, only, platform, colorMode } = usePropsResolution(
     'Hidden',
     props,
+    {},
     {
       ignoreProps: ['only', 'platform'],
     }
