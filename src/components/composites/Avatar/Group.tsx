@@ -21,7 +21,7 @@ const getAvatarGroupChildren = (
     plusAvatars = childrenArray.length - max;
     childrenArray = childrenArray.slice(0, max);
   }
-  let trailingChildren = childrenArray.slice(1);
+  const trailingChildren = childrenArray.slice(1);
   const defaultProps = {
     ml: space,
   };
@@ -68,7 +68,7 @@ const AvatarGroup = (allProps: IAvatarGroupProps, ref: any) => {
     return null;
   }
   return (
-    <Flex direction="row-reverse" ref={ref}>
+    <Flex flexDirection="row-reverse" ref={ref}>
       {getAvatarGroupChildren(children, space, max, bg, {
         borderColor,
         borderWidth,

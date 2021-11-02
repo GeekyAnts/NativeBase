@@ -10,8 +10,8 @@ export const Example = () => {
       <NBInput
         placeholder="Click on the button"
         ref={inputRef}
-        p={2}
-        border={1}
+        p="2"
+        borderWidth="1"
         borderColor="cyan.400"
         borderRadius="md"
       />

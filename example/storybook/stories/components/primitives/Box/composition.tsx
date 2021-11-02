@@ -13,6 +13,7 @@ import {
 export const Example = () => {
   return (
     <Box
+      maxW="80"
       rounded="lg"
       overflow="hidden"
       borderColor="coolGray.200"
@@ -25,7 +26,7 @@ export const Example = () => {
       _light={{ backgroundColor: 'gray.50' }}
     >
       <Box>
-        <AspectRatio ratio={16 / 9}>
+        <AspectRatio w="100%" ratio={16 / 9}>
           <Image
             source={{
               uri:

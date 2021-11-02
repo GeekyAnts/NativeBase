@@ -1,11 +1,10 @@
 import React from 'react';
 import { AlertDialog, Button, Center } from 'native-base';
-import { TouchableOpacity } from 'react-native';
 
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
-  const cancelRef = React.useRef<TouchableOpacity>(null);
+  const cancelRef = React.useRef(null);
   return (
     <Center>
       <Button colorScheme="danger" onPress={() => setIsOpen(!isOpen)}>

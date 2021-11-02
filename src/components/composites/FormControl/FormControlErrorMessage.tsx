@@ -69,7 +69,7 @@ const FormControlErrorMessage = (
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return resolvedProps?.isInvalid ? (
+  return resolvedProps?.isInvalid && children ? (
     <Box nativeID={resolvedProps?.helpTextId} {...resolvedProps} ref={ref}>
       <HStack {..._stack}>
         {startIcon}

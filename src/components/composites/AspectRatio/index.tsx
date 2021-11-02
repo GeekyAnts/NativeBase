@@ -1,14 +1,9 @@
 import React from 'react';
 import { StyleSheet, ViewStyle, Platform } from 'react-native';
-import { default as Box, IBoxProps } from '../../primitives/Box';
-import isNil from 'lodash.isnil';
+import { default as Box } from '../../primitives/Box';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-
-export type IAspectRatioProps = IBoxProps<IAspectRatioProps> & {
-  style?: ViewStyle;
-  ratio?: number;
-  children: JSX.Element;
-};
+import { usePropsResolution } from '../../../hooks';
+import type { IAspectRatioProps } from './types';
 
 const AspectView = React.forwardRef((props: any, ref?: any) => {
   const [layout, setLayout] = React.useState();
@@ -35,10 +30,13 @@ const AspectView = React.forwardRef((props: any, ref?: any) => {
   );
 });
 
-const AspectRatio = (
-  { style, ratio, children, ...props }: IAspectRatioProps,
-  ref?: any
-) => {
+const AspectRatio = (props: IAspectRatioProps, ref?: any) => {
+  const { style, ratio, children, ...resolvedProps } = usePropsResolution(
+    'AspectRatio',
+    props,
+    {},
+    { resolveResponsively: ['ratio'] }
+  );
   let computedStyle: ViewStyle | undefined = style;
   let newChildWithProps = React.cloneElement(
     children,
@@ -48,22 +46,27 @@ const AspectRatio = (
     },
     children.props.children
   );
-  let aspectRatio = !isNil(ratio) ? ratio : 4 / 3;
+
   //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
+  if (useHasResponsiveProps(resolvedProps)) {
     return null;
   }
   // DOC:  It uses a aspectRatio property of React Native and manually calculate on Web
   if (Platform.OS === 'web') {
     return (
-      <AspectView {...props} aspectRatio={aspectRatio} style={style} ref={ref}>
+      <AspectView
+        {...resolvedProps}
+        aspectRatio={ratio}
+        style={style}
+        ref={ref}
+      >
         {newChildWithProps}
       </AspectView>
     );
   } else {
-    computedStyle = StyleSheet.flatten([style, { aspectRatio }]);
+    computedStyle = StyleSheet.flatten([style, { aspectRatio: ratio }]);
     return (
-      <Box {...props} style={computedStyle} ref={ref}>
+      <Box {...resolvedProps} style={computedStyle} ref={ref}>
         {newChildWithProps}
       </Box>
     );

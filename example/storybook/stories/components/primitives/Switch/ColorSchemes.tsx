@@ -7,9 +7,9 @@ export const Example = () => {
       <Heading textAlign="center" mb="10">
         Color Scheme
       </Heading>
-      <Switch isChecked colorScheme="primary" />
-      <Switch isChecked colorScheme="secondary" />
-      <Switch isChecked colorScheme="emerald" />
+      <Switch defaultIsChecked colorScheme="primary" />
+      <Switch defaultIsChecked colorScheme="secondary" />
+      <Switch defaultIsChecked colorScheme="emerald" />
     </VStack>
   );
 };
