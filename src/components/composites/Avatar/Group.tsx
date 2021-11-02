@@ -21,7 +21,7 @@ const getAvatarGroupChildren = (
     plusAvatars = childrenArray.length - max;
     childrenArray = childrenArray.slice(0, max);
   }
-  let trailingChildren = childrenArray.slice(1);
+  const trailingChildren = childrenArray.slice(1);
   const defaultProps = {
     ml: space,
   };
