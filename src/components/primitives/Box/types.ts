@@ -17,11 +17,29 @@ export interface ILinearGradientProps {
   };
 }
 
+type TextStyle =
+  | 'color'
+  | 'fontFamily'
+  | 'fontSize'
+  | 'fontStyle'
+  | 'fontWeight'
+  | 'letterSpacing'
+  | 'lineHeight'
+  | 'textDecorationLine'
+  | 'textDecorationStyle'
+  | 'textDecorationColor'
+  | 'textShadowColor'
+  | 'textShadowOffset'
+  | 'textShadowRadius'
+  | 'textTransform';
 export interface IBoxProps<T = null>
   extends ViewProps,
     SafeAreaProps,
     PlatformProps<T extends null ? IBoxProps<any> : T>,
-    Omit<StyledProps, 'bgColor' | 'background' | 'bg' | 'backgroundColor'> {
+    Omit<
+      StyledProps,
+      'bgColor' | 'background' | 'bg' | 'backgroundColor' | TextStyle
+    > {
   /**
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;
