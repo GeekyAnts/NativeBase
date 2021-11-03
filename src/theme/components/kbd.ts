@@ -13,7 +13,7 @@ function baseStyle(props: Record<string, any>) {
     _text: {
       fontSize: 'sm',
       fontWeight: 'bold',
-      fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+      fontFamily: Platform.OS === 'ios' ? 'Courier New' : 'monospace',
     },
   };
 }
