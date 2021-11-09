@@ -96,16 +96,24 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
     '_text',
   ]);
 
+  const [
+    accessibilityProps,
+    nonAccessibilityProps,
+  ] = extractInObject(nonLayoutProps, [
+    'accessibilityRole',
+    'accessibilityState',
+  ]);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(resolvedProps)) {
     return null;
   }
+
   return (
     <Pressable
       {...(pressableProps as IPressableProps)}
+      {...accessibilityProps}
       onPress={onPress}
-      // alignItems="flex-start"
-      //some input props
       ref={mergeRefs([ref, wrapperRef])}
       accessibilityRole="checkbox"
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
@@ -130,7 +138,7 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
           {/* Interaction Wrapper */}
           <Box {..._interactionBox} p={5} w="100%" height="100%" zIndex={-1} />
           {/* Checkbox */}
-          <Center {...nonLayoutProps}>
+          <Center {...nonAccessibilityProps}>
             <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
           </Center>
         </Center>
