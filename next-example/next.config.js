@@ -3,6 +3,9 @@ const { withExpo } = require('@expo/next-adapter');
 const withPlugins = require('next-compose-plugins');
 const path = require('path');
 const withTM = require('next-transpile-modules')(['react-native-web']);
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: true,
+});
 
 const nextConfig = {
   reactStrictMode: true,
@@ -39,6 +42,6 @@ const nextConfig = {
 };
 
 module.exports = withPlugins(
-  [withTM, [withExpo, { projectRoot: __dirname }]],
+  [withTM, [withExpo, { projectRoot: __dirname }], withBundleAnalyzer],
   nextConfig
 );

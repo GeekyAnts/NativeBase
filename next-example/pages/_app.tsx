@@ -1,12 +1,21 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
-import { NativeBaseProvider } from 'native-base';
+
+const ClientOnly = (props: any) => {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return mounted ? props.children : null;
+};
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NativeBaseProvider>
+    <ClientOnly>
       <Component {...pageProps} />
-    </NativeBaseProvider>
+    </ClientOnly>
   );
 }
 export default MyApp;
