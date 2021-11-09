@@ -69,6 +69,8 @@ const InputAdvance = (
     ...stylingProps.flexbox,
     ...stylingProps.position,
     ...stylingProps.background,
+    'shadow',
+    'opacity',
   ]);
 
   // Extracting baseInputProps from remaining props

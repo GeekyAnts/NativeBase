@@ -170,6 +170,7 @@ import {
   ISelectItemProps,
   Pressable,
   IPressableProps,
+  IStackProps,
 } from './components/primitives';
 
 export * from './components/basic';
@@ -345,6 +346,7 @@ export type {
   ISelectItemProps,
   ITextFieldProps,
   IScrollViewProps,
+  IStackProps,
 };
 
 export { ITheme, ICustomTheme, StyledProps } from './theme';

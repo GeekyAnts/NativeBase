@@ -1,7 +1,7 @@
 import React, { memo, forwardRef } from 'react';
 import StackMain, { IStackProps } from './Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import type { ResponsiveValue } from 'styled-system';
+import type { ResponsiveValue } from '../../types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 export interface IHStackProps extends IStackProps {
   /**

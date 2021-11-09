@@ -10,7 +10,7 @@ import {
 
 export const Example = () => {
   return (
-    <ScrollView px="32">
+    <ScrollView showsVerticalScrollIndicator={false} px="3">
       <VStack
         w="100%"
         space={2.5}
@@ -28,24 +28,11 @@ export const Example = () => {
           space={2}
           mx={{ base: 'auto', md: '0' }}
         >
-          <Button
-            size="sm"
-            //  onPress={() => console.log('hello world')}
-          >
-            PRIMARY
-          </Button>
-          <Button
-            size="sm"
-            colorScheme="secondary"
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm">PRIMARY</Button>
+          <Button size="sm" colorScheme="secondary">
             SECONDARY
           </Button>
-          <Button
-            size="sm"
-            isDisabled
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" isDisabled>
             DISABLED
           </Button>
         </Stack>
@@ -62,27 +49,13 @@ export const Example = () => {
           space={2}
           mx={{ base: 'auto', md: '0' }}
         >
-          <Button
-            size="sm"
-            variant="subtle"
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="subtle">
             PRIMARY
           </Button>
-          <Button
-            size="sm"
-            variant="subtle"
-            colorScheme="secondary"
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="subtle" colorScheme="secondary">
             SECONDARY
           </Button>
-          <Button
-            size="sm"
-            variant="subtle"
-            isDisabled
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="subtle" isDisabled>
             DISABLED
           </Button>
         </Stack>
@@ -97,27 +70,13 @@ export const Example = () => {
           space={2}
           mx={{ base: 'auto', md: '0' }}
         >
-          <Button
-            size="sm"
-            variant="outline"
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="outline">
             PRIMARY
           </Button>
-          <Button
-            size="sm"
-            variant="outline"
-            colorScheme="secondary"
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="outline" colorScheme="secondary">
             SECONDARY
           </Button>
-          <Button
-            size="sm"
-            variant="outline"
-            isDisabled
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="outline" isDisabled>
             DISABLED
           </Button>
         </Stack>
@@ -133,27 +92,13 @@ export const Example = () => {
           space={2}
           mx={{ base: 'auto', md: '0' }}
         >
-          <Button
-            size="sm"
-            variant="link"
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="link">
             PRIMARY
           </Button>
-          <Button
-            size="sm"
-            variant="link"
-            colorScheme="secondary"
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="link" colorScheme="secondary">
             SECONDARY
           </Button>
-          <Button
-            size="sm"
-            variant="link"
-            isDisabled
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="link" isDisabled>
             DISABLED
           </Button>
         </Stack>
@@ -169,27 +114,13 @@ export const Example = () => {
           space={2}
           mx={{ base: 'auto', md: '0' }}
         >
-          <Button
-            size="sm"
-            variant="ghost"
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="ghost">
             PRIMARY
           </Button>
-          <Button
-            size="sm"
-            variant="ghost"
-            colorScheme="secondary"
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="ghost" colorScheme="secondary">
             SECONDARY
           </Button>
-          <Button
-            size="sm"
-            variant="ghost"
-            isDisabled
-            // onPress={() => console.log('hello world')}
-          >
+          <Button size="sm" variant="ghost" isDisabled>
             DISABLED
           </Button>
         </Stack>
@@ -206,12 +137,7 @@ export const Example = () => {
           space={2}
           mx={{ base: 'auto', md: '0' }}
         >
-          <Button
-            variant="unstyled"
-            // onPress={() => console.log('hello world')}
-          >
-            Unstyled
-          </Button>
+          <Button variant="unstyled">Unstyled</Button>
         </Stack>
       </VStack>
     </ScrollView>

@@ -102,6 +102,7 @@ export const layout = {
   overflowY: true,
   display: true,
   verticalAlign: true,
+  textAlign: true,
 } as const;
 
 export const flexbox = {
