@@ -1,6 +1,7 @@
 {
   "name": "native-base",
   "description": "Essential cross-platform UI components for React Native",
+  "sideEffects": false,
   "keywords": [
     "android",
     "ios",
@@ -39,7 +40,7 @@
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
-  "module": "dist/bundle.web.js",
+  "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
@@ -160,16 +161,10 @@
     "output": "lib",
     "targets": [
       [
-        "commonjs",
-        {
-          "configFile": true
-        }
+        "commonjs"
       ],
       [
-        "module",
-        {
-          "configFile": true
-        }
+        "module"
       ],
       "typescript"
     ]
