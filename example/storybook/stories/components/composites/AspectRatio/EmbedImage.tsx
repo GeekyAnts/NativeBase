@@ -1,6 +1,6 @@
 import React from 'react';
 import { AspectRatio, Image } from 'native-base';
-const Example = () => {
+export const Example = () => {
   return (
     <AspectRatio
       ratio={{ base: 3 / 4, md: 9 / 10 }}
@@ -17,4 +17,3 @@ const Example = () => {
     </AspectRatio>
   );
 };
-export default Example;
