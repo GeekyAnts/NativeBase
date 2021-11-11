@@ -32,7 +32,7 @@ const INITIAL_PROP_SPECIFICITY = {
   [SPECIFICITY_1]: 0,
 };
 
-const pseudoPropsMap: any = {
+const pseudoPropsMap = {
   _web: { dependentOn: 'platform', priority: SPECIFICITY_10 },
   _ios: { dependentOn: 'platform', priority: SPECIFICITY_10 },
   _android: { dependentOn: 'platform', priority: SPECIFICITY_10 },
@@ -93,7 +93,14 @@ const pseudoPropsMap: any = {
     respondTo: 'isDisabled',
     priority: SPECIFICITY_100,
   },
+} as const;
+
+type IPseudoPropsMap = typeof pseudoPropsMap;
+type ExtractState<T extends IPseudoPropsMap> = {
+  // @ts-ignore
+  [P in keyof T as T[P]['respondTo']]?: boolean;
 };
+export type IStateProps = ExtractState<IPseudoPropsMap>;
 
 export const compareSpecificity = (
   exisiting: any,
@@ -127,12 +134,18 @@ const shouldResolvePseudoProp = ({
   state,
   platform,
   colormode,
-}: any) => {
+}: {
+  property: keyof IPseudoPropsMap;
+  state: IStateProps;
+  platform: any;
+  colormode: any;
+}) => {
   if (pseudoPropsMap[property].dependentOn === 'platform') {
     return property === `_${platform}`;
   } else if (pseudoPropsMap[property].dependentOn === 'colormode') {
     return property === `_${colormode}`;
   } else if (pseudoPropsMap[property].dependentOn === 'state') {
+    // @ts-ignore
     return state[pseudoPropsMap[property].respondTo];
   } else {
     return false;
@@ -162,10 +175,13 @@ const simplifyProps = (
         };
 
     if (
+      // @ts-ignore
       state[pseudoPropsMap[property]?.respondTo] ||
       ['_dark', '_light', '_web', '_ios', '_android'].includes(property)
     ) {
+      // @ts-ignore
       if (shouldResolvePseudoProp({ property, state, platform, colormode })) {
+        // @ts-ignore
         propertySpecity[pseudoPropsMap[property].priority]++;
 
         simplifyProps(
@@ -182,6 +198,7 @@ const simplifyProps = (
           priority
         );
       }
+      // @ts-ignore
     } else if (state[pseudoPropsMap[property]?.respondTo] === undefined) {
       if (property.startsWith('_')) {
         if (
@@ -229,6 +246,7 @@ export const propsFlattener = (
 
   for (const property in props) {
     if (
+      // @ts-ignore
       state[pseudoPropsMap[property]?.respondTo] === undefined &&
       property.startsWith('_')
     ) {

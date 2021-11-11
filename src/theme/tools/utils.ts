@@ -104,7 +104,7 @@ export const stylingProps = {
     'order',
   ],
   position: ['position', 'zIndex', 'top', 'right', 'bottom', 'left'],
-  background: ['bg', 'backgroundColor'],
+  background: ['bg', 'backgroundColor', 'bgColor'],
 };
 export type Dict = Record<string, any>;
 export function omitUndefined(obj: any) {
