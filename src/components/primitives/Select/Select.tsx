@@ -59,6 +59,8 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
     _item,
     _selectedItem,
     size,
+    onOpen,
+    onClose,
     ...resolvedProps
   } = usePropsResolution('Input', props, {
     isDisabled,
@@ -143,7 +145,10 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
     />
   );
 
-  const handleClose = () => setIsOpen(false);
+  const handleClose = () => {
+    setIsOpen(false);
+    onClose && onClose();
+  };
 
   return (
     <Box
@@ -170,6 +175,12 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
               }}
               value={selectedItem === null ? tempFix : value}
               aria-label={placeholder}
+              onFocus={() => {
+                onOpen && onOpen();
+              }}
+              onBlur={() => {
+                onClose && onClose();
+              }}
             >
               <option disabled value={tempFix}>
                 {placeholder}
@@ -185,6 +196,7 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
             onPress={() => {
               Keyboard.dismiss();
               setIsOpen(true);
+              onOpen && onOpen();
             }}
             disabled={isDisabled}
             accessibilityLabel={accessibilityLabel}
