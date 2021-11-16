@@ -29,7 +29,12 @@ const Radio = (
 
   const inputRef = React.useRef(null);
   const { inputProps } = useRadio(
-    { ...props, 'aria-label': props.accessibilityLabel, children },
+    {
+      ...combinedProps,
+      ...props,
+      'aria-label': props.accessibilityLabel,
+      children,
+    },
     contextState.state ?? {},
     inputRef
   );
@@ -49,7 +54,10 @@ const Radio = (
 
   const { _interactionBox, _icon, ...resolvedProps } = usePropsResolution(
     'Radio',
-    combinedProps,
+    {
+      ...combinedProps,
+      ...RadioContext,
+    },
     {
       isInvalid,
       isReadOnly,
