@@ -5,7 +5,7 @@ export const Example = () => {
   const [groupValue, setGroupValue] = React.useState('1');
   return (
     <Container>
-      <FormControl isDisabled>
+      <FormControl isInvalid>
         <FormControl.Label _text={{ fontSize: 'lg', bold: true }}>
           Select Prize
         </FormControl.Label>
