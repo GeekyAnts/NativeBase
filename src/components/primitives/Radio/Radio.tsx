@@ -28,15 +28,15 @@ const Radio = ({ icon, wrapperRef, size, ...props }: IRadioProps, ref: any) => {
 
   const contextState = React.useContext(RadioContext);
 
-  const {
-    isInvalid,
-    isReadOnly,
-    isIndeterminate,
-    ...combinedProps
-  } = combineContextAndProps(contextState, props);
+  const combinedProps = combineContextAndProps(contextState, props);
 
+  const { isInvalid, isReadOnly, isIndeterminate } = combinedProps;
   const inputRef = React.useRef(null);
-  const { inputProps } = useRadio(props, contextState.state ?? {}, inputRef);
+  const { inputProps } = useRadio(
+    combinedProps,
+    contextState.state ?? {},
+    inputRef
+  );
   const { disabled: isDisabled, checked: isChecked } = inputProps;
 
   const {

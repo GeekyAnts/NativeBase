@@ -20,16 +20,13 @@ const Radio = (
 ) => {
   const contextState = React.useContext(RadioContext);
 
-  const {
-    isInvalid,
-    isReadOnly,
-    isIndeterminate,
-    ...combinedProps
-  } = combineContextAndProps(contextState, props);
+  const combinedProps = combineContextAndProps(contextState, props);
+
+  const { isInvalid, isReadOnly, isIndeterminate } = combinedProps;
 
   const inputRef = React.useRef(null);
   const { inputProps } = useRadio(
-    { ...props, 'aria-label': props.accessibilityLabel, children },
+    { ...combinedProps, 'aria-label': props.accessibilityLabel, children },
     contextState.state ?? {},
     inputRef
   );
