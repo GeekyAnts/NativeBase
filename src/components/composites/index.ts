@@ -5,6 +5,7 @@ export { default as Badge } from './Badge';
 export type { IBadgeProps } from './Badge';
 
 export { default as Card } from './Card';
+export type { ICardProps } from './Card';
 
 export { default as IconButton } from './IconButton';
 export type { IIconButtonProps } from './IconButton';
@@ -13,6 +14,7 @@ export { Alert } from './Alert';
 export type { IAlertProps } from './Alert';
 
 export { Avatar } from './Avatar';
+export type { IAvatarProps } from './Avatar';
 
 export { Breadcrumb } from './Breadcrumb';
 export type { IBreadcrumbProps } from './Breadcrumb';
@@ -23,14 +25,18 @@ export { default as Container } from './Container';
 export type { IContainerProps } from './Container';
 
 export { Modal } from './Modal';
+export type { IModalProps } from './Modal';
 export { default as Drawer } from './Drawer';
+export type { IDrawerProps } from './Drawer';
 
-export { useToast, IToastProps, Toast } from './Toast';
+export { useToast, Toast } from './Toast';
+export type { IToastProps } from './Toast';
 
 export { default as Divider } from './Divider';
 export type { IDividerProps } from './Divider/types';
 
 export { default as Progress } from './Progress';
+export type { IProgressProps } from './Progress';
 
 // export { default as Stat } from './Stat';
 
@@ -101,14 +107,13 @@ export type {
 
 export { default as Collapse } from './Collapse';
 export { default as CircularProgress } from './CircularProgress';
-// export { Modal } from './Modal';
-// export type { IModalProps } from './Modal';
 
 export { Popover } from './Popover';
 export { Tooltip } from './Tooltip';
 export type { IPopoverProps } from './Popover';
 
 export { AlertDialog } from './AlertDialog';
+export type { IAlertDialogProps } from './AlertDialog';
 
 export { Menu } from './Menu';
 export type {
