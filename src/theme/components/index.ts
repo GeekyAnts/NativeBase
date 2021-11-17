@@ -76,7 +76,7 @@ import PinInput from './pin-input';
 import Pressable from './pressable';
 import Progress from './progress';
 import Radio from './radio';
-import { Skeleton, SkeletonText, SkeletonCircle } from './skeleton';
+import { Skeleton, SkeletonText } from './skeleton';
 import Spinner from './spinner';
 import Stat from './stat';
 import Switch from './switch';
@@ -188,7 +188,6 @@ export default {
   SimpleGrid,
   Skeleton,
   SkeletonText,
-  SkeletonCircle,
   SliderFilledTrack,
   SliderThumb,
   SliderTrack,

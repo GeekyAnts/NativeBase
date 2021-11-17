@@ -6,13 +6,13 @@ export const Example = () => {
   setTimeout(() => {
     setIsLoaded(true);
     setText(
-      ' Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting'
+      'Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting'
     );
   }, 5000);
 
   return (
     <Box w="80%">
-      <Skeleton.Circle isLoaded={isLoaded} size={16}>
+      <Skeleton isLoaded={isLoaded} borderRadius="full" size={16}>
         <Avatar
           size={16}
           source={{
@@ -22,12 +22,12 @@ export const Example = () => {
         >
           SS
         </Avatar>
-      </Skeleton.Circle>
+      </Skeleton>
       <Skeleton.Text
-        noOfLines={6}
+        lines={6}
         mt={5}
         h={120}
-        lineHeight={'12px'}
+        lineHeight="12px"
         space={2}
         isLoaded={isLoaded}
       >
