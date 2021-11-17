@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 import { StyleSheet, ViewStyle, Platform } from 'react-native';
 import { default as Box } from '../../primitives/Box';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { usePropsResolution } from '../../../hooks';
 import type { IAspectRatioProps } from './types';
 
-const AspectView = React.forwardRef((props: any, ref?: any) => {
+const AspectView = forwardRef((props: any, ref?: any) => {
   const [layout, setLayout] = React.useState();
   const inputStyle = [StyleSheet.flatten(props.style) || {}];
   if (layout) {
@@ -73,4 +73,4 @@ const AspectRatio = (props: IAspectRatioProps, ref?: any) => {
   }
 };
 
-export default React.memo(React.forwardRef(AspectRatio));
+export default memo(forwardRef(AspectRatio));

@@ -19,7 +19,12 @@ const Input = (props: IInputProps, ref: any) => {
     return null;
   }
 
-  if (props.InputLeftElement || props.InputRightElement)
+  if (
+    props.InputLeftElement ||
+    props.InputRightElement ||
+    props.leftElement ||
+    props.rightElement
+  )
     return <InputAdvanced {...props} ref={ref} inputProps={inputProps} />;
   else return <InputBase {...props} ref={ref} inputProps={inputProps} />;
 };

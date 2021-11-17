@@ -97,7 +97,6 @@ const InputAdvance = (
       flexDirection="row"
       alignItems="center"
       justifyContent="space-between"
-      overflow="hidden"
       {...layoutProps}
       ref={mergeRefs([_ref, wrapperRef])}
     >
