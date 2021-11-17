@@ -102,7 +102,7 @@ export type {
 export { default as Collapse } from './Collapse';
 export { default as CircularProgress } from './CircularProgress';
 // export { Modal } from './Modal';
-// export type { IModalProps } from './Modal';
+export type { IModalProps } from './Modal';
 
 export { Popover } from './Popover';
 export { Tooltip } from './Tooltip';

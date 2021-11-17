@@ -112,6 +112,7 @@ import {
   Backdrop,
   Drawer,
   Tooltip,
+  IModalProps
 } from './components/composites';
 import type { IScrollViewProps } from './components/basic';
 
@@ -347,6 +348,7 @@ export type {
   ITextFieldProps,
   IScrollViewProps,
   IStackProps,
+  IModalProps
 };
 
 export { ITheme, ICustomTheme, StyledProps } from './theme';
