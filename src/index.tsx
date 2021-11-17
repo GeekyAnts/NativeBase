@@ -106,6 +106,10 @@ import {
   Typeahead,
   useTypeahead,
   Modal,
+  IModalProps,
+  ICardProps,
+  IAvatarProps,
+  IDrawerProps,
   useToast,
   Toast,
   IToastProps,
@@ -171,6 +175,8 @@ import {
   Pressable,
   IPressableProps,
   IStackProps,
+  ITextAreaProps,
+  IZStackProps,
 } from './components/primitives';
 
 export * from './components/basic';
@@ -318,6 +324,12 @@ export type {
   IScaleFadeProps,
   ISlideProps,
   ISlideFadeProps,
+  IModalProps,
+  ICardProps,
+  IAvatarProps,
+  IDrawerProps,
+  ITextAreaProps,
+  IZStackProps,
   INumberInputProps,
   INumberInputFieldProps,
   INumberInputContext,
