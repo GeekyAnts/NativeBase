@@ -41,6 +41,7 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
   const tempFix = '__NativebasePlaceholder__';
   const _ref = React.useRef(null);
 
+  const [isFocused, setIsFocused] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const { focusProps, isFocusVisible } = useFocusRing();
@@ -61,11 +62,14 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
     size,
     onOpen,
     onClose,
-    ...resolvedProps
+    ...resolvedInputProps
   } = usePropsResolution('Input', props, {
     isDisabled,
     isHovered,
     isFocusVisible,
+    isFocused,
+    // TODO: can also add this for native select styling
+    // isFocused: isFocused || isOpen,
   });
 
   const [value, setValue] = useControllableState({
@@ -97,9 +101,14 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
     variant,
     customDropdownIconProps,
     _actionSheetContent,
-    ...newProps
-  } = usePropsResolution('Select', props);
-  const [borderProps, remainingProps] = extractInObject(newProps, [
+    ...reslovedSelectProps
+  } = usePropsResolution('Select', props, {
+    isDisabled,
+    isHovered,
+    isFocusVisible,
+    isFocused,
+  });
+  const [borderProps, remainingProps] = extractInObject(reslovedSelectProps, [
     ...stylingProps.border,
   ]);
   const [layoutProps, nonLayoutProps] = extractInObject(remainingProps, [
@@ -139,6 +148,7 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
       variant={variant}
       InputRightElement={rightIcon}
       height={layoutProps.height ?? layoutProps.h}
+      {...resolvedInputProps}
       {...nonLayoutProps}
       {...borderProps}
       isDisabled={isDisabled}
@@ -154,8 +164,8 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
     <Box
       borderWidth={1}
       borderColor="transparent"
+      borderRadius={resolvedInputProps.borderRadius}
       {...layoutProps}
-      borderRadius={resolvedProps.borderRadius}
       ref={wrapperRef}
     >
       {Platform.OS === 'web' ? (
@@ -176,9 +186,11 @@ const Select = ({ wrapperRef, ...props }: ISelectProps, ref: any) => {
               value={selectedItem === null ? tempFix : value}
               aria-label={placeholder}
               onFocus={() => {
+                setIsFocused(true);
                 onOpen && onOpen();
               }}
               onBlur={() => {
+                setIsFocused(false);
                 onClose && onClose();
               }}
             >
