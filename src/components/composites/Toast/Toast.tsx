@@ -2,7 +2,12 @@ import { OverlayContainer } from '@react-native-aria/overlays';
 import { PresenceTransition } from '../Transitions';
 import VStack from '../../primitives/Stack/VStack';
 import { Alert } from '../../composites/Alert';
-import React, { createContext, MutableRefObject, useState } from 'react';
+import React, {
+  createContext,
+  MutableRefObject,
+  useState,
+  useMemo,
+} from 'react';
 import {
   AccessibilityInfo,
   Easing,
@@ -345,12 +350,15 @@ export const useToast = () => {
     ToastContext
   );
 
-  const toast = {
-    show: setToast,
-    close: hideToast,
-    closeAll: hideAll,
-    isActive,
-  };
+  const toast = useMemo(
+    () => ({
+      show: setToast,
+      close: hideToast,
+      closeAll: hideAll,
+      isActive,
+    }),
+    [setToast, hideAll, isActive, hideToast]
+  );
 
   return toast;
 };
