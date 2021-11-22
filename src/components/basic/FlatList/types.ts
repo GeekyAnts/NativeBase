@@ -5,4 +5,9 @@ import type { PlatformProps } from '../../types';
 export interface IFlatListProps
   extends FlatListProps<any>,
     StyledProps,
-    PlatformProps<IFlatListProps> {}
+    PlatformProps<IFlatListProps> {
+  /**
+   * pass props to contentContainerStyle, and this also resolved NB tokens.
+   */
+  _contentContainerStyle?: IFlatListProps;
+}
