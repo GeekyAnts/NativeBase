@@ -31,7 +31,6 @@ const baseStyle = (props: Record<string, any>) => {
     fontFamily: 'body',
     p: '2',
     borderRadius: 'sm',
-    overflow: 'auto',
     color: mode('coolGray.800', 'warmGray.50')(props),
     placeholderTextColor: 'muted.400',
     background: 'transparent',

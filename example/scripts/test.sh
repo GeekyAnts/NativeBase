@@ -14,11 +14,12 @@ esac
 
 if [ $# -eq 0 ]
   then
-    jest --config jest-ios.config.js
-    jest --config jest-android.config.js
+    jest --config jest-ios.config.js --silent
+    jest --config jest-android.config.js --silent
   else
-    jest --config jest-ios.config.js -u
-    jest --config jest-android.config.js -u
+    echo "Tests will be updated!"
+    jest --config jest-ios.config.js -u --silent
+    jest --config jest-android.config.js -u --silent
 fi
 
 yarn install  --check-files
