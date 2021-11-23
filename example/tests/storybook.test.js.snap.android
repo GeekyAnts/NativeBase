@@ -26792,12 +26792,12 @@ exports[`Storyshots Checkbox Playground 1`] = `
               _focusVisible={
                 Object {
                   "_interactionBox": Object {
-                    "bg": "rgba(167, 243, 208, 0.5)",
+                    "bg": "rgba(165, 243, 252, 0.5)",
                   },
                 }
               }
               checked={true}
-              colorScheme="success"
+              colorScheme="primary"
               defaultIsChecked={false}
               disabled={false}
               isChecked={true}
@@ -26807,8 +26807,8 @@ exports[`Storyshots Checkbox Playground 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#059669",
-                  "borderColor": "#059669",
+                  "backgroundColor": "#0891b2",
+                  "borderColor": "#0891b2",
                   "borderRadius": 4,
                   "borderWidth": 2,
                   "display": "flex",
@@ -62808,7 +62808,7 @@ exports[`Storyshots Radio Playground 1`] = `
             }
             accessible={true}
             checked={false}
-            colorScheme="success"
+            colorScheme="primary"
             focusable={true}
             isDisabled={false}
             isInvalid={false}
@@ -62881,11 +62881,11 @@ exports[`Storyshots Radio Playground 1`] = `
                   _focusVisible={
                     Object {
                       "_interactionBox": Object {
-                        "bg": "rgba(167, 243, 208, 0.5)",
+                        "bg": "rgba(165, 243, 252, 0.5)",
                       },
                     }
                   }
-                  colorScheme="success"
+                  colorScheme="primary"
                   defaultIsChecked={false}
                   isDisabled={false}
                   isInvalid={false}
@@ -62920,7 +62920,7 @@ exports[`Storyshots Radio Playground 1`] = `
                     align="xMidYMid"
                     bbHeight={12}
                     bbWidth={12}
-                    color={-16411031}
+                    color={-16215630}
                     focusable={false}
                     meetOrSlice={0}
                     minX={0}
@@ -62933,7 +62933,7 @@ exports[`Storyshots Radio Playground 1`] = `
                           "borderWidth": 0,
                         },
                         Object {
-                          "color": "#059669",
+                          "color": "#0891b2",
                           "height": 12,
                           "opacity": 0,
                           "width": 12,
@@ -62945,7 +62945,7 @@ exports[`Storyshots Radio Playground 1`] = `
                         },
                       ]
                     }
-                    tintColor={-16411031}
+                    tintColor={-16215630}
                     vbHeight={24}
                     vbWidth={24}
                   >
@@ -63009,7 +63009,7 @@ exports[`Storyshots Radio Playground 1`] = `
             }
             accessible={true}
             checked={false}
-            colorScheme="success"
+            colorScheme="primary"
             focusable={true}
             isDisabled={false}
             isInvalid={false}
@@ -63082,11 +63082,11 @@ exports[`Storyshots Radio Playground 1`] = `
                   _focusVisible={
                     Object {
                       "_interactionBox": Object {
-                        "bg": "rgba(167, 243, 208, 0.5)",
+                        "bg": "rgba(165, 243, 252, 0.5)",
                       },
                     }
                   }
-                  colorScheme="success"
+                  colorScheme="primary"
                   defaultIsChecked={false}
                   isDisabled={false}
                   isInvalid={false}
@@ -63121,7 +63121,7 @@ exports[`Storyshots Radio Playground 1`] = `
                     align="xMidYMid"
                     bbHeight={12}
                     bbWidth={12}
-                    color={-16411031}
+                    color={-16215630}
                     focusable={false}
                     meetOrSlice={0}
                     minX={0}
@@ -63134,7 +63134,7 @@ exports[`Storyshots Radio Playground 1`] = `
                           "borderWidth": 0,
                         },
                         Object {
-                          "color": "#059669",
+                          "color": "#0891b2",
                           "height": 12,
                           "opacity": 0,
                           "width": 12,
@@ -63146,7 +63146,7 @@ exports[`Storyshots Radio Playground 1`] = `
                         },
                       ]
                     }
-                    tintColor={-16411031}
+                    tintColor={-16215630}
                     vbHeight={24}
                     vbWidth={24}
                   >
@@ -75043,7 +75043,7 @@ exports[`Storyshots Spinner Playground 1`] = `
         animating={true}
         color="#67e8f9"
         hidesWhenStopped={true}
-        size="md"
+        size="large"
       />
     </View>
   </View>
