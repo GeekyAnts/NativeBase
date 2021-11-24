@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hidden, Text, Button, Box, useColorMode } from 'native-base';
 
-export function ColorModeExample() {
+export const Example = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
@@ -25,4 +25,4 @@ export function ColorModeExample() {
       </Hidden>
     </>
   );
-}
+};
