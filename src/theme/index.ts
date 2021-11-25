@@ -18,6 +18,7 @@ const config: ColorModeOptions = {
 
 const theme = {
   ...base,
+  disableDynamicWidth: false,
   components,
   config,
 };

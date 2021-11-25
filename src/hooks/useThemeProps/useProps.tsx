@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 import omit from 'lodash.omit';
-import { useWindowDimensions, Platform } from 'react-native';
+import { useWindowDimensions, Platform, Dimensions } from 'react-native';
 import { useNativeBase } from './../useNativeBase';
 import { omitUndefined, extractInObject } from './../../theme/tools/';
 import { filterShadowProps } from './../../utils/filterShadowProps';
@@ -41,7 +41,8 @@ export function useThemeProps(component: string, propsReceived: any) {
 
   const componentTheme = get(theme, `components.${component}`);
   // console.log('COMPONENT THEME = ', componentTheme);
-  const windowWidth = useWindowDimensions()?.width;
+  const windowWidth = theme.disableDynamicWidth ? Dimensions.get('window').width : useWindowDimensions()?.width;
+
 
   // To pass the component theme props and component props seperately
   return filterAndCalculateProps(
