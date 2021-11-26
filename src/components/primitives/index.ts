@@ -51,7 +51,7 @@ export { default as Switch } from './Switch';
 export type { ISwitchProps } from './Switch';
 
 export { default as TextArea } from './TextArea';
-export { ITextAreaProps } from './TextArea';
+export type { ITextAreaProps } from './TextArea';
 
 export { default as Link } from './Link';
 export type { ILinkProps } from './Link';
