@@ -115,6 +115,7 @@ const InputAdvance = (
         onBlur={(e) => {
           handleFocus(false, onBlur ? () => onBlur(e) : () => {});
         }}
+        shadow="none"
       />
       {InputRightElement || rightElement
         ? InputRightElement || rightElement
