@@ -1,10 +1,10 @@
 import type { ViewProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { IColors } from '../../../theme/base/colors';
 import type {
   SafeAreaProps,
   PlatformProps,
   ResponsiveValue,
+  ColorType,
 } from '../../types';
 import type { ITextProps } from './../Text/types';
 
@@ -34,10 +34,12 @@ export interface IBoxProps<T = null>
    * For providing props to Text inside Box
    */
   _text?: ITextProps;
-  bg?: ResponsiveValue<IColors | (string & {}) | ILinearGradientProps>;
-  background?: ResponsiveValue<IColors | (string & {}) | ILinearGradientProps>;
-  bgColor?: ResponsiveValue<IColors | (string & {}) | ILinearGradientProps>;
+  bg?: ResponsiveValue<ColorType | (string & {}) | ILinearGradientProps>;
+  background?: ResponsiveValue<
+    ColorType | (string & {}) | ILinearGradientProps
+  >;
+  bgColor?: ResponsiveValue<ColorType | (string & {}) | ILinearGradientProps>;
   backgroundColor?: ResponsiveValue<
-    IColors | (string & {}) | ILinearGradientProps
+    ColorType | (string & {}) | ILinearGradientProps
   >;
 }
