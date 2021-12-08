@@ -50,7 +50,7 @@ export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
   /**
    * The name of the input field in a radio (Useful for form submission).
    */
-  name: string;
+  name?: string;
   /**
    * The initial value of the radio group.
    */
