@@ -138,202 +138,238 @@ const CustomToast = () => {
 export const ToastProvider = ({ children }: { children: any }) => {
   const [toastInfo, setToastInfo] = useState<IToastInfo>({});
   const [visibleToasts, setVisibleToasts] = useState<
-    { [key in string]: boolean }
-  >({});
-  const themeProps = usePropsResolution('Toast', {});
-  const { colorMode } = useColorMode();
-  let toastIndex = React.useRef(1);
-
-  const hideAll = () => {
-    setVisibleToasts({});
-  };
-
-  const hideToast = (id: any) => {
-    setVisibleToasts((prevVisibleToasts) => ({
-      ...prevVisibleToasts,
-      [id]: false,
-    }));
-  };
-
-  const isActive = (id: any) => {
-    for (let toastPosition of Object.keys(toastInfo)) {
-      // @ts-ignore
-      let positionArray: Array<IToast> = toastInfo[toastPosition];
-      return positionArray.findIndex((toastData) => toastData.id === id) > -1;
+    {
+      [key in string]: boolean;
     }
+  >({});
 
-    return false;
-  };
+  const [themeProps] = useState(usePropsResolution('Toast', {}));
 
-  const removeToast = (id: any) => {
-    setToastInfo((prev) => {
-      for (let toastPosition of Object.keys(prev)) {
-        // @ts-ignore
-        let positionArray: Array<IToast> = prev[toastPosition];
-        const isToastPresent =
-          positionArray.findIndex((toastData) => toastData.id === id) > -1;
+  const { colorMode } = useColorMode();
+  const toastIndex = React.useRef(1);
 
-        if (isToastPresent) {
-          let newPositionArray = positionArray.filter((item) => item.id !== id);
-          let temp: any = {};
-          temp[toastPosition] = newPositionArray;
+  const hideAll = React.useCallback(() => {
+    setVisibleToasts({});
+  }, [setVisibleToasts]);
 
-          let newToastInfo = { ...prev, ...temp };
-          return newToastInfo;
-        }
+  const hideToast = React.useCallback(
+    (id: any) => {
+      setVisibleToasts((prevVisibleToasts) => ({
+        ...prevVisibleToasts,
+        [id]: false,
+      }));
+    },
+    [setVisibleToasts]
+  );
+
+  const isActive = React.useCallback(
+    (id: any) => {
+      for (const toastPosition of Object.keys(toastInfo)) {
+        const positionArray: Array<IToast> = toastInfo[toastPosition];
+        return positionArray.findIndex((toastData) => toastData.id === id) > -1;
       }
 
-      return prev;
-    });
-  };
+      return false;
+    },
+    [toastInfo]
+  );
 
-  const getTextColor = (
-    variant:
-      | 'solid'
-      | 'left-accent'
-      | 'top-accent'
-      | 'outline'
-      | 'subtle'
-      | 'outline-light'
-      | any
-  ): any => {
-    switch (variant) {
-      case 'left-accent':
-      case 'top-accent':
-      case 'subtle':
-        return 'coolGray.800';
-      case 'solid':
-        return 'warmGray.50';
-      case 'outline':
-      case 'outline-light':
-        return colorMode === 'light' ? 'coolGray.800' : 'warmGray.50';
-      default:
-        return 'black';
-    }
-  };
+  const removeToast = React.useCallback(
+    (id: any) => {
+      setToastInfo((prev) => {
+        for (const toastPosition of Object.keys(prev)) {
+          const positionArray: Array<IToast> = prev[toastPosition];
+          const isToastPresent =
+            positionArray.findIndex((toastData) => toastData.id === id) > -1;
 
-  const setToast = (props: IToastProps): number => {
-    const {
-      placement = 'bottom',
-      title,
-      render,
-      status,
-      id = toastIndex.current++,
-      description,
-      isClosable = true,
-      duration = 5000,
-      variant,
-      accessibilityAnnouncement,
-      accessibilityLiveRegion = 'polite',
-      ...rest
-    } = props;
+          if (isToastPresent) {
+            const newPositionArray = positionArray.filter(
+              (item) => item.id !== id
+            );
+            const temp: any = {};
+            temp[toastPosition] = newPositionArray;
 
-    let positionToastArray = toastInfo[placement];
-    if (!positionToastArray) positionToastArray = [];
+            const newToastInfo = { ...prev, ...temp };
+            return newToastInfo;
+          }
+        }
 
-    let component = null;
+        return prev;
+      });
+    },
+    [setToastInfo]
+  );
 
-    if (render) {
-      component = render({ id });
-    } else if (!status && !variant) {
-      component = (
-        <VStack space={title && description ? 1 : 0} {...themeProps} {...rest}>
-          <Box _text={themeProps._title}>{title}</Box>
-          {description && (
-            <Box _text={themeProps._description}>{description}</Box>
-          )}
-        </VStack>
-      );
-    } else if (status || variant) {
-      component = (
-        <Alert
-          maxWidth="100%"
-          alignSelf="center"
-          status={status ?? 'info'}
-          variant={variant as any}
-          accessibilityLiveRegion={accessibilityLiveRegion}
-          {...rest}
-        >
-          <VStack space={1} flexShrink={1} w="100%">
-            <HStack
-              flexShrink={1}
-              space={2}
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <HStack space={2} flexShrink={1} alignItems="center">
-                <Alert.Icon />
-                <Text
-                  fontSize="md"
-                  fontWeight="medium"
-                  color={getTextColor(variant ?? 'subtle')}
-                >
-                  {title}
-                </Text>
-              </HStack>
-              {isClosable ? (
-                <IconButton
-                  variant="unstyled"
-                  icon={
-                    <CloseIcon
-                      size="3"
-                      color={getTextColor(variant ?? 'subtle')}
-                    />
-                  }
-                  onPress={() => hideToast(id)}
-                />
-              ) : null}
-            </HStack>
-            <Box
-              px="6"
-              // @ts-ignore
-              _text={{
-                color: getTextColor(variant ?? 'subtle'),
-              }}
-            >
-              {description}
-            </Box>
+  const getTextColor = React.useCallback(
+    (
+      variant:
+        | 'solid'
+        | 'left-accent'
+        | 'top-accent'
+        | 'outline'
+        | 'subtle'
+        | 'outline-light'
+        | any
+    ): any => {
+      switch (variant) {
+        case 'left-accent':
+        case 'top-accent':
+        case 'subtle':
+          return 'coolGray.800';
+        case 'solid':
+          return 'warmGray.50';
+        case 'outline':
+        case 'outline-light':
+          return colorMode === 'light' ? 'coolGray.800' : 'warmGray.50';
+        default:
+          return 'black';
+      }
+    },
+    [colorMode]
+  );
+
+  const setToast = React.useCallback(
+    (props: IToastProps): number => {
+      // console.log("in settoast");
+      const {
+        placement = 'bottom',
+        title,
+        render,
+        status,
+        id = toastIndex.current++,
+        description,
+        isClosable = true,
+        duration = 5000,
+        variant,
+        accessibilityAnnouncement,
+        accessibilityLiveRegion = 'polite',
+        ...rest
+      } = props;
+
+      let positionToastArray = toastInfo[placement];
+      if (!positionToastArray) positionToastArray = [];
+
+      let component = null;
+
+      if (render) {
+        component = render({ id });
+      } else if (!status && !variant) {
+        component = (
+          <VStack
+            space={title && description ? 1 : 0}
+            {...themeProps}
+            {...rest}
+          >
+            <Box _text={themeProps._title}>{title}</Box>
+            {description && (
+              <Box _text={themeProps._description}>{description}</Box>
+            )}
           </VStack>
-        </Alert>
-      );
-    }
+        );
+      } else if (status || variant) {
+        component = (
+          <Alert
+            maxWidth="100%"
+            alignSelf="center"
+            status={status ?? 'info'}
+            variant={variant as any}
+            accessibilityLiveRegion={accessibilityLiveRegion}
+            {...rest}
+          >
+            <VStack space={1} flexShrink={1} w="100%">
+              <HStack
+                flexShrink={1}
+                space={2}
+                alignItems="center"
+                justifyContent="space-between"
+              >
+                <HStack space={2} flexShrink={1} alignItems="center">
+                  <Alert.Icon />
+                  <Text
+                    fontSize="md"
+                    fontWeight="medium"
+                    color={getTextColor(variant ?? 'subtle')}
+                  >
+                    {title}
+                  </Text>
+                </HStack>
+                {isClosable ? (
+                  <IconButton
+                    variant="unstyled"
+                    icon={
+                      <CloseIcon
+                        size="3"
+                        color={getTextColor(variant ?? 'subtle')}
+                      />
+                    }
+                    onPress={() => hideToast(id)}
+                  />
+                ) : null}
+              </HStack>
+              <Box
+                px="6"
+                // @ts-ignore
+                _text={{
+                  color: getTextColor(variant ?? 'subtle'),
+                }}
+              >
+                {description}
+              </Box>
+            </VStack>
+          </Alert>
+        );
+      }
 
-    toastInfo[placement] = [
-      ...positionToastArray,
-      { component, id, config: props },
-    ];
+      toastInfo[placement] = [
+        ...positionToastArray,
+        { component, id, config: props },
+      ];
 
-    setToastInfo({ ...toastInfo });
+      setToastInfo({ ...toastInfo });
 
-    setVisibleToasts({ ...visibleToasts, [id]: true });
-    if (duration !== null) {
-      setTimeout(function () {
-        hideToast(id);
-      }, duration);
-    }
+      setVisibleToasts({ ...visibleToasts, [id]: true });
+      if (duration !== null) {
+        setTimeout(function () {
+          hideToast(id);
+        }, duration);
+      }
 
-    // iOS doesn't support accessibilityLiveRegion
-    if (accessibilityAnnouncement && Platform.OS === 'ios') {
-      AccessibilityInfo.announceForAccessibility(accessibilityAnnouncement);
-    }
+      // iOS doesn't support accessibilityLiveRegion
+      if (accessibilityAnnouncement && Platform.OS === 'ios') {
+        AccessibilityInfo.announceForAccessibility(accessibilityAnnouncement);
+      }
 
-    return id;
-  };
+      return id;
+    },
+    [getTextColor, themeProps, toastInfo, visibleToasts, hideToast]
+  );
+
+  const contextValue = React.useMemo(() => {
+    return {
+      toastInfo,
+      setToastInfo,
+      setToast,
+      removeToast,
+      hideAll,
+      isActive,
+      visibleToasts,
+      setVisibleToasts,
+      hideToast,
+    };
+  }, [
+    toastInfo,
+    setToastInfo,
+    setToast,
+    removeToast,
+    hideAll,
+    isActive,
+    visibleToasts,
+    setVisibleToasts,
+    hideToast,
+  ]);
 
   return (
-    <ToastContext.Provider
-      value={{
-        toastInfo,
-        setToastInfo,
-        setToast,
-        removeToast,
-        hideAll,
-        isActive,
-        visibleToasts,
-        setVisibleToasts,
-        hideToast,
-      }}
-    >
+    <ToastContext.Provider value={contextValue}>
       {children}
       <CustomToast />
     </ToastContext.Provider>
