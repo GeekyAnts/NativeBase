@@ -36,7 +36,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.2.2-rc.3",
+  "version": "3.3.0-rc.0",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -95,7 +95,9 @@
     "react-dom": "*",
     "react-native": "*",
     "react-native-safe-area-context": "*",
-    "react-native-svg": "*"
+    "react-native-svg": "*",
+    "@types/react-native": "~0.63.2",
+    "@types/react": "^16.9.19"
   },
   "jest": {
     "preset": "jest-expo",
