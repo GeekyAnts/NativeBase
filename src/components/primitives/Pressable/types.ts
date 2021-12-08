@@ -40,6 +40,11 @@ export interface IPressableProps<T = IPressableProps<unknown>>
   _disabled?: Omit<IPressableProps, '_disabled'>;
 
   /**
+   * 	If true, the p will be disabled.
+   */
+  isDisabled?: boolean;
+
+  /**
    * Style props to be applied when focus visible. These styles will be only applied when user is interacting the app using a keyboard. (Web only)
    */
   _focusVisible?: Omit<IPressableProps, '_focusVisible'>;

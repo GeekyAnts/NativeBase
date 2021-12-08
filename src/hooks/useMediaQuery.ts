@@ -14,10 +14,20 @@ type SubQuery = {
 type Query = Array<SubQuery>;
 
 export function useMediaQuery(query: SubQuery | Query) {
-  let dims = useWindowDimensions();
+  const dims = useWindowDimensions();
   const height = dims?.height;
   const width = dims?.width;
+
   return iterateQuery(query, height, width);
+}
+
+function queryResolver(query: any, width?: number, height?: number) {
+  for (const queryKey in query) {
+    if (!calculateQuery(queryKey, query[queryKey], height, width)) {
+      return false;
+    }
+  }
+  return true;
 }
 
 function iterateQuery(
@@ -25,19 +35,13 @@ function iterateQuery(
   height?: number,
   width?: number
 ) {
-  let key;
-  let val;
-  let queryResults = [];
+  const queryResults = [];
   if (Array.isArray(query)) {
     query.forEach((subQuery: SubQuery) => {
-      key = Object.keys(subQuery)[0];
-      val = Object.values(subQuery)[0];
-      queryResults.push(calculateQuery(key, val, height, width));
+      queryResults.push(queryResolver(subQuery, width, height));
     });
   } else {
-    key = Object.keys(query)[0];
-    val = Object.values(query)[0];
-    queryResults.push(calculateQuery(key, val, height, width));
+    queryResults.push(queryResolver(query, width, height));
   }
   return queryResults;
 }

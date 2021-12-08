@@ -36,7 +36,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.3.0-rc.0",
+  "version": "3.3.0-rc.1",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -91,6 +91,8 @@
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
+    "@types/react": "^16.9.19",
+    "@types/react-native": "~0.63.2",
     "react": "*",
     "react-dom": "*",
     "react-native": "*",

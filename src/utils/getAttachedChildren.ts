@@ -6,6 +6,10 @@ export default (children: any) => {
   | Separate the trailing (not first) children from the children array
   */
 
+  if (childrenArray.length <= 1) {
+    return childrenArray;
+  }
+
   const trailingChildren = childrenArray.slice(1);
   trailingChildren.pop();
   const marginProp: object = {
