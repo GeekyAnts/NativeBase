@@ -10,7 +10,7 @@ export const Example = () => {
       borderRadius: 4,
       borderColor: '#22D3EE',
     };
-    myRef?.current.setNativeProps({
+    myRef?.current?.setNativeProps({
       style: styleObj,
     });
   }, [myRef]);
