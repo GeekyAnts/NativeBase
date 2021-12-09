@@ -37,12 +37,16 @@ export function useModeManager(
   }
 
   const [colorMode, setRawMode] = useState<ColorMode>(initialColorMode);
-  async function setColorMode(val: ColorMode) {
-    if (colorModeManager) {
-      await colorModeManager.set(val);
-    }
-    setRawMode(val);
-  }
+  const setColorMode = React.useCallback(
+    async (val: ColorMode) => {
+      if (colorModeManager) {
+        await colorModeManager.set(val);
+      }
+      setRawMode(val);
+    },
+    [colorModeManager]
+  );
+
   // For initial setting initial color mode from storage
   useEffect(() => {
     if (colorModeManager) {
