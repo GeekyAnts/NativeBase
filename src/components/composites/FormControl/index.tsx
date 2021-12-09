@@ -18,8 +18,9 @@ export {
   useFormControl,
   useFormControlProvider,
   useFormControlContext,
-  IFormControlContext,
 } from './useFormControl';
+
+export type { IFormControlContext } from './useFormControl';
 
 export type {
   IFormControlProps,

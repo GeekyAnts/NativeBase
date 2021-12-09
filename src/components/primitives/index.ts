@@ -42,7 +42,8 @@ export type { ISpinnerProps } from './Spinner';
 export { default as Heading } from './Heading';
 export type { IHeadingProps } from './Heading';
 
-export { Pressable, IPressableProps } from './Pressable';
+export { Pressable } from './Pressable';
+export type { IPressableProps } from './Pressable';
 
 export { default as Flex, Spacer } from './Flex';
 export type { IFlexProps } from './Flex';
