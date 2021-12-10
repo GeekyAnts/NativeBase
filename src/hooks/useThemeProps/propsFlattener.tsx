@@ -52,6 +52,11 @@ const pseudoPropsMap = {
     respondTo: 'isChecked',
     priority: SPECIFICITY_30,
   },
+  _loading: {
+    dependentOn: 'state',
+    respondTo: 'isLoading',
+    priority: SPECIFICITY_110,
+  },
   // Add new pseudeo props in between -------
   _readOnly: {
     dependentOn: 'state',
@@ -88,11 +93,6 @@ const pseudoPropsMap = {
     dependentOn: 'state',
     respondTo: 'isDisabled',
     priority: SPECIFICITY_100,
-  },
-  _loading: {
-    dependentOn: 'state',
-    respondTo: 'isLoading',
-    priority: SPECIFICITY_110,
   },
 } as const;
 
@@ -182,9 +182,17 @@ const simplifyProps = (
     ) {
       // @ts-ignore
       if (shouldResolvePseudoProp({ property, state, platform, colormode })) {
+        // NOTE: Handling (state driven) props like _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
+        if (process.env.NODE_ENV === 'development' && props.debug) {
+          /* eslint-disable-next-line */
+          console.log(
+            `%c ${property}`,
+            'color: #67e8f9;',
+            'recursively resolving'
+          );
+        }
         // @ts-ignore
         propertySpecity[pseudoPropsMap[property].priority]++;
-
         simplifyProps(
           {
             props: props[property],
@@ -202,17 +210,34 @@ const simplifyProps = (
       // @ts-ignore
     } else if (state[pseudoPropsMap[property]?.respondTo] === undefined) {
       if (property.startsWith('_')) {
+        // NOTE: Handling (internal) props like _text, _stack, ....
         if (
           compareSpecificity(specificityMap[property], propertySpecity, false)
         ) {
+          if (process.env.NODE_ENV === 'development' && props.debug) {
+            /* eslint-disable-next-line */
+            console.log(
+              `%c ${property}`,
+              'color: #67e8f9;',
+              'updated as internal prop with higher specificity'
+            );
+          }
           specificityMap[property] = propertySpecity;
-          // merging internal props (like, _text, _checked, ...)
+          // merging internal props (like, _text, _stack ...)
           flattenProps[property] = merge(
             {},
             flattenProps[property],
             props[property]
           );
         } else {
+          if (process.env.NODE_ENV === 'development' && props.debug) {
+            /* eslint-disable-next-line */
+            console.log(
+              `%c ${property}`,
+              'color: #67e8f9;',
+              'updated as internal prop with lower specificity'
+            );
+          }
           flattenProps[property] = merge(
             {},
             props[property],
@@ -223,10 +248,30 @@ const simplifyProps = (
         if (
           compareSpecificity(specificityMap[property], propertySpecity, false)
         ) {
+          if (process.env.NODE_ENV === 'development' && props.debug) {
+            /* eslint-disable-next-line */
+            console.log(
+              `%c ${property}`,
+              'color: #67e8f9;',
+              'updated as simple prop'
+            );
+          }
           specificityMap[property] = propertySpecity;
           // replacing simple props (like, p, m, bg, color, ...)
           flattenProps[property] = props[property];
+        } else {
+          if (process.env.NODE_ENV === 'development' && props.debug) {
+            /* eslint-disable-next-line */
+            console.log(`%c ${property}`, 'color: #67e8f9;', 'ignored');
+          }
         }
+      }
+    } else {
+      // Can delete unused props
+      delete flattenProps[property];
+      if (process.env.NODE_ENV === 'development' && props.debug) {
+        /* eslint-disable-next-line */
+        console.log(`%c ${property}`, 'color: #67e8f9;', 'deleted');
       }
     }
   }
