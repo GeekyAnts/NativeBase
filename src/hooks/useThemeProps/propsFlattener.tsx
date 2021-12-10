@@ -1,5 +1,6 @@
 import merge from 'lodash.merge';
 
+const SPECIFICITY_110 = 110;
 const SPECIFICITY_100 = 100;
 const SPECIFICITY_70 = 70;
 const SPECIFICITY_60 = 60;
@@ -51,11 +52,6 @@ const pseudoPropsMap = {
     respondTo: 'isChecked',
     priority: SPECIFICITY_30,
   },
-  _loading: {
-    dependentOn: 'state',
-    respondTo: 'isLoading',
-    priority: SPECIFICITY_30,
-  },
   // Add new pseudeo props in between -------
   _readOnly: {
     dependentOn: 'state',
@@ -92,6 +88,11 @@ const pseudoPropsMap = {
     dependentOn: 'state',
     respondTo: 'isDisabled',
     priority: SPECIFICITY_100,
+  },
+  _loading: {
+    dependentOn: 'state',
+    respondTo: 'isLoading',
+    priority: SPECIFICITY_110,
   },
 } as const;
 
