@@ -184,6 +184,11 @@ export const color = {
     scale: 'colors',
     transformer: getColor,
   },
+  textDecorationColor: {
+    property: 'textDecorationColor',
+    scale: 'colors',
+    transformer: getColor,
+  },
 } as const;
 
 export const border = {

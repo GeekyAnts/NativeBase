@@ -17,4 +17,4 @@ AlertDialogTemp.Body = AlertDialogBody;
 const AlertDialogMain = AlertDialogTemp as IAlertDialogComponentType;
 
 export { AlertDialogMain as AlertDialog };
-export { IAlertDialogProps } from './types';
+export type { IAlertDialogProps } from './types';

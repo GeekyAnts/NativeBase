@@ -36,7 +36,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.3.0-rc.0",
+  "version": "3.3.0-rc.2",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -91,13 +91,13 @@
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
+    "@types/react": "^16.9.19",
+    "@types/react-native": "~0.63.2",
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
     "react-native-safe-area-context": "*",
-    "react-native-svg": "*",
-    "@types/react-native": "~0.63.2",
-    "@types/react": "^16.9.19"
+    "react-native-svg": "*"
   },
   "jest": {
     "preset": "jest-expo",

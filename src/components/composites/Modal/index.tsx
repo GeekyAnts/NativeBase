@@ -17,4 +17,4 @@ ModalTemp.Body = ModalBody;
 const ModalMain = ModalTemp as IModalComponentType;
 
 export { ModalMain as Modal };
-export { IModalProps } from './types';
+export type { IModalProps } from './types';

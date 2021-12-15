@@ -1,9 +1,3 @@
-export default {
-  multiply(a: number, b: number) {
-    return Promise.resolve(a * b);
-  },
-};
-
 import {
   // AppBar,
   Badge,
@@ -87,14 +81,14 @@ import {
   IMenuOptionGroupProps,
   SimpleGrid,
   ISimpleGridProps,
-  Tabs,
+  // Tabs,
   ITagProps,
-  ITabsProps,
-  ITabBarProps,
-  ITabProps,
-  ITabViewsProps,
-  ITabViewProps,
-  ITabsContextProps,
+  // ITabsProps,
+  // ITabBarProps,
+  // ITabProps,
+  // ITabViewsProps,
+  // ITabViewProps,
+  // ITabsContextProps,
   Actionsheet,
   IActionsheetProps,
   IActionsheetContentProps,
@@ -260,7 +254,7 @@ export {
   // useToast,
   Menu,
   SimpleGrid,
-  Tabs,
+  // Tabs,
   Actionsheet,
   Fab,
   Typeahead,
@@ -343,12 +337,12 @@ export type {
   IMenuGroupProps,
   IMenuOptionGroupProps,
   ISimpleGridProps,
-  ITabsProps,
-  ITabBarProps,
-  ITabProps,
-  ITabViewsProps,
-  ITabViewProps,
-  ITabsContextProps,
+  // ITabsProps,
+  // ITabBarProps,
+  // ITabProps,
+  // ITabViewsProps,
+  // ITabViewProps,
+  // ITabsContextProps,
   IToastProps,
   IActionsheetProps,
   IActionsheetContentProps,
@@ -361,4 +355,5 @@ export type {
   IStackProps,
 };
 
-export { ITheme, ICustomTheme, StyledProps } from './theme';
+export { StyledProps } from './theme';
+export type { ITheme, ICustomTheme } from './theme';
