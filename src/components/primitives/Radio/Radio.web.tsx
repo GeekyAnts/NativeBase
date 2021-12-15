@@ -139,6 +139,10 @@ const Radio = ({ children, ...props }: IRadioProps, ref: any) => {
     ...combinedProps,
   });
 
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
   if (isEmptyObj(contextState)) {
     console.error('Error: Radio must be wrapped inside a Radio.Group');
     return <></>;
