@@ -30,7 +30,7 @@ const RadioGroup = (
     state
   );
   const [propsState] = React.useState(props);
-  const contextValue = React.useMemo(() => {
+  const contextValue: any = React.useMemo(() => {
     return {
       formControlContext,
       size,
