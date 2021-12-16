@@ -1,5 +1,5 @@
-import React, { useContext, memo, forwardRef } from 'react';
-import { mergeRefs } from './../../../utils';
+import React, { memo, forwardRef } from 'react';
+import { mergeRefs } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
 import { useFormControlContext } from '../../composites/FormControl';
@@ -27,22 +27,19 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
   } = combineContextAndProps(formControlContext, props);
 
   const checkboxGroupContext = React.useContext(CheckboxGroupContext);
-
-  const _ref = React.useRef();
-  const mergedRef = mergeRefs([ref, _ref]);
-
   const state = useToggleState({
     ...props,
     defaultSelected: props.defaultIsChecked,
     isSelected: props.isChecked,
   });
-  const groupState = useContext(CheckboxGroupContext);
-  const { isHovered } = useHover({}, _ref);
+
+  const _ref = React.useRef();
+  const mergedRef = mergeRefs([ref, _ref]);
 
   // Swap hooks depending on whether this checkbox is inside a CheckboxGroup.
   // This is a bit unorthodox. Typically, hooks cannot be called in a conditional,
   // but since the checkbox won't move in and out of a group, it should be safe.
-  const { inputProps } = groupState
+  const { inputProps: groupItemInputProps } = checkboxGroupContext
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useCheckboxGroupItem(
         {
@@ -50,7 +47,7 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
           'aria-label': combinedProps.accessibilityLabel,
           'value': combinedProps.value,
         },
-        groupState.state,
+        checkboxGroupContext.state,
         //@ts-ignore
         mergedRef
       )
@@ -65,88 +62,146 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
         mergedRef
       );
 
-  const { checked: isChecked, disabled: isDisabled } = inputProps;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const inputProps = React.useMemo(() => groupItemInputProps, [
+    groupItemInputProps.checked,
+    groupItemInputProps.disabled,
+  ]);
 
-  const { focusProps, isFocusVisible } = useFocusRing();
+  const [contextCombinedProps] = React.useState({
+    ...checkboxGroupContext,
+    ...combinedProps,
+  });
 
-  const { icon, _interactionBox, _icon, ...resolvedProps } = usePropsResolution(
-    'Checkbox',
-    {
-      ...checkboxGroupContext,
-      ...combinedProps,
-    },
-    {
+  return (
+    <CheckboxComponent
+      wrapperRef={wrapperRef}
+      mergedRef={mergedRef}
+      inputProps={inputProps}
+      combinedProps={contextCombinedProps}
+      isInvalid={isInvalid}
+      isReadOnly={isReadOnly}
+      isIndeterminate={isIndeterminate}
+    />
+  );
+};
+
+const CheckboxComponent = React.memo(
+  ({
+    wrapperRef,
+    inputProps,
+    combinedProps,
+    isInvalid,
+    isReadOnly,
+    isIndeterminate,
+    mergedRef,
+  }: any) => {
+    const _ref = React.useRef();
+    const { isHovered } = useHover({}, _ref);
+
+    const { checked: isChecked, disabled: isDisabled } = inputProps;
+
+    const { focusProps, isFocusVisible } = useFocusRing();
+
+    const {
+      icon,
+      _interactionBox,
+      _icon,
+      ...resolvedProps
+    } = usePropsResolution('Checkbox', combinedProps, {
       isInvalid,
       isReadOnly,
-      isFocusVisible,
+      isFocusVisible: true,
       isDisabled,
       isIndeterminate,
       isChecked,
-      isHovered,
-    }
-  );
+      isHovered: true,
+    });
 
-  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
-    ...stylingProps.margin,
-    ...stylingProps.layout,
-    ...stylingProps.flexbox,
-    ...stylingProps.position,
-    '_text',
-  ]);
+    const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+      ...stylingProps.margin,
+      ...stylingProps.layout,
+      ...stylingProps.flexbox,
+      ...stylingProps.position,
+      '_text',
+    ]);
 
-  const component = (
-    <Box
-      {...layoutProps}
-      opacity={isDisabled ? 0.4 : 1}
-      cursor={isDisabled ? 'not-allowed' : 'pointer'}
-    >
-      <Center>
-        {/* Interaction Box */}
+    const component = React.useMemo(() => {
+      return (
         <Box
-          {..._interactionBox}
-          style={{
-            // @ts-ignore - only for web"
-            transition: 'height 200ms, width 200ms',
-          }}
-          h={
-            isFocusVisible || isHovered || isChecked || isInvalid
-              ? '200%'
-              : '100%'
-          }
-          w={
-            isFocusVisible || isHovered || isChecked || isInvalid
-              ? '200%'
-              : '100%'
-          }
-          zIndex={-1}
-        />
-        {/* Checkbox */}
-        <Center {...nonLayoutProps}>
-          {/* {iconResolver()} */}
-          <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
-        </Center>
-      </Center>
-      {/* Label */}
-      {resolvedProps?.children}
-    </Box>
-  );
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(resolvedProps)) {
-    return null;
-  }
-  return (
-    <Box
-      // @ts-ignore - RN web supports accessibilityRole="label"
-      accessibilityRole="label"
-      ref={mergeRefs([wrapperRef, _ref])}
-    >
-      <VisuallyHidden>
-        <input {...inputProps} {...focusProps} ref={mergedRef} />
-      </VisuallyHidden>
+          {...layoutProps}
+          opacity={isDisabled ? 0.4 : 1}
+          cursor={isDisabled ? 'not-allowed' : 'pointer'}
+        >
+          <Center>
+            {/* Interaction Box */}
+            <Box
+              {..._interactionBox}
+              style={{
+                // @ts-ignore - only for web"
+                transition: 'height 200ms, width 200ms',
+              }}
+              h={
+                isFocusVisible || isHovered || isChecked || isInvalid
+                  ? '200%'
+                  : '100%'
+              }
+              w={
+                isFocusVisible || isHovered || isChecked || isInvalid
+                  ? '200%'
+                  : '100%'
+              }
+              zIndex={-1}
+            />
+            {/* Checkbox */}
+            <Center {...nonLayoutProps}>
+              {/* {iconResolver()} */}
+              <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
+            </Center>
+          </Center>
+          {/* Label */}
+          {resolvedProps?.children}
+        </Box>
+      );
+    }, [
+      _icon,
+      _interactionBox,
+      icon,
+      isChecked,
+      isDisabled,
+      isFocusVisible,
+      isHovered,
+      isInvalid,
+      layoutProps,
+      nonLayoutProps,
+      resolvedProps?.children,
+    ]);
 
-      {component}
-    </Box>
-  );
-};
+    const mergedWrapperRef = React.useMemo(
+      () => mergeRefs([wrapperRef, _ref]),
+      [wrapperRef]
+    );
+
+    //TODO: refactor for responsive prop
+    if (useHasResponsiveProps(resolvedProps)) {
+      return null;
+    }
+
+    return (
+      <Box
+        // @ts-ignore - RN web supports accessibilityRole="label"
+        accessibilityRole="label"
+        ref={mergedWrapperRef}
+      >
+        <VisuallyHidden>
+          {/* <input {...props.inputProps} {...props.focusProps} ref={props.mergedRef} /> */}
+          <input {...inputProps} {...focusProps} ref={mergedRef} />
+        </VisuallyHidden>
+
+        {component}
+      </Box>
+    );
+  }
+);
 
 export default memo(forwardRef(Checkbox));
