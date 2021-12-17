@@ -129,7 +129,6 @@ export const position = {
   position: true,
   zIndex: {
     property: 'zIndex',
-    scale: 'zIndices',
   },
   top: {
     property: 'top',
