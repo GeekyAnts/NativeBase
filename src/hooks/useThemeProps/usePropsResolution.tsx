@@ -135,12 +135,30 @@ export function usePropsResolution(
   const componentTheme =
     config?.componentTheme ?? get(theme, `components.${component}`, {});
 
-  return usePropsResolutionWithComponentTheme(
+  if (process.env.NODE_ENV === 'development' && incomingProps.debug) {
+    /* eslint-disable-next-line */
+    console.log(
+      `%c ${component}`,
+      'background: #374151; color: #FBBF24; font-weight: 700; padding: 2px 8px;'
+    );
+    /* eslint-disable-next-line */
+    console.log('incomingProps: ', incomingProps);
+    /* eslint-disable-next-line */
+    console.log('componentTheme: ', componentTheme);
+  }
+
+  const resolvedProps = usePropsResolutionWithComponentTheme(
     componentTheme,
     incomingProps,
     state,
     config
   );
+
+  if (process.env.NODE_ENV === 'development' && incomingProps.debug) {
+    /* eslint-disable-next-line */
+    console.log('resolvedProps: ', resolvedProps);
+  }
+  return resolvedProps;
 }
 
 export const usePropsResolutionWithComponentTheme = (
@@ -179,7 +197,13 @@ export const usePropsResolutionWithComponentTheme = (
     cleanIncomingProps
   );
   // STEP 2: flatten them
-
+  if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
+    /* eslint-disable-next-line */
+    console.log(
+      `%c Flattening incoming and Default`,
+      'background: #374151; color: #FFF; font-weight: 700; padding: 2px 8px;'
+    );
+  }
   let [flattenProps, specificityMap] = propsFlattener(
     {
       props: incomingWithDefaultProps,
@@ -221,10 +245,19 @@ export const usePropsResolutionWithComponentTheme = (
             ...flattenProps,
             ...colorModeProps,
           });
-
+    if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
+      /* eslint-disable-next-line */
+      console.log(
+        `%c Flattening baseStyle`,
+        'background: #374151; color: #FFF; font-weight: 700; padding: 2px 8px;'
+      );
+    }
     [flattenBaseStyle, baseSpecificityMap] = propsFlattener(
       {
-        props: componentBaseStyle,
+        props:
+          process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
+            ? { ...componentBaseStyle, debug: true }
+            : componentBaseStyle,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
@@ -253,9 +286,19 @@ export const usePropsResolutionWithComponentTheme = (
             ...colorModeProps,
           });
 
+    if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
+      /* eslint-disable-next-line */
+      console.log(
+        `%c Flattening variantStyle`,
+        'background: #374151; color: #FFF; font-weight: 700; padding: 2px 8px;'
+      );
+    }
     [flattenVariantStyle, variantSpecificityMap] = propsFlattener(
       {
-        props: componentVariantProps,
+        props:
+          process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
+            ? { ...componentVariantProps, debug: true }
+            : componentVariantProps,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
@@ -304,10 +347,19 @@ export const usePropsResolutionWithComponentTheme = (
       flattenProps.size = undefined;
       componentSizeProps = componentTheme.sizes[size];
     }
-
+    if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
+      /* eslint-disable-next-line */
+      console.log(
+        `%c Flattening sizeStyle`,
+        'background: #374151; color: #FFF; font-weight: 700; padding: 2px 8px;'
+      );
+    }
     [flattenSizeStyle, sizeSpecificityMap] = propsFlattener(
       {
-        props: componentSizeProps,
+        props:
+          process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
+            ? { ...componentSizeProps, debug: true }
+            : componentSizeProps,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
@@ -393,6 +445,9 @@ export const usePropsResolutionWithComponentTheme = (
   });
   // STEP 6: Return
 
+  if (process.env.NODE_ENV === 'development' && resolvedProps.debug) {
+    delete resolvedProps.debug;
+  }
   // flattenProps = {};
   // propertyDepth = {};
 

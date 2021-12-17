@@ -28,7 +28,7 @@ export const useStyledSystemPropsResolver = ({
       return { style: styleSheet.box, restProps };
     }
   }, [props, theme, debug, currentBreakpoint, strictMode, propStyle]);
-  if (debug) {
+  if (process.env.NODE_ENV === 'development' && debug) {
     /* eslint-disable-next-line */
     console.log('style,resprops', currentBreakpoint);
   }
