@@ -208,7 +208,7 @@ const simplifyProps = (
         );
       }
       // @ts-ignore
-    } else if (state[pseudoPropsMap[property]?.respondTo] === undefined) {
+    } else if (pseudoPropsMap[property] === undefined) {
       if (property.startsWith('_')) {
         // NOTE: Handling (internal) props like _text, _stack, ....
         if (
