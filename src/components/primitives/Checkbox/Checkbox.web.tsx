@@ -141,16 +141,9 @@ const CheckboxComponent = React.memo(
                 // @ts-ignore - only for web"
                 transition: 'height 200ms, width 200ms',
               }}
-              h={
-                isFocusVisible || isHovered || isChecked || isInvalid
-                  ? '200%'
-                  : '100%'
-              }
-              w={
-                isFocusVisible || isHovered || isChecked || isInvalid
-                  ? '200%'
-                  : '100%'
-              }
+              h={isFocusVisible || isHovered ? '200%' : '0%'}
+              w={isFocusVisible || isHovered ? '200%' : '0%'}
+              pointerEvents="none"
               zIndex={-1}
             />
             {/* Checkbox */}
@@ -171,7 +164,6 @@ const CheckboxComponent = React.memo(
       isDisabled,
       isFocusVisible,
       isHovered,
-      isInvalid,
       layoutProps,
       nonLayoutProps,
       resolvedProps?.children,
