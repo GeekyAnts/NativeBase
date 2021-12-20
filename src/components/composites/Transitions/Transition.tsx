@@ -80,7 +80,7 @@ export const Transition = forwardRef(
   ) => {
     const animateValue = React.useRef(new Animated.Value(0)).current;
 
-    const [displayState, setDisplayState] = React.useState('flex');
+    const [displayState] = React.useState('flex');
     const Component = React.useMemo(() => {
       if (as) {
         return Animated.createAnimatedComponent(as);
@@ -92,22 +92,8 @@ export const Transition = forwardRef(
 
     const prevVisible = React.useRef(visible);
 
-    // React.useEffect(() => {
-
-    // }, [visible]);
-
     React.useEffect(() => {
       if (animationState === 'entering' || animationState === 'exiting') {
-        // setDisplayState('flex');
-
-        // if (animationState === 'entering') {
-        //   setTimeout(() => {
-        setDisplayState('flex');
-        //   });
-        //   return;
-        // }
-
-        // setTimeout(() => {
         const entryTransition = {
           ...defaultTransitionConfig,
           ...animate?.transition,
@@ -121,12 +107,6 @@ export const Transition = forwardRef(
 
         const transition = startAnimation ? entryTransition : exitTransition;
 
-        // console.log(
-        //   'Transition state',
-        //   transition,
-        //   animationState,
-        //   defaultTransitionConfig
-        // );
         Animated.sequence([
           // @ts-ignore - delay is present in defaultTransitionConfig
           Animated.delay(transition.delay),
@@ -140,9 +120,6 @@ export const Transition = forwardRef(
             setAnimationState('entered');
           } else if (animationState === 'exiting') {
             setAnimationState('exited');
-            setTimeout(() => {
-              setDisplayState('none');
-            });
           }
         });
         // });
@@ -150,12 +127,8 @@ export const Transition = forwardRef(
 
       if (animationState === 'exited') {
         onTransitionComplete && onTransitionComplete('exited');
-        // setDisplayState('none');
-
-        // setInitialState({ ...exit });
       } else if (animationState === 'entered') {
         onTransitionComplete && onTransitionComplete('entered');
-        // setInitialState({ ...initial });
       }
       // if (animationState === 'entering') {
       //   //
@@ -220,7 +193,6 @@ export const Transition = forwardRef(
         style={[styles, { display: displayState }]}
         ref={ref}
         {...rest}
-        // style={{  }}
       >
         {children}
       </Component>

@@ -16,10 +16,6 @@ const PresenceTransition = (
     return null;
   }
 
-  // if (!visible && animationExited) {
-  //   return null;
-  // }
-
   return (
     <Transition
       visible={visible}

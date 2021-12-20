@@ -17,10 +17,6 @@ const ActionsheetContent = (
     props
   );
 
-  // useEffect(() => {
-  //   console.log('action sheet content');
-  // }, []);
-
   // return null;
   const { handleClose } = React.useContext(ModalContext);
   const { hideDragIndicator } = React.useContext(ActionSheetContext);

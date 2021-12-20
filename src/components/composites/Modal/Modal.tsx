@@ -68,6 +68,7 @@ const Modal = (
       isOpen={visible}
       onRequestClose={handleClose}
       isKeyboardDismissable={isKeyboardDismissable}
+      animationPreset={animationPreset}
       useRNModalOnAndroid
     >
       <ModalContext.Provider
