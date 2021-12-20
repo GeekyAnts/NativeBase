@@ -16,11 +16,20 @@ const ActionsheetContent = (
     'ActionsheetContent',
     props
   );
+
+  // useEffect(() => {
+  //   console.log('action sheet content');
+  // }, []);
+
+  // return null;
   const { handleClose } = React.useContext(ModalContext);
   const { hideDragIndicator } = React.useContext(ActionSheetContext);
   const pan = React.useRef(new Animated.ValueXY()).current;
   const sheetHeight = React.useRef(0);
 
+  // useEffect(() => {
+
+  // }, [])
   const panResponder = React.useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -42,6 +51,14 @@ const ActionsheetContent = (
             duration: 150,
             useNativeDriver: true,
           }).start(handleClose);
+
+          setTimeout(() => {
+            Animated.spring(pan, {
+              toValue: { x: 0, y: 0 },
+              overshootClamping: true,
+              useNativeDriver: true,
+            }).start();
+          });
         } else {
           Animated.spring(pan, {
             toValue: { x: 0, y: 0 },
@@ -56,6 +73,8 @@ const ActionsheetContent = (
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
+  // console.log('action sheet render ');
   return (
     <Animated.View
       style={{

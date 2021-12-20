@@ -28,9 +28,9 @@ export function Overlay({
     callback: onRequestClose ? onRequestClose : () => {},
   });
 
-  if (exited && !isOpen) {
-    return null;
-  }
+  // if (exited && !isOpen) {
+  //   return null;
+  // }
 
   // Android handles multiple Modal in RN and is better for accessibility as it shifts accessibility focus on mount, however it may not needed in case of tooltips, toast where one doesn't need to shift accessibility focus
   if (Platform.OS === 'android' && useRNModalOnAndroid) {
@@ -44,11 +44,17 @@ export function Overlay({
   }
 
   // Since OverlayContainer mounts children in NativeBaseProvider  using Context, we need to pass the context by wrapping children
+
+  // return <> {children}</>;
   return (
-    <OverlayContainer>
+    <OverlayContainer
+      style={{ display: exited && !isOpen ? 'none' : 'contents' }}
+    >
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         {children}
       </ExitAnimationContext.Provider>
     </OverlayContainer>
+
+    // </Box>
   );
 }

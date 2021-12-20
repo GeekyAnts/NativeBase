@@ -19,6 +19,7 @@ export const Example = () => {
       h="100%"
       // alignItems="flex-start"
       justifyContent="center"
+      // overflow={'hidden'}
     >
       <VStack space={3} w="100%">
         <HStack alignItems="flex-end">
