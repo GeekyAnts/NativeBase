@@ -153,6 +153,8 @@ export function usePropsResolution(
       incomingProps
     );
     /* eslint-disable-next-line */
+    console.log('%c state: ', 'color: #4ade80; font-weight: 700;', state);
+    /* eslint-disable-next-line */
     console.log(
       '%c componentTheme: ',
       'color: #4ade80; font-weight: 700;',
