@@ -56,3 +56,6 @@ android/keystores/debug.keystore
 lib/
 src/jest/mock.ts
 node_modules
+
+# personal 
+.env

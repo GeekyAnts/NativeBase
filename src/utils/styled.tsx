@@ -4,7 +4,7 @@ import { useStyledSystemPropsResolver } from '../hooks/';
 export const makeStyledComponent = (Comp: any) => {
   return React.forwardRef(({ debug, ...props }: any, ref: any) => {
     const [style, restProps] = useStyledSystemPropsResolver(props);
-    if (debug) {
+    if (process.env.NODE_ENV === 'development' && debug) {
       /* eslint-disable-next-line */
       console.log('style:: => ', style, ' restProps:: => ', restProps);
     }
