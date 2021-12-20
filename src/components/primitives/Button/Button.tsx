@@ -11,6 +11,7 @@ import {
   useFocus,
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
+import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
@@ -31,6 +32,7 @@ const Button = (
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
+  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
 
   const {
     onPressIn,
@@ -50,6 +52,7 @@ const Button = (
     isFocused,
     isPressed,
     isLoading,
+    isFocusVisible,
   });
 
   //TODO: refactor for responsive prop
@@ -108,13 +111,13 @@ const Button = (
       onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
       // @ts-ignore - web only
       onFocus={composeEventHandlers(
-        composeEventHandlers(onFocus, focusProps.onFocus)
-        // focusRingProps.onFocus
+        composeEventHandlers(onFocus, focusProps.onFocus),
+        focusRingProps.onFocus
       )}
       // @ts-ignore - web only
       onBlur={composeEventHandlers(
-        composeEventHandlers(onBlur, focusProps.onBlur)
-        // focusRingProps.onBlur
+        composeEventHandlers(onBlur, focusProps.onBlur),
+        focusRingProps.onBlur
       )}
       {...resolvedProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
