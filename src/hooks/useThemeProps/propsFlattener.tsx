@@ -187,7 +187,7 @@ const simplifyProps = (
           /* eslint-disable-next-line */
           console.log(
             `%c ${property}`,
-            'color: #67e8f9;',
+            'color: #818cf8;',
             'recursively resolving'
           );
         }
@@ -218,7 +218,7 @@ const simplifyProps = (
             /* eslint-disable-next-line */
             console.log(
               `%c ${property}`,
-              'color: #67e8f9;',
+              'color: #818cf8;',
               'updated as internal prop with higher specificity'
             );
           }
@@ -234,7 +234,7 @@ const simplifyProps = (
             /* eslint-disable-next-line */
             console.log(
               `%c ${property}`,
-              'color: #67e8f9;',
+              'color: #818cf8;',
               'updated as internal prop with lower specificity'
             );
           }
@@ -252,7 +252,7 @@ const simplifyProps = (
             /* eslint-disable-next-line */
             console.log(
               `%c ${property}`,
-              'color: #67e8f9;',
+              'color: #818cf8;',
               'updated as simple prop'
             );
           }
@@ -262,7 +262,7 @@ const simplifyProps = (
         } else {
           if (process.env.NODE_ENV === 'development' && props.debug) {
             /* eslint-disable-next-line */
-            console.log(`%c ${property}`, 'color: #67e8f9;', 'ignored');
+            console.log(`%c ${property}`, 'color: #818cf8;', 'ignored');
           }
         }
       }
@@ -271,7 +271,7 @@ const simplifyProps = (
       delete flattenProps[property];
       if (process.env.NODE_ENV === 'development' && props.debug) {
         /* eslint-disable-next-line */
-        console.log(`%c ${property}`, 'color: #67e8f9;', 'deleted');
+        console.log(`%c ${property}`, 'color: #818cf8;', 'deleted');
       }
     }
   }
