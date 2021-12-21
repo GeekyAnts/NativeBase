@@ -138,13 +138,28 @@ export function usePropsResolution(
   if (process.env.NODE_ENV === 'development' && incomingProps.debug) {
     /* eslint-disable-next-line */
     console.log(
-      `%c ${component}`,
-      'background: #374151; color: #FBBF24; font-weight: 700; padding: 2px 8px;'
+      `%c${component}`,
+      'background: #d97706; color: #111; font-weight: 700; padding: 2px 8px;'
     );
     /* eslint-disable-next-line */
-    console.log('incomingProps: ', incomingProps);
+    console.log(
+      `%cusePropsResolution`,
+      'background: #4b5563; color: #d97706; font-weight: 700; padding: 2px 8px;'
+    );
     /* eslint-disable-next-line */
-    console.log('componentTheme: ', componentTheme);
+    console.log(
+      '%c incomingProps: ',
+      'color: #4ade80; font-weight: 700;',
+      incomingProps
+    );
+    /* eslint-disable-next-line */
+    console.log('%c state: ', 'color: #4ade80; font-weight: 700;', state);
+    /* eslint-disable-next-line */
+    console.log(
+      '%c componentTheme: ',
+      'color: #4ade80; font-weight: 700;',
+      componentTheme
+    );
   }
 
   const resolvedProps = usePropsResolutionWithComponentTheme(
@@ -156,7 +171,11 @@ export function usePropsResolution(
 
   if (process.env.NODE_ENV === 'development' && incomingProps.debug) {
     /* eslint-disable-next-line */
-    console.log('resolvedProps: ', resolvedProps);
+    console.log(
+      '%c resolvedProps: ',
+      'color: #22d3ee; font-weight: 700;',
+      resolvedProps
+    );
   }
   return resolvedProps;
 }
@@ -200,8 +219,8 @@ export const usePropsResolutionWithComponentTheme = (
   if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
     /* eslint-disable-next-line */
     console.log(
-      `%c Flattening incoming and Default`,
-      'background: #374151; color: #FFF; font-weight: 700; padding: 2px 8px;'
+      `%cFlattening incoming and Default`,
+      'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
     );
   }
   let [flattenProps, specificityMap] = propsFlattener(
@@ -248,8 +267,8 @@ export const usePropsResolutionWithComponentTheme = (
     if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
       /* eslint-disable-next-line */
       console.log(
-        `%c Flattening baseStyle`,
-        'background: #374151; color: #FFF; font-weight: 700; padding: 2px 8px;'
+        `%cFlattening baseStyle`,
+        'background: #4b5563; color: #eee; font-weight: 700; padding: 2px 8px;'
       );
     }
     [flattenBaseStyle, baseSpecificityMap] = propsFlattener(
@@ -289,8 +308,8 @@ export const usePropsResolutionWithComponentTheme = (
     if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
       /* eslint-disable-next-line */
       console.log(
-        `%c Flattening variantStyle`,
-        'background: #374151; color: #FFF; font-weight: 700; padding: 2px 8px;'
+        `%cFlattening variantStyle`,
+        'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
       );
     }
     [flattenVariantStyle, variantSpecificityMap] = propsFlattener(
@@ -350,8 +369,8 @@ export const usePropsResolutionWithComponentTheme = (
     if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
       /* eslint-disable-next-line */
       console.log(
-        `%c Flattening sizeStyle`,
-        'background: #374151; color: #FFF; font-weight: 700; padding: 2px 8px;'
+        `%cFlattening sizeStyle`,
+        'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
       );
     }
     [flattenSizeStyle, sizeSpecificityMap] = propsFlattener(
@@ -445,9 +464,6 @@ export const usePropsResolutionWithComponentTheme = (
   });
   // STEP 6: Return
 
-  if (process.env.NODE_ENV === 'development' && resolvedProps.debug) {
-    delete resolvedProps.debug;
-  }
   // flattenProps = {};
   // propertyDepth = {};
 
