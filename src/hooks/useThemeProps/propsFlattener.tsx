@@ -161,6 +161,7 @@ const simplifyProps = (
     state,
     currentSpecificity,
     previouslyFlattenProps,
+    cascadePseudoProps,
   }: any,
   flattenProps: any = {},
   specificityMap: any = {},
@@ -201,6 +202,7 @@ const simplifyProps = (
             state,
             currentSpecificity: propertySpecity,
             previouslyFlattenProps: previouslyFlattenProps,
+            cascadePseudoProps,
           },
           flattenProps,
           specificityMap,
@@ -268,10 +270,20 @@ const simplifyProps = (
       }
     } else {
       // Can delete unused props
-      delete flattenProps[property];
-      if (process.env.NODE_ENV === 'development' && props.debug) {
-        /* eslint-disable-next-line */
-        console.log(`%c ${property}`, 'color: #818cf8;', 'deleted');
+      if (!cascadePseudoProps) {
+        delete flattenProps[property];
+        if (process.env.NODE_ENV === 'development' && props.debug) {
+          /* eslint-disable-next-line */
+          console.log(`%c ${property}`, 'color: #818cf8;', 'deleted');
+        }
+      } else {
+        specificityMap[property] = propertySpecity;
+        flattenProps[property] = props[property];
+
+        if (process.env.NODE_ENV === 'development' && props.debug) {
+          /* eslint-disable-next-line */
+          console.log(`%c ${property}`, 'color: #818cf8;', 'cascaded');
+        }
       }
     }
   }
@@ -285,6 +297,7 @@ export const propsFlattener = (
     state,
     currentSpecificityMap,
     previouslyFlattenProps,
+    cascadePseudoProps,
   }: any,
   priority: number
 ) => {
@@ -317,6 +330,7 @@ export const propsFlattener = (
       state,
       currentSpecificityMap,
       previouslyFlattenProps,
+      cascadePseudoProps,
     },
     flattenProps,
     specificityMap,
