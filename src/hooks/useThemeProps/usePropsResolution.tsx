@@ -136,49 +136,12 @@ export function usePropsResolution(
   const componentTheme =
     config?.componentTheme ?? get(theme, `components.${component}`, {});
 
-  if (process.env.NODE_ENV === 'development' && incomingProps.debug) {
-    /* eslint-disable-next-line */
-    console.log(
-      `%c${component}`,
-      'background: #d97706; color: #111; font-weight: 700; padding: 2px 8px;'
-    );
-    /* eslint-disable-next-line */
-    console.log(
-      `%cusePropsResolution`,
-      'background: #4b5563; color: #d97706; font-weight: 700; padding: 2px 8px;'
-    );
-    /* eslint-disable-next-line */
-    console.log(
-      '%c incomingProps: ',
-      'color: #4ade80; font-weight: 700;',
-      incomingProps
-    );
-    /* eslint-disable-next-line */
-    console.log('%c state: ', 'color: #4ade80; font-weight: 700;', state);
-    /* eslint-disable-next-line */
-    console.log(
-      '%c componentTheme: ',
-      'color: #4ade80; font-weight: 700;',
-      componentTheme
-    );
-  }
-
-  const resolvedProps = usePropsResolutionWithComponentTheme(
+  return usePropsResolutionWithComponentTheme(
     componentTheme,
     incomingProps,
     state,
     config
   );
-
-  if (process.env.NODE_ENV === 'development' && incomingProps.debug) {
-    /* eslint-disable-next-line */
-    console.log(
-      '%c resolvedProps: ',
-      'color: #22d3ee; font-weight: 700;',
-      resolvedProps
-    );
-  }
-  return resolvedProps;
 }
 
 export const usePropsResolutionWithComponentTheme = (
@@ -218,13 +181,7 @@ export const usePropsResolutionWithComponentTheme = (
     cleanIncomingProps
   );
   // STEP 2: flatten them
-  if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
-    /* eslint-disable-next-line */
-    console.log(
-      `%cFlattening incoming and Default`,
-      'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
-    );
-  }
+
   let [flattenProps, specificityMap] = propsFlattener(
     {
       props: incomingWithDefaultProps,
@@ -267,19 +224,10 @@ export const usePropsResolutionWithComponentTheme = (
             ...flattenProps,
             ...colorModeProps,
           });
-    if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
-      /* eslint-disable-next-line */
-      console.log(
-        `%cFlattening baseStyle`,
-        'background: #4b5563; color: #eee; font-weight: 700; padding: 2px 8px;'
-      );
-    }
+
     [flattenBaseStyle, baseSpecificityMap] = propsFlattener(
       {
-        props:
-          process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
-            ? { ...componentBaseStyle, debug: true }
-            : componentBaseStyle,
+        props: componentBaseStyle,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
@@ -309,19 +257,9 @@ export const usePropsResolutionWithComponentTheme = (
             ...colorModeProps,
           });
 
-    if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
-      /* eslint-disable-next-line */
-      console.log(
-        `%cFlattening variantStyle`,
-        'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
-      );
-    }
     [flattenVariantStyle, variantSpecificityMap] = propsFlattener(
       {
-        props:
-          process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
-            ? { ...componentVariantProps, debug: true }
-            : componentVariantProps,
+        props: componentVariantProps,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
@@ -371,19 +309,10 @@ export const usePropsResolutionWithComponentTheme = (
       flattenProps.size = undefined;
       componentSizeProps = componentTheme.sizes[size];
     }
-    if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
-      /* eslint-disable-next-line */
-      console.log(
-        `%cFlattening sizeStyle`,
-        'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
-      );
-    }
+
     [flattenSizeStyle, sizeSpecificityMap] = propsFlattener(
       {
-        props:
-          process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
-            ? { ...componentSizeProps, debug: true }
-            : componentSizeProps,
+        props: componentSizeProps,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},

@@ -1,6 +1,5 @@
 import merge from 'lodash.merge';
 
-const SPECIFICITY_110 = 110;
 const SPECIFICITY_100 = 100;
 const SPECIFICITY_70 = 70;
 const SPECIFICITY_60 = 60;
@@ -55,7 +54,7 @@ const pseudoPropsMap = {
   _loading: {
     dependentOn: 'state',
     respondTo: 'isLoading',
-    priority: SPECIFICITY_110,
+    priority: SPECIFICITY_30,
   },
   // Add new pseudeo props in between -------
   _readOnly: {
@@ -216,17 +215,9 @@ const simplifyProps = (
     ) {
       // @ts-ignore
       if (shouldResolvePseudoProp({ property, state, platform, colormode })) {
-        // NOTE: Handling (state driven) props like _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
-        if (process.env.NODE_ENV === 'development' && props.debug) {
-          /* eslint-disable-next-line */
-          console.log(
-            `%c ${property}`,
-            'color: #818cf8;',
-            'recursively resolving'
-          );
-        }
         // @ts-ignore
         propertySpecity[pseudoPropsMap[property].priority]++;
+
         simplifyProps(
           {
             props: props[property],
@@ -243,7 +234,7 @@ const simplifyProps = (
         );
       }
       // @ts-ignore
-    } else if (pseudoPropsMap[property] === undefined) {
+    } else if (state[pseudoPropsMap[property]?.respondTo] === undefined) {
       if (property.startsWith('_')) {
         // NOTE: Handling (internal) props like _text, _stack, ....
         mergePsuedoProps(property, propertySpecity);
@@ -251,22 +242,9 @@ const simplifyProps = (
         if (
           compareSpecificity(specificityMap[property], propertySpecity, false)
         ) {
-          if (process.env.NODE_ENV === 'development' && props.debug) {
-            /* eslint-disable-next-line */
-            console.log(
-              `%c ${property}`,
-              'color: #818cf8;',
-              'updated as simple prop'
-            );
-          }
           specificityMap[property] = propertySpecity;
           // replacing simple props (like, p, m, bg, color, ...)
           flattenProps[property] = props[property];
-        } else {
-          if (process.env.NODE_ENV === 'development' && props.debug) {
-            /* eslint-disable-next-line */
-            console.log(`%c ${property}`, 'color: #818cf8;', 'ignored');
-          }
         }
       }
     } else {

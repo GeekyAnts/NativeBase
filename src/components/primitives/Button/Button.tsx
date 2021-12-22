@@ -16,6 +16,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
   {
+    //@ts-ignore
     children,
     startIcon,
     rightIcon,
@@ -120,16 +121,30 @@ const Button = (
         focusRingProps.onBlur
       )}
       {...resolvedProps}
+      // {...pressableProps}
+      // {...(isDisabled && _disabled)}
+      // {...(isLoading && _loading)}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
       <HStack {..._stack}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
         {boxChildren ? (
-          <Box bg="transparent" _text={_text}>
+          <Box
+            _text={{
+              ..._text,
+              // ...hoverTextProps,
+              // ...focusTextProps,
+              // ...focusVisibleTextProps,
+              // ...pressedTextProps,
+              // ...loadingTextProps,
+              // ...disabledTextProps,
+            }}
+          >
             {isLoading && isLoadingText ? isLoadingText : children}
           </Box>
         ) : null}
+
         {endIcon && !isLoading ? endIcon : null}
         {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
       </HStack>

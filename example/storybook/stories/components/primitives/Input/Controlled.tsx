@@ -3,12 +3,12 @@ import { Input } from 'native-base';
 
 export const Example = () => {
   const [value, setValue] = React.useState('');
-  const handleChange = (text: string) => setValue(text);
+  const handleChange = (event: any) => setValue(event.target.value);
   return (
     <Input
       value={value}
       w={{ base: '75%', md: '25%' }}
-      onChangeText={handleChange}
+      onChange={handleChange}
       placeholder="Value Controlled Input"
     />
   );
