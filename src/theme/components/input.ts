@@ -34,7 +34,6 @@ const baseStyle = (props: Record<string, any>) => {
     overflow: 'hidden',
     color: mode('coolGray.800', 'warmGray.50')(props),
     placeholderTextColor: 'muted.400',
-    background: 'transparent',
     borderColor: mode('muted.200', 'gray.500')(props),
     _disabled: {
       opacity: '80',
