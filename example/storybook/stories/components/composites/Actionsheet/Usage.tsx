@@ -13,7 +13,7 @@ export function Example() {
               Albums
             </Text>
           </Box>
-          <Actionsheet.Item debug={true}>Delete</Actionsheet.Item>
+          <Actionsheet.Item>Delete</Actionsheet.Item>
           <Actionsheet.Item>Share</Actionsheet.Item>
           <Actionsheet.Item>Play</Actionsheet.Item>
           <Actionsheet.Item>Favourite</Actionsheet.Item>
