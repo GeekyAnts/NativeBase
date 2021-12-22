@@ -80,7 +80,6 @@ export const Transition = forwardRef(
   ) => {
     const animateValue = React.useRef(new Animated.Value(0)).current;
 
-    const [displayState] = React.useState('flex');
     const Component = React.useMemo(() => {
       if (as) {
         return Animated.createAnimatedComponent(as);
@@ -190,7 +189,7 @@ export const Transition = forwardRef(
         // https://github.com/facebook/react-native/issues/23090#issuecomment-710803743
         // needsOffscreenAlphaCompositing
         // style={[styles]}
-        style={[styles, { display: displayState }]}
+        style={[styles]}
         ref={ref}
         {...rest}
       >

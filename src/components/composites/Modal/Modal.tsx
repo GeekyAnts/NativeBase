@@ -45,7 +45,7 @@ const Modal = (
     },
   });
 
-  const handleClose = () => setVisible(false);
+  const handleClose = React.useCallback(() => setVisible(false), [setVisible]);
 
   const child = (
     <Box
@@ -57,6 +57,16 @@ const Modal = (
       {children}
     </Box>
   );
+
+  const contextValue = React.useMemo(() => {
+    return {
+      handleClose,
+      contentSize,
+      initialFocusRef,
+      finalFocusRef,
+    };
+  }, [handleClose, contentSize, initialFocusRef, finalFocusRef]);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(rest)) {
     return null;
@@ -71,14 +81,7 @@ const Modal = (
       animationPreset={animationPreset}
       useRNModalOnAndroid
     >
-      <ModalContext.Provider
-        value={{
-          handleClose,
-          contentSize,
-          initialFocusRef,
-          finalFocusRef,
-        }}
-      >
+      <ModalContext.Provider value={contextValue}>
         <Fade
           exitDuration={150}
           entryDuration={200}

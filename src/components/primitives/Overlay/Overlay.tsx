@@ -52,6 +52,7 @@ export function Overlay({
 
   // Since OverlayContainer mounts children in NativeBaseProvider  using Context, we need to pass the context by wrapping children
   return (
+    //@ts-ignore
     <OverlayContainer style={{ display: display }}>
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         {children}
