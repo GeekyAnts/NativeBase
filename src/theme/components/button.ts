@@ -42,7 +42,6 @@ const baseStyle = (props: any) => {
     },
     _spinner: {
       size: 'sm',
-      focusable: false,
     },
   };
 };
