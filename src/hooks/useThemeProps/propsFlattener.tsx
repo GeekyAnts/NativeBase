@@ -160,11 +160,45 @@ const simplifyProps = (
     state,
     currentSpecificity,
     previouslyFlattenProps,
+    cascadePseudoProps,
   }: any,
   flattenProps: any = {},
   specificityMap: any = {},
   priority: number
 ) => {
+  const mergePsuedoProps = (property: string, propertySpecity: object) => {
+    if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
+      if (process.env.NODE_ENV === 'development' && props.debug) {
+        /* eslint-disable-next-line */
+        console.log(
+          `%c ${property}`,
+          'color: #818cf8;',
+          'updated as internal prop with higher specificity'
+        );
+      }
+      specificityMap[property] = propertySpecity;
+      // merging internal props (like, _text, _stack ...)
+      flattenProps[property] = merge(
+        {},
+        flattenProps[property],
+        props[property]
+      );
+    } else {
+      if (process.env.NODE_ENV === 'development' && props.debug) {
+        /* eslint-disable-next-line */
+        console.log(
+          `%c ${property}`,
+          'color: #818cf8;',
+          'updated as internal prop with lower specificity'
+        );
+      }
+      flattenProps[property] = merge(
+        {},
+        props[property],
+        flattenProps[property]
+      );
+    }
+  };
   for (const property in props) {
     // NOTE: the order is important here. Keep in mind while specificity breakpoints.
     const propertySpecity = currentSpecificity
@@ -192,6 +226,7 @@ const simplifyProps = (
             state,
             currentSpecificity: propertySpecity,
             previouslyFlattenProps: previouslyFlattenProps,
+            cascadePseudoProps,
           },
           flattenProps,
           specificityMap,
@@ -201,23 +236,8 @@ const simplifyProps = (
       // @ts-ignore
     } else if (state[pseudoPropsMap[property]?.respondTo] === undefined) {
       if (property.startsWith('_')) {
-        if (
-          compareSpecificity(specificityMap[property], propertySpecity, false)
-        ) {
-          specificityMap[property] = propertySpecity;
-          // merging internal props (like, _text, _checked, ...)
-          flattenProps[property] = merge(
-            {},
-            flattenProps[property],
-            props[property]
-          );
-        } else {
-          flattenProps[property] = merge(
-            {},
-            props[property],
-            flattenProps[property]
-          );
-        }
+        // NOTE: Handling (internal) props like _text, _stack, ....
+        mergePsuedoProps(property, propertySpecity);
       } else {
         if (
           compareSpecificity(specificityMap[property], propertySpecity, false)
@@ -226,6 +246,24 @@ const simplifyProps = (
           // replacing simple props (like, p, m, bg, color, ...)
           flattenProps[property] = props[property];
         }
+      }
+    } else {
+      // Can delete unused props
+      if (!cascadePseudoProps) {
+        delete flattenProps[property];
+        if (process.env.NODE_ENV === 'development' && props.debug) {
+          /* eslint-disable-next-line */
+          console.log(`%c ${property}`, 'color: #818cf8;', 'deleted');
+        }
+      } else {
+        // specificityMap[property] = propertySpecity;
+        // flattenProps[property] = props[property];
+
+        if (process.env.NODE_ENV === 'development' && props.debug) {
+          /* eslint-disable-next-line */
+          console.log(`%c ${property}`, 'color: #818cf8;', 'cascaded');
+        }
+        mergePsuedoProps(property, propertySpecity);
       }
     }
   }
@@ -239,6 +277,7 @@ export const propsFlattener = (
     state,
     currentSpecificityMap,
     previouslyFlattenProps,
+    cascadePseudoProps,
   }: any,
   priority: number
 ) => {
@@ -271,6 +310,7 @@ export const propsFlattener = (
       state,
       currentSpecificityMap,
       previouslyFlattenProps,
+      cascadePseudoProps,
     },
     flattenProps,
     specificityMap,

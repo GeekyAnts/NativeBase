@@ -23,7 +23,8 @@
     "bootstrap": "yarn example && yarn && yarn pods",
     "build:web": "rollup --config",
     "bundle:analysis": "visualize-bundle",
-    "commit-test": "yarn prepare && cd example && yarn test && cd .."
+    "commit-test": "yarn prepare && cd example && yarn test && cd ..",
+    "postinstall": "patch-package"
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
@@ -36,7 +37,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.3.0-rc.4",
+  "version": "3.3.0-rc.5",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -205,6 +206,7 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
+    "patch-package": "^6.4.7",
     "tinycolor2": "^1.4.2"
   },
   "directories": {
