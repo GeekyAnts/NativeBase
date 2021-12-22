@@ -14,108 +14,106 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps, isEmptyObj } from '../../../utils';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 
-const RadioComponent = React.memo(
-  ({
-    icon,
-    inputProps,
-    combinedProps,
-    children,
-    wrapperRef,
-    ...props
-  }: any) => {
-    const { isInvalid, isReadOnly, isIndeterminate } = combinedProps;
+const RadioComponent = memo(
+  forwardRef(
+    (
+      { icon, inputProps, combinedProps, children, wrapperRef, ...props }: any,
+      ref: any
+    ) => {
+      const { isInvalid, isReadOnly, isIndeterminate } = combinedProps;
 
-    const { disabled: isDisabled, checked: isChecked } = inputProps;
-    const _ref = React.useRef(null);
-    const { isHovered } = useHover({}, _ref);
-    const mergedRefs = mergeRefs([_ref, wrapperRef]);
-    const { focusProps, isFocusVisible } = useFocusRing();
-    // const mergedWrapperRef = React.useMemo(() => mergeRefs([wrapperRef, _ref]), []);
+      const { disabled: isDisabled, checked: isChecked } = inputProps;
+      const _ref = React.useRef(null);
+      const { isHovered } = useHover({}, _ref);
+      const mergedRefs = mergeRefs([_ref, wrapperRef]);
+      const { focusProps, isFocusVisible } = useFocusRing();
+      // const mergedWrapperRef = React.useMemo(() => mergeRefs([wrapperRef, _ref]), []);
 
-    const { _interactionBox, _icon, ...resolvedProps } = usePropsResolution(
-      'Radio',
-      combinedProps,
-      {
-        isInvalid,
-        isReadOnly,
-        isFocusVisible,
-        isDisabled,
-        isIndeterminate,
-        isChecked,
-        isHovered,
-      }
-    );
+      const { _interactionBox, _icon, ...resolvedProps } = usePropsResolution(
+        'Radio',
+        combinedProps,
+        {
+          isInvalid,
+          isReadOnly,
+          isFocusVisible,
+          isDisabled,
+          isIndeterminate,
+          isChecked,
+          isHovered,
+        }
+      );
 
-    const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
-      ...stylingProps.margin,
-      ...stylingProps.layout,
-      ...stylingProps.flexbox,
-      ...stylingProps.position,
-      '_text',
-    ]);
+      const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+        ...stylingProps.margin,
+        ...stylingProps.layout,
+        ...stylingProps.flexbox,
+        ...stylingProps.position,
+        '_text',
+      ]);
 
-    // only calling below function when icon exist.
-    const sizedIcon = () =>
-      //@ts-ignore
-      React.cloneElement(icon, {
-        ..._icon,
-      });
+      // only calling below function when icon exist.
+      const sizedIcon = () =>
+        //@ts-ignore
+        React.cloneElement(icon, {
+          ..._icon,
+        });
 
-    const component = (
-      <Box
-        flexDirection="row"
-        alignItems="center"
-        {...layoutProps}
-        opacity={isDisabled ? 0.4 : 1}
-        cursor={isDisabled ? 'not-allowed' : 'pointer'}
-      >
-        <Center>
-          {/* Interaction Box */}
-          <Box
-            {..._interactionBox}
-            style={{
-              // @ts-ignore - only for web"
-              transition: 'height 200ms, width 200ms',
-            }}
-            h={isFocusVisible || isHovered ? '200%' : '100%'}
-            w={isFocusVisible || isHovered ? '200%' : '100%'}
-          />
-          {/* Radio */}
-          <Center {...nonLayoutProps}>
-            {icon && sizedIcon && isChecked ? (
-              sizedIcon()
-            ) : (
-              <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
-            )}
+      const component = (
+        <Box
+          flexDirection="row"
+          alignItems="center"
+          {...layoutProps}
+          opacity={isDisabled ? 0.4 : 1}
+          cursor={isDisabled ? 'not-allowed' : 'pointer'}
+        >
+          <Center>
+            {/* Interaction Box */}
+            <Box
+              {..._interactionBox}
+              style={{
+                // @ts-ignore - only for web"
+                transition: 'height 200ms, width 200ms',
+              }}
+              h={isFocusVisible || isHovered ? '200%' : '100%'}
+              w={isFocusVisible || isHovered ? '200%' : '100%'}
+            />
+            {/* Radio */}
+            <Center {...nonLayoutProps}>
+              {icon && sizedIcon && isChecked ? (
+                sizedIcon()
+              ) : (
+                <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
+              )}
+            </Center>
           </Center>
-        </Center>
-        {children}
-      </Box>
-    );
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(props)) {
-      return null;
+          {children}
+        </Box>
+      );
+      //TODO: refactor for responsive prop
+      if (useHasResponsiveProps(props)) {
+        return null;
+      }
+
+      // console.log(inputProps, focusProps, ref);
+      // return null;
+
+      return (
+        <Box
+          // @ts-ignore - RN web supports accessibilityRole="label"
+          accessibilityRole="label"
+          ref={mergedRefs}
+        >
+          <VisuallyHidden>
+            <input {...inputProps} {...focusProps} ref={ref} />
+          </VisuallyHidden>
+          {component}
+        </Box>
+      );
     }
-
-    // console.log(inputProps, focusProps, ref);
-    // return null;
-
-    return (
-      <Box
-        // @ts-ignore - RN web supports accessibilityRole="label"
-        accessibilityRole="label"
-        ref={mergedRefs}
-      >
-        <VisuallyHidden>
-          <input {...inputProps} {...focusProps} ref={props.ref} />
-        </VisuallyHidden>
-        {component}
-      </Box>
-    );
-  }
+  )
 );
 
-const Radio = ({ children, ...props }: IRadioProps, ref: any) => {
+const Radio = ({ children, wrapperRef, ...props }: IRadioProps, ref: any) => {
   const contextState = React.useContext(RadioContext);
 
   const combinedProps = combineContextAndProps(contextState, props);
@@ -154,6 +152,7 @@ const Radio = ({ children, ...props }: IRadioProps, ref: any) => {
       combinedProps={contextCombinedProps}
       children={children}
       ref={ref}
+      wrapperRef={wrapperRef}
     />
   );
 };
