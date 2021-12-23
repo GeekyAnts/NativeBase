@@ -6,6 +6,7 @@ import type { MutableRefObject } from 'react';
 
 import type { ISizes } from '../../../theme/base/sizes';
 import type { VariantType } from '../../../components/types/utils';
+import type { ISpinnerProps } from '../../primitives/Spinner/types';
 
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
@@ -63,15 +64,27 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
   /**
    * Props to be passed to the button when isLoading is true.
    */
-  _loading?: any;
+  _loading?: Omit<IButtonProps, '_loading'>;
   /**
    * Props to be passed to the button when button is disabled.
    */
-  _disabled?: any;
+  _disabled?: Omit<IButtonProps, '_disable'>;
   /**
    * Props to be passed to the spinner when isLoading is true.
    */
-  _spinner?: any;
+  _spinner?: ISpinnerProps;
+  /**
+   * Props to be passed to the button when button is hovered.
+   */
+  _hover?: Omit<IButtonProps, '_hover'>;
+  /**
+   * Props to be passed to the button when button is pressed.
+   */
+  _pressed?: Omit<IButtonProps, '_pressed'>;
+  /**
+   * Props to be passed to the button when button is focused.
+   */
+  _focus?: Omit<IButtonProps, '_focus'>;
   /**
    * The right icon element to use in the button.
    */
