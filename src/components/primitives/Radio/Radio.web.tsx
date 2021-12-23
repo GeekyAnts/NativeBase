@@ -76,6 +76,7 @@ const RadioComponent = memo(
               }}
               h={isFocusVisible || isHovered ? '200%' : '100%'}
               w={isFocusVisible || isHovered ? '200%' : '100%'}
+              pointerEvents="none"
             />
             {/* Radio */}
             <Center {...nonLayoutProps}>
