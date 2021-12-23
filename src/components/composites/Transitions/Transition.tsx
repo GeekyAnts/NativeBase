@@ -1,6 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { forwardRef } from 'react';
 import { Animated } from 'react-native';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type {
   ISupportedTransitions,
   ITransitionConfig,
@@ -87,110 +87,109 @@ export const Transition = forwardRef(
       return Animated.View;
     }, [as]);
 
-    const [animationState, setAnimationState] = React.useState(
-      visible ? 'entering' : 'exited'
-    );
+    const [animationState, setAnimationState] = React.useState('');
 
     const prevVisible = React.useRef(visible);
 
-    React.useEffect(
-      function startEntryTransition() {
+    React.useEffect(() => {
+      if (animationState === 'entering' || animationState === 'exiting') {
         const entryTransition = {
           ...defaultTransitionConfig,
           ...animate?.transition,
         };
-
-        if (visible) {
-          Animated.sequence([
-            // @ts-ignore - delay is present in defaultTransitionConfig
-            Animated.delay(entryTransition.delay),
-            Animated[entryTransition.type ?? 'timing'](animateValue, {
-              toValue: 1,
-              useNativeDriver: true,
-              ...entryTransition,
-            }),
-          ]).start(() => {
-            setAnimationState('entered');
-          });
-        }
-      },
-      [visible, onTransitionComplete, animateValue, animate]
-    );
-
-    React.useEffect(() => {
-      // Exit request
-      if (prevVisible.current !== visible && !visible) {
-        setAnimationState('exiting');
-      }
-      prevVisible.current = visible;
-    }, [visible]);
-
-    React.useEffect(
-      function startExitTransition() {
         const exitTransition = {
           ...defaultTransitionConfig,
           ...exit?.transition,
         };
 
-        if (animationState === 'exiting') {
-          Animated.sequence([
-            // @ts-ignore - delay is present in defaultTransitionConfig
-            Animated.delay(exitTransition.delay),
-            Animated[exitTransition.type ?? 'timing'](animateValue, {
-              toValue: 0,
-              useNativeDriver: true,
-              ...exitTransition,
-            }),
-          ]).start(() => {
+        const startAnimation = animationState === 'entering' ? 1 : 0;
+
+        const transition = startAnimation ? entryTransition : exitTransition;
+
+        Animated.sequence([
+          // @ts-ignore - delay is present in defaultTransitionConfig
+          Animated.delay(transition.delay),
+          Animated[transition.type ?? 'timing'](animateValue, {
+            toValue: startAnimation,
+            useNativeDriver: true,
+            ...transition,
+          }),
+        ]).start(() => {
+          if (animationState === 'entering') {
+            setAnimationState('entered');
+          } else if (animationState === 'exiting') {
             setAnimationState('exited');
-          });
-        }
-      },
-      [
-        exit,
-        onTransitionComplete,
-        setAnimationState,
-        animationState,
-        animateValue,
-      ]
-    );
+          }
+        });
+        // });
+      }
 
-    // If exit animation is present and state is exiting, we replace 'initial' with 'exit' animation
-    initial =
-      animationState === 'exiting' && exit
-        ? { ...defaultStyles, ...exit }
-        : { ...defaultStyles, ...initial };
-
-    animate = { ...defaultStyles, ...animate };
-
-    const styles = React.useMemo(() => {
-      return [
-        getAnimatedStyles(animateValue)(
-          initial as ISupportedTransitions,
-          animate as ISupportedTransitions
-        ),
-        style,
-      ];
-    }, [animateValue, initial, animate, style]);
-
-    React.useEffect(() => {
       if (animationState === 'exited') {
         onTransitionComplete && onTransitionComplete('exited');
       } else if (animationState === 'entered') {
         onTransitionComplete && onTransitionComplete('entered');
       }
+      // if (animationState === 'entering') {
+      //   //
+      // }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [animationState, onTransitionComplete]);
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(rest)) {
-      return null;
-    }
+
+    React.useEffect(() => {
+      // if (!visible) {
+      if (prevVisible.current !== visible && !visible) {
+        setAnimationState('exiting');
+      }
+
+      if (visible) {
+        setAnimationState('entering');
+      }
+      prevVisible.current = visible;
+      // }
+    }, [visible]);
+
+    // If exit animation is present and state is exiting, we replace 'initial' with 'exit' animation
+
+    //  const initialState = { ...defaultStyles, ...initial };
+    const initialState =
+      animationState === 'exited' && exit
+        ? { ...defaultStyles, ...exit }
+        : { ...defaultStyles, ...initial };
+    // const initialState = { ...defaultStyles, ...initial };
+
+    // initial =
+    //   animationState === 'exited'
+    //     ? { ...defaultStyles, ...exit }
+    //     : { ...defaultStyles, ...initial };
+
+    const animateState = { ...defaultStyles, ...animate };
+
+    // const [initialState, setInitialState] = React.useState({
+    //   ...defaultStyles,
+    //   ...initial,
+    // });
+    // console.log('Initial state ', initial);
+
+    // const [animateState] = React.useState({ ...defaultStyles, ...animate });
+    const styles = React.useMemo(() => {
+      // console.log('display state here', initial);
+      return [
+        getAnimatedStyles(animateValue)(
+          initialState as ISupportedTransitions,
+          animateState as ISupportedTransitions
+        ),
+        style,
+      ];
+    }, [animateValue, initial, animate, style]);
 
     return (
       <Component
-        pointerEvents="box-none"
+        // pointerEvents="box-none"
+        pointerEvents={!visible ? 'none' : 'box-none'}
         // https://github.com/facebook/react-native/issues/23090#issuecomment-710803743
-        needsOffscreenAlphaCompositing
-        style={styles}
+        // needsOffscreenAlphaCompositing
+        // style={[styles]}
+        style={[styles]}
         ref={ref}
         {...rest}
       >
