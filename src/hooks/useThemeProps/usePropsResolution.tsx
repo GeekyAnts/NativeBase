@@ -129,7 +129,6 @@ export function usePropsResolution(
     componentTheme?: any;
     resolveResponsively?: string[];
     ignoreProps?: string[];
-    cascadePseudoProps?: boolean;
   }
 ) {
   const { theme } = useNativeBase();
@@ -152,7 +151,6 @@ export const usePropsResolutionWithComponentTheme = (
     componentTheme?: any;
     resolveResponsively?: string[];
     ignoreProps?: string[];
-    cascadePseudoProps?: boolean;
   }
 ) => {
   const modifiedPropsForSSR = useResponsiveSSRProps(incomingProps);
@@ -189,7 +187,6 @@ export const usePropsResolutionWithComponentTheme = (
       colormode: colorModeProps.colorMode,
       state: state || {},
       previouslyFlattenProps: {},
-      cascadePseudoProps: config?.cascadePseudoProps,
     },
     2
   );
@@ -233,7 +230,6 @@ export const usePropsResolutionWithComponentTheme = (
         state: state || {},
         currentSpecificityMap: specificityMap,
         previouslyFlattenProps: flattenProps,
-        cascadePseudoProps: config?.cascadePseudoProps,
       },
       1
     );
@@ -266,7 +262,6 @@ export const usePropsResolutionWithComponentTheme = (
         currentSpecificityMap: baseSpecificityMap || specificityMap,
         // NOTE: Ideally flattenBaseStyle and flattenProps should be deeply merged to create previouslyFlattenProps.
         previouslyFlattenProps: flattenProps,
-        cascadePseudoProps: config?.cascadePseudoProps,
       },
       1
     );
@@ -319,7 +314,6 @@ export const usePropsResolutionWithComponentTheme = (
         currentSpecificityMap:
           variantSpecificityMap || baseSpecificityMap || specificityMap,
         previouslyFlattenProps: flattenProps,
-        cascadePseudoProps: config?.cascadePseudoProps,
       },
       1
     );

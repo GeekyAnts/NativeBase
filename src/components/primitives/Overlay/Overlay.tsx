@@ -12,7 +12,6 @@ interface IOverlayProps {
   useRNModalOnAndroid?: boolean;
   onRequestClose?: (() => any) | undefined;
   isKeyboardDismissable?: boolean;
-  animationPreset?: string;
 }
 
 export function Overlay({
@@ -20,7 +19,6 @@ export function Overlay({
   isOpen,
   useRNModalOnAndroid = false,
   isKeyboardDismissable = true,
-  animationPreset = 'fade',
   onRequestClose,
 }: IOverlayProps) {
   const [exited, setExited] = React.useState(!isOpen);
@@ -30,16 +28,11 @@ export function Overlay({
     callback: onRequestClose ? onRequestClose : () => {},
   });
 
-  // if (exited && !isOpen) {
-  //   return null;
-  // }
-  // Android handles multiple Modal in RN and is better for accessibility as it shifts accessibility focus on mount, however it may not needed in case of tooltips, toast where one doesn't need to shift accessibility focus
-  //TODO: fix-animation
-  let display = exited && !isOpen ? 'none' : 'contents';
-  if (animationPreset === 'slide') {
-    display = 'contents';
+  if (exited && !isOpen) {
+    return null;
   }
 
+  // Android handles multiple Modal in RN and is better for accessibility as it shifts accessibility focus on mount, however it may not needed in case of tooltips, toast where one doesn't need to shift accessibility focus
   if (Platform.OS === 'android' && useRNModalOnAndroid) {
     return (
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
@@ -52,8 +45,7 @@ export function Overlay({
 
   // Since OverlayContainer mounts children in NativeBaseProvider  using Context, we need to pass the context by wrapping children
   return (
-    //@ts-ignore
-    <OverlayContainer style={{ display: display }}>
+    <OverlayContainer>
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         {children}
       </ExitAnimationContext.Provider>

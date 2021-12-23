@@ -90,34 +90,26 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
   }
 
   return (
-    <Box
-      w="100%"
-      h="100%"
-      position="absolute"
-      pointerEvents="box-none"
-      overflow="hidden"
+    <PresenceTransition
+      visible={visible}
+      {...animationStyle[placement]}
+      style={[
+        { position: 'absolute' },
+        holderStyle[placement],
+        { height: '100%' },
+      ]}
     >
-      <PresenceTransition
-        visible={visible}
-        {...animationStyle[placement]}
-        style={[
-          { position: 'absolute' },
-          holderStyle[placement],
-          { height: '100%' },
-        ]}
+      <Box
+        {...props}
+        h="100%"
+        opacity={containerOpacity}
+        pointerEvents="box-none"
+        ref={ref}
+        onLayout={(e) => provideSize(e.nativeEvent.layout)}
       >
-        <Box
-          {...props}
-          h="100%"
-          opacity={containerOpacity}
-          pointerEvents="box-none"
-          ref={ref}
-          onLayout={(e) => provideSize(e.nativeEvent.layout)}
-        >
-          {children}
-        </Box>
-      </PresenceTransition>
-    </Box>
+        {children}
+      </Box>
+    </PresenceTransition>
   );
 };
 
