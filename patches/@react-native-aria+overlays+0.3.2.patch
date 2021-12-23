@@ -1,0 +1,18 @@
+diff --git a/node_modules/@react-native-aria/overlays/src/Portal.tsx b/node_modules/@react-native-aria/overlays/src/Portal.tsx
+index b3772b7..b95b53c 100644
+--- a/node_modules/@react-native-aria/overlays/src/Portal.tsx
++++ b/node_modules/@react-native-aria/overlays/src/Portal.tsx
+@@ -64,11 +64,11 @@ export function PortalProvider(props: { children: ReactNode }) {
+   );
+ }
+ 
+-function OverlayView(props: ModalProviderProps) {
++function OverlayView({style, ...props}: ModalProviderProps) {
+   return (
+     <View
+       pointerEvents="box-none"
+-      style={StyleSheet.absoluteFill}
++      style={[StyleSheet.absoluteFill, style]}
+       collapsable={false}
+       {...props}
+     />
