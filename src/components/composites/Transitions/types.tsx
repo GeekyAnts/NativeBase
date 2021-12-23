@@ -81,8 +81,6 @@ export interface ITransitionProps extends ViewProps {
    * Determines whether to start the animation
    */
   visible?: boolean;
-
-  animationExited?: boolean;
   children?: any;
   as?: any;
 }

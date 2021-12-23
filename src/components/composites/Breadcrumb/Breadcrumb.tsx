@@ -2,7 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import { AccessibilityRole, Platform } from 'react-native';
 import { HStack } from '../../primitives/Stack';
 import { useControllableState } from '../../../hooks';
-import { Pressable } from '../../primitives/Pressable';
+import { Pressable } from 'native-base';
 import type { IBreadcrumbProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps/usePropsResolution';
 import Text from '../../primitives/Text';

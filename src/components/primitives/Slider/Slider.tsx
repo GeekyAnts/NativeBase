@@ -62,33 +62,6 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
     height: props.orientation === 'vertical' ? '100%' : undefined,
     width: props.orientation !== 'vertical' ? '100%' : undefined,
   };
-  const contextValue = React.useMemo(() => {
-    return {
-      trackLayout,
-      state,
-      orientation: props.orientation,
-      isDisabled: isDisabled,
-      isReversed: props.isReversed,
-      colorScheme: props.colorScheme,
-      trackProps,
-      isReadOnly: isReadOnly,
-      onTrackLayout: onLayout,
-      thumbSize: resolvedProps.thumbSize,
-      sliderSize: resolvedProps.sliderSize,
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    trackLayout,
-    state,
-    props.orientation,
-    isDisabled,
-    props.isReversed,
-    props.colorScheme,
-    isReadOnly,
-    onLayout,
-    resolvedProps.thumbSize,
-    resolvedProps.sliderSize,
-  ]);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -96,7 +69,21 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
   }
 
   return (
-    <SliderContext.Provider value={contextValue}>
+    <SliderContext.Provider
+      value={{
+        trackLayout,
+        state,
+        orientation: props.orientation,
+        isDisabled: isDisabled,
+        isReversed: props.isReversed,
+        colorScheme: props.colorScheme,
+        trackProps,
+        isReadOnly: isReadOnly,
+        onTrackLayout: onLayout,
+        thumbSize: resolvedProps.thumbSize,
+        sliderSize: resolvedProps.sliderSize,
+      }}
+    >
       <Box
         {...wrapperStyle}
         justifyContent="center"

@@ -70,17 +70,12 @@ const Select = (props: ISelectProps, ref: any) => {
     customDropdownIconProps,
     _actionSheetContent,
     ...resolvedProps
-  } = usePropsResolution(
-    'Select',
-    props,
-    {
-      isDisabled,
-      isHovered,
-      isFocused,
-      isFocusVisible,
-    },
-    undefined
-  );
+  } = usePropsResolution('Select', props, {
+    isDisabled,
+    isHovered,
+    isFocused,
+    isFocusVisible,
+  });
 
   const [value, setValue] = useControllableState({
     value: selectedValue,
@@ -104,15 +99,6 @@ const Select = (props: ISelectProps, ref: any) => {
   );
   const selectedItem =
     selectedItemArray && selectedItemArray.length ? selectedItemArray[0] : null;
-
-  const contextValue = React.useMemo(() => {
-    return {
-      onValueChange: setValue,
-      selectedValue: value,
-      _selectedItem: _selectedItem ?? {},
-      _item: _item ?? {},
-    };
-  }, [value, setValue, _selectedItem, _item]);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -246,7 +232,14 @@ const Select = (props: ISelectProps, ref: any) => {
             />
           ) : (
             <ScrollView width="100%">
-              <SelectContext.Provider value={contextValue}>
+              <SelectContext.Provider
+                value={{
+                  onValueChange: setValue,
+                  selectedValue: value,
+                  _selectedItem: _selectedItem ?? {},
+                  _item: _item ?? {},
+                }}
+              >
                 {children}
               </SelectContext.Provider>
             </ScrollView>
