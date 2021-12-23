@@ -129,7 +129,6 @@ export const position = {
   position: true,
   zIndex: {
     property: 'zIndex',
-    scale: 'zIndices',
   },
   top: {
     property: 'top',
@@ -703,7 +702,7 @@ export const getStyleAndFilteredProps = ({
     }
   }
 
-  if (debug) {
+  if (process.env.NODE_ENV === 'development' && debug) {
     /* eslint-disable-next-line */
     console.log('style ', debug + ' :: ', styleFromProps, style, props);
   }
