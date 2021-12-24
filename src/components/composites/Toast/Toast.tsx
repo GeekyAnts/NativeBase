@@ -271,15 +271,15 @@ export const ToastProvider = ({ children }: { children: any }) => {
           <Alert
             maxWidth="100%"
             alignSelf="center"
+            flexDirection="row"
             status={status ?? 'info'}
             variant={variant as any}
             accessibilityLiveRegion={accessibilityLiveRegion}
             {...rest}
           >
-            <VStack space={1} flexShrink={1} w="100%">
+            <VStack space={1} flexShrink={1}>
               <HStack
                 flexShrink={1}
-                space={2}
                 alignItems="center"
                 justifyContent="space-between"
               >
@@ -289,6 +289,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
                     fontSize="md"
                     fontWeight="medium"
                     color={getTextColor(variant ?? 'subtle')}
+                    flexShrink={1}
                   >
                     {title}
                   </Text>
