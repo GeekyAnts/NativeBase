@@ -97,8 +97,8 @@
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
-    "react-native-safe-area-context": "*",
-    "react-native-svg": "*"
+    "react-native-safe-area-context": "3.1.9",
+    "react-native-svg": "12.1.0"
   },
   "jest": {
     "preset": "jest-expo",
