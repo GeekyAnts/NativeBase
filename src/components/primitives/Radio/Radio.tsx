@@ -133,7 +133,7 @@ const RadioComponent = memo(
 );
 
 const Radio = (
-  { children, size, wrapperRef, ...props }: IRadioProps,
+  { icon, children, size, wrapperRef, ...props }: IRadioProps,
   ref: any
 ) => {
   const contextState = React.useContext(RadioContext);
@@ -175,6 +175,7 @@ const Radio = (
       children={children}
       size={size}
       ref={ref}
+      icon={icon}
       wrapperRef={wrapperRef}
     />
   );
