@@ -1,5 +1,5 @@
 //@ts-ignore
-import { unstable_createElement } from 'react-native';
+import { unstable_createElement } from 'react-native-web';
 import { forwardRef } from 'react';
 
 export const Svg = forwardRef((props: any, ref: any) =>
