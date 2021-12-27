@@ -7,6 +7,7 @@ import {
   Heading,
   Divider,
   Center,
+  Text,
 } from 'native-base';
 export const Example = () => {
   const [isOpenBottom, setIsOpenBottom] = React.useState(false);
@@ -19,29 +20,23 @@ export const Example = () => {
       <Slide in={isOpenBottom} placement="bottom">
         <Alert justifyContent="center" mx="4" mt="auto" mb="4" status="success">
           <Alert.Icon />
-          <Alert.Description
-            _text={{
-              _light: { color: 'success.600' },
-              _dark: { color: 'success.100' },
-              fontWeight: 'medium',
-            }}
+          <Text
+            // _light={{ color: 'success.600' }}
+            // _dark={{ color: 'success.100' }}
+            color="success.600"
+            fontWeight="medium"
           >
             Order placed successfully!
-          </Alert.Description>
+          </Text>
         </Alert>
       </Slide>
       <Slide in={isOpenTop} placement="top">
         <Alert justifyContent="center" mx="4" mt="4" status="error">
           <Alert.Icon />
-          <Alert.Description
-            _text={{
-              _light: { color: 'error.600' },
-              _dark: { color: 'error.100' },
-              fontWeight: 'medium',
-            }}
-          >
+
+          <Text color="error.600" fontWeight="medium">
             No Internet Connection
-          </Alert.Description>
+          </Text>
         </Alert>
       </Slide>
 
