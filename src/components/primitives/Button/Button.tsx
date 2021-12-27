@@ -126,7 +126,7 @@ const Button = (
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
         {boxChildren ? (
-          <Box bg="transparent" _text={_text}>
+          <Box _text={_text}>
             {isLoading && isLoadingText ? isLoadingText : children}
           </Box>
         ) : null}
