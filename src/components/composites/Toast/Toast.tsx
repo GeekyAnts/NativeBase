@@ -277,7 +277,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
             accessibilityLiveRegion={accessibilityLiveRegion}
             {...rest}
           >
-            <VStack space={1} flexShrink={1}>
+            <VStack space={1} flexShrink={1} w="100%">
               <HStack
                 flexShrink={1}
                 alignItems="center"
