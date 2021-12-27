@@ -114,7 +114,10 @@ const RadioComponent = memo(
   )
 );
 
-const Radio = ({ children, wrapperRef, ...props }: IRadioProps, ref: any) => {
+const Radio = (
+  { icon, children, wrapperRef, ...props }: IRadioProps,
+  ref: any
+) => {
   const contextState = React.useContext(RadioContext);
 
   const combinedProps = combineContextAndProps(contextState, props);
@@ -153,6 +156,7 @@ const Radio = ({ children, wrapperRef, ...props }: IRadioProps, ref: any) => {
       combinedProps={contextCombinedProps}
       children={children}
       ref={ref}
+      icon={icon}
       wrapperRef={wrapperRef}
     />
   );
