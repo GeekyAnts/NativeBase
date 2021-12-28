@@ -132,6 +132,7 @@ const CheckboxComponent = React.memo(
           {...layoutProps}
           opacity={isDisabled ? 0.4 : 1}
           cursor={isDisabled ? 'not-allowed' : 'pointer'}
+          p={3}
         >
           <Center>
             {/* Interaction Box */}
@@ -143,7 +144,6 @@ const CheckboxComponent = React.memo(
               }}
               h={isFocusVisible || isHovered ? '200%' : '0%'}
               w={isFocusVisible || isHovered ? '200%' : '0%'}
-              pointerEvents="none"
               zIndex={-1}
             />
             {/* Checkbox */}
