@@ -37,7 +37,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.3.0-rc.9",
+  "version": "3.3.0-alpha.12",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
