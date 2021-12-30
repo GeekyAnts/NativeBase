@@ -6,7 +6,7 @@ import ModalFooter from './ModalFooter';
 import ModalHeader from './ModalHeader';
 import type { IModalComponentType } from './types';
 
-let ModalTemp: any = Modal;
+const ModalTemp: any = Modal;
 
 ModalTemp.Content = ModalContent;
 ModalTemp.CloseButton = ModalCloseButton;
@@ -17,4 +17,4 @@ ModalTemp.Body = ModalBody;
 const ModalMain = ModalTemp as IModalComponentType;
 
 export { ModalMain as Modal };
-export { IModalProps } from './types';
+export type { IModalProps } from './types';

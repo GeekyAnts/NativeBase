@@ -3,7 +3,7 @@ import React from 'react';
 import Backdrop from '../Backdrop';
 import Box from '../../primitives/Box';
 
-type DrawerProps = {
+export type IDrawerProps = {
   placement?: 'top' | 'left' | 'right' | 'bottom';
   children?: any;
   isOpen: boolean;
@@ -15,9 +15,9 @@ const Drawer = ({
   isOpen,
   onClose,
   placement = 'right',
-}: DrawerProps) => {
-  let placementStyles = React.useMemo(() => {
-    let styles: any = {
+}: IDrawerProps) => {
+  const placementStyles = React.useMemo(() => {
+    const styles: any = {
       position: 'absolute',
     };
 

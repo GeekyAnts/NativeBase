@@ -102,6 +102,7 @@ export const layout = {
   overflowY: true,
   display: true,
   verticalAlign: true,
+  textAlign: true,
 } as const;
 
 export const flexbox = {
@@ -128,7 +129,6 @@ export const position = {
   position: true,
   zIndex: {
     property: 'zIndex',
-    scale: 'zIndices',
   },
   top: {
     property: 'top',
@@ -180,6 +180,11 @@ export const color = {
   },
   background: {
     property: 'backgroundColor',
+    scale: 'colors',
+    transformer: getColor,
+  },
+  textDecorationColor: {
+    property: 'textDecorationColor',
     scale: 'colors',
     transformer: getColor,
   },
@@ -748,7 +753,7 @@ export const getStyleAndFilteredProps = ({
       } else {
         if (responsiveStyles)
           if (key in responsiveStyles) {
-            query.query.push({
+            query?.query?.push({
               minWidth: o[1],
               style: responsiveStyles[key],
             });
@@ -761,7 +766,7 @@ export const getStyleAndFilteredProps = ({
     styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
   }
 
-  if (debug) {
+  if (process.env.NODE_ENV === 'development' && debug) {
     /* eslint-disable-next-line */
     console.log('style ', debug + ' :: ', {
       styleFromProps,

@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import { useToggleState } from '@react-stately/toggle';
-import { StyleSheet, ViewStyle, Switch as RNSwitch } from 'react-native';
+import { Switch as RNSwitch } from 'react-native';
 import isNil from 'lodash.isnil';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useToken } from '../../../hooks';
@@ -15,14 +15,16 @@ const StyledNBSwitch = makeStyledComponent(RNSwitch);
 // TODO: Needs proper refactor
 const Switch = (
   {
-    style,
-    onToggle,
+    disabled,
     isDisabled,
     isInvalid,
     isChecked,
     defaultIsChecked,
     accessibilityLabel,
     accessibilityHint,
+    onToggle,
+    value,
+    onValueChange,
     ...props
   }: ISwitchProps,
   ref: any
@@ -30,15 +32,7 @@ const Switch = (
   const state = useToggleState({
     defaultSelected: !isNil(defaultIsChecked) ? defaultIsChecked : false,
   });
-
-  const borderColorInvalid = useToken('colors', 'danger.600');
   const checked = !isNil(isChecked) ? isChecked : state.isSelected;
-  const inValidPropFactors = {
-    borderWidth: 1,
-    borderRadius: 16,
-    borderColor: borderColorInvalid,
-  };
-
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
 
@@ -47,20 +41,13 @@ const Switch = (
     offTrackColor: _offTrackColor,
     onThumbColor: _onThumbColor,
     offThumbColor: _offThumbColor,
-    style: themeStyle,
     ...resolvedProps
   } = usePropsResolution('Switch', props, {
     isHovered,
-    isDisabled,
+    isDisabled: disabled || isDisabled,
     isInvalid,
     isChecked: checked,
   });
-
-  const computedStyle: ViewStyle = StyleSheet.flatten([
-    themeStyle,
-    style,
-    isInvalid ? inValidPropFactors : {},
-  ]);
 
   const onTrackColor = useToken('colors', _onTrackColor);
   const offTrackColor = useToken('colors', _offTrackColor);
@@ -90,12 +77,13 @@ const Switch = (
       activeThumbColor={onThumbColor} // react-native-web prop for active thumbColor
       ios_backgroundColor={offTrackColor}
       {...resolvedProps}
-      disabled={isDisabled}
-      onValueChange={onToggle ? onToggle : state.toggle}
-      value={checked}
-      style={computedStyle}
+      disabled={disabled || isDisabled}
+      onValueChange={(val: boolean) => {
+        onValueChange && onValueChange(val);
+        onToggle ? onToggle() : state.toggle();
+      }}
+      value={value || checked}
       ref={mergeRefs([ref, _ref])}
-      opacity={isDisabled ? 0.4 : 1}
     />
   );
 };

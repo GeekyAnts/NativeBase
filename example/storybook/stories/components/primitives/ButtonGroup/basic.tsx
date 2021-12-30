@@ -3,9 +3,9 @@ import { Button } from 'native-base';
 
 export const Example = () => {
   return (
-    <Button.Group mx={{ base: 'auto', md: 0 }}>
-      <Button colorScheme="teal">Save</Button>
-      <Button colorScheme="danger">Cancel</Button>
+    <Button.Group colorScheme="blue" mx={{ base: 'auto', md: 0 }} size="sm">
+      <Button>Save</Button>
+      <Button>Cancel</Button>
     </Button.Group>
   );
 };

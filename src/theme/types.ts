@@ -24,13 +24,11 @@ type AllProps<T extends StyledPropConfig> = {
     ? GetRNStyles<key>
     : key extends 'shadow'
     ? GetRNStyles<null, 'shadows'>
-    : 'property' extends keyof T[key]
-    ? //@ts-ignore
-      GetRNStyles<T[key]['property'], T[key]['scale']>
-    : 'properties' extends keyof T[key]
+    : T[key] extends { property: any; scale: any }
+    ? GetRNStyles<T[key]['property'], T[key]['scale']>
+    : T[key] extends { properties: any; scale: any }
     ? T[key]['properties'] extends { '0': string }
-      ? //@ts-ignore
-        GetRNStyles<T[key]['properties']['0'], T[key]['scale']>
+      ? GetRNStyles<T[key]['properties']['0'], T[key]['scale']>
       : unknown
     : unknown;
 };

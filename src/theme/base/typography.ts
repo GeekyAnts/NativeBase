@@ -19,85 +19,84 @@ const typography = {
     '4xl': '3em',
     '5xl': '4em',
   },
-  // fontConfig: {
-  //   Roboto: {
-  //     100: {
-  //       normal: 'Roboto-Light',
-  //       italic: 'Roboto-LightItalic',
-  //     },
-  //     200: {
-  //       normal: 'Roboto-Light',
-  //       italic: 'Roboto-LightItalic',
-  //     },
-  //     300: {
-  //       normal: 'Roboto-Light',
-  //       italic: 'Roboto-LightItalic',
-  //     },
-  //     400: {
-  //       normal: 'Roboto-Regular',
-  //       italic: 'Roboto-Italic',
-  //     },
-  //     500: {
-  //       normal: 'Roboto-Medium',
-  //       italic: 'Roboto-MediumItalic',
-  //     },
-  //     600: {
-  //       normal: 'Roboto-Medium',
-  //       italic: 'Roboto-MediumItalic',
-  //     },
-  //     700: {
-  //       normal: 'Roboto-Bold',
-  //       italic: 'Roboto-BoldItalic',
-  //     },
-  //     800: {
-  //       normal: 'Roboto-Bold',
-  //       italic: 'Roboto-BoldItalic',
-  //     },
-  //     900: {
-  //       normal: 'Roboto-Bold',
-  //       italic: 'Roboto-BoldItalic',
-  //     },
-  //   },
-
-  //   Montserrat: {
-  //     100: {
-  //       normal: 'Montserrat-Light',
-  //       italic: 'Montserrat-LightItalic',
-  //     },
-  //     200: {
-  //       normal: 'Montserrat-Light',
-  //       italic: 'Montserrat-LightItalic',
-  //     },
-  //     300: {
-  //       normal: 'Montserrat-Light',
-  //       italic: 'Montserrat-LightItalic',
-  //     },
-  //     400: {
-  //       normal: 'Montserrat-Regular',
-  //       italic: 'Montserrat-Italic',
-  //     },
-  //     500: {
-  //       normal: 'Montserrat-Medium',
-  //       italic: 'Montserrat-MediumItalic',
-  //     },
-  //     600: {
-  //       normal: 'Montserrat-SemiBold',
-  //       italic: 'Montserrat-SemiBoldItalic',
-  //     },
-  //     700: {
-  //       normal: 'Montserrat-Bold',
-  //       italic: 'Montserrat-BoldItalic',
-  //     },
-  //     800: {
-  //       normal: 'Montserrat-ExtraBold',
-  //       italic: 'Montserrat-ExtraBoldItalic',
-  //     },
-  //     900: {
-  //       normal: 'Montserrat-Black',
-  //       italic: 'Montserrat-BlackItalic',
-  //     },
-  //   },
-  // },
+  fontConfig: {
+    //   Roboto: {
+    //     100: {
+    //       normal: 'Roboto-Light',
+    //       italic: 'Roboto-LightItalic',
+    //     },
+    //     200: {
+    //       normal: 'Roboto-Light',
+    //       italic: 'Roboto-LightItalic',
+    //     },
+    //     300: {
+    //       normal: 'Roboto-Light',
+    //       italic: 'Roboto-LightItalic',
+    //     },
+    //     400: {
+    //       normal: 'Roboto-Regular',
+    //       italic: 'Roboto-Italic',
+    //     },
+    //     500: {
+    //       normal: 'Roboto-Medium',
+    //       italic: 'Roboto-MediumItalic',
+    //     },
+    //     600: {
+    //       normal: 'Roboto-Medium',
+    //       italic: 'Roboto-MediumItalic',
+    //     },
+    //     700: {
+    //       normal: 'Roboto-Bold',
+    //       italic: 'Roboto-BoldItalic',
+    //     },
+    //     800: {
+    //       normal: 'Roboto-Bold',
+    //       italic: 'Roboto-BoldItalic',
+    //     },
+    //     900: {
+    //       normal: 'Roboto-Bold',
+    //       italic: 'Roboto-BoldItalic',
+    //     },
+    //   },
+    //   Montserrat: {
+    //     100: {
+    //       normal: 'Montserrat-Light',
+    //       italic: 'Montserrat-LightItalic',
+    //     },
+    //     200: {
+    //       normal: 'Montserrat-Light',
+    //       italic: 'Montserrat-LightItalic',
+    //     },
+    //     300: {
+    //       normal: 'Montserrat-Light',
+    //       italic: 'Montserrat-LightItalic',
+    //     },
+    //     400: {
+    //       normal: 'Montserrat-Regular',
+    //       italic: 'Montserrat-Italic',
+    //     },
+    //     500: {
+    //       normal: 'Montserrat-Medium',
+    //       italic: 'Montserrat-MediumItalic',
+    //     },
+    //     600: {
+    //       normal: 'Montserrat-SemiBold',
+    //       italic: 'Montserrat-SemiBoldItalic',
+    //     },
+    //     700: {
+    //       normal: 'Montserrat-Bold',
+    //       italic: 'Montserrat-BoldItalic',
+    //     },
+    //     800: {
+    //       normal: 'Montserrat-ExtraBold',
+    //       italic: 'Montserrat-ExtraBoldItalic',
+    //     },
+    //     900: {
+    //       normal: 'Montserrat-Black',
+    //       italic: 'Montserrat-BlackItalic',
+    //     },
+    //   },
+  },
   fontWeights: {
     hairline: 100,
     thin: 200,

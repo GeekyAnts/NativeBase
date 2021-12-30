@@ -1,5 +1,5 @@
 import type { MutableRefObject } from 'react';
-import type { IBoxProps, ITextProps } from '../../primitives';
+import type { IBoxProps } from '../../primitives';
 import type { IStackProps } from '../../primitives/Stack/Stack';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
@@ -32,7 +32,7 @@ export interface ISkeletonProps extends IBoxProps<ISkeletonProps> {
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
 }
 
-export interface ISkeletonTextProps extends ITextProps {
+export interface ISkeletonTextProps extends IStackProps {
   /**
    * The fadeIn duration in seconds
    */
@@ -56,15 +56,11 @@ export interface ISkeletonTextProps extends ITextProps {
   /**
    * No of Lines in text
    */
-  noOfLines?: number;
+  lines?: number;
   /**
-   * Space between two lines
+   * Stying for each line
    */
-  space?: number | string;
-  /**
-   * VStack props
-   */
-  _stack?: IStackProps;
+  _line?: ISkeletonProps;
 }
 
 export type ISkeletonComponentType = ((
