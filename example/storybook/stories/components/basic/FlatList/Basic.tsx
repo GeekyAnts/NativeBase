@@ -9,8 +9,6 @@ import {
   Text,
   Spacer,
 } from 'native-base';
-
-import { FlatList as RNFlatList } from 'react-native';
 export const Example = () => {
   const data = [
     {
@@ -53,21 +51,6 @@ export const Example = () => {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU',
     },
   ];
-  const renderItem = ({ item }) => <Box>{item.fullName}</Box>;
-  return (
-    <>
-      <RNFlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-    </>
-  );
   return (
     <Box
       w={{
