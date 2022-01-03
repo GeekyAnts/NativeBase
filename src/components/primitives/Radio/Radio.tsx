@@ -20,6 +20,7 @@ import {
   useFocus,
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
+import { useFormControlContext } from '../../composites/FormControl';
 
 const RadioComponent = memo(
   forwardRef(
@@ -136,9 +137,10 @@ const Radio = (
   { icon, children, size, wrapperRef, ...props }: IRadioProps,
   ref: any
 ) => {
+  const formControlContext = useFormControlContext();
   const contextState = React.useContext(RadioContext);
 
-  const combinedProps = combineContextAndProps(contextState, props);
+  const combinedProps = combineContextAndProps(formControlContext, props);
 
   const inputRef = React.useRef(null);
   const radioState = useRadio(

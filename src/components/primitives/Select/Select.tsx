@@ -16,6 +16,7 @@ import { ScrollView } from '../../basic/ScrollView';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { FlatList } from '../../basic/FlatList';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import type { ISelectItemProps } from './types';
 
 const unstyledSelecWebtStyles = {
   appearance: 'none',
@@ -40,7 +41,7 @@ const Select = (props: ISelectProps, ref: any) => {
     isDisabled: props.isDisabled,
     nativeID: props.nativeID,
   });
-  const flatListData: object[] = [];
+  const flatListData: ISelectItemProps[] = [];
 
   const isDisabled = selectProps.disabled;
   const tempFix = '__NativebasePlaceholder__';
