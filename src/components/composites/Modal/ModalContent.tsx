@@ -12,21 +12,22 @@ const ModalContent = (props: IBoxProps, ref?: any) => {
     initialFocusRef,
     finalFocusRef,
     handleClose,
+    visible,
   } = React.useContext(ModalContext);
   React.useEffect(() => {
     const finalRefVal = finalFocusRef ? finalFocusRef.current : null;
-    if (initialFocusRef && initialFocusRef.current) {
-      //@ts-ignore
-      initialFocusRef.current.focus();
-    }
-
-    return () => {
+    if (visible) {
+      if (initialFocusRef && initialFocusRef.current) {
+        //@ts-ignore
+        initialFocusRef.current.focus();
+      }
+    } else {
       if (finalRefVal) {
         //@ts-ignore
         finalRefVal.focus();
       }
-    };
-  }, [initialFocusRef, finalFocusRef]);
+    }
+  }, [initialFocusRef, finalFocusRef, visible]);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

@@ -64,14 +64,14 @@ const Modal = (
       contentSize,
       initialFocusRef,
       finalFocusRef,
+      visible,
     };
-  }, [handleClose, contentSize, initialFocusRef, finalFocusRef]);
+  }, [handleClose, contentSize, initialFocusRef, finalFocusRef, visible]);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(rest)) {
     return null;
   }
-
   // console.log('visible here', visible);
   return (
     <Overlay
