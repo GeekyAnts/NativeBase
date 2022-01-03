@@ -10,7 +10,10 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledFlatList: any = makeStyledComponent(RNFlatList);
 
-export const FlatList = forwardRef((props: IFlatListProps, ref: any) => {
+const FlatListComponent = <ItemT extends any>(
+  props: IFlatListProps<ItemT>,
+  ref: any
+) => {
   const {
     _contentContainerStyle,
     contentContainerStyle,
@@ -32,4 +35,9 @@ export const FlatList = forwardRef((props: IFlatListProps, ref: any) => {
       ref={ref}
     />
   );
-});
+};
+
+export const FlatList = forwardRef(FlatListComponent) as <ItemT>(
+  props: IFlatListProps<ItemT>,
+  ref: any
+) => any;
