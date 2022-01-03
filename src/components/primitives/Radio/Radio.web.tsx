@@ -13,6 +13,7 @@ import { CircleIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps, isEmptyObj } from '../../../utils';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import { useFormControlContext } from '../../composites/FormControl';
 
 const RadioComponent = memo(
   forwardRef(
@@ -118,9 +119,10 @@ const Radio = (
   { icon, children, wrapperRef, ...props }: IRadioProps,
   ref: any
 ) => {
+  const formControlContext = useFormControlContext();
   const contextState = React.useContext(RadioContext);
 
-  const combinedProps = combineContextAndProps(contextState, props);
+  const combinedProps = combineContextAndProps(formControlContext, props);
 
   const inputRef = React.useRef(null);
   const radioState = useRadio(
