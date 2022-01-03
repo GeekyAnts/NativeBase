@@ -20,6 +20,7 @@ export function Overlay({
   isOpen,
   useRNModalOnAndroid = false,
   isKeyboardDismissable = true,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   animationPreset = 'fade',
   onRequestClose,
 }: IOverlayProps) {
@@ -30,15 +31,17 @@ export function Overlay({
     callback: onRequestClose ? onRequestClose : () => {},
   });
 
-  // if (exited && !isOpen) {
-  //   return null;
-  // }
-  // Android handles multiple Modal in RN and is better for accessibility as it shifts accessibility focus on mount, however it may not needed in case of tooltips, toast where one doesn't need to shift accessibility focus
-  //TODO: fix-animation
-  let display = exited && !isOpen ? 'none' : 'contents';
-  if (animationPreset === 'slide') {
-    display = 'contents';
+  //TODO: performance remove-below-lines of code after updating react-native-aria
+  if (exited && !isOpen) {
+    return null;
   }
+  // Android handles multiple Modal in RN and is better for accessibility as it shifts accessibility focus on mount, however it may not needed in case of tooltips, toast where one doesn't need to shift accessibility focus
+
+  //TODO: performance add-below-lines of code after updating react-native-aria
+  // let display = exited && !isOpen ? 'none' : 'contents';
+  // if (animationPreset === 'slide') {
+  //   display = 'contents';
+  // }
 
   if (Platform.OS === 'android' && useRNModalOnAndroid) {
     return (
@@ -51,9 +54,12 @@ export function Overlay({
   }
 
   // Since OverlayContainer mounts children in NativeBaseProvider  using Context, we need to pass the context by wrapping children
+  //TODO: performance add-below-lines of code after updating react-native-aria
+  // <OverlayContainer style={{ display: display }}>
+
   return (
     //@ts-ignore
-    <OverlayContainer style={{ display: display }}>
+    <OverlayContainer>
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         {children}
       </ExitAnimationContext.Provider>
