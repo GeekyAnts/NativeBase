@@ -9,6 +9,8 @@ import type { ISwitchProps } from './types';
 import { mergeRefs } from '../../../utils';
 import { useHover } from '@react-native-aria/interactions';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useFormControlContext } from '../../composites/FormControl';
+import { combineContextAndProps } from '../../../utils';
 
 const StyledNBSwitch = makeStyledComponent(RNSwitch);
 
@@ -29,6 +31,10 @@ const Switch = (
   }: ISwitchProps,
   ref: any
 ) => {
+  const formControlContext = useFormControlContext();
+
+  const combinedProps = combineContextAndProps(formControlContext, props);
+
   const state = useToggleState({
     defaultSelected: !isNil(defaultIsChecked) ? defaultIsChecked : false,
   });
@@ -44,8 +50,8 @@ const Switch = (
     ...resolvedProps
   } = usePropsResolution('Switch', props, {
     isHovered,
-    isDisabled: disabled || isDisabled,
-    isInvalid,
+    isDisabled: disabled || isDisabled || combinedProps.isDisabled,
+    isInvalid: isInvalid || combinedProps.isInvalid,
     isChecked: checked,
   });
 
@@ -77,7 +83,7 @@ const Switch = (
       activeThumbColor={onThumbColor} // react-native-web prop for active thumbColor
       ios_backgroundColor={offTrackColor}
       {...resolvedProps}
-      disabled={disabled || isDisabled}
+      disabled={disabled || isDisabled || combinedProps.isDisabled}
       onValueChange={(val: boolean) => {
         onValueChange && onValueChange(val);
         onToggle ? onToggle() : state.toggle();
