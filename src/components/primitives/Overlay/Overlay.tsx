@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
 import { Platform } from 'react-native';
@@ -20,7 +21,7 @@ export function Overlay({
   isOpen,
   useRNModalOnAndroid = false,
   isKeyboardDismissable = true,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //@ts-ignore
   animationPreset = 'fade',
   onRequestClose,
 }: IOverlayProps) {
