@@ -748,7 +748,7 @@ export const getStyleAndFilteredProps = ({
       } else {
         if (responsiveStyles)
           if (key in responsiveStyles) {
-            query.query.push({
+            query?.query?.push({
               minWidth: o[1],
               style: responsiveStyles[key],
             });

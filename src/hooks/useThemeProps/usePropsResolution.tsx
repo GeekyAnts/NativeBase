@@ -8,6 +8,8 @@ import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
 import { propsFlattener, compareSpecificity } from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
+import React from 'react';
+import { ResponsiveQueryContext } from '../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
@@ -148,6 +150,8 @@ export const usePropsResolutionWithComponentTheme = (
       config?.ignoreProps || []
     )
   );
+  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
+  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
   const resolveResponsively = [
     'colorScheme',
     'size',
@@ -178,14 +182,17 @@ export const usePropsResolutionWithComponentTheme = (
     2
   );
 
-  // STEP 2.5: resolving responsive props
+  // Not work for SSR
   const responsiveProps = {};
-  resolveResponsively.map((propsName) => {
-    if (flattenProps[propsName]) {
-      // @ts-ignore
-      responsiveProps[propsName] = flattenProps[propsName];
-    }
-  });
+  if (disableCSSMediaQueries) {
+    // STEP 2.5: resolving responsive props
+    resolveResponsively.map((propsName) => {
+      if (flattenProps[propsName]) {
+        // @ts-ignore
+        responsiveProps[propsName] = flattenProps[propsName];
+      }
+    });
+  }
 
   const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
 
