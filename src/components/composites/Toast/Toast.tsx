@@ -2,6 +2,7 @@ import { OverlayContainer } from '@react-native-aria/overlays';
 import { PresenceTransition } from '../Transitions';
 import VStack from '../../primitives/Stack/VStack';
 import { Alert } from '../../composites/Alert';
+import merge from 'lodash.merge';
 import React, {
   createContext,
   MutableRefObject,
@@ -236,6 +237,26 @@ export const ToastProvider = ({ children }: { children: any }) => {
   const setToast = React.useCallback(
     (props: IToastProps): number => {
       // console.log("in settoast");
+
+      //List of props specific to Toast
+      const defaultToastProps: String[] = [
+        'title',
+        'placement',
+        'duration',
+        'description',
+      ];
+      //Setting up default Toast Props
+      const cleanToastDefaultProps: any = {};
+      defaultToastProps.map((defaultProperty) => {
+        if (
+          !props.hasOwnProperty(`${defaultProperty}`) &&
+          themeProps.hasOwnProperty(`${defaultProperty}`)
+        ) {
+          cleanToastDefaultProps[`${defaultProperty}`] =
+            themeProps[`${defaultProperty}`];
+        }
+      });
+
       const {
         placement = 'bottom',
         title,
@@ -249,8 +270,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
         accessibilityAnnouncement,
         accessibilityLiveRegion = 'polite',
         ...rest
-      } = props;
-
+      } = merge(cleanToastDefaultProps, props);
       let positionToastArray = toastInfo[placement];
       if (!positionToastArray) positionToastArray = [];
 
