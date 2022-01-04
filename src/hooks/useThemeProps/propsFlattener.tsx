@@ -1,5 +1,6 @@
 import merge from 'lodash.merge';
 
+const SPECIFICITY_110 = 110;
 const SPECIFICITY_100 = 100;
 const SPECIFICITY_70 = 70;
 const SPECIFICITY_60 = 60;
@@ -32,7 +33,7 @@ const INITIAL_PROP_SPECIFICITY = {
   [SPECIFICITY_1]: 0,
 };
 
-const pseudoPropsMap: any = {
+const pseudoPropsMap = {
   _web: { dependentOn: 'platform', priority: SPECIFICITY_10 },
   _ios: { dependentOn: 'platform', priority: SPECIFICITY_10 },
   _android: { dependentOn: 'platform', priority: SPECIFICITY_10 },
@@ -54,7 +55,7 @@ const pseudoPropsMap: any = {
   _loading: {
     dependentOn: 'state',
     respondTo: 'isLoading',
-    priority: SPECIFICITY_30,
+    priority: SPECIFICITY_110,
   },
   // Add new pseudeo props in between -------
   _readOnly: {
@@ -93,7 +94,14 @@ const pseudoPropsMap: any = {
     respondTo: 'isDisabled',
     priority: SPECIFICITY_100,
   },
+} as const;
+
+type IPseudoPropsMap = typeof pseudoPropsMap;
+type ExtractState<T extends IPseudoPropsMap> = {
+  // @ts-ignore
+  [P in keyof T as T[P]['respondTo']]?: boolean;
 };
+export type IStateProps = ExtractState<IPseudoPropsMap>;
 
 export const compareSpecificity = (
   exisiting: any,
@@ -127,12 +135,18 @@ const shouldResolvePseudoProp = ({
   state,
   platform,
   colormode,
-}: any) => {
+}: {
+  property: keyof IPseudoPropsMap;
+  state: IStateProps;
+  platform: any;
+  colormode: any;
+}) => {
   if (pseudoPropsMap[property].dependentOn === 'platform') {
     return property === `_${platform}`;
   } else if (pseudoPropsMap[property].dependentOn === 'colormode') {
     return property === `_${colormode}`;
   } else if (pseudoPropsMap[property].dependentOn === 'state') {
+    // @ts-ignore
     return state[pseudoPropsMap[property].respondTo];
   } else {
     return false;
@@ -147,11 +161,45 @@ const simplifyProps = (
     state,
     currentSpecificity,
     previouslyFlattenProps,
+    cascadePseudoProps,
   }: any,
   flattenProps: any = {},
   specificityMap: any = {},
   priority: number
 ) => {
+  const mergePsuedoProps = (property: string, propertySpecity: object) => {
+    if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
+      if (process.env.NODE_ENV === 'development' && props.debug) {
+        /* eslint-disable-next-line */
+        console.log(
+          `%c ${property}`,
+          'color: #818cf8;',
+          'updated as internal prop with higher specificity'
+        );
+      }
+      specificityMap[property] = propertySpecity;
+      // merging internal props (like, _text, _stack ...)
+      flattenProps[property] = merge(
+        {},
+        flattenProps[property],
+        props[property]
+      );
+    } else {
+      if (process.env.NODE_ENV === 'development' && props.debug) {
+        /* eslint-disable-next-line */
+        console.log(
+          `%c ${property}`,
+          'color: #818cf8;',
+          'updated as internal prop with lower specificity'
+        );
+      }
+      flattenProps[property] = merge(
+        {},
+        props[property],
+        flattenProps[property]
+      );
+    }
+  };
   for (const property in props) {
     // NOTE: the order is important here. Keep in mind while specificity breakpoints.
     const propertySpecity = currentSpecificity
@@ -162,12 +210,23 @@ const simplifyProps = (
         };
 
     if (
+      // @ts-ignore
       state[pseudoPropsMap[property]?.respondTo] ||
       ['_dark', '_light', '_web', '_ios', '_android'].includes(property)
     ) {
+      // @ts-ignore
       if (shouldResolvePseudoProp({ property, state, platform, colormode })) {
+        // NOTE: Handling (state driven) props like _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
+        if (process.env.NODE_ENV === 'development' && props.debug) {
+          /* eslint-disable-next-line */
+          console.log(
+            `%c ${property}`,
+            'color: #818cf8;',
+            'recursively resolving'
+          );
+        }
+        // @ts-ignore
         propertySpecity[pseudoPropsMap[property].priority]++;
-
         simplifyProps(
           {
             props: props[property],
@@ -176,39 +235,57 @@ const simplifyProps = (
             state,
             currentSpecificity: propertySpecity,
             previouslyFlattenProps: previouslyFlattenProps,
+            cascadePseudoProps,
           },
           flattenProps,
           specificityMap,
           priority
         );
       }
-    } else if (state[pseudoPropsMap[property]?.respondTo] === undefined) {
+      // @ts-ignore
+    } else if (pseudoPropsMap[property] === undefined) {
       if (property.startsWith('_')) {
-        if (
-          compareSpecificity(specificityMap[property], propertySpecity, false)
-        ) {
-          specificityMap[property] = propertySpecity;
-          // merging internal props (like, _text, _checked, ...)
-          flattenProps[property] = merge(
-            {},
-            flattenProps[property],
-            props[property]
-          );
-        } else {
-          flattenProps[property] = merge(
-            {},
-            props[property],
-            flattenProps[property]
-          );
-        }
+        // NOTE: Handling (internal) props like _text, _stack, ....
+        mergePsuedoProps(property, propertySpecity);
       } else {
         if (
           compareSpecificity(specificityMap[property], propertySpecity, false)
         ) {
+          if (process.env.NODE_ENV === 'development' && props.debug) {
+            /* eslint-disable-next-line */
+            console.log(
+              `%c ${property}`,
+              'color: #818cf8;',
+              'updated as simple prop'
+            );
+          }
           specificityMap[property] = propertySpecity;
           // replacing simple props (like, p, m, bg, color, ...)
           flattenProps[property] = props[property];
+        } else {
+          if (process.env.NODE_ENV === 'development' && props.debug) {
+            /* eslint-disable-next-line */
+            console.log(`%c ${property}`, 'color: #818cf8;', 'ignored');
+          }
         }
+      }
+    } else {
+      // Can delete unused props
+      if (!cascadePseudoProps) {
+        delete flattenProps[property];
+        if (process.env.NODE_ENV === 'development' && props.debug) {
+          /* eslint-disable-next-line */
+          console.log(`%c ${property}`, 'color: #818cf8;', 'deleted');
+        }
+      } else {
+        // specificityMap[property] = propertySpecity;
+        // flattenProps[property] = props[property];
+
+        if (process.env.NODE_ENV === 'development' && props.debug) {
+          /* eslint-disable-next-line */
+          console.log(`%c ${property}`, 'color: #818cf8;', 'cascaded');
+        }
+        mergePsuedoProps(property, propertySpecity);
       }
     }
   }
@@ -222,6 +299,7 @@ export const propsFlattener = (
     state,
     currentSpecificityMap,
     previouslyFlattenProps,
+    cascadePseudoProps,
   }: any,
   priority: number
 ) => {
@@ -229,6 +307,7 @@ export const propsFlattener = (
 
   for (const property in props) {
     if (
+      // @ts-ignore
       state[pseudoPropsMap[property]?.respondTo] === undefined &&
       property.startsWith('_')
     ) {
@@ -253,6 +332,7 @@ export const propsFlattener = (
       state,
       currentSpecificityMap,
       previouslyFlattenProps,
+      cascadePseudoProps,
     },
     flattenProps,
     specificityMap,

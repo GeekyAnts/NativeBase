@@ -19,7 +19,6 @@ export const Example = () => {
         <Box
           rounded="lg"
           overflow="hidden"
-          width="72"
           borderWidth="1"
           shadow={1}
           _light={{ backgroundColor: 'gray.50', borderColor: 'coolGray.200' }}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components/native';
 import {
   SafeAreaProvider,
   Metrics,
@@ -73,11 +72,16 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
   );
 
   return (
-    <ThemeProvider theme={newTheme}>
-      <NativeBaseConfigProvider
-        config={config}
-        currentBreakpoint={currentBreakpoint}
-        isSSR={isSSR}
+    <NativeBaseConfigProvider
+      theme={newTheme}
+      config={config}
+      currentBreakpoint={currentBreakpoint}
+      isSSR={isSSR}
+    >
+      <SafeAreaProvider
+        initialMetrics={
+          initialWindowMetrics ?? defaultInitialWindowMetricsBasedOnPlatform
+        }
       >
         <ResponsiveQueryProvider disableCSSMediaQueries={!isSSR}>
           <SafeAreaProvider
@@ -98,8 +102,8 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
             </HybridProvider>
           </SafeAreaProvider>
         </ResponsiveQueryProvider>
-      </NativeBaseConfigProvider>
-    </ThemeProvider>
+      </SafeAreaProvider>
+    </NativeBaseConfigProvider>
   );
 };
 

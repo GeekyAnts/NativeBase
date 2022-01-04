@@ -62,8 +62,9 @@ export const useStyledSystemPropsResolver = ({
     strictMode,
     propStyle,
     getResponsiveStyles,
+    props,
   ]);
-  if (debug) {
+  if (process.env.NODE_ENV === 'development' && debug) {
     /* eslint-disable-next-line */
     console.log('style,resprops', currentBreakpoint);
   }

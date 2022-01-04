@@ -1,5 +1,5 @@
 import React, { memo, forwardRef } from 'react';
-import { Animated, Platform, View } from 'react-native';
+import { Animated, Platform } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 import Box from '../../primitives/Box';
@@ -12,13 +12,11 @@ const Skeleton = (props: ISkeletonProps, ref: any) => {
   const {
     children,
     startColor,
-    style,
     endColor,
     ...resolvedProps
   } = usePropsResolution('Skeleton', props);
   // Setting blink Animation
   const blinkAnim = React.useRef(new Animated.Value(0)).current;
-  const tokenisedRadius = useToken('radii', resolvedProps.borderRadius);
   const tokenisedStartColor = useToken('colors', startColor);
 
   // Generating blink animation in a sequence
@@ -45,33 +43,23 @@ const Skeleton = (props: ISkeletonProps, ref: any) => {
 
   const skeletonStyle: any = {
     skeleton: {
-      position: 'absolute',
-      top: 0,
-      bottom: 0,
       height: '100%',
       width: '100%',
-      borderRadius: tokenisedRadius,
       backgroundColor: tokenisedStartColor,
       opacity: blinkAnim, // Bind opacity to animated value
     },
   };
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
   return resolvedProps.isLoaded ? (
     children
   ) : (
-    <Box
-      style={[style]}
-      borderRadius={tokenisedRadius}
-      bg={endColor}
-      {...resolvedProps}
-      ref={ref}
-    >
+    <Box bg={endColor} {...resolvedProps} ref={ref} overflow="hidden">
       <Animated.View style={skeletonStyle.skeleton} />
-      {/* Rendering children with 0 opacity (takes height of children incase children are present) */}
-      {children ? <View style={{ opacity: 0 }}>{children}</View> : null}
     </Box>
   );
 };

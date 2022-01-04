@@ -1,6 +1,7 @@
 {
   "name": "native-base",
   "description": "Essential cross-platform UI components for React Native",
+  "sideEffects": false,
   "keywords": [
     "android",
     "ios",
@@ -22,7 +23,8 @@
     "bootstrap": "yarn example && yarn && yarn pods",
     "build:web": "rollup --config",
     "bundle:analysis": "visualize-bundle",
-    "commit-test": "yarn prepare && cd example && yarn test && cd .."
+    "commit-test": "yarn prepare && cd example && yarn test && cd ..",
+    "postinstall": "patch-package"
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
@@ -35,11 +37,11 @@
       "prettier --write"
     ]
   },
-  "version": "3.2.2-rc.1",
+  "version": "3.3.0-alpha.12",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
-  "module": "dist/bundle.web.js",
+  "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
@@ -48,9 +50,6 @@
     "@commitlint/config-conventional": "^8.3.4",
     "@react-native-community/bob": "^0.16.2",
     "@react-native-community/eslint-config": "^2.0.0",
-    "@react-stately/collections": "^3.3.0",
-    "@react-stately/radio": "^3.2.1",
-    "@react-stately/tabs": "^3.0.0-alpha.1",
     "@release-it/conventional-changelog": "^1.1.4",
     "@testing-library/react-hooks": "^5.0.3",
     "@testing-library/react-native": "^7.1.0",
@@ -67,7 +66,6 @@
     "@types/lodash.pick": "^4.4.6",
     "@types/react": "^16.9.19",
     "@types/react-native": "~0.63.2",
-    "@types/styled-components-react-native": "^5.1.0",
     "@types/tinycolor2": "^1.4.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "commitlint": "^8.3.5",
@@ -90,19 +88,17 @@
     "release-it": "^13.5.8",
     "rollup": "^2.34.1",
     "rollup-plugin-flow": "^1.1.1",
-    "styled-components": "^5.2.1",
-    "styled-system": "^5.1.5",
     "typescript": "4.2",
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
+    "@types/react": "^16.9.19",
+    "@types/react-native": "~0.63.2",
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
-    "react-native-safe-area-context": "*",
-    "react-native-svg": "*",
-    "styled-components": "*",
-    "styled-system": "*"
+    "react-native-safe-area-context": "3.1.9",
+    "react-native-svg": "12.1.0"
   },
   "jest": {
     "preset": "jest-expo",
@@ -114,7 +110,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|styled-components|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|styled-system|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
+      "node_modules/(?!(react-native|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
@@ -168,16 +164,10 @@
     "output": "lib",
     "targets": [
       [
-        "commonjs",
-        {
-          "configFile": true
-        }
+        "commonjs"
       ],
       [
-        "module",
-        {
-          "configFile": true
-        }
+        "module"
       ],
       "typescript"
     ]
@@ -192,15 +182,19 @@
     "@react-native-aria/focus": "^0.2.4",
     "@react-native-aria/interactions": "^0.2.2",
     "@react-native-aria/listbox": "^0.2.4-alpha.3",
-    "@react-native-aria/overlays": "^0.2.9",
+    "@react-native-aria/overlays": "^0.3.2",
     "@react-native-aria/radio": "^0.2.4",
     "@react-native-aria/slider": "^0.2.5-alpha.1",
     "@react-native-aria/tabs": "^0.2.7",
     "@react-native-aria/utils": "^0.2.8",
+    "@react-stately/checkbox": "^3.0.1",
+    "@react-stately/collections": "^3.3.0",
     "@react-stately/combobox": "^3.0.0-alpha.1",
     "@react-stately/radio": "^3.2.1",
+    "@react-stately/slider": "^3.0.1",
+    "@react-stately/tabs": "^3.0.0-alpha.1",
+    "@react-stately/toggle": "^3.2.1",
     "@types/lodash.has": "^4.5.6",
-    "@types/styled-system": "^5.1.9",
     "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2",
@@ -213,6 +207,7 @@
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
     "stable-hash": "^0.0.2",
+    "patch-package": "^6.4.7",
     "tinycolor2": "^1.4.2"
   },
   "directories": {

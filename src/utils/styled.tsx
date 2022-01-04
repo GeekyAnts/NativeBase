@@ -1,61 +1,30 @@
-import styled from 'styled-components/native';
-import {
-  border,
-  color,
-  flexbox,
-  layout,
-  position,
-  space,
-  typography,
-} from 'styled-system';
-import {
-  customBackground,
-  customBorder,
-  customExtra,
-  customLayout,
-  customOutline,
-  customPosition,
-  customShadow,
-  customTypography,
-} from './customProps';
 import React from 'react';
 import { useStyledSystemPropsResolver } from '../hooks/';
-export const resolversForBox: any = [
-  color,
-  space,
-  layout,
-  flexbox,
-  border,
-  position,
-  typography,
-  customPosition,
-  customBorder,
-  customBackground,
-  customOutline,
-  customShadow,
-  customExtra,
-  customTypography,
-  customLayout,
-];
-
-export const shouldEnableNewStyledSystemImplementation = true;
 
 export const makeStyledComponent = (Comp: any) => {
-  if (shouldEnableNewStyledSystemImplementation) {
-    return React.forwardRef(({ debug, ...props }: any, ref: any) => {
-      const [style, restProps] = useStyledSystemPropsResolver(props);
-      if (debug) {
-        /* eslint-disable-next-line */
-        console.log('style:: => ', style, ' restProps:: => ', restProps);
-      }
-      return (
-        <Comp {...restProps} style={style} ref={ref}>
-          {props.children}
-        </Comp>
+  return React.forwardRef(({ debug, ...props }: any, ref: any) => {
+    const [style, restProps] = useStyledSystemPropsResolver(props);
+    if (process.env.NODE_ENV === 'development' && debug) {
+      /* eslint-disable-next-line */
+      console.log(
+        `%cstyleSystem`,
+        'background: #4b5563; color: #d97706; font-weight: 700; padding: 2px 8px;'
       );
-    });
-  } else {
-    //@ts-ignore
-    return styled(Comp)(...resolversForBox);
-  }
+      /* eslint-disable-next-line */
+      console.log('%c props: ', 'color: #4ade80; font-weight: 700;', props);
+      /* eslint-disable-next-line */
+      console.log('%c style: ', 'color: #22d3ee; font-weight: 700;', style);
+      /* eslint-disable-next-line */
+      console.log(
+        '%c restProps: ',
+        'color: #22d3ee; font-weight: 700;',
+        restProps
+      );
+    }
+    return (
+      <Comp {...restProps} style={style} ref={ref}>
+        {props.children}
+      </Comp>
+    );
+  });
 };

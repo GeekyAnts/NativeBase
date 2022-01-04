@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Platform } from 'react-native';
 import { HybridContext } from './Context';
 import { useModeManager } from './../color-mode/hooks';
@@ -30,6 +30,24 @@ const HybridProvider = ({
     isTextColorAccessible
   );
 
+  const contextValue = useMemo(() => {
+    return {
+      colorMode: {
+        colorMode,
+        toggleColorMode,
+        setColorMode,
+        accessibleColors,
+        setAccessibleColors,
+      },
+    };
+  }, [
+    colorMode,
+    toggleColorMode,
+    setColorMode,
+    accessibleColors,
+    setAccessibleColors,
+  ]);
+
   React.useEffect(() => {
     let escapeKeyListener: any = null;
 
@@ -53,17 +71,7 @@ const HybridProvider = ({
   }, []);
 
   return (
-    <HybridContext.Provider
-      value={{
-        colorMode: {
-          colorMode,
-          toggleColorMode,
-          setColorMode,
-          accessibleColors,
-          setAccessibleColors,
-        },
-      }}
-    >
+    <HybridContext.Provider value={contextValue}>
       {children}
     </HybridContext.Provider>
   );
