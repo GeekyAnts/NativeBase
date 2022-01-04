@@ -37,7 +37,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.3.0-alpha.12",
+  "version": "3.3.1-alpha.0",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -206,8 +206,8 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
-    "stable-hash": "^0.0.2",
     "patch-package": "^6.4.7",
+    "stable-hash": "^0.0.2",
     "tinycolor2": "^1.4.2"
   },
   "directories": {
