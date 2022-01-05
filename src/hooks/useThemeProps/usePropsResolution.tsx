@@ -240,7 +240,7 @@ export const usePropsResolutionWithComponentTheme = (
     },
     2
   );
-
+  // console.log(resolveResponsively);
   // Not work for SSR
   const responsiveProps = {};
   if (disableCSSMediaQueries) {
@@ -252,7 +252,13 @@ export const usePropsResolutionWithComponentTheme = (
       }
     });
   }
-
+  if (resolveResponsively.includes('direction')) {
+    const propName = 'direction';
+    if (flattenProps[propName]) {
+      // @ts-ignore
+      responsiveProps[propName] = flattenProps[propName];
+    }
+  }
   const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
 
   flattenProps = {

@@ -1,13 +1,14 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import { Text } from 'react-native';
-import { Box } from 'native-base';
+import { Box, Stack } from 'native-base';
 
 const Home: NextPage = () => {
   return (
-    <Box bg={{ sm: 'black', md: 'pink.800' }} width={[10, 200]}>
+    <Stack space={[20, 40, 80]} direction={['column', 'column', 'row']}>
       <Text>hi</Text>
-    </Box>
+      <Box boxSize="20" bg="red.100"></Box>
+    </Stack>
   );
 };
 
