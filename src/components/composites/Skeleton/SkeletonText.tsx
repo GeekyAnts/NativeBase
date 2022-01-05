@@ -28,6 +28,7 @@ const SkeletonText = (
       computedChildren.push(
         //Using Skeleton component with required props
         <Skeleton
+          key={i}
           endColor={endColor}
           startColor={startColor}
           w="75%"
@@ -36,7 +37,12 @@ const SkeletonText = (
       );
     } else
       computedChildren.push(
-        <Skeleton endColor={endColor} startColor={startColor} {..._line} />
+        <Skeleton
+          key={i}
+          endColor={endColor}
+          startColor={startColor}
+          {..._line}
+        />
       );
   }
   return isLoaded ? (
