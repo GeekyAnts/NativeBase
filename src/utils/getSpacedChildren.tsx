@@ -58,7 +58,11 @@ export default (
       return (
         <React.Fragment key={child.key ?? `spaced-child-${index}`}>
           {child}
-          {disableCSSMediaQueries ? index < childrenArray.length - 1 && <Box {...spacingProp} /> : <></>}
+          {disableCSSMediaQueries ? (
+            index < childrenArray.length - 1 && <Box {...spacingProp} />
+          ) : (
+            <></>
+          )}
         </React.Fragment>
       );
     });
