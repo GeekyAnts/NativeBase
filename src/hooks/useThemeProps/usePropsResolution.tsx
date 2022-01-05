@@ -14,6 +14,7 @@ import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 import React from 'react';
 import { ResponsiveQueryContext } from '../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 import type { ComponentTheme } from '../../theme';
+// import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
@@ -458,6 +459,11 @@ export const usePropsResolutionWithComponentTheme = (
   }
   // // NOTE: seprating bg props when linearGardiant is available
   const [gradientProps] = extractInObject(flattenProps, ignore);
+
+  // const suppressColorAccessibilityWarning = useNativeBaseConfig(
+  //   'NativeBaseConfigProvider'
+  // );
+  // console.log(suppressColorAccessibilityWarning);
 
   // const contrastTextColor = useContrastText(
   //   bgColor,
