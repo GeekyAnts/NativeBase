@@ -46,9 +46,7 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
     {},
     { resolveResponsively: ['direction'] }
   );
-  // console.log(direction);
 
-  console.log(dir, 'DIRECTION', direction);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;

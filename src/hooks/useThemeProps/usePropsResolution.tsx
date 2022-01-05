@@ -4,7 +4,6 @@ import { Platform } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
-import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
 import {
   propsFlattener,
@@ -460,21 +459,18 @@ export const usePropsResolutionWithComponentTheme = (
   // // NOTE: seprating bg props when linearGardiant is available
   const [gradientProps] = extractInObject(flattenProps, ignore);
 
-  const bgColor =
-    flattenProps.bg ?? flattenProps.backgroundColor ?? flattenProps.bgColor;
+  // const contrastTextColor = useContrastText(
+  //   bgColor,
+  //   flattenProps?._text?.color
+  // );
 
-  const contrastTextColor = useContrastText(
-    bgColor,
-    flattenProps?._text?.color
-  );
-
-  flattenProps._text =
-    contrastTextColor && flattenProps?._text?.color === undefined
-      ? {
-          color: contrastTextColor,
-          ...flattenProps._text,
-        }
-      : flattenProps._text;
+  // flattenProps._text =
+  //   contrastTextColor && flattenProps?._text?.color === undefined
+  //     ? {
+  //         color: contrastTextColor,
+  //         ...flattenProps._text,
+  //       }
+  //     : flattenProps._text;
 
   const resolvedProps = omitUndefined({
     ...flattenProps,
