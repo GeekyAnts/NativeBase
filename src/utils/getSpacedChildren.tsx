@@ -1,5 +1,5 @@
 import React from 'react';
-import { default as Box } from '../components/primitives/Box';
+// import { default as Box } from '../components/primitives/Box';
 import type { SpaceType as ThemeSpaceType } from '../components/types';
 
 type SpaceType =
@@ -46,14 +46,14 @@ export default (
       );
     });
   } else {
-    const spacingProp: object = {
-      ...(axis === 'X' ? { width: space } : { height: space }),
-    };
+    // const spacingProp: object = {
+    //   ...(axis === 'X' ? { width: space } : { height: space }),
+    // };
     childrenArray = childrenArray.map((child: any, index: number) => {
       return (
         <React.Fragment key={child.key ?? `spaced-child-${index}`}>
           {child}
-          {index < childrenArray.length - 1 && <Box {...spacingProp} />}
+          {/* {index < childrenArray.length - 1 && <Box {...spacingProp} />} */}
         </React.Fragment>
       );
     });

@@ -5,14 +5,102 @@ import { Box, Stack, Button } from 'native-base';
 
 const Home: NextPage = () => {
   return (
-    <Stack space={[20, 40, 80]}>
+    <Stack
+      // space={[10, 20, 32]}
+      gap={10}
+      direction={['row', 'row-reverse', 'column']}
+      // direction={'column'}
+      // flexWrap={'wrap'}
+    >
       {/* <Text>hi</Text> */}
-      <Button
+      <Text>Hello</Text>
+      {/* <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button> */}
+      {/* <Button
+        w="16"
         bg={['red.900', 'light.200', 'lightBlue.100']}
         // _text={{ color: ['white', 'black', 'red.900'] }}
       >
         Text
       </Button>
+      <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button>
+      <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button>
+      <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button>
+      <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button>
+      <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button>
+      <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button>
+      <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button>
+
+      <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button>
+
+      <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button> */}
+      {/* 
+ <Button
+        w="16"
+        bg={['red.900', 'light.200', 'lightBlue.100']}
+        // _text={{ color: ['white', 'black', 'red.900'] }}
+      >
+        Text
+      </Button> */}
       {/* <Box boxSize="20" bg="red.100"></Box> */}
     </Stack>
   );
