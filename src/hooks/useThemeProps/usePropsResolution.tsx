@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
+import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
 import {
   propsFlattener,
@@ -14,7 +15,7 @@ import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 import React from 'react';
 import { ResponsiveQueryContext } from '../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 import type { ComponentTheme } from '../../theme';
-// import { useNativeBaseConfig } from '../../core/NativeBaseContext';
+import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
@@ -460,23 +461,24 @@ export const usePropsResolutionWithComponentTheme = (
   // // NOTE: seprating bg props when linearGardiant is available
   const [gradientProps] = extractInObject(flattenProps, ignore);
 
-  // const suppressColorAccessibilityWarning = useNativeBaseConfig(
-  //   'NativeBaseConfigProvider'
-  // );
-  // console.log(suppressColorAccessibilityWarning);
+  const disableContrastText = useNativeBaseConfig('NativeBaseConfigProvider')
+    .disableContrastText;
+  const bgColor =
+    flattenProps.bg ?? flattenProps.backgroundColor ?? flattenProps.bgColor;
 
-  // const contrastTextColor = useContrastText(
-  //   bgColor,
-  //   flattenProps?._text?.color
-  // );
+  const contrastTextColor = useContrastText(
+    bgColor,
+    flattenProps?._text?.color,
+    disableCSSMediaQueries ? (disableContrastText ? true : false) : true
+  );
 
-  // flattenProps._text =
-  //   contrastTextColor && flattenProps?._text?.color === undefined
-  //     ? {
-  //         color: contrastTextColor,
-  //         ...flattenProps._text,
-  //       }
-  //     : flattenProps._text;
+  flattenProps._text =
+    contrastTextColor && flattenProps?._text?.color === undefined
+      ? {
+          color: contrastTextColor,
+          ...flattenProps._text,
+        }
+      : flattenProps._text;
 
   const resolvedProps = omitUndefined({
     ...flattenProps,

@@ -8,8 +8,8 @@ const Home: NextPage = () => {
     <Stack space={[20, 40, 80]}>
       {/* <Text>hi</Text> */}
       <Button
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
+      // bg={['red.900', 'light.200', 'lightBlue.100']}
+      // _text={{ color: ['white', 'black', 'red.900'] }}
       >
         Text
       </Button>
