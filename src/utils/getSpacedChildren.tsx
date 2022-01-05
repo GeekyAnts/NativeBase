@@ -1,6 +1,8 @@
+import { Box } from 'native-base';
 import React from 'react';
 // import { default as Box } from '../components/primitives/Box';
 import type { SpaceType as ThemeSpaceType } from '../components/types';
+import { ResponsiveQueryContext } from './useResponsiveQuery/ResponsiveQueryProvider';
 
 type SpaceType =
   | 'gutter'
@@ -26,6 +28,9 @@ export default (
 
   const orientation = axis === 'X' ? 'vertical' : 'horizontal';
 
+  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
+  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+
   // If there's a divider, we wrap it with a Box and apply vertical and horizontal margins else we add a spacer Box with height or width
   if (divider) {
     const spacingProp: object = {
@@ -46,14 +51,14 @@ export default (
       );
     });
   } else {
-    // const spacingProp: object = {
-    //   ...(axis === 'X' ? { width: space } : { height: space }),
-    // };
+    const spacingProp: object = {
+      ...(axis === 'X' ? { width: space } : { height: space }),
+    };
     childrenArray = childrenArray.map((child: any, index: number) => {
       return (
         <React.Fragment key={child.key ?? `spaced-child-${index}`}>
           {child}
-          {/* {index < childrenArray.length - 1 && <Box {...spacingProp} />} */}
+          {disableCSSMediaQueries ? index < childrenArray.length - 1 && <Box {...spacingProp} /> : <></>}
         </React.Fragment>
       );
     });

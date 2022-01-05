@@ -97,10 +97,6 @@ export const layout = {
     properties: ['width', 'height'],
     scale: 'sizes',
   },
-  space: {
-    properties: 'gap',
-    scale: 'sizes',
-  },
   overflow: true,
   overflowX: true,
   overflowY: true,

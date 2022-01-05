@@ -7,13 +7,22 @@ const Home: NextPage = () => {
   return (
     <Stack
       // space={[10, 20, 32]}
-      gap={10}
+      space={10}
       direction={['row', 'row-reverse', 'column']}
-      // direction={'column'}
-      // flexWrap={'wrap'}
+    // direction={'column'}
+    // flexWrap={'wrap'}
     >
       {/* <Text>hi</Text> */}
       <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text><Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+
       {/* <Button
         w="16"
         bg={['red.900', 'light.200', 'lightBlue.100']}

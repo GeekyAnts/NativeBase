@@ -5,7 +5,8 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ResponsiveValue, SpaceType } from '../../types';
-// import { useBreakpointResolvedProps } from '../../../hooks';
+import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
+import { useToken } from '../../../hooks';
 
 export interface IStackProps extends IBoxProps<IStackProps> {
   /**
@@ -52,16 +53,22 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
     return null;
   }
 
+  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
+  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+
+  const resolvedGap = useToken('space', size);
+
   return (
-    <Box flexDirection={dir} {...resolvedProps} ref={ref}>
-      {getSpacedChildren(
-        children,
-        size,
-        direction === 'row' ? 'X' : 'Y',
-        reversed ? 'reverse' : 'normal',
-        divider
-      )}
-    </Box>
+    <Box flexDirection={dir} {...resolvedProps} ref={ref} style={disableCSSMediaQueries ? {} : { gap: resolvedGap }}>
+      {
+        getSpacedChildren(
+          children,
+          size,
+          direction === 'row' ? 'X' : 'Y',
+          reversed ? 'reverse' : 'normal',
+          divider
+        )}
+    </Box >
   );
 };
 
