@@ -9,8 +9,8 @@ const Home: NextPage = () => {
       // space={[10, 20, 32]}
       space={10}
       direction={['row', 'row-reverse', 'column']}
-    // direction={'column'}
-    // flexWrap={'wrap'}
+      // direction={'column'}
+      // flexWrap={'wrap'}
     >
       {/* <Text>hi</Text> */}
       <Text>Hello</Text>
@@ -19,7 +19,8 @@ const Home: NextPage = () => {
       <Text>Hello</Text>
       <Text>Hello</Text>
       <Text>Hello</Text>
-      <Text>Hello</Text><Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
       <Text>Hello</Text>
       <Text>Hello</Text>
 
