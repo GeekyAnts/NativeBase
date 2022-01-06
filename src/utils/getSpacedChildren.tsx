@@ -15,7 +15,7 @@ type SpaceType =
   | '2xl'
   | ThemeSpaceType;
 
-export default (
+const getSpacedChildren = (
   children: JSX.Element[] | JSX.Element,
   space: undefined | SpaceType,
   axis: 'X' | 'Y',
@@ -70,3 +70,5 @@ export default (
 
   return childrenArray;
 };
+
+export default getSpacedChildren;

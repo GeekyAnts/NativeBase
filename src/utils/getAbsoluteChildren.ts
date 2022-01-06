@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
-export default (children: JSX.Element[] | JSX.Element, reverse?: boolean) => {
+
+const getAbsoluteChildren = (children: JSX.Element[] | JSX.Element, reverse?: boolean) => {
   let childrenArray = React.Children.toArray(children);
   if (reverse) {
     childrenArray = childrenArray.reverse();
@@ -22,3 +23,5 @@ export default (children: JSX.Element[] | JSX.Element, reverse?: boolean) => {
   */
   return [trailingChildrenWithSpacing];
 };
+
+export default getAbsoluteChildren;
