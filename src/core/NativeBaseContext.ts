@@ -10,6 +10,7 @@ export interface INativebaseConfig {
   };
   enableRem?: boolean;
   strictMode?: IModeType;
+  disableContrastText?: boolean;
 }
 
 export const defaultConfig: INativebaseConfig = {
@@ -21,4 +22,5 @@ export const [NativeBaseConfigProvider, useNativeBaseConfig] = createContext<{
   currentBreakpoint: number;
   isSSR?: boolean;
   theme?: ITheme;
+  disableContrastText?: boolean;
 }>('NativeBaseConfigProvider');
