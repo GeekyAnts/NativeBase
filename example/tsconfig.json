@@ -2,16 +2,21 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "native-base": ["../src/index"]
+      "native-base": [
+        "../src/index"
+      ]
     },
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "moduleResolution": "node",
     "noEmit": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true
-  }
-  // "exclude": ["storybook"]
+  },
+  "extends": "expo/tsconfig.base"
 }
