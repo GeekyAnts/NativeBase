@@ -21,6 +21,7 @@ import {
   getClosestBreakpoint,
   platformSpecificSpaceUnits,
 } from '../theme/tools/utils';
+import { ResponsiveQueryProvider } from '../utils/useResponsiveQuery';
 
 // For SSR to work, we need to pass initial insets as 0 values on web.
 
@@ -42,6 +43,7 @@ export interface NativeBaseProviderProps {
   initialWindowMetrics?: any;
   config?: INativebaseConfig;
   isSSR?: boolean;
+  disableContrastText?: boolean;
   // Refer https://github.com/th3rdwave/react-native-safe-area-context#testing
 }
 
@@ -53,6 +55,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     theme: propsTheme = defaultTheme,
     initialWindowMetrics,
     isSSR,
+    disableContrastText,
   } = props;
   const theme = config.theme ?? propsTheme;
 
@@ -76,23 +79,32 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
       config={config}
       currentBreakpoint={currentBreakpoint}
       isSSR={isSSR}
+      disableContrastText={disableContrastText}
     >
       <SafeAreaProvider
         initialMetrics={
           initialWindowMetrics ?? defaultInitialWindowMetricsBasedOnPlatform
         }
       >
-        <HybridProvider
-          colorModeManager={colorModeManager}
-          options={theme.config}
-        >
-          <OverlayProvider>
-            <ToastProvider>
-              <InitializeToastRef />
-              <SSRProvider>{children}</SSRProvider>
-            </ToastProvider>
-          </OverlayProvider>
-        </HybridProvider>
+        <ResponsiveQueryProvider disableCSSMediaQueries={!isSSR}>
+          <SafeAreaProvider
+            initialMetrics={
+              initialWindowMetrics ?? defaultInitialWindowMetricsBasedOnPlatform
+            }
+          >
+            <HybridProvider
+              colorModeManager={colorModeManager}
+              options={theme.config}
+            >
+              <OverlayProvider>
+                <ToastProvider>
+                  <InitializeToastRef />
+                  <SSRProvider>{children}</SSRProvider>
+                </ToastProvider>
+              </OverlayProvider>
+            </HybridProvider>
+          </SafeAreaProvider>
+        </ResponsiveQueryProvider>
       </SafeAreaProvider>
     </NativeBaseConfigProvider>
   );
