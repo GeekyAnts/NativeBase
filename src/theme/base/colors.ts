@@ -310,16 +310,16 @@ const colors = {
     900: '#fafafa',
   },
   // Derived colors
-  danger: {},
-  error: {},
-  success: {},
-  warning: {},
-  muted: {},
-  primary: {},
-  info: {},
-  secondary: {},
-  light: {},
-  tertiary: {},
+  danger: {} as IColorHues,
+  error: {} as IColorHues,
+  success: {} as IColorHues,
+  warning: {} as IColorHues,
+  muted: {} as IColorHues,
+  primary: {} as IColorHues,
+  info: {} as IColorHues,
+  secondary: {} as IColorHues,
+  light: {} as IColorHues,
+  tertiary: {} as IColorHues,
 };
 
 colors.danger = colors.red;
