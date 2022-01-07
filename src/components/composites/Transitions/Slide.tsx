@@ -93,7 +93,9 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
     <Box
       w="100%"
       h="100%"
-      position="absolute"
+      position="fixed"
+      left="0"
+      top="0"
       pointerEvents="box-none"
       overflow="hidden"
     >
