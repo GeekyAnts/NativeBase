@@ -12,7 +12,10 @@ import {
   IStateProps,
 } from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
+import React from 'react';
+import { ResponsiveQueryContext } from '../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 import type { ComponentTheme } from '../../theme';
+import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
@@ -200,6 +203,8 @@ export const usePropsResolutionWithComponentTheme = (
       config?.ignoreProps || []
     )
   );
+  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
+  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
   const resolveResponsively = [
     'colorScheme',
     'size',
@@ -236,16 +241,25 @@ export const usePropsResolutionWithComponentTheme = (
     },
     2
   );
-
-  // STEP 2.5: resolving responsive props
+  // console.log(resolveResponsively);
+  // Not work for SSR
   const responsiveProps = {};
-  resolveResponsively.map((propsName) => {
-    if (flattenProps[propsName]) {
+  if (disableCSSMediaQueries) {
+    // STEP 2.5: resolving responsive props
+    resolveResponsively.map((propsName) => {
+      if (flattenProps[propsName]) {
+        // @ts-ignore
+        responsiveProps[propsName] = flattenProps[propsName];
+      }
+    });
+  }
+  if (resolveResponsively.includes('direction')) {
+    const propName = 'direction';
+    if (flattenProps[propName]) {
       // @ts-ignore
-      responsiveProps[propsName] = flattenProps[propsName];
+      responsiveProps[propName] = flattenProps[propName];
     }
-  });
-
+  }
   const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
 
   flattenProps = {
@@ -447,12 +461,15 @@ export const usePropsResolutionWithComponentTheme = (
   // // NOTE: seprating bg props when linearGardiant is available
   const [gradientProps] = extractInObject(flattenProps, ignore);
 
+  const disableContrastText = useNativeBaseConfig('NativeBaseConfigProvider')
+    .disableContrastText;
   const bgColor =
     flattenProps.bg ?? flattenProps.backgroundColor ?? flattenProps.bgColor;
 
   const contrastTextColor = useContrastText(
     bgColor,
-    flattenProps?._text?.color
+    flattenProps?._text?.color,
+    disableCSSMediaQueries ? (disableContrastText ? true : false) : true
   );
 
   flattenProps._text =
