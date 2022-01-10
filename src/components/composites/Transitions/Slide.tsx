@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 import Box from '../../primitives/Box';
 import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { ISlideProps } from './types';
 import PresenceTransition from './PresenceTransition';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { Overlay } from '../../primitives';
 
 const holderStyle: any = {
   top: {
@@ -28,77 +29,72 @@ const holderStyle: any = {
   },
 };
 
-const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
-  const { in: visible, placement, duration } = useThemeProps('Slide', props);
-  const [containerOpacity, setContainerOpacity] = React.useState(0);
-  const [size, setSize] = React.useState(0);
-  const provideSize = (layoutSize: any) => {
-    if (placement === 'right' || placement === 'left')
-      setSize(layoutSize.width);
-    else setSize(layoutSize.height);
-    setContainerOpacity(1);
-  };
+export const Slide = memo(
+  forwardRef(({ children, ...props }: ISlideProps, ref: any) => {
+    const { in: visible, placement, overlay, duration } = useThemeProps(
+      'Slide',
+      props
+    );
+    const [containerOpacity, setContainerOpacity] = React.useState(0);
+    const [size, setSize] = React.useState(0);
+    const provideSize = (layoutSize: any) => {
+      if (placement === 'right' || placement === 'left')
+        setSize(layoutSize.width);
+      else setSize(layoutSize.height);
+      setContainerOpacity(1);
+    };
 
-  const transition = { duration };
+    const transition = { duration };
 
-  const animationStyle: any = {
-    top: {
-      initial: {
-        translateY: -size,
+    const animationStyle: any = {
+      top: {
+        initial: {
+          translateY: -size,
+        },
+        animate: {
+          translateY: 0,
+          transition,
+        },
       },
-      animate: {
-        translateY: 0,
-        transition,
+      bottom: {
+        initial: {
+          translateY: size,
+        },
+        animate: {
+          translateY: 0,
+          transition,
+        },
+        exit: {
+          translateY: size,
+          transition,
+        },
       },
-    },
-    bottom: {
-      initial: {
-        translateY: size,
+      left: {
+        initial: {
+          translateX: -size,
+        },
+        animate: {
+          translateX: 0,
+          transition,
+        },
       },
-      animate: {
-        translateY: 0,
-        transition,
+      right: {
+        initial: {
+          translateX: size,
+        },
+        animate: {
+          translateX: 0,
+          transition,
+        },
       },
-      exit: {
-        translateY: size,
-        transition,
-      },
-    },
-    left: {
-      initial: {
-        translateX: -size,
-      },
-      animate: {
-        translateX: 0,
-        transition,
-      },
-    },
-    right: {
-      initial: {
-        translateX: size,
-      },
-      animate: {
-        translateX: 0,
-        transition,
-      },
-    },
-  };
+    };
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+    //TODO: refactor for responsive prop
+    if (useHasResponsiveProps(props)) {
+      return null;
+    }
 
-  return (
-    <Box
-      w="100%"
-      h="100%"
-      position="fixed"
-      left="0"
-      top="0"
-      pointerEvents="box-none"
-      overflow="hidden"
-    >
+    const slideComponent = (
       <PresenceTransition
         visible={visible}
         {...animationStyle[placement]}
@@ -119,8 +115,20 @@ const Slide = ({ children, ...props }: ISlideProps, ref: any) => {
           {children}
         </Box>
       </PresenceTransition>
-    </Box>
-  );
-};
+    );
 
-export default React.memo(React.forwardRef(Slide));
+    if (overlay) {
+      return (
+        <Overlay isOpen={true}>
+          <Box w="100%" h="100%" pointerEvents="box-none" overflow="hidden">
+            {slideComponent}
+          </Box>
+        </Overlay>
+      );
+    } else {
+      return slideComponent;
+    }
+  })
+);
+
+export default Slide;

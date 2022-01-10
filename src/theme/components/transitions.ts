@@ -22,6 +22,7 @@ export const ScaleFade = {
 const slideDefaultProps = {
   duration: 500,
   placement: 'bottom',
+  overlay: true,
 };
 
 export const Slide = {

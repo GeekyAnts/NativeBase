@@ -98,7 +98,7 @@ const Modal = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide in={visible} duration={200}>
+          <Slide in={visible} overlay={false} duration={200}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
