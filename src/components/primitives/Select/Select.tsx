@@ -226,11 +226,11 @@ const Select = (props: ISelectProps, ref: any) => {
             <FlatList
               w="100%"
               data={flatListData}
-              renderItem={({ item, index }) => {
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({ item }) => {
                 const isSelected = selectedValue === item.value;
                 return (
                   <Actionsheet.Item
-                    key={index}
                     onPress={() => {
                       if (!isDisabled) {
                         setValue(item.value);
