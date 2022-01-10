@@ -11,6 +11,7 @@ const SPECIFICITY_30 = 30;
 const SPECIFICITY_10 = 10;
 const SPECIFICITY_1 = 1;
 const specificityPrecedence = [
+  SPECIFICITY_110,
   SPECIFICITY_100,
   SPECIFICITY_70,
   SPECIFICITY_60,
@@ -22,6 +23,7 @@ const specificityPrecedence = [
   SPECIFICITY_1,
 ];
 const INITIAL_PROP_SPECIFICITY = {
+  [SPECIFICITY_110]: 0,
   [SPECIFICITY_100]: 0,
   [SPECIFICITY_70]: 0,
   [SPECIFICITY_60]: 0,
@@ -51,11 +53,6 @@ const pseudoPropsMap = {
     dependentOn: 'state',
     respondTo: 'isChecked',
     priority: SPECIFICITY_30,
-  },
-  _loading: {
-    dependentOn: 'state',
-    respondTo: 'isLoading',
-    priority: SPECIFICITY_110,
   },
   // Add new pseudeo props in between -------
   _readOnly: {
@@ -93,6 +90,11 @@ const pseudoPropsMap = {
     dependentOn: 'state',
     respondTo: 'isDisabled',
     priority: SPECIFICITY_100,
+  },
+  _loading: {
+    dependentOn: 'state',
+    respondTo: 'isLoading',
+    priority: SPECIFICITY_110,
   },
 } as const;
 
