@@ -226,7 +226,7 @@ const Select = (props: ISelectProps, ref: any) => {
             <FlatList
               w="100%"
               data={flatListData}
-              keyExtractor={(item, index) => index.toString()}
+              keyExtractor={(_item, index) => index.toString()}
               renderItem={({ item }) => {
                 const isSelected = selectedValue === item.value;
                 return (
