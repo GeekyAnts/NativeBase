@@ -27,6 +27,7 @@ const Modal = (
     backdropVisible = true,
     //@ts-ignore - internal purpose only
     animationPreset = 'fade',
+    transitionDirection = 'bottom',
     ...rest
   }: IModalProps,
   ref: any
@@ -98,7 +99,12 @@ const Modal = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide in={visible} overlay={false} duration={200}>
+          <Slide
+            in={visible}
+            overlay={false}
+            duration={200}
+            placement={transitionDirection}
+          >
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}

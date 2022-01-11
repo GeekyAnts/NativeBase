@@ -65,6 +65,10 @@ export interface IModalProps extends IBoxProps<IModalProps> {
    * @default "fade"
    */
   animationPreset?: 'fade' | 'slide';
+  /**
+   * Transition Direction of Modal
+   */
+  transitionDirection?: 'top' | 'bottom' | 'right' | 'left';
 }
 
 export type IModalComponentType = ((
