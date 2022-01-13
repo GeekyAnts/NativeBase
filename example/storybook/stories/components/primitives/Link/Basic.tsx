@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'native-base';
+import { Link, Box } from 'native-base';
 
 export const Example = () => {
   return (
-    <Link mt={4} href="https://nativebase.io">
-      Click here to open documentation.
-    </Link>
+    <Box alignItems="center">
+      <Link href="https://nativebase.io">
+        Click here to open documentation.
+      </Link>
+    </Box>
   );
 };

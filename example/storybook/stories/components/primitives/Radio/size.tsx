@@ -1,16 +1,19 @@
 import React from 'react';
-import { Center, Heading, Radio } from 'native-base';
+import { Radio, Stack } from 'native-base';
 
 export const Example = () => {
   return (
-    <Center>
-      <Heading mb="10" size="md">
-        Sizes
-      </Heading>
-      <Radio.Group
-        name="exampleGroup"
-        defaultValue="1"
-        accessibilityLabel="pick a size"
+    <Radio.Group
+      name="exampleGroup"
+      defaultValue="1"
+      accessibilityLabel="pick a size"
+    >
+      <Stack
+        direction={{ base: 'column', md: 'row' }}
+        alignItems="center"
+        space={4}
+        w="75%"
+        maxW="300px"
       >
         <Radio value="1" colorScheme="red" size="sm" my={1}>
           Small
@@ -21,7 +24,7 @@ export const Example = () => {
         <Radio value="3" colorScheme="yellow" size="lg" my={1}>
           Large
         </Radio>
-      </Radio.Group>
-    </Center>
+      </Stack>
+    </Radio.Group>
   );
 };

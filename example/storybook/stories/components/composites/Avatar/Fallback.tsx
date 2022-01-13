@@ -3,7 +3,7 @@ import { Avatar, HStack } from 'native-base';
 
 export const Example = () => {
   return (
-    <HStack mx={{ base: 'auto', md: '0' }} space={2}>
+    <HStack justifyContent="center" mx={{ base: 'auto', md: '0' }} space={2}>
       <Avatar
         bg="green.500"
         mr="1"

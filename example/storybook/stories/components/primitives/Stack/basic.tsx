@@ -12,12 +12,12 @@ import {
 export function Example() {
   return (
     <ScrollView>
-      <VStack space="2.5" mt="4">
+      <VStack space="2.5" mt="4" px="8">
         <Heading size="md">row</Heading>
         <Stack direction="row" mb="2.5" mt="1.5" space={3}>
           <Center
             size="16"
-            bg="primary.500"
+            bg="primary.400"
             rounded="sm"
             _text={{
               color: 'warmGray.50',
@@ -28,7 +28,7 @@ export function Example() {
             Box 1
           </Center>
           <Center
-            bg="secondary.500"
+            bg="primary.500"
             size="16"
             rounded="sm"
             _text={{
@@ -41,7 +41,7 @@ export function Example() {
           </Center>
           <Center
             size="16"
-            bg="emerald.500"
+            bg="primary.700"
             rounded="sm"
             _text={{
               color: 'warmGray.50',
@@ -57,7 +57,7 @@ export function Example() {
         <Stack mb="2.5" mt="1.5" direction="column" space={3}>
           <Center
             size="16"
-            bg="primary.500"
+            bg="primary.400"
             rounded="sm"
             _text={{
               color: 'warmGray.50',
@@ -68,7 +68,7 @@ export function Example() {
             Box 1
           </Center>
           <Center
-            bg="secondary.500"
+            bg="primary.500"
             size="16"
             rounded="sm"
             _text={{
@@ -81,7 +81,7 @@ export function Example() {
           </Center>
           <Center
             size="16"
-            bg="emerald.500"
+            bg="primary.700"
             rounded="sm"
             _text={{
               color: 'warmGray.50',
@@ -97,7 +97,7 @@ export function Example() {
         <Stack mb="2.5" mt="1.5" direction="row" reversed space={3}>
           <Center
             size="16"
-            bg="primary.500"
+            bg="primary.400"
             rounded="sm"
             _text={{
               color: 'warmGray.50',
@@ -108,7 +108,7 @@ export function Example() {
             Box 1
           </Center>
           <Center
-            bg="secondary.500"
+            bg="primary.500"
             size="16"
             rounded="sm"
             _text={{
@@ -121,7 +121,7 @@ export function Example() {
           </Center>
           <Center
             size="16"
-            bg="emerald.500"
+            bg="primary.700"
             rounded="sm"
             _text={{
               color: 'warmGray.50',
@@ -137,7 +137,7 @@ export function Example() {
         <Stack mb="2.5" mt="1.5" direction="column-reverse" space={3}>
           <Center
             size="16"
-            bg="primary.500"
+            bg="primary.400"
             rounded="sm"
             _text={{
               color: 'warmGray.50',
@@ -148,7 +148,7 @@ export function Example() {
             Box 1
           </Center>
           <Center
-            bg="secondary.500"
+            bg="primary.500"
             size="16"
             rounded="sm"
             _text={{
@@ -161,7 +161,7 @@ export function Example() {
           </Center>
           <Center
             size="16"
-            bg="emerald.500"
+            bg="primary.700"
             rounded="sm"
             _text={{
               color: 'warmGray.50',

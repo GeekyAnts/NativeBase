@@ -1,12 +1,20 @@
 import React from 'react';
-import { Button, Actionsheet, useDisclose, Icon, Box, Text } from 'native-base';
+import {
+  Button,
+  Actionsheet,
+  useDisclose,
+  Icon,
+  Box,
+  Text,
+  Center,
+} from 'native-base';
 import { Path } from 'react-native-svg';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 
 export function Example() {
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
-    <>
+    <Center>
       <Button onPress={onOpen}>Actionsheet</Button>
       <Actionsheet isOpen={isOpen} onClose={onClose} size="full">
         <Actionsheet.Content>
@@ -86,6 +94,6 @@ export function Example() {
           </Actionsheet.Item>
         </Actionsheet.Content>
       </Actionsheet>
-    </>
+    </Center>
   );
 }
