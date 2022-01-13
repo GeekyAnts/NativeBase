@@ -1,26 +1,18 @@
 import React from 'react';
-import { Checkbox, VStack, Center, Heading } from 'native-base';
+import { Checkbox, VStack, Center } from 'native-base';
 
 export const Example = () => {
   return (
     <Center>
-      <Heading textAlign="center" mb="10">
-        Sizes
-      </Heading>
       <VStack space={3}>
-        <Checkbox value="red" colorScheme="red" size="sm" defaultIsChecked>
+        <Checkbox value="red" size="sm" defaultIsChecked>
           UX Research
         </Checkbox>
-        <Checkbox colorScheme="green" size="md" defaultIsChecked value="green">
-          Development
+        <Checkbox size="md" defaultIsChecked value="green">
+          UX Research
         </Checkbox>
-        <Checkbox
-          colorScheme="purple"
-          value="yellow"
-          size="lg"
-          defaultIsChecked
-        >
-          Devops
+        <Checkbox value="yellow" size="lg" defaultIsChecked>
+          UX Research
         </Checkbox>
       </VStack>
     </Center>

@@ -3,42 +3,42 @@ import { Avatar, HStack } from 'native-base';
 
 export const Example = () => {
   return (
-    <HStack space={2}>
+    <HStack justifyContent="center" space={2}>
       <Avatar
         bg="green.500"
         source={{
           uri:
-            'https://pbs.twimg.com/profile_images/1188747996843761665/8CiUdKZW_400x400.jpg',
+            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
         }}
       >
-        SS
+        AJ
       </Avatar>
       <Avatar
         bg="cyan.500"
         source={{
           uri:
-            'https://pbs.twimg.com/profile_images/1177303899243343872/B0sUJIH0_400x400.jpg',
+            'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
         }}
       >
-        GG
+        TE
       </Avatar>
       <Avatar
         bg="indigo.500"
         source={{
           uri:
-            'https://pbs.twimg.com/profile_images/1352844693151731713/HKO7cnlW_400x400.jpg',
+            'https://images.unsplash.com/photo-1614289371518-722f2615943d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
         }}
       >
-        RS
+        JB
       </Avatar>
       <Avatar
         bg="amber.500"
         source={{
           uri:
-            'https://pbs.twimg.com/profile_images/1309797238651060226/18cm6VhQ_400x400.jpg',
+            'https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
         }}
       >
-        AK
+        TS
       </Avatar>
     </HStack>
   );

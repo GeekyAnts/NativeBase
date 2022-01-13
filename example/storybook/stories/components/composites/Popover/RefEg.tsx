@@ -26,12 +26,7 @@ export function Example() {
               >
                 First Name
               </FormControl.Label>
-              <Input
-                rounded="sm"
-                fontSize="xs"
-                backgroundColor="white"
-                ref={initialFocusRef}
-              />
+              <Input rounded="sm" fontSize="xs" ref={initialFocusRef} />
             </FormControl>
             <FormControl mt="3">
               <FormControl.Label
@@ -42,7 +37,7 @@ export function Example() {
               >
                 Last Name
               </FormControl.Label>
-              <Input rounded="sm" fontSize="xs" backgroundColor="white" />
+              <Input rounded="sm" fontSize="xs" />
             </FormControl>
           </Popover.Body>
           <Popover.Footer>

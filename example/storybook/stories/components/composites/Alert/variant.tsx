@@ -6,7 +6,7 @@ import {
   VStack,
   Text,
   Divider,
-  ScrollView,
+  Center,
 } from 'native-base';
 
 export function Example() {
@@ -30,8 +30,8 @@ export function Example() {
   };
 
   return (
-    <ScrollView px="30" my="3" showsVerticalScrollIndicator={false}>
-      <Stack space={3} w="100%">
+    <Center>
+      <Stack space={3} w="90%" maxW="400">
         {[
           'solid',
           'left-accent',
@@ -72,6 +72,6 @@ export function Example() {
           );
         })}
       </Stack>
-    </ScrollView>
+    </Center>
   );
 }
