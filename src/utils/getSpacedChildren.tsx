@@ -15,7 +15,7 @@ type SpaceType =
   | '2xl'
   | ThemeSpaceType;
 
-export default (
+const getSpacedChildren = (
   children: JSX.Element[] | JSX.Element,
   space: undefined | SpaceType,
   axis: 'X' | 'Y',
@@ -28,6 +28,7 @@ export default (
 
   const orientation = axis === 'X' ? 'vertical' : 'horizontal';
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
   const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
 
@@ -70,3 +71,5 @@ export default (
 
   return childrenArray;
 };
+
+export default getSpacedChildren;
