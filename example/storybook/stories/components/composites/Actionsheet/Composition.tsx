@@ -1,10 +1,17 @@
 import React from 'react';
-import { Button, Actionsheet, useDisclose, Box, Text } from 'native-base';
+import {
+  Button,
+  Actionsheet,
+  useDisclose,
+  Box,
+  Text,
+  Center,
+} from 'native-base';
 
 export function Example() {
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
-    <>
+    <Center>
       <Button onPress={onOpen}>Actionsheet</Button>
       <Actionsheet isOpen={isOpen} onClose={onClose} hideDragIndicator>
         <Actionsheet.Content borderTopRadius="0">
@@ -20,6 +27,6 @@ export function Example() {
           <Actionsheet.Item>Cancel</Actionsheet.Item>
         </Actionsheet.Content>
       </Actionsheet>
-    </>
+    </Center>
   );
 }

@@ -1,14 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import {
-  Modal,
-  Button,
-  ScrollView,
-  Text,
-  Heading,
-  Center,
-  VStack,
-} from 'native-base';
+import { Modal, Button, ScrollView, Text, Center, VStack } from 'native-base';
 
 export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -58,8 +50,7 @@ export function Example() {
         </Modal.Content>
       </Modal>
       <Center>
-        <Heading mb="10">Sizes</Heading>
-        <VStack space={2}>
+        <VStack space={4}>
           {['xs', 'sm', 'md', 'lg', 'xl', 'full'].map((size) => {
             return (
               <Button

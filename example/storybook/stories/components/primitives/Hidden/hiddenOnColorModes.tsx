@@ -1,45 +1,28 @@
 import React from 'react';
-import { Hidden, Button, Image, useColorMode, Center } from 'native-base';
+import { Hidden, Text, Button, Box, useColorMode } from 'native-base';
 
 export const Example = () => {
-  const { toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Center>
+    <>
       <Button
-        colorScheme="coolGray"
-        _light={{ _text: { color: 'white' } }}
+        colorScheme={colorMode === 'light' ? 'blue' : 'red'}
         onPress={() => {
           toggleColorMode();
         }}
       >
         Change mode
       </Button>
-      <Hidden colorMode="dark">
-        <Center mt="5">
-          <Image
-            w="150"
-            h="150"
-            source={{
-              uri:
-                'https://images.unsplash.com/photo-1561566482-5fa7e82d88b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
-            }}
-            alt="image"
-          />
-        </Center>
-      </Hidden>
       <Hidden colorMode="light">
-        <Center mt="5">
-          <Image
-            w="150"
-            h="150"
-            source={{
-              uri:
-                'https://images.unsplash.com/photo-1590083948603-b270aff24cc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
-            }}
-            alt="image"
-          />
-        </Center>
+        <Box bg="yellow.400" p="2" mt="5">
+          <Text>This text will be hidden on light mode</Text>
+        </Box>
       </Hidden>
-    </Center>
+      <Hidden colorMode="dark">
+        <Box bg="green.400" p="2" mt="5">
+          <Text>This text will be hidden on dark mode</Text>
+        </Box>
+      </Hidden>
+    </>
   );
 };

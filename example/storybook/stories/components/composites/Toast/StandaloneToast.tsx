@@ -1,16 +1,18 @@
 import React from 'react';
-import { Button, Toast } from 'native-base';
+import { Button, Toast, Center } from 'native-base';
 
 export const Example = () => {
   return (
-    <Button
-      onPress={() =>
-        Toast.show({
-          title: 'Hello world',
-        })
-      }
-    >
-      Bottom
-    </Button>
+    <Center>
+      <Button
+        onPress={() =>
+          Toast.show({
+            title: 'Hello world',
+          })
+        }
+      >
+        Show Toast
+      </Button>
+    </Center>
   );
 };

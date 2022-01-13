@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Modal } from 'native-base';
+import { Button, Modal, Center } from 'native-base';
 import { useState } from 'react';
 
 export const Example = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
+    <Center>
       <Button onPress={() => setShowModal(true)}>Button</Button>
       <Modal
         isOpen={showModal}
@@ -45,6 +45,6 @@ export const Example = () => {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-    </>
+    </Center>
   );
 };
