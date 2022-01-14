@@ -28,6 +28,7 @@ const getSpacedChildren = (
 
   const orientation = axis === 'X' ? 'vertical' : 'horizontal';
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
   const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
 
