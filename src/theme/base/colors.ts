@@ -1,3 +1,4 @@
+import type { ITheme } from '..';
 import type { Leaves } from './types';
 
 export interface IColorHues {
@@ -334,4 +335,4 @@ colors.info = colors.lightBlue;
 colors.light = colors.warmGray;
 
 export default colors;
-export type IColors = Leaves<typeof colors>;
+export type IColors = Leaves<ITheme['colors']>;
