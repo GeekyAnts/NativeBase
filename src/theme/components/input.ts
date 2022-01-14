@@ -88,6 +88,9 @@ function unstyledStyle() {
 function underlinedStyle() {
   return {
     borderRadius: '0',
+    borderTopWidth: '0',
+    borderLeftWidth: '0',
+    borderRightWidth: '0',
     borderBottomWidth: '1',
   };
 }
