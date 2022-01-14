@@ -10,6 +10,7 @@ import {
   useFocus,
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
+import { useFocusRing } from '@react-native-aria/focus';
 
 const IconButton = (
   { icon, children, ...props }: IIconButtonProps,
@@ -18,6 +19,7 @@ const IconButton = (
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
+  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
 
   const {
     _icon,
@@ -32,6 +34,7 @@ const IconButton = (
     isHovered,
     isPressed,
     isFocused,
+    isFocusVisible,
   });
 
   let clonedIcon;
@@ -59,13 +62,13 @@ const IconButton = (
       onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
       // @ts-ignore - web only
       onFocus={composeEventHandlers(
-        composeEventHandlers(onFocus, focusProps.onFocus)
-        // focusRingProps.onFocu
+        composeEventHandlers(onFocus, focusProps.onFocus),
+        focusRingProps.onFocus
       )}
       // @ts-ignore - web only
       onBlur={composeEventHandlers(
-        composeEventHandlers(onBlur, focusProps.onBlur)
-        // focusRingProps.onBlur
+        composeEventHandlers(onBlur, focusProps.onBlur),
+        focusRingProps.onBlur
       )}
       {...resolvedProps}
     >

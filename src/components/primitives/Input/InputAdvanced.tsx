@@ -69,6 +69,8 @@ const InputAdvance = (
     ...stylingProps.flexbox,
     ...stylingProps.position,
     ...stylingProps.background,
+    'shadow',
+    'opacity',
   ]);
 
   // Extracting baseInputProps from remaining props
@@ -95,7 +97,6 @@ const InputAdvance = (
       flexDirection="row"
       alignItems="center"
       justifyContent="space-between"
-      overflow="hidden"
       {...layoutProps}
       ref={mergeRefs([_ref, wrapperRef])}
     >
@@ -114,6 +115,7 @@ const InputAdvance = (
         onBlur={(e) => {
           handleFocus(false, onBlur ? () => onBlur(e) : () => {});
         }}
+        shadow="none"
       />
       {InputRightElement || rightElement
         ? InputRightElement || rightElement

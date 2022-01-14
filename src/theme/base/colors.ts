@@ -1,3 +1,4 @@
+import type { ITheme } from '..';
 import type { Leaves } from './types';
 
 export interface IColorHues {
@@ -310,16 +311,16 @@ const colors = {
     900: '#fafafa',
   },
   // Derived colors
-  danger: {},
-  error: {},
-  success: {},
-  warning: {},
-  muted: {},
-  primary: {},
-  info: {},
-  secondary: {},
-  light: {},
-  tertiary: {},
+  danger: {} as IColorHues,
+  error: {} as IColorHues,
+  success: {} as IColorHues,
+  warning: {} as IColorHues,
+  muted: {} as IColorHues,
+  primary: {} as IColorHues,
+  info: {} as IColorHues,
+  secondary: {} as IColorHues,
+  light: {} as IColorHues,
+  tertiary: {} as IColorHues,
 };
 
 colors.danger = colors.red;
@@ -334,4 +335,4 @@ colors.info = colors.lightBlue;
 colors.light = colors.warmGray;
 
 export default colors;
-export type IColors = Leaves<typeof colors>;
+export type IColors = Leaves<ITheme['colors']>;

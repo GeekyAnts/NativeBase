@@ -20,124 +20,166 @@ import {
   useFocus,
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
+import { useFormControlContext } from '../../composites/FormControl';
 
-const Radio = ({ icon, wrapperRef, size, ...props }: IRadioProps, ref: any) => {
-  const { hoverProps, isHovered } = useHover();
-  const { pressableProps, isPressed } = useIsPressed();
-  const { focusProps, isFocused } = useFocus();
+const RadioComponent = memo(
+  forwardRef(
+    (
+      { icon, inputProps, combinedProps, size, children, wrapperRef }: any,
+      ref: any
+    ) => {
+      const { isInvalid, isReadOnly, isIndeterminate } = combinedProps;
 
+      const { hoverProps, isHovered } = useHover();
+      const { pressableProps, isPressed } = useIsPressed();
+      const { focusProps, isFocused } = useFocus();
+
+      const { disabled: isDisabled, checked: isChecked } = inputProps;
+
+      const {
+        onPressIn,
+        onPressOut,
+        onHoverIn,
+        onHoverOut,
+        onFocus,
+        onBlur,
+        _interactionBox,
+        _icon,
+        ...resolvedProps
+      } = usePropsResolution(
+        'Radio',
+        {
+          ...combinedProps,
+          size,
+        },
+        {
+          isInvalid,
+          isReadOnly,
+          isDisabled,
+          isIndeterminate,
+          isChecked,
+          isHovered,
+          isPressed,
+          isFocused,
+        }
+      );
+
+      const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+        ...stylingProps.margin,
+        ...stylingProps.layout,
+        ...stylingProps.flexbox,
+        ...stylingProps.position,
+        '_text',
+      ]);
+
+      // only calling below function when icon exist.
+      const sizedIcon = () =>
+        //@ts-ignore
+        React.cloneElement(icon, {
+          ..._icon,
+        });
+
+      return (
+        <Pressable
+          {...pressableProps}
+          {...(inputProps as IPressableProps)}
+          ref={mergeRefs([ref, wrapperRef])}
+          accessibilityRole="radio"
+          onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
+          onPressOut={composeEventHandlers(
+            onPressOut,
+            pressableProps.onPressOut
+          )}
+          // @ts-ignore - web only
+          onHoverIn={composeEventHandlers(onHoverIn, hoverProps.onHoverIn)}
+          // @ts-ignore - web only
+          onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
+          // @ts-ignore - web only
+          onFocus={composeEventHandlers(
+            composeEventHandlers(onFocus, focusProps.onFocus)
+            // focusRingProps.onFocu
+          )}
+          // @ts-ignore - web only
+          onBlur={composeEventHandlers(
+            composeEventHandlers(onBlur, focusProps.onBlur)
+            // focusRingProps.onBlur
+          )}
+        >
+          <Center
+            flexDirection="row"
+            justifyContent="center"
+            alignItems="center"
+            borderRadius="full"
+            {...layoutProps}
+          >
+            <Center>
+              {/* Interaction Wrapper */}
+              <Box {..._interactionBox} p={5} w="100%" height="100%" />
+              {/* radio */}
+              <Center {...nonLayoutProps}>
+                {icon && sizedIcon && isChecked ? (
+                  sizedIcon()
+                ) : (
+                  <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
+                )}
+              </Center>
+            </Center>
+            {/* Label */}
+            {children}
+          </Center>
+        </Pressable>
+      );
+    }
+  )
+);
+
+const Radio = (
+  { icon, children, size, wrapperRef, ...props }: IRadioProps,
+  ref: any
+) => {
+  const formControlContext = useFormControlContext();
   const contextState = React.useContext(RadioContext);
 
-  const {
-    isInvalid,
-    isReadOnly,
-    isIndeterminate,
-    ...combinedProps
-  } = combineContextAndProps(contextState, props);
+  const combinedProps = combineContextAndProps(formControlContext, props);
 
   const inputRef = React.useRef(null);
-  const { inputProps } = useRadio(props, contextState.state ?? {}, inputRef);
-  const { disabled: isDisabled, checked: isChecked } = inputProps;
-
-  const {
-    onPressIn,
-    onPressOut,
-    onHoverIn,
-    onHoverOut,
-    onFocus,
-    onBlur,
-    _interactionBox,
-    _icon,
-    ...resolvedProps
-  } = usePropsResolution(
-    'Radio',
-    {
-      ...combinedProps,
-      size,
-    },
-    {
-      isInvalid,
-      isReadOnly,
-      isDisabled,
-      isIndeterminate,
-      isChecked,
-      isHovered,
-      isPressed,
-      isFocused,
-    }
+  const radioState = useRadio(
+    { ...combinedProps, 'aria-label': props.accessibilityLabel, children },
+    contextState.state ?? {},
+    inputRef
   );
+
+  // console.log('radio', radioState);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const inputProps = React.useMemo(() => radioState.inputProps, [
+    radioState.inputProps.checked,
+    radioState.inputProps.disabled,
+  ]);
+
+  const [contextCombinedProps] = React.useState({
+    ...combinedProps,
+  });
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-
-  // only calling below function when icon exist.
-  const sizedIcon = () =>
-    //@ts-ignore
-    React.cloneElement(icon, {
-      ..._icon,
-    });
-
-  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
-    ...stylingProps.margin,
-    ...stylingProps.layout,
-    ...stylingProps.flexbox,
-    ...stylingProps.position,
-    '_text',
-  ]);
-
   if (isEmptyObj(contextState)) {
     console.error('Error: Radio must be wrapped inside a Radio.Group');
     return <></>;
   }
+
   return (
-    <Pressable
-      {...hoverProps}
-      {...pressableProps}
-      {...(inputProps as IPressableProps)}
-      ref={mergeRefs([ref, wrapperRef])}
-      accessibilityRole="radio"
-      onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
-      onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
-      // @ts-ignore - web only
-      onHoverIn={composeEventHandlers(onHoverIn, hoverProps.onHoverIn)}
-      // @ts-ignore - web only
-      onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
-      // @ts-ignore - web only
-      onFocus={composeEventHandlers(
-        composeEventHandlers(onFocus, focusProps.onFocus)
-        // focusRingProps.onFocu
-      )}
-      // @ts-ignore - web only
-      onBlur={composeEventHandlers(
-        composeEventHandlers(onBlur, focusProps.onBlur)
-        // focusRingProps.onBlur
-      )}
-    >
-      <Center
-        flexDirection="row"
-        justifyContent="center"
-        alignItems="center"
-        borderRadius="full"
-        {...layoutProps}
-      >
-        <Center>
-          {/* Interaction Wrapper */}
-          <Box {..._interactionBox} p={5} w="100%" height="100%" />
-          {/* radio */}
-          <Center {...nonLayoutProps}>
-            {icon && sizedIcon && isChecked ? (
-              sizedIcon()
-            ) : (
-              <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
-            )}
-          </Center>
-        </Center>
-        {/* Label */}
-        {props.children}
-      </Center>
-    </Pressable>
+    <RadioComponent
+      inputProps={inputProps}
+      combinedProps={contextCombinedProps}
+      children={children}
+      size={size}
+      ref={ref}
+      icon={icon}
+      wrapperRef={wrapperRef}
+    />
   );
 };
 

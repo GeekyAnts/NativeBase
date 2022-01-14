@@ -1,9 +1,9 @@
 import { Platform, StyleSheet } from 'react-native';
 import get from 'lodash.get';
-import has from 'lodash.has';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
-import { transparentize } from './tools';
-import { strictModeLogger } from '../core/StrictMode';
+import { hasValidBreakpointFormat, transparentize } from './tools';
+import type { ITheme } from '.';
+import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
@@ -102,6 +102,7 @@ export const layout = {
   overflowY: true,
   display: true,
   verticalAlign: true,
+  textAlign: true,
 } as const;
 
 export const flexbox = {
@@ -128,7 +129,6 @@ export const position = {
   position: true,
   zIndex: {
     property: 'zIndex',
-    scale: 'zIndices',
   },
   top: {
     property: 'top',
@@ -180,6 +180,11 @@ export const color = {
   },
   background: {
     property: 'backgroundColor',
+    scale: 'colors',
+    transformer: getColor,
+  },
+  textDecorationColor: {
+    property: 'textDecorationColor',
     scale: 'colors',
     transformer: getColor,
   },
@@ -564,7 +569,7 @@ const extraProps = {
   overflow: true,
 } as const;
 
-const propConfig = {
+export const propConfig = {
   ...color,
   ...space,
   ...layout,
@@ -591,120 +596,188 @@ const convertStringNumberToNumber = (key: string, value: string) => {
   return value;
 };
 
+const getRNKeyAndStyleValue = ({
+  config,
+  value,
+  key,
+  theme,
+  styledSystemProps,
+  currentBreakpoint,
+}: any) => {
+  let style: any = {};
+  if (config === true) {
+    style = {
+      ...style,
+      [key]: convertStringNumberToNumber(key, value),
+    };
+  } else if (config) {
+    //@ts-ignore
+    const { property, scale, properties, transformer } = config;
+    let val = value;
+
+    if (transformer) {
+      val = transformer(val, theme[scale], theme, styledSystemProps.fontSize);
+    } else {
+      // If a token is not found in the theme
+      val = get(theme[scale], value, value);
+    }
+
+    if (typeof val === 'string') {
+      if (val.endsWith('px')) {
+        val = parseFloat(val);
+      } else if (val.endsWith('em') && Platform.OS !== 'web') {
+        const fontSize = resolveValueWithBreakpoint(
+          styledSystemProps.fontSize,
+          theme.breakpoints,
+          currentBreakpoint,
+          key
+        );
+        val =
+          parseFloat(val) *
+          parseFloat(get(theme.fontSizes, fontSize, fontSize));
+      }
+    }
+
+    val = convertStringNumberToNumber(key, val);
+
+    if (properties) {
+      //@ts-ignore
+      properties.forEach((property) => {
+        style = {
+          ...style,
+          [property]: val,
+        };
+      });
+    } else if (property) {
+      style = {
+        ...style,
+        [property]: val,
+      };
+    } else {
+      style = {
+        ...style,
+        ...val,
+      };
+    }
+  }
+
+  return style;
+};
+
 export const getStyleAndFilteredProps = ({
   style,
   theme,
   debug,
   currentBreakpoint,
-  strictMode,
-  ...props
+  getResponsiveStyles,
+  styledSystemProps,
 }: any) => {
   let styleFromProps: any = {};
-  const restProps: any = {};
-  for (const key in props) {
-    const rawValue = props[key];
+  let dataSet: any = {};
+  let responsiveStyles: null | Record<
+    keyof typeof theme.breakpoints,
+    Array<any>
+  > = null;
 
-    if (key in propConfig) {
-      const value = resolveValueWithBreakpoint(
-        rawValue,
-        theme.breakpoints,
-        currentBreakpoint,
-        key
-      );
+  const orderedBreakPoints = Object.entries(
+    theme.breakpoints as ITheme['breakpoints']
+  ).sort((a, b) => a[1] - b[1]);
 
-      const config = propConfig[key as keyof typeof propConfig];
+  for (const key in styledSystemProps) {
+    const rawValue = styledSystemProps[key];
 
-      if (config === true) {
-        styleFromProps = {
-          ...styleFromProps,
-          [key]: convertStringNumberToNumber(key, value),
-        };
-      } else if (config) {
-        //@ts-ignore
-        const { property, scale, properties, transformer } = config;
-        let val = value;
-        const strictModeProps = {
-          token: value,
-          scale,
-          mode: strictMode,
-          type: 'tokenNotFound' as any,
-        };
+    const config = propConfig[key as keyof typeof propConfig];
 
-        if (transformer) {
-          val = transformer(
-            val,
-            theme[scale],
-            theme,
-            props.fontSize,
-            strictModeProps
-          );
-        } else {
-          // If a token is not found in the theme
-          if (!has(theme[scale], value) && typeof value !== 'undefined') {
-            strictModeLogger(strictModeProps);
-          }
+    if (hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
+      if (!responsiveStyles) responsiveStyles = {};
 
-          val = get(theme[scale], value, value);
-        }
-
-        if (typeof val === 'string') {
-          if (val.endsWith('px')) {
-            val = parseFloat(val);
-          } else if (val.endsWith('em') && Platform.OS !== 'web') {
-            const fontSize = resolveValueWithBreakpoint(
-              props.fontSize,
-              theme.breakpoints,
-              currentBreakpoint,
-              key
-            );
-            val =
-              parseFloat(val) *
-              parseFloat(get(theme.fontSizes, fontSize, fontSize));
-          }
-        }
-
-        if (typeof value !== 'string' && typeof value !== 'undefined') {
-          strictModeLogger({
-            ...strictModeProps,
-            type: 'tokenNotString',
-          });
-        }
-
-        val = convertStringNumberToNumber(key, val);
-
-        if (properties) {
+      const value = rawValue;
+      if (Array.isArray(value)) {
+        value.forEach((v, i) => {
           //@ts-ignore
-          properties.forEach((property) => {
-            styleFromProps = {
-              ...styleFromProps,
-              [property]: val,
-            };
+          if (!responsiveStyles[orderedBreakPoints[i][0]]) {
+            //@ts-ignore
+            responsiveStyles[orderedBreakPoints[i][0]] = [];
+          }
+          const newStyle = getRNKeyAndStyleValue({
+            config,
+            value: v,
+            key,
+            styledSystemProps,
+            theme,
+            currentBreakpoint,
           });
-        } else if (property) {
-          styleFromProps = {
-            ...styleFromProps,
-            [property]: val,
-          };
-        } else {
-          styleFromProps = {
-            ...styleFromProps,
-            ...val,
-          };
+          //@ts-ignore
+          responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
+        });
+      } else {
+        for (const k in value) {
+          const newStyle = getRNKeyAndStyleValue({
+            config,
+            value: value[k],
+            key,
+            styledSystemProps,
+            theme,
+            currentBreakpoint,
+          });
+          if (!responsiveStyles[k]) {
+            responsiveStyles[k] = [];
+          }
+          responsiveStyles[k].push(newStyle);
         }
       }
     } else {
-      restProps[key] = rawValue;
+      const value = rawValue;
+      const newStyle = getRNKeyAndStyleValue({
+        config,
+        value,
+        key,
+        styledSystemProps,
+        theme,
+        currentBreakpoint,
+      });
+
+      styleFromProps = {
+        ...styleFromProps,
+        ...newStyle,
+      };
     }
   }
 
-  if (debug) {
+  if (responsiveStyles) {
+    const query: UseResponsiveQueryParams = { query: [] };
+    orderedBreakPoints.forEach((o) => {
+      const key = o[0];
+      if (key === 'base') {
+        if (responsiveStyles) query.initial = responsiveStyles.base;
+      } else {
+        if (responsiveStyles)
+          if (key in responsiveStyles) {
+            query?.query?.push({
+              minWidth: o[1],
+              style: responsiveStyles[key],
+            });
+          }
+      }
+    });
+
+    const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
+    dataSet = { ...dataSet, ...newDataSet };
+    styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
+  }
+
+  if (process.env.NODE_ENV === 'development' && debug) {
     /* eslint-disable-next-line */
-    console.log('style ', debug + ' :: ', styleFromProps, style, props);
+    console.log('style ', debug + ' :: ', {
+      styleFromProps,
+      style,
+      styledSystemProps,
+    });
   }
 
   return {
     styleSheet: StyleSheet.create({ box: styleFromProps }),
-    restProps,
+    dataSet,
   };
 };
 

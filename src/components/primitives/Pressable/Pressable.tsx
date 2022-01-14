@@ -50,7 +50,10 @@ const StyledPressable = makeStyledComponent(
   Platform.OS === 'windows' ? RNTouchableWF : RNPressable
 );
 
-const Pressable = ({ children, ...props }: IPressableProps, ref: any) => {
+const Pressable = (
+  { children, isDisabled, disabled, ...props }: IPressableProps,
+  ref: any
+) => {
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
@@ -69,6 +72,7 @@ const Pressable = ({ children, ...props }: IPressableProps, ref: any) => {
     isFocused,
     isHovered,
     isFocusVisible,
+    isDisabled: disabled || isDisabled,
   });
 
   // TODO: Replace Render props with Context Hook
@@ -78,7 +82,7 @@ const Pressable = ({ children, ...props }: IPressableProps, ref: any) => {
     return null;
   }
 
-  // TODO : Replace Render props with Context Hook
+  // TODO: Replace Render props with Context Hook
   return (
     <StyledPressable
       ref={ref}
@@ -98,6 +102,7 @@ const Pressable = ({ children, ...props }: IPressableProps, ref: any) => {
         composeEventHandlers(onBlur, focusProps.onBlur),
         focusRingProps.onBlur
       )}
+      disabled={disabled || isDisabled}
       {...resolvedProps}
     >
       {typeof children !== 'function'

@@ -1,12 +1,6 @@
 import { createContext } from '../utils/createContext';
-import { ThemeConsumer, ThemeContext } from 'styled-components/native';
 import type { ITheme } from './../theme';
 import type { IModeType } from './StrictMode';
-
-export {
-  ThemeConsumer as NativeBaseConsumer,
-  ThemeContext as NativeBaseContext,
-};
 
 export interface INativebaseConfig {
   theme?: ITheme;
@@ -16,6 +10,7 @@ export interface INativebaseConfig {
   };
   enableRem?: boolean;
   strictMode?: IModeType;
+  disableContrastText?: boolean;
 }
 
 export const defaultConfig: INativebaseConfig = {
@@ -26,4 +21,6 @@ export const [NativeBaseConfigProvider, useNativeBaseConfig] = createContext<{
   config: INativebaseConfig;
   currentBreakpoint: number;
   isSSR?: boolean;
+  theme?: ITheme;
+  disableContrastText?: boolean;
 }>('NativeBaseConfigProvider');

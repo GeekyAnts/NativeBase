@@ -5,8 +5,8 @@ import type { StyledProps } from '../theme/types';
 //@ts-ignore
 import type { ColorModeOptions } from './../core/color-mode/types';
 export interface ComponentTheme {
-  baseStyle?: (props: any) => StyledProps | StyledProps;
-  sizes?: Record<string, StyledProps>;
+  baseStyle?: ((props: any) => StyledProps) | StyledProps;
+  sizes?: Record<string, ((props: any) => StyledProps) | StyledProps>;
   variants?: Record<string, ((props: any) => StyledProps) | StyledProps>;
   defaultProps?: Record<string, any>;
 }
@@ -15,13 +15,14 @@ const config: ColorModeOptions = {
   initialColorMode: 'light',
   accessibleColors: false,
 };
+
 const theme = {
   ...base,
   components,
   config,
 };
 
-export type Theme = typeof theme;
+export type Theme = typeof theme & { fontConfig: any };
 
 export interface ICustomTheme {}
 

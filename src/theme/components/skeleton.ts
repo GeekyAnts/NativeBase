@@ -1,68 +1,36 @@
 import { mode } from '../tools';
-import typography from '../base/typography';
 
-const baseStyle = (props: Record<string, any>) => {
-  return {
-    startColor: mode('muted.200', 'muted.600')(props),
-    endColor: 'transparent',
-    fadeDuration: 0.1,
-    borderRadius: 3,
-    speed: 1.0,
-  };
-};
-const baseStyleCircle = (props: Record<string, any>) => {
-  return {
-    startColor: mode('muted.200', 'muted.600')(props),
-    endColor: 'transparent',
-    fadeDuration: 0.1,
-    borderRadius: 'full',
-    speed: 1.0,
-  };
-};
-const baseStyleText = (props: Record<string, any>) => {
-  return {
-    startColor: mode('muted.200', 'muted.600')(props),
-    endColor: 'transparent',
-    fadeDuration: 0.1,
-    borderRadius: 3,
-    speed: 1.0,
-  };
-};
-
-const defaultProps = {
-  isLoaded: false,
-};
-
-const fontSizes = {
-  ...typography.fontSizes,
-};
-
-const lineHeights = {
-  ...typography.lineHeights,
-};
-
-const defaultPropsText = {
-  isLoaded: false,
-  noOfLines: 1,
-  lineHeight: 3,
+// Skeleton
+export const Skeleton = {
+  baseStyle: (props: Record<string, any>) => {
+    return {
+      startColor: mode('muted.200', 'muted.600')(props),
+      endColor: 'transparent',
+      fadeDuration: 0.1,
+      speed: 1.0,
+      h: '10',
+      w: '100%',
+    };
+  },
 };
 
 // SkeletonText
 export const SkeletonText = {
-  baseStyle: baseStyleText,
-  fontSizes,
-  lineHeights,
-  defaultProps: defaultPropsText,
-};
-
-// Skeleton
-export const Skeleton = {
-  baseStyle,
-  defaultProps,
-};
-
-// SkeletonCircle
-export const SkeletonCircle = {
-  baseStyle: baseStyleCircle,
-  defaultProps,
+  baseStyle: (props: Record<string, any>) => {
+    return {
+      startColor: mode('muted.200', 'muted.600')(props),
+      endColor: 'transparent',
+      fadeDuration: 0.1,
+      w: '100%',
+      speed: 1.0,
+      _line: {
+        h: 3,
+        rounded: 'full',
+      },
+    };
+  },
+  defaultProps: {
+    lines: 3,
+    space: 3,
+  },
 };

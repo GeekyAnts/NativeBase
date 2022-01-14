@@ -6,8 +6,16 @@ import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useContrastText } from '../useContrastText';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
-import { propsFlattener, compareSpecificity } from './propsFlattener';
+import {
+  propsFlattener,
+  compareSpecificity,
+  IStateProps,
+} from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
+import React from 'react';
+import { ResponsiveQueryContext } from '../../utils/useResponsiveQuery/ResponsiveQueryProvider';
+import type { ComponentTheme } from '../../theme';
+import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
@@ -119,26 +127,73 @@ function propsSpreader(incomingProps: any, incomingSpecifity: any) {
 export function usePropsResolution(
   component: string,
   incomingProps: any,
-  state?: any,
-  config?: any
+  state?: IStateProps,
+  config?: {
+    componentTheme?: any;
+    resolveResponsively?: string[];
+    ignoreProps?: string[];
+    cascadePseudoProps?: boolean;
+  }
 ) {
   const { theme } = useNativeBase();
   const componentTheme =
     config?.componentTheme ?? get(theme, `components.${component}`, {});
 
-  return usePropsResolutionWithComponentTheme(
+  if (process.env.NODE_ENV === 'development' && incomingProps.debug) {
+    /* eslint-disable-next-line */
+    console.log(
+      `%c${component}`,
+      'background: #d97706; color: #111; font-weight: 700; padding: 2px 8px;'
+    );
+    /* eslint-disable-next-line */
+    console.log(
+      `%cusePropsResolution`,
+      'background: #4b5563; color: #d97706; font-weight: 700; padding: 2px 8px;'
+    );
+    /* eslint-disable-next-line */
+    console.log(
+      '%c incomingProps: ',
+      'color: #4ade80; font-weight: 700;',
+      incomingProps
+    );
+    /* eslint-disable-next-line */
+    console.log('%c state: ', 'color: #4ade80; font-weight: 700;', state);
+    /* eslint-disable-next-line */
+    console.log(
+      '%c componentTheme: ',
+      'color: #4ade80; font-weight: 700;',
+      componentTheme
+    );
+  }
+
+  const resolvedProps = usePropsResolutionWithComponentTheme(
     componentTheme,
     incomingProps,
     state,
     config
   );
+
+  if (process.env.NODE_ENV === 'development' && incomingProps.debug) {
+    /* eslint-disable-next-line */
+    console.log(
+      '%c resolvedProps: ',
+      'color: #22d3ee; font-weight: 700;',
+      resolvedProps
+    );
+  }
+  return resolvedProps;
 }
 
 export const usePropsResolutionWithComponentTheme = (
-  componentTheme: any,
+  componentTheme: ComponentTheme,
   incomingProps: any,
-  state?: any,
-  config?: any
+  state?: IStateProps,
+  config?: {
+    componentTheme?: any;
+    resolveResponsively?: string[];
+    ignoreProps?: string[];
+    cascadePseudoProps?: boolean;
+  }
 ) => {
   const modifiedPropsForSSR = useResponsiveSSRProps(incomingProps);
 
@@ -148,6 +203,8 @@ export const usePropsResolutionWithComponentTheme = (
       config?.ignoreProps || []
     )
   );
+  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
+  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
   const resolveResponsively = [
     'colorScheme',
     'size',
@@ -166,7 +223,13 @@ export const usePropsResolutionWithComponentTheme = (
     cleanIncomingProps
   );
   // STEP 2: flatten them
-
+  if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
+    /* eslint-disable-next-line */
+    console.log(
+      `%cFlattening incoming and Default`,
+      'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
+    );
+  }
   let [flattenProps, specificityMap] = propsFlattener(
     {
       props: incomingWithDefaultProps,
@@ -174,19 +237,29 @@ export const usePropsResolutionWithComponentTheme = (
       colormode: colorModeProps.colorMode,
       state: state || {},
       previouslyFlattenProps: {},
+      cascadePseudoProps: config?.cascadePseudoProps,
     },
     2
   );
-
-  // STEP 2.5: resolving responsive props
+  // console.log(resolveResponsively);
+  // Not work for SSR
   const responsiveProps = {};
-  resolveResponsively.map((propsName) => {
-    if (flattenProps[propsName]) {
+  if (disableCSSMediaQueries) {
+    // STEP 2.5: resolving responsive props
+    resolveResponsively.map((propsName) => {
+      if (flattenProps[propsName]) {
+        // @ts-ignore
+        responsiveProps[propsName] = flattenProps[propsName];
+      }
+    });
+  }
+  if (resolveResponsively.includes('direction')) {
+    const propName = 'direction';
+    if (flattenProps[propName]) {
       // @ts-ignore
-      responsiveProps[propsName] = flattenProps[propsName];
+      responsiveProps[propName] = flattenProps[propName];
     }
-  });
-
+  }
   const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
 
   flattenProps = {
@@ -208,22 +281,31 @@ export const usePropsResolutionWithComponentTheme = (
             ...flattenProps,
             ...colorModeProps,
           });
-
+    if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
+      /* eslint-disable-next-line */
+      console.log(
+        `%cFlattening baseStyle`,
+        'background: #4b5563; color: #eee; font-weight: 700; padding: 2px 8px;'
+      );
+    }
     [flattenBaseStyle, baseSpecificityMap] = propsFlattener(
       {
-        props: componentBaseStyle,
+        props:
+          process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
+            ? { ...componentBaseStyle, debug: true }
+            : componentBaseStyle,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
         currentSpecificityMap: specificityMap,
         previouslyFlattenProps: flattenProps,
+        cascadePseudoProps: config?.cascadePseudoProps,
       },
       1
     );
   }
 
   // NOTE: Resolving variants
-
   const variant = flattenProps.variant;
 
   let componentVariantProps = {},
@@ -234,21 +316,33 @@ export const usePropsResolutionWithComponentTheme = (
     componentVariantProps =
       typeof componentTheme.variants[variant] !== 'function'
         ? componentTheme.variants[variant]
-        : componentTheme.variants[variant]({
+        : //@ts-ignore
+          componentTheme.variants[variant]({
             theme,
             ...flattenProps,
             ...colorModeProps,
           });
 
+    if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
+      /* eslint-disable-next-line */
+      console.log(
+        `%cFlattening variantStyle`,
+        'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
+      );
+    }
     [flattenVariantStyle, variantSpecificityMap] = propsFlattener(
       {
-        props: componentVariantProps,
+        props:
+          process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
+            ? { ...componentVariantProps, debug: true }
+            : componentVariantProps,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
         currentSpecificityMap: baseSpecificityMap || specificityMap,
         // NOTE: Ideally flattenBaseStyle and flattenProps should be deeply merged to create previouslyFlattenProps.
         previouslyFlattenProps: flattenProps,
+        cascadePseudoProps: config?.cascadePseudoProps,
       },
       1
     );
@@ -279,6 +373,7 @@ export const usePropsResolutionWithComponentTheme = (
     // Type - sizes: (props) => ({lg: {px: 1}}). Refer heading theme
     else if (typeof componentTheme.sizes[size] === 'function') {
       flattenProps.size = undefined;
+      //@ts-ignore
       componentSizeProps = componentTheme.sizes[size]({
         theme,
         ...flattenProps,
@@ -290,16 +385,26 @@ export const usePropsResolutionWithComponentTheme = (
       flattenProps.size = undefined;
       componentSizeProps = componentTheme.sizes[size];
     }
-
+    if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
+      /* eslint-disable-next-line */
+      console.log(
+        `%cFlattening sizeStyle`,
+        'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
+      );
+    }
     [flattenSizeStyle, sizeSpecificityMap] = propsFlattener(
       {
-        props: componentSizeProps,
+        props:
+          process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
+            ? { ...componentSizeProps, debug: true }
+            : componentSizeProps,
         platform: Platform.OS,
         colormode: colorModeProps.colorMode,
         state: state || {},
         currentSpecificityMap:
           variantSpecificityMap || baseSpecificityMap || specificityMap,
         previouslyFlattenProps: flattenProps,
+        cascadePseudoProps: config?.cascadePseudoProps,
       },
       1
     );
@@ -356,12 +461,15 @@ export const usePropsResolutionWithComponentTheme = (
   // // NOTE: seprating bg props when linearGardiant is available
   const [gradientProps] = extractInObject(flattenProps, ignore);
 
+  const disableContrastText = useNativeBaseConfig('NativeBaseConfigProvider')
+    .disableContrastText;
   const bgColor =
     flattenProps.bg ?? flattenProps.backgroundColor ?? flattenProps.bgColor;
 
   const contrastTextColor = useContrastText(
     bgColor,
-    flattenProps?._text?.color
+    flattenProps?._text?.color,
+    disableCSSMediaQueries ? (disableContrastText ? true : false) : true
   );
 
   flattenProps._text =

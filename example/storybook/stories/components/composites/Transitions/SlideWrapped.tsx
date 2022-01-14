@@ -14,12 +14,7 @@ import {
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <Box
-      width={{ base: '75%', md: '50%' }}
-      h="100%"
-      // alignItems="flex-start"
-      justifyContent="center"
-    >
+    <Box width={{ base: '75%', md: '50%' }} h="100%" justifyContent="center">
       <VStack space={3} w="100%">
         <HStack alignItems="flex-end">
           <Heading>Order</Heading>

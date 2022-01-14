@@ -22,7 +22,7 @@ const MenuOptionGroup = (
   const [internalValues, setValues] = React.useState<Array<string | number>>(
     internalDefaultValue
   );
-  onChange = (newValue: string | number) => {
+  const _onChange = (newValue: string | number) => {
     if (type === 'checkbox') {
       const newValues = [...internalValues];
       if (internalValues.includes(newValue)) {
@@ -32,8 +32,10 @@ const MenuOptionGroup = (
         newValues.push(newValue);
         setValues(newValues);
       }
+      onChange && onChange(newValues);
     } else if (type === 'radio') {
       setValues([newValue]);
+      onChange && onChange(newValue);
     }
   };
   //TODO: refactor for responsive prop
@@ -48,7 +50,7 @@ const MenuOptionGroup = (
           : Array.isArray(value)
           ? value
           : [value],
-        onChange,
+        onChange: _onChange,
         type,
       }}
     >

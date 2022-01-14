@@ -1,5 +1,15 @@
 import colors from './colors';
 const shadow = {
+  'none': {
+    shadowColor: 'transparent',
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0,
+    shadowRadius: 0,
+    elevation: 0,
+  },
   '0': {
     shadowColor: colors.black,
     shadowOffset: {
