@@ -25,6 +25,11 @@ export interface IActionsheetProps extends IBoxProps<IActionsheetProps> {
    * Props applied on Overlay.
    */
   _backdrop?: any;
+  /**
+   * slide animation duration
+   * @default 200
+   */
+  slideDuration?: number;
 }
 
 export interface IActionsheetContentProps

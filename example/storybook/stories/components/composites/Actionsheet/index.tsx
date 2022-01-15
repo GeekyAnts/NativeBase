@@ -7,6 +7,7 @@ import { Example as Usage } from './Usage';
 import { Example as Composition } from './Composition';
 import { Example as DisableOverlay } from './DisableOverlay';
 import { Example as CustomBackdrop } from './CustomBackdrop';
+import { Example as CustomSlideDuration } from './CustomSlideDuration';
 
 storiesOf('Actionsheet', module)
   .addDecorator(withKnobs)
@@ -15,4 +16,5 @@ storiesOf('Actionsheet', module)
   .add('Icon', () => <Icon />)
   .add('DisableOverlay', () => <DisableOverlay />)
   .add('Composition', () => <Composition />)
-  .add('Custom Backdrop', () => <CustomBackdrop />);
+  .add('Custom Backdrop', () => <CustomBackdrop />)
+  .add('Custom Slide Duration', () => <CustomSlideDuration />);

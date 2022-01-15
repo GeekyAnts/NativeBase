@@ -6,7 +6,12 @@ import { ActionSheetContext } from './ActionSheetContext';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Actionsheet = (
-  { children, hideDragIndicator = false, ...props }: IActionsheetProps,
+  {
+    children,
+    slideDuration = 200,
+    hideDragIndicator = false,
+    ...props
+  }: IActionsheetProps,
   ref: any
 ) => {
   const {
@@ -27,6 +32,7 @@ const Actionsheet = (
       justifyContent="flex-end"
       //@ts-ignore - internal use only
       animationPreset="slide"
+      slideDuration={slideDuration}
       {...resolvedProps}
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}
