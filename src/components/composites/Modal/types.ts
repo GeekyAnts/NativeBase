@@ -65,6 +65,21 @@ export interface IModalProps extends IBoxProps<IModalProps> {
    * @default "fade"
    */
   animationPreset?: 'fade' | 'slide';
+  /**
+   * Sets the fade entry duration
+   * @default 200
+   */
+  entryDuration?: number;
+  /**
+   * Sets the fade exit duration
+   * @default 150
+   */
+  exitDuration?: number;
+  /**
+   * Sets the slide animation duration
+   * @default 200
+   */
+  slideDuration?: number;
 }
 
 export type IModalComponentType = ((

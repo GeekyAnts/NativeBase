@@ -27,6 +27,9 @@ const Modal = (
     backdropVisible = true,
     //@ts-ignore - internal purpose only
     animationPreset = 'fade',
+    entryDuration = 200,
+    exitDuration = 150,
+    slideDuration = 200,
     ...rest
   }: IModalProps,
   ref: any
@@ -83,8 +86,8 @@ const Modal = (
     >
       <ModalContext.Provider value={contextValue}>
         <Fade
-          exitDuration={150}
-          entryDuration={200}
+          exitDuration={exitDuration}
+          entryDuration={entryDuration}
           in={visible}
           style={StyleSheet.absoluteFill}
         >
@@ -98,7 +101,7 @@ const Modal = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide in={visible} overlay={false} duration={200}>
+          <Slide in={visible} overlay={false} duration={slideDuration}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
@@ -109,8 +112,8 @@ const Modal = (
           </Slide>
         ) : (
           <Fade
-            exitDuration={100}
-            entryDuration={200}
+            exitDuration={exitDuration}
+            entryDuration={entryDuration}
             in={visible}
             style={StyleSheet.absoluteFill}
           >
