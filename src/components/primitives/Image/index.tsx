@@ -28,7 +28,8 @@ const Image = (props: IImageProps, ref: any) => {
       finalSource.current = { uri: src };
     }
     return finalSource.current;
-  }, [source, src]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [source?.uri, src]);
 
   const [renderedSource, setSource] = useState(getSource());
   const [alternate, setAlternate] = useState(false);
@@ -39,7 +40,7 @@ const Image = (props: IImageProps, ref: any) => {
     return () => {
       finalSource.current = null;
     };
-  }, [source, src, getSource]);
+  }, [source?.uri, src, getSource]);
 
   const onImageLoadError = useCallback(
     (event: any) => {
