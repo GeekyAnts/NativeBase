@@ -1,6 +1,10 @@
 import React from 'react';
-import { Badge } from 'native-base';
+import { Badge, Box } from 'native-base';
 
 export function Example() {
-  return <Badge>NEW FEATURE</Badge>;
+  return (
+    <Box alignItems="center">
+      <Badge>NEW FEATURE</Badge>
+    </Box>
+  );
 }

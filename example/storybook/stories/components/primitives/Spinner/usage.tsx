@@ -3,7 +3,7 @@ import { Spinner, HStack, Heading } from 'native-base';
 
 export const Example = () => {
   return (
-    <HStack space={2} alignItems="center">
+    <HStack space={2} justifyContent="center">
       <Spinner accessibilityLabel="Loading posts" />
       <Heading color="primary.500" fontSize="md">
         Loading

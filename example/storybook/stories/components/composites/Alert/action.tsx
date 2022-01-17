@@ -14,9 +14,9 @@ import {
 export function Example() {
   const [show, setShow] = React.useState(true);
   return (
-    <Box w="100%">
+    <Box w="100%" alignItems="center">
       <Collapse isOpen={show}>
-        <Alert w="100%" status="error">
+        <Alert w="90%" maxW="400" status="error">
           <VStack space={1} flexShrink={1} w="100%">
             <HStack
               flexShrink={1}
@@ -46,7 +46,7 @@ export function Example() {
           </VStack>
         </Alert>
       </Collapse>
-      <Button size={'sm'} onPress={() => setShow(true)} my={8} mx="auto">
+      <Button size={'sm'} onPress={() => setShow(true)} mt={8} mx="auto">
         Re-Open
       </Button>
     </Box>

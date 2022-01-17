@@ -7,7 +7,7 @@ export const Example = () => {
     setState(!state);
   };
   return (
-    <>
+    <Box alignItems="center">
       <Box h="100" w="100" bg={state ? 'emerald.500' : 'indigo.500'} />
       <Link onPress={toggleState} mt="8">
         <Box
@@ -20,6 +20,6 @@ export const Example = () => {
           Change Color
         </Box>
       </Link>
-    </>
+    </Box>
   );
 };
