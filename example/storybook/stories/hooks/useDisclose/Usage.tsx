@@ -1,10 +1,10 @@
 import React from 'react';
-import { Modal, Button, useDisclose } from 'native-base';
+import { Modal, Button, useDisclose, Center } from 'native-base';
 
 export const Example = () => {
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
-    <>
+    <Center>
       <Modal isOpen={isOpen} onClose={onClose}>
         <Modal.Content>
           <Modal.CloseButton />
@@ -26,6 +26,6 @@ export const Example = () => {
         </Modal.Content>
       </Modal>
       <Button onPress={onOpen}>Open Modal</Button>
-    </>
+    </Center>
   );
 };

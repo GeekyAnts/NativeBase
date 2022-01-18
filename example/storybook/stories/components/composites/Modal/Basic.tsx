@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Modal, FormControl, Input } from 'native-base';
+import { Button, Modal, FormControl, Input, Center } from 'native-base';
 import { useState } from 'react';
 
 export const Example = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
+    <Center>
       <Button onPress={() => setShowModal(true)}>Button</Button>
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Content maxWidth="400px">
@@ -44,6 +44,6 @@ export const Example = () => {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-    </>
+    </Center>
   );
 };

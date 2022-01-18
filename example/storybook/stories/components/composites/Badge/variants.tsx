@@ -1,11 +1,11 @@
 //@ts-nocheck
 import React from 'react';
-import { Badge, HStack, VStack } from 'native-base';
+import { Badge, HStack, VStack, Box } from 'native-base';
 
 export function Example() {
   return (
-    <>
-      <HStack space={{ base: '2', md: '4' }} mx={{ base: 'auto', md: '0' }}>
+    <Box alignItems="center">
+      <HStack space={4} mx={{ base: 'auto', md: '0' }}>
         {['solid', 'outline', 'subtle'].map((key) => (
           <VStack key={key} space={4}>
             <Badge variant={key} alignSelf="center">
@@ -23,6 +23,6 @@ export function Example() {
           </VStack>
         ))}
       </HStack>
-    </>
+    </Box>
   );
 }

@@ -4,9 +4,6 @@ import { Heading, VStack } from 'native-base';
 export function Example() {
   return (
     <VStack space={1} alignItems="center">
-      <Heading textAlign="center" mb="10">
-        Sizes
-      </Heading>
       <Heading size="xs">xs</Heading>
       <Heading size="sm">sm</Heading>
       <Heading size="md">md</Heading>

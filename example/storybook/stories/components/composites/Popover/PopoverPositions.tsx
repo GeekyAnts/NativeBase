@@ -5,11 +5,11 @@ export function Example() {
   const [position, setPosition] = useState('auto');
 
   return (
-    <Box w="100%" alignItems="center">
+    <Box h="60%" w="100%" alignItems="center">
       <VStack space={6} alignSelf="flex-start" w="100%">
         <Popover
           // @ts-ignore
-          placement={position == 'auto' ? undefined : position}
+          placement={position === 'auto' ? undefined : position}
           trigger={(triggerProps) => {
             return (
               <Button colorScheme="danger" alignSelf="center" {...triggerProps}>

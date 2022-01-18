@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Input, FormControl } from 'native-base';
+import { Modal, Button, Input, FormControl, HStack } from 'native-base';
 
 export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -48,21 +48,22 @@ export function Example() {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-      <Button
-        onPress={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
-        Open Modal
-      </Button>
-      <Input
-        w={{ base: '70%', md: '25%' }}
-        mt={4}
-        ref={finalRef}
-        placeholder="Enter the OTP"
-        _light={{ placeholderTextColor: 'blueGray.700' }}
-        _dark={{ placeholderTextColor: 'blueGray.100' }}
-      />
+      <HStack space="4" justifyContent="center" alignItems="center">
+        <Button
+          onPress={() => {
+            setModalVisible(!modalVisible);
+          }}
+        >
+          Open Modal
+        </Button>
+        <Input
+          w="32"
+          ref={finalRef}
+          placeholder="Enter the OTP"
+          _light={{ placeholderTextColor: 'blueGray.700' }}
+          _dark={{ placeholderTextColor: 'blueGray.100' }}
+        />
+      </HStack>
     </>
   );
 }
