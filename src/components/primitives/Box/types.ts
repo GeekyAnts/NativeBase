@@ -42,4 +42,5 @@ export interface IBoxProps<T = null>
   backgroundColor?: ResponsiveValue<
     ColorType | (string & {}) | ILinearGradientProps
   >;
+  gap?: ResponsiveValue<number | string>;
 }
