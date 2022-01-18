@@ -7,10 +7,11 @@ const Home: NextPage = () => {
   return (
     <Stack
       // space={[10, 20, 32]}
-      space={[10, 20, 30]}
-      direction={['row', 'row-reverse', 'column']}
-    // direction={'column'}
-    // flexWrap={'wrap'}
+      space={[10, 20, 24]}
+      // space={'10'}
+      direction={['row', 'column', 'row']}
+      // direction={'column'}
+      // flexWrap={'wrap'}
     >
       {/* <Text>hi</Text> */}
       <Text>Hello</Text>

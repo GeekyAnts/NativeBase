@@ -48,25 +48,25 @@ const Stack = (props: IStackProps, ref?: any) => {
     { resolveResponsively: ['direction', 'space'] }
   );
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
-
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
   const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const resolvedGap = useToken('space', space);
-  // console.log(disableCSSMediaQueries, 'Disable', direction, space, resolvedGap);
+
+  //TODO: refactor for responsive prop
+  if (useHasResponsiveProps(props)) {
+    return null;
+  }
 
   return (
     <Box
       flexDirection={dir}
       {...resolvedProps}
       ref={ref}
-      style={disableCSSMediaQueries ? {} : { gap: resolvedGap }}
+      // @ts-ignore
+      gap={disableCSSMediaQueries ? undefined : resolvedGap}
     >
       {getSpacedChildren(
         children,
