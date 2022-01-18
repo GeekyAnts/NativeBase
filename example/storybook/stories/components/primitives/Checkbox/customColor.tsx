@@ -1,21 +1,27 @@
 import React from 'react';
-import { Checkbox, VStack } from 'native-base';
+import { Checkbox, Stack, Box } from 'native-base';
 
 export const Example = () => {
   return (
-    <VStack space={3} alignItems="flex-start">
-      <Checkbox value="danger" colorScheme="danger" defaultIsChecked>
-        Danger
-      </Checkbox>
-      <Checkbox value="info" colorScheme="info" defaultIsChecked>
-        Info
-      </Checkbox>
-      <Checkbox value="orange" colorScheme="orange" defaultIsChecked>
-        Orange
-      </Checkbox>
-      <Checkbox value="purple" colorScheme="purple" defaultIsChecked>
-        Purple
-      </Checkbox>
-    </VStack>
+    <Box alignItems="center">
+      <Stack
+        direction={{ base: 'column', md: 'row' }}
+        space={3}
+        alignItems="flex-start"
+      >
+        <Checkbox value="danger" colorScheme="danger" defaultIsChecked>
+          Danger
+        </Checkbox>
+        <Checkbox value="info" colorScheme="info" defaultIsChecked>
+          Info
+        </Checkbox>
+        <Checkbox value="orange" colorScheme="orange" defaultIsChecked>
+          Orange
+        </Checkbox>
+        <Checkbox value="purple" colorScheme="purple" defaultIsChecked>
+          Purple
+        </Checkbox>
+      </Stack>
+    </Box>
   );
 };

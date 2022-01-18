@@ -5,11 +5,10 @@ export const Example = () => {
   const [onChangeValue, setOnChangeValue] = React.useState(70);
   const [onChangeEndValue, setOnChangeEndValue] = React.useState(70);
   return (
-    <Stack mx="5" space={4} alignItems="center" w="80%">
-      <Text textAlign="center">onChangeValue - {onChangeValue}</Text>
-      <Text textAlign="center">onChangeEndValue - {onChangeEndValue}</Text>
-
-      <Box mx="5" w="80%">
+    <Box alignItems="center" w="100%">
+      <Stack space={4} alignItems="center" w="75%" maxW="300">
+        <Text textAlign="center">onChangeValue - {onChangeValue}</Text>
+        <Text textAlign="center">onChangeEndValue - {onChangeEndValue}</Text>
         <Slider
           defaultValue={70}
           colorScheme="cyan"
@@ -25,7 +24,7 @@ export const Example = () => {
           </Slider.Track>
           <Slider.Thumb />
         </Slider>
-      </Box>
-    </Stack>
+      </Stack>
+    </Box>
   );
 };

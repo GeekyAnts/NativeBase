@@ -1,36 +1,47 @@
 import React from 'react';
-import { Link, Text, Box, Flex, HStack, Spacer, Heading } from 'native-base';
+import { Link, Text, Box, Flex, HStack, Spacer, Badge } from 'native-base';
 
 export const Example = () => {
   return (
-    <Link
-      href="https://nativebase.io"
-      _hover={{ bg: 'primary.100' }}
-      isExternal
-    >
-      <Box bg="cyan.700" p="5" rounded="8" flexShrink="1">
-        <HStack alignItems="flex-start">
-          <Text fontSize="xs" color="cyan.50" fontWeight="medium">
-            Open Source
+    <Box alignItems="center">
+      <Link href="https://nativebase.io" isExternal>
+        <Box
+          maxW="96"
+          borderWidth="1"
+          borderColor="coolGray.300"
+          shadow="3"
+          bg="coolGray.100"
+          p="5"
+          rounded="8"
+        >
+          <HStack alignItems="center">
+            <Badge
+              colorScheme="darkBlue"
+              _text={{ color: 'white' }}
+              variant="solid"
+              rounded="4"
+            >
+              Open Source
+            </Badge>
+            <Spacer />
+            <Text fontSize={10} color="coolGray.800">
+              2020
+            </Text>
+          </HStack>
+          <Text color="coolGray.800" mt="3" fontWeight="medium" fontSize="xl">
+            NativeBase v3
           </Text>
-          <Spacer />
-          <Text fontSize="2xs" color="cyan.100">
-            1 month ago
+          <Text mt="2" fontSize="sm" color="coolGray.700">
+            NativeBase is a component library that enables devs to build
+            universal design systems.
           </Text>
-        </HStack>
-        <Heading color="cyan.50" mt="2" fontWeight="medium" fontSize="lg">
-          NativeBase
-        </Heading>
-        <Text mt="1" fontSize="sm" color="white">
-          NativeBase is a component library that enables devs to build universal
-          design systems.
-        </Text>
-        <Flex>
-          <Text mt="2" fontSize="xs" fontWeight="medium" color="cyan.400">
-            Read More
-          </Text>
-        </Flex>
-      </Box>
-    </Link>
+          <Flex>
+            <Text mt="2" fontSize={12} fontWeight="medium" color="darkBlue.600">
+              Read More
+            </Text>
+          </Flex>
+        </Box>
+      </Link>
+    </Box>
   );
 };

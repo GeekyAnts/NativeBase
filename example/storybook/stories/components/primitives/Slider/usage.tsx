@@ -3,8 +3,10 @@ import { Slider, Box } from 'native-base';
 
 export const Example = () => {
   return (
-    <Box mx="5" width="80%">
+    <Box alignItems="center" w="100%">
       <Slider
+        w="3/4"
+        maxW="300"
         defaultValue={70}
         minValue={0}
         maxValue={100}

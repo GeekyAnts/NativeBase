@@ -16,7 +16,7 @@ export const Example = () => {
   }, [myRef]);
   return (
     <Box
-      width="90%"
+      width="100%"
       bg="primary.500"
       p="4"
       shadow={2}
