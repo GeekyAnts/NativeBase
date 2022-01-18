@@ -4,35 +4,45 @@ import {
   useContrastText,
   useAccessibleColors,
   useTheme,
+  Center,
+  HStack,
+  Switch,
+  Text,
 } from 'native-base';
 
 const ButtonTemplate = ({ shade }: any) => {
-  const colorContrast = useContrastText(`yellow.${shade}`);
+  const colorContrast = useContrastText(`emerald.${shade}`);
   return (
-    <Button
-      colorScheme="yellow"
-      key={`yellow.${shade}`}
-      bg={`yellow.${shade}`}
-      _text={{ color: colorContrast }}
-      mb={1}
-    >
-      Save Changes
-    </Button>
+    <Center>
+      <Button
+        colorScheme="emerald"
+        key={`emerald.${shade}`}
+        bg={`emerald.${shade}`}
+        _text={{
+          color: colorContrast,
+        }}
+        mb={1}
+      >
+        Save
+      </Button>
+    </Center>
   );
 };
 
 export const Example = () => {
   let [, , toggleAccessibleColors] = useAccessibleColors();
   const { colors } = useTheme();
-
   return (
-    <>
-      {Object.keys(colors.yellow).map((key, index) => {
-        if (index > 2 && index < 9) return <ButtonTemplate shade={key} />;
-      })}
-      <Button mt="10" onPress={toggleAccessibleColors} colorScheme="primary">
-        Toggle Accessible Colors
-      </Button>
-    </>
+    <Center>
+      <HStack space="3">
+        {Object.keys(colors.yellow).map((key, index) => {
+          if (index > 2 && index < 9) return <ButtonTemplate shade={key} />;
+        })}
+      </HStack>
+      <HStack mt="6" space="3">
+        <Text>Toggle Accessible Colors</Text>
+        <Switch onToggle={toggleAccessibleColors} colorScheme="coolGray" />
+      </HStack>
+    </Center>
   );
 };

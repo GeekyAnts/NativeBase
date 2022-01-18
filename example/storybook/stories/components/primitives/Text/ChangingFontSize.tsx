@@ -1,12 +1,9 @@
 import React from 'react';
-import { Heading, Text, VStack } from 'native-base';
+import { Text, VStack } from 'native-base';
 
 export const Example = () => {
   return (
-    <VStack space={1} alignItems="center" mt={3}>
-      <Heading textAlign="center" mb="10">
-        Sizes
-      </Heading>
+    <VStack space={1} alignItems="center">
       <Text fontSize="xs">xs</Text>
       <Text fontSize="sm">sm</Text>
       <Text fontSize="md">md</Text>

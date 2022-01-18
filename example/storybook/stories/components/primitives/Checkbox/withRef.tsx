@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Icon } from 'native-base';
+import { Checkbox, Icon, Box } from 'native-base';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Platform } from 'react-native';
 
@@ -21,20 +21,22 @@ export const Example = () => {
     }
   }, [myRef, bg]);
   return (
-    <Checkbox
-      value="success"
-      colorScheme="success"
-      icon={<Icon as={MaterialCommunityIcons} name="bullseye" opacity={1} />}
-      wrapperRef={myRef}
-      onChange={(state) => {
-        if (state) {
-          setBg('#00de0050');
-        } else {
-          setBg('#fa000050');
-        }
-      }}
-    >
-      Archery
-    </Checkbox>
+    <Box alignItems="flex-start">
+      <Checkbox
+        value="success"
+        colorScheme="success"
+        icon={<Icon as={MaterialCommunityIcons} name="bullseye" opacity={1} />}
+        wrapperRef={myRef}
+        onChange={(state) => {
+          if (state) {
+            setBg('#00de0050');
+          } else {
+            setBg('#fa000050');
+          }
+        }}
+      >
+        Archery
+      </Checkbox>
+    </Box>
   );
 };

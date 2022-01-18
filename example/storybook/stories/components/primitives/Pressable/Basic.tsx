@@ -1,36 +1,47 @@
 import React from 'react';
-import { Pressable, Text, Box, HStack, Spacer, Flex } from 'native-base';
+import { Pressable, Text, Box, HStack, Spacer, Flex, Badge } from 'native-base';
 
 export function Example() {
   return (
-    <Pressable
-      onPress={() => {
-        console.log('Hello world');
-      }}
-    >
-      <Box p="5" rounded="8" bg="cyan.700">
-        <HStack alignItems="flex-start">
-          <Text fontSize={12} color="cyan.50" fontWeight="medium">
-            Business
+    <Box alignItems="center">
+      <Pressable onPress={() => console.log("I'm Pressed")}>
+        <Box
+          maxW="96"
+          borderWidth="1"
+          borderColor="coolGray.300"
+          shadow="3"
+          bg="coolGray.100"
+          p="5"
+          rounded="8"
+        >
+          <HStack alignItems="center">
+            <Badge
+              colorScheme="darkBlue"
+              _text={{ color: 'white' }}
+              variant="solid"
+              rounded="4"
+            >
+              Business
+            </Badge>
+            <Spacer />
+            <Text fontSize={10} color="coolGray.800">
+              1 month ago
+            </Text>
+          </HStack>
+          <Text color="coolGray.800" mt="3" fontWeight="medium" fontSize="xl">
+            Marketing License
           </Text>
-          <Spacer />
-          <Text fontSize={10} color="cyan.100">
-            1 month ago
+          <Text mt="2" fontSize="sm" color="coolGray.700">
+            Unlock powerfull time-saving tools for creating email delivery and
+            collecting marketing data
           </Text>
-        </HStack>
-        <Text color="cyan.50" mt="3" fontWeight="medium" fontSize={20}>
-          Marketing License
-        </Text>
-        <Text mt="2" fontSize={14} color="cyan.100">
-          Unlock powerfull time-saving tools for creating email delivery and
-          collecting marketing data
-        </Text>
-        <Flex>
-          <Text mt="2" fontSize={12} fontWeight="medium" color="cyan.400">
-            Read More
-          </Text>
-        </Flex>
-      </Box>
-    </Pressable>
+          <Flex>
+            <Text mt="2" fontSize={12} fontWeight="medium" color="darkBlue.600">
+              Read More
+            </Text>
+          </Flex>
+        </Box>
+      </Pressable>
+    </Box>
   );
 }

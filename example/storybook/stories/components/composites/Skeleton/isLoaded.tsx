@@ -1,40 +1,60 @@
 import React, { useState } from 'react';
-import { Skeleton, Text, Avatar, Box } from 'native-base';
+import {
+  Skeleton,
+  Text,
+  Button,
+  Box,
+  Image,
+  VStack,
+  Center,
+} from 'native-base';
 export const Example = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [text, setText] = useState('');
   setTimeout(() => {
     setIsLoaded(true);
     setText(
-      'Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting'
+      'Lose yourself in the greens of nature, the ones that make you strong. Come visit us at the Greenway Park, and we will be happy to show you around.'
     );
   }, 5000);
 
   return (
-    <Box w="80%">
-      <Skeleton isLoaded={isLoaded} borderRadius="full" size={16}>
-        <Avatar
-          size={16}
-          source={{
-            uri:
-              'https://pbs.twimg.com/profile_images/1188747996843761665/8CiUdKZW_400x400.jpg',
-          }}
+    <Center w="100%">
+      <Box w="90%" maxWidth="400">
+        <VStack
+          w="400"
+          borderWidth="1"
+          space={8}
+          overflow="hidden"
+          rounded="md"
+          _dark={{ borderColor: 'coolGray.500' }}
+          _light={{ borderColor: 'coolGray.200' }}
         >
-          SS
-        </Avatar>
-      </Skeleton>
-      <Skeleton.Text
-        lines={6}
-        mt={5}
-        h={120}
-        lineHeight="12px"
-        space={2}
-        isLoaded={isLoaded}
-      >
-        <Text fontSize={'md'} lineHeight={'20px'} mt={5}>
-          {text}
-        </Text>
-      </Skeleton.Text>
-    </Box>
+          <Skeleton h="40" isLoaded={isLoaded}>
+            <Image
+              h="40"
+              source={{
+                uri:
+                  'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80',
+              }}
+            />
+          </Skeleton>
+          <Skeleton.Text lines={4} px="4" isLoaded={isLoaded}>
+            <Text px="4" fontSize={'md'} lineHeight={'20px'}>
+              {text}
+            </Text>
+          </Skeleton.Text>
+          <Skeleton
+            px="4"
+            mb="4"
+            rounded="md"
+            startColor="primary.100"
+            isLoaded={isLoaded}
+          >
+            <Button m="4">Explore</Button>
+          </Skeleton>
+        </VStack>
+      </Box>
+    </Center>
   );
 };

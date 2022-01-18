@@ -3,7 +3,7 @@ import { Popover, Button, Box } from 'native-base';
 
 export function Example() {
   return (
-    <Box w="100%" alignItems="center">
+    <Box h="60%" w="100%" alignItems="center">
       <Popover
         trigger={(triggerProps) => {
           return (
