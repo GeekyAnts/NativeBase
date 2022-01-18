@@ -521,6 +521,10 @@ export const space = {
     properties: ['paddingTop', 'paddingBottom'],
     scale: 'space',
   },
+  gap: {
+    property: 'gap',
+    scale: 'space',
+  },
 } as const;
 
 export const typography = {
