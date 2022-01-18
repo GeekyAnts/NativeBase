@@ -9,7 +9,7 @@ import {
 
 export const Example = () => {
   return (
-    <Box alignItems="center">
+    <Box alignItems="center" w="100%">
       <VStack space={4} w="75%" maxW="300">
         <FormControl isInvalid>
           <FormControl.Label>Set your budget</FormControl.Label>

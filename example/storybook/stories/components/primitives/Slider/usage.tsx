@@ -3,7 +3,7 @@ import { Slider, Box } from 'native-base';
 
 export const Example = () => {
   return (
-    <Box alignItems="center">
+    <Box alignItems="center" w="100%">
       <Slider
         w="3/4"
         maxW="300"

@@ -7,7 +7,7 @@ export const Example = () => {
     maxHeight: 480,
   });
   return (
-    <Center>
+    <Center w="100%">
       {isSmallScreen ? (
         <HStack
           w="90%"

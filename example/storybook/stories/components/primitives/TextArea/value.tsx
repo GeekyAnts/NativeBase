@@ -7,7 +7,7 @@ export const Example = () => {
     setTextAreaValue(e.currentTarget.value);
   };
   return (
-    <Box alignItems="center">
+    <Box alignItems="center" w="100%">
       <TextArea
         value={textAreaValue}
         onChange={demoValueControlledTextArea}

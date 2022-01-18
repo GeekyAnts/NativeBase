@@ -3,7 +3,7 @@ import { Slider, VStack, Box } from 'native-base';
 
 export const Example = () => {
   return (
-    <Box alignItems="center">
+    <Box alignItems="center" w="100%">
       <VStack space={4} w="75%" maxW="300">
         <Slider defaultValue={40} size="sm">
           <Slider.Track>

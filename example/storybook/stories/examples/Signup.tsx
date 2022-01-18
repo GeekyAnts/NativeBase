@@ -11,7 +11,7 @@ import {
 
 export const Example = () => {
   return (
-    <Center>
+    <Center w="100%">
       <Box safeArea p="2" w="90%" maxW="290" py="8">
         <Heading
           size="lg"

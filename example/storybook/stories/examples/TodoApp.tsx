@@ -58,7 +58,7 @@ export const Example = () => {
   };
 
   return (
-    <Center>
+    <Center w="100%">
       <Box maxW="300" w="100%">
         <Heading mb="2" size="md">
           Wednesday

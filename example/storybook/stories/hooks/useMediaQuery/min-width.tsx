@@ -6,7 +6,7 @@ export const Example = () => {
     minWidth: 280,
   });
   return (
-    <Center>
+    <Center w="100%">
       {isSmallScreen ? (
         <HStack
           w="90%"

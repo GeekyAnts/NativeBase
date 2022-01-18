@@ -2,14 +2,15 @@ import React from 'react';
 import { Skeleton, VStack, HStack, Center } from 'native-base';
 export const Example = () => {
   return (
-    <Center>
+    <Center w="100%">
       <HStack
         w="90%"
         maxW="400"
         borderWidth="1"
         space={8}
         rounded="md"
-        borderColor="coolGray.400"
+        _dark={{ borderColor: 'coolGray.500' }}
+        _light={{ borderColor: 'coolGray.200' }}
         p="4"
       >
         <Skeleton flex="1" h="150" rounded="md" startColor="coolGray.100" />

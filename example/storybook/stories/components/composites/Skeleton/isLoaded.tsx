@@ -19,7 +19,7 @@ export const Example = () => {
   }, 5000);
 
   return (
-    <Center>
+    <Center w="100%">
       <Box w="90%" maxWidth="400">
         <VStack
           w="400"
@@ -27,7 +27,8 @@ export const Example = () => {
           space={8}
           overflow="hidden"
           rounded="md"
-          borderColor="coolGray.400"
+          _dark={{ borderColor: 'coolGray.500' }}
+          _light={{ borderColor: 'coolGray.200' }}
         >
           <Skeleton h="40" isLoaded={isLoaded}>
             <Image

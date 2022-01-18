@@ -3,7 +3,7 @@ import { Box, Progress, VStack, Center } from 'native-base';
 
 export const Example = () => {
   return (
-    <Center>
+    <Center w="100%">
       <Box w="90%" maxW="400">
         <VStack space="md">
           <VStack mx="4" space="md">

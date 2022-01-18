@@ -3,7 +3,7 @@ import { Box, TextArea, Text, Stack, Divider } from 'native-base';
 
 export const Example = () => {
   return (
-    <Box alignItems="center">
+    <Box alignItems="center" w="100%">
       <Stack space={2.5} w="75%" maxW="300">
         <Box>
           <Text mb="4" bold fontSize="lg">

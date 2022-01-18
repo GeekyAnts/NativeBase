@@ -2,7 +2,7 @@ import React from 'react';
 import { Skeleton, VStack, Center } from 'native-base';
 export const Example = () => {
   return (
-    <Center>
+    <Center w="100%">
       <VStack
         w="90%"
         maxW="400"
@@ -10,7 +10,8 @@ export const Example = () => {
         space={8}
         overflow="hidden"
         rounded="md"
-        borderColor="coolGray.200"
+        _dark={{ borderColor: 'coolGray.500' }}
+        _light={{ borderColor: 'coolGray.200' }}
       >
         <Skeleton h="40" />
         <Skeleton.Text px="4" />

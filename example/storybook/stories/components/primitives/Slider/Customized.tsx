@@ -4,7 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export const Example = () => {
   return (
-    <Box alignItems="center">
+    <Box alignItems="center" w="100%">
       <Slider
         defaultValue={70}
         size="sm"
