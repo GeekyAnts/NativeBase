@@ -31,20 +31,20 @@ export interface IStackProps extends IBoxProps<IStackProps> {
   >;
 }
 
-const Stack = (props: IStackProps, ref?: any) => {
+const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
   const dir = props.direction;
   const {
     children,
     direction,
     reversed,
     divider,
-    space,
+    size,
     ...resolvedProps
   }: any = usePropsResolution(
     'Stack',
-    props,
+    { ...props, size: space },
     {},
-    { resolveResponsively: ['direction', 'space'] }
+    { resolveResponsively: ['space', 'direction'] }
   );
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -65,11 +65,11 @@ const Stack = (props: IStackProps, ref?: any) => {
       {...resolvedProps}
       ref={ref}
       // @ts-ignore
-      gap={disableCSSMediaQueries ? undefined : space}
+      gap={disableCSSMediaQueries ? undefined : size}
     >
       {getSpacedChildren(
         children,
-        space,
+        size,
         direction === 'row' ? 'X' : 'Y',
         reversed ? 'reverse' : 'normal',
         divider
