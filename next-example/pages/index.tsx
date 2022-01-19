@@ -7,8 +7,9 @@ const Home: NextPage = () => {
   return (
     <Stack
       // space={[10, 20, 32]}
-      space={10}
-      direction={['row', 'row-reverse', 'column']}
+      space={[10, 20, 24]}
+      // space={'10'}
+      direction={['row', 'column', 'row']}
       // direction={'column'}
       // flexWrap={'wrap'}
     >

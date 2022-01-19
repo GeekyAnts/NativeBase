@@ -1,4 +1,4 @@
-import type { IBoxProps } from 'native-base';
+import type { IBoxProps } from '../../primitives/Box/types';
 
 export type ITypeaheadProps = IBoxProps<ITypeaheadProps> & {
   options: any[];

@@ -35,6 +35,7 @@ const Image = (props: IImageProps, ref: any) => {
   const [fallbackSourceFlag, setfallbackSourceFlag] = useState(true);
 
   React.useEffect(() => {
+    setSource(getSource());
     return () => {
       finalSource.current = null;
     };
