@@ -48,4 +48,14 @@ export type IActionsheetComponentType = ((
       props: IActionsheetItemProps & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
+  Header: React.MemoExoticComponent<
+    (
+      props: IActionsheetHeaderProps & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
+  >;
+  Footer: React.MemoExoticComponent<
+    (
+      props: IActionsheetFooterProps & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
+  >;
 };
