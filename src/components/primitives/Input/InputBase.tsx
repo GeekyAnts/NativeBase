@@ -126,6 +126,7 @@ const InputBase = (
           }
         : {})}
       ref={mergeRefs([ref, _ref, wrapperRef])}
+      style={Platform.OS === 'web' ? { outline: 'none' } : {}}
     />
   );
 };
