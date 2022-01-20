@@ -13,6 +13,7 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { AddIcon } from '../../primitives/Icon/Icons/Add';
 
 const Button = (
   {
@@ -25,7 +26,8 @@ const Button = (
     spinner,
     isDisabled,
     isLoading,
-    spinnerPlacement = 'start',
+    icon,
+    spinnerPlacement = 'end',
     ...props
   }: IButtonProps & IBoxProps,
   ref: any
@@ -35,6 +37,7 @@ const Button = (
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
 
+  // console.log(props.colorScheme, '121212');
   const {
     onPressIn,
     onPressOut,
@@ -43,6 +46,7 @@ const Button = (
     onFocus,
     onBlur,
     _text,
+    _icon,
     _stack,
     _spinner,
     isLoadingText,
@@ -56,6 +60,7 @@ const Button = (
     isFocusVisible,
   });
 
+  // console.log(resolvedProps, '343434');
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -66,6 +71,9 @@ const Button = (
   }
   if (rightIcon) {
     endIcon = rightIcon;
+  }
+  if (icon) {
+    endIcon = icon;
   }
   if (endIcon && React.isValidElement(endIcon)) {
     endIcon = React.Children.map(
@@ -131,7 +139,12 @@ const Button = (
             {isLoading && isLoadingText ? isLoadingText : children}
           </Box>
         ) : null}
-        {endIcon && !isLoading ? endIcon : null}
+        {/* {endIcon && !isLoading ? endIcon : null} */}
+        {isLoading ? null : endIcon ? (
+          endIcon
+        ) : (
+          <AddIcon color={_text?.color} {..._icon} />
+        )}
         {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
       </HStack>
     </Pressable>

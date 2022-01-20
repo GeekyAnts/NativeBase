@@ -1,14 +1,24 @@
-import { Dict, mode, transparentize } from './../tools';
+import { Dict, mode } from './../tools';
 import { Platform } from 'react-native';
+
 const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
 
 const baseStyle = (props: any) => {
-  const { primary } = props.theme.colors;
   const focusRing =
     Platform.OS === 'web'
       ? mode(
-          { boxShadow: `${primary[400]} 0px 0px 0px 2px`, zIndex: 1 },
-          { boxShadow: `${primary[500]} 0px 0px 0px 2px`, zIndex: 1 }
+          {
+            // boxShadow: `${primary[600]} 0px 0px 0px 2px`,
+            // zIndex: 1,
+            // borderWidth: 1,
+            // borderColor: 'white',
+          },
+          {
+            // boxShadow: `${primary[700]} 0px 0px 0px 2px`,
+            // zIndex: 1,
+            // borderWidth: 1,
+            // borderColor: 'black',
+          }
         )(props)
       : {};
 
@@ -47,47 +57,98 @@ const baseStyle = (props: any) => {
   };
 };
 
-function variantGhost(props: Dict) {
+function actionGhost(props: Dict) {
   const { colorScheme: c } = props;
-  if (c === 'muted') {
-    return {
-      _text: {
-        color: disabledTextColor(props),
-      },
-    };
-  }
 
   return {
     _text: {
       color: props.isDisabled
         ? disabledTextColor(props)
-        : mode(`${c}.500`, `${c}.300`)(props),
+        : props.variant !== 'subtle'
+        ? mode(`${c}.700`, `${c}.600`)(props)
+        : mode('trueGray.900', 'primary.400')(props),
     },
     bg: 'transparent',
+    borderWidth: props.variant !== 'outline' ? 0 : {},
     _web: {
       outlineWidth: '0',
     },
-    _hover: {
-      borderColor: mode(`${c}.500`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
-    },
-    _focusVisible: {
-      borderColor: mode(`${c}.700`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
-    },
-    _pressed: {
-      borderColor: mode(`${c}.600`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.300`, `${c}.500`)(props), 0.5)(props.theme),
-    },
+    _hover:
+      props.variant === 'subtle'
+        ? {
+            _text: {
+              color: 'textLight.primary',
+            },
+          }
+        : {
+            _text: {
+              color: 'textDark.primary',
+            },
+          },
+    // _focusVisible: {
+    //   borderColor: mode(`${c}.700`, `${c}.200`)(props),
+    //   bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
+    // },
+    _pressed:
+      props.variant === 'solid'
+        ? {
+            _text: {
+              color: 'trueGray.50',
+            },
+          }
+        : {
+            _text: {
+              color: 'textDark.primary',
+            },
+          },
     _spinner: {
       size: 'sm',
     },
   };
 }
 
+function actionLink(props: Dict) {
+  const { colorScheme: c } = props;
+
+  return {
+    bg: 'transparent',
+    borderWidth: 0,
+    _text: {
+      textDecorationLine: Platform.select({
+        ios: 'underline',
+        web: 'underline',
+      }),
+      color:
+        c === 'muted'
+          ? mode(`muted.800`, `${c}.200`)(props)
+          : props.isDisabled
+          ? disabledTextColor(props)
+          : mode(`primary.700`, `primary.600`)(props),
+    },
+    _hover: {
+      bg: 'transparent',
+      _text: {
+        color: mode(`${c}.800`, `${c}.700`)(props),
+      },
+    },
+    _pressed: {
+      bg: 'transparent',
+      _text: {
+        color: mode(`${c}.900`, `${c}.800`)(props),
+      },
+    },
+    _focusVisible: {
+      _text: {
+        color: mode(`${c}.600`, `${c}.400`)(props),
+        textDecorationLine: 'underline',
+      },
+    },
+  };
+}
+
 function variantOutline(props: Dict) {
   const { colorScheme: c } = props;
-  const borderColor = mode(`muted.200`, `muted.500`)(props);
+  const borderColor = mode(`${c}.300`, `${c}.300`)(props);
   return {
     borderWidth: '1',
     borderColor:
@@ -95,14 +156,51 @@ function variantOutline(props: Dict) {
         ? borderColor
         : props.isDisabled
         ? disabledTextColor(props)
-        : mode(`${c}.300`, `${c}.300`)(props),
-    ...variantGhost(props),
+        : mode(`trueGray.300`, `trueGray.500`)(props),
+    _text: {
+      color: mode(`${c}.700`, `${c}.600`)(props),
+    },
+    _hover: {
+      borderWidth: 0,
+      bg: mode(`${c}.800`, `${c}.700`)(props),
+      _text: {
+        color: 'trueGray.50',
+      },
+    },
+    _pressed: {
+      borderWidth: 0,
+      bg: mode(`${c}.900`, `${c}.800`)(props),
+      _text: {
+        color: 'trueGray.50',
+      },
+    },
+    _focusVisible: {
+      // _web: {
+      //   outlineWidth: '20px',
+      //   outlineStyle: 'solid',
+      //   outlineColor: 'blue',
+      // },
+      style: mode(
+        {
+          // boxShadow: `${primary[600]} 0px 0px 0px 2px`,
+          // zIndex: 1,
+          // borderWidth: 1,
+          // borderColor: 'red.300',
+        },
+        {
+          // boxShadow: `${primary[700]} 0px 0px 0px 2px`,
+          // zIndex: 1,
+          // borderWidth: 1,
+          // borderColor: 'black',
+        }
+      )(props),
+    },
   };
 }
 
 function variantSolid(props: Dict) {
   const { colorScheme: c } = props;
-  let bg = `${c}.500`;
+  let bg = mode(`${c}.700`, `${c}.600`)(props);
   if (props.isDisabled) {
     bg = mode(`muted.300`, `muted.500`)(props);
   }
@@ -113,19 +211,18 @@ function variantSolid(props: Dict) {
     },
     bg,
     _hover: {
-      bg: `${c}.600`,
+      bg: mode(`${c}.800`, `${c}.700`)(props),
     },
     _pressed: {
-      bg: `${c}.700`,
+      bg: mode(`${c}.900`, `${c}.800`)(props),
     },
-    _focus: {
-      bg: `${c}.600`,
-    },
+    _focus: {},
     _loading: {
-      bg: mode(`warmGray.50`, `${c}.300`)(props),
-      opacity: '50',
+      opacity: '40',
     },
-    _disabled: { bg: mode(`trueGray.300`, `trueGray.600`)(props) },
+    _disabled: {
+      opacity: '40',
+    },
   };
 
   return styleObject;
@@ -153,68 +250,24 @@ function variantSolid(props: Dict) {
 
 function variantSubtle(props: Dict) {
   const { colorScheme: c } = props;
-  let bg = `${c}.100`;
-  bg = mode(bg, `${c}.200`)(props);
-  let color;
-  if (props.isDisabled) {
-    bg = mode(`muted.300`, `muted.500`)(props);
-  } else {
-    color = mode(`${c}.500`, `${c}.600`)(props);
-  }
+  const bg = mode(`${c}.300`, `${c}.400`)(props);
   const styleObject = {
     _text: {
-      color: color,
+      color: 'trueGray.900',
     },
     _web: {
       outlineWidth: '0',
     },
     bg,
     _hover: {
-      _text: { color: mode(`${c}.600`, `${c}.700`)(props) },
-      bg: mode(`${c}.200`, `${c}.300`)(props),
+      bg: mode(`${c}.400`, `${c}.500`)(props),
     },
     _pressed: {
-      _text: { color: mode(`${c}.700`, `${c}.800`)(props) },
-      bg: mode(`${c}.300`, `${c}.400`)(props),
+      bg: mode(`${c}.500`, `${c}.600`)(props),
     },
   };
 
   return styleObject;
-}
-
-function variantLink(props: Dict) {
-  const { colorScheme: c } = props;
-
-  return {
-    ...variantGhost(props),
-    _text: {
-      textDecorationLine: Platform.select({
-        ios: 'underline',
-        web: 'underline',
-      }),
-      color:
-        c === 'muted'
-          ? mode(`muted.800`, `${c}.200`)(props)
-          : props.isDisabled
-          ? disabledTextColor(props)
-          : mode(`${c}.500`, `${c}.300`)(props),
-    },
-    _hover: {
-      _text: {
-        color: mode(`${c}.600`, `${c}.400`)(props),
-        textDecorationLine: 'underline',
-      },
-    },
-    _focusVisible: {
-      _text: {
-        color: mode(`${c}.600`, `${c}.400`)(props),
-        textDecorationLine: 'underline',
-      },
-    },
-    _pressed: {
-      _text: { color: mode(`${c}.700`, `${c}.500`)(props) },
-    },
-  };
 }
 
 function variantUnstyled() {
@@ -222,11 +275,9 @@ function variantUnstyled() {
 }
 
 const variants = {
-  ghost: variantGhost,
   outline: variantOutline,
   solid: variantSolid,
   subtle: variantSubtle,
-  link: variantLink,
   unstyled: variantUnstyled,
 };
 
@@ -237,12 +288,18 @@ const sizes = {
     _text: {
       fontSize: 'md',
     },
+    _icon: {
+      size: 4,
+    },
   },
   md: {
     px: '3',
     py: '2',
     _text: {
       fontSize: 'sm',
+    },
+    _icon: {
+      size: 3,
     },
   },
   sm: {
@@ -251,6 +308,9 @@ const sizes = {
     _text: {
       fontSize: 'xs',
     },
+    _icon: {
+      size: 3,
+    },
   },
   xs: {
     px: '2',
@@ -258,13 +318,23 @@ const sizes = {
     _text: {
       fontSize: '2xs',
     },
+    _icon: {
+      size: 2,
+    },
   },
+};
+
+const actions = {
+  ghost: actionGhost,
+  unstyled: variantUnstyled,
+  link: actionLink,
 };
 
 const defaultProps = {
   variant: 'solid',
   size: 'md',
   colorScheme: 'primary',
+  action: 'primary',
 };
 
 export const ButtonGroup = {
@@ -276,5 +346,6 @@ export default {
   baseStyle,
   variants,
   sizes,
+  actions,
   defaultProps,
 };

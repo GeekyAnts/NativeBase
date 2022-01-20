@@ -42,6 +42,8 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     }
   );
 
+  // console.log(reslovedProps, 'text reslovedProps');
+  // console.log(fontSize, 'font-size');
   const _ref = useRef(null);
   // TODO: might have to add this condition
   const { isHovered } = useHover({}, _hover ? _ref : null);

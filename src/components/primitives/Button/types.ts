@@ -20,6 +20,15 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
    * @default 'solid'
    */
   variant?: VariantType<'Button'>;
+
+  action?:
+    | 'primary'
+    | 'secondary'
+    | 'ghost'
+    | 'link'
+    | 'unstyled'
+    | 'positive'
+    | 'negative';
   /**
    * If true, the button will show a spinner.
    */
@@ -36,6 +45,10 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
    * The end icon element to use in the button.
    */
   endIcon?: JSX.Element | Array<JSX.Element>;
+  /**
+   * The end icon element to use in the button.
+   */
+  icon?: JSX.Element | Array<JSX.Element>;
   /**
    * The end icon element to use in the button.
    */

@@ -11,6 +11,9 @@ const baseStyle = (props: Record<string, any>) => {
     lineHeight: 'lg',
   };
 };
+
+// const letterSpacing
+
 const defaultProps = {};
 
 export default { baseStyle, defaultProps };

@@ -155,7 +155,7 @@ const colors = {
     900: '#134e4a',
   },
   emerald: {
-    50: '#ecfdf5',
+    50: '#f0fdf4',
     100: '#d1fae5',
     200: '#a7f3d0',
     300: '#6ee7b7',
@@ -191,16 +191,16 @@ const colors = {
     900: '#365314',
   },
   yellow: {
-    50: '#fefce8',
-    100: '#fef9c3',
-    200: '#fef08a',
-    300: '#fde047',
-    400: '#facc15',
-    500: '#eab308',
-    600: '#ca8a04',
-    700: '#a16207',
-    800: '#854d0e',
-    900: '#713f12',
+    50: '#fffbeb',
+    100: '#FFEDD5',
+    200: '#FED7AA',
+    300: '#FDBA74',
+    400: '#FB923C',
+    500: '#F97316',
+    600: '#EA580C',
+    700: '#C2410C',
+    800: '#9A3412',
+    900: '#7C2D12',
   },
   amber: {
     50: '#fffbeb',
@@ -310,6 +310,17 @@ const colors = {
     800: '#f4f4f5',
     900: '#fafafa',
   },
+  // Text
+  textDark: {
+    primary: '#FAFAFA',
+    secondary: '#737373',
+    disabled: 'rgba(250,250,250,0.3)',
+  },
+  textLight: {
+    primary: '#171717',
+    secondary: '#A3A3A3',
+    disabled: 'rgba(23,23,23,0.3)',
+  },
   // Derived colors
   danger: {} as IColorHues,
   error: {} as IColorHues,
@@ -321,17 +332,19 @@ const colors = {
   secondary: {} as IColorHues,
   light: {} as IColorHues,
   tertiary: {} as IColorHues,
+  positive: {} as IColorHues,
+  negative: {} as IColorHues,
 };
 
 colors.danger = colors.red;
-colors.error = colors.rose;
+colors.error = colors.red;
 colors.success = colors.emerald;
 colors.warning = colors.orange;
 colors.muted = colors.trueGray;
-colors.primary = colors.cyan;
-colors.secondary = colors.pink;
+colors.primary = colors.blue;
+colors.secondary = colors.trueGray;
 colors.tertiary = colors.green;
-colors.info = colors.lightBlue;
+colors.info = colors.blue;
 colors.light = colors.warmGray;
 
 export default colors;

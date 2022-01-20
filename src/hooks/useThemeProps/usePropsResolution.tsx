@@ -203,6 +203,7 @@ export const usePropsResolutionWithComponentTheme = (
       config?.ignoreProps || []
     )
   );
+
   const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
   const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
   const resolveResponsively = [
@@ -222,6 +223,7 @@ export const usePropsResolutionWithComponentTheme = (
     componentTheme.defaultProps || {},
     cleanIncomingProps
   );
+
   // STEP 2: flatten them
   if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
     /* eslint-disable-next-line */
@@ -241,6 +243,9 @@ export const usePropsResolutionWithComponentTheme = (
     },
     2
   );
+
+  // console.log(flattenProps, 'flattenProps1111111');
+
   // console.log(resolveResponsively);
   // Not work for SSR
   const responsiveProps = {};
@@ -305,6 +310,33 @@ export const usePropsResolutionWithComponentTheme = (
     );
   }
 
+  // console.log(flattenProps, 'flattenProps22222222');
+  let buttonActionsArray = ['primary', 'secondary', 'positive', 'negative'];
+  if (buttonActionsArray.includes(flattenProps.action)) {
+    switch (flattenProps.action) {
+      case 'primary':
+        flattenProps.colorScheme = 'primary';
+        break;
+      case 'secondary':
+        flattenProps.colorScheme = 'trueGray';
+        break;
+      case 'positive':
+        flattenProps.colorScheme = 'green';
+        break;
+      case 'negative':
+        flattenProps.colorScheme = 'red';
+    }
+
+    flattenProps.action = undefined;
+  }
+
+  // console.log(flattenProps, 'flattenProps');
+  // if (flattenProps.action === 'primary') flattenProps.colorScheme = 'primary';
+  // if (flattenProps.action === 'secondary')
+  //   flattenProps.colorScheme = 'trueGray';
+  // if (flattenProps.action === 'positive') flattenProps.colorScheme = 'green';
+  // if (flattenProps.action === 'negative') flattenProps.colorScheme = 'red';
+
   // NOTE: Resolving variants
   const variant = flattenProps.variant;
 
@@ -312,6 +344,9 @@ export const usePropsResolutionWithComponentTheme = (
     flattenVariantStyle,
     variantSpecificityMap;
   // Extracting props from variant
+
+  // console.log(variant, '11');
+  // console.log(componentTheme, 'componentTheme');
   if (variant && componentTheme.variants && componentTheme.variants[variant]) {
     componentVariantProps =
       typeof componentTheme.variants[variant] !== 'function'
@@ -322,6 +357,8 @@ export const usePropsResolutionWithComponentTheme = (
             ...flattenProps,
             ...colorModeProps,
           });
+
+    // console.log(componentVariantProps, '22');
 
     if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
       /* eslint-disable-next-line */
@@ -349,9 +386,65 @@ export const usePropsResolutionWithComponentTheme = (
 
     // We remove variant from original props if we found it in the componentTheme
     //@ts-ignore
+    // flattenProps.variant = undefined;
+  }
+
+  // NOTE: Resolving actions
+  const action = flattenProps.action;
+
+  // console.log(action, 'action');
+
+  let componentActionProps = {},
+    flattenActionStyle,
+    actionSpecifictyMap;
+  if (action && componentTheme.actions && componentTheme.actions[action]) {
+    componentActionProps =
+      typeof componentTheme.actions[action] !== 'function'
+        ? componentTheme.actions[action]
+        : //@ts-ignore
+          componentTheme.actions[action]({
+            theme,
+            ...flattenProps,
+            ...colorModeProps,
+          });
+
+    // console.log(componentActionProps, '333');
+
+    if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
+      /* eslint-disable-next-line */
+      console.log(
+        `%cFlattening actionStyle`,
+        'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
+      );
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    [flattenActionStyle, actionSpecifictyMap] = propsFlattener(
+      {
+        props:
+          process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
+            ? { ...componentActionProps, debug: true }
+            : componentActionProps,
+        platform: Platform.OS,
+        colormode: colorModeProps.colorMode,
+        state: state || {},
+        currentSpecificityMap: baseSpecificityMap || specificityMap,
+        // NOTE: Ideally flattenBaseStyle and flattenProps should be deeply merged to create previouslyFlattenProps.
+        previouslyFlattenProps: flattenProps,
+        cascadePseudoProps: config?.cascadePseudoProps,
+      },
+      1
+    );
+
+    // console.log(flattenActionStyle, '===flattenActionStyle');
+    // console.log(actionSpecifictyMap, '==actionSpecifictyMap');
+
+    // We remove variant from original props if we found it in the componentTheme
+    //@ts-ignore
+    flattenProps.action = undefined;
     flattenProps.variant = undefined;
   }
 
+  // ===============================
   // NOTE: Resolving size
 
   const size = flattenProps.size;
@@ -359,6 +452,7 @@ export const usePropsResolutionWithComponentTheme = (
   let componentSizeProps = {},
     flattenSizeStyle,
     sizeSpecificityMap;
+
   // Extracting props from size
   if (size && componentTheme.sizes && componentTheme.sizes[size]) {
     // Type - sizes: {lg: 1}. Refer icon theme
@@ -410,12 +504,15 @@ export const usePropsResolutionWithComponentTheme = (
     );
   }
 
+  // console.log(flattenActionStyle, 'flattenActionStyle');
+
   // // STEP 4: merge
   const defaultStyles = merge(
     {},
     flattenBaseStyle,
     flattenVariantStyle,
-    flattenSizeStyle
+    flattenSizeStyle,
+    flattenActionStyle
   );
 
   for (const prop in defaultStyles) {
