@@ -1,4 +1,4 @@
-import React, { useState, memo, forwardRef, useCallback, useRef } from 'react';
+import React, {useState, memo, forwardRef, useCallback, useRef, useMemo, useEffect} from 'react';
 import { Image as RNImage } from 'react-native';
 import Text from '../Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -20,27 +20,27 @@ const Image = (props: IImageProps, ref: any) => {
     ...resolvedProps
   } = usePropsResolution('Image', props);
 
-  const finalSource: any = useRef(null);
-  const getSource = useCallback(() => {
-    if (source) {
-      finalSource.current = source;
-    } else if (src) {
-      finalSource.current = { uri: src };
-    }
-    return finalSource.current;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [source?.uri, src]);
-
-  const [renderedSource, setSource] = useState(getSource());
   const [alternate, setAlternate] = useState(false);
   const [fallbackSourceFlag, setfallbackSourceFlag] = useState(true);
 
-  React.useEffect(() => {
-    setSource(getSource());
-    return () => {
-      finalSource.current = null;
-    };
-  }, [source?.uri, src, getSource]);
+  const getSource = useCallback(() => {
+    if (source) {
+      return source;
+    } else if (src) {
+      return { uri: src };
+    }
+    return undefined
+  }, [source, src])
+
+  const [renderedSource, setSource] = useState(getSource)
+
+  useEffect(() => {
+    const result = getSource()
+
+    if (result && JSON.stringify(result ?? {}) !== JSON.stringify(renderedSource ?? {})) {
+      setSource(result)
+    }
+  }, [getSource, renderedSource, setSource])
 
   const onImageLoadError = useCallback(
     (event: any) => {
