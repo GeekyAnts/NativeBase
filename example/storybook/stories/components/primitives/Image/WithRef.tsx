@@ -1,6 +1,6 @@
 //@ts-nocheck
 import React from 'react';
-import { Image } from 'native-base';
+import { Center, Image } from 'native-base';
 
 export function Example() {
   const myRef = React.useRef(null);
@@ -11,13 +11,15 @@ export function Example() {
   }, [myRef]);
 
   return (
-    <Image
-      ref={myRef}
-      source={{
-        uri: 'https://wallpaperaccess.com/full/317501.jpg',
-      }}
-      alt="Alternate Text"
-      size="xl"
-    />
+    <Center>
+      <Image
+        ref={myRef}
+        source={{
+          uri: 'https://wallpaperaccess.com/full/317501.jpg',
+        }}
+        alt="Alternate Text"
+        size="xl"
+      />
+    </Center>
   );
 }

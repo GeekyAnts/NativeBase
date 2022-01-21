@@ -34,7 +34,7 @@ export const Example = () => {
   const cols = useBreakpointValue({
     base: 3,
     sm: 4,
-    md: 12,
+    md: 8,
   });
   const icons = [
     {
