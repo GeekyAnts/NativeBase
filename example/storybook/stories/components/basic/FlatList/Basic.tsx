@@ -9,7 +9,6 @@ import {
   Text,
   Spacer,
 } from 'native-base';
-
 export const Example = () => {
   const data = [
     {
@@ -52,14 +51,8 @@ export const Example = () => {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU',
     },
   ];
-
   return (
-    <Box
-      w={{
-        base: '100%',
-        md: '25%',
-      }}
-    >
+    <Box>
       <Heading fontSize="xl" p="4" pb="3">
         Inbox
       </Heading>
