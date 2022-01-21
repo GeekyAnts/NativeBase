@@ -27,25 +27,27 @@ export const Example = () => {
       ],
     },
   ];
-
   return (
-    <SectionList
-      px="12"
-      mb="4"
-      sections={data}
-      keyExtractor={(item, index) => item + index}
-      renderItem={({ item }) => (
-        <Center py="4" minW="64" bg={item}>
-          {item.split('.')[1]}
-        </Center>
-      )}
-      renderSectionHeader={({ section: { title } }) => (
-        <Center>
-          <Heading fontSize="xl" mt="8" pb="4">
-            {title}
-          </Heading>
-        </Center>
-      )}
-    />
+    <Center h="80">
+      <SectionList
+        maxW="300"
+        w="100%"
+        mb="4"
+        sections={data}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({ item }) => (
+          <Center py="4" bg={item}>
+            {item.split('.')[1]}
+          </Center>
+        )}
+        renderSectionHeader={({ section: { title } }) => (
+          <Center>
+            <Heading fontSize="xl" mt="8" pb="4">
+              {title}
+            </Heading>
+          </Center>
+        )}
+      />
+    </Center>
   );
 };

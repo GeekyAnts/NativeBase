@@ -16,7 +16,7 @@ export const Example = () => {
             reversed. Deleted data can not be recovered.
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="unstyled" mr="1">
+            <Button variant="unstyled" mr="1" onPress={onClose}>
               Cancel
             </Button>
             <Button colorScheme="error" onPress={onClose}>
