@@ -100,6 +100,7 @@ const CustomToast = () => {
               space={2}
               alignItems="center"
               justifyContent="center"
+              pointerEvents="box-none"
             >
               {
                 // @ts-ignore
