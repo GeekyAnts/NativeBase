@@ -321,6 +321,7 @@ const colors = {
   secondary: {} as IColorHues,
   light: {} as IColorHues,
   tertiary: {} as IColorHues,
+  textColor: {} as IColorHues,
 };
 
 colors.danger = colors.red;
@@ -333,6 +334,7 @@ colors.secondary = colors.pink;
 colors.tertiary = colors.green;
 colors.info = colors.lightBlue;
 colors.light = colors.warmGray;
+colors.textColor = colors.trueGray;
 
 export default colors;
 // export type IColors = Leaves<ITheme['colors']>;
