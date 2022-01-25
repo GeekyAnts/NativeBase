@@ -29,6 +29,10 @@ import {
   VStack,
   FlatList,
   useBreakpointValue,
+  ShareIcon,
+  PlayIcon,
+  FavouriteIcon,
+  DeleteIcon,
 } from 'native-base';
 export const Example = () => {
   const cols = useBreakpointValue({
@@ -132,6 +136,22 @@ export const Example = () => {
     {
       icon: <WarningTwoIcon size="4" />,
       iconName: 'warning-2',
+    },
+    {
+      icon: <ShareIcon size="4" />,
+      iconName: 'share',
+    },
+    {
+      icon: <PlayIcon size="4" />,
+      iconName: 'play',
+    },
+    {
+      icon: <FavouriteIcon size="4" />,
+      iconName: 'favourite',
+    },
+    {
+      icon: <DeleteIcon size="4" />,
+      iconName: 'delete',
     },
   ];
   return (
