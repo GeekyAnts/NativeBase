@@ -6,17 +6,18 @@ export const Select = {
         size: '6',
         p: '1',
         pl: '0',
-        color: 'trueGray.400',
+        color: mode('textColor.500', 'textColor.400')(props),
       },
       _disabled: {
-        opacity: '80',
+        opacity: '40',
         bg: mode('muted.100', 'muted.700')(props),
       },
       _invalid: {
-        borderColor: mode('danger.600', 'danger.300')(props),
+        borderColor: mode('error.700', 'error.400')(props),
       },
       _focus: {
         borderColor: mode('primary.400', 'primary.500')(props),
+        bg: mode('muted.100', 'muted.700')(props),
       },
       _hover: {
         bg: mode('gray.100', 'gray.700')(props),
