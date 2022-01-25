@@ -1,13 +1,13 @@
 import { mode } from '../tools';
-import { Platform } from 'react-native';
+// import { Platform } from 'react-native';
 
-function getSelectionColor(props: Record<string, any>) {
-  if (Platform.OS === 'ios') {
-    return mode('coolGray.800', 'warmGray.50')(props);
-  } else if (Platform.OS === 'android') {
-    return mode('coolGray.800', 'warmGray.50')(props);
-  }
-}
+// function getSelectionColor(props: Record<string, any>) {
+//   if (Platform.OS === 'ios') {
+//     return mode('coolGray.800', 'warmGray.50')(props);
+//   } else if (Platform.OS === 'android') {
+//     return mode('coolGray.800', 'warmGray.50')(props);
+//   }
+// }
 
 const baseStyle = (props: Record<string, any>) => {
   // const { primary } = props.theme.colors;
@@ -27,23 +27,31 @@ const baseStyle = (props: Record<string, any>) => {
   //       };
 
   return {
-    selectionColor: getSelectionColor(props),
+    _light: {
+      selectionColor: 'primary.700',
+    },
+    _dark: {
+      selectionColor: 'primary.400',
+    },
     fontFamily: 'body',
-    p: '2',
+    fontWeight: 'medium',
+    px: '3',
+    py: '2',
     borderRadius: 'sm',
     overflow: 'hidden',
-    color: mode('coolGray.800', 'warmGray.50')(props),
+    color: mode('muted.500', 'muted.400')(props),
     placeholderTextColor: 'muted.400',
     borderColor: mode('muted.200', 'gray.500')(props),
     _disabled: {
-      opacity: '80',
+      opacity: '40',
       bg: mode('muted.100', 'muted.700')(props),
     },
     _invalid: {
-      borderColor: mode('danger.600', 'danger.300')(props),
+      borderColor: mode('muted.100', 'muted.700')(props),
     },
     _focus: {
       borderColor: mode('primary.400', 'primary.500')(props),
+      bg: mode('muted.100', 'muted.700')(props),
     },
     _web: {
       outlineWidth: '0',
@@ -55,7 +63,7 @@ const baseStyle = (props: Record<string, any>) => {
 
 function roundedStyle(props: Record<string, any>) {
   return {
-    borderRadius: '25',
+    borderRadius: 'full',
     borderWidth: '1',
     _hover: {
       bg: mode('gray.100', 'gray.700')(props),
