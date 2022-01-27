@@ -5,15 +5,18 @@ const baseStyle = (props: Record<string, any>) => {
     color: mode('muted.700', 'white')(props),
     fontWeight: 'bold',
     lineHeight: 'sm',
+    letterSpacing: 'md',
   };
 };
 
 const sizes = {
   '4xl': {
     fontSize: ['6xl', null, '7xl'],
+    letterSpacing: 'xs',
   },
   '3xl': {
     fontSize: ['5xl', null, '6xl'],
+    letterSpacing: 'xs',
   },
   '2xl': {
     fontSize: ['4xl', null, '5xl'],
