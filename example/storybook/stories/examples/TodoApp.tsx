@@ -36,8 +36,8 @@ export const Example = () => {
   const [inputValue, setInputValue] = React.useState('');
 
   const addItem = (title: string) => {
-    setList([
-      ...list,
+    setList((prevList) => [
+      ...prevList,
       {
         title: title,
         isCompleted: false,
@@ -46,15 +46,19 @@ export const Example = () => {
   };
 
   const handleDelete = (index: number) => {
-    const temp = list.filter((_, itemI) => itemI !== index);
-    setList(temp);
+    setList((prevList) => {
+      const temp = prevList.filter((_, itemI) => itemI !== index);
+      return temp;
+    });
   };
 
   const handleStatusChange = (index: number) => {
-    const temp = list.map((item, itemI) =>
-      itemI !== index ? item : { ...item, isCompleted: !item.isCompleted }
-    );
-    setList(temp);
+    setList((prevList) => {
+      const temp = prevList.map((item, itemI) =>
+        itemI !== index ? item : { ...item, isCompleted: !item.isCompleted }
+      );
+      return temp;
+    });
   };
 
   return (
