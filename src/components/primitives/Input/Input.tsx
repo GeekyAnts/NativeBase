@@ -112,8 +112,7 @@ const Input = (props: IInputProps, ref: any) => {
     return (
       <InputBase
         inputProps={inputProps}
-        {...layoutProps}
-        {...baseInputProps}
+        {...props}
         ref={ref}
         onFocus={(e) => {
           handleFocus(true, onFocus ? () => onFocus(e) : () => {});
