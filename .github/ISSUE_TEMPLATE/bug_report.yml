@@ -25,7 +25,7 @@ body:
   - type: 'input'
     id: 'reproduction'
     attributes:
-      label: 'CodeSandBox/Snack link'
+      label: 'CodeSandbox/Snack link'
       description: |
         It would be easier for us to debug if you can reproduce the error in a codesandbox link or a snack link. You can use the [codesandbox template](https://codesandbox.io/s/native-base-v3-template-mq6ox)/[snack template](https://snack.expo.io/@mdrehman/nativebase-template).
       placeholder: 'https://codesandbox.io/  or   https://snack.expo.dev/'
