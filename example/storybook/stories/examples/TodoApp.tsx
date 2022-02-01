@@ -105,6 +105,7 @@ export const Example = () => {
                 ></Checkbox>
                 <Text
                   width="100%"
+                  flexShrink={1}
                   textAlign="left"
                   mx="2"
                   strikeThrough={item.isCompleted}
