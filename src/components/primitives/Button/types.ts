@@ -37,7 +37,7 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
    */
   isFocused?: boolean;
   /**
-   * If true, the button will be focused.
+   * If true, the button focus ring will be visible.
    */
   isFocusVisible?: boolean;
   /**
