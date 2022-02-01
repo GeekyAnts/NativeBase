@@ -28,6 +28,7 @@ const Button = (
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
+    isFocusVisible: isFocusVisibleProp,
     spinnerPlacement = 'start',
     ...props
   }: IButtonProps & IBoxProps,
@@ -56,7 +57,7 @@ const Button = (
     isFocused: isFocusedProp || isFocused,
     isPressed: isPressedProp || isPressed,
     isLoading,
-    isFocusVisible,
+    isFocusVisible: isFocusVisibleProp || isFocusVisible,
   });
 
   //TODO: refactor for responsive prop

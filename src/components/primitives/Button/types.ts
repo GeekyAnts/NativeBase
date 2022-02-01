@@ -37,6 +37,10 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
    */
   isFocused?: boolean;
   /**
+   * If true, the button will be focused.
+   */
+  isFocusVisible?: boolean;
+  /**
    * The size of the button.
    */
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
