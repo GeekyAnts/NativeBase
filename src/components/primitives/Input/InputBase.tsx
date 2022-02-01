@@ -20,6 +20,7 @@ const InputBase = (
     inputProps,
     wrapperRef,
     isHovered: isHoveredProp,
+    isFocused: isFocusedProp,
     ...props
   }: IInputProps & {
     disableFocusHandling?: boolean;
@@ -66,7 +67,7 @@ const InputBase = (
     {
       isDisabled: inputThemeProps.isDisabled,
       isHovered: isHoveredProp || isHovered,
-      isFocused,
+      isFocused: isFocusedProp || isFocused,
       isInvalid: inputThemeProps.isInvalid,
       isReadOnly: inputThemeProps.isReadOnly,
     }
