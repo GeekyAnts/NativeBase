@@ -29,6 +29,10 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
    */
   isHovered?: boolean;
   /**
+   * If true, the button will be in pressed state.
+   */
+  isPressed?: boolean;
+  /**
    * The size of the button.
    */
   size?: ResponsiveValue<ISizes | (string & {}) | number>;

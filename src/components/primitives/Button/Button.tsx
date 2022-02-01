@@ -26,6 +26,7 @@ const Button = (
     isDisabled,
     isLoading,
     isHovered: isHoveredProp,
+    isPressed: isPressedProp,
     spinnerPlacement = 'start',
     ...props
   }: IButtonProps & IBoxProps,
@@ -52,7 +53,7 @@ const Button = (
     isDisabled,
     isHovered: isHoveredProp || isHovered,
     isFocused,
-    isPressed,
+    isPressed: isPressedProp || isPressed,
     isLoading,
     isFocusVisible,
   });
