@@ -47,7 +47,10 @@ export interface IPressableProps<T = IPressableProps<unknown>>
    * 	If true, the p will be hovered.
    */
   isHovered?: boolean;
-
+  /**
+   * 	If true, the p will be pressed.
+   */
+  isPressed?: boolean;
   /**
    * Style props to be applied when focus visible. These styles will be only applied when user is interacting the app using a keyboard. (Web only)
    */

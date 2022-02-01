@@ -48,6 +48,7 @@ const Pressable = (
     isDisabled,
     disabled,
     isHovered: isHoveredProp,
+    isPressed: isPressedProp,
     ...props
   }: IPressableProps,
   ref: any
@@ -66,7 +67,7 @@ const Pressable = (
     onBlur,
     ...resolvedProps
   } = usePropsResolution('Pressable', props, {
-    isPressed,
+    isPressed: isPressedProp || isPressed,
     isFocused,
     isHovered: isHoveredProp || isHovered,
     isFocusVisible,
