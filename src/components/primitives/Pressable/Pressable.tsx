@@ -50,6 +50,7 @@ const Pressable = (
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
+    isFocusVisible: isFocusVisibleProp,
     ...props
   }: IPressableProps,
   ref: any
@@ -71,7 +72,7 @@ const Pressable = (
     isPressed: isPressedProp || isPressed,
     isFocused: isFocusedProp || isFocused,
     isHovered: isHoveredProp || isHovered,
-    isFocusVisible,
+    isFocusVisible: isFocusVisibleProp || isFocusVisible,
     isDisabled: disabled || isDisabled,
   });
 
