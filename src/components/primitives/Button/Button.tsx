@@ -25,6 +25,7 @@ const Button = (
     spinner,
     isDisabled,
     isLoading,
+    isHovered: isHoveredProp,
     spinnerPlacement = 'start',
     ...props
   }: IButtonProps & IBoxProps,
@@ -49,7 +50,7 @@ const Button = (
     ...resolvedProps
   } = usePropsResolution('Button', props, {
     isDisabled,
-    isHovered,
+    isHovered: isHoveredProp || isHovered,
     isFocused,
     isPressed,
     isLoading,
