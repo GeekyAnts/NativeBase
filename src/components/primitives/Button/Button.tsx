@@ -27,6 +27,7 @@ const Button = (
     isLoading,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
+    isFocused: isFocusedProp,
     spinnerPlacement = 'start',
     ...props
   }: IButtonProps & IBoxProps,
@@ -52,7 +53,7 @@ const Button = (
   } = usePropsResolution('Button', props, {
     isDisabled,
     isHovered: isHoveredProp || isHovered,
-    isFocused,
+    isFocused: isFocusedProp || isFocused,
     isPressed: isPressedProp || isPressed,
     isLoading,
     isFocusVisible,
