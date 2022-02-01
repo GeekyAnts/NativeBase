@@ -43,7 +43,13 @@ export const useIsPressed = () => {
 const StyledPressable = makeStyledComponent(RNPressable);
 
 const Pressable = (
-  { children, isDisabled, disabled, ...props }: IPressableProps,
+  {
+    children,
+    isDisabled,
+    disabled,
+    isHovered: isHoveredProp,
+    ...props
+  }: IPressableProps,
   ref: any
 ) => {
   const { hoverProps, isHovered } = useHover();
@@ -62,7 +68,7 @@ const Pressable = (
   } = usePropsResolution('Pressable', props, {
     isPressed,
     isFocused,
-    isHovered,
+    isHovered: isHoveredProp || isHovered,
     isFocusVisible,
     isDisabled: disabled || isDisabled,
   });
