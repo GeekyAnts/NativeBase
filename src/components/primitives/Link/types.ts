@@ -16,6 +16,10 @@ export interface ILinkProps extends IBoxProps<ILinkProps> {
    */
   isUnderlined?: boolean | undefined;
   /**
+   * Whether Link text should be hovered
+   */
+  isHovered?: boolean;
+  /**
    * Callback that will be invoked on Link press
    */
   onPress?: ((event?: GestureResponderEvent) => any) | null | undefined;
