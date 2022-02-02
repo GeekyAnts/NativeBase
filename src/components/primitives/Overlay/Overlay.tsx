@@ -33,16 +33,16 @@ export function Overlay({
   });
 
   //TODO: performance remove-below-lines of code after updating react-native-aria
-  if (exited && !isOpen) {
-    return null;
-  }
+  // if (exited && !isOpen) {
+  //   return null;
+  // }
   // Android handles multiple Modal in RN and is better for accessibility as it shifts accessibility focus on mount, however it may not needed in case of tooltips, toast where one doesn't need to shift accessibility focus
 
   //TODO: performance add-below-lines of code after updating react-native-aria
-  // let display = exited && !isOpen ? 'none' : 'contents';
-  // if (animationPreset === 'slide') {
-  //   display = 'contents';
-  // }
+  let display = exited && !isOpen ? 'none' : 'contents';
+  if (animationPreset === 'slide') {
+    display = 'contents';
+  }
 
   if (Platform.OS === 'android' && useRNModalOnAndroid) {
     return (
@@ -60,7 +60,7 @@ export function Overlay({
 
   return (
     //@ts-ignore
-    <OverlayContainer>
+    <OverlayContainer style={{ display: display }}>
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         {children}
       </ExitAnimationContext.Provider>

@@ -2352,14 +2352,14 @@
     "@react-types/listbox" "^3.1.1"
     "@react-types/shared" "^3.4.0"
 
-"@react-native-aria/overlays@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/overlays/-/overlays-0.3.2.tgz#fe3fb983b197738237493c3e5af6b30f6da6be9d"
-  integrity sha512-sc2attCn+stKugBF8ZBz+EIdGoEHU/+NbJc5agS6lZWeemXL5LcgomNf6Tn7RUlpLfWOTEGBQOAiOZxjZnIQmQ==
+"@react-native-aria/overlays@^0.3.3-rc.0":
+  version "0.3.3-rc.0"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/overlays/-/overlays-0.3.3-rc.0.tgz#9041ddd6f151e6edb50c971d29920c458aa41459"
+  integrity sha512-RgaIYIHMltt0RdMrVwfXLAVxc22TIUY1Yx07HbQRMdt4LcSmU8pyp5CEtJ/MQCXceuqocnXfsUxyHOSnfhmfpA==
   dependencies:
     "@react-aria/interactions" "^3.3.2"
     "@react-aria/overlays" "^3.7.0"
-    "@react-native-aria/utils" "^0.2.6"
+    "@react-native-aria/utils" "^0.2.8"
     "@react-stately/overlays" "^3.1.1"
     "@react-types/overlays" "^3.4.0"
     dom-helpers "^5.0.0"
