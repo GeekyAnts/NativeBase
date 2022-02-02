@@ -63,6 +63,10 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
    */
   isFocused?: boolean;
   /**
+   * If true, the checkbox focus ring will be visible.
+   */
+  isFocusVisible?: boolean;
+  /**
    * The size (width and height) of the checkbox.
    * @default 'md'
    */
