@@ -13,7 +13,13 @@ import {
 import { useFocusRing } from '@react-native-aria/focus';
 
 const IconButton = (
-  { icon, children, isHovered: isHoveredProp, ...props }: IIconButtonProps,
+  {
+    icon,
+    children,
+    isHovered: isHoveredProp,
+    isPressed: isPressedProp,
+    ...props
+  }: IIconButtonProps,
   ref: any
 ) => {
   const { hoverProps, isHovered } = useHover();
@@ -32,7 +38,7 @@ const IconButton = (
     ...resolvedProps
   } = usePropsResolution('IconButton', props, {
     isHovered: isHoveredProp || isHovered,
-    isPressed,
+    isPressed: isPressedProp || isPressed,
     isFocused,
     isFocusVisible,
   });

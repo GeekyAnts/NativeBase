@@ -45,6 +45,10 @@ export interface IIconButtonProps
    */
   isHovered?: boolean;
   /**
+   * If true, the button will be pressed.
+   */
+  isPressed?: boolean;
+  /**
    * The icon to be used. Refer to the Icon section of the docs for the available icon options.
    */
   icon?: JSX.Element;
