@@ -33,6 +33,7 @@ const RadioComponent = memo(
         children,
         wrapperRef,
         isHovered: isHoveredProp,
+        isPressed: isPressedProp,
       }: any,
       ref: any
     ) => {
@@ -67,7 +68,7 @@ const RadioComponent = memo(
           isIndeterminate,
           isChecked,
           isHovered: isHoveredProp || isHovered,
-          isPressed,
+          isPressed: isPressedProp || isPressed,
           isFocused,
         }
       );
@@ -148,6 +149,7 @@ const Radio = (
     size,
     wrapperRef,
     isHovered: isHoveredProp,
+    isPressed: isPressedProp,
     ...props
   }: IRadioProps,
   ref: any
@@ -195,6 +197,7 @@ const Radio = (
       icon={icon}
       wrapperRef={wrapperRef}
       isHovered={isHoveredProp}
+      isPressed={isPressedProp}
     />
   );
 };
