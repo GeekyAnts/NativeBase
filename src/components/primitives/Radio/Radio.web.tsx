@@ -25,6 +25,7 @@ const RadioComponent = memo(
         children,
         wrapperRef,
         isHovered: isHoveredProp,
+        isFocusVisible: isFocusVisibleProp,
         ...props
       }: any,
       ref: any
@@ -44,7 +45,7 @@ const RadioComponent = memo(
         {
           isInvalid,
           isReadOnly,
-          isFocusVisible,
+          isFocusVisible: isFocusVisibleProp || isFocusVisible,
           isDisabled,
           isIndeterminate,
           isChecked,
@@ -83,8 +84,22 @@ const RadioComponent = memo(
                 // @ts-ignore - only for web"
                 transition: 'height 200ms, width 200ms',
               }}
-              h={isFocusVisible || isHovered || isHoveredProp ? '200%' : '100%'}
-              w={isFocusVisible || isHovered || isHoveredProp ? '200%' : '100%'}
+              h={
+                isFocusVisible ||
+                isFocusVisibleProp ||
+                isHovered ||
+                isHoveredProp
+                  ? '200%'
+                  : '100%'
+              }
+              w={
+                isFocusVisible ||
+                isFocusVisibleProp ||
+                isHovered ||
+                isHoveredProp
+                  ? '200%'
+                  : '100%'
+              }
               pointerEvents="none"
             />
             {/* Radio */}
@@ -129,6 +144,7 @@ const Radio = (
     children,
     wrapperRef,
     isHovered: isHoveredProp,
+    isFocusVisible: isFocusVisibleProp,
     ...props
   }: IRadioProps,
   ref: any
@@ -175,6 +191,7 @@ const Radio = (
       icon={icon}
       wrapperRef={wrapperRef}
       isHovered={isHoveredProp}
+      isFocusVisible={isFocusVisibleProp}
     />
   );
 };
