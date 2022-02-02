@@ -51,6 +51,10 @@ export interface ISelectProps extends IBoxProps<ISelectProps> {
    */
   isFocused?: boolean;
   /**
+   * If true, the focus ring of select will be visible.
+   */
+  isFocusVisible?: boolean;
+  /**
    * If given, updates the dropdown Icon
    */
   dropdownIcon?: JSX.Element;

@@ -40,6 +40,7 @@ const Select = (
   {
     isHovered: isHoveredProp,
     isFocused: isFocusedProp,
+    isFocusVisible: isFocusVisibleProp,
     ...props
   }: ISelectProps,
   ref: any
@@ -85,7 +86,7 @@ const Select = (
       isDisabled,
       isHovered: isHoveredProp || isHovered,
       isFocused: isFocusedProp || isFocused,
-      isFocusVisible,
+      isFocusVisible: isFocusVisibleProp || isFocusVisible,
     },
     undefined
   );
