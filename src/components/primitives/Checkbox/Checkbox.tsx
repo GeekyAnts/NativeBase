@@ -19,7 +19,10 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import SizedIcon from './SizedIcon';
 
-const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
+const Checkbox = (
+  { wrapperRef, isHovered: isHoveredProp, ...props }: ICheckboxProps,
+  ref: any
+) => {
   const formControlContext = useFormControlContext();
 
   const {
@@ -76,6 +79,7 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       isInvalid={isInvalid}
       isReadOnly={isReadOnly}
       isIndeterminate={isIndeterminate}
+      isHovered={isHoveredProp}
       wrapperRef={wrapperRef}
     />
   );
@@ -88,6 +92,7 @@ const CheckboxComponent = React.memo(
     isInvalid,
     isReadOnly,
     isIndeterminate,
+    isHovered: isHoveredProp,
   }: any) => {
     const _ref = React.useRef();
     const { hoverProps, isHovered } = useHover();
@@ -115,7 +120,7 @@ const CheckboxComponent = React.memo(
       isIndeterminate,
       isDisabled,
       isChecked,
-      isHovered,
+      isHovered: isHoveredProp || isHovered,
       isPressed,
       isFocused,
     });
