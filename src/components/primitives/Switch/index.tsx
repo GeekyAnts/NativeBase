@@ -27,6 +27,7 @@ const Switch = (
     onToggle,
     value,
     onValueChange,
+    isHovered: isHoveredProp,
     ...props
   }: ISwitchProps,
   ref: any
@@ -49,7 +50,7 @@ const Switch = (
     offThumbColor: _offThumbColor,
     ...resolvedProps
   } = usePropsResolution('Switch', props, {
-    isHovered,
+    isHovered: isHoveredProp || isHovered,
     isDisabled: disabled || isDisabled || combinedProps.isDisabled,
     isInvalid: isInvalid || combinedProps.isInvalid,
     isChecked: checked,
