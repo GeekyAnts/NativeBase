@@ -41,6 +41,10 @@ export interface IIconButtonProps
    */
   isDisabled?: boolean;
   /**
+   * If true, the button will be hovered.
+   */
+  isHovered?: boolean;
+  /**
    * The icon to be used. Refer to the Icon section of the docs for the available icon options.
    */
   icon?: JSX.Element;
