@@ -41,18 +41,6 @@ export interface IIconButtonProps
    */
   isDisabled?: boolean;
   /**
-   * If true, the button will be hovered.
-   */
-  isHovered?: boolean;
-  /**
-   * If true, the button will be pressed.
-   */
-  isPressed?: boolean;
-  /**
-   * If true, the button will be focused.
-   */
-  isFocused?: boolean;
-  /**
    * The icon to be used. Refer to the Icon section of the docs for the available icon options.
    */
   icon?: JSX.Element;
