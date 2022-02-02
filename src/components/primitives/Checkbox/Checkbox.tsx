@@ -24,6 +24,7 @@ const Checkbox = (
     wrapperRef,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
+    isFocused: isFocusedProp,
     ...props
   }: ICheckboxProps,
   ref: any
@@ -86,6 +87,7 @@ const Checkbox = (
       isIndeterminate={isIndeterminate}
       isHovered={isHoveredProp}
       isPressed={isPressedProp}
+      isFocused={isFocusedProp}
       wrapperRef={wrapperRef}
     />
   );
@@ -100,6 +102,7 @@ const CheckboxComponent = React.memo(
     isIndeterminate,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
+    isFocused: isFocusedProp,
   }: any) => {
     const _ref = React.useRef();
     const { hoverProps, isHovered } = useHover();
@@ -129,7 +132,7 @@ const CheckboxComponent = React.memo(
       isChecked,
       isHovered: isHoveredProp || isHovered,
       isPressed: isPressedProp || isPressed,
-      isFocused,
+      isFocused: isFocusedProp || isFocused,
     });
 
     const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [

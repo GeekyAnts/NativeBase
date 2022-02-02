@@ -59,6 +59,10 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
    */
   isPressed?: boolean;
   /**
+   * If true, the checkbox will be focused.
+   */
+  isFocused?: boolean;
+  /**
    * The size (width and height) of the checkbox.
    * @default 'md'
    */
