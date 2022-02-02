@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, ViewStyle } from 'react-native';
 import { Modal } from 'react-native';
 import { useKeyboardDismissable } from '../../../hooks';
 import { ExitAnimationContext } from './ExitAnimationContext';
@@ -14,6 +14,7 @@ interface IOverlayProps {
   onRequestClose?: (() => any) | undefined;
   isKeyboardDismissable?: boolean;
   animationPreset?: string;
+  style?: ViewStyle;
 }
 
 export function Overlay({
@@ -24,6 +25,7 @@ export function Overlay({
   //@ts-ignore
   animationPreset = 'fade',
   onRequestClose,
+  style,
 }: IOverlayProps) {
   const [exited, setExited] = React.useState(!isOpen);
 
@@ -57,10 +59,18 @@ export function Overlay({
   // Since OverlayContainer mounts children in NativeBaseProvider  using Context, we need to pass the context by wrapping children
   //TODO: performance add-below-lines of code after updating react-native-aria
   // <OverlayContainer style={{ display: display }}>
-
   return (
     //@ts-ignore
-    <OverlayContainer style={{ display: display }}>
+    <OverlayContainer
+      style={{
+        backgroundColor: 'red',
+        height: '30%',
+        width: '40%',
+        display,
+        pointerEvents: 'none',
+      }}
+      className="testing"
+    >
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         {children}
       </ExitAnimationContext.Provider>

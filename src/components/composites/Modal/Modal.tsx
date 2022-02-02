@@ -80,6 +80,7 @@ const Modal = (
       isKeyboardDismissable={isKeyboardDismissable}
       animationPreset={animationPreset}
       useRNModalOnAndroid
+      style={{ overflow: 'hidden', backgroundColor: 'red' }}
     >
       <ModalContext.Provider value={contextValue}>
         <Fade
