@@ -43,6 +43,10 @@ export interface ISelectProps extends IBoxProps<ISelectProps> {
    */
   isDisabled?: boolean;
   /**
+   * Whether Select is hovered
+   */
+  isHovered?: boolean;
+  /**
    * If given, updates the dropdown Icon
    */
   dropdownIcon?: JSX.Element;
