@@ -51,6 +51,10 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
    */
   isReadOnly?: boolean;
   /**
+   * If true, the checkbox is hovered.
+   */
+  isHovered?: boolean;
+  /**
    * The size (width and height) of the checkbox.
    * @default 'md'
    */
