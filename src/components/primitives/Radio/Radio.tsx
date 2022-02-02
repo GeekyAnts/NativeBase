@@ -34,6 +34,7 @@ const RadioComponent = memo(
         wrapperRef,
         isHovered: isHoveredProp,
         isPressed: isPressedProp,
+        isFocused: isFocusedProp,
       }: any,
       ref: any
     ) => {
@@ -69,7 +70,7 @@ const RadioComponent = memo(
           isChecked,
           isHovered: isHoveredProp || isHovered,
           isPressed: isPressedProp || isPressed,
-          isFocused,
+          isFocused: isFocusedProp || isFocused,
         }
       );
 
@@ -150,6 +151,7 @@ const Radio = (
     wrapperRef,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
+    isFocused: isFocusedProp,
     ...props
   }: IRadioProps,
   ref: any
@@ -198,6 +200,7 @@ const Radio = (
       wrapperRef={wrapperRef}
       isHovered={isHoveredProp}
       isPressed={isPressedProp}
+      isFocused={isFocusedProp}
     />
   );
 };

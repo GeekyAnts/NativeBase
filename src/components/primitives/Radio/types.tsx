@@ -32,6 +32,10 @@ export interface IRadioProps extends IBoxProps<IRadioProps> {
    */
   isPressed?: boolean;
   /**
+   * 	If true, the radio will be focused
+   */
+  isFocused?: boolean;
+  /**
    * If true, the radio is marked as invalid. Changes style of unchecked state.
    */
   isInvalid?: boolean;
