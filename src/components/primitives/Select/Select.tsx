@@ -37,7 +37,11 @@ export const SelectContext = React.createContext({
 });
 
 const Select = (
-  { isHovered: isHoveredProp, ...props }: ISelectProps,
+  {
+    isHovered: isHoveredProp,
+    isFocused: isFocusedProp,
+    ...props
+  }: ISelectProps,
   ref: any
 ) => {
   const selectProps = useFormControl({
@@ -80,7 +84,7 @@ const Select = (
     {
       isDisabled,
       isHovered: isHoveredProp || isHovered,
-      isFocused,
+      isFocused: isFocusedProp || isFocused,
       isFocusVisible,
     },
     undefined
