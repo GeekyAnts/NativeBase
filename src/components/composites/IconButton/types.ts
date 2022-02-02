@@ -49,6 +49,10 @@ export interface IIconButtonProps
    */
   isPressed?: boolean;
   /**
+   * If true, the button will be focused.
+   */
+  isFocused?: boolean;
+  /**
    * The icon to be used. Refer to the Icon section of the docs for the available icon options.
    */
   icon?: JSX.Element;

@@ -18,6 +18,7 @@ const IconButton = (
     children,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
+    isFocused: isFocusedProp,
     ...props
   }: IIconButtonProps,
   ref: any
@@ -39,7 +40,7 @@ const IconButton = (
   } = usePropsResolution('IconButton', props, {
     isHovered: isHoveredProp || isHovered,
     isPressed: isPressedProp || isPressed,
-    isFocused,
+    isFocused: isFocusedProp || isFocused,
     isFocusVisible,
   });
 
