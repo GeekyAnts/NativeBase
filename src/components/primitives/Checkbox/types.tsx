@@ -51,9 +51,13 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
    */
   isReadOnly?: boolean;
   /**
-   * If true, the checkbox is hovered.
+   * If true, the checkbox will be hovered.
    */
   isHovered?: boolean;
+  /**
+   * If true, the checkbox will be pressed.
+   */
+  isPressed?: boolean;
   /**
    * The size (width and height) of the checkbox.
    * @default 'md'
