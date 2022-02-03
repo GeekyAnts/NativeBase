@@ -20,13 +20,14 @@ const Actionsheet = (
   if (useHasResponsiveProps(props)) {
     return null;
   }
+  console.log('resolvedProps', resolvedProps);
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      justifyContent="flex-end"
+      // justifyContent="flex-end"
       //@ts-ignore - internal use only
-      animationPreset="slide"
+      // animationPreset="slide"
       {...resolvedProps}
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}
