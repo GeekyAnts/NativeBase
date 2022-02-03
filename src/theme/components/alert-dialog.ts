@@ -45,6 +45,7 @@ export const AlertDialog = {
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    pointerEvents: 'box-none',
   },
   sizes,
   defaultProps: {
@@ -80,6 +81,7 @@ export const AlertDialogCloseButton = {
       },
     };
   },
+  defaultProps: { variant: 'ghost' },
 };
 export const AlertDialogHeader = {
   baseStyle: (props: Record<string, any>) => {
