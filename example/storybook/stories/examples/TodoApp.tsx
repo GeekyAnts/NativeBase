@@ -10,6 +10,7 @@ import {
   Heading,
   Icon,
   Center,
+  useToast,
 } from 'native-base';
 import { Feather, Entypo } from '@expo/vector-icons';
 
@@ -34,27 +35,33 @@ export const Example = () => {
   ];
   const [list, setList] = React.useState(instState);
   const [inputValue, setInputValue] = React.useState('');
-
+  const toast = useToast();
   const addItem = (title: string) => {
-    setList([
-      ...list,
-      {
-        title: title,
-        isCompleted: false,
-      },
-    ]);
+    if (title === '') {
+      toast.show({
+        title: 'Please Enter Text',
+        status: 'warning',
+      });
+      return;
+    }
+    setList((prevList) => {
+      return [...prevList, { title: title, isCompleted: false }];
+    });
   };
 
   const handleDelete = (index: number) => {
-    const temp = list.filter((_, itemI) => itemI !== index);
-    setList(temp);
+    setList((prevList) => {
+      const temp = prevList.filter((_, itemI) => itemI !== index);
+      return temp;
+    });
   };
 
   const handleStatusChange = (index: number) => {
-    const temp = list.map((item, itemI) =>
-      itemI !== index ? item : { ...item, isCompleted: !item.isCompleted }
-    );
-    setList(temp);
+    setList((prevList) => {
+      const newList = [...prevList];
+      newList[index].isCompleted = !newList[index].isCompleted;
+      return newList;
+    });
   };
 
   return (
@@ -95,20 +102,23 @@ export const Example = () => {
                   isChecked={item.isCompleted}
                   onChange={() => handleStatusChange(itemI)}
                   value={item.title}
+                ></Checkbox>
+                <Text
+                  width="100%"
+                  flexShrink={1}
+                  textAlign="left"
+                  mx="2"
+                  strikeThrough={item.isCompleted}
+                  _light={{
+                    color: item.isCompleted ? 'gray.400' : 'coolGray.800',
+                  }}
+                  _dark={{
+                    color: item.isCompleted ? 'gray.400' : 'coolGray.50',
+                  }}
+                  onPress={() => handleStatusChange(itemI)}
                 >
-                  <Text
-                    mx="2"
-                    strikeThrough={item.isCompleted}
-                    _light={{
-                      color: item.isCompleted ? 'gray.400' : 'coolGray.800',
-                    }}
-                    _dark={{
-                      color: item.isCompleted ? 'gray.400' : 'coolGray.50',
-                    }}
-                  >
-                    {item.title}
-                  </Text>
-                </Checkbox>
+                  {item.title}
+                </Text>
                 <IconButton
                   size="sm"
                   colorScheme="trueGray"
