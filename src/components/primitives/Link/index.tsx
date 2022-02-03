@@ -55,22 +55,24 @@ const Link = (props: ILinkProps, ref: any) => {
           {children}
         </Box>
       ) : (
-        <Pressable
-          {...linkProps}
-          {...resolvedProps}
-          ref={ref}
-          flexDirection="row"
-        >
+        <>
           {React.Children.map(children, (child) =>
             typeof child === 'string' || typeof child === 'number' ? (
-              <Text {...resolvedProps._text} {...linkTextProps}>
+              <Text {...resolvedProps._text} {...linkTextProps} {...linkProps} {...resolvedProps} ref={ref}>
                 {child}
               </Text>
             ) : (
-              child
+              <Pressable
+                {...linkProps}
+                {...resolvedProps}
+                ref={ref}
+                flexDirection="row"
+              >
+                {child}
+              </Pressable>
             )
           )}
-        </Pressable>
+        </>
       )}
     </>
   );
