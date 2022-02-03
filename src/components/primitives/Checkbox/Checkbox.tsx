@@ -173,7 +173,7 @@ const CheckboxComponent = React.memo(
               p={5}
               w="100%"
               height="100%"
-              zIndex={-1}
+              // zIndex={-1}
             />
             {/* Checkbox */}
             <Center {...nonAccessibilityProps}>

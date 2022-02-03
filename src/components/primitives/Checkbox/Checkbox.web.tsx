@@ -144,7 +144,7 @@ const CheckboxComponent = React.memo(
               h={isFocusVisible || isHovered ? '200%' : '0%'}
               w={isFocusVisible || isHovered ? '200%' : '0%'}
               pointerEvents="none"
-              zIndex={-1}
+              // zIndex={-1}
             />
             {/* Checkbox */}
             <Center {...nonLayoutProps}>
