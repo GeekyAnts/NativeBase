@@ -20,7 +20,7 @@ const Actionsheet = (
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  console.log('resolvedProps', resolvedProps);
+
   return (
     <Modal
       isOpen={isOpen}
