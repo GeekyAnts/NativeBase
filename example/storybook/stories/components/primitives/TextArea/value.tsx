@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextArea } from 'native-base';
+import { TextArea, Box } from 'native-base';
 
 export const Example = () => {
   const [textAreaValue, setTextAreaValue] = useState('Value Controlled');
@@ -7,10 +7,13 @@ export const Example = () => {
     setTextAreaValue(e.currentTarget.value);
   };
   return (
-    <TextArea
-      value={textAreaValue}
-      onChange={demoValueControlledTextArea}
-      w={{ base: '70%', md: '25%' }}
-    />
+    <Box alignItems="center" w="100%">
+      <TextArea
+        value={textAreaValue}
+        onChange={demoValueControlledTextArea}
+        w="75%"
+        maxW="300"
+      />
+    </Box>
   );
 };

@@ -12,7 +12,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 export const Example = () => {
   return (
-    <KeyboardAwareScrollView style={{ width: '90%' }}>
+    // eslint-disable-next-line react-native/no-inline-styles
+    <KeyboardAwareScrollView style={{ width: '100%' }}>
       <Stack
         space={2.5}
         alignSelf="center"

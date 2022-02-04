@@ -10,13 +10,13 @@ export const Example = () => {
       borderRadius: 4,
       borderColor: '#22D3EE',
     };
-    myRef?.current.setNativeProps({
+    myRef?.current?.setNativeProps({
       style: styleObj,
     });
   }, [myRef]);
   return (
     <Box
-      width="90%"
+      width="100%"
       bg="primary.500"
       p="4"
       shadow={2}

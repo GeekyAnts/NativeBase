@@ -5,7 +5,7 @@ export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <>
+    <Center>
       <Button onPress={() => setIsOpen(!isOpen)}>
         {isOpen ? 'Hide' : 'Show'}
       </Button>
@@ -25,6 +25,6 @@ export const Example = () => {
           Fade
         </Center>
       </PresenceTransition>
-    </>
+    </Center>
   );
 };

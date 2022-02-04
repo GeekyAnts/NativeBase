@@ -1,21 +1,20 @@
 import React from 'react';
-import { Box, Progress, VStack, Heading } from 'native-base';
+import { Box, Progress, VStack, Center } from 'native-base';
 
 export const Example = () => {
   return (
-    <Box w="90%">
-      <VStack space="md">
-        <Heading textAlign="center" mb="10" size="md">
-          Progress Color Scheme
-        </Heading>
-        <VStack mx="4" space="md">
-          <Progress colorScheme="primary" value={35} />
-          <Progress colorScheme="secondary" value={45} />
-          <Progress colorScheme="emerald" value={55} />
-          <Progress colorScheme="warning" value={65} />
-          <Progress colorScheme="light" value={75} />
+    <Center w="100%">
+      <Box w="90%" maxW="400">
+        <VStack space="md">
+          <VStack mx="4" space="md">
+            <Progress colorScheme="primary" value={35} />
+            <Progress colorScheme="secondary" value={45} />
+            <Progress colorScheme="emerald" value={55} />
+            <Progress colorScheme="warning" value={65} />
+            <Progress colorScheme="light" value={75} />
+          </VStack>
         </VStack>
-      </VStack>
-    </Box>
+      </Box>
+    </Center>
   );
 };

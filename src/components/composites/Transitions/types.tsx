@@ -19,6 +19,7 @@ export type ISlideProps = IBoxProps<ISlideProps> & {
   duration?: number;
   delay?: number;
   placement?: 'top' | 'bottom' | 'right' | 'left';
+  overlay?: boolean;
 };
 export type ISlideFadeProps = IBoxProps<ISlideFadeProps> & {
   in?: boolean;
@@ -81,6 +82,8 @@ export interface ITransitionProps extends ViewProps {
    * Determines whether to start the animation
    */
   visible?: boolean;
+
+  animationExited?: boolean;
   children?: any;
   as?: any;
 }

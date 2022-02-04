@@ -1,10 +1,14 @@
 import React from 'react';
 
-export default (children: any) => {
+const getAttachedChildren = (children: any) => {
   const childrenArray: any = React.Children.toArray(children);
   /*
   | Separate the trailing (not first) children from the children array
   */
+
+  if (childrenArray.length <= 1) {
+    return childrenArray;
+  }
 
   const trailingChildren = childrenArray.slice(1);
   trailingChildren.pop();
@@ -41,3 +45,5 @@ export default (children: any) => {
     ),
   ];
 };
+
+export default getAttachedChildren;

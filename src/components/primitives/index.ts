@@ -42,7 +42,8 @@ export type { ISpinnerProps } from './Spinner';
 export { default as Heading } from './Heading';
 export type { IHeadingProps } from './Heading';
 
-export { Pressable, IPressableProps } from './Pressable';
+export { Pressable } from './Pressable';
+export type { IPressableProps } from './Pressable';
 
 export { default as Flex, Spacer } from './Flex';
 export type { IFlexProps } from './Flex';
@@ -51,6 +52,7 @@ export { default as Switch } from './Switch';
 export type { ISwitchProps } from './Switch';
 
 export { default as TextArea } from './TextArea';
+export type { ITextAreaProps } from './TextArea';
 
 export { default as Link } from './Link';
 export type { ILinkProps } from './Link';
@@ -64,5 +66,6 @@ export type { IHiddenProps } from './Hidden';
 export { VisuallyHidden } from './VisuallyHidden';
 
 export { default as ZStack } from './ZStack';
+export type { IZStackProps } from './ZStack';
 
 export { Overlay } from './Overlay';

@@ -6,13 +6,14 @@ import {
   Stagger,
   HStack,
   Icon,
+  Center,
 } from 'native-base';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 export const Example = () => {
   const { isOpen, onToggle } = useDisclose();
   return (
-    <Box>
+    <Center>
       <Box alignItems="center" minH="220">
         <Stagger
           visible={isOpen}
@@ -131,6 +132,6 @@ export const Example = () => {
           }
         />
       </HStack>
-    </Box>
+    </Center>
   );
 };

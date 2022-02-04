@@ -15,9 +15,16 @@ const MenuItem = (
   const { closeOnSelect, onClose } = React.useContext(MenuContext);
   const menuItemRef = React.useRef<any>(null);
   const mergedRef = mergeRefs([menuItemRef, ref]);
-  const { _text, ...resolvedProps } = usePropsResolution('MenuItem', props, {
-    isDisabled,
-  });
+  const { _text, ...resolvedProps } = usePropsResolution(
+    'MenuItem',
+    props,
+    {
+      isDisabled,
+    },
+    {
+      cascadePseudoProps: true,
+    }
+  );
   const [textContent, setTextContent] = React.useState('');
   React.useEffect(() => {
     const menuItem = menuItemRef.current;

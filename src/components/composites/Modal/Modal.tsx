@@ -45,7 +45,7 @@ const Modal = (
     },
   });
 
-  const handleClose = () => setVisible(false);
+  const handleClose = React.useCallback(() => setVisible(false), [setVisible]);
 
   const child = (
     <Box
@@ -57,25 +57,31 @@ const Modal = (
       {children}
     </Box>
   );
+
+  const contextValue = React.useMemo(() => {
+    return {
+      handleClose,
+      contentSize,
+      initialFocusRef,
+      finalFocusRef,
+      visible,
+    };
+  }, [handleClose, contentSize, initialFocusRef, finalFocusRef, visible]);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(rest)) {
     return null;
   }
+  // console.log('visible here', visible);
   return (
     <Overlay
       isOpen={visible}
       onRequestClose={handleClose}
       isKeyboardDismissable={isKeyboardDismissable}
+      animationPreset={animationPreset}
       useRNModalOnAndroid
     >
-      <ModalContext.Provider
-        value={{
-          handleClose,
-          contentSize,
-          initialFocusRef,
-          finalFocusRef,
-        }}
-      >
+      <ModalContext.Provider value={contextValue}>
         <Fade
           exitDuration={150}
           entryDuration={200}
@@ -92,7 +98,7 @@ const Modal = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide in={visible} duration={200}>
+          <Slide in={visible} overlay={false} duration={200}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}

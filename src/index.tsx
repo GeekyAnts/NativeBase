@@ -1,9 +1,3 @@
-export default {
-  multiply(a: number, b: number) {
-    return Promise.resolve(a * b);
-  },
-};
-
 import {
   // AppBar,
   Badge,
@@ -87,14 +81,14 @@ import {
   IMenuOptionGroupProps,
   SimpleGrid,
   ISimpleGridProps,
-  Tabs,
+  // Tabs,
   ITagProps,
-  ITabsProps,
-  ITabBarProps,
-  ITabProps,
-  ITabViewsProps,
-  ITabViewProps,
-  ITabsContextProps,
+  // ITabsProps,
+  // ITabBarProps,
+  // ITabProps,
+  // ITabViewsProps,
+  // ITabViewProps,
+  // ITabsContextProps,
   Actionsheet,
   IActionsheetProps,
   IActionsheetContentProps,
@@ -106,6 +100,10 @@ import {
   Typeahead,
   useTypeahead,
   Modal,
+  IModalProps,
+  ICardProps,
+  IAvatarProps,
+  IDrawerProps,
   useToast,
   Toast,
   IToastProps,
@@ -171,6 +169,8 @@ import {
   Pressable,
   IPressableProps,
   IStackProps,
+  ITextAreaProps,
+  IZStackProps,
 } from './components/primitives';
 
 export * from './components/basic';
@@ -254,7 +254,7 @@ export {
   // useToast,
   Menu,
   SimpleGrid,
-  Tabs,
+  // Tabs,
   Actionsheet,
   Fab,
   Typeahead,
@@ -318,6 +318,12 @@ export type {
   IScaleFadeProps,
   ISlideProps,
   ISlideFadeProps,
+  IModalProps,
+  ICardProps,
+  IAvatarProps,
+  IDrawerProps,
+  ITextAreaProps,
+  IZStackProps,
   INumberInputProps,
   INumberInputFieldProps,
   INumberInputContext,
@@ -331,12 +337,12 @@ export type {
   IMenuGroupProps,
   IMenuOptionGroupProps,
   ISimpleGridProps,
-  ITabsProps,
-  ITabBarProps,
-  ITabProps,
-  ITabViewsProps,
-  ITabViewProps,
-  ITabsContextProps,
+  // ITabsProps,
+  // ITabBarProps,
+  // ITabProps,
+  // ITabViewsProps,
+  // ITabViewProps,
+  // ITabsContextProps,
   IToastProps,
   IActionsheetProps,
   IActionsheetContentProps,
@@ -349,4 +355,5 @@ export type {
   IStackProps,
 };
 
-export { ITheme, ICustomTheme, StyledProps } from './theme';
+export { StyledProps } from './theme';
+export type { ITheme, ICustomTheme } from './theme';

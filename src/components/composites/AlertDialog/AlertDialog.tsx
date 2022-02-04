@@ -93,7 +93,7 @@ const AlertDialog = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide in={visible} duration={200}>
+          <Slide overlay={false} in={visible} duration={200}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}

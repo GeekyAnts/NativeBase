@@ -3,7 +3,7 @@ import { Flex, Spacer, Center } from 'native-base';
 
 export const Example = () => {
   return (
-    <Flex h={40} w={20} mt={6}>
+    <Flex h={40} alignItems="center">
       <Center
         size={16}
         bg="primary.500"

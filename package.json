@@ -1,6 +1,7 @@
 {
   "name": "native-base",
   "description": "Essential cross-platform UI components for React Native",
+  "sideEffects": false,
   "keywords": [
     "android",
     "ios",
@@ -22,7 +23,8 @@
     "bootstrap": "yarn example && yarn && yarn pods",
     "build:web": "rollup --config",
     "bundle:analysis": "visualize-bundle",
-    "commit-test": "yarn prepare && cd example && yarn test && cd .."
+    "commit-test": "yarn prepare && cd example && yarn test && cd ..",
+    "postinstall": "patch-package"
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
@@ -35,11 +37,11 @@
       "prettier --write"
     ]
   },
-  "version": "3.2.2",
+  "version": "3.3.5-rc.0",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
-  "module": "dist/bundle.web.js",
+  "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
@@ -90,11 +92,13 @@
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-native": "*",
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
-    "react-native-safe-area-context": "*",
-    "react-native-svg": "*"
+    "react-native-safe-area-context": "3.1.9",
+    "react-native-svg": "12.1.0"
   },
   "jest": {
     "preset": "jest-expo",
@@ -160,16 +164,10 @@
     "output": "lib",
     "targets": [
       [
-        "commonjs",
-        {
-          "configFile": true
-        }
+        "commonjs"
       ],
       [
-        "module",
-        {
-          "configFile": true
-        }
+        "module"
       ],
       "typescript"
     ]
@@ -208,6 +206,9 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
+    "patch-package": "^6.4.7",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "stable-hash": "^0.0.2",
     "tinycolor2": "^1.4.2"
   },
   "directories": {

@@ -11,6 +11,7 @@ import {
   useFocus,
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
+import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
@@ -32,6 +33,7 @@ const Button = (
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
+  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
 
   const {
     onPressIn,
@@ -45,42 +47,14 @@ const Button = (
     _spinner,
     isLoadingText,
     ...resolvedProps
-  } = usePropsResolution(
-    'Button',
-    props,
-    { isDisabled, isHovered, isFocused, isPressed, isLoading },
-    { ignoreProps: ['_spinner'] }
-  );
-
-  // const pressableProps = {
-  //   ...resolvedProps,
-  //   _hover,
-  //   _pressed,
-  //   _focus,
-  //   _focusVisible,
-  // };
-  // let {
-  //   _text,
-  //   _disabled,
-  //   _focus,
-  //   _hover,
-  //   _pressed,
-  //   _focusVisible,
-  //   _loading,
-  //   _stack,
-  //   _spinner,
-  //   spinnerProps,
-  //   isLoadingText,
-  //   ...resolvedProps
-  // } = usePropsResolution('Button', props);
-
-  // const pressableProps = {
-  //   ...resolvedProps,
-  //   _hover,
-  //   _pressed,
-  //   _focus,
-  //   _focusVisible,
-  // };
+  } = usePropsResolution('Button', props, {
+    isDisabled,
+    isHovered,
+    isFocused,
+    isPressed,
+    isLoading,
+    isFocusVisible,
+  });
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -138,39 +112,25 @@ const Button = (
       onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
       // @ts-ignore - web only
       onFocus={composeEventHandlers(
-        composeEventHandlers(onFocus, focusProps.onFocus)
-        // focusRingProps.onFocus
+        composeEventHandlers(onFocus, focusProps.onFocus),
+        focusRingProps.onFocus
       )}
       // @ts-ignore - web only
       onBlur={composeEventHandlers(
-        composeEventHandlers(onBlur, focusProps.onBlur)
-        // focusRingProps.onBlur
+        composeEventHandlers(onBlur, focusProps.onBlur),
+        focusRingProps.onBlur
       )}
       {...resolvedProps}
-      // {...pressableProps}
-      // {...(isDisabled && _disabled)}
-      // {...(isLoading && _loading)}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
       <HStack {..._stack}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
         {boxChildren ? (
-          <Box
-            _text={{
-              ..._text,
-              // ...hoverTextProps,
-              // ...focusTextProps,
-              // ...focusVisibleTextProps,
-              // ...pressedTextProps,
-              // ...loadingTextProps,
-              // ...disabledTextProps,
-            }}
-          >
+          <Box _text={_text}>
             {isLoading && isLoadingText ? isLoadingText : children}
           </Box>
         ) : null}
-
         {endIcon && !isLoading ? endIcon : null}
         {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
       </HStack>

@@ -1,5 +1,13 @@
 import React from 'react';
-import { Button, Modal, VStack, HStack, Text, Radio } from 'native-base';
+import {
+  Button,
+  Modal,
+  VStack,
+  HStack,
+  Text,
+  Radio,
+  Center,
+} from 'native-base';
 import { useState } from 'react';
 
 export const Example = () => {
@@ -8,7 +16,7 @@ export const Example = () => {
   const [showModal3, setShowModal3] = useState(false);
 
   return (
-    <>
+    <Center>
       <Button onPress={() => setShowModal(true)}>Button</Button>
       <Modal isOpen={showModal} onClose={() => setShowModal(false)} size="lg">
         <Modal.Content maxWidth="350">
@@ -125,6 +133,6 @@ export const Example = () => {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-    </>
+    </Center>
   );
 };

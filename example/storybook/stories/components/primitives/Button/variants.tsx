@@ -13,7 +13,7 @@ export const Example = () => {
     <ScrollView showsVerticalScrollIndicator={false} px="3">
       <VStack
         w="100%"
-        space={2.5}
+        space={4}
         px="2"
         mt="4"
         alignItems="center"

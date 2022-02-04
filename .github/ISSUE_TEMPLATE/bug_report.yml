@@ -1,0 +1,76 @@
+name: 'Bug Report'
+description: 'File a bug report'
+labels: ['v3', 'bug', 'triage']
+body:
+  - type: 'markdown'
+    attributes:
+      value: |
+        ### Before reporting this bug, please...
+        1. Check the latest documentation: https://docs.nativebase.io/
+        2. Check for existing open/closed issues for a possible duplicate before creating a new issue: https://github.com/GeekyAnts/NativeBase/issues
+        3. Use the latest NativeBase release: https://github.com/GeekyAnts/NativeBase/releases
+        4. Check examples from NativeBase KitchenSink https://github.com/GeekyAnts/NativeBase-KitchenSink
+        5. For discussion purpose make use of NativeBase discord: https://discord.gg/TSgCw2UPmb
+
+        ### Help us help you better
+  - type: 'input'
+    id: 'description'
+    attributes:
+      label: 'Description'
+      description: 'A clear and concise description of what you expected to happen.'
+      placeholder: |
+        What's the bug? And why it's a bug?
+    validations:
+      required: true
+  - type: 'input'
+    id: 'reproduction'
+    attributes:
+      label: 'CodeSandbox/Snack link'
+      description: |
+        It would be easier for us to debug if you can reproduce the error in a codesandbox link or a snack link. You can use the [codesandbox template](https://codesandbox.io/s/native-base-v3-template-mq6ox)/[snack template](https://snack.expo.io/@mdrehman/nativebase-template).
+      placeholder: 'https://codesandbox.io/  or   https://snack.expo.dev/'
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'steps'
+    attributes:
+      label: 'Steps to reproduce'
+      description: |
+        Let us know how we reproduce it too.
+      value: |
+        1. Go to '...' 
+        2. Click on '...' 
+        3. Scroll down to '...' 
+        4. See error
+  - type: 'input'
+    id: 'nativebase-version'
+    attributes:
+      label: 'NativeBase Version'
+      description: 'The version of NativeBase you use.'
+      placeholder: '3.3.1'
+    validations:
+      required: true
+  - type: 'checkboxes'
+    id: 'platform'
+    attributes:
+      label: 'Platform'
+      description: 'The platform(s) this issue occurred on'
+      options:
+        - label: 'Android'
+        - label: 'CRA'
+        - label: 'Expo'
+        - label: 'iOS'
+        - label: 'Next'
+  - type: 'input'
+    id: 'other-platform'
+    attributes:
+      label: 'Other Platform'
+      description: 'Any other platform besides the above one(s)'
+      placeholder: 'extra platform(s)'
+  - type: 'textarea'
+    id: 'additional-information'
+    attributes:
+      label: 'Additional Information'
+      description: |
+        Use this section to provide any additional information you might have like screenshots, notes, or links to ideas.
+      placeholder: 'Any and every additional information is always welcome'

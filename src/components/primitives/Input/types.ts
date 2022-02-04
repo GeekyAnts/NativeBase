@@ -15,7 +15,7 @@ export interface IInputProps
   isInvalid?: boolean;
   /**
    * The variant of the input style to use.
-   * @default <code>outline</code>
+   * @default 'outline'
    */
   variant?: VariantType<'Input'>;
   /**
@@ -24,7 +24,7 @@ export interface IInputProps
   isDisabled?: boolean;
   /**
    * The size of the input.
-   * @default <code>md</code>
+   * @default 'md'
    */
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
   /**
@@ -92,12 +92,12 @@ export interface IInputProps
 export interface IInputGroupProps extends IBoxProps<IInputGroupProps> {
   /**
    * The variant of the input style to use.
-   * @default <code>outline</code>
+   * @default 'outline'
    */
   variant?: string;
   /**
    * The size of the input.
-   * @default <code>md</code>
+   * @default 'md'
    */
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
 }

@@ -1,6 +1,10 @@
 import React from 'react';
-import { Input } from 'native-base';
+import { Input, Box } from 'native-base';
 
 export const Example = () => {
-  return <Input mx="3" placeholder="Input" w={{ base: '75%', md: '25%' }} />;
+  return (
+    <Box alignItems="center">
+      <Input mx="3" placeholder="Input" w="75%" maxWidth="300px" />
+    </Box>
+  );
 };

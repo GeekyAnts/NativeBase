@@ -3,11 +3,12 @@ import { VStack, Image, ScrollView, Heading, Center } from 'native-base';
 export function Example() {
   return (
     <ScrollView px="20">
-      <Center mt="3">
+      <Center mt="3" h="80">
         <Heading mb="10">Image Sizes</Heading>
         <VStack space={2} alignItems="center" safeAreaTop my={6}>
           {['xs', 'sm', 'md', 'lg', 'xl', '2xl'].map((size) => (
             <Image
+              key={size}
               size={size}
               resizeMode="cover"
               source={{

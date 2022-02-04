@@ -1,13 +1,12 @@
 import React from 'react';
-import { Box, Progress, Heading, Center } from 'native-base';
+import { Box, Progress, Center } from 'native-base';
 
 export const Example = () => {
   return (
-    <Box w="90%">
-      <Center mb="10">
-        <Heading size="md"> Simple Progress Bar</Heading>
-      </Center>
-      <Progress value={45} mx="4" />
-    </Box>
+    <Center w="100%">
+      <Box w="90%" maxW="400">
+        <Progress value={45} mx="4" />
+      </Box>
+    </Center>
   );
 };

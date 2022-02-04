@@ -60,6 +60,14 @@ export interface ISelectProps extends IBoxProps<ISelectProps> {
    */
   variant?: 'outline' | 'filled' | 'underlined' | 'unstyled' | 'rounded';
   /**
+   * Callback to be invoked when Select Dropdown or BottomSheet is opened.
+   */
+  onOpen?: (nativeEvent: any) => void;
+  /**
+   * Callback to be invoked when Select Dropdown or BottomSheet is closed.
+   */
+  onClose?: (nativeEvent: any) => void;
+  /**
    * props to be passed to underlying ActionSheet.Content. Select uses ActionSheet underneath.
    */
   _actionSheetContent?: IActionsheetContentProps;

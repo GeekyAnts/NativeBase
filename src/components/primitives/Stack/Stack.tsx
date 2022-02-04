@@ -5,6 +5,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IBoxProps } from '../Box';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ResponsiveValue, SpaceType } from '../../types';
+import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 
 export interface IStackProps extends IBoxProps<IStackProps> {
   /**
@@ -31,6 +32,7 @@ export interface IStackProps extends IBoxProps<IStackProps> {
 }
 
 const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
+  const dir = props.direction;
   const {
     children,
     direction,
@@ -45,12 +47,26 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
     { resolveResponsively: ['space', 'direction'] }
   );
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
+  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  // const resolvedGap = useToken('space', space);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
   return (
-    <Box flexDirection={direction} {...resolvedProps} ref={ref}>
+    <Box
+      flexDirection={dir}
+      {...resolvedProps}
+      ref={ref}
+      // @ts-ignore
+      gap={disableCSSMediaQueries ? undefined : size}
+    >
       {getSpacedChildren(
         children,
         size,
