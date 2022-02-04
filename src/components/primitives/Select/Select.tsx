@@ -92,7 +92,7 @@ const Select = (props: ISelectProps, ref: any) => {
     },
   });
   const itemsList: Array<{ label: string; value: string }> = React.Children.map(
-    children,
+    children ?? [],
     (child: any) => {
       return {
         label: child.props.label,
