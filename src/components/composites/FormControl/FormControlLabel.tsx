@@ -51,12 +51,12 @@ const FormControlLabel = (
 
   return (
     <Box
-      flexDirection="row"
-      justifyContent="flex-start"
-      _web={{
-        //@ts-ignore
-        accessibilityRole: 'label',
-      }}
+      // flexDirection="row"
+      // justifyContent="flex-start"
+      // _web={{
+      //   //@ts-ignore
+      //   accessibilityRole: 'label',
+      // }}
       {...reslovedProps}
       nativeID={reslovedProps?.labelId}
       ref={mergedRef}
