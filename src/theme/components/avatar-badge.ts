@@ -6,6 +6,9 @@ function baseStyle(props: Record<string, any>) {
     borderWidth: 2,
     borderColor: mode('light.50', 'gray.800')(props),
     bg: mode('gray.600', 'light.100')(props),
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
   };
 }
 
