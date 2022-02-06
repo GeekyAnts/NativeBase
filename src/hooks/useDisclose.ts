@@ -2,15 +2,16 @@ import React from 'react';
 
 export function useDisclose(initState?: boolean) {
   const [isOpen, setIsOpen] = React.useState(initState || false);
-  const onOpen = () => {
+  const onOpen = React.useCallback(() => {
     setIsOpen(true);
-  };
-  const onClose = () => {
+  }, [])
+  const onClose = React.useCallback(() => {
     setIsOpen(false);
-  };
-  const onToggle = () => {
+  }, [])
+  const onToggle = React.useCallback(() => {
     setIsOpen(!isOpen);
-  };
+  }, [isOpen])
+
   return {
     isOpen,
     onOpen,
