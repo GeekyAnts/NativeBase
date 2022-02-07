@@ -14,6 +14,7 @@ export const Example = () => {
         borderWidth="1"
         borderColor="cyan.400"
         borderRadius="md"
+        _dark={{ color: 'trueGray.200' }}
       />
       <Button
         colorScheme="emerald"
