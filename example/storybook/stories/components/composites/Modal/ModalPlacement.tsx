@@ -20,7 +20,7 @@ export const Example = () => {
         <Button onPress={() => openModal('left')}>Left</Button>
         <Button onPress={() => openModal('right')}>Right</Button>
       </Stack>
-      <Modal isOpen={open} onClose={() => setOpen(false)} mt={12}>
+      <Modal isOpen={open} onClose={() => setOpen(false)} safeAreaTop={true}>
         <Modal.Content maxWidth="350" {...styles[placement]}>
           <Modal.CloseButton />
           <Modal.Header>Contact Us</Modal.Header>
