@@ -1,18 +1,43 @@
 import React from 'react';
 import { Box, Stack, Heading, Icon, Text, HStack, Avatar } from 'native-base';
-import { MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
+import {
+  MaterialCommunityIcons,
+  SimpleLineIcons,
+  MaterialIcons,
+} from '@expo/vector-icons';
 export const Example = () => {
   return (
     <Box p={5} rounded="xl" shadow={4} w="100%">
       <Stack space={6}>
-        <Avatar
-          size={'sm'}
-          bg="teal.500"
-          source={{
-            uri:
-              'https://i.pinimg.com/originals/4d/72/97/4d7297dad94265c0acbc3b677d418935.jpg',
-          }}
-        />
+        <HStack justifyContent="space-between" alignItems="center">
+          <Avatar
+            size={'sm'}
+            bg="teal.500"
+            source={{
+              uri:
+                'https://i.pinimg.com/originals/4d/72/97/4d7297dad94265c0acbc3b677d418935.jpg',
+            }}
+          />
+          <HStack space={2} alignItems="center">
+            <Icon
+              name="star"
+              as={SimpleLineIcons}
+              size={4}
+              // color="blueGray.700"
+              _light={{ color: 'blueGray.700' }}
+              _dark={{ color: 'blueGray.400' }}
+            />
+            <Icon
+              size={4}
+              name="more-horiz"
+              // color="blueGray.700"
+              _light={{ color: 'blueGray.700' }}
+              _dark={{ color: 'blueGray.400' }}
+              as={MaterialIcons}
+            />
+          </HStack>
+        </HStack>
+
         <Stack space={3}>
           <Heading
             size="lg"
@@ -40,7 +65,9 @@ export const Example = () => {
               <Icon
                 name="grid"
                 as={MaterialCommunityIcons}
-                color="blueGray.700"
+                // color="blueGray.700"
+                _light={{ color: 'blueGray.700' }}
+                _dark={{ color: 'blueGray.400' }}
               />
               <Text
                 flexShrink={1}
@@ -55,7 +82,9 @@ export const Example = () => {
               <Icon
                 name="calendar"
                 as={MaterialCommunityIcons}
-                color="blueGray.700"
+                // color="blueGray.700"
+                _light={{ color: 'blueGray.700' }}
+                _dark={{ color: 'blueGray.400' }}
               />
               <Text
                 _light={{ color: 'blueGray.500' }}
@@ -92,16 +121,6 @@ export const Example = () => {
         */}
         </HStack>
       </Stack>
-      <HStack
-        position="absolute"
-        top={3}
-        right={3}
-        space={2}
-        alignItems="center"
-      >
-        <Icon name="star" as={SimpleLineIcons} size={4} color="blueGray.700" />
-        <Icon name="more-horiz" color="blueGray.700" />
-      </HStack>
     </Box>
   );
 };
