@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '../../primitives';
+import { default as Box } from '../../primitives/Box';
 import { CheckIcon } from '../../primitives/Icon/Icons';
 
 const SizedIcon = ({
