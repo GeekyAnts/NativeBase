@@ -13,7 +13,15 @@ import {
 import { useFocusRing } from '@react-native-aria/focus';
 
 const IconButton = (
-  { icon, children, ...props }: IIconButtonProps,
+  {
+    icon,
+    children,
+    isHovered: isHoveredProp,
+    isPressed: isPressedProp,
+    isFocused: isFocusedProp,
+    isFocusVisible: isFocusVisibleProp,
+    ...props
+  }: IIconButtonProps,
   ref: any
 ) => {
   const { hoverProps, isHovered } = useHover();
@@ -31,10 +39,10 @@ const IconButton = (
     onBlur,
     ...resolvedProps
   } = usePropsResolution('IconButton', props, {
-    isHovered,
-    isPressed,
-    isFocused,
-    isFocusVisible,
+    isHovered: isHoveredProp || isHovered,
+    isPressed: isPressedProp || isPressed,
+    isFocused: isFocusedProp || isFocused,
+    isFocusVisible: isFocusVisibleProp || isFocusVisible,
   });
 
   let clonedIcon;

@@ -18,6 +18,10 @@ export interface ISwitchProps
    */
   isDisabled?: boolean;
   /**
+   * If true, set the hovered state.
+   */
+  isHovered?: boolean;
+  /**
    * The input name of the Switch when used in a form.
    */
   name?: string;

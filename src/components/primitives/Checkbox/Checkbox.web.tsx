@@ -16,7 +16,15 @@ import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
 
-const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
+const Checkbox = (
+  {
+    wrapperRef,
+    isHovered: isHoveredProp,
+    isFocusVisible: isFocusVisibleProp,
+    ...props
+  }: ICheckboxProps,
+  ref: any
+) => {
   const formControlContext = useFormControlContext();
 
   const {
@@ -81,7 +89,9 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       combinedProps={contextCombinedProps}
       isInvalid={isInvalid}
       isReadOnly={isReadOnly}
+      isHovered={isHoveredProp}
       isIndeterminate={isIndeterminate}
+      isFocusVisible={isFocusVisibleProp}
     />
   );
 };
@@ -95,6 +105,8 @@ const CheckboxComponent = React.memo(
     isReadOnly,
     isIndeterminate,
     mergedRef,
+    isHovered: isHoveredProp,
+    isFocusVisible: isFocusVisibleProp,
   }: any) => {
     const _ref = React.useRef();
     const { isHovered } = useHover({}, _ref);
@@ -111,11 +123,11 @@ const CheckboxComponent = React.memo(
     } = usePropsResolution('Checkbox', combinedProps, {
       isInvalid,
       isReadOnly,
-      isFocusVisible: true,
+      isFocusVisible: isFocusVisibleProp || isFocusVisible,
       isDisabled,
       isIndeterminate,
       isChecked,
-      isHovered: true,
+      isHovered: isHovered || isHoveredProp,
     });
 
     const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
@@ -141,8 +153,22 @@ const CheckboxComponent = React.memo(
                 // @ts-ignore - only for web"
                 transition: 'height 200ms, width 200ms',
               }}
-              h={isFocusVisible || isHovered ? '200%' : '0%'}
-              w={isFocusVisible || isHovered ? '200%' : '0%'}
+              h={
+                isFocusVisible ||
+                isFocusVisibleProp ||
+                isHovered ||
+                isHoveredProp
+                  ? '200%'
+                  : '0%'
+              }
+              w={
+                isFocusVisible ||
+                isFocusVisibleProp ||
+                isHovered ||
+                isHoveredProp
+                  ? '200%'
+                  : '0%'
+              }
               pointerEvents="none"
               zIndex={-1}
             />
@@ -166,6 +192,8 @@ const CheckboxComponent = React.memo(
       isHovered,
       layoutProps,
       nonLayoutProps,
+      isHoveredProp,
+      isFocusVisibleProp,
       resolvedProps?.children,
     ]);
 

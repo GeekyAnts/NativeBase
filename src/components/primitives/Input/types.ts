@@ -23,6 +23,14 @@ export interface IInputProps
    */
   isDisabled?: boolean;
   /**
+   * 	If true, the input will be hovered.
+   */
+  isHovered?: boolean;
+  /**
+   * 	If true, the input will be focused.
+   */
+  isFocused?: boolean;
+  /**
    * The size of the input.
    * @default 'md'
    */
