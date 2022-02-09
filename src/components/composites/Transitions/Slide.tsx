@@ -119,11 +119,11 @@ export const Slide = memo(
 
     if (overlay) {
       return (
-        <Overlay isOpen={true}>
-          <Box w="100%" h="100%" pointerEvents="box-none" overflow="hidden">
+        <>
+          <Overlay isOpen={true} style={{ overflow: 'hidden' }}>
             {slideComponent}
-          </Box>
-        </Overlay>
+          </Overlay>
+        </>
       );
     } else {
       return slideComponent;

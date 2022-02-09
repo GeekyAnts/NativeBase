@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, ViewStyle } from 'react-native';
 import { Modal } from 'react-native';
 import { useKeyboardDismissable } from '../../../hooks';
 import { ExitAnimationContext } from './ExitAnimationContext';
@@ -14,6 +14,7 @@ interface IOverlayProps {
   onRequestClose?: (() => any) | undefined;
   isKeyboardDismissable?: boolean;
   animationPreset?: 'fade' | 'slide' | 'none';
+  style?: ViewStyle;
 }
 
 export function Overlay({
@@ -24,6 +25,7 @@ export function Overlay({
   //@ts-ignore
   animationPreset = 'fade',
   onRequestClose,
+  style,
 }: IOverlayProps) {
   const [exited, setExited] = React.useState(!isOpen);
 
@@ -31,9 +33,12 @@ export function Overlay({
     enabled: isOpen && isKeyboardDismissable,
     callback: onRequestClose ? onRequestClose : () => {},
   });
-  let display = exited && !isOpen ? 'none' : 'flex';
+  const styleObj = { ...style };
   if (animationPreset === 'slide') {
-    display = 'contents';
+    styleObj.overflow = 'hidden';
+    styleObj.display = 'flex';
+  } else {
+    styleObj.display = exited && !isOpen ? 'none' : 'flex';
   }
 
   if (Platform.OS === 'android' && useRNModalOnAndroid) {
@@ -53,7 +58,7 @@ export function Overlay({
 
   return (
     //@ts-ignore
-    <OverlayContainer style={{ display }}>
+    <OverlayContainer style={{ ...styleObj }}>
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         {children}
       </ExitAnimationContext.Provider>
