@@ -36,7 +36,15 @@ export const SelectContext = React.createContext({
   _item: {} as IButtonProps,
 });
 
-const Select = (props: ISelectProps, ref: any) => {
+const Select = (
+  {
+    isHovered: isHoveredProp,
+    isFocused: isFocusedProp,
+    isFocusVisible: isFocusVisibleProp,
+    ...props
+  }: ISelectProps,
+  ref: any
+) => {
   const selectProps = useFormControl({
     isDisabled: props.isDisabled,
     nativeID: props.nativeID,
@@ -76,9 +84,9 @@ const Select = (props: ISelectProps, ref: any) => {
     props,
     {
       isDisabled,
-      isHovered,
-      isFocused,
-      isFocusVisible,
+      isHovered: isHoveredProp || isHovered,
+      isFocused: isFocusedProp || isFocused,
+      isFocusVisible: isFocusVisibleProp || isFocusVisible,
     },
     undefined
   );

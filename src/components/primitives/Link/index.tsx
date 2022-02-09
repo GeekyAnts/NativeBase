@@ -10,7 +10,7 @@ import { Pressable } from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Link = (props: ILinkProps, ref: any) => {
+const Link = ({ isHovered: isHoveredProp, ...props }: ILinkProps, ref: any) => {
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
   const {
@@ -21,7 +21,9 @@ const Link = (props: ILinkProps, ref: any) => {
     onPress,
     isExternal,
     ...resolvedProps
-  } = usePropsResolution('Link', props, { isHovered });
+  } = usePropsResolution('Link', props, {
+    isHovered: isHoveredProp || isHovered,
+  });
   const { linkProps } = useLink({ href, onPress, isExternal, _ref });
 
   const linkTextProps = {
