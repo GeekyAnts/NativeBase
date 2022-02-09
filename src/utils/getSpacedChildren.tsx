@@ -14,6 +14,22 @@ type SpaceType =
   | '2xl'
   | ThemeSpaceType;
 
+// Thanks @gregberge for code and @nandorojo for suggestion.
+// Original source: https://github.com/gregberge/react-flatten-children
+type ReactChildArray = ReturnType<typeof React.Children.toArray>;
+function flattenChildren(children: React.ReactNode): ReactChildArray {
+  const childrenArray = React.Children.toArray(children);
+  return childrenArray.reduce((flatChildren: ReactChildArray, child) => {
+    if ((child as React.ReactElement<any>).type === React.Fragment) {
+      return flatChildren.concat(
+        flattenChildren((child as React.ReactElement<any>).props.children)
+      );
+    }
+    flatChildren.push(child);
+    return flatChildren;
+  }, []);
+}
+
 const getSpacedChildren = (
   children: JSX.Element[] | JSX.Element,
   space: undefined | SpaceType,
@@ -21,7 +37,7 @@ const getSpacedChildren = (
   reverse: string,
   divider: JSX.Element | undefined
 ): any => {
-  let childrenArray = React.Children.toArray(children);
+  let childrenArray = React.Children.toArray(flattenChildren(children));
   childrenArray =
     reverse === 'reverse' ? [...childrenArray].reverse() : childrenArray;
 
