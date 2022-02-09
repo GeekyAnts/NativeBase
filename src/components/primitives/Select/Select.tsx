@@ -100,7 +100,7 @@ const Select = (
     },
   });
   const itemsList: Array<{ label: string; value: string }> = React.Children.map(
-    children,
+    children ?? [],
     (child: any) => {
       return {
         label: child.props.label,
