@@ -25,6 +25,22 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
    */
   isLoading?: boolean;
   /**
+   * If true, the button will be in hovered state.
+   */
+  isHovered?: boolean;
+  /**
+   * If true, the button will be in pressed state.
+   */
+  isPressed?: boolean;
+  /**
+   * If true, the button will be focused.
+   */
+  isFocused?: boolean;
+  /**
+   * If true, the button focus ring will be visible.
+   */
+  isFocusVisible?: boolean;
+  /**
    * The size of the button.
    */
   size?: ResponsiveValue<ISizes | (string & {}) | number>;

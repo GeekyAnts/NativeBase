@@ -22,7 +22,7 @@ export const Example = () => {
     <Center w="100%">
       <Box w="90%" maxWidth="400">
         <VStack
-          w="400"
+          maxWidth="400"
           borderWidth="1"
           space={8}
           overflow="hidden"
