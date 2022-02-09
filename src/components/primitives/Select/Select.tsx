@@ -1,6 +1,6 @@
 import React, { forwardRef, memo } from 'react';
 import type { ISelectProps } from './types';
-import { Platform, Pressable, Keyboard } from 'react-native';
+import { Platform, Keyboard } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
 import Box from '../Box';
 import { Input } from '../Input';
@@ -17,6 +17,7 @@ import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { FlatList } from '../../basic/FlatList';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ISelectItemProps } from './types';
+import { Pressable } from '../Pressable';
 
 const unstyledSelecWebtStyles = {
   appearance: 'none',
