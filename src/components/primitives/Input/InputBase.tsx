@@ -19,6 +19,10 @@ const InputBase = (
     disableFocusHandling,
     inputProps,
     wrapperRef,
+    InputLeftElement,
+    InputRightElement,
+    leftElement,
+    rightElement,
     isHovered: isHoveredProp,
     isFocused: isFocusedProp,
     ...props
@@ -28,6 +32,11 @@ const InputBase = (
   },
   ref: any
 ) => {
+  let passUnresolvedProps;
+  if (InputLeftElement || InputRightElement || leftElement || rightElement) {
+    passUnresolvedProps = true;
+  }
+
   const [isFocused, setIsFocused] = React.useState(false);
   const handleFocus = (focusState: boolean, callback: any) => {
     !disableFocusHandling && setIsFocused(focusState);
@@ -97,6 +106,7 @@ const InputBase = (
   ) {
     return null;
   }
+
   return (
     <StyledInput
       {...inputProps}
@@ -106,7 +116,7 @@ const InputBase = (
       accessibilityLabel={ariaLabel || accessibilityLabel}
       editable={isDisabled || isReadOnly ? false : true}
       w={isFullWidth ? '100%' : undefined}
-      {...resolvedProps}
+      {...(passUnresolvedProps ? props : resolvedProps)}
       placeholderTextColor={resolvedPlaceholderTextColor}
       selectionColor={resolvedSelectionColor}
       underlineColorAndroid={resolvedUnderlineColorAndroid}

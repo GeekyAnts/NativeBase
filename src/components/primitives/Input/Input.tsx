@@ -92,6 +92,10 @@ const Input = (
           ? InputLeftElement || leftElement
           : null}
         <InputBase
+          InputLeftElement={InputLeftElement}
+          InputRightElement={InputRightElement}
+          leftElement={leftElement}
+          rightElement={rightElement}
           inputProps={inputProps}
           bg="transparent"
           {...baseInputProps}
