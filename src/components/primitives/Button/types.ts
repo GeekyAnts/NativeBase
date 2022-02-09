@@ -61,6 +61,10 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
    */
   spinner?: JSX.Element;
   /**
+   * If inline, show the spinner next the the contents of the button. If overlay, hide the contents of the button when loading, and show the spinner in the center.
+   */
+  spinnerMode?: "inline" | "overlay";
+  /**
    * If true, the button will be disabled.
    */
   isDisabled?: boolean;

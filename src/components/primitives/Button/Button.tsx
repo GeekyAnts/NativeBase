@@ -23,6 +23,7 @@ const Button = (
     leftIcon,
     endIcon,
     spinner,
+    spinnerMode = "inline",
     isDisabled,
     isLoading,
     isHovered: isHoveredProp,
@@ -127,17 +128,18 @@ const Button = (
       {...resolvedProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
-      <HStack {..._stack}>
+      <HStack {..._stack} opacity={isLoading && spinnerMode === "overlay" ? 0 : undefined}>
         {startIcon && !isLoading ? startIcon : null}
-        {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
+        {isLoading && spinnerMode === "inline" && spinnerPlacement === 'start' ? spinnerElement : null}
         {boxChildren ? (
           <Box _text={_text}>
             {isLoading && isLoadingText ? isLoadingText : children}
           </Box>
         ) : null}
         {endIcon && !isLoading ? endIcon : null}
-        {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
+        {isLoading && spinnerMode === "inline" && spinnerPlacement === 'end' ? spinnerElement : null}
       </HStack>
+      {isLoading && spinnerMode === "overlay" && <Box position={"absolute"} top={0} left={0} right={0} bottom={0} justifyContent={"center"} alignItems={"center"}>{spinnerElement}</Box>}
     </Pressable>
   );
 };

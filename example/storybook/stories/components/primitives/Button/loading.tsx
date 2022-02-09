@@ -29,6 +29,9 @@ export const Example = () => {
       <Button isLoading isLoadingText="Submitting" variant="outline">
         Button
       </Button>
+      <Button isLoading spinnerMode='overlay' isLoadingText="Submitting" variant="outline">
+        Button
+      </Button>
     </Stack>
   );
 };
