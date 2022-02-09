@@ -69,3 +69,5 @@ export { default as ZStack } from './ZStack';
 export type { IZStackProps } from './ZStack';
 
 export { Overlay } from './Overlay';
+
+export { default as Table } from './Table';
