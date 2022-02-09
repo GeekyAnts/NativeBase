@@ -18,7 +18,16 @@ import { useFormControlContext } from '../../composites/FormControl';
 const RadioComponent = memo(
   forwardRef(
     (
-      { icon, inputProps, combinedProps, children, wrapperRef, ...props }: any,
+      {
+        icon,
+        inputProps,
+        combinedProps,
+        children,
+        wrapperRef,
+        isHovered: isHoveredProp,
+        isFocusVisible: isFocusVisibleProp,
+        ...props
+      }: any,
       ref: any
     ) => {
       const { isInvalid, isReadOnly, isIndeterminate } = combinedProps;
@@ -36,11 +45,11 @@ const RadioComponent = memo(
         {
           isInvalid,
           isReadOnly,
-          isFocusVisible,
+          isFocusVisible: isFocusVisibleProp || isFocusVisible,
           isDisabled,
           isIndeterminate,
           isChecked,
-          isHovered,
+          isHovered: isHoveredProp || isHovered,
         }
       );
 
@@ -75,8 +84,22 @@ const RadioComponent = memo(
                 // @ts-ignore - only for web"
                 transition: 'height 200ms, width 200ms',
               }}
-              h={isFocusVisible || isHovered ? '200%' : '100%'}
-              w={isFocusVisible || isHovered ? '200%' : '100%'}
+              h={
+                isFocusVisible ||
+                isFocusVisibleProp ||
+                isHovered ||
+                isHoveredProp
+                  ? '200%'
+                  : '100%'
+              }
+              w={
+                isFocusVisible ||
+                isFocusVisibleProp ||
+                isHovered ||
+                isHoveredProp
+                  ? '200%'
+                  : '100%'
+              }
               pointerEvents="none"
             />
             {/* Radio */}
@@ -116,7 +139,14 @@ const RadioComponent = memo(
 );
 
 const Radio = (
-  { icon, children, wrapperRef, ...props }: IRadioProps,
+  {
+    icon,
+    children,
+    wrapperRef,
+    isHovered: isHoveredProp,
+    isFocusVisible: isFocusVisibleProp,
+    ...props
+  }: IRadioProps,
   ref: any
 ) => {
   const formControlContext = useFormControlContext();
@@ -160,6 +190,8 @@ const Radio = (
       ref={ref}
       icon={icon}
       wrapperRef={wrapperRef}
+      isHovered={isHoveredProp}
+      isFocusVisible={isFocusVisibleProp}
     />
   );
 };

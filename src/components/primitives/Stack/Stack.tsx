@@ -47,12 +47,8 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
     { resolveResponsively: ['space', 'direction'] }
   );
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
   const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  // const resolvedGap = useToken('space', space);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

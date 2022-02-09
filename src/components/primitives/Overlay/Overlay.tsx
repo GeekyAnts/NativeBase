@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, ViewStyle } from 'react-native';
 import { Modal } from 'react-native';
 import { useKeyboardDismissable } from '../../../hooks';
 import { ExitAnimationContext } from './ExitAnimationContext';
@@ -13,7 +13,8 @@ interface IOverlayProps {
   useRNModalOnAndroid?: boolean;
   onRequestClose?: (() => any) | undefined;
   isKeyboardDismissable?: boolean;
-  animationPreset?: string;
+  animationPreset?: 'fade' | 'slide' | 'none';
+  style?: ViewStyle;
 }
 
 export function Overlay({
@@ -24,6 +25,7 @@ export function Overlay({
   //@ts-ignore
   animationPreset = 'fade',
   onRequestClose,
+  style,
 }: IOverlayProps) {
   const [exited, setExited] = React.useState(!isOpen);
 
@@ -31,36 +33,32 @@ export function Overlay({
     enabled: isOpen && isKeyboardDismissable,
     callback: onRequestClose ? onRequestClose : () => {},
   });
-
-  //TODO: performance remove-below-lines of code after updating react-native-aria
-  if (exited && !isOpen) {
-    return null;
+  const styleObj = { ...style };
+  if (animationPreset === 'slide') {
+    styleObj.overflow = 'hidden';
+    styleObj.display = 'flex';
+  } else {
+    styleObj.display = exited && !isOpen ? 'none' : 'flex';
   }
-  // Android handles multiple Modal in RN and is better for accessibility as it shifts accessibility focus on mount, however it may not needed in case of tooltips, toast where one doesn't need to shift accessibility focus
-
-  //TODO: performance add-below-lines of code after updating react-native-aria
-  // let display = exited && !isOpen ? 'none' : 'contents';
-  // if (animationPreset === 'slide') {
-  //   display = 'contents';
-  // }
 
   if (Platform.OS === 'android' && useRNModalOnAndroid) {
     return (
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
-        <Modal transparent visible={true} onRequestClose={onRequestClose}>
+        <Modal
+          transparent
+          visible={isOpen}
+          onRequestClose={onRequestClose}
+          animationType={animationPreset}
+        >
           {children}
         </Modal>
       </ExitAnimationContext.Provider>
     );
   }
 
-  // Since OverlayContainer mounts children in NativeBaseProvider  using Context, we need to pass the context by wrapping children
-  //TODO: performance add-below-lines of code after updating react-native-aria
-  // <OverlayContainer style={{ display: display }}>
-
   return (
     //@ts-ignore
-    <OverlayContainer>
+    <OverlayContainer style={{ ...styleObj }}>
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         {children}
       </ExitAnimationContext.Provider>
