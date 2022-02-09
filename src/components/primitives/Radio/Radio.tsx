@@ -25,7 +25,17 @@ import { useFormControlContext } from '../../composites/FormControl';
 const RadioComponent = memo(
   forwardRef(
     (
-      { icon, inputProps, combinedProps, size, children, wrapperRef }: any,
+      {
+        icon,
+        inputProps,
+        combinedProps,
+        size,
+        children,
+        wrapperRef,
+        isHovered: isHoveredProp,
+        isPressed: isPressedProp,
+        isFocused: isFocusedProp,
+      }: any,
       ref: any
     ) => {
       const { isInvalid, isReadOnly, isIndeterminate } = combinedProps;
@@ -58,9 +68,9 @@ const RadioComponent = memo(
           isDisabled,
           isIndeterminate,
           isChecked,
-          isHovered,
-          isPressed,
-          isFocused,
+          isHovered: isHoveredProp || isHovered,
+          isPressed: isPressedProp || isPressed,
+          isFocused: isFocusedProp || isFocused,
         }
       );
 
@@ -134,7 +144,16 @@ const RadioComponent = memo(
 );
 
 const Radio = (
-  { icon, children, size, wrapperRef, ...props }: IRadioProps,
+  {
+    icon,
+    children,
+    size,
+    wrapperRef,
+    isHovered: isHoveredProp,
+    isPressed: isPressedProp,
+    isFocused: isFocusedProp,
+    ...props
+  }: IRadioProps,
   ref: any
 ) => {
   const formControlContext = useFormControlContext();
@@ -179,6 +198,9 @@ const Radio = (
       ref={ref}
       icon={icon}
       wrapperRef={wrapperRef}
+      isHovered={isHoveredProp}
+      isPressed={isPressedProp}
+      isFocused={isFocusedProp}
     />
   );
 };

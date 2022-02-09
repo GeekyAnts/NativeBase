@@ -9,7 +9,10 @@ import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { mergeRefs } from '../../../utils';
 
-const Input = (props: IInputProps, ref: any) => {
+const Input = (
+  { isHovered: isHoveredProp, isFocused: isFocusedProp, ...props }: IInputProps,
+  ref: any
+) => {
   const inputProps = useFormControl({
     isDisabled: props.isDisabled,
     isInvalid: props.isInvalid,
@@ -50,8 +53,8 @@ const Input = (props: IInputProps, ref: any) => {
     },
     {
       isDisabled: inputThemeProps.isDisabled,
-      isHovered,
-      isFocused,
+      isHovered: isHoveredProp || isHovered,
+      isFocused: isFocusedProp || isFocused,
       isInvalid: inputThemeProps.isInvalid,
       isReadOnly: inputThemeProps.isReadOnly,
     }
@@ -116,6 +119,8 @@ const Input = (props: IInputProps, ref: any) => {
     return (
       <InputBase
         inputProps={inputProps}
+        isHovered={isHoveredProp}
+        isFocused={isFocusedProp}
         {...props}
         ref={ref}
         onFocus={(e) => {

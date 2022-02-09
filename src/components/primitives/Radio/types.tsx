@@ -24,6 +24,22 @@ export interface IRadioProps extends IBoxProps<IRadioProps> {
    */
   isDisabled?: boolean;
   /**
+   * 	If true, the radio will be hovered
+   */
+  isHovered?: boolean;
+  /**
+   * 	If true, the radio will be pressed
+   */
+  isPressed?: boolean;
+  /**
+   * 	If true, the radio will be focused
+   */
+  isFocused?: boolean;
+  /**
+   * 	If true, the radio focus ring will be visible
+   */
+  isFocusVisible?: boolean;
+  /**
    * If true, the radio is marked as invalid. Changes style of unchecked state.
    */
   isInvalid?: boolean;
