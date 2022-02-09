@@ -4,7 +4,7 @@ import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { ISlideProps } from './types';
 import PresenceTransition from './PresenceTransition';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { Overlay } from '../../primitives';
+import { Overlay } from '../../primitives/Overlay';
 
 const holderStyle: any = {
   top: {
