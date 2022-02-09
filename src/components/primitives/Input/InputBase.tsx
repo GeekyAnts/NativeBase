@@ -110,13 +110,13 @@ const InputBase = (
   return (
     <StyledInput
       {...inputProps}
-      {...resolvedFontFamily}
       secureTextEntry={type === 'password'}
       accessible
       accessibilityLabel={ariaLabel || accessibilityLabel}
       editable={isDisabled || isReadOnly ? false : true}
       w={isFullWidth ? '100%' : undefined}
       {...(passUnresolvedProps ? props : resolvedProps)}
+      {...resolvedFontFamily}
       placeholderTextColor={resolvedPlaceholderTextColor}
       selectionColor={resolvedSelectionColor}
       underlineColorAndroid={resolvedUnderlineColorAndroid}
