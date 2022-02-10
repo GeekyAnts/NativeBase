@@ -24,7 +24,9 @@ export interface ITableRowDataProps {
 
   width?: string | number;
 }
-export interface ITableHeaderProps {}
+export interface ITableHeaderProps {
+  children?: JSX.Element | JSX.Element[];
+}
 export interface ITableHeaderDataProps {
   children?: JSX.Element | JSX.Element[] | string | any;
 
@@ -41,9 +43,11 @@ export type ITableComponentType = ((
     (props: ITableRowDataProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Header: React.MemoExoticComponent<
-    (props: ITableRowDataProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: ITableHeaderProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   HeaderData: React.MemoExoticComponent<
-    (props: ITableRowDataProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (
+      props: ITableHeaderDataProps & { ref?: MutableRefObject<any> }
+    ) => JSX.Element
   >;
 };
