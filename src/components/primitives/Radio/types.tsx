@@ -91,6 +91,10 @@ export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
    * The callback fired when any children radio is checked or unchecked.
    */
   onChange?: IRadioGroupOnChangeHandler;
+  /**
+   * Pass props will be passed to each radio.
+   */
+  _radio?: IRadioProps;
 }
 export interface IRadioContext extends IFormControlContext {
   colorScheme?: string;

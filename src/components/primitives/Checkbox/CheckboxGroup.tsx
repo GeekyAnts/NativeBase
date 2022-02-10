@@ -11,7 +11,7 @@ export const CheckboxGroupContext = createContext<ICheckboxContext | null>(
 );
 
 function CheckboxGroup(
-  { size, colorScheme, ...props }: ICheckboxGroupProps,
+  { size, _checkbox, colorScheme, ...props }: ICheckboxGroupProps,
   ref?: any
 ) {
   const { children } = props;
@@ -20,6 +20,7 @@ function CheckboxGroup(
     { 'aria-label': props.accessibilityLabel, ...props },
     state
   );
+
   const formControlContext = useFormControlContext();
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps({ ...props, size, colorScheme })) {
@@ -30,6 +31,7 @@ function CheckboxGroup(
       value={{
         size,
         colorScheme,
+        ..._checkbox,
         ...formControlContext,
         state,
       }}
