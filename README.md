@@ -105,7 +105,7 @@ NativeBase 3.0 is a rich component library with nearly 40 components.
 
 ## 8. KitchenSink App
 
-[Kitchen Sink] (https://kitchensink.nativebase.io/) is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
+[Kitchen Sink](https://kitchensink.nativebase.io/) is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
 
 <div class="flexible">
   <img src="https://github.com/GeekyAnts/NativeBase/raw/development/img/kitchensink.gif" height="500px" alt="Kitchensink App gif">  
