@@ -22,7 +22,6 @@ const RadioComponent = memo(
       ref: any
     ) => {
       const { isInvalid, isReadOnly, isIndeterminate } = combinedProps;
-
       const { disabled: isDisabled, checked: isChecked } = inputProps;
       const _ref = React.useRef(null);
       const { isHovered } = useHover({}, _ref);
@@ -122,7 +121,10 @@ const Radio = (
   const formControlContext = useFormControlContext();
   const contextState = React.useContext(RadioContext);
 
-  const combinedProps = combineContextAndProps(formControlContext, props);
+  const combinedProps = combineContextAndProps(
+    { ...formControlContext, ...contextState },
+    props
+  );
 
   const inputRef = React.useRef(null);
   const radioState = useRadio(
