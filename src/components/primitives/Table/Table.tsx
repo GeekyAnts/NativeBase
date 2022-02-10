@@ -3,9 +3,11 @@ import { ScrollView } from '../../basic/ScrollView/ScrollView';
 import Box from '../Box/index';
 import type { ITableProps } from './types';
 import TableData from './TableData';
+import TableHeaderData from './TableHeaderData';
 
 const Table = ({ children, ...props }: ITableProps) => {
   const tableComponents: JSX.Element[] = [];
+  const notTableComponents: JSX.Element[] = [];
   let max_col = -1;
 
   React.Children.map(children, (child: any) => {
@@ -43,26 +45,47 @@ const Table = ({ children, ...props }: ITableProps) => {
       }
 
       /**For existing children (column) */
+      let columnsIndex = 0;
       for (let i = 0; i < child.props.children.length; i++) {
         const restProps = { ...child.props.children[i].props };
         restProps.width = '';
         let width = '';
-        if (maxWidthArr[i] && maxWidthArr[i].percentage !== -1) {
-          width = `${maxWidthArr[i].percentage}%`;
-        } else if (maxWidthArr[i] && maxWidthArr[i].px) {
-          width = `${maxWidthArr[i].px}px`;
+        if (
+          maxWidthArr[columnsIndex] &&
+          maxWidthArr[columnsIndex].percentage !== -1
+        ) {
+          width = `${maxWidthArr[columnsIndex].percentage}%`;
+        } else if (maxWidthArr[columnsIndex] && maxWidthArr[i].px) {
+          width = `${maxWidthArr[columnsIndex].px}px`;
         }
-        columns.push(
-          React.cloneElement(
-            child.props.children[i],
-            {
-              key: `...${i}`,
-              ...restProps,
-              width,
-            },
-            child.props.children[i].props.children
-          )
-        );
+        if (
+          child.props.children[i].type === TableHeaderData ||
+          child.props.children[i].type === TableData
+        ) {
+          columns.push(
+            React.cloneElement(
+              child.props.children[i],
+              {
+                key: `...${i}`,
+                ...restProps,
+                width,
+              },
+              child.props.children[i].props.children
+            )
+          );
+          columnsIndex++;
+        } else {
+          notTableComponents.push(
+            React.cloneElement(
+              child.props.children[i],
+              {
+                key: `...${i}`,
+                ...restProps,
+              },
+              child.props.children[i].props.children
+            )
+          );
+        }
       }
       const tableRow = React.cloneElement(
         child,
@@ -83,7 +106,10 @@ const Table = ({ children, ...props }: ITableProps) => {
       child.props.children.map((c: any, index: number) => {
         if (!maxWidthArr[index])
           maxWidthArr[index] = { px: -1, percentage: -1 };
-        if (c.props.width) {
+        if (
+          c.props.width &&
+          (c.type === TableHeaderData || c.type === TableData)
+        ) {
           const width = c.props.width;
           if (width.slice(-2) === 'px') {
             const curr_width = parseInt(width.substr(0, width.length - 2), 10);
@@ -112,11 +138,18 @@ const Table = ({ children, ...props }: ITableProps) => {
   }
 
   return (
-    <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} mb="6">
-      <Box {...props} borderRadius={10} p="4">
-        {getTable()}
-      </Box>
-    </ScrollView>
+    <>
+      {notTableComponents}
+      <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={true}
+        mb="6"
+      >
+        <Box {...props} borderRadius={10} p="4">
+          {getTable()}
+        </Box>
+      </ScrollView>
+    </>
   );
 };
 
