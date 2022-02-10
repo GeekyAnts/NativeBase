@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/GeekyAnts/NativeBase/development/img/header1.png" alt="Nativebase Logo">
+# <img src="https://raw.githubusercontent.com/GeekyAnts/NativeBase/master/img/header1.png" alt="Nativebase Logo">
 
 [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
 
