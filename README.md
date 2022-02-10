@@ -27,7 +27,7 @@
 
 ## 1. Introduction?
 
-[NativeBase](https://nativebase.github.io/) is a mobile-first, component library for React & React Native. Version 3.0 ships with complete ARIA integration, support for utility props and nearly 40 components that are consistent across Android, iOS and Web. Fast-track your dev process with NativeBase 3.0.
+[NativeBase](https://nativebase.io/) is a mobile-first, component library for React & React Native. Version 3.0 ships with complete ARIA integration, support for utility props and nearly 40 components that are consistent across Android, iOS and Web. Fast-track your dev process with NativeBase 3.0.
 
 **Recommended by [Awesome React Native](https://github.com/jondot/awesome-react-native)**
 
@@ -82,7 +82,7 @@ React Native, Expo
 
 NativeBase is supported in Expo or React Native CLI initiated apps. Web support is made possible by react-native-web.
 
-Refer the [guides](https://alpha-docs.nativebase.io/installation) to setup NativeBase in your React app.
+Refer the [guides](https://docs.nativebase.io/installation) to setup NativeBase in your React app.
 
 ## 6. Components
 
@@ -93,19 +93,19 @@ NativeBase 3.0 is a rich component library with nearly 40 components.
 - [**Data Display**](https://docs.nativebase.io/badge)
 - [**Feedback**](https://docs.nativebase.io/alert)
 - [**Typography**](https://docs.nativebase.io/text)
-- [**Overlay** ](https://docs.nativebase.io/alertDialog)
-- [**Disclosure**](https://docs.nativebase.io/actionSheet)
+- [**Overlay** ](https://docs.nativebase.io/alert-dialog)
+- [**Disclosure**](https://docs.nativebase.io/action-sheet)
 - [**Media & Icons**](https://docs.nativebase.io/avatar)
 - [**Transition**](https://docs.nativebase.io/presence-transition)
-- [**Other**](https://docs.nativebase.io/FAB)
+- [**Other**](https://docs.nativebase.io/fab)
 
 ## 7. Examples
 
-[Check out the Login Screen example](https://docs.nativebase.io/todo-example)
+[Check out the Todo-List example](https://docs.nativebase.io/todo-list)
 
 ## 8. KitchenSink App
 
-Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
+[Kitchen Sink] (https://kitchensink.nativebase.io/) is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
 
 <div class="flexible">
   <img src="https://github.com/GeekyAnts/NativeBase/raw/development/img/kitchensink.gif" height="500px" alt="Kitchensink App gif">  
@@ -170,10 +170,10 @@ Support this project with your organization. Your logo will show up here with a 
 ## 13. Community
 
 - [Facebook](https://www.facebook.com/nativebaseio)
-- [Twitter](https://twitter.com/nativebaseio)
+- [Twitter](https://twitter.com/nativebase)
 - [Discord](https://discord.com/invite/TSgCw2UPmb)
 - [Stackoverflow](https://stackoverflow.com/questions/tagged/native-base)
-- [Blog](https://techblog.nativebase.io/)
+- [Blog](https://nativebase.io/blogs)
 - [YouTube](https://www.youtube.com/channel/UCoL_iTwpY07vDs91974z3xA/about)
 
 ## 14. License
