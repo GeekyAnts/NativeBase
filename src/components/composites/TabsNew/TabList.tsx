@@ -3,7 +3,7 @@ import { HStack } from '../../primitives';
 import { TabsContext } from './Context';
 import type { ITabListProps, ITabsContextProps } from './types';
 
-const TabList = ({ children, ...props }: ITabListProps) => {
+const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
   const { active }: ITabsContextProps = useContext(TabsContext);
   const restArr: any = [];
   React.Children.map(children, (child: any, index: any) => {
@@ -20,7 +20,7 @@ const TabList = ({ children, ...props }: ITabListProps) => {
     restArr.push(ele);
   });
   return (
-    <HStack space={4} my={4} {...props}>
+    <HStack space={4} my={4} {...props} ref={ref}>
       {restArr}
     </HStack>
   );

@@ -3,7 +3,7 @@ import { Box, Pressable } from '../../primitives';
 import { TabsContext } from './Context';
 import type { ITabProps, ITabsContextProps } from './types';
 
-const Tab = ({ children, index, ...props }: ITabProps) => {
+const Tab = ({ children, index, ...props }: ITabProps, ref?: any) => {
   const { setActive }: ITabsContextProps = useContext(TabsContext);
   return (
     <Pressable
@@ -13,6 +13,7 @@ const Tab = ({ children, index, ...props }: ITabProps) => {
       rounded="md"
       onPress={() => setActive(index)}
       {...props}
+      ref={ref}
     >
       <Box _web={{ cursor: 'pointer' }}>{children}</Box>
     </Pressable>
