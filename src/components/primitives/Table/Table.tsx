@@ -55,7 +55,7 @@ const Table = ({ children, ...props }: ITableProps) => {
           maxWidthArr[columnsIndex].percentage !== -1
         ) {
           width = `${maxWidthArr[columnsIndex].percentage}%`;
-        } else if (maxWidthArr[columnsIndex] && maxWidthArr[i].px) {
+        } else if (maxWidthArr[columnsIndex] && maxWidthArr[i].px !== -1) {
           width = `${maxWidthArr[columnsIndex].px}px`;
         }
         if (
