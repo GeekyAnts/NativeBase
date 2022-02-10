@@ -14,7 +14,7 @@ const Tab = ({ children, index, ...props }: ITabProps) => {
       onPress={() => setActive(index)}
       {...props}
     >
-      <Box>{children}</Box>
+      <Box _web={{ cursor: 'pointer' }}>{children}</Box>
     </Pressable>
   );
 };
