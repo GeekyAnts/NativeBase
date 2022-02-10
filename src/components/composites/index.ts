@@ -136,6 +136,17 @@ export type { ISimpleGridProps } from './SimpleGrid';
 //   ITabViewProps,
 //   ITabsContextProps,
 // } from './Tabs';
+
+export { Tabs } from './TabsNew';
+export type {
+  ITabsProps,
+  ITabListProps,
+  ITabProps,
+  ITabContentsProps,
+  ITabBodyProps,
+  ITabsContextProps,
+} from './TabsNew';
+
 export { TextField } from './TextField';
 export type { ITextFieldProps } from './TextField';
 
