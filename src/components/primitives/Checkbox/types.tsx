@@ -137,6 +137,10 @@ export interface ICheckboxGroupProps extends IBoxProps<ICheckboxGroupProps> {
    * The callback fired when any children Checkbox is checked or unchecked.
    */
   onChange?: (values: any) => any;
+  /**
+   * Pass props will be passed to each checkbox.
+   */
+  _checkbox?: ICheckboxProps;
 }
 export interface ICheckboxContext extends IFormControlContext {
   colorScheme?: string;

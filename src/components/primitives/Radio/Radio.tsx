@@ -29,7 +29,6 @@ const RadioComponent = memo(
       ref: any
     ) => {
       const { isInvalid, isReadOnly, isIndeterminate } = combinedProps;
-
       const { hoverProps, isHovered } = useHover();
       const { pressableProps, isPressed } = useIsPressed();
       const { focusProps, isFocused } = useFocus();
@@ -139,9 +138,10 @@ const Radio = (
 ) => {
   const formControlContext = useFormControlContext();
   const contextState = React.useContext(RadioContext);
-
-  const combinedProps = combineContextAndProps(formControlContext, props);
-
+  const combinedProps = combineContextAndProps(
+    { ...formControlContext, ...contextState },
+    props
+  );
   const inputRef = React.useRef(null);
   const radioState = useRadio(
     { ...combinedProps, 'aria-label': props.accessibilityLabel, children },
