@@ -7,31 +7,34 @@ export interface ITableProps {
    * Renders components as Tabel children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;
   /**
-   * Size of the table
-   * @default md
-   */
-  size?: 'sm' | 'md' | 'ld';
-  /**
    * color of table
-   * @default gray
+   *
+   */
+  bg?: ResponsiveValue<IColors | (string & {})>;
+  /**
+   * align text in Table
+   */
+  textAlign?: 'left' | 'center' | 'right';
+  /**
+   * Width of Table
+   */
+  width?: string | number;
+}
+
+export interface ITableRowProps extends ITableProps {
+  /**
+   * color of text
    */
   color?: ResponsiveValue<IColors | (string & {})>;
 }
-
-export interface ITableRowProps {}
-export interface ITableRowDataProps {
-  children?: JSX.Element | JSX.Element[] | string | any;
-
-  width?: string | number;
+export interface ITableRowDataProps extends ITableProps {}
+export interface ITableHeaderProps extends ITableProps {
+  /**
+   * color of text
+   */
+  color?: ResponsiveValue<IColors | (string & {})>;
 }
-export interface ITableHeaderProps {
-  children?: JSX.Element | JSX.Element[];
-}
-export interface ITableHeaderDataProps {
-  children?: JSX.Element | JSX.Element[] | string | any;
-
-  width?: string | number;
-}
+export interface ITableHeaderDataProps extends ITableProps {}
 
 export type ITableComponentType = ((
   props: ITableProps & { ref?: MutableRefObject<any> }
