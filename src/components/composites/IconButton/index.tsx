@@ -20,6 +20,7 @@ const IconButton = (
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
+    isDisabled,
     ...props
   }: IIconButtonProps,
   ref: any
@@ -43,6 +44,7 @@ const IconButton = (
     isPressed: isPressedProp || isPressed,
     isFocused: isFocusedProp || isFocused,
     isFocusVisible: isFocusVisibleProp || isFocusVisible,
+    isDisabled,
   });
 
   let clonedIcon;
