@@ -107,8 +107,8 @@ const Table = ({ children, ...props }: ITableProps) => {
         if (!maxWidthArr[index])
           maxWidthArr[index] = { px: -1, percentage: -1 };
         if (
-          c.props.width &&
-          (c.type === TableHeaderData || c.type === TableData)
+          c?.props?.width &&
+          (c?.type === TableHeaderData || c?.type === TableData)
         ) {
           const width = c.props.width;
           if (width.slice(-2) === 'px') {
@@ -132,7 +132,7 @@ const Table = ({ children, ...props }: ITableProps) => {
             const max_width = Math.max(maxWidthArr[index].px, curr_width);
             maxWidthArr[index].px = max_width;
           }
-        } else if (!maxWidthArr[index]) maxWidthArr[index] = -1;
+        }
       });
     });
   }
