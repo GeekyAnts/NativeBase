@@ -44,7 +44,6 @@ const Checkbox = (
     defaultSelected: combinedProps.defaultIsChecked,
     isSelected: combinedProps.isChecked,
   });
-
   const _ref = React.useRef();
   const mergedRef = mergeRefs([ref, _ref]);
 
@@ -77,7 +76,6 @@ const Checkbox = (
     ...checkboxGroupContext,
     ...combinedProps,
   });
-
   return (
     <CheckboxComponent
       inputProps={inputProps}
@@ -124,16 +122,20 @@ const CheckboxComponent = React.memo(
       onFocus,
       onBlur,
       ...resolvedProps
-    } = usePropsResolution('Checkbox', inputProps, {
-      isInvalid,
-      isReadOnly,
-      isIndeterminate,
-      isDisabled,
-      isChecked,
-      isHovered: isHoveredProp || isHovered,
-      isPressed: isPressedProp || isPressed,
-      isFocused: isFocusedProp || isFocused,
-    });
+    } = usePropsResolution(
+      'Checkbox',
+      { ...combinedProps, ...inputProps },
+      {
+        isInvalid,
+        isReadOnly,
+        isIndeterminate,
+        isDisabled,
+        isChecked,
+        isHovered: isHoveredProp || isHovered,
+        isPressed: isPressedProp || isPressed,
+        isFocused: isFocusedProp || isFocused,
+      }
+    );
 
     const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
       ...stylingProps.margin,

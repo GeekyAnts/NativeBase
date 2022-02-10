@@ -19,7 +19,7 @@ const RadioWrapper = React.memo((props: any) => {
 });
 
 const RadioGroup = (
-  { size, colorScheme, ...props }: IRadioGroupProps,
+  { size, colorScheme, _radio, ...props }: IRadioGroupProps,
   ref: any
 ) => {
   const formControlContext = useFormControlContext();
@@ -35,9 +35,10 @@ const RadioGroup = (
       formControlContext,
       size,
       colorScheme,
+      ..._radio,
       state,
     };
-  }, [size, colorScheme, formControlContext, state]);
+  }, [size, colorScheme, formControlContext, state, _radio]);
 
   const radioGroupProps = React.useMemo(
     () => radioGroupState.radioGroupProps,
