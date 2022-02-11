@@ -11,7 +11,8 @@ const Table = ({ children, ...props }: ITableProps) => {
   let max_col = -1;
 
   React.Children.map(children, (child: any) => {
-    max_col = Math.max(max_col, child.props.children.length);
+    if (child?.props?.children?.length)
+      max_col = Math.max(max_col, child.props.children.length);
   });
 
   const maxWidthArr: any = [];
@@ -21,6 +22,10 @@ const Table = ({ children, ...props }: ITableProps) => {
     React.Children.map(children, (child, index) => {
       const extraColumns: JSX.Element[] = [];
       const columns: JSX.Element[] = [];
+      if (typeof child === 'string') {
+        notTableComponents.push(child);
+        return;
+      }
 
       if (!child.props.children.length) {
         const tableRow = React.cloneElement(
@@ -116,6 +121,7 @@ const Table = ({ children, ...props }: ITableProps) => {
 
   function getAllMaxWidth() {
     React.Children.map(children, (child) => {
+      if (typeof child === 'string') return;
       if (!child.props.children.length) {
         if (!maxWidthArr[0]) maxWidthArr[0] = { px: -1, percentage: -1 };
         if (child.props.children.props.width) {
