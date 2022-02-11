@@ -3,7 +3,7 @@ import { Box, Pressable } from '../../primitives';
 import { TabsContext } from './Context';
 import type { ITabProps, ITabsContextProps } from './types';
 
-const Tab = ({ children, index, ...props }: ITabProps, ref?: any) => {
+const Tab = ({ children, value, ...props }: ITabProps, ref?: any) => {
   const { setActive }: ITabsContextProps = useContext(TabsContext);
   return (
     <Pressable
@@ -11,7 +11,7 @@ const Tab = ({ children, index, ...props }: ITabProps, ref?: any) => {
       py="2"
       bg="gray.200"
       rounded="md"
-      onPress={() => setActive(index)}
+      onPress={() => setActive(value)}
       {...props}
       ref={ref}
     >

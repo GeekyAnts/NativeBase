@@ -5,10 +5,10 @@ import type { ITabContentsProps, ITabsContextProps } from './types';
 
 const TabContents = ({ children, ...props }: ITabContentsProps, ref?: any) => {
   const { active }: ITabsContextProps = useContext(TabsContext);
-  const items = React.Children.map(
-    children,
-    (child, i) => i === active && child
-  );
+  const items = React.Children.map(children, (child) => {
+    const forvalue = child.props.for;
+    return forvalue === active && child;
+  });
   return (
     <Box {...props} ref={ref}>
       {items}

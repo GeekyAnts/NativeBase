@@ -4,6 +4,7 @@ export type ITabsProps = IBoxProps<ITabsProps> & {};
 
 export type ITabProps = IPressableProps<ITabProps> & {
   index?: any;
+  value?: string;
 };
 
 export type ITabListProps = IBoxProps<ITabListProps> & {};
@@ -13,7 +14,9 @@ export type ITabsContextProps = {
   setActive?: any;
 };
 
-export type ITabBodyProps = IBoxProps<ITabBodyProps> & {};
+export type ITabBodyProps = IBoxProps<ITabBodyProps> & {
+  for?: string;
+};
 
 export type ITabContentsProps = IBoxProps<ITabContentsProps> & {};
 

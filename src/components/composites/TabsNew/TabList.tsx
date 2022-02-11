@@ -7,12 +7,13 @@ const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
   const { active }: ITabsContextProps = useContext(TabsContext);
   const restArr: any = [];
   React.Children.map(children, (child: any, index: any) => {
+    const value = child.props.value;
     const ele = React.cloneElement(
       child,
       {
         key: `${index}`,
-        index: index,
-        bg: index === active ? 'green.500' : 'gray.200',
+        value: value,
+        bg: value === active ? 'green.500' : 'gray.200',
         ...child.props,
       },
       child.props.children

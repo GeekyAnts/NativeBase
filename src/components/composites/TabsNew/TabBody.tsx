@@ -4,7 +4,7 @@ import type { ITabBodyProps } from './types';
 
 const TabBody = ({ children, ...props }: ITabBodyProps, ref?: any) => {
   return (
-    <Box bg="blue.200" p="4" {...props} ref={ref}>
+    <Box bg="blue.200" p="4" h="full" {...props} ref={ref}>
       {children}
     </Box>
   );
