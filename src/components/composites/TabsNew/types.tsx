@@ -5,6 +5,7 @@ export type ITabsProps = IBoxProps<ITabsProps> & {};
 export type ITabProps = IPressableProps<ITabProps> & {
   index?: any;
   value?: string;
+  isDisabled?: boolean;
 };
 
 export type ITabListProps = IBoxProps<ITabListProps> & {};

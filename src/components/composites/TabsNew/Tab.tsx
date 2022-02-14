@@ -10,6 +10,7 @@ const Tab = ({ children, value, ...props }: ITabProps, ref?: any) => {
       px="4"
       py="2"
       rounded="md"
+      disabled={props.isDisabled}
       onPress={() => setActive(value)}
       {...props}
       bg={value === active ? 'green.500' : props.bg ?? 'blue.500'}
