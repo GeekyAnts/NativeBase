@@ -1,5 +1,12 @@
 import React from 'react';
-import { Slide, Button, Alert, Text, Box } from 'native-base';
+import {
+  Slide,
+  Button,
+  Alert,
+  Text,
+  Box,
+  useColorModeValue,
+} from 'native-base';
 export const Example = () => {
   const [isOpenTop, setIsOpenTop] = React.useState(false);
   const str = `${isOpenTop ? 'Hide' : 'Check Internet Connection'}`;
@@ -18,6 +25,7 @@ export const Example = () => {
         onPress={() => setIsOpenTop(!isOpenTop)}
         variant="unstyled"
         bg="coolGray.700:alpha.30"
+        _text={{ color: useColorModeValue('darkText', 'lightText') }}
       >
         {str}
       </Button>
