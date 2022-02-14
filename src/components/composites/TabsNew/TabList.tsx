@@ -1,10 +1,8 @@
-import React, { memo, forwardRef, useContext } from 'react';
+import React, { memo, forwardRef } from 'react';
 import { HStack } from '../../primitives';
-import { TabsContext } from './Context';
-import type { ITabListProps, ITabsContextProps } from './types';
+import type { ITabListProps } from './types';
 
 const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
-  const { active }: ITabsContextProps = useContext(TabsContext);
   const restArr: any = [];
   React.Children.map(children, (child: any, index: any) => {
     const value = child.props.value;
@@ -13,7 +11,6 @@ const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
       {
         key: `${index}`,
         value: value,
-        bg: value === active ? 'green.500' : 'gray.200',
         ...child.props,
       },
       child.props.children
