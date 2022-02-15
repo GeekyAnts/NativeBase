@@ -1,16 +1,15 @@
-import React from 'react';
-// import HStack from '../../primitives/Stack/HStack';
+import React, { forwardRef, memo } from 'react';
 import Box from '../Box/index';
-import Text from '../../primitives/Text/index';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
-const TableRow = ({ children, ...props }: any) => {
+const TableRow = ({ children, ...props }: any, ref?: any) => {
+  const { ...resolvedProps } = usePropsResolution('TableData', props);
+
   return (
-    <Box px="2" {...props}>
-      <Text color="#000" fontSize="md">
-        {children}
-      </Text>
+    <Box {...resolvedProps} ref={ref}>
+      {children}
     </Box>
   );
 };
 
-export default TableRow;
+export default memo(forwardRef(TableRow));
