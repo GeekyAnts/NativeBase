@@ -1,5 +1,5 @@
 import React, { memo, forwardRef, useContext } from 'react';
-import { Box } from '../../primitives';
+import Box from '../../primitives/Box';
 import { TabsContext } from './Context';
 import TabBody from './TabBody';
 import type { ITabContentsProps, ITabsContextProps } from './types';

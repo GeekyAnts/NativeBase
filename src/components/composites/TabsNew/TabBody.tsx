@@ -1,5 +1,5 @@
 import React, { memo, forwardRef } from 'react';
-import { Box } from '../../primitives';
+import Box from '../../primitives/Box';
 import type { ITabBodyProps } from './types';
 
 const TabBody = ({ children, ...props }: ITabBodyProps, ref?: any) => {

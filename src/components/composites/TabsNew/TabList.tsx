@@ -1,5 +1,5 @@
 import React, { memo, forwardRef } from 'react';
-import { HStack } from '../../primitives';
+import HStack from '../../primitives/Stack/HStack';
 import { ScrollView } from '../../basic/ScrollView';
 import Tab from './Tab';
 import type { ITabListProps } from './types';
