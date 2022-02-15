@@ -3,6 +3,7 @@ import { Popover, Button, VStack, Select, CheckIcon, Box } from 'native-base';
 
 export function Example() {
   const [position, setPosition] = useState('auto');
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Box h="60%" w="100%" alignItems="center">
@@ -12,15 +13,22 @@ export function Example() {
           placement={position === 'auto' ? undefined : position}
           trigger={(triggerProps) => {
             return (
-              <Button colorScheme="danger" alignSelf="center" {...triggerProps}>
+              <Button
+                colorScheme="danger"
+                alignSelf="center"
+                {...triggerProps}
+                onPress={() => setIsOpen(true)}
+              >
                 Delete Customer
               </Button>
             );
           }}
+          isOpen={isOpen}
+          onClose={() => setIsOpen(!isOpen)}
         >
           <Popover.Content w="56">
             <Popover.Arrow />
-            <Popover.CloseButton />
+            <Popover.CloseButton onPress={() => setIsOpen(false)} />
             <Popover.Header>Delete Customer</Popover.Header>
             <Popover.Body>
               This will remove all data relating to Alex. This action cannot be
@@ -28,10 +36,16 @@ export function Example() {
             </Popover.Body>
             <Popover.Footer justifyContent="flex-end">
               <Button.Group space={2}>
-                <Button colorScheme="coolGray" variant="ghost">
+                <Button
+                  colorScheme="coolGray"
+                  variant="ghost"
+                  onPress={() => setIsOpen(false)}
+                >
                   Cancel
                 </Button>
-                <Button colorScheme="danger">Delete</Button>
+                <Button colorScheme="danger" onPress={() => setIsOpen(false)}>
+                  Delete
+                </Button>
               </Button.Group>
             </Popover.Footer>
           </Popover.Content>
