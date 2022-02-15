@@ -1,16 +1,19 @@
-import React from 'react';
-import Text from '../../primitives/Text/index';
-// import TableData from './TableData';
+import React, { memo, forwardRef } from 'react';
 import Box from '../Box/index';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
+import type { ITableHeaderDataProps } from './types';
 
-const TableHeaderData = ({ children, ...props }: any) => {
+const TableHeaderData = (
+  { children, ...props }: ITableHeaderDataProps,
+  ref?: any
+) => {
+  const { ...resolvedProps } = usePropsResolution('TableHeaderData', props);
+
   return (
-    <Box px="2" {...props}>
-      <Text color="#000" fontWeight="700" fontSize="md">
-        {children}
-      </Text>
+    <Box {...resolvedProps} ref={ref}>
+      {children}
     </Box>
   );
 };
 
-export default TableHeaderData;
+export default memo(forwardRef(TableHeaderData));
