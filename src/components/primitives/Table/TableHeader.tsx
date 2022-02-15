@@ -1,13 +1,15 @@
-import React from 'react';
-// import TableRow from './TableRow';
+import React, { memo, forwardRef } from 'react';
 import HStack from '../../primitives/Stack/HStack';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
+import type { ITableHeaderProps } from './types';
 
-const TableHeader = ({ children, ...props }: any) => {
+const TableHeader = ({ children, ...props }: ITableHeaderProps, ref?: any) => {
+  const { ...resolvedProps } = usePropsResolution('TableRow', props);
   return (
-    <HStack px="8" py="3" {...props}>
+    <HStack {...resolvedProps} ref={ref}>
       {children}
     </HStack>
   );
 };
 
-export default TableHeader;
+export default memo(forwardRef(TableHeader));
