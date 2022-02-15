@@ -23,17 +23,18 @@ export interface ITableProps {
 
 export interface ITableRowProps extends ITableProps {
   /**
-   * color of text
+   * color of table row
+   *
    */
-  color?: ResponsiveValue<IColors | (string & {})>;
-}
-export interface ITableRowDataProps extends ITableProps {}
-export interface ITableHeaderProps extends ITableProps {
+  bg?: ResponsiveValue<IColors | (string & {})>;
   /**
-   * color of text
+   * align text in Table
    */
-  color?: ResponsiveValue<IColors | (string & {})>;
+  textAlign?: 'left' | 'center' | 'right';
 }
+
+export interface ITableRowDataProps extends ITableProps {}
+export interface ITableHeaderProps extends ITableRowProps {}
 export interface ITableHeaderDataProps extends ITableProps {}
 
 export type ITableComponentType = ((
