@@ -13,6 +13,7 @@ import {
   ActionsheetItem,
 } from './actionsheet';
 import { Select, SelectItem } from './select';
+import { Table, TableRow, TableHeaderData, TableData } from './table';
 import { Alert, AlertIcon } from './alert';
 import AspectRatio from './aspect-ratio';
 import Avatar from './avatar';
@@ -201,6 +202,10 @@ export default {
   Tabs,
   Tag,
   Text,
+  Table,
+  TableRow,
+  TableHeaderData,
+  TableData,
   AppBar,
   TextArea,
   TextField,
