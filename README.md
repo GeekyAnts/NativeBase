@@ -132,6 +132,7 @@ JavaScript, React Native, Styled System
 | v2.3.0 to 2.6.1                  | v0.46.0 and above (does not support React 16.0.0-alpha.13) |
 | v2.7.0                           | v0.56.0 and above                                          |
 | v3.0.0-next.36 to v3.0.0-next-41 | v0.63.0 and above                                          |
+| v3.0.0 to latest                 | v0.63.0 and above                                          |
 
 ## 11. Contributors
 
