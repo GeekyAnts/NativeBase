@@ -1,10 +1,17 @@
 import React, { memo, forwardRef } from 'react';
 import Box from '../../primitives/Box';
 import type { ITabBodyProps } from './types';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const TabBody = ({ children, ...props }: ITabBodyProps, ref?: any) => {
+  const { ...resolvedProps } = usePropsResolution(
+    'TabBody',
+    props,
+    {},
+    undefined
+  );
   return (
-    <Box bg="blue.200" p="4" h="full" {...props} ref={ref}>
+    <Box {...resolvedProps} {...props} ref={ref}>
       {children}
     </Box>
   );

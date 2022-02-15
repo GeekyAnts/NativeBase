@@ -80,7 +80,8 @@ import { Skeleton, SkeletonText } from './skeleton';
 import Spinner from './spinner';
 import Stat from './stat';
 import Switch from './switch';
-import Tabs from './tabs';
+// import Tabs from './tabs';
+import { Tab, Tabs, TabBody, TabContent, TabList } from './tabsnew';
 import Tag from './tag';
 import Text from './text';
 import AppBar from './app-bar';
@@ -198,7 +199,11 @@ export default {
   Stack,
   Stat,
   Switch,
+  Tab,
   Tabs,
+  TabBody,
+  TabContent,
+  TabList,
   Tag,
   Text,
   AppBar,

@@ -1,6 +1,9 @@
 import type { IBoxProps, IPressableProps } from '../../primitives';
 
-export type ITabsProps = IBoxProps<ITabsProps> & {};
+export type ITabsProps = IBoxProps<ITabsProps> & {
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'underlined' | 'filled';
+};
 
 export type ITabProps = IPressableProps<ITabProps> & {
   index?: any;
@@ -8,11 +11,14 @@ export type ITabProps = IPressableProps<ITabProps> & {
   isDisabled?: boolean;
 };
 
-export type ITabListProps = IBoxProps<ITabListProps> & {};
+export type ITabListProps = IBoxProps<ITabListProps> & {
+  align?: 'center' | 'end' | 'start';
+};
 
 export type ITabsContextProps = {
   active?: any;
   setActive?: any;
+  variant?: string;
 };
 
 export type ITabBodyProps = IBoxProps<ITabBodyProps> & {

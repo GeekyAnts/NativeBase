@@ -3,9 +3,17 @@ import HStack from '../../primitives/Stack/HStack';
 import { ScrollView } from '../../basic/ScrollView';
 import Tab from './Tab';
 import type { ITabListProps } from './types';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
-  const restArr: any = [];
+  const { align, ...resolvedProps } = usePropsResolution(
+    'TabList',
+    props,
+    {},
+    undefined
+  );
+
+  const tabArr: any = [];
   React.Children.map(children, (child: any, index: any) => {
     if (child.type === Tab) {
       const value = child.props.value;
@@ -18,16 +26,16 @@ const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
         },
         child.props.children
       );
-      restArr.push(ele);
+      tabArr.push(ele);
     } else {
-      restArr.push(child);
+      tabArr.push(child);
     }
   });
 
   return (
     <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} mb={4}>
-      <HStack space={4} my={4} {...props} ref={ref}>
-        {restArr}
+      <HStack {...resolvedProps} {...props} ref={ref} justifyContent={align}>
+        {tabArr}
       </HStack>
     </ScrollView>
   );
