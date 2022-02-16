@@ -4,6 +4,7 @@ const baseStyle = (props: Record<string, any>) => {
   const { colorScheme, theme } = props;
   return {
     flexDirection: 'row',
+    alignItems: 'center',
     borderWidth: 2,
     borderRadius: 'full',
     p: '2px',
@@ -68,6 +69,8 @@ const baseStyle = (props: Record<string, any>) => {
     _pressed: {
       _interactionBox: {
         bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+        w: '200%',
+        h: '200%',
       },
     },
   };
