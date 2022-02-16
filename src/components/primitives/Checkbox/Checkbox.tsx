@@ -52,19 +52,19 @@ const Checkbox = (
   // but since the checkbox won't move in and out of a group, it should be safe.
   const { inputProps: groupItemInputProps } = checkboxGroupContext
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
-    useCheckboxGroupItem(
-      combinedProps,
-      checkboxGroupContext.state,
-      //@ts-ignore
-      mergedRef
-    )
+      useCheckboxGroupItem(
+        combinedProps,
+        checkboxGroupContext.state,
+        //@ts-ignore
+        mergedRef
+      )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
-    useCheckbox(
-      combinedProps,
-      state,
-      //@ts-ignore
-      mergedRef
-    );
+      useCheckbox(
+        combinedProps,
+        state,
+        //@ts-ignore
+        mergedRef
+      );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const inputProps = React.useMemo(() => groupItemInputProps, [
@@ -185,10 +185,7 @@ const CheckboxComponent = React.memo(
         <Box {...layoutProps}>
           <Center>
             {/* Interaction Wrapper */}
-            <Box
-              {..._interactionBox}
-
-            />
+            <Box {..._interactionBox} />
             {/* Checkbox */}
             <Center {...nonAccessibilityProps}>
               <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
