@@ -140,22 +140,15 @@ const CheckboxComponent = React.memo(
 
     const component = React.useMemo(() => {
       return (
-        <Box
-          {...layoutProps}
-          // opacity={isDisabled ? 0.4 : 1}
-          cursor={isDisabled ? 'not-allowed' : 'pointer'}
-        >
+        <Box {...layoutProps}>
           <Center>
             {/* Interaction Box */}
             <Box
-              pointerEvents="none"
               // eslint-disable-next-line react-native/no-inline-styles
               style={{
                 transition: 'height 200ms, width 200ms',
               }}
-              // p={isFocusVisible || isHovered ? _interactionBox.size : 0}
               {..._interactionBox}
-              // zIndex={-1}
             />
             {/* Checkbox */}
             <Center {...nonLayoutProps}>

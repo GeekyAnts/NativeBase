@@ -23,6 +23,7 @@ const baseStyle = (props: Record<string, any>) => {
       zIndex: '-1',
       w: '100%',
       h: '100%',
+      pointerEvents: 'none',
     },
     _hover: {
       _interactionBox: {

@@ -5,11 +5,15 @@ const baseStyle = (props: Record<string, any>) => {
   return {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     borderWidth: 2,
     borderRadius: 'full',
-    p: '2px',
+    p: '0.5',
     borderColor: mode('muted.300', 'muted.600')(props),
     bg: mode('muted.50', 'muted.700')(props), // matching background color
+    _web: {
+      cursor: 'pointer',
+    },
     _text: {
       ml: 2,
       _dark: {
@@ -25,6 +29,7 @@ const baseStyle = (props: Record<string, any>) => {
       borderRadius: 'full',
       w: '100%',
       h: '100%',
+      pointerEvents: 'none',
     },
     _icon: {
       color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props), // matching background color
@@ -55,6 +60,9 @@ const baseStyle = (props: Record<string, any>) => {
       borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
     },
     _disabled: {
+      _web: {
+        cursor: 'not-allowed',
+      },
       opacity: 0.4,
       _interactionBox: {
         bg: 'transparent',
