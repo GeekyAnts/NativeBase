@@ -6,13 +6,12 @@ import type { ITabListProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
-  const { align, ...resolvedProps } = usePropsResolution(
+  const { align, scrollable, ...resolvedProps } = usePropsResolution(
     'TabList',
     props,
     {},
     undefined
   );
-
   const tabArr: any = [];
   React.Children.map(children, (child: any, index: any) => {
     if (child.type === Tab) {
@@ -32,13 +31,24 @@ const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
     }
   });
 
-  return (
-    <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} mb={4}>
+  if (scrollable)
+    return (
+      <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={true}
+        mb={4}
+      >
+        <HStack {...resolvedProps} {...props} ref={ref} justifyContent={align}>
+          {tabArr}
+        </HStack>
+      </ScrollView>
+    );
+  else
+    return (
       <HStack {...resolvedProps} {...props} ref={ref} justifyContent={align}>
         {tabArr}
       </HStack>
-    </ScrollView>
-  );
+    );
 };
 
 export default memo(forwardRef(TabList));

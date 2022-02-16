@@ -3,10 +3,12 @@ import { Tabs } from 'native-base';
 
 export const Example = () => {
   return (
-    <Tabs bg="red.500">
-      <Tabs.List align="end">
+    <Tabs>
+      <Tabs.List>
         <Tabs.Tab value="btn1">Button1</Tabs.Tab>
-        <Tabs.Tab value="btn2">Button2</Tabs.Tab>
+        <Tabs.Tab value="btn2" isDisabled>
+          Button2
+        </Tabs.Tab>
         <Tabs.Tab value="btn3">Button3</Tabs.Tab>
         <Tabs.Tab value="btn4">Button4</Tabs.Tab>
       </Tabs.List>

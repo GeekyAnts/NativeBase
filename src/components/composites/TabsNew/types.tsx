@@ -3,6 +3,7 @@ import type { IBoxProps, IPressableProps } from '../../primitives';
 export type ITabsProps = IBoxProps<ITabsProps> & {
   size?: 'sm' | 'md' | 'lg';
   variant?: 'underlined' | 'filled';
+  orientation?: 'horizontal' | 'vertical';
 };
 
 export type ITabProps = IPressableProps<ITabProps> & {
@@ -13,6 +14,7 @@ export type ITabProps = IPressableProps<ITabProps> & {
 
 export type ITabListProps = IBoxProps<ITabListProps> & {
   align?: 'center' | 'end' | 'start';
+  scrollable?: boolean;
 };
 
 export type ITabsContextProps = {

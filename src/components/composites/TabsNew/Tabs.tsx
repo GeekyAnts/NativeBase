@@ -20,8 +20,9 @@ const Tabs = ({ children, ...props }: ITabsProps, ref?: any) => {
 
   const [active, setActive] = useState(initialActive);
   const variant = props.variant ?? 'underlined';
+  const orientation = props.orientation ?? 'horizontal';
   return (
-    <TabsContext.Provider value={{ active, setActive, variant }}>
+    <TabsContext.Provider value={{ active, setActive, variant, orientation }}>
       <Box {...resolvedProps} {...props} ref={ref}>
         {children}
       </Box>

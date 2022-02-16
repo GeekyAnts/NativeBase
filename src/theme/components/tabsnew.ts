@@ -10,8 +10,7 @@ export const Tabs = {
 // Tabs List Component
 export const TabList = {
   baseStyle: () => ({
-    w: 'full',
-    bg: 'blue.500',
+    w: '100%',
     space: '4',
     my: '4',
   }),
@@ -35,32 +34,32 @@ export const TabBody = {
 // Tab Component
 function baseStyle(props: Record<string, any>) {
   return {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    borderBottomWidth: '2',
+    borderColor: 'transparent',
+    py: '2',
+    px: '4',
     _hover: {
-      bg: 'red.500',
+      borderBottomWidth: '2',
+      borderColor: mode('muted.400', 'muted.600')(props),
     },
     _pressed: {
-      bg: 'blue.500',
+      bg: mode('primary.200', 'primary.800')(props),
     },
-    activeTabStyle: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'row',
-      borderBottomWidth: '2',
-      borderColor: 'transparent',
-      py: '2',
-      px: '4',
+    _disabled: {
+      opacity: '50',
     },
-    inactiveTabStyle: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'row',
-      borderBottomWidth: '2',
-      borderColor: 'transparent',
-      py: '2',
-      px: '4',
-      _text: {
-        color: mode('gray.500', 'gray.400')(props),
-      },
+    _focus: {
+      bg: mode('primary.100', 'primary.700')(props),
+    },
+    _web: {
+      cursor: props.isDisabled
+        ? 'default'
+        : props.isLoading
+        ? 'default'
+        : 'pointer',
     },
   };
 }
@@ -68,17 +67,27 @@ function baseStyle(props: Record<string, any>) {
 function variantUnderlined(props: Record<string, any>) {
   return {
     activeTabStyle: {
-      borderColor: mode('primary.600', 'primary.600')(props),
+      borderColor: mode('primary.600', 'primary.400')(props),
+      _text: {
+        color: mode('text.900', 'text.500')(props),
+      },
     },
-    inactiveTabStyle: {},
+    inactiveTabStyle: {
+      _text: {
+        color: mode('text.500', 'text.400')(props),
+      },
+    },
   };
 }
 
 function variantFilled(props: Record<string, any>) {
   return {
+    rounded: 'full',
     activeTabStyle: {
-      bg: mode('primary.600', 'primary.600')(props),
-      rounded: 'full',
+      bg: 'primary.600',
+      _text: {
+        color: mode('white', 'white')(props),
+      },
     },
     inactiveTabStyle: {},
   };

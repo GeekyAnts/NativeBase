@@ -10,17 +10,18 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import { composeEventHandlers } from '../../../utils';
-import { useFocusRing } from '@react-native-aria/focus';
 
-const Tab = ({ children, value, ...props }: ITabProps, ref?: any) => {
+const Tab = (
+  { children, isDisabled, value, ...props }: ITabProps,
+  ref?: any
+) => {
   const { active, setActive, variant }: ITabsContextProps = useContext(
     TabsContext
   );
-
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
-  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+
   const {
     activeTabStyle,
     inactiveTabStyle,
@@ -29,6 +30,7 @@ const Tab = ({ children, value, ...props }: ITabProps, ref?: any) => {
     onHoverIn,
     onHoverOut,
     onFocus,
+    onBlur,
     ...resolvedProps
   } = usePropsResolution(
     'Tab',
@@ -37,14 +39,14 @@ const Tab = ({ children, value, ...props }: ITabProps, ref?: any) => {
       isHovered,
       isPressed,
       isFocused,
-      isFocusVisible,
+      isDisabled,
     }
   );
 
   const tabStyle = value === active ? activeTabStyle : inactiveTabStyle;
   return (
     <Pressable
-      disabled={props.isDisabled}
+      disabled={isDisabled}
       onPress={() => setActive(value)}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
       onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
@@ -52,16 +54,18 @@ const Tab = ({ children, value, ...props }: ITabProps, ref?: any) => {
       onHoverIn={composeEventHandlers(onHoverIn, hoverProps.onHoverIn)}
       // @ts-ignore - web only
       onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
-      // @ts-ignore - web only
+      // // @ts-ignore - web only
       onFocus={composeEventHandlers(
-        composeEventHandlers(onFocus, focusProps.onFocus),
-        focusRingProps.onFocus
+        composeEventHandlers(onFocus, focusProps.onFocus)
+      )}
+      onBlur={composeEventHandlers(
+        composeEventHandlers(onBlur, focusProps.onBlur)
       )}
       ref={ref}
+      {...resolvedProps}
+      {...tabStyle}
     >
-      <Box _web={{ cursor: 'pointer' }} {...resolvedProps} {...tabStyle}>
-        {children}
-      </Box>
+      <Box>{children}</Box>
     </Pressable>
   );
 };
