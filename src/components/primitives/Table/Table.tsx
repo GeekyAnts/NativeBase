@@ -52,12 +52,7 @@ const Table = ({ children, ...props }: ITableProps) => {
 
       if (!child.props.children.length) {
         for (let i = 0; i < max_col - 1; i++) {
-          let width = '';
-          if (maxWidthArr[i + 1] && maxWidthArr[i + 1].percentage !== -1) {
-            width = `${maxWidthArr[i + 1].percentage}%`;
-          } else if (maxWidthArr[i + 1] && maxWidthArr[i + 1].px !== -1) {
-            width = `${maxWidthArr[i + 1].px}px`;
-          }
+          const width = getCurrentColumnWidth(i + 1);
           extraColumns.push(
             React.cloneElement(
               <TableData />,
@@ -69,12 +64,8 @@ const Table = ({ children, ...props }: ITableProps) => {
             )
           );
         }
-        let width = '';
-        if (maxWidthArr[0] && maxWidthArr[0].percentage !== -1) {
-          width = `${maxWidthArr[0].percentage}%`;
-        } else if (maxWidthArr[0] && maxWidthArr[0].px !== -1) {
-          width = `${maxWidthArr[0].px}px`;
-        }
+        const width = getCurrentColumnWidth(0);
+
         //TODO: change variable naming
         const rowOne = React.cloneElement(
           child.props.children,
@@ -98,20 +89,10 @@ const Table = ({ children, ...props }: ITableProps) => {
         /**To maintain table columns */
         if (child.props.children.length < max_col) {
           for (let i = 0; i < max_col - child.props.children.length; i++) {
-            let width = '';
-            if (
-              maxWidthArr[i + child.props.children.length] &&
-              maxWidthArr[i + child.props.children.length].percentage !== -1
-            ) {
-              width = `${
-                maxWidthArr[i + child.props.children.length].percentage
-              }%`;
-            } else if (
-              maxWidthArr[i + child.props.children.length] &&
-              maxWidthArr[i + child.props.children.length].px
-            ) {
-              width = `${maxWidthArr[i + child.props.children.length].px}px`;
-            }
+            const width = getCurrentColumnWidth(
+              i + child.props.children.length
+            );
+
             extraColumns.push(
               React.cloneElement(
                 <TableData />,
@@ -134,18 +115,7 @@ const Table = ({ children, ...props }: ITableProps) => {
           }
           const restProps = { ...child.props.children[i].props };
           restProps.width = '';
-          let width = '';
-          if (
-            maxWidthArr[columnsIndex] &&
-            maxWidthArr[columnsIndex].px !== -1
-          ) {
-            width = `${maxWidthArr[columnsIndex].px}px`;
-          } else if (
-            maxWidthArr[columnsIndex] &&
-            maxWidthArr[columnsIndex].percentage !== -1
-          ) {
-            width = `${maxWidthArr[columnsIndex].percentage}%`;
-          }
+          const width = getCurrentColumnWidth(columnsIndex);
           if (
             child.props.children[i].type === TableHeaderData ||
             child.props.children[i].type === TableData
@@ -188,6 +158,19 @@ const Table = ({ children, ...props }: ITableProps) => {
     });
     return tableComponents;
   };
+
+  function getCurrentColumnWidth(columnsIndex: number) {
+    let width = '';
+    if (maxWidthArr[columnsIndex] && maxWidthArr[columnsIndex].px !== -1) {
+      width = `${maxWidthArr[columnsIndex].px}px`;
+    } else if (
+      maxWidthArr[columnsIndex] &&
+      maxWidthArr[columnsIndex].percentage !== -1
+    ) {
+      width = `${maxWidthArr[columnsIndex].percentage}%`;
+    }
+    return width;
+  }
 
   function getAllMaxWidth() {
     /**
