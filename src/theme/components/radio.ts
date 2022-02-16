@@ -3,6 +3,7 @@ import { mode, transparentize } from '../tools';
 const baseStyle = (props: Record<string, any>) => {
   const { colorScheme, theme } = props;
   return {
+    flexDirection: 'row',
     borderWidth: 2,
     borderRadius: 'full',
     p: '2px',
@@ -10,11 +11,19 @@ const baseStyle = (props: Record<string, any>) => {
     bg: mode('muted.50', 'muted.700')(props), // matching background color
     _text: {
       ml: 2,
+      _dark: {
+        color: "lightText"
+      },
+      _light: {
+        color: "darkText"
+      }
     },
     _interactionBox: {
       position: 'absolute',
       zIndex: -1,
       borderRadius: 'full',
+      w: "100%",
+      h: "100%",
     },
     _icon: {
       color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props), // matching background color
@@ -22,6 +31,8 @@ const baseStyle = (props: Record<string, any>) => {
     _hover: {
       _interactionBox: {
         bg: transparentize('muted.200', 0.3)(theme),
+        w: "200%",
+        h: "200%",
       },
     },
     _focus: {
@@ -32,6 +43,8 @@ const baseStyle = (props: Record<string, any>) => {
     _focusVisible: {
       _interactionBox: {
         bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+        w: "200%",
+        h: "200%",
       },
     },
     _checked: {

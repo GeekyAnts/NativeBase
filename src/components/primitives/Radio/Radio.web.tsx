@@ -69,37 +69,18 @@ const RadioComponent = memo(
 
       const component = (
         <Box
-          flexDirection="row"
-          alignItems="center"
           {...layoutProps}
-          opacity={isDisabled ? 0.4 : 1}
           cursor={isDisabled ? 'not-allowed' : 'pointer'}
         >
           <Center>
             {/* Interaction Box */}
             <Box
-              {..._interactionBox}
+              pointerEvents="none"
               style={{
                 // @ts-ignore - only for web"
                 transition: 'height 200ms, width 200ms',
               }}
-              h={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '100%'
-              }
-              w={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '100%'
-              }
-              pointerEvents="none"
+              {..._interactionBox}
             />
             {/* Radio */}
             <Center {...nonLayoutProps}>

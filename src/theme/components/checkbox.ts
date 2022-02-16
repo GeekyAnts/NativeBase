@@ -10,7 +10,9 @@ const baseStyle = (props: Record<string, any>) => {
     borderRadius: 'sm',
     borderColor: mode('muted.300', 'muted.600')(props),
     bg: mode('muted.50', 'muted.700')(props), // matching background color
-
+    _web: {
+      cursor: "pointer"
+    },
     _text: {
       ml: 2,
       color: mode('darkText', 'lightText')(props),
@@ -19,10 +21,14 @@ const baseStyle = (props: Record<string, any>) => {
       position: 'absolute',
       borderRadius: 'full',
       zIndex: '-1',
+      w: "100%",
+      h: "100%",
     },
     _hover: {
       _interactionBox: {
         bg: transparentize('muted.200', 0.3)(theme),
+        h: "200%",
+        w: "200%"
       },
     },
     _focus: {
@@ -33,9 +39,14 @@ const baseStyle = (props: Record<string, any>) => {
     _focusVisible: {
       _interactionBox: {
         bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+        h: "200%",
+        w: "200%"
       },
     },
     _disabled: {
+      _web: {
+        cursor: 'not-allowed',
+      },
       _interactionBox: {
         bg: 'transparent',
       },
@@ -44,6 +55,8 @@ const baseStyle = (props: Record<string, any>) => {
     _pressed: {
       _interactionBox: {
         bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+        h: "200%",
+        w: "200%"
       },
     },
     _checked: {

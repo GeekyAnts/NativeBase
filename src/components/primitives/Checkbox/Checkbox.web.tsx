@@ -49,26 +49,26 @@ const Checkbox = (
   // but since the checkbox won't move in and out of a group, it should be safe.
   const { inputProps: groupItemInputProps } = checkboxGroupContext
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
-      useCheckboxGroupItem(
-        {
-          ...combinedProps,
-          'aria-label': combinedProps.accessibilityLabel,
-          'value': combinedProps.value,
-        },
-        checkboxGroupContext.state,
-        //@ts-ignore
-        mergedRef
-      )
+    useCheckboxGroupItem(
+      {
+        ...combinedProps,
+        'aria-label': combinedProps.accessibilityLabel,
+        'value': combinedProps.value,
+      },
+      checkboxGroupContext.state,
+      //@ts-ignore
+      mergedRef
+    )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
-      useCheckbox(
-        {
-          ...combinedProps,
-          'aria-label': combinedProps.accessibilityLabel,
-        },
-        state,
-        //@ts-ignore
-        mergedRef
-      );
+    useCheckbox(
+      {
+        ...combinedProps,
+        'aria-label': combinedProps.accessibilityLabel,
+      },
+      state,
+      //@ts-ignore
+      mergedRef
+    );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const inputProps = React.useMemo(() => groupItemInputProps, [
@@ -142,35 +142,19 @@ const CheckboxComponent = React.memo(
       return (
         <Box
           {...layoutProps}
-          opacity={isDisabled ? 0.4 : 1}
+          // opacity={isDisabled ? 0.4 : 1}
           cursor={isDisabled ? 'not-allowed' : 'pointer'}
         >
           <Center>
             {/* Interaction Box */}
             <Box
-              {..._interactionBox}
+              pointerEvents="none"
               style={{
-                // @ts-ignore - only for web"
                 transition: 'height 200ms, width 200ms',
               }}
-              h={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '0%'
-              }
-              w={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '0%'
-              }
-              pointerEvents="none"
-              // zIndex={-1}
+              // p={isFocusVisible || isHovered ? _interactionBox.size : 0}
+              {..._interactionBox}
+            // zIndex={-1}
             />
             {/* Checkbox */}
             <Center {...nonLayoutProps}>

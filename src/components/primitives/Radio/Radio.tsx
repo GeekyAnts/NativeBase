@@ -114,16 +114,12 @@ const RadioComponent = memo(
             // focusRingProps.onBlur
           )}
         >
-          <Center
-            flexDirection="row"
-            justifyContent="center"
-            alignItems="center"
-            borderRadius="full"
+          <Box
             {...layoutProps}
           >
             <Center>
               {/* Interaction Wrapper */}
-              <Box {..._interactionBox} p={5} w="100%" height="100%" />
+              <Box {..._interactionBox} />
               {/* radio */}
               <Center {...nonLayoutProps}>
                 {icon && sizedIcon && isChecked ? (
@@ -135,7 +131,7 @@ const RadioComponent = memo(
             </Center>
             {/* Label */}
             {children}
-          </Center>
+          </Box>
         </Pressable>
       );
     }
@@ -163,7 +159,7 @@ const Radio = (
   );
   const inputRef = React.useRef(null);
   const radioState = useRadio(
-    { ...combinedProps, 'aria-label': props.accessibilityLabel, children },
+    { 'value': combinedProps?.value, 'isDisabled': combinedProps?.isDisabled, 'aria-label': props.accessibilityLabel, children },
     contextState.state ?? {},
     inputRef
   );
@@ -179,6 +175,7 @@ const Radio = (
   const [contextCombinedProps] = React.useState({
     ...combinedProps,
   });
+  // console.log('contextCombinedProps', contextCombinedProps);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
