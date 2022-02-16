@@ -68,14 +68,12 @@ const RadioComponent = memo(
         });
 
       const component = (
-        <Box
-          {...layoutProps}
-          cursor={isDisabled ? 'not-allowed' : 'pointer'}
-        >
+        <Box {...layoutProps} cursor={isDisabled ? 'not-allowed' : 'pointer'}>
           <Center>
             {/* Interaction Box */}
             <Box
               pointerEvents="none"
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{
                 // @ts-ignore - only for web"
                 transition: 'height 200ms, width 200ms',

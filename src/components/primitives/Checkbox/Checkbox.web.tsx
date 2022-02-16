@@ -49,26 +49,26 @@ const Checkbox = (
   // but since the checkbox won't move in and out of a group, it should be safe.
   const { inputProps: groupItemInputProps } = checkboxGroupContext
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
-    useCheckboxGroupItem(
-      {
-        ...combinedProps,
-        'aria-label': combinedProps.accessibilityLabel,
-        'value': combinedProps.value,
-      },
-      checkboxGroupContext.state,
-      //@ts-ignore
-      mergedRef
-    )
+      useCheckboxGroupItem(
+        {
+          ...combinedProps,
+          'aria-label': combinedProps.accessibilityLabel,
+          'value': combinedProps.value,
+        },
+        checkboxGroupContext.state,
+        //@ts-ignore
+        mergedRef
+      )
     : // eslint-disable-next-line react-hooks/rules-of-hooks
-    useCheckbox(
-      {
-        ...combinedProps,
-        'aria-label': combinedProps.accessibilityLabel,
-      },
-      state,
-      //@ts-ignore
-      mergedRef
-    );
+      useCheckbox(
+        {
+          ...combinedProps,
+          'aria-label': combinedProps.accessibilityLabel,
+        },
+        state,
+        //@ts-ignore
+        mergedRef
+      );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const inputProps = React.useMemo(() => groupItemInputProps, [
@@ -149,12 +149,13 @@ const CheckboxComponent = React.memo(
             {/* Interaction Box */}
             <Box
               pointerEvents="none"
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{
                 transition: 'height 200ms, width 200ms',
               }}
               // p={isFocusVisible || isHovered ? _interactionBox.size : 0}
               {..._interactionBox}
-            // zIndex={-1}
+              // zIndex={-1}
             />
             {/* Checkbox */}
             <Center {...nonLayoutProps}>
@@ -166,6 +167,7 @@ const CheckboxComponent = React.memo(
           {resolvedProps?.children}
         </Box>
       );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
       _icon,
       _interactionBox,

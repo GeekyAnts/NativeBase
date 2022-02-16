@@ -114,9 +114,7 @@ const RadioComponent = memo(
             // focusRingProps.onBlur
           )}
         >
-          <Box
-            {...layoutProps}
-          >
+          <Box {...layoutProps}>
             <Center>
               {/* Interaction Wrapper */}
               <Box {..._interactionBox} />
@@ -159,7 +157,12 @@ const Radio = (
   );
   const inputRef = React.useRef(null);
   const radioState = useRadio(
-    { 'value': combinedProps?.value, 'isDisabled': combinedProps?.isDisabled, 'aria-label': props.accessibilityLabel, children },
+    {
+      'value': combinedProps?.value,
+      'isDisabled': combinedProps?.isDisabled,
+      'aria-label': props.accessibilityLabel,
+      children,
+    },
     contextState.state ?? {},
     inputRef
   );
