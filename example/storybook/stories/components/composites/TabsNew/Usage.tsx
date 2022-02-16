@@ -3,7 +3,7 @@ import { Tabs } from 'native-base';
 
 export const Example = () => {
   return (
-    <Tabs>
+    <Tabs w="max">
       <Tabs.List>
         <Tabs.Tab value="btn1">Button1</Tabs.Tab>
         <Tabs.Tab value="btn2" isDisabled>

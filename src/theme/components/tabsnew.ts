@@ -83,6 +83,10 @@ function variantUnderlined(props: Record<string, any>) {
 function variantFilled(props: Record<string, any>) {
   return {
     rounded: 'full',
+    _hover: {
+      borderBottomWidth: '0',
+      bg: mode('muted.200', 'muted.700')(props),
+    },
     activeTabStyle: {
       bg: 'primary.600',
       _text: {
