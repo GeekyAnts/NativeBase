@@ -51,6 +51,22 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
    */
   isReadOnly?: boolean;
   /**
+   * If true, the checkbox will be hovered.
+   */
+  isHovered?: boolean;
+  /**
+   * If true, the checkbox will be pressed.
+   */
+  isPressed?: boolean;
+  /**
+   * If true, the checkbox will be focused.
+   */
+  isFocused?: boolean;
+  /**
+   * If true, the checkbox focus ring will be visible.
+   */
+  isFocusVisible?: boolean;
+  /**
    * The size (width and height) of the checkbox.
    * @default 'md'
    */
@@ -137,6 +153,10 @@ export interface ICheckboxGroupProps extends IBoxProps<ICheckboxGroupProps> {
    * The callback fired when any children Checkbox is checked or unchecked.
    */
   onChange?: (values: any) => any;
+  /**
+   * Pass props will be passed to each checkbox.
+   */
+  _checkbox?: ICheckboxProps;
 }
 export interface ICheckboxContext extends IFormControlContext {
   colorScheme?: string;

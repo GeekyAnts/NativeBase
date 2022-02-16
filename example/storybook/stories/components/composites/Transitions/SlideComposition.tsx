@@ -11,9 +11,13 @@ import {
   WarningIcon,
   Input,
   Center,
+  useSafeArea,
 } from 'native-base';
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const safeAreaProps = useSafeArea({
+    safeAreaTop: true,
+  });
   return (
     <Center>
       <Box w="300">
@@ -55,6 +59,7 @@ export const Example = () => {
               color: 'orange.600',
             }}
             bg="orange.200"
+            {...safeAreaProps}
           >
             Due to government restrictions around COVID- 19, you may experience
             a delay in your delivery.

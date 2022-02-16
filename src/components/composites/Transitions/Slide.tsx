@@ -4,7 +4,7 @@ import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { ISlideProps } from './types';
 import PresenceTransition from './PresenceTransition';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { Overlay } from '../../primitives';
+import { Overlay } from '../../primitives/Overlay';
 
 const holderStyle: any = {
   top: {
@@ -119,11 +119,11 @@ export const Slide = memo(
 
     if (overlay) {
       return (
-        <Overlay isOpen={true}>
-          <Box w="100%" h="100%" pointerEvents="box-none" overflow="hidden">
+        <>
+          <Overlay isOpen={true} style={{ overflow: 'hidden' }}>
             {slideComponent}
-          </Box>
-        </Overlay>
+          </Overlay>
+        </>
       );
     } else {
       return slideComponent;

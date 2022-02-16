@@ -6,9 +6,6 @@ export function Example() {
     <Box h="80%" w="90%" alignItems="flex-start">
       <Menu
         w="190"
-        closeOnSelect={false}
-        onOpen={() => console.log('opened')}
-        onClose={() => console.log('closed')}
         trigger={(triggerProps) => {
           return (
             <Pressable {...triggerProps}>
