@@ -4,7 +4,7 @@ import { Table } from 'native-base';
 export const Example = () => {
   return (
     <>
-      <Table textAlign="left" bg="white">
+      <Table>
         <Table.Header>
           <Table.HeaderData>Name</Table.HeaderData>
           <Table.HeaderData>Address</Table.HeaderData>
