@@ -4,7 +4,7 @@ export const Table = {
   baseStyle: (props: any) => {
     return {
       textAlign: 'center',
-      w: '100%',
+      w: 'full',
       bg: mode('trueGray.50', 'trueGray.900')(props),
       borderRadius: '8',
     };
