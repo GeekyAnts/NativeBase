@@ -6,12 +6,14 @@ import type { ITabListProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
-  const { align, scrollable, ...resolvedProps } = usePropsResolution(
-    'TabList',
-    props,
-    {},
-    undefined
-  );
+  const {
+    align,
+    scrollable,
+    showsHorizontalScrollIndicator,
+    _item,
+    _selectedItem,
+    ...resolvedProps
+  } = usePropsResolution('TabList', props, {}, undefined);
   const tabArr: any = [];
   React.Children.map(children, (child: any, index: any) => {
     if (child.type === Tab) {
@@ -21,7 +23,9 @@ const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
         {
           key: `${index}`,
           value: value,
+          _selectedItem,
           ...child.props,
+          ..._item,
         },
         child.props.children
       );
@@ -35,7 +39,7 @@ const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
     return (
       <ScrollView
         horizontal={true}
-        showsHorizontalScrollIndicator={true}
+        showsHorizontalScrollIndicator={!!showsHorizontalScrollIndicator}
         mb={4}
       >
         <HStack {...resolvedProps} {...props} ref={ref} justifyContent={align}>

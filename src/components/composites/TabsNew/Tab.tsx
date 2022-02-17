@@ -12,7 +12,7 @@ import {
 import { composeEventHandlers } from '../../../utils';
 
 const Tab = (
-  { children, isDisabled, value, ...props }: ITabProps,
+  { children, isDisabled, value, _selectedItem, ...props }: ITabProps,
   ref?: any
 ) => {
   const { active, setActive, variant }: ITabsContextProps = useContext(
@@ -24,7 +24,6 @@ const Tab = (
 
   const {
     activeTabStyle,
-    inactiveTabStyle,
     onPressIn,
     onPressOut,
     onHoverIn,
@@ -43,7 +42,7 @@ const Tab = (
     }
   );
 
-  const tabStyle = value === active ? activeTabStyle : inactiveTabStyle;
+  const tabStyle = value === active ? _selectedItem ?? activeTabStyle : null;
   return (
     <Pressable
       disabled={isDisabled}

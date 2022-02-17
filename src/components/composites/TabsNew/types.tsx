@@ -1,8 +1,9 @@
 import type { IBoxProps, IPressableProps } from '../../primitives';
+import type { IButtonProps } from '../../primitives/Button';
 
 export type ITabsProps = IBoxProps<ITabsProps> & {
   size?: 'sm' | 'md' | 'lg';
-  variant?: 'underlined' | 'filled';
+  variant?: 'underlined' | 'solid';
   orientation?: 'horizontal' | 'vertical';
 };
 
@@ -10,11 +11,15 @@ export type ITabProps = IPressableProps<ITabProps> & {
   index?: any;
   value?: string;
   isDisabled?: boolean;
+  _selectedItem?: IButtonProps;
 };
 
 export type ITabListProps = IBoxProps<ITabListProps> & {
   align?: 'center' | 'end' | 'start';
   scrollable?: boolean;
+  showsHorizontalScrollIndicator?: boolean;
+  _item?: IButtonProps;
+  _selectedItem?: IButtonProps;
 };
 
 export type ITabsContextProps = {
