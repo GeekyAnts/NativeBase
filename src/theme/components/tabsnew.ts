@@ -66,21 +66,19 @@ function baseStyle(props: Record<string, any>) {
 
 function variantUnderlined(props: Record<string, any>) {
   return {
+    _text: {
+      color: mode('text.500', 'text.400')(props),
+    },
     activeTabStyle: {
       borderColor: mode('primary.600', 'primary.400')(props),
       _text: {
         color: mode('text.900', 'text.500')(props),
       },
     },
-    inactiveTabStyle: {
-      _text: {
-        color: mode('text.500', 'text.400')(props),
-      },
-    },
   };
 }
 
-function variantFilled(props: Record<string, any>) {
+function variantSolid(props: Record<string, any>) {
   return {
     rounded: 'full',
     _hover: {
@@ -93,18 +91,16 @@ function variantFilled(props: Record<string, any>) {
         color: mode('white', 'white')(props),
       },
     },
-    inactiveTabStyle: {},
   };
 }
 
 const variants = {
   underlined: variantUnderlined,
-  filled: variantFilled,
+  solid: variantSolid,
 };
 
 const defaultProps = {
   variant: 'underlined',
-  // colorScheme: 'primary',
 };
 
 export const Tab = {
