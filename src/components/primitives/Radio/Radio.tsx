@@ -2,7 +2,9 @@ import React, { memo, forwardRef } from 'react';
 import { Pressable, IPressableProps } from '../Pressable';
 import { Center } from '../../composites/Center';
 import Box from '../Box';
+import { HStack } from '../Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IRadioProps } from './types';
 import { useRadio } from '@react-native-aria/radio';
 import { RadioContext } from './RadioGroup';
@@ -54,6 +56,8 @@ const RadioComponent = memo(
         onBlur,
         _interactionBox,
         _icon,
+        _stack,
+        _text,
         ...resolvedProps
       } = usePropsResolution(
         'Radio',
@@ -73,11 +77,14 @@ const RadioComponent = memo(
         }
       );
 
-      const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+      const [, cleanInputProps] = extractInObject(inputProps, [
         ...stylingProps.margin,
         ...stylingProps.layout,
         ...stylingProps.flexbox,
         ...stylingProps.position,
+        ...stylingProps.background,
+        ...stylingProps.padding,
+        ...stylingProps.border,
         '_text',
       ]);
 
@@ -91,7 +98,7 @@ const RadioComponent = memo(
       return (
         <Pressable
           {...pressableProps}
-          {...(inputProps as IPressableProps)}
+          {...(cleanInputProps as IPressableProps)}
           ref={mergeRefs([ref, wrapperRef])}
           accessibilityRole="radio"
           onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
@@ -114,18 +121,12 @@ const RadioComponent = memo(
             // focusRingProps.onBlur
           )}
         >
-          <Center
-            flexDirection="row"
-            justifyContent="center"
-            alignItems="center"
-            borderRadius="full"
-            {...layoutProps}
-          >
+          <HStack {..._stack}>
             <Center>
               {/* Interaction Wrapper */}
-              <Box {..._interactionBox} p={5} w="100%" height="100%" />
+              <Box position="absolute" zIndex={-1} {..._interactionBox} />
               {/* radio */}
-              <Center {...nonLayoutProps}>
+              <Center {...resolvedProps}>
                 {icon && sizedIcon && isChecked ? (
                   sizedIcon()
                 ) : (
@@ -134,8 +135,8 @@ const RadioComponent = memo(
               </Center>
             </Center>
             {/* Label */}
-            {children}
-          </Center>
+            {wrapStringChild(children, _text)}
+          </HStack>
         </Pressable>
       );
     }
@@ -167,8 +168,6 @@ const Radio = (
     contextState.state ?? {},
     inputRef
   );
-
-  // console.log('radio', radioState);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const inputProps = React.useMemo(() => radioState.inputProps, [
