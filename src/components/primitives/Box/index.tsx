@@ -1,8 +1,8 @@
 import React, { memo, forwardRef } from 'react';
 import { View } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import Text from './../Text';
 import { makeStyledComponent } from '../../../utils/styled';
+import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
@@ -78,20 +78,21 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
           end={endObj}
           locations={lgrad.locations}
         >
-          {React.Children.map(children, (child) =>
+          {/* {React.Children.map(children, (child) =>
             typeof child === 'string' || typeof child === 'number' ? (
               <Text {..._text}>{child}</Text>
             ) : (
               child
             )
-          )}
+          )} */}
+          {wrapStringChild(children, _text)}
         </Gradient>
       );
     }
   }
   return (
     <StyledBox ref={ref} {...safeAreaProps}>
-      {React.Children.map(children, (child) => {
+      {/* {React.Children.map(children, (child) => {
         return typeof child === 'string' ||
           typeof child === 'number' ||
           (child?.type === React.Fragment &&
@@ -101,7 +102,8 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
         ) : (
           child
         );
-      })}
+      })} */}
+      {wrapStringChild(children, _text)}
     </StyledBox>
   );
 };
