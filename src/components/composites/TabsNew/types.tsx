@@ -26,6 +26,7 @@ export type ITabsContextProps = {
   active?: any;
   setActive?: any;
   variant?: string;
+  orientation?: string;
 };
 
 export type ITabBodyProps = IBoxProps<ITabBodyProps> & {

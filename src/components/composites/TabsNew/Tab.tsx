@@ -15,9 +15,12 @@ const Tab = (
   { children, isDisabled, value, _selectedItem, ...props }: ITabProps,
   ref?: any
 ) => {
-  const { active, setActive, variant }: ITabsContextProps = useContext(
-    TabsContext
-  );
+  const {
+    active,
+    setActive,
+    variant,
+    orientation,
+  }: ITabsContextProps = useContext(TabsContext);
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
@@ -60,6 +63,8 @@ const Tab = (
       onBlur={composeEventHandlers(
         composeEventHandlers(onBlur, focusProps.onBlur)
       )}
+      borderBottomWidth={orientation === 'horizontal' ? '2' : '0'}
+      borderRightWidth={orientation === 'vertical' ? '2' : '0'}
       ref={ref}
       {...resolvedProps}
       {...tabStyle}

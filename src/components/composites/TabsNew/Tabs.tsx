@@ -1,5 +1,5 @@
 import React, { useState, memo, forwardRef } from 'react';
-import Box from '../../primitives/Box';
+import Stack from '../../primitives/Stack/Stack';
 import { TabsContext } from './Context';
 import TabContents from './TabContents';
 import type { ITabsProps } from './types';
@@ -23,9 +23,14 @@ const Tabs = ({ children, ...props }: ITabsProps, ref?: any) => {
   const orientation = props.orientation ?? 'horizontal';
   return (
     <TabsContext.Provider value={{ active, setActive, variant, orientation }}>
-      <Box {...resolvedProps} {...props} ref={ref}>
+      <Stack
+        {...resolvedProps}
+        {...props}
+        ref={ref}
+        direction={orientation === 'horizontal' ? 'column' : 'row'}
+      >
         {children}
-      </Box>
+      </Stack>
     </TabsContext.Provider>
   );
 };

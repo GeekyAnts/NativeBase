@@ -4,30 +4,31 @@ import { mode } from '../tools';
 export const Tabs = {
   baseStyle: () => ({
     w: '100%',
+    h: '100%',
+    p: '2',
   }),
 };
 
 // Tabs List Component
 export const TabList = {
   baseStyle: () => ({
-    w: '100%',
     space: '4',
-    my: '4',
+    p: '2',
   }),
 };
 
 // Tabs Contents Component
 export const TabContent = {
   baseStyle: () => ({
-    w: '100%',
+    p: '2',
   }),
 };
 
 // Tabs Body Component
 export const TabBody = {
   baseStyle: () => ({
-    w: '100%',
-    p: '4',
+    py: '2',
+    px: '4',
   }),
 };
 
@@ -37,7 +38,6 @@ function baseStyle(props: Record<string, any>) {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    borderBottomWidth: '2',
     borderColor: 'transparent',
     py: '2',
     px: '4',

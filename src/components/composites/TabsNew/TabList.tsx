@@ -1,11 +1,13 @@
-import React, { memo, forwardRef } from 'react';
-import HStack from '../../primitives/Stack/HStack';
+import React, { memo, forwardRef, useContext } from 'react';
+import Stack from '../../primitives/Stack/Stack';
 import { ScrollView } from '../../basic/ScrollView';
 import Tab from './Tab';
-import type { ITabListProps } from './types';
+import type { ITabListProps, ITabsContextProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { TabsContext } from './Context';
 
 const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
+  const { orientation }: ITabsContextProps = useContext(TabsContext);
   const {
     align,
     scrollable,
@@ -21,7 +23,7 @@ const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
       const ele = React.cloneElement(
         child,
         {
-          key: `${index}`,
+          key: child?.key ?? `${index}`,
           value: value,
           _selectedItem,
           ...child.props,
@@ -42,16 +44,28 @@ const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
         showsHorizontalScrollIndicator={!!showsHorizontalScrollIndicator}
         mb={4}
       >
-        <HStack {...resolvedProps} {...props} ref={ref} justifyContent={align}>
+        <Stack
+          {...resolvedProps}
+          {...props}
+          ref={ref}
+          justifyContent={align}
+          direction={orientation === 'horizontal' ? 'row' : 'column'}
+        >
           {tabArr}
-        </HStack>
+        </Stack>
       </ScrollView>
     );
   else
     return (
-      <HStack {...resolvedProps} {...props} ref={ref} justifyContent={align}>
+      <Stack
+        {...resolvedProps}
+        {...props}
+        ref={ref}
+        justifyContent={align}
+        direction={orientation === 'horizontal' ? 'row' : 'column'}
+      >
         {tabArr}
-      </HStack>
+      </Stack>
     );
 };
 
