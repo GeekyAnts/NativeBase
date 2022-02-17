@@ -1,11 +1,8 @@
-import { mode, transparentize } from '../tools';
+import { mode } from '../tools';
 
 const baseStyle = (props: Record<string, any>) => {
-  const { colorScheme, theme } = props;
+  const { colorScheme } = props;
   return {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
     borderWidth: 2,
     borderRadius: 'full',
     p: '0.5',
@@ -15,7 +12,6 @@ const baseStyle = (props: Record<string, any>) => {
       cursor: 'pointer',
     },
     _text: {
-      ml: 2,
       _dark: {
         color: 'lightText',
       },
@@ -23,52 +19,54 @@ const baseStyle = (props: Record<string, any>) => {
         color: 'darkText',
       },
     },
+    _stack: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      space: 2,
+    },
     _interactionBox: {
       position: 'absolute',
-      zIndex: -1,
       borderRadius: 'full',
-      w: '100%',
-      h: '100%',
       pointerEvents: 'none',
+      size: 3,
     },
     _icon: {
       color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props), // matching background color
     },
     _hover: {
       _interactionBox: {
-        bg: transparentize('muted.200', 0.3)(theme),
-        w: '200%',
-        h: '200%',
+        bg: 'muted.200:alpha.30',
+        size: 10,
       },
     },
     _focus: {
       _interactionBox: {
-        bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+        bg: `${colorScheme}.200:alpha.50`,
+        size: 10,
       },
     },
     _focusVisible: {
       _interactionBox: {
-        bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
-        w: '200%',
-        h: '200%',
+        bg: `${colorScheme}.200:alpha.50`,
+        size: 10,
       },
     },
     _checked: {
-      _interactionBox: {
-        borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
-      },
       borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
     },
     _disabled: {
       _web: {
         cursor: 'not-allowed',
       },
-      opacity: 0.4,
       _interactionBox: {
         bg: 'transparent',
       },
       _icon: {
         bg: 'transparent',
+      },
+      _stack: {
+        opacity: '0.4',
       },
     },
     _invalid: {
@@ -76,18 +74,26 @@ const baseStyle = (props: Record<string, any>) => {
     },
     _pressed: {
       _interactionBox: {
-        bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
-        w: '200%',
-        h: '200%',
+        bg: `${colorScheme}.200:alpha.50`,
+        size: 10,
       },
     },
   };
 };
 
 const sizes = {
-  lg: { _icon: { size: 4 }, _text: { fontSize: 'lg' } },
-  md: { _icon: { size: 3 }, _text: { fontSize: 'md' } },
-  sm: { _icon: { size: 2 }, _text: { fontSize: 'sm' } },
+  lg: {
+    _icon: { size: 4 },
+    _text: { fontSize: 'lg' },
+  },
+  md: {
+    _icon: { size: 3 },
+    _text: { fontSize: 'md' },
+  },
+  sm: {
+    _icon: { size: 2 },
+    _text: { fontSize: 'sm' },
+  },
 };
 
 const defaultProps = {

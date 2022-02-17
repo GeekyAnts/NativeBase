@@ -1,7 +1,9 @@
 import React, { memo, forwardRef } from 'react';
 import Box from '../Box';
+import { HStack } from '../Stack';
 import { Center } from '../../composites/Center';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IRadioProps } from './types';
 import { mergeRefs } from './../../../utils';
 import { useHover } from '@react-native-aria/interactions';
@@ -12,7 +14,6 @@ import { useFocusRing } from '@react-native-aria/focus';
 import { CircleIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps, isEmptyObj } from '../../../utils';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { useFormControlContext } from '../../composites/FormControl';
 
 const RadioComponent = memo(
@@ -36,29 +37,22 @@ const RadioComponent = memo(
       const { isHovered } = useHover({}, _ref);
       const mergedRefs = mergeRefs([_ref, wrapperRef]);
       const { focusProps, isFocusVisible } = useFocusRing();
-      // const mergedWrapperRef = React.useMemo(() => mergeRefs([wrapperRef, _ref]), []);
 
-      const { _interactionBox, _icon, ...resolvedProps } = usePropsResolution(
-        'Radio',
-        combinedProps,
-        {
-          isInvalid,
-          isReadOnly,
-          isFocusVisible: isFocusVisibleProp || isFocusVisible,
-          isDisabled,
-          isIndeterminate,
-          isChecked,
-          isHovered: isHoveredProp || isHovered,
-        }
-      );
-
-      const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
-        ...stylingProps.margin,
-        ...stylingProps.layout,
-        ...stylingProps.flexbox,
-        ...stylingProps.position,
-        '_text',
-      ]);
+      const {
+        _interactionBox,
+        _icon,
+        _stack,
+        _text,
+        ...resolvedProps
+      } = usePropsResolution('Radio', combinedProps, {
+        isInvalid,
+        isReadOnly,
+        isFocusVisible: isFocusVisibleProp || isFocusVisible,
+        isDisabled,
+        isIndeterminate,
+        isChecked,
+        isHovered: isHoveredProp || isHovered,
+      });
 
       // only calling below function when icon exist.
       const sizedIcon = () =>
@@ -66,13 +60,11 @@ const RadioComponent = memo(
         React.cloneElement(icon, {
           ..._icon,
         });
-
       const component = (
-        <Box {...layoutProps}>
+        <HStack {..._stack}>
           <Center>
             {/* Interaction Box */}
             <Box
-              // eslint-disable-next-line react-native/no-inline-styles
               style={{
                 // @ts-ignore - only for web"
                 transition: 'height 200ms, width 200ms',
@@ -80,7 +72,7 @@ const RadioComponent = memo(
               {..._interactionBox}
             />
             {/* Radio */}
-            <Center {...nonLayoutProps}>
+            <Center {...resolvedProps}>
               {icon && sizedIcon && isChecked ? (
                 sizedIcon()
               ) : (
@@ -88,16 +80,13 @@ const RadioComponent = memo(
               )}
             </Center>
           </Center>
-          {children}
-        </Box>
+          {wrapStringChild(children, _text)}
+        </HStack>
       );
       //TODO: refactor for responsive prop
       if (useHasResponsiveProps(props)) {
         return null;
       }
-
-      // console.log(inputProps, focusProps, ref);
-      // return null;
 
       return (
         <Box
@@ -141,7 +130,6 @@ const Radio = (
     inputRef
   );
 
-  // console.log('radio', radioState);
   //@ts-ignore
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const inputProps = React.useMemo(() => radioState.inputProps, [
