@@ -114,7 +114,7 @@ const RadioComponent = memo(
             // focusRingProps.onBlur
           )}
         >
-          <Box {...layoutProps}>
+          <Center {...layoutProps}>
             <Center>
               {/* Interaction Wrapper */}
               <Box {..._interactionBox} />
@@ -129,7 +129,7 @@ const RadioComponent = memo(
             </Center>
             {/* Label */}
             {children}
-          </Box>
+          </Center>
         </Pressable>
       );
     }
