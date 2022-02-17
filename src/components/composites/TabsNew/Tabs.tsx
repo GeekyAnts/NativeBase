@@ -10,11 +10,12 @@ const Tabs = ({ children, ...props }: ITabsProps, ref?: any) => {
   const initialActive = !children
     ? null
     : React.Children.map(children, (child) => {
-        if (child?.type === TabContents && !!child.props.children) {
-          if (!child.props.children.length) {
-            return child.props.children.props.for;
+        if (child?.type === TabContents && !!child?.props.children) {
+          if (!child?.props.children.length) {
+            return child?.props.children.props.for;
           }
-          return child.props.children[0].props.for;
+          const flattenChildren = child?.props.children.flat(Infinity);
+          return flattenChildren[0].props.for;
         }
       })[0];
 

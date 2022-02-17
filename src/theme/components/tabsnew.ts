@@ -5,7 +5,7 @@ export const Tabs = {
   baseStyle: () => ({
     w: '100%',
     h: '100%',
-    p: '2',
+    // p: '2',
   }),
 };
 
@@ -13,14 +13,14 @@ export const Tabs = {
 export const TabList = {
   baseStyle: () => ({
     space: '4',
-    p: '2',
+    // p: '2',
   }),
 };
 
 // Tabs Contents Component
 export const TabContent = {
   baseStyle: () => ({
-    p: '2',
+    // p: '2',
   }),
 };
 
