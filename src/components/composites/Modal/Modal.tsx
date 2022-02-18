@@ -79,6 +79,7 @@ const Modal = (
       onRequestClose={handleClose}
       isKeyboardDismissable={isKeyboardDismissable}
       animationPreset={animationPreset}
+      overlayVisible={overlayVisible}
       useRNModalOnAndroid
     >
       <ModalContext.Provider value={contextValue}>
