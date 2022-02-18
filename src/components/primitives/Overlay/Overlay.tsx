@@ -15,6 +15,7 @@ interface IOverlayProps {
   isKeyboardDismissable?: boolean;
   animationPreset?: 'fade' | 'slide' | 'none';
   style?: ViewStyle;
+  overlayVisible: boolean
 }
 
 export function Overlay({
@@ -26,6 +27,7 @@ export function Overlay({
   animationPreset = 'fade',
   onRequestClose,
   style,
+  overlayVisible
 }: IOverlayProps) {
   const [exited, setExited] = React.useState(!isOpen);
 
@@ -41,7 +43,7 @@ export function Overlay({
     styleObj.display = exited && !isOpen ? 'none' : 'flex';
   }
 
-  if (Platform.OS === 'android' && useRNModalOnAndroid) {
+  if (Platform.OS === 'android' && useRNModalOnAndroid && overlayVisible) {
     return (
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         <Modal
