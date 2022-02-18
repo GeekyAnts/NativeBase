@@ -29,6 +29,9 @@ const Tabs = ({ children, ...props }: ITabsProps, ref?: any) => {
         {...props}
         ref={ref}
         direction={orientation === 'horizontal' ? 'column' : 'row'}
+        aria-orientation={orientation}
+        accessible
+        accessibilityRole={props.accessibilityRole ?? 'tab'}
       >
         {children}
       </Stack>

@@ -9,7 +9,6 @@ import { TabsContext } from './Context';
 const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
   const { orientation }: ITabsContextProps = useContext(TabsContext);
   const {
-    align,
     // scrollable,
     // showsHorizontalScrollIndicator,
     _item,
@@ -62,9 +61,9 @@ const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
       {...resolvedProps}
       {...props}
       ref={ref}
-      justifyContent={align}
       direction={orientation === 'horizontal' ? 'row' : 'column'}
       accessibilityLabel="Select a tab to activate"
+      accessible
     >
       {tabArr}
     </Stack>

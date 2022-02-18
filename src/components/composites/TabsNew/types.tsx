@@ -8,14 +8,12 @@ export type ITabsProps = IBoxProps<ITabsProps> & {
 };
 
 export type ITabProps = IPressableProps<ITabProps> & {
-  index?: any;
   value?: string;
   isDisabled?: boolean;
   _selectedItem?: IButtonProps;
 };
 
 export type ITabListProps = IBoxProps<ITabListProps> & {
-  align?: 'center' | 'end' | 'start';
   // scrollable?: boolean;
   // showsHorizontalScrollIndicator?: boolean;
   _item?: IButtonProps;

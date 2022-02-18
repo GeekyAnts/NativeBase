@@ -66,7 +66,8 @@ const Tab = (
       borderBottomWidth={orientation === 'horizontal' ? '2' : '0'}
       borderRightWidth={orientation === 'vertical' ? '2' : '0'}
       ref={ref}
-      accessibilityRole="tab"
+      accessibilityRole="button"
+      accessibilityState={{ selected: active, disabled: isDisabled }}
       {...resolvedProps}
       {...tabStyle}
     >
