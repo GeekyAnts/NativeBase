@@ -46,7 +46,7 @@ export function Overlay({
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         <Modal
           transparent
-          visible={isOpen}
+          visible={isOpen?isOpen:false}
           onRequestClose={onRequestClose}
           animationType={animationPreset}
         >
