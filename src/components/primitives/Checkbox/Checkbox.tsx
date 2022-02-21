@@ -18,6 +18,8 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import SizedIcon from './SizedIcon';
+import { HStack } from '../Stack';
+import { wrapStringChild } from '../../../utils/wrapStringChild';
 
 const Checkbox = (
   {
@@ -25,6 +27,7 @@ const Checkbox = (
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
+    children,
     ...props
   }: ICheckboxProps,
   ref: any
@@ -79,6 +82,7 @@ const Checkbox = (
   return (
     <CheckboxComponent
       inputProps={inputProps}
+      children={children}
       combinedProps={contextCombinedProps}
       isInvalid={isInvalid}
       isReadOnly={isReadOnly}
@@ -95,6 +99,7 @@ const CheckboxComponent = React.memo(
     wrapperRef,
     inputProps,
     combinedProps,
+    children,
     isInvalid,
     isReadOnly,
     isIndeterminate,
@@ -111,8 +116,6 @@ const CheckboxComponent = React.memo(
 
     const {
       icon,
-      _interactionBox,
-      _icon,
       // destructuring pressable props and passing it manually
       onPress,
       onPressIn,
@@ -121,6 +124,10 @@ const CheckboxComponent = React.memo(
       onHoverOut,
       onFocus,
       onBlur,
+      _interactionBox,
+      _icon,
+      _stack,
+      _text,
       ...resolvedProps
     } = usePropsResolution(
       'Checkbox',
@@ -137,18 +144,23 @@ const CheckboxComponent = React.memo(
       }
     );
 
-    const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+    const [, cleanInputProps] = extractInObject(resolvedProps, [
       ...stylingProps.margin,
       ...stylingProps.layout,
       ...stylingProps.flexbox,
       ...stylingProps.position,
+      ...stylingProps.background,
+      ...stylingProps.padding,
+      ...stylingProps.border,
       '_text',
+      'accessibilityRole',
+      'accessibilityState',
     ]);
 
     const [
       accessibilityProps,
       nonAccessibilityProps,
-    ] = extractInObject(nonLayoutProps, [
+    ] = extractInObject(cleanInputProps, [
       'accessibilityRole',
       'accessibilityState',
     ]);
@@ -160,7 +172,8 @@ const CheckboxComponent = React.memo(
 
     return (
       <Pressable
-        {...(pressableProps as IPressableProps)}
+        {...pressableProps}
+        {...(nonAccessibilityProps as IPressableProps)}
         {...accessibilityProps}
         onPress={onPress}
         ref={mergeRefs([_ref, wrapperRef])}
@@ -182,18 +195,18 @@ const CheckboxComponent = React.memo(
           // focusRingProps.onBlur
         )}
       >
-        <Box {...layoutProps}>
+        <HStack {..._stack}>
           <Center>
             {/* Interaction Wrapper */}
             <Box {..._interactionBox} />
             {/* Checkbox */}
-            <Center {...nonAccessibilityProps}>
+            <Center {...resolvedProps}>
               <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
             </Center>
           </Center>
           {/* Label */}
-          {combinedProps.children}
-        </Box>
+          {wrapStringChild(children, _text)}
+        </HStack>
       </Pressable>
     );
   }
