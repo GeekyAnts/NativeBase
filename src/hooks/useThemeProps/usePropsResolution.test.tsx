@@ -252,7 +252,7 @@ describe('props resolution', () => {
       width: defaultTheme.space['20'],
     });
 
-    expect(spinner.props.style).toEqual(undefined);
+    expect(spinner.props.style).toEqual([[{}, { dataSet: {} }], undefined]);
   });
 
   it('resolves base style and variants, sizes and default props with props', () => {
