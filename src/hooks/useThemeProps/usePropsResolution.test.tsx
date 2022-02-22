@@ -521,14 +521,18 @@ describe('props resolution', () => {
         />
       </Provider>
     );
-    const inputElement = getByTestId('test');
-    expect(inputElement.props.style.width).toBe('100%');
 
+    const inputElement = getByTestId('test');
+    expect(inputElement.props.style[0].width).toBe('100%');
     expect(inputElement.props.placeholderTextColor).toBe(
       defaultTheme.colors.blueGray['400']
     );
-    expect(inputElement.props.style.marginLeft).toBe(defaultTheme.space['3']);
-    expect(inputElement.props.style.marginRight).toBe(defaultTheme.space['3']);
+    expect(inputElement.props.style[0].marginLeft).toBe(
+      defaultTheme.space['3']
+    );
+    expect(inputElement.props.style[0].marginRight).toBe(
+      defaultTheme.space['3']
+    );
   });
 
   it('Input: color mode', () => {
@@ -571,7 +575,9 @@ describe('props resolution', () => {
       </Provider>
     );
     const inputElement = getByTestId('test');
-    expect(inputElement.props.style.fontSize).toBe(defaultTheme.fontSizes.sm);
+    expect(inputElement.props.style[0].fontSize).toBe(
+      defaultTheme.fontSizes.sm
+    );
   });
 
   it('Input: variant', () => {
@@ -581,7 +587,7 @@ describe('props resolution', () => {
       </Provider>
     );
     const inputElement = getByTestId('test');
-    expect(inputElement.props.style.borderBottomWidth).toBe(1);
+    expect(inputElement.props.style[0].borderBottomWidth).toBe(1);
   });
 
   // it('Input: inputElements', () => {
@@ -617,9 +623,11 @@ describe('props resolution', () => {
       </Provider>
     );
     const inputElement = getByTestId('test');
-    expect(inputElement.props.style.borderBottomWidth).toBe(1);
+    expect(inputElement.props.style[0].borderBottomWidth).toBe(1);
     // as input of 'sm' size is mapped to 'xs' fontsize
-    expect(inputElement.props.style.fontSize).toBe(defaultTheme.fontSizes.xs);
+    expect(inputElement.props.style[0].fontSize).toBe(
+      defaultTheme.fontSizes.xs
+    );
   });
 
   // it('Input: inputElemets', () => {
