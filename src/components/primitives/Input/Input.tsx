@@ -9,6 +9,12 @@ import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { mergeRefs } from '../../../utils';
 
+type bgTransparentType = {[propName: string]: 'transparent'};
+const backgroundTransparentProps: bgTransparentType = stylingProps.background.reduce((bgProps, bgProp) => {
+  bgProps[bgProp] = 'transparent';
+  return bgProps;
+}, {} as bgTransparentType);
+
 const Input = (
   { isHovered: isHoveredProp, isFocused: isFocusedProp, ...props }: IInputProps,
   ref: any
@@ -97,7 +103,11 @@ const Input = (
           leftElement={leftElement}
           rightElement={rightElement}
           inputProps={inputProps}
-          bg="transparent"
+          // Background props are being passed to parent Box.
+          // In the event they have transparency, we need to reset the background
+          // of the input to transparent so it does not interfere
+          // (e.g., stacked translucent colors).
+          {...backgroundTransparentProps}
           {...baseInputProps}
           flex={1}
           disableFocusHandling
