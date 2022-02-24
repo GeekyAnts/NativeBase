@@ -4,12 +4,7 @@ import type { ITabBodyProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const TabBody = ({ children, ...props }: ITabBodyProps, ref?: any) => {
-  const { ...resolvedProps } = usePropsResolution(
-    'TabBody',
-    props,
-    {},
-    undefined
-  );
+  const { ...resolvedProps } = usePropsResolution('TabBody', props);
   return (
     <Box {...resolvedProps} {...props} ref={ref}>
       {children}

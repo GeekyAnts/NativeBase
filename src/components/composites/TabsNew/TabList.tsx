@@ -1,71 +1,29 @@
 import React, { memo, forwardRef, useContext } from 'react';
 import Stack from '../../primitives/Stack/Stack';
-// import { ScrollView } from '../../basic/ScrollView';
-import Tab from './Tab';
-import type { ITabListProps, ITabsContextProps } from './types';
+import type { ITabListProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { TabsContext } from './Context';
+import Tab from './Tab';
 
-const TabList = ({ children, ...props }: ITabListProps, ref?: any) => {
-  const { orientation }: ITabsContextProps = useContext(TabsContext);
-  const {
-    // scrollable,
-    // showsHorizontalScrollIndicator,
-    _item,
-    _selectedItem,
-    ...resolvedProps
-  } = usePropsResolution('TabList', props, {}, undefined);
-  const tabArr: any = [];
-  React.Children.map(children, (child: any, index: any) => {
-    if (child?.type === Tab) {
-      const value = child?.props?.value;
-      const ele = React.cloneElement(
-        child,
-        {
-          key: child?.key ?? `${index}`,
-          value: value,
-          _selectedItem,
-          ...child.props,
-          ..._item,
-        },
-        child?.props?.children
-      );
-      tabArr.push(ele);
-    } else {
-      tabArr.push(child);
-    }
-  });
+const TabList = (props: ITabListProps<any>, ref?: any) => {
+  const { state, orientation }: any = useContext(TabsContext);
+  const { isDisabled, ...resolvedProps } = usePropsResolution('TabList', props);
 
-  // if (scrollable)
-  //   return (
-  //     <ScrollView
-  //       horizontal={true}
-  //       showsHorizontalScrollIndicator={true}
-  //       mb={4}
-  //     >
-  //       <Stack
-  //         {...resolvedProps}
-  //         {...props}
-  //         ref={ref}
-  //         justifyContent={align}
-  //         direction={orientation === 'horizontal' ? 'row' : 'column'}
-  //         accessibilityLabel="Select a tab to activate"
-  //       >
-  //         {tabArr}
-  //       </Stack>
-  //     </ScrollView>
-  //   );
-  // else
   return (
     <Stack
       {...resolvedProps}
       {...props}
       ref={ref}
       direction={orientation === 'horizontal' ? 'row' : 'column'}
-      accessibilityLabel="Select a tab to activate"
-      accessible
     >
-      {tabArr}
+      {[...state.collection].map((item) => (
+        <Tab
+          key={item.key}
+          item={item}
+          isDisabled={isDisabled}
+          orientation={orientation}
+        />
+      ))}
     </Stack>
   );
 };

@@ -1,35 +1,31 @@
 import type { IBoxProps, IPressableProps } from '../../primitives';
-import type { IButtonProps } from '../../primitives/Button';
+// import type { IButtonProps } from '../../primitives/Button';
+import type { Orientation, Node } from '@react-types/shared';
+import type { SingleSelectListState } from '@react-stately/list';
 
 export type ITabsProps = IBoxProps<ITabsProps> & {
-  size?: 'sm' | 'md' | 'lg';
   variant?: 'underlined' | 'solid';
-  orientation?: 'horizontal' | 'vertical';
+  orientation?: Orientation;
 };
 
-export type ITabProps = IPressableProps<ITabProps> & {
-  value?: string;
+export type ITabProps<T> = IPressableProps<T> & {
+  item: Node<T>;
   isDisabled?: boolean;
-  _selectedItem?: IButtonProps;
+  orientation?: Orientation;
 };
 
-export type ITabListProps = IBoxProps<ITabListProps> & {
-  // scrollable?: boolean;
-  // showsHorizontalScrollIndicator?: boolean;
-  _item?: IButtonProps;
-  _selectedItem?: IButtonProps;
+export type ITabListProps<T> = IBoxProps<T> & {
+  isDisabled?: boolean;
+  orientation?: Orientation;
 };
 
-export type ITabsContextProps = {
-  active?: any;
-  setActive?: any;
-  variant?: string;
-  orientation?: string;
+export type ITabsContextProps<T> = {
+  state: SingleSelectListState<T>;
+  variant?: 'underlined' | 'solid';
+  orientation?: Orientation;
 };
 
-export type ITabBodyProps = IBoxProps<ITabBodyProps> & {
-  for?: string;
-};
+export type ITabBodyProps = IBoxProps<ITabBodyProps> & {};
 
 export type ITabContentsProps = IBoxProps<ITabContentsProps> & {};
 
@@ -37,10 +33,10 @@ export type ITabsComponentType = ((
   props: ITabsProps & { ref?: any }
 ) => JSX.Element) & {
   List: React.MemoExoticComponent<
-    (props: ITabListProps & { ref?: any }) => JSX.Element
+    (props: ITabListProps<any> & { ref?: any }) => JSX.Element
   >;
   Tab: React.MemoExoticComponent<
-    (props: ITabProps & { ref?: any }) => JSX.Element
+    (props: ITabProps<any> & { ref?: any }) => JSX.Element
   >;
   Contents: React.MemoExoticComponent<
     (props: ITabContentsProps & { ref?: any }) => JSX.Element

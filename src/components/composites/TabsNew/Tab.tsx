@@ -1,77 +1,23 @@
-import React, { memo, forwardRef, useContext } from 'react';
-import Box from '../../primitives/Box';
+import React, { memo, forwardRef, useContext, useRef } from 'react';
 import { Pressable } from '../../primitives/Pressable';
 import { TabsContext } from './Context';
-import type { ITabProps, ITabsContextProps } from './types';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
-import {
-  useHover,
-  useFocus,
-  useIsPressed,
-} from '../../primitives/Pressable/Pressable';
-import { composeEventHandlers } from '../../../utils';
+import type { ITabProps } from './types';
+import { useTab } from '@react-native-aria/tabs';
 
-const Tab = (
-  { children, isDisabled, value, _selectedItem, ...props }: ITabProps,
-  ref?: any
-) => {
-  const {
-    active,
-    setActive,
-    variant,
-    orientation,
-  }: ITabsContextProps = useContext(TabsContext);
-  const { hoverProps, isHovered } = useHover();
-  const { pressableProps, isPressed } = useIsPressed();
-  const { focusProps, isFocused } = useFocus();
+const Tab = (props: ITabProps<any>) => {
+  const { state }: any = useContext(TabsContext);
 
-  const {
-    activeTabStyle,
-    onPressIn,
-    onPressOut,
-    onHoverIn,
-    onHoverOut,
-    onFocus,
-    onBlur,
-    ...resolvedProps
-  } = usePropsResolution(
-    'Tab',
-    { variant, ...props },
-    {
-      isHovered,
-      isPressed,
-      isFocused,
-      isDisabled,
-    }
-  );
+  const { item, isDisabled: propsDisabled } = props;
+  const { key, rendered } = item;
+  const isDisabled = propsDisabled || state.disabledKeys.has(key);
+  const tabref = useRef<HTMLDivElement>();
+  // @ts-ignore
+  const { tabProps } = useTab({ item, isDisabled }, state, tabref);
+  // let isSelected = state.selectedKey === key;
 
-  const tabStyle = value === active ? _selectedItem ?? activeTabStyle : null;
   return (
-    <Pressable
-      disabled={isDisabled}
-      onPress={() => setActive(value)}
-      onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
-      onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
-      // @ts-ignore - web only
-      onHoverIn={composeEventHandlers(onHoverIn, hoverProps.onHoverIn)}
-      // @ts-ignore - web only
-      onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
-      // // @ts-ignore - web only
-      onFocus={composeEventHandlers(
-        composeEventHandlers(onFocus, focusProps.onFocus)
-      )}
-      onBlur={composeEventHandlers(
-        composeEventHandlers(onBlur, focusProps.onBlur)
-      )}
-      borderBottomWidth={orientation === 'horizontal' ? '2' : '0'}
-      borderRightWidth={orientation === 'vertical' ? '2' : '0'}
-      ref={ref}
-      accessibilityRole="button"
-      accessibilityState={{ selected: active, disabled: isDisabled }}
-      {...resolvedProps}
-      {...tabStyle}
-    >
-      <Box>{children}</Box>
+    <Pressable {...tabProps} ref={tabref}>
+      {rendered}
     </Pressable>
   );
 };
