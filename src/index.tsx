@@ -171,6 +171,8 @@ import {
   IStackProps,
   ITextAreaProps,
   IZStackProps,
+  IHStackProps,
+  IVStackProps
 } from './components/primitives';
 
 export * from './components/basic';
@@ -353,6 +355,8 @@ export type {
   ITextFieldProps,
   IScrollViewProps,
   IStackProps,
+  IHStackProps,
+  IVStackProps
 };
 
 export { StyledProps } from './theme';
