@@ -8,8 +8,9 @@ const SPECIFICITY_55 = 55;
 const SPECIFICITY_50 = 50;
 const SPECIFICITY_40 = 40;
 const SPECIFICITY_30 = 30;
+// SPECIFICITY_20 is being user for defferentiating between User Props and Theme Props. So any specificity less than SPECIFICITY_20 will be ovridable by user props.
+const SPECIFICITY_20 = 20;
 const SPECIFICITY_10 = 10;
-const SPECIFICITY_1 = 1;
 const specificityPrecedence = [
   SPECIFICITY_110,
   SPECIFICITY_100,
@@ -19,8 +20,8 @@ const specificityPrecedence = [
   SPECIFICITY_50,
   SPECIFICITY_40,
   SPECIFICITY_30,
+  SPECIFICITY_20,
   SPECIFICITY_10,
-  SPECIFICITY_1,
 ];
 const INITIAL_PROP_SPECIFICITY = {
   [SPECIFICITY_110]: 0,
@@ -31,8 +32,8 @@ const INITIAL_PROP_SPECIFICITY = {
   [SPECIFICITY_55]: 0,
   [SPECIFICITY_40]: 0,
   [SPECIFICITY_30]: 0,
+  [SPECIFICITY_20]: 0,
   [SPECIFICITY_10]: 0,
-  [SPECIFICITY_1]: 0,
 };
 
 const pseudoPropsMap = {
@@ -208,7 +209,7 @@ const simplifyProps = (
       ? { ...currentSpecificity }
       : {
           ...INITIAL_PROP_SPECIFICITY,
-          [SPECIFICITY_1]: priority,
+          [SPECIFICITY_20]: priority,
         };
 
     if (
@@ -318,13 +319,6 @@ export const propsFlattener = (
   }
 
   const specificityMap = currentSpecificityMap || {};
-
-  // STEP 1.a (if): Check weather it should be recursively resolved
-  // NOTE: (when true) recursively resolved it
-  // STEP 1.b (else if): Check specificty
-  // STEP 1.b.i: Check for pseudo props
-  // NOTE: (when true) Merge it.
-  // NOTE: (when false) Replace it.
 
   simplifyProps(
     {
