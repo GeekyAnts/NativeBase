@@ -5,22 +5,35 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { TabsContext } from './Context';
 import Tab from './Tab';
 
-const TabList = (props: ITabListProps, ref?: any) => {
+const TabList = (
+  { tabItemProps, tabBarProps, ...props }: ITabListProps,
+  ref?: any
+) => {
   const { orientation }: ITabsContextProps = useContext(TabsContext);
-  const { state, isDisabled, ...resolvedProps } = usePropsResolution(
+  const { state, isDisabled, ...resolvedListProps } = usePropsResolution(
     'TabList',
     props
+  );
+  const { ...resolvedBarProps } = usePropsResolution(
+    'TabBar',
+    tabBarProps.props
   );
 
   return (
     <Stack
-      {...resolvedProps}
+      {...resolvedListProps}
+      {...resolvedBarProps}
       ref={ref}
       direction={orientation === 'horizontal' ? 'row' : 'column'}
-      p="2"
     >
-      {[...state.collection].map((item) => (
-        <Tab key={item.key} item={item} state={state} isDisabled={isDisabled} />
+      {[...state.collection].map((item, index) => (
+        <Tab
+          key={item.key}
+          item={item}
+          state={state}
+          isDisabled={isDisabled}
+          tabItemProps={tabItemProps[index]}
+        />
       ))}
     </Stack>
   );

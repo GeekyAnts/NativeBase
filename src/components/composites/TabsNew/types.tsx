@@ -1,5 +1,4 @@
 import type { IBoxProps, IPressableProps } from '../../primitives';
-// import type { IButtonProps } from '../../primitives/Button';
 import type { Orientation, Node } from '@react-types/shared';
 import type { SingleSelectListState } from '@react-stately/list';
 
@@ -13,19 +12,27 @@ export type ITabsContextProps = {
   orientation?: Orientation;
 };
 
+export type ITabBarProps = IBoxProps & {
+  isDisabled?: boolean;
+};
+
 export type ITabListProps = IBoxProps & {
   isDisabled?: boolean;
   orientation?: Orientation;
+  tabBarProps?: any;
+  tabItemProps?: any;
 };
 
 export type ITabProps<T> = IPressableProps<T> & {
   item: Node<T>;
   state: SingleSelectListState<T>;
   isDisabled?: boolean;
+  tabItemProps?: any;
 };
 
-export type ITabBarProps = IBoxProps & {};
-export type ITabItemProps = IBoxProps & {};
+export type ITabItemProps = IPressableProps & {
+  isDisabled?: boolean;
+};
 
 export type ITabBodyProps = IBoxProps<ITabBodyProps> & {};
 

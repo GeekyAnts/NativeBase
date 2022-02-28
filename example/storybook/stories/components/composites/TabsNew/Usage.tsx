@@ -6,7 +6,7 @@ export const Example = () => {
     <Tabs>
       <Tabs.Bar>
         <Tabs.Item>Button1</Tabs.Item>
-        <Tabs.Item>Button2</Tabs.Item>
+        <Tabs.Item isDisabled>Button2</Tabs.Item>
       </Tabs.Bar>
       <Tabs.Contents>
         <Tabs.Body>Body1</Tabs.Body>
